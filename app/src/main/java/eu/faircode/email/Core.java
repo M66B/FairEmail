@@ -2750,7 +2750,7 @@ class Core {
 
                 try {
                     for (int i = 0; i < imessages.length; i++) {
-                        state.ensureRunning("Sync/IMAP");
+                        state.ensureRunning("Sync/IMAP/check");
 
                         long uid = ifolder.getUID(imessages[i]);
                         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
@@ -2763,7 +2763,10 @@ class Core {
                             uids.remove(uid);
                     }
                 } catch (Throwable ex) {
-                    Log.w(ex);
+                    if (ex instanceof OperationCanceledException)
+                        Log.i(ex);
+                    else
+                        Log.w(ex);
                     modified = true;
                     db.folder().setFolderModSeq(folder.id, null);
                 }
@@ -2805,7 +2808,7 @@ class Core {
 
                 int expunge = 0;
                 for (int i = 0; i < imessages.length; i++) {
-                    state.ensureRunning("Sync/IMAP");
+                    state.ensureRunning("Sync/IMAP/delete");
 
                     try {
                         if (perform_expunge && imessages[i].isSet(Flags.Flag.DELETED))
@@ -2979,7 +2982,7 @@ class Core {
                 int synced = 0;
                 Log.i(folder.name + " add=" + imessages.length);
                 for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
-                    state.ensureRunning("Sync/IMAP");
+                    state.ensureRunning("Sync/IMAP/sync/fetch");
 
                     int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
@@ -3012,7 +3015,7 @@ class Core {
                     Log.i("Sync " + from + ".." + i + " free=" + free);
 
                     for (int j = isub.length - 1; j >= 0; j--) {
-                        state.ensureRunning("Sync/IMAP");
+                        state.ensureRunning("Sync/IMAP/sync");
 
                         try {
                             // Some providers erroneously return old messages
@@ -3091,7 +3094,7 @@ class Core {
                 int downloaded = 0;
                 Log.i(folder.name + " download=" + imessages.length);
                 for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
-                    state.ensureRunning("Sync/IMAP");
+                    state.ensureRunning("Sync/IMAP/download/fetch");
 
                     int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
@@ -3110,7 +3113,7 @@ class Core {
                     Log.i("Download " + from + ".." + i + " free=" + free);
 
                     for (int j = isub.length - 1; j >= 0; j--) {
-                        state.ensureRunning("Sync/IMAP");
+                        state.ensureRunning("Sync/IMAP/download");
 
                         try {
                             if (ids[from + j] != null) {
