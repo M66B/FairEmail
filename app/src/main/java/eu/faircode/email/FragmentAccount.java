@@ -94,7 +94,6 @@ public class FragmentAccount extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private TextView tvCharacters;
     private TextView tvPasswordStorage;
     private Button btnCertificate;
     private TextView tvCertificate;
@@ -200,7 +199,6 @@ public class FragmentAccount extends FragmentBase {
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        tvCharacters = view.findViewById(R.id.tvCharacters);
         tvPasswordStorage = view.findViewById(R.id.tvPasswordStorage);
         btnCertificate = view.findViewById(R.id.btnCertificate);
         tvCertificate = view.findViewById(R.id.tvCertificate);
@@ -346,9 +344,9 @@ public class FragmentAccount extends FragmentBase {
                 String password = s.toString();
                 boolean warning = (Helper.containsWhiteSpace(password) ||
                         Helper.containsControlChars(password));
-                tvCharacters.setVisibility(warning &&
-                        tilPassword.getVisibility() == View.VISIBLE
-                        ? View.VISIBLE : View.GONE);
+                tilPassword.setHelperText(
+                        warning ? getString(R.string.title_setup_password_chars) : null);
+                tilPassword.setHelperTextEnabled(warning);
             }
         });
 
@@ -539,7 +537,6 @@ public class FragmentAccount extends FragmentBase {
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setEndIconMode(id < 0 || Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
-        tvCharacters.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);
 

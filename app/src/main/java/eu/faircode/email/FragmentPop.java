@@ -19,6 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -61,11 +66,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-
 public class FragmentPop extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
@@ -77,7 +77,6 @@ public class FragmentPop extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private TextView tvCharacters;
     private TextView tvPasswordStorage;
 
     private EditText etName;
@@ -141,7 +140,6 @@ public class FragmentPop extends FragmentBase {
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        tvCharacters = view.findViewById(R.id.tvCharacters);
         tvPasswordStorage = view.findViewById(R.id.tvPasswordStorage);
 
         etName = view.findViewById(R.id.etName);
@@ -203,9 +201,9 @@ public class FragmentPop extends FragmentBase {
                 String password = s.toString();
                 boolean warning = (Helper.containsWhiteSpace(password) ||
                         Helper.containsControlChars(password));
-                tvCharacters.setVisibility(warning &&
-                        tilPassword.getVisibility() == View.VISIBLE
-                        ? View.VISIBLE : View.GONE);
+                tilPassword.setHelperText(
+                        warning ? getString(R.string.title_setup_password_chars) : null);
+                tilPassword.setHelperTextEnabled(warning);
             }
         });
 
@@ -281,7 +279,6 @@ public class FragmentPop extends FragmentBase {
         Helper.setViewsEnabled(view, false);
 
         tilPassword.setEndIconMode(id < 0 || Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
-        tvCharacters.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 

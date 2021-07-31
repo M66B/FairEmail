@@ -19,6 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -66,12 +72,6 @@ import java.util.Objects;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
@@ -98,7 +98,6 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private TextView tvCharacters;
     private TextView tvPasswordStorage;
     private Button btnCertificate;
     private TextView tvCertificate;
@@ -197,7 +196,6 @@ public class FragmentIdentity extends FragmentBase {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        tvCharacters = view.findViewById(R.id.tvCharacters);
         tvPasswordStorage = view.findViewById(R.id.tvPasswordStorage);
         btnCertificate = view.findViewById(R.id.btnCertificate);
         tvCertificate = view.findViewById(R.id.tvCertificate);
@@ -512,7 +510,6 @@ public class FragmentIdentity extends FragmentBase {
         pbAutoConfig.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setEndIconMode(Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
-        tvCharacters.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);
 
@@ -610,10 +607,9 @@ public class FragmentIdentity extends FragmentBase {
     private void checkPassword(String password) {
         boolean warning = (Helper.containsWhiteSpace(password) ||
                 Helper.containsControlChars(password));
-        tvCharacters.setVisibility(warning &&
-                grpAdvanced.getVisibility() == View.VISIBLE
-                ? View.VISIBLE : View.GONE);
-
+        tilPassword.setHelperText(
+                warning ? getString(R.string.title_setup_password_chars) : null);
+        tilPassword.setHelperTextEnabled(warning);
     }
 
     private void onSave(boolean should) {
