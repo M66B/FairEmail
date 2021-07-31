@@ -2778,104 +2778,104 @@ Folder:
 
 Sender:
 
-* Open a message from the sender and expand it
-* Expand the addresses section by tapping on the down arrow
-* Tap on the bell icon to create or edit a notification channel and to change the notification sound
+* Göndərəndən bir mesajı açın və genişləndirin
+* Aşağı oxa toxunaraq ünvanlar bölməsini genişləndirin
+* Bir bildiriş kanalı yaratmaq və ya kanala düzəliş etmək və bildiriş səsini dəyişdirmək üçün zınqırov nişanına toxunun
 
-The order of precendence is: sender sound, folder sound, account sound and default sound.
+Üstünlük sırası: göndərən səsi, qovluq səsi, hesab səsi və ilkin səs.
 
-Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
+Bir hesab, qovluq və ya göndərən üçün bildiriş səsini tənzimləmək, Android 8 Oreo və ya yuxarı versiyanı tələb edir və bu Pro özəllikdir.
 
 <br />
 
 <a name="faq146"></a>
-**(146) How can I fix incorrect message times?**
+**(146) Yanlış mesaj vaxtlarını necə düzəldə bilərəm?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
+Göndərilən tarix/vaxt ixtiyari olduğu və göndərən tərəfindən dəyişdirilə bildiyi üçün, FairEmail ilkin olaraq serverin alınan tarix/vaxtını istifadə edir.
 
-Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
+Bəzən serverin alınan tarix/vaxtı yanlış olur, əksər hallarda mesajlar başqa serverdən yanlış formada idxal edildiyi üçün və bəzən də e-poçt serverindəki bir xətaya görə bu baş verir.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
+Belə nadir hallarda, "FairEmail"in ya *Tarix* başlığından (göndərilən vaxt), ya da *Alındı* başlığından tarix/vaxtı müvəqqəti həll yolu kimi istifadə etməsinə icazə vermək mümkündür. Bu, qabaqcıl hesab tənzimləmələrində dəyişdirilə bilər: Tənzimləmələr > Əllə quraşdırma > Hesablar > Hesab > Qabaqcıl.
 
-This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
+Bu, əvvəlcədən eyniləşdirilmiş mesajların vaxtını dəyişdirmir. Bunu həll etmək üçün qovluq siyahısında qovluq(lar)a uzun basın və *Yerli mesajları sil*i və *İndi eyniləşdir*i seçin.
 
 <br />
 
 <a name="faq147"></a>
-**(147) What should I know about third party versions?**
+**(147) Üçüncü tərəf versiyalar haqqında nə bilməliyəm?**
 
-You likely came here because you are using a third party build of FairEmail.
+Böyük ehtimalla bura "FairEmail"in üçüncü tərəf quraşdırmasını istifadə etdiyiniz üçün gəldiniz.
 
-There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+**Yalnız bu versiyalarda dəstək var**: Ən son Play Store versiyası, ən son GitHub buraxılışı və F-Droid quruluşu. Ancaq burada F-Droid quruluşunun versiya nömrəsi ilə ən son GitHub buraxılışının versiya nömrəsinin **eyni olması** şərti ödənilməlidir.
 
-F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
+F-Droid quruluşu qeyri-müntəzəmdir, yəni vacib bir yeniləmə olanda problem yarada bilər. Ona görə də GitHub buraxılışına keçməyiniz məsləhət görülür.
 
-The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+F-Droid versiyası eyni mənbə kodundan istifadə olunaraq qurulub, ancaq fərqli formada imzalanıb. "Google"un yalnız bir tətbiqin imzalamasını təsdiqlədiyi (və icazə verdiyi) üçün Gmail cəld quraşdırma sehrbazının istifadəsi istisna olmaqla, bütün özəlliklər F-Droid versiyası üçün mövcuddur. E-poçt təchizatçıları yalnız rəsmi quruluşlar üçün "OAuth"un istifadəsinə icazə verdiyinə görə, digər bütün e-poçt təchizatçıları üçün OAuth müraciəti yalnız Play Store versiyalarında və GitHub buraxılışlarında mövcuddur.
 
-Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
+Android, təhlükəsizlik səbəblərinə görə eyni tətbiqi fərqli bir imza ilə quraşdırmağı rədd etdiyi üçün, GitHub buraxılışını quraşdırmazdan əvvəl F-Droid quruluşunu silmək lazım olduğunu unutmayın.
 
-Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
+GitHub versiyasının, yeniləmələri avtomatik yoxlayacağını unutmayın. İstəsəniz, bunu "Qarışıq" tənzimləmələrində bağlaya bilərsiniz.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+Bütün endirmə seçimləri üçün zəhmət olmasa [bura baxın](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads).
 
-If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
+F-Droid quruluşu ilə bağlı problem yaşayırsınızsa, zəhmət olmasa əvvəlcə yeni bir GitHub versiyasının mövcud olub-olmadığını yoxlayın.
 
 <br />
 
 <a name="faq148"></a>
-**(148) How can I use an Apple iCloud account?**
+**(148) Bir Apple iCloud hesabını necə istifadə edə bilərəm?**
 
-There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
+Apple iCloud üçün daxili quraşdırılmış bir profil var, ona görə də cəld quraşdırma sehrbazını istifadə edə bilməlisiniz (digər təchizatçı). Lazım olarsa, əllə bir hesabı quraşdırmaq üçün doğru tənzimləmələri [burada](https://support.apple.com/en-us/HT202304) tapa bilərsiniz.
 
-When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
+İki mərhələli kimlik təsdiqləmə istifadə edərkən [tətbiq-xüsusi şifrəsi](https://support.apple.com/en-us/HT204397)nə ehtiyac yarana bilər.
 
 <br />
 
 <a name="faq149"></a>
-**(149) How does the unread message count widget work?**
+**(149) Oxunmamış mesaj sayı viceti necə işləyir?**
 
-The unread message count widget shows the number of unread messages either for all accounts or for a selected account, but only for the folders for which new message notifications are enabled.
+Oxunmamış mesajı viceti, bütün hesablar və ya seçilmiş bir hesab üçün oxunmamış mesajını göstərir. Yalnız yeni mesaj bildirişlərinin fəal olduğu qovluqlar üçün işləkdir.
 
-Tapping on the notification will synchronize all folders for which synchronization is enabled and will open:
+Bildirişə toxunarkən, eyniləşdirmənin fəal olduğu bütün qovluqlar üçün eyniləşdirmə baş tutacaq və açılacaq:
 
-* the start screen when all accounts were selected
-* a folder list when a specific account was selected and when new message notifications are enabled for multiple folders
-* a list of messages when a specific account was selected and when new message notifications are enabled for one folder
+* bütün hesablar seçiləndə başlanğıc ekranı
+* xüsusi bir hesab seçiləndə və bir neçə qovluq üçün yeni mesaj bildirişləri fəal olanda bir qovluq siyahısı
+* xüsusi bir hesab seçiləndə və bir qovluq üçün yeni mesaj bildirişləri fəal olanda mesajların bir siyahısı
 
 <br />
 
 <a name="faq150"></a>
-**(150) Can you add cancelling calendar invites?**
+**(150) "Təqvim dəvətlərindən imtina etmə" özəlliyini əlavə edə bilərsiniz?**
 
-Cancelling calendar invites (removing calendar events) requires write calendar permission, which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
+Təqvim dəvətlərindən imtina etmə (təqvim tədbirlərini silmə), təqvim yazma icazəsini tələb edir, bu da, *bütün* təqvimlərin *bütün* təqvim tədbirlərini oxuma və ya yazma icazəsinin effektiv şəkildə verilməsi ilə nəticələnəcək.
 
-Given the goal of FairEmail, privacy and security, and given that it is easy to remove a calendar event manually, it is not a good idea to request this permission for just this reason.
+"FairEmail"in məqsədi gizlilik və təhlükəsizliyə fokuslanmaqdır, bir təqvim tədbirinin əllə çıxarılması asan olduğu üçün, sadəcə bu səbəbə görə bu icazəni tələb etmək heç də yaxşı bir fikir deyil.
 
-Inserting new calendar events can be done without permissions with special [intents](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents). Unfortunately, there exists no intent to delete existing calendar events.
+Yeni təqvim tədbirlərinin daxil edilməsi, xüsusi [məqsədlər](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents) üçün icazə olmadan edilə bilər. Təəssüf ki, mövcud təqvim tədbirlərini silmə məqsədi yoxdur.
 
 <br />
 
 <a name="faq151"></a>
-**(151) Can you add backup/restore of messages?**
+**(151) Mesajların nüsxələnməsi/bərpası üçün özəllik əlavə edə bilərsiniz?**
 
-An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
+Bir e-poçt müştərisi (client), mesajları nüsxələmək və bərpa etmək üçün deyil, mesajları oxumaq və yazmaq üçündür. Unutmayın ki, cihazınızı zədələsəniz və ya itirsəniz, mesajlarınız da itəcək!
 
-Instead, the email provider/server is responsible for backups.
+Bunun əvəzində, mesajların nüsxələnməsi üçün məsuliyyəti e-poçt təchizatçısı/serveri daşıyır.
 
-If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
+Özünüz bir nüsxələmə etmək istəyirsinizsə, [imapsync](https://imapsync.lamiral.info/) kimi bir alət istifadə edə bilərsiniz.
 
-Since version 1.1556 it is possible to export all messages of a POP3 folder in mbox format according to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), which might be useful to save sent messages if the email server doesn't.
+1.1556 versiyasından etibarən, bir POP3 qovluğunun bütün mesajlarını [RFC4155-ə](https://www.ietf.org/rfc/rfc4155.txt) görə mbox formatında ixrac edilməsi mümkündür, bu, e-poçt serveri bunu etmədiyi halda, göndərilən mesajların saxlanılması üçün faydalı olacaq.
 
-If you want to import an mbox file to an existing email account, you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
+Bir mbox faylını mövcud bir e-poçt hesabına idxal etmək istəyirsinizsə, "Thunderbird"i masaüstü kompüterdə və [ImportExportTools-u](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) əlavədə istifadə edə bilərsiniz.
 
 <br />
 
 <a name="faq152"></a>
-**(152) How can I insert a contact group?**
+**(152) Bir əlaqə qrupunu necə daxil edə bilərəm?**
 
-You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
+Mesaj yaradıcının üç nöqtə menyusu vasitəsilə bir əlaqə qrupuna bütün əlaqələrin e-poçt ünvanlarını daxil edə bilərsiniz.
 
-You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
+Android əlaqələr tətbiqi ilə əlaqə qruplarını müəyyənləşdirə bilərsiniz, təlimatlar üçün zəhmət olmasa [bura](https://support.google.com/contacts/answer/30970) baxın.
 
 <br />
 
@@ -2987,7 +2987,7 @@ Həftəlik yeniləmə böyük ehtimal yetərli olacaq, son siyahı dəyişiklər
 <a name="faq160"></a>
 **(160) Təsdiq olmadan mesajların birdəfəlik silinməsini əlavə edə bilərsiniz?**
 
-Birdəfəlik silmə, *geri dönüşü olmadan* mesajların itməsi deməkdir və bunu təsadüfən baş verməsinin qarşısını almaq üçün, bu həmişə təsdiqlənməlidir. Hətta bir təsdiqlə belə, mesajlarının bir qismini öz səhvi üzündən silən bəzi əsəbi insanlar mənimlə əlaqə saxladı, bu olduqca xoşagəlməz bir təcrübə idi :-(
+Birdəfəlik silmə, *geri dönüşü olmadan* mesajların itməsi deməkdir və bunun təsadüfən baş verməsinin qarşısını almaq üçün, bu həmişə təsdiqlənməlidir. Hətta bir təsdiqlə belə, mesajlarının bir qismini öz səhvi üzündən silən bəzi əsəbi insanlar mənimlə əlaqə saxladı, bu olduqca xoşagəlməz bir təcrübə idi :-(
 
 Qabaqcıl: EXPUNGE əmri ilə birgə IMAP silmə bayrağı dəstəklənmir, çünki həm e-poçt serverləri və həm də heç kim bunu ələ ala bilməz və mesajların gözlənilməz itkisi riski ilə üzləşər. Mürəkkəb bir faktor, bütün e-poçt serverlərinin [UID EXPUNGE-i](https://tools.ietf.org/html/rfc4315) dəstəkləməməsidir.
 

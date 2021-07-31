@@ -1941,7 +1941,7 @@ Automatic recognition of tracking images can be disabled in the privacy settings
 <br />
 
 <a name="faq84"></a>
-**(84) What are local contacts for?**
+**(84) Для чего нужны локальные контакты?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 

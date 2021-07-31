@@ -101,6 +101,7 @@
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
     <string name="title_setup_quick">Бърза настройка</string>
+    <string name="title_setup_quick_accounts">Добавяне или променяне на акаунтите</string>
     <string name="title_setup_quick_hint">Бързата настройка ще извлече информация за конфигурацията от autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>

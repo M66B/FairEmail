@@ -411,6 +411,7 @@
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
+    <string name="title_advanced_autoclose_unread">Luk konversationer, når beskeder markeres som ulæste</string>
     <string name="title_advanced_undo">Fortryd timeout</string>
     <string name="title_advanced_quick_filter">Vis ikke-påtrængende hurtige filterikoner</string>
     <string name="title_advanced_quick_scroll">Vis ikke-påtrængende hurtige rul op/ned ikoner</string>
