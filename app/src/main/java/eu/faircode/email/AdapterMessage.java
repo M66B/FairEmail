@@ -1298,8 +1298,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (viewType == ViewType.THREAD)
                 if (expanded)
                     bindExpanded(message, scroll);
-                else
+                else {
                     clearExpanded(message);
+                    if (scroll)
+                        properties.scrollTo(getAdapterPosition(), 0);
+                }
 
             if (properties.getValue("raw_save", message.id)) {
                 properties.setValue("raw_save", message.id, false);
@@ -4813,7 +4816,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             (autoclose_unseen || getItemCount() == 1))
                         properties.finish();
                     else
-                        properties.setExpanded(message, false, false);
+                        properties.setExpanded(message, false, true);
                 }
 
                 @Override
