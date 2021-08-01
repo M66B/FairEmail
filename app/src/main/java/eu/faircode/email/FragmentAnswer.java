@@ -188,6 +188,8 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
+                final Context context = getContext();
+
                 if (copy > 0 && answer != null) {
                     answer.applied = 0;
                     answer.last_applied = null;
@@ -215,14 +217,14 @@ public class FragmentAnswer extends FragmentBase {
                             public Drawable getDrawable(String source) {
                                 if (source != null && source.startsWith("cid:"))
                                     source = null;
-                                return ImageHelper.decodeImage(getContext(), -1, source, true, 0, 1.0f, etText);
+                                return ImageHelper.decodeImage(context, -1, source, true, 0, 1.0f, etText);
                             }
-                        }, null, getContext()));
+                        }, null, context));
                 }
 
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
-                if (BuildConfig.DEBUG)
+                if (ActivityAnswer.canAnswer(context))
                     cbExternal.setVisibility(View.VISIBLE);
                 grpReady.setVisibility(View.VISIBLE);
                 bottom_navigation.setVisibility(View.VISIBLE);

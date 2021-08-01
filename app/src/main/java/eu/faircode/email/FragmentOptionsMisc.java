@@ -90,6 +90,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private SwitchCompat swPowerMenu;
     private SwitchCompat swExternalSearch;
+    private SwitchCompat swExternalAnswer;
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
     private SwitchCompat swClassification;
@@ -201,6 +202,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swPowerMenu = view.findViewById(R.id.swPowerMenu);
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
+        swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swFts = view.findViewById(R.id.swFts);
         swClassification = view.findViewById(R.id.swClassification);
@@ -274,8 +276,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 Helper.enableComponent(getContext(), ActivitySearch.class, checked);
-                if (BuildConfig.DEBUG)
-                    Helper.enableComponent(getContext(), ActivityAnswer.class, checked);
+            }
+        });
+
+        swExternalAnswer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                Helper.enableComponent(getContext(), ActivityAnswer.class, checked);
             }
         });
 
@@ -838,6 +845,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvFtsIndexed.setText(null);
 
+        swExternalAnswer.setVisibility(
+                ActivityAnswer.canAnswer(getContext()) ? View.VISIBLE : View.GONE);
+
         DB db = DB.getInstance(getContext());
         db.message().liveFts().observe(getViewLifecycleOwner(), new Observer<TupleFtsStats>() {
             private TupleFtsStats last = null;
@@ -981,6 +991,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
+        swExternalAnswer.setChecked(Helper.isComponentEnabled(getContext(), ActivityAnswer.class));
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));
 

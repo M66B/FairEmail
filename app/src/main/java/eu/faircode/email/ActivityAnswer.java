@@ -47,7 +47,16 @@ public class ActivityAnswer extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setSubtitle(getString(R.string.app_answer));
+        Intent intent = getIntent();
+        if (intent == null) {
+            finish();
+            return;
+        }
+
+        final CharSequence query = intent.getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+        final boolean readonly = intent.getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
+
+        getSupportActionBar().setSubtitle(query == null ? null : query.toString());
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_answer, null);
         setContentView(view);
@@ -81,14 +90,10 @@ public class ActivityAnswer extends ActivityBase {
                 cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
                 ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
 
-                Intent intent = getIntent();
-                if (intent != null) {
-                    boolean readonly = intent.getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
-                    if (!readonly) {
-                        Intent result = new Intent();
-                        result.putExtra(Intent.EXTRA_PROCESS_TEXT, text);
-                        setResult(RESULT_OK, result);
-                    }
+                if (!readonly) {
+                    Intent result = new Intent();
+                    result.putExtra(Intent.EXTRA_PROCESS_TEXT, text);
+                    setResult(RESULT_OK, result);
                 }
 
                 finish();
@@ -126,5 +131,9 @@ public class ActivityAnswer extends ActivityBase {
                 Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "answers");
+    }
+
+    static boolean canAnswer(Context context) {
+        return BuildConfig.DEBUG;
     }
 }
