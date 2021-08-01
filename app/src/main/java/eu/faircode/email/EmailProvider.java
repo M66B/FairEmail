@@ -261,7 +261,7 @@ public class EmailProvider implements Parcelable {
         if (BuildConfig.DEBUG && false)
             try {
                 // Scan ports
-                Log.i("Provider from template domain=" + domain);
+                EntityLog.log(context, "Provider from template domain=" + domain);
                 return fromTemplate(context, domain, discover);
             } catch (Throwable ex) {
                 Log.w(ex);
@@ -273,7 +273,7 @@ public class EmailProvider implements Parcelable {
             if (provider.domain != null)
                 for (String d : provider.domain)
                     if (domain.toLowerCase(Locale.ROOT).matches(d)) {
-                        Log.i("Provider from domain=" + domain + " (" + d + ")");
+                        EntityLog.log(context, "Provider from domain=" + domain + " (" + d + ")");
                         provider.log(context);
                         return provider;
                     }
@@ -294,7 +294,7 @@ public class EmailProvider implements Parcelable {
                             if (provider.mx != null)
                                 for (String mx : provider.mx)
                                     if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
-                                        Log.i("Provider from mx=" + mx + " domain=" + domain);
+                                        EntityLog.log(context, "Provider from mx=" + mx + " domain=" + domain);
                                         provider.log(context);
                                         return provider;
                                     }
@@ -327,7 +327,7 @@ public class EmailProvider implements Parcelable {
         for (EmailProvider provider : providers)
             if (provider.imap.host.equals(autoconfig.imap.host) ||
                     provider.smtp.host.equals(autoconfig.smtp.host)) {
-                Log.i("Replacing auto config by profile=" + provider.name);
+                EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
                 provider.log(context);
                 return provider;
             }
