@@ -40,7 +40,7 @@ public class ActivitySearch extends ActivityBase {
         if (uri == null || !SEARCH_SCHEME.equals(uri.getScheme()))
             query = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
         else
-            query = uri.toString().substring(SEARCH_SCHEME.length() + 1);
+            query = Uri.decode(uri.toString().substring(SEARCH_SCHEME.length() + 1));
 
         Log.i("External search query=" + query);
         Intent view = new Intent(this, ActivityView.class);
