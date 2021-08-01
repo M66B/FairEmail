@@ -123,7 +123,7 @@
                     android:id="@+id/grpReady"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="etName,etGroup,cbStandard,cbFavorite,cbHide,vSeparator,etText" />
+                    app:constraint_referenced_ids="etName,etGroup,cbStandard,cbReceipt,cbFavorite,cbHide,vSeparator,etText" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </eu.faircode.email.ScrollViewEx>
 
