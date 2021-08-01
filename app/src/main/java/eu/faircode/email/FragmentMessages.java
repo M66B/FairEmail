@@ -19,6 +19,21 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static android.text.format.DateUtils.DAY_IN_MILLIS;
+import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
+import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
+import static android.view.KeyEvent.ACTION_DOWN;
+import static android.view.KeyEvent.ACTION_UP;
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
+import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
+import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
+import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_UNCONFIRMED;
+import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_DECELERATE_FACTOR;
+import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_BCK;
+import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
@@ -228,21 +243,6 @@ import me.everything.android.ui.overscroll.IOverScrollDecor;
 import me.everything.android.ui.overscroll.IOverScrollUpdateListener;
 import me.everything.android.ui.overscroll.VerticalOverScrollBounceEffectDecorator;
 import me.everything.android.ui.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
-
-import static android.app.Activity.RESULT_OK;
-import static android.text.format.DateUtils.DAY_IN_MILLIS;
-import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
-import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
-import static android.view.KeyEvent.ACTION_DOWN;
-import static android.view.KeyEvent.ACTION_UP;
-import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_DECELERATE_FACTOR;
-import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_BCK;
-import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD;
-import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
-import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
-import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
-import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_UNCONFIRMED;
 
 public class FragmentMessages extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ViewGroup view;
@@ -4359,7 +4359,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
         menuSearch.setVisible(folder);
 
-        menu.findItem(R.id.menu_folders).setVisible(viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
+        menu.findItem(R.id.menu_folders).setVisible(
+                viewType == AdapterMessage.ViewType.UNIFIED &&
+                        !EntityFolder.TRASH.equals(type) &&
+                        !EntityFolder.JUNK.equals(type) &&
+                        primary >= 0);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
         ib.setImageResource(connected
                 ? R.drawable.twotone_folder_special_24 : R.drawable.twotone_folder_24);
