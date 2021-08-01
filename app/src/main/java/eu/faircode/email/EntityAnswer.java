@@ -134,6 +134,7 @@ public class EntityAnswer implements Serializable {
         json.put("receipt", receipt);
         json.put("favorite", favorite);
         json.put("hide", hide);
+        json.put("external", external);
         json.put("text", text);
         json.put("applied", applied);
         json.put("last_applied", last_applied);
@@ -149,6 +150,7 @@ public class EntityAnswer implements Serializable {
         answer.receipt = json.optBoolean("receipt");
         answer.favorite = json.optBoolean("favorite");
         answer.hide = json.optBoolean("hide");
+        answer.external = json.optBoolean("external");
         answer.text = json.getString("text");
         answer.applied = json.optInt("applied", 0);
         if (json.has("last_applied") && !json.isNull("last_applied"))
