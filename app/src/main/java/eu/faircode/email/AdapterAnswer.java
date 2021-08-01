@@ -72,6 +72,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         private View view;
         private TextView tvName;
         private TextView tvGroup;
+        private ImageView ivExternal;
         private ImageView ivStandard;
         private ImageView ivFavorite;
         private ImageView ivReceipt;
@@ -86,6 +87,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             view = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
             tvGroup = itemView.findViewById(R.id.tvGroup);
+            ivExternal = itemView.findViewById(R.id.ivExternal);
             ivStandard = itemView.findViewById(R.id.ivStandard);
             ivFavorite = itemView.findViewById(R.id.ivFavorite);
             ivReceipt = itemView.findViewById(R.id.ivReceipt);
@@ -108,6 +110,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             tvName.setText(answer.name);
             tvGroup.setText(answer.group);
             tvGroup.setVisibility(TextUtils.isEmpty(answer.group) ? View.GONE : View.VISIBLE);
+            ivExternal.setVisibility(answer.external ? View.VISIBLE : View.GONE);
             ivStandard.setVisibility(answer.standard ? View.VISIBLE : View.GONE);
             ivFavorite.setVisibility(answer.favorite ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(answer.receipt ? View.VISIBLE : View.GONE);

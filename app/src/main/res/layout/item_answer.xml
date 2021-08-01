@@ -25,7 +25,7 @@
                 android:minHeight="24dp"
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toStartOf="@+id/ivStandard"
+                app:layout_constraintEnd_toStartOf="@+id/ivExternal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
                 android:maxLines="1"
                 android:text="Group"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toStartOf="@+id/ivReceipt"
+                app:layout_constraintEnd_toStartOf="@+id/ivExternal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
@@ -60,6 +60,15 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvGroup" />
+
+            <ImageView
+                android:id="@+id/ivExternal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintEnd_toStartOf="@id/ivReceipt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_open_in_new_24" />
 
             <ImageView
                 android:id="@+id/ivReceipt"

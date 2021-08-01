@@ -35,9 +35,13 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.Group;
 
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 public class ActivityAnswer extends ActivityBase {
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "answer");
+
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +59,27 @@ public class ActivityAnswer extends ActivityBase {
         lvAnswer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
+                final Context context = adapterView.getContext();
                 EntityAnswer answer = (EntityAnswer) adapterView.getAdapter().getItem(pos);
 
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            DB db = DB.getInstance(context);
+                            db.answer().applyAnswer(answer.id, new Date().getTime());
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+
                 String html = answer.getHtml(null);
-                String text = HtmlHelper.getText(ActivityAnswer.this, html);
+                String text = HtmlHelper.getText(context, html);
 
                 ClipboardManager cbm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
-                ToastEx.makeText(ActivityAnswer.this, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
 
                 Intent intent = getIntent();
                 if (intent != null) {
