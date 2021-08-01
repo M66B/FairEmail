@@ -25,13 +25,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.provider.Settings;
+import android.text.SpannableStringBuilder;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -133,6 +140,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnCharsets;
     private Button btnCiphers;
     private Button btnFiles;
+    private TextView tvPermissions;
 
     private Group grpUpdates;
     private CardView cardDebug;
@@ -243,6 +251,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCharsets = view.findViewById(R.id.btnCharsets);
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
+        tvPermissions = view.findViewById(R.id.tvPermissions);
 
         grpUpdates = view.findViewById(R.id.grpUpdates);
         cardDebug = view.findViewById(R.id.cardDebug);
@@ -852,6 +861,79 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
         swTestIab.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+        try {
+            int start = 0;
+            int dp24 = Helper.dp2pixels(getContext(), 24);
+            SpannableStringBuilder ssb = new SpannableStringBuilder();
+            PackageManager pm = getContext().getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
+            for (int i = 0; i < pi.requestedPermissions.length; i++) {
+                boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
+
+                PermissionInfo info;
+                try {
+                    info = pm.getPermissionInfo(pi.requestedPermissions[i], PackageManager.GET_META_DATA);
+                } catch (Throwable ex) {
+                    info = new PermissionInfo();
+                    info.name = pi.requestedPermissions[i];
+                    if (!(ex instanceof PackageManager.NameNotFoundException))
+                        info.group = ex.toString();
+                }
+
+                ssb.append(info.name).append('\n');
+                if (granted)
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                start = ssb.length();
+
+                if (info.group != null) {
+                    ssb.append(info.group).append('\n');
+                    ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
+                    start = ssb.length();
+                }
+
+                CharSequence description = info.loadDescription(pm);
+                if (description != null) {
+                    ssb.append(description).append('\n');
+                    ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
+                    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+                    start = ssb.length();
+                }
+
+                if (info.protectionLevel != 0) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                        switch (info.getProtection()) {
+                            case PermissionInfo.PROTECTION_DANGEROUS:
+                                ssb.append("dangerous ");
+                                break;
+                            case PermissionInfo.PROTECTION_NORMAL:
+                                ssb.append("normal ");
+                                break;
+                            case PermissionInfo.PROTECTION_SIGNATURE:
+                                ssb.append("signature ");
+                                break;
+                            case PermissionInfo.PROTECTION_SIGNATURE_OR_SYSTEM:
+                                ssb.append("signatureOrSystem ");
+                                break;
+                        }
+
+                    ssb.append(Integer.toHexString(info.protectionLevel));
+
+                    if (info.flags != 0)
+                        ssb.append(' ').append(Integer.toHexString(info.flags));
+
+                    ssb.append('\n');
+                    ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
+                    start = ssb.length();
+                }
+
+                ssb.append('\n');
+            }
+            tvPermissions.setText(ssb);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            tvPermissions.setText(ex.toString());
+        }
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
