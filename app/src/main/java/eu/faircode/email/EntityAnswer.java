@@ -67,7 +67,7 @@ public class EntityAnswer implements Serializable {
     public Integer applied = 0;
     public Long last_applied;
 
-    String getText(Address[] address) {
+    String getHtml(Address[] address) {
         return replacePlaceholders(text, address);
     }
 

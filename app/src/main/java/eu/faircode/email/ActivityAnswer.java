@@ -57,7 +57,7 @@ public class ActivityAnswer extends ActivityBase {
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
                 EntityAnswer answer = (EntityAnswer) adapterView.getAdapter().getItem(pos);
 
-                String html = answer.getText(null);
+                String html = answer.getHtml(null);
                 String text = HtmlHelper.getText(ActivityAnswer.this, html);
 
                 ClipboardManager cbm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);

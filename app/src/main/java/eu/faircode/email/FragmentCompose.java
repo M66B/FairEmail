@@ -129,7 +129,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.bouncycastle.cert.jcajce.JcaCertStore;
@@ -4148,7 +4147,7 @@ public class FragmentCompose extends FragmentBase {
                         if (a != null) {
                             db.answer().applyAnswer(a.id, new Date().getTime());
                             data.draft.subject = a.name;
-                            Document d = JsoupEx.parse(a.getText(null));
+                            Document d = JsoupEx.parse(a.getHtml(null));
                             document.body().append(d.body().html());
                         }
 
@@ -4327,7 +4326,7 @@ public class FragmentCompose extends FragmentBase {
                                 else {
                                     db.answer().applyAnswer(receipt.id, new Date().getTime());
                                     texts = new String[0];
-                                    Document d = JsoupEx.parse(receipt.getText(null));
+                                    Document d = JsoupEx.parse(receipt.getHtml(null));
                                     document.body().append(d.body().html());
                                 }
                             }
@@ -4372,7 +4371,7 @@ public class FragmentCompose extends FragmentBase {
 
                         if (a != null) {
                             db.answer().applyAnswer(a.id, new Date().getTime());
-                            Document d = JsoupEx.parse(a.getText(data.draft.to));
+                            Document d = JsoupEx.parse(a.getHtml(data.draft.to));
                             document.body().append(d.body().html());
                         }
 

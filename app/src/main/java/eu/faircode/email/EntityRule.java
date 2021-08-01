@@ -637,7 +637,7 @@ public class EntityRule {
 
         reply.id = db.message().insertMessage(reply);
 
-        String body = answer.getText(message.from);
+        String body = answer.getHtml(message.from);
         Document msg = JsoupEx.parse(body);
 
         Element div = msg.createElement("div");
