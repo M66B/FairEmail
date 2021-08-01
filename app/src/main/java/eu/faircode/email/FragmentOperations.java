@@ -132,6 +132,7 @@ public class FragmentOperations extends FragmentBase {
 
     private void onMenuForceReload() {
         ServiceSynchronize.reload(getContext(), null, true, "operations");
+        ToastEx.makeText(getContext(), R.string.title_force_reload, Toast.LENGTH_LONG).show();
     }
 
     public static class FragmentDialogDelete extends FragmentDialogBase {
