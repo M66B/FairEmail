@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL;
+import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -117,9 +120,6 @@ import java.util.regex.Pattern;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MailDateFormat;
 import javax.mail.internet.MimeUtility;
-
-import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL;
-import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
 
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 500; // characters
@@ -2625,7 +2625,14 @@ public class HtmlHelper {
                                 case "text-align":
                                     // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
                                     Layout.Alignment alignment = null;
-                                    boolean rtl = TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(ssb, start, ssb.length() - start);
+                                    boolean rtl;
+                                    try {
+                                        rtl = TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(ssb, start, ssb.length() - start);
+                                    } catch (Throwable ex) {
+                                        // IllegalArgumentException
+                                        Log.e(ex);
+                                        rtl = false;
+                                    }
                                     switch (value) {
                                         case "left":
                                         case "start":

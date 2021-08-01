@@ -164,10 +164,15 @@ public class HtmlEx {
     }
 
     private /* static */ String getTextDirection(Spanned text, int start, int end) {
-        if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(text, start, end - start)) {
-            return " dir=\"rtl\"";
-        } else {
-            return " dir=\"ltr\"";
+        try {
+            if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(text, start, end - start)) {
+                return " dir=\"rtl\"";
+            } else {
+                return " dir=\"ltr\"";
+            }
+        } catch (Throwable ex) {
+            eu.faircode.email.Log.e(ex);
+            return "";
         }
     }
 
