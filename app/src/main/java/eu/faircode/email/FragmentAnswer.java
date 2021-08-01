@@ -371,29 +371,25 @@ public class FragmentAnswer extends FragmentBase {
                     if (receipt)
                         db.answer().resetReceipt();
 
-                    if (id < 0) {
-                        EntityAnswer answer = new EntityAnswer();
-                        answer.name = name;
-                        answer.group = group;
-                        answer.standard = standard;
-                        answer.receipt = receipt;
-                        answer.favorite = favorite;
-                        answer.hide = hide;
-                        answer.external = external;
-                        answer.text = document.body().html();
+                    EntityAnswer answer;
+                    if (id < 0)
+                        answer = new EntityAnswer();
+                    else
+                        answer = db.answer().getAnswer(id);
+
+                    answer.name = name;
+                    answer.group = group;
+                    answer.standard = standard;
+                    answer.receipt = receipt;
+                    answer.favorite = favorite;
+                    answer.hide = hide;
+                    answer.external = external;
+                    answer.text = document.body().html();
+
+                    if (id < 0)
                         answer.id = db.answer().insertAnswer(answer);
-                    } else {
-                        EntityAnswer answer = db.answer().getAnswer(id);
-                        answer.name = name;
-                        answer.group = group;
-                        answer.standard = standard;
-                        answer.receipt = receipt;
-                        answer.favorite = favorite;
-                        answer.hide = hide;
-                        answer.external = external;
-                        answer.text = document.body().html();
+                    else
                         db.answer().updateAnswer(answer);
-                    }
 
                     db.setTransactionSuccessful();
                 } finally {
