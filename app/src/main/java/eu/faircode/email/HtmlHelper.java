@@ -2694,7 +2694,7 @@ public class HtmlHelper {
                                     else
                                         setSpan(ssb, new QuoteSpan(colorBlockquote, quoteStripe, quoteGap), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 } else
-                                    setSpan(ssb, new IndentSpan(intentSize), start, ssb.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                    setSpan(ssb, new IndentSpan(intentSize), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 break;
                             case "br":
                                 ssb.append('\n');
