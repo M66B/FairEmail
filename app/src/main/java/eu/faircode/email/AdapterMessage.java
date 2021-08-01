@@ -4809,7 +4809,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
-                    if (!message.ui_seen && autoclose_unseen)
+                    if (!message.ui_seen &&
+                            (autoclose_unseen || getItemCount() == 1))
                         properties.finish();
                     else
                         properties.setExpanded(message, false, false);
