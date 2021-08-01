@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.GmailState.TYPE_GOOGLE;
+
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
@@ -40,8 +42,6 @@ import java.util.concurrent.Semaphore;
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
-
-import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 
 public class ServiceAuthenticator extends Authenticator {
     private Context context;
@@ -98,7 +98,7 @@ public class ServiceAuthenticator extends Authenticator {
             if (!Objects.equals(password, newPassword)) {
                 password = newPassword;
                 if (intf != null)
-                    intf.onPasswordChanged(password);
+                    intf.onPasswordChanged(context, password);
             }
 
             return authState.getAccessToken();
@@ -113,7 +113,7 @@ public class ServiceAuthenticator extends Authenticator {
             if (!Objects.equals(password, newPassword)) {
                 password = newPassword;
                 if (intf != null)
-                    intf.onPasswordChanged(password);
+                    intf.onPasswordChanged(context, password);
             }
 
             return authState.getAccessToken();
@@ -122,7 +122,7 @@ public class ServiceAuthenticator extends Authenticator {
     }
 
     interface IAuthenticated {
-        void onPasswordChanged(String newPassword);
+        void onPasswordChanged(Context context, String newPassword);
     }
 
     private static void OAuthRefresh(Context context, String id, AuthState authState, boolean expire, long keep_alive)

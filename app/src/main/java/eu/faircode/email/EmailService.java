@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.ParcelFileDescriptor;
@@ -92,9 +95,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 
 // IMAP standards: https://imapwiki.org/Specs
 
@@ -313,7 +313,7 @@ public class EmailService implements AutoCloseable {
                 account.user, account.password,
                 new ServiceAuthenticator.IAuthenticated() {
                     @Override
-                    public void onPasswordChanged(String newPassword) {
+                    public void onPasswordChanged(Context context, String newPassword) {
                         DB db = DB.getInstance(context);
                         int accounts = db.account().setAccountPassword(account.id, newPassword);
                         int identities = db.identity().setIdentityPassword(account.id, account.user, newPassword, account.auth_type);
@@ -330,7 +330,7 @@ public class EmailService implements AutoCloseable {
                 identity.user, identity.password,
                 new ServiceAuthenticator.IAuthenticated() {
                     @Override
-                    public void onPasswordChanged(String newPassword) {
+                    public void onPasswordChanged(Context context, String newPassword) {
                         DB db = DB.getInstance(context);
                         int count = db.identity().setIdentityPassword(identity.id, newPassword);
                         EntityLog.log(context, identity.email + " token refreshed=" + count);
