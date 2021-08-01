@@ -4361,9 +4361,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_folders).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED &&
-                        !EntityFolder.TRASH.equals(type) &&
-                        !EntityFolder.JUNK.equals(type) &&
-                        primary >= 0);
+                        type == null && primary >= 0);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
         ib.setImageResource(connected
                 ? R.drawable.twotone_folder_special_24 : R.drawable.twotone_folder_24);
