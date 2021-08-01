@@ -8,6 +8,11 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_force_reload"
+        android:title="@string/title_force_reload"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_delete"
         android:title="@string/title_delete"
         app:showAsAction="never" />
