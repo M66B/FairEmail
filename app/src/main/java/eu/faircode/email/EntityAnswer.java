@@ -60,6 +60,8 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public Boolean hide;
     @NonNull
+    public Boolean external;
+    @NonNull
     public String text;
     @NonNull
     public Integer applied = 0;
@@ -164,6 +166,7 @@ public class EntityAnswer implements Serializable {
                     this.receipt.equals(other.receipt) &&
                     this.favorite.equals(other.favorite) &&
                     this.hide.equals(other.hide) &&
+                    this.external.equals(other.external) &&
                     this.text.equals(other.text) &&
                     this.applied.equals(other.applied) &&
                     Objects.equals(this.last_applied, other.last_applied));

@@ -92,6 +92,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cbFavorite" />
 
+                <CheckBox
+                    android:id="@+id/cbExternal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_answer_external"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbHide" />
+
                 <View
                     android:id="@+id/vSeparator"
                     android:layout_width="0dp"
@@ -100,7 +110,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbHide" />
+                    app:layout_constraintTop_toBottomOf="@+id/cbExternal" />
 
                 <eu.faircode.email.EditTextCompose
                     android:id="@+id/etText"

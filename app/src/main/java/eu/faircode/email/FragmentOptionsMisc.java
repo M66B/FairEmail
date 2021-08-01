@@ -274,6 +274,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 Helper.enableComponent(getContext(), ActivitySearch.class, checked);
+                if (BuildConfig.DEBUG)
+                    Helper.enableComponent(getContext(), ActivityAnswer.class, checked);
             }
         });
 

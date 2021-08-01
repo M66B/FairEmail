@@ -40,6 +40,12 @@ public interface DaoAnswer {
             " ORDER BY name COLLATE NOCASE")
     List<EntityAnswer> getAnswersByFavorite(boolean favorite);
 
+    @Query("SELECT * FROM answer" +
+            " WHERE external" +
+            " AND NOT hide" +
+            " ORDER BY name COLLATE NOCASE")
+    List<EntityAnswer> getAnswersExternal();
+
     @Query("SELECT * FROM answer WHERE id = :id")
     EntityAnswer getAnswer(long id);
 

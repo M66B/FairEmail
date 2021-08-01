@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -53,8 +55,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 
-import static android.app.Activity.RESULT_OK;
-
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
@@ -63,6 +63,7 @@ public class FragmentAnswer extends FragmentBase {
     private CheckBox cbReceipt;
     private CheckBox cbFavorite;
     private CheckBox cbHide;
+    private CheckBox cbExternal;
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
@@ -107,6 +108,7 @@ public class FragmentAnswer extends FragmentBase {
         cbReceipt = view.findViewById(R.id.cbReceipt);
         cbFavorite = view.findViewById(R.id.cbFavorite);
         cbHide = view.findViewById(R.id.cbHide);
+        cbExternal = view.findViewById(R.id.cbExternal);
         etText = view.findViewById(R.id.etText);
 
         style_bar = view.findViewById(R.id.style_bar);
@@ -150,6 +152,7 @@ public class FragmentAnswer extends FragmentBase {
         });
 
         // Initialize
+        cbExternal.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -201,6 +204,7 @@ public class FragmentAnswer extends FragmentBase {
                     cbReceipt.setChecked(answer == null ? false : answer.receipt);
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
                     cbHide.setChecked(answer == null ? false : answer.hide);
+                    cbExternal.setChecked(answer == null ? false : answer.external);
 
                     String html = (answer == null ? a.getString("html") : answer.text);
                     if (html == null)
@@ -218,6 +222,8 @@ public class FragmentAnswer extends FragmentBase {
 
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
+                if (BuildConfig.DEBUG)
+                    cbExternal.setVisibility(View.VISIBLE);
                 grpReady.setVisibility(View.VISIBLE);
                 bottom_navigation.setVisibility(View.VISIBLE);
             }
@@ -321,6 +327,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putBoolean("receipt", cbReceipt.isChecked());
         args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
+        args.putBoolean("external", cbExternal.isChecked());
         args.putString("html", HtmlHelper.toHtml(etText.getText(), getContext()));
 
         new SimpleTask<Void>() {
@@ -343,6 +350,7 @@ public class FragmentAnswer extends FragmentBase {
                 boolean receipt = args.getBoolean("receipt");
                 boolean favorite = args.getBoolean("favorite");
                 boolean hide = args.getBoolean("hide");
+                boolean external = args.getBoolean("external");
                 String html = args.getString("html");
 
                 if (TextUtils.isEmpty(name))
@@ -369,6 +377,7 @@ public class FragmentAnswer extends FragmentBase {
                         answer.receipt = receipt;
                         answer.favorite = favorite;
                         answer.hide = hide;
+                        answer.external = external;
                         answer.text = document.body().html();
                         answer.id = db.answer().insertAnswer(answer);
                     } else {
@@ -379,6 +388,7 @@ public class FragmentAnswer extends FragmentBase {
                         answer.receipt = receipt;
                         answer.favorite = favorite;
                         answer.hide = hide;
+                        answer.external = external;
                         answer.text = document.body().html();
                         db.answer().updateAnswer(answer);
                     }
