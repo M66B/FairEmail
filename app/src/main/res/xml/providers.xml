@@ -730,7 +730,7 @@
     <provider
         name="Strato.de"
         link="https://www.strato.com/faq/en_us/product/the-strato-email-server/"
-        mx=".*rzone.de">
+        mx=".*rzone\\.de">
         <imap
             host="imap.strato.de"
             port="993"
