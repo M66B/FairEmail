@@ -1205,4 +1205,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Mail.com"
+        link="https://support.mail.com/premium/imap/server.html#indexlink_help_premium_imap"
+        mx=".*\\.mail\\.com">
+        <imap
+            host="imap.mail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
