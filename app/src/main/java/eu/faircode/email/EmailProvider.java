@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.system.OsConstants.ECONNREFUSED;
+
 import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.os.Parcel;
@@ -64,14 +66,13 @@ import javax.net.SocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-import static android.system.OsConstants.ECONNREFUSED;
-
 public class EmailProvider implements Parcelable {
     public String id;
     public String name;
     public String description;
     public boolean enabled;
     public List<String> domain;
+    public List<String> mx;
     public int order;
     public String type;
     public int keepalive;
@@ -148,23 +149,33 @@ public class EmailProvider implements Parcelable {
                         provider = new EmailProvider();
                         provider.id = xml.getAttributeValue(null, "id");
                         provider.name = xml.getAttributeValue(null, "name");
+
                         provider.description = xml.getAttributeValue(null, "description");
                         if (provider.description == null)
                             provider.description = provider.name;
                         provider.enabled = xml.getAttributeBooleanValue(null, "enabled", true);
+
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
                             provider.domain = Arrays.asList(domain.split(","));
+
+                        String mx = xml.getAttributeValue(null, "mx");
+                        if (mx != null)
+                            provider.mx = Arrays.asList(mx.split(","));
+
                         provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
                         provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
                         provider.partial = xml.getAttributeBooleanValue(null, "partial", true);
                         provider.useip = xml.getAttributeBooleanValue(null, "useip", true);
                         provider.appPassword = xml.getAttributeBooleanValue(null, "appPassword", false);
                         provider.link = xml.getAttributeValue(null, "link");
+
                         String documentation = xml.getAttributeValue(null, "documentation");
                         if (documentation != null)
                             provider.documentation = new StringBuilder(documentation);
+
                         provider.type = xml.getAttributeValue(null, "type");
+
                         String user = xml.getAttributeValue(null, "user");
                         if ("local".equals(user))
                             provider.user = UserType.LOCAL;
@@ -276,6 +287,18 @@ public class EmailProvider implements Parcelable {
             try {
                 // Retry at MX server addresses
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
+
+                for (DnsHelper.DnsRecord record : records)
+                    if (!TextUtils.isEmpty(record.name))
+                        for (EmailProvider provider : providers)
+                            if (provider.mx != null)
+                                for (String mx : provider.mx)
+                                    if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
+                                        Log.i("Provider from mx=" + mx + " domain=" + domain);
+                                        provider.log(context);
+                                        return provider;
+                                    }
+
                 for (DnsHelper.DnsRecord record : records) {
                     String target = record.name;
                     while (autoconfig == null && target != null && target.indexOf('.') > 0) {
