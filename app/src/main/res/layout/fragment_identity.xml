@@ -761,19 +761,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etInternal" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvE2Encryption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_encryption"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInternalHint" />
+
         <CheckBox
             android:id="@+id/cbSignDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_sign_default"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInternalHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvE2Encryption" />
 
         <CheckBox
             android:id="@+id/cbEncryptDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_encrypt_default"
             app:layout_constraintStart_toStartOf="parent"
@@ -951,7 +963,7 @@
                 cbSenderExtra,cbSenderExtraName,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
                 tvInternal,etInternal,tvInternalHint,
-                cbSignDefault,cbEncryptDefault,
+                tvE2Encryption,cbSignDefault,cbEncryptDefault,
                 cbUnicode,tvUnicodeHint,tvMaxSize,etMaxSize" />
 
         <androidx.constraintlayout.widget.Group
