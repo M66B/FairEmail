@@ -680,6 +680,7 @@
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_bcc_hint">The address won\'t be shown, but will be added on sending</string>
     <string name="title_advanced_internal_hint">There will be a warning when sending to another domain</string>
+    <string name="title_advanced_e2e_encryption">Options for end-to-end encryption</string>
 
     <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
