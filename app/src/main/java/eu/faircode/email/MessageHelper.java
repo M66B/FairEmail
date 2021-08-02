@@ -1293,6 +1293,18 @@ public class MessageHelper {
         return result;
     }
 
+    boolean getSPF() throws MessagingException {
+        ensureHeaders();
+
+        // http://www.open-spf.org/RFC_4408/#header-field
+        String[] headers = imessage.getHeader("Received-SPF");
+        if (headers == null || headers.length < 1)
+            return false;
+
+        String spf = MimeUtility.unfold(headers[0]);
+        return (spf.trim().toLowerCase(Locale.ROOT).startsWith("pass"));
+    }
+
     private String fixEncoding(String name, String header) {
         if (header.trim().startsWith("=?"))
             return header;

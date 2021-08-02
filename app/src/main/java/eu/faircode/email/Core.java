@@ -2469,6 +2469,8 @@ class Core {
                             message.bimi_selector = helper.getBimiSelector();
                             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                             message.spf = MessageHelper.getAuthentication("spf", authentication);
+                            if (message.spf == null && helper.getSPF())
+                                message.spf = true;
                             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
                             message.return_path = helper.getReturnPath();
                             message.submitter = helper.getSender();
@@ -3347,6 +3349,8 @@ class Core {
             message.bimi_selector = helper.getBimiSelector();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             message.spf = MessageHelper.getAuthentication("spf", authentication);
+            if (message.spf == null && helper.getSPF())
+                message.spf = true;
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
             message.return_path = helper.getReturnPath();
             message.submitter = helper.getSender();
