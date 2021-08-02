@@ -301,14 +301,20 @@ public class ViewModelMessages extends ViewModel {
                     return;
                 }
 
+                Log.i("Observe previous/next" +
+                        " prev=" + (curState[0] == null ? null : curState[0].first + "/" + curState[0].second) +
+                        " base=" + (curState[1] == null ? null : curState[1].first + "/" + curState[1].second) +
+                        " next=" + (curState[2] == null ? null : curState[2].first + "/" + curState[2].second));
+
                 lastState[0] = curState[0];
                 lastState[1] = curState[1];
                 lastState[2] = curState[2];
 
-                if (curState[1] != null)
+                if (curState[1] != null) {
                     intf.onFound(curState[1].second, messages.size());
-                intf.onPrevious(curState[0] != null, curState[0] == null ? null : curState[0].first);
-                intf.onNext(curState[2] != null, curState[2] == null ? null : curState[2].first);
+                    intf.onPrevious(curState[0] != null, curState[0] == null ? null : curState[0].first);
+                    intf.onNext(curState[2] != null, curState[2] == null ? null : curState[2].first);
+                }
 
                 if (curState[1] != null &&
                         (curState[0] == null || curState[0].first != null) &&
@@ -355,6 +361,23 @@ public class ViewModelMessages extends ViewModel {
                         return null;
                     }
 
+                    @Override
+                    protected void onExecuted(Bundle args, Pair<Long, Long> data) {
+                        if (data == null) {
+                            Log.i("Observe previous/next fallback=none");
+                            return; // keep current
+                        }
+
+                        intf.onPrevious(data.first != null, data.first);
+                        intf.onNext(data.second != null, data.second);
+                        intf.onFound(-1, messages.size());
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        // No nothing
+                    }
+
                     private Pair<Long, Long> getPair(
                             PagedList<TupleMessageEx> plist,
                             LimitOffsetDataSource<TupleMessageEx> ds,
@@ -378,18 +401,6 @@ public class ViewModelMessages extends ViewModel {
                                 next == null ? null : next.id);
                         Log.i("Observe previous/next fallback=" + result);
                         return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Pair<Long, Long> data) {
-                        intf.onPrevious(data != null && data.first != null, data == null ? null : data.first);
-                        intf.onNext(data != null && data.second != null, data == null ? null : data.second);
-                        intf.onFound(-1, messages.size());
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        // No nothing
                     }
                 }.execute(context, owner, args, "model:fallback");
             }
