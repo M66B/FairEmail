@@ -592,6 +592,7 @@
     <string name="title_advanced_sender_hint">Більшість провайдерів не дозволяють змінювати адреси відправника</string>
     <string name="title_advanced_bcc_hint">Адреса не буде показана, але буде додана при відправленні</string>
     <string name="title_advanced_internal_hint">При надсиланні на інший домен буде попередження</string>
+    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">Параметри наскрізного шифрування</string>
     <string name="title_advanced_display_harmful_hint">Вимкнення цієї опції може зашкодити вашій конфіденційності</string>
     <string name="title_advanced_display_hidden_hint">Це може призвести до дивного вигляду та подвійних текстів</string>
     <string name="title_advanced_display_pin_hint">PIN-код має пріоритет над біометричною аутентифікацією</string>
@@ -1165,6 +1166,7 @@
     <string name="title_select_found">Вибрати знайдене</string>
     <string name="title_mark_all_read">Позначити всі як прочитані</string>
     <string name="title_force_sync">Примусова синхронізація</string>
+    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">Примусове перезавантаження</string>
     <string name="title_force_send">Примусове надсилання</string>
     <string name="title_language_all">Усі</string>
     <string name="title_previous">Попереднє</string>

@@ -584,6 +584,7 @@
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_bcc_hint">Adresa nu va fi afișată, dar va fi adăugată la trimitere</string>
     <string name="title_advanced_internal_hint">Va exista un avertisment la trimiterea către un alt domeniu</string>
+    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">Opțiuni pentru criptarea end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
@@ -1157,6 +1158,7 @@
     <string name="title_select_found">Selectare găsite</string>
     <string name="title_mark_all_read">Marcheaza tot ca citit</string>
     <string name="title_force_sync">Sincronizare forțată</string>
+    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">Forțați repornirea</string>
     <string name="title_force_send">Trimite forțat</string>
     <string name="title_language_all">Toate</string>
     <string name="title_previous">Precedent</string>

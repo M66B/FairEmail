@@ -2685,98 +2685,98 @@ The error *User is authenticated but not connected* might occur if:
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
 * The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
-* An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
+* Paylaşılan bir poçt qutusu üçün yanlış giriş sxemi istifadə olunur, doğru sxem belədir: *username@domain\SharedMailboxAlias*
 
-The shared mailbox alias will mostly be the email address of the shared account, like this:
+Paylaşılan poçt qutusu ləqəbi, əksər hallarda paylaşılan hesabın e-poçt ünvanı olacaq, məsələn belə:
 
 
 
 ```
-you@example.com\shared@example.com
+siz@nümunə.com\paylaşılan@nümunə.com
 ```
 
 
-Note that it should be a backslash and not a forward slash.
+Diqqət edin ki, burada "/" deyil, onun tərsi, yəni "\" olmalıdır.
 
-When using a shared mailbox, you'll likely want to enable the option *Synchronize shared folder lists* in the receive settings.
+Paylaşılan bir poçt qutusu istifadə edərkən, böyük ehtimalla alma tənzimləmələrində *Paylaşılan qovluq siyahılarını eyniləşdir* seçimini fəallaşdırmaq istəyəcəksiniz.
 
 <br />
 
 <a name="faq140"></a>
-**(140) Why does the message text contain strange characters?**
+**(140) Mesaj mətnində niyə qəribə simvollar var?**
 
-Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Other than that there is no way to reliably determine the correct character encoding automatically, so this cannot be fixed by FairEmail. The right action is to complain to the sender.
+Qəribə simvolların görüntülənməsi, demək olar ki, həmişə göndərənin proqram təminatı ya heç bir simvolu, ya da etibarsız simvolların kodlaşdırılmasını göstərdiyi üçün baş verir. Heç bir simvol tənzimlənməyəndə ya da, [US-ASCII](https://en.wikipedia.org/wiki/ASCII) göstəriləndə FairEmail, [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) qəbul edəcək. Bundan başqa doğru simvol kodlaşdırmasını güvənli şəkildə avtomatik müəyyənləşdirməyin heç bir yolu yoxdur, buna görə də, bu, FairEmail tərəfindən düzəldilə bilməz. Doğru əməliyyat, göndərənə şikayət göndərir.
 
 <br />
 
 <a name="faq141"></a>
-**(141) How can I fix 'A drafts folder is required to send messages'?**
+**(141) "Mesaj göndərmək üçün bir qaralama qovluğu tələb olunur" problemini necə düzəldə bilərəm?**
 
-To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
+Qaralama mesajları saxlamaq üçün qaralama qovluğu tələb olunur. Bir çox hallarda FairEmail, e-poçt serverinin göndərdiyi [atributlara](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) əsaslanaraq bir hesab əlavə edəndə qaralamalar qovluğunu avtomatik seçəcək. Yenə də, bəzi e-poçt serverləri düzgün konfiqurasiya edilməyib və bu atributları göndərmir. Bu halda FairEmail, qaralamalar qovluğunu ada görə müəyyənləşdirməyə çalışır, əgər qaralamalar qovluğunun qeyri-adi bir adı varsa və ya ümumiyyətlə heç yoxdursa bu proses uğursuz ola bilər.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+Hesablar tənzimləmələrində qaralamalar qovluğunu əllə seçərək bu problemi həll edə bilərsiniz (Tənzimləmələr > Əllə quraşdırma > Hesablar > ən altdakı hesaba toxunun). Heç bir qaralama qovluğu yoxdursa, hesabın qovluq siyahısındakı "+" düyməsinə toxunaraq qaralamalar qovluğunu yarada bilərsiniz (naviqasiya menyusundakı hesab adına toxunun).
 
-Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
+Gmail kimi bəzi təchizatçılar, fərdi qovluqlar üçün IMAP-ın fəallaşdırılmasına/sıradan çıxarılmasına icazə verir. Ona görə də, əgər bir qovluq görünmürsə, qovluq üçün IMAP-ı fəallaşdırmalısınız.
 
-Quick link for Gmail (will work on a desktop computer only): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Gmail üçün cəld bağlantı (yalnız masaüstü kompüterdə işləyəcək): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
 <a name="faq142"></a>
-**(142) How can I store sent messages in the inbox?**
+**(142) Gələn qutusunda göndərilən mesajları necə saxlaya bilərəm?**
 
-Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
+Ümumiyyətlə, geri alınması çətin olduğu və digər e-poçt müştəriləri ilə uyğunsuz ola biləcəyi üçün gələn qutusunda göndərilən mesajları saxlamaq heç də yaxşı fikir deyil.
 
-That said, FairEmail is able to properly handle sent messages in the inbox. FairEmail will mark outgoing messages with a sent messages icon for example.
+Əlavə olaraq FairEmail, göndərilən mesajları gələn qutusunda düzgün formada emal edə bilər. FairEmail, misal üçün gedən mesajları göndərilmiş mesajlar nişanı ilə işarələyəcək.
 
-The best solution would be to enable showing the sent folder in the unified inbox by long pressing the sent folder in the folder list and enabling *Show in unified inbox*. This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
+Ən yaxşı həll yolu, qovluq siyahısındakı göndərilənlər qovluğuna uzun basaraq və *Birləşmiş gələn qutusunda göstər* seçimini fəallaşdıraraq, birləşmiş gələn qutusundakı göndərilənlər qovluğunun göstərilməsini fəallaşdırmaqdır. Beləcə bütün mesajlar aid olduğu yerdə qala bilər, həmçinin həm gələn, həm də gedən mesajlara tək bir yerdə baxmasına şərait yaradır.
 
-If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox or set a default CC/BCC address in the advanced identity settings to send yourself a copy.
+Bu bir seçim deyilsə, mesajların avtomatik olaraq gələn qutusuna köçürülməsi üçün [bir qayda yarada](#user-content-faq71) və ya özünüzə bir kopyasını göndərmək üçün qabaqcıl kimlik tənzimləmələrində ilkin bir CC/BCC ünvanı tənzimləyə bilərsiniz.
 
 <br />
 
 <a name="faq143"></a>
-**~~(143) Can you add a trash folder for POP3 accounts?~~**
+**~~(143) POP3 hesabları üçün bir tullantı qovluğu əlavə edə bilərsiniz?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) həddindən artıq limitli protokoldur. Əsasən mesajlar yalnız gələn qutusundan endirilə və silinə bilər. Bir mesajı oxundu kimi işarələmək belə mümkün deyil.
 
-Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
+POP3, tullantı qovluğuna müraciətə heç bir halda icazə vermədiyi üçün, tullantı qovluğundakı mesajları bərpa etməyin heç bir yolu yoxdur.
 
-Note that you can hide messages and search for hidden messages, which is similar to a local trash folder, without suggesting that trashed messages can be restored, while this is actually not possible.
+Yerli bir tullantı qovluğundakı kimi mesajların bərpa edilə biləcəyini təklif etməzdən əvvəl, mesajları gizlədə və gizli mesajları axtara biləcəyinizi unutmayın. Ancaq bu əslində mümkün deyil.
 
-Version 1.1082 added a local trash folder. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
+1.1082 versiyasında yerli bir tullantı qovluğu əlavə edilib. Unutmayın ki, bir mesajı tullantı qovluğuna atanda, həmin mesaj serverdən birdəfəlik silinir və tullantıya atılmış mesajlar heç bir halda serverdə bərpa edilə bilmir.
 
 <br />
 
 <a name="faq144"></a>
-**(144) How can I record voice notes?**
+**(144) Səsli qeydləri necə yaza bilərəm?**
 
-To record voice notes you can press this icon in the bottom action bar of the message composer:
+Səsli qeydləri yazmaq üçün mesaj yaradıcının alt hərəkət sətrindəki bu nişana basa bilərsiniz:
 
 ![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
-This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
+Bunun üçün uyğun bir səsyazan tətbiq quraşdırılmalıdır. Xüsusilə də [bu ortaq məqsədin](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) dəstəklənməsi lazımdır.
 
-For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
+Misal üçün [bu səsyazan](https://f-droid.org/app/com.github.axet.audiorecorder) uyğundur.
 
-Voice notes will automatically be attached.
+Səsli qeydlər avtomatik olaraq əlavə edilir.
 
 <br />
 
 <a name="faq145"></a>
-**(145) How can I set a notification sound for an account, folder or sender?**
+**(145) Bir hesab, qovluq və ya göndərən üçün bildiriş səsini necə tənzimləyə bilərəm?**
 
-Account:
+Hesab:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
-* Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
+* Qabaqcıl hesab tənzimləmələrində *Ayrı bildirişlər* seçimini fəallaşdırın (Tənzimləmələr > Əllə quraşdırma > Hesablar > Hesab > Qabaqcıl)
+* Hesab siyahısındakı hesaba uzun basın (Tənzimləmələr > Əllə quraşdırma > Hesablar) və bildiriş səsini dəyişdirmək üçün *Bildiriş kanalına düzəliş et* seçimini seçin
 
-Folder:
+Qovluq:
 
-* Long press the folder in the folder list and select *Create notification channel*
-* Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
+* Qovluq siyahısındakı bir qovluğa uzun basın və *Bildiriş kanalı yarat* seçimini seçin
+* Qovluq siyahısındakı bir qovluğa uzun basın və bildiriş səsini dəyişdirmək üçün *Bildiriş kanalına düzəliş et* seçimini seçin
 
-Sender:
+Göndərən:
 
 * Göndərəndən bir mesajı açın və genişləndirin
 * Aşağı oxa toxunaraq ünvanlar bölməsini genişləndirin
@@ -2784,7 +2784,7 @@ Sender:
 
 Üstünlük sırası: göndərən səsi, qovluq səsi, hesab səsi və ilkin səs.
 
-Bir hesab, qovluq və ya göndərən üçün bildiriş səsini tənzimləmək, Android 8 Oreo və ya yuxarı versiyanı tələb edir və bu Pro özəllikdir.
+Bir hesab, qovluq və ya göndərən üçün bildiriş səsini tənzimləmək, Android 8 Oreo və ya daha yuxarı versiyanı tələb edir və bu Pro özəllikdir.
 
 <br />
 
@@ -2797,7 +2797,7 @@ Bəzən serverin alınan tarix/vaxtı yanlış olur, əksər hallarda mesajlar b
 
 Belə nadir hallarda, "FairEmail"in ya *Tarix* başlığından (göndərilən vaxt), ya da *Alındı* başlığından tarix/vaxtı müvəqqəti həll yolu kimi istifadə etməsinə icazə vermək mümkündür. Bu, qabaqcıl hesab tənzimləmələrində dəyişdirilə bilər: Tənzimləmələr > Əllə quraşdırma > Hesablar > Hesab > Qabaqcıl.
 
-Bu, əvvəlcədən eyniləşdirilmiş mesajların vaxtını dəyişdirmir. Bunu həll etmək üçün qovluq siyahısında qovluq(lar)a uzun basın və *Yerli mesajları sil*i və *İndi eyniləşdir*i seçin.
+Bu, əvvəlcədən eyniləşdirilmiş mesajların vaxtını dəyişdirmir. Bunu həll etmək üçün qovluq siyahısında qovluq(lar)a uzun basın və *Yerli mesajları sil* və *İndi eyniləşdir* seçimlərini seçin.
 
 <br />
 
@@ -2866,7 +2866,7 @@ Bunun əvəzində, mesajların nüsxələnməsi üçün məsuliyyəti e-poçt t�
 
 1.1556 versiyasından etibarən, bir POP3 qovluğunun bütün mesajlarını [RFC4155-ə](https://www.ietf.org/rfc/rfc4155.txt) görə mbox formatında ixrac edilməsi mümkündür, bu, e-poçt serveri bunu etmədiyi halda, göndərilən mesajların saxlanılması üçün faydalı olacaq.
 
-Bir mbox faylını mövcud bir e-poçt hesabına idxal etmək istəyirsinizsə, "Thunderbird"i masaüstü kompüterdə və [ImportExportTools-u](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) əlavədə istifadə edə bilərsiniz.
+Bir mbox faylını mövcud bir e-poçt hesabına idxal etmək istəyirsinizsə, "Thunderbird"i masaüstü kompüterdə və [ImportExportTools-u](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) səyyah əlavəsində istifadə edə bilərsiniz.
 
 <br />
 
