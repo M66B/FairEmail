@@ -2585,106 +2585,106 @@ Please see [here](#user-content-faq22) for other error messages in the outbox.
 
 If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
 
-This behavior seems quite natural to me, also because it is similar to turning pages.
+Bu davranış mənə olduqca normal görünür, çünki səhifələrin çevrilməsinə də oxşayır.
 
-Anyway, there is a behavior setting to reverse the swipe direction.
+Yenə də, sürüşdürmə istiqamətini tərsinə çevirmək üçün bir davranış tənzimləməsi var.
 
 <br />
 
 <a name="faq132"></a>
-**(132) Why are new message notifications silent?**
+**(132) Yeni mesajların bildirişləri niyə səssizdədir?**
 
-Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
+Bildirişlər bəzi MIUI versiyalarında ilkin olaraq səssizdədir. Bunun necə düzəldiləcəyinə baxmaq üçün zəhmət olmasa [bura](http://en.miui.com/thread-3930694-1-1.html) baxın.
 
-There is a bug in some Android versions causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to mute notifications. Since FairEmail shows new message notifications right after fetching the message headers and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
+Bəzi Android versiyalarında [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean))-ın bildirişləri səssizə almasına səbəb olan bir xəta var. FairEmail, mesaj başlıqlarını aldıqdan dərhal sonra yeni mesaj bildirişlərini göstərir və FairEmail-in, mesaj mətnini aldıqdan sonra yeni mesaj bildirişlərini yeniləməsinə ehtiyac var. Bu, FairEmail tərəfindən düzəldilə və ya həll edilə bilməz.
 
-Android might rate limit the notification sound, which can cause some new message notifications to be silent.
+Android, bildiriş səsinin sürətini məhdudlaşdıra bilər, bu da bəzi yeni mesaj bildirişlərinin səssizdə qalmasına səbəb ola bilər.
 
 <br />
 
 <a name="faq133"></a>
-**(133) Why is ActiveSync not supported?**
+**(133) Niyə ActiveSync dəstəklənmir?**
 
-The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
+Microsoft Exchange ActiveSync protokolu [patentləşdirilib](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) və buna görə də dəstəklənmir. Buna görə də ActiveSync-i dəstəkləyən başqa bir e-poçt müştərisi tapa bilməzsiniz.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Unutmayın ki, FairEmail-in açıqlaması belə başlayır: Microsoft Exchange Veb Xidmətləri və Microsoft ActiveSync kimi standart olmayan protokollar dəstəklənmir.
 
 <br />
 
 <a name="faq134"></a>
-**(134) Can you add deleting local messages?**
+**(134) Yerli (yaddaşdakı) mesajları silməyi əlavə edə bilərsiniz?**
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+Hesab tənzimləmələrində (Tənzimləmələr > Əllə quraşdırma > Hesablar > Hesab) *Silinən mesajları serverdə burax* seçimini fəallaşdıra bilərsiniz.
 
 *IMAP*
 
-Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
+IMAP protokolu iki formada eyniləşdirməyi nəzərdə tutduğu üçün cihazdan bir mesajın silinməsi, təkrar eyniləşdirmə zamanı mesajın yenidən alınmasına səbəb olacaq.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
+Ancaq FairEmail, mesaj mətninin üzərindəki hərəkət sətrindəki üç-nöqtə menyusu vasitəsilə və ya mesaj siyahısında bir neçə mesajı seçərək mesajların gizlədilməsini dəstəkləyir. Əsasən bu, POP3 protokolunun "serverdə burax" tənzimləməsi ilə eynidir və ehtiyac olanda mesajları yenidən göstərə bilmə üstünlüyünə sahibdir.
 
-Note that it is possible to set the swipe left or right action to hide a message.
+Unutmayın ki, bir mesajı gizlətmək üçün sola və ya sağa sürüşdürmə əməliyyatını tənzimləmək mümkündür.
 
 <br />
 
 <a name="faq135"></a>
-**(135) Why are trashed messages and drafts shown in conversations?**
+**(135) Tullantı və qaralamalar qovluğundakı mesajlar niyə danışıqlarda göstərilir?**
 
-Individual messages will rarely be trashed and mostly this happens by accident. Showing trashed messages in conversations makes it easier to find them back.
+Fərdi mesajlar nadir hallarda tullantı qovluğuna atılır və əksər hallarda bu təsadüfən baş verir. Danışıqlarda tullantı qovluğuna atılan mesajların göstərilməsi, onların tapılmasını asanlaşdırır.
 
-You can permanently delete a message using the message three-dots *delete* menu, which will remove the message from the conversation. Note that this irreversible.
+Mesajı birdəfəlik silmək üçün üç-nöqtəli *sil* menyusunu istifadə edə bilərsiniz, bu da, mesajı danışıqdan siləcək. Unutmayın ki, bunun geri dönüşü yoxdur.
 
-Similarly, drafts are shown in conversations to find them back in the context where they belong. It is easy to read through the received messages before continuing to write the draft later.
+Eynilə, qaralamalar, aid olduğu konteksdə tapılması üçün danışıqlarda göstərilir. Qaralamanı daha sonra yazmağa davam etməzdən əvvəl alınan mesajları oxumaq asandır.
 
 <br />
 
 <a name="faq136"></a>
-**(136) How can I delete an account/identity/folder?**
+**(136) Bir hesabı/kimliyi/qovluğu necə silə bilərəm?**
 
-Deleting an account/identity/folder is a little bit hidden to prevent accidents.
+İstəmədən və səhvən silmənin qarşısını almaq üçün bir hesabın/kimliyin/qovluğun silinməsi bir az gizlədilmişdir.
 
-* Account: Settings > Manual setup > Accounts > tap account
-* Identity: Settings > Manual setup > Identities > tap identity
-* Folder: Long press the folder in the folder list > Edit properties
+* Hesab: Tənzimləmələr > Əllə quraşdırma > Hesablar > Hesab
+* Kimlik: Tənzimləmələr > Əllə quraşdırma > Kimliklər > Kimlik
+* Qovluq: Qovluq siyahısında qovluğa uzun basın > Xüsusiyyətlərə düzəliş et
 
-In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
+Sağ üstdəki üç-nöqtəli daşma menyusunda hesabı/kimliyi/qovluğu silmək üçün bir element var.
 
 <br />
 
 <a name="faq137"></a>
-**(137) How can I reset 'Don't ask again'?**
+**(137) "Bir də soruşma"nı necə sıfırlaya bilərəm?**
 
-You can reset all questions set to be not asked again in the miscellaneous settings.
+Yenidən soruşmayacaq şəkildə tənzimlənmiş bütün sualları Qarışıq tənzimləmələrində sıfırlaya bilərsiniz.
 
 <br />
 
 <a name="faq138"></a>
-**(138) Can you add calendar/contact/tasks/notes management?**
+**(138) Təqvim/əlaqə/tapşırıq/qeyd idarəetməsi əlavə edə bilərsiniz?**
 
-Calendar, contact, task and note management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+Təqvim, əlaqə, tapşırıq və qeyd idarəetməsi ayrı, xüsusi bir tətbiqlə daha yaxşı edilə bilər. Unutmayın ki, FairEmail, bir ofis paketi deyil, xüsusi bir e-poçt tətbiqidir.
 
-Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
+Həmçinin, bir çox şeyi yarımçıq saxlamaq əvəzinə bir neçə şeyi yaxşı etməyi üstün tuturam. Həmçinin təhlükəsizlik baxımından, bir tətbiqə bir neçə icazə vermək heç də yaxşı bir fikir deyil.
 
-You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
+Təqvimlərinizi/əlaqələrinizi eyniləşdirmək/idarə etmək üçün mükəmməl, açıq mənbəli [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) tətbiqini istifadə etməyi məsləhət görürəm.
 
-Most providers support exporting your contacts. Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
+Əksər təchizatçılar əlaqələri ixrac etməyi dəstəkləyir. Əgər eyniləşdirmə mümkün deyilsə, əlaqələri necə idxal edə biləyiniz barəsində zəhmət olmasa [bura baxın](https://support.google.com/contacts/answer/1069522).
 
-Note that FairEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
+Unutmayın ki, FairEmail təqvim dəvətlərini cavablamağı (pro özəllik) və şəxsi təqviminizə təqvim dəvətlərini əlavə etməyi dəstəkləyir.
 
 <br />
 
 <a name="faq83"></a>
 <a name="faq139"></a>
-**(139) How do I fix 'User is authenticated but not connected'?**
+**(139) "İstifadəçinin kimliyi təsdiqləndi, ancaq bağlantı qurulmadı" problemini necə düzəldə bilərəm?**
 
-In fact this Microsoft Exchange specific error is an incorrect error message caused by a bug in older Exchange server software.
+Əslində bu, "Microsoft Exchange"ə xas olan bir xətadır, köhnə Exchange serverinin proqram təminatındakı bir xətaya görə yaranmış yanlış xəta mesajıdır.
 
-The error *User is authenticated but not connected* might occur if:
+*İstifadəçinin kimliyi təsdiqləndi, ancaq bağlantı qurulmadı* xətası, bu hallarda yarana bilər:
 
-* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
-* The account password was changed: changing it in FairEmail too should fix the problem
-* An alias email address is being used as username instead of the primary email address
+* Ani mesajlar çox qovluq üçün fəallaşdırıldı: daha çox məlumat və müvəqqəti həll yolu üçün [bu TSS](#user-content-faq23)-a baxın
+* Hesab şifrəsi dəyişdirildi: şifrəni FairEmail-də də dəyişdirmək, problemi həll edəcək
+* İstifadəçi adı kimi əsas e-poçt ünvanı əvəzinə ləqəb e-poçt ünvanı istifadə edilir
 * Paylaşılan bir poçt qutusu üçün yanlış giriş sxemi istifadə olunur, doğru sxem belədir: *username@domain\SharedMailboxAlias*
 
 Paylaşılan poçt qutusu ləqəbi, əksər hallarda paylaşılan hesabın e-poçt ünvanı olacaq, məsələn belə:
@@ -2692,7 +2692,7 @@ Paylaşılan poçt qutusu ləqəbi, əksər hallarda paylaşılan hesabın e-po�
 
 
 ```
-siz@nümunə.com\paylaşılan@nümunə.com
+siz@nümune.com\paylaşılan@nümune.com
 ```
 
 
@@ -2729,7 +2729,7 @@ Gmail üçün cəld bağlantı (yalnız masaüstü kompüterdə işləyəcək): 
 
 Əlavə olaraq FairEmail, göndərilən mesajları gələn qutusunda düzgün formada emal edə bilər. FairEmail, misal üçün gedən mesajları göndərilmiş mesajlar nişanı ilə işarələyəcək.
 
-Ən yaxşı həll yolu, qovluq siyahısındakı göndərilənlər qovluğuna uzun basaraq və *Birləşmiş gələn qutusunda göstər* seçimini fəallaşdıraraq, birləşmiş gələn qutusundakı göndərilənlər qovluğunun göstərilməsini fəallaşdırmaqdır. Beləcə bütün mesajlar aid olduğu yerdə qala bilər, həmçinin həm gələn, həm də gedən mesajlara tək bir yerdə baxmasına şərait yaradır.
+Ən yaxşı həll yolu, qovluq siyahısındakı göndərilənlər qovluğuna uzun basaraq və *Birləşmiş gələn qutusunda göstər* seçimini fəallaşdıraraq, birləşmiş gələn qutusundakı göndərilənlər qovluğunun göstərilməsini fəallaşdırmaqdır. Beləcə bütün mesajlar aid olduğu yerdə qala bilər, həmçinin həm gələn, həm də gedən mesajlara tək bir yerdə baxmağınıza şərait yaradır.
 
 Bu bir seçim deyilsə, mesajların avtomatik olaraq gələn qutusuna köçürülməsi üçün [bir qayda yarada](#user-content-faq71) və ya özünüzə bir kopyasını göndərmək üçün qabaqcıl kimlik tənzimləmələrində ilkin bir CC/BCC ünvanı tənzimləyə bilərsiniz.
 
