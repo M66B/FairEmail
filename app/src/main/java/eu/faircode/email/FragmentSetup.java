@@ -212,6 +212,10 @@ public class FragmentSetup extends FragmentBase {
                 menu.add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other)
                         .setIcon(R.drawable.twotone_auto_fix_high_24);
 
+                menu.add(Menu.NONE, R.string.title_setup_classic, order++, R.string.title_setup_classic)
+                        .setIcon(R.drawable.twotone_settings_24)
+                        .setVisible(BuildConfig.DEBUG);
+
                 SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                 menu.add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
@@ -246,6 +250,22 @@ public class FragmentSetup extends FragmentBase {
                             return true;
                         } else if (itemId == R.string.title_setup_other) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
+                            return true;
+                        } else if (itemId == R.string.title_setup_classic) {
+                            ibManual.setPressed(true);
+                            ibManual.setPressed(false);
+                            manual = true;
+                            updateManual();
+                            view.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        scrollTo(R.id.ibManual, 0);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+                            });
                             return true;
                         } else if (itemId == R.string.title_setup_pop3) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));

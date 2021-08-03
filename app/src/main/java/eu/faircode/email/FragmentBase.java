@@ -133,13 +133,17 @@ public class FragmentBase extends Fragment {
         scroll.post(new Runnable() {
             @Override
             public void run() {
-                Rect rect = new Rect();
-                child.getDrawingRect(rect);
-                scroll.offsetDescendantRectToMyCoords(child, rect);
-                int y = rect.top - scroll.getPaddingTop() + dy;
-                if (y < 0)
-                    y = 0;
-                scroll.scrollTo(0, y);
+                try {
+                    Rect rect = new Rect();
+                    child.getDrawingRect(rect);
+                    scroll.offsetDescendantRectToMyCoords(child, rect);
+                    int y = rect.top - scroll.getPaddingTop() + dy;
+                    if (y < 0)
+                        y = 0;
+                    scroll.scrollTo(0, y);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         });
     }
