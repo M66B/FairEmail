@@ -1131,7 +1131,8 @@
     </provider>
     <provider
         name="GoDaddy Workspace"
-        link="https://www.godaddy.com/help/server-and-port-settings-for-workspace-email-6949">
+        link="https://www.godaddy.com/help/server-and-port-settings-for-workspace-email-6949"
+        mx=".*\\.secureserver\\.net">
         <imap
             host="imap.secureserver.net"
             port="993"
