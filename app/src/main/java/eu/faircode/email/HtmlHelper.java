@@ -130,7 +130,7 @@ public class HtmlHelper {
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
-    private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
+    private static final double BG_LUM_THRESHOLD = 0.1;
     private static final float MIN_LUMINANCE = 0.7f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_ALT = 250;
@@ -626,8 +626,11 @@ public class HtmlHelper {
                                 if (color != null)
                                     element.attr("x-color", "true");
                             } else /* background */ {
-                                if (color != null && !hasColor(color))
-                                    continue;
+                                if (color != null && view) {
+                                    double lum = ColorUtils.calculateLuminance(color);
+                                    if (dark ? lum < BG_LUM_THRESHOLD : lum > 1 - BG_LUM_THRESHOLD)
+                                        color = Color.TRANSPARENT;
+                                }
 
                                 if (color != null)
                                     element.attr("x-background", "true");
@@ -1702,14 +1705,6 @@ public class HtmlHelper {
                     dark ? Color.WHITE : Color.BLACK,
                     dark ? min - lum : lum - (1 - min));
         return color;
-    }
-
-    private static boolean hasColor(int color) {
-        int r = Color.red(color);
-        int g = Color.green(color);
-        int b = Color.blue(color);
-        return (Math.abs(r - g) >= COLOR_THRESHOLD ||
-                Math.abs(r - b) >= COLOR_THRESHOLD);
     }
 
     // https://tools.ietf.org/html/rfc3676
