@@ -1115,6 +1115,12 @@ public class HtmlHelper {
                 Log.i("Removing small image");
                 Integer width = Helper.parseInt(img.attr("width").trim());
                 Integer height = Helper.parseInt(img.attr("height").trim());
+                if (width != null && height != null) {
+                    if (width == 0 && height != 0)
+                        width = height;
+                    if (width != 0 && height == 0)
+                        height = width;
+                }
                 if ((width != null && width <= SMALL_IMAGE_SIZE) ||
                         (height != null && height <= SMALL_IMAGE_SIZE)) {
                     img.remove();
@@ -1865,7 +1871,13 @@ public class HtmlHelper {
             return false;
 
         try {
-            return (Integer.parseInt(width) * Integer.parseInt(height) <= TRACKING_PIXEL_SURFACE);
+            int w = Integer.parseInt(width);
+            int h = Integer.parseInt(height);
+            if (w == 0 && h != 0)
+                w = h;
+            if (w != 0 && h == 0)
+                h = w;
+            return (w * h <= TRACKING_PIXEL_SURFACE);
         } catch (NumberFormatException ignored) {
             return false;
         }
