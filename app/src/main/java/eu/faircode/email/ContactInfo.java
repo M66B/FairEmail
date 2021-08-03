@@ -476,7 +476,8 @@ public class ContactInfo {
                         Log.i(ex);
                     else {
                         if (ex instanceof FileNotFoundException ||
-                                ex instanceof CertPathValidatorException)
+                                ex instanceof CertPathValidatorException ||
+                                ex.getCause() instanceof CertPathValidatorException)
                             Log.i(ex);
                         else
                             Log.e(ex);
