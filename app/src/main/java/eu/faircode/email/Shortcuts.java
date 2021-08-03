@@ -202,7 +202,7 @@ class Shortcuts {
 
         IconCompat icon = IconCompat.createWithBitmap(bitmap);
         String id = (name == null ? email : "\"" + name + "\" <" + email + ">");
-        Set<String> categories = new HashSet<>(Arrays.asList("eu.faircode.email.TEXT_SHARE_TARGET"));
+        Set<String> categories = new HashSet<>(Arrays.asList(BuildConfig.APPLICATION_ID + ".TEXT_SHARE_TARGET"));
         ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
                 .setIcon(icon)
                 .setShortLabel(name == null ? email : name)

@@ -24,7 +24,7 @@
     </shortcut>
 
     <share-target android:targetClass="eu.faircode.email.debug.ActivityCompose">
-        <category android:name="eu.faircode.email.TEXT_SHARE_TARGET" />
+        <category android:name="eu.faircode.email.debug.TEXT_SHARE_TARGET" />
         <data android:mimeType="text/plain" />
     </share-target>
 </shortcuts>
