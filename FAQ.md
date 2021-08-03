@@ -1182,6 +1182,8 @@ Sometimes you can workaround this by using another SMTP port. See the documentat
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network),
 the VPN provider might block the connection because it is too aggressively trying to prevent spam.
+Similarly, the email server might block connections via a VPN because it was misused for sending spam.
+Some VPN providers have "cleaner" IP addresses than others, so switching to another VPN provider might be useful.
 Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
 **Send errors**
