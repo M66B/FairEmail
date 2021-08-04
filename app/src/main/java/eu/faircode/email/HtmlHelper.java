@@ -2681,7 +2681,7 @@ public class HtmlHelper {
                     // Apply calculated font size
                     String xFontSize = element.attr("x-font-size-rel");
                     if (!TextUtils.isEmpty(xFontSize)) {
-                        Float fsize = Float.parseFloat(xFontSize);
+                        float fsize = Float.parseFloat(xFontSize);
                         if (fsize != 1.0f)
                             setSpan(ssb, new RelativeSizeSpan(fsize), start, ssb.length());
                     }
