@@ -619,14 +619,12 @@ public class HtmlHelper {
 
                                     if (color != null && view)
                                         color = adjustColor(dark, textColorPrimary, color);
-                                } else {
-                                    // Check background/foreground luminance
+                                } else if (bg == Color.TRANSPARENT) {
+                                    // Background color was suppressed because "no color"
                                     if (color != null) {
-                                        double lbg = ColorUtils.calculateLuminance(bg);
-                                        double lfg = ColorUtils.calculateLuminance(color);
-                                        if (Math.abs(lbg - lfg) < 0.1) {
-                                            color = (lbg < 0.5 ? Color.WHITE : Color.BLACK);
-                                        }
+                                        double lum = ColorUtils.calculateLuminance(color);
+                                        if (dark ? lum < MIN_LUMINANCE : lum > 1 - MIN_LUMINANCE)
+                                            color = textColorPrimary;
                                     }
                                 }
 
@@ -634,7 +632,7 @@ public class HtmlHelper {
                                     element.attr("x-color", "true");
                             } else /* background */ {
                                 if (color != null && !hasColor(color))
-                                    continue;
+                                    color = Color.TRANSPARENT;
 
                                 if (color != null)
                                     element.attr("x-background", encodeWebColor(color));
