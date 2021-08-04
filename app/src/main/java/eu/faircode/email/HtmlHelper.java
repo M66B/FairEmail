@@ -24,6 +24,7 @@ import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -38,6 +39,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
@@ -378,6 +380,16 @@ public class HtmlHelper {
         boolean dark = Helper.isDarkTheme(context);
         int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         int textColorPrimaryInverse = Helper.resolveColor(context, android.R.attr.textColorPrimaryInverse);
+
+        int textSizeSmall;
+        TypedArray ta = context.obtainStyledAttributes(
+                R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
+        if (ta == null)
+            textSizeSmall = Helper.dp2pixels(context, 6);
+        else {
+            textSizeSmall = ta.getDimensionPixelSize(0, 0);
+            ta.recycle();
+        }
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
@@ -1154,12 +1166,17 @@ public class HtmlHelper {
                         if (linked)
                             alt = context.getString(R.string.title_image_link);
                     }
-                    if (!TextUtils.isEmpty(alt))
-                        img.appendText("[" + alt + "]");
+                    if (!TextUtils.isEmpty(alt)) {
+                        Element span = document.createElement("span")
+                                .text("[" + alt + "]")
+                                .attr("x-font-size-abs", Integer.toString(textSizeSmall));
+                        img.appendChild(span);
+                    }
                 } else if (!TextUtils.isEmpty(alt)) {
-                    Element a = document.createElement("a");
-                    a.attr("href", tracking);
-                    a.text("[" + alt + "]");
+                    Element a = document.createElement("a")
+                            .attr("href", tracking)
+                            .text("[" + alt + "]")
+                            .attr("x-font-size-abs", Integer.toString(textSizeSmall));
                     img.appendChild(a);
                 }
 
@@ -2679,11 +2696,17 @@ public class HtmlHelper {
                     }
 
                     // Apply calculated font size
-                    String xFontSize = element.attr("x-font-size-rel");
-                    if (!TextUtils.isEmpty(xFontSize)) {
-                        float fsize = Float.parseFloat(xFontSize);
-                        if (fsize != 1.0f)
-                            setSpan(ssb, new RelativeSizeSpan(fsize), start, ssb.length());
+                    String xFontSizeAbs = element.attr("x-font-size-abs");
+                    if (TextUtils.isEmpty(xFontSizeAbs)) {
+                        String xFontSizeRel = element.attr("x-font-size-rel");
+                        if (!TextUtils.isEmpty(xFontSizeRel)) {
+                            float fsize = Float.parseFloat(xFontSizeRel);
+                            if (fsize != 1.0f)
+                                setSpan(ssb, new RelativeSizeSpan(fsize), start, ssb.length());
+                        }
+                    } else {
+                        int px = Integer.parseInt(xFontSizeAbs);
+                        setSpan(ssb, new AbsoluteSizeSpan(px), start, ssb.length());
                     }
 
                     // Apply element
@@ -3000,6 +3023,7 @@ public class HtmlHelper {
                 .removeAttr("x-paragraph")
                 .removeAttr("x-font-size")
                 .removeAttr("x-font-size-rel")
+                .removeAttr("x-font-size-abs")
                 .removeAttr("x-line-before")
                 .removeAttr("x-line-after")
                 .removeAttr("x-align")
