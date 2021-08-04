@@ -381,6 +381,7 @@ public class ConnectionHelper {
                     ex instanceof AccountsException ||
                     ex instanceof InterruptedException ||
                     "EOF on socket".equals(ex.getMessage()) ||
+                    "Read timed out".equals(ex.getMessage()) || // POP3
                     "failed to connect".equals(ex.getMessage()))
                 return true;
             ex = ex.getCause();
