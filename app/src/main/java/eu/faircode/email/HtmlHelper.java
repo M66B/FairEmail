@@ -1146,6 +1146,8 @@ public class HtmlHelper {
                                 String href = p.attr("href");
                                 if (TextUtils.isEmpty(href) || href.equals("#"))
                                     break;
+                                if (!TextUtils.isEmpty(p.text()))
+                                    break;
                                 linked = true;
                             } else
                                 p = p.parent();
