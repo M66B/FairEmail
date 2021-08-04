@@ -51,25 +51,25 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * 왼쪽/ 오른쪽으로 스와이트 대상 변경: 설정에 들어가 페이지 동작을 누른 뒤 스와이프 동작 설정을 선택하세요.
 * 비밀번호 바꾸기: 설정에 들어가 수동 설정을 누른 뒤 계정들 그리고 계정을 선택한 후 비밀번호를 바꾸세요.
 * 서명 설정: 설정에 들어가 수동 설정을 누른 뒤 아이디를 눌러 서명을 편집하세요.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* 참조 및 숨은 참조 주소 더하기: 제목 끝에 있는 사람 아이콘을 누르세요.
+* 보관/삭제 시 다음/이전 메시지로 이동: 동작 설정에서 *자동으로 대화 닫기* 를 비활성화 하고 *대화창 닫기* 에 대해  <0>다음/이전 대화로 이동* 을 선택하세요.</li>
+* 통합 받은 편지함에 폴더 추가: 폴더 목록에서 폴더를 길게 누르고 *통합 받은 편지함에 표시* 를 선택합니다.
+* 탐색 메뉴에 폴더 추가: 폴더 목록에서 폴더를 길게 누르고 *탐색 메뉴에 표시* 를 선택합니다.
+* 더 많은 메시지를 쌓기: 폴더 목록에서 폴더를 길게 누르고 *더 많은 메시지 불러오기* 를 누르세요.
+* 메시지 삭제, 휴지통 건너뛰기: 휴지통 아이콘을 길게 누르세요.
+* 계정/ID 지우기: 설정, 수동 설정 탭, 계정/ID 탭, 계정/ID 누르고 오른쪽 상단에 있는 휴지통 아이콘을 누르세요.
+* 폴더 지우기: 폴더 목록에서 폴더를 길게 누른 후 속성 편집, 오른쪽 상단에 있는 휴지통 아이콘을 누르세요.
+* 보내기 취소: 보낼 편지함 목록에 있는 메시지를 왼쪽 또는 오른쪽으로 드래그 하세요.
+* 받은 편지함에 보낸 메시지 저장: [이 자주 묻는 질문](#user-content-faq142) 을 참조해주세요.
+* 시스템 폴더 변경: 설정에 들어가 수동 설정을 누른 뒤 계정들에서 하단에 있는 계정을 누르세요.
+* 설정 내보내기/ 가져오기: 설정, 탐색 (왼쪽) 메뉴</ul>
 
 <h2><a name="known-problems"></a>자주 묻는 문제</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
+* ~~[Android 5.1 및 6의 버그](https://issuetracker.google.com/issues/37054851)로 인해 앱이 때때로 잘못된 시간 형식을 표시합니다. Android 설정을 *24시간 형식 사용*으로 전환하면 일시적으로 문제가 해결될 수 있습니다.  해결 방법이 추가되었습니다.~~
+* ~~[Google Drive의 버그](https://issuetracker.google.com/issues/126362828)로 인해 Google Drive로 보낸 파일이 비어있습니다. Google 에서 해결했습니다.~~
+* ~~[AndroidX의 버그](https://issuetracker.google.com/issues/78495471)로 인해 길게 누르거나 드래그할 때 FairEmail 이 가끔 충돌하는 경우가 있습니다. Google 에서 해결했습니다.~~
+* ~~[AndroidX ROOM의 버그](https://issuetracker.google.com/issues/138441698)로 인해 때때로 "*... 와 충돌을 겪습니다. Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.

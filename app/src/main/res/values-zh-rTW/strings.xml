@@ -249,7 +249,7 @@
     <string name="title_advanced_receive">接收所有帳戶訊息</string>
     <string name="title_advanced_when">頻次</string>
     <string name="title_advanced_optimize">自動最佳化</string>
-    <string name="title_advanced_always">始終接收這些帳戶的訊息</string>
+    <string name="title_advanced_always">時刻接收這些帳戶的訊息</string>
     <string name="title_advanced_schedule">預定時間</string>
     <string name="title_advanced_advanced">進階</string>
     <string name="title_advanced_no_date">未含日期的訊息</string>
@@ -315,7 +315,7 @@
     <string name="title_advanced_caption_conversation">會話</string>
     <string name="title_advanced_caption_message">訊息</string>
     <string name="title_advanced_caption_message_header">訊息標頭</string>
-    <string name="title_advanced_caption_message_body">訊息本文</string>
+    <string name="title_advanced_caption_message_body">訊息本体</string>
     <string name="title_advanced_portrait2">縱向螢幕模式下使用雙排顯示</string>
     <string name="title_advanced_landscape">橫向螢幕模式下使用雙列顯示</string>
     <string name="title_advanced_landscape3">預設於橫向螢幕模式下顯示導航功能表</string>
@@ -365,10 +365,10 @@
     <string name="title_advanced_addresses">預設展開訊息地址明細</string>
     <string name="title_advanced_attachments_alt">顯示附件於訊息本文之後</string>
     <string name="title_advanced_thumbnails">顯示圖片縮圖於訊息本文之後</string>
-    <string name="title_advanced_message_text_zoom">預設訊息文字縮放</string>
+    <string name="title_advanced_message_text_zoom">預設訊息本文縮放</string>
     <string name="title_advanced_overview_mode">縮放原訊息以適配螢幕</string>
-    <string name="title_advanced_contrast">應用高對比於訊息文字上</string>
-    <string name="title_advanced_monospaced">訊息文字預設使用等寬字型</string>
+    <string name="title_advanced_contrast">應用高對比於訊息本文上</string>
+    <string name="title_advanced_monospaced">訊息本文預設使用等寬字型</string>
     <string name="title_advanced_monospaced_pre">於預排文字上使用等寬字型</string>
     <string name="title_advanced_background_color">使用背景色</string>
     <string name="title_advanced_text_color">使用文字色</string>
@@ -512,7 +512,7 @@
     <string name="title_advanced_debug">除錯模式</string>
     <string name="title_advanced_query_threads">限制平行資料庫存取</string>
     <string name="title_advanced_manual_hint">如果停用訊息接收功能，訊息仍可透過於訊息清單中執行下拉操作手動接收</string>
-    <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。始終接收將通過持續跟進變化來防止這種情況發生。</string>
+    <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時刻接收將通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">依據郵件伺服器的能力和行為，可能會改變同步頻率以節省電池用量</string>
     <string name="title_advanced_schedule_hint">請輕觸位列在上的時間項來設定執行時間</string>
     <string name="title_advanced_no_date_hint">一些郵件供應商會將含有未知、無效或未來日期的訊息儲存為未含日期的訊息</string>
@@ -563,7 +563,7 @@
     <string name="title_advanced_sender_hint">大多數供應商不允許修改寄件者地址</string>
     <string name="title_advanced_bcc_hint">地址不會顯示，但會於傳送時添加</string>
     <string name="title_advanced_internal_hint">傳送至其他網域時會有警告</string>
-    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">端對端加密選項</string>
+    <string name="title_advanced_e2e_encryption">端對端加密選項</string>
     <string name="title_advanced_display_harmful_hint">停用此選項可能損害您的隱私</string>
     <string name="title_advanced_display_hidden_hint">這可能會產生異樣的外觀和雙重的文字</string>
     <string name="title_advanced_display_pin_hint">PIN 碼驗證優先於生物特徵辨識驗證</string>
@@ -613,7 +613,7 @@
     <string name="title_recommended">建議的</string>
     <string name="title_account_linked">連結的帳戶</string>
     <string name="title_account_name">帳戶名</string>
-    <string name="title_account_name_hint">用以區分資料夾</string>
+    <string name="title_account_name_hint">用以區分不同帳戶的資料夾</string>
     <string name="title_account_interval_hint">推送訊息用連線的刷新頻率，或新訊息的檢查頻率</string>
     <string name="title_account_partial_fetch_hint">應僅在出現訊息為空或附件損壞的情況時才停用此選項</string>
     <string name="title_color">顏色</string>
@@ -657,7 +657,7 @@
     <string name="title_server_time">使用接收時間 (伺服器)</string>
     <string name="title_received_header">使用 \'Received\' 標頭</string>
     <string name="title_date_header">使用 \'Date\' 標頭 (傳送時間)</string>
-    <string name="title_date_remark">更改將僅應用於新消息</string>
+    <string name="title_date_remark">變更將僅套用至新訊息</string>
     <string name="title_related_identity">新增相關身分 (SMTP 伺服器)</string>
     <string name="title_check">檢查</string>
     <string name="title_trust">信任帶有指紋的伺服器憑證 %1$s</string>
@@ -716,68 +716,68 @@
     <string name="title_delete_browsed">刪除已瀏覽/搜尋的訊息</string>
     <string name="title_empty_trash">清空垃圾桶資料夾</string>
     <string name="title_empty_spam">清空垃圾郵件資料夾</string>
-    <string name="title_edit_properties">編輯詳細資料</string>
+    <string name="title_edit_properties">編輯屬性</string>
     <string name="title_edit_rules">編輯規則</string>
     <string name="title_execute_rules">執行規則</string>
     <string name="title_export_messages">匯出訊息</string>
     <string name="title_create_channel">建立通知頻道</string>
-    <string name="title_edit_channel">邊即通知頻道</string>
+    <string name="title_edit_channel">編輯通知頻道</string>
     <string name="title_delete_channel">刪除通知頻道</string>
     <string name="title_insert_contact">新增聯絡人</string>
     <string name="title_edit_contact">編輯聯絡人</string>
     <string name="title_create_sub_folder">建立子資料夾</string>
     <string name="title_empty_trash_ask">您要永久刪除所有被丟垃圾桶的訊息嗎？</string>
-    <string name="title_empty_spam_ask">永久刪除所有垃圾郵件訊息？</string>
+    <string name="title_empty_spam_ask">您要永久刪除所有的垃圾郵件訊息嗎？</string>
     <string name="title_empty_trash_all_ask">您要永久刪除所有帳戶中被丟垃圾桶的訊息嗎？</string>
     <string name="title_empty_spam_all_ask">您要永久刪除所有帳戶中的垃圾郵件訊息嗎？</string>
-    <string name="title_empty_all">這將從設備和服務器上刪除所有消息</string>
+    <string name="title_empty_all">這將自裝置和伺服器刪除所有的訊息</string>
     <string name="title_delete_operation_title">刪除操作</string>
-    <string name="title_delete_operation_error">含有一條錯誤訊息</string>
+    <string name="title_delete_operation_error">附帶錯誤信息</string>
     <string name="title_delete_operation_fetch">提取操作</string>
     <string name="title_delete_operation_move">移動操作</string>
     <string name="title_delete_operation_flag">標記操作</string>
     <string name="title_delete_operation_delete">刪除操作</string>
     <string name="title_delete_operation_deleted">%1$d 操作已刪除</string>
     <string name="title_delete_contacts">刪除所有本地聯絡人？</string>
-    <string name="title_no_operations">沒有等待中的操作</string>
-    <string name="title_hint_operations">刪除操作可能導致消息消失和同步問題</string>
+    <string name="title_no_operations">無待處理操作</string>
+    <string name="title_hint_operations">將操作刪除可能會使得訊息消失並導致同步問題</string>
     <string name="title_op_title_headers">下載標頭中</string>
     <string name="title_op_title_raw">下載原始訊息中</string>
     <string name="title_folder_name">資料夾名稱</string>
     <string name="title_display_name">顯示名稱</string>
     <string name="title_show_folders">顯示隱藏的資料夾</string>
     <string name="title_show_flagged">顯示已加星標訊息的計數</string>
-    <string name="title_subscribed_only">只有訂閱的</string>
-    <string name="title_apply_to_all">套用至所有 &#8230;</string>
+    <string name="title_subscribed_only">僅顯示已訂閱的資料夾</string>
+    <string name="title_apply_to_all">套用至全部 &#8230;</string>
     <string name="title_hide_folder">隱藏資料夾</string>
-    <string name="title_unified_folder">全域收件匣在顯示</string>
+    <string name="title_unified_folder">顯示於全域收件匣中</string>
     <string name="title_navigation_folder">顯示於導航功能表中</string>
     <string name="title_synchronize_folder">同步 (接收訊息)</string>
-    <string name="title_poll_folder">定期檢查而不是連續同步</string>
+    <string name="title_poll_folder">以定期檢查替代持續同步</string>
     <string name="title_poll_folder_remark">大多數電子郵件伺服器僅允許針對少量資料夾推送訊息！</string>
-    <string name="title_download_folder">自動下載消息文本和附件</string>
-    <string name="title_notify_folder">通知新消息</string>
-    <string name="title_auto_classify_source">將新訊息分類到此資料夾</string>
-    <string name="title_auto_classify_target">自動移動已分類的資料夾移動到此資料夾</string>
+    <string name="title_download_folder">自動下載訊息本文和附件</string>
+    <string name="title_notify_folder">有新訊息時發出通知</string>
+    <string name="title_auto_classify_source">分類此資料夾中的新訊息</string>
+    <string name="title_auto_classify_target">自動將已分類的訊息移動到此資料夾</string>
     <string name="title_sync_days">同步訊息 (天)</string>
-    <string name="title_sync_days_remark">增大此值將增加電池和數據使用量</string>
+    <string name="title_sync_days_remark">增大此值將會導致電池和數據的使用量隨之增加</string>
     <string name="title_keep_days">保留訊息 (天)</string>
-    <string name="title_keep_days_remark">舊郵件將從設備中刪除，但仍保留在服務器上</string>
-    <string name="title_keep_all">保留所有消息</string>
-    <string name="title_poll_system">設定系統資料夾到定期檢查新訊息</string>
-    <string name="title_poll_user">設定使用者資料夾以定期檢查新訊息</string>
+    <string name="title_keep_days_remark">舊訊息將從裝置移除，但會留存於伺服器中</string>
+    <string name="title_keep_all">保留所有訊息</string>
+    <string name="title_poll_system">設定系統資料夾套用定期檢查新訊息設定</string>
+    <string name="title_poll_user">設定使用者資料夾套用定期檢查新訊息設定</string>
     <string name="title_auto_trash">自動將舊訊息移入垃圾桶</string>
-    <string name="title_auto_delete">自動永久刪除舊郵件</string>
-    <string name="title_auto_delete_hint">舊郵件是不再保留在設備上的郵件</string>
-    <string name="title_auto_delete_archive_hint">自存檔資料夾中刪除並不總被電子郵件伺服器所允許</string>
+    <string name="title_auto_delete">自動執行永久刪除舊訊息</string>
+    <string name="title_auto_delete_hint">舊訊息是不再留存於裝置上的訊息</string>
+    <string name="title_auto_delete_archive_hint">自封存資料夾中刪除並不總被電子郵件伺服器所允許</string>
     <string name="title_inbox_root_hint">        一些郵件供應商會要求將新的資料夾建立在收件匣下。
         在這種情況下，您可以長按位在資料夾清單中的收件匣項，然後選擇‘建立子資料夾’。
     </string>
     <string name="title_folder_name_missing">資料夾名缺失</string>
     <string name="title_folder_exists">資料夾 %1$s 已存在</string>
     <string name="title_folder_delete">您要永久刪除此資料夾及其中的任何訊息嗎？</string>
-    <string name="title_months">月數</string>
-    <string name="title_months_all">全部</string>
+    <string name="title_months">（個）月的</string>
+    <string name="title_months_all">所有</string>
     <string name="title_folder_unified">全域收件匣</string>
     <string name="title_folder_inbox">收件匣</string>
     <string name="title_folder_outbox">寄件匣</string>
@@ -792,26 +792,26 @@
     <string name="title_folder_primary">資料夾主帳戶</string>
     <string name="title_folders_unified">全域收件匣資料夾</string>
     <string name="title_folder_local_drafts">本地草稿</string>
-    <string name="title_no_folders">沒有資料夾</string>
+    <string name="title_no_folders">無資料夾</string>
     <string name="title_no_messages">無訊息</string>
     <string name="title_filters_active">一個或多個過濾器處於活動狀態</string>
     <string name="title_duplicate_in">消息重複 %1$s</string>
-    <string name="title_subject_reply">Re: %1$s</string>
+    <string name="title_subject_reply">回覆: %1$s</string>
     <string name="title_subject_forward">轉寄: %1$s</string>
-    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_reply_alt">回覆: %1$s</string>
     <string name="title_subject_forward_alt">轉寄: %1$s</string>
     <string name="title_seen">標記為已讀</string>
     <string name="title_unseen">標記為未讀</string>
-    <string name="title_toggle_seen">切換閱讀</string>
+    <string name="title_toggle_seen">切換已讀/未讀狀態</string>
     <string name="title_hide">隱藏</string>
     <string name="title_unhide">顯示</string>
-    <string name="title_toggle_hide">訊息隱藏開關</string>
+    <string name="title_toggle_hide">切換訊息的隱藏/顯示</string>
     <string name="title_flag">添加星標</string>
-    <string name="title_flag_color">彩色的星星 &#8230;</string>
+    <string name="title_flag_color">彩色化星標 &#8230;</string>
     <string name="title_unflag">移除星標</string>
     <string name="title_set_importance">設定重要性</string>
     <string name="title_importance_low">低</string>
-    <string name="title_importance_normal">正常</string>
+    <string name="title_importance_normal">普通</string>
     <string name="title_importance_high">高</string>
     <string name="title_search_in_text">在本文中搜尋 &#8230;</string>
     <string name="title_forward">轉寄</string>
@@ -820,33 +820,33 @@
     <string name="title_edit_notes">編輯本地附註</string>
     <string name="title_create_rule">建立規則 &#8230;</string>
     <string name="title_share">分享</string>
-    <string name="title_event">添加到日曆</string>
-    <string name="title_pin">添加快捷方式</string>
-    <string name="title_print">打印</string>
-    <string name="title_print_header">列印郵件標題</string>
-    <string name="title_print_images">列印影像</string>
-    <string name="title_print_images_remark">下載圖片需要時間</string>
+    <string name="title_event">新增至日曆</string>
+    <string name="title_pin">新增捷徑</string>
+    <string name="title_print">列印</string>
+    <string name="title_print_header">列印訊息標頭</string>
+    <string name="title_print_images">列印圖片</string>
+    <string name="title_print_images_remark">下載圖片可能會花費一些時間</string>
     <string name="title_show_headers">顯示標頭</string>
     <string name="title_share_as_html">分享為 HTML</string>
-    <string name="title_raw_save">保存原始消息</string>
+    <string name="title_raw_save">保存原始訊息</string>
     <string name="title_raw_send">以附件形式傳送</string>
     <string name="title_manage_keywords">管理關鍵字</string>
     <string name="title_manage_labels">管理 Gmail 標籤</string>
-    <string name="title_add_keyword">添加關鍵字</string>
-    <string name="title_show_inline">顯示內聯附件</string>
+    <string name="title_add_keyword">新增關鍵字</string>
+    <string name="title_show_inline">顯示行內附件</string>
     <string name="title_download_all">全部下載</string>
-    <string name="title_save_all">保存全部</string>
-    <string name="title_save_eml">保存原始消息文件</string>
+    <string name="title_save_all">全部保存</string>
+    <string name="title_save_eml">保存原始訊息檔</string>
     <string name="title_raw_remaining">待下載原始訊息: %1$d</string>
-    <string name="title_ask_raw">欲轉寄訊息，需從伺服器下載未經處理的 (原始) 訊息，需要互聯網連接。</string>
-    <string name="title_buttons">選擇鍵</string>
+    <string name="title_ask_raw">欲轉寄訊息，需從伺服器下載未經處理的 (原始) 訊息，需要互聯網連線。</string>
+    <string name="title_buttons">選擇欲新增的按鈕</string>
     <string name="title_buttons_hint">實際可用操作取決於帳戶類型和配置</string>
     <string name="title_button_search">在訊息中搜尋</string>
-    <string name="title_button_search_text">在訊息文字中搜尋</string>
+    <string name="title_button_search_text">在訊息本文中搜尋</string>
     <string name="title_configure_buttons">配置按鈕 &#8230;</string>
     <string name="title_trash">垃圾桶</string>
     <string name="title_copy">複製 &#8230;</string>
-    <string name="title_copy_to">複制到 &#8230;</string>
+    <string name="title_copy_to">複製到 &#8230;</string>
     <string name="title_subscribe">訂閱</string>
     <string name="title_delete">刪除</string>
     <string name="title_more">更多</string>
@@ -862,7 +862,7 @@
     <string name="title_move_to_account">移動到 %1$s &#8230;</string>
     <string name="title_report_spam">視為垃圾郵件</string>
     <string name="title_delete_permanently">永久刪除</string>
-    <string name="title_no_undo">我理解這無法撤銷</string>
+    <string name="title_no_undo">我明白此操作無法撤銷</string>
     <string name="title_snooze">延後 &#8230;</string>
     <string name="title_archive">封存</string>
     <string name="title_reply">回复</string>
@@ -885,7 +885,7 @@
     <string name="title_no_saf">存儲訪問框架不可用</string>
     <string name="title_no_stream">過時的應用發送了文件路徑而不是文件流</string>
     <string name="title_no_internet">沒有或沒有合適的互聯網連接</string>
-    <string name="title_no_connection">連接到一個或多個帳戶 &#8230;</string>
+    <string name="title_no_connection">正在連線至一個或多個帳戶 &#8230;</string>
     <string name="title_no_folder">資料夾不存在</string>
     <string name="title_no_format">原始收到的消息將包括在內</string>
     <string name="title_no_image">圖片無法解碼</string>
@@ -903,14 +903,14 @@
     <string name="title_attachments_incomplete">某些附件或圖像未下載且無法添加</string>
     <string name="title_ask_save">保存更改？</string>
     <string name="title_ask_delete">永久刪除消息？</string>
-    <string name="title_ask_delete_accept">我理解永久刪除訊息操作不可逆轉</string>
+    <string name="title_ask_delete_accept">我明白永久刪除訊息操作不可逆轉</string>
     <string name="title_ask_delete_answer">永久刪除回复模板？</string>
     <string name="title_ask_delete_rule">永久刪除規則？</string>
     <string name="title_ask_discard">捨棄草稿？</string>
     <string name="title_ask_show_html">顯示原始消息可能會洩露隱私敏感信息</string>
     <string name="title_ask_show_html_dark">使用暗色主題</string>
     <string name="title_ask_show_html_remark">無法在深色背景上顯示原始消息，因為這可能會使深色文本和圖像不可見</string>
-    <string name="title_ask_show_html_images">在顯示原始消息時始終顯示圖像</string>
+    <string name="title_ask_show_html_images">顯示原訊息時總是顯示圖片</string>
     <string name="title_ask_show_image">顯示圖像可能會洩露隱私敏感信息</string>
     <string name="title_ask_show_image_hint">識別為跟踪圖像的圖像將不會顯示</string>
     <string name="title_ask_delete_local">刪除本地消息？ 消息將保留在遠程服務器上。</string>
@@ -1136,7 +1136,7 @@
     <string name="title_select_found">選擇找到</string>
     <string name="title_mark_all_read">全部標記為已讀</string>
     <string name="title_force_sync">強制同步</string>
-    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">強制重啟</string>
+    <string name="title_force_reload">強制重啟</string>
     <string name="title_force_send">強制傳送</string>
     <string name="title_language_all">全部</string>
     <string name="title_previous">上一個</string>
@@ -1162,7 +1162,7 @@
     <string name="title_rule_seen">標記為已讀</string>
     <string name="title_rule_unseen">標記為未讀</string>
     <string name="title_rule_hide">隱藏</string>
-    <string name="title_rule_ignore">禁止通知</string>
+    <string name="title_rule_ignore">抑止通知</string>
     <string name="title_rule_snooze">延後</string>
     <string name="title_rule_flag">添加星標</string>
     <string name="title_rule_importance">設定重要性</string>
@@ -1173,7 +1173,7 @@
     <string name="title_rule_tts">文字轉語音</string>
     <string name="title_rule_automation">自動化</string>
     <string name="title_rule_caption">修改規則</string>
-    <string name="title_rule_title">規則適用於</string>
+    <string name="title_rule_title">規則套用至</string>
     <string name="title_rule_name">名稱</string>
     <string name="title_rule_order">順序</string>
     <string name="title_rule_enabled">啟用</string>
@@ -1210,7 +1210,7 @@
     <string name="title_rule_keyword_missing">缺少關鍵字</string>
     <string name="title_rule_automation_hint">這將傳送附帶額外 \'%2$s\' 的 Intent \'%1$s\'</string>
     <string name="title_rule_execute">立即執行</string>
-    <string name="title_rule_applied">作用到的訊息：%1$d</string>
+    <string name="title_rule_applied">作用到的訊息: %1$d</string>
     <string name="title_rule_check">檢查</string>
     <string name="title_rule_no_headers">無法檢查標頭狀態</string>
     <string name="title_rule_matched">匹配消息</string>
@@ -1387,7 +1387,7 @@
     <string name="title_ask_what">詢問該怎麼辦</string>
     <string name="title_no_ask_again">不要再問這個</string>
     <string name="title_no_ask_for_again">不要再問這個%1$s</string>
-    <string name="title_no_body">找不到訊息文字</string>
+    <string name="title_no_body">未發現訊息本文</string>
     <string name="title_no_charset">未支援的編碼類型：%1$s</string>
     <string name="title_via">透過：%1$s</string>
     <string name="title_1hour">1小時</string>
@@ -1498,7 +1498,7 @@
     <string name="title_accessibility_from">寄件者</string>
     <string name="title_accessibility_to">接受者</string>
     <string-array name="pollIntervalNames">
-        <item>一直</item>
+        <item>時刻</item>
         <item>每 15 分鐘</item>
         <item>每 30 分鐘</item>
         <item>每小時</item>
@@ -1562,10 +1562,10 @@
         <item>20 分鐘</item>
     </string-array>
     <string-array name="ellipsizeNames">
-        <item>前段</item>
-        <item>中段</item>
-        <item>尾段</item>
-        <item>顯示不被截斷</item>
+        <item>開頭</item>
+        <item>中間</item>
+        <item>結尾</item>
+        <item>顯示未被截短的</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>

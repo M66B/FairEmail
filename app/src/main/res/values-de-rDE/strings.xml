@@ -576,7 +576,7 @@
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
     <string name="title_advanced_internal_hint">Beim Senden an eine andere Domain wird ein Warnhinweis ausgegeben</string>
-    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">Optionen für Ende-zu-Ende-Verschlüsselung</string>
+    <string name="title_advanced_e2e_encryption">Optionen für Ende-zu-Ende-Verschlüsselung</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
@@ -1150,7 +1150,7 @@
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
     <string name="title_mark_all_read">Alle als gelesen markieren</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
-    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">Neustart erzwingen</string>
+    <string name="title_force_reload">Neustart erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorherige</string>
@@ -1600,6 +1600,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Mittel</item>
         <item>Groß</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Winzig</string>
     <string-array name="receiptNames">
         <item>Nur Lesebestätigung</item>
         <item>Nur Übermittlungsbestätigung</item>

@@ -573,6 +573,7 @@
     <string name="title_advanced_sender_hint">Əksər təchizatçı göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_advanced_bcc_hint">Ünvan göstərilməyəcək, ancaq göndərişə əlavə ediləcək</string>
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
+    <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
     <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, gizliliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
     <string name="title_advanced_display_pin_hint">PIN, biometrik kimlik təsdiqləməsindən əvvəl gəlir</string>
@@ -1146,6 +1147,7 @@
     <string name="title_select_found">Tapılanı seçin</string>
     <string name="title_mark_all_read">Hamısını oxunmuş kimi işarələ</string>
     <string name="title_force_sync">Məcburi eyniləşdirmə</string>
+    <string name="title_force_reload">Məcburi yenidən başlatma</string>
     <string name="title_force_send">Məcburi göndərmə</string>
     <string name="title_language_all">Hamısı</string>
     <string name="title_previous">Əvvəlki</string>

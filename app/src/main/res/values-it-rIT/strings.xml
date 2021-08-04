@@ -574,7 +574,7 @@
     <string name="title_advanced_sender_hint">Gran parte dei provider non consentono gli indirizzi modificati del mittente</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma aggiunto all\'invio</string>
     <string name="title_advanced_internal_hint">Ci sarà un avviso inviando a un altro dominio</string>
-    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">Opzioni per la crittografia end-to-end</string>
+    <string name="title_advanced_e2e_encryption">Opzioni per la crittografia end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Disabilitare quest\'opzione potrebbe esser dannoso per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Questo può risultare in testi strani e doppi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
@@ -1148,7 +1148,7 @@
     <string name="title_select_found">Seleziona trovati</string>
     <string name="title_mark_all_read">Segna tutto come letto</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
-    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">Forza il riavvio</string>
+    <string name="title_force_reload">Forza il riavvio</string>
     <string name="title_force_send">Forza invio</string>
     <string name="title_language_all">Tutte</string>
     <string name="title_previous">Precedente</string>

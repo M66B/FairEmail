@@ -572,7 +572,7 @@
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_bcc_hint">Osoitetta ei näytetä, mutta se lisätään lähetettäessä</string>
     <string name="title_advanced_internal_hint">Toiseen verkkotunnukseen lähetettäessä tulee varoitus</string>
-    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">Päästä päähän -salauksen asetukset</string>
+    <string name="title_advanced_e2e_encryption">Päästä päähän -salauksen asetukset</string>
     <string name="title_advanced_display_harmful_hint">Tämän valinnan pois kytkeminen voi olla haitallista yksityisyydellesi</string>
     <string name="title_advanced_display_hidden_hint">Tämä voi näyttää omituiselta ja näyttää tekstejä kahteen kertaan</string>
     <string name="title_advanced_display_pin_hint">PIN on ensisijainen ennen biometristä tunnistautumista</string>
@@ -1146,7 +1146,7 @@
     <string name="title_select_found">Valitse löytyneet</string>
     <string name="title_mark_all_read">Merkitse kaikki luetuiksi</string>
     <string name="title_force_sync">Pakota synkronointi</string>
-    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">Pakota uudelleenkäynnistys</string>
+    <string name="title_force_reload">Pakota uudelleenkäynnistys</string>
     <string name="title_force_send">Pakota lähetys</string>
     <string name="title_language_all">Kaikki</string>
     <string name="title_previous">Edellinen</string>

@@ -594,7 +594,7 @@
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
     <string name="title_advanced_internal_hint">Будет предупреждение при отправке на другой домен</string>
-    <string name="title_advanced_e2e_encryption" comment="title_advanced_e2e_encryption&#10;Heading for default sign/encrypt in the advanced identity settings">Настройки сквозного шифрования</string>
+    <string name="title_advanced_e2e_encryption">Настройки сквозного шифрования</string>
     <string name="title_advanced_display_harmful_hint">Отключение этой функции может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
@@ -1168,7 +1168,7 @@
     <string name="title_select_found">Выбрать найденное</string>
     <string name="title_mark_all_read">Отметь все прочитанными</string>
     <string name="title_force_sync">Принудительная синхронизация</string>
-    <string name="title_force_reload" comment="title_force_reload&#10;Title for menu item in operations view to restart the sync service">Принудительный перезапуск</string>
+    <string name="title_force_reload">Принудительный перезапуск</string>
     <string name="title_force_send">Принудительная отправка</string>
     <string name="title_language_all">Все</string>
     <string name="title_previous">Назад</string>

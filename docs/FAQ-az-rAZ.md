@@ -2495,76 +2495,76 @@ Note that sending will not be retried in case of authentication problems and whe
 <a name="faq124"></a>
 **(124) Why do I get 'Message too large or too complex to display'?**
 
-The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
+The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Belə mesajların yenidən formatlanması və görüntülənməsi çox uzun çəkir. Bunun əvəzinə səyyah tərəfindən təmin edilmiş orijinal mesaj görünüşünü sınaya bilərsiniz.
 
 <br />
 
 <a name="faq125"></a>
-**(125) What are the current experimental features?**
+**(125) Hazırkı təcrübi özəlliklər nələrdir?**
 
-*Message classification (version 1.1438+)*
+*Mesajın sinifləşdirilməsi (1.1438+ versiya)*
 
-Please see [this FAQ](#user-content-faq163) for details.
+Təfsilatlar üçün zəhmət olmasa [bu TSS](#user-content-faq163)-a baxın.
 
-Since this is an experimental feature, my advice is to start with just one folder.
+Bu bir təcrübi özəllik olduğu üçün, sadəcə bir qovluqla başlamağınızı məsləhət görürəm.
 
 <br />
 
-*Send hard bounce (version 1.1477+)*
+*Sərt sıçrayış göndər (1.1477+ versiyası)*
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+Cavablama menyusu vasitəsilə bir [Çatdırılma Status Bildirişi](https://tools.ietf.org/html/rfc3464) (=sərt sıçrayış) göndərin.
 
-Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+Sərt sıçrayışlar, e-poçt təchizatçısının nüfuzuna təsir etdiyi üçün əksər hallarda avtomatik olaraq emal olunur. Sıçrama ünvanı (=*Return-Path* başlığı) əksər hallarda çox xüsusi olur, beləcə e-poçt serveri göndərmə hesabını müəyyənləşdirə bilər.
 
-For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
+Bəzi arxaplan üçün, [bu Vikipediya məqaləsinə](https://en.wikipedia.org/wiki/Bounce_message) baxın.
 
 <br />
 
 <a name="faq126"></a>
-**(126) Can message previews be sent to my wearable?**
+**(126) Geyinilə bilən cihazlarıma mesaj önbaxışlarını göndərə bilərəm?**
 
-FairEmail fetches a message in two steps:
+FairEmail bir mesajı iki addımda gətirir:
 
-1. Fetch message headers
-1. Fetch message text and attachments
+1. Mesaj başlıqlarını gətirir
+1. Mesaj mətnini və qoşmalarını gətirir
 
-Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+İlk addımdan dərhal sonra yeni mesajlar bildiriləcək. Ancaq, yalnız ikinci addımdan sonra mesaj mətni əlçatan olacaq. FairEmail, mövcud bildirişləri, mesaj mətninin bir önbaxışı ilə yeniləyir, ancaq təəssüf ki, geyinilə bilən cihaz bildirişləri yenilənə bilmir.
 
-Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
+Bir mesaj mətninin həmişə bir mesaj başlığından dərhal sonra gətiriləcəyinin zəmanəti olmadığı kimi, bir önbaxış mətni ehtiva edən yeni mesaj bildirişinin geyinilə bilən cihaza həmişə göndəriləcəyinin də zəmanəti yoxdur.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
+Bunun yetəri qədər yaxşı olduğunu düşünürsünüzsə, *Geyinilə bilən cihazlara yalnız mesaj önbaxışı olan bildirişlər göndər* bildiriş seçimini fəallaşdıra bilərsiniz, əgər bu işləməsə, *Yalnı önbaxış mətni olan bildirişləri göstər* bildiriş seçimini fəallaşdırmağa çalışa bilərsiniz. Unutmayın ki, hətta Android Wear tətbiqi, bildirişin göndərildiyini (bridged) desə belə, bu, önbaxış mətnini göstərməyən geyinilə bilən cihazlara da tətbiq olunur.
 
-If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
+Geyinilə bilən cihazlara tam mesaj mətninin göndərilməsini istəyirsinizsə, *Bütün mətnə önbaxış* bildiriş seçimini fəallaşdıra bilərsiniz. Unutmayın, bəzi geyinilə bilən cihazlarda bu özəllik fəallaşdırılanda çökmə baş verir.
 
-If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
+Galaxy Wearable (Samsung Gear) tətbiqi ilə bir Samsung geyinilə bilən cihaz istifadə edirsinizsə, *Bildirişlər* tənzimlənəndə FairEmail üçün bildirişləri fəallaşdırmalısınız, bu tətbiqdə *Gələcəkdə quraşdırılan tətbiqlər* seçimi sönülü olmalıdır.
 
 <br />
 
 <a name="faq127"></a>
-**(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
+**(127) "Sintaktik olaraq etibarsız arqument(lər)i"ni necə düzəldə bilərəm?**
 
-The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+*Sintaktik olaraq etibarsız HELO arqument(lər)i* xətası, SMTP serverinin yerli IP ünvanı və ya host adını rədd etdiyi mənasını verir. Böyük ehtimalla bu xətanı abaqcıl kimlik seçimi olan *Host adı əvəzinə yerli IP ünvanını istifadə et* seçimini fəallaşdıraraq/sıradan çıxardaraq düzəldə bilərsiniz.
 
 <br />
 
 <a name="faq128"></a>
-**(128) How can I reset asked questions, for example to show images?**
+**(128) Məsələn təsvirləri göstərmək üçün, soruşulan sualları necə sıfırlaya bilərəm?**
 
-You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
+Qarışıq tənzimləmələrindəki üç-nöqtə daşma menyusu vasitəsilə soruşulan sualları sıfırlaya bilərsiniz.
 
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) ProtonMail, Tutanota dəstəklənir?**
 
-ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
+ProtonMail, xüsusiyyətçi bir e-poçt protokolu istifadə edir və [IMAP-ı birbaşa dəstəkləmir](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), ona görə də ProtonMail-ə müraciət etmək üçün FairEmail-i istifadə edə bilməzsiniz.
 
-Tutanota uses a proprietary email protocol and [does not support IMAP](https://tutanota.com/faq/#imap), so you cannot use FairEmail to access Tutanota.
+Tutanota, xüsusiyyətçi bir e-poçt protokolu istifadə edir və [IMAP-ı birbaşa dəstəkləmir](https://tutanota.com/faq/#imap), ona görə də Tutanota-ya müraciət etmək üçün FairEmail-i istifadə edə bilməzsiniz.
 
 <br />
 
 <a name="faq130"></a>
-**(130) What does message error ... mean?**
+**(130) Mesaj xətasının mənası nədir...?**
 
 A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
 
