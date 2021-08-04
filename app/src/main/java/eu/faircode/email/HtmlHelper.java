@@ -130,7 +130,7 @@ public class HtmlHelper {
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
-    private static final double BG_LUM_THRESHOLD = 0.1;
+    private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
     private static final float MIN_LUMINANCE = 0.7f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_ALT = 250;
@@ -598,42 +598,46 @@ public class HtmlHelper {
                             Integer color = parseColor(value);
 
                             if ("color".equals(key)) {
-                                boolean bg = false;
+                                Integer bg = null;
                                 if (background_color) {
                                     Element e = element;
-                                    while (e != null && !bg)
+                                    while (e != null && bg == null)
                                         if (e.hasAttr("x-background"))
-                                            bg = true;
+                                            bg = parseWebColor(e.attr("x-background"));
                                         else
                                             e = e.parent();
                                 }
 
-                                // Background color set:
-                                //   keep text color as-is
-                                if (!bg) {
+                                if (bg == null) {
                                     // Special case:
                                     //   external draft / dark background / dark font
                                     if (color != null && !view && dark) {
-                                        float lum = (float) ColorUtils.calculateLuminance(color);
-                                        if (lum < 0.1f)
+                                        double lum = ColorUtils.calculateLuminance(color);
+                                        if (lum < 0.1)
                                             color = null;
                                     }
 
                                     if (color != null && view)
                                         color = adjustColor(dark, textColorPrimary, color);
+                                } else {
+                                    // Check background/foreground luminance
+                                    if (color != null) {
+                                        double lbg = ColorUtils.calculateLuminance(bg);
+                                        double lfg = ColorUtils.calculateLuminance(color);
+                                        if (Math.abs(lbg - lfg) < 0.1) {
+                                            color = (lbg < 0.5 ? Color.WHITE : Color.BLACK);
+                                        }
+                                    }
                                 }
 
                                 if (color != null)
                                     element.attr("x-color", "true");
                             } else /* background */ {
-                                if (color != null && view) {
-                                    double lum = ColorUtils.calculateLuminance(color);
-                                    if (dark ? lum < BG_LUM_THRESHOLD : lum > 1 - BG_LUM_THRESHOLD)
-                                        color = Color.TRANSPARENT;
-                                }
+                                if (color != null && !hasColor(color))
+                                    continue;
 
                                 if (color != null)
-                                    element.attr("x-background", "true");
+                                    element.attr("x-background", encodeWebColor(color));
 
                                 if (dark) {
                                     boolean fg = false;
@@ -1711,6 +1715,14 @@ public class HtmlHelper {
                     dark ? Color.WHITE : Color.BLACK,
                     dark ? min - lum : lum - (1 - min));
         return color;
+    }
+
+    private static boolean hasColor(int color) {
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        return (Math.abs(r - g) >= COLOR_THRESHOLD ||
+                Math.abs(r - b) >= COLOR_THRESHOLD);
     }
 
     // https://tools.ietf.org/html/rfc3676
