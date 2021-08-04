@@ -637,7 +637,7 @@ public class HtmlHelper {
                                 if (color != null)
                                     element.attr("x-background", encodeWebColor(color));
 
-                                if (dark) {
+                                if (color != null && dark) {
                                     boolean fg = false;
                                     if (text_color) {
                                         fg = (parseColor(kv.get("color")) != null);
@@ -650,12 +650,15 @@ public class HtmlHelper {
                                     }
 
                                     // Dark theme, background color with no text color:
-                                    //   force text color
-                                    if (!fg)
+                                    //   force (inverse) text color
+                                    if (!fg) {
+                                        double lum = (color == Color.TRANSPARENT ? 0 : ColorUtils.calculateLuminance(color));
+                                        int c = (lum < 0.5 ? textColorPrimary : textColorPrimaryInverse);
                                         sb.append("color")
                                                 .append(':')
-                                                .append(encodeWebColor(textColorPrimaryInverse))
+                                                .append(encodeWebColor(c))
                                                 .append(";");
+                                    }
                                 }
                             }
 
