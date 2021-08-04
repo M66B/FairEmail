@@ -1886,6 +1886,8 @@
         <item>Large</item>
     </string-array>
 
+    <string name="title_size_tiny">Tiny</string>
+
     <string-array name="receiptNames">
         <item>Read receipt only</item>
         <item>Delivery receipt only</item>

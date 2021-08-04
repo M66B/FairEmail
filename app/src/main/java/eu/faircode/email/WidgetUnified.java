@@ -137,6 +137,8 @@ public class WidgetUnified extends AppWidgetProvider {
                 return 14;
             case 3: // large
                 return 22;
+            case 4: // tiny
+                return 10;
             default: // medium
                 return 18;
         }
@@ -148,6 +150,8 @@ public class WidgetUnified extends AppWidgetProvider {
                 return Helper.dp2pixels(context, 3);
             case 3: // large
                 return Helper.dp2pixels(context, 9);
+            case 4: // tiny
+                return Helper.dp2pixels(context, 1);
             default: // medium
                 return Helper.dp2pixels(context, 6);
         }

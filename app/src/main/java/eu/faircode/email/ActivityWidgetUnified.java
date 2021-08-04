@@ -45,6 +45,7 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -147,6 +148,19 @@ public class ActivityWidgetUnified extends ActivityBase {
                 else
                     editor.remove("widget." + appWidgetId + ".name");
 
+                int font = spFontSize.getSelectedItemPosition();
+                int padding = spPadding.getSelectedItemPosition();
+
+                if (font == 1) // tiny
+                    font = 4;
+                else if (font > 1)
+                    font--;
+
+                if (padding == 1) // tiny
+                    padding = 4;
+                else if (padding > 1)
+                    padding--;
+
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
                 editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
                 editor.putString("widget." + appWidgetId + ".type", folder == null ? null : folder.type);
@@ -154,8 +168,8 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
-                editor.putInt("widget." + appWidgetId + ".font", spFontSize.getSelectedItemPosition());
-                editor.putInt("widget." + appWidgetId + ".padding", spPadding.getSelectedItemPosition());
+                editor.putInt("widget." + appWidgetId + ".font", font);
+                editor.putInt("widget." + appWidgetId + ".padding", padding);
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
 
                 editor.apply();
@@ -247,7 +261,9 @@ public class ActivityWidgetUnified extends ActivityBase {
             }
         });
 
-        String[] sizes = getResources().getStringArray(R.array.fontSizeNames);
+        List<String> sizes = new ArrayList<>();
+        sizes.addAll(Arrays.asList(getResources().getStringArray(R.array.fontSizeNames)));
+        sizes.add(1, getString(R.string.title_size_tiny));
 
         adapterFontSize = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, sizes);
         adapterFontSize.setDropDownViewResource(R.layout.spinner_item1_dropdown);
