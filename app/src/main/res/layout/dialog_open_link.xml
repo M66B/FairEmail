@@ -41,6 +41,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="12dp"
             android:labelFor="@+id/etLink"
+            android:maxLines="2"
             android:text="Link title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="italic"
