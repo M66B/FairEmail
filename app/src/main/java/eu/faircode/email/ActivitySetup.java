@@ -1456,6 +1456,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     // DecoderException: unable to decode base64 string: invalid characters encountered in base64 data
                     boolean expected =
                             (ex instanceof IllegalArgumentException ||
+                                    ex instanceof FileNotFoundException ||
                                     ex instanceof CertificateException ||
                                     ex instanceof DecoderException ||
                                     ex instanceof SecurityException);
