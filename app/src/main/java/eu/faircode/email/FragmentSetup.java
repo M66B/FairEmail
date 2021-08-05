@@ -544,6 +544,7 @@ public class FragmentSetup extends FragmentBase {
 
                 btnIdentity.setEnabled(done);
                 btnInbox.setEnabled(done);
+                btnInbox.setTypeface(done ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
 
                 prefs.edit().putBoolean("has_accounts", done).apply();
             }
