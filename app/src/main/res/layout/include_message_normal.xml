@@ -279,7 +279,6 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_attachment"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivForwarded"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
