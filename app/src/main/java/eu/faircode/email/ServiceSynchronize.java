@@ -2113,8 +2113,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     long missing = (fail_threshold - avg_fail) * fast_fails;
                                     int compensate = (int) (missing / (CONNECT_BACKOFF_ALARM_START * 60 * 1000L));
                                     if (compensate > 0) {
-                                        if (account.last_connected != null &&
-                                                now - account.last_connected < CONNECT_BACKOFF_GRACE)
+                                        if (was_connected != 0 && was_connected < CONNECT_BACKOFF_GRACE)
                                             compensate = 1;
 
                                         int backoff = compensate * CONNECT_BACKOFF_ALARM_START;
