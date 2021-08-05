@@ -2445,8 +2445,8 @@ You will likely need to save the associated identity again as well.
 The preferred way to set up a Yahoo account is by using the quick setup wizard,
 which will use OAuth instead of a password and is therefore safer (and easier as well).
 
-To authorize a Yahoo, AOL, or Sky account you will need to create an app password.
-For instructions, please see here:
+To authorize a Yahoo, AOL, or Sky account you need to use an app password instead of your normal account password.
+For instructions about how to create an app password, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)

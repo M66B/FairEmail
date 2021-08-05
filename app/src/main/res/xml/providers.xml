@@ -691,6 +691,7 @@
     </provider>
     <provider
         name="AOL"
+        documentation="For AOL you need to use an app password instead of your normal account password, please  &lt;a href=&quot;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88&quot;&gt;see here&lt;/a&gt;."
         domain="aol\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
