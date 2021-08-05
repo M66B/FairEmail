@@ -552,8 +552,27 @@ public class FragmentSetup extends FragmentBase {
         db.identity().liveComposableIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
-                boolean done = (identities != null && identities.size() > 0);
-                tvNoComposable.setVisibility(done ? View.GONE : View.VISIBLE);
+                Bundle args = new Bundle();
+
+                new SimpleTask<List<EntityAccount>>() {
+                    @Override
+                    protected List<EntityAccount> onExecute(Context context, Bundle args) throws Throwable {
+                        DB db = DB.getInstance(context);
+                        return db.account().getSynchronizingAccounts();
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                        boolean done = ((accounts == null || accounts.size() == 0) ||
+                                (identities != null && identities.size() > 0));
+                        tvNoComposable.setVisibility(done ? View.GONE : View.VISIBLE);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        // Ignored
+                    }
+                }.execute(FragmentSetup.this, args, "setup:accounts");
             }
         });
     }
