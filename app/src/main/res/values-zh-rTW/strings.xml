@@ -250,14 +250,14 @@
     <string name="title_advanced_when">頻次</string>
     <string name="title_advanced_optimize">自動最佳化</string>
     <string name="title_advanced_always">時刻接收這些帳戶的訊息</string>
-    <string name="title_advanced_schedule">預定時間</string>
+    <string name="title_advanced_schedule">時程</string>
     <string name="title_advanced_advanced">進階</string>
     <string name="title_advanced_no_date">未含日期的訊息</string>
     <string name="title_advanced_unseen">所有未讀訊息</string>
     <string name="title_advanced_flagged">所有標記星標的訊息</string>
     <string name="title_advanced_delete_unseen">刪除舊的未讀訊息</string>
-    <string name="title_advanced_kept_removed">檢查舊訊息是否已自伺服器移除。</string>
-    <string name="title_advanced_gmail_thread">為 Gmail 帳戶採用 Gmail 訊息分組風格。</string>
+    <string name="title_advanced_kept_removed">檢查舊訊息是否已自伺服器移除</string>
+    <string name="title_advanced_gmail_thread">用於 Gmail 帳戶的 Gmail 訊息分組式樣</string>
     <string name="title_advanced_sync_folders">同步資料夾清單</string>
     <string name="title_advanced_sync_shared_folders">同步分享的資料夾清單</string>
     <string name="title_advanced_subscriptions">管理資料夾訂閱</string>
@@ -393,7 +393,7 @@
     <string name="title_advanced_authentication_all">完整驗證</string>
     <string name="title_advanced_sync_on_launch">在應用程式啟動時同步。</string>
     <string name="title_advanced_double_back">執行兩次‘返回’操作以退出程式</string>
-    <string name="title_advanced_conversation_actions">建議行動 (Android 10+)</string>
+    <string name="title_advanced_conversation_actions">建議操作 (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">建議回覆文字 (Android 10+)</string>
     <string name="title_advanced_language_detection">偵測訊息文字語言</string>
     <string name="title_advanced_pull_refresh">下拉重新整理</string>
@@ -412,7 +412,7 @@
     <string name="title_advanced_autoclose">自動關閉會話</string>
     <string name="title_advanced_onclose">當關閉一個會話時</string>
     <string name="title_advanced_autoclose_unread">在標記訊息為未讀後關閉會話</string>
-    <string name="title_advanced_undo">“取消”操作可執行時限</string>
+    <string name="title_advanced_undo">“撤銷”操作可執行時限</string>
     <string name="title_advanced_quick_filter">顯示不顯眼的快速過濾圖示</string>
     <string name="title_advanced_quick_scroll">顯示不起眼的快速向上/下滾動圖示</string>
     <string name="title_advanced_autoread">移動訊息時自動標記訊息為已讀</string>
@@ -512,14 +512,14 @@
     <string name="title_advanced_debug">除錯模式</string>
     <string name="title_advanced_query_threads">限制平行資料庫存取</string>
     <string name="title_advanced_manual_hint">如果停用訊息接收功能，訊息仍可透過於訊息清單中執行下拉操作手動接收</string>
-    <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時刻接收將通過持續跟進變化來防止這種情況發生。</string>
+    <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時時接收會通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">依據郵件伺服器的能力和行為，可能會改變同步頻率以節省電池用量</string>
     <string name="title_advanced_schedule_hint">請輕觸位列在上的時間項來設定執行時間</string>
     <string name="title_advanced_no_date_hint">一些郵件供應商會將含有未知、無效或未來日期的訊息儲存為未含日期的訊息</string>
     <string name="title_advanced_unseen_hint">一些郵件供應商未能正确支援此功能，這可能導致所有訊息都會或者都不會被同步</string>
     <string name="title_advanced_deleted_unseen">停用後，未讀訊息會一直被保留在裝置上</string>
     <string name="title_advanced_sync_kept_hint">這將導致額外的數據傳輸和電量耗損，尤其是裝置上儲存了大量訊息時</string>
-    <string name="title_advanced_gmail_thread_hint">此僅套用至新接收的訊息且可能與已存在的群組不兼容</string>
+    <string name="title_advanced_gmail_thread_hint">此項設定僅會套用至新近接收的訊息而且還可能破壞現有群組</string>
     <string name="title_advanced_sync_folders_hint">停用此功能會在一定程度上節省數據和電池的用量，但同時也會停用資料夾清單的更新</string>
     <string name="title_advanced_check_authentication_hint">這將檢查與電子郵件伺服器所執行的相同的 DKIM、SPF 和 DMARC 驗證的結果</string>
     <string name="title_advanced_check_reply_hint">這將檢查寄件者所在網域是否與回覆地址所在相同</string>
@@ -657,7 +657,7 @@
     <string name="title_server_time">使用接收時間 (伺服器)</string>
     <string name="title_received_header">使用 \'Received\' 標頭</string>
     <string name="title_date_header">使用 \'Date\' 標頭 (傳送時間)</string>
-    <string name="title_date_remark">變更將僅套用至新訊息</string>
+    <string name="title_date_remark">變更僅會套用至新訊息上</string>
     <string name="title_related_identity">新增相關身分 (SMTP 伺服器)</string>
     <string name="title_check">檢查</string>
     <string name="title_trust">信任帶有指紋的伺服器憑證 %1$s</string>
@@ -800,8 +800,8 @@
     <string name="title_subject_forward">轉寄: %1$s</string>
     <string name="title_subject_reply_alt">回覆: %1$s</string>
     <string name="title_subject_forward_alt">轉寄: %1$s</string>
-    <string name="title_seen">標記為已讀</string>
-    <string name="title_unseen">標記為未讀</string>
+    <string name="title_seen">標示為已讀取</string>
+    <string name="title_unseen">標示為未讀取</string>
     <string name="title_toggle_seen">切換已讀/未讀狀態</string>
     <string name="title_hide">隱藏</string>
     <string name="title_unhide">顯示</string>
@@ -811,7 +811,7 @@
     <string name="title_unflag">移除星標</string>
     <string name="title_set_importance">設定重要性</string>
     <string name="title_importance_low">低</string>
-    <string name="title_importance_normal">普通</string>
+    <string name="title_importance_normal">一般</string>
     <string name="title_importance_high">高</string>
     <string name="title_search_in_text">在本文中搜尋 &#8230;</string>
     <string name="title_forward">轉寄</string>
@@ -865,20 +865,20 @@
     <string name="title_no_undo">我明白此操作無法撤銷</string>
     <string name="title_snooze">延後 &#8230;</string>
     <string name="title_archive">封存</string>
-    <string name="title_reply">回复</string>
+    <string name="title_reply">回覆</string>
     <string name="title_reply_to_sender">回覆寄件者</string>
-    <string name="title_reply_to_all">回復全部</string>
+    <string name="title_reply_to_all">回覆所有人</string>
     <string name="title_reply_list">回覆至清單</string>
     <string name="title_reply_receipt">傳送已讀回條</string>
     <string name="title_reply_hard_bounce">發出“強制退信”</string>
-    <string name="title_reply_template">回复模板</string>
-    <string name="title_move_undo">移動到 %1$s (%2$d)</string>
-    <string name="title_open_with">打開用</string>
-    <string name="title_authentication_failed">%1$s 認證失敗</string>
+    <string name="title_reply_template">以模板回覆</string>
+    <string name="title_move_undo">正在移動至 %1$s (%2$d)</string>
+    <string name="title_open_with">開啟方式</string>
+    <string name="title_authentication_failed">%1$s 驗證失敗</string>
     <string name="title_on_blocklist">在垃圾郵件封鎖清單中</string>
     <string name="title_receipt_subject">已讀回條: %1$s</string>
     <string name="title_receipt_text">此已讀回條僅能確認訊息被顯示，不能保證收件者已閱讀訊息內容。</string>
-    <string name="title_no_answers">未定義回复模板</string>
+    <string name="title_no_answers">無已定義回覆模板</string>
     <string name="title_no_viewer">沒有適用於 %1$s 的查看器應用程序</string>
     <string name="title_no_recorder">無適用的音頻錄製程式</string>
     <string name="title_no_camera">沒有合適的相機應用</string>
@@ -916,7 +916,7 @@
     <string name="title_ask_delete_local">刪除本地消息？ 消息將保留在遠程服務器上。</string>
     <string name="title_ask_help">幫助改善FairEmail</string>
     <string name="title_ask_reporting">要傳送錯誤報告嗎？</string>
-    <string name="title_reporting_why">錯誤報告將有助於改善FairEmail</string>
+    <string name="title_reporting_why">回報錯誤有助於改善 FairEmail</string>
     <string name="title_ask_review">請查看FairEmail</string>
     <string name="title_ask_review_rationale">您已經使用FairEmail已有一段時間了。
          如果您可以在Play商店中對FairEmail進行評分，將不勝感激。    </string>
@@ -934,7 +934,7 @@
     <string name="title_delivered_to">遞送至：</string>
     <string name="title_from">來自：</string>
     <string name="title_to">收件者：</string>
-    <string name="title_reply_to">回覆給：</string>
+    <string name="title_reply_to">回覆至：</string>
     <string name="title_cc">副本：</string>
     <string name="title_bcc">密件副本：</string>
     <string name="title_recipients">%1$d 收件者</string>
@@ -942,7 +942,7 @@
     <string name="title_sent">傳送時間：</string>
     <string name="title_received">接收時間：</string>
     <string name="title_date">日期:</string>
-    <string name="title_stored">儲存於：</string>
+    <string name="title_stored">儲存時間：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">語言：</string>
     <string name="title_subject">主旨：</string>
@@ -1058,11 +1058,11 @@
     <string name="title_reset_sign_key">重設簽名金鑰</string>
     <string name="title_signature_none">消息未簽名</string>
     <string name="title_signature_valid">消息簽名有效</string>
-    <string name="title_signature_valid_from">訊息簽名有效：%1$s</string>
+    <string name="title_signature_valid_from">訊息簽名有效: %1$s</string>
     <string name="title_signature_unconfirmed">訊息簽名有效，但尚未確認</string>
-    <string name="title_signature_unconfirmed_from">訊息簽名有效，但尚未確認：%1$s</string>
+    <string name="title_signature_unconfirmed_from">訊息簽名有效，但尚未確認: %1$s</string>
     <string name="title_signature_invalid">消息簽名無效</string>
-    <string name="title_signature_invalid_reason">訊息簽名無效：%1$s</string>
+    <string name="title_signature_invalid_reason">訊息簽名無效: %1$s</string>
     <string name="title_signature_key_missing">用於簽名驗證的金鑰有遺漏</string>
     <string name="title_signature_certificate_invalid">證書鏈無效</string>
     <string name="title_signature_sender">寄件者地址</string>
@@ -1080,14 +1080,14 @@
     <string name="title_search_index_hint">        通過搜尋索引搜尋的速度很快，但僅能找到完整的單詞。
         下面的選項用於繼續搜尋電子郵件伺服器。
     </string>
-    <string name="title_search_text_hint">當有大量訊息時，在訊息中搜尋文字功能在一些伺服器上可能不工作</string>
+    <string name="title_search_text_hint">當有大量訊息時，搜尋訊息內文字功能在一些伺服器上可能不工作</string>
     <string name="title_search_size_hint">當有大量訊息時，按大小搜尋訊息功能在一些伺服器上可能不工作</string>
     <string name="title_search_more">更多選項</string>
     <string name="title_search_use_index">使用搜尋索引</string>
     <string name="title_search_in_senders">在寄件者中 (來自)</string>
     <string name="title_search_in_recipients">在接收者 (收件者, 副本) 中</string>
     <string name="title_search_in_subject">在主旨中</string>
-    <string name="title_search_in_keywords">在關鍵字中 (如果支持)</string>
+    <string name="title_search_in_keywords">在關鍵字中 (如果支援)</string>
     <string name="title_search_in_message">在訊息本文中</string>
     <string name="title_search_in_notes">在本地附註中</string>
     <string name="title_search_with">將搜尋限定在</string>
@@ -1134,7 +1134,7 @@
     <string name="title_select_language">選擇語言</string>
     <string name="title_select_all">全選</string>
     <string name="title_select_found">選擇找到</string>
-    <string name="title_mark_all_read">全部標記為已讀</string>
+    <string name="title_mark_all_read">全部標示為已讀取</string>
     <string name="title_force_sync">強制同步</string>
     <string name="title_force_reload">強制重啟</string>
     <string name="title_force_send">強制傳送</string>
@@ -1158,9 +1158,9 @@
     <string name="title_answer_placeholder_email">寄件者電子郵件地址</string>
     <string name="title_answer_placeholder_firstname">寄件者名</string>
     <string name="title_answer_placeholder_lastname">寄件者姓氏</string>
-    <string name="title_rule_noop">沒有行動</string>
-    <string name="title_rule_seen">標記為已讀</string>
-    <string name="title_rule_unseen">標記為未讀</string>
+    <string name="title_rule_noop">無操作</string>
+    <string name="title_rule_seen">標示為已讀取</string>
+    <string name="title_rule_unseen">標示為未讀取</string>
     <string name="title_rule_hide">隱藏</string>
     <string name="title_rule_ignore">抑止通知</string>
     <string name="title_rule_snooze">延後</string>
@@ -1190,17 +1190,17 @@
     <string name="title_rule_time_rel">相對時間 (接收) 區間</string>
     <string name="title_rule_regex">正則表達式</string>
     <string name="title_rule_and">AND</string>
-    <string name="title_rule_action">行動</string>
+    <string name="title_rule_action">操作</string>
     <string name="title_rule_action_remark">此操作將應用於抵達資料夾 %1$s 中的新訊息</string>
     <string name="title_rule_hours">小時</string>
     <string name="title_rule_schedule_end">從時間結束條件</string>
     <string name="title_rule_folder">資料夾</string>
-    <string name="title_rule_thread">在相同的會話與資料夾中的所有訊息</string>
-    <string name="title_rule_identity">身分識別</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">在相同的會話與資料夾中的所有訊息</string>
+    <string name="title_rule_identity">身分</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_forward_to">轉寄至</string>
     <string name="title_rule_cc">回覆至副本地址</string>
-    <string name="title_rule_with_attachments">帶附件</string>
+    <string name="title_rule_with_attachments">包含附件</string>
     <string name="title_rule_answer_remark">對於任一會話，僅有一個回覆會被傳送以避免回覆循環</string>
     <string name="title_rule_name_missing">規則名稱缺失</string>
     <string name="title_rule_condition_missing">條件缺失</string>
@@ -1266,7 +1266,7 @@
     <string name="title_legend_priority">優先級高</string>
     <string name="title_legend_priority_low">優先級低</string>
     <string name="title_legend_importance">重要</string>
-    <string name="title_legend_importance_low">並不重要</string>
+    <string name="title_legend_importance_low">不重要</string>
     <string name="title_legend_signed">已簽名</string>
     <string name="title_legend_encrypted">已加密</string>
     <string name="title_legend_auth">驗證失敗</string>
@@ -1367,7 +1367,7 @@
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
     <string name="title_later">以後再說</string>
-    <string name="title_undo">撤消</string>
+    <string name="title_undo">撤銷</string>
     <string name="title_redo">重做</string>
     <string name="title_add">添加</string>
     <string name="title_browse">打開用</string>
@@ -1388,7 +1388,7 @@
     <string name="title_no_ask_again">不要再問這個</string>
     <string name="title_no_ask_for_again">不要再問這個%1$s</string>
     <string name="title_no_body">未發現訊息本文</string>
-    <string name="title_no_charset">未支援的編碼類型：%1$s</string>
+    <string name="title_no_charset">未支援的編碼類型: %1$s</string>
     <string name="title_via">透過：%1$s</string>
     <string name="title_1hour">1小時</string>
     <string name="title_1day">1天</string>
@@ -1446,7 +1446,7 @@
     <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
     <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>
     <string name="title_unexpected_info_remark">請描述出現錯誤時的操作：</string>
-    <string name="title_widget_title_count">新郵件數</string>
+    <string name="title_widget_title_count">新訊息計數</string>
     <string name="title_widget_title_list">訊息清單</string>
     <string name="title_widget_title_sync">同步處理開/關</string>
     <string name="title_power_menu_sync">同步</string>
@@ -1498,7 +1498,7 @@
     <string name="title_accessibility_from">寄件者</string>
     <string name="title_accessibility_to">接受者</string>
     <string-array name="pollIntervalNames">
-        <item>時刻</item>
+        <item>時時</item>
         <item>每 15 分鐘</item>
         <item>每 30 分鐘</item>
         <item>每小時</item>
@@ -1569,7 +1569,7 @@
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>
-        <item>中</item>
+        <item>普通</item>
         <item>高</item>
     </string-array>
     <string-array name="linesNames">
@@ -1585,14 +1585,15 @@
         <item>中</item>
         <item>大</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">極小</string>
     <string-array name="receiptNames">
         <item>僅已讀回條</item>
         <item>僅送達回條</item>
         <item>已讀+送達回條</item>
     </string-array>
     <string-array name="signatureNames">
-        <item>文字上方</item>
-        <item>文字下方</item>
+        <item>本文上方</item>
+        <item>本文下方</item>
         <item>在底部</item>
     </string-array>
     <string-array name="encryptNames">
@@ -1614,11 +1615,11 @@
         <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
-        <item>關</item>
-        <item>2.5秒</item>
-        <item>5秒</item>
-        <item>7.5秒</item>
-        <item>10秒</item>
+        <item>關閉</item>
+        <item>2.5 秒</item>
+        <item>5 秒</item>
+        <item>7.5 秒</item>
+        <item>10 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草書</item>

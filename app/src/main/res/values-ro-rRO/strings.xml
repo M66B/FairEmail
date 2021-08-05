@@ -1217,7 +1217,7 @@
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_schedule_end">Condiția de la terminarea timpului</string>
     <string name="title_rule_folder">Dosar</string>
-    <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
     <string name="title_rule_forward_to">Redirecţionează către</string>
@@ -1609,6 +1609,7 @@
         <item>Medie</item>
         <item>Mare</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Mic</string>
     <string-array name="receiptNames">
         <item>Doar confirmare de citire</item>
         <item>Doar confirmare de livrare</item>

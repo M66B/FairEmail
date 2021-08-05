@@ -2566,15 +2566,15 @@ Tutanota, xüsusiyyətçi bir e-poçt protokolu istifadə edir və [IMAP-ı birb
 <a name="faq130"></a>
 **(130) Mesaj xətasının mənası nədir...?**
 
-A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
+Texniki məlumat ilə birgə qırmızı və narıncı mətn ehtiva edən bir xətt seriyası, Qarışıq tənzimləmələrdə sazlama rejiminin fəallaşdırıldığı mənasını verir.
 
-The warning *No server found at ...* means that there was no email server registered at the indicated domain name. Replying to the message might not be possible and might result in an error. This could indicate a falsified email address and/or spam.
+*... ünvanında heç bir server tapılmadı* xətası, göstərilən domen adında heç bir qeydiyyatlı e-poçt serverinin olmadığını bildirir. Mesajı cavablamaq mümkün olmaya bilər və bir xəta ilə nəticələnə bilər. Bu, saxta bir e-poçt ünvanı və/və ya spam olduğunu göstərə bilər.
 
-The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software. FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
+*ParseException ...* xətası, alınan bir mesajda, böyük ehtimalla göndərənin proqram təminatında bir xətanın səbəb olduğu bir problem olduğu mənasını verir. FairEmail, belə əksər hallarda müvəqqəti həll yolu olacaqdır. Ona görə də, bu mesaj, əksər hallarda bir xəta əvəzinə bir xəbərdarlıq kimi düşünülə bilər.
 
-The error *...SendFailedException...* means that there was a problem while sending a message. The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
+*...SendFailedException...* xətası, mesaj göndərilərkən bir problem olduğu mənasını verir. Xəta, demək olar ki, hər zaman bir səbəb ehtiva edir. Ortaq səbəblər, mesajın çox böyük olması, alıcı ünvanlarından biri və ya bir neçəsinin etibarsız olması ola bilər.
 
-The warning *Message too large to fit into the available memory* means that the message was larger than 10 MiB. Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
+*Mesaj, mövcud yaddaşa sığmayacaq qədər böyükdür* xəbərdarlığı, mesajın 10 MiB-dən böyük olduğu mənasını verir. Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
 
 Please see [here](#user-content-faq22) for other error messages in the outbox.
 

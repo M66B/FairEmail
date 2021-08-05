@@ -1225,7 +1225,7 @@
     <string name="title_rule_hours">Годин</string>
     <string name="title_rule_schedule_end">Починаючи з часу закінчення дії правила</string>
     <string name="title_rule_folder">Тека</string>
-    <string name="title_rule_thread">Усі повідомлення в тій самій розмові і теці</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Усі повідомлення в тій самій розмові і теці</string>
     <string name="title_rule_identity">Ідентифікація</string>
     <string name="title_rule_template">Шаблон відповіді</string>
     <string name="title_rule_forward_to">Переслати</string>
@@ -1618,6 +1618,7 @@
         <item>Середній</item>
         <item>Великий</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Дрібний</string>
     <string-array name="receiptNames">
         <item>Лише повідомлення про прочитання</item>
         <item>Лише сповіщення про отримання</item>

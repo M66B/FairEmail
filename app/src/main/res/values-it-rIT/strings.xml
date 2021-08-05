@@ -1207,7 +1207,7 @@
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_schedule_end">Dal termine della condizione temporale</string>
     <string name="title_rule_folder">Cartella</string>
-    <string name="title_rule_thread">Tutti i messaggi nella stessa conversazione e cartella</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Tutti i messaggi nella stessa conversazione e cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
     <string name="title_rule_forward_to">Inoltra a</string>
@@ -1598,6 +1598,7 @@
         <item>Medio</item>
         <item>Grande</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Molto piccolo</string>
     <string-array name="receiptNames">
         <item>Solo conferma di lettura</item>
         <item>Solo conferma di consegna</item>

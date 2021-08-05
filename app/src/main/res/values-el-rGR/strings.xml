@@ -1205,7 +1205,7 @@
     <string name="title_rule_hours">Ώρες</string>
     <string name="title_rule_schedule_end">Από το τέλος της συνθήκης χρόνου</string>
     <string name="title_rule_folder">Φάκελος</string>
-    <string name="title_rule_thread">Όλα τα μηνύματα στην ίδια συζήτηση και τον ίδιο φάκελο</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Όλα τα μηνύματα στην ίδια συζήτηση και τον ίδιο φάκελο</string>
     <string name="title_rule_identity">Ταυτότητα</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
     <string name="title_rule_forward_to">Προώθηση σε</string>
@@ -1596,6 +1596,7 @@
         <item>Μεσαίο</item>
         <item>Μεγάλο</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Μικροσκοπικό</string>
     <string-array name="receiptNames">
         <item>Αποδεικτικό ανάγνωσης μόνο</item>
         <item>Αποδεικτικό παράδοσης μόνο</item>

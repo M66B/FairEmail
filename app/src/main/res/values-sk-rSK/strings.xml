@@ -441,6 +441,7 @@
     <string name="title_advanced_collapse_multiple">Zbaliť konverzácie s viacerými správami stlačením tlačidla \'Späť\'</string>
     <string name="title_advanced_autoclose">Automaticky zatvárať konverzácie</string>
     <string name="title_advanced_onclose">Pri zatvorení konverzácie</string>
+    <string name="title_advanced_autoclose_unread">Zatvoriť konverzáciu po označení ako neprečítanú</string>
     <string name="title_advanced_undo">Časový limit funkcie späť</string>
     <string name="title_advanced_quick_filter">Zobraziť neobťažujúce ikonky pre rýchle filtrovanie</string>
     <string name="title_advanced_quick_scroll">Zobraziť neobťažujúce ikonky pre rýchly posun nahor/nadol</string>
@@ -593,6 +594,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_sender_hint">Väčšina poskytovateľov neumožňuje modifikovať adresu odosielateľa</string>
     <string name="title_advanced_bcc_hint">Adresy nebudú zobrazené, budú však pridané pri posielaní</string>
     <string name="title_advanced_internal_hint">Pri odosielaní do inej domény sa zobrazí varovanie</string>
+    <string name="title_advanced_e2e_encryption">Možnosti šifrovania end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Vypnutie tejto možnosti môže narušiť Vaše súkromie</string>
     <string name="title_advanced_display_hidden_hint">Toto môže spôsobiť podivný vzhľad a duplikované texty</string>
     <string name="title_advanced_display_pin_hint">PIN má prednosť pred biometrickou autentifikáciou</string>
@@ -1063,7 +1065,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_attachment_keywords">priložené,príloha,prílohy,zahrnuté</string>
     <string name="title_attachment_reminder">Mali ste v úmysle pridať prílohu?</string>
     <string name="title_plain_reminder">Dôjde k strate formátovania</string>
-    <string name="title_size_reminder">Správa (%1$s) väčšia než serverový limit (%2$s)</string>
+    <string name="title_size_reminder">Správa (%1$s) väčšia než limit servera (%2$s)</string>
     <string name="title_attachments_missing">Nie všetky prílohy boli prevzaté</string>
     <string name="title_dialog_hint">Tento dialóg môže byť znovu zapnutý cez menu s troma bodkami v hornom panely akcií</string>
     <string name="title_draft_deleted">Koncept vymazaný</string>
@@ -1162,6 +1164,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_select_found">Vybrať nájdené</string>
     <string name="title_mark_all_read">Označiť všetko ako prečítané</string>
     <string name="title_force_sync">Vynútiť synchronizáciu</string>
+    <string name="title_force_reload">Vynútiť reštart</string>
     <string name="title_force_send">Vynútiť odoslanie</string>
     <string name="title_language_all">Všetko</string>
     <string name="title_previous">Predchádzajúca</string>
@@ -1220,7 +1223,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_hours">Hodiny</string>
     <string name="title_rule_schedule_end">Od konca časovej podmienky</string>
     <string name="title_rule_folder">Priečinok</string>
-    <string name="title_rule_thread">Všetky správy v rovnakej konverzácii a priečinku</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Všetky správy v rovnakej konverzácii a priečinku</string>
     <string name="title_rule_identity">Totožnosť</string>
     <string name="title_rule_template">Šablóna odpovede</string>
     <string name="title_rule_forward_to">Preposlať na</string>
@@ -1613,6 +1616,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Stredná</item>
         <item>Veľká</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Veľmi malé</string>
     <string-array name="receiptNames">
         <item>Len potvrdenie o prečítaní</item>
         <item>Len potvrdenie o doručení</item>

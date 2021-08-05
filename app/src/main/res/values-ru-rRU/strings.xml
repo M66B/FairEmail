@@ -1227,7 +1227,7 @@
     <string name="title_rule_hours">Часов</string>
     <string name="title_rule_schedule_end">До конца срока</string>
     <string name="title_rule_folder">Папка</string>
-    <string name="title_rule_thread">Все сообщения в одном диалоге и папке</string>
+    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Все сообщения в одном диалоге и папке</string>
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_template">Шаблон ответа</string>
     <string name="title_rule_forward_to">Переслать</string>
@@ -1620,6 +1620,7 @@
         <item>Средний</item>
         <item>Крупный</item>
     </string-array>
+    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Минимальный</string>
     <string-array name="receiptNames">
         <item>Уведомление о прочтении</item>
         <item>Уведомление о доставке</item>
