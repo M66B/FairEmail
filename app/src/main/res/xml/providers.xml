@@ -165,7 +165,7 @@
     </provider>
     <provider
         name="Posteo.de"
-        documentation="Please check if &lt;a href=&quot;https://posteo.de/en/help/activating-additional-email-account-protection&quot;&gt;additional email account protection&lt;/a&gt; isn't enabled"
+        documentation="Please check if &lt;a href=&quot;https://posteo.de/en/help/activating-additional-email-account-protection&quot;&gt;additional email account protection&lt;/a&gt; isn't enabled."
         domain="posteo\\..*"
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
         <imap
@@ -180,7 +180,7 @@
     <provider
         name="free.fr"
         appPassword="true"
-        documentation="SMTP est désactivé par défaut, veuillez &lt;a href=&quot;http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr&quot;&gt;voir ici&lt;/a&gt; pour un guide détaillé"
+        documentation="SMTP est désactivé par défaut, veuillez &lt;a href=&quot;http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr&quot;&gt;voir ici&lt;/a&gt; pour un guide détaillé."
         domain="free\\.fr"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq157">
         <imap
