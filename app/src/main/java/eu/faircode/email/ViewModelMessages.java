@@ -294,6 +294,9 @@ public class ViewModelMessages extends ViewModel {
                     }
                 }
 
+                if (curState[1] == null) // first changed
+                    curState[1] = new Pair<>(id, -1);
+
                 if (Objects.equals(lastState[0], curState[0]) &&
                         Objects.equals(lastState[1], curState[1]) &&
                         Objects.equals(lastState[2], curState[2])) {
@@ -306,17 +309,18 @@ public class ViewModelMessages extends ViewModel {
                         " base=" + (curState[1] == null ? null : curState[1].first + "/" + curState[1].second) +
                         " next=" + (curState[2] == null ? null : curState[2].first + "/" + curState[2].second));
 
+                if (curState[1].second >= 0)
+                    intf.onFound(curState[1].second, messages.size());
+                if (!(lastState[0] != null && curState[0] == null))
+                    intf.onPrevious(curState[0] != null, curState[0] == null ? null : curState[0].first);
+                if (!(lastState[2] != null && curState[2] == null))
+                    intf.onNext(curState[2] != null, curState[2] == null ? null : curState[2].first);
+
                 lastState[0] = curState[0];
                 lastState[1] = curState[1];
                 lastState[2] = curState[2];
 
-                if (curState[1] != null) {
-                    intf.onFound(curState[1].second, messages.size());
-                    intf.onPrevious(curState[0] != null, curState[0] == null ? null : curState[0].first);
-                    intf.onNext(curState[2] != null, curState[2] == null ? null : curState[2].first);
-                }
-
-                if (curState[1] != null &&
+                if (curState[1].second >= 0 &&
                         (curState[0] == null || curState[0].first != null) &&
                         (curState[2] == null || curState[2].first != null))
                     return;
