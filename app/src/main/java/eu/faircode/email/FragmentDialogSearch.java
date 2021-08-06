@@ -166,7 +166,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         adapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
             @Override
             public CharSequence convertToString(Cursor cursor) {
-                return cursor.getString(cursor.getColumnIndex("suggestion"));
+                int colSuggestion = cursor.getColumnIndex("suggestion");
+                return cursor.getString(colSuggestion);
             }
         });
 
