@@ -25,6 +25,7 @@
 
     <style name="AppThemeBaseLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <item name="themeName">light</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
 
@@ -68,6 +69,7 @@
 
     <style name="AppThemeBaseDark" parent="Base.Theme.AppCompat">
         <item name="themeName">dark</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
 
