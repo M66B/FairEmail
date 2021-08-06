@@ -385,19 +385,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAdvanced" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvQuickSyncHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_quick_sync_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvQuickSync" />
-
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swQuickSyncImap"
                     android:layout_width="0dp"
@@ -407,7 +394,7 @@
                     android:text="@string/title_imap"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvQuickSyncHint"
+                    app:layout_constraintTop_toBottomOf="@id/tvQuickSync"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -423,6 +410,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swQuickSyncImap"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvQuickSyncHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_quick_sync_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swQuickSyncPop" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNodate"
                     android:layout_width="0dp"
@@ -431,7 +431,7 @@
                     android:text="@string/title_advanced_no_date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swQuickSyncPop"
+                    app:layout_constraintTop_toBottomOf="@id/tvQuickSyncHint"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
