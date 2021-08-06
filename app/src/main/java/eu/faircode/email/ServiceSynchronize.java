@@ -2153,8 +2153,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         state.setBackoff(backoff * 2);
                     else if (backoff == CONNECT_BACKOFF_MAX)
                         state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
-                    else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
-                        state.setBackoff(backoff * 2);
+                    else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60) {
+                        int b = backoff * 2;
+                        if (b > CONNECT_BACKOFF_ALARM_MAX * 60)
+                            b = CONNECT_BACKOFF_ALARM_MAX * 60;
+                        state.setBackoff(b);
+                    }
 
                     if (backoff <= CONNECT_BACKOFF_MAX) {
                         // Short back-off period, keep device awake
