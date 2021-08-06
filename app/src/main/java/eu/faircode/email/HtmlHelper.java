@@ -2073,7 +2073,7 @@ public class HtmlHelper {
             if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(quoted, start, end))
                 return "border-right:3px solid #ccc; padding-left:3px;";
         } catch (Throwable ex) {
-            Log.e(ex);
+            Log.e(new Throwable("getQuoteStyle", ex));
         }
 
         return "border-left:3px solid #ccc; padding-left:3px;";

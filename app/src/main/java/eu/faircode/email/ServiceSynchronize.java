@@ -128,6 +128,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int FAST_FAIL_THRESHOLD = 75; // percent
+    private static final int FAST_FAIL_COUNT = 3;
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
     private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
 
@@ -2107,7 +2108,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             fast_fails++;
                             if (fast_fails == 1)
                                 first_fail = now;
-                            else {
+                            else if (fast_fails >= FAST_FAIL_COUNT) {
                                 long avg_fail = (now - first_fail) / fast_fails;
                                 if (avg_fail < fail_threshold) {
                                     long missing = (fail_threshold - avg_fail) * fast_fails;
