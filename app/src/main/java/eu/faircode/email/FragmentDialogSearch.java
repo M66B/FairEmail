@@ -520,7 +520,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         etQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_GO) {
+                if (actionId == EditorInfo.IME_ACTION_GO ||
+                        event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     dialog.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
                     return true;
                 }
