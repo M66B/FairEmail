@@ -52,6 +52,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.mail.internet.InternetAddress;
@@ -109,8 +110,50 @@ class Shortcuts {
             @Override
             @TargetApi(Build.VERSION_CODES.N_MR1)
             protected void onExecuted(Bundle args, List<ShortcutInfoCompat> shortcuts) {
-                ShortcutManagerCompat.removeAllDynamicShortcuts(context);
-                ShortcutManagerCompat.addDynamicShortcuts(context, shortcuts);
+                List<ShortcutInfoCompat> add = new ArrayList<>();
+                List<String> remove = new ArrayList<>();
+
+                if (BuildConfig.DEBUG && false)
+                    ShortcutManagerCompat.removeAllDynamicShortcuts(context);
+
+                List<ShortcutInfoCompat> existing = ShortcutManagerCompat.getDynamicShortcuts(context);
+
+                for (ShortcutInfoCompat shortcut : shortcuts) {
+                    boolean exists = false;
+                    for (ShortcutInfoCompat current : existing)
+                        if (Objects.equals(shortcut.getId(), current.getId())) {
+                            Log.i("Found shortcut=" + current.getId());
+                            exists = true;
+                            break;
+                        }
+                    if (!exists)
+                        add.add(shortcut);
+                }
+
+                for (ShortcutInfoCompat current : existing) {
+                    boolean found = false;
+                    for (ShortcutInfoCompat shortcut : shortcuts)
+                        if (Objects.equals(shortcut.getId(), current.getId())) {
+                            found = true;
+                            break;
+                        }
+                    if (!found) {
+                        Log.i("Not found shortcut=" + current.getId());
+                        remove.add(current.getId());
+                    }
+                }
+
+                Log.i("Shortcuts count=" + shortcuts.size() +
+                        " add=" + add.size() +
+                        " remove=" + remove.size());
+
+                if (remove.size() > 0)
+                    ShortcutManagerCompat.removeDynamicShortcuts(context, remove);
+
+                if (add.size() > 0) {
+                    boolean ok = ShortcutManagerCompat.addDynamicShortcuts(context, add);
+                    Log.i("Shortcuts=" + add.size() + " updated=" + ok);
+                }
             }
 
             @Override
