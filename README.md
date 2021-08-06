@@ -32,7 +32,7 @@ FairEmail might be for you if you value your privacy.
 * [Privacy oriented](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
 * Unlimited accounts
 * Unlimited email addresses
-* Unified inbox
+* Unified inbox (optionally accounts or folders)
 * [Conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
 * Two way synchronization
 * Push notifications
