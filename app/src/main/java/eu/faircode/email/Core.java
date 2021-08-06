@@ -2743,8 +2743,9 @@ class Core {
                 Log.i(folder.name + " remote count=" + imessages.length + " search=" + stats.search_ms + " ms");
 
                 ids = new Long[imessages.length];
-                if (!modified && !(sync_quick_imap && !force)) {
-                    Log.i(folder.name + " quick check count=" + imessages.length);
+
+                if (!modified) {
+                    Log.i(folder.name + " quick check");
                     long fetch = SystemClock.elapsedRealtime();
 
                     FetchProfile fp = new FetchProfile();
@@ -3077,6 +3078,12 @@ class Core {
                         }
                     }
                 }
+
+                // Delete not synchronized messages without uid
+                if (!EntityFolder.isOutgoing(folder.type)) {
+                    int orphans = db.message().deleteOrphans(folder.id, new Date().getTime());
+                    Log.i(folder.name + " deleted orphans=" + orphans);
+                }
             } else {
                 List<Message> _imessages = new ArrayList<>();
                 List<Long> _ids = new ArrayList<>();
@@ -3098,12 +3105,6 @@ class Core {
 
                 imessages = _imessages.toArray(new Message[0]);
                 ids = _ids.toArray(new Long[0]);
-            }
-
-            // Delete not synchronized messages without uid
-            if (!EntityFolder.isOutgoing(folder.type)) {
-                int orphans = db.message().deleteOrphans(folder.id, new Date().getTime());
-                Log.i(folder.name + " deleted orphans=" + orphans);
             }
 
             // Update modseq
