@@ -1426,7 +1426,8 @@ public class Log {
                 return null;
 
             if (ex instanceof MessagingException &&
-                    ("connection failure".equals(ex.getMessage()) ||
+                    ("Not connected".equals(ex.getMessage()) || // POP3
+                            "connection failure".equals(ex.getMessage()) ||
                             "failed to create new store connection".equals(ex.getMessage())))
                 return null;
 
