@@ -264,6 +264,7 @@
     <string name="title_advanced_always">Nachrichten für diese Konten immer empfangen</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_advanced">Erweitert</string>
+    <string name="title_advanced_quick_sync">Schnellsynchronisation</string>
     <string name="title_advanced_no_date">Nachrichten ohne Datum empfangen</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten empfangen</string>
     <string name="title_advanced_flagged">Alle markierten Nachrichten empfangen</string>
@@ -528,6 +529,7 @@
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
     <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers.</string>
     <string name="title_advanced_schedule_hint">Auf eine Zeit tippen, um eine Zeit festzulegen</string>
+    <string name="title_advanced_quick_sync_hint">Dies reduziert die Datennutzung, aber neue Nachrichten können ausbleiben, wenn der E-Mail-Server die Standards nicht einhält.</string>
     <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
     <string name="title_advanced_deleted_unseen">Wenn deaktiviert, bleiben ungelesene Nachrichten dauerhaft auf dem Gerät erhalten</string>
@@ -1600,7 +1602,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Mittel</item>
         <item>Groß</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Winzig</string>
+    <string name="title_size_tiny">Winzig</string>
     <string-array name="receiptNames">
         <item>Nur Lesebestätigung</item>
         <item>Nur Übermittlungsbestätigung</item>

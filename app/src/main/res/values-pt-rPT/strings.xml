@@ -230,6 +230,7 @@
     <string name="title_advanced_always">Receber sempre mensagens para estas contas</string>
     <string name="title_advanced_schedule">Agendar</string>
     <string name="title_advanced_advanced">Avançado</string>
+    <string name="title_advanced_quick_sync">Sincronização rápida</string>
     <string name="title_advanced_no_date">Mensagens sem data</string>
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>
     <string name="title_advanced_flagged">Todas as mensagens favoritas</string>
@@ -432,6 +433,7 @@
     <string name="title_advanced_debug">Modo de Depuração</string>
     <string name="title_advanced_query_threads">Limitar acesso paralelo à base de dados</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
+    <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não têm o suporte correto, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
@@ -529,7 +531,7 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Minúsculo</string>
+    <string name="title_size_tiny">Muito pequeno</string>
     <string-array name="sizeNames">
         <item>0 B</item>
         <item>256 KB</item>

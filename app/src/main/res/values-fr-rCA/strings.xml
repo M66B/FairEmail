@@ -262,6 +262,7 @@
     <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>
     <string name="title_advanced_schedule">Planification</string>
     <string name="title_advanced_advanced">Avancé</string>
+    <string name="title_advanced_quick_sync">Synchronisation rapide</string>
     <string name="title_advanced_no_date">Messages sans date</string>
     <string name="title_advanced_unseen">Tous les messages non lus</string>
     <string name="title_advanced_flagged">Tous les messages suivis</string>
@@ -526,6 +527,7 @@
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la pile en fonction des capacités et du comportement des serveurs de courriel</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
+    <string name="title_advanced_quick_sync_hint">Ceci réduit l\'utilisation des données mais de nouveaux messages pourraient être manquants si le serveur de messagerie ne respecte pas les normes</string>
     <string name="title_advanced_no_date_hint">Certains fournisseurs stockent les messages avec une date inconnue, invalide ou future comme étant des messages sans date</string>
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne prennent pas ceci en charge correctement, ce qui peut entraîner la synchronisation de tous les messages, voire d’aucun</string>
     <string name="title_advanced_deleted_unseen">Lorsque ceci est désactivé, les messages non lus sont conservés sur l’appareil indéfiniment</string>
@@ -1598,7 +1600,7 @@
         <item>Moyenne</item>
         <item>Grande</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Très petite</string>
+    <string name="title_size_tiny">Très petite</string>
     <string-array name="receiptNames">
         <item>Confirmation de lecture seulement</item>
         <item>Confirmation de réception seulement</item>

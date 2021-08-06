@@ -282,6 +282,7 @@
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_advanced">Дополнительно</string>
+    <string name="title_advanced_quick_sync">Быстрая синхронизация</string>
     <string name="title_advanced_no_date">Сообщения без даты</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
@@ -546,6 +547,7 @@
     <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
     <string name="title_advanced_optimize_hint">Может изменять частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
+    <string name="title_advanced_quick_sync_hint">Это уменьшает использование трафика, но новые сообщения могут быть пропущены, если сервер электронной почты не придерживается стандартов</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
@@ -1227,7 +1229,7 @@
     <string name="title_rule_hours">Часов</string>
     <string name="title_rule_schedule_end">До конца срока</string>
     <string name="title_rule_folder">Папка</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Все сообщения в одном диалоге и папке</string>
+    <string name="title_rule_thread">Все сообщения в одном диалоге и папке</string>
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_template">Шаблон ответа</string>
     <string name="title_rule_forward_to">Переслать</string>
@@ -1620,7 +1622,7 @@
         <item>Средний</item>
         <item>Крупный</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Минимальный</string>
+    <string name="title_size_tiny">Минимальный</string>
     <string-array name="receiptNames">
         <item>Уведомление о прочтении</item>
         <item>Уведомление о доставке</item>

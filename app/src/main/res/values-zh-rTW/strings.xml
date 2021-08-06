@@ -56,9 +56,9 @@
         <item quantity="other">您要永久刪除這 %1$d 則訊息嗎？</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="other">您要標記這 %1$d 則訊息為垃圾郵件嗎？</item>
+        <item quantity="other">您要將這 %1$d 則訊息作垃圾郵件處理嗎？</item>
     </plurals>
-    <string name="title_ask_spam_who">您要標記來自 %1$s 的訊息為垃圾郵件嗎？</string>
+    <string name="title_ask_spam_who">您要將來自 %1$s 的訊息作垃圾郵件處理嗎？</string>
     <string name="title_junk_hint">您的電子郵件供應商負責過濾垃圾郵件。電子郵件程式並不擁有所有用於可靠地處理此操作的數據。</string>
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
@@ -411,11 +411,11 @@
     <string name="title_advanced_collapse_multiple">執行\'返回\'操作時摺疊多訊息會話中的訊息</string>
     <string name="title_advanced_autoclose">自動關閉會話</string>
     <string name="title_advanced_onclose">當關閉一個會話時</string>
-    <string name="title_advanced_autoclose_unread">在標記訊息為未讀後關閉會話</string>
+    <string name="title_advanced_autoclose_unread">在標示訊息為未讀取後關閉會話</string>
     <string name="title_advanced_undo">“撤銷”操作可執行時限</string>
     <string name="title_advanced_quick_filter">顯示不顯眼的快速過濾圖示</string>
     <string name="title_advanced_quick_scroll">顯示不起眼的快速向上/下滾動圖示</string>
-    <string name="title_advanced_autoread">移動訊息時自動標記訊息為已讀</string>
+    <string name="title_advanced_autoread">移動訊息時自動標示訊息為已讀取</string>
     <string name="title_advanced_star_snoozed">自動在延後訊息上添加星標</string>
     <string name="title_advanced_autounstar">移動訊息時自動移除其中包含的星標</string>
     <string name="title_advanced_auto_important">自動標記已加星標訊息為重要的</string>
@@ -1195,7 +1195,7 @@
     <string name="title_rule_hours">小時</string>
     <string name="title_rule_schedule_end">從時間結束條件</string>
     <string name="title_rule_folder">資料夾</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">在相同的會話與資料夾中的所有訊息</string>
+    <string name="title_rule_thread">在相同的會話與資料夾中的所有訊息</string>
     <string name="title_rule_identity">身分</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_forward_to">轉寄至</string>
@@ -1585,7 +1585,7 @@
         <item>中</item>
         <item>大</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">極小</string>
+    <string name="title_size_tiny">極小</string>
     <string-array name="receiptNames">
         <item>僅已讀回條</item>
         <item>僅送達回條</item>

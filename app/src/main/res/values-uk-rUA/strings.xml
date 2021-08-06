@@ -282,6 +282,7 @@
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
     <string name="title_advanced_schedule">Розклад</string>
     <string name="title_advanced_advanced">Додаткові налаштування</string>
+    <string name="title_advanced_quick_sync">Швидка синхронізація</string>
     <string name="title_advanced_no_date">Повідомлення, які не мають дати</string>
     <string name="title_advanced_unseen">Усі непрочитані повідомлення</string>
     <string name="title_advanced_flagged">Всі позначені повідомлення</string>
@@ -544,6 +545,7 @@
     <string name="title_advanced_poll_hint">Періодичнна перевірка на нові повідомлення щоразу порівнювнює локальні і віддалені повідомлення, є навантаженою операцією, що може призвести до додаткового розряджання батареї, особливо якщо є багато повідомлень. Режим \'завжди отримувати\' буде перешкоджати наступними перевіркам локального та відаленного змісту.</string>
     <string name="title_advanced_optimize_hint">Це може змінити частоту синхронізації для економії заряду акумулятора в залежності від можливостей і поведінки серверів електронної пошти</string>
     <string name="title_advanced_schedule_hint">Натисни на час, щоб встановити час</string>
+    <string name="title_advanced_quick_sync_hint">Це зменшує використання даних, але нові повідомлення можуть бути пропущені, якщо сервер електронної пошти не відповідає стандартам</string>
     <string name="title_advanced_no_date_hint">Деякі постачальники зберігають повідомлення з невідомою, недійсною або майбутньою датою так як і повідомлення зовсім без дати</string>
     <string name="title_advanced_unseen_hint">Деякі провайдери не підтримують це правильно, що може спричинити синхронізацію або всхі повідомленнь або жодного</string>
     <string name="title_advanced_deleted_unseen">Якщо вимкнено, непрочитані повідомлення завжди зберігаються на пристрої</string>
@@ -1225,7 +1227,7 @@
     <string name="title_rule_hours">Годин</string>
     <string name="title_rule_schedule_end">Починаючи з часу закінчення дії правила</string>
     <string name="title_rule_folder">Тека</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Усі повідомлення в тій самій розмові і теці</string>
+    <string name="title_rule_thread">Усі повідомлення в тій самій розмові і теці</string>
     <string name="title_rule_identity">Ідентифікація</string>
     <string name="title_rule_template">Шаблон відповіді</string>
     <string name="title_rule_forward_to">Переслати</string>
@@ -1618,7 +1620,7 @@
         <item>Середній</item>
         <item>Великий</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Дрібний</string>
+    <string name="title_size_tiny">Дрібний</string>
     <string-array name="receiptNames">
         <item>Лише повідомлення про прочитання</item>
         <item>Лише сповіщення про отримання</item>

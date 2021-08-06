@@ -1206,7 +1206,7 @@
     <string name="title_rule_hours">Saat</string>
     <string name="title_rule_schedule_end">Vaxt şərtinin sonundan</string>
     <string name="title_rule_folder">Qovluq</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Eyni danışıq və qovluqdakı bütün mesajlar</string>
+    <string name="title_rule_thread">Eyni danışıq və qovluqdakı bütün mesajlar</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Cavab şablonu</string>
     <string name="title_rule_forward_to">Yönləndir</string>
@@ -1590,7 +1590,7 @@
         <item>Orta</item>
         <item>Böyük</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Çox kiçik</string>
+    <string name="title_size_tiny">Çox kiçik</string>
     <string-array name="receiptNames">
         <item>Yalnız oxundu bildirişi</item>
         <item>Yalnız çatdırıldı bildirişi</item>

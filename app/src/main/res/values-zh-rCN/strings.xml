@@ -410,6 +410,7 @@
     <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
+    <string name="title_advanced_autoclose_unread">将消息标记为已读时关闭会话</string>
     <string name="title_advanced_undo">撤回超时</string>
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
     <string name="title_advanced_quick_scroll">显示不显眼的快速上/下滚动图标</string>
@@ -562,6 +563,7 @@
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
     <string name="title_advanced_internal_hint">发送到另一个域时会有警告</string>
+    <string name="title_advanced_e2e_encryption">端到端加密选项</string>
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
@@ -1134,6 +1136,7 @@
     <string name="title_select_found">选中找到的</string>
     <string name="title_mark_all_read">全部标为已读</string>
     <string name="title_force_sync">强制同步</string>
+    <string name="title_force_reload">强制重启</string>
     <string name="title_force_send">强制发送</string>
     <string name="title_language_all">全部</string>
     <string name="title_previous">上一封</string>
@@ -1581,6 +1584,7 @@
         <item>中</item>
         <item>大</item>
     </string-array>
+    <string name="title_size_tiny">极小</string>
     <string-array name="receiptNames">
         <item>已读回执</item>
         <item>送达回执</item>

@@ -281,6 +281,7 @@
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_advanced">Zaawansowane</string>
+    <string name="title_advanced_quick_sync">Szybka synchronizacja</string>
     <string name="title_advanced_no_date">Wiadomości bez daty</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
@@ -545,6 +546,7 @@
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_optimize_hint">Może to zmienić częstotliwość synchronizacji, aby zaoszczędzić zużycie baterii w zależności od możliwości i zachowania serwerów e-mail</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
+    <string name="title_advanced_quick_sync_hint">Zmniejsza to zużycie danych, ale nowe wiadomości mogą zostać pominięte, jeśli serwer poczty e-mail nie spełnia standardów</string>
     <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
     <string name="title_advanced_deleted_unseen">Kiedy wyłączone, nieprzeczytane wiadomości są zawsze przechowywane w urządzeniu</string>
@@ -1618,6 +1620,7 @@
         <item>Średnia</item>
         <item>Duża</item>
     </string-array>
+    <string name="title_size_tiny">Drobna</string>
     <string-array name="receiptNames">
         <item>Potwierdzenie odczytu</item>
         <item>Potwierdzenie dostarczenia</item>

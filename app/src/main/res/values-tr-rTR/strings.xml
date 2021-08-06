@@ -262,6 +262,7 @@
     <string name="title_advanced_always">Bu hesaplardan mesajları her zaman al</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_advanced">Gelişmiş</string>
+    <string name="title_advanced_quick_sync">Hızlı senkronizasyon</string>
     <string name="title_advanced_no_date">Tarihsiz mesajlar</string>
     <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>
     <string name="title_advanced_flagged">Tüm yıldızlı iletiler</string>
@@ -526,6 +527,7 @@
     <string name="title_advanced_poll_hint">Yeni mesajların periyodik olarak kontrol edilmesi, her seferinde yerel ve uzak mesajları karşılaştıracaktır; bu, özellikle çok fazla mesaj varsa ekstra pil kullanımına neden olabilecek pahalı bir işlemdir. Her zaman al, değişiklikleri sürekli takip ederek bunu önleyecektir.</string>
     <string name="title_advanced_optimize_hint">Bu, e-posta sunucularının özelliklerine ve davranışına bağlı olarak pil kullanımından tasarruf etmek için senkronizasyon sıklığını değiştirebilir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
+    <string name="title_advanced_quick_sync_hint">Bu, veri kullanımını azaltır, ancak e-posta sunucusu standartlara uymazsa yeni mesajlar kaçırılabilir</string>
     <string name="title_advanced_no_date_hint">Bazı sağlayıcılar bilinmeyen, geçersiz veya ileri tarihli mesajları tarih içermeyen mesajlar olarak saklar.</string>
     <string name="title_advanced_unseen_hint">Bazı sağlayıcılar bunu düzgün bir şekilde desteklememektedir, bu durum mesajların hiç birinin senkronize edilmemesine ya da hepsinin senkronize edilmesine sebep olmaktadır</string>
     <string name="title_advanced_deleted_unseen">Devre dışı bırakıldığında, okunmamış mesajlar sonsuza kadar cihazda tutulur</string>
@@ -574,6 +576,7 @@
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_bcc_hint">Adres gösterilmeyecek, ancak gönderime eklenecek</string>
     <string name="title_advanced_internal_hint">Başka bir alana gönderirken bir uyarı olacak</string>
+    <string name="title_advanced_e2e_encryption">Uçtan uca şifreleme seçenekleri</string>
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
     <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
@@ -1146,6 +1149,7 @@
     <string name="title_select_found">Bulunanları seç</string>
     <string name="title_mark_all_read">Hepsini okundu olarak işaretle</string>
     <string name="title_force_sync">Eşzamanlamaya zorla</string>
+    <string name="title_force_reload">Yeniden başlatmaya zorla</string>
     <string name="title_force_send">Göndermeye zorla</string>
     <string name="title_language_all">Tümü</string>
     <string name="title_previous">Önceki</string>
@@ -1595,6 +1599,7 @@
         <item>Orta</item>
         <item>Büyük</item>
     </string-array>
+    <string name="title_size_tiny">Küçücük</string>
     <string-array name="receiptNames">
         <item>Sadece okundu bilgisi</item>
         <item>Yalnızca teslimat makbuzu</item>

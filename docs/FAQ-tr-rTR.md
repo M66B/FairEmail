@@ -227,8 +227,8 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 * [(90) Bazı metinler neden bir bağlantı değilken bağlantılıdır?](#user-content-faq90)
 * [~~(91) Pil gücünden tasarruf etmek için periyodik senkronizasyon ekleyebilir misiniz?~~](#user-content-faq91)
 * [(92) Spam filtreleme, DKIM imzasının doğrulanması ve SPF yetkilendirmesi ekleyebilir misiniz?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
+* [(93) Harici depolama ortamında (sdcard) kurulum/veri depolamasına izin verebilir misiniz?](#user-content-faq93)
+* [(94) Başlığın sonundaki kırmızı/turuncu şerit ne anlama geliyor?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
 * [(97) What is 'cleanup' ?](#user-content-faq97)
@@ -3130,4 +3130,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Telif hakkı &copy; 2018-2021 M. Bokhorst 'a aittir.

@@ -272,6 +272,7 @@
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_advanced">Avansate</string>
+    <string name="title_advanced_quick_sync">Sincronizare rapidă</string>
     <string name="title_advanced_no_date">Mesaje fără dată</string>
     <string name="title_advanced_unseen">Toate mesajele necitite</string>
     <string name="title_advanced_flagged">Toate mesajele marcate</string>
@@ -536,6 +537,7 @@
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje. Modul de sincronizare permanent evită aceasta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_optimize_hint">Acest lucru ar putea schimba frecvența de sincronizare pentru a economisi consumul bateriei în funcție de capacitățile și comportamentul serverelor de e-mail</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
+    <string name="title_advanced_quick_sync_hint">Acest lucru reduce consumul de date, dar mesajele noi pot fi ratate dacă serverul de e-mail nu respectă standardele</string>
     <string name="title_advanced_no_date_hint">Unii furnizori stochează mesaje cu o dată necunoscută, invalidă sau viitoare ca mesaje fără dată</string>
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
     <string name="title_advanced_deleted_unseen">Dacă este dezactivat, mesajele necitite sunt păstrate pe dispozitiv pentru totdeauna</string>
@@ -1217,7 +1219,7 @@
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_schedule_end">Condiția de la terminarea timpului</string>
     <string name="title_rule_folder">Dosar</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Toate mesajele în aceeași conversație și dosar</string>
+    <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
     <string name="title_rule_forward_to">Redirecţionează către</string>
@@ -1609,7 +1611,7 @@
         <item>Medie</item>
         <item>Mare</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Mic</string>
+    <string name="title_size_tiny">Mic</string>
     <string-array name="receiptNames">
         <item>Doar confirmare de citire</item>
         <item>Doar confirmare de livrare</item>

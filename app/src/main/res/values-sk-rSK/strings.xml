@@ -1223,7 +1223,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_hours">Hodiny</string>
     <string name="title_rule_schedule_end">Od konca časovej podmienky</string>
     <string name="title_rule_folder">Priečinok</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Všetky správy v rovnakej konverzácii a priečinku</string>
+    <string name="title_rule_thread">Všetky správy v rovnakej konverzácii a priečinku</string>
     <string name="title_rule_identity">Totožnosť</string>
     <string name="title_rule_template">Šablóna odpovede</string>
     <string name="title_rule_forward_to">Preposlať na</string>
@@ -1616,7 +1616,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Stredná</item>
         <item>Veľká</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Veľmi malé</string>
+    <string name="title_size_tiny">Veľmi malé</string>
     <string-array name="receiptNames">
         <item>Len potvrdenie o prečítaní</item>
         <item>Len potvrdenie o doručení</item>

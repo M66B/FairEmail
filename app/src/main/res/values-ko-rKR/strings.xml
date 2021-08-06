@@ -3,6 +3,7 @@
     <string name="app_search">FairEmail 검색</string>
     <string name="app_changelog">변경 로그</string>
     <string name="app_welcome">FairEmail은 프라이버시와 보안을 위한 오픈 소스 이메일 앱입니다. 그렇기에 몇몇 기능은 당신이 지금까지 써왔던 것과 조금 다르게 작동할 수 있습니다.</string>
+    <string name="app_limitations">예를 들어, 안전하지 않은 요소를 제거하고 가독성을 향상시키기 위해 기본적으로 메시지 형식이 다시 지정되며 안전을 위해 링크 열기를 확인해야 합니다. 원하는 경우 둘 다 비활성화할 수 있습니다.</string>
     <string name="app_crash">Android가 충돌을 일으키기 때문에 이 기기에서는 FailEmail이 지원되지 않습니다.</string>
     <string name="app_exit">나가려면 뒤로 버튼을 한번 더 누르세요</string>
     <string name="app_cake">저장 공간 부족</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">계정 동기화 및 모니터링</string>
     <string name="channel_send_description">메시지 전송 중</string>
     <string name="channel_notification_description">새 메시지 알림</string>
+    <string name="channel_progress_description">장기 실행 활동의 진행 알림</string>
     <plurals name="page_conversation">
         <item quantity="other">대화</item>
     </plurals>
@@ -32,6 +34,18 @@
     <string name="shortcut_refresh">새로고침</string>
     <string name="shortcut_compose">작성</string>
     <string name="shortcut_setup">설정</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="other">%1$d 계정 모니터링</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="other">%1$d 작업 보류중</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="other">%1$d 새 메시지</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="other">보낼 메시지 %1$d</item>
+    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="other">새 메일 %1$d건</item>
     </plurals>
@@ -45,6 +59,7 @@
         <item quantity="other">%1$d개의 메일을 스팸 처리하겠습니까?</item>
     </plurals>
     <string name="title_ask_spam_who">%1$s의 메일을 스팸 처리하시겠습니까?</string>
+    <string name="title_junk_hint">이메일 공급자는 스팸 필터링을 담당합니다. 이메일 앱에는 이를 안정적으로 수행하는데 필요한 모든 데이터가 없습니다. </string>
     <string name="title_block">%1$s 차단</string>
     <string name="title_block_sender">발송자 차단</string>
     <string name="title_block_domain">발송자 도메인 차단</string>
@@ -53,6 +68,7 @@
     </string>
     <string name="title_junk_filter">로컬 스팸 필터 사용</string>
     <string name="title_junk_filter_hint">배터리 사용량이 증가할 수 있으며 스팸 메일로 잘못 인식할 수도 있습니다.</string>
+    <string name="title_junk_blocklist">스팸 차단 목록 사용</string>
     <string name="title_notification_sending">메일 전송 중</string>
     <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
     <string name="title_notification_idle">유휴</string>

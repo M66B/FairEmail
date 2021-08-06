@@ -676,9 +676,9 @@ FairEmail отправит заголовок [Autocrypt](https://autocrypt.org/
 
 Шифрование сообщения требует открытого ключа(ей) получателя(ей). Для подписания сообщения требуется ваш закрытый ключ.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the encryption settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Личные ключи сохраняются Android и могут быть импортированы через расширенные настройки безопасности Android. В настройках шифрования есть ярлык (кнопка). Андроид попросит вас установить PIN-код, шаблон или пароль, если вы не раньше этого делали. Если вы используете устройство Nokia с Android 9, пожалуйста, [прочитайте сначала это](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
-Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
+Обратите внимание, что сертификаты могут содержать несколько ключей для нескольких целей, например для аутентификации, шифрования и подписи. Android импортирует только первый ключ, поэтому для импорта всех ключей, сертификат должен быть разделен. Это не очень просто, и Вам рекомендуется обратиться к поставщику сертификатов за поддержкой.
 
 Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME шифрование возможно только с асимметричными алгоритмами, что на практике означает использование RSA.
 
@@ -690,9 +690,9 @@ Public keys are stored by FairEmail and can be imported when verifying a signatu
 
 FairEmail verifies both the signature and the complete certificate chain.
 
-Common errors:
+Распространённые ошибки:
 
-* *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
+* *Сертификат не найден, соответствующий targetContraints*. Скорее всего, это означает, что вы используете старую версию FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
 * *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
 * *No private key*: no certificate was selected or no certificate was available in the Android keystore

@@ -2411,91 +2411,91 @@ First of all, a purchase will be available on all devices logged into the same G
 
 Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
 
-* Make sure you have an active, working internet connection
-* Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
-* Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
-* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
+* Aktiv və işləyən bir internet bağlantınızın olduğuna əmin olun
+* Doğru Google hesabı ilə giriş etdiyinizə və bu Google hesabınızla bağlı heç bir problem olmadığına əmin olun
+* Cihazınızda bir neçə Google hesabı konfiqurasiya etmisinizsə, FairEmail-i doğru Google hesabı ilə quraşdırdığınıza əmin olun
+* Play Store tətbiqinin son versiyaya yeniləndiyinə əmin olun, zəhmət olmasa [bura baxın](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Play Store tətbiqini açın və Google serverləri ilə eyniləşdirilməsi üçün bir dəqiqə gözləyin
+* FairEmail-in satın almaları yoxlamasına icazə vermək üçün, FairEmail-i açıb Pro özəlliklər ekranına gedin; bəzən *satın al* düyməsinə toxunmaq da kömək edir
 
-You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
+Həmçinin Android tənzimləmələri üzərindən Play Store tətbiqinin keş yaddaşını da təmizləyə bilərsiniz. Play Store-un satın almaları doğru şəkildə tanıması üçün cihazı yenidən başlatmaq lazım ola bilər.
 
-Note that:
+Bunu unutmayın:
 
-* If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
-* Purchases are stored in the Google cloud and cannot get lost
-* There is no time limit on purchases, so they cannot expire
-* Google does not expose details (name, e-mail, etc) about buyers to developers
-* An app like FairEmail cannot select which Google account to use
-* It may take a while until the Play store app has synchronized a purchase to another device
-* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
+* *ITEM_ALREADY_OWNED* alsanız, Play Store tətbiqi yəqin ki, yenilənməlidir, zəhmət olmasa [bura baxın](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Satın almalar, Google buludunda saxlanılır və itmir
+* Satın alma əməliyyatlarında heç bir vaxt limiti yoxdur, ona görə də vaxtı bitmir
+* Google, alıcılar haqqındakı təfsilatları (ad, e-poçt və s.) tərtibatçılara bildirmir
+* FairEmail kimi bir tətbiq, hansı Google hesabını istifadə etdiyini seçə bilmir
+* Play Store tətbiqinin bir satın almanı digər bir cihazda eyniləşdirməsi bir az çəkə bilər
+* Play Store satın alma əməliyyatları, Play Store qaydaları tərəfindən də icazə verilməyən Play Store olmadan istifadə edilə bilməz
 
-If you cannot solve the problem with the purchase, you will have to contact Google about it.
+Satın alma ilə əlaqəli problemləri həll edə bilməsəniz, bu barədə Google ilə əlaqə saxlamalı olacaqsınız.
 
 <br />
 
 <a name="faq118"></a>
-**(118) What does 'Remove tracking parameters' exactly?**
+**(118) "İzləmə parametrlərini çıxart" tam olaraq nə deməkdir?**
 
-Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
+*İzləmə parametrlərini çıxart* seçsəniz, bir bağlantıdan bütün [UTM parametrləri](https://en.wikipedia.org/wiki/UTM_parameters) çıxarılacaq.
 
 <br />
 
 <a name="faq119"></a>
-**~~(119) Can you add colors to the unified inbox widget?~~**
+**~~(119) Birləşmiş gələn qutusunun vicetinə rənglər əlavə edə bilərsiniz?~~**
 
-~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~ ~~This way the widget will nicely blend in, while still being properly readable.~~
+~~Vicet, monoxrom və yarışəffaf arxaplan istifadə edərək, əksər əsas/başladıcı ekranında yaxşı görünəcək formada dizayn edilib.~~ ~~Bu formada, vicet düzgün oxuna biləcək, gözəl uyğunlaşacaq.~~
 
-~~Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.~~
+~~Rəng əlavə etmək, bəzi arxaplanlarda oxuna bilmə və digər problemləri yaradacaq, məhz bu səbəbdən əlavə etmirəm.~~
 
-Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
+Android məhdudlaşdırmalarına görə, arxaplanın tutqunluğunu (qeyri-şəffaflığını) dinamik olaraq tənzimləmək və eyni vaxtda küncləri yuvarlaq etmək mümkün deyil.
 
 <br />
 
 <a name="faq120"></a>
-**(120) Why are new message notifications not removed on opening the app?**
+**(120) Tətbiqi açanda nəyə görə yeni mesaj bildirişləri silinmir?**
 
-New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
+Yeni mesaj bildirişləri, bildirişləri sürüşdürəndə və əlaqəli mesajlar oxundu olaraq işarələnəndə silinəcək. Tətbiqi açmaq, yeni mesaj bildirişlərini silmir. Bu sizə, hələ də oxunmamış mesajların olduğunu xatırlatmaq üçün yeni mesaj bildirişlərini buraxmaq seçimi verir.
 
-On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+Android 7 Nougat və daha sonrakı versiyalarda, yeni mesaj bildirişləri [qruplaşdırılacaq](https://developer.android.com/training/notify-user/group). İcmal bildirişinə toxunanda, birləşmiş gələn qutusu açılacaq. İcmal bildirişi, yeni mesaj bildirişlərinə fərdi baxmaq üçün genişləndirilə bilər. Sadəcə bir yeni mesaj bildirişinə toxunanda, hissəsi olduğu mesajın danışığını açılacaq. Bir danışıqdakı mesajların nə vaxt avto-genişləndiriləcəyi və oxundu olaraq işarələnəcəyi barədə [bu TSS](#user-content-faq70)-a baxın.
 
 <br />
 
 <a name="faq121"></a>
-**(121) How are messages grouped into a conversation?**
+**(121) Mesajlar bir danışıqda necə qruplaşdırılır?**
 
-By default FairEmail groups messages in conversations. This can be turned of in the display settings.
+İlkin olaraq FairEmail, danışıqdakı mesajları qruplaşdırır. Bu, "Görüntü" tənzimləmələrində söndürülə bilər.
 
-FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers. FairEmail does not group on other criteria, like the subject, because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
+FairEmail, mesajları standart *Message-ID*, *In-Reply-To* və *References* başlıqlarına görə qruplaşdırır. FairEmail, mövzu kimi digər kriteriyalara görə qruplaşdırmır, çünki bu, əlaqəli olmayan mesajların qruplaşdırılması və batareya istifadəsinin artması ilə nəticələnə bilər.
 
 <br />
 
 <a name="faq122"></a>
-**~~(122) Why is the recipient name/email address show with a warning color?~~**
+**~~Alıcı adı/e-poçt ünvanı niyə bir xəbərdarlıq rəngi ilə göstərilir?~~**
 
-~~The recipient name and/or email address in the addresses section will be shown in a warning color~~ ~~when the sender domain name and the domain name of the *to* address do not match.~~ ~~Mostly this indicates that the message was received *via* an account with another email address.~~
+~~Göndərən domen adı ilə məktubun *gedən* ünvanı arasında uyğunluq olmayanda~~ ~~ünvanlar bölməsindəki alıcı adı və/və ya e-poçt ünvanı bir xəbərdarlıq rəngi ilə göstəriləcək.~~ ~~Əksər hallarda bu, mesajın başqa bir e-poçt ünvanına sahib bir hesab *üzərindən* alındığını göstərir.~~
 
 <br />
 
 <a name="faq123"></a>
-**(123) What will happen when FairEmail cannot connect to an email server?**
+**(123) FairEmail, bir e-poçt serveri ilə bağlantı qura bilməyəndə nə baş verir?**
 
-If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+FairEmail, mesajları eyniləşdirmək üçün bir e-poçt serveri ilə bağlantı qura bilməsə, məsələn internet bağlantısı zəifdirsə, bir güvənlik divarı və ya bir VPN bağlantını əngəlləyirsə, FairEmail, cihazı oyanıq saxlayarkən (=batareya enerjisini istifadə edərkən) 8 saniyə gözlədikdən sonra bir də yenidən cəhd edəcək. Əgər bu da uğursuz olsa, FairEmail, 15, 30 və sonda hər 60 dəqiqədən bir yenidən cəhd edəcək bir proqram quracaq və cihazın yuxuya getməsinə (=batareyanı istifadə etməməsinə) icazə verəcək.
 
-Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
+Unutmayın ki, [Android yuxu rejimi](https://developer.android.com/training/monitoring-device-state/doze-standby), cihazı 15 dəqiqədən tez oyandırmağa icazə vermir.
 
-*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+Birləşmiş gələn qutusunun üç-nöqtə menyusundakı *Məcburi eyniləşdir*mə, FairEmail-in, gözləmədən yenidən bağlantı qurması üçün cəhd etməsinə icazə vermək üçün istifadə oluna bilər.
 
-Sending messages will be retried on connectivity changes only (reconnecting to the same network or connecting to another network) to prevent the email server from blocking the connection permanently. You can pull down the outbox to retry manually.
+E-poçt serveri tərəfindən bağlantının birdəfəlik əngəlləməsinin qarşısını almaq üçün mesajların göndərilməsinə, yalnız bağlantı dəyişikliklərində (eyni şəbəkə ilə yenidən bağlantı qurmaq və ya başqa şəbəkə ilə bağlantı qurmaq) yenidən cəhd ediləcək. Əllə yenidən sınamaq üçün gedən qutusunu aşağı çəkə bilərsiniz.
 
-Note that sending will not be retried in case of authentication problems and when the server rejected the message. In this case you can pull down the outbox to try again.
+Unutmayın ki, kimlik təsdiqləmə problemlərinin olduğu və serverin mesajı rədd etdiyi hallarda göndərməyə yenidən cəhd edilməyəcək. Bu hallarda, yenidən sınamaq üçün gedən qutusunu aşağı çəkə bilərsiniz.
 
 <br />
 
 <a name="faq124"></a>
-**(124) Why do I get 'Message too large or too complex to display'?**
+**(124) Niyə "Mesaj görüntülənməyəcək qədər çox böyük və ya çox qarışıqdır" bildirişini alıram?**
 
-The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Belə mesajların yenidən formatlanması və görüntülənməsi çox uzun çəkir. Bunun əvəzinə səyyah tərəfindən təmin edilmiş orijinal mesaj görünüşünü sınaya bilərsiniz.
+Bir mesajda 100,000-dən çox simvol və ya 500-dən çox bağlantı varsa, bu bildirişi alacaqsınız. Belə mesajların yenidən formatlanması və görüntülənməsi çox uzun çəkir. Bunun əvəzinə səyyah tərəfindən təmin edilmiş orijinal mesaj görünüşünü sınaya bilərsiniz.
 
 <br />
 
@@ -2532,7 +2532,7 @@ FairEmail bir mesajı iki addımda gətirir:
 
 Bir mesaj mətninin həmişə bir mesaj başlığından dərhal sonra gətiriləcəyinin zəmanəti olmadığı kimi, bir önbaxış mətni ehtiva edən yeni mesaj bildirişinin geyinilə bilən cihaza həmişə göndəriləcəyinin də zəmanəti yoxdur.
 
-Bunun yetəri qədər yaxşı olduğunu düşünürsünüzsə, *Geyinilə bilən cihazlara yalnız mesaj önbaxışı olan bildirişlər göndər* bildiriş seçimini fəallaşdıra bilərsiniz, əgər bu işləməsə, *Yalnı önbaxış mətni olan bildirişləri göstər* bildiriş seçimini fəallaşdırmağa çalışa bilərsiniz. Unutmayın ki, hətta Android Wear tətbiqi, bildirişin göndərildiyini (bridged) desə belə, bu, önbaxış mətnini göstərməyən geyinilə bilən cihazlara da tətbiq olunur.
+Bunun yetəri qədər yaxşı olduğunu düşünürsünüzsə, *Geyinilə bilən cihazlara yalnız mesaj önbaxışı olan bildirişlər göndər* bildiriş seçimini fəallaşdıra bilərsiniz, əgər bu işləməsə, *Yalnız önbaxış mətni olan bildirişləri göstər* bildiriş seçimini fəallaşdırmağa çalışa bilərsiniz. Unutmayın ki, hətta Android Wear tətbiqi, bildirişin göndərildiyini (bridged) desə belə, bu, önbaxış mətnini göstərməyən geyinilə bilən cihazlara da tətbiq olunur.
 
 Geyinilə bilən cihazlara tam mesaj mətninin göndərilməsini istəyirsinizsə, *Bütün mətnə önbaxış* bildiriş seçimini fəallaşdıra bilərsiniz. Unutmayın, bəzi geyinilə bilən cihazlarda bu özəllik fəallaşdırılanda çökmə baş verir.
 
@@ -2543,7 +2543,7 @@ Galaxy Wearable (Samsung Gear) tətbiqi ilə bir Samsung geyinilə bilən cihaz 
 <a name="faq127"></a>
 **(127) "Sintaktik olaraq etibarsız arqument(lər)i"ni necə düzəldə bilərəm?**
 
-*Sintaktik olaraq etibarsız HELO arqument(lər)i* xətası, SMTP serverinin yerli IP ünvanı və ya host adını rədd etdiyi mənasını verir. Böyük ehtimalla bu xətanı abaqcıl kimlik seçimi olan *Host adı əvəzinə yerli IP ünvanını istifadə et* seçimini fəallaşdıraraq/sıradan çıxardaraq düzəldə bilərsiniz.
+* Sintaktik olaraq etibarsız HELO arqument(lər)i* xətası, SMTP serverinin yerli IP ünvanı və ya host adını rədd etdiyi mənasını verir. Böyük ehtimalla bu xətanı qabaqcıl kimlik seçimi olan *Host adı əvəzinə yerli IP ünvanını istifadə et* seçimini fəallaşdıraraq/sıradan çıxardaraq düzəldə bilərsiniz.
 
 <br />
 
@@ -2570,20 +2570,20 @@ Texniki məlumat ilə birgə qırmızı və narıncı mətn ehtiva edən bir xə
 
 *... ünvanında heç bir server tapılmadı* xətası, göstərilən domen adında heç bir qeydiyyatlı e-poçt serverinin olmadığını bildirir. Mesajı cavablamaq mümkün olmaya bilər və bir xəta ilə nəticələnə bilər. Bu, saxta bir e-poçt ünvanı və/və ya spam olduğunu göstərə bilər.
 
-*ParseException ...* xətası, alınan bir mesajda, böyük ehtimalla göndərənin proqram təminatında bir xətanın səbəb olduğu bir problem olduğu mənasını verir. FairEmail, belə əksər hallarda müvəqqəti həll yolu olacaqdır. Ona görə də, bu mesaj, əksər hallarda bir xəta əvəzinə bir xəbərdarlıq kimi düşünülə bilər.
+*ParseException ...* xətası, alınan bir mesajda, böyük ehtimalla göndərənin proqram təminatında bir xətanın səbəb olduğu bir problem olduğu mənasını verir. FairEmail, belə hallarda müvəqqəti həll yolu olacaqdır. Ona görə də, bu mesaj, əksər hallarda bir xəta əvəzinə bir xəbərdarlıq kimi düşünülə bilər.
 
 *...SendFailedException...* xətası, mesaj göndərilərkən bir problem olduğu mənasını verir. Xəta, demək olar ki, hər zaman bir səbəb ehtiva edir. Ortaq səbəblər, mesajın çox böyük olması, alıcı ünvanlarından biri və ya bir neçəsinin etibarsız olması ola bilər.
 
-*Mesaj, mövcud yaddaşa sığmayacaq qədər böyükdür* xəbərdarlığı, mesajın 10 MiB-dən böyük olduğu mənasını verir. Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
+*Mesaj, mövcud yaddaşa sığmayacaq qədər böyükdür* xəbərdarlığı, mesajın 10 MiB-dən böyük olduğu mənasını verir. Cihazınızda istifadə üçün yetərincə boş yer olsa belə, Android, tətbiqlərə məhdud işləmə yaddaşı verir və bu da, emal oluna biləcək mesajların həcmini məhdudlaşdırır.
 
-Please see [here](#user-content-faq22) for other error messages in the outbox.
+Gedən qutusundakı digər xəta mesajları üçün zəhmət olmasa [bura](#user-content-faq22) baxın.
 
 <br />
 
 <a name="faq131"></a>
-**(131) Can you change the direction for swiping to previous/next message?**
+**(131) Əvvəlki/sonrakı mesaja sürüşdürmə istiqamətini dəyişdirə bilərsiniz?**
 
-If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
+Soldan sağa oxuyursunuzsa, sola sürüşdürmə, növbəti mesajı göstərəcək. Oxşar qaydada, sağdan sola oxuyursunuzsa, sağa sürüşdürmə, növbəti mesajı göstərəcək.
 
 Bu davranış mənə olduqca normal görünür, çünki səhifələrin çevrilməsinə də oxşayır.
 

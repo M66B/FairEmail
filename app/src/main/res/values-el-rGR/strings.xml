@@ -262,6 +262,7 @@
     <string name="title_advanced_always">Να λαμβάνονται πάντα τα μηνύματα για αυτούς τους λογαριασμούς</string>
     <string name="title_advanced_schedule">Χρονοδιάγραμμα</string>
     <string name="title_advanced_advanced">Για προχωρημένους</string>
+    <string name="title_advanced_quick_sync">Γρήγορος συγχρονισμός</string>
     <string name="title_advanced_no_date">Μηνύματα χωρίς ημερομηνία</string>
     <string name="title_advanced_unseen">Όλα τα μη αναγνωσμένα μηνύματα</string>
     <string name="title_advanced_flagged">Όλα τα μηνύματα με αστέρι</string>
@@ -524,6 +525,7 @@
     <string name="title_advanced_poll_hint">Ο περιοδικός έλεγχος για νέα μηνύματα συγκρίνει τοπικά και απομακρυσμένα μηνύματα κάθε φορά, το οποίο είναι μια κοστοβόρα διεργασία και μπορεί να οδηγήσει σε πρόσθετη κατανάλωση μπαταρίας, ιδίως αν υπάρχουν πολλά μηνύματα. Αυτό αποτρέπεται χάρη στην επιλογή \"Πάντα λήψη\", η οποία διαρκώς παρακολουθεί μόνον τις εκάστοτε αλλαγές.</string>
     <string name="title_advanced_optimize_hint">Ενδέχεται να αλλάξει τη συχνότητα συγχρονισμού για εξοικονόμηση μπαταρίας ανάλογα με τις δυνατότητες και τη συμπεριφορά των διακομιστών ηλ. ταχυδρομείου</string>
     <string name="title_advanced_schedule_hint">Πατήστε πάνω σε μια ώρα για ορισμό χρονικής περιόδου</string>
+    <string name="title_advanced_quick_sync_hint">Μειώνει μεν τη χρήση δεδομένων, αλλά ενδέχεται να χαθούν νέα μηνύματα, εάν ο διακομιστής ηλ. ταχυδρομείου δεν ακολουθεί τα σχετικά πρότυπα</string>
     <string name="title_advanced_no_date_hint">Μερικοί πάροχοι αποθηκεύουν μηνύματα με μια άγνωστη, μη έγκυρη ή μελλοντική ημερομηνία, ως μηνύματα χωρίς ημερομηνία</string>
     <string name="title_advanced_unseen_hint">Μερικοί πάροχοι δεν υποστηρίζουν σωστά την επιλογή αυτή, κάτι που μπορεί να οδηγήσει στο συγχρονισμό όλων ή και κανενός μηνύματος</string>
     <string name="title_advanced_deleted_unseen">Αν απενεργοποιηθεί, τα μη αναγνωσμένα μηνύματα παραμένουν στη συσκευή για πάντα</string>
@@ -1205,7 +1207,7 @@
     <string name="title_rule_hours">Ώρες</string>
     <string name="title_rule_schedule_end">Από το τέλος της συνθήκης χρόνου</string>
     <string name="title_rule_folder">Φάκελος</string>
-    <string name="title_rule_thread" comment="title_rule_thread&#10;Title for option of move action of a rule">Όλα τα μηνύματα στην ίδια συζήτηση και τον ίδιο φάκελο</string>
+    <string name="title_rule_thread">Όλα τα μηνύματα στην ίδια συζήτηση και τον ίδιο φάκελο</string>
     <string name="title_rule_identity">Ταυτότητα</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
     <string name="title_rule_forward_to">Προώθηση σε</string>
@@ -1596,7 +1598,7 @@
         <item>Μεσαίο</item>
         <item>Μεγάλο</item>
     </string-array>
-    <string name="title_size_tiny" comment="title_size_tiny&#10;Title for tiny font or tiny padding&#10;Smaller than small = Extra small">Μικροσκοπικό</string>
+    <string name="title_size_tiny">Μικροσκοπικό</string>
     <string-array name="receiptNames">
         <item>Αποδεικτικό ανάγνωσης μόνο</item>
         <item>Αποδεικτικό παράδοσης μόνο</item>
