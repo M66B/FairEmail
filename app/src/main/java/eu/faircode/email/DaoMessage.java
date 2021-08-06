@@ -566,6 +566,13 @@ public interface DaoMessage {
             " AND NOT uid IS NULL")
     List<Long> getUids(long folder, Long received);
 
+    @Query("SELECT * FROM message" +
+            " WHERE folder = :folder" +
+            " AND (:received IS NULL OR received >= :received)" +
+            " AND NOT uid IS NULL" +
+            " AND NOT content")
+    List<EntityMessage> getMessagesWithoutContent(long folder, Long received);
+
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
             " AND NOT ui_busy IS NULL" +

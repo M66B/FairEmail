@@ -72,6 +72,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private CheckBox[] cbDay;
     private ImageButton ibSchedules;
 
+    private SwitchCompat swQuickSyncImap;
+    private SwitchCompat swQuickSyncPop;
     private SwitchCompat swNodate;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
@@ -96,6 +98,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "auto_optimize", "schedule", "schedule_start", "schedule_end",
+            "sync_quick_imap", "sync_quick_pop",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "gmail_thread_id",
             "sync_folders", "sync_shared_folders", "subscriptions",
             "check_authentication", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
@@ -133,6 +136,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         };
         ibSchedules = view.findViewById(R.id.ibSchedules);
 
+        swQuickSyncImap = view.findViewById(R.id.swQuickSyncImap);
+        swQuickSyncPop = view.findViewById(R.id.swQuickSyncPop);
         swNodate = view.findViewById(R.id.swNodate);
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
@@ -257,6 +262,20 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 78);
+            }
+        });
+
+        swQuickSyncImap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_quick_imap", checked).apply();
+            }
+        });
+
+        swQuickSyncPop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_quick_pop", checked).apply();
             }
         });
 
@@ -448,6 +467,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         for (int i = 0; i < 7; i++)
             cbDay[i].setChecked(prefs.getBoolean("schedule_day" + i, true));
 
+        swQuickSyncImap.setChecked(prefs.getBoolean("sync_quick_imap", false));
+        swQuickSyncPop.setChecked(prefs.getBoolean("sync_quick_pop", true));
         swNodate.setChecked(prefs.getBoolean("sync_nodate", false));
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));

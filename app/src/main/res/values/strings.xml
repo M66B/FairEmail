@@ -320,6 +320,7 @@
     <string name="title_advanced_always">Always receive messages for these accounts</string>
     <string name="title_advanced_schedule">Schedule</string>
     <string name="title_advanced_advanced">Advanced</string>
+    <string name="title_advanced_quick_sync">Quick sync</string>
     <string name="title_advanced_no_date">Messages without date</string>
     <string name="title_advanced_unseen">All unread messages</string>
     <string name="title_advanced_flagged">All starred messages</string>
@@ -628,6 +629,7 @@
     <string name="title_advanced_poll_hint">Periodically checking for new messages will compare local and remote messages every time, which is an expensive operation that may result in extra battery usage, especially if there are a lot of messages. Always receive will prevent this by continuously following changes.</string>
     <string name="title_advanced_optimize_hint">This might change the sync frequency to save battery usage depending on the capabilities and behavior of the email servers</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
+    <string name="title_advanced_quick_sync_hint">This reduces data usage, but new messages might be missed if the email server doesn\'t follow the standards</string>
     <string name="title_advanced_no_date_hint">Some providers store messages with an unknown, invalid or future date as messages without date</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronizing none or all messages</string>
     <string name="title_advanced_deleted_unseen">When disabled, unread messages are kept on the device forever</string>
