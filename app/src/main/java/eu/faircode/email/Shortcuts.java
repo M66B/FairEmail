@@ -57,6 +57,9 @@ import java.util.Set;
 
 import javax.mail.internet.InternetAddress;
 
+// https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts
+// https://developer.android.com/guide/topics/ui/shortcuts/managing-shortcuts
+
 class Shortcuts {
     private static final int MAX_SHORTCUTS = 4;
 
@@ -150,9 +153,9 @@ class Shortcuts {
                 if (remove.size() > 0)
                     ShortcutManagerCompat.removeDynamicShortcuts(context, remove);
 
-                if (add.size() > 0) {
-                    boolean ok = ShortcutManagerCompat.addDynamicShortcuts(context, add);
-                    Log.i("Shortcuts=" + add.size() + " updated=" + ok);
+                for (ShortcutInfoCompat shortcut : add) {
+                    Log.i("Push shortcut id=" + shortcut.getId());
+                    ShortcutManagerCompat.pushDynamicShortcut(context, shortcut);
                 }
             }
 

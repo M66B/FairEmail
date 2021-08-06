@@ -263,6 +263,7 @@ dependencies {
     def appcompat_version = "1.3.1"
     def activity_version = "1.3.1"
     def fragment_version = "1.3.6"
+    def shortcuts_version = "1.0.0"
     def webkit_version = "1.4.0"
     def recyclerview_version = "1.2.1"
     def coordinatorlayout_version = "1.1.0"
@@ -316,9 +317,11 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     // https://mvnrepository.com/artifact/androidx.activity/activity
     // https://mvnrepository.com/artifact/androidx.fragment/fragment
+    // https://mvnrepository.com/artifact/androidx.core/core-google-shortcuts
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.fragment:fragment:$fragment_version"
+    implementation "androidx.core:core-google-shortcuts:$shortcuts_version"
 
     // https://developer.android.com/jetpack/androidx/releases/webkit
     // https://mvnrepository.com/artifact/androidx.webkit/webkit
