@@ -2951,8 +2951,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         hasArchive = (archive != null && archive.selectable);
                         hasTrash = (trash != null && trash.selectable);
                         hasJunk = (junk != null && junk.selectable);
-                    } else
+                    } else {
                         result.hasPop = true;
+                        if (result.leave_deleted == null)
+                            result.leave_deleted = account.leave_deleted;
+                        else
+                            result.leave_deleted = (result.leave_deleted && account.leave_deleted);
+                    }
 
                     result.hasInbox = (result.hasInbox == null ? hasInbox : result.hasInbox && hasInbox);
                     result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
@@ -3129,7 +3134,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onActionMoveSelection(EntityFolder.TRASH);
                             return true;
                         } else if (itemId == R.string.title_delete_permanently) {
-                            onActionDeleteSelection(result.hasPop && !result.hasImap);
+                            onActionDeleteSelection(
+                                    result.hasPop && !result.hasImap,
+                                    result.leave_deleted != null && result.leave_deleted);
                             return true;
                         } else if (itemId == R.string.title_raw_send) {
                             onActionRaw();
@@ -3417,7 +3424,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:set:importance");
     }
 
-    private void onActionDeleteSelection(boolean pop) {
+    private void onActionDeleteSelection(boolean popOnly, Boolean leave_delete) {
         Bundle args = new Bundle();
         args.putLongArray("selected", getSelection());
 
@@ -3460,13 +3467,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                boolean remark = (pop ||
+                boolean remark = (popOnly ||
                         EntityFolder.TRASH.equals(type) ||
                         EntityFolder.JUNK.equals(type));
                 aargs.putString(remark ? "remark" : "confirm", getString(R.string.title_no_undo));
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
+
+                if (popOnly && leave_delete) {
+                    Intent data = new Intent();
+                    data.putExtra("args", aargs);
+                    onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
+                    return;
+                }
 
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
@@ -3818,6 +3832,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 try {
                     db.beginTransaction();
 
+                    EntityAccount account = db.account().getAccount(aid);
+                    if (account != null &&
+                            account.protocol == EntityAccount.TYPE_POP &&
+                            account.leave_deleted)
+                        args.putBoolean("leave_deleted", true);
+
                     List<EntityMessage> messages = db.message().getMessagesByThread(
                             aid, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
@@ -3849,6 +3869,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
+
+                boolean leave_deleted = args.getBoolean("leave_deleted");
+                if (leave_deleted) {
+                    Intent data = new Intent();
+                    data.putExtra("args", aargs);
+                    onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
+                    return;
+                }
 
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
@@ -8412,8 +8440,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Boolean isTrash;
         Boolean isJunk;
         Boolean isDrafts;
-        boolean hasPop;
         boolean hasImap;
+        boolean hasPop;
+        Boolean leave_deleted;
         List<Long> folders;
         List<EntityAccount> accounts;
         EntityAccount copyto;

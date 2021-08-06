@@ -19,6 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
+
 import android.Manifest;
 import android.animation.Animator;
 import android.annotation.SuppressLint;
@@ -187,11 +192,6 @@ import biweekly.property.Method;
 import biweekly.property.Organizer;
 import biweekly.property.RawProperty;
 import biweekly.util.ICalDate;
-
-import static android.app.Activity.RESULT_OK;
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Fragment parentFragment;
@@ -4352,28 +4352,53 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionDelete(TupleMessageEx message) {
-            Bundle aargs = new Bundle();
-            aargs.putString("question", context.getString(R.string.title_ask_delete));
-            aargs.putString("remark", message.getRemark());
-            aargs.putLong("id", message.id);
-            aargs.putInt("faq", 160);
-            aargs.putString("notagain", "delete_asked");
-            aargs.putString("accept", context.getString(R.string.title_ask_delete_accept));
-            aargs.putBoolean("warning", true);
+            Bundle args = new Bundle();
+            args.putLong("account", message.account == null ? -1 : message.account);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean delete_asked = prefs.getBoolean("delete_asked", false);
-            if (delete_asked) {
-                Intent data = new Intent();
-                data.putExtra("args", aargs);
-                parentFragment.onActivityResult(FragmentMessages.REQUEST_MESSAGE_DELETE, RESULT_OK, data);
-                return;
-            }
+            new SimpleTask<EntityAccount>() {
+                @Override
+                protected EntityAccount onExecute(Context context, Bundle args) throws Throwable {
+                    long aid = args.getLong("account");
 
-            FragmentDialogAsk ask = new FragmentDialogAsk();
-            ask.setArguments(aargs);
-            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
-            ask.show(parentFragment.getParentFragmentManager(), "message:delete");
+                    DB db = DB.getInstance(context);
+                    return db.account().getAccount(aid);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityAccount account) {
+                    boolean leave_deleted = (account != null &&
+                            account.protocol == EntityAccount.TYPE_POP &&
+                            account.leave_deleted);
+
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", context.getString(R.string.title_ask_delete));
+                    aargs.putString("remark", message.getRemark());
+                    aargs.putLong("id", message.id);
+                    aargs.putInt("faq", 160);
+                    aargs.putString("notagain", "delete_asked");
+                    aargs.putString("accept", context.getString(R.string.title_ask_delete_accept));
+                    aargs.putBoolean("warning", true);
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean delete_asked = prefs.getBoolean("delete_asked", false);
+                    if (delete_asked || leave_deleted) {
+                        Intent data = new Intent();
+                        data.putExtra("args", aargs);
+                        parentFragment.onActivityResult(FragmentMessages.REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                        return;
+                    }
+
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
+                    ask.show(parentFragment.getParentFragmentManager(), "message:delete");
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:delete");
         }
 
         private void onActionJunk(TupleMessageEx message) {
