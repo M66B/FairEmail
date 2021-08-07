@@ -35,6 +35,7 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.gimap.GmailSSLProvider;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.pop3.POP3Store;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
@@ -719,6 +720,24 @@ public class EmailService implements AutoCloseable {
         }
 
         return null;
+    }
+
+    List<String> getCapabilities() throws MessagingException {
+        List<String> result = new ArrayList<>();
+
+        Store store = getStore();
+        Map<String, String> capabilities;
+        if (store instanceof IMAPStore)
+            capabilities = ((IMAPStore) getStore()).getCapabilities();
+        else if (store instanceof POP3Store)
+            capabilities = ((POP3Store) getStore()).getCapabilities();
+        else
+            capabilities = null;
+
+        if (capabilities != null)
+            result.addAll(capabilities.keySet());
+
+        return result;
     }
 
     boolean hasCapability(String capability) throws MessagingException {

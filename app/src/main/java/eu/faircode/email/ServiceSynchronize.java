@@ -1341,7 +1341,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     final boolean capNotify = iservice.hasCapability("NOTIFY");
 
                     db.account().setAccountState(account.id, "connected");
-                    db.account().setAccountCapabilities(account.id, capIdle, capUtf8);
+                    db.account().setAccountCapabilities(account.id,
+                            TextUtils.join(" ", iservice.getCapabilities()), capIdle, capUtf8);
                     db.account().setAccountError(account.id, null);
                     db.account().setAccountWarning(account.id, null);
 

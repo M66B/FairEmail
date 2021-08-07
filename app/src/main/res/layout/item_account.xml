@@ -231,13 +231,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
-                android:ellipsize="end"
-                android:maxLines="1"
                 android:text="id"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvQuota" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvCapabilities"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="capabilities"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivState"
+                app:layout_constraintTop_toBottomOf="@id/tvId" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvIdentity"
@@ -250,7 +262,7 @@
                 android:textColor="?attr/colorWarning"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toBottomOf="@id/tvId" />
+                app:layout_constraintTop_toBottomOf="@id/tvCapabilities" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvDrafts"

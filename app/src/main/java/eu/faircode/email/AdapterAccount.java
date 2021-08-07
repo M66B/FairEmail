@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.annotation.TargetApi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -32,6 +34,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -63,8 +66,6 @@ import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Fragment parentFragment;
@@ -103,6 +104,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private TextView tvQuota;
         private TextView tvMaxSize;
         private TextView tvId;
+        private TextView tvCapabilities;
         private TextView tvIdentity;
         private TextView tvDrafts;
         private TextView tvSent;
@@ -134,6 +136,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvQuota = itemView.findViewById(R.id.tvQuota);
             tvMaxSize = itemView.findViewById(R.id.tvMaxSize);
             tvId = itemView.findViewById(R.id.tvId);
+            tvCapabilities = itemView.findViewById(R.id.tvCapabilities);
             tvIdentity = itemView.findViewById(R.id.tvIdentity);
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvSent = itemView.findViewById(R.id.tvSent);
@@ -236,7 +239,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 tvQuota.setVisibility(View.VISIBLE);
 
             tvId.setText(account.id + "/" + account.uuid);
-            tvId.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            tvId.setVisibility(settings && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+            tvCapabilities.setText(account.capabilities);
+            tvCapabilities.setVisibility(
+                    settings && !TextUtils.isEmpty(account.capabilities) ? View.VISIBLE : View.GONE);
 
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts != null || !settings ? View.GONE : View.VISIBLE);

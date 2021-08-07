@@ -444,6 +444,10 @@ public class POP3Store extends Store {
 	return (t instanceof Exception) || (t instanceof LinkageError);
     }
 
+	public synchronized Map<String, String> getCapabilities() {
+	    return capabilities;
+	}
+
     synchronized void closePort(POP3Folder owner) {
 	if (portOwner == owner) {
 	    port = null;
