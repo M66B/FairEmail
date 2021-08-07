@@ -1,19 +1,17 @@
+<div align="center">
+<h1>FairEmail</h1>
 <img src="https://github.com/M66B/FairEmail/raw/master/images/banner7_long.png" />
-
-<p align="center">
+<p>
 	<a href="#downloads">Downloads</a> &bull;
 	<a href="#privacy">Privacy</a> &bull;
 	<a href="#support">Support</a> &bull;
 	<a href="#license">License</a>
 </p>
+<img src="https://img.shields.io/github/license/m66b/fairemail.svg" alt="Github">
+<img src="https://img.shields.io/github/release/M66B/FairEmail.svg" alt="Github">
+<img src="https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg">
+</div>
 
-<img align="right" src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
-
-# FairEmail
-
-![GitHub](https://img.shields.io/github/license/M66B/FairEmail.svg)
-![GitHub release](https://img.shields.io/github/release/M66B/FairEmail.svg)
-![GitHub commits since tagged version](https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg)
 
 *Fully featured, open source, privacy oriented email app for Android*
 
