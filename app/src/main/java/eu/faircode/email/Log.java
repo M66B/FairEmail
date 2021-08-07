@@ -48,7 +48,6 @@ import android.os.DeadObjectException;
 import android.os.DeadSystemException;
 import android.os.Debug;
 import android.os.OperationCanceledException;
-import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
 import android.text.TextUtils;
@@ -1747,11 +1746,10 @@ public class Log {
             sb.append(ex.toString()).append("\r\n");
         }
 
-        PowerManager power = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        boolean ignoring = true;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            ignoring = power.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
-        sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
+        Boolean ignoring = Helper.isIgnoringOptimizations(context);
+        sb.append(String.format("Battery optimizations: %s\r\n",
+                ignoring == null ? null : Boolean.toString(!ignoring)));
+
         sb.append(String.format("Charging: %b\r\n", Helper.isCharging(context)));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -1868,11 +1866,14 @@ public class Log {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean enabled = prefs.getBoolean("enabled", true);
             int pollInterval = ServiceSynchronize.getPollInterval(context);
+            Boolean ignoring = Helper.isIgnoringOptimizations(context);
             boolean schedule = prefs.getBoolean("schedule", false);
 
             size += write(os, "accounts=" + accounts.size() +
                     " enabled=" + enabled +
-                    " interval=" + pollInterval + "\r\n\r\n");
+                    " interval=" + pollInterval +
+                    " optimizing=" + (ignoring == null ? null : !ignoring) +
+                    "\r\n\r\n");
 
             if (schedule) {
                 int minuteStart = prefs.getInt("schedule_start", 0);
@@ -1920,61 +1921,62 @@ public class Log {
             }
 
             for (EntityAccount account : accounts)
-                try {
-                    JSONObject jaccount = account.toJSON();
-                    jaccount.put("state", account.state == null ? "null" : account.state);
-                    jaccount.put("warning", account.warning);
-                    jaccount.put("error", account.error);
+                if (account.synchronize)
+                    try {
+                        JSONObject jaccount = account.toJSON();
+                        jaccount.put("state", account.state == null ? "null" : account.state);
+                        jaccount.put("warning", account.warning);
+                        jaccount.put("error", account.error);
 
-                    if (account.last_connected != null)
-                        jaccount.put("last_connected", new Date(account.last_connected).toString());
+                        if (account.last_connected != null)
+                            jaccount.put("last_connected", new Date(account.last_connected).toString());
 
-                    jaccount.put("keep_alive_ok", account.keep_alive_ok);
-                    jaccount.put("keep_alive_failed", account.keep_alive_failed);
-                    jaccount.put("keep_alive_succeeded", account.keep_alive_succeeded);
+                        jaccount.put("keep_alive_ok", account.keep_alive_ok);
+                        jaccount.put("keep_alive_failed", account.keep_alive_failed);
+                        jaccount.put("keep_alive_succeeded", account.keep_alive_succeeded);
 
-                    jaccount.remove("password");
+                        jaccount.remove("password");
 
-                    size += write(os, "==========\r\n");
-                    size += write(os, jaccount.toString(2) + "\r\n");
+                        size += write(os, "==========\r\n");
+                        size += write(os, jaccount.toString(2) + "\r\n");
 
-                    List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
-                    if (folders.size() > 0)
-                        Collections.sort(folders, folders.get(0).getComparator(context));
-                    for (EntityFolder folder : folders) {
-                        JSONObject jfolder = folder.toJSON();
-                        jfolder.put("level", folder.level);
-                        jfolder.put("total", folder.total);
-                        jfolder.put("initialize", folder.initialize);
-                        jfolder.put("subscribed", folder.subscribed);
-                        jfolder.put("state", folder.state == null ? "null" : folder.state);
-                        jfolder.put("sync_state", folder.sync_state == null ? "null" : folder.sync_state);
-                        jfolder.put("poll_count", folder.poll_count);
-                        jfolder.put("read_only", folder.read_only);
-                        jfolder.put("selectable", folder.selectable);
-                        jfolder.put("inferiors", folder.inferiors);
-                        jfolder.put("error", folder.error);
-                        if (folder.last_sync != null)
-                            jfolder.put("last_sync", new Date(folder.last_sync).toString());
-                        if (folder.last_sync_count != null)
-                            jfolder.put("last_sync_count", folder.last_sync_count);
-                        size += write(os, jfolder.toString(2) + "\r\n");
-                    }
-
-                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                    for (EntityIdentity identity : identities)
-                        try {
-                            JSONObject jidentity = identity.toJSON();
-                            jidentity.remove("password");
-                            jidentity.remove("signature");
-                            size += write(os, "----------\r\n");
-                            size += write(os, jidentity.toString(2) + "\r\n");
-                        } catch (JSONException ex) {
-                            size += write(os, ex.toString() + "\r\n");
+                        List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
+                        if (folders.size() > 0)
+                            Collections.sort(folders, folders.get(0).getComparator(context));
+                        for (EntityFolder folder : folders) {
+                            JSONObject jfolder = folder.toJSON();
+                            jfolder.put("level", folder.level);
+                            jfolder.put("total", folder.total);
+                            jfolder.put("initialize", folder.initialize);
+                            jfolder.put("subscribed", folder.subscribed);
+                            jfolder.put("state", folder.state == null ? "null" : folder.state);
+                            jfolder.put("sync_state", folder.sync_state == null ? "null" : folder.sync_state);
+                            jfolder.put("poll_count", folder.poll_count);
+                            jfolder.put("read_only", folder.read_only);
+                            jfolder.put("selectable", folder.selectable);
+                            jfolder.put("inferiors", folder.inferiors);
+                            jfolder.put("error", folder.error);
+                            if (folder.last_sync != null)
+                                jfolder.put("last_sync", new Date(folder.last_sync).toString());
+                            if (folder.last_sync_count != null)
+                                jfolder.put("last_sync_count", folder.last_sync_count);
+                            size += write(os, jfolder.toString(2) + "\r\n");
                         }
-                } catch (JSONException ex) {
-                    size += write(os, ex.toString() + "\r\n");
-                }
+
+                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                        for (EntityIdentity identity : identities)
+                            try {
+                                JSONObject jidentity = identity.toJSON();
+                                jidentity.remove("password");
+                                jidentity.remove("signature");
+                                size += write(os, "----------\r\n");
+                                size += write(os, jidentity.toString(2) + "\r\n");
+                            } catch (JSONException ex) {
+                                size += write(os, ex.toString() + "\r\n");
+                            }
+                    } catch (JSONException ex) {
+                        size += write(os, ex.toString() + "\r\n");
+                    }
         }
 
         db.attachment().setDownloaded(attachment.id, size);
