@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -45,8 +47,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityFolder.TABLE_NAME,
@@ -464,6 +464,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
                 Collections.sort(candidates, new Comparator<FolderScore>() {
                     @Override
                     public int compare(FolderScore fs1, FolderScore fs2) {
+                        int r = Boolean.compare(fs1.folder.read_only, fs2.folder.read_only);
+                        if (r != 0)
+                            return r;
+
                         int s = Integer.compare(fs1.score, fs2.score);
                         if (s == 0) {
                             if (separator == null)
