@@ -64,6 +64,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.FileNotFoundException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -595,7 +596,10 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+                if (ex.getMessage() != null &&
+                        (ex instanceof UnknownHostException ||
+                                ex instanceof FileNotFoundException ||
+                                ex instanceof IllegalArgumentException))
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
                 else
