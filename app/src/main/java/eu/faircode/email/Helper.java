@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -62,6 +65,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
@@ -136,9 +140,6 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Pattern;
-
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 public class Helper {
     private static Boolean hasPlayStore = null;
@@ -547,6 +548,17 @@ public class Helper {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+    }
+
+    static boolean isAccessibilityEnabled(Context context) {
+        try {
+            AccessibilityManager am =
+                    (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+            return (am != null && am.isEnabled());
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     // View

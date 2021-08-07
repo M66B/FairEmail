@@ -90,7 +90,6 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.textclassifier.ConversationAction;
@@ -5664,8 +5663,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.dp12 = Helper.dp2pixels(context, 12);
         this.dp60 = Helper.dp2pixels(context, 60);
 
-        AccessibilityManager am = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
-        this.accessibility = (am != null && am.isEnabled());
+        this.accessibility = Helper.isAccessibilityEnabled(context);
 
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
         this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);

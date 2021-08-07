@@ -319,6 +319,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private int colorSeparator;
     private int colorWarning;
 
+    private boolean accessibility;
+
     private long primary;
     private boolean connected;
     private boolean reset = false;
@@ -438,6 +440,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
         colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
+
+        accessibility = Helper.isAccessibilityEnabled(getContext());
 
         if (criteria == null)
             if (thread == null) {
@@ -761,7 +765,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean down = (dy > 0);
                     if (scrolling != down) {
                         scrolling = down;
-                        if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+                        if (!accessibility &&
+                                (viewType == AdapterMessage.ViewType.UNIFIED ||
+                                        viewType == AdapterMessage.ViewType.FOLDER))
                             if (dy > 0)
                                 fabCompose.hide();
                             else
@@ -5425,7 +5431,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void updateExpanded() {
         int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-        if (scrolling)
+        if (scrolling && !accessibility)
             fabReply.hide();
         else {
             if (expanded == 1) {
