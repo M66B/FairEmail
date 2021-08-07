@@ -149,15 +149,17 @@ public class DnsBlockList {
     }
 
     static Boolean isJunk(Context context, List<Address> addresses) {
+        boolean hasDomain = false;
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
+            hasDomain = true;
             if (isJunk(context, domain, false, BLOCK_LISTS))
                 return true;
         }
-        return false;
+        return (hasDomain ? false : null);
     }
 
     private static boolean isJunk(Context context, String host, boolean numeric, List<BlockList> blocklists) {
