@@ -26,13 +26,13 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
-import java.util.zip.ZipInputStream;
 
 public class UriHelper {
     // https://publicsuffix.org/
     private static final HashSet<String> suffixList = new HashSet<>();
 
-    private static final String SUFFIX_LIST_NAME = "effective_tld_names.dat.txt";
+    // https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat
+    private static final String SUFFIX_LIST_NAME = "public_suffix_list.dat";
 
     static String getParentDomain(Context context, String host) {
         if (host == null)
