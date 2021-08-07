@@ -1250,6 +1250,7 @@
         The options below are to continue searching the email server.
     </string>
     <string name="title_search_text_hint">Searching for text in messages, when there are a large number of messages, might not work on some servers</string>
+    <string name="title_search_text_unsupported">\'%s\' means that the mail server doesn\'t support searching in message texts</string>
     <string name="title_search_size_hint">Searching for messages by size, when there are a large number of messages, might not work on some servers</string>
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
