@@ -162,6 +162,10 @@ public class DnsBlockList {
         return (hasDomain ? false : null);
     }
 
+    static Boolean isJunk(Context context, String domain) {
+        return isJunk(context, domain, false, BLOCK_LISTS);
+    }
+
     private static boolean isJunk(Context context, String host, boolean numeric, List<BlockList> blocklists) {
         synchronized (cache) {
             CacheEntry entry = cache.get(host);

@@ -403,6 +403,31 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             tvSuspicious.setVisibility(Helper.isSingleScript(host) ? View.GONE : View.VISIBLE);
         }
 
+        if (BuildConfig.DEBUG &&
+                tvSuspicious.getVisibility() != View.VISIBLE) {
+            Bundle args = new Bundle();
+            args.putString("host", host);
+
+            new SimpleTask<Boolean>() {
+                @Override
+                protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+                    String host = args.getString("host");
+                    return DnsBlockList.isJunk(context, host);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Boolean blocklist) {
+                    if (blocklist != null && blocklist)
+                        tvSuspicious.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    // Ignored
+                }
+            }.execute(this, args, "link:blocklist");
+        }
+
         grpDifferent.setVisibility(
                 host == null || thost == null || host.equalsIgnoreCase(thost)
                         ? View.GONE : View.VISIBLE);
