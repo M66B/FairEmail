@@ -251,6 +251,7 @@
     <string name="title_advanced_always">总是接收这些账户的消息</string>
     <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_advanced">高级</string>
+    <string name="title_advanced_quick_sync">快速同步</string>
     <string name="title_advanced_no_date">不含日期的消息</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
@@ -515,6 +516,7 @@
     <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息与远程消息，这是项耗时的操作，可能消耗更多电量，尤其是消息非常多时。始终接收将通过持续跟踪变化来防止这种情况。</string>
     <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
+    <string name="title_advanced_quick_sync_hint">这有助于减少流量使用量，但搭配不遵守该标准的邮件服务器时可能错过新消息。</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
     <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
@@ -795,9 +797,9 @@
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">一个或多个过滤器已启用</string>
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
-    <string name="title_subject_reply">回复：%1$s</string>
+    <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
-    <string name="title_subject_reply_alt">回复：%1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
     <string name="title_subject_forward_alt">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>

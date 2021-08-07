@@ -2331,29 +2331,29 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <a name="faq110"></a>
 **(110) Why are (some) messages empty and/or attachments corrupt?**
 
-Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
+Boş mesajlar və/və ya zədəli qoşmalar, böyük ehtimalla serverin proqram təminatındakı xətaya görə yaranır. Daha köhnə Microsoft Exchange proqram təminatının bu problemə səbəb olduğu bilinir. Əksər hallarda bunun müvəqqəti həll yolu üçün qabaqcıl hesab tənzimləmələrində *Qismən gətir* seçimini sıradan çıxarda bilərsiniz:
 
-Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Tənzimləmələr > Əllə quraşdırma > Hesablar > Hesab > Qabaqcıl > Qismən gətir > işarəni götürün
 
-After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
+Bu tənzimləməni sıradan çıxartdıqdan sonra, boş mesajları "yenidən eyniləşdirmək" üçün "daha çox" (üç nöqtə) mesaj menyusunu istifadə edə bilərsiniz. Alternativ olaraq, qovluq siyahısındakı qovluğa uzun basaraq *Yerli mesajları sil* seçimini seçə və bütün mesajları yenidən eyniləşdirə bilərsiniz.
 
-Disabling *Partial fetch* will result in more memory usage.
+*Qismən gətir*i sıradan çıxartmaq, daha çox yaddaş istifadəsi ilə nəticələnəcək.
 
 <br />
 
 <a name="faq111"></a>
-**(111) Is OAuth supported?**
+**(111) OAuth dəstəklənir?**
 
-OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
+Gmail üçün OAuth, cəld quraşdırma sehrbazı vasitəsilə dəstəklənir. Android hesab meneceri, seçilmiş cihazdakı hesablar üçün OAuth tokenlərini almaq və təzələmək üçün istifadə olunacaq. Cihazda olmayan hesablar üçün OAuth dəstəklənmir, çünki Google bunun üçün [illik təhlükəsizlik yoxlanış haqqı](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) tələb edir. Bununla bağlı daha ətraflı məlumatı [burada](https://www.theregister.com/2019/02/11/google_gmail_developer/) oxuya bilərsiniz.
 
-OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
+Outlook/Office 365 üçün OAuth, Yahoo, Mail.ru və Yandex cəld quraşdırma sehrbazı vasitəsilə dəstəklənir.
 
 <br />
 
 <a name="faq112"></a>
 **(112) Hansı e-poçt təchizatçısını tövsiyə edirsiniz?**
 
-FairEmail sadəcə bir e-poçt müştərisidir, ona görə də öz e-poçt ünvanınızı gətirməyiniz lazımdır. Bunun tətbiq açıqlamasında daha dəqiq qeyd edildiyini unutmayın.
+FairEmail sadəcə bir e-poçt müştərisidir (client), ona görə də öz e-poçt ünvanınızı gətirməyiniz lazımdır. Bunun tətbiq açıqlamasında daha dəqiq qeyd edildiyini unutmayın.
 
 Aralarından seçim edə biləcəyiniz çoxlu e-poçt təchizatçısı var. Hansı e-poçt təchizatçısının sizin üçün daha yaxşı olduğu istək/tələblərinizdən asılıdır. Üstünlükləri və çatışmazlıqları olan gizlilik yönümlü e-poçt təchizatçılarının bir siyahısı üçün zəhmət olmasa [Gizliliyin bərpası](https://restoreprivacy.com/secure-email/) və ya [Gizlilik alətləri](https://www.privacytools.io/providers/email/) veb saytlarına baxın.
 
@@ -2364,20 +2364,20 @@ ProtonMail, Tutanota kimi bəzi təchizatçılar, üçüncü tərəf e-poçt tə
 <br />
 
 <a name="faq113"></a>
-**(113) How does biometric authentication work?**
+**(113) Biometrik kimlik təsdiqləmə necə işləyir?**
 
-If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+Əgər cihazınızda barmaq izi sensoru kimi biometrik sensor varsa, tənzimləmələr ekranındakı naviqasiya (hamburger) menyusunda biometrik kimlik təsdiqləməni fəallaşdıra/sıradan çıxarda bilərsiniz. Fəallaşdırılanda, bir müddətlik fəaliyyətsizlikdən sonra və ya FairEmail işləyərkən ekran söndükdən sonra FairEmail, biometrik kimlik təsdiqləmə tələb edəcək. Fəaliyyət, məsələn bir danışığın açılması kimi FairEmail daxilindəki hərəkətdir. Fəaliyyətsizlik müddəti, Qarışıq tənzimləmələrində konfiqurasiya edilə bilər. Biometrik kimlik təsdiqləmə fəallaşdırılanda, yeni mesaj bildirişləri heç bir məzmunu göstərməyəcək və FairEmail, Android son tətbiqlər ekranında görünməyəcək.
 
-Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+Biometrik kimlik təsdiqləmə, sadəcə başqalarının mesajlarınızı görməsini əngəlləmək üçündür. FairEmail, verilənlərin şifrələnməsi üçün cihaz şifrələnməsinə güvənir, həmçinin [bu TSS](#user-content-faq37)-ı oxuya bilərsiniz.
 
-Biometric authentication is a pro feature.
+Biometrik kimlik təsdiqləmə bir PRO özəllikdir.
 
 <br />
 
 <a name="faq114"></a>
-**(114) Can you add an import for the settings of other email apps?**
+**(114) Digər e-poçt tətbiqlərinin tənzimləmələri üçün bir idxal əlavə edə bilərsiniz?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
+Digər e-poçt tətbiqlərinin əksəriyyətinin tənzimləmələr faylının formatı sənədləşdirilməyib, ona görə də bu çətindir. Bəzən formatı tərsinə çevirmək mümkündür, ancaq tənzimləmələrin formatı dəyişən kimi problemlər yaranır. Həmçinin, tənzimləmələr ümumiyyətlə uyğunsuzluq göstərir. Məsələn, FairEmail, xüsusilə batareya istifadəsini azaltmaq üçün, mesajların eyniləşdiriləcəyi gün sayı və mesajların saxlanılacağı gün sayı üçün digər əksər e-poçt tətbiq tənzimləmələrindən fərqlidir. Həmçinin, cəld quraşdırma sehrbazı ilə bir kimlik/hesab quraşdırmaq çox asandır, ona görə də buna səy göstərməyə dəyməz.
 
 <br />
 

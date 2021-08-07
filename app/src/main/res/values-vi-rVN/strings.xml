@@ -252,6 +252,7 @@
     <string name="title_advanced_always">Luôn nhận thư cho các tài khoản đó</string>
     <string name="title_advanced_schedule">Lịch trình</string>
     <string name="title_advanced_advanced">Nâng cao</string>
+    <string name="title_advanced_quick_sync">Đồng bộ nhanh</string>
     <string name="title_advanced_no_date">Thư không có ngày</string>
     <string name="title_advanced_unseen">Tất cả thư chưa đọc</string>
     <string name="title_advanced_flagged">Tất cả thư gắn sao</string>
@@ -515,6 +516,7 @@
     <string name="title_advanced_poll_hint">Việc kiểm tra thư mới định kỳ sẽ so sánh thư cục bộ và thư trên mạng mỗi lần kiểm tra, nó là một hoạt động tốn kém có thể dẫn đến sử dụng thêm pin, đặc biệt là nếu có nhiều thư. Luôn nhận sẽ ngăn chặn điều này bằng cách liên tục theo dõi các thay đổi.</string>
     <string name="title_advanced_optimize_hint">Điều này có thể thay đổi tần số đồng bộ hoá để tiết kiệm pin tuỳ thuộc vào khả năng và hành vi của các máy chủ email</string>
     <string name="title_advanced_schedule_hint">Nhấn vào thời gian để đặt thời gian</string>
+    <string name="title_advanced_quick_sync_hint">Cái này làm giảm sử dụng dữ liệu, nhưng các thư mới có thể bị bỏ lỡ nếu máy chủ email không theo tiêu chuẩn</string>
     <string name="title_advanced_no_date_hint">Một số nhà cung cấp lưu trữ các thư có ngày không xác định, không hợp lệ hoặc trong tương lai là thư không có ngày</string>
     <string name="title_advanced_unseen_hint">Một số nhà cung cấp không hỗ trợ điều này đúng cách, điều đó có thể gây ra không đồng bộ hoá thư nào hoặc đồng bộ tất cả thư</string>
     <string name="title_advanced_deleted_unseen">Khi được tắt, các thư chưa đọc được giữ trên thiết bị vĩnh viễn</string>
@@ -563,6 +565,7 @@
     <string name="title_advanced_sender_hint">Đa số nhà cung cấp không cho phép các địa chỉ người gửi đã sửa đổi</string>
     <string name="title_advanced_bcc_hint">Địa chỉ sẽ không được hiện, nhưng sẽ được thêm khi gửi</string>
     <string name="title_advanced_internal_hint">Sẽ có cảnh báo khi gửi đến một miền khác</string>
+    <string name="title_advanced_e2e_encryption">Tùy chọn cho mã hóa đầu cuối</string>
     <string name="title_advanced_display_harmful_hint">Việc tắt cái này có thể có hại cho sự riêng tư của bạn</string>
     <string name="title_advanced_display_hidden_hint">Cái này có thể dẫn đến văn bản trông kỳ quặc và văn bản đôi</string>
     <string name="title_advanced_display_pin_hint">Mã PIN được ưu tiên trước xác thực sinh trắc học</string>
@@ -1136,6 +1139,7 @@
     <string name="title_select_found">Chọn các thư được tìm thấy</string>
     <string name="title_mark_all_read">Đánh dấu tất cả đã đọc</string>
     <string name="title_force_sync">Buộc đồng bộ hoá</string>
+    <string name="title_force_reload">Buộc khởi động lại</string>
     <string name="title_force_send">Buộc gửi</string>
     <string name="title_language_all">Tất cả</string>
     <string name="title_previous">Trước</string>
@@ -1577,6 +1581,7 @@
         <item>Vừa</item>
         <item>Lớn</item>
     </string-array>
+    <string name="title_size_tiny">Rất nhỏ</string>
     <string-array name="receiptNames">
         <item>Chỉ xác nhận đã đọc</item>
         <item>Chỉ xác nhận đã gửi</item>

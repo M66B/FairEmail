@@ -70,7 +70,7 @@
     <string name="title_junk_filter_hint">這可能會增加電池的用量，並導致訊息被錯誤地標記為垃圾郵件</string>
     <string name="title_junk_blocklist">使用垃圾郵件封鎖清單</string>
     <string name="title_notification_sending">正在傳送訊息</string>
-    <string name="title_notification_waiting">正在等待合適的網路連線</string>
+    <string name="title_notification_waiting">正在等待合宜的網路連線</string>
     <string name="title_notification_idle">閒置</string>
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">伺服器警報: \'%1$s\'</string>
@@ -252,6 +252,7 @@
     <string name="title_advanced_always">時刻接收這些帳戶的訊息</string>
     <string name="title_advanced_schedule">時程</string>
     <string name="title_advanced_advanced">進階</string>
+    <string name="title_advanced_quick_sync">快速同步</string>
     <string name="title_advanced_no_date">未含日期的訊息</string>
     <string name="title_advanced_unseen">所有未讀訊息</string>
     <string name="title_advanced_flagged">所有標記星標的訊息</string>
@@ -515,6 +516,7 @@
     <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時時接收會通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">依據郵件伺服器的能力和行為，可能會改變同步頻率以節省電池用量</string>
     <string name="title_advanced_schedule_hint">請輕觸位列在上的時間項來設定執行時間</string>
+    <string name="title_advanced_quick_sync_hint">雖可減少數據用量，但若電子郵件伺服器不跟從標準，則新訊息可能會錯過接收</string>
     <string name="title_advanced_no_date_hint">一些郵件供應商會將含有未知、無效或未來日期的訊息儲存為未含日期的訊息</string>
     <string name="title_advanced_unseen_hint">一些郵件供應商未能正确支援此功能，這可能導致所有訊息都會或者都不會被同步</string>
     <string name="title_advanced_deleted_unseen">停用後，未讀訊息會一直被保留在裝置上</string>
@@ -585,7 +587,7 @@
     <string name="title_advanced_fts_hint">啟用此選項可改善搜尋效能，但也會增加電池和儲存空間的使用量</string>
     <string name="title_advanced_english_hint">程式將重新啟動</string>
     <string name="title_advanced_experiments_hint">當前實驗功能清單</string>
-    <string name="title_advanced_protocol_hint">開啟此選項將顯著增加電池及儲存空間的用量!</string>
+    <string name="title_advanced_protocol_hint">啟用此選項將顯著增加電池及儲存空間的用量!</string>
     <string name="title_advanced_debug_hint">這將會在各種不同地方顯示惱人的除錯訊息</string>
     <string name="title_advanced_cleanup_attachments_hint">在執行手動清理時，已不再同步訊息的附件將被移除</string>
     <string name="title_advanced_cleanup_hint">這將刪除所有臨時檔案</string>
@@ -879,12 +881,12 @@
     <string name="title_receipt_subject">已讀回條: %1$s</string>
     <string name="title_receipt_text">此已讀回條僅能確認訊息被顯示，不能保證收件者已閱讀訊息內容。</string>
     <string name="title_no_answers">無已定義回覆模板</string>
-    <string name="title_no_viewer">沒有適用於 %1$s 的查看器應用程序</string>
+    <string name="title_no_viewer">未有可用於 %1$s 的檢視器程式</string>
     <string name="title_no_recorder">無適用的音頻錄製程式</string>
-    <string name="title_no_camera">沒有合適的相機應用</string>
-    <string name="title_no_saf">存儲訪問框架不可用</string>
-    <string name="title_no_stream">過時的應用發送了文件路徑而不是文件流</string>
-    <string name="title_no_internet">沒有或沒有合適的互聯網連接</string>
+    <string name="title_no_camera">無適用的相機程式</string>
+    <string name="title_no_saf">儲存空間存取架構不可用</string>
+    <string name="title_no_stream">過時的應用程式傳送了檔案路徑而非檔案流</string>
+    <string name="title_no_internet">無網際網路連線或連線不合宜</string>
     <string name="title_no_connection">正在連線至一個或多個帳戶 &#8230;</string>
     <string name="title_no_folder">資料夾不存在</string>
     <string name="title_no_format">原始收到的消息將包括在內</string>
@@ -1195,7 +1197,7 @@
     <string name="title_rule_hours">小時</string>
     <string name="title_rule_schedule_end">從時間結束條件</string>
     <string name="title_rule_folder">資料夾</string>
-    <string name="title_rule_thread">在相同的會話與資料夾中的所有訊息</string>
+    <string name="title_rule_thread">在同一資料夾下相同會話中的所有訊息</string>
     <string name="title_rule_identity">身分</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_forward_to">轉寄至</string>

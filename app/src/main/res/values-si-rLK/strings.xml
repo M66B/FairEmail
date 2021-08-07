@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">ෆෙයාර්ඊමේල් සෙවුම</string>
+    <string name="channel_send">යවන්න</string>
+    <string name="channel_notification">වි-තැපෑල</string>
+    <string name="channel_warning">අවවාද</string>
+    <string name="channel_error">දෝෂ</string>
+    <string name="channel_group_contacts">සබඳතා</string>
+    <plurals name="page_conversation">
+        <item quantity="one">සංවාදය</item>
+        <item quantity="other">සංවාද</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">පණිවිඩය</item>
+        <item quantity="other">පණිවිඩ</item>
+    </plurals>
+    <string name="page_folders">බහාලුම්</string>
     <string name="shortcut_setup">සැකසුම්</string>
     <string name="menu_setup">සැකසුම්</string>
+    <string name="menu_test">අත්හදාබැලීමේ වැඩසටහන</string>
     <string name="menu_faq">සහාය</string>
+    <string name="menu_translate">පරිවර්තනයට සහාය වන්න</string>
+    <string name="menu_privacy">පෞද්ගලිකත්වය</string>
     <string name="menu_about">පිලිබඳ</string>
+    <string name="title_welcome">සාදරයෙන් පිළිගනිමු</string>
     <string name="title_agree">මම එකඟයි</string>
+    <string name="title_version">අනුවාදය %1$s</string>
+    <string name="title_privacy_policy">රහස්‍යතා ප්‍රතිපත්තිය</string>
+    <string name="title_list_accounts">ගිණුම්</string>
     <string name="title_setup">සැකසුම්</string>
     <string name="title_setup_help">උදව්</string>
     <string name="title_setup_options">විකල්ප</string>

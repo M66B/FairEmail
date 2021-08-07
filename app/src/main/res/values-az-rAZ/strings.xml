@@ -262,6 +262,7 @@
     <string name="title_advanced_always">Bu hesablar üçün mesajları həmişə al</string>
     <string name="title_advanced_schedule">Cədvəl</string>
     <string name="title_advanced_advanced">Qabaqcıl</string>
+    <string name="title_advanced_quick_sync">Cəld eyniləşdirmə</string>
     <string name="title_advanced_no_date">Tarixsiz mesajlar</string>
     <string name="title_advanced_unseen">Bütün oxunmamış mesajlar</string>
     <string name="title_advanced_flagged">Bütün ulduzlu mesajlar</string>
@@ -525,6 +526,7 @@
     <string name="title_advanced_poll_hint">Yeni mesajların vaxtaşırı yoxlanılması, hər dəfəsində yerli və uzaq mesajları müqayisə edəcək; bu, xüsusilə də həddən çox mesaj olanda əlavə batareya istifadəsinə səbəb olacaq bahalı bir əməliyyatdır. \"Həmişə al\", dəyişiklikləri davamlı izləyərək bunun qarşısını alacaq.</string>
     <string name="title_advanced_optimize_hint">Bu, e-poçt serverlərinin imkan və davranışlarından asılı olaraq batareya istifadəsinə qənaət etmək üçün eyniləşdirmə tezliyini dəyişdirə bilər</string>
     <string name="title_advanced_schedule_hint">Bir vaxt təyin etmək üçün vaxta toxun</string>
+    <string name="title_advanced_quick_sync_hint">Bu, verilənlər istifadəsini azaldır, ancaq e-poçt serveri standartlara uyğun olmasa yeni mesajlar buraxıla bilər</string>
     <string name="title_advanced_no_date_hint">Bəzi təchizatçılar bilinməyən, etibarsız və ya irəli tarixli mesajları tarixsiz mesajlar kimi saxlayır</string>
     <string name="title_advanced_unseen_hint">Bəzi təchizatçılar bunu doğru formada dəstəkləmir, bu da ya heç bir mesajın eyniləşdirilməməsinə, ya da bütün mesajların eyniləşdirilməsinə səbəb ola bilər</string>
     <string name="title_advanced_deleted_unseen">Sıradan çıxarılanda, oxunmamış mesajlar həmişəlik cihazda qalacaq</string>
