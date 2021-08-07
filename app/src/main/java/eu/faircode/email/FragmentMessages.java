@@ -6542,6 +6542,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
 
+                if (uri == null)
+                    throw new FileNotFoundException();
+
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Save raw uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));

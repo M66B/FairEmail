@@ -172,13 +172,17 @@ public class ActivityEML extends ActivityBase {
                 new SimpleTask<File>() {
                     @Override
                     protected File onExecute(Context context, Bundle args) throws Throwable {
+                        Uri uri = args.getParcelable("uri");
+
+                        if (uri == null)
+                            throw new FileNotFoundException();
+
                         File dir = new File(getCacheDir(), "shared");
                         if (!dir.exists())
                             dir.mkdir();
 
                         File file = new File(dir, "email.eml");
 
-                        Uri uri = args.getParcelable("uri");
                         Helper.copy(context, uri, file);
                         return file;
                     }
@@ -488,6 +492,9 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+
+                if (uri == null)
+                    throw new FileNotFoundException();
 
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Save attachment uri=" + uri);

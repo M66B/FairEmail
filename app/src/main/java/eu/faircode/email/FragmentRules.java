@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -61,8 +63,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentRules extends FragmentBase {
     private long account;
@@ -323,6 +323,9 @@ public class FragmentRules extends FragmentBase {
                 long fid = args.getLong("folder");
                 Uri uri = args.getParcelable("uri");
 
+                if (uri == null)
+                    throw new FileNotFoundException();
+
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Export uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
@@ -386,6 +389,9 @@ public class FragmentRules extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long fid = args.getLong("folder");
                 Uri uri = args.getParcelable("uri");
+
+                if (uri == null)
+                    throw new FileNotFoundException();
 
                 if (!"content".equals(uri.getScheme()) &&
                         !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {

@@ -2503,6 +2503,9 @@ public class FragmentCompose extends FragmentBase {
                 int requestCode = args.getInt("requestCode");
                 Uri uri = args.getParcelable("uri");
 
+                if (uri == null)
+                    throw new FileNotFoundException();
+
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean suggest_names = prefs.getBoolean("suggest_names", true);
 

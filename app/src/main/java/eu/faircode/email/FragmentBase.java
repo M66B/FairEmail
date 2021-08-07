@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.ActionBar.DISPLAY_SHOW_CUSTOM;
+import static android.app.Activity.RESULT_OK;
+
 import android.app.RecoverableSecurityException;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -64,9 +67,6 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static android.app.ActionBar.DISPLAY_SHOW_CUSTOM;
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentBase extends Fragment {
     private String title = null;
@@ -477,6 +477,9 @@ public class FragmentBase extends Fragment {
                 long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
 
+                if (uri == null)
+                    throw new FileNotFoundException();
+
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Save attachment uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
@@ -551,6 +554,9 @@ public class FragmentBase extends Fragment {
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
+
+                if (uri == null)
+                    throw new FileNotFoundException();
 
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Save attachment uri=" + uri);
