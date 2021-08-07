@@ -1116,6 +1116,15 @@ public class Helper {
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    static void hideKeyboard(Activity activity){
+        if (activity == null)
+            return;
+        View focused = activity.getCurrentFocus();
+        if (focused == null)
+            return;
+        hideKeyboard(focused);
+    }
+
     // Formatting
 
     private static final DecimalFormat df = new DecimalFormat("@@");
