@@ -121,6 +121,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int OPTIMIZE_POLL_INTERVAL = 15; // minutes
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 8; // seconds (totally 8+2x20=48 seconds)
+    private static final int CONNECT_BACKOFF_INTERMEDIATE = 5; // minutes
     private static final int CONNECT_BACKOFF_ALARM_START = 15; // minutes
     private static final int CONNECT_BACKOFF_ALARM_MAX = 60; // minutes
     private static final long CONNECT_BACKOFF_GRACE = 2 * 60 * 1000L; // milliseconds
@@ -2153,6 +2154,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (backoff < CONNECT_BACKOFF_MAX)
                         state.setBackoff(backoff * 2);
                     else if (backoff == CONNECT_BACKOFF_MAX)
+                        if (AlarmManagerCompatEx.hasExactAlarms(this))
+                            state.setBackoff(CONNECT_BACKOFF_INTERMEDIATE * 60);
+                        else
+                            state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
+                    else if (backoff == CONNECT_BACKOFF_INTERMEDIATE * 60)
                         state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
                     else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60) {
                         int b = backoff * 2;

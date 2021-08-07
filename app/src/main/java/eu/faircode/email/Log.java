@@ -1729,8 +1729,11 @@ public class Log {
                 .append(" night=").append(Helper.isNight(context))
                 .append("\r\n");
 
-        sb.append("canScheduleExactAlarms=")
+        sb.append("ExactAlarms")
+                .append(" can=")
                 .append(AlarmManagerCompatEx.canScheduleExactAlarms(context))
+                .append(" has=")
+                .append(AlarmManagerCompatEx.hasExactAlarms(context))
                 .append("\r\n");
 
         sb.append("Transliterate: ")
