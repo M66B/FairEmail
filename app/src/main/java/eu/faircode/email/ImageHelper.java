@@ -462,7 +462,7 @@ class ImageHelper {
                         post(d, a.source);
                     } catch (Throwable ex) {
                         // Show broken icon
-                        Log.w(ex);
+                        Log.i(ex);
                         int resid = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
                                 ? R.drawable.twotone_cloud_off_24
                                 : R.drawable.twotone_broken_image_24);
