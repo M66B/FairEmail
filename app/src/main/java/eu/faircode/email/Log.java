@@ -1927,6 +1927,7 @@ public class Log {
                         jaccount.put("state", account.state == null ? "null" : account.state);
                         jaccount.put("warning", account.warning);
                         jaccount.put("error", account.error);
+                        jaccount.put("capabilities", account.capabilities);
 
                         if (account.last_connected != null)
                             jaccount.put("last_connected", new Date(account.last_connected).toString());
