@@ -10,9 +10,8 @@
 <img src="https://img.shields.io/github/license/m66b/fairemail.svg" alt="Github">
 <img src="https://img.shields.io/github/release/M66B/FairEmail.svg" alt="Github">
 <img src="https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg">
+<p><i>Fully featured, open-source, privacy oriented, e-mail app for Android<i></p>
 </div>
-
-*Fully featured, open-source, privacy oriented, e-mail app for Android*
 
 <!-- FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo! -->
 <!-- *FairEmail is an email client only, so you need to bring your own email address.* -->
@@ -34,10 +33,9 @@
 
 ## Privacy features
 
-* Encryption/decryption supported ([OpenPGP](https://www.openpgp.org/) and [S/MIME](https://en.wikipedia.org/wiki/S/MIME))
+* Encryption/decryption ([OpenPGP](https://www.openpgp.org/) and [S/MIME](https://en.wikipedia.org/wiki/S/MIME))
 * Reformat messages to prevent [phishing](https://en.wikipedia.org/wiki/Phishing)
-* Confirm showing images to prevent tracking
-* Confirm opening links to prevent tracking and phishing
+* Confirm showing/opening images and links to stop tracking and phishing
 * Attempt to recognize and disable tracking images
 * Warning if messages could not be [authenticated](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq92)
 
