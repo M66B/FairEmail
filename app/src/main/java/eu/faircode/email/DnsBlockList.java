@@ -79,6 +79,11 @@ public class DnsBlockList {
             new BlockList(false, "Barracuda", "b.barracudacentral.org", true, new String[]{
                     // https://www.barracudacentral.org/rbl/how-to-use
                     "127.0.0.2",
+            }),
+
+            new BlockList(BuildConfig.DEBUG, "NordSpam", "dbl.nordspam.com", false, new String[]{
+                    // https://www.nordspam.com/
+                    "127.0.0.2",
             })
     ));
 
