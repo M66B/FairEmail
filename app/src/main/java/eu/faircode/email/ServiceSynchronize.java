@@ -1339,10 +1339,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         optimizeAccount(account, "IDLE");
 
                     final boolean capNotify = iservice.hasCapability("NOTIFY");
+                    String capabilities = TextUtils.join(" ", iservice.getCapabilities());
+                    if (capabilities.length() > 500)
+                        capabilities = capabilities.substring(0, 500) + "...";
 
                     db.account().setAccountState(account.id, "connected");
-                    db.account().setAccountCapabilities(account.id,
-                            TextUtils.join(" ", iservice.getCapabilities()), capIdle, capUtf8);
+                    db.account().setAccountCapabilities(account.id, capabilities, capIdle, capUtf8);
                     db.account().setAccountError(account.id, null);
                     db.account().setAccountWarning(account.id, null);
 
