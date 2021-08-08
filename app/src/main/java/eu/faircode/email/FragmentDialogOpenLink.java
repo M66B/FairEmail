@@ -408,13 +408,13 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         if (check_links_dbl &&
                 tvSuspicious.getVisibility() != View.VISIBLE) {
             Bundle args = new Bundle();
-            args.putString("host", host);
+            args.putParcelable("uri", uri);
 
             new SimpleTask<Boolean>() {
                 @Override
                 protected Boolean onExecute(Context context, Bundle args) throws Throwable {
-                    String host = args.getString("host");
-                    return DnsBlockList.isJunk(context, host);
+                    Uri uri = args.getParcelable("uri");
+                    return DnsBlockList.isJunk(context, uri);
                 }
 
                 @Override

@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.core.net.MailTo;
 import androidx.preference.PreferenceManager;
 
 import java.net.Inet4Address;
@@ -162,7 +163,17 @@ public class DnsBlockList {
         return (hasDomain ? false : null);
     }
 
-    static Boolean isJunk(Context context, String domain) {
+    static Boolean isJunk(Context context, Uri uri) {
+        String domain = null;
+        if ("mailto".equalsIgnoreCase(uri.getScheme())) {
+            MailTo email = MailTo.parse(uri.toString());
+            domain = UriHelper.getEmailDomain(email.getTo());
+        } else
+            domain = uri.getHost();
+
+        if (domain == null)
+            return null;
+
         return isJunk(context, domain, false, BLOCK_LISTS);
     }
 
