@@ -242,8 +242,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvId.setVisibility(settings && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
             tvCapabilities.setText(account.capabilities);
-            tvCapabilities.setVisibility(
-                    settings && !TextUtils.isEmpty(account.capabilities) ? View.VISIBLE : View.GONE);
+            tvCapabilities.setVisibility(settings && debug &&
+                    !TextUtils.isEmpty(account.capabilities) ? View.VISIBLE : View.GONE);
 
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts != null || !settings ? View.GONE : View.VISIBLE);
