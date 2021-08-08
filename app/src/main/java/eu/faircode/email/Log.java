@@ -1894,24 +1894,33 @@ public class Log {
 
             for (EntityAccount account : accounts) {
                 if (account.synchronize) {
+                    int content = 0;
+                    int messages = 0;
+                    List<TupleFolderEx> folders = db.folder().getFoldersEx(account.id);
+                    for (TupleFolderEx folder : folders) {
+                        content += folder.content;
+                        messages += folder.messages;
+                    }
+
                     size += write(os, account.name +
                             " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") + "/" + account.auth_type +
                             " " + account.host + ":" + account.port + "/" + account.encryption +
                             " sync=" + account.synchronize +
                             " exempted=" + account.poll_exempted +
                             " poll=" + account.poll_interval +
+                            " messages=" + content + "/" + messages +
                             " " + account.state +
                             (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
                             "\r\n");
 
-                    List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
                     if (folders.size() > 0)
                         Collections.sort(folders, folders.get(0).getComparator(context));
-                    for (EntityFolder folder : folders)
+                    for (TupleFolderEx folder : folders)
                         if (folder.synchronize)
                             size += write(os, "- " + folder.name + " " + folder.type +
                                     " poll=" + folder.poll + "/" + folder.poll_factor +
                                     " days=" + folder.sync_days + "/" + folder.keep_days +
+                                    " msgs=" + folder.content + "/" + folder.messages +
                                     " " + folder.state +
                                     (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
                                     "\r\n");
