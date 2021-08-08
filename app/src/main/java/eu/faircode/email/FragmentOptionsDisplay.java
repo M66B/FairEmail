@@ -27,8 +27,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,7 +37,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -127,7 +124,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvPreviewLinesHint;
 
     private SwitchCompat swAddresses;
-    private EditText etMessageZoom;
+    private TextView tvMessageZoom;
+    private SeekBar sbMessageZoom;
     private SwitchCompat swOverviewMode;
 
     private SwitchCompat swContrast;
@@ -247,7 +245,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
         tvPreviewLinesHint = view.findViewById(R.id.tvPreviewLinesHint);
         swAddresses = view.findViewById(R.id.swAddresses);
-        etMessageZoom = view.findViewById(R.id.etMessageZoom);
+        tvMessageZoom = view.findViewById(R.id.tvMessageZoom);
+        sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
@@ -792,27 +791,24 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        etMessageZoom.addTextChangedListener(new TextWatcher() {
+        sbMessageZoom.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int message_zoom = progress + 50;
+                if (message_zoom == 100)
+                    prefs.edit().remove("message_zoom").apply();
+                else
+                    prefs.edit().putInt("message_zoom", message_zoom).apply();
+                tvMessageZoom.setText(getString(R.string.title_advanced_message_text_zoom2, NF.format(message_zoom)));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
                 // Do nothing
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    int zoom = (s.length() > 0 ? Integer.parseInt(s.toString()) : 0);
-                    if (zoom == 0)
-                        prefs.edit().remove("message_zoom").apply();
-                    else
-                        prefs.edit().putInt("message_zoom", zoom).apply();
-                } catch (NumberFormatException ex) {
-                    Log.e(ex);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
+            public void onStopTrackingTouch(SeekBar seekBar) {
                 // Do nothing
             }
         });
@@ -1120,8 +1116,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
 
-        int message_zoom = prefs.getInt("message_zoom", 0);
-        etMessageZoom.setText(message_zoom == 0 ? null : Integer.toString(message_zoom));
+        int message_zoom = prefs.getInt("message_zoom", 100);
+        tvMessageZoom.setText(getString(R.string.title_advanced_message_text_zoom2, NF.format(message_zoom)));
+        if (message_zoom >= 50 && message_zoom <= 250)
+            sbMessageZoom.setProgress(message_zoom - 50);
+
         swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
 
         swContrast.setChecked(prefs.getBoolean("contrast", false));

@@ -1121,34 +1121,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_message_text_zoom"
+                    android:text="@string/title_advanced_message_text_zoom2"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAddresses" />
 
-                <eu.faircode.email.EditTextPlain
-                    android:id="@+id/etMessageZoom"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:hint="100"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMessageZoom" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvMessageZoomPercentage"
+                <SeekBar
+                    android:id="@+id/sbMessageZoom"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="%"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorPrimary"
-                    app:layout_constraintBottom_toBottomOf="@id/etMessageZoom"
-                    app:layout_constraintStart_toEndOf="@id/etMessageZoom"
-                    app:layout_constraintTop_toTopOf="@id/etMessageZoom" />
+                    android:max="200"
+                    android:min="0"
+                    android:progress="50"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMessageZoom" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swOverviewMode"
@@ -1158,7 +1146,7 @@
                     android:text="@string/title_advanced_overview_mode"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etMessageZoom"
+                    app:layout_constraintTop_toBottomOf="@id/sbMessageZoom"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
