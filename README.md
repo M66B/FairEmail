@@ -1,12 +1,12 @@
 <div align="center">
 <h1>FairEmail</h1>
 <img src="https://github.com/M66B/FairEmail/raw/master/images/banner7_long.png" />
-<ul>
-	<a href="#downloads">Downloads</a>
-	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">Privacy</a>
-	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">Support</a>
+<p>
+	<a href="#downloads">Downloads</a> &bull;
+	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">Privacy</a> &bull;
+	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">Support</a> &bull;
 	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">License</a>
-</ul>
+<p>
 <img src="https://img.shields.io/github/license/m66b/fairemail.svg" alt="Github">
 <img src="https://img.shields.io/github/release/M66B/FairEmail.svg" alt="Github">
 <img src="https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg">
