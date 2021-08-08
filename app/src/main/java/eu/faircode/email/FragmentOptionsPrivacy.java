@@ -60,6 +60,7 @@ import java.text.SimpleDateFormat;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swConfirmLinks;
+    private SwitchCompat swCheckLinksDbl;
     private SwitchCompat swBrowseLinks;
     private SwitchCompat swConfirmImages;
     private SwitchCompat swConfirmHtml;
@@ -88,7 +89,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Group grpSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "browse_links", "confirm_images", "confirm_html",
+            "confirm_links", "check_links_dbl", "browse_links", "confirm_images", "confirm_html",
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout",
             "client_id", "display_hidden", "incognito_keyboard", "secure",
@@ -107,6 +108,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         // Get controls
 
         swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
+        swCheckLinksDbl = view.findViewById(R.id.swCheckLinksDbl);
         swBrowseLinks = view.findViewById(R.id.swBrowseLinks);
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
@@ -144,7 +146,15 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("confirm_links", checked).apply();
+                swCheckLinksDbl.setEnabled(checked);
                 swBrowseLinks.setEnabled(!checked);
+            }
+        });
+
+        swCheckLinksDbl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("check_links_dbl", checked).apply();
             }
         });
 
@@ -397,6 +407,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
+        swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
+        swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
         swBrowseLinks.setChecked(prefs.getBoolean("browse_links", false));
         swBrowseLinks.setEnabled(!swConfirmLinks.isChecked());
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));

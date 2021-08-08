@@ -127,6 +127,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean check_links_dbl = prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE);
+        boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
 
         // Preload web view
         Helper.customTabsWarmup(context);
@@ -403,7 +405,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             tvSuspicious.setVisibility(Helper.isSingleScript(host) ? View.GONE : View.VISIBLE);
         }
 
-        if (BuildConfig.DEBUG &&
+        if (check_links_dbl &&
                 tvSuspicious.getVisibility() != View.VISIBLE) {
             Bundle args = new Bundle();
             args.putString("host", host);
@@ -432,7 +434,6 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 host == null || thost == null || host.equalsIgnoreCase(thost)
                         ? View.GONE : View.VISIBLE);
 
-        boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
         List<String> categories = null;
         if (disconnect_links)
             categories = DisconnectBlacklist.getCategories(uri.getHost());
