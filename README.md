@@ -25,6 +25,7 @@
 * [Conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
 * 2-way synchronization
 * Always active push notifications to never miss e-mails
+* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
 * Offline storage
 * Text formatting - colour, font size, lists and more
 * Minimal - only ~20MB, light on data and battery usage
@@ -48,21 +49,12 @@
 ## Secure
 
 * No data storage on third party servers
-* Using open standards (IMAP, POP3, SMTP, OpenPGP, S/MIME, etc)
-* Safe message view (styling, scripting and unsafe HTML removed)
-* Confirm opening links, images and attachments
+* Only open standards (IMAP, POP3, SMTP, OpenPGP, S/MIME, etc)
+* Safe message view (Unsafe HTML/CSS/JS are stripped out)
 * No special permissions required
-* No advertisements
+* No ads
 * No analytics and no tracking ([error reporting](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) via Bugsnag is opt-in)
-* No [Google backup](https://developer.android.com/guide/topics/data/backup)
-* No [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)
-* FairEmail is an original work, not a fork or a clone
-
-## Efficient
-
-* Fast and lightweight
-* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
-* Built with latest development tools and libraries
+* No [Google backup](https://developer.android.com/guide/topics/data/backup) or [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)
 
 ## Pro features
 
