@@ -10,7 +10,7 @@
 <img src="https://img.shields.io/github/license/m66b/fairemail.svg" alt="Github">
 <img src="https://img.shields.io/github/release/M66B/FairEmail.svg" alt="Github">
 <img src="https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg">
-<p><i>Fully featured, open-source, privacy oriented, e-mail app for Android<i></p>
+<p><i>Fully featured, open-source, privacy oriented, e-mail app for Android</i></p>
 </div>
 
 <!-- FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo! -->
