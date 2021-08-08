@@ -2343,6 +2343,14 @@ class Core {
                         uidlMsgId.put(id.uidl, id.msgid);
                 }
 
+                Map<String, TupleUidl> msgIdTuple = new HashMap<>();
+                for (TupleUidl id : ids)
+                    if (id.msgid != null) {
+                        if (msgIdTuple.containsKey(id.msgid))
+                            Log.w(account.name + " POP duplicate msgid=" + id.msgid);
+                        msgIdTuple.put(id.msgid, id);
+                    }
+
                 // Fetch UIDLs
                 if (hasUidl) {
                     FetchProfile ifetch = new FetchProfile();
@@ -2431,7 +2439,7 @@ class Core {
                             continue;
                         }
 
-                        if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
+                        if (msgIdTuple.containsKey(msgid)) {
                             _new = false;
                             Log.i(account.name + " POP having " + msgid + "/" + uidl);
                             continue;
