@@ -1,20 +1,20 @@
 <div align="center">
 <h1>FairEmail</h1>
 <img src="https://github.com/M66B/FairEmail/raw/master/images/banner7_long.png" />
-<p>
-	<a href="#downloads">Downloads</a> &bull;
-	<a href="#privacy">Privacy</a> &bull;
-	<a href="#support">Support</a> &bull;
-	<a href="#license">License</a>
-</p>
+<ul>
+	<a href="#downloads">Downloads</a>
+	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">Privacy</a>
+	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">Support</a>
+	<a href="https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail">License</a>
+</ul>
 <img src="https://img.shields.io/github/license/m66b/fairemail.svg" alt="Github">
 <img src="https://img.shields.io/github/release/M66B/FairEmail.svg" alt="Github">
 <img src="https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg">
-<p><i>Fully featured, open-source, privacy oriented, e-mail app for Android</i></p>
+<p><i>Fully featured, open-source, privacy oriented, e-mail client for Android</i></p>
 </div>
 
 <!-- FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo! -->
-<!-- *FairEmail is an email client only, so you need to bring your own email address.* -->
+<!-- *FairEmail is only an e-mail client, so you need to use your own email address.* -->
 <!-- *FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.* -->
 
 ## Main features
@@ -61,7 +61,7 @@
 All pro features are convenience or advanced features.
 
 * Account/identity/folder colors
-* Colored stars ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
+* ([Coloured stars](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
 * Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo) ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq145))
 * Configurable notification actions
 * Snooze messages ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq67))
@@ -70,18 +70,18 @@ All pro features are convenience or advanced features.
 * Reply templates
 * Accept/decline calendar invitations
 * Add message to calendar
-* Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
+* ([Filter rules](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
 * Automatic message classification ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163))
 * Search indexing, search on server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
 * Keyword management
 * S/MIME sign/encrypt ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq12))
 * Biometric/PIN authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
 * Message list widget
-* Export settings
+* Settings exporting
 
 ## Screenshots
 
-Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
+Please look [here](https://email.faircode.eu/#screenshots) for screenshots.
 
 ## Downloads
 
@@ -90,12 +90,12 @@ Supported download locations:
 * [GitHub](https://github.com/M66B/FairEmail/releases)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)
-* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
-* ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~
-* ~~[Amazon](https://www.amazon.com/gp/product/B0983R6MH2)~~ (the APK file repackaged by Amazon is incomplete! An issue report was never answered by Amazon.)
+* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) ([F-Droid app](https://f-droid.org/))
+<!-- * ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~ -->
+<!-- * ~~[Amazon](https://www.amazon.com/gp/product/B0983R6MH2)~~ (the APK file repackaged by Amazon is incomplete! An issue report was never answered by Amazon.) -->
 
 All versions provide the same features, except that there is no Android Auto support in the Play store version.
-Please [see here](https://forum.xda-developers.com/showpost.php?p=83801249&postcount=16542) about why not.
+Please look [here](https://forum.xda-developers.com/showpost.php?p=83801249&postcount=16542) about why it's not.
 
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
 you cannot use third party email apps anymore, please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq22) for more information.
@@ -148,14 +148,6 @@ FairEmail will work properly on devices without any Google service installed.
 
 Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems) for known problems.
 
-## Privacy
-
-Please see [here](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail) for the privacy policy.
-
-## Support
-
-Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
-
 ## Contributing
 
 *Documentation*
@@ -194,12 +186,4 @@ Error reporting is sponsored by:
 and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).
 Error reporting is disabled by default, see also [the privacy policy](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail).
 
-## License
-
 Copyright &copy; 2018-2021 Marcel Bokhorst. All rights reserved.
-
-[GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
-
-> FairEmail is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-> FairEmail is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
