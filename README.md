@@ -12,39 +12,25 @@
 <img src="https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg">
 </div>
 
+*Fully featured, open-source, privacy oriented, e-mail app for Android*
 
-*Fully featured, open source, privacy oriented email app for Android*
-
-FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
-
-FairEmail might be for you if you value your privacy.
-
-*FairEmail is an email client only, so you need to bring your own email address.*
-
-*FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.*
+<!-- FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo! -->
+<!-- *FairEmail is an email client only, so you need to bring your own email address.* -->
+<!-- *FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.* -->
 
 ## Main features
 
-* Fully featured
-* 100 % [open source](https://github.com/M66B/FairEmail/blob/master/LICENSE)
-* [Privacy oriented](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
-* Unlimited accounts
-* Unlimited email addresses
-* Unified inbox (optionally accounts or folders)
+* 100% [open source](https://github.com/M66B/FairEmail/blob/master/LICENSE) and [privacy oriented](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
+* Unlimited accounts and e-mail addresses
+* Unified inbox (or accounts and folders)
 * [Conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
-* Two way synchronization
-* Push notifications
-* Offline storage and operations
-* Common text style options (size, color, lists, etc)
-* Battery friendly
-* Low data usage
-* Small (~20 MB)
+* 2-way synchronization
+* Always active push notifications to never miss e-mails
+* Offline storage
+* Text formatting - colour, font size, lists and more
+* Minimal - only ~20MB, light on data and battery usage
 * Material design (including dark/black theme)
-* Maintained and supported
-
-This app is deliberately minimalistic by design, so you can concentrate on reading and writing messages.
-
-This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new emails.
+* Actively mainted and supported
 
 ## Privacy features
 
