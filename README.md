@@ -43,8 +43,7 @@
 
 * Quick setup
 * Easy navigation
-* No bells and whistles
-* No distracting "eye candy"
+* Minimalist design to focus on writing e-mails
 
 ## Secure
 
