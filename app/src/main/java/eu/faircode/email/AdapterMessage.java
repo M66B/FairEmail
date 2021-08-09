@@ -1871,6 +1871,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
+                    ibTools.setContentDescription(context.getString(tools ? R.string.title_less : R.string.title_more));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                        ibTools.setTooltipText(ibTools.getContentDescription());
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
                     ibTrashBottom.setVisibility(button_extra && button_trash && trash ? View.VISIBLE : View.GONE);
@@ -2169,7 +2172,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFull.setEnabled(hasWebView);
             ibFull.setImageResource(show_full ? R.drawable.twotone_fullscreen_exit_24 : R.drawable.twotone_fullscreen_24);
+            ibFull.setContentDescription(context.getString(show_full
+                    ? R.string.title_legend_show_reformatted
+                    : R.string.title_legend_show_full));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                ibFull.setTooltipText(ibFull.getContentDescription());
+
             ibImages.setImageResource(show_images ? R.drawable.twotone_article_24 : R.drawable.twotone_image_24);
+            ibImages.setContentDescription(context.getString(show_images
+                    ? R.string.title_legend_hide_images
+                    : R.string.title_legend_show_images));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                ibImages.setTooltipText(ibImages.getContentDescription());
 
             if (show_full) {
                 // Create web view

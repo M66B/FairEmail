@@ -56,10 +56,10 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_more"
+        android:contentDescription="@string/title_advanced_more"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_more"
+        android:tooltipText="@string/title_advanced_more"
         app:srcCompat="@drawable/twotone_more_horiz_24"
         tools:ignore="MissingConstraints" />
 
