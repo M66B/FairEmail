@@ -1566,9 +1566,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onSetupAdvanced(Intent intent) {
+        View dview = LayoutInflater.from(this).inflate(R.layout.dialog_advanced, null);
         new AlertDialog.Builder(this)
-                .setTitle(R.string.title_advanced_hint_title)
-                .setMessage(R.string.title_advanced_hint_message)
+                .setView(dview)
                 .setPositiveButton(android.R.string.ok, null)
                 .show();
     }
