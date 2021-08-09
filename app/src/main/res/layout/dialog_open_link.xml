@@ -82,9 +82,21 @@
             android:singleLine="true"
             android:text="Original link"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toStartOf="@+id/ibShare"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLink" />
+
+        <ImageButton
+            android:id="@+id/ibSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search"
+            android:tooltipText="@string/title_search"
+            app:layout_constraintEnd_toStartOf="@+id/ibShare"
+            app:layout_constraintTop_toBottomOf="@id/tvLink"
+            app:srcCompat="@drawable/twotone_search_24" />
 
         <ImageButton
             android:id="@+id/ibShare"
@@ -93,8 +105,9 @@
             android:layout_marginEnd="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_share"
+            android:tooltipText="@string/title_share"
             app:layout_constraintEnd_toStartOf="@+id/ibCopy"
-            app:layout_constraintTop_toBottomOf="@id/etLink"
+            app:layout_constraintTop_toBottomOf="@id/tvLink"
             app:srcCompat="@drawable/twotone_share_24" />
 
         <ImageButton
@@ -103,8 +116,9 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_clipboard_copy"
+            android:tooltipText="@string/title_clipboard_copy"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etLink"
+            app:layout_constraintTop_toBottomOf="@id/tvLink"
             app:srcCompat="@drawable/twotone_file_copy_24" />
 
         <eu.faircode.email.FixedTextView

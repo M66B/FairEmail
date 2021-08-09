@@ -57,6 +57,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import java.net.IDN;
@@ -156,11 +157,12 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
         final EditText etLink = dview.findViewById(R.id.etLink);
         final TextView tvLink = dview.findViewById(R.id.tvLink);
+        final ImageButton ibSearch = dview.findViewById(R.id.ibSearch);
+        final ImageButton ibShare = dview.findViewById(R.id.ibShare);
+        final ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
         final TextView tvSuspicious = dview.findViewById(R.id.tvSuspicious);
         final TextView tvDisconnect = dview.findViewById(R.id.tvDisconnect);
         final TextView tvDisconnectCategories = dview.findViewById(R.id.tvDisconnectCategories);
-        final ImageButton ibShare = dview.findViewById(R.id.ibShare);
-        final ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
         final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
         final CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
@@ -238,6 +240,30 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     return true;
                 } else
                     return false;
+            }
+        });
+
+        MailTo mailto = null;
+        if ("mailto".equals(uri.getScheme()))
+            try {
+                mailto = MailTo.parse(uri);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+        ibSearch.setVisibility(
+                mailto != null && !TextUtils.isEmpty(mailto.getTo())
+                        ? View.VISIBLE : View.GONE);
+        ibSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
+                                .putExtra("account", -1L)
+                                .putExtra("folder", -1L)
+                                .putExtra("query", MailTo.parse(uri).getTo()));
             }
         });
 
@@ -610,7 +636,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 text = "tel://" + host;
             } else if ("mailto".equals(scheme)) {
                 if (host == null) {
-                    MailTo email = MailTo.parse(uri.toString());
+                    MailTo email = MailTo.parse(uri);
                     host = UriHelper.getEmailDomain(email.getTo());
                 }
             }
