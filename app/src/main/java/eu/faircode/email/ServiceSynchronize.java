@@ -1334,14 +1334,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     final boolean capUtf8 =
                             iservice.hasCapability("UTF8=ACCEPT") ||
                                     iservice.hasCapability("UTF8=ONLY");
-                    Log.i(account.name + " idle=" + capIdle);
-                    if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
-                        optimizeAccount(account, "IDLE");
-
                     final boolean capNotify = iservice.hasCapability("NOTIFY");
+
                     String capabilities = TextUtils.join(" ", iservice.getCapabilities());
                     if (capabilities.length() > 500)
                         capabilities = capabilities.substring(0, 500) + "...";
+
+                    Log.i(account.name + " idle=" + capIdle);
+                    if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
+                        optimizeAccount(account, "IDLE");
 
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountCapabilities(account.id, capabilities, capIdle, capUtf8);
