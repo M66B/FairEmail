@@ -2436,53 +2436,30 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void onSwipeDelete(@NonNull TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("account", message.account == null ? -1 : message.account);
+            Bundle aargs = new Bundle();
+            aargs.putString("question", getString(R.string.title_ask_delete));
+            aargs.putString("remark", message.getRemark());
+            aargs.putLong("id", message.id);
+            aargs.putInt("faq", 160);
+            aargs.putString("notagain", "delete_asked");
+            aargs.putString("accept", getString(R.string.title_ask_delete_accept));
+            aargs.putBoolean("warning", true);
 
-            new SimpleTask<EntityAccount>() {
-                @Override
-                protected EntityAccount onExecute(Context context, Bundle args) throws Throwable {
-                    long aid = args.getLong("account");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean delete_asked = prefs.getBoolean("delete_asked", false);
+            if (delete_asked ||
+                    (message.accountProtocol == EntityAccount.TYPE_POP &&
+                            message.accountLeaveDeleted)) {
+                Intent data = new Intent();
+                data.putExtra("args", aargs);
+                onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                return;
+            }
 
-                    DB db = DB.getInstance(context);
-                    return db.account().getAccount(aid);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, EntityAccount account) {
-                    boolean leave_deleted = (account != null &&
-                            account.protocol == EntityAccount.TYPE_POP &&
-                            account.leave_deleted);
-
-                    Bundle aargs = new Bundle();
-                    aargs.putString("question", getString(R.string.title_ask_delete));
-                    aargs.putString("remark", message.getRemark());
-                    aargs.putLong("id", message.id);
-                    aargs.putInt("faq", 160);
-                    aargs.putString("notagain", "delete_asked");
-                    aargs.putString("accept", getString(R.string.title_ask_delete_accept));
-                    aargs.putBoolean("warning", true);
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    boolean delete_asked = prefs.getBoolean("delete_asked", false);
-                    if (delete_asked || leave_deleted) {
-                        Intent data = new Intent();
-                        data.putExtra("args", aargs);
-                        onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
-                        return;
-                    }
-
-                    FragmentDialogAsk ask = new FragmentDialogAsk();
-                    ask.setArguments(aargs);
-                    ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_DELETE);
-                    ask.show(getParentFragmentManager(), "swipe:delete");
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(FragmentMessages.this, args, "message:delete");
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_DELETE);
+            ask.show(getParentFragmentManager(), "swipe:delete");
         }
 
         private void swipeFolder(@NonNull TupleMessageEx message, @NonNull Long target) {
