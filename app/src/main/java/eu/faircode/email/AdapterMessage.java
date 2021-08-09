@@ -67,6 +67,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.LinkMovementMethod;
+import android.text.method.MovementMethod;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -76,6 +77,7 @@ import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -483,6 +485,81 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ScaleGestureDetector gestureDetector;
 
+        private MovementMethod movementMethod = new ArrowKeyMovementMethod() {
+            private GestureDetector gestureDetector = new GestureDetector(context,
+                    new GestureDetector.SimpleOnGestureListener() {
+                        @Override
+                        public boolean onSingleTapUp(MotionEvent event) {
+                            return onClick(event);
+                        }
+
+                        private boolean onClick(MotionEvent event) {
+                            TextView widget = tvBody;
+                            Spannable buffer = (Spannable) tvBody.getText();
+                            int off = Helper.getOffset(widget, buffer, event);
+
+                            TupleMessageEx message = getMessage();
+                            if (message == null)
+                                return false;
+
+                            boolean show_images = properties.getValue("images", message.id);
+                            if (!show_images) {
+                                ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
+                                if (image.length > 0 && image[0].getSource() != null) {
+                                    ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
+                                    Uri uri = Uri.parse(a.getSource());
+                                    if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+                                        if (onOpenLink(uri, null, false))
+                                            return true;
+                                }
+                            }
+
+                            URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                            if (link.length > 0) {
+                                String url = link[0].getURL();
+                                Uri uri = Uri.parse(url);
+                                if (uri.getScheme() == null)
+                                    uri = Uri.parse("https://" + url);
+
+                                int start = buffer.getSpanStart(link[0]);
+                                int end = buffer.getSpanEnd(link[0]);
+                                String title = (start < 0 || end < 0 || end <= start
+                                        ? null : buffer.subSequence(start, end).toString());
+                                if (url.equals(title))
+                                    title = null;
+
+                                if (onOpenLink(uri, title, false))
+                                    return true;
+                            }
+
+                            ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
+                            if (image.length > 0) {
+                                ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
+                                String source = a.getSource();
+                                if (!TextUtils.isEmpty(source)) {
+                                    if (!a.isTracking())
+                                        onOpenImage(message.id, source);
+                                    return true;
+                                }
+                            }
+
+                            DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
+                            if (ddss.length > 0) {
+                                properties.setValue("quotes", message.id, true);
+                                bindBody(message, false);
+                                return true;
+                            }
+
+                            return false;
+                        }
+                    });
+
+            @Override
+            public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        };
+
         private SimpleTask taskContactInfo;
 
         ViewHolder(final View itemView, long viewType) {
@@ -798,6 +875,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeenBottom.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(this);
+                tvBody.setMovementMethod(movementMethod);
                 tvBody.addOnLayoutChangeListener(this);
 
                 ibCalendar.setOnClickListener(this);
@@ -924,6 +1002,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeenBottom.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
+                tvBody.setMovementMethod(null);
                 tvBody.removeOnLayoutChangeListener(this);
 
                 btnCalendarAccept.setOnClickListener(null);
@@ -2568,9 +2647,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             public void run() {
                                 try {
                                     tvBody.setText((Spanned) result);
-                                    tvBody.setTextIsSelectable(false);
-                                    tvBody.setTextIsSelectable(true);
-                                    tvBody.setMovementMethod(new TouchHandler(message));
 
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                                         bindConversationActions(message, args.getParcelable("actions"));
@@ -4581,70 +4657,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
             popupMenu.show();
-        }
-
-        private class TouchHandler extends ArrowKeyMovementMethod {
-            private TupleMessageEx message;
-
-            TouchHandler(TupleMessageEx message) {
-                this.message = message;
-            }
-
-            @Override
-            public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    int off = Helper.getOffset(widget, buffer, event);
-
-                    boolean show_images = properties.getValue("images", message.id);
-                    if (!show_images) {
-                        ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
-                        if (image.length > 0 && image[0].getSource() != null) {
-                            ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
-                            Uri uri = Uri.parse(a.getSource());
-                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-                                if (onOpenLink(uri, null, false))
-                                    return true;
-                        }
-                    }
-
-                    URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
-                    if (link.length > 0) {
-                        String url = link[0].getURL();
-                        Uri uri = Uri.parse(url);
-                        if (uri.getScheme() == null)
-                            uri = Uri.parse("https://" + url);
-
-                        int start = buffer.getSpanStart(link[0]);
-                        int end = buffer.getSpanEnd(link[0]);
-                        String title = (start < 0 || end < 0 || end <= start
-                                ? null : buffer.subSequence(start, end).toString());
-                        if (url.equals(title))
-                            title = null;
-
-                        if (onOpenLink(uri, title, false))
-                            return true;
-                    }
-
-                    ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
-                    if (image.length > 0) {
-                        ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
-                        String source = a.getSource();
-                        if (!TextUtils.isEmpty(source)) {
-                            if (!a.isTracking())
-                                onOpenImage(message.id, source);
-                            return true;
-                        }
-                    }
-
-                    DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
-                    if (ddss.length > 0) {
-                        properties.setValue("quotes", message.id, true);
-                        bindBody(message, false);
-                    }
-                }
-
-                return super.onTouchEvent(widget, buffer, event);
-            }
         }
 
         private boolean onOpenLink(Uri uri, String title, boolean always_confirm) {
