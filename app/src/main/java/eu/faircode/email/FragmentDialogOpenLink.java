@@ -38,6 +38,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -219,8 +220,6 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
                 cbSecure.setText(
                         secure ? R.string.title_link_https : R.string.title_link_http);
-                cbSecure.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        0, 0, secure ? 0 : R.drawable.twotone_http_24, 0);
                 cbSecure.setTextColor(Helper.resolveColor(context,
                         secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
                 cbSecure.setTypeface(
@@ -629,6 +628,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         try {
             int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+            int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+            int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
             if ("tel".equals(scheme)) {
                 // tel://+123%2045%20678%123456
@@ -639,6 +640,19 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     MailTo email = MailTo.parse(uri);
                     host = UriHelper.getEmailDomain(email.getTo());
                 }
+            }
+
+            if (scheme != null) {
+                int index = text.indexOf(scheme);
+                if (index >= 0)
+                    if ("http".equals(scheme)) {
+                        ssb.setSpan(new ForegroundColorSpan(colorWarning),
+                                index, index + scheme.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                index, index + scheme.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    } else
+                        ssb.setSpan(new ForegroundColorSpan(colorSeparator),
+                                index, index + scheme.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
             if (host != null) {
