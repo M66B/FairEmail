@@ -2070,10 +2070,11 @@ public class HtmlHelper {
 
     static String getQuoteStyle(CharSequence quoted, int start, int end) {
         try {
-            if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(quoted, start, end))
+            int count = end - start;
+            if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(quoted, start, count))
                 return "border-right:3px solid #ccc; padding-left:3px;";
         } catch (Throwable ex) {
-            Log.e(new Throwable("getQuoteStyle", ex));
+            Log.e(new Throwable("getQuoteStyle " + start + "..." + end, ex));
         }
 
         return "border-left:3px solid #ccc; padding-left:3px;";
