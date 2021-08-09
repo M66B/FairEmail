@@ -39,6 +39,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -84,6 +85,7 @@ public class FragmentGmail extends FragmentBase {
 
     private Group grpError;
 
+    private static final long GET_TOKEN_TIMEOUT = 10 * 1000L;
     private static final String PRIVACY_URI = "https://policies.google.com/privacy";
 
     @Override
@@ -289,7 +291,17 @@ public class FragmentGmail extends FragmentBase {
         String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
         String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
 
+        final Handler handler = getMainHandler();
         final String disabled = getString(R.string.title_setup_advanced_protection);
+
+        final Runnable timeout = new Runnable() {
+            @Override
+            public void run() {
+                tvError.setText("Android failed to return a token");
+                grpError.setVisibility(View.VISIBLE);
+            }
+        };
+        handler.postDelayed(timeout, GET_TOKEN_TIMEOUT);
 
         boolean found = false;
         AccountManager am = AccountManager.get(getContext());
@@ -307,6 +319,8 @@ public class FragmentGmail extends FragmentBase {
                             @Override
                             public void run(AccountManagerFuture<Bundle> future) {
                                 try {
+                                    handler.removeCallbacks(timeout);
+
                                     Bundle bundle = future.getResult();
                                     String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                     if (token == null)
@@ -333,7 +347,7 @@ public class FragmentGmail extends FragmentBase {
                                 }
                             }
                         },
-                        null);
+                        handler);
                 break;
             }
 
