@@ -149,13 +149,14 @@ public class FragmentGmail extends FragmentBase {
             @Override
             public void onClick(View v) {
                 try {
-                    etName.clearFocus();
-                    Helper.hideKeyboard(view);
                     grpError.setVisibility(View.GONE);
 
                     String name = etName.getText().toString().trim();
                     if (TextUtils.isEmpty(name))
                         throw new IllegalArgumentException(getString(R.string.title_no_name));
+
+                    etName.clearFocus();
+                    Helper.hideKeyboard(view);
 
                     Intent intent = newChooseAccountIntent(
                             null,
@@ -272,12 +273,12 @@ public class FragmentGmail extends FragmentBase {
     }
 
     private void onNoAccountSelected(int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            AccountManager am = AccountManager.get(getContext());
-            Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
-            if (accounts.length == 0)
-                Log.e("newChooseAccountIntent without result=" + resultCode + " data=" + data);
+        AccountManager am = AccountManager.get(getContext());
+        Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
+        if (accounts.length == 0)
+            Log.e("newChooseAccountIntent without result=" + resultCode + " data=" + data);
 
+        if (resultCode == RESULT_OK) {
             tvError.setText(getString(R.string.title_no_account) + " (" + accounts.length + ")");
             grpError.setVisibility(View.VISIBLE);
         } else

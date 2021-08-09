@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -52,8 +54,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.mail.AuthenticationFailedException;
-
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
@@ -469,6 +469,10 @@ public class FragmentQuickSetup extends FragmentBase {
                 Log.e(ex);
                 setManual(true);
                 EmailProvider provider = args.getParcelable("provider");
+
+                etName.clearFocus();
+                etEmail.clearFocus();
+                Helper.hideKeyboard(view);
 
                 if (ex instanceof AuthenticationFailedException) {
                     String message = getString(R.string.title_setup_no_auth_hint);

@@ -238,6 +238,10 @@ public class FragmentOAuth extends FragmentBase {
                     throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
             }
 
+            etName.clearFocus();
+            etEmail.clearFocus();
+            Helper.hideKeyboard(view);
+
             etName.setEnabled(false);
             etEmail.setEnabled(false);
             cbUpdate.setEnabled(false);
