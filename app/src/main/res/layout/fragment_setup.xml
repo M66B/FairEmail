@@ -170,6 +170,7 @@
                     android:paddingVertical="12dp"
                     android:text="@string/title_setup_wizard"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="?attr/colorInfoForeground"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
