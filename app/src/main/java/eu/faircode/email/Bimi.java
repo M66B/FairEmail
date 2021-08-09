@@ -264,10 +264,10 @@ public class Bimi {
                         Set<TrustAnchor> trustAnchors = new HashSet<>();
 
                         // Get root certificates from assets
-                        for (String ca : context.getAssets().list(""))
+                        for (String ca : context.getAssets().list("vmc"))
                             if (ca.endsWith(".pem")) {
-                                Log.i("Reading ca=" + ca);
-                                try (InputStream is = context.getAssets().open(ca)) {
+                                Log.i("BIMI reading ca=" + ca);
+                                try (InputStream is = context.getAssets().open("vmc/" + ca)) {
                                     X509Certificate c = (X509Certificate) fact.generateCertificate(is);
                                     trustAnchors.add(new TrustAnchor(c, null));
                                 }
@@ -327,7 +327,7 @@ public class Bimi {
                 }
 
                 default:
-                    Log.w("Unknown BIMI tag=" + tag);
+                    Log.w("BIMI unknown tag=" + tag);
             }
         }
 
