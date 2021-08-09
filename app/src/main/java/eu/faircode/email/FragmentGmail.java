@@ -149,6 +149,8 @@ public class FragmentGmail extends FragmentBase {
             @Override
             public void onClick(View v) {
                 try {
+                    etName.clearFocus();
+                    Helper.hideKeyboard(view);
                     grpError.setVisibility(View.GONE);
 
                     String name = etName.getText().toString().trim();
@@ -270,12 +272,16 @@ public class FragmentGmail extends FragmentBase {
     }
 
     private void onNoAccountSelected(int resultCode, Intent data) {
-        AccountManager am = AccountManager.get(getContext());
-        Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
-        if (accounts.length == 0) {
-            Log.e("newChooseAccountIntent without result=" + resultCode + " data=" + data);
-            ToastEx.makeText(getContext(), R.string.title_no_account, Toast.LENGTH_LONG).show();
-        }
+        if (resultCode == RESULT_OK) {
+            AccountManager am = AccountManager.get(getContext());
+            Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
+            if (accounts.length == 0)
+                Log.e("newChooseAccountIntent without result=" + resultCode + " data=" + data);
+
+            tvError.setText(getString(R.string.title_no_account) + " (" + accounts.length + ")");
+            grpError.setVisibility(View.VISIBLE);
+        } else
+            ToastEx.makeText(getContext(), android.R.string.cancel, Toast.LENGTH_SHORT).show();
     }
 
     private void onAccountSelected(Intent data) {
