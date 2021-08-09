@@ -2755,7 +2755,21 @@ public class FragmentCompose extends FragmentBase {
                             ex.getCause() instanceof ErrnoException &&
                             ((ErrnoException) ex.getCause()).errno == ENOSPC)
                         ex = new IOException(getContext().getString(R.string.app_cake), ex);
-                    Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
+                    Log.unexpectedError(getParentFragmentManager(), ex,
+                            !(ex instanceof IOException || ex.getCause() instanceof IOException));
+                    /*
+                        java.lang.IllegalStateException: java.io.IOException: Failed to redact /storage/emulated/0/Download/97203830-piston-vecteur-icône-simple-symbole-plat-sur-fond-blanc.jpg
+                          at android.os.Parcel.createExceptionOrNull(Parcel.java:2381)
+                          at android.os.Parcel.createException(Parcel.java:2357)
+                          at android.os.Parcel.readException(Parcel.java:2340)
+                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:190)
+                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:153)
+                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:804)
+                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:2002)
+                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1817)
+                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1494)
+                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
+                     */
                 }
             }
         }.execute(this, args, "compose:attachment:add");
