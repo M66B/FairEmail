@@ -2436,14 +2436,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void onSwipeDelete(@NonNull TupleMessageEx message) {
-            Bundle aargs = new Bundle();
-            aargs.putString("question", getString(R.string.title_ask_delete));
-            aargs.putString("remark", message.getRemark());
-            aargs.putLong("id", message.id);
-            aargs.putInt("faq", 160);
-            aargs.putString("notagain", "delete_asked");
-            aargs.putString("accept", getString(R.string.title_ask_delete_accept));
-            aargs.putBoolean("warning", true);
+            Bundle args = new Bundle();
+            args.putString("question", getString(R.string.title_ask_delete));
+            args.putString("remark", message.getRemark());
+            args.putLong("id", message.id);
+            args.putInt("faq", 160);
+            args.putString("notagain", "delete_asked");
+            args.putString("accept", getString(R.string.title_ask_delete_accept));
+            args.putBoolean("warning", true);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean delete_asked = prefs.getBoolean("delete_asked", false);
@@ -2451,13 +2451,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     (message.accountProtocol == EntityAccount.TYPE_POP &&
                             message.accountLeaveDeleted)) {
                 Intent data = new Intent();
-                data.putExtra("args", aargs);
+                data.putExtra("args", args);
                 onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
                 return;
             }
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
-            ask.setArguments(aargs);
+            ask.setArguments(args);
             ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_DELETE);
             ask.show(getParentFragmentManager(), "swipe:delete");
         }
