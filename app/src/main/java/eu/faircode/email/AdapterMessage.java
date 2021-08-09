@@ -314,7 +314,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
             View.OnLongClickListener,
-            View.OnTouchListener,
             View.OnLayoutChangeListener {
         private ViewCardOptional card;
         private View view;
@@ -483,7 +482,63 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TwoStateOwner cowner = new TwoStateOwner(owner, "MessageAttachments");
         private TwoStateOwner powner = new TwoStateOwner(owner, "MessagePopup");
 
-        private ScaleGestureDetector gestureDetector;
+        private View.OnTouchListener touchListener = new View.OnTouchListener() {
+            private ScaleGestureDetector gestureDetector = new ScaleGestureDetector(context, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
+                private Toast toast = null;
+
+                @Override
+                public boolean onScale(ScaleGestureDetector detector) {
+                    TupleMessageEx message = getMessage();
+                    if (message != null) {
+                        // Scale factor
+                        float factor = detector.getScaleFactor();
+                        float size = tvBody.getTextSize() * factor;
+                        float scale = (textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
+                        if (scale > 10)
+                            return true;
+
+                        // Text size
+                        properties.setSize(message.id, size);
+                        tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+
+                        // Image size
+                        Spanned spanned = (Spanned) tvBody.getText();
+                        for (ImageSpan img : spanned.getSpans(0, spanned.length(), ImageSpan.class)) {
+                            Drawable d = img.getDrawable();
+                            ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(img.getSource());
+                            ImageHelper.fitDrawable(d, a, scale, tvBody);
+                        }
+
+                        // Feedback
+                        String perc = Math.round(scale * 100) + " %";
+                        if (toast != null)
+                            toast.cancel();
+                        toast = ToastEx.makeText(context, perc, Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+
+                    return true;
+                }
+            });
+
+            @Override
+            public boolean onTouch(View view, MotionEvent ev) {
+                if (ev.getPointerCount() > 1) {
+                    view.getParent().requestDisallowInterceptTouchEvent(true);
+                    if (view.getId() == R.id.tvBody) {
+                        gestureDetector.onTouchEvent(ev);
+                        return true;
+                    } else
+                        return false;
+                } else {
+                    //view.getParent().requestDisallowInterceptTouchEvent(false);
+                    //return (view.getId() == R.id.wvBody && ev.getAction() == MotionEvent.ACTION_MOVE);
+                    boolean intercept = (view.getId() == R.id.wvBody && ((WebViewEx) wvBody).isZoomedY());
+                    view.getParent().requestDisallowInterceptTouchEvent(intercept);
+                    return false;
+                }
+            }
+        };
 
         private MovementMethod movementMethod = new ArrowKeyMovementMethod() {
             private GestureDetector gestureDetector = new GestureDetector(context,
@@ -874,7 +929,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMoveBottom.setOnClickListener(this);
                 ibSeenBottom.setOnClickListener(this);
 
-                tvBody.setOnTouchListener(this);
+                tvBody.setOnTouchListener(touchListener);
                 tvBody.setMovementMethod(movementMethod);
                 tvBody.addOnLayoutChangeListener(this);
 
@@ -886,44 +941,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarAccept.setOnLongClickListener(this);
                 btnCalendarDecline.setOnLongClickListener(this);
                 btnCalendarMaybe.setOnLongClickListener(this);
-
-                gestureDetector = new ScaleGestureDetector(context, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
-                    private Toast toast = null;
-
-                    @Override
-                    public boolean onScale(ScaleGestureDetector detector) {
-                        TupleMessageEx message = getMessage();
-                        if (message != null) {
-                            // Scale factor
-                            float factor = detector.getScaleFactor();
-                            float size = tvBody.getTextSize() * factor;
-                            float scale = (textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
-                            if (scale > 10)
-                                return true;
-
-                            // Text size
-                            properties.setSize(message.id, size);
-                            tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-
-                            // Image size
-                            Spanned spanned = (Spanned) tvBody.getText();
-                            for (ImageSpan img : spanned.getSpans(0, spanned.length(), ImageSpan.class)) {
-                                Drawable d = img.getDrawable();
-                                ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(img.getSource());
-                                ImageHelper.fitDrawable(d, a, scale, tvBody);
-                            }
-
-                            // Feedback
-                            String perc = Math.round(scale * 100) + " %";
-                            if (toast != null)
-                                toast.cancel();
-                            toast = ToastEx.makeText(context, perc, Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-
-                        return true;
-                    }
-                });
             }
 
             if (accessibility) {
@@ -2341,7 +2358,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
                         });
                 webView.setImages(show_images, inline);
-                webView.setOnTouchListener(ViewHolder.this);
+                webView.setOnTouchListener(touchListener);
 
                 tvBody.setVisibility(View.GONE);
                 wvBody.setVisibility(View.VISIBLE);
@@ -3236,24 +3253,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return null;
 
             return differ.getItem(pos);
-        }
-
-        @Override
-        public boolean onTouch(View view, MotionEvent ev) {
-            if (ev.getPointerCount() > 1) {
-                view.getParent().requestDisallowInterceptTouchEvent(true);
-                if (view.getId() == R.id.tvBody) {
-                    gestureDetector.onTouchEvent(ev);
-                    return true;
-                } else
-                    return false;
-            } else {
-                //view.getParent().requestDisallowInterceptTouchEvent(false);
-                //return (view.getId() == R.id.wvBody && ev.getAction() == MotionEvent.ACTION_MOVE);
-                boolean intercept = (view.getId() == R.id.wvBody && ((WebViewEx) wvBody).isZoomedY());
-                view.getParent().requestDisallowInterceptTouchEvent(intercept);
-                return false;
-            }
         }
 
         @Override
