@@ -396,6 +396,7 @@
     <string name="title_advanced_caption_debug" translatable="false">Debug</string>
 
     <string name="title_advanced_portrait2">Use two rows in portrait mode</string>
+    <string name="title_advanced_portrait2c">Use two columns in portrait mode</string>
     <string name="title_advanced_portrait3">Show navigation menu in portrait mode by default</string>
     <string name="title_advanced_landscape">Use two columns in landscape mode</string>
     <string name="title_advanced_landscape3">Show navigation menu in landscape mode by default</string>
