@@ -30,7 +30,9 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -115,6 +117,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     private TextView tvOwner;
     private Group grpOwner;
     private Button btnSettings;
+    private Button btnDefault;
     private TextView tvReset;
 
     @NonNull
@@ -144,8 +147,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 if ("http".equals(scheme))
                     scheme = "https";
                 uri = Uri.parse(scheme + "://" + _uri.toString());
-            }
-            else
+            } else
                 uri = _uri;
         } else
             uri = _uri;
@@ -192,6 +194,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvOwner = dview.findViewById(R.id.tvOwner);
         grpOwner = dview.findViewById(R.id.grpOwner);
         btnSettings = dview.findViewById(R.id.btnSettings);
+        btnDefault = dview.findViewById(R.id.btnDefault);
         tvReset = dview.findViewById(R.id.tvReset);
 
         final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
@@ -410,6 +413,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             }
         });
 
+        final Intent manage = new Intent(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS);
+        btnDefault.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(manage);
+            }
+        });
+
         tvReset.setPaintFlags(tvReset.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -520,12 +531,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     }
 
     private void setMore(boolean show) {
+        boolean n = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N);
         ibMore.setImageLevel(show ? 0 : 1);
         btnOwner.setVisibility(show ? View.VISIBLE : View.GONE);
         pbWait.setVisibility(View.GONE);
         tvOwnerRemark.setVisibility(show ? View.VISIBLE : View.GONE);
         grpOwner.setVisibility(View.GONE);
         btnSettings.setVisibility(show ? View.VISIBLE : View.GONE);
+        btnDefault.setVisibility(show && n ? View.VISIBLE : View.GONE);
         tvReset.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
