@@ -50,13 +50,11 @@ public class DrawerLayoutEx extends DrawerLayout {
 
     void setup(Configuration config, View drawerContainer, ActionBarDrawerToggle drawerToggle) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
         boolean portrait3 = prefs.getBoolean("portrait3", false);
         boolean landscape3 = prefs.getBoolean("landscape3", true);
 
-        if (normal &&
-                ((portrait3 && config.orientation == Configuration.ORIENTATION_PORTRAIT) ||
-                        (landscape3 && config.orientation == Configuration.ORIENTATION_LANDSCAPE))) {
+        if (((portrait3 && config.orientation == Configuration.ORIENTATION_PORTRAIT) ||
+                (landscape3 && config.orientation == Configuration.ORIENTATION_LANDSCAPE))) {
             setScrimColor(Color.TRANSPARENT);
             openDrawer(drawerContainer, false);
             drawerToggle.onDrawerOpened(drawerContainer);

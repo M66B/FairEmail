@@ -1712,15 +1712,25 @@ public class Log {
         long nheap = Debug.getNativeHeapAllocatedSize() / 1024L;
         sb.append(String.format("Heap usage: %s/%s KiB native: %s KiB\r\n", hused, hmax, nheap));
 
+        Configuration config = context.getResources().getConfiguration();
+        String size;
+        if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_XLARGE))
+            size = "XL";
+        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
+            size = "L";
+        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))
+            size = "M";
+        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_SMALL))
+            size = "M";
+        else
+            size = "?";
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
+        Point dim = new Point();
+        display.getSize(dim);
         float density = context.getResources().getDisplayMetrics().density;
-        sb.append(String.format("Density %f resolution: %.2f x %.2f dp %b\r\n",
-                density,
-                size.x / density, size.y / density,
-                context.getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)));
+        sb.append(String.format("Density %f resolution: %.2f x %.2f dp %s\r\n",
+                density, dim.x / density, dim.y / density, size));
 
         int uiMode = context.getResources().getConfiguration().uiMode;
         sb.append(String.format("UI mode: 0x"))
@@ -1772,6 +1782,8 @@ public class Log {
             String uuid = prefs.getString("uuid", null);
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
+
+        sb.append(String.format("Configuration: %s\r\n", config.toString()));
 
         sb.append("\r\n");
 

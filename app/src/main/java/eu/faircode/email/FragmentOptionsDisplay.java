@@ -1023,9 +1023,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        boolean normal = getResources().getConfiguration()
-                .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
-
         String startup = prefs.getString("startup", "unified");
         String[] startupValues = getResources().getStringArray(R.array.startupValues);
         for (int pos = 0; pos < startupValues.length; pos++)
@@ -1048,11 +1045,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
         swPortrait3.setChecked(prefs.getBoolean("portrait3", false));
-        swPortrait3.setEnabled(normal);
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
-        swLandscape.setEnabled(normal);
         swLandscape3.setChecked(prefs.getBoolean("landscape3", true));
-        swLandscape3.setEnabled(normal);
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
 
         swThreading.setChecked(prefs.getBoolean("threading", true));

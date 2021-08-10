@@ -505,6 +505,15 @@ public class ApplicationEx extends Application
             boolean experiments = prefs.getBoolean("experiments", false);
             if (experiments)
                 editor.putBoolean("deepl_enabled", true);
+        } else if (version < 1678) {
+            Configuration config = context.getResources().getConfiguration();
+            boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
+            if (!normal) {
+                if (!prefs.contains("landscape"))
+                    editor.putBoolean("landscape", false);
+                if (!prefs.contains("landscape3"))
+                    editor.putBoolean("landscape3", false);
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
