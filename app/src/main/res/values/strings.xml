@@ -396,11 +396,11 @@
     <string name="title_advanced_caption_message_body">Message body</string>
     <string name="title_advanced_caption_debug" translatable="false">Debug</string>
 
-    <string name="title_advanced_portrait2">Use two rows in portrait mode</string>
-    <string name="title_advanced_portrait2c">Use two columns in portrait mode</string>
-    <string name="title_advanced_portrait3">Show navigation menu in portrait mode by default</string>
-    <string name="title_advanced_landscape">Use two columns in landscape mode</string>
-    <string name="title_advanced_landscape3">Show navigation menu in landscape mode by default</string>
+    <string name="title_advanced_portrait">Portrait mode</string>
+    <string name="title_advanced_landscape">Landscape mode</string>
+    <string name="title_advanced_two_row">Use two rows</string>
+    <string name="title_advanced_two_col">Use two columns</string>
+    <string name="title_advanced_default_nav">Show navigation menu by default</string>
     <string name="title_advanced_nav_message_count">Show number of locally stored messages in the navigation menu</string>
     <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_cards">Use card style instead of tabular style</string>

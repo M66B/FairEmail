@@ -231,21 +231,36 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swNavBarColorize" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvPortrait"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_portrait"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNavBarColorizeHint" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swPortrait2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_portrait2"
+                    android:text="@string/title_advanced_two_row"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNavBarColorizeHint"
+                    app:layout_constraintTop_toBottomOf="@id/tvPortrait"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPortrait2Hint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_split_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -258,8 +273,9 @@
                     android:id="@+id/swPortrait2c"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_portrait2c"
+                    android:text="@string/title_advanced_two_col"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPortrait2Hint"
@@ -269,6 +285,7 @@
                     android:id="@+id/tvPortrait2cHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_split_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -281,29 +298,45 @@
                     android:id="@+id/swPortrait3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_portrait3"
+                    android:text="@string/title_advanced_default_nav"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPortrait2cHint"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLandscape"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_landscape"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swPortrait3" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLandscape"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:checked="true"
-                    android:text="@string/title_advanced_landscape"
+                    android:text="@string/title_advanced_two_col"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swPortrait3"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandscape"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvLandscapeHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_split_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -316,9 +349,10 @@
                     android:id="@+id/swLandscape3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:checked="true"
-                    android:text="@string/title_advanced_landscape3"
+                    android:text="@string/title_advanced_default_nav"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLandscapeHint"
