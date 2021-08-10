@@ -50,6 +50,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivExtra"
+            app:layout_constraintStart_toEndOf="@id/tvItem"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -59,6 +60,7 @@
             android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivWarning"
+            app:layout_constraintStart_toEndOf="@id/tvItemExtra"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_open_in_new_24" />
 
@@ -69,6 +71,7 @@
             android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivExtra"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_warning_24"
             app:tint="?attr/colorWarning" />
