@@ -64,6 +64,7 @@ public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
     private TextView tvPrivacy;
+    private TextView tvSupport;
 
     private TextView tvNoInternet;
     private ImageButton ibHelp;
@@ -124,6 +125,7 @@ public class FragmentSetup extends FragmentBase {
         // Get controls
 
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
+        tvSupport = view.findViewById(R.id.tvSupport);
 
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         ibHelp = view.findViewById(R.id.ibHelp);
@@ -168,6 +170,16 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Helper.getPrivacyUri(v.getContext()), false);
+            }
+        });
+
+        tvSupport.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(Intent.ACTION_VIEW)
+                        .setData(Helper.getSupportUri(v.getContext()));
+                v.getContext().startActivity(view);
             }
         });
 

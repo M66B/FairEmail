@@ -160,6 +160,7 @@
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_intro">Setting up an account is just three steps and after that you can send and receive emails</string>
     <string name="title_setup_simple">There is no need to change any other options</string>
+    <string name="title_setup_issue">FairEmail was developed to help you protect your privacy and represents literally thousands of hours of work. If you have any problem, please contact me first for support before leaving a bad review. I am happy to help!</string>
     <string name="title_setup_quick_accounts">Add or change accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
