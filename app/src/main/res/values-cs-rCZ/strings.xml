@@ -383,7 +383,6 @@
     <string name="title_advanced_addresses">Automaticky zobrazit detaily adresy</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
-    <string name="title_advanced_message_text_zoom">Výchozí zvětšení textu zprávy</string>
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>

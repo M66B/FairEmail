@@ -29,15 +29,24 @@
     <string name="title_list_accounts">ගිණුම්</string>
     <string name="title_setup">සැකසුම්</string>
     <string name="title_setup_help">උදව්</string>
+    <string name="title_setup_accounts">ගිණුම්</string>
     <string name="title_setup_options">විකල්ප</string>
+    <string name="title_advanced_section_send">යවන්න</string>
+    <string name="title_advanced_section_privacy">පෞද්ගලිකත්වය</string>
+    <string name="title_advanced_caption_conversation">සංවාදය</string>
+    <string name="title_advanced_caption_message">පණිවිඩය</string>
     <string name="title_months_all">සියල්ල</string>
     <string name="title_unhide">පෙන්වන්න</string>
     <string name="title_delete">මකන්න</string>
     <string name="title_copy_btn">පිටපත්</string>
     <string name="title_ask_show_html_dark">අඳුරු තේමාව භාවිතා කරන්න</string>
+    <string name="title_send">යවන්න</string>
     <string name="title_search">සොයන්න</string>
     <string name="title_language_all">සියල්ල</string>
     <string name="title_rule_enabled">සබල කර ඇත</string>
+    <string name="title_legend_section_folders">බහාලුම්</string>
+    <string name="title_legend_section_messages">පණිවිඩ</string>
+    <string name="title_legend_thread">සංවාදය</string>
     <string name="title_legend_delete">මකන්න</string>
     <string name="title_add">එකතු කරන්න</string>
     <string name="title_enabled">සබල කර ඇත</string>
@@ -45,6 +54,12 @@
     <string name="title_pro_purchase">මිලදී ගන්න</string>
     <string name="title_widget_account_all">සියල්ල</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>ගිණුම්</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

@@ -364,7 +364,6 @@
     <string name="title_advanced_addresses">Espallar detalles de enderezo por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos despois do texto da mensaxe</string>
     <string name="title_advanced_thumbnails">Mostrar as miniaturas das imaxes despois do texto da mensaxe</string>
-    <string name="title_advanced_message_text_zoom">Factor de ampliación do texto da mensaxe por defecto</string>
     <string name="title_advanced_overview_mode">Ampliar as mensaxes orixinais para encher a pantalla</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto das mensaxes</string>
     <string name="title_advanced_monospaced">Usar fontes de ancho fixo para o texto das mensaxes por defecto</string>

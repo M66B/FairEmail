@@ -247,6 +247,7 @@
     <string name="title_advanced_hint_message">        Sie wechseln zu den erweiterten Optionen.
         Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.
     </string>
+    <string name="title_advanced_hint_setup">Sie können ein Konto konfigurieren, indem Sie auf dem Hauptkonfigurationsbildschirm auf die Schaltfläche des Assistenten tippen.</string>
     <string name="title_advanced_section_main">Haupteinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
@@ -330,6 +331,8 @@
     <string name="title_advanced_caption_message_header">Nachrichtenkopfzeilen</string>
     <string name="title_advanced_caption_message_body">Nachrichtentext</string>
     <string name="title_advanced_portrait2">Zwei-Fenster-Darstellung im Hochformat verwenden</string>
+    <string name="title_advanced_portrait2c">Zwei Spalten im Hochformat verwenden</string>
+    <string name="title_advanced_portrait3">Navigationsmenü standardmäßig im Hochformat anzeigen</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_landscape3">Navigationsmenü standardmäßig im Querformat anzeigen</string>
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
@@ -378,7 +381,7 @@
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
-    <string name="title_advanced_message_text_zoom">Standard-Textvergrößerung für Nachrichten</string>
+    <string name="title_advanced_message_text_zoom2">Standard der Nachrichtentextvergrößerung: %1$s %%</string>
     <string name="title_advanced_overview_mode">Originalnachrichten in Bildschirmgröße einpassen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Festbreitenschriftarten standardmäßig für den Nachrichtentext verwenden</string>
@@ -424,7 +427,7 @@
     <string name="title_advanced_collapse_multiple">Nachrichten, in einer Unterhaltung mit mehreren Nachrichten, bei »Zurück« zusammenfassen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
-    <string name="title_advanced_autoclose_unread">Unterhaltungen beim Markieren von Nachrichten als ungelesen schließen</string>
+    <string name="title_advanced_autoclose_unread">Unterhaltungen schließen, wenn Nachrichten als ungelesen markiert werden</string>
     <string name="title_advanced_undo">Anzeigedauer von »Rückgängig«</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
@@ -469,6 +472,7 @@
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_notify_screen_on">Kurzes Einschalten des Bildschirms für Benachrichtigungen über neue Nachrichten</string>
     <string name="title_advanced_confirm_links">Hyperlinks beim Öffnen bestätigen</string>
+    <string name="title_advanced_check_links_dbl">Domain-Sperrlisten auf verdächtige Links prüfen</string>
     <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig umformatierte Nachrichten anzeigen</string>
@@ -529,7 +533,7 @@
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
     <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers.</string>
     <string name="title_advanced_schedule_hint">Auf eine Zeit tippen, um eine Zeit festzulegen</string>
-    <string name="title_advanced_quick_sync_hint">Dies reduziert die Datennutzung, aber neue Nachrichten können ausbleiben, wenn der E-Mail-Server die Standards nicht einhält.</string>
+    <string name="title_advanced_quick_sync_hint">Dies reduziert den Datenverbrauch, aber neue Nachrichten könnten verpasst werden, wenn der E-Mail-Server die Standards nicht einhält</string>
     <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
     <string name="title_advanced_deleted_unseen">Wenn deaktiviert, bleiben ungelesene Nachrichten dauerhaft auf dem Gerät erhalten</string>
@@ -864,6 +868,7 @@
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
     <string name="title_more">Mehr</string>
+    <string name="title_less">Weniger</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
     <string name="title_copy_btn">Kopieren</string>
@@ -1097,6 +1102,7 @@
         Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fortsetzen.
     </string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
+    <string name="title_search_text_unsupported">\'%s\' bedeutet, dass der Mail-Server die Suche in Nachrichtentexten nicht unterstützt</string>
     <string name="title_search_size_hint">Die Nachrichtensuche nach Größe funktioniert, bei einer großen Anzahl von Nachrichten, auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_more">Weitere Optionen</string>
     <string name="title_search_use_index">Suchindex verwenden</string>
@@ -1329,7 +1335,9 @@
     <string name="title_legend_create_rule">Regel erstellen</string>
     <string name="title_legend_show_unsubscribe">Aus Liste abmelden</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>
+    <string name="title_legend_hide_images">Bilder ausblenden</string>
     <string name="title_legend_show_full">Originalnachricht anzeigen</string>
+    <string name="title_legend_show_reformatted">Umformatierte Nachricht anzeigen</string>
     <string name="title_legend_edit">Bearbeiten</string>
     <string name="title_legend_default_color">Standardfarbe</string>
     <string name="title_legend_close_hint">Hinweis schließen</string>

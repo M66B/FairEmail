@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
         Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
+    <string name="title_advanced_hint_setup">Je kunt een account configureren door op de wizard knop op het hoofdconfiguratiescherm te tikken.</string>
     <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
     <string name="title_advanced_section_send">Verzenden</string>
@@ -328,6 +329,8 @@
     <string name="title_advanced_caption_message_header">Berichtkop</string>
     <string name="title_advanced_caption_message_body">Berichtinhoud</string>
     <string name="title_advanced_portrait2">Gebruik twee rijen in portretmodus</string>
+    <string name="title_advanced_portrait2c">Gebruik twee rijen in portretmodus</string>
+    <string name="title_advanced_portrait3">Navigatiemenu standaard in portretmodus weergeven</string>
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
     <string name="title_advanced_landscape3">Navigatiemenu standaard in liggende modus weergeven</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
@@ -376,7 +379,7 @@
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
-    <string name="title_advanced_message_text_zoom">Standaard berichttekst zoom</string>
+    <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
@@ -467,6 +470,7 @@
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_notify_screen_on">Schakel het scherm kort in voor nieuwe berichtmeldingen</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
+    <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
     <string name="title_advanced_browse_links">Het openen van links overdragen aan Android</string>
     <string name="title_advanced_confirm_images">Bevestig het tonen van afbeeldingen</string>
     <string name="title_advanced_confirm_html">Toon standaard opnieuw opgemaakte berichten</string>
@@ -863,6 +867,7 @@
     <string name="title_subscribe">Abonneren</string>
     <string name="title_delete">Verwijder</string>
     <string name="title_more">Meer</string>
+    <string name="title_less">Minder</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
     <string name="title_copy_btn">Kopiëren</string>
@@ -1093,6 +1098,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.
  De onderstaande opties zijn om door te gaan met zoeken op de e-mailserver.</string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
+    <string name="title_search_text_unsupported">\'%s\' betekent dat de mailserver het zoeken in berichtteksten niet ondersteunt</string>
     <string name="title_search_size_hint">Zoeken naar berichten op grootte werkt mogelijk niet op sommige servers als er een groot aantal berichten is</string>
     <string name="title_search_more">Meer opties</string>
     <string name="title_search_use_index">Gebruik zoekindex</string>
@@ -1325,7 +1331,9 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_legend_create_rule">Maak regel</string>
     <string name="title_legend_show_unsubscribe">Uitschrijven van lijst</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
+    <string name="title_legend_hide_images">Verberg afbeeldingen</string>
     <string name="title_legend_show_full">Toon het originele bericht</string>
+    <string name="title_legend_show_reformatted">Toon opnieuw opgemaakte bericht</string>
     <string name="title_legend_edit">Bewerk</string>
     <string name="title_legend_default_color">Standaard kleur</string>
     <string name="title_legend_close_hint">Sluit hint</string>

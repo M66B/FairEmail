@@ -332,7 +332,6 @@
     <string name="title_advanced_addresses">Cím részleteinek alapértelmezett megjelenítése</string>
     <string name="title_advanced_attachments_alt">Csatolmányok megjelenítése a szöveg után</string>
     <string name="title_advanced_thumbnails">A csatolmányok a szöveg után jelenjenek meg</string>
-    <string name="title_advanced_message_text_zoom">A szöveg nagyításának alapértelmezett értéke</string>
     <string name="title_advanced_overview_mode">Eredeti üzenetek kinagyítására teljes képernyőre</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
     <string name="title_advanced_monospaced">Fix szélességű betűtípus használata az üzenetek szövegéhez</string>

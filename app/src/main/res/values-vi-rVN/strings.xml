@@ -366,7 +366,6 @@
     <string name="title_advanced_addresses">Mở rộng chi tiết địa chỉ theo mặc định</string>
     <string name="title_advanced_attachments_alt">Hiện các tệp đính kèm sau văn bản thư</string>
     <string name="title_advanced_thumbnails">Hiện hình ảnh xem trước sau văn bản thư</string>
-    <string name="title_advanced_message_text_zoom">Độ phóng văn bản thư mặc định</string>
     <string name="title_advanced_overview_mode">Phóng thư gốc để vừa với màn hình</string>
     <string name="title_advanced_contrast">Sử dụng độ tương phản cao cho văn bản thư</string>
     <string name="title_advanced_monospaced">Sử dụng phông chữ đơn cách cho văn bản thư theo mặc định</string>

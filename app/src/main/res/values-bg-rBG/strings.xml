@@ -282,7 +282,6 @@
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_thumbnails">Показване на миниатюри на изображения след текста на съобщението</string>
-    <string name="title_advanced_message_text_zoom">Мащаб на текста на съобщението по подразбиране</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Използвайте monospaced шрифт за текст на съобщението по подразбиране</string>
     <string name="title_advanced_text_color">Избери цвят на текста</string>

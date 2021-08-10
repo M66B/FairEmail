@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
         Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
+    <string name="title_advanced_hint_setup">Ana yapılandırma ekranındaki sihirbaz düğmesine dokunarak bir hesabı yapılandırabilirsiniz.</string>
     <string name="title_advanced_section_main">Ana</string>
     <string name="title_advanced_section_synchronize">Gelen</string>
     <string name="title_advanced_section_send">Gönder</string>
@@ -376,7 +377,6 @@
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
-    <string name="title_advanced_message_text_zoom">Varsayılan mesaj metni yakınlaştırma</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>

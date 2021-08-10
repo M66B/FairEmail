@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
         Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
     </string>
+    <string name="title_advanced_hint_setup">Μπορείτε να ρυθμίσετε έναν λογαριασμό πατώντας το κουμπί του Οδηγού στην κύρια οθόνη των ρυθμίσεων.</string>
     <string name="title_advanced_section_main">Κύριες</string>
     <string name="title_advanced_section_synchronize">Λήψη</string>
     <string name="title_advanced_section_send">Αποστολή</string>
@@ -376,7 +377,7 @@
     <string name="title_advanced_addresses">Να αναπτύσσονται οι λεπτομέρειες της διεύθυνσης από προεπιλογή</string>
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>
-    <string name="title_advanced_message_text_zoom">Μεγέθυνση του κειμένου του μηνύματος από προεπιλογή</string>
+    <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
     <string name="title_advanced_contrast">Χρήση υψηλής αντίθεσης για το κείμενο του μηνύματος</string>
     <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_sound">Επιλογή ήχου ειδοποιήσεων</string>
     <string name="title_advanced_notify_screen_on">Να ανάβει σύντομα η οθόνη κατά τις ειδοποιήσεις νέων μηνυμάτων</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
+    <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
     <string name="title_advanced_browse_links">Ανάθεση του ανοίγματος των συνδέσμων στο Android</string>
     <string name="title_advanced_confirm_images">Επιβεβαίωση προβολής των εικόνων</string>
     <string name="title_advanced_confirm_html">Προβολή αναμορφοποιημένων μηνυμάτων από προεπιλογή</string>
@@ -861,6 +863,7 @@
     <string name="title_subscribe">Εγγραφή συνδρομητή</string>
     <string name="title_delete">Διαγραφή</string>
     <string name="title_more">Περισσότερα</string>
+    <string name="title_less">Λιγότερα</string>
     <string name="title_spam">Ανεπιθύμητα</string>
     <string name="title_move">Μετακίνηση</string>
     <string name="title_copy_btn">Αντιγραφή</string>
@@ -1093,6 +1096,7 @@
         Οι παρακάτω επιλογές επιτρέπουν περαιτέρω αναζήτηση στον διακομιστή ηλ. ταχυδρομείου.
     </string>
     <string name="title_search_text_hint">Η αναζήτηση κειμένου μέσα σε μηνύματα μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>
+    <string name="title_search_text_unsupported">%s σημαίνει ότι ο διακομιστής αλληλογραφίας δεν υποστηρίζει αναζήτηση σε κείμενα μηνυμάτων</string>
     <string name="title_search_size_hint">Η αναζήτηση μηνυμάτων με βάση το μέγεθος μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>
     <string name="title_search_more">Περισσότερες επιλογές</string>
     <string name="title_search_use_index">Χρήση ευρετηρίου αναζήτησης</string>
@@ -1325,7 +1329,9 @@
     <string name="title_legend_create_rule">Δημιουργία κανόνα</string>
     <string name="title_legend_show_unsubscribe">Κατάργηση συνδρομής από τη λίστα</string>
     <string name="title_legend_show_images">Προβολή εικόνων</string>
+    <string name="title_legend_hide_images">Απόκρυψη εικόνων</string>
     <string name="title_legend_show_full">Προβολή αρχικού μηνύματος</string>
+    <string name="title_legend_show_reformatted">Προβολή αναμορφοποιήμενου μηνύματος</string>
     <string name="title_legend_edit">Επεξεργασία</string>
     <string name="title_legend_default_color">Προεπιλεγμένο χρώμα</string>
     <string name="title_legend_close_hint">Κλείσιμο συμβουλής</string>

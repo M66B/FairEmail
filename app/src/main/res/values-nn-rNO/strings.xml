@@ -295,7 +295,6 @@
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_thumbnails">Vis miniatyrbilder etter meldingsteksten</string>
-    <string name="title_advanced_message_text_zoom">Standard zooming på tekstmelding</string>
     <string name="title_advanced_overview_mode">Zoom originale meldinger slik at de passer til skjermen</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst som standard</string>

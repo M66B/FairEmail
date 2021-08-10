@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
         Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
+    <string name="title_advanced_hint_setup">Puede configurar una cuenta tocando el botón del asistente en la pantalla de configuración principal.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
     <string name="title_advanced_section_send">Enviar</string>
@@ -376,7 +377,7 @@
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas de la imagen después del texto del mensaje</string>
-    <string name="title_advanced_message_text_zoom">Zoom del texto de mensaje por defecto</string>
+    <string name="title_advanced_message_text_zoom2">Zoom por defecto del texto del mensaje: %1$s %%</string>
     <string name="title_advanced_overview_mode">Hacer zoom en mensajes originales para ajustarse a la pantalla</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_notify_screen_on">Activar brevemente la pantalla para notificaciones de mensajes nuevos</string>
     <string name="title_advanced_confirm_links">Confirmar abrir enlaces</string>
+    <string name="title_advanced_check_links_dbl">Comprobar listas de bloqueo de dominio para enlaces sospechosos</string>
     <string name="title_advanced_browse_links">Delegar apertura de enlaces a Android</string>
     <string name="title_advanced_confirm_images">Confirmar mostrar imágenes</string>
     <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
@@ -863,6 +865,7 @@
     <string name="title_subscribe">Subscribir</string>
     <string name="title_delete">Eliminar</string>
     <string name="title_more">Más</string>
+    <string name="title_less">Menos</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
     <string name="title_copy_btn">Copiar</string>
@@ -1095,6 +1098,7 @@
         Las opciones a continuación son continuar buscando en el servidor de correo electrónico.
     </string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
+    <string name="title_search_text_unsupported">\'%s\' significa que el servidor de correo no soporta la búsqueda en texto de mensajes</string>
     <string name="title_search_size_hint">Buscar mensajes por tamaño puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_more">Más opciones</string>
     <string name="title_search_use_index">Usar índice de búsqueda</string>
@@ -1327,7 +1331,9 @@
     <string name="title_legend_create_rule">Crear regla</string>
     <string name="title_legend_show_unsubscribe">Desuscribirse de la lista</string>
     <string name="title_legend_show_images">Mostrar imágenes</string>
+    <string name="title_legend_hide_images">Ocultar imágenes</string>
     <string name="title_legend_show_full">Mostrar mensaje original</string>
+    <string name="title_legend_show_reformatted">Mostrar mensaje reformateado</string>
     <string name="title_legend_edit">Editar</string>
     <string name="title_legend_default_color">Color por defecto</string>
     <string name="title_legend_close_hint">Cerrar pista</string>

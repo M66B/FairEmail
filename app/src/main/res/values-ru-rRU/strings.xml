@@ -265,6 +265,7 @@
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
+    <string name="title_advanced_hint_setup">Можно настроить учётную запись, нажав кнопку мастера на главном экране настроек.</string>
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
     <string name="title_advanced_section_send">Отправка</string>
@@ -348,6 +349,8 @@
     <string name="title_advanced_caption_message_header">Заголовок сообщения</string>
     <string name="title_advanced_caption_message_body">Текст сообщения</string>
     <string name="title_advanced_portrait2">Использовать два ряда в портретном режиме</string>
+    <string name="title_advanced_portrait2c">Использовать две колонки в портретном режиме</string>
+    <string name="title_advanced_portrait3">Показывать меню навигации в портретном режиме по умолчанию</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
@@ -396,7 +399,7 @@
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
-    <string name="title_advanced_message_text_zoom">Масштаб текста сообщения по умолчанию</string>
+    <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
     <string name="title_advanced_overview_mode">Изменять масштаб оригинальных сообщений к размеру экрана</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">По умолчанию использовать моноширинный шрифт для текста сообщения</string>
@@ -487,6 +490,7 @@
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_notify_screen_on">Включать экран для новых уведомлений</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
+    <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>
     <string name="title_advanced_confirm_images">Подтверждать показ изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
@@ -547,7 +551,7 @@
     <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
     <string name="title_advanced_optimize_hint">Может изменять частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
-    <string name="title_advanced_quick_sync_hint">Это уменьшает использование трафика, но новые сообщения могут быть пропущены, если сервер электронной почты не придерживается стандартов</string>
+    <string name="title_advanced_quick_sync_hint">Уменьшается использование трафика, но новые сообщения могут быть пропущены, если сервер электронной почты не придерживается стандартов</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
@@ -883,6 +887,7 @@
     <string name="title_subscribe">Подписаться</string>
     <string name="title_delete">Удалить</string>
     <string name="title_more">Ещё</string>
+    <string name="title_less">Менее</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
     <string name="title_copy_btn">Копировать</string>
@@ -1115,6 +1120,7 @@
         Параметры ниже для продолжения поиска по серверу электронной почты.
     </string>
     <string name="title_search_text_hint">Поиск содержащих определённый текст сообщений при большом их количестве может не работать на некоторых серверах</string>
+    <string name="title_search_text_unsupported">\"%s\" означает, что почтовый сервер не поддерживает поиск в текстах сообщений</string>
     <string name="title_search_size_hint">Поиск сообщений по размеру при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_more">Дополнительные параметры</string>
     <string name="title_search_use_index">Использовать поисковый индекс</string>
@@ -1347,7 +1353,9 @@
     <string name="title_legend_create_rule">Создать правило</string>
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>
+    <string name="title_legend_hide_images">Скрыть изображения</string>
     <string name="title_legend_show_full">Показать оригинальное сообщение</string>
+    <string name="title_legend_show_reformatted">Показать переформатированное сообщение</string>
     <string name="title_legend_edit">Редактировать</string>
     <string name="title_legend_default_color">Цвет по умолчанию</string>
     <string name="title_legend_close_hint">Закрыть подсказку</string>

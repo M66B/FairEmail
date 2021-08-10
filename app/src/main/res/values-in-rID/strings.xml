@@ -330,7 +330,6 @@
     <string name="title_advanced_addresses">Luaskan detail alamat secara standar</string>
     <string name="title_advanced_attachments_alt">Tampilkan lampiran setelah teks pesan</string>
     <string name="title_advanced_thumbnails">Tampilkan thumbnail gambar setelah teks pesan</string>
-    <string name="title_advanced_message_text_zoom">Zoom teks pesan standar</string>
     <string name="title_advanced_overview_mode">Zoom pesan asli agar pas dengan layar</string>
     <string name="title_advanced_contrast">Gunakan kontras tinggi untuk teks pesan</string>
     <string name="title_advanced_monospaced">Gunakan huruf monospace untuk teks pesan secara standar</string>

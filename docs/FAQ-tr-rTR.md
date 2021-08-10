@@ -2,7 +2,7 @@
 
 # FairEmail Destek
 
-Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [Sayfanın altında](#user-content-get-support) diğer soruları sormayı, özellikleri talep etmeyi ve hata bildirmeyi nasıl yapacağınızı öğrenebilirsiniz.
 
 Herhangi bir sorunuz varsa, lütfen önce aşağıdaki sıkça sorulan soruları (SSS) kontrol edin.
 

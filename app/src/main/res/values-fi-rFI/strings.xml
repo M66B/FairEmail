@@ -374,7 +374,6 @@
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_thumbnails">Näytä kuvien esikatselukuvat viestin tekstin jälkeen</string>
-    <string name="title_advanced_message_text_zoom">Viestien tekstin oletuszoomaus</string>
     <string name="title_advanced_overview_mode">Zoomaa alkuperäiset viestit ruudulle sopivaksi</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>

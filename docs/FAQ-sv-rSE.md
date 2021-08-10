@@ -2,7 +2,7 @@
 
 # FairEmail Support
 
-Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. [Längst ner](#user-content-get-support), hittar du information om hur du kan ställa frågor, föreslå nya funktioner, och rapportera buggar.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -20,13 +20,13 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 I de flesta fall kommer snabbinstallationen att automatiskt kunna identifiera rätt konfiguration.
 
-Om snabbinstallationen misslyckas, måste du manuellt konfigurera ett konto (för att ta emot e-post) och en identitet (för att skicka e-post). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Om snabbinstallationen misslyckas, måste du manuellt konfigurera ett konto (för att ta emot e-post) och en identitet (för att skicka e-post). För detta behöver du IMAP- och SMTP-server adresser och portnummer, om SSL/TLS eller STARTTLS ska användas och ditt användarnamn (vanligast, men inte alltid, din e-postadress) och ditt lösenord.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Att söka på *IMAP* och namnet på leverantören är oftast tillräckligt för att hitta rätt information.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+I vissa fall måste du aktivera extern åtkomst till ditt konto och/eller använda ett speciellt (app) lösenord, till exempel när tvåfaktorsautentisering är aktiverad.
 
-For authorizing:
+För auktorisering:
 
 * Gmail / G suite, se [fråga 6](#user-content-faq6)
 * Outlook / Live / Hotmail, se [fråga 14](#user-content-faq14)
@@ -36,9 +36,9 @@ For authorizing:
 * Apple iCloud, se [fråga 148](#user-content-faq148)
 * Free.fr, se [fråga 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Se [här](#user-content-faq22) för vanliga felmeddelanden och lösningar.
 
-Related questions:
+Relaterade frågor:
 
 * [Stöds OAuth?](#user-content-faq111)
 * [Varför stöds inte ActiveSync?](#user-content-faq133)
@@ -47,24 +47,24 @@ Related questions:
 
 ## Hur gör man ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Ändra kontonamn: Inställningar, tryck på Manuell konfiguration, tryck på Konton, tryck på konto
+* Ändra svep åt vänster/höger-hantering: Inställningar, fliksida Beteende, Ställ in svepåtgärder
+* Ändra lösenord: Inställningar, tryck på Manuell konfiguration, tryck på Konton, tryck på konto, ändra lösenord
+* Ange en signatur: Inställningar, tryck på Manuell konfiguration, tryck på Identiteter, tryck på identitet, Redigera signatur.
 * Lägg till CC och BCC adresser: tryck på personikonen i slutet av ämnet
 * Gå till nästa/föregående meddelande på arkivet/radera: i beteendeinställningarna inaktivera *Stäng konversationer* automatiskt och välj *Gå till nästa/föregående konversation* för *Vid stängning av konversation*
 * Lägg till en mapp i den enhetliga inkorgen: tryck länge på mappen i mapplistan och kryssa i *Visa i den enhetliga inkorg*
 * Lägg till en mapp i navigeringsmenyn: långtryck på mappen i mapplistan och kryssa i *Visa i navigeringsmenyn*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Ladda fler meddelanden: tryck länge på en mapp i mapplistan, välj *Hämta fler meddelanden*
+* Ta bort ett meddelande, hoppa över papperskorgen: långtryck på papperskorgen
+* Ta bort ett konto/identitet: Inställningar, tryck på Manuell konfiguration, tryck på Konton/Identiteter, tryck på konto/identitet, papperskorgen uppe till höger
+* Radera en mapp: långtryck på mappen i mapplistan, Redigera egenskaper, papperskorgen uppe till höger
+* Ångra skicka: Utkorg, svep meddelandet i listan till vänster eller höger
 * Lagra skickade meddelanden i inkorgen: vänligen [se denna FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Ändra systemmappar: Inställningar, tryck på Manuell konfiguration, tryck på Konton, tryck på kontot, längst ned
+* Exportera/importera inställningar: Inställningar, navigeringsmenyn (vänster sida)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Kända problem</h2>
 
 * ~~En [bugg i Android 5.1 och 6](https://issuetracker.google.com/issues/37054851) får appar att ibland visa fel tidsformat. Växla Android-inställningen *Använd 24-timmarsformat* kan tillfälligt lösa problemet. En lösning lades till.~~
 * ~~En [bugg i Google Drive](https://issuetracker.google.com/issues/126362828) orsakar filer som exporteras till Google Drive att vara tom. Google har fixat detta.~~
@@ -83,7 +83,7 @@ Related questions:
 * En [bugg i Android 6.0](https://issuetracker.google.com/issues/37068143) orsakar en krasch med *... Ogiltig offset: ... Giltigt intervall är ...* när text är markerad och knackar utanför den valda texten. Detta fel har rättats i Android 6.0.1.
 * Interna (ankare) länkar kommer inte att fungera eftersom ursprungliga meddelanden visas i en inbäddad WebView i en rullande vy (meddelandelistan). Detta är en Android-begränsning som inte kan lösas eller arbetas runt.
 * Språkdetektering [fungerar inte längre](https://issuetracker.google.com/issues/173337263) på Pixelenheter med (uppgraderat till?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* En [bugg i OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) orsakar ogiltiga PGP-signaturer när du använder en hårdvaru-token.
 
 <h2><a name="planned-features"></a>Planerade funktioner</h2>
 
@@ -118,11 +118,11 @@ Related questions:
 * ~~Stöd för S/MIME~~
 * ~~Sök efter inställningar~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Allt på denna lista är i slumpmässig ordning och *kan* komma att läggas till inom en snar framtid.
 
 <h2><a name="frequently-requested-features"></a>Tidigare begärda funktioner</h2>
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Designen bygger på många diskussioner och om du vill kan du diskutera det [i detta forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) också. Målet med designen är att vara minimalistisk (inga onödiga menyer, knappar, etc) och icke distraherande (inga snygga färger, animationer, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 <h2><a name="frequently-asked-questions"></a>Vanliga frågor</h2>
 

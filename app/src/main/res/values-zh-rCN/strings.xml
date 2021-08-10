@@ -234,6 +234,7 @@
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项
         所有选项默认均使用可更改的常用标准值
     </string>
+    <string name="title_advanced_hint_setup">您可以通过点击主配置屏幕上的向导按钮来配置一个帐户。</string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>
@@ -365,7 +366,7 @@
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
-    <string name="title_advanced_message_text_zoom">默认缩放消息文本</string>
+    <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
@@ -456,6 +457,7 @@
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_notify_screen_on">短暂打开屏幕以获取新消息通知</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
+    <string name="title_advanced_check_links_dbl">使用域名拦截列表检查可疑链接</string>
     <string name="title_advanced_browse_links">授权打开到 Android的链接</string>
     <string name="title_advanced_confirm_images">确认显示图像</string>
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
@@ -851,6 +853,7 @@
     <string name="title_subscribe">订阅</string>
     <string name="title_delete">删除</string>
     <string name="title_more">更多</string>
+    <string name="title_less">更少</string>
     <string name="title_spam">垃圾邮件</string>
     <string name="title_move">移动</string>
     <string name="title_copy_btn">复制</string>
@@ -1083,6 +1086,7 @@
         下面的选项是继续搜索电子邮件服务器。
     </string>
     <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上正常运作</string>
+    <string name="title_search_text_unsupported">\'%s\' 表示邮件服务器不支持在邮件文本中搜索</string>
     <string name="title_search_size_hint">消息数量很多时，通过大小搜索消息可能在某些服务器上无法正常运作</string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用以下搜索索引</string>
@@ -1315,7 +1319,9 @@
     <string name="title_legend_create_rule">创建规则</string>
     <string name="title_legend_show_unsubscribe">从列表取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
+    <string name="title_legend_hide_images">隐藏图片</string>
     <string name="title_legend_show_full">显示原始消息</string>
+    <string name="title_legend_show_reformatted">显示已格式化的消息</string>
     <string name="title_legend_edit">编辑</string>
     <string name="title_legend_default_color">默认颜色</string>
     <string name="title_legend_close_hint">关闭提示</string>

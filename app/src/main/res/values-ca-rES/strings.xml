@@ -284,7 +284,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_addresses">Mostra els detalls de les adreces per defecte</string>
     <string name="title_advanced_attachments_alt">Mostra fitxers adjunts després del text del missatge</string>
     <string name="title_advanced_thumbnails">Mostra les miniatures després del text del missatge</string>
-    <string name="title_advanced_message_text_zoom">Zoom predeterminat del text del missatge</string>
+    <string name="title_advanced_message_text_zoom2">Ampliació per defecte del text del missatge: %1$s %%</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
     <string name="title_advanced_monospaced">Utilitzeu tipus de lletra mono per al text del missatge per defecte</string>
     <string name="title_advanced_text_color">Utilitza els colores del text</string>

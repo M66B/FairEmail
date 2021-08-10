@@ -240,6 +240,7 @@
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
     </string>
+    <string name="title_advanced_hint_setup">En konto kan opsættes ved at trykke på guideknappen på hovedopsætningsskærmen.</string>
     <string name="title_advanced_section_synchronize">Modtag</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
@@ -368,7 +369,7 @@
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
-    <string name="title_advanced_message_text_zoom">Standard tekstzoom for besked</string>
+    <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
     <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt som standard monospatieret skrifttype til beskedtekst</string>
@@ -457,6 +458,7 @@
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_notify_screen_on">Tænd kortvarigt skærmen ved nye beskednotifikationer</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
+    <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
     <string name="title_advanced_browse_links">Delegér åbningslinks til Android</string>
     <string name="title_advanced_confirm_images">Bekræft visning af billeder</string>
     <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
@@ -1069,6 +1071,7 @@
          Indstillingerne nedenfor er til at fortsætte søgningen på e-mailserveren.
     </string>
     <string name="title_search_text_hint">Søgning efter tekst i beskeder, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
+    <string name="title_search_text_unsupported">\'%s\' betyder, at e-mailserveren ikke understøtter søgning i beskedtekster</string>
     <string name="title_search_size_hint">Søgning efter beskeder efter størrelse, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
     <string name="title_search_more">Flere valgmuligheder</string>
     <string name="title_search_use_index">Benyt søgeindeks</string>

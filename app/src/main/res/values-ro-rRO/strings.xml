@@ -255,6 +255,7 @@
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
+    <string name="title_advanced_hint_setup">Puteți configura un cont apăsând pe butonul wizard din ecranul principal de configurare.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
@@ -386,7 +387,7 @@
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
-    <string name="title_advanced_message_text_zoom">Mărime implicită text</string>
+    <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>
@@ -477,6 +478,7 @@
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_notify_screen_on">Activați pentru scurt timp ecranul pentru notificări de mesaje noi</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
+    <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
     <string name="title_advanced_browse_links">Delegarea deschiderii de adrese către Android</string>
     <string name="title_advanced_confirm_images">Confirmă afișarea imaginilor</string>
     <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
@@ -873,6 +875,7 @@
     <string name="title_subscribe">Abonare</string>
     <string name="title_delete">Şterge</string>
     <string name="title_more">Mai mult</string>
+    <string name="title_less">Mai puțin</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mută</string>
     <string name="title_copy_btn">Copiere</string>
@@ -1105,6 +1108,7 @@
         Opțiunile de mai jos sunt pentru continuarea căutării pe serverul de e-mail.
     </string>
     <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
+    <string name="title_search_text_unsupported">\'%s\' înseamnă că serverul de e-mail nu acceptă căutarea în textele mesajelor</string>
     <string name="title_search_size_hint">Căutarea mesajelor după mărime, când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_more">Mai multe opțiuni</string>
     <string name="title_search_use_index">Folosește index de căutare</string>
@@ -1337,7 +1341,9 @@
     <string name="title_legend_create_rule">Creați o regulă</string>
     <string name="title_legend_show_unsubscribe">Dezabonare de la listă</string>
     <string name="title_legend_show_images">Afișare imagini</string>
+    <string name="title_legend_hide_images">Ascundeți imaginile</string>
     <string name="title_legend_show_full">Arată mesajul original</string>
+    <string name="title_legend_show_reformatted">Afișați mesajul reformatat</string>
     <string name="title_legend_edit">Editează</string>
     <string name="title_legend_default_color">Culoare implicită</string>
     <string name="title_legend_close_hint">Închidere indiciu</string>

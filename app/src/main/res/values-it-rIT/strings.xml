@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
         Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
     </string>
+    <string name="title_advanced_hint_setup">È possibile configurare un account toccando il pulsante della procedura guidata nella schermata di configurazione principale.</string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
@@ -328,6 +329,8 @@
     <string name="title_advanced_caption_message_header">Intestazione del messaggio</string>
     <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
     <string name="title_advanced_portrait2">Usa due righe in modalità verticale</string>
+    <string name="title_advanced_portrait2c">Usa due colonne in modalità verticale</string>
+    <string name="title_advanced_portrait3">Mostra il menu di navigazione in modalità verticale per impostazione predefinita</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_landscape3">Mostra il menu di navigazione in modalità orizzontale di default</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
@@ -376,7 +379,7 @@
     <string name="title_advanced_addresses">Espandi i dettagli dell\'indirizzo di default</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>
-    <string name="title_advanced_message_text_zoom">Zoom di default del testo del messaggio</string>
+    <string name="title_advanced_message_text_zoom2">Zoom di default del testo del messaggio %1$s%%</string>
     <string name="title_advanced_overview_mode">Ingrandisci i messaggi originali per adattarsi allo schermo</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa di default caratteri monospaziati per il testo del messaggio</string>
@@ -467,6 +470,7 @@
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per le notifiche dei nuovi messaggi</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
+    <string name="title_advanced_check_links_dbl">Controlla le liste di blocco dei domini per i link sospetti</string>
     <string name="title_advanced_browse_links">Delega l\'apertura dei link ad Android</string>
     <string name="title_advanced_confirm_images">Conferma la visualizzazione dei messaggi</string>
     <string name="title_advanced_confirm_html">Mostra di default i messaggi riformattati</string>
@@ -863,6 +867,7 @@
     <string name="title_subscribe">Iscriviti</string>
     <string name="title_delete">Elimina</string>
     <string name="title_more">Altro</string>
+    <string name="title_less">Meno</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Sposta</string>
     <string name="title_copy_btn">Copia</string>
@@ -1095,6 +1100,7 @@
         Le opzioni seguenti servono a continuare la ricerca nel server email.
     </string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
+    <string name="title_search_text_unsupported">\'%s\' significa che il server di posta non supporta la ricerca nei testi dei messaggi</string>
     <string name="title_search_size_hint">La ricerca dei messaggi per dimensione, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_more">Altre opzioni</string>
     <string name="title_search_use_index">Usa l\'indice di ricerca</string>
@@ -1327,7 +1333,9 @@
     <string name="title_legend_create_rule">Crea regola</string>
     <string name="title_legend_show_unsubscribe">Disiscriviti dall\'elenco</string>
     <string name="title_legend_show_images">Mostra immagini</string>
+    <string name="title_legend_hide_images">Nascondi immagini</string>
     <string name="title_legend_show_full">Mostra il messaggio originale</string>
+    <string name="title_legend_show_reformatted">Visualizza messaggio riformattato</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>

@@ -348,6 +348,7 @@
     <string name="title_advanced_caption_message_header">Заголовок повідомлення</string>
     <string name="title_advanced_caption_message_body">Текст повідомлення</string>
     <string name="title_advanced_portrait2">Використовувати два рядки в портретному режимі</string>
+    <string name="title_advanced_portrait3">Показувати меню навігації в портретному режимі за замовчуванням</string>
     <string name="title_advanced_landscape">Використовувати дві колонки в ландшафтному режимі</string>
     <string name="title_advanced_landscape3">Показувати меню навігації в ландшафтному режимі за замовчуванням</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
@@ -396,7 +397,6 @@
     <string name="title_advanced_addresses">Розгорнути деталі адреси за замовчуванням</string>
     <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
-    <string name="title_advanced_message_text_zoom">Масштабування тексту повідомлення за замовчуванням</string>
     <string name="title_advanced_overview_mode">Автоматичне масштабування оригінальних повідомлень</string>
     <string name="title_advanced_contrast">Використовувати високо-контрастний текст для повідомленнь</string>
     <string name="title_advanced_monospaced">Використовувати моноширинний шрифт для тексту повідомлень за замовчуванням</string>
@@ -486,6 +486,7 @@
     <string name="title_advanced_sound">Виберіть звук сповіщення</string>
     <string name="title_advanced_notify_screen_on">Коротке увімкнення екрану для нових повідомлень</string>
     <string name="title_advanced_confirm_links">Підтвердити відкриття посилань</string>
+    <string name="title_advanced_check_links_dbl">Перевіряти списки заблокованих доменів за сумнівними посиланнями</string>
     <string name="title_advanced_browse_links">Делегувати відкриття посилань до Android</string>
     <string name="title_advanced_confirm_images">Підтвердити показ зображень</string>
     <string name="title_advanced_confirm_html">Показати відформатовані повідомлення за замовчуванням</string>
@@ -881,6 +882,7 @@
     <string name="title_subscribe">Підписатися</string>
     <string name="title_delete">Видалити</string>
     <string name="title_more">Більше</string>
+    <string name="title_less">Менше</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Перемістити</string>
     <string name="title_copy_btn">Копіювати</string>
@@ -1345,7 +1347,9 @@
     <string name="title_legend_create_rule">Створити правило</string>
     <string name="title_legend_show_unsubscribe">Відписати зі списку</string>
     <string name="title_legend_show_images">Показати зображення</string>
+    <string name="title_legend_hide_images">Приховати зображення</string>
     <string name="title_legend_show_full">Показати оригінальне повідомлення</string>
+    <string name="title_legend_show_reformatted">Показати переформатоване повідомлення</string>
     <string name="title_legend_edit">Редагувати</string>
     <string name="title_legend_default_color">Колір за замовчуванням</string>
     <string name="title_legend_close_hint">Закрити підказку</string>

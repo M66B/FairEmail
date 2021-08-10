@@ -355,7 +355,6 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
-    <string name="title_advanced_message_text_zoom">Zoom padrão do texto da mensagem</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para adequar à tela</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar a fonte mono-espaçada para o texto da mensagem por padrão</string>

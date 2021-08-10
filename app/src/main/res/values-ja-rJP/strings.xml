@@ -251,6 +251,7 @@
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_advanced">詳細</string>
+    <string name="title_advanced_quick_sync">クイック同期</string>
     <string name="title_advanced_no_date">日付無しのメッセージ</string>
     <string name="title_advanced_unseen">すべての未読メッセージ</string>
     <string name="title_advanced_flagged">すべてのスター付きメッセージ</string>
@@ -273,6 +274,7 @@
     <string name="title_advanced_suggest_sent">送信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_received">受信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_frequently">使用頻度で提案されたアドレスを並べ替える</string>
+    <string name="title_advanced_alt_re_fwd">代替返信/接頭辞</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
@@ -363,7 +365,7 @@
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を表示</string>
     <string name="title_advanced_attachments_alt">メッセージテキストの後に添付ファイルを表示</string>
     <string name="title_advanced_thumbnails">メッセージテキストの後に画像のサムネイルを表示</string>
-    <string name="title_advanced_message_text_zoom">デフォルトのメッセージ拡大率</string>
+    <string name="title_advanced_message_text_zoom2">デフォルトのメッセージ拡大率: %1$s %%</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大する</string>
     <string name="title_advanced_contrast">メッセージテキストにハイコントラストを使用</string>
     <string name="title_advanced_monospaced">デフォルトでメッセージテキストに等幅フォントを使用する</string>
@@ -409,6 +411,7 @@
     <string name="title_advanced_collapse_multiple">複数のメッセージがある会話を\"戻る\"で折りたたむ</string>
     <string name="title_advanced_autoclose">会話を自動的に閉じます</string>
     <string name="title_advanced_onclose">会話を閉じる時</string>
+    <string name="title_advanced_autoclose_unread">未読としてマークした時に会話を閉じる</string>
     <string name="title_advanced_undo">Undoのタイムアウト</string>
     <string name="title_advanced_quick_filter">目立たないクイックフィルターアイコンを表示</string>
     <string name="title_advanced_quick_scroll">目立たないクイックスクロールアップ/ダウンアイコンを表示</string>
@@ -453,6 +456,7 @@
     <string name="title_advanced_sound">通知音を選択</string>
     <string name="title_advanced_notify_screen_on">新着メッセージの通知画面を短時間でオンにする</string>
     <string name="title_advanced_confirm_links">リンクを開く事を確認</string>
+    <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認する</string>
     <string name="title_advanced_browse_links">Androidへのリンクを開いて下さい</string>
     <string name="title_advanced_confirm_images">画像表示を確認</string>
     <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
@@ -512,6 +516,7 @@
     <string name="title_advanced_poll_hint">新しいメッセージを定期的にチェックすると、ローカルメッセージとリモートメッセージが毎回比較されます。これはコストのかかる操作であり、特にメッセージが多い場合は、バッテリーの使用量が増える可能性があります。 常に受信することで、変更を継続的に追跡してこれを防ぎます。</string>
     <string name="title_advanced_optimize_hint">これは、バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
     <string name="title_advanced_schedule_hint">時間をタップして時間を設定</string>
+    <string name="title_advanced_quick_sync_hint">これにより、データ使用量が減少しますが、メールサーバーが標準に従わない場合、新しいメッセージが見逃される可能性があります。</string>
     <string name="title_advanced_no_date_hint">一部のプロバイダは日付無しのメッセージとして不明、無効、又は将来の日付を格納しています</string>
     <string name="title_advanced_unseen_hint">一部のプロバイダーはこれを適切にサポートしていないため、メッセージが全く同期されないか全て同期されてしまう場合があります</string>
     <string name="title_advanced_deleted_unseen">無効にすると未読メッセージはデバイスに永久に保持されます</string>
@@ -560,6 +565,7 @@
     <string name="title_advanced_sender_hint">殆どのプロバイダは変更された送信者アドレスを許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信時に追加されます</string>
     <string name="title_advanced_internal_hint">別のドメインに送信するときに警告が表示されます</string>
+    <string name="title_advanced_e2e_encryption">エンドツーエンド暗号化のオプション</string>
     <string name="title_advanced_display_harmful_hint">このオプションを無効にするとプライバシーが損なわれる可能性が有ります</string>
     <string name="title_advanced_display_hidden_hint">これにより奇妙な外観になったりと二重テキストが生成される可能性があります</string>
     <string name="title_advanced_display_pin_hint">PINを生体認証よりも優先</string>
@@ -706,6 +712,8 @@
     <string name="title_synchronize_enabled">同期</string>
     <string name="title_synchronize_batch_enable">同期を有効化</string>
     <string name="title_synchronize_batch_disable">同期を無効化</string>
+    <string name="title_notify_batch_enable">新しいメッセージの通知を有効にする</string>
+    <string name="title_notify_batch_disable">新しいメッセージの通知を無効にする</string>
     <string name="title_delete_local">ローカルのメッセージを削除</string>
     <string name="title_delete_browsed">閲覧/検索したメッセージを削除</string>
     <string name="title_empty_trash">ゴミ箱を空にする</string>
@@ -844,6 +852,7 @@
     <string name="title_subscribe">申し込む</string>
     <string name="title_delete">削除</string>
     <string name="title_more">その他</string>
+    <string name="title_less">簡易</string>
     <string name="title_spam">スパム</string>
     <string name="title_move">移動する</string>
     <string name="title_copy_btn">コピー</string>
@@ -1076,6 +1085,7 @@
         以下のオプションはメールサーバーの検索を続行します。
     </string>
     <string name="title_search_text_hint">メッセージ内のテキストを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります。</string>
+    <string name="title_search_text_unsupported">\'%s\' は、メールサーバーがメッセージテキスト内の検索をサポートしていないことを意味します</string>
     <string name="title_search_size_hint">サイズ別にメッセージを検索しています。メッセージが多い場合、一部のサーバーでは動作しない可能性があります。</string>
     <string name="title_search_more">その他のオプション</string>
     <string name="title_search_use_index">検索インデックスを使用</string>
@@ -1131,6 +1141,7 @@
     <string name="title_select_found">見つかったものを選択</string>
     <string name="title_mark_all_read">すべて既読にする</string>
     <string name="title_force_sync">強制同期</string>
+    <string name="title_force_reload">強制的に再起動</string>
     <string name="title_force_send">強制送信</string>
     <string name="title_language_all">全て</string>
     <string name="title_previous">前へ</string>
@@ -1307,7 +1318,9 @@
     <string name="title_legend_create_rule">ルールの作成</string>
     <string name="title_legend_show_unsubscribe">リストから退会する</string>
     <string name="title_legend_show_images">画像を表示</string>
+    <string name="title_legend_hide_images">画像を隠す</string>
     <string name="title_legend_show_full">オリジナルのメッセージを表示する</string>
+    <string name="title_legend_show_reformatted">再フォーマットされたメッセージを表示</string>
     <string name="title_legend_edit">編集</string>
     <string name="title_legend_default_color">デフォルトの色</string>
     <string name="title_legend_close_hint">ヒントを閉じる</string>
@@ -1354,6 +1367,7 @@
     <string name="title_check_owner">所有者を確認</string>
     <string name="title_remark_owner">情報は<a href="https://ipinfo.io/">ipinfo.io</a>から取得されます</string>
     <string name="title_ip_owner">所有者のIPアドレス</string>
+    <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
     <string name="title_updated">バージョン %1$s のアップデートが利用可能です</string>
     <string name="title_issue">質問や問題がありますか？</string>
@@ -1578,6 +1592,7 @@
         <item>標準</item>
         <item>大</item>
     </string-array>
+    <string name="title_size_tiny">極小</string>
     <string-array name="receiptNames">
         <item>開封確認のみ</item>
         <item>配信確認のみ</item>

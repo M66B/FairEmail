@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
     </string>
+    <string name="title_advanced_hint_setup">Əsas konfiqurasiya ekranındakı sehrbaz düyməsinə toxunaraq bir hesabı konfiqurasiya edə bilərsiniz.</string>
     <string name="title_advanced_section_main">Əsas</string>
     <string name="title_advanced_section_synchronize">Gələn</string>
     <string name="title_advanced_section_send">Göndər</string>
@@ -376,7 +377,7 @@
     <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
-    <string name="title_advanced_message_text_zoom">İlkin mesaj mətnini yaxınlaşdır</string>
+    <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
     <string name="title_advanced_contrast">Mesaj mətni üçün yüksək ziddiyyət istifadə et</string>
     <string name="title_advanced_monospaced">Mesaj mətni üçün ilkin olaraq tək boşluqlu şrift istifadə et</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_sound">Bildiriş səsini seç</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirişləri üçün ekranı qısa aç</string>
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
+    <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
     <string name="title_advanced_browse_links">Android-ə bağlantıları açma səlahiyyəti ver</string>
     <string name="title_advanced_confirm_images">Təsvirlərin göstərilməsini təsdiqlə</string>
     <string name="title_advanced_confirm_html">İlkin olaraq yenidən format edilmiş mesajları göstər</string>
@@ -862,6 +864,7 @@
     <string name="title_subscribe">Abunə ol</string>
     <string name="title_delete">Sil</string>
     <string name="title_more">Daha çox</string>
+    <string name="title_less">Daha az</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Köçürt</string>
     <string name="title_copy_btn">Kopyala</string>
@@ -1094,6 +1097,7 @@
         E-poçt serverini axtarmağa davam etmək üçün aşağıdakı seçimləri istifadə edin.
     </string>
     <string name="title_search_text_hint">Həddindən çox mesaj olanda, mesajlarda mətn axtarışı bəzi serverlərdə işləməyə bilər</string>
+    <string name="title_search_text_unsupported">\'%s\', poçt serverinin mesaj mətnlərində axtarışı dəstəkləmədiyi mənasını verir</string>
     <string name="title_search_size_hint">Həddindən çox mesaj olanda, mesajların həcminə görə axtarışı bəzi serverlərdə işləməyə bilər</string>
     <string name="title_search_more">Daha çox seçim</string>
     <string name="title_search_use_index">Axtarış indeksini istifadə et</string>
@@ -1326,7 +1330,9 @@
     <string name="title_legend_create_rule">Qayda yarat</string>
     <string name="title_legend_show_unsubscribe">Siyahıdan çıx</string>
     <string name="title_legend_show_images">Təsvirləri göstər</string>
+    <string name="title_legend_hide_images">Təsvirləri gizlət</string>
     <string name="title_legend_show_full">Orijinal mesajı göstər</string>
+    <string name="title_legend_show_reformatted">Yenidən format edilən mesajı göstər</string>
     <string name="title_legend_edit">Düzəliş et</string>
     <string name="title_legend_default_color">İlkin rəng</string>
     <string name="title_legend_close_hint">Məsləhəti bağla</string>

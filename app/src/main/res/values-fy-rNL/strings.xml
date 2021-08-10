@@ -345,7 +345,6 @@
     <string name="title_advanced_addresses">Lokaal opsleine kontakten foarstelle</string>
     <string name="title_advanced_attachments_alt">Lit bylagen nei de berjochttekst sjen</string>
     <string name="title_advanced_thumbnails">Lit miniatuerôfbyldings sjen nei de tekst fan it berjocht</string>
-    <string name="title_advanced_message_text_zoom">Standert berjochten tekst zoom</string>
     <string name="title_advanced_overview_mode">Zoom orizjinele berjochten yn om op it skerm te passen</string>
     <string name="title_advanced_contrast">Brûk heech kontrast foar berjochttekst</string>
     <string name="title_advanced_monospaced">Brûk standert monospaced lettertype foar berjochttekst</string>

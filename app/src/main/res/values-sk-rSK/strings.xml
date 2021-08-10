@@ -282,6 +282,7 @@
     <string name="title_advanced_always">Vždy prijímať správy pre tieto účty</string>
     <string name="title_advanced_schedule">Plánovanie</string>
     <string name="title_advanced_advanced">Pokročilé</string>
+    <string name="title_advanced_quick_sync">Rýchla synchronizácia</string>
     <string name="title_advanced_no_date">Správy s neuvedeným dátumom</string>
     <string name="title_advanced_unseen">Všetky neprečítané správy</string>
     <string name="title_advanced_flagged">Všetky správy s hviezdičkov\'</string>
@@ -395,7 +396,6 @@
     <string name="title_advanced_addresses">Predvolene rozbaľovať podrobnosti o adresách</string>
     <string name="title_advanced_attachments_alt">Zobraziť prílohy za textom správy</string>
     <string name="title_advanced_thumbnails">Zobraziť miniatúry obrázkov za textom správy</string>
-    <string name="title_advanced_message_text_zoom">Predvolená úroveň priblíženia textu správy</string>
     <string name="title_advanced_overview_mode">Pôvodné zobrazenie správy prispôsobiť veľkosti obrazovky</string>
     <string name="title_advanced_contrast">Vysoký kontrast pre text správy</string>
     <string name="title_advanced_monospaced">Text správy písmom s pevnou šírkou</string>
@@ -546,6 +546,7 @@
 Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_optimize_hint">Nastaví frekvenciu synchronizácie s cieľom ušetriť energiu pri napájaní z batérie podľa vlastností a správania poštového servera</string>
     <string name="title_advanced_schedule_hint">Klepnutím na čas zmeníte hodnotu</string>
+    <string name="title_advanced_quick_sync_hint">Obmedzí využívanie prenosu údajov, ale zobrazovanie nových správ môže byť opozdené ak poštový server nedodržuje štandardy</string>
     <string name="title_advanced_no_date_hint">Niektorí poskytovatelia uchovávajú správy s neznámym, nesprávnym alebo budúcim časom namiesto správ bez času</string>
     <string name="title_advanced_unseen_hint">Niektorí poskytovatelia toto nepodporujú správne, čo spôsobuje synchronizáciu všetkých alebo žiadnych správ</string>
     <string name="title_advanced_deleted_unseen">Ak je to vypnuté, neprečítané správy ostávajú v zariadení uložené navždy</string>
@@ -1109,6 +1110,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         Možnosti nižšie vám umožnia pokračovať v hľadaní na servery.
     </string>
     <string name="title_search_text_hint">Vyhľadávanie v tele správy nemusí na všetkých serveroch fungovať správne, hlavne ak je na servery uložených veľa správ</string>
+    <string name="title_search_text_unsupported">\'%s\' znamená, že server nepodporuje hľadanie v texte správ</string>
     <string name="title_search_size_hint">Hľadanie správ podľa veľkosti nemusí správne fungovať na niektorých serveroch, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_more">Ďalšie možnosti</string>
     <string name="title_search_use_index">Použiť index vyhľadávania</string>

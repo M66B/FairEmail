@@ -245,6 +245,7 @@
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
     </string>
+    <string name="title_advanced_hint_setup">Vous pouvez configurer un compte en appuyant sur le bouton Assistant sur l\'écran principal de configuration.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Réception</string>
     <string name="title_advanced_section_send">Envoi</string>
@@ -328,6 +329,8 @@
     <string name="title_advanced_caption_message_header">En-tête du message</string>
     <string name="title_advanced_caption_message_body">Contenu du message</string>
     <string name="title_advanced_portrait2">Utiliser deux lignes en mode portrait</string>
+    <string name="title_advanced_portrait2c">Utiliser deux colonnes en mode portrait</string>
+    <string name="title_advanced_portrait3">Afficher le menu de navigation en mode portrait par défaut</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
     <string name="title_advanced_landscape3">Afficher le menu de navigation en mode paysage par défaut</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
@@ -376,7 +379,7 @@
     <string name="title_advanced_addresses">Déplier les détails de l’adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_thumbnails">Afficher les vignettes des images après le texte du message</string>
-    <string name="title_advanced_message_text_zoom">Zoom du texte du message par défaut</string>
+    <string name="title_advanced_message_text_zoom2">Zoom du texte du message par défaut : %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
@@ -467,6 +470,7 @@
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_notify_screen_on">Allumer brièvement l\'écran lors des nouvelles notifications de message</string>
     <string name="title_advanced_confirm_links">Confirmer l\'ouverture des liens</string>
+    <string name="title_advanced_check_links_dbl">Vérifier les listes de blocage de domaine pour les liens suspects</string>
     <string name="title_advanced_browse_links">Déléguer l\'ouverture des liens à Android</string>
     <string name="title_advanced_confirm_images">Confirmer l\'affichage des images</string>
     <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
@@ -863,6 +867,7 @@
     <string name="title_subscribe">S\'abonner</string>
     <string name="title_delete">Supprimer</string>
     <string name="title_more">Plus</string>
+    <string name="title_less">Moins</string>
     <string name="title_spam">Indésirables</string>
     <string name="title_move">Déplacer</string>
     <string name="title_copy_btn">Copier</string>
@@ -1095,6 +1100,7 @@
         Les options ci-dessous permettent de continuer à rechercher sur le serveur de messagerie.
     </string>
     <string name="title_search_text_hint">La recherche de texte dans les messages peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
+    <string name="title_search_text_unsupported">\'%s\' signifie que le serveur de messagerie ne prend pas en charge la recherche dans les textes des messages</string>
     <string name="title_search_size_hint">La recherche de messages par taille peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
     <string name="title_search_more">Plus d\'options</string>
     <string name="title_search_use_index">Utiliser l\'index de recherche</string>
@@ -1327,7 +1333,9 @@
     <string name="title_legend_create_rule">Créer une règle</string>
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
+    <string name="title_legend_hide_images">Masquer les images</string>
     <string name="title_legend_show_full">Afficher le message original</string>
+    <string name="title_legend_show_reformatted">Afficher le message reformaté</string>
     <string name="title_legend_edit">Modifier</string>
     <string name="title_legend_default_color">Couleur par défaut</string>
     <string name="title_legend_close_hint">Fermer l’astuce</string>

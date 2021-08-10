@@ -2237,53 +2237,53 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <a name="faq102"></a>
 **(102) How can I enable auto rotation of images?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). Ancaq, avtomatik döndərmə [Exif](https://en.wikipedia.org/wiki/Exif) məlumatlarının mövcud və doğru olmasından asılıdır, ki bu da həmişə belədir. Xüsusilə də, FairEmail-dən bir kamera tətbiqi ilə bir foto çəkərkən yox.
 
-Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
+Unutmayın ki, yalnız [JPEG](https://en.wikipedia.org/wiki/JPEG) və [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) formatlı təsvirlər, Exif məlumatları ehtiva edə bilər.
 
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**(104) Xəta hesabatları haqqında nələri bilməliyəm?**
 
-* Error reports will help improve FairEmail
-* Error reporting is optional and opt-in
-* Error reporting can be enabled/disabled in the settings, section miscellaneous
-* Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
-* Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
-* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
-* See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
-* Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
+* Xəta hesabatları, FairEmail-in təkmilləşdirilməsinə kömək edəcək
+* Xəta hesabatı ixtiyaridir və istəyinizdən asılıdır
+* Xəta hesabatı, Qarışıq tənzimləmələr bölməsində fəallaşdırıla/sıradan çıxardıla bilər
+* Xəta hesabatları, avtomatik və anonim olaraq [Bugsnag](https://www.bugsnag.com/)-a göndərilir
+* Bugsnag, Android üçün [açıq mənbə](https://github.com/bugsnag/bugsnag-android) layihəsidir
+* Xəta hallarında hansı verilənlərin göndərildiyini bilmək istəyirsinizsə [bura](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) baxın
+* Bugsnag-ın gizlilik siyasəti üçün [bura](https://docs.bugsnag.com/legal/privacy-policy/) baxın
+* Xəta hesabatları *sessions.bugsnag.com:443* və *notify.bugsnag.com:443* ünvanlarına göndərilir
 
 <br />
 
 <a name="faq105"></a>
-**(105) How does the roam-like-at-home option work?**
+**(105) Evdəki kimi gəz özəlliyi necə işləyir?**
 
-FairEmail will check if the country code of the SIM card and the country code of the network are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
+FairEmail, SIM kartın və şəbəkənin ölkə kodunun, [AB-dəki evdəki kimi gəz ölkələri](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent)ndə mövcudluğunu yoxlayır və ölkə kodları uyğundursa və qabaqcıl "evdəki kimi gəz" seçimi fəaldırsa, roaminq hesab etmir.
 
-So, you don't have to disable this option if you don't have an EU SIM or are not connected to an EU network.
+Ona görə də, AB SIM kartınız yoxdursa və bir AB şəbəkəsi ilə bağlantılı deyilsə bu seçimi sıradan çıxartmağınıza ehtiyac yoxdur.
 
 <br />
 
 <a name="faq106"></a>
-**(106) Which launchers can show a badge count with the number of unread messages?**
+**(106) Hansı başladıcılar oxunmamış mesaj sayı ilə nişan sayğacını göstərə bilir?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
+Oxunmamış mesaj sayını göstərən başladıcıların siyahısı üçün zəhmət olmasa [bura baxın](https://github.com/leolin310148/ShortcutBadger#supported-launchers).
 
-Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+Unutmayın ki, Nova Launcher, [artıq dəstəklənməyən](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415) Tesla Unread tələb edir.
 
-Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+Unutmayın ki, *Yeni mesaj sayı ilə başladıcı nişanı göstər* bildiriş tənzimləməsi fəal olmalıdır (ilkin olaraq fəallaşdırılmalıdır).
 
-Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
+Yalnız yeni mesaj bildirişlərini göstərəcək formada tənzimlənmiş qovluqlardakı *yeni* oxunmamış mesajlar sayılacaq, ona görə də, təkrar oxunmadı olaraq işarələnən mesajlar və yeni mesaj bildirişini göstərməyəcək formada tənzimlənmiş mesajlar sayılmayacaq.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). When enabled the badge count will be the same as the number of new message notifications. When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
+İstəyinizə görə *Yeni mesaj sayının bildiriş sayı ilə uyğunlaşmasına icazə ver* bildiriş tənzimləməsi fəal olmalıdır (ilkin olaraq fəallaşdırılmalıdır). Fəal olanda, nişan sayı yeni mesaj bildirişlərinin sayı ilə eyni olacaq. Sıradan çıxarılanda, bir bildirişdə göstərilməsindən və yeni olmasından asılı olmayaraq nişan sayğacı oxunmamış mesaj sayı olacaq.
 
-This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
+Bu özəllik, başladıcınızın dəstəyindən asılıdır. FairEmail, ShortcutBadger kitabxanasını istifadə edərək sadəcə oxunmamış mesaj sayı "yayımlayır". Əgər işləməsə, FairEmail üzərindəki dəyişikliklər ilə düzəldilə bilməz.
 
-Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a *badge* for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot (badge) is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
+FairEmail-in, bu bildiriş üçün bir *nişan* göstərilməməsini açıq şəkildə tələb etməsinə baxmayaraq, bəzi başladıcılar [bildirişin müşahidəsi](#user-content-faq2) üçün bir nöqtə və ya "1" görüntüləyir. Bu, başladıcı tətbiqindəki və ya Android versiyanızdakı bir xətaya görə baş verə bilər. Zəhmət olmasa alma (xidməti) bildiriş kanalı üçün bildiriş nöqtəsinin (nişan) sıradan çıxarıldığını təkrar yoxlayın. FairEmail-in bildiriş tənzimləmələri vasitəsilə doğru bildiriş kanalı tənzimləmələrinə gedə bilərsiniz. Bu, açıq olmaya bilər, ancaq daha çox tənzimləmələr üçün kanal adına toxuna bilərsiniz.
 
-FairEmail does send a new message count intent as well:
+FairEmail, yeni nesaj sayğac "məqsədi"ni göndərir:
 
 
 
@@ -2292,12 +2292,12 @@ eu.faircode.email.NEW_MESSAGE_COUNT
 ```
 
 
-The number of new, unread messages will be in an integer "*count*" parameter.
+Yeni, oxunmamış mesajların sayı, "*count*" parametrində bir tam ədəd olacaq.
 
 <br />
 
 <a name="faq107"></a>
-**(107) How do I use colored stars?**
+**(107) Rəngli ulduzları necə istifadə edə bilərəm?**
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
 
@@ -2471,7 +2471,7 @@ FairEmail, mesajları standart *Message-ID*, *In-Reply-To* və *References* baş
 <br />
 
 <a name="faq122"></a>
-**~~Alıcı adı/e-poçt ünvanı niyə bir xəbərdarlıq rəngi ilə göstərilir?~~**
+**~~(122) Alıcı adı/e-poçt ünvanı niyə bir xəbərdarlıq rəngi ilə göstərilir?~~**
 
 ~~Göndərən domen adı ilə məktubun *gedən* ünvanı arasında uyğunluq olmayanda~~ ~~ünvanlar bölməsindəki alıcı adı və/və ya e-poçt ünvanı bir xəbərdarlıq rəngi ilə göstəriləcək.~~ ~~Əksər hallarda bu, mesajın başqa bir e-poçt ünvanına sahib bir hesab *üzərindən* alındığını göstərir.~~
 

@@ -255,7 +255,6 @@
     <string name="title_advanced_preview_lines">شمار خط‌های پیش‌نمایش</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
-    <string name="title_advanced_message_text_zoom">بزرگ‌نمایی پیش‌فرض متن پیام</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
     <string name="title_advanced_text_color">استفاده از رنگ‌های متن</string>
     <string name="title_advanced_text_size">استفاده از اندازه متن</string>
