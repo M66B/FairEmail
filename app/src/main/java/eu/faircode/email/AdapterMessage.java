@@ -573,8 +573,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (link.length > 0) {
                                 String url = link[0].getURL();
                                 Uri uri = Uri.parse(url);
-                                if (uri.getScheme() == null)
-                                    uri = Uri.parse("https://" + url);
 
                                 int start = buffer.getSpanStart(link[0]);
                                 int end = buffer.getSpanEnd(link[0]);

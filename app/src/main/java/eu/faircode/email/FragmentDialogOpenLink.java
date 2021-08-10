@@ -44,6 +44,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -119,7 +120,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final Uri uri = getArguments().getParcelable("uri");
+        Uri _uri = getArguments().getParcelable("uri");
         String _title = getArguments().getString("title");
         if (_title != null)
             _title = _title.replace("\uFFFC", ""); // Object replacement character
@@ -134,6 +135,20 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         // Preload web view
         Helper.customTabsWarmup(context);
+
+        final Uri uri;
+        if (_uri.getScheme() == null) {
+            Uri g = Uri.parse(URLUtil.guessUrl(_uri.toString()));
+            String scheme = g.getScheme();
+            if (scheme != null) {
+                if ("http".equals(scheme))
+                    scheme = "https";
+                uri = Uri.parse(scheme + "://" + _uri.toString());
+            }
+            else
+                uri = _uri;
+        } else
+            uri = _uri;
 
         // Process link
         final Uri sanitized;
