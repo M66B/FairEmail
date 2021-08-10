@@ -121,6 +121,20 @@
             port="465"
             starttls="false" />
     </provider>
+    <!-- First match Yahoo.jp -->
+    <provider
+        name="Yahoo.jp"
+        domain="yahoo\\.jp"
+        user="local">
+        <imap
+            host="imap.mail.yahoo.co.jp"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.yahoo.co.jp"
+            port="465"
+            starttls="false" />
+    </provider>
     <!-- no IMAP IDLE -->
     <provider
         name="Yahoo/AT&amp;T"
