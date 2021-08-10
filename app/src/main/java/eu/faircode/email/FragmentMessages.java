@@ -8659,6 +8659,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }.execute(this, new Bundle(), "messages:accounts");
 
             return new AlertDialog.Builder(getContext())
+                    .setTitle(R.string.title_list_accounts)
                     .setAdapter(adapter, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
