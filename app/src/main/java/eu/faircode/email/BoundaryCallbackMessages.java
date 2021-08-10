@@ -579,17 +579,18 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     long uid = state.ifolder.getUID(isub[j]);
                     Log.i("Boundary server sync uid=" + uid);
                     EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
-                    if (message == null)
+                    if (message == null) {
                         message = Core.synchronizeMessage(context,
                                 account, browsable,
                                 (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                 true, true,
                                 rules, astate, null);
-                    if (message != null) // SQLiteConstraintException
-                        if (criteria == null)
-                            found++; // browsed
-                        else
-                            found += db.message().setMessageFound(message.id);
+                        if (message != null) // SQLiteConstraintException
+                            if (criteria == null)
+                                found++; // browsed
+                            else
+                                found += db.message().setMessageFound(message.id);
+                    }
                     Log.i("Boundary matched=" + (message == null ? null : message.id) + " found=" + found);
                 } catch (MessageRemovedException | MessageRemovedIOException ex) {
                     Log.w(browsable.name + " boundary server", ex);
