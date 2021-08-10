@@ -3680,6 +3680,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putString("title", getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
         args.putLong("account", account);
         args.putBoolean("copy", copy);
+        args.putBoolean("cancopy", true);
         args.putLongArray("disabled", Helper.toLongArray(disabled));
 
         FragmentDialogFolder fragment = new FragmentDialogFolder();
@@ -3743,9 +3744,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                 boolean copy = args.getBoolean("copy");
-                if (copy)
+                if (copy) {
                     moveAskConfirmed(result);
-                else
+                    ToastEx.makeText(getContext(), R.string.title_copy, Toast.LENGTH_LONG).show();
+                } else
                     moveAsk(result, true);
             }
 
