@@ -628,7 +628,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         try {
             int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
-            int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+            int textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
             int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
             if ("tel".equals(scheme)) {
@@ -651,7 +651,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         ssb.setSpan(new StyleSpan(Typeface.BOLD),
                                 index, index + scheme.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     } else
-                        ssb.setSpan(new ForegroundColorSpan(colorSeparator),
+                        ssb.setSpan(new ForegroundColorSpan(textColorSecondary),
                                 index, index + scheme.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
