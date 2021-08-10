@@ -43,6 +43,7 @@
         android:required="false" />
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
+    <!-- https://developer.android.com/training/package-visibility/use-cases -->
     <queries>
         <!-- Customtabs -->
         <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
@@ -83,7 +84,9 @@
             <data android:mimeType="text/plain" />
         </intent>
 
-        <package android:name="com.google.android.tts" />
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
     </queries>
 
     <application
