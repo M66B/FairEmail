@@ -108,7 +108,7 @@ public class FragmentOptions extends FragmentBase {
             "subscriptions",
             "check_authentication", "check_reply_domain", "check_mx", "check_blocklist",
             "send_pending",
-            "portrait2", "landscape", "landscape3", "nav_count", "startup",
+            "portrait2", "portrait3", "landscape", "landscape3", "nav_count", "startup",
             "cards", "beige", "tabular_card_bg", "shadow_unread",
             "indentation", "date", "date_bold", "threading", "threading_unread",
             "highlight_unread", "highlight_color", "color_stripe",
