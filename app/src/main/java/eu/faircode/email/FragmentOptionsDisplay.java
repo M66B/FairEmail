@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -69,9 +68,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swNavBarColorize;
     private SwitchCompat swPortrait2;
     private SwitchCompat swPortrait2c;
-    private SwitchCompat swPortrait3;
     private SwitchCompat swLandscape;
-    private SwitchCompat swLandscape3;
     private SwitchCompat swNavMessageCount;
 
     private SwitchCompat swThreading;
@@ -157,7 +154,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread",
             "date", "date_bold", "navbar_colorize",
-            "portrait2", "portrait2c", "portrait3", "landscape", "landscape3", "nav_count",
+            "portrait2", "portrait2c", "landscape", "nav_count",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
@@ -194,9 +191,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
         swPortrait2 = view.findViewById(R.id.swPortrait2);
         swPortrait2c = view.findViewById(R.id.swPortrait2c);
-        swPortrait3 = view.findViewById(R.id.swPortrait3);
         swLandscape = view.findViewById(R.id.swLandscape);
-        swLandscape3 = view.findViewById(R.id.swLandscape3);
         swNavMessageCount = view.findViewById(R.id.swNavMessageCount);
 
         swThreading = view.findViewById(R.id.swThreading);
@@ -375,24 +370,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swPortrait3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("portrait3", checked).apply();
-            }
-        });
-
         swLandscape.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("landscape", checked).apply();
-            }
-        });
-
-        swLandscape3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("landscape3", checked).apply();
             }
         });
 
@@ -1044,9 +1025,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
         swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
-        swPortrait3.setChecked(prefs.getBoolean("portrait3", false));
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
-        swLandscape3.setChecked(prefs.getBoolean("landscape3", true));
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
 
         swThreading.setChecked(prefs.getBoolean("threading", true));

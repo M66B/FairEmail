@@ -9,11 +9,23 @@
     android:focusableInTouchMode="true">
 
     <ImageButton
+        android:id="@+id/ibPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/title_pin"
+        android:padding="6dp"
+        app:layout_constraintEnd_toStartOf="@+id/ibExpanderNav"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pin" />
+
+    <ImageButton
         android:id="@+id/ibExpanderNav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/title_legend_expander"
+        android:padding="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/expander_hor" />

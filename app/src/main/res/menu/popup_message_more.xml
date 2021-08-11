@@ -95,7 +95,7 @@
 
     <item
         android:id="@+id/menu_pin"
-        android:icon="@drawable/baseline_push_pin_24"
+        android:icon="@drawable/twotone_push_pin_24"
         android:title="@string/title_pin" />
 
     <item

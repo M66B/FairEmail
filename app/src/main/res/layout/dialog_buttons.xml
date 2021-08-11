@@ -218,7 +218,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/baseline_push_pin_24"
+            android:drawableEnd="@drawable/twotone_push_pin_24"
             android:drawablePadding="6dp"
             android:text="@string/title_pin"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"

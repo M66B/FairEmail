@@ -294,18 +294,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swPortrait2c" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swPortrait3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_default_nav"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvPortrait2cHint"
-                    app:switchPadding="12dp" />
-
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvLandscape"
                     android:layout_width="0dp"
@@ -317,7 +305,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swPortrait3" />
+                    app:layout_constraintTop_toBottomOf="@id/tvPortrait2cHint" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLandscape"
@@ -346,19 +334,6 @@
                     app:layout_constraintTop_toBottomOf="@id/swLandscape" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swLandscape3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_default_nav"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLandscapeHint"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNavMessageCount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -366,7 +341,7 @@
                     android:text="@string/title_advanced_nav_message_count"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swLandscape3"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandscapeHint"
                     app:switchPadding="12dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
