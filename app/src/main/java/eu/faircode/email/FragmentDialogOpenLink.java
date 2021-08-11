@@ -141,14 +141,22 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         final Uri uri;
         if (_uri.getScheme() == null) {
-            Uri g = Uri.parse(URLUtil.guessUrl(_uri.toString()));
-            String scheme = g.getScheme();
-            if (scheme != null) {
-                if ("http".equals(scheme))
-                    scheme = "https";
-                uri = Uri.parse(scheme + "://" + _uri.toString());
-            } else
-                uri = _uri;
+            String url = _uri.toString();
+            if (Helper.EMAIL_ADDRESS.matcher(url).matches())
+                uri = Uri.parse("mailto:" + _uri.toString());
+            else if (android.util.Patterns.PHONE.matcher(url).matches())
+                // Alternative: PhoneNumberUtils.isGlobalPhoneNumber()
+                uri = Uri.parse("tel:" + _uri.toString());
+            else {
+                Uri g = Uri.parse(URLUtil.guessUrl(url));
+                String scheme = g.getScheme();
+                if (scheme != null) {
+                    if ("http".equals(scheme))
+                        scheme = "https";
+                    uri = Uri.parse(scheme + "://" + _uri.toString());
+                } else
+                    uri = _uri;
+            }
         } else
             uri = _uri;
 
