@@ -290,14 +290,23 @@ public class EmailProvider implements Parcelable {
 
                 for (DnsHelper.DnsRecord record : records)
                     if (!TextUtils.isEmpty(record.name))
-                        for (EmailProvider provider : providers)
+                        for (EmailProvider provider : providers) {
                             if (provider.mx != null)
                                 for (String mx : provider.mx)
                                     if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
-                                        EntityLog.log(context, "Provider from mx=" + mx + " domain=" + domain);
+                                        EntityLog.log(context, "Provider from mx=" + record.name + " domain=" + domain);
                                         provider.log(context);
                                         return provider;
                                     }
+
+                            String mxparent = UriHelper.getParentDomain(context, record.name);
+                            String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
+                            if (mxparent.equalsIgnoreCase(pdomain)) {
+                                EntityLog.log(context, "Provider from mx=" + record.name + " host=" + provider.imap.host);
+                                provider.log(context);
+                                return provider;
+                            }
+                        }
 
                 for (DnsHelper.DnsRecord record : records) {
                     String target = record.name;

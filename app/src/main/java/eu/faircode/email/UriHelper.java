@@ -55,7 +55,7 @@ public class UriHelper {
                 if ((suffixList.contains(h) || suffixList.contains(w)) &&
                         !suffixList.contains('!' + h)) {
                     String parent = prefix + "." + h;
-                    Log.i("Host=" + host + " parent=" + parent);
+                    Log.d("Host=" + host + " parent=" + parent);
                     return parent;
                 }
             }

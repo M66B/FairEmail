@@ -1147,8 +1147,7 @@
     </provider>
     <provider
         name="GoDaddy Workspace"
-        link="https://www.godaddy.com/help/server-and-port-settings-for-workspace-email-6949"
-        mx=".*\\.secureserver\\.net">
+        link="https://www.godaddy.com/help/server-and-port-settings-for-workspace-email-6949">
         <imap
             host="imap.secureserver.net"
             port="993"
@@ -1224,8 +1223,7 @@
     </provider>
     <provider
         name="Mail.com"
-        link="https://support.mail.com/premium/imap/server.html#indexlink_help_premium_imap"
-        mx=".*\\.mail\\.com">
+        link="https://support.mail.com/premium/imap/server.html#indexlink_help_premium_imap">
         <imap
             host="imap.mail.com"
             port="993"
@@ -1237,8 +1235,7 @@
     </provider>
     <provider
         name="Namecheap"
-        link="https://www.namecheap.com/support/knowledgebase/article.aspx/1179/2175/general-private-email-configuration-for-mail-clients-and-mobile-devices/"
-        mx=".*\\.privateemail\\.com">
+        link="https://www.namecheap.com/support/knowledgebase/article.aspx/1179/2175/general-private-email-configuration-for-mail-clients-and-mobile-devices/">
         <imap
             host="mail.privateemail.com"
             port="993"
