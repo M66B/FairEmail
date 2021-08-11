@@ -121,10 +121,11 @@
             port="465"
             starttls="false" />
     </provider>
-    <!-- First match Yahoo.jp -->
+    <!-- First match Yahoo.co.jp -->
     <provider
-        name="Yahoo.jp"
-        domain="yahoo\\.jp"
+        name="Yahoo.co.jp"
+        domain="yahoo\\.co\\.jp"
+        order="6"
         user="local">
         <imap
             host="imap.mail.yahoo.co.jp"
