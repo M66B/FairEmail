@@ -801,10 +801,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             return Helper.dp2pixels(this, 48);
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
-        if (layoutId == R.layout.activity_view_landscape_split && nav_pinned)
-            return Helper.dp2pixels(this, 300);
-        else if (layoutId != R.layout.activity_view_landscape_split && nav_pinned)
-            return Math.min(Helper.dp2pixels(this, 300), dm.widthPixels / 2);
+        if (nav_pinned) {
+            int maxWidth = dm.widthPixels - Helper.dp2pixels(this, 300);
+            return Math.min(Helper.dp2pixels(this, 300), maxWidth);
+        }
         else {
             int actionBarHeight;
             TypedValue tv = new TypedValue();
