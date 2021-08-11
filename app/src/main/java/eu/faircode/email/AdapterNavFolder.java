@@ -64,6 +64,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
         private ImageView ivItem;
+        private ImageView ivBadge;
         private TextView tvItem;
         private TextView tvItemExtra;
         private ImageView ivExtra;
@@ -74,6 +75,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
 
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
+            ivBadge = itemView.findViewById(R.id.ivBadge);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivExtra = itemView.findViewById(R.id.ivExtra);
@@ -120,6 +122,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                 count = folder.messages;
             else
                 count = folder.unseen;
+
+            ivBadge.setVisibility(count == 0 || expanded ? View.GONE : View.VISIBLE);
 
             if (count == 0)
                 tvItem.setText(folder.getDisplayName(context));
@@ -169,6 +173,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 

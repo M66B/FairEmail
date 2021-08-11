@@ -68,6 +68,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private ImageView ivItem;
+        private ImageView ivBadge;
         private TextView tvItem;
         private TextView tvItemExtra;
         private ImageView ivExtra;
@@ -78,6 +79,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
+            ivBadge = itemView.findViewById(R.id.ivBadge);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivExtra = itemView.findViewById(R.id.ivExtra);
@@ -110,6 +112,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
                 ivItem.clearColorFilter();
             else
                 ivItem.setColorFilter(account.color);
+            ivBadge.setVisibility(account.unseen == 0 || expanded ? View.GONE : View.VISIBLE);
 
             if (account.unseen == 0)
                 tvItem.setText(account.name);

@@ -60,6 +60,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
         private ImageView ivItem;
+        private ImageView ivBadge;
         private TextView tvItem;
         private TextView tvItemExtra;
         private ImageView ivExtra;
@@ -70,6 +71,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
+            ivBadge = itemView.findViewById(R.id.ivBadge);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivExtra = itemView.findViewById(R.id.ivExtra);
@@ -95,6 +97,8 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                 count = folder.messages;
             else
                 count = folder.unseen;
+
+            ivBadge.setVisibility(count == 0 || expanded ? View.GONE : View.VISIBLE);
 
             if (count == 0)
                 tvItem.setText(EntityFolder.localizeType(context, folder.type));
