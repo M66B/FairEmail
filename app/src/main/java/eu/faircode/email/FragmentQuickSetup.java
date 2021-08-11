@@ -54,6 +54,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.mail.AuthenticationFailedException;
+import javax.mail.Folder;
+import javax.mail.Store;
 
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
@@ -329,6 +331,18 @@ public class FragmentQuickSetup extends FragmentBase {
                     }
 
                     folders = iservice.getFolders();
+
+                    if (folders.size() == 1 &&
+                            EntityFolder.INBOX.equals(folders.get(0).type)) {
+                        Log.i("Creating system folders");
+                        Store istore = iservice.getStore();
+                        istore.getFolder(EntityFolder.DRAFTS).create(Folder.HOLDS_FOLDERS);
+                        istore.getFolder(EntityFolder.SENT).create(Folder.HOLDS_FOLDERS);
+                        istore.getFolder(EntityFolder.ARCHIVE).create(Folder.HOLDS_FOLDERS);
+                        istore.getFolder(EntityFolder.TRASH).create(Folder.HOLDS_FOLDERS);
+                        istore.getFolder(EntityFolder.JUNK).create(Folder.HOLDS_FOLDERS);
+                        folders = iservice.getFolders();
+                    }
                 }
 
                 Long max_size = null;
