@@ -18,7 +18,6 @@
             android:layout_marginStart="12dp"
             android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvItem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_folder_special_24" />
