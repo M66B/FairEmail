@@ -1234,4 +1234,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Namecheap"
+        link="https://www.namecheap.com/support/knowledgebase/article.aspx/1179/2175/general-private-email-configuration-for-mail-clients-and-mobile-devices/"
+        mx=".*\\.privateemail\\.com">
+        <imap
+            host="mail.privateemail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.privateemail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
