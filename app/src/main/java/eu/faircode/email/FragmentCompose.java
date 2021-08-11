@@ -57,6 +57,7 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -2747,10 +2748,24 @@ public class FragmentCompose extends FragmentBase {
                 // External app sending absolute file
                 if (ex instanceof SecurityException)
                     handleFileShare();
-                else if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
+                else if (ex instanceof FileNotFoundException ||
+                        ex instanceof IllegalArgumentException ||
+                        ex instanceof IllegalStateException) {
+                    /*
+                        java.lang.IllegalStateException: Failed to mount
+                          at android.os.Parcel.createException(Parcel.java:2079)
+                          at android.os.Parcel.readException(Parcel.java:2039)
+                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:188)
+                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:151)
+                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:705)
+                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1687)
+                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1503)
+                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1187)
+                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
+                     */
                     Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
-                else {
+                } else {
                     if (ex instanceof IOException &&
                             ex.getCause() instanceof ErrnoException &&
                             ((ErrnoException) ex.getCause()).errno == ENOSPC)
@@ -3988,7 +4003,7 @@ public class FragmentCompose extends FragmentBase {
 
                 data.identities = db.identity().getComposableIdentities(null);
                 if (data.identities == null || data.identities.size() == 0)
-                    throw new IllegalStateException(context.getString(R.string.title_no_composable));
+                    throw new OperationCanceledException(context.getString(R.string.title_no_composable));
 
                 data.draft = db.message().getMessage(id);
                 if (data.draft == null || data.draft.ui_hide) {
@@ -4098,7 +4113,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     if (selected == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_composable));
+                        throw new OperationCanceledException(context.getString(R.string.title_no_composable));
 
                     EntityLog.log(context, "Selected=" + selected.email);
 
@@ -4953,10 +4968,12 @@ public class FragmentCompose extends FragmentBase {
                 finish();
             else if (ex instanceof SecurityException)
                 handleFileShare();
-            else if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
+            else if (ex instanceof FileNotFoundException ||
+                    ex instanceof IllegalArgumentException ||
+                    ex instanceof IllegalStateException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
                         .setGestureInsetBottomIgnored(true).show();
-            else if (ex instanceof IllegalStateException) {
+            else if (ex instanceof OperationCanceledException) {
                 Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
                         .setGestureInsetBottomIgnored(true);
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
