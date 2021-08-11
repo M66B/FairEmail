@@ -140,6 +140,7 @@
     <string name="title_setup_quick">Rýchle nastavenie</string>
     <string name="title_setup_intro">Nastavenie účtu má len tri kroky a hneď potom môžete prijímať a posielať emaily</string>
     <string name="title_setup_simple">Nie je potrebné meniť žiadne ďalšie nastavenia</string>
+    <string name="title_setup_issue">FairEmail je vyvíjaný s cieľom pomôcť chrániť vaše súkromie a skutočne reprezentuje stovky hodín práce. Ak ste narazili na problém, kontaktujte ma pred tým ako zanecháte negatívne hodnotenie, prosím so žiadosťou o technickú podporu. Som pripravený s radosťou pomáhať!</string>
     <string name="title_setup_quick_accounts">Pridať alebo upraviť účty</string>
     <string name="title_setup_quick_support">Účty niektorých poskytovateľov môže byť náročné nastaviť. Neobviňujte z tohto nedostatku FairEmail a požiadajte o pomoc, ak ju potrebujete prosím.</string>
     <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
@@ -265,6 +266,7 @@
     <string name="title_advanced_hint_message">        Vstupujete do veľmi pokročilých možností.
         Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné meniť, jedine že uprednostňujete iné nastavenie.
     </string>
+    <string name="title_advanced_hint_setup">Účet si nastavíte klepnutím na tlačidlo sprievodca na hlavnej obrazovky v okne nastavenia.</string>
     <string name="title_advanced_section_main">Hlavné</string>
     <string name="title_advanced_section_synchronize">Prijímanie správ</string>
     <string name="title_advanced_section_send">Posielanie správ</string>
@@ -347,6 +349,11 @@
     <string name="title_advanced_caption_message">Správa</string>
     <string name="title_advanced_caption_message_header">Hlavička správy</string>
     <string name="title_advanced_caption_message_body">Obsah správy</string>
+    <string name="title_advanced_portrait">Režim na výšku</string>
+    <string name="title_advanced_landscape">Režim na šírku</string>
+    <string name="title_advanced_two_row">Použiť dva riadky</string>
+    <string name="title_advanced_two_col">Použiť dva stĺpce</string>
+    <string name="title_advanced_default_nav">Ukázať predvolene navigačnú ponuku</string>
     <string name="title_advanced_nav_message_count">Zobraziť počet lokálne uložených správ v navigačnej ponuke</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>

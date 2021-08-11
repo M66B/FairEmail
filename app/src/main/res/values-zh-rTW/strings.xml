@@ -1363,7 +1363,7 @@
     <string name="title_open_link">開啟連結</string>
     <string name="title_image_link">圖片連結</string>
     <string name="title_different_link">標題中所展示的網域和實際連結地址中的有不同</string>
-    <string name="title_tracking_link">該網站可能會跟踪您</string>
+    <string name="title_tracking_link">該網站可能會追蹤您</string>
     <string name="title_suspicious_link">此連結很可疑</string>
     <string name="title_link_http">流量不會被加密</string>
     <string name="title_link_https">流量將被加密</string>
