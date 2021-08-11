@@ -311,9 +311,6 @@
     <string name="title_advanced_caption_message">Mensagem</string>
     <string name="title_advanced_caption_message_header">Cabeçalho da mensagem</string>
     <string name="title_advanced_caption_message_body">Corpo da mensagem</string>
-    <string name="title_advanced_portrait2">Use duas linhas no modo retrato</string>
-    <string name="title_advanced_landscape">Usar duas colunas no modo paisagem</string>
-    <string name="title_advanced_landscape3">Mostrar menu de navegação no modo paisagem por padrão</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>

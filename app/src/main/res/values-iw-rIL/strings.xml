@@ -171,7 +171,6 @@
     <string name="title_advanced_caption_message">הודעה</string>
     <string name="title_advanced_caption_message_header">כותרת ההודעה</string>
     <string name="title_advanced_caption_message_body">גוף ההודעה</string>
-    <string name="title_advanced_landscape">2 שורות במצב \"לרוחב\"</string>
     <string name="title_advanced_notify_action_trash">אשפה</string>
     <string name="title_advanced_notify_action_junk">ספאם</string>
     <string name="title_advanced_notify_action_archive">ארכיון</string>

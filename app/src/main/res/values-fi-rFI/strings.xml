@@ -325,9 +325,6 @@
     <string name="title_advanced_caption_message">Viesti</string>
     <string name="title_advanced_caption_message_header">Viestin tunnistetiedot</string>
     <string name="title_advanced_caption_message_body">Viestin sisältö</string>
-    <string name="title_advanced_portrait2">Käytä kahta riviä pystytilassa</string>
-    <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
-    <string name="title_advanced_landscape3">Näytä navigointivalikko vaakatilassa oletusarvoisesti</string>
     <string name="title_advanced_nav_message_count">Näytä paikallisesti tallennettujen viestien määrä navigointivalikossa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>

@@ -289,9 +289,6 @@
     <string name="title_advanced_caption_message">Üzenet</string>
     <string name="title_advanced_caption_message_header">Üzenet fejléc</string>
     <string name="title_advanced_caption_message_body">Üzenet szövege</string>
-    <string name="title_advanced_portrait2">Kéthasábos megjelenítés vízszintes tájolásnál</string>
-    <string name="title_advanced_landscape">Két oszlopba rendezés tájkép módban</string>
-    <string name="title_advanced_landscape3">Navigációs menü mutatósa fekvő módban alapértelmezésként</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
     <string name="title_advanced_cards_shadow">Árnyék használata olvasatlan üzenetekhez kártya-stílus használata esetén</string>

@@ -140,6 +140,7 @@
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_intro">Настройте учётную запись всего за три шага и сможете отправлять и получать письма</string>
     <string name="title_setup_simple">Нет необходимости менять другие параметры</string>
+    <string name="title_setup_issue">FairEmail был разработан для того, чтобы помочь вам защитить вашу конфиденциальность и представляет буквально тысячи часов работы. Если у вас возникли проблемы, пожалуйста, свяжитесь со мной для поддержки перед тем, как оставлять плохие отзывы. Я рад помочь!</string>
     <string name="title_setup_quick_accounts">Добавить или изменить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
@@ -348,11 +349,11 @@
     <string name="title_advanced_caption_message">Сообщение</string>
     <string name="title_advanced_caption_message_header">Заголовок сообщения</string>
     <string name="title_advanced_caption_message_body">Текст сообщения</string>
-    <string name="title_advanced_portrait2">Использовать два ряда в портретном режиме</string>
-    <string name="title_advanced_portrait2c">Использовать две колонки в портретном режиме</string>
-    <string name="title_advanced_portrait3">Показывать меню навигации в портретном режиме по умолчанию</string>
-    <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
-    <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
+    <string name="title_advanced_portrait">Портретный режим</string>
+    <string name="title_advanced_landscape">Альбомный режим</string>
+    <string name="title_advanced_two_row">Использовать две строки</string>
+    <string name="title_advanced_two_col">Использовать две колонки</string>
+    <string name="title_advanced_default_nav">Показывать меню навигации по умолчанию</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
@@ -1402,6 +1403,7 @@
     <string name="title_check_owner">Проверить владельца</string>
     <string name="title_remark_owner">Информация будет получена с <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-адрес владельца</string>
+    <string name="title_default_apps">Приложения по умолчанию</string>
     <string name="title_reset_open">Задать или сбросить приложения по умолчанию</string>
     <string name="title_select_app">Выбор приложения</string>
     <string name="title_updated">Доступно обновление до версии %1$s</string>

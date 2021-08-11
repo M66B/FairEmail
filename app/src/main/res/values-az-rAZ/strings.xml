@@ -120,6 +120,7 @@
     <string name="title_setup_quick">Cəld quraşdırma</string>
     <string name="title_setup_intro">Bir hesabın hazırlanması üç addımdan ibarətdir və bundan sonra e-poçtları göndərə və ala bilərsiniz</string>
     <string name="title_setup_simple">Başqa hər hansısa bir seçimi dəyişdirməyə ehtiyac yoxdur</string>
+    <string name="title_setup_issue">FairEmail, gizliliyinizi qorumağa kömək etməsi üçün təkmilləşdirildi və sözün əsl mənasında minlərlə saatlıq çalışmanı təmsil edir. Əgər tətbiqlə bağlı hər hansısa probleminiz varsa, pis bir rəy bildirməzdən əvvəl zəhmət olmasa dəstək üçün mənimlə əlaqə saxlayın. Məmnuniyyətlə kömək edərəm!</string>
     <string name="title_setup_quick_accounts">Hesab əlavə et və ya dəyişdir</string>
     <string name="title_setup_quick_support">Bəzi təchizatçılar hesab əlavə etməyi çətinləşdirir. Xahiş edirik buna görə \"FairEmail\"i günahlandırmayın, əvəzində dəstək istəyin.</string>
     <string name="title_setup_quick_hint">Cəld quraşdırma, konfiqurasiya məlumatlarını autoconfig.thunderbird.net ünvanından alır</string>
@@ -328,9 +329,11 @@
     <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_caption_message_header">Mesaj başlığı</string>
     <string name="title_advanced_caption_message_body">Mesaj gövdəsi</string>
-    <string name="title_advanced_portrait2">Şaquli rejimdə iki sətir istifadə et</string>
-    <string name="title_advanced_landscape">Üfüqi rejimdə iki sütun istifadə et</string>
-    <string name="title_advanced_landscape3">Üfüqi rejimdə ilkin olaraq naviqasiya menyusu göstər</string>
+    <string name="title_advanced_portrait">Şaquli rejim</string>
+    <string name="title_advanced_landscape">Üfüqi rejim</string>
+    <string name="title_advanced_two_row">İki sətir istifadə et</string>
+    <string name="title_advanced_two_col">İki sütun istifadə et</string>
+    <string name="title_advanced_default_nav">Naviqasiya menyusunu ilkin olaraq istifadə et</string>
     <string name="title_advanced_nav_message_count">Naviqasiya menyusunda yerli yaddaşda saxlanılmış mesaj sayını göstər</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_cards">Cədvəl stili əvəzinə kart stilini istifadə et</string>
@@ -1379,6 +1382,7 @@
     <string name="title_check_owner">Sahibini yoxla</string>
     <string name="title_remark_owner">Məlumat <a href="https://ipinfo.io/">ipinfo.io</a> saytından alınacaq</string>
     <string name="title_ip_owner">Sahibin IP ünvanı</string>
+    <string name="title_default_apps">İlkin tətbiqlər</string>
     <string name="title_reset_open">İlkin tətbiqləri tənzimlə və təmizlə</string>
     <string name="title_select_app">Tətbiq seç</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>

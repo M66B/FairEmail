@@ -335,9 +335,6 @@
     <string name="title_advanced_caption_message">Zpráva</string>
     <string name="title_advanced_caption_message_header">Hlavička zprávy</string>
     <string name="title_advanced_caption_message_body">Tělo zprávy</string>
-    <string name="title_advanced_portrait2">Dělené rozvržení v režimu na výšku</string>
-    <string name="title_advanced_landscape">Dvou-panelové rozvržení v režimu na šířku</string>
-    <string name="title_advanced_landscape3">Automaticky zobrazit navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>

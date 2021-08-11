@@ -120,6 +120,7 @@
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des courriels</string>
     <string name="title_setup_simple">Il n\'est pas nécessaire de modifier d\'autres options</string>
+    <string name="title_setup_issue">FairEmail a été développé pour vous aider à protéger votre vie privée et représente littéralement des milliers d\'heures de travail. Si vous avez des problèmes, veuillez me contacter d\'abord pour obtenir de l\'aide avant de laisser une mauvaise évaluation. Je suis heureux de vous aider !</string>
     <string name="title_setup_quick_accounts">Ajouter ou modifier des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -328,11 +329,11 @@
     <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_caption_message_header">En-tête du message</string>
     <string name="title_advanced_caption_message_body">Contenu du message</string>
-    <string name="title_advanced_portrait2">Utiliser deux lignes en mode portrait</string>
-    <string name="title_advanced_portrait2c">Utiliser deux colonnes en mode portrait</string>
-    <string name="title_advanced_portrait3">Afficher le menu de navigation en mode portrait par défaut</string>
-    <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
-    <string name="title_advanced_landscape3">Afficher le menu de navigation en mode paysage par défaut</string>
+    <string name="title_advanced_portrait">Mode portrait</string>
+    <string name="title_advanced_landscape">Mode paysage</string>
+    <string name="title_advanced_two_row">Utiliser deux rangées</string>
+    <string name="title_advanced_two_col">Utiliser deux colonnes</string>
+    <string name="title_advanced_default_nav">Afficher le menu de navigation par défaut</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
     <string name="title_advanced_startup">Afficher sur l’écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
@@ -1382,6 +1383,7 @@
     <string name="title_check_owner">Vérifier le propriétaire</string>
     <string name="title_remark_owner">Les informations seront récupérées depuis <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adresse IP du propriétaire</string>
+    <string name="title_default_apps">Applications par défaut</string>
     <string name="title_reset_open">Définir ou effacer les applications par défaut</string>
     <string name="title_select_app">Sélectionner une appli</string>
     <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>

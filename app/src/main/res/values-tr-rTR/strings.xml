@@ -328,9 +328,6 @@
     <string name="title_advanced_caption_message">İleti</string>
     <string name="title_advanced_caption_message_header">İleti başlığı</string>
     <string name="title_advanced_caption_message_body">İleti metni</string>
-    <string name="title_advanced_portrait2">Dikey modda iki satır kullan</string>
-    <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
-    <string name="title_advanced_landscape3">Yatay modda varsayılan olarak menüyü göster</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>

@@ -317,9 +317,6 @@
     <string name="title_advanced_caption_message">Thư</string>
     <string name="title_advanced_caption_message_header">Tiêu đề thư</string>
     <string name="title_advanced_caption_message_body">Nội dung thư</string>
-    <string name="title_advanced_portrait2">Sử dụng hai dòng ở chế độ hướng dọc</string>
-    <string name="title_advanced_landscape">Sử dụng hai cột ở chế độ hướng ngang</string>
-    <string name="title_advanced_landscape3">Hiện menu điều hướng ở chế độ hướng ngang theo mặc định</string>
     <string name="title_advanced_nav_message_count">Hiện số thư được lưu trữ cục bộ trong menu điều hướng</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>

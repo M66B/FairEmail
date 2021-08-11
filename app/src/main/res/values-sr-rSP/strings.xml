@@ -193,7 +193,6 @@
     <string name="title_advanced_caption_message">Порука</string>
     <string name="title_advanced_caption_message_header">Заглавље поруке</string>
     <string name="title_advanced_caption_message_body">Тело поруке</string>
-    <string name="title_advanced_landscape">Користи две колоне у пејзажном режиму</string>
     <string name="title_advanced_startup">На почетном екрану прикажи</string>
     <string name="title_advanced_date_header">Групиши по датуму</string>
     <string name="title_advanced_threading">Увезивање разговора</string>

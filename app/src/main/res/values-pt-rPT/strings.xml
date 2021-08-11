@@ -3,6 +3,7 @@
     <string name="app_search">Busca do FairEmail</string>
     <string name="app_changelog">Registo de alterações</string>
     <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que estás acostumado.</string>
+    <string name="app_limitations">Por exemplo, as mensagens são reformatadas por defeito para remover elementos inseguros e melhorar a legibilidade, e a abertura de links precisa de ser confirmada para segurança. Ambos podem ser desativados caso pretendam.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque erros no Android causam falhas</string>
     <string name="app_exit"> Clique novamente em \'voltar\' para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
@@ -10,6 +11,7 @@
     <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
+    <string name="channel_progress">Progresso</string>
     <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
@@ -18,6 +20,7 @@
     <string name="channel_service_description">A sincronização e monitorização de contas</string>
     <string name="channel_send_description">Envio de mensagens</string>
     <string name="channel_notification_description">Notificações de novas mensagens</string>
+    <string name="channel_progress_description">Notificações de progresso de atividades em execução mais longas</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
         <item quantity="other">Conversas</item>
@@ -75,10 +78,12 @@
     </string>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Isto pode aumentar o uso da bateria e marcar incorretamente mensagens como spam</string>
+    <string name="title_junk_blocklist">Usar listas de bloqueio de spam</string>
     <string name="title_notification_sending">A enviar mensagens</string>
     <string name="title_notification_waiting">A aguardar conexão</string>
     <string name="title_notification_idle">Ausente</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
+    <string name="title_notification_alert">Alerta de servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
     <string name="title_notification_redacted">Redacionado: autenticação biométrica ou por Pin ativada</string>
@@ -103,6 +108,7 @@
     <string name="title_agree">Concordo</string>
     <string name="title_disagree">Discordo</string>
     <string name="title_version">Versão %1$s</string>
+    <string name="title_privacy_policy">Política de privacidade</string>
     <string name="title_list_accounts">Contas</string>
     <string name="title_list_identities">Identidades</string>
     <string name="title_edit_account">Editar conta</string>
@@ -113,14 +119,19 @@
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_intro">Configurar uma conta são apenas três passos e, depois disso, você pode enviar e receber e-mails</string>
     <string name="title_setup_simple">Não há necessidade de alterar outras opções</string>
+    <string name="title_setup_issue">O FairEmail foi desenvolvido para ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Se tiver algum problema, por favor, entre em contato para suporte antes de deixar um feedback negativo. Tenho todo o gosto em ajudar!</string>
+    <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
     <string name="title_setup_quick_hint">A configuração rápida irá obter informações de configuração a partir de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Por favor seja paciente &#8230;</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_wizard">Assistente</string>
     <string name="title_setup_wizard_multiple">O assistente pode ser usado várias vezes para configurar várias contas</string>
     <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
     <string name="title_setup_manual">Configuração manual e opções da conta</string>
+    <string name="title_setup_classic">Configuração clássica</string>
+    <string name="title_setup_documentation">Por favor, veja a documentação do seu provedor de e-mail para a correta configuração do servidor de e-mail</string>
     <string name="title_setup_account_remark">Receber e-mail</string>
     <string name="title_setup_identity_remark">Enviar e-mail</string>
     <string name="title_setup_account_identity_hint">Pode configurar o nome, cor e deslizar acções na configuração de conta, e configurar a assinatura na configuração de identidade</string>
@@ -148,6 +159,7 @@
     <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de proteção não é possível usar uma aplicação de e-mail de terceiros. Esta é uma restrição imposta pelo Google.</string>
     <string name="title_setup_quick_success">Uma conta foi adicionada com sucesso</string>
+    <string name="title_setup_quick_no_sent">Não foi selecionada nenhuma pasta de mensagens enviadas. As mensagens enviadas podem não ser armazenadas.</string>
     <string name="title_setup_manage">Gerir</string>
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_grant_again">Conceder as permissões necessárias</string>
@@ -156,6 +168,7 @@
     <string name="title_setup_free">Este gratuito usar este aplicativo?</string>
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para aceder a informações de contato (opcional)</string>
+    <string name="title_setup_permissions_explanation">As permissões de contato são necessárias para procurar informações de contato e sugerir contatos</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Para enviar e receber e-mail corretamente</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo do Android altere \"Não otimizado\" para \"Todos os aplicativos\", selecione esta app e selecione \"Não otimizar\"</string>
@@ -287,9 +300,11 @@
     <string name="title_advanced_caption_message">Mensagem</string>
     <string name="title_advanced_caption_message_header">Cabeçalho da mensagem</string>
     <string name="title_advanced_caption_message_body">Corpo da mensagem</string>
-    <string name="title_advanced_portrait2">Use duas linhas no modo retrato</string>
-    <string name="title_advanced_landscape">Usar duas colunas no modo paisagem</string>
-    <string name="title_advanced_landscape3">Mostrar menu de navegação no modo paisagem por omissão</string>
+    <string name="title_advanced_portrait">Modo Retrato</string>
+    <string name="title_advanced_landscape">Modo paisagem</string>
+    <string name="title_advanced_two_row">Use duas linhas</string>
+    <string name="title_advanced_two_col">Use duas colunas</string>
+    <string name="title_advanced_default_nav">Mostrar o menu de navegação por defeito</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>

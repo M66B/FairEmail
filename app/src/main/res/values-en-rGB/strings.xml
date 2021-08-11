@@ -16,7 +16,6 @@
     <string name="title_advanced_check_mx">Check sender email addresses on synchronising messages</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
     <string name="title_advanced_caption_message">Message</string>
-    <string name="title_advanced_portrait2">Use two rows in portrait mode</string>
     <string name="title_advanced_color_stripe">Show colour stripe</string>
     <string name="title_advanced_flags_background">Show coloured background instead of coloured stars</string>
     <string name="title_advanced_text_color">Use text colours</string>

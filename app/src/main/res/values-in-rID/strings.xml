@@ -286,9 +286,6 @@
     <string name="title_advanced_caption_message">Pesan</string>
     <string name="title_advanced_caption_message_header">Header Pesan</string>
     <string name="title_advanced_caption_message_body">Badan Pesan</string>
-    <string name="title_advanced_portrait2">Gunakan dua baris dalam mode potret</string>
-    <string name="title_advanced_landscape">Gunakan dua kolom dalam mode lanskap</string>
-    <string name="title_advanced_landscape3">Tampilkan menu navigasi dalam mode lanskap secara bawaan</string>
     <string name="title_advanced_startup">Tampilkan pada layar terkunci</string>
     <string name="title_advanced_cards">Pakai gaya kartu seperti gaya tabel</string>
     <string name="title_advanced_cards_shadow">Gunakan bayangan untuk pesan yang belum dibaca saat menggunakan gaya kartu</string>

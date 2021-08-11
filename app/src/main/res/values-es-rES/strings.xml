@@ -120,6 +120,7 @@
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_intro">Configurar una cuenta son sólo tres pasos y después puede enviar y recibir correos electrónicos</string>
     <string name="title_setup_simple">No hay necesidad de cambiar ninguna otra opción</string>
+    <string name="title_setup_issue">FairEmail fue desarrollado para ayudarle a proteger su privacidad y representa literalmente miles de horas de trabajo. Si tiene algún problema, por favor contácteme primero para obtener ayuda antes de dejar una mala revisión. ¡Estoy encantado de ayudar!</string>
     <string name="title_setup_quick_accounts">Añadir o cambiar cuentas</string>
     <string name="title_setup_quick_support">Algunos proveedores hacen difícil añadir una cuenta. Por favor, no culpe a FairEmail por esto, en su lugar pida ayuda.</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
@@ -328,9 +329,6 @@
     <string name="title_advanced_caption_message">Mensaje</string>
     <string name="title_advanced_caption_message_header">Encabezado del mensaje</string>
     <string name="title_advanced_caption_message_body">Cuerpo del mensaje</string>
-    <string name="title_advanced_portrait2">Usar dos filas en modo vertical</string>
-    <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
-    <string name="title_advanced_landscape3">Mostrar el menú de navegación en modo apaisado por defecto</string>
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
@@ -1380,6 +1378,7 @@
     <string name="title_check_owner">Comprobar propietario</string>
     <string name="title_remark_owner">La información se obtendrá de <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Dirección IP del propietario</string>
+    <string name="title_default_apps">Aplicaciones predeterminadas</string>
     <string name="title_reset_open">Establecer o limpiar aplicaciones por defecto</string>
     <string name="title_select_app">Seleccionar app</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>

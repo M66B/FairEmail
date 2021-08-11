@@ -234,6 +234,7 @@
     <string name="title_advanced_hint_message">        高度なオプションに移動しています。
         全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
     </string>
+    <string name="title_advanced_hint_setup">メイン設定画面のウィザードボタンをタップしてアカウントを設定できます。</string>
     <string name="title_advanced_section_main">メイン</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
@@ -316,9 +317,6 @@
     <string name="title_advanced_caption_message">メッセージ</string>
     <string name="title_advanced_caption_message_header">メッセージヘッダー</string>
     <string name="title_advanced_caption_message_body">本文</string>
-    <string name="title_advanced_portrait2">ポートレートモードで2つの行を使用</string>
-    <string name="title_advanced_landscape">横向きモードで2列を使用</string>
-    <string name="title_advanced_landscape3">デフォルトでランドスケープモードでナビゲーションメニューを表示する</string>
     <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示する</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>

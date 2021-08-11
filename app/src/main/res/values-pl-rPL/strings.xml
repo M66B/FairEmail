@@ -139,6 +139,7 @@
     <string name="title_setup_quick">Szybkie ustawienia</string>
     <string name="title_setup_intro">Założenie konta to tylko trzy kroki, po których możesz wysyłać i odbierać wiadomości e-mail</string>
     <string name="title_setup_simple">Nie ma potrzeby zmiany innych opcji</string>
+    <string name="title_setup_issue">FairEmail został stworzony po to, aby chronić Twoją prywatność, i reprezentuje dosłownie tysiące godzin pracy. Jeśli masz jakieś problemy, najpierw skontaktuj się ze mną, zanim zostawisz złą recenzję. Chętnie pomogę!</string>
     <string name="title_setup_quick_accounts">Dodaj lub zmień konta</string>
     <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
@@ -347,11 +348,6 @@
     <string name="title_advanced_caption_message">Wiadomość</string>
     <string name="title_advanced_caption_message_header">Nagłówek wiadomości</string>
     <string name="title_advanced_caption_message_body">Treść wiadomości</string>
-    <string name="title_advanced_portrait2">Użyj dwóch rzędów w trybie pionowym</string>
-    <string name="title_advanced_portrait2c">Użyj dwóch kolumn w trybie pionowym</string>
-    <string name="title_advanced_portrait3">Domyślnie pokazuj menu nawigacji w trybie pionowym</string>
-    <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
-    <string name="title_advanced_landscape3">Domyślnie pokaż menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
@@ -1401,6 +1397,7 @@
     <string name="title_check_owner">Sprawdź właściciela</string>
     <string name="title_remark_owner">Informacje będą pobierane z <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adres IP właściciela</string>
+    <string name="title_default_apps">Domyślne aplikacje</string>
     <string name="title_reset_open">Ustaw lub wyczyść domyślne aplikacje</string>
     <string name="title_select_app">Wybierz aplikację</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>

@@ -301,9 +301,6 @@
     <string name="title_advanced_caption_message">Berjochte</string>
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
-    <string name="title_advanced_portrait2">Brûk twa rigen yn portretmodus</string>
-    <string name="title_advanced_landscape">Brûk twa kolommen yn lânskipsmodus</string>
-    <string name="title_advanced_landscape3">Toan standert menu yn lânskipsmodus</string>
     <string name="title_advanced_startup">Sjoch op it startskerm</string>
     <string name="title_advanced_cards">Brûk kaartstyl ynstee fan tabelstyl</string>
     <string name="title_advanced_cards_shadow">Brûk skaad foar ûnlezen berjochten at kaart styl brukt wurd</string>

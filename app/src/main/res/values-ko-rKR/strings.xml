@@ -211,8 +211,6 @@
     <string name="title_advanced_caption_message">메시지</string>
     <string name="title_advanced_caption_message_header">메시지 제목</string>
     <string name="title_advanced_caption_message_body">메시지 본문</string>
-    <string name="title_advanced_portrait2">세로 모드에서 2행 사용</string>
-    <string name="title_advanced_landscape">가로 모드에서 2열 사용</string>
     <string name="title_advanced_date_header">날짜로 묶기</string>
     <string name="title_advanced_threading">대화 스레딩</string>
     <string name="title_advanced_gravatars">그라바타 표시</string>

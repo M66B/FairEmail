@@ -2299,37 +2299,37 @@ Yeni, oxunmamış mesajların sayı, "*count*" parametrində bir tam ədəd olac
 <a name="faq107"></a>
 **(107) Rəngli ulduzları necə istifadə edə bilərəm?**
 
-You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
+Rəngli ulduzları bu yollarla tənzimləyə bilərsiniz: *daha çox* mesaj menyusu ilə, çoxlu seçim (bir mesaja uzun basaraq başladılır), bir danışıqda bir ulduza uzun basaraq və ya [qaydalar](#user-content-faq71)ı istifadə edərək avtomatik formada.
 
-You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server. This means that colored stars will not be visible in other email clients and will be lost on downloading messages again. However, the stars (without color) will be synchronized and will be visible in other email clients, when supported.
+Bunu bilməsiniz: rəngli ulduzlar, IMAP protokolu tərəfindən dəstəklənmir və ona görə də, bir e-poçt serveri ilə eyniləşdirilə bilmir. Bu da o deməkdir ki, rəngli ulduzlar, digər e-poçt müştərilərində (client) görünmür və mesajlar təkrar endiriləndə itəcək. Ancaq, ulduzlar (rəngsiz) eyniləşdiriləcək və dəstəklənəndə digər e-poçt müştərilərində görünəcək.
 
-Some email clients use IMAP keywords for colors. However, not all servers support IMAP keywords and besides that there are no standard keywords for colors.
+Bəzi e-poçt müştəriləri, rənglər üçün IMAP açar sözləri istifadə edir. Ancaq, bütün serverlər IMAP açar sözlərini dəstəkləmir və həmçinin, rənglər üçün standart açar sözləri yoxdur.
 
 <br />
 
 <a name="faq108"></a>
-**~~(108) Can you add permanently delete messages from any folder?~~**
+**~~(108) Hər hansısa bir qovluqdan birdəfəlik silinən mesajları əlavə edə bilərsiniz?~~**
 
-~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
+~~Bir qovluqdan mesajları siləndə mesajlar tullantı qovluğuna köçürülür, beləcə, həmin mesajları geri yükləmək şansınız olur.~~ ~~Mesajları tullantı qovluğundan birdəfəlik silə bilərsiniz.~~ ~~Digər qovluqlardan mesajları birdəfəlik silmək, tullantı qovluğunun məqsədini dəyişdirir, ona görə də, bu, əlavə edilməyəcək.~~
 
 <br />
 
 <a name="faq109"></a>
-**~~(109) Why is 'select account' available in official versions only?~~**
+**~~(109) "Hesab seç" nə üçün yalnız rəsmi versiyalarda əlçatandır?~~**
 
-~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
+~~Google hesablarını seçmək və ya səlahiyyətləndirmək üçün *hesab seç*i istifadə etmək, təhlükəsizlik və gizlilik səbəblərinə görə Google-dan xüsusi icazə tələb edir.~~ ~~Bu xüsusi icazə, yalnız tərtibatçının idarə etdiyi və məsuliyyət daşıdığı tətbiqlər üçün əldə edilə bilər.~~ ~~F-Droid quruluşları kimi üçüncü tərəf quruluşlar, üçüncü tərəflər tərəfindən idarə edilir və üçüncü tərəflərin məsuliyyətindədir.~~ ~~Ona görə də, yalnız bu üçüncü tərəflər, Google-dan tələb olunan icazəni ala bilər.~~ ~~Bu üçüncü tərəflər, əslində FairEmail-i dəstəkləmədiyi üçün, böyük ehtimalla lazımi icazəni tələb etməyəcəklər.~~
 
-~~You can solve this in two ways:~~
+~~Bunu iki yolla həll edə bilərsiniz:~~
 
-* ~~Switch to the official version of FairEmail, see [here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for the options~~
-* ~~Use app specific passwords, see [this FAQ](#user-content-faq6)~~
+* ~~FairEmail-in rəsmi versiyasına keçin, seçimlər üçün [bura](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) baxın~~
+* ~~Tətbiqə özəl şifrələr istifadə edin, [bu TSS](#user-content-faq6)-a baxın~~
 
-~~Using *select account* in third party builds is not possible in recent versions anymore.~~ ~~In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.~~
+~~Üçüncü tərəf quruluşlarında *hesab seç*i istifadə etmək, artıq son versiyalarda mümkün deyil.~~ ~~Köhnə versiyalarda bu mümkündür, ancaq *UNREGISTERED_ON_API_CONSOLE* xətası ilə nəticələnəcək.~~
 
 <br />
 
 <a name="faq110"></a>
-**(110) Why are (some) messages empty and/or attachments corrupt?**
+**(110) Nəyə görə (bəzi) mesajlar boşdur və/və ya qoşmaları zədəlidir?**
 
 Boş mesajlar və/və ya zədəli qoşmalar, böyük ehtimalla serverin proqram təminatındakı xətaya görə yaranır. Daha köhnə Microsoft Exchange proqram təminatının bu problemə səbəb olduğu bilinir. Əksər hallarda bunun müvəqqəti həll yolu üçün qabaqcıl hesab tənzimləmələrində *Qismən gətir* seçimini sıradan çıxarda bilərsiniz:
 

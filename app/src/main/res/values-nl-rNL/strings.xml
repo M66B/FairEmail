@@ -120,6 +120,7 @@
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_intro">Het instellen van een account is slechts drie stappen en daarna kunt u e-mails verzenden en ontvangen</string>
     <string name="title_setup_simple">Het is niet nodig om enige andere opties te wijzigen</string>
+    <string name="title_setup_issue">FairEmail is ontwikkeld om u te helpen uw privacy te beschermen en vertegenwoordigt letterlijk duizenden uren werk. Als u problemen ondervindt, neem dan eerst contact met mij op voor ondersteuning voordat u een slechte beoordeling achterlaat. Ik help graag!</string>
     <string name="title_setup_quick_accounts">Accounts toevoegen of wijzigen</string>
     <string name="title_setup_quick_support">Sommige providers maken het moeilijk om een account toe te voegen. Geef a.u.b. FairEmail hiervoor niet de schuld, maar vraag om ondersteuning.</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
@@ -328,11 +329,11 @@
     <string name="title_advanced_caption_message">Bericht</string>
     <string name="title_advanced_caption_message_header">Berichtkop</string>
     <string name="title_advanced_caption_message_body">Berichtinhoud</string>
-    <string name="title_advanced_portrait2">Gebruik twee rijen in portretmodus</string>
-    <string name="title_advanced_portrait2c">Gebruik twee rijen in portretmodus</string>
-    <string name="title_advanced_portrait3">Navigatiemenu standaard in portretmodus weergeven</string>
-    <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
-    <string name="title_advanced_landscape3">Navigatiemenu standaard in liggende modus weergeven</string>
+    <string name="title_advanced_portrait">Portret-modus</string>
+    <string name="title_advanced_landscape">Landschap-modus</string>
+    <string name="title_advanced_two_row">Gebruik twee rijen</string>
+    <string name="title_advanced_two_col">Gebruik twee kolommen</string>
+    <string name="title_advanced_default_nav">Navigatiemenu standaard weergeven</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
@@ -1380,6 +1381,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_check_owner">Controleer eigenaar</string>
     <string name="title_remark_owner">Informatie wordt opgehaald van <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Eigenaar IP-adres</string>
+    <string name="title_default_apps">Standaard apps</string>
     <string name="title_reset_open">Standaardapps instellen of wissen</string>
     <string name="title_select_app">Selecteer app</string>
     <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>

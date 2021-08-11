@@ -110,6 +110,7 @@
     <string name="title_setup_quick">快速設置</string>
     <string name="title_setup_intro">僅需三步即可設置完成帳戶，完成後即可收發郵件</string>
     <string name="title_setup_simple">不需要改變任何其他選項</string>
+    <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時的辛勤工作。如果您有任何問題，請在留下負評之前先與我聯絡以尋求支援。我很樂意幫忙！</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">某些電子郵件供應商讓新增帳戶變得困難。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">快速設置將會透過 autoconfig.thunderbird.net 取得配置資訊</string>
@@ -318,9 +319,11 @@
     <string name="title_advanced_caption_message">訊息</string>
     <string name="title_advanced_caption_message_header">訊息標頭</string>
     <string name="title_advanced_caption_message_body">訊息本体</string>
-    <string name="title_advanced_portrait2">縱向螢幕模式下使用雙排顯示</string>
-    <string name="title_advanced_landscape">橫向螢幕模式下使用雙列顯示</string>
-    <string name="title_advanced_landscape3">預設於橫向螢幕模式下顯示導航功能表</string>
+    <string name="title_advanced_portrait">縱向螢幕模式</string>
+    <string name="title_advanced_landscape">橫向螢幕模式</string>
+    <string name="title_advanced_two_row">使用雙排</string>
+    <string name="title_advanced_two_col">使用雙列</string>
+    <string name="title_advanced_default_nav">預設顯示導航功能表</string>
     <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
     <string name="title_advanced_startup">顯示於開始螢幕</string>
     <string name="title_advanced_cards">使用卡片式樣替代表狀式樣</string>
@@ -1369,6 +1372,7 @@
     <string name="title_check_owner">檢查所有者</string>
     <string name="title_remark_owner">信息將從 <a href="https://ipinfo.io/">ipinfo.io</a> 獲取</string>
     <string name="title_ip_owner">所有者IP地址</string>
+    <string name="title_default_apps">預設應用程式</string>
     <string name="title_reset_open">設定或清除預設應用程式</string>
     <string name="title_select_app">選擇應用</string>
     <string name="title_updated">現有版本 %1$s 的更新</string>

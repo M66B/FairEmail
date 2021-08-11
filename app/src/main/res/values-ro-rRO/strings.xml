@@ -130,6 +130,7 @@
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_intro">Configurarea unui cont are doar trei pași și după aceea puteți trimite și primi e-mailuri</string>
     <string name="title_setup_simple">Nu este nevoie să schimbați alte opțiuni</string>
+    <string name="title_setup_issue">FairEmail a fost dezvoltat pentru a vă ajuta să vă protejați confidențialitatea și reprezintă literalmente mii de ore de muncă. Dacă aveți probleme, vă rog să mă contactați mai întâi pentru asistență înainte de a lăsa o recenzie proastă. Sunt bucuros să vă ajut!</string>
     <string name="title_setup_quick_accounts">Adăugați sau modificați conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
@@ -338,9 +339,11 @@
     <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_caption_message_header">Antet mesaj</string>
     <string name="title_advanced_caption_message_body">Corp mesaj</string>
-    <string name="title_advanced_portrait2">Utilizați două rânduri în modul portret</string>
-    <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
-    <string name="title_advanced_landscape3">Afișează implicit meniul de navigare în modul peisaj</string>
+    <string name="title_advanced_portrait">Modul portret</string>
+    <string name="title_advanced_landscape">Mod peisaj</string>
+    <string name="title_advanced_two_row">Utilizați două rânduri</string>
+    <string name="title_advanced_two_col">Utilizați două coloane</string>
+    <string name="title_advanced_default_nav">Afișați meniul de navigare în mod implicit</string>
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
@@ -1390,6 +1393,7 @@
     <string name="title_check_owner">Verificare proprietar</string>
     <string name="title_remark_owner">Informația va fi preluată de la <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adresă IP proprietar</string>
+    <string name="title_default_apps">Aplicații implicite</string>
     <string name="title_reset_open">Setați sau ștergeți aplicațiile implicite</string>
     <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>

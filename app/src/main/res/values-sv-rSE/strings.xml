@@ -325,11 +325,11 @@
     <string name="title_advanced_caption_message">Meddelande</string>
     <string name="title_advanced_caption_message_header">Meddelandehuvud</string>
     <string name="title_advanced_caption_message_body">Meddelande-text</string>
-    <string name="title_advanced_portrait2">Använd två rader i porträttläge</string>
-    <string name="title_advanced_portrait2c">Använd två kolumner i porträttläge</string>
-    <string name="title_advanced_portrait3">Visa navigeringsmeny i porträttläge som standard</string>
-    <string name="title_advanced_landscape">Använd två kolumner i landskapsläge</string>
-    <string name="title_advanced_landscape3">Visa navigeringsmenyn i liggande läge som standard</string>
+    <string name="title_advanced_portrait">Porträttläge</string>
+    <string name="title_advanced_landscape">Landskapsläge</string>
+    <string name="title_advanced_two_row">Använd två rader</string>
+    <string name="title_advanced_two_col">Använd två kolumner</string>
+    <string name="title_advanced_default_nav">Visa navigeringsmenyn som standard</string>
     <string name="title_advanced_nav_message_count">Visa antalet lokalt lagrade meddelanden i navigeringsmenyn</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>

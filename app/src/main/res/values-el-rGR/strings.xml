@@ -120,6 +120,7 @@
     <string name="title_setup_quick">Γρήγορη ρύθμιση</string>
     <string name="title_setup_intro">Η ρύθμιση ενός λογαριασμού αποτελείται από τρία μόνο βήματα και μετά μπορείτε να στέλνετε και να λαμβάνετε μηνύματα ηλ. ταχυδρομείου</string>
     <string name="title_setup_simple">Δεν χρειάζεται να αλλάξετε άλλες επιλογές</string>
+    <string name="title_setup_issue">Το FairEmail αναπτύχθηκε για να προστατεύσει το ιδιωτικό σας απόρρητο, και αντιπροσωπεύει, κυριολεκτικά, χιλιάδες ώρες εργασίας. Αν αντιμετωπίζετε οποιοδήποτε πρόβλημα, παρακαλώ, επικοινωνήστε πρώτα μαζί μου για υποστήριξη, προτού γράψετε μια αρνητική κριτική. Θα χαρώ να σας βοηθήσω!</string>
     <string name="title_setup_quick_accounts">Προσθήκη ή αλλαγή λογαριασμών</string>
     <string name="title_setup_quick_support">Ορισμένοι πάροχοι δυσχεραίνουν την προσθήκη ενός λογαριασμού. Παρακαλούμε, μην κατηγορείτε το FairEmail για αυτό, αλλά δοκιμάστε να λάβετε υποστήριξη.</string>
     <string name="title_setup_quick_hint">Η γρήγορη ρύθμιση θα ανακτήσει πληροφορίες εγκατάστασης από το autoconfig.thunderbird.net</string>
@@ -328,9 +329,11 @@
     <string name="title_advanced_caption_message">Μήνυμα</string>
     <string name="title_advanced_caption_message_header">Κεφαλίδα μηνύματος</string>
     <string name="title_advanced_caption_message_body">Σώμα μηνύματος</string>
-    <string name="title_advanced_portrait2">Χρήση δύο σειρών στον κάθετο προσανατολισμό</string>
-    <string name="title_advanced_landscape">Χρήση δύο στηλών στον οριζόντιο προσανατολισμό</string>
-    <string name="title_advanced_landscape3">Προβολή μενού πλοήγησης κατά τον οριζόντιο προσανατολισμό από προεπιλογή</string>
+    <string name="title_advanced_portrait">Κατακόρυφος προσανατολισμός</string>
+    <string name="title_advanced_landscape">Οριζόντιος προσανατολισμός</string>
+    <string name="title_advanced_two_row">Χρήση δύο σειρών</string>
+    <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
+    <string name="title_advanced_default_nav">Προβολή μενού πλοήγησης από προεπιλογή</string>
     <string name="title_advanced_nav_message_count">Να εμφανίζεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
@@ -1378,6 +1381,7 @@
     <string name="title_check_owner">Επαλήθευση κατόχου</string>
     <string name="title_remark_owner">Θα ανακτηθούν πληροφορίες από <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Διεύθυνση IP κατόχου</string>
+    <string name="title_default_apps">Προεπιλεγμένες εφαρμογές</string>
     <string name="title_reset_open">Ορισμός ή εκκαθάριση προεπιλεγμένων εφαρμογών</string>
     <string name="title_select_app">Επιλογή εφαρμογής</string>
     <string name="title_updated">Υπάρχει διαθέσιμη μια ενημέρωση για την έκδοση %1$s</string>

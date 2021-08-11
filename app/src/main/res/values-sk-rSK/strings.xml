@@ -347,9 +347,6 @@
     <string name="title_advanced_caption_message">Správa</string>
     <string name="title_advanced_caption_message_header">Hlavička správy</string>
     <string name="title_advanced_caption_message_body">Obsah správy</string>
-    <string name="title_advanced_portrait2">Používať dva riadky v režime na výšku</string>
-    <string name="title_advanced_landscape">Používať dva stĺpce v režime na šírku</string>
-    <string name="title_advanced_landscape3">Predvolene zobrazovať navigačné menu v režime na šírku</string>
     <string name="title_advanced_nav_message_count">Zobraziť počet lokálne uložených správ v navigačnej ponuke</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>

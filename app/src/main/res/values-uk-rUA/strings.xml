@@ -140,6 +140,7 @@
     <string name="title_setup_quick">Швидке налаштування</string>
     <string name="title_setup_intro">Налаштування облікового запису лише за три кроки, і після цього ви зможете відправляти та отримувати листи</string>
     <string name="title_setup_simple">Немає необхідності змінювати будь-які інші параметри</string>
+    <string name="title_setup_issue">FairEmail був розроблений для захисту Вашої приватності і являє собою буквально тисячі годин роботи. Якщо у Вас виникли проблеми, будь ласка, зв\'яжіться зі мною в першу чергу, перш ніж залишити поганий відгук. Дуже радий допомогти!</string>
     <string name="title_setup_quick_accounts">Додавання/зміна облікових записів</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
     <string name="title_setup_quick_hint">Швидке налаштування дасть інформацію про конфігурацію з autoconfig.thunderbird.net</string>
@@ -347,10 +348,11 @@
     <string name="title_advanced_caption_message">Повідомлення</string>
     <string name="title_advanced_caption_message_header">Заголовок повідомлення</string>
     <string name="title_advanced_caption_message_body">Текст повідомлення</string>
-    <string name="title_advanced_portrait2">Використовувати два рядки в портретному режимі</string>
-    <string name="title_advanced_portrait3">Показувати меню навігації в портретному режимі за замовчуванням</string>
-    <string name="title_advanced_landscape">Використовувати дві колонки в ландшафтному режимі</string>
-    <string name="title_advanced_landscape3">Показувати меню навігації в ландшафтному режимі за замовчуванням</string>
+    <string name="title_advanced_portrait">Портретний режим</string>
+    <string name="title_advanced_landscape">Альбомна орієнтація</string>
+    <string name="title_advanced_two_row">Використовувати два рядки</string>
+    <string name="title_advanced_two_col">Використовувати два стовпчики</string>
+    <string name="title_advanced_default_nav">Показувати меню навігації за замовчуванням</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>

@@ -119,6 +119,7 @@
     <string name="title_setup_help">Hjælp</string>
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
+    <string name="title_setup_issue">FairEmail er udviklet for at hjælpe dig med at beskytte din fortrolighed og repræsenterer bogstaveligt talt tusindvis af arbejdstimer. Oplever du problemer, så kontakte mig først mhp. support, inden du giver en dårlig bedømmelse. Jeg vil med glæde hjælpe!</string>
     <string name="title_setup_quick_accounts">Tilføj eller skift konti</string>
     <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>
@@ -321,9 +322,11 @@
     <string name="title_advanced_caption_message">Besked</string>
     <string name="title_advanced_caption_message_header">Beskedoverskrift</string>
     <string name="title_advanced_caption_message_body">Beskedtekst</string>
-    <string name="title_advanced_portrait2">Benyt to rækker i stående tilstand</string>
-    <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
-    <string name="title_advanced_landscape3">Vis som standard navigeringsmenu i liggende tilstand</string>
+    <string name="title_advanced_portrait">Stående tilstand</string>
+    <string name="title_advanced_landscape">Liggende tilstand</string>
+    <string name="title_advanced_two_row">Brug to rækker</string>
+    <string name="title_advanced_two_col">Brug to kolonner</string>
+    <string name="title_advanced_default_nav">Vis som standard navigeringsmenu</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
@@ -1350,6 +1353,7 @@
     <string name="title_check_owner">Tjek ejer</string>
     <string name="title_remark_owner">Oplysninger hentes fra <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Ejers IP-adresse</string>
+    <string name="title_default_apps">Standardapps</string>
     <string name="title_reset_open">Sæt eller ryd standard-apps</string>
     <string name="title_select_app">Vælg app</string>
     <string name="title_updated">En opdatering til version %1$s er tilgængelig</string>

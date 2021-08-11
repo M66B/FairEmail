@@ -316,9 +316,6 @@
     <string name="title_advanced_caption_message">Mensaxe</string>
     <string name="title_advanced_caption_message_header">Cabeceiras da mensaxe</string>
     <string name="title_advanced_caption_message_body">Corpo da mensaxe</string>
-    <string name="title_advanced_portrait2">Usar dúas columnas no modo vertical</string>
-    <string name="title_advanced_landscape">Usar dúas columnas no modo horizonal</string>
-    <string name="title_advanced_landscape3">Mostrar o menú de navegación por defecto no modo horizontal</string>
     <string name="title_advanced_startup">Mostrar na pantalla de inicio</string>
     <string name="title_advanced_cards">Usar o estilo de carta no canto do estilo de lapelas</string>
     <string name="title_advanced_cards_beige">Usar un fondo beixe cando se use o estilo de carta (só temas claros)</string>

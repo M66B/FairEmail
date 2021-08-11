@@ -233,7 +233,6 @@
     <string name="title_advanced_caption_list">Popis</string>
     <string name="title_advanced_caption_conversation">Konverzacija</string>
     <string name="title_advanced_caption_message">Poruka</string>
-    <string name="title_advanced_landscape">Koristi dva stupca u pejzažnom načinu</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
     <string name="title_advanced_cards">Upotrijebi stil kartice umjesto tabularnog stila</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
