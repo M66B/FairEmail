@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +53,9 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     private boolean nav_count;
     private int colorUnread;
     private int textColorSecondary;
+    private int colorWarning;
 
+    private boolean expanded = true;
     private List<TupleFolderNav> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -126,12 +129,14 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
 
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
             tvItemExtra.setText(NF.format(folder.messages));
-            tvItemExtra.setVisibility(nav_count ? View.VISIBLE : View.GONE);
+            tvItemExtra.setVisibility(nav_count && expanded ? View.VISIBLE : View.GONE);
 
             ivExtra.setVisibility(View.GONE);
-            ivWarning.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
+            ivWarning.setVisibility(folder.error != null && expanded ? View.VISIBLE : View.GONE);
+            view.setBackgroundColor(folder.error != null && !expanded ? colorWarning : Color.TRANSPARENT);
         }
 
         @Override
@@ -170,15 +175,16 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<TupleFolderNav> folders) {
-        Log.i("Set nav folders=" + folders.size());
+    public void set(@NonNull List<TupleFolderNav> folders, boolean expanded) {
+        Log.i("Set nav folders=" + folders.size() + " expanded=" + expanded);
 
         if (folders.size() > 0)
             Collections.sort(folders, folders.get(0).getComparator(context));
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, folders), false);
 
-        items = folders;
+        this.expanded = expanded;
+        this.items = folders;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -202,6 +208,11 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+        notifyDataSetChanged();
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

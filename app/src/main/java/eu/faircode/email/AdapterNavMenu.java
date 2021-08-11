@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,9 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
     private int colorUnread;
     private int colorControlNormal;
     private int textColorSecondary;
+    private int colorWarning;
 
+    private boolean expanded = true;
     private List<NavMenuItem> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -96,13 +99,15 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
 
             tvItem.setTextColor(menu.getCount() == null ? (color == null ? textColorSecondary : color) : colorUnread);
             tvItem.setTypeface(menu.getCount() == null ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
             tvItemExtra.setText(menu.getSubtitle());
-            tvItemExtra.setVisibility(menu.getSubtitle() == null ? View.GONE : View.VISIBLE);
+            tvItemExtra.setVisibility(menu.getSubtitle() != null && expanded ? View.VISIBLE : View.GONE);
 
             ivExtra.setImageResource(menu.getExtraIcon());
-            ivExtra.setVisibility(menu.getExtraIcon() == 0 ? View.GONE : View.VISIBLE);
-            ivWarning.setVisibility(menu.hasWarning() ? View.VISIBLE : View.GONE);
+            ivExtra.setVisibility(menu.getExtraIcon() != 0 && expanded ? View.VISIBLE : View.GONE);
+            ivWarning.setVisibility(menu.hasWarning() && expanded ? View.VISIBLE : View.GONE);
+            view.setBackgroundColor(menu.hasWarning() && !expanded ? colorWarning : Color.TRANSPARENT);
         }
 
         @Override
@@ -137,16 +142,18 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<NavMenuItem> menus) {
-        Log.i("Set nav menus=" + menus.size());
+    public void set(@NonNull List<NavMenuItem> menus, boolean expanded) {
+        Log.i("Set nav menus=" + menus.size() + " expanded=" + expanded);
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, menus), false);
 
-        items = menus;
+        this.expanded = expanded;
+        this.items = menus;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -170,6 +177,11 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+        notifyDataSetChanged();
     }
 
     NavMenuItem get(int pos) {

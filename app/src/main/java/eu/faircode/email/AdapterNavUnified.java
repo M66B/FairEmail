@@ -52,6 +52,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private int colorUnread;
     private int textColorSecondary;
 
+    private boolean expanded = true;
     private List<TupleFolderUnified> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -103,9 +104,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
             tvItemExtra.setText(NF.format(folder.messages));
-            tvItemExtra.setVisibility(nav_count ? View.VISIBLE : View.GONE);
+            tvItemExtra.setVisibility(nav_count && expanded ? View.VISIBLE : View.GONE);
 
             ivExtra.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);
@@ -141,7 +143,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
     }
 
-    public void set(@NonNull List<TupleFolderUnified> types) {
+    public void set(@NonNull List<TupleFolderUnified> types, boolean expanded) {
         Log.i("Set nav unified=" + types.size());
 
         Collections.sort(types, new Comparator<TupleFolderUnified>() {
@@ -155,7 +157,8 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, types), false);
 
-        items = types;
+        this.expanded = expanded;
+        this.items = types;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -179,6 +182,11 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+        notifyDataSetChanged();
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

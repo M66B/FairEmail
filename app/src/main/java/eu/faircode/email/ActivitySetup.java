@@ -294,7 +294,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setSubtitle(BuildConfig.VERSION_NAME));
 
-        adapter.set(menus);
+        adapter.set(menus, true);
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 

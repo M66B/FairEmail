@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -54,7 +55,9 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
     private int colorUnread;
     private int textColorSecondary;
+    private int colorWarning;
 
+    private boolean expanded = true;
     private List<TupleAccountEx> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -116,8 +119,10 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
             tvItem.setTextColor(account.unseen == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(account.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
             tvItemExtra.setText(account.last_connected == null ? null : TF.format(account.last_connected));
+            tvItemExtra.setVisibility(account.last_connected != null && expanded ? View.VISIBLE : View.GONE);
 
             ivExtra.setVisibility(View.GONE);
 
@@ -126,13 +131,17 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             if (account.error != null) {
                 ivWarning.setEnabled(false);
                 ivWarning.setImageResource(R.drawable.twotone_warning_24);
-                ivWarning.setVisibility(View.VISIBLE);
+                ivWarning.setVisibility(expanded ? View.VISIBLE : View.GONE);
+                view.setBackgroundColor(expanded ? Color.TRANSPARENT : colorWarning);
             } else if (percent != null && percent > QUOTA_WARNING) {
                 ivWarning.setEnabled(true);
                 ivWarning.setImageResource(R.drawable.twotone_disc_full_24);
-                ivWarning.setVisibility(View.VISIBLE);
-            } else
+                ivWarning.setVisibility(expanded ? View.VISIBLE : View.GONE);
+                view.setBackgroundColor(expanded ? Color.TRANSPARENT : colorWarning);
+            } else {
                 ivWarning.setVisibility(View.GONE);
+                view.setBackgroundColor(Color.TRANSPARENT);
+            }
         }
 
         @Override
@@ -211,13 +220,14 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<TupleAccountEx> accounts) {
+    public void set(@NonNull List<TupleAccountEx> accounts, boolean expanded) {
         Log.i("Set nav accounts=" + accounts.size());
 
         if (accounts.size() > 0)
@@ -225,7 +235,8 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
 
-        items = accounts;
+        this.expanded = expanded;
+        this.items = accounts;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -249,6 +260,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+        notifyDataSetChanged();
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

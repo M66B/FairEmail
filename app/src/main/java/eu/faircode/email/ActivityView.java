@@ -97,6 +97,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NestedScrollView drawerContainer;
+    private ImageButton ibExpanderNav;
     private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
@@ -108,6 +109,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageButton ibExpanderExtra;
     private RecyclerView rvMenuExtra;
 
+    private boolean expanded;
     private AdapterNavAccount adapterNavAccount;
     private AdapterNavUnified adapterNavUnified;
     private AdapterNavFolder adapterNavFolder;
@@ -261,12 +263,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerContainer = findViewById(R.id.drawer_container);
 
         int drawerWidth;
+        final boolean nav_fixed;
         DisplayMetrics dm = getResources().getDisplayMetrics();
-        if (viewId == R.layout.activity_view_landscape_split && landscape3)
+        if (viewId == R.layout.activity_view_landscape_split && landscape3) {
             drawerWidth = Helper.dp2pixels(this, 300);
-        else if (viewId != R.layout.activity_view_landscape_split && portrait3)
+            nav_fixed = true;
+        } else if (viewId != R.layout.activity_view_landscape_split && portrait3) {
             drawerWidth = Math.min(Helper.dp2pixels(this, 300), dm.widthPixels / 2);
-        else {
+            nav_fixed = true;
+        } else {
             int actionBarHeight;
             TypedValue tv = new TypedValue();
             if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
@@ -277,11 +282,41 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
             int dp320 = Helper.dp2pixels(this, 320);
             drawerWidth = Math.min(screenWidth - actionBarHeight, dp320);
+            nav_fixed = false;
         }
 
+        int dp48 = Helper.dp2pixels(this, 48);
+        expanded = (!nav_fixed || prefs.getBoolean("nav_expanded", true));
+
         ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
-        lparam.width = drawerWidth;
+        lparam.width = (expanded ? drawerWidth : dp48);
         drawerContainer.setLayoutParams(lparam);
+
+        // Navigation expander
+        ibExpanderNav = drawerContainer.findViewById(R.id.ibExpanderNav);
+        ibExpanderNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expanded = !expanded;
+                prefs.edit().putBoolean("nav_expanded", expanded).apply();
+
+                lparam.width = (expanded ? drawerWidth : dp48);
+                drawerContainer.setLayoutParams(lparam);
+
+                if (nav_fixed)
+                    childContent.setPaddingRelative(childDrawer.getLayoutParams().width, 0, 0, 0);
+
+                ibExpanderNav.setImageLevel(expanded ? 0 : 1);
+
+                adapterNavAccount.setExpanded(expanded);
+                adapterNavUnified.setExpanded(expanded);
+                adapterNavFolder.setExpanded(expanded);
+                adapterNavMenu.setExpanded(expanded);
+                adapterNavMenuExtra.setExpanded(expanded);
+            }
+        });
+        ibExpanderNav.setImageLevel(expanded ? 0 : 1);
+        ibExpanderNav.setVisibility(nav_fixed ? View.VISIBLE : View.GONE);
 
         // Accounts
         ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
@@ -526,7 +561,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        adapterNavMenu.set(menus);
+        adapterNavMenu.set(menus, expanded);
 
         // Collapsible menus
 
@@ -629,7 +664,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        adapterNavMenuExtra.set(extra);
+        adapterNavMenuExtra.set(extra, expanded);
 
         // Live data
 
@@ -640,7 +675,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)
                     accounts = new ArrayList<>();
-                adapterNavAccount.set(accounts);
+                adapterNavAccount.set(accounts, expanded);
             }
         });
 
@@ -649,7 +684,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(List<TupleFolderUnified> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
-                adapterNavUnified.set(folders);
+                adapterNavUnified.set(folders, expanded);
             }
         });
 
@@ -658,7 +693,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(List<TupleFolderNav> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
-                adapterNavFolder.set(folders);
+                adapterNavFolder.set(folders, expanded);
             }
         });
 

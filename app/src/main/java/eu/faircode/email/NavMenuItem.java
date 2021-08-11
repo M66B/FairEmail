@@ -72,8 +72,9 @@ public class NavMenuItem {
         return this;
     }
 
-    void setWarning(boolean warning) {
+    NavMenuItem setWarning(boolean warning) {
         this.warning = warning;
+        return this;
     }
 
     NavMenuItem setSeparated() {
