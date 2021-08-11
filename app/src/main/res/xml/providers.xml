@@ -125,6 +125,7 @@
     <provider
         name="Yahoo.co.jp"
         domain="yahoo\\.co\\.jp"
+        enabled="false"
         order="6"
         user="local">
         <imap
