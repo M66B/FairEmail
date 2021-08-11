@@ -109,6 +109,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageButton ibExpanderExtra;
     private RecyclerView rvMenuExtra;
 
+    private boolean nav_fixed;
     private boolean expanded;
     private AdapterNavAccount adapterNavAccount;
     private AdapterNavUnified adapterNavUnified;
@@ -263,7 +264,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerContainer = findViewById(R.id.drawer_container);
 
         int drawerWidth;
-        final boolean nav_fixed;
         DisplayMetrics dm = getResources().getDisplayMetrics();
         if (viewId == R.layout.activity_view_landscape_split && landscape3) {
             drawerWidth = Helper.dp2pixels(this, 300);
@@ -282,7 +282,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
             int dp320 = Helper.dp2pixels(this, 320);
             drawerWidth = Math.min(screenWidth - actionBarHeight, dp320);
-            nav_fixed = false;
         }
 
         int dp48 = Helper.dp2pixels(this, 48);
@@ -770,7 +769,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
-        if (drawerLayout.isDrawerOpen(drawerContainer) &&
+        if (!nav_fixed &&
+                drawerLayout.isDrawerOpen(drawerContainer) &&
                 (!drawerLayout.isLocked(drawerContainer) || count == 1))
             drawerLayout.closeDrawer(drawerContainer);
         else {
