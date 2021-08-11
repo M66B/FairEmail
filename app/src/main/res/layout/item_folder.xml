@@ -74,6 +74,7 @@
                 android:contentDescription="@string/title_unified_folder"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toStartOf="@+id/ivSubscribed"
                 app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_folder_special_24" />
@@ -85,6 +86,7 @@
                 android:contentDescription="@string/title_legend_subscribed"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toStartOf="@+id/ivRule"
                 app:layout_constraintStart_toEndOf="@id/ivUnified"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_bookmark_24" />
@@ -96,6 +98,7 @@
                 android:contentDescription="@string/title_edit_rules"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toStartOf="@+id/ivNotify"
                 app:layout_constraintStart_toEndOf="@id/ivSubscribed"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_filter_alt_24" />
@@ -107,6 +110,7 @@
                 android:contentDescription="@string/title_legend_notify"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toStartOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivRule"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_notifications_24" />
@@ -136,6 +140,7 @@
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintEnd_toStartOf="@+id/ivMessages"
+                app:layout_constraintStart_toEndOf="@id/tvName"
                 app:layout_constraintTop_toTopOf="@+id/tvName" />
 
             <ImageView
@@ -145,6 +150,7 @@
                 android:layout_marginEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvMessages"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_mail_outline_24" />
 
@@ -154,6 +160,7 @@
                 android:layout_height="24dp"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvType"
+                app:layout_constraintEnd_toStartOf="@+id/tvType"
                 app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
                 app:srcCompat="@drawable/twotone_inbox_24" />
@@ -169,6 +176,7 @@
                 android:text="type"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@+id/tvTotal"
                 app:layout_constraintStart_toEndOf="@id/ivType"
                 app:layout_constraintTop_toBottomOf="@id/tvName" />
 
@@ -198,6 +206,7 @@
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
                 app:layout_constraintEnd_toStartOf="@+id/ibSync"
+                app:layout_constraintStart_toEndOf="@id/tvTotal"
                 app:layout_constraintTop_toTopOf="@+id/tvType" />
 
             <ImageButton
@@ -208,6 +217,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvAfter"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
                 app:srcCompat="@drawable/twotone_sync_24" />
 
@@ -235,6 +245,7 @@
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@id/tvKeywords"
                 app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
+                app:layout_constraintStart_toEndOf="@id/tvKeywords"
                 app:layout_constraintTop_toTopOf="@+id/tvKeywords" />
 
             <ImageView
@@ -246,6 +257,7 @@
                 android:contentDescription="@string/title_flag"
                 app:layout_constraintBottom_toBottomOf="@id/tvKeywords"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvFlagged"
                 app:layout_constraintTop_toTopOf="@+id/tvKeywords"
                 app:srcCompat="@drawable/twotone_star_24" />
 
