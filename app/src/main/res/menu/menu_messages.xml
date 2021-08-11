@@ -157,4 +157,11 @@
         android:id="@+id/menu_force_send"
         android:title="@string/title_force_send"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_edit_properties"
+        android:title="@string/title_edit_properties"
+        app:showAsAction="never">
+        <menu />
+    </item>
 </menu>

@@ -4455,6 +4455,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
 
+        menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
+
         menu.findItem(R.id.menu_sync_more).setVisible(folder);
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
@@ -4565,6 +4567,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_force_send) {
             onSwipeRefresh();
+            return true;
+        } else if (itemId == R.id.menu_edit_properties) {
+            onMenuEditProperties();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -4903,6 +4908,48 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMenuForceSync() {
         refresh(true);
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+    }
+
+    private void onMenuEditProperties() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+
+        new SimpleTask<EntityFolder>() {
+            @Override
+            protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                long fid = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder == null)
+                    return null;
+
+                EntityAccount account = db.account().getAccount(folder.account);
+                if (account == null)
+                    return null;
+
+                args.putBoolean("imap", account.protocol == EntityAccount.TYPE_IMAP);
+
+                return folder;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityFolder folder) {
+                if (folder == null)
+                    return;
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_EDIT_FOLDER)
+                                .putExtra("id", folder.id)
+                                .putExtra("imap", args.getBoolean("imap")));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "folder:properties");
     }
 
     private void updateState(List<TupleFolderEx> folders) {
