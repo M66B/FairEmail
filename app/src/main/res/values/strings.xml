@@ -1570,7 +1570,7 @@
     <string name="title_default_apps">Default apps</string>
     <string name="title_reset_open">Set or clear default apps</string>
     <string name="title_select_app">Select app</string>
-    <string name="title_updated">There is an update to version %1$s available</string>
+    <string name="title_updated">Update to version %1$s available</string>
     <string name="title_issue">Do you have a question or problem?</string>
     <string name="title_yes">Yes</string>
     <string name="title_no">No</string>
