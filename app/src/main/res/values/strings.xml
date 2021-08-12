@@ -401,6 +401,7 @@
     <string name="title_advanced_two_row">Use two rows</string>
     <string name="title_advanced_two_col">Use two columns</string>
     <string name="title_advanced_nav_options">Show navigation menu options</string>
+    <string name="title_advanced_nav_pin">Pin navigation menu</string>
     <string name="title_advanced_nav_hide_title">Hide navigation menu options?</string>
     <string name="title_advanced_nav_hide_message">You can enable the options again in the display settings</string>
     <string name="title_advanced_nav_message_count">Show number of locally stored messages in the navigation menu</string>

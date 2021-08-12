@@ -406,6 +406,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onClick(View view) {
                 ServiceSynchronize.reload(ActivityView.this, null, true, "nav:sync");
+                ToastEx.makeText(ActivityView.this, R.string.title_force_sync, Toast.LENGTH_LONG).show();
             }
         });
 

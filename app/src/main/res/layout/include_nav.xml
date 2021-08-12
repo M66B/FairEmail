@@ -24,8 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_pin"
+        android:contentDescription="@string/title_advanced_nav_pin"
         android:padding="6dp"
+        android:tooltipText="@string/title_advanced_nav_pin"
         app:layout_constraintStart_toEndOf="@id/ibExpanderNav"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pin" />
@@ -37,6 +38,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_setup"
         android:padding="6dp"
+        android:tooltipText="@string/title_setup"
         app:layout_constraintStart_toEndOf="@id/ibPin"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_settings_24" />
@@ -46,8 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_setup"
+        android:contentDescription="@string/title_synchronize_more"
         android:padding="6dp"
+        android:tooltipText="@string/title_synchronize_more"
         app:layout_constraintStart_toEndOf="@id/ibSettings"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_get_app_24" />
@@ -57,8 +60,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_setup"
+        android:contentDescription="@string/title_force_sync"
         android:padding="6dp"
+        android:tooltipText="@string/title_force_sync"
         app:layout_constraintStart_toEndOf="@id/ibFetchMore"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_sync_24" />
