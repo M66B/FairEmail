@@ -48,6 +48,7 @@ public class FragmentDialogSync extends FragmentDialogBase {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_sync, null);
         final TextView tvFolder = view.findViewById(R.id.tvFolder);
         final EditText etMonths = view.findViewById(R.id.etMonths);
+        final TextView tvRemark = view.findViewById(R.id.tvRemark);
 
         if (fid < 0) {
             if (TextUtils.isEmpty(type))
@@ -58,6 +59,13 @@ public class FragmentDialogSync extends FragmentDialogBase {
             tvFolder.setText(name);
 
         etMonths.setText(null);
+
+        tvRemark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(view.getContext(), 39);
+            }
+        });
 
         return new AlertDialog.Builder(getContext())
                 .setView(view)

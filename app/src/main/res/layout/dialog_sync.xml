@@ -55,10 +55,12 @@
         app:layout_constraintTop_toTopOf="@id/etMonths" />
 
     <eu.faircode.email.FixedTextView
-        android:id="@+id/tvSystem"
+        android:id="@+id/tvRemark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:drawableEnd="@drawable/twotone_info_24"
+        android:drawablePadding="6dp"
         android:text="@string/title_synchronize_more_hint"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="italic"
