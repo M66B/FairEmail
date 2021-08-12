@@ -9,26 +9,52 @@
     android:focusableInTouchMode="true">
 
     <ImageButton
-        android:id="@+id/ibPin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_pin"
-        android:padding="6dp"
-        app:layout_constraintEnd_toStartOf="@+id/ibExpanderNav"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pin" />
-
-    <ImageButton
         android:id="@+id/ibExpanderNav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_expander"
         android:padding="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/expander_hor" />
+
+    <ImageButton
+        android:id="@+id/ibPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_pin"
+        android:padding="6dp"
+        app:layout_constraintStart_toEndOf="@id/ibExpanderNav"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pin" />
+
+    <ImageButton
+        android:id="@+id/ibSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_setup"
+        android:padding="6dp"
+        app:layout_constraintStart_toEndOf="@id/ibPin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twotone_settings_24" />
+
+    <View
+        android:id="@+id/vSeparatorOptions"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderNav" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpOptions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ibPin,ibSettings" />
 
     <ImageButton
         android:id="@+id/ibExpanderAccount"
@@ -38,7 +64,7 @@
         android:contentDescription="@string/title_legend_expander"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibExpanderNav"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorOptions"
         app:srcCompat="@drawable/expander" />
 
     <androidx.recyclerview.widget.RecyclerView

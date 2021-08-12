@@ -54,6 +54,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.core.app.NotificationCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -102,8 +103,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NestedScrollView drawerContainer;
-    private ImageButton ibPin;
     private ImageButton ibExpanderNav;
+    private ImageButton ibPin;
+    private ImageButton ibSettings;
     private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
@@ -114,6 +116,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvMenu;
     private ImageButton ibExpanderExtra;
     private RecyclerView rvMenuExtra;
+    private Group grpOptions;
 
     private AdapterNavAccount adapterNavAccount;
     private AdapterNavUnified adapterNavUnified;
@@ -267,12 +270,52 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerLayout.addDrawerListener(drawerToggle);
 
         drawerContainer = findViewById(R.id.drawer_container);
+        ibExpanderNav = drawerContainer.findViewById(R.id.ibExpanderNav);
+        ibPin = drawerContainer.findViewById(R.id.ibPin);
+        ibSettings = drawerContainer.findViewById(R.id.ibSettings);
+        grpOptions = drawerContainer.findViewById(R.id.grpOptions);
+        ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
+        rvAccount = drawerContainer.findViewById(R.id.rvAccount);
+        ibExpanderUnified = drawerContainer.findViewById(R.id.ibExpanderUnified);
+        rvUnified = drawerContainer.findViewById(R.id.rvUnified);
+        ibExpanderFolder = drawerContainer.findViewById(R.id.ibExpanderFolder);
+        rvFolder = drawerContainer.findViewById(R.id.rvFolder);
+        ibExpanderMenu = drawerContainer.findViewById(R.id.ibExpanderMenu);
+        rvMenu = drawerContainer.findViewById(R.id.rvMenu);
+        ibExpanderExtra = drawerContainer.findViewById(R.id.ibExpanderExtra);
+        rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
 
         ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
         lparam.width = getDrawerWidth();
         drawerContainer.setLayoutParams(lparam);
 
-        ibPin = drawerContainer.findViewById(R.id.ibPin);
+        // Navigation expander
+        ibExpanderNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nav_expanded = !nav_expanded;
+                prefs.edit().putBoolean("nav_expanded", nav_expanded).apply();
+
+                ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
+                lparam.width = getDrawerWidth();
+                drawerContainer.setLayoutParams(lparam);
+
+                int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
+                childContent.setPaddingRelative(padding, 0, 0, 0);
+
+                grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
+                ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
+
+                adapterNavAccount.setExpanded(nav_expanded);
+                adapterNavUnified.setExpanded(nav_expanded);
+                adapterNavFolder.setExpanded(nav_expanded);
+                adapterNavMenu.setExpanded(nav_expanded);
+                adapterNavMenuExtra.setExpanded(nav_expanded);
+            }
+        });
+        ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
+
+        // Navigation pinning
         ibPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -297,39 +340,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
         ibPin.setImageLevel(nav_pinned ? 1 : 0);
-        ibPin.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
 
-        // Navigation expander
-        ibExpanderNav = drawerContainer.findViewById(R.id.ibExpanderNav);
-        ibExpanderNav.setOnClickListener(new View.OnClickListener() {
+        ibSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav_expanded = !nav_expanded;
-                prefs.edit().putBoolean("nav_expanded", nav_expanded).apply();
-
-                ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
-                lparam.width = getDrawerWidth();
-                drawerContainer.setLayoutParams(lparam);
-
-                int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
-                childContent.setPaddingRelative(padding, 0, 0, 0);
-
-                ibPin.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
-                ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
-
-                adapterNavAccount.setExpanded(nav_expanded);
-                adapterNavUnified.setExpanded(nav_expanded);
-                adapterNavFolder.setExpanded(nav_expanded);
-                adapterNavMenu.setExpanded(nav_expanded);
-                adapterNavMenuExtra.setExpanded(nav_expanded);
+                Intent privacy = new Intent(v.getContext(), ActivitySetup.class)
+                        .setAction("display")
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("tab", "display");
+                v.getContext().startActivity(privacy);
             }
         });
-        ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
+
+        grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
 
         // Accounts
-        ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
-
-        rvAccount = drawerContainer.findViewById(R.id.rvAccount);
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
         adapterNavAccount = new AdapterNavAccount(this, this);
         rvAccount.setAdapter(adapterNavAccount);
@@ -349,9 +374,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         // Unified system folders
-        ibExpanderUnified = drawerContainer.findViewById(R.id.ibExpanderUnified);
-
-        rvUnified = drawerContainer.findViewById(R.id.rvUnified);
         rvUnified.setLayoutManager(new LinearLayoutManager(this));
         adapterNavUnified = new AdapterNavUnified(this, this);
         rvUnified.setAdapter(adapterNavUnified);
@@ -371,9 +393,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         // Navigation folders
-        ibExpanderFolder = drawerContainer.findViewById(R.id.ibExpanderFolder);
-
-        rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
         adapterNavFolder = new AdapterNavFolder(this, this);
         rvFolder.setAdapter(adapterNavFolder);
@@ -393,9 +412,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         // Menus
-        ibExpanderMenu = drawerContainer.findViewById(R.id.ibExpanderMenu);
-
-        rvMenu = drawerContainer.findViewById(R.id.rvMenu);
         rvMenu.setLayoutManager(new LinearLayoutManager(this));
         adapterNavMenu = new AdapterNavMenu(this, this);
         rvMenu.setAdapter(adapterNavMenu);
@@ -415,9 +431,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         // Extra menus
-        ibExpanderExtra = drawerContainer.findViewById(R.id.ibExpanderExtra);
-
-        rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvMenuExtra.setLayoutManager(llm);
         adapterNavMenuExtra = new AdapterNavMenu(this, this);
@@ -804,8 +817,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (nav_pinned) {
             int maxWidth = dm.widthPixels - Helper.dp2pixels(this, 300);
             return Math.min(Helper.dp2pixels(this, 300), maxWidth);
-        }
-        else {
+        } else {
             int actionBarHeight;
             TypedValue tv = new TypedValue();
             if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
