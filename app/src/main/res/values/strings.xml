@@ -1320,7 +1320,6 @@
     <string name="title_select_found">Select found</string>
     <string name="title_mark_all_read">Mark all read</string>
     <string name="title_force_sync">Force sync</string>
-    <string name="title_force_reload">Force restart</string>
     <string name="title_force_send">Force send</string>
 
     <string name="title_language_all">All</string>

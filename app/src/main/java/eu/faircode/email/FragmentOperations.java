@@ -116,9 +116,6 @@ public class FragmentOperations extends FragmentBase {
         if (itemId == R.id.menu_help) {
             onMenuHelp();
             return true;
-        } else if (itemId == R.id.menu_force_reload) {
-            onMenuForceReload();
-            return true;
         } else if (itemId == R.id.menu_delete) {
             new FragmentDialogDelete().show(getParentFragmentManager(), "operations:delete");
             return true;
@@ -128,11 +125,6 @@ public class FragmentOperations extends FragmentBase {
 
     private void onMenuHelp() {
         Helper.viewFAQ(getContext(), 3);
-    }
-
-    private void onMenuForceReload() {
-        ServiceSynchronize.reload(getContext(), null, true, "operations");
-        ToastEx.makeText(getContext(), R.string.title_force_reload, Toast.LENGTH_LONG).show();
     }
 
     public static class FragmentDialogDelete extends FragmentDialogBase {
