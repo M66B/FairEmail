@@ -27,6 +27,7 @@
         android:contentDescription="@string/title_advanced_nav_pin"
         android:padding="6dp"
         android:tooltipText="@string/title_advanced_nav_pin"
+        app:layout_constraintEnd_toStartOf="@+id/ibHide"
         app:layout_constraintStart_toEndOf="@id/ibExpanderNav"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pin" />
@@ -39,6 +40,7 @@
         android:contentDescription="@string/title_hide"
         android:padding="6dp"
         android:tooltipText="@string/title_hide"
+        app:layout_constraintEnd_toStartOf="@+id/ibSettings"
         app:layout_constraintStart_toEndOf="@id/ibPin"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_visibility_off_24" />
@@ -51,6 +53,7 @@
         android:contentDescription="@string/title_setup"
         android:padding="6dp"
         android:tooltipText="@string/title_setup"
+        app:layout_constraintEnd_toStartOf="@+id/ibFetchMore"
         app:layout_constraintStart_toEndOf="@id/ibHide"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_settings_24" />
@@ -63,6 +66,7 @@
         android:contentDescription="@string/title_synchronize_more"
         android:padding="6dp"
         android:tooltipText="@string/title_synchronize_more"
+        app:layout_constraintEnd_toStartOf="@+id/ibSync"
         app:layout_constraintStart_toEndOf="@id/ibSettings"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_get_app_24" />
@@ -75,7 +79,7 @@
         android:contentDescription="@string/title_force_sync"
         android:padding="6dp"
         android:tooltipText="@string/title_force_sync"
-        app:layout_constraintStart_toEndOf="@id/ibFetchMore"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_sync_24" />
 
