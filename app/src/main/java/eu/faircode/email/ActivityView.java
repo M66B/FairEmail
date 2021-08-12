@@ -33,18 +33,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -1031,9 +1026,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
-            int count = getSupportFragmentManager().getBackStackEntryCount();
-            if (count == 1 && drawerLayout.isLocked(drawerContainer))
-                drawerLayout.closeDrawer(drawerContainer);
+            if (nav_pinned)
+                onBackPressed();
+            else {
+                int count = getSupportFragmentManager().getBackStackEntryCount();
+                if (count == 1 && drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
+            }
             return true;
         }
 
