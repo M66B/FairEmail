@@ -950,8 +950,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 actionBarHeight = Helper.dp2pixels(this, 56);
 
             int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
+            // Screen width 320 - action bar 56 = 264 dp
+            // Icons 6 x (24 width + 2x6 padding) = 216 dp
+            int drawerWidth = screenWidth - actionBarHeight;
             int dp320 = Helper.dp2pixels(this, 320);
-            return Math.min(screenWidth - actionBarHeight, dp320);
+            return Math.min(drawerWidth, dp320);
         }
     }
 
