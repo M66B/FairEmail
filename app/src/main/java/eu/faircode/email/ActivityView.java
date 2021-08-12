@@ -910,14 +910,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private int getDrawerWidth() {
         if (!nav_expanded)
-            return Helper.dp2pixels(this, 48); // One icon + padding
+            return Helper.dp2pixels(this, 48);
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
         if (nav_pinned) {
-            int minWidth = Helper.dp2pixels(this, 72); // Make sure unpinning is possible
-            int dp300 = Helper.dp2pixels(this, 300);
-            int maxWidth = dm.widthPixels - dp300;
-            return Math.max(Math.min(dp300, maxWidth), minWidth);
+            int maxWidth = dm.widthPixels - Helper.dp2pixels(this, 300);
+            return Math.min(Helper.dp2pixels(this, 300), maxWidth);
         } else {
             int actionBarHeight;
             TypedValue tv = new TypedValue();
