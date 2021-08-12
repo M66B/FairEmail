@@ -303,23 +303,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onClick(View v) {
                 nav_expanded = !nav_expanded;
+                if (nav_expanded && nav_pinned && !canExpandAndPin()) {
+                    nav_pinned = false;
+                    setDrawerPinned(nav_pinned);
+                }
                 setDrawerExpanded(nav_expanded);
-
-                ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
-                lparam.width = getDrawerWidth();
-                drawerContainer.setLayoutParams(lparam);
-
-                int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
-                childContent.setPaddingRelative(padding, 0, 0, 0);
-
-                grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
-                ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
-
-                adapterNavAccount.setExpanded(nav_expanded);
-                adapterNavUnified.setExpanded(nav_expanded);
-                adapterNavFolder.setExpanded(nav_expanded);
-                adapterNavMenu.setExpanded(nav_expanded);
-                adapterNavMenuExtra.setExpanded(nav_expanded);
             }
         });
         ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
@@ -329,20 +317,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onClick(View view) {
                 nav_pinned = !nav_pinned;
+                if (nav_pinned && nav_expanded && !canExpandAndPin()) {
+                    nav_expanded = false;
+                    setDrawerExpanded(nav_expanded);
+                }
                 setDrawerPinned(nav_pinned);
-
-                drawerLayout.setDrawerLockMode(nav_pinned ? LOCK_MODE_LOCKED_OPEN : LOCK_MODE_UNLOCKED);
-                drawerLayout.setScrimColor(nav_pinned ? Color.TRANSPARENT : colorDrawerScrim);
-                drawerLayout.openDrawer(drawerContainer, false);
-
-                ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
-                lparam.width = getDrawerWidth();
-                drawerContainer.setLayoutParams(lparam);
-
-                int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
-                childContent.setPaddingRelative(padding, 0, 0, 0);
-
-                ibPin.setImageLevel(nav_pinned ? 1 : 0);
             }
         });
         ibPin.setImageLevel(nav_pinned ? 1 : 0);
@@ -881,6 +860,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 .remove("nav_expanded") // legacy
                 .putBoolean("nav_expanded_" + getOrientation(), value)
                 .apply();
+
+        ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
+        lparam.width = getDrawerWidth();
+        drawerContainer.setLayoutParams(lparam);
+
+        ViewGroup childContent = (ViewGroup) drawerLayout.getChildAt(0);
+        ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
+        int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
+        childContent.setPaddingRelative(padding, 0, 0, 0);
+
+        grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
+        ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
+
+        adapterNavAccount.setExpanded(nav_expanded);
+        adapterNavUnified.setExpanded(nav_expanded);
+        adapterNavFolder.setExpanded(nav_expanded);
+        adapterNavMenu.setExpanded(nav_expanded);
+        adapterNavMenuExtra.setExpanded(nav_expanded);
     }
 
     private boolean getDrawerPinned() {
@@ -901,6 +898,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 .remove("landscape3") // legacy
                 .putBoolean("nav_pinned_" + getOrientation(), value)
                 .apply();
+
+        drawerLayout.setDrawerLockMode(nav_pinned ? LOCK_MODE_LOCKED_OPEN : LOCK_MODE_UNLOCKED);
+        drawerLayout.setScrimColor(nav_pinned ? Color.TRANSPARENT : colorDrawerScrim);
+        drawerLayout.openDrawer(drawerContainer, false);
+
+        ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
+        lparam.width = getDrawerWidth();
+        drawerContainer.setLayoutParams(lparam);
+
+        ViewGroup childContent = (ViewGroup) drawerLayout.getChildAt(0);
+        ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
+        int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
+        childContent.setPaddingRelative(padding, 0, 0, 0);
+
+        ibPin.setImageLevel(nav_pinned ? 1 : 0);
     }
 
     private String getOrientation() {
@@ -910,13 +922,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private int getDrawerWidth() {
         if (!nav_expanded)
-            return Helper.dp2pixels(this, 48);
+            return Helper.dp2pixels(this, 48); // one icon + padding
 
-        DisplayMetrics dm = getResources().getDisplayMetrics();
-        if (nav_pinned) {
-            int maxWidth = dm.widthPixels - Helper.dp2pixels(this, 300);
-            return Math.min(Helper.dp2pixels(this, 300), maxWidth);
-        } else {
+        if (nav_pinned)
+            return getDrawerWidthPinned();
+        else {
+            DisplayMetrics dm = getResources().getDisplayMetrics();
+
             int actionBarHeight;
             TypedValue tv = new TypedValue();
             if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
@@ -928,6 +940,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             int dp320 = Helper.dp2pixels(this, 320);
             return Math.min(screenWidth - actionBarHeight, dp320);
         }
+    }
+
+    private int getDrawerWidthPinned() {
+        int dp300 = Helper.dp2pixels(this, 300);
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        int maxWidth = dm.widthPixels - dp300;
+        return Math.min(dp300, maxWidth);
+    }
+
+    private boolean canExpandAndPin() {
+        int dp200 = Helper.dp2pixels(this, 200);
+        return (getDrawerWidthPinned() >= dp200);
     }
 
     @Override
