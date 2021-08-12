@@ -33,16 +33,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,6 +113,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private NestedScrollView drawerContainer;
     private ImageButton ibExpanderNav;
     private ImageButton ibPin;
+    private ImageButton ibHide;
     private ImageButton ibSettings;
     private ImageButton ibFetchMore;
     private ImageButton ibSync;
@@ -278,6 +285,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerContainer = findViewById(R.id.drawer_container);
         ibExpanderNav = drawerContainer.findViewById(R.id.ibExpanderNav);
         ibPin = drawerContainer.findViewById(R.id.ibPin);
+        ibHide = drawerContainer.findViewById(R.id.ibHide);
         ibSettings = drawerContainer.findViewById(R.id.ibSettings);
         ibFetchMore = drawerContainer.findViewById(R.id.ibFetchMore);
         ibSync = drawerContainer.findViewById(R.id.ibSync);
@@ -326,39 +334,44 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
         ibPin.setImageLevel(nav_pinned ? 1 : 0);
 
+        ibHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View dview = LayoutInflater.from(ActivityView.this).inflate(R.layout.dialog_nav_options, null);
+                new AlertDialog.Builder(ActivityView.this)
+                        .setView(dview)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                prefs.edit().putBoolean("nav_options", false).apply();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
+        });
+
         // Navigation settings
         ibSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(ActivityView.this, owner, ibSettings);
-                popupMenu.inflate(R.menu.popup_nav);
+
+                for (int i = 0; i < FragmentOptions.PAGE_TITLES.length; i++)
+                    popupMenu.getMenu()
+                            .add(Menu.NONE, i, i, FragmentOptions.PAGE_TITLES[i])
+                            .setIcon(FragmentOptions.PAGE_ICONS[i]);
+
                 popupMenu.insertIcons(ActivityView.this);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        int itemId = item.getItemId();
-                        if (itemId == R.id.menu_hide) {
-                            View dview = LayoutInflater.from(ActivityView.this).inflate(R.layout.dialog_nav_options, null);
-                            new AlertDialog.Builder(ActivityView.this)
-                                    .setView(dview)
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            prefs.edit().putBoolean("nav_options", false).apply();
-                                        }
-                                    })
-                                    .setNegativeButton(android.R.string.cancel, null)
-                                    .show();
-                            return true;
-                        } else if (itemId != R.id.menu_settings) {
-                            String tab = FragmentOptions.TAB_LABELS.get(item.getOrder());
-                            startActivity(new Intent(ActivityView.this, ActivitySetup.class)
-                                    .setAction(tab)
-                                    .putExtra("tab", tab));
-                            return true;
-                        }
-                        return false;
+                        String tab = FragmentOptions.TAB_LABELS.get(item.getOrder());
+                        startActivity(new Intent(ActivityView.this, ActivitySetup.class)
+                                .setAction(tab)
+                                .putExtra("tab", tab));
+                        return true;
                     }
                 });
 

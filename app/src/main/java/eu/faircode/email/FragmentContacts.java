@@ -172,7 +172,7 @@ public class FragmentContacts extends FragmentBase {
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            tvMessage.setText(getText(R.string.title_delete_contacts));
+            tvMessage.setText(getString(R.string.title_delete_contacts));
             cbNotAgain.setVisibility(View.GONE);
 
             return new AlertDialog.Builder(getContext())

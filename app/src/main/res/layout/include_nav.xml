@@ -32,6 +32,18 @@
         app:srcCompat="@drawable/pin" />
 
     <ImageButton
+        android:id="@+id/ibHide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_hide"
+        android:padding="6dp"
+        android:tooltipText="@string/title_hide"
+        app:layout_constraintStart_toEndOf="@id/ibPin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twotone_visibility_off_24" />
+
+    <ImageButton
         android:id="@+id/ibSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +51,7 @@
         android:contentDescription="@string/title_setup"
         android:padding="6dp"
         android:tooltipText="@string/title_setup"
-        app:layout_constraintStart_toEndOf="@id/ibPin"
+        app:layout_constraintStart_toEndOf="@id/ibHide"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_settings_24" />
 
@@ -67,6 +79,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_sync_24" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpOptions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ibPin,ibHide,ibSettings,ibFetchMore,ibSync" />
+
     <View
         android:id="@+id/vSeparatorOptions"
         android:layout_width="0dp"
@@ -75,12 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderNav" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpOptions"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="ibPin,ibSettings,ibFetchMore,ibSync" />
 
     <ImageButton
         android:id="@+id/ibExpanderAccount"

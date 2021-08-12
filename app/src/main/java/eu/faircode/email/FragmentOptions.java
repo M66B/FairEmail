@@ -81,7 +81,7 @@ public class FragmentOptions extends FragmentBase {
             R.layout.fragment_options_misc
     };
 
-    private static final int[] PAGE_TITLES = {
+    static final int[] PAGE_TITLES = {
             R.string.title_advanced_section_main,
             R.string.title_advanced_section_synchronize,
             R.string.title_advanced_section_send,
@@ -94,7 +94,7 @@ public class FragmentOptions extends FragmentBase {
             R.string.title_advanced_section_misc
     };
 
-    private static final int[] PAGE_ICONS = {
+    static final int[] PAGE_ICONS = {
             R.drawable.twotone_home_24,
             R.drawable.twotone_sync_24,
             R.drawable.twotone_send_24,
