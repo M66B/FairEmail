@@ -90,8 +90,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private String startup;
-    private boolean nav_pinned;
     private boolean nav_expanded;
+    private boolean nav_pinned;
     private boolean nav_options;
     private int colorDrawerScrim;
 
@@ -190,8 +190,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         startup = prefs.getString("startup", "unified");
+        nav_expanded = getDrawerExpanded();
         nav_pinned = getDrawerPinned();
-        nav_expanded = prefs.getBoolean("nav_expanded", true);
         nav_options = prefs.getBoolean("nav_options", true);
 
         Configuration config = getResources().getConfiguration();
@@ -303,7 +303,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onClick(View v) {
                 nav_expanded = !nav_expanded;
-                prefs.edit().putBoolean("nav_expanded", nav_expanded).apply();
+                setDrawerExpanded(nav_expanded);
 
                 ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
                 lparam.width = getDrawerWidth();
@@ -329,10 +329,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onClick(View view) {
                 nav_pinned = !nav_pinned;
-                if (config.orientation == ORIENTATION_PORTRAIT)
-                    prefs.edit().putBoolean("portrait3", nav_pinned).apply();
-                else
-                    prefs.edit().putBoolean("landscape3", nav_pinned).apply();
+                setDrawerPinned(nav_pinned);
 
                 drawerLayout.setDrawerLockMode(nav_pinned ? LOCK_MODE_LOCKED_OPEN : LOCK_MODE_UNLOCKED);
                 drawerLayout.setScrimColor(nav_pinned ? Color.TRANSPARENT : colorDrawerScrim);
@@ -872,12 +869,43 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
     }
 
+    private boolean getDrawerExpanded() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean legacy = prefs.getBoolean("nav_expanded", true);
+        return prefs.getBoolean("nav_expanded_" + getOrientation(), legacy);
+    }
+
+    private void setDrawerExpanded(boolean value) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit()
+                .remove("nav_expanded") // legacy
+                .putBoolean("nav_expanded_" + getOrientation(), value)
+                .apply();
+    }
+
     private boolean getDrawerPinned() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean portrait3 = prefs.getBoolean("portrait3", false);
-        boolean landscape3 = prefs.getBoolean("landscape3", true);
         Configuration config = getResources().getConfiguration();
-        return (config.orientation == ORIENTATION_PORTRAIT ? portrait3 : landscape3);
+        boolean legacy;
+        if (config.orientation == ORIENTATION_PORTRAIT)
+            legacy = prefs.getBoolean("portrait3", false);
+        else
+            legacy = prefs.getBoolean("landscape3", true);
+        return prefs.getBoolean("nav_pinned_" + getOrientation(), legacy);
+    }
+
+    private void setDrawerPinned(boolean value) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit()
+                .remove("portrait3") // legacy
+                .remove("landscape3") // legacy
+                .putBoolean("nav_pinned_" + getOrientation(), value)
+                .apply();
+    }
+
+    private String getOrientation() {
+        Configuration config = getResources().getConfiguration();
+        return (config.orientation == ORIENTATION_PORTRAIT ? "portrait" : "landscape");
     }
 
     private int getDrawerWidth() {
