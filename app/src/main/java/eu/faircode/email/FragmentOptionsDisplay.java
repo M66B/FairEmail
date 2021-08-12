@@ -153,8 +153,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread",
-            "date", "date_bold", "navbar_colorize",
-            "portrait2", "portrait2c", "landscape", "nav_count",
+            "date", "date_bold",
+            "portrait2", "portrait2c", "landscape", "nav_count", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
@@ -188,11 +188,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swShadow = view.findViewById(R.id.swShadow);
         swDate = view.findViewById(R.id.swDate);
         swDateBold = view.findViewById(R.id.swDateBold);
-        swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
         swPortrait2 = view.findViewById(R.id.swPortrait2);
         swPortrait2c = view.findViewById(R.id.swPortrait2c);
         swLandscape = view.findViewById(R.id.swLandscape);
         swNavMessageCount = view.findViewById(R.id.swNavMessageCount);
+        swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
 
         swThreading = view.findViewById(R.id.swThreading);
         swThreadingUnread = view.findViewById(R.id.swThreadingUnread);
@@ -343,15 +343,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swNavBarColorize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("navbar_colorize", checked).apply();
-                setNavigationBarColor(
-                        checked ? Helper.resolveColor(getContext(), R.attr.colorPrimaryDark) : Color.BLACK);
-            }
-        });
-
         swPortrait2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -381,6 +372,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("nav_count", checked).apply();
+            }
+        });
+
+        swNavBarColorize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("navbar_colorize", checked).apply();
+                setNavigationBarColor(
+                        checked ? Helper.resolveColor(getContext(), R.attr.colorPrimaryDark) : Color.BLACK);
             }
         });
 
@@ -1022,11 +1022,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDate.setChecked(prefs.getBoolean("date", true));
         swDateBold.setChecked(prefs.getBoolean("date_bold", false));
         swDateBold.setEnabled(swDate.isChecked());
-        swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
         swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
+        swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
 
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swThreadingUnread.setChecked(prefs.getBoolean("threading_unread", false));
