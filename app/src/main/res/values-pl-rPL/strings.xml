@@ -352,7 +352,9 @@
     <string name="title_advanced_landscape">Orientacja pozioma</string>
     <string name="title_advanced_two_row">Dwa wiersze</string>
     <string name="title_advanced_two_col">Dwie kolumny</string>
-    <string name="title_advanced_default_nav">Domyślnie pokaż menu nawigacji</string>
+    <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
+    <string name="title_advanced_nav_hide_title">Ukryć opcje menu nawigacji?</string>
+    <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach ekranu</string>
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>

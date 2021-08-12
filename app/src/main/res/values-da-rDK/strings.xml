@@ -326,7 +326,6 @@
     <string name="title_advanced_landscape">Liggende tilstand</string>
     <string name="title_advanced_two_row">Brug to rækker</string>
     <string name="title_advanced_two_col">Brug to kolonner</string>
-    <string name="title_advanced_default_nav">Vis som standard navigeringsmenu</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>

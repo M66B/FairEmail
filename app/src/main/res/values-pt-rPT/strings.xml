@@ -304,7 +304,6 @@
     <string name="title_advanced_landscape">Modo paisagem</string>
     <string name="title_advanced_two_row">Use duas linhas</string>
     <string name="title_advanced_two_col">Use duas colunas</string>
-    <string name="title_advanced_default_nav">Mostrar o menu de navegação por defeito</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>

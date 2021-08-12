@@ -335,7 +335,9 @@
     <string name="title_advanced_landscape">Querformat</string>
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
-    <string name="title_advanced_default_nav">Navigationsmenü standardmäßig anzeigen</string>
+    <string name="title_advanced_nav_options">Navigationsmenü-Optionen anzeigen</string>
+    <string name="title_advanced_nav_hide_title">Navigationsmenü-Optionen ausblenden?</string>
+    <string name="title_advanced_nav_hide_message">Sie können die Optionen in den Einstellungen, Tab Darstellung, wieder aktivieren</string>
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>

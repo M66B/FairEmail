@@ -333,7 +333,9 @@
     <string name="title_advanced_landscape">Mode paysage</string>
     <string name="title_advanced_two_row">Utiliser deux rangées</string>
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
-    <string name="title_advanced_default_nav">Afficher le menu de navigation par défaut</string>
+    <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
+    <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation ?</string>
+    <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>

@@ -343,7 +343,6 @@
     <string name="title_advanced_landscape">Mod peisaj</string>
     <string name="title_advanced_two_row">Utilizați două rânduri</string>
     <string name="title_advanced_two_col">Utilizați două coloane</string>
-    <string name="title_advanced_default_nav">Afișați meniul de navigare în mod implicit</string>
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>

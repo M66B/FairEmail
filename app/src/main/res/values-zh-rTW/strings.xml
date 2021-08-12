@@ -148,7 +148,7 @@
     <string name="title_setup_no_auth_hint">請仔細檢查您的電子郵件地址和密碼，並確保為您的帳戶啟用外部存取 (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">此郵件供應商需要應用密碼而非帳戶密碼，請檢查供應商的說明</string>
     <string name="title_setup_no_inbox">未發現收件匣</string>
-    <string name="title_setup_advanced_protection">註冊高級保護計畫時，無法使用第三方電子郵件應用程式。這是由 Google 所施加的限制。</string>
+    <string name="title_setup_advanced_protection">在註冊高級保護計畫後，無法使用第三方電子郵件應用程式。這是由 Google 所施加的限制。</string>
     <string name="title_setup_quick_success">帳戶新增成功</string>
     <string name="title_setup_quick_no_sent">未選擇送信資料夾。傳送的訊息可能無法儲存。</string>
     <string name="title_setup_quick_configure">編輯名字、顏色、滑動操作等</string>
@@ -323,7 +323,9 @@
     <string name="title_advanced_landscape">橫向螢幕模式</string>
     <string name="title_advanced_two_row">使用雙排</string>
     <string name="title_advanced_two_col">使用雙列</string>
-    <string name="title_advanced_default_nav">預設顯示導航功能表</string>
+    <string name="title_advanced_nav_options">顯示導航功能表選項</string>
+    <string name="title_advanced_nav_hide_title">要隱藏導航功能表選項嗎？</string>
+    <string name="title_advanced_nav_hide_message">您可以在顯示設定中再次啟用此選項</string>
     <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
     <string name="title_advanced_startup">顯示於開始螢幕</string>
     <string name="title_advanced_cards">使用卡片式樣替代表狀式樣</string>
@@ -470,7 +472,7 @@
     <string name="title_advanced_client_id">將應用程式名稱和版本傳送到電子郵件伺服器</string>
     <string name="title_advanced_display_hidden">顯示隱藏的訊息文字</string>
     <string name="title_advanced_incognito_keyboard">使用無痕鍵盤 (Android 8+)</string>
-    <string name="title_advanced_secure">自最近應用中隱藏並阻止螢幕擷取</string>
+    <string name="title_advanced_secure">自最近應用程式螢幕中隱藏並阻止螢幕畫面擷取</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物特徵辨識驗證時限</string>
     <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
@@ -541,7 +543,7 @@
     <string name="title_advanced_metered_warning">停用此選項也將停用在使用行動網路連線期間的訊息接收和傳送。</string>
     <string name="title_advanced_rlah_hint">假設在歐盟境內沒有漫遊費</string>
     <string name="title_advanced_usage_hint">這將增加電池、數據和儲存空間的用量</string>
-    <string name="title_advanced_tcp_keep_alive_hint">在某些裝置上啟用此選項可能導致連線問題</string>
+    <string name="title_advanced_tcp_keep_alive_hint">在一些裝置上啟用此選項可能導致連線問題</string>
     <string name="title_advanced_validate_hint">這可能導致訊息不同步，例如在使用 VPN 時，或是在其他情況下</string>
     <string name="title_advanced_timeout_hint">讀/寫時限將被設定為連線時限的兩倍。更大的值將產生更高的電量消耗。</string>
     <string name="title_advanced_ssl_harden_hint">啟用此選項將停用弱 SSL 協定和加密方法，這可能導致連線問題</string>
@@ -930,7 +932,7 @@
         如果您可以在 Play Store 中為 FairEmail 打分的話，我將不勝感激。
     </string>
     <string name="title_need_help">我需要幫助</string>
-    <string name="title_ask_once">該信息只會出現一次，除非您選擇‘稍後’</string>
+    <string name="title_ask_once">該信息只會出現一次，除非您選擇‘以後’</string>
     <string name="title_third_party">您正在使用第三方版本</string>
     <string name="title_expand_warning">展開此訊息將會下載 %1$s</string>
     <string name="title_download_message">正在下載 &#8230;</string>
@@ -1042,9 +1044,9 @@
     <string name="title_external_reminder">正在傳送至外部地址</string>
     <string name="title_subject_reminder">主旨為空</string>
     <string name="title_text_reminder">訊息內容為空</string>
-    <string name="title_attachment_keywords">附件，附件，附件，包括</string>
-    <string name="title_attachment_reminder">您打算添加附件嗎？</string>
-    <string name="title_plain_reminder">所有文字格式將會遺失</string>
+    <string name="title_attachment_keywords">附上附件，包含附件</string>
+    <string name="title_attachment_reminder">您是想新增附件嗎？</string>
+    <string name="title_plain_reminder">所有的文字格式化都會丟失</string>
     <string name="title_dsn_reminder">強制退信會傷害到原寄件者的電子郵件發信信譽！</string>
     <string name="title_size_reminder">訊息大小 (%1$s) 超出伺服器所限 (%2$s)</string>
     <string name="title_attachments_missing">有部分附件未下載</string>
@@ -1348,7 +1350,7 @@
     <string name="title_legend_t">聚焦本文</string>
     <string name="title_hint_folder_actions">長按資料夾項以獲取選項，例如為快速訪問而新增資料夾項至導航功能表的‘顯示於導航功能表中’</string>
     <string name="title_hint_folder_sync">為了限制電池和網路的使用量，預設情況下，並非所有的資料夾和訊息都會被同步</string>
-    <string name="title_hint_support">如果您有任何疑問或問題，請使用支援導航功能表項獲取幫助</string>
+    <string name="title_hint_support">如果您有什麼疑問或是遇到了什麼問題，請使用支援導航功能表項獲取幫助</string>
     <string name="title_hint_message_actions">向左滑動移入垃圾桶； 向右滑動封存 (如果可用)； 可在帳戶設定中配置滑動操作</string>
     <string name="title_hint_message_selection">長按一則訊息以開始選擇多則訊息； 按住並向上或向下滑動以選擇更多訊息</string>
     <string name="title_hint_important">重要</string>
@@ -1366,27 +1368,27 @@
     <string name="title_tracking_link">該網站可能會追蹤您</string>
     <string name="title_suspicious_link">此連結很可疑</string>
     <string name="title_link_http">流量不會被加密</string>
-    <string name="title_link_https">流量將被加密</string>
-    <string name="title_sanitize_link">刪除跟踪參數</string>
-    <string name="title_insecure_link">此鏈接不安全</string>
-    <string name="title_check_owner">檢查所有者</string>
-    <string name="title_remark_owner">信息將從 <a href="https://ipinfo.io/">ipinfo.io</a> 獲取</string>
-    <string name="title_ip_owner">所有者IP地址</string>
+    <string name="title_link_https">流量會被加密</string>
+    <string name="title_sanitize_link">移除追蹤參數</string>
+    <string name="title_insecure_link">此連結不安全</string>
+    <string name="title_check_owner">檢查擁有者</string>
+    <string name="title_remark_owner">資訊將檢索自 <a href="https://ipinfo.io/">ipinfo.io</a></string>
+    <string name="title_ip_owner">擁有者 IP 位址</string>
     <string name="title_default_apps">預設應用程式</string>
     <string name="title_reset_open">設定或清除預設應用程式</string>
-    <string name="title_select_app">選擇應用</string>
-    <string name="title_updated">現有版本 %1$s 的更新</string>
-    <string name="title_issue">您有問題嗎？</string>
+    <string name="title_select_app">選擇應用程式</string>
+    <string name="title_updated">有可用新版本 %1$s</string>
+    <string name="title_issue">您有什麼疑問或是遇到了什麼問題嗎？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
     <string name="title_later">以後再說</string>
     <string name="title_undo">撤銷</string>
     <string name="title_redo">重做</string>
-    <string name="title_add">添加</string>
-    <string name="title_browse">打開用</string>
+    <string name="title_add">新增</string>
+    <string name="title_browse">開啟方式</string>
     <string name="title_info">資訊</string>
     <string name="title_download">下載</string>
-    <string name="title_report">報告</string>
+    <string name="title_report">回報</string>
     <string name="title_fix">修復</string>
     <string name="title_enable">啟用</string>
     <string name="title_enabled">啟用</string>
@@ -1398,32 +1400,32 @@
     <string name="title_clipboard_copy">複製到剪貼板</string>
     <string name="title_clipboard_copied">已複製到剪貼板</string>
     <string name="title_ask_what">詢問該怎麼辦</string>
-    <string name="title_no_ask_again">不要再問這個</string>
-    <string name="title_no_ask_for_again">不要再問這個%1$s</string>
+    <string name="title_no_ask_again">不要再次詢問</string>
+    <string name="title_no_ask_for_again">不要就 %1$s 再次詢問了</string>
     <string name="title_no_body">未發現訊息本文</string>
     <string name="title_no_charset">未支援的編碼類型: %1$s</string>
     <string name="title_via">透過：%1$s</string>
-    <string name="title_1hour">1小時</string>
-    <string name="title_1day">1天</string>
-    <string name="title_1week">1週</string>
-    <string name="title_now">現在</string>
-    <string name="title_after">在%1$s之後</string>
-    <string name="title_reset">重置</string>
+    <string name="title_1hour">1 小時</string>
+    <string name="title_1day">1 天</string>
+    <string name="title_1week">1 週</string>
+    <string name="title_now">立刻</string>
+    <string name="title_after">在 %1$s 之後</string>
+    <string name="title_reset">重設</string>
     <string name="title_hours">小時</string>
     <string name="title_minutes">分鐘</string>
-    <string name="title_dismiss">解僱</string>
+    <string name="title_dismiss">忽略</string>
     <string name="title_snooze_now">延後</string>
     <string name="title_loading">載入中 &#8230;</string>
     <string name="title_fetching_again">再次自伺服器提取訊息</string>
     <string name="title_conversation_actions">操作</string>
-    <string name="title_conversation_action_reply">回覆：%1$s</string>
+    <string name="title_conversation_action_reply">回覆: \'%1$s\'</string>
     <string name="title_conversation_action_copy">複製: \'%1$s\'</string>
     <string name="title_icalendar_accept">接受</string>
-    <string name="title_icalendar_decline">下降</string>
+    <string name="title_icalendar_decline">拒絕</string>
     <string name="title_icalendar_maybe">也許</string>
     <string name="title_icalendar_calendar">日曆</string>
     <string name="title_pro_feature">這是專業版中的功能</string>
-    <string name="title_pro_list">專業版功能列表</string>
+    <string name="title_pro_list">專業版功能清單</string>
     <string name="title_pro_purchase">購買</string>
     <string name="title_pro_one_time">%1$s (一次購買)</string>
     <string name="title_pro_no_play">未找到 Play Store 程式</string>
@@ -1432,17 +1434,17 @@
         為了提供 FairEmail 的長期維護和支援，一些便利和高級功能不提供免費使用。
         為助您瞭解以上資訊，FairEmail 會顯示一則簡短的信息。一旦您購買專業版功能，即會令其關閉。
     </string>
-    <string name="title_pro_hide">隱藏%1$d週的小消息</string>
+    <string name="title_pro_hide">將這一信息隱藏 %1$d 週</string>
     <string name="title_pro_hint">購買完整專業版功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
     <string name="title_pro_price">為什麼專業版功能如此昂貴？</string>
     <string name="title_pro_family">我可以利用 Google Play 家庭媒體庫嗎？</string>
-    <string name="title_pro_restore">如何恢復購買？</string>
+    <string name="title_pro_restore">我如何恢復購買？</string>
     <string name="title_pro_pending">購買待處理</string>
     <string name="title_pro_activated">所有專業版功能均已激活</string>
     <string name="title_pro_valid">已激活所有專業版功能</string>
     <string name="title_pro_invalid">無效的回應</string>
     <string name="title_pro_support">FairEmail 需要您的協助。 輕觸即可購買專業版功能幫助專案繼續走下去，或者選擇關閉此信息。</string>
-    <string name="title_boundary_error">從郵件服務器下載消息時出錯</string>
+    <string name="title_boundary_error">自郵件伺服器下載訊息時出錯</string>
     <string name="title_boundary_retry">再試一次</string>
     <string name="title_unexpected_error">意外的錯誤</string>
     <string name="title_log">紀錄</string>
@@ -1453,18 +1455,18 @@
     <string name="title_rules_import">匯入規則</string>
     <string name="title_rules_delete_all">刪除所有規則</string>
     <string name="title_rules_delete_junk">刪除垃圾郵件規則</string>
-    <string name="title_rules_delete_all_confirm">刪除所有規則?</string>
-    <string name="title_rules_delete_junk_confirm">刪除所有將郵件移動到垃圾郵件文件夾的規則？</string>
+    <string name="title_rules_delete_all_confirm">您要刪除掉所有規則嗎？</string>
+    <string name="title_rules_delete_junk_confirm">要刪除掉所有移動訊息至垃圾郵件資料夾的規則嗎？</string>
     <string name="title_debug_info">除錯資訊</string>
-    <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
-    <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>
-    <string name="title_unexpected_info_remark">請描述出現錯誤時的操作：</string>
+    <string name="title_debug_info_remark">請描述問題並寫明問題發生的時間：</string>
+    <string name="title_crash_info_remark">請描述應用程式崩潰時您正在做什麼：</string>
+    <string name="title_unexpected_info_remark">請描述遭遇錯誤時您都在做些什麼：</string>
     <string name="title_widget_title_count">新訊息計數</string>
     <string name="title_widget_title_list">訊息清單</string>
-    <string name="title_widget_title_sync">同步處理開/關</string>
+    <string name="title_widget_title_sync">同步處理開關</string>
     <string name="title_power_menu_sync">同步</string>
     <string name="title_power_menu_on">On</string>
-    <string name="title_power_menu_off">關</string>
+    <string name="title_power_menu_off">Off</string>
     <string name="title_power_menu_on_off">On/Off</string>
     <string name="title_widget_account">帳戶</string>
     <string name="title_widget_account_all">所有</string>
@@ -1487,14 +1489,14 @@
     <string name="title_keyword_label1">重要</string>
     <string name="title_keyword_label2">公司</string>
     <string name="title_keyword_label3">個人</string>
-    <string name="title_keyword_label4">代辦</string>
-    <string name="title_keyword_label5">以後再說</string>
+    <string name="title_keyword_label4">待辦</string>
+    <string name="title_keyword_label5">過後</string>
     <string name="title_accessibility_flagged">已加星號</string>
     <string name="title_accessibility_unflagged">未加星號</string>
     <string name="title_accessibility_collapse">摺疊</string>
     <string name="title_accessibility_expand">展開</string>
     <string name="title_accessibility_view_contact">檢視聯絡人</string>
-    <string name="title_accessibility_show_authentication_result">顯示認證結果</string>
+    <string name="title_accessibility_show_authentication_result">顯示驗證結果</string>
     <string name="title_accessibility_show_snooze_time">顯示延後時間</string>
     <string name="title_accessibility_view_help">檢視幫助</string>
     <string name="title_accessibility_selected">已選</string>
@@ -1509,12 +1511,12 @@
     <string name="title_accessibility_hide_addresses">隱藏地址</string>
     <string name="title_accessibility_attachment">附件</string>
     <string name="title_accessibility_from">寄件者</string>
-    <string name="title_accessibility_to">接受者</string>
+    <string name="title_accessibility_to">接收者</string>
     <string-array name="pollIntervalNames">
         <item>時時</item>
         <item>每 15 分鐘</item>
         <item>每 30 分鐘</item>
-        <item>每小時</item>
+        <item>每 1 小時</item>
         <item>每 2 小時</item>
         <item>每 4 小時</item>
         <item>每 8 小時</item>
@@ -1551,8 +1553,8 @@
     </string-array>
     <string-array name="onCloseNames">
         <item>什麼也不做</item>
-        <item>往前一個會話</item>
-        <item>往後一個會話</item>
+        <item>前往上一個會話</item>
+        <item>前往下一個會話</item>
     </string-array>
     <string-array name="resizeNames">
         <item>小</item>
@@ -1611,10 +1613,10 @@
     </string-array>
     <string-array name="encryptNames">
         <item>沒有</item>
-        <item>PGP僅簽名</item>
-        <item>PGP簽名+加密</item>
-        <item>S / MIME僅簽名</item>
-        <item>S / MIME簽名+加密</item>
+        <item>僅 PGP 簽名</item>
+        <item>PGP 簽名+加密</item>
+        <item>僅 S/MIME 簽名</item>
+        <item>S/MIME 簽名+加密</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

@@ -352,7 +352,6 @@
     <string name="title_advanced_landscape">Альбомна орієнтація</string>
     <string name="title_advanced_two_row">Використовувати два рядки</string>
     <string name="title_advanced_two_col">Використовувати два стовпчики</string>
-    <string name="title_advanced_default_nav">Показувати меню навігації за замовчуванням</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>

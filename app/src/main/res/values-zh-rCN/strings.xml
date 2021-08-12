@@ -322,7 +322,6 @@
     <string name="title_advanced_landscape">横屏模式</string>
     <string name="title_advanced_two_row">使用两行</string>
     <string name="title_advanced_two_col">使用两列</string>
-    <string name="title_advanced_default_nav">默认显示导航菜单</string>
     <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储消息的数量</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
@@ -1426,10 +1425,10 @@
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_one_time">%1$s (一次性购买)</string>
     <string name="title_pro_no_play">未找到 Play Store</string>
-    <string name="title_pro_info">        毫不夸张地说，我花了数千个小时来开发 FairEmail，尽管如此，大多数功能都可以免费使用
-        FairEmail 非常重视您的隐私，不会显示广告，更不会偷偷使用跟踪或分析来牟利
-        为了长期维护和支持 FairEmail，一些便利及高级功能需要付费使用
-        FairEmail 会显示一条小消息来提醒您这一点，如果您购买了专业功能，该消息将会移除</string>
+    <string name="title_pro_info">        毫不夸张地说，我花了数千个小时来开发 FairEmail，尽管如此，大多数功能都可以免费使用。
+        FairEmail 非常重视您的隐私，不会显示广告，更不会偷偷使用跟踪或分析来牟利。
+        为了长期维护和支持 FairEmail，一些便利及高级功能需要付费使用。
+        FairEmail 会显示一条小消息来提醒您这一点，该消息将在您购买了专业版功能后被移除。</string>
     <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">为什么专业功能如此昂贵？</string>

@@ -333,7 +333,6 @@
     <string name="title_advanced_landscape">Üfüqi rejim</string>
     <string name="title_advanced_two_row">İki sətir istifadə et</string>
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
-    <string name="title_advanced_default_nav">Naviqasiya menyusunu ilkin olaraq istifadə et</string>
     <string name="title_advanced_nav_message_count">Naviqasiya menyusunda yerli yaddaşda saxlanılmış mesaj sayını göstər</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_cards">Cədvəl stili əvəzinə kart stilini istifadə et</string>

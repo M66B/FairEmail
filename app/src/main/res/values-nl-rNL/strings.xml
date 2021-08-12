@@ -333,7 +333,9 @@
     <string name="title_advanced_landscape">Landschap-modus</string>
     <string name="title_advanced_two_row">Gebruik twee rijen</string>
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
-    <string name="title_advanced_default_nav">Navigatiemenu standaard weergeven</string>
+    <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
+    <string name="title_advanced_nav_hide_title">Verberg navigatiemenu opties?</string>
+    <string name="title_advanced_nav_hide_message">U kunt de opties opnieuw inschakelen in de weergave-instellingen</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>

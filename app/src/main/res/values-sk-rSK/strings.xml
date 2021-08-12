@@ -353,7 +353,6 @@
     <string name="title_advanced_landscape">Režim na šírku</string>
     <string name="title_advanced_two_row">Použiť dva riadky</string>
     <string name="title_advanced_two_col">Použiť dva stĺpce</string>
-    <string name="title_advanced_default_nav">Ukázať predvolene navigačnú ponuku</string>
     <string name="title_advanced_nav_message_count">Zobraziť počet lokálne uložených správ v navigačnej ponuke</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>

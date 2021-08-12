@@ -333,7 +333,6 @@
     <string name="title_advanced_landscape">Οριζόντιος προσανατολισμός</string>
     <string name="title_advanced_two_row">Χρήση δύο σειρών</string>
     <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
-    <string name="title_advanced_default_nav">Προβολή μενού πλοήγησης από προεπιλογή</string>
     <string name="title_advanced_nav_message_count">Να εμφανίζεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
