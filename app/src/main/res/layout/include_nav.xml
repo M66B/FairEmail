@@ -41,6 +41,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_settings_24" />
 
+    <ImageButton
+        android:id="@+id/ibFetchMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_setup"
+        android:padding="6dp"
+        app:layout_constraintStart_toEndOf="@id/ibSettings"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twotone_get_app_24" />
+
+    <ImageButton
+        android:id="@+id/ibSync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_setup"
+        android:padding="6dp"
+        app:layout_constraintStart_toEndOf="@id/ibFetchMore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twotone_sync_24" />
+
     <View
         android:id="@+id/vSeparatorOptions"
         android:layout_width="0dp"
@@ -54,7 +76,7 @@
         android:id="@+id/grpOptions"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="ibPin,ibSettings" />
+        app:constraint_referenced_ids="ibPin,ibSettings,ibFetchMore,ibSync" />
 
     <ImageButton
         android:id="@+id/ibExpanderAccount"

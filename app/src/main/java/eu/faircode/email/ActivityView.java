@@ -108,6 +108,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageButton ibExpanderNav;
     private ImageButton ibPin;
     private ImageButton ibSettings;
+    private ImageButton ibFetchMore;
+    private ImageButton ibSync;
     private View vSeparatorOptions;
     private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
@@ -277,6 +279,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ibExpanderNav = drawerContainer.findViewById(R.id.ibExpanderNav);
         ibPin = drawerContainer.findViewById(R.id.ibPin);
         ibSettings = drawerContainer.findViewById(R.id.ibSettings);
+        ibFetchMore = drawerContainer.findViewById(R.id.ibFetchMore);
+        ibSync = drawerContainer.findViewById(R.id.ibSync);
         vSeparatorOptions = drawerContainer.findViewById(R.id.vSeparatorOptions);
         grpOptions = drawerContainer.findViewById(R.id.grpOptions);
         ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
@@ -346,6 +350,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
         ibPin.setImageLevel(nav_pinned ? 1 : 0);
 
+        // Navigation settings
         ibSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -382,6 +387,25 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 });
 
                 popupMenu.show();
+            }
+        });
+
+        ibFetchMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle args = new Bundle();
+                args.putLong("folder", -1L); // Unified inbox
+
+                FragmentDialogSync sync = new FragmentDialogSync();
+                sync.setArguments(args);
+                sync.show(getSupportFragmentManager(), "nav:fetch");
+            }
+        });
+
+        ibSync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ServiceSynchronize.reload(ActivityView.this, null, true, "nav:sync");
             }
         });
 
