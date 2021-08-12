@@ -177,6 +177,18 @@ public class MessageClassifier {
     private static String classify(long account, @NonNull String currentClass, @NonNull List<String> texts, boolean added, @NonNull Context context) {
         State state = new State();
 
+        // Check classes
+        DB db = DB.getInstance(context);
+        for (String clazz : new ArrayList<>(classMessages.get(account).keySet())) {
+            EntityFolder folder = db.folder().getFolderByName(account, clazz);
+            if (folder == null) {
+                EntityLog.log(context, "Classifier deleting folder class=" + account + ":" + clazz);
+                classMessages.get(account).remove(clazz);
+                for (String word : wordClassFrequency.get(account).keySet())
+                    wordClassFrequency.get(account).get(word).remove(clazz);
+            }
+        }
+
         Log.i("Classifier texts=" + texts.size());
         for (String text : texts) {
             // First word
@@ -230,16 +242,9 @@ public class MessageClassifier {
             return null;
 
         // Calculate chance per class
-        DB db = DB.getInstance(context);
         int words = state.words.size() - texts.size() - 1;
         List<Chance> chances = new ArrayList<>();
         for (String clazz : state.classStats.keySet()) {
-            EntityFolder folder = db.folder().getFolderByName(account, clazz);
-            if (folder == null) {
-                Log.w("Classifier no folder class=" + account + ":" + clazz);
-                continue;
-            }
-
             Stat stat = state.classStats.get(clazz);
 
             double chance = stat.totalFrequency / maxMessages / words;
