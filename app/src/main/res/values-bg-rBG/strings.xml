@@ -1086,7 +1086,6 @@
     <string name="title_ip_owner">IP адрес на собственика</string>
     <string name="title_reset_open">Задаване или изчистване на приложенията по подразбиране</string>
     <string name="title_select_app">Изберете приложение</string>
-    <string name="title_updated">Налична е актуализация до версия %1$s</string>
     <string name="title_issue">Имате ли въпрос или проблем?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Не</string>

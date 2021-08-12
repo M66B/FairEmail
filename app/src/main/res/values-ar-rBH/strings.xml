@@ -431,7 +431,6 @@
     <string name="title_open_link">افتح الرابط</string>
     <string name="title_image_link">رابط الصورة</string>
     <string name="title_select_app">اختر تطبيقا</string>
-    <string name="title_updated">هناك إصدار جديد متوفر %1$s</string>
     <string name="title_issue">هل عندك تساؤل أو صادفتَ مشكلة؟</string>
     <string name="title_yes">نعم</string>
     <string name="title_no">لا</string>

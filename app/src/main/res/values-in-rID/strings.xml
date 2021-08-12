@@ -1180,7 +1180,6 @@
     <string name="title_remark_owner">Informasi diterima dari <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Alamat IP pemilik</string>
     <string name="title_select_app">Pilih aplikasi</string>
-    <string name="title_updated">Pembaruan ke versi %1$s tersedia</string>
     <string name="title_issue">Apakah Anda memiliki pertanyaan atau masalah?</string>
     <string name="title_yes">Ya</string>
     <string name="title_no">Tidak</string>

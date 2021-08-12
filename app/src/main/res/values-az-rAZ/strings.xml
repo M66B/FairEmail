@@ -1155,7 +1155,6 @@
     <string name="title_select_found">Tapılanı seçin</string>
     <string name="title_mark_all_read">Hamısını oxunmuş kimi işarələ</string>
     <string name="title_force_sync">Məcburi eyniləşdirmə</string>
-    <string name="title_force_reload">Məcburi yenidən başlatma</string>
     <string name="title_force_send">Məcburi göndərmə</string>
     <string name="title_language_all">Hamısı</string>
     <string name="title_previous">Əvvəlki</string>
@@ -1384,7 +1383,6 @@
     <string name="title_default_apps">İlkin tətbiqlər</string>
     <string name="title_reset_open">İlkin tətbiqləri tənzimlə və təmizlə</string>
     <string name="title_select_app">Tətbiq seç</string>
-    <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>

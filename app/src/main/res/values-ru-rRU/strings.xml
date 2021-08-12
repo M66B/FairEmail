@@ -1179,7 +1179,6 @@
     <string name="title_select_found">Выбрать найденное</string>
     <string name="title_mark_all_read">Отметь все прочитанными</string>
     <string name="title_force_sync">Принудительная синхронизация</string>
-    <string name="title_force_reload">Принудительный перезапуск</string>
     <string name="title_force_send">Принудительная отправка</string>
     <string name="title_language_all">Все</string>
     <string name="title_previous">Назад</string>
@@ -1408,7 +1407,6 @@
     <string name="title_default_apps">Приложения по умолчанию</string>
     <string name="title_reset_open">Задать или сбросить приложения по умолчанию</string>
     <string name="title_select_app">Выбор приложения</string>
-    <string name="title_updated">Доступно обновление до версии %1$s</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>

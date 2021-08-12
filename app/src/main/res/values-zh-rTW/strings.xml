@@ -7,7 +7,7 @@
     <string name="app_crash">此裝置不支援 FairEmail 的執行，因為 Android 系統中存在會導致本程式崩潰的 bugs</string>
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
     <string name="app_cake">剩餘儲存空間不足</string>
-    <string name="app_updated">最近更新: %1$s</string>
+    <string name="app_updated">最近更新於: %1$s</string>
     <string name="channel_service">接收</string>
     <string name="channel_send">寄送</string>
     <string name="channel_notification">電子郵件</string>
@@ -1148,7 +1148,6 @@
     <string name="title_select_found">選取已尋獲的</string>
     <string name="title_mark_all_read">全部標示為已讀取</string>
     <string name="title_force_sync">強制同步</string>
-    <string name="title_force_reload">強制重啟</string>
     <string name="title_force_send">強制傳送</string>
     <string name="title_language_all">全部</string>
     <string name="title_previous">上一個</string>
@@ -1377,7 +1376,6 @@
     <string name="title_default_apps">預設應用程式</string>
     <string name="title_reset_open">設定或清除預設應用程式</string>
     <string name="title_select_app">選擇應用程式</string>
-    <string name="title_updated">有可用新版本 %1$s</string>
     <string name="title_issue">您有什麼疑問或是遇到了什麼問題嗎？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>

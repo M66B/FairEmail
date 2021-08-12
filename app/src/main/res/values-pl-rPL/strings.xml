@@ -353,8 +353,9 @@
     <string name="title_advanced_two_row">Dwa wiersze</string>
     <string name="title_advanced_two_col">Dwie kolumny</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
+    <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>
     <string name="title_advanced_nav_hide_title">Ukryć opcje menu nawigacji?</string>
-    <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach ekranu</string>
+    <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach wyświetlania</string>
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
@@ -1178,7 +1179,6 @@
     <string name="title_select_found">Wybierz znalezione</string>
     <string name="title_mark_all_read">Oznacz wszystko jako przeczytane</string>
     <string name="title_force_sync">Wymuś synchronizację</string>
-    <string name="title_force_reload">Wymuś restart</string>
     <string name="title_force_send">Wymuś wysłanie</string>
     <string name="title_language_all">Wszystkie</string>
     <string name="title_previous">Poprzedni</string>
@@ -1407,7 +1407,7 @@
     <string name="title_default_apps">Domyślne aplikacje</string>
     <string name="title_reset_open">Ustaw lub wyczyść domyślne aplikacje</string>
     <string name="title_select_app">Wybierz aplikację</string>
-    <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
+    <string name="title_updated">Dostępna jest aktualizacja do wersji %1$s</string>
     <string name="title_issue">Masz pytanie lub problem?</string>
     <string name="title_yes">Tak</string>
     <string name="title_no">Nie</string>

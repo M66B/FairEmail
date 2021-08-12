@@ -1139,7 +1139,6 @@
     <string name="title_select_found">見つかったものを選択</string>
     <string name="title_mark_all_read">すべて既読にする</string>
     <string name="title_force_sync">強制同期</string>
-    <string name="title_force_reload">強制的に再起動</string>
     <string name="title_force_send">強制送信</string>
     <string name="title_language_all">全て</string>
     <string name="title_previous">前へ</string>
@@ -1367,7 +1366,6 @@
     <string name="title_ip_owner">所有者のIPアドレス</string>
     <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
-    <string name="title_updated">バージョン %1$s のアップデートが利用可能です</string>
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>

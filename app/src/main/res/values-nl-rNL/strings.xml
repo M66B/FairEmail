@@ -334,6 +334,7 @@
     <string name="title_advanced_two_row">Gebruik twee rijen</string>
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
+    <string name="title_advanced_nav_pin">Navigatiemenu vastzetten</string>
     <string name="title_advanced_nav_hide_title">Verberg navigatiemenu opties?</string>
     <string name="title_advanced_nav_hide_message">U kunt de opties opnieuw inschakelen in de weergave-instellingen</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
@@ -1157,7 +1158,6 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_select_found">Selecteer gevonden</string>
     <string name="title_mark_all_read">Markeer alle gelezen</string>
     <string name="title_force_sync">Forceer verversen</string>
-    <string name="title_force_reload">Forceer herstart</string>
     <string name="title_force_send">Forceer verzenden</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorige</string>
@@ -1386,7 +1386,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_default_apps">Standaard apps</string>
     <string name="title_reset_open">Standaardapps instellen of wissen</string>
     <string name="title_select_app">Selecteer app</string>
-    <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>
+    <string name="title_updated">Update naar versie %1$s beschikbaar</string>
     <string name="title_issue">Heeft u een vraag of probleem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>

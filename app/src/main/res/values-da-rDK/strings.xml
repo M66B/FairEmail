@@ -326,6 +326,10 @@
     <string name="title_advanced_landscape">Liggende tilstand</string>
     <string name="title_advanced_two_row">Brug to rækker</string>
     <string name="title_advanced_two_col">Brug to kolonner</string>
+    <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
+    <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
+    <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
+    <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktivere via skærmindstillingerne</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
@@ -1128,7 +1132,6 @@
     <string name="title_select_found">Markér fundne</string>
     <string name="title_mark_all_read">Markér alle som læst</string>
     <string name="title_force_sync">Gennemtving synk</string>
-    <string name="title_force_reload">Gennemtving genstart</string>
     <string name="title_force_send">Gennemtving afsend</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foregående</string>
@@ -1355,7 +1358,7 @@
     <string name="title_default_apps">Standardapps</string>
     <string name="title_reset_open">Sæt eller ryd standard-apps</string>
     <string name="title_select_app">Vælg app</string>
-    <string name="title_updated">En opdatering til version %1$s er tilgængelig</string>
+    <string name="title_updated">Opdatering til version %1$s tilgængelig</string>
     <string name="title_issue">Har du et spørgsmål eller problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>

@@ -920,7 +920,6 @@
     <string name="title_remark_owner">Informacije će se preuzeti iz <a href="https://ipinfo.io/"> ipinfo.io </a></string>
     <string name="title_ip_owner">IP adresa vlasnika</string>
     <string name="title_select_app">Odaberi Aplikaciju</string>
-    <string name="title_updated">Dostupno je ažuriranje na verziju %1$s</string>
     <string name="title_issue">Imate li pitanje ili problem?</string>
     <string name="title_yes">Da</string>
     <string name="title_no">Ne</string>

@@ -1135,7 +1135,6 @@
     <string name="title_select_found">Chọn các thư được tìm thấy</string>
     <string name="title_mark_all_read">Đánh dấu tất cả đã đọc</string>
     <string name="title_force_sync">Buộc đồng bộ hoá</string>
-    <string name="title_force_reload">Buộc khởi động lại</string>
     <string name="title_force_send">Buộc gửi</string>
     <string name="title_language_all">Tất cả</string>
     <string name="title_previous">Trước</string>
@@ -1361,7 +1360,6 @@
     <string name="title_ip_owner">Địa chỉ IP của chủ sở hữu</string>
     <string name="title_reset_open">Đặt hoặc xóa các ứng dụng mặc định</string>
     <string name="title_select_app">Chọn ứng dụng</string>
-    <string name="title_updated">Có bản cập nhật lên phiên bản %1$s</string>
     <string name="title_issue">Bạn có câu hỏi hoặc vấn đề không?</string>
     <string name="title_yes">Có</string>
     <string name="title_no">Không</string>

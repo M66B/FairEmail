@@ -2,12 +2,12 @@
 
 # FairEmail 支持文档
 
-如遇疑问，请先阅读下列的常见问题。 [本文档末尾列有：](#user-content-get-support)如何询问未列出的问题、请求功能，以及报告遇到的问题。
+如果有疑问，请先查看以下常见问题。 [在本文末尾](#user-content-get-support)，您可以了解如何提出其他问题、请求功能和报告错误。
 
 ## 索引
 
 * [账户授权](#user-content-authorizing-accounts)
-* [怎样来...？](#user-content-howto)
+* [如何操作 ...?](#user-content-howto)
 * [已知问题](#user-content-known-problems)
 * [计划添加的功能](#user-content-planned-features)
 * [常被要求添加的功能](#user-content-frequently-requested-features)
@@ -64,10 +64,10 @@
 
 <h2><a name="known-problems"></a>已知问题</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~ 将安卓设置切换到 *使用24小时格式* 可能可以暂时解决这个问题。 已加入一个替代方法。~~
-* ~~一个 [Google Drive 的 bug](https://issuetracker.google.com/issues/126362828) 导致导出到 Google Drive 的文件为空。 谷歌已将其修复。~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~ 谷歌已将其修复。~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ 计算数据库实时数据时出现异常... 无法读取行...</em>"。 已加入一个替代方法。~~
+* ~~[Android 5.1 和 6 中有一个 Bug](https://issuetracker.google.com/issues/37054851) 会导致应用程序有时会显示错误的时间格式。 将安卓设置切换到 *使用24小时格式* 可能可以暂时解决这个问题。 已添加解决方案。~~
+* ~~ [Google Drive 中的一个 Bug](https://issuetracker.google.com/issues/126362828) 会导致导出到 Google Drive 的文件为空。 谷歌已将其修复。~~
+* ~~[AndroidX 中的一个 Bug](https://issuetracker.google.com/issues/78495471) 会导致 FairEmail 在长按或滑动操作时偶尔崩溃。 谷歌已将其修复。~~
+* ~~ [AndroidX ROOM 的一个 Bug](https://issuetracker.google.com/issues/138441698) 会导致有时出现崩溃并报告错误 “*... 计算数据库实时数据时出现异常... 无法读取行...*”。 已添加解决方案。~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification. Bad notification posted ...</em>" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.</li>

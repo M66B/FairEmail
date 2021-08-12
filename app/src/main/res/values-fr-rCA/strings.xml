@@ -334,6 +334,7 @@
     <string name="title_advanced_two_row">Utiliser deux rangées</string>
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
+    <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>
     <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation?</string>
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
@@ -1159,7 +1160,6 @@
     <string name="title_select_found">Sélectionner les messages trouvés</string>
     <string name="title_mark_all_read">Tout marquer comme lu</string>
     <string name="title_force_sync">Forcer la synchronisation</string>
-    <string name="title_force_reload">Forcer le redémarrage</string>
     <string name="title_force_send">Forcer l’envoi</string>
     <string name="title_language_all">Toutes</string>
     <string name="title_previous">Précédent</string>
@@ -1388,7 +1388,7 @@
     <string name="title_default_apps">Applications par défaut</string>
     <string name="title_reset_open">Définir ou effacer les applications par défaut</string>
     <string name="title_select_app">Sélectionner une appli</string>
-    <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
+    <string name="title_updated">Mise à jour vers la version %1$s disponible</string>
     <string name="title_issue">Avez-vous une question ou un problème?</string>
     <string name="title_yes">Oui</string>
     <string name="title_no">Non</string>

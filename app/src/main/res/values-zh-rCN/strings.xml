@@ -1144,7 +1144,6 @@
     <string name="title_select_found">选中找到的</string>
     <string name="title_mark_all_read">全部标为已读</string>
     <string name="title_force_sync">强制同步</string>
-    <string name="title_force_reload">强制重启</string>
     <string name="title_force_send">强制发送</string>
     <string name="title_language_all">全部</string>
     <string name="title_previous">上一封</string>
@@ -1373,7 +1372,6 @@
     <string name="title_default_apps">默认应用程序</string>
     <string name="title_reset_open">设置或清除默认应用</string>
     <string name="title_select_app">选择应用</string>
-    <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有疑问吗？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>

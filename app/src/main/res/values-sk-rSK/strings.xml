@@ -1169,7 +1169,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_select_found">Vybrať nájdené</string>
     <string name="title_mark_all_read">Označiť všetko ako prečítané</string>
     <string name="title_force_sync">Vynútiť synchronizáciu</string>
-    <string name="title_force_reload">Vynútiť reštart</string>
     <string name="title_force_send">Vynútiť odoslanie</string>
     <string name="title_language_all">Všetko</string>
     <string name="title_previous">Predchádzajúca</string>
@@ -1395,7 +1394,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_reset_open">Nastavenie alebo vymazanie predvolených aplikácií</string>
     <string name="title_select_app">Vybrať aplikáciu</string>
-    <string name="title_updated">Je dostupná aktualizácia na verziu %1$s</string>
     <string name="title_issue">Máte otázku alebo chcete nahlásiť problém?</string>
     <string name="title_yes">Ǎno</string>
     <string name="title_no">Nie</string>

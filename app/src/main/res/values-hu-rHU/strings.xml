@@ -1237,7 +1237,6 @@
     <string name="title_remark_owner">Az információ lekérésre fog kerülni az <a href="https://ipinfo.io/">ipinfo.io</a> -ról</string>
     <string name="title_ip_owner">Tulajdonos IP cím</string>
     <string name="title_select_app">Válasszon alkalmazást</string>
-    <string name="title_updated">Egy frissítés a %1$s verzióra elérhető</string>
     <string name="title_issue">Van egy kérdésed vagy egy problémád?</string>
     <string name="title_yes">Igen</string>
     <string name="title_no">Nem</string>

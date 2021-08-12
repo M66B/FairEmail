@@ -333,6 +333,10 @@
     <string name="title_advanced_landscape">Οριζόντιος προσανατολισμός</string>
     <string name="title_advanced_two_row">Χρήση δύο σειρών</string>
     <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
+    <string name="title_advanced_nav_options">Προβολή των επιλογών του μενού πλοήγησης</string>
+    <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>
+    <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
+    <string name="title_advanced_nav_hide_message">Μπορείτε να ενεργοποιήσετε ξανά τις επιλογές στις ρυθμίσεις εμφάνισης</string>
     <string name="title_advanced_nav_message_count">Να εμφανίζεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
@@ -1154,7 +1158,6 @@
     <string name="title_select_found">Επιλογή αποτελεσμάτων αναζήτησης</string>
     <string name="title_mark_all_read">Επισήμανση όλων ως αναγνωσμένων</string>
     <string name="title_force_sync">Αναγκαστικός συγχρονισμός</string>
-    <string name="title_force_reload">Αναγκαστική επανεκκίνηση</string>
     <string name="title_force_send">Αναγκαστική αποστολή</string>
     <string name="title_language_all">Όλα</string>
     <string name="title_previous">Προηγούμενο</string>
@@ -1383,7 +1386,7 @@
     <string name="title_default_apps">Προεπιλεγμένες εφαρμογές</string>
     <string name="title_reset_open">Ορισμός ή εκκαθάριση προεπιλεγμένων εφαρμογών</string>
     <string name="title_select_app">Επιλογή εφαρμογής</string>
-    <string name="title_updated">Υπάρχει διαθέσιμη μια ενημέρωση για την έκδοση %1$s</string>
+    <string name="title_updated">Ενημέρωση για την έκδοση %1$s διαθέσιμη</string>
     <string name="title_issue">Έχετε μία ερώτηση ή κάποιο πρόβλημα;</string>
     <string name="title_yes">Ναι</string>
     <string name="title_no">Όχι</string>

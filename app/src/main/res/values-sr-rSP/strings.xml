@@ -826,7 +826,6 @@
     <string name="title_remark_owner">Информације ће бити преузете са <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP адреса власника</string>
     <string name="title_select_app">Изабери апликацију</string>
-    <string name="title_updated">Постоји доступно ажурирање на верзију %1$s</string>
     <string name="title_issue">Да ли имате питање или проблем?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Не</string>

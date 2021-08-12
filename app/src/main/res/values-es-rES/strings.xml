@@ -251,7 +251,7 @@
     <string name="title_advanced_section_synchronize">Recibir</string>
     <string name="title_advanced_section_send">Enviar</string>
     <string name="title_advanced_section_connection">Conexión</string>
-    <string name="title_advanced_section_display">Mostrar</string>
+    <string name="title_advanced_section_display">Visualización</string>
     <string name="title_advanced_section_behavior">Comportamiento</string>
     <string name="title_advanced_section_privacy">Privacidad</string>
     <string name="title_advanced_section_encryption">Cifrado</string>
@@ -329,6 +329,14 @@
     <string name="title_advanced_caption_message">Mensaje</string>
     <string name="title_advanced_caption_message_header">Encabezado del mensaje</string>
     <string name="title_advanced_caption_message_body">Cuerpo del mensaje</string>
+    <string name="title_advanced_portrait">Modo vertical</string>
+    <string name="title_advanced_landscape">Modo apaisado</string>
+    <string name="title_advanced_two_row">Usar dos filas</string>
+    <string name="title_advanced_two_col">Usar dos columnas</string>
+    <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
+    <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
+    <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
+    <string name="title_advanced_nav_hide_message">Puede activar las opciones de nuevo en la configuración de visualización</string>
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
@@ -1152,7 +1160,6 @@
     <string name="title_select_found">Seleccionar lo encontrado</string>
     <string name="title_mark_all_read">Marcar todos como leídos</string>
     <string name="title_force_sync">Forzar sincronización</string>
-    <string name="title_force_reload">Forzar reinicio</string>
     <string name="title_force_send">Forzar envío</string>
     <string name="title_language_all">Todos</string>
     <string name="title_previous">Anterior</string>
@@ -1381,7 +1388,7 @@
     <string name="title_default_apps">Aplicaciones predeterminadas</string>
     <string name="title_reset_open">Establecer o limpiar aplicaciones por defecto</string>
     <string name="title_select_app">Seleccionar app</string>
-    <string name="title_updated">Hay una actualización a la version %1$s disponible</string>
+    <string name="title_updated">Actualización a la versión %1$s disponible</string>
     <string name="title_issue">¿Tiene una pregunta o problema?</string>
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>

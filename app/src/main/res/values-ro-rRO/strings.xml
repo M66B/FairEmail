@@ -343,6 +343,10 @@
     <string name="title_advanced_landscape">Mod peisaj</string>
     <string name="title_advanced_two_row">Utilizați două rânduri</string>
     <string name="title_advanced_two_col">Utilizați două coloane</string>
+    <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
+    <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
+    <string name="title_advanced_nav_hide_title">Ascundeți opțiunile din meniul de navigare?</string>
+    <string name="title_advanced_nav_hide_message">Puteți activa din nou opțiunile în setările de afișare</string>
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
@@ -1166,7 +1170,6 @@
     <string name="title_select_found">Selectare găsite</string>
     <string name="title_mark_all_read">Marcheaza tot ca citit</string>
     <string name="title_force_sync">Sincronizare forțată</string>
-    <string name="title_force_reload">Forțați repornirea</string>
     <string name="title_force_send">Trimite forțat</string>
     <string name="title_language_all">Toate</string>
     <string name="title_previous">Precedent</string>
@@ -1395,7 +1398,7 @@
     <string name="title_default_apps">Aplicații implicite</string>
     <string name="title_reset_open">Setați sau ștergeți aplicațiile implicite</string>
     <string name="title_select_app">Selectează aplicația</string>
-    <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
+    <string name="title_updated">Actualizare la versiunea %1$s disponibilă</string>
     <string name="title_issue">Aveți o întrebare sau problemă?</string>
     <string name="title_yes">Da</string>
     <string name="title_no">Nu</string>

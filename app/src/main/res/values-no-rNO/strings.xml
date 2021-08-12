@@ -1156,7 +1156,6 @@
     <string name="title_remark_owner">Informasjon vil bli hentet fra <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Eierens IP-adresse</string>
     <string name="title_select_app">Velg app</string>
-    <string name="title_updated">Det er en oppdatering til versjon %1$s tilgjengelig</string>
     <string name="title_issue">Har du et spørsmål eller et problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nei</string>

@@ -1146,7 +1146,6 @@
     <string name="title_select_found">Bulunanları seç</string>
     <string name="title_mark_all_read">Hepsini okundu olarak işaretle</string>
     <string name="title_force_sync">Eşzamanlamaya zorla</string>
-    <string name="title_force_reload">Yeniden başlatmaya zorla</string>
     <string name="title_force_send">Göndermeye zorla</string>
     <string name="title_language_all">Tümü</string>
     <string name="title_previous">Önceki</string>
@@ -1372,7 +1371,6 @@
     <string name="title_ip_owner">Sahibinin İP adresi</string>
     <string name="title_reset_open">Varsayılan uygulamaları ayarlayın veya temizleyin</string>
     <string name="title_select_app">Uygulama seçin</string>
-    <string name="title_updated">Sürüm %1$s için bir güncelleme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
     <string name="title_yes">Evet</string>
     <string name="title_no">Hayır</string>

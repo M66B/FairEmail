@@ -1329,7 +1329,6 @@
     <string name="title_remark_owner">As informações serão recuperadas de <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Endereço IP do proprietário</string>
     <string name="title_select_app">Selecionar app</string>
-    <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>
     <string name="title_issue">Você está com alguma dúvida ou algum problema?</string>
     <string name="title_yes">Sim</string>
     <string name="title_no">Não</string>

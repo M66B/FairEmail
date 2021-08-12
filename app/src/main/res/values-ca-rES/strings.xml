@@ -1043,7 +1043,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_remark_owner">Es recuperarà informació <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adreça IP del propietari</string>
     <string name="title_select_app">Seleccioneu aplicació</string>
-    <string name="title_updated">Hi ha disponible una actualització a la versió %1$s</string>
     <string name="title_issue">Tens alguna pregunta o problema?</string>
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>

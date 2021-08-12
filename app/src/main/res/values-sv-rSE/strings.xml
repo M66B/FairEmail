@@ -330,6 +330,7 @@
     <string name="title_advanced_two_row">Använd två rader</string>
     <string name="title_advanced_two_col">Använd två kolumner</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
+    <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
     <string name="title_advanced_nav_hide_title">Dölj alternativ för navigeringsmenyn?</string>
     <string name="title_advanced_nav_hide_message">Du kan aktivera alternativen igen i visningsinställningarna</string>
     <string name="title_advanced_nav_message_count">Visa antalet lokalt lagrade meddelanden i navigeringsmenyn</string>
@@ -1155,7 +1156,6 @@
     <string name="title_select_found">Välj hittade</string>
     <string name="title_mark_all_read">Markera alla lästa</string>
     <string name="title_force_sync">Tvinga synkronisering</string>
-    <string name="title_force_reload">Tvinga omstart</string>
     <string name="title_force_send">Tvinga skickning</string>
     <string name="title_language_all">Alla</string>
     <string name="title_previous">Föregående</string>
@@ -1383,7 +1383,7 @@
     <string name="title_ip_owner">Ägarens IP-adress</string>
     <string name="title_reset_open">Ange eller rensa standardappar</string>
     <string name="title_select_app">Välj app</string>
-    <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>
+    <string name="title_updated">Uppdatering till version %1$s tillgänglig</string>
     <string name="title_issue">Har du en fråga eller problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>

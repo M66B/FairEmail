@@ -1054,7 +1054,6 @@
     <string name="title_remark_owner">Informazioa <a href="https://ipinfo.io/">ipinfo.io</a> helbidetik eskuratuko da</string>
     <string name="title_ip_owner">Jabearen IP helbidea</string>
     <string name="title_select_app">Hautatu aplikazioa</string>
-    <string name="title_updated">%1$s bertsiora eguneraketa eskuragarri dago</string>
     <string name="title_issue">Galdera edo arazoren bat duzu?</string>
     <string name="title_yes">Bai</string>
     <string name="title_no">Ez</string>

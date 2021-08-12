@@ -968,7 +968,6 @@
     <string name="title_remark_owner">Podatki bodo pridobljeni iz <a href="https://ipinfo.io/">ipinfo.io</a>.</string>
     <string name="title_ip_owner">Lastnikov naslov IP</string>
     <string name="title_select_app">Izberite program</string>
-    <string name="title_updated">Na voljo je posodobitev na različico %1$s.</string>
     <string name="title_issue">Ali imate vprašanje ali težavo?</string>
     <string name="title_yes">Da</string>
     <string name="title_no">Ne</string>

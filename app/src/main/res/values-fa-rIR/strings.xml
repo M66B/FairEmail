@@ -926,7 +926,6 @@
     <string name="title_check_owner">بررسی مالک</string>
     <string name="title_ip_owner">نشانی IP مالک</string>
     <string name="title_select_app">انتخاب برنامه</string>
-    <string name="title_updated">یک بروز رسانی به نسخه %1$s وجود دارد</string>
     <string name="title_issue">سوال یا مشکلی دارید؟</string>
     <string name="title_yes">بله</string>
     <string name="title_no">خير</string>

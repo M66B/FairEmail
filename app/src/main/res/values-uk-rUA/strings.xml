@@ -1171,7 +1171,6 @@
     <string name="title_select_found">Вибрати знайдене</string>
     <string name="title_mark_all_read">Позначити всі як прочитані</string>
     <string name="title_force_sync">Примусова синхронізація</string>
-    <string name="title_force_reload">Примусове перезавантаження</string>
     <string name="title_force_send">Примусове надсилання</string>
     <string name="title_language_all">Усі</string>
     <string name="title_previous">Попереднє</string>
@@ -1399,7 +1398,6 @@
     <string name="title_ip_owner">IP-адреса власника</string>
     <string name="title_reset_open">Встановлення або очищення додатків за замовчуванням</string>
     <string name="title_select_app">Оберіть додаток</string>
-    <string name="title_updated">Оновлення до версії %1$s доступне</string>
     <string name="title_issue">У вас є питання або проблема?</string>
     <string name="title_yes">Так</string>
     <string name="title_no">Ні</string>

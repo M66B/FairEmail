@@ -336,8 +336,9 @@
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
     <string name="title_advanced_nav_options">Navigationsmenü-Optionen anzeigen</string>
+    <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
     <string name="title_advanced_nav_hide_title">Navigationsmenü-Optionen ausblenden?</string>
-    <string name="title_advanced_nav_hide_message">Sie können die Optionen in den Einstellungen, Tab Darstellung, wieder aktivieren</string>
+    <string name="title_advanced_nav_hide_message">Sie können die Optionen in den Darstellungseinstellungen wieder aktivieren</string>
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
@@ -1161,7 +1162,6 @@
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
     <string name="title_mark_all_read">Alle als gelesen markieren</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
-    <string name="title_force_reload">Neustart erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorherige</string>
@@ -1390,7 +1390,7 @@
     <string name="title_default_apps">Standard-Apps</string>
     <string name="title_reset_open">Standardanwendungen festlegen oder löschen</string>
     <string name="title_select_app">App auswählen</string>
-    <string name="title_updated">Es ist eine Aktualisierung auf Version %1$s verfügbar</string>
+    <string name="title_updated">Aktualisierung auf Version %1$s verfügbar</string>
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>

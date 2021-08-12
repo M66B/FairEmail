@@ -1334,7 +1334,6 @@
     <string name="title_remark_owner">A información sairá de <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Propietario do enderezo IP</string>
     <string name="title_select_app">Seleccionar aplicación</string>
-    <string name="title_updated">Hai unha actualización á versión %1$s xa dispoñible</string>
     <string name="title_issue">Ten algunha pregunta ou problema?</string>
     <string name="title_yes">Si</string>
     <string name="title_no">Non</string>

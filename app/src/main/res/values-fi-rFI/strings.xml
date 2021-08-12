@@ -1142,7 +1142,6 @@
     <string name="title_select_found">Valitse löytyneet</string>
     <string name="title_mark_all_read">Merkitse kaikki luetuiksi</string>
     <string name="title_force_sync">Pakota synkronointi</string>
-    <string name="title_force_reload">Pakota uudelleenkäynnistys</string>
     <string name="title_force_send">Pakota lähetys</string>
     <string name="title_language_all">Kaikki</string>
     <string name="title_previous">Edellinen</string>
@@ -1368,7 +1367,6 @@
     <string name="title_ip_owner">Omistajan IP-osoite</string>
     <string name="title_reset_open">Aseta tai tyhjennä oletussovellukset</string>
     <string name="title_select_app">Valitse sovellus</string>
-    <string name="title_updated">Päivitys versioon %1$s on saatavilla</string>
     <string name="title_issue">Onko sinulla kysyttävää tai ongelma?</string>
     <string name="title_yes">Kyllä</string>
     <string name="title_no">Ei</string>
