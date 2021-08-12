@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.text.Html;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -146,6 +147,8 @@ public class EntityAnswer implements Serializable {
         answer.id = json.getLong("id");
         answer.name = json.getString("name");
         answer.group = json.optString("group");
+        if (TextUtils.isEmpty(answer.group))
+            answer.group = null;
         answer.standard = json.optBoolean("standard");
         answer.receipt = json.optBoolean("receipt");
         answer.favorite = json.optBoolean("favorite");
