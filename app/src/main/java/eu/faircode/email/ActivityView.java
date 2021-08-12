@@ -54,6 +54,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.app.NotificationCompat;
 import androidx.core.widget.NestedScrollView;
@@ -91,6 +92,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private String startup;
     private boolean nav_pinned;
     private boolean nav_expanded;
+    private boolean nav_options;
     private int colorDrawerScrim;
 
     private int layoutId;
@@ -106,6 +108,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageButton ibExpanderNav;
     private ImageButton ibPin;
     private ImageButton ibSettings;
+    private View vSeparatorOptions;
     private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
@@ -187,6 +190,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         startup = prefs.getString("startup", "unified");
         nav_pinned = getDrawerPinned();
         nav_expanded = prefs.getBoolean("nav_expanded", true);
+        nav_options = prefs.getBoolean("nav_options", true);
 
         Configuration config = getResources().getConfiguration();
         boolean portrait2 = prefs.getBoolean("portrait2", false);
@@ -273,6 +277,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ibExpanderNav = drawerContainer.findViewById(R.id.ibExpanderNav);
         ibPin = drawerContainer.findViewById(R.id.ibPin);
         ibSettings = drawerContainer.findViewById(R.id.ibSettings);
+        vSeparatorOptions = drawerContainer.findViewById(R.id.vSeparatorOptions);
         grpOptions = drawerContainer.findViewById(R.id.grpOptions);
         ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
         rvAccount = drawerContainer.findViewById(R.id.rvAccount);
@@ -344,15 +349,45 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ibSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent privacy = new Intent(v.getContext(), ActivitySetup.class)
-                        .setAction("display")
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra("tab", "display");
-                v.getContext().startActivity(privacy);
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(ActivityView.this, owner, ibSettings);
+                popupMenu.inflate(R.menu.popup_nav);
+                popupMenu.insertIcons(ActivityView.this);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int itemId = item.getItemId();
+                        if (itemId == R.id.menu_hide) {
+                            View dview = LayoutInflater.from(ActivityView.this).inflate(R.layout.dialog_nav_options, null);
+                            new AlertDialog.Builder(ActivityView.this)
+                                    .setView(dview)
+                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            prefs.edit().putBoolean("nav_options", false).apply();
+                                        }
+                                    })
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .show();
+                            return true;
+                        } else if (itemId != R.id.menu_settings) {
+                            String tab = FragmentOptions.TAB_LABELS.get(item.getOrder());
+                            startActivity(new Intent(ActivityView.this, ActivitySetup.class)
+                                    .setAction(tab)
+                                    .putExtra("tab", tab));
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
             }
         });
 
-        grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
+        ibExpanderNav.setVisibility(nav_options ? View.VISIBLE : View.GONE);
+        grpOptions.setVisibility(nav_expanded && nav_options ? View.VISIBLE : View.GONE);
+        vSeparatorOptions.setVisibility(nav_options ? View.VISIBLE : View.GONE);
 
         // Accounts
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
@@ -787,6 +822,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         nav_pinned = getDrawerPinned();
         setupDrawer();
         drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        super.onSharedPreferenceChanged(prefs, key);
+        if ("nav_options".equals(key)) {
+            nav_options = prefs.getBoolean(key, true);
+            ibExpanderNav.setVisibility(nav_options ? View.VISIBLE : View.GONE);
+            grpOptions.setVisibility(nav_expanded && nav_options ? View.VISIBLE : View.GONE);
+            vSeparatorOptions.setVisibility(nav_options ? View.VISIBLE : View.GONE);
+        }
     }
 
     private void setupDrawer() {

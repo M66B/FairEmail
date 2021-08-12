@@ -69,6 +69,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPortrait2;
     private SwitchCompat swPortrait2c;
     private SwitchCompat swLandscape;
+    private SwitchCompat swNavOptions;
     private SwitchCompat swNavMessageCount;
 
     private SwitchCompat swThreading;
@@ -154,7 +155,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread",
             "date", "date_bold",
-            "portrait2", "portrait2c", "landscape", "nav_count", "navbar_colorize",
+            "portrait2", "portrait2c", "landscape", "nav_options", "nav_count", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
@@ -191,6 +192,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPortrait2 = view.findViewById(R.id.swPortrait2);
         swPortrait2c = view.findViewById(R.id.swPortrait2c);
         swLandscape = view.findViewById(R.id.swLandscape);
+        swNavOptions = view.findViewById(R.id.swNavOptions);
         swNavMessageCount = view.findViewById(R.id.swNavMessageCount);
         swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
 
@@ -365,6 +367,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("landscape", checked).apply();
+            }
+        });
+
+        swNavOptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("nav_options", checked).apply();
             }
         });
 
@@ -1025,6 +1034,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
+        swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
         swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
 

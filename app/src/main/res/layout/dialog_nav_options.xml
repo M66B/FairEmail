@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:scrollbarStyle="outsideOverlay">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_nav_hide_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivExpanderNav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:srcCompat="@drawable/expander_hor" />
+
+        <ImageView
+            android:id="@+id/ivPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            app:layout_constraintStart_toEndOf="@id/ivExpanderNav"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:srcCompat="@drawable/pin" />
+
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            app:layout_constraintStart_toEndOf="@id/ivPin"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:srcCompat="@drawable/twotone_settings_24" />
+
+        <View
+            android:id="@+id/vDash"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="?attr/colorWarning"
+            app:layout_constraintBottom_toBottomOf="@id/ivExpanderNav"
+            app:layout_constraintEnd_toEndOf="@id/ivSettings"
+            app:layout_constraintStart_toStartOf="@id/ivExpanderNav"
+            app:layout_constraintTop_toTopOf="@id/ivExpanderNav" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_nav_hide_message"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivExpanderNav" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ScrollViewEx>

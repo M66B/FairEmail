@@ -59,6 +59,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class FragmentOptions extends FragmentBase {
     private ViewPager pager;
     private PagerAdapter adapter;
@@ -102,6 +106,19 @@ public class FragmentOptions extends FragmentBase {
             R.drawable.twotone_notifications_24,
             R.drawable.twotone_more_24
     };
+
+    static final List<String> TAB_LABELS = Collections.unmodifiableList(Arrays.asList(
+            "main",
+            "sync",
+            "send",
+            "connection",
+            "display",
+            "behavior",
+            "privacy",
+            "encryption",
+            "notifications",
+            "misc"
+    ));
 
     static String[] OPTIONS_RESTART = new String[]{
             "first", "app_support", "notify_archive", "message_swipe", "message_select", "folder_actions", "folder_sync",
@@ -212,17 +229,12 @@ public class FragmentOptions extends FragmentBase {
         }
 
         String tab = getActivity().getIntent().getStringExtra("tab");
-        if ("connection".equals(tab))
-            pager.setCurrentItem(3);
-        else if ("display".equals(tab))
-            pager.setCurrentItem(4);
-        else if ("privacy".equals(tab))
-            pager.setCurrentItem(6);
-        else if ("encryption".equals(tab))
-            pager.setCurrentItem(7);
-        else if ("misc".equals(tab))
-            pager.setCurrentItem(9);
-        getActivity().getIntent().removeExtra("tab");
+        if (!TextUtils.isEmpty(tab)) {
+            int index = TAB_LABELS.indexOf(tab);
+            if (index >= 0)
+                pager.setCurrentItem(index);
+            getActivity().getIntent().removeExtra("tab");
+        }
     }
 
     @Override
