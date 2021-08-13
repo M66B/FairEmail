@@ -5301,7 +5301,9 @@ public class FragmentCompose extends FragmentBase {
 
                     if (dirty) {
                         draft.received = new Date().getTime();
+                        draft.sent = draft.received;
                         db.message().setMessageReceived(draft.id, draft.received);
+                        db.message().setMessageSent(draft.id, draft.sent);
                     }
 
                     // Execute action
