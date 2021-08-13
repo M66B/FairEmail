@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
@@ -111,8 +112,8 @@ public abstract class DB extends RoomDatabase {
 
     public abstract DaoLog log();
 
-    private static Context sContext;
     private static int sPid;
+    private static Context sContext;
     private static DB sInstance;
 
     private static final String DB_NAME = "fairemail";
@@ -305,17 +306,18 @@ public abstract class DB extends RoomDatabase {
     }
 
     public static synchronized DB getInstance(Context context) {
+        int apid = android.os.Process.myPid();
         Context acontext = context.getApplicationContext();
         if (sInstance != null &&
-                sContext != null && !sContext.equals(acontext))
+                (sPid != apid || !Objects.equals(sContext, acontext)))
             try {
-                Log.e("Orphan database instance pid=" + android.os.Process.myPid() + "/" + sPid);
+                Log.e("Orphan database instance pid=" + apid + "/" + sPid);
                 sInstance = null;
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+        sPid = apid;
         sContext = acontext;
-        sPid = android.os.Process.myPid();
 
         if (sInstance == null) {
             Log.i("Creating database instance pid=" + sPid);
