@@ -670,11 +670,11 @@ public class FragmentOAuth extends FragmentBase {
 
                 Log.i("OAuth passed provider=" + provider.id);
 
+                EntityAccount update = null;
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    EntityAccount update = null;
                     if (args.getBoolean("update"))
                         update = db.account().getAccount(username, AUTH_TYPE_OAUTH);
                     if (update == null) {
@@ -755,7 +755,7 @@ public class FragmentOAuth extends FragmentBase {
                             EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
                         }
                     } else {
-                        args.putLong("account", -1);
+                        args.putLong("account", update.id);
                         EntityLog.log(context, "OAuth update account=" + update.name);
                         db.account().setAccountPassword(update.id, state);
                         db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type);
@@ -766,7 +766,12 @@ public class FragmentOAuth extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "OAuth");
+                if (update == null)
+                    ServiceSynchronize.eval(context, "OAuth");
+                else {
+                    args.putBoolean("updated", true);
+                    ServiceSynchronize.reload(context, update.id, true, "OAuth");
+                }
 
                 return null;
             }
@@ -775,7 +780,8 @@ public class FragmentOAuth extends FragmentBase {
             protected void onExecuted(Bundle args, Void data) {
                 pbOAuth.setVisibility(View.GONE);
 
-                if (args.getLong("account") < 0) {
+                boolean updated = args.getBoolean("updated");
+                if (updated) {
                     finish();
                     ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
                 } else {

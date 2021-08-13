@@ -445,11 +445,11 @@ public class FragmentGmail extends FragmentBase {
                     max_size = iservice.getMaxSize();
                 }
 
+                EntityAccount update = null;
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    EntityAccount update = null;
                     if (args.getBoolean("update"))
                         update = db.account().getAccount(user, AUTH_TYPE_GMAIL);
                     if (update == null) {
@@ -521,7 +521,7 @@ public class FragmentGmail extends FragmentBase {
                         identity.id = db.identity().insertIdentity(identity);
                         EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);
                     } else {
-                        args.putLong("account", -1);
+                        args.putLong("account", update.id);
                         EntityLog.log(context, "Gmail update account=" + update.name);
                         db.account().setAccountPassword(update.id, password);
                         db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type);
@@ -532,14 +532,20 @@ public class FragmentGmail extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "Gmail");
+                if (update == null)
+                    ServiceSynchronize.eval(context, "Gmail");
+                else {
+                    args.putBoolean("updated", true);
+                    ServiceSynchronize.reload(context, update.id, true, "Gmail");
+                }
 
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (args.getLong("account") < 0) {
+                boolean updated = args.getBoolean("updated");
+                if (updated) {
                     finish();
                     ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
                 } else {
