@@ -1401,11 +1401,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.setValue("raw_save", message.id, false);
                 onMenuRawSave(message);
             }
-
-            if (properties.getValue("raw_send", message.id)) {
-                properties.setValue("raw_send", message.id, false);
-                onMenuRawSend(message);
-            }
         }
 
         private void clearExpanded(TupleMessageEx message) {
@@ -4561,7 +4556,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_share_as_html).setVisible(message.content && BuildConfig.DEBUG);
 
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send_message).setEnabled(message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
@@ -4646,8 +4642,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_raw_save) {
                         onMenuRawSave(message);
                         return true;
-                    } else if (itemId == R.id.menu_raw_send) {
-                        onMenuRawSend(message);
+                    } else if (itemId == R.id.menu_raw_send_message) {
+                        onMenuRawSend(message, false);
+                        return true;
+                    } else if (itemId == R.id.menu_raw_send_thread) {
+                        onMenuRawSend(message, true);
                         return true;
                     }
                     return false;
@@ -5302,26 +5301,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onMenuRawSend(TupleMessageEx message) {
-            if (message.raw == null || !message.raw) {
-                properties.setValue("raw_send", message.id, true);
-                rawDownload(message);
-            } else
-                try {
-                    File file = message.getRawFile(context);
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+        private void onMenuRawSend(TupleMessageEx message, boolean threads) {
+            Bundle args = new Bundle();
+            args.putLongArray("ids", new long[]{message.id});
+            args.putBoolean("threads", threads);
 
-                    Intent send = new Intent(Intent.ACTION_SEND);
-                    //send.setPackage(BuildConfig.APPLICATION_ID);
-                    send.putExtra(Intent.EXTRA_STREAM, uri);
-                    send.setType("message/rfc822");
-                    send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                    context.startActivity(send);
-                } catch (Throwable ex) {
-                    // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
+            FragmentDialogForwardRaw ask = new FragmentDialogForwardRaw();
+            ask.setArguments(args);
+            ask.show(parentFragment.getParentFragmentManager(), "message:raw");
         }
 
         private void rawDownload(TupleMessageEx message) {

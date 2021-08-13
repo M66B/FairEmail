@@ -121,7 +121,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -130,7 +129,6 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -379,8 +377,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_BOUNDARY_RETRY = 22;
     static final int REQUEST_PICK_CONTACT = 23;
     static final int REQUEST_BUTTONS = 24;
-    private static final int REQUEST_ASKED_RAW = 25;
-    private static final int REQUEST_ALL_READ = 26;
+    private static final int REQUEST_ALL_READ = 25;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -3573,106 +3570,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionRaw() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean raw_asked = prefs.getBoolean("raw_asked", false);
-
-        if (raw_asked) {
-            _onActionRaw();
-            return;
-        }
-
-        Bundle args = new Bundle();
-        args.putString("question", getString(R.string.title_raw_send));
-        args.putString("remark", getString(R.string.title_ask_raw));
-        args.putString("notagain", "raw_asked");
-
-        FragmentDialogAsk ask = new FragmentDialogAsk();
-        ask.setArguments(args);
-        ask.setTargetFragment(FragmentMessages.this, REQUEST_ASKED_RAW);
-        ask.show(getParentFragmentManager(), "messages:raw");
-    }
-
-    private void _onActionRaw() {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
+        args.putBoolean("threads", false);
 
         selectionTracker.clearSelection();
 
-        new SimpleTask<Void>() {
-            private Toast toast = null;
-
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                long[] ids = args.getLongArray("ids");
-
-                DB db = DB.getInstance(context);
-                for (long id : ids) {
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
-                        continue;
-
-                    if (message.raw == null || !message.raw)
-                        EntityOperation.queue(context, message, EntityOperation.RAW);
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                long[] ids = args.getLongArray("ids");
-
-                final Context context = getContext();
-
-                DB db = DB.getInstance(context);
-                final LiveData<Integer> ld = db.message().liveRaw(ids);
-                ld.observe(getViewLifecycleOwner(), new Observer<Integer>() {
-                    private Integer last = null;
-
-                    @Override
-                    public void onChanged(Integer remaining) {
-                        if (remaining == null || remaining == 0) {
-                            ld.removeObserver(this);
-
-                            try {
-                                ArrayList<Uri> uris = new ArrayList<>();
-                                for (long id : ids) {
-                                    File file = EntityMessage.getRawFile(context, id);
-                                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                                    uris.add(uri);
-                                }
-
-                                Intent send = new Intent(Intent.ACTION_SEND_MULTIPLE);
-                                send.setPackage(BuildConfig.APPLICATION_ID);
-                                send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-                                send.setType("message/rfc822");
-                                send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                                context.startActivity(send);
-                            } catch (Throwable ex) {
-                                // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
-                                Log.unexpectedError(getParentFragmentManager(), ex);
-                            }
-                        } else {
-                            if (!Objects.equals(last, remaining)) {
-                                last = remaining;
-
-                                String msg = getString(R.string.title_raw_remaining, remaining);
-                                if (toast != null)
-                                    toast.cancel();
-                                toast = ToastEx.makeText(context, msg, Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                        }
-                    }
-                });
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "messages:forward");
+        FragmentDialogForwardRaw ask = new FragmentDialogForwardRaw();
+        ask.setArguments(args);
+        ask.show(getParentFragmentManager(), "messages:raw");
     }
 
     private void onActionMoveSelectionAccount(long account, boolean copy, List<Long> disabled) {
@@ -6565,10 +6471,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_BUTTONS:
                     adapter.notifyDataSetChanged();
-                    break;
-                case REQUEST_ASKED_RAW:
-                    if (resultCode == RESULT_OK)
-                        _onActionRaw();
                     break;
                 case REQUEST_ALL_READ:
                     if (resultCode == RESULT_OK)
