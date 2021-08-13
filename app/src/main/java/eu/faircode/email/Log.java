@@ -1820,8 +1820,8 @@ public class Log {
             sb.append("\r\n");
         }
 
-        sb.append(new Date(Helper.getInstallTime(context))).append("\r\n");
-        sb.append(new Date()).append("\r\n");
+        sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
+        sb.append(String.format("Now: %s\r\n", new Date()));
 
         sb.append("\r\n");
 
