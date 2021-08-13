@@ -253,7 +253,7 @@ public class FragmentFolders extends FragmentBase {
         fabError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ActivitySetup.class)
+                Intent intent = new Intent(v.getContext(), ActivitySetup.class)
                         .putExtra("target", "accounts");
                 startActivity(intent);
             }
