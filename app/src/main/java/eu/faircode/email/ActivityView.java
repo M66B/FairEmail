@@ -111,7 +111,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageButton ibHide;
     private ImageButton ibSettings;
     private ImageButton ibFetchMore;
-    private ImageButton ibSync;
+    private ImageButton ibForceSync;
     private View vSeparatorOptions;
     private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
@@ -220,6 +220,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         content_separator = findViewById(R.id.content_separator);
         content_pane = findViewById(R.id.content_pane);
 
+        // Special: Surface Duo
         boolean duo = Helper.isSurfaceDuo();
         if (duo && content_pane != null) {
             View content_frame = findViewById(R.id.content_frame);
@@ -283,7 +284,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ibHide = drawerContainer.findViewById(R.id.ibHide);
         ibSettings = drawerContainer.findViewById(R.id.ibSettings);
         ibFetchMore = drawerContainer.findViewById(R.id.ibFetchMore);
-        ibSync = drawerContainer.findViewById(R.id.ibSync);
+        ibForceSync = drawerContainer.findViewById(R.id.ibForceSync);
         vSeparatorOptions = drawerContainer.findViewById(R.id.vSeparatorOptions);
         grpOptions = drawerContainer.findViewById(R.id.grpOptions);
         ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
@@ -374,6 +375,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
+        // Fetch more messages
         ibFetchMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -386,7 +388,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        ibSync.setOnClickListener(new View.OnClickListener() {
+        // Force sync
+        ibForceSync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ServiceSynchronize.reload(ActivityView.this, null, true, "nav:sync");

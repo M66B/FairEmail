@@ -66,13 +66,13 @@
         android:contentDescription="@string/title_synchronize_more"
         android:padding="6dp"
         android:tooltipText="@string/title_synchronize_more"
-        app:layout_constraintEnd_toStartOf="@+id/ibSync"
+        app:layout_constraintEnd_toStartOf="@+id/ibForceSync"
         app:layout_constraintStart_toEndOf="@id/ibSettings"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_get_app_24" />
 
     <ImageButton
-        android:id="@+id/ibSync"
+        android:id="@+id/ibForceSync"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackgroundBorderless"
@@ -87,7 +87,7 @@
         android:id="@+id/grpOptions"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="ibPin,ibHide,ibSettings,ibFetchMore,ibSync" />
+        app:constraint_referenced_ids="ibPin,ibHide,ibSettings,ibFetchMore,ibForceSync" />
 
     <View
         android:id="@+id/vSeparatorOptions"
