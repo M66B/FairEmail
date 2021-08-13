@@ -1246,4 +1246,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="EarthLink.net"
+        enabled="false">
+        <imap
+            host="imap.earthlink.net"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="smtpauth.earthlink.net"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
