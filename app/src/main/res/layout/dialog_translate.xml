@@ -19,7 +19,8 @@
             android:drawablePadding="6dp"
             android:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_translate_tap"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
