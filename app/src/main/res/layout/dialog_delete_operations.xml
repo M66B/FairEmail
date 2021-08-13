@@ -9,7 +9,7 @@
         android:id="@+id/tvAddImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/twotone_warning_24"
+        android:drawableStart="@drawable/twotone_delete_24"
         android:drawablePadding="12dp"
         android:drawableTint="?attr/colorError"
         android:text="@string/title_delete_operation_title"

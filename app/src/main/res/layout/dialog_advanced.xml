@@ -16,22 +16,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
+            android:drawableStart="@drawable/twotone_info_24"
+            android:drawablePadding="6dp"
+            android:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_advanced_hint_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/ivInfo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/ivInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_info"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvMessage"
