@@ -132,12 +132,10 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             Integer percent = account.getQuotaPercentage();
 
             if (account.error != null) {
-                ivWarning.setEnabled(false);
                 ivWarning.setImageResource(R.drawable.twotone_warning_24);
                 ivWarning.setVisibility(expanded ? View.VISIBLE : View.GONE);
                 view.setBackgroundColor(expanded ? Color.TRANSPARENT : colorWarning);
             } else if (percent != null && percent > QUOTA_WARNING) {
-                ivWarning.setEnabled(true);
                 ivWarning.setImageResource(R.drawable.twotone_disc_full_24);
                 ivWarning.setVisibility(expanded ? View.VISIBLE : View.GONE);
                 view.setBackgroundColor(expanded ? Color.TRANSPARENT : colorWarning);
@@ -149,11 +147,6 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == R.id.ivWarning) {
-                ToastEx.makeText(context, R.string.title_legend_quota, Toast.LENGTH_LONG).show();
-                return;
-            }
-
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
@@ -161,6 +154,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             TupleAccountEx account = items.get(pos);
             if (account == null)
                 return;
+
+            if (v.getId() == R.id.ivWarning && account.error == null) {
+                ToastEx.makeText(context, R.string.title_legend_quota, Toast.LENGTH_LONG).show();
+                return;
+            }
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
