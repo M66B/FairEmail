@@ -68,6 +68,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
                 ", `notes`" +
                 ", tokenize = \"unicode61 remove_diacritics 2\")");
         // https://www.sqlite.org/fts5.html#unicode61_tokenizer
+        // https://unicode.org/reports/tr29/
 
         // https://www.sqlite.org/fts5.html#the_fts5vocab_virtual_table_module
         db.execSQL("CREATE VIRTUAL TABLE message_terms USING fts5vocab('message', 'row');");
