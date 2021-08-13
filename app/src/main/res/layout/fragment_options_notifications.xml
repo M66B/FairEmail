@@ -165,6 +165,20 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvManageServiceHint"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvNotifySeparate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?android:attr/textColorLink"
+                    android:text="@string/title_advanced_notify_separate_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibWhy" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNewestFirst"
                     android:layout_width="0dp"
@@ -173,7 +187,7 @@
                     android:text="@string/title_advanced_notifications_newest_first"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibWhy"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotifySeparate"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

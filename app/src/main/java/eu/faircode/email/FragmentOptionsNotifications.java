@@ -19,12 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Paint;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -50,8 +53,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
-import static android.app.Activity.RESULT_OK;
-
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnManage;
     private Button btnManageDefault;
@@ -59,6 +60,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Button btnManageService;
     private ImageView ivChannelService;
     private ImageButton ibWhy;
+    private FixedTextView tvNotifySeparate;
     private SwitchCompat swNewestFirst;
     private SwitchCompat swBackground;
 
@@ -136,6 +138,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         btnManageService = view.findViewById(R.id.btnManageService);
         ivChannelService = view.findViewById(R.id.ivChannelService);
         ibWhy = view.findViewById(R.id.ibWhy);
+        tvNotifySeparate = view.findViewById(R.id.tvNotifySeparate);
         swNewestFirst = view.findViewById(R.id.swNewestFirst);
         swBackground = view.findViewById(R.id.swBackground);
 
@@ -233,6 +236,14 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 2);
+            }
+        });
+
+        tvNotifySeparate.setPaintFlags(tvNotifySeparate.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvNotifySeparate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(view.getContext(), 145);
             }
         });
 
