@@ -41,6 +41,9 @@
                         android:id="@+id/tvTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/twotone_warning_24"
+                        android:drawablePadding="6dp"
+                        android:drawableTint="?attr/colorError"
                         android:text="Error"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="?android:attr/textColorPrimary"
@@ -53,7 +56,7 @@
                         android:id="@+id/tvMessage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="24dp"
                         android:autoLink="all"
                         android:text="Error"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -65,10 +68,21 @@
                         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
                     <ImageButton
+                        android:id="@+id/ibSetting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:contentDescription="@string/title_setup"
+                        android:tooltipText="@string/title_setup"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+                        app:srcCompat="@drawable/twotone_settings_24" />
+
+                    <ImageButton
                         android:id="@+id/ibInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="24dp"
                         android:contentDescription="@string/title_info"
                         android:tooltipText="@string/title_info"
                         app:layout_constraintEnd_toEndOf="parent"

@@ -42,17 +42,30 @@ public class ActivityError extends ActivityBase {
 
         TextView tvTitle = view.findViewById(R.id.tvTitle);
         TextView tvMessage = view.findViewById(R.id.tvMessage);
+        ImageButton ibSetting = view.findViewById(R.id.ibSetting);
         ImageButton ibInfo = view.findViewById(R.id.ibInfo);
 
         Intent intent = getIntent();
         String type = intent.getStringExtra("type");
         String title = intent.getStringExtra("title");
         String message = intent.getStringExtra("message");
+        long account = intent.getLongExtra("account", -1L);
         int faq = intent.getIntExtra("faq", -1);
 
         tvTitle.setText(title);
         tvMessage.setMovementMethod(LinkMovementMethod.getInstance());
         tvMessage.setText(message);
+
+        ibSetting.setVisibility(account < 0 ? View.GONE : View.VISIBLE);
+        ibSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ActivitySetup.class)
+                        .setAction("target:accounts")
+                        .putExtra("target", "accounts");
+                startActivity(intent);
+            }
+        });
 
         ibInfo.setVisibility(faq > 0 ? View.VISIBLE : View.GONE);
         ibInfo.setOnClickListener(new View.OnClickListener() {

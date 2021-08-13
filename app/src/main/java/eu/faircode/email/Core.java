@@ -4902,6 +4902,7 @@ class Core {
         intent.putExtra("type", channel);
         intent.putExtra("title", title);
         intent.putExtra("message", message);
+        intent.putExtra("account", account.id);
         intent.putExtra("faq", 22);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntentCompat.getActivity(
