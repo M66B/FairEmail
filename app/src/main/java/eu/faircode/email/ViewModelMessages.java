@@ -566,6 +566,9 @@ public class ViewModelMessages extends ViewModel {
         void setCallback(LifecycleOwner owner, BoundaryCallbackMessages.IBoundaryCallbackMessages callback) {
             if (boundary != null) {
                 BoundaryCallbackMessages.State state = boundary.setCallback(callback);
+                PagedList<TupleMessageEx> plist = list.getValue();
+                if (plist != null)
+                    plist.loadAround(0);
 
                 owner.getLifecycle().addObserver(new LifecycleObserver() {
                     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
