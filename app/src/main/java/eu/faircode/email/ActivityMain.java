@@ -176,7 +176,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                             }
                         }, SERVICE_START_DELAY);
                     } else
-                        startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
+                        startActivity(new Intent(ActivityMain.this, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
                     long end = new Date().getTime();
                     Log.i("Main booted " + (end - start) + " ms");

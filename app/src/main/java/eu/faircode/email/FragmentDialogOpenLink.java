@@ -413,11 +413,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent privacy = new Intent(v.getContext(), ActivitySetup.class)
-                        .setAction("privacy")
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra("tab", "privacy");
-                v.getContext().startActivity(privacy);
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("tab", "privacy"));
             }
         });
 

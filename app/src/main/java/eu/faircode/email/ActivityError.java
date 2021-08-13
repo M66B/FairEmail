@@ -59,11 +59,10 @@ public class ActivityError extends ActivityBase {
         ibSetting.setVisibility(account < 0 ? View.GONE : View.VISIBLE);
         ibSetting.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ActivitySetup.class)
-                        .setAction("target:accounts")
-                        .putExtra("target", "accounts");
-                startActivity(intent);
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("target", "accounts"));
             }
         });
 

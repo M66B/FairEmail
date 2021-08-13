@@ -1617,10 +1617,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            startActivity(
-                                    new Intent(getContext(), ActivitySetup.class)
-                                            .putExtra("tab", "connection"));
+                        public void onClick(View v) {
+                            v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("tab", "connection"));
                         }
                     });
                     snackbar.show();
@@ -4115,7 +4115,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, ActivitySetup.class));
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
         snackbar.show();
@@ -5001,10 +5002,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            startActivity(
-                                    new Intent(getContext(), ActivitySetup.class)
-                                            .putExtra("tab", "connection"));
+                        public void onClick(View v) {
+                            v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("tab", "connection"));
                         }
                     });
                     snackbar.show();
@@ -7713,10 +7714,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(getContext(), ActivitySetup.class)
-                                    .putExtra("target", "accounts");
-                            startActivity(intent);
+                        public void onClick(View v) {
+                            v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("target", "accounts"));
                         }
                     });
                     snackbar.show();

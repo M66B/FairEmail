@@ -4197,11 +4197,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setNeutralButton(R.string.title_setup, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Intent privacy = new Intent(context, ActivitySetup.class)
-                                    .setAction("privacy")
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    .putExtra("tab", "privacy");
-                            context.startActivity(privacy);
+                            context.startActivity(new Intent(context, ActivitySetup.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("tab", "privacy"));
                         }
                     })
                     .create();

@@ -253,9 +253,9 @@ public class FragmentFolders extends FragmentBase {
         fabError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ActivitySetup.class)
-                        .putExtra("target", "accounts");
-                startActivity(intent);
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("target", "accounts"));
             }
         });
 
@@ -434,10 +434,10 @@ public class FragmentFolders extends FragmentBase {
                             .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            startActivity(
-                                    new Intent(getContext(), ActivitySetup.class)
-                                            .putExtra("tab", "connection"));
+                        public void onClick(View v) {
+                            v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("tab", "connection"));
                         }
                     });
                     snackbar.show();

@@ -58,10 +58,10 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
 
         tvOption.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(
-                        new Intent(getContext(), ActivitySetup.class)
-                                .putExtra("tab", "connection"));
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("tab", "connection"));
             }
         });
 

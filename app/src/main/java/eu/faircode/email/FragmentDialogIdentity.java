@@ -90,7 +90,8 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 prefs.edit().putBoolean("identities_primary_hint", true).apply();
-                startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .putExtra("manual", true));
                 tvPrimaryHint.setVisibility(View.GONE);
             }
@@ -106,7 +107,8 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
         btnFix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActivitySetup.class));
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 getActivity().finish();
                 dismiss();
             }

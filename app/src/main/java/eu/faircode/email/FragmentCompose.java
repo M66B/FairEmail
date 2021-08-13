@@ -3483,9 +3483,9 @@ public class FragmentCompose extends FragmentBase {
                         @Override
                         public void onClick(View v) {
                             if (ex.getCause() instanceof CertificateException)
-                                startActivity(
-                                        new Intent(getContext(), ActivitySetup.class)
-                                                .putExtra("tab", "encryption"));
+                                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        .putExtra("tab", "encryption"));
                             else {
                                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
                                 popupMenu.getMenu().add(Menu.NONE, R.string.title_send_dialog, 1, R.string.title_send_dialog);
@@ -3504,9 +3504,9 @@ public class FragmentCompose extends FragmentBase {
                                             fragment.show(getParentFragmentManager(), "compose:send");
                                             return true;
                                         } else if (itemId == R.string.title_advanced_manage_certificates) {
-                                            startActivity(
-                                                    new Intent(getContext(), ActivitySetup.class)
-                                                            .putExtra("tab", "encryption"));
+                                            startActivity(new Intent(getContext(), ActivitySetup.class)
+                                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                    .putExtra("tab", "encryption"));
                                             return true;
                                         }
                                         return false;
@@ -4978,8 +4978,9 @@ public class FragmentCompose extends FragmentBase {
                         .setGestureInsetBottomIgnored(true);
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getContext(), ActivitySetup.class));
+                    public void onClick(View v) {
+                        v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         getActivity().finish();
                     }
                 });
@@ -6476,7 +6477,8 @@ public class FragmentCompose extends FragmentBase {
             btnFixSent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                    v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             .putExtra("target", "accounts"));
                 }
             });

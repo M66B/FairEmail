@@ -757,10 +757,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                         .setGestureInsetBottomIgnored(true);
                                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                                     @Override
-                                    public void onClick(View view) {
-                                        context.startActivity(
-                                                new Intent(context, ActivitySetup.class)
-                                                        .putExtra("tab", "connection"));
+                                    public void onClick(View v) {
+                                        v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                .putExtra("tab", "connection"));
                                     }
                                 });
                                 snackbar.show();

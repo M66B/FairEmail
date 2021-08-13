@@ -98,7 +98,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActivitySetup.class)
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .putExtra("navigate", true));
             }
         });

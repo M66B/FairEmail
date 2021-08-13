@@ -365,7 +365,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     public boolean onMenuItemClick(MenuItem item) {
                         String tab = FragmentOptions.TAB_LABELS.get(item.getOrder());
                         startActivity(new Intent(ActivityView.this, ActivitySetup.class)
-                                .setAction(tab)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 .putExtra("tab", tab));
                         return true;
                     }
@@ -1543,7 +1543,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuSetup() {
-        startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+        startActivity(new Intent(ActivityView.this, ActivitySetup.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     private void onMenuLegend() {
