@@ -4185,6 +4185,7 @@ public class FragmentCompose extends FragmentBase {
                             document.body().append(d.body().html());
                         }
 
+                        data.draft.signature = prefs.getBoolean("signature_new", true);
                         addSignature(context, document, data.draft, selected);
                     } else {
                         // Actions:
