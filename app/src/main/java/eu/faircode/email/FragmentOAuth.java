@@ -747,6 +747,7 @@ public class FragmentOAuth extends FragmentBase {
                             ident.provider = provider.id;
                             ident.user = username;
                             ident.password = state;
+                            ident.use_ip = provider.useip;
                             ident.synchronize = true;
                             ident.primary = ident.user.equals(ident.email);
                             ident.max_size = max_size;
