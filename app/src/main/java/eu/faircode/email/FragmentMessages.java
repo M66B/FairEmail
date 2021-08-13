@@ -4889,7 +4889,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (folders.size() == 1) {
                 String accountName = folders.get(0).accountName;
                 if (accountName != null)
-                    name += "/" + accountName;
+                    name = accountName + "/" + name;
             }
         }
 
