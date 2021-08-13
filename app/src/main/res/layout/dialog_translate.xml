@@ -18,7 +18,6 @@
             android:drawableStart="@drawable/twotone_translate_24"
             android:drawablePadding="6dp"
             android:drawableTint="?android:attr/textColorPrimary"
-            android:labelFor="@+id/etKeyword"
             android:text="@string/title_translate_tap"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"

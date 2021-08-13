@@ -17,7 +17,7 @@
             android:drawableStart="@drawable/twotone_sticky_note_2_24"
             android:drawablePadding="6dp"
             android:drawableTint="?android:attr/textColorPrimary"
-            android:labelFor="@+id/etKeyword"
+            android:labelFor="@+id/etNotes"
             android:text="@string/title_edit_notes"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
