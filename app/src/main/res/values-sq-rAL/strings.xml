@@ -86,6 +86,8 @@
     <string name="title_password">Fjalëkalimi</string>
     <string name="title_no_password">Fjalëkalimi mungon</string>
     <string name="title_folder_all">Arkiva</string>
+    <string name="title_raw_send_message">Mesazh</string>
+    <string name="title_raw_send_thread">Biseda</string>
     <string name="title_move">Zhvendos</string>
     <string name="title_archive">Arkiva</string>
     <string name="title_reply">Përgjigju</string>

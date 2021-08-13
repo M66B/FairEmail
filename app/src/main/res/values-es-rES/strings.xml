@@ -851,6 +851,8 @@
     <string name="title_share_as_html">Compartir como HTML</string>
     <string name="title_raw_save">Guardar mensaje sin procesar</string>
     <string name="title_raw_send">Enviar como adjunto</string>
+    <string name="title_raw_send_message">Mensaje</string>
+    <string name="title_raw_send_thread">Conversación</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
     <string name="title_manage_labels">Administrar etiquetas de Gmail</string>
     <string name="title_add_keyword">Añadir palabra clave</string>
@@ -858,8 +860,7 @@
     <string name="title_download_all">Descargar todo</string>
     <string name="title_save_all">Guardar todo</string>
     <string name="title_save_eml">Guardar archivo de mensajes sin procesar</string>
-    <string name="title_raw_remaining">Mensajes sin procesar para descargar: %1$d</string>
-    <string name="title_ask_raw">Para reenviar mensajes, los mensajes sin procesar (originales) deben ser descargados desde el servidor. Esto requiere una conexión a Internet.</string>
+    <string name="title_eml_remark">Para reenviar mensajes, los mensajes sin procesar (originales) deben ser descargados desde el servidor. Esto requiere una conexión a Internet.</string>
     <string name="title_buttons">Seleccionar botones</string>
     <string name="title_buttons_hint">Las acciones disponibles dependen del tipo de cuenta y configuración</string>
     <string name="title_button_search">Buscar en mensajes</string>

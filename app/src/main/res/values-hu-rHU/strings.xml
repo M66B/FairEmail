@@ -750,6 +750,8 @@
     <string name="title_show_headers">Fejlécek megjelenítése</string>
     <string name="title_raw_save">Nyers üzenet mentése</string>
     <string name="title_raw_send">Küldés mellékletként</string>
+    <string name="title_raw_send_message">Üzenet</string>
+    <string name="title_raw_send_thread">Beszélgetés</string>
     <string name="title_manage_keywords">Kulcsszavak kezelése</string>
     <string name="title_manage_labels">Gmail címkék kezelése</string>
     <string name="title_add_keyword">Kulcsszó hozzáadása</string>

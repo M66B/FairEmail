@@ -801,6 +801,8 @@
     <string name="title_share_as_html">Compartilhar como arquivo HTML</string>
     <string name="title_raw_save">Salvar imagem raw</string>
     <string name="title_raw_send">Enviar como anexo</string>
+    <string name="title_raw_send_message">Mensagem</string>
+    <string name="title_raw_send_thread">Conversação</string>
     <string name="title_manage_keywords">Gerenciar palavras-chave</string>
     <string name="title_manage_labels">Gerenciar rótulos do Gmail</string>
     <string name="title_add_keyword">Adicionar palavra-chave</string>
@@ -808,8 +810,7 @@
     <string name="title_download_all">Baixar todos</string>
     <string name="title_save_all">Salvar todos</string>
     <string name="title_save_eml">Salvar arquivo de mensagem bruta</string>
-    <string name="title_raw_remaining">Mensagens brutas para baixar: %1$d</string>
-    <string name="title_ask_raw">Para o encaminhamento, as mensagens brutas (originais) precisam ser baixadas do servidor. Uma conexão de internet é necessária para isso.</string>
+    <string name="title_eml_remark">Para o encaminhamento, as mensagens brutas (originais) precisam ser baixadas do servidor. Uma conexão de internet é necessária para isso.</string>
     <string name="title_buttons">Selecionar botões</string>
     <string name="title_buttons_hint">As ações disponíveis dependem do tipo de conta e configuração</string>
     <string name="title_button_search">Buscar nas mensagens</string>

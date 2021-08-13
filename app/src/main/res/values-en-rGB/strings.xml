@@ -43,6 +43,8 @@
     <string name="title_auto_trash">Automatically move old messages to bin</string>
     <string name="title_folder_trash">Bin</string>
     <string name="title_flag_color">Coloured star &#8230;</string>
+    <string name="title_raw_send_message">Message</string>
+    <string name="title_raw_send_thread">Conversation</string>
     <string name="title_trash">Delete</string>
     <string name="title_compose">Compose</string>
     <string name="title_send">Send</string>

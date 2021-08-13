@@ -595,6 +595,7 @@
     <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
     <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsmelding uit te schakelen</string>
+    <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen in voor accounts, mappen en afzenders?</string>
     <string name="title_advanced_notify_preview_all_hint">Voor wearables die de volledige tekst kunnen weergeven (tot 5.000 tekens)</string>
     <string name="title_advanced_notify_preview_only_hint">Dit vertraagt het tonen van meldingen totdat de berichttekst is gedownload</string>
     <string name="title_advanced_wearable_hint">Meldingen worden alleen verzonden naar een wearable nadat de berichttekst is gedownload</string>
@@ -851,6 +852,8 @@
     <string name="title_share_as_html">Delen als HTML</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>
+    <string name="title_raw_send_message">Bericht</string>
+    <string name="title_raw_send_thread">Gesprek</string>
     <string name="title_manage_keywords">Sleutelwoorden beheren</string>
     <string name="title_manage_labels">Gmail labels beheren</string>
     <string name="title_add_keyword">Sleutelwoord toevoegen</string>
@@ -858,8 +861,9 @@
     <string name="title_download_all">Alles downloaden</string>
     <string name="title_save_all">Alles opslaan</string>
     <string name="title_save_eml">Ruw bericht opslaan</string>
-    <string name="title_raw_remaining">Ruwe berichten om te downloaden: %1$d</string>
-    <string name="title_ask_raw">Om berichten door te sturen, moeten de ruwe (originele) berichten worden gedownload van de server. Dit vereist een internetverbinding.</string>
+    <string name="title_eml_remark">Om berichten door te sturen, moeten de ruwe (originele) berichten worden gedownload van de server. Dit vereist een internetverbinding.</string>
+    <string name="title_eml_option">Dit kan worden voorkomen door het altijd downloaden van ruwe berichtbestanden in de verbindingsinstellingen in te schakelen</string>
+    <string name="title_eml_downloaded">Ruwe berichten om te downloaden: %1$s</string>
     <string name="title_buttons">Selecteer knoppen</string>
     <string name="title_buttons_hint">De daadwerkelijk beschikbare acties hangen af van het accounttype en de configuratie</string>
     <string name="title_button_search">Zoeken in berichten</string>

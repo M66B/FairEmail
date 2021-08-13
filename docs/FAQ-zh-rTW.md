@@ -74,7 +74,7 @@
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.</li>
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* 在Android5.x版本中，Nova Launcher有個與*java.lang.StackOverflowError* 有關的錯誤，當Nova Launcher 有無障礙設定存取權時。
+* 於 Android5.x 下，當 Nova Launcher 擁有無障礙服務的存取權時，它所存在的一個 bug 會導致 FairEmail 遭遇由 *java.lang.StackOverflowError* 引發的崩潰。
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~ This seems to be fixed.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~ A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~

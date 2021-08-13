@@ -621,6 +621,8 @@
     <string name="title_share_as_html">Споделяне като HTML</string>
     <string name="title_raw_save">Запиши необработено съобщение</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
+    <string name="title_raw_send_message">Съобщение</string>
+    <string name="title_raw_send_thread">Разговор</string>
     <string name="title_manage_keywords">Управление по ключови думи</string>
     <string name="title_manage_labels">Управлявайте етикетите на Gmail</string>
     <string name="title_add_keyword">Добавяне на ключова дума</string>

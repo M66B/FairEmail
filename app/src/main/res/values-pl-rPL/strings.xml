@@ -870,6 +870,8 @@
     <string name="title_share_as_html">Udostępnij jako HTML</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
     <string name="title_raw_send">Wyślij jako załącznik</string>
+    <string name="title_raw_send_message">Wiadomość</string>
+    <string name="title_raw_send_thread">Konwersacja</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
     <string name="title_manage_labels">Zarządzaj etykietami Gmail</string>
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
@@ -877,8 +879,7 @@
     <string name="title_download_all">Pobierz wszystkie</string>
     <string name="title_save_all">Zapisz wszystkie</string>
     <string name="title_save_eml">Zapisz nieprzetworzony plik wiadomości</string>
-    <string name="title_raw_remaining">Surowe wiadomości (RAW) do pobrania: %1$d</string>
-    <string name="title_ask_raw">Aby przesyłać wiadomości dalej, należy pobrać surowe (oryginalne) wiadomości z serwera. Wymaga to połączenia z Internetem.</string>
+    <string name="title_eml_remark">Aby przesyłać wiadomości dalej, należy pobrać surowe (oryginalne) wiadomości z serwera. Wymaga to połączenia z Internetem.</string>
     <string name="title_buttons">Wybierz przyciski</string>
     <string name="title_buttons_hint">Dostępne działania zależą od typu konta i konfiguracji</string>
     <string name="title_button_search">Szukaj w wiadomościach</string>

@@ -470,6 +470,11 @@
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
+    <string name="title_raw_send_message">Mensagem</string>
+    <string name="title_raw_send_thread">Conversa</string>
+    <string name="title_eml_remark">Para encaminhar mensagens, precisa de fazer download das mensagens (originais) do servidor. Isto requer ligação à internet.</string>
+    <string name="title_eml_option">Isto pode ser impedido se ativar a opção nas configurações de ligação para fazer sempre download das mensagens originais</string>
+    <string name="title_eml_downloaded">Download de mensagens originais: %1$s</string>
     <string name="title_trash">Lixo</string>
     <string name="title_delete">Eliminar</string>
     <string name="title_spam">Spam</string>

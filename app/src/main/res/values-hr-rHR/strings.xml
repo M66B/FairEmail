@@ -545,6 +545,8 @@
     <string name="title_show_headers">Pokaži zaglavlje</string>
     <string name="title_raw_save">Spremi sirovu poruku</string>
     <string name="title_raw_send">Pošalji kao prilog</string>
+    <string name="title_raw_send_message">Poruka</string>
+    <string name="title_raw_send_thread">Konverzacija</string>
     <string name="title_manage_keywords">Upravljanje ključnim riječima</string>
     <string name="title_add_keyword">Dodaj ključnu riječ</string>
     <string name="title_show_inline">Prikaži umetnute priloge</string>

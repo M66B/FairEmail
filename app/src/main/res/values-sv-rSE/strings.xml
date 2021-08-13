@@ -591,6 +591,7 @@
     <string name="title_advanced_notify_manage_hint">Tryck på kanalens namn för att ange kanalens egenskaper</string>
     <string name="title_advanced_notify_manage_default_hint">För att ställa in standardljudet, etc</string>
     <string name="title_advanced_notify_manage_service_hint">För att inaktivera meddelandet \"övervakning\"</string>
+    <string name="title_advanced_notify_separate_hint">Hur konfigurerar jag aviseringar för konton, mappar och avsändare?</string>
     <string name="title_advanced_notify_preview_all_hint">För handburna enheter som kan visa fulltext (upp till 5000 tecken)</string>
     <string name="title_advanced_notify_preview_only_hint">Denna försening visar aviseringar tills meddelandet har laddats ner</string>
     <string name="title_advanced_wearable_hint">Aviseringar skickas endast till en bärbar enhet efter att meddelandet har laddats ner</string>
@@ -847,6 +848,8 @@
     <string name="title_share_as_html">Dela som HTML</string>
     <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_raw_send">Skicka som bilaga</string>
+    <string name="title_raw_send_message">Meddelande</string>
+    <string name="title_raw_send_thread">Konversation</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>
     <string name="title_manage_labels">Hantera Gmail-etiketter</string>
     <string name="title_add_keyword">Lägg till nyckelord</string>
@@ -854,8 +857,9 @@
     <string name="title_download_all">Hämta alla</string>
     <string name="title_save_all">Spara alla</string>
     <string name="title_save_eml">Spara raw-meddelandefil</string>
-    <string name="title_raw_remaining">Råa meddelanden att ladda ner: %1$d</string>
-    <string name="title_ask_raw">För att vidarebefordra meddelanden måste de råa (ursprungliga) meddelandena laddas ner från servern. Detta kräver en internetanslutning.</string>
+    <string name="title_eml_remark">För att vidarebefordra meddelanden måste de råa (ursprungliga) meddelandena laddas ner från servern. Detta kräver en internetanslutning.</string>
+    <string name="title_eml_option">Detta kan förhindras genom att alltid välja att ladda ner råa meddelandefiler i anslutningsinställningarna</string>
+    <string name="title_eml_downloaded">Råa meddelanden nedladdade: %1$s</string>
     <string name="title_buttons">Välj knappar</string>
     <string name="title_buttons_hint">De faktiska åtgärder som är tillgängliga beror på kontotyp och konfiguration</string>
     <string name="title_button_search">Sök i meddelanden</string>

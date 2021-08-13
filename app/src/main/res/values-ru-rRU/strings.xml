@@ -353,7 +353,8 @@
     <string name="title_advanced_landscape">Альбомный режим</string>
     <string name="title_advanced_two_row">Использовать две строки</string>
     <string name="title_advanced_two_col">Использовать две колонки</string>
-    <string name="title_advanced_nav_options">Показывать настройки меню навигации</string>
+    <string name="title_advanced_nav_options">Показать настройки меню навигации</string>
+    <string name="title_advanced_nav_pin">Закрепить меню навигации</string>
     <string name="title_advanced_nav_hide_title">Скрыть настройки меню навигации?</string>
     <string name="title_advanced_nav_hide_message">Снова включить отображение настроек можно в параметрах отображения</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
@@ -614,6 +615,7 @@
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить его свойства</string>
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
     <string name="title_advanced_notify_manage_service_hint">Для отключения контролирующего уведомления</string>
+    <string name="title_advanced_notify_separate_hint">Как настроить уведомления для учётных записей, папок и отправителей?</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимых устройств, которые могут показывать полный текст (до 5000 символов)</string>
     <string name="title_advanced_notify_preview_only_hint">Задержит отображения уведомлений до тех пор, пока текст сообщения не будет загружен</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
@@ -870,6 +872,8 @@
     <string name="title_share_as_html">Поделиться как HTML</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
     <string name="title_raw_send">Отправить как вложение</string>
+    <string name="title_raw_send_message">Сообщение</string>
+    <string name="title_raw_send_thread">Диалог</string>
     <string name="title_manage_keywords">Управление ключами (словами)</string>
     <string name="title_manage_labels">Управление метками Gmail</string>
     <string name="title_add_keyword">Добавить ключ (слово)</string>
@@ -877,8 +881,9 @@
     <string name="title_download_all">Загрузить все</string>
     <string name="title_save_all">Сохранить все</string>
     <string name="title_save_eml">Сохранить оригинальный файл сообщения</string>
-    <string name="title_raw_remaining">Исходные сообщения для загрузки: %1$d</string>
-    <string name="title_ask_raw">Чтобы переслать сообщения, необходимо загрузить необработанные (исходные) сообщения с сервера. Для этого необходимо подключение к интернету.</string>
+    <string name="title_eml_remark">Чтобы переслать сообщения, необходимо загрузить необработанные (исходные) сообщения с сервера. Для этого необходимо подключение к интернету.</string>
+    <string name="title_eml_option">Это можно предотвратить, включив загрузку исходных сообщений в настройках подключения</string>
+    <string name="title_eml_downloaded">Загружены исходные сообщения: %1$s</string>
     <string name="title_buttons">Выбрать кнопки</string>
     <string name="title_buttons_hint">Доступные действия зависят от типа учётной записи и конфигурации</string>
     <string name="title_button_search">Поиск в сообщениях</string>
@@ -1407,6 +1412,7 @@
     <string name="title_default_apps">Приложения по умолчанию</string>
     <string name="title_reset_open">Задать или сбросить приложения по умолчанию</string>
     <string name="title_select_app">Выбор приложения</string>
+    <string name="title_updated">Доступно обновление до версии %1$s.</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">FairEmail 搜尋</string>
     <string name="app_changelog">變更紀錄</string>
-    <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，某些功能的工作方式可能與您所熟悉的不同。</string>
+    <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，有些功能的工作方式可能與您所熟悉的不同。</string>
     <string name="app_limitations">例如，預設重排訊息以移除不安全的元件並改善可讀性，並且為了安全，連結的開啟還需要獲得確認。如有需要，兩者皆可停用。</string>
     <string name="app_crash">此裝置不支援 FairEmail 的執行，因為 Android 系統中存在會導致本程式崩潰的 bugs</string>
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
@@ -112,7 +112,7 @@
     <string name="title_setup_simple">不需要改變任何其他選項</string>
     <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時的辛勤工作。如果您有任何問題，請在留下負評之前先與我聯絡以尋求支援。我很樂意幫忙！</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
-    <string name="title_setup_quick_support">某些電子郵件供應商讓新增帳戶變得困難。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
+    <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">快速設置將會透過 autoconfig.thunderbird.net 取得配置資訊</string>
     <string name="title_setup_quick_patience">請耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">用於接收訊息的 IMAP 伺服器</string>
@@ -324,6 +324,7 @@
     <string name="title_advanced_two_row">使用雙排</string>
     <string name="title_advanced_two_col">使用雙列</string>
     <string name="title_advanced_nav_options">顯示導航功能表選項</string>
+    <string name="title_advanced_nav_pin">固定導航功能表</string>
     <string name="title_advanced_nav_hide_title">要隱藏導航功能表選項嗎？</string>
     <string name="title_advanced_nav_hide_message">您可以在顯示設定中再次啟用此選項</string>
     <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
@@ -583,6 +584,7 @@
     <string name="title_advanced_notify_manage_hint">輕觸頻道名稱以設定頻道屬性</string>
     <string name="title_advanced_notify_manage_default_hint">設定預設音效等等</string>
     <string name="title_advanced_notify_manage_service_hint">選擇關閉以停用‘正在監視’通知</string>
+    <string name="title_advanced_notify_separate_hint">我如何針對帳戶、資料夾和寄件者配置通知？</string>
     <string name="title_advanced_notify_preview_all_hint">針對可顯示全文的穿戴式裝置 (最多5000個字元)</string>
     <string name="title_advanced_notify_preview_only_hint">通知顯示延後，直至訊息本文被下載</string>
     <string name="title_advanced_wearable_hint">通知僅在訊息本文下載後才會被傳送至穿戴式裝置</string>
@@ -839,6 +841,8 @@
     <string name="title_share_as_html">分享為 HTML</string>
     <string name="title_raw_save">保存元訊息</string>
     <string name="title_raw_send">以附件形式傳送</string>
+    <string name="title_raw_send_message">訊息</string>
+    <string name="title_raw_send_thread">會話</string>
     <string name="title_manage_keywords">管理關鍵字</string>
     <string name="title_manage_labels">管理 Gmail 標籤</string>
     <string name="title_add_keyword">新增關鍵字</string>
@@ -846,8 +850,9 @@
     <string name="title_download_all">全部下載</string>
     <string name="title_save_all">全部保存</string>
     <string name="title_save_eml">保存元訊息檔</string>
-    <string name="title_raw_remaining">待下載元訊息: %1$d</string>
-    <string name="title_ask_raw">欲轉寄訊息，需從伺服器下載未經處理的 (原始) 訊息，需要網際網路連線。</string>
+    <string name="title_eml_remark">欲轉寄訊息，需從伺服器下載未經處理的 (原始) 訊息，需要網際網路連線。</string>
+    <string name="title_eml_option">透過於連線設定中啟用總是下載元訊息檔，可以阻止此情況的發生</string>
+    <string name="title_eml_downloaded">已下載元訊息: %1$s</string>
     <string name="title_buttons">選擇欲新增的按鈕</string>
     <string name="title_buttons_hint">實際可用操作取決於帳戶類型和配置</string>
     <string name="title_button_search">在訊息中搜尋</string>
@@ -1376,6 +1381,7 @@
     <string name="title_default_apps">預設應用程式</string>
     <string name="title_reset_open">設定或清除預設應用程式</string>
     <string name="title_select_app">選擇應用程式</string>
+    <string name="title_updated">有可更新版本 %1$s</string>
     <string name="title_issue">您有什麼疑問或是遇到了什麼問題嗎？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>

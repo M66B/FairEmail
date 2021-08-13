@@ -164,7 +164,9 @@
     <string name="title_setup_manage">Administrér</string>
     <string name="title_setup_grant">Tillad</string>
     <string name="title_setup_grant_again">Tildel nødvendige tilladelser</string>
+    <string name="title_setup_exchange_support">Understøttes Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Hvad er en identitet?</string>
+    <string name="title_setup_free">Er denne app gratis at bruge?</string>
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_permissions_explanation">Kontakttilladelser kræves for at slå kontaktoplysninger op og foreslå kontaktpersoner</string>
@@ -175,6 +177,8 @@
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
+    <string name="title_setup_doze_device">Dette er sandsynligvis nødvendigt for denne enhed</string>
+    <string name="title_setup_doze_android">Dette er påkrævet for denne Android-version</string>
     <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
     <string name="title_setup_background">Baggrundsbegrænsninger er aktive</string>
     <string name="title_setup_data">Datasparer er aktiveret</string>
@@ -380,6 +384,7 @@
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt som standard monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_monospaced_pre">Benyt monospatieret skrifttype til præformateret tekst</string>
+    <string name="title_advanced_background_color">Brug baggrundsfarver</string>
     <string name="title_advanced_text_color">Benyt tekstfarver</string>
     <string name="title_advanced_text_size">Benyt tekststørrelser</string>
     <string name="title_advanced_text_font">Benyt skrifttyper</string>
@@ -388,6 +393,7 @@
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_image_placeholders">Vis billedpladsholdere</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
+    <string name="title_advanced_button_extra">Vis ekstra knapper i bunden af en besked</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
@@ -582,6 +588,7 @@
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet for at opsætte kanalegenskaberne</string>
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>
     <string name="title_advanced_notify_manage_service_hint">For at deaktivere \'overvågningsnotifikationen\'</string>
+    <string name="title_advanced_notify_separate_hint">Hvordan opsættes notifikationer for konti, mapper og afsendere?</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables, som kan vise den fulde tekst (op til 5.000 tegn)</string>
     <string name="title_advanced_notify_preview_only_hint">Dette forsinker visning af notifikationer indtil beskedteksten er downloadet</string>
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
@@ -625,6 +632,7 @@
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
     <string name="title_color">Farve</string>
     <string name="title_background">Baggrund</string>
+    <string name="title_transparent">Gennemsigtig</string>
     <string name="title_account_ondemand">Synkronisér manuelt</string>
     <string name="title_account_notify">Separate notifikationer</string>
     <string name="title_account_left">Stryg til venstre</string>
@@ -644,6 +652,7 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brugernavn</string>
     <string name="title_password">Adgangskode</string>
+    <string name="title_password_storage">Hvordan opbevares adgangskoder?</string>
     <string name="title_case_sensitive">I brugernavne og adgangskoder skelnes normalt mellem minuskler og versaler</string>
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Område</string>
@@ -828,11 +837,14 @@
     <string name="title_pin">Tilføj genvej</string>
     <string name="title_print">Udskriv</string>
     <string name="title_print_header">Udskriv header</string>
+    <string name="title_print_images">Udskriv billeder</string>
     <string name="title_print_images_remark">Download af billeder kan tage lidt tid</string>
     <string name="title_show_headers">Vis overskrifter</string>
     <string name="title_share_as_html">Del som HTML</string>
     <string name="title_raw_save">Gem besked i råformat</string>
     <string name="title_raw_send">Send som vedhæftning</string>
+    <string name="title_raw_send_message">Besked</string>
+    <string name="title_raw_send_thread">Samtale</string>
     <string name="title_manage_keywords">Håndtér stikord</string>
     <string name="title_manage_labels">Håndtér Gmail-etiketter</string>
     <string name="title_add_keyword">Tilføj stikord</string>
@@ -840,15 +852,21 @@
     <string name="title_download_all">Download alle</string>
     <string name="title_save_all">Gem alt</string>
     <string name="title_save_eml">Gem besked i råformatsfil</string>
-    <string name="title_raw_remaining">Rå beskeder at downloade: %1$d</string>
-    <string name="title_ask_raw">Beskedvideresendelse kræver download af de rå (originelle) beskeder fra serveren, hvilket kræver Internetforbindelse.</string>
+    <string name="title_eml_remark">Beskedvideresendelse kræver download af de rå (originale) beskeder fra serveren, hvilket kræver Internetforbindelse.</string>
+    <string name="title_eml_option">Dette kan forhindres ved i forbindelsesindstillingerne at aktivere Download altid rå beskedfiler</string>
+    <string name="title_eml_downloaded">Rå beskeder downloadet: %1$s</string>
+    <string name="title_buttons">Vælg knapper</string>
     <string name="title_buttons_hint">De faktisk tilgængelige handlinger afhænger af kontotype og opsætning</string>
+    <string name="title_button_search">Søg i beskeder</string>
+    <string name="title_button_search_text">Søg i beskedtekst</string>
+    <string name="title_configure_buttons">Indstil knapper &#8230;</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>
     <string name="title_subscribe">Abonnér</string>
     <string name="title_delete">Slet</string>
     <string name="title_more">Mere</string>
+    <string name="title_less">Mindre</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Flyt</string>
     <string name="title_copy_btn">Kopiér</string>
@@ -948,9 +966,11 @@
     <string name="title_subject">Emne:</string>
     <string name="title_attachment">Vedhæftning:</string>
     <string name="title_body_hint">Din besked</string>
+    <string name="title_body_hint_style">Du kan vælge tekst for at formatere det</string>
     <string name="title_discard">Kassér</string>
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
+    <string name="title_sending">Sender&#8230;</string>
     <string name="title_send_now">Send nu</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
@@ -1001,6 +1021,7 @@
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
+    <string name="title_create_template">Opret skabelon</string>
     <string name="title_translate">Oversæt</string>
     <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>
@@ -1024,6 +1045,7 @@
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
     <string name="title_from_missing">Afsender mangler</string>
     <string name="title_pgp_reminder">PGP-nøgler tilgængelige</string>
+    <string name="title_smime_reminder">S/MIME-nøgler tilgængelige</string>
     <string name="title_to_missing">Modtager mangler</string>
     <string name="title_extra_missing">Brugernavn mangler</string>
     <string name="title_external_reminder">Sender til et eksternt domæne</string>
@@ -1086,6 +1108,7 @@
     <string name="title_search_in_subject">I Emne</string>
     <string name="title_search_in_keywords">I nøgleord (hvis understøttet)</string>
     <string name="title_search_in_message">I beskedtekst</string>
+    <string name="title_search_in_notes">I lokale noter</string>
     <string name="title_search_with">Begræns søgning til</string>
     <string name="title_search_with_unseen">Ulæst</string>
     <string name="title_search_with_flagged">Stjernemarkeret</string>
@@ -1308,7 +1331,9 @@
     <string name="title_legend_create_rule">Opret regel</string>
     <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>
+    <string name="title_legend_hide_images">Skjul billeder</string>
     <string name="title_legend_show_full">Vis oprindelig besked</string>
+    <string name="title_legend_show_reformatted">Vis omformateret besked</string>
     <string name="title_legend_edit">Redigér</string>
     <string name="title_legend_default_color">Standardfarve</string>
     <string name="title_legend_close_hint">Luk tip</string>

@@ -110,6 +110,8 @@
     <string name="title_advanced_caption_conversation">কথোপকথন</string>
     <string name="title_advanced_caption_message">বার্তা</string>
     <string name="title_synchronize_enabled">সিংক্রোনাইজ হয়েছে</string>
+    <string name="title_raw_send_message">বার্তা</string>
+    <string name="title_raw_send_thread">কথোপকথন</string>
     <string name="title_compose">লেখুন</string>
     <string name="title_send">পাঠান</string>
     <string name="title_legend_section_synchronize">সিংক্রোনাইজ হয়েছে</string>

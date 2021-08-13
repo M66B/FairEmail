@@ -564,6 +564,8 @@
     <string name="title_show_headers">Prikaži glave</string>
     <string name="title_raw_save">Shrani izvorno sporočilo</string>
     <string name="title_raw_send">Shrani kot prilogo</string>
+    <string name="title_raw_send_message">Sporočilo</string>
+    <string name="title_raw_send_thread">Pogovor</string>
     <string name="title_manage_keywords">Upravljaj s ključnimi besedami</string>
     <string name="title_add_keyword">Dodaj ključno besedo</string>
     <string name="title_show_inline">Prikaži priloge v besedilu</string>

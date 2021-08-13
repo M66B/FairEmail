@@ -83,7 +83,7 @@ Relaterede spørgsmål:
 * En [fejl i Android](https://issuetracker.google.com/issues/37068143) medfører af og til et nedbrud med "*... Ugyldig forskydning... Gyldigt område er ...* når tekst er valgt og der trykkes uden for den valgte tekst. Denne fejl er rettet i Android 6.0.1.
 * Interne (anker-) links vil ikke fungere, da de oprindelige beskeder vises i et indlejret WebView i en rullevisning (samtalelisten). Dette er en Android-begrænsning, der ikke kan rettes eller omgås.
 * Sprogdetektering [fungerer ikke længere](https://issuetracker.google.com/issues/173337263) på Pixel-enheder med/ opgraderet til Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* En [fejl i OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) forårsager ugyldige PGP-signaturer, når du bruger en hardware token.
 
 <h2><a name="planned-features"></a>Planlagte funktioner</h2>
 

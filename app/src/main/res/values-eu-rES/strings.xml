@@ -603,6 +603,8 @@
     <string name="title_show_headers">Erakutsi goiburuak</string>
     <string name="title_raw_save">Gorde mezu gordina</string>
     <string name="title_raw_send">Bidali eranskin gisa</string>
+    <string name="title_raw_send_message">Mezua</string>
+    <string name="title_raw_send_thread">Elkarrizketa</string>
     <string name="title_manage_keywords">Kudeatu hitz gakoak</string>
     <string name="title_add_keyword">Gehitu hitz gakoak</string>
     <string name="title_show_inline">Erakutsi txertatutako eranskinak</string>

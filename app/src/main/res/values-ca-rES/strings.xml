@@ -620,6 +620,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_show_headers">Mostra les capçaleres</string>
     <string name="title_raw_save">Descarregueu el missatge en brut</string>
     <string name="title_raw_send">Envia com a fitxer adjunt</string>
+    <string name="title_raw_send_message">Missatge</string>
+    <string name="title_raw_send_thread">Conversació</string>
     <string name="title_manage_keywords">Gestiona les paraules clau</string>
     <string name="title_manage_labels">Gestiona les etiquetes de Gmail</string>
     <string name="title_add_keyword">Afegeix paraula clau</string>

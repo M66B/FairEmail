@@ -228,6 +228,8 @@
     <string name="title_importance_low">נמוכה</string>
     <string name="title_importance_normal">רגילה</string>
     <string name="title_importance_high">גבוהה</string>
+    <string name="title_raw_send_message">הודעה</string>
+    <string name="title_raw_send_thread">דיונים</string>
     <string name="title_trash">אשפה</string>
     <string name="title_delete">מחק</string>
     <string name="title_spam">ספאם</string>

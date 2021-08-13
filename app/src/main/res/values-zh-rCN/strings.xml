@@ -322,6 +322,10 @@
     <string name="title_advanced_landscape">横屏模式</string>
     <string name="title_advanced_two_row">使用两行</string>
     <string name="title_advanced_two_col">使用两列</string>
+    <string name="title_advanced_nav_options">显示导航菜单选项</string>
+    <string name="title_advanced_nav_pin">固定导航菜单</string>
+    <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
+    <string name="title_advanced_nav_hide_message">您可以在显示设置中再次启用选项</string>
     <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储消息的数量</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
@@ -835,6 +839,8 @@
     <string name="title_share_as_html">以HTML格式分享</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
+    <string name="title_raw_send_message">消息</string>
+    <string name="title_raw_send_thread">对话</string>
     <string name="title_manage_keywords">关键字管理</string>
     <string name="title_manage_labels">管理 Gmail 标签</string>
     <string name="title_add_keyword">添加关键字</string>
@@ -842,8 +848,7 @@
     <string name="title_download_all">全部下载</string>
     <string name="title_save_all">全部保存</string>
     <string name="title_save_eml">保存原始消息文件</string>
-    <string name="title_raw_remaining">要下载的原始消息: %1$d</string>
-    <string name="title_ask_raw">转发消息需要从服务器下载原始消息，这需要网络连接。</string>
+    <string name="title_eml_remark">转发消息需要从服务器下载原始消息，这需要网络连接。</string>
     <string name="title_buttons">选择按钮</string>
     <string name="title_buttons_hint">实际操作可行性取决于账户类型和配置</string>
     <string name="title_button_search">搜索消息</string>
@@ -1372,6 +1377,7 @@
     <string name="title_default_apps">默认应用程序</string>
     <string name="title_reset_open">设置或清除默认应用</string>
     <string name="title_select_app">选择应用</string>
+    <string name="title_updated">可更新到版本 %1$s</string>
     <string name="title_issue">您要提问或有疑问吗？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>

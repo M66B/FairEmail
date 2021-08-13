@@ -605,6 +605,7 @@
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului pentru a-l configura</string>
     <string name="title_advanced_notify_manage_default_hint">Pentru a configura sunetul implicit etc</string>
     <string name="title_advanced_notify_manage_service_hint">Pentru a dezactiva notificarea de „monitorizare”</string>
+    <string name="title_advanced_notify_separate_hint">Cum pot configura notificările pentru conturi, dosare și expeditori?</string>
     <string name="title_advanced_notify_preview_all_hint">Pentru accesoriile de purtat care pot arăta textul complet (până la 5000 caractere)</string>
     <string name="title_advanced_notify_preview_only_hint">Aceasta întârzie notificările până când textul mesajului a fost descărcat</string>
     <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
@@ -861,6 +862,8 @@
     <string name="title_share_as_html">Distribuie ca HTML</string>
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>
+    <string name="title_raw_send_message">Mesaj</string>
+    <string name="title_raw_send_thread">Conversație</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
     <string name="title_manage_labels">Gestionare etichete Gmail</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
@@ -868,8 +871,9 @@
     <string name="title_download_all">Descarcă tot</string>
     <string name="title_save_all">Salvează tot</string>
     <string name="title_save_eml">Salvează mesaj original în fișier</string>
-    <string name="title_raw_remaining">Mesaje brute pentru descărcare: %1$d</string>
-    <string name="title_ask_raw">Pentru a redirecționa mesaje, mesajele brute (originale) trebuie descărcate de pe server. Acest lucru necesită o conexiune la internet.</string>
+    <string name="title_eml_remark">Pentru a redirecționa mesaje, mesajele brute (originale) trebuie descărcate de pe server. Acest lucru necesită o conexiune la internet.</string>
+    <string name="title_eml_option">Acest lucru poate fi prevenit prin activarea funcției de descărcare permanentă a fișierelor de mesaje brute în setările de conectare</string>
+    <string name="title_eml_downloaded">Mesaje brute descărcate: %1$s</string>
     <string name="title_buttons">Selectare butoane</string>
     <string name="title_buttons_hint">Acțiunile reale disponibile depind de tipul contului și de configurație</string>
     <string name="title_button_search">Căutați în mesaje</string>

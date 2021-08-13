@@ -460,6 +460,8 @@
     <string name="title_show_headers">Прикажи заглавља</string>
     <string name="title_raw_save">Сачувај сирову поруку</string>
     <string name="title_raw_send">Пошаљи као прилог</string>
+    <string name="title_raw_send_message">Порука</string>
+    <string name="title_raw_send_thread">Разговор</string>
     <string name="title_manage_keywords">Управљај кључним речима</string>
     <string name="title_add_keyword">Додај кључну реч</string>
     <string name="title_show_inline">Прикажу уметнуте прилоге</string>

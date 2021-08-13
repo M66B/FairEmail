@@ -371,6 +371,8 @@
     <string name="title_print_images">사진 인쇄</string>
     <string name="title_show_headers">제목 표시</string>
     <string name="title_share_as_html">HTML로 공유</string>
+    <string name="title_raw_send_message">메시지</string>
+    <string name="title_raw_send_thread">대화</string>
     <string name="title_manage_keywords">키워드 관리</string>
     <string name="title_add_keyword">키워드 추가</string>
     <string name="title_download_all">모두 다운로드</string>

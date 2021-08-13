@@ -334,7 +334,7 @@
     <string name="title_advanced_two_row">Utiliser deux rangées</string>
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
-    <string name="title_advanced_nav_pin">Figer le menu de navigation</string>
+    <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>
     <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation ?</string>
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
@@ -595,6 +595,7 @@
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification « Surveillance »</string>
+    <string name="title_advanced_notify_separate_hint">Comment configurer les notifications pour les comptes, dossiers et expéditeurs ?</string>
     <string name="title_advanced_notify_preview_all_hint">Pour les appareils portables qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
     <string name="title_advanced_notify_preview_only_hint">Ceci retarde l\'affichage des notifications jusqu\'à ce que le texte du message ait été téléchargé</string>
     <string name="title_advanced_wearable_hint">Les notifications sont envoyées à un appareil portable seulement après le téléchargement du texte du message</string>
@@ -851,6 +852,8 @@
     <string name="title_share_as_html">Partager en tant que HTML</string>
     <string name="title_raw_save">Enregistrer le message original</string>
     <string name="title_raw_send">Envoyer comme pièce jointe</string>
+    <string name="title_raw_send_message">Message</string>
+    <string name="title_raw_send_thread">Conversation</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
     <string name="title_manage_labels">Gérer les libellés Gmail</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
@@ -858,8 +861,9 @@
     <string name="title_download_all">Tout télécharger</string>
     <string name="title_save_all">Tout enregistrer</string>
     <string name="title_save_eml">Enregistrer le message original dans un fichier</string>
-    <string name="title_raw_remaining">Messages bruts à télécharger : %1$d</string>
-    <string name="title_ask_raw">Pour transférer des messages, les messages bruts (originaux) doivent être téléchargés depuis le serveur. Ceci nécessite une connexion Internet.</string>
+    <string name="title_eml_remark">Pour transférer des messages, les messages bruts (originaux) doivent être téléchargés depuis le serveur. Ceci nécessite une connexion Internet.</string>
+    <string name="title_eml_option">Ceci peut être évité en activant le téléchargement des fichiers de messages bruts dans les paramètres de connexion</string>
+    <string name="title_eml_downloaded">Messages bruts téléchargés : %1$s</string>
     <string name="title_buttons">Sélectionner les boutons</string>
     <string name="title_buttons_hint">Les actions réellement disponibles dépendent du type de compte et de la configuration</string>
     <string name="title_button_search">Rechercher dans les messages</string>

@@ -607,6 +607,7 @@
     <string name="title_advanced_notify_manage_hint">Натисніть на назву каналу, щоб встановити властивості каналу</string>
     <string name="title_advanced_notify_manage_default_hint">Щоб встановити звук за замовчуванням</string>
     <string name="title_advanced_notify_manage_service_hint">Щоб вимкнути сповіщення \'моніторинг\'</string>
+    <string name="title_advanced_notify_separate_hint">Як налаштувати сповіщення для облікових записів, тек і відправників?</string>
     <string name="title_advanced_notify_preview_all_hint">Для пристроїв, які можуть відображати повний текст (до 5 000 символів)</string>
     <string name="title_advanced_notify_preview_only_hint">Затримує показ сповіщення поки повідомлення не буде завантажено</string>
     <string name="title_advanced_wearable_hint">Сповіщення надсилаються до пристрою тільки після завантаження тексту</string>
@@ -863,6 +864,8 @@
     <string name="title_share_as_html">Поділитися як HTML</string>
     <string name="title_raw_save">Зберігти raw повідомлення</string>
     <string name="title_raw_send">Надіслати як вкладення</string>
+    <string name="title_raw_send_message">Повідомлення</string>
+    <string name="title_raw_send_thread">Розмова</string>
     <string name="title_manage_keywords">Керування ключовими словами</string>
     <string name="title_manage_labels">Керування мітками Gmail</string>
     <string name="title_add_keyword">Додати ключове слово</string>
@@ -870,8 +873,9 @@
     <string name="title_download_all">Звантажити все</string>
     <string name="title_save_all">Зберегти все</string>
     <string name="title_save_eml">Зберігти файл raw повідомлення</string>
-    <string name="title_raw_remaining">Необроблені повідомлення для завантаження: %1$d</string>
-    <string name="title_ask_raw">Для пересилання повідомлень необхідно завантажити їх з серверу. Для цього потрібне підключення до інтернету.</string>
+    <string name="title_eml_remark">Для пересилання повідомлень необхідно завантажити їх з серверу. Для цього потрібне підключення до інтернету.</string>
+    <string name="title_eml_option">Увімкнувши в налаштуваннях підключення, це може запобігти, завжди завантажувати файли необроблених повідомлень</string>
+    <string name="title_eml_downloaded">Необроблених повідомлень завантаженно: %1$s</string>
     <string name="title_buttons">Виберіть кнопки</string>
     <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
     <string name="title_button_search">Пошук у повідомленнях</string>

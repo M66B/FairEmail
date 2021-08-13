@@ -333,6 +333,10 @@
     <string name="title_advanced_landscape">Üfüqi rejim</string>
     <string name="title_advanced_two_row">İki sətir istifadə et</string>
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
+    <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
+    <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
+    <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
+    <string name="title_advanced_nav_hide_message">Görüntü tənzimləmələrində bu seçimi təkrar fəallaşdıra bilərsiniz</string>
     <string name="title_advanced_nav_message_count">Naviqasiya menyusunda yerli yaddaşda saxlanılmış mesaj sayını göstər</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_cards">Cədvəl stili əvəzinə kart stilini istifadə et</string>
@@ -846,6 +850,8 @@
     <string name="title_share_as_html">HTML kimi paylaş</string>
     <string name="title_raw_save">Xam mesajı saxla</string>
     <string name="title_raw_send">Qoşma kimi saxla</string>
+    <string name="title_raw_send_message">Mesaj</string>
+    <string name="title_raw_send_thread">Söhbət</string>
     <string name="title_manage_keywords">Açar sözləri idarə et</string>
     <string name="title_manage_labels">Gmail etiketlərini idarə et</string>
     <string name="title_add_keyword">Açarsöz əlavə et</string>
@@ -853,8 +859,7 @@
     <string name="title_download_all">Hamısını endir</string>
     <string name="title_save_all">Hamısını saxla</string>
     <string name="title_save_eml">Xam mesaj faylını saxla</string>
-    <string name="title_raw_remaining">Endiriləcək xam mesajlar: %1$d</string>
-    <string name="title_ask_raw">Mesajı yönləndirmək üçün xam (orijinal) mesajların serverdən endirilməsi lazımdır. Bu, internet bağlantısı tələb edir.</string>
+    <string name="title_eml_remark">Mesajı yönləndirmək üçün xam (orijinal) mesajların serverdən endirilməsi lazımdır. Bu, internet bağlantısı tələb edir.</string>
     <string name="title_buttons">Düymələri seçin</string>
     <string name="title_buttons_hint">Aktual əməliyyatlar, hesab növündən və konfiqurasiyadan asılıdır</string>
     <string name="title_button_search">Mesajlarda axtar</string>
@@ -1383,6 +1388,7 @@
     <string name="title_default_apps">İlkin tətbiqlər</string>
     <string name="title_reset_open">İlkin tətbiqləri tənzimlə və təmizlə</string>
     <string name="title_select_app">Tətbiq seç</string>
+    <string name="title_updated">%1$s versiyasına yenilənə bilər</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>

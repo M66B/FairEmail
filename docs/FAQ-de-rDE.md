@@ -2275,7 +2275,7 @@ Deaktivieren von *»Partial fetch« (Teilabruf)* führt zu mehr Speicherverbrauc
 <br />
 
 <a name="faq111"></a>
-**(111) Is OAuth supported?**
+**(111) Wird OAuth unterstützt?**
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
@@ -2284,9 +2284,9 @@ OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the qui
 <br />
 
 <a name="faq112"></a>
-**(112) Which email provider do you recommend?**
+**(112) Welchen E-Mail-Anbieter empfehlen Sie?**
 
-FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
+FairEmail ist nur ein E-Mail-Programm, deshalb müssen Sie Ihre eigene E-Mail-Adresse mitbringen. Beachten Sie, dass dies deutlich in der App-Beschreibung erwähnt wird.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 

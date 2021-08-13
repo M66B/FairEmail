@@ -686,6 +686,8 @@
     <string name="title_show_headers">Vis topptekster</string>
     <string name="title_raw_save">Lagre rå melding</string>
     <string name="title_raw_send">Send som vedlegg</string>
+    <string name="title_raw_send_message">Melding</string>
+    <string name="title_raw_send_thread">Samtale</string>
     <string name="title_manage_keywords">Administrer søkeord</string>
     <string name="title_manage_labels">Administrer Gmail-etiketter</string>
     <string name="title_add_keyword">Legg til søkeord</string>

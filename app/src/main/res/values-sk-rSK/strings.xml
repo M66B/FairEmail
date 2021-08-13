@@ -863,6 +863,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_share_as_html">Zdieľať ako HTML</string>
     <string name="title_raw_save">Uložiť surovú správu</string>
     <string name="title_raw_send">Preposlať ako prílohu</string>
+    <string name="title_raw_send_message">Správa</string>
+    <string name="title_raw_send_thread">Konverzácia</string>
     <string name="title_manage_keywords">Spravovať kľúčové slová</string>
     <string name="title_manage_labels">Spravovať štítky Gmail</string>
     <string name="title_add_keyword">Pridať kľúčové slovo</string>
@@ -870,8 +872,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_download_all">Prevziať všetky</string>
     <string name="title_save_all">Uložiť všetky</string>
     <string name="title_save_eml">Uložiť správu ako nespracovaný súbor</string>
-    <string name="title_raw_remaining">Počet surových správ na prevzatie: %1$d</string>
-    <string name="title_ask_raw">Aby bolo možné preposlať, je potrebné zo servera prevziať surové (pôvodné) správy. Je vyžadované pripojenie na internet.</string>
+    <string name="title_eml_remark">Aby bolo možné preposlať, je potrebné zo servera prevziať surové (pôvodné) správy. Je vyžadované pripojenie na internet.</string>
     <string name="title_buttons">Vybrať tlačidlá</string>
     <string name="title_buttons_hint">Skutočne dostupné akcie závisia od typu a nastavenia účtu</string>
     <string name="title_button_search">Hľadať v správach</string>

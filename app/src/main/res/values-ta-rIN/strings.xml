@@ -88,6 +88,8 @@
     <string name="title_advanced_caption_message">அஞ்சல்</string>
     <string name="title_advanced_cleanup">சுத்தமாக்கு</string>
     <string name="title_synchronize_enabled">ஒத்திசைத்தல்</string>
+    <string name="title_raw_send_message">அஞ்சல்</string>
+    <string name="title_raw_send_thread">உரையாடல்</string>
     <string name="title_delete">அழி</string>
     <string name="title_copy_btn">நகலெடு</string>
     <string name="title_ask_show_html_dark">கருத்த கருப்பொருளை உபயோகி</string>

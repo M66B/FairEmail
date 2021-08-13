@@ -849,6 +849,8 @@
     <string name="title_share_as_html">Κοινοποίηση ως HTML</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
     <string name="title_raw_send">Αποστολή ως συνημμένο</string>
+    <string name="title_raw_send_message">Μήνυμα</string>
+    <string name="title_raw_send_thread">Συζήτηση</string>
     <string name="title_manage_keywords">Διαχείριση λέξεων-κλειδιών</string>
     <string name="title_manage_labels">Διαχείριση ετικετών Gmail</string>
     <string name="title_add_keyword">Προσθήκη λέξης-κλειδιού</string>
@@ -856,8 +858,7 @@
     <string name="title_download_all">Κατέβασμα όλων</string>
     <string name="title_save_all">Αποθήκευση όλων</string>
     <string name="title_save_eml">Αποθήκευση αρχείου αρχικού μηνύματος</string>
-    <string name="title_raw_remaining">Ακατέργαστα μηνύματα για λήψη: %1$d</string>
-    <string name="title_ask_raw">Για να προωθήσετε μηνύματα, τα ακατέργαστα (αρχικά) μηνύματα πρέπει να ληφθούν από τον διακομιστή. Απαιτείται σύνδεση στο διαδίκτυο για αυτό.</string>
+    <string name="title_eml_remark">Για να προωθήσετε μηνύματα, τα ακατέργαστα (αρχικά) μηνύματα πρέπει να ληφθούν από τον διακομιστή. Απαιτείται σύνδεση στο διαδίκτυο για αυτό.</string>
     <string name="title_buttons">Επιλέξτε κουμπιά</string>
     <string name="title_buttons_hint">Οι όντως διαθέσιμες ενέργειες εξαρτώνται από τον τύπο και τη ρύθμιση του λογαριασμού</string>
     <string name="title_button_search">Αναζήτηση στα μηνύματα</string>

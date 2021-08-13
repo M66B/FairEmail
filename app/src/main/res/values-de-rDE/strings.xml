@@ -597,6 +597,7 @@
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
+    <string name="title_advanced_notify_separate_hint">Wie konfiguriere ich Benachrichtigungen für Konten, Ordner und Absender?</string>
     <string name="title_advanced_notify_preview_all_hint">Für Wearables, die den kompletten Text anzeigen können (bis zu 5.000 Zeichen)</string>
     <string name="title_advanced_notify_preview_only_hint">Dadurch wird die Anzeige der Benachrichtigungen verzögert, bis der Nachrichtentext heruntergeladen wurde.</string>
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden nur nach dem Download des Nachrichtentextes an einen tragbaren Empfänger gesendet</string>
@@ -852,6 +853,8 @@
     <string name="title_share_as_html">Als HTML weiterleiten</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
+    <string name="title_raw_send_message">Nachricht</string>
+    <string name="title_raw_send_thread">Unterhaltung</string>
     <string name="title_manage_keywords">Stichwörter verwalten</string>
     <string name="title_manage_labels">Gmail-Labels verwalten</string>
     <string name="title_add_keyword">Stichwort hinzufügen</string>
@@ -859,8 +862,9 @@
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
     <string name="title_save_eml">Rohdaten speichern</string>
-    <string name="title_raw_remaining">Originalnachrichten zum Herunterladen: %1$d</string>
-    <string name="title_ask_raw">Um Nachrichten weiterzuleiten, müssen die Originalnachrichten vom Server heruntergeladen werden. Dies erfordert eine Internetverbindung.</string>
+    <string name="title_eml_remark">Um Nachrichten weiterzuleiten, müssen die Originalnachrichten vom Server heruntergeladen werden. Dies erfordert eine Internetverbindung.</string>
+    <string name="title_eml_option">Dies kann verhindert werden, indem in den Verbindungseinstellungen \'Rohnachrichtendateien herunterladen\' eingeschaltet wird</string>
+    <string name="title_eml_downloaded">Rohnachrichten heruntergeladen: %1$s</string>
     <string name="title_buttons">Schaltflächen auswählen</string>
     <string name="title_buttons_hint">Die aktuell möglichen Aktionen hängen vom Kontotyp und der Konfiguration ab</string>
     <string name="title_button_search">In Nachrichten suchen</string>
