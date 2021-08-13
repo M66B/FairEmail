@@ -37,14 +37,17 @@ public class ActivitySearch extends ActivityBase {
         CharSequence query;
 
         Uri uri = getIntent().getData();
-        if (uri == null || !SEARCH_SCHEME.equals(uri.getScheme()))
-            query = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
-        else
+        boolean external = (uri != null && SEARCH_SCHEME.equals(uri.getScheme()));
+        if (external)
             query = Uri.decode(uri.toString().substring(SEARCH_SCHEME.length() + 1));
+        else
+            query = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
 
         Log.i("External search query=" + query);
-        Intent view = new Intent(this, ActivityView.class);
-        view.putExtra(Intent.EXTRA_PROCESS_TEXT, query);
+        Intent view = new Intent(this, ActivityView.class)
+                .putExtra(Intent.EXTRA_PROCESS_TEXT, query);
+        if (external)
+            view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(view);
 
         finish();
