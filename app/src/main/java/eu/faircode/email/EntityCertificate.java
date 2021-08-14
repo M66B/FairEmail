@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.text.TextUtils;
 import android.util.Base64;
 
 import androidx.annotation.NonNull;
@@ -215,6 +216,34 @@ public class EntityCertificate {
         return result;
     }
 
+    static boolean matches(String server, List<String> names) {
+        for (String name : names)
+            if (matches(server, name)) {
+                Log.i("Trusted server=" + server + " name=" + name);
+                return true;
+            }
+        return false;
+    }
+
+    private static boolean matches(String server, String name) {
+        if (name.startsWith("*.")) {
+            // Wildcard certificate
+            String domain = name.substring(2);
+            if (TextUtils.isEmpty(domain))
+                return false;
+
+            int dot = server.indexOf(".");
+            if (dot < 0)
+                return false;
+
+            String cdomain = server.substring(dot + 1);
+            if (TextUtils.isEmpty(cdomain))
+                return false;
+
+            return domain.equalsIgnoreCase(cdomain);
+        } else
+            return server.equalsIgnoreCase(name);
+    }
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();

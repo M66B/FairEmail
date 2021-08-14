@@ -870,7 +870,7 @@ public class EmailProvider implements Parcelable {
                                             List<String> names = EntityCertificate.getDnsNames((X509Certificate) cert);
                                             EntityLog.log(context, "Certificate " + address +
                                                     " " + TextUtils.join(",", names));
-                                            if (ConnectionHelper.matches(host, names)) {
+                                            if (EntityCertificate.matches(host, names)) {
                                                 EntityLog.log(context, "Trusted " + address);
                                                 return true;
                                             }

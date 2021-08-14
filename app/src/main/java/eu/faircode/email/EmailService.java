@@ -849,7 +849,7 @@ public class EmailService implements AutoCloseable {
 
                             // Check host name
                             List<String> names = EntityCertificate.getDnsNames(certificate);
-                            if (ConnectionHelper.matches(server, names))
+                            if (EntityCertificate.matches(server, names))
                                 return;
 
                             String error = server + " not in certificate: " + TextUtils.join(",", names);

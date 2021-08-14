@@ -29,7 +29,6 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
@@ -456,34 +455,5 @@ public class ConnectionHelper {
     static boolean airplaneMode(Context context) {
         return Settings.Global.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
-    }
-
-    static boolean matches(String server, List<String> names) {
-        for (String name : names)
-            if (matches(server, name)) {
-                Log.i("Trusted server=" + server + " name=" + name);
-                return true;
-            }
-        return false;
-    }
-
-    private static boolean matches(String server, String name) {
-        if (name.startsWith("*.")) {
-            // Wildcard certificate
-            String domain = name.substring(2);
-            if (TextUtils.isEmpty(domain))
-                return false;
-
-            int dot = server.indexOf(".");
-            if (dot < 0)
-                return false;
-
-            String cdomain = server.substring(dot + 1);
-            if (TextUtils.isEmpty(cdomain))
-                return false;
-
-            return domain.equalsIgnoreCase(cdomain);
-        } else
-            return server.equalsIgnoreCase(name);
     }
 }
