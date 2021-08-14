@@ -567,7 +567,7 @@ public class ViewModelMessages extends ViewModel {
             if (boundary != null) {
                 BoundaryCallbackMessages.State state = boundary.setCallback(callback);
                 PagedList<TupleMessageEx> plist = list.getValue();
-                if (plist != null)
+                if (plist != null && plist.size() > 0)
                     plist.loadAround(0);
 
                 owner.getLifecycle().addObserver(new LifecycleObserver() {
