@@ -375,6 +375,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
+        ibSettings.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                startActivity(new Intent(ActivityView.this, ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                return true;
+            }
+        });
+
         // Fetch more messages
         ibFetchMore.setOnClickListener(new View.OnClickListener() {
             @Override
