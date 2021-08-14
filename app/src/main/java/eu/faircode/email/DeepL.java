@@ -215,7 +215,9 @@ public class DeepL {
             if (status != HttpsURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
-                    error += "\n" + Helper.readStream(connection.getErrorStream());
+                    InputStream is = connection.getErrorStream();
+                    if (is != null)
+                        error += "\n" + Helper.readStream(is);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -257,7 +259,9 @@ public class DeepL {
             if (status != HttpsURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
-                    error += "\n" + Helper.readStream(connection.getErrorStream());
+                    InputStream is = connection.getErrorStream();
+                    if (is != null)
+                        error += "\n" + Helper.readStream(is);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }

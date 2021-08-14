@@ -1218,11 +1218,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     InputStream inputStream = (status == HttpsURLConnection.HTTP_OK
                             ? urlConnection.getInputStream() : urlConnection.getErrorStream());
 
-                    BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+                    if (inputStream != null) {
+                        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
-                    String line;
-                    while ((line = br.readLine()) != null)
-                        response.append(line);
+                        String line;
+                        while ((line = br.readLine()) != null)
+                            response.append(line);
+                    }
 
                     if (status == HttpsURLConnection.HTTP_FORBIDDEN) {
                         // {"message":"API rate limit exceeded for ...","documentation_url":"https://developer.github.com/v3/#rate-limiting"}
