@@ -3707,7 +3707,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        args.putString("body", HtmlHelper.toHtml(etBody.getText(), getContext()));
+        args.putCharSequence("spanned", etBody.getText());
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
         args.putBoolean("notext", notext);
@@ -5029,13 +5029,14 @@ public class FragmentCompose extends FragmentBase {
             String cc = args.getString("cc");
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
-            String body = args.getString("body");
+            Spanned spanned = (Spanned) args.getCharSequence("spanned");
             boolean signature = args.getBoolean("signature");
             boolean empty = args.getBoolean("empty");
             boolean notext = args.getBoolean("notext");
             Bundle extras = args.getBundle("extras");
 
             boolean dirty = false;
+            String body = HtmlHelper.toHtml(spanned, context);
             EntityMessage draft;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
