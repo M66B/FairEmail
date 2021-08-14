@@ -655,7 +655,7 @@
             starttls="false" />
     </provider>
     <provider
-        name="Bluewin.ch"
+        name="Swisscom/Bluewin"
         appPassword="true"
         domain="bluewin\\.ch"
         link="https://emailsetup.swisscom.ch/guide/#step=emailSettingsMobileAppSelection">
