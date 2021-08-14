@@ -24,6 +24,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -485,7 +486,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvImap.setText(result == null ? null : result.imap.toString());
                     tvSmtp.setText(result == null ? null : result.smtp.toString());
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
-                    showCertInfo(args);
+                    showCertInfo(result, args);
                     btnSave.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
                     FragmentDialogAccount fragment = new FragmentDialogAccount();
@@ -555,7 +556,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 }
             }
 
-            private void showCertInfo(Bundle args) {
+            private void showCertInfo(EmailProvider provider, Bundle args) {
                 X509Certificate imap_certificate =
                         (X509Certificate) args.getSerializable("imap_certificate");
                 X509Certificate smtp_certificate =
@@ -567,6 +568,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         imapNames = EntityCertificate.getDnsNames(imap_certificate);
                     } catch (Throwable ignored) {
                     }
+                boolean imapMatches = EntityCertificate.matches(provider.imap.host, imapNames);
 
                 List<String> smtpNames = new ArrayList<>();
                 if (smtp_certificate != null)
@@ -574,11 +576,14 @@ public class FragmentQuickSetup extends FragmentBase {
                         smtpNames = EntityCertificate.getDnsNames(smtp_certificate);
                     } catch (Throwable ignored) {
                     }
+                boolean smtpMatches = EntityCertificate.matches(provider.imap.host, smtpNames);
 
                 tvImapFingerprint.setText(EntityCertificate.getKeyFingerprint(imap_certificate));
                 tvImapDnsNames.setText(TextUtils.join(", ", imapNames));
+                tvImapDnsNames.setTypeface(imapMatches ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
                 tvSmtpFingerprint.setText(EntityCertificate.getKeyFingerprint(smtp_certificate));
                 tvSmtpDnsNames.setText(TextUtils.join(", ", smtpNames));
+                tvSmtpDnsNames.setTypeface(smtpMatches ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
                 grpCertificate.setVisibility(
                         imap_certificate == null && smtp_certificate == null
