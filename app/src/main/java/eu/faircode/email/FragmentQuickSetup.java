@@ -485,35 +485,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvImap.setText(result == null ? null : result.imap.toString());
                     tvSmtp.setText(result == null ? null : result.smtp.toString());
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
-
-                    X509Certificate imap_certificate =
-                            (X509Certificate) args.getSerializable("imap_certificate");
-                    X509Certificate smtp_certificate =
-                            (X509Certificate) args.getSerializable("smtp_certificate");
-
-                    List<String> imapNames = new ArrayList<>();
-                    if (imap_certificate != null)
-                        try {
-                            imapNames = EntityCertificate.getDnsNames(imap_certificate);
-                        } catch (Throwable ignored) {
-                        }
-
-                    List<String> smtpNames = new ArrayList<>();
-                    if (smtp_certificate != null)
-                        try {
-                            smtpNames = EntityCertificate.getDnsNames(smtp_certificate);
-                        } catch (Throwable ignored) {
-                        }
-
-                    tvImapFingerprint.setText(EntityCertificate.getKeyFingerprint(imap_certificate));
-                    tvImapDnsNames.setText(TextUtils.join(", ", imapNames));
-                    tvSmtpFingerprint.setText(EntityCertificate.getKeyFingerprint(smtp_certificate));
-                    tvSmtpDnsNames.setText(TextUtils.join(", ", smtpNames));
-
-                    grpCertificate.setVisibility(
-                            imap_certificate == null && smtp_certificate == null
-                                    ? View.GONE : View.VISIBLE);
-
+                    showCertInfo(args);
                     btnSave.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
                     FragmentDialogAccount fragment = new FragmentDialogAccount();
@@ -581,6 +553,36 @@ public class FragmentQuickSetup extends FragmentBase {
                         }
                     });
                 }
+            }
+
+            private void showCertInfo(Bundle args) {
+                X509Certificate imap_certificate =
+                        (X509Certificate) args.getSerializable("imap_certificate");
+                X509Certificate smtp_certificate =
+                        (X509Certificate) args.getSerializable("smtp_certificate");
+
+                List<String> imapNames = new ArrayList<>();
+                if (imap_certificate != null)
+                    try {
+                        imapNames = EntityCertificate.getDnsNames(imap_certificate);
+                    } catch (Throwable ignored) {
+                    }
+
+                List<String> smtpNames = new ArrayList<>();
+                if (smtp_certificate != null)
+                    try {
+                        smtpNames = EntityCertificate.getDnsNames(smtp_certificate);
+                    } catch (Throwable ignored) {
+                    }
+
+                tvImapFingerprint.setText(EntityCertificate.getKeyFingerprint(imap_certificate));
+                tvImapDnsNames.setText(TextUtils.join(", ", imapNames));
+                tvSmtpFingerprint.setText(EntityCertificate.getKeyFingerprint(smtp_certificate));
+                tvSmtpDnsNames.setText(TextUtils.join(", ", smtpNames));
+
+                grpCertificate.setVisibility(
+                        imap_certificate == null && smtp_certificate == null
+                                ? View.GONE : View.VISIBLE);
             }
 
             private void setManual(boolean manual) {
