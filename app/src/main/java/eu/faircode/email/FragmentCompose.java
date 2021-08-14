@@ -1256,7 +1256,7 @@ public class FragmentCompose extends FragmentBase {
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.execute(FragmentCompose.this, args, "compose:convert");
+                }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:convert");
             }
 
             private void copyRef() {
@@ -1688,7 +1688,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "compose:encrypt");
+        }.setExecutor(executor).execute(this, args, "compose:encrypt");
     }
 
     private void onMenuZoom() {
@@ -2014,7 +2014,7 @@ public class FragmentCompose extends FragmentBase {
                             protected void onException(Bundle args, Throwable ex) {
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                             }
-                        }.execute(FragmentCompose.this, args, "compose:answer");
+                        }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:answer");
 
                         return true;
                     }
@@ -2027,7 +2027,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "compose:answer");
+        }.setExecutor(executor).execute(getContext(), getViewLifecycleOwner(), new Bundle(), "compose:answer");
     }
 
     private void onMenuAnswerCreate() {
@@ -2144,7 +2144,7 @@ public class FragmentCompose extends FragmentBase {
                         Throwable exex = new Throwable("DeepL", ex);
                         Log.unexpectedError(getParentFragmentManager(), exex, false);
                     }
-                }.execute(FragmentCompose.this, args, "compose:translate");
+                }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:translate");
             }
         });
 
@@ -2348,7 +2348,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.execute(this, args, "compose:alias");
+            }.setExecutor(executor).execute(this, args, "compose:alias");
         } else {
             if (pgpService.isBound())
                 try {
@@ -2596,7 +2596,7 @@ public class FragmentCompose extends FragmentBase {
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "compose:picked");
+        }.setExecutor(executor).execute(this, args, "compose:picked");
     }
 
     @Override
@@ -2787,7 +2787,7 @@ public class FragmentCompose extends FragmentBase {
                      */
                 }
             }
-        }.execute(this, args, "compose:attachment:add");
+        }.setExecutor(executor).execute(this, args, "compose:attachment:add");
     }
 
     private List<Uri> getUris(Intent data) {
@@ -3626,7 +3626,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "compose:picked");
+        }.setExecutor(executor).execute(this, args, "compose:picked");
     }
 
     private void onLinkSelected(Bundle args) {
@@ -4990,7 +4990,7 @@ public class FragmentCompose extends FragmentBase {
             } else
                 Log.unexpectedError(getParentFragmentManager(), ex);
         }
-    };
+    }.setExecutor(executor);
 
     private void handleFileShare() {
         Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE)
@@ -5812,7 +5812,7 @@ public class FragmentCompose extends FragmentBase {
             if (ani != null && ani.isConnected())
                 DnsHelper.checkMx(context, addresses);
         }
-    };
+    }.setExecutor(executor);
 
     private String getActionName(int id) {
         if (id == R.id.action_delete) {
@@ -6005,7 +6005,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "compose:show");
+        }.setExecutor(executor).execute(this, args, "compose:show");
     }
 
     private void setFocus(Integer v, int start, int end, boolean restore) {
@@ -6197,7 +6197,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.execute(FragmentCompose.this, args, "compose:identity");
+            }.setExecutor(executor).execute(FragmentCompose.this, args, "compose:identity");
         }
     };
 
@@ -6590,7 +6590,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.execute(FragmentDialogSend.this, args, "compose:plain_only");
+                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:plain_only");
                 }
             });
 
@@ -6619,7 +6619,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.execute(FragmentDialogSend.this, args, "compose:receipt");
+                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:receipt");
                 }
             });
 
@@ -6681,7 +6681,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.execute(FragmentDialogSend.this, args, "compose:encrypt");
+                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:encrypt");
                 }
             });
 
@@ -6729,7 +6729,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.execute(FragmentDialogSend.this, args, "compose:priority");
+                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:priority");
                 }
             });
 
@@ -6887,7 +6887,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     // Ignored
                 }
-            }.execute(FragmentDialogSend.this, aargs, "send:archive");
+            }.setExecutor(executor).execute(FragmentDialogSend.this, aargs, "send:archive");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
@@ -6944,7 +6944,7 @@ public class FragmentCompose extends FragmentBase {
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.execute(this, args, "compose:snooze");
+                }.setExecutor(executor).execute(this, args, "compose:snooze");
             }
         }
     }
