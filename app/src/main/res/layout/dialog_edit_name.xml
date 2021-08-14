@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/twotone_edit_24"
         android:drawablePadding="6dp"
-        android:drawableTint="?android:attr/textColorPrimary"
         android:labelFor="@+id/etName"
         android:text="@string/title_advanced_edit_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"

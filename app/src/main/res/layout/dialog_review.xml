@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_star_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_ask_review"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="?android:attr/textColorPrimary"

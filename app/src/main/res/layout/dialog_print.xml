@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_print_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_print"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
