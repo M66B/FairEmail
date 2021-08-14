@@ -3707,6 +3707,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
+        args.putCharSequence("loaded", (Spanned) etBody.getTag());
         args.putCharSequence("spanned", etBody.getText());
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
@@ -5029,6 +5030,7 @@ public class FragmentCompose extends FragmentBase {
             String cc = args.getString("cc");
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
+            Spanned loaded = (Spanned) args.getCharSequence("loaded");
             Spanned spanned = (Spanned) args.getCharSequence("spanned");
             boolean signature = args.getBoolean("signature");
             boolean empty = args.getBoolean("empty");
@@ -5202,12 +5204,22 @@ public class FragmentCompose extends FragmentBase {
                     Elements ref = doc.select("div[fairemail=reference]");
                     ref.remove();
 
-                    Document b;
-                    if (body == null)
-                        b = Document.createShell("");
-                    else
-                        b = HtmlHelper.sanitizeCompose(context, body, true);
-                    HtmlHelper.clearAnnotations(b);
+                    if (extras != null && extras.containsKey("html"))
+                        dirty = true;
+
+                    if (!dirty)
+                        if (loaded == null) {
+                            Document b = HtmlHelper.sanitizeCompose(context, body, true);
+                            HtmlHelper.clearAnnotations(b);
+                            if (!Objects.equals(b.body().html(), doc.body().html()))
+                                dirty = true;
+                        } else {
+                            // Was not dirty before
+                            String hloaded = HtmlHelper.toHtml(loaded, context);
+                            String hspanned = HtmlHelper.toHtml(spanned, context);
+                            if (!Objects.equals(hloaded, hspanned))
+                                dirty = true;
+                        }
 
                     if (draft.revision == null) {
                         draft.revision = 1;
@@ -5215,10 +5227,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     int revision = draft.revision; // Save for undo/redo
-                    if (dirty ||
-                            TextUtils.isEmpty(body) ||
-                            !b.body().html().equals(doc.body().html()) ||
-                            (extras != null && extras.containsKey("html"))) {
+                    if (dirty) {
                         dirty = true;
 
                         // Get saved body
@@ -5637,6 +5646,7 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
+            args.putBoolean("dirty", dirty);
             if (dirty)
                 ServiceSynchronize.eval(context, "compose/action");
 
@@ -5675,6 +5685,10 @@ public class FragmentCompose extends FragmentBase {
                 etCc.setSelection(ccPos);
             if (bccPos >= 0 && bccPos <= etBcc.getText().length())
                 etBcc.setSelection(bccPos);
+
+            boolean dirty = args.getBoolean("dirty");
+            if (dirty)
+                etBody.setTag(null);
 
             Bundle extras = args.getBundle("extras");
             boolean show = extras.getBoolean("show");
@@ -5954,6 +5968,8 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
+                etBody.setTag(text[0]);
+
                 if (state != State.LOADED) {
                     int pos = getAutoPos(0, etBody.length());
                     if (pos < 0)
