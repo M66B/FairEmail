@@ -160,7 +160,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
+* [(23) Why do I get alert ...?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
 * [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
@@ -177,15 +177,15 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(37) How are passwords stored?](#user-content-faq37)
 * [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
 * [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
-* [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
+* [(41) How can I fix the error 'Handshake failed'?](#user-content-faq41)
 * [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
-* [(43) Can you show the original ... ?](#user-content-faq43)
+* [(43) Can you show the original ...?](#user-content-faq43)
 * [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
-* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
+* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!'?](#user-content-faq45)
 * [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
+* [(47) How do I solve the error 'No primary account or no drafts folder'?](#user-content-faq47)
+* [~~(48) How do I solve the error 'No primary account or no archive folder'?~~](#user-content-faq48)
+* [(49) How do I fix 'An outdated app sent a file path instead of a file stream'?](#user-content-faq49)
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
 * [(51) How are folders sorted?](#user-content-faq51)
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
@@ -232,7 +232,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
+* [(97) What is 'cleanup'?](#user-content-faq97)
 * [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
 * [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
@@ -1249,7 +1249,7 @@ When in doubt, you can ask for [support](#user-content-get-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Why do I get alert ...?**
 
 *General*
 
@@ -1636,7 +1636,7 @@ You can change this in the connection settings.
 <br />
 
 <a name="faq41"></a>
-**(41) How can I fix the error 'Handshake failed' ?**
+**(41) How can I fix the error 'Handshake failed'?**
 
 There are several possible causes, so please read to the end of this answer.
 
@@ -1702,7 +1702,7 @@ See below about how to contact me.
 <br />
 
 <a name="faq43"></a>
-**(43) Can you show the original ... ?**
+**(43) Can you show the original ...?**
 
 Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc.
 FairEmail does and will not alter this in any way,
@@ -1720,7 +1720,7 @@ which will *attempt* to make small text more readable.
 <br />
 
 <a name="faq45"></a>
-**(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?**
+**(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!'?**
 
 You'll get the message *This key is not available. To use it, you must import it as one of your own!*
 when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
@@ -1739,7 +1739,7 @@ Note that you shouldn't set the number of days to synchronize messages to more t
 <br />
 
 <a name="faq47"></a>
-**(47) How do I solve the error 'No primary account or no drafts folder' ?**
+**(47) How do I solve the error 'No primary account or no drafts folder'?**
 
 You'll get the error message *No primary account or no drafts folder* when trying to compose a message
 while there is no account set to be the primary account or when there is no drafts folder selected for the primary account.
@@ -1755,7 +1755,7 @@ Please see [this FAQ](#user-content-faq141) for some more information.
 <br />
 
 <a name="faq48"></a>
-**~~(48) How do I solve the error 'No primary account or no archive folder' ?~~**
+**~~(48) How do I solve the error 'No primary account or no archive folder'?~~**
 
 ~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
 FairEmail needs to know where to search,
@@ -1764,7 +1764,7 @@ so you'll need to select one account to be the primary account and/or you'll nee
 <br />
 
 <a name="faq49"></a>
-**(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?**
+**(49) How do I fix 'An outdated app sent a file path instead of a file stream'?**
 
 You likely selected or sent an attachment or image with an outdated file manager
 or an outdated app which assumes all apps still have storage permissions.
@@ -1916,7 +1916,7 @@ but even Google's Chrome cannot handle this.
 <br />
 
 <a name="faq60"></a>
-**(60) Did you know ... ?**
+**(60) Did you know ...?**
 
 * Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
@@ -2354,7 +2354,7 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq80"></a>
-**~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE' ?~~**
+**~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~**
 
 ~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~
 ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
@@ -2596,7 +2596,7 @@ The IMAP settings are part of the (custom) account settings and the SMTP setting
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) What is 'cleanup'?**
 
 About each four hours FairEmail runs a cleanup job that:
 
