@@ -24,36 +24,36 @@ Cəld quraşdırma sehrbazı uğursuz olsa, əllə bir hesab (e-poçt almaq üç
 
 *IMAP* və təchizatçının adını axtarmaq düzgün sənədləri tapmaq üçün adətən kifayət edir.
 
-Bəzi hallarda hesabınıza xarici girişi təmin etməli və / və ya xüsusi (tətbiqetmə) parol istifadə etməlisiniz, məsələn, iki faktorlu identifikasiya effektiv olduqda.
+Bəzi hallarda, məsələn iki mərhələli kimlik təsdiqləmə fəal olanda, hesabınıza xarici müraciəti fəallaşdırmalı və/və ya xüsusi (tətbiq) şifrə istifadə etməli olacaqsınız.
 
 Səlahiyyət vermək üçün:
 
-* Gmail / G dəsti, bax [ sual 6 ](#user-content-faq6)
-* Outlook / Live / Hotmail, sual 14-ə baxın
-* Office 365, bax [ sual 14 ](#user-content-faq156)
-* Microsoft Exchange, bax [ sual 8 ](#user-content-faq8)
-* Yahoo, AOL və Sky, [88. suala](#user-content-faq88) baxın
-* Apple iCloud, bax [ sual 148 ](#user-content-faq148)
-* Free.fr, bax [ sual 157 ](#user-content-faq157)
+* Gmail / G suite, [6-cı suala](#user-content-faq6) baxın
+* Outlook / Live / Hotmail, [14-cü suala](#user-content-faq14) baxın
+* Office 365, [14-cü suala](#user-content-faq156) baxın
+* Microsoft Exchange, [8-ci suala](#user-content-faq8) baxın
+* Yahoo, AOL və Sky,[88-ci suala](#user-content-faq88) baxın
+* Apple iCloud, [148-ci suala](#user-content-faq148) baxın
+* Free.fr, [157-ci suala](#user-content-faq157) baxın
 
-Zəhmət olmasa ümumi səhv mesajları və həlləri üçün [ buraya ](#user-content-faq22) baxın.
+Ən geniş yayılmış xəta mesajları və həlləri üçün zəhmət olmasa [bura](#user-content-faq22) baxın.
 
 Əlaqəli suallar:
 
-* [OAuth dəstəklənirmi?](#user-content-faq111)
+* [OAuth dəstəklənir?](#user-content-faq111)
 * [ActiveSync niyə dəstəklənmir?](#user-content-faq133)
 
 <a name="howto">
 
 ## Necə ...?
 
-* Hesab adını dəyişdirin: Parametrlər, Əl ilə quraşdırma vurun, Hesablar vurun, Hesabı vurun
-* Çalmak üçün sola / sağa hədəfi dəyişdirin: Parametrlər, sekmə səhifəsi Davranış, Çalmak hərəkətlərini qurun
-* Şifrəni dəyişdirin: Parametrlər, Manuel quraşdırma vurun, Hesablar vurun, Hesabı vurun, parolu dəyişdirin
-* İmza seçin: Parametrlər, Manuel quraşdırma vurun, Kimliklər vurun, Şəxsiyyət vurun, İmzanı redaktə edin.
-* CC və BCC ünvanlarını əlavə edin: mövzunun sonunda insanların simgesinə vurun
-* Arxivdəki / silinən növbəti / əvvəlki mesaja gedin: davranış parametrlərində * Söhbətləri avtomatik bağla * funksiyasını söndürün və * Söhbəti bağladıqda * Növbəti / əvvəlki söhbətə get * seçin. *
-* Birləşdirilmiş gələnlər qutusuna bir qovluq əlavə edin: qovluq siyahısındakı qovluğu uzun müddət basın və * Birləşdirilmiş gələnlər qutusunda göstər * işarəsini işarələyin.
+* Hesab adını dəyişdirin: Tənzimləmələr > Əllə quraşdır > Hesablar > "Hesab"a toxunun
+* Sola/sağa sürüşdürmə hədəfini dəyişdirin: Tənzimləmələr > Davranış > "Sürüşdürmə əməliyyatlarını tənzimlə"yə toxunun
+* Şifrəni dəyişdirin: Tənzimləmələr > Əllə quraşdır > Hesablar > "Hesab"a toxunun
+* Bir imza tənzimləyin: Tənzimləmələr > Əllə quraşdır > Kimliklər > Kimlik > İmzaya düzəliş et.
+* CC və BCC ünvanlarını əlavə edin: mövzunun sonunda insanların nişanına toxunun
+* Arxivləmə/silmə ilə əlaqəli sonrakı/əvvəlki mesaja gedin: Davranış tənzimləmələrində sıradan çıxardın *Danışıqları avtomatik bağlayın və *Bir danışığı bağlayanda* üçün *"Növbəti/əvvəlki danışığa gedin"i* seçin</li>
+* Birləşmiş gələn qutusuna bir qovluq əlavə edin: qovluq siyahısındakı qovluğa uzun basın və *"Birləşmiş gələn qutusunda göstər"i* işarələyin
 * Naviqasiya menyusuna bir qovluq əlavə edin: qovluq siyahısındakı qovluğu uzun müddət basın və * Naviqasiya menyusunda göstər * işarəsini vurun.
 * Daha çox mesaj yükləyin: qovluq siyahısında bir qovluğu uzun müddət basın, * Daha çox mesaj gətir <0> seçin</li>
 * Zibil qutusunu atlayaraq bir mesajı silin: zibil simgesini uzun müddət basın
@@ -173,9 +173,9 @@ Dizayn bir çox müzakirələrə əsaslanır və istəsəniz bu barədə [ bu fo
 * [(41) 'Handshake uğursuz oldu' səhvini necə düzəldə bilərəm?](#user-content-faq41)
 * [(42) Provayderlər siyahısına yeni bir provayder əlavə edə bilərsinizmi?](#user-content-faq42)
 * [(43) Orijinalı göstərə bilərsiniz ...?](#user-content-faq43)
-* [(44) Göndərilən qovluqda əlaqə şəkillərini / şəxsiyyət sənədlərini göstərə bilərsinizmi?](#user-content-faq44)
-* [(45) Necə düzəldə bilərəm 'Bu düymə mövcud deyil. Onu istifadə etmək üçün özünüz kimi idxal etməlisiniz! ' ?](#user-content-faq45)
-* [(46) Niyə mesajlar siyahısı təravətləndirir?](#user-content-faq46)
+* [(44) Göndərilən qovluqda əlaqə fotolarını / kimlik sənədlərini göstərə bilərsiniz?](#user-content-faq44)
+* [(45) Bu problemi necə düzəldə bilərəm: 'Bu açar mövcud deyil. Onu istifadə etmək üçün, onu özünüzünkü kimi idxal etməlisiniz!' ?](#user-content-faq45)
+* [(46) Niyə mesaj siyahısı təzələnir?](#user-content-faq46)
 * [(47) 'Əsas hesab yoxdur və ya qaralama qovluğu yoxdur' səhvini necə həll edirəm?](#user-content-faq47)
 * [~~ (48) 'Əsas hesab yoxdur və ya arxiv qovluğu yoxdur' səhvini necə həll edirəm? ~~](#user-content-faq48)
 * [(49) 'Köhnəlmiş bir tətbiq bir fayl axını yerinə bir fayl yolu göndərdi' necə düzəldə bilərəm?](#user-content-faq49)
@@ -196,26 +196,26 @@ Dizayn bir çox müzakirələrə əsaslanır və istəsəniz bu barədə [ bu fo
 * [~~ (64) Sola / sağa çəkmək üçün xüsusi tədbirlər əlavə edə bilərsinizmi? ~~](#user-content-faq64)
 * [(65) Nə üçün bəzi əlavələr solğun görünür?](#user-content-faq65)
 * [(66) FairEmail Google Play Ailə Kitabxanasında mövcuddur?](#user-content-faq66)
-* [(67) Söhbəti necə təxirə salmaq olar?](#user-content-faq67)
-* [~~ (68) Niyə Adobe Acrobat oxucu PDF əlavələrini aça bilməz / Microsoft tətbiqetmələri əlavə sənədləri aça bilmir? ~~](#user-content-faq68)
-* [(69) Yeni mesaja avtomatik sürüşdürmə əlavə edə bilərsinizmi?](#user-content-faq69)
+* [(67) Danışıqları necə ertələyə bilərəm?](#user-content-faq67)
+* [~~ (68) Niyə Adobe Acrobat oxuyucu PDF qoşmalarını aça bilmir / Microsoft tətbiqləri qoşmalı sənədləri aça bilmir? ~~](#user-content-faq68)
+* [(69) Yeni mesaja avtomatik yuxarı sürüşdürmə əlavə edə bilərsiniz?](#user-content-faq69)
 * [(70) Mesajlar nə vaxt avtomatik genişləndiriləcək?](#user-content-faq70)
-* [(71) Süzgəc qaydalarını necə istifadə edirəm?](#user-content-faq71)
-* [(72) Əsas hesablar / şəxsiyyətlər hansılardır?](#user-content-faq72)
-* [(73) Mesajların hesablar arasında köçürülməsi təhlükəsiz / səmərəlidirmi?](#user-content-faq73)
+* [(71) Filtr qaydalarını necə istifadə edə bilərəm?](#user-content-faq71)
+* [(72) Əsas hesablar/kimliklər nədir?](#user-content-faq72)
+* [(73) Mesajların hesablar arasında köçürülməsi güvənlidir/səmərəlidir?](#user-content-faq73)
 * [(74) Niyə təkrarlanan mesajları görürəm?](#user-content-faq74)
-* [(75) Bir iOS, Windows, Linux və s. Bir versiya edə bilərsinizmi?](#user-content-faq75)
-* [(76) 'Yerli mesajları sil' nə edir?](#user-content-faq76)
-* [(77) Niyə bəzən mesajlar kiçik bir gecikmə ilə göstərilir?](#user-content-faq77)
+* [(75) Bir iOS, Windows, Linux və sair versiya hazırlaya bilərsiniz?](#user-content-faq75)
+* [(76) 'Yerli mesajları təmizlə' nə işə yarayır?](#user-content-faq76)
+* [(77) Mesajlar niyə bəzən kiçik bir gecikmə ilə göstərilir?](#user-content-faq77)
 * [(78) Cədvəlləri necə istifadə edirəm?](#user-content-faq78)
-* [(79) Tələbə görə sinxronizasiya necə istifadə olunur (dərslik)?](#user-content-faq79)
-* [~~ (80) 'BODYSTRUCTURE yüklənə bilmir' səhvini necə düzəldə bilərəm? ~~](#user-content-faq80)
-* [~~ (81) Orijinal mesajın arxa planını qaranlıq mövzuda qaranlıq edə bilərsinizmi? ~~](#user-content-faq81)
-* [(82) İzləmə şəkli nədir?](#user-content-faq82)
+* [(79) İstəkdən asılı (əllə) olan eyniləşdirməni necə istifadə edə bilərəm?](#user-content-faq79)
+* [~~(80) 'BODYSTRUCTURE yüklənilə bilmir' xətasını necə düzəldə bilərəm?~~](#user-content-faq80)
+* [~~(81) Tünd temada orijinal mesajın arxaplanını tünd edə bilərsiniz?~~](#user-content-faq81)
+* [(82) İzləmə təsviri nədir?](#user-content-faq82)
 * [(84) Yerli əlaqələr nə üçündür?](#user-content-faq84)
-* [(85) Niyə şəxsiyyət mövcud deyil?](#user-content-faq85)
-* [~~ (86) 'Əlavə gizlilik xüsusiyyətləri' nədir? ~~](#user-content-faq86)
-* [(87) 'etibarsız etimadnamə' nə deməkdir?](#user-content-faq87)
+* [(85) Niyə bir kimlik mövcud deyil?](#user-content-faq85)
+* [~~(86) 'Əlavə gizlilik özəlikləri' nələrdir?~~](#user-content-faq86)
+* [(87) 'Etibarsız kimlik' nə məna verir?](#user-content-faq87)
 * [(88) Yahoo, AOL və ya Sky hesabımı necə istifadə edə bilərəm?](#user-content-faq88)
 * [(89) Yalnız düz mətn mesajları necə göndərə bilərəm?](#user-content-faq89)
 * [(90) Niyə bəzi mətnlər bir əlaqə olmadığı halda bir-birinə bağlanır?](#user-content-faq90)

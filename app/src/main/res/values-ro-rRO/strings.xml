@@ -137,6 +137,7 @@
     <string name="title_setup_quick_patience">Vă rugăm să aveți răbdare &#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
+    <string name="title_setup_quick_certificates">Certificate de server</string>
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
@@ -310,6 +311,7 @@
     <string name="title_advanced_limit_reply">Limitează numărul de citate imbricate</string>
     <string name="title_advanced_resize_reply">Redimensionează imaginile în textul cu răspuns</string>
     <string name="title_advanced_signature_location">Poziție semnătură</string>
+    <string name="title_advanced_signature_new">Utilizați semnătura pentru mesajele noi</string>
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>

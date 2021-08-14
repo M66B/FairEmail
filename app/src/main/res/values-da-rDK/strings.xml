@@ -126,6 +126,7 @@
     <string name="title_setup_quick_patience">Vær venligst tålmodig&#8230;</string>
     <string name="title_setup_quick_imap">IMAP-server til beskedmodtagelse</string>
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
+    <string name="title_setup_quick_certificates">Servercertifikater</string>
     <string name="title_setup_wizard">Guide</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan anvendes flere gange til opsætning af flere konti</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
@@ -297,6 +298,7 @@
     <string name="title_advanced_limit_reply">Begræns antallet af indlejrede citater</string>
     <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
+    <string name="title_advanced_signature_new">Brug signatur til nye beskeder</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
     <string name="title_advanced_signature_forward">Benyt signatur ved videresendelse</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>

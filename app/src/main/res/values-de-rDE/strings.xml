@@ -128,6 +128,7 @@
     <string name="title_setup_quick_patience">Bitte warten &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
+    <string name="title_setup_quick_certificates">Server-Zertifikate</string>
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_wizard_multiple">Der Assistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
@@ -302,6 +303,7 @@
     <string name="title_advanced_limit_reply">Anzahl der verschachtelten Zitate begrenzen</string>
     <string name="title_advanced_resize_reply">Bilder im Antworttext skalieren</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
+    <string name="title_advanced_signature_new">Signatur für neue Nachrichten verwenden</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
     <string name="title_advanced_signature_forward">Signatur beim Weiterleiten hinzufügen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>

@@ -127,6 +127,7 @@
     <string name="title_setup_quick_patience">Even geduld a.u.b. &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
+    <string name="title_setup_quick_certificates">Server certificaten</string>
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">De wizard kan meerdere keren gebruikt worden om meerdere accounts in te stellen</string>
     <string name="title_setup_wizard_new">Ik heb een nieuw e-mailadres nodig</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_limit_reply">Beperk het aantal geneste citaten</string>
     <string name="title_advanced_resize_reply">Wijzig de grootte van de afbeeldingen in beantwoorde tekst</string>
     <string name="title_advanced_signature_location">Positie handtekening</string>
+    <string name="title_advanced_signature_new">Gebruik handtekening voor nieuwe berichten</string>
     <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
     <string name="title_advanced_signature_forward">Gebruik handtekening bij doorsturen</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>

@@ -320,6 +320,7 @@
     <string name="title_advanced_limit_reply">Ограничивать количество вложенных кавычек</string>
     <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
     <string name="title_advanced_signature_location">Расположение подписи</string>
+    <string name="title_advanced_signature_new">Использовать подпись для новых сообщений</string>
     <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
     <string name="title_advanced_signature_forward">Использовать подпись при пересылке</string>
     <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>

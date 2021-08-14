@@ -127,6 +127,7 @@
     <string name="title_setup_quick_patience">Παρακαλούμε, περιμένετε &#8230;</string>
     <string name="title_setup_quick_imap">Διακομιστής IMAP για λήψη μηνυμάτων</string>
     <string name="title_setup_quick_smtp">Διακομιστής SMTP για αποστολή μηνυμάτων</string>
+    <string name="title_setup_quick_certificates">Πιστοποιητικά διακομιστή</string>
     <string name="title_setup_wizard">Οδηγός</string>
     <string name="title_setup_wizard_multiple">Ο οδηγός μπορεί να χρησιμοποιηθεί πολλές φορές για τη ρύθμιση πολλαπλών λογαριασμών</string>
     <string name="title_setup_wizard_new">Χρειάζομαι μια νέα διεύθυνση ηλ. ταχυδρομείου</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_limit_reply">Περιορισμός του αριθμού των ιεραρχημένων παραθεμάτων</string>
     <string name="title_advanced_resize_reply">Αναπροσαρμογή των εικόνων στο προς απάντηση κείμενο</string>
     <string name="title_advanced_signature_location">Θέση της υπογραφής</string>
+    <string name="title_advanced_signature_new">Χρήση υπογραφής για νέα μηνύματα</string>
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
     <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
@@ -316,7 +318,7 @@
     <string name="title_advanced_roaming">Κατέβασμα μηνυμάτων και συνημμένων σε λειτουργία περιαγωγής</string>
     <string name="title_advanced_rlah">Περιήγηση όπως στο σπίτι</string>
     <string name="title_advanced_download_headers">Λήψη όλων των κεφαλίδων μηνυμάτων</string>
-    <string name="title_advanced_download_eml">Λήψη αρχείων ακατέργαστων μηνυμάτων</string>
+    <string name="title_advanced_download_eml">Λήψη αρχείων αρχικών μηνυμάτων</string>
     <string name="title_advanced_validated">Απαιτείται επικυρωμένη (επαληθευμένη) σύνδεση</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
@@ -593,6 +595,7 @@
     <string name="title_advanced_notify_manage_hint">Πατήστε στο όνομα ενός καναλιού για να ορίσετε τις ιδιότητές του</string>
     <string name="title_advanced_notify_manage_default_hint">Για τον ορισμό του προκαθορισμένου ήχου, κτλ</string>
     <string name="title_advanced_notify_manage_service_hint">Για να απενεργοποιηθεί η ειδοποίηση: \"Χ λογαριασμοί παρακολουθούνται\"</string>
+    <string name="title_advanced_notify_separate_hint">Πώς ρυθμίζω τις ειδοποιήσεις για λογαριασμούς, φακέλους και αποστολείς;</string>
     <string name="title_advanced_notify_preview_all_hint">Για φορετές συσκευές που μπορούν να προβάλλουν ολόκληρο το κείμενο (μέχρι 5.000 χαρακτήρες)</string>
     <string name="title_advanced_notify_preview_only_hint">Καθυστερεί την προβολή των ειδοποιήσεων μέχρι να έχει κατέβει το κείμενο</string>
     <string name="title_advanced_wearable_hint">Οι ειδοποιήσεις αποστέλλονται σε μια φορετή συσκευή μόνον αφού το κείμενο του μηνύματος έχει κατέβει</string>
@@ -761,7 +764,7 @@
     <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
     <string name="title_op_title_headers">Λήψη κεφαλίδων</string>
-    <string name="title_op_title_raw">Λήψη ακατέργαστου μηνύματος</string>
+    <string name="title_op_title_raw">Λήψη αρχικού μηνύματος</string>
     <string name="title_folder_name">Όνομα φακέλου</string>
     <string name="title_display_name">Προβαλλόμενο όνομα</string>
     <string name="title_show_folders">Εμφάνιση κρυμμένων φακέλων</string>
@@ -859,6 +862,8 @@
     <string name="title_save_all">Αποθήκευση όλων</string>
     <string name="title_save_eml">Αποθήκευση αρχείου αρχικού μηνύματος</string>
     <string name="title_eml_remark">Για να προωθήσετε μηνύματα, τα ακατέργαστα (αρχικά) μηνύματα πρέπει να ληφθούν από τον διακομιστή. Απαιτείται σύνδεση στο διαδίκτυο για αυτό.</string>
+    <string name="title_eml_option">Αυτό μπορεί να αποφευχθεί, ενεργοποιώντας να γίνεται πάντα λήψη των αρχείων αρχικών μηνυμάτων στις ρυθμίσεις σύνδεσης</string>
+    <string name="title_eml_downloaded">Αρχικά μηνύματα που κατέβηκαν: %1$s</string>
     <string name="title_buttons">Επιλέξτε κουμπιά</string>
     <string name="title_buttons_hint">Οι όντως διαθέσιμες ενέργειες εξαρτώνται από τον τύπο και τη ρύθμιση του λογαριασμού</string>
     <string name="title_button_search">Αναζήτηση στα μηνύματα</string>

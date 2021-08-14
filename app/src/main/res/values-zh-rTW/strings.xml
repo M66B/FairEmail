@@ -110,7 +110,7 @@
     <string name="title_setup_quick">快速設置</string>
     <string name="title_setup_intro">僅需三步即可設置完成帳戶，完成後即可收發郵件</string>
     <string name="title_setup_simple">不需要改變任何其他選項</string>
-    <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時的辛勤工作。如果您有任何問題，請在留下負評之前先與我聯絡以尋求支援。我很樂意幫忙！</string>
+    <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時實實在在的辛勤工作。如果您有任何問題，請在留下負評之前先與我聯絡以取得支援。我很樂意幫忙！</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">快速設置將會透過 autoconfig.thunderbird.net 取得配置資訊</string>
@@ -290,6 +290,7 @@
     <string name="title_advanced_limit_reply">限制嵌套引用的數量</string>
     <string name="title_advanced_resize_reply">在回覆文字中重調圖片大小</string>
     <string name="title_advanced_signature_location">簽名位置</string>
+    <string name="title_advanced_signature_new">套用簽名至新訊息</string>
     <string name="title_advanced_signature_reply">當回覆時使用簽名</string>
     <string name="title_advanced_signature_forward">當轉寄時使用簽名</string>
     <string name="title_advanced_discard_delete">丟棄草稿的同時也永久刪除草稿</string>

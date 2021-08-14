@@ -127,6 +127,7 @@
     <string name="title_setup_quick_patience">Zəhmət olmasa səbrli olun &#8230;</string>
     <string name="title_setup_quick_imap">Mesaj almaq üçün IMAP serveri</string>
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
+    <string name="title_setup_quick_certificates">Server sertifikatları</string>
     <string name="title_setup_wizard">Sehrbaz</string>
     <string name="title_setup_wizard_multiple">Sehrbaz, çoxlu hesabı tənzimləmək üçün bir neçə dəfə istifadə edilə bilər</string>
     <string name="title_setup_wizard_new">Yeni bir e-poçt ünvanına ehtiyacım var</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_limit_reply">Gətirilən sitatların sayını məhdudlaşdır</string>
     <string name="title_advanced_resize_reply">Cavablanan mətndəki təsvirləri təkrar ölçüləndir</string>
     <string name="title_advanced_signature_location">İmza mövqeyi</string>
+    <string name="title_advanced_signature_new">Yeni mesajlar üçün imza istifadə edin</string>
     <string name="title_advanced_signature_reply">Cavablayanda imza istifadə et</string>
     <string name="title_advanced_signature_forward">Yönləndirəndə imza istifadə et</string>
     <string name="title_advanced_discard_delete">Qaralamanı ləğv edəndə, onu birdəfəlik sil</string>
@@ -594,6 +596,7 @@
     <string name="title_advanced_notify_manage_hint">Kanal xüsusiyyətlərini tənzimləmək üçün kanal adına toxunun</string>
     <string name="title_advanced_notify_manage_default_hint">İlkin səsi tənzimləmək üçün və s.</string>
     <string name="title_advanced_notify_manage_service_hint">\"Müşahidə\" bildirişini sıradan çıxartmaq üçün</string>
+    <string name="title_advanced_notify_separate_hint">Hesablar, qovluqlar və göndərənlər üçün bildirişləri necə konfiqurasiya edə bilərəm?</string>
     <string name="title_advanced_notify_preview_all_hint">Tam mətni göstərə bilən geyinilə bilən cihazlar üçün (5,000 simvola qədər)</string>
     <string name="title_advanced_notify_preview_only_hint">Bu, mesaj mətni endirilənə qədər bildirişlərin göstərilməsini gecikdirir</string>
     <string name="title_advanced_wearable_hint">Bildirişlər, yalnız mesaj mətni endiriləndən sonra geyinilə bilən cihazlara göndərilir</string>
@@ -851,7 +854,7 @@
     <string name="title_raw_save">Xam mesajı saxla</string>
     <string name="title_raw_send">Qoşma kimi saxla</string>
     <string name="title_raw_send_message">Mesaj</string>
-    <string name="title_raw_send_thread">Söhbət</string>
+    <string name="title_raw_send_thread">Danışıq</string>
     <string name="title_manage_keywords">Açar sözləri idarə et</string>
     <string name="title_manage_labels">Gmail etiketlərini idarə et</string>
     <string name="title_add_keyword">Açarsöz əlavə et</string>
@@ -859,7 +862,9 @@
     <string name="title_download_all">Hamısını endir</string>
     <string name="title_save_all">Hamısını saxla</string>
     <string name="title_save_eml">Xam mesaj faylını saxla</string>
-    <string name="title_eml_remark">Mesajı yönləndirmək üçün xam (orijinal) mesajların serverdən endirilməsi lazımdır. Bu, internet bağlantısı tələb edir.</string>
+    <string name="title_eml_remark">Mesajları yönləndirmək üçün xam (orijinal) mesajların serverdən endirilməsi lazımdır. Bu, internet bağlantısı tələb edir.</string>
+    <string name="title_eml_option">Bunun qarşısı, bağlantı tənzimləmələrində xam mesajlarının endirilməsi həmişəlik fəallaşdırılaraq alına bilər</string>
+    <string name="title_eml_downloaded">Xam mesajlar endirildi: %1$s</string>
     <string name="title_buttons">Düymələri seçin</string>
     <string name="title_buttons_hint">Aktual əməliyyatlar, hesab növündən və konfiqurasiyadan asılıdır</string>
     <string name="title_button_search">Mesajlarda axtar</string>

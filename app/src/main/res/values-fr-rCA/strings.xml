@@ -127,6 +127,7 @@
     <string name="title_setup_quick_patience">Veuillez patienter&#8230;</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
+    <string name="title_setup_quick_certificates">Certificats du serveur</string>
     <string name="title_setup_wizard">Assistant</string>
     <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
     <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse courriel</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_limit_reply">Limiter le nombre de citations imbriquées</string>
     <string name="title_advanced_resize_reply">Redimensionner les images dans le texte de la réponse</string>
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
+    <string name="title_advanced_signature_new">Utiliser la signature pour les nouveaux messages</string>
     <string name="title_advanced_signature_reply">Utiliser la signature lors de la réponse</string>
     <string name="title_advanced_signature_forward">Utiliser la signature lors du transfert</string>
     <string name="title_advanced_discard_delete">Lors de l’abandon d’un brouillon, le supprimer définitivement</string>

@@ -147,6 +147,7 @@
     <string name="title_setup_quick_patience">Будь ласка, будьте терплячі &#8230;</string>
     <string name="title_setup_quick_imap">Сервер IMAP для отримання повідомлень</string>
     <string name="title_setup_quick_smtp">Сервер SMTP для надсилання повідомлень</string>
+    <string name="title_setup_quick_certificates">Сертифікати сервера</string>
     <string name="title_setup_wizard">Майстер встановлення</string>
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
     <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
@@ -266,6 +267,7 @@
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.
         Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
+    <string name="title_advanced_hint_setup">Ви можете налаштувати обліковий запис, натиснувши на кнопку майстра на головній сторінці конфігурації.</string>
     <string name="title_advanced_section_main">Головне</string>
     <string name="title_advanced_section_synchronize">Отримання</string>
     <string name="title_advanced_section_send">Надсилання</string>
@@ -319,6 +321,7 @@
     <string name="title_advanced_limit_reply">Обмежити кількість вкладених лапок</string>
     <string name="title_advanced_resize_reply">Змінити розмір зображень в тексті відповіді</string>
     <string name="title_advanced_signature_location">Положення підпису</string>
+    <string name="title_advanced_signature_new">Використовувати підпис для нових повідомлень</string>
     <string name="title_advanced_signature_reply">Використовувати підпис під час відповіді</string>
     <string name="title_advanced_signature_forward">Використовувати підпис під час перенаправлення</string>
     <string name="title_advanced_discard_delete">Видалення чернетки на назавжди</string>
@@ -352,6 +355,10 @@
     <string name="title_advanced_landscape">Альбомна орієнтація</string>
     <string name="title_advanced_two_row">Використовувати два рядки</string>
     <string name="title_advanced_two_col">Використовувати два стовпчики</string>
+    <string name="title_advanced_nav_options">Показати параметри меню навігації</string>
+    <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
+    <string name="title_advanced_nav_hide_title">Приховати параметри меню навігації?</string>
+    <string name="title_advanced_nav_hide_message">Ви можете знову включити опції в налаштуваннях екрану</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
@@ -398,6 +405,7 @@
     <string name="title_advanced_addresses">Розгорнути деталі адреси за замовчуванням</string>
     <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
+    <string name="title_advanced_message_text_zoom2">Масштаб тексту за замовчуванням: %1$s %%</string>
     <string name="title_advanced_overview_mode">Автоматичне масштабування оригінальних повідомлень</string>
     <string name="title_advanced_contrast">Використовувати високо-контрастний текст для повідомленнь</string>
     <string name="title_advanced_monospaced">Використовувати моноширинний шрифт для тексту повідомлень за замовчуванням</string>
@@ -443,6 +451,7 @@
     <string name="title_advanced_collapse_multiple">Згорнути повідомлення в розмові з декількома повідомленнями при натисканні \'назад\'</string>
     <string name="title_advanced_autoclose">Автоматично закривати розмови</string>
     <string name="title_advanced_onclose">При закритті розмови</string>
+    <string name="title_advanced_autoclose_unread">Закрити бесіди для повідомлень котрі позначенні як непрочитані</string>
     <string name="title_advanced_undo">Час для відміни дії</string>
     <string name="title_advanced_quick_filter">Показувати ненав\'язливі піктограми швидкого фільтру</string>
     <string name="title_advanced_quick_scroll">Показати не нав\'язливі піктограми швидкого прокручування вгору/вниз</string>
@@ -1120,6 +1129,7 @@
         Параметри нижче повинні продовжувати пошук з поштового сервера.
     </string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
+    <string name="title_search_text_unsupported">\'%s\' означає, що поштовий сервер не підтримує пошук в повідомленнях</string>
     <string name="title_search_size_hint">Пошук повідомлень за розміром, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_more">Більше опцій</string>
     <string name="title_search_use_index">Використовувати індексацію для пошуку</string>
@@ -1400,8 +1410,10 @@
     <string name="title_check_owner">Перевірити власника</string>
     <string name="title_remark_owner">Інформація буде надана <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-адреса власника</string>
+    <string name="title_default_apps">Додатки за замовчуванням</string>
     <string name="title_reset_open">Встановлення або очищення додатків за замовчуванням</string>
     <string name="title_select_app">Оберіть додаток</string>
+    <string name="title_updated">Доступно оновлення до версії %1$s</string>
     <string name="title_issue">У вас є питання або проблема?</string>
     <string name="title_yes">Так</string>
     <string name="title_no">Ні</string>

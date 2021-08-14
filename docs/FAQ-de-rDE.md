@@ -2277,9 +2277,9 @@ Deaktivieren von *»Partial fetch« (Teilabruf)* führt zu mehr Speicherverbrauc
 <a name="faq111"></a>
 **(111) Wird OAuth unterstützt?**
 
-OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
+OAuth für Gmail wird über den Schnelleinstellungs-Assistenten unterstützt. Der Android Account Manager wird verwendet, um OAuth Token für ausgewählte Konten auf dem Gerät zu laden und zu aktualisieren. OAuth für nicht-Gerätekonten wird nicht unterstützt, da Google dafür ein [jährliches Sicherheitsaudit](https://support.google.com/cloud/answer/9110914) ($15.000 bis $75,000) fordert. Mehr darüber können Sie [here](https://www.theregister.com/2019/02/11/google_gmail_developer/) lesen.
 
-OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
+OAuth für Outlook/Office 365, Yahoo, Mail.ru und Yandex wird über den Schnelleinstellungs-Assistenten unterstützt.
 
 <br />
 
@@ -2288,51 +2288,51 @@ OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the qui
 
 FairEmail ist nur ein E-Mail-Programm, deshalb müssen Sie Ihre eigene E-Mail-Adresse mitbringen. Beachten Sie, dass dies deutlich in der App-Beschreibung erwähnt wird.
 
-There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+Es gibt viele E-Mail-Anbieter zur Auswahl. Welcher E-Mail-Provider am besten für Sie ist, hängt von Ihren Wünschen/Anforderungen ab. Bitte lesen Sie die Webseiten von [ Restore privacy](https://restoreprivacy.com/secure-email/) oder [Privacy Tools](https://www.privacytools.io/providers/email/) für eine Liste von E-Mail-Anbietern mit Vor- und Nachteilen.
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
+Einige Anbieter wie ProtonMail oder Tutanota verwenden proprietäre E-Mail-Protokolle, die es unmöglich machen, E-Mail-Apps von Drittanbietern zu verwenden. Weitere Informationen finden Sie in den [Häufig gestellten Fragen (FAQ)](#user-content-faq129).
 
-Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
+Die Verwendung Ihres eigenen (individuellen) Domain-Namens, der von den meisten E-Mail-Anbietern unterstützt wird, erleichtert den Wechsel zu einem anderen E-Mail-Provider.
 
 <br />
 
 <a name="faq113"></a>
-**(113) How does biometric authentication work?**
+**(113) Wie funktioniert die biometrische Authentifizierung?**
 
-If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+Wenn Ihr Gerät einen biometrischen Sensor hat, zum Beispiel einen Fingerabdruck-Sensor, können Sie die biometrische Authentifizierung im Navigationsmenü (Hamburger) des Einstellungsbildschirms aktivieren/deaktivieren. Wenn eingeschaltet, benötigt FairEmail biometrische Authentifizierung nach einer Zeit der Inaktivität oder nachdem der Bildschirm ausgeschaltet wurde, während FairEmail läuft. Als Aktivität zählt dabei die Navigation innerhalb von FairEmail, zum Beispiel das Öffnen eines Gesprächsthemas. Die Dauer der Inaktivitätszeit kann in den Einstellungen unter 'Verschiedenes' konfiguriert werden. Wenn die biometrische Authentifizierung aktiviert ist, werden neue Benachrichtigungen keine Inhalte anzeigen und FairEmail wird nicht im Android Anwendungsverlauf angezeigt.
 
-Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+Biometrische Authentifizierung soll nur verhindern, dass andere Ihre Nachrichten sehen. FairEmail setzt bei der Datenverschlüsselung auf Geräteverschlüsselung. Siehe auch [diese FAQ](#user-content-faq37).
 
-Biometric authentication is a pro feature.
+Biometrische Authentifizierung ist eine Pro-Funktion.
 
 <br />
 
 <a name="faq114"></a>
-**(114) Can you add an import for the settings of other email apps?**
+**(114) Können Sie den Import von Einstellungen aus anderen E-Mail-Apps hinzufügen?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
+Das Format der Einstellungsdateien der meisten anderen E-Mail-Apps ist nicht dokumentiert, daher ist dies schwierig. Manchmal ist es möglich, das Format rückzuentwickeln, aber sobald das Einstellungsformat geändert wird, werden Dinge schief gehen. Auch sind die Einstellungen oft inkompatibel. Beispielsweise hat FairEmail im Gegensatz zu den meisten anderen E-Mail-Apps Einstellungen für die Anzahl der Tage, an denen Nachrichten synchronisiert werden sollen, und für die Anzahl der Tage, für die Nachrichten aufbewahrt werden sollen, hauptsächlich, um den Akkuverbrauch zu senken. Darüber hinaus ist die Einrichtung eines Kontos/einer Identität mit dem Schnelleinrichtungs-Assistenten einfach, so dass es sich nicht wirklich lohnt.
 
 <br />
 
 <a name="faq115"></a>
-**(115) Can you add email address chips?**
+**(115) Können E-Mail-Adressen-Chips hinzufügt werden?**
 
-Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited, which is quite inconvenient when you made a typo in an email address.
+E-Mail-Adressen-[Chips](https://material.io/design/components/chips.html) sehen schön aus, können aber nicht bearbeitet werden, das ist ziemlich unpraktisch, wenn Sie einen Tippfehler in einer E-Mail-Adresse gemacht haben.
 
-Note that FairEmail will select the address only when long pressing an address, which makes it easy to delete an address.
+Bitte beachten Sie, dass FairEmail die Adresse nur bei langem Drücken einer Adresse auswählt, was es leicht macht, eine Adresse zu löschen.
 
-Chips are not suitable for showing in a list and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.
+Chips eignen sich nicht für die Anzeige in einer Liste und da der Nachrichtenkopf in einer Liste ähnlich dem Nachrichtenkopf der Nachrichtenansicht aussehen sollte, ist es keine Option, Chips zur Anzeige von Nachrichten zu verwenden.
 
-Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
+[Commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015) zurückgesetzt.
 
 <br />
 
 <a name="faq116"></a>
-**~~(116) How can I show images in messages from trusted senders by default?~~**
+**~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen?~**
 
-~~You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.~~
+~~Sie können Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen, indem Sie die Anzeigeeinstellung *Automatisch Bilder für bekannte Kontakte anzeigen* einschalten.~~
 
-~~Contacts in the Android contacts list are considered to be known and trusted,~~ ~~unless the contact is in the group / has the label '*Untrusted*' (case insensitive).~~
+~~Kontakte in der Android-Kontaktliste gelten als bekannt und vertrauenswürdig, ~ ~~, es sei denn, der Kontakt ist in der Gruppe / hat das Label '*Nicht vertrauenswürdig*' (unabhängig von Groß- und Kleinschreibung).~~
 
 <br />
 

@@ -120,7 +120,7 @@
     <string name="title_setup_quick">Configurazione rapida</string>
     <string name="title_setup_intro">Configurare un profilo richiede solo tre fasi e, poi, puoi inviare e ricevere email</string>
     <string name="title_setup_simple">Non serve cambiare altre opzioni</string>
-    <string name="title_setup_issue">FairEmail è stata sviluppata per aiutarti a proteggere la tua privacy e rappresenta letteralmente migliaia di ore di lavoro. Se hai problemi, per favore contattami prima di lasciare una recensione negativa. Sarò felice di aiutarti!</string>
+    <string name="title_setup_issue">FairEmail è stata sviluppata per aiutarti a proteggere la tua privacy e rappresenta letteralmente migliaia di ore di lavoro. Se riscontri qualche problema, sei pregato di contattarmi per supporto prima di lasciare una brutta recensione. Sono felice d\'aiutarti!</string>
     <string name="title_setup_quick_accounts">Aggiungi o cambia profili</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un profilo. Sei pregato di non incolpare FairEmail per questo, ma piuttosto di chiedere supporto.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
@@ -199,8 +199,8 @@
     </string>
     <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma nessun messaggio e nessun\'immagine riferita nelle firme</string>
     <string name="title_setup_import_do">I profili importati saranno aggiunti senza sovrascriverne alcuno esistente</string>
-    <string name="title_setup_import_gmail">        Da Android 8. Oreo, gli account Gmail non possono più essere importati, in quanto ogni account deve essere selezionato per concedere l\'accesso all\'account.
-        Puoi facilmente riconfigurare gli account Gmail con la procedura guidata di configurazione rapida.
+    <string name="title_setup_import_gmail">        Da Android 8. Oreo, gli account Gmail non sono più importabili, poiché ogni profilo dev\'essere selezionato per concedere l\'accesso al profilo.
+        Puoi facilmente riconfigurare i profili di Gmail con la procedura guidata di configurazione rapida.
     </string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
@@ -208,11 +208,11 @@
     <string name="title_setup_password_missing">Password mancante</string>
     <string name="title_setup_password_different">Le password non corrispondono</string>
     <string name="title_setup_password_invalid">Password non valida</string>
-    <string name="title_setup_import_accounts">Importa account e identità</string>
-    <string name="title_setup_import_rules">Importa regole filtro</string>
-    <string name="title_setup_import_contacts">Importa contatti locali</string>
+    <string name="title_setup_import_accounts">Importa profili e identità</string>
+    <string name="title_setup_import_rules">Importa regole del filtro</string>
+    <string name="title_setup_import_contacts">Importa i contatti locali</string>
     <string name="title_setup_import_answers">Importa modelli di risposta</string>
-    <string name="title_setup_import_settings">Opzioni di importazione</string>
+    <string name="title_setup_import_settings">Importa le opzioni</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
     <string name="title_setup_import_invalid">File di impostazioni non valido</string>
@@ -246,7 +246,7 @@
     <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
         Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
     </string>
-    <string name="title_advanced_hint_setup">È possibile configurare un account toccando il pulsante della procedura guidata nella schermata di configurazione principale.</string>
+    <string name="title_advanced_hint_setup">Puoi configurare un profilo toccando il pulsante di procedura guidata sulla schermata di configurazione principale.</string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
@@ -300,6 +300,7 @@
     <string name="title_advanced_limit_reply">Limita il numero di citazioni nidificate</string>
     <string name="title_advanced_resize_reply">Ridimensione le immagini nel testo di risposta</string>
     <string name="title_advanced_signature_location">Posizione della firma</string>
+    <string name="title_advanced_signature_new">Utilizza la firma per i nuovi messaggi</string>
     <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
     <string name="title_advanced_signature_forward">Usa la firma quando inoltri</string>
     <string name="title_advanced_discard_delete">Scartando la bozza, eliminala permanentemente</string>
@@ -329,14 +330,14 @@
     <string name="title_advanced_caption_message">Messaggio</string>
     <string name="title_advanced_caption_message_header">Intestazione del messaggio</string>
     <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
-    <string name="title_advanced_portrait">Modalità verticale</string>
-    <string name="title_advanced_landscape">Modalità orizzontale</string>
+    <string name="title_advanced_portrait">Modalità Ritratto</string>
+    <string name="title_advanced_landscape">Modalità Paesaggio</string>
     <string name="title_advanced_two_row">Usa due righe</string>
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
-    <string name="title_advanced_nav_pin">Fissa il menù di navigazione</string>
+    <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
-    <string name="title_advanced_nav_hide_message">È possibile abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
+    <string name="title_advanced_nav_hide_message">Puoi abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
@@ -383,7 +384,7 @@
     <string name="title_advanced_addresses">Espandi i dettagli dell\'indirizzo di default</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>
-    <string name="title_advanced_message_text_zoom2">Zoom di default del testo del messaggio %1$s%%</string>
+    <string name="title_advanced_message_text_zoom2">Ingrandimento predefinito del testo del messaggio %1$s%%</string>
     <string name="title_advanced_overview_mode">Ingrandisci i messaggi originali per adattarsi allo schermo</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa di default caratteri monospaziati per il testo del messaggio</string>
@@ -429,7 +430,7 @@
     <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi tornando \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
-    <string name="title_advanced_autoclose_unread">Chiudi le conversazioni al momento di contrassegnare i messaggi come non letti</string>
+    <string name="title_advanced_autoclose_unread">Chiudi le conversazioni contrassegnando i messaggi come non letti</string>
     <string name="title_advanced_undo">Annulla timeout</string>
     <string name="title_advanced_quick_filter">Mostra icone rapide del filtro non vistose</string>
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido in su/giù non vistose</string>
@@ -474,7 +475,7 @@
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per le notifiche dei nuovi messaggi</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
-    <string name="title_advanced_check_links_dbl">Controlla le liste di blocco dei domini per i link sospetti</string>
+    <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
     <string name="title_advanced_browse_links">Delega l\'apertura dei link ad Android</string>
     <string name="title_advanced_confirm_images">Conferma la visualizzazione dei messaggi</string>
     <string name="title_advanced_confirm_html">Mostra di default i messaggi riformattati</string>
@@ -535,7 +536,7 @@
     <string name="title_advanced_poll_hint">Cercare periodicamente i nuovi messaggi confronterà i messaggi locali e remoti ogni volta, che è un\'operazione costosa che potrebbe risultare in un uso extra della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamento le modifiche.</string>
     <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare sull\'uso della batteria in base alle capacità e il comportamento dei server email</string>
     <string name="title_advanced_schedule_hint">Tocca sull\'orario per impostarlo</string>
-    <string name="title_advanced_quick_sync_hint">Riduce l\'utilizzo dei dati, ma i nuovi messaggi potrebbero essere persi se il server di posta elettronica non segue gli standard</string>
+    <string name="title_advanced_quick_sync_hint">Questo riduce l\'uso dei dati, ma i nuovi messaggi potrebbero esser perduti se il server email non segue gli standard</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano i messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano propriamente, il che potrebbe causare la sincronizzazione di tutti o nessun messaggio</string>
     <string name="title_advanced_deleted_unseen">Quando disabilitato, i messaggi non letti sono mantenuti per sempre sul dispositivo</string>
@@ -595,7 +596,7 @@
     <string name="title_advanced_notify_manage_hint">Tocca sul nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica di \'monitoraggio\'</string>
-    <string name="title_advanced_notify_separate_hint">Come configurare le notifiche per account, cartelle e mittenti?</string>
+    <string name="title_advanced_notify_separate_hint">Come configuro le notifiche per i profili, le cartelle e i mittenti?</string>
     <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
     <string name="title_advanced_notify_preview_only_hint">Questo ritarda la visualizzazione delle notifiche fino al download del teso del messaggio</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate a un indossabile solo dopo che il testo del messaggio è stato scaricato</string>
@@ -615,7 +616,7 @@
     <string name="title_advanced_edit_name">Modifica il nome</string>
     <string name="title_advanced_swipe_actions">Imposta azioni di scorrimento</string>
     <string name="title_advanced_swipe_actions_hint">Questo imposterà l\'azione di scorrimento a sinistra/destra per tutti i profili IMAP</string>
-    <string name="title_advanced_swipe_sensitivity">Sensibilità scorrimento sinistra/destra</string>
+    <string name="title_advanced_swipe_sensitivity">Sensibilità di scorrimento a sinistra/destra</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
@@ -732,8 +733,8 @@
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_synchronize_batch_enable">Abilita la sincronizzazione</string>
     <string name="title_synchronize_batch_disable">Disabilita la sincronizzazione</string>
-    <string name="title_notify_batch_enable">Abilita le notifiche per i nuovi messaggi</string>
-    <string name="title_notify_batch_disable">Disabilita le notifiche per i nuovi messaggi</string>
+    <string name="title_notify_batch_enable">Abilita le notifiche dei nuovi messaggi</string>
+    <string name="title_notify_batch_disable">Disabilita le notifiche dei nuovi messaggi</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_delete_browsed">Elimina i messaggi sfogliati/cercati</string>
     <string name="title_empty_trash">Svuota il cestino</string>
@@ -862,8 +863,8 @@
     <string name="title_save_all">Salva tutto</string>
     <string name="title_save_eml">Salva il file del messaggio non elaborato</string>
     <string name="title_eml_remark">Per inoltrare i messaggi, quelli (originali) non elaborati devono esser scaricati dal server. Ciò richiede una connessione a Internet.</string>
-    <string name="title_eml_option">Questo può essere evitato abilitando sempre il download dei file di messaggi non elaborati nelle impostazioni di connessione</string>
-    <string name="title_eml_downloaded">Messaggi grezzi scaricati: %1$s</string>
+    <string name="title_eml_option">Questo può esser impedito abilitando sempre il download dei file dei messaggi non elaborati nelle impostazioni di connessione</string>
+    <string name="title_eml_downloaded">Messaggi non elaborati scaricati: %1$s</string>
     <string name="title_buttons">Seleziona i pulsanti</string>
     <string name="title_buttons_hint">Le azioni effettive disponibili dipendono dal tipo di profilo e dalla configurazione</string>
     <string name="title_button_search">Cerca nei messaggi</string>
@@ -1108,7 +1109,7 @@
         Le opzioni seguenti servono a continuare la ricerca nel server email.
     </string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
-    <string name="title_search_text_unsupported">\'%s\' significa che il server di posta non supporta la ricerca nei testi dei messaggi</string>
+    <string name="title_search_text_unsupported">\'%s\' significa che il server email non supporta la ricerca nei testi dei messaggi</string>
     <string name="title_search_size_hint">La ricerca dei messaggi per dimensione, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_more">Altre opzioni</string>
     <string name="title_search_use_index">Usa l\'indice di ricerca</string>
@@ -1342,7 +1343,7 @@
     <string name="title_legend_show_images">Mostra immagini</string>
     <string name="title_legend_hide_images">Nascondi immagini</string>
     <string name="title_legend_show_full">Mostra il messaggio originale</string>
-    <string name="title_legend_show_reformatted">Visualizza messaggio riformattato</string>
+    <string name="title_legend_show_reformatted">Mostra il messaggio riformattato</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>
@@ -1616,7 +1617,7 @@
         <item>Medio</item>
         <item>Grande</item>
     </string-array>
-    <string name="title_size_tiny">Molto piccolo</string>
+    <string name="title_size_tiny">Minuscolo</string>
     <string-array name="receiptNames">
         <item>Solo conferma di lettura</item>
         <item>Solo conferma di consegna</item>
