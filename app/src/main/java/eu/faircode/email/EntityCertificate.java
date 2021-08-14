@@ -41,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
+import java.net.InetAddress;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -214,6 +215,31 @@ public class EntityCertificate {
                 result.add((String) altName.get(1));
 
         return result;
+    }
+
+    static String getSimilarDnsName(X509Certificate certificate, @NonNull String host) {
+        if (certificate == null)
+            return null;
+
+        try {
+            InetAddress haddr = InetAddress.getByName(host);
+            List<String> names = getDnsNames(certificate);
+            for (String _name : names)
+                try {
+                    String name = (_name.startsWith("*.") ? _name.substring(2) : _name);
+                    InetAddress naddr = InetAddress.getByName(name);
+                    Log.i("host=" + host + " name=" + _name + "" +
+                            " haddr=" + haddr + " naddr=" + naddr);
+                    if (haddr.equals(naddr))
+                        return name;
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return null;
     }
 
     static boolean matches(String server, List<String> names) {
