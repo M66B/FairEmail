@@ -27,11 +27,14 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import org.bouncycastle.asn1.ASN1Encodable;
+import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
 import org.bouncycastle.asn1.x500.RDN;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x500.style.BCStyle;
+import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.GeneralName;
+import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,7 +88,7 @@ public class EntityCertificate {
 
     static EntityCertificate from(X509Certificate certificate, boolean intermediate, String email) throws CertificateEncodingException, NoSuchAlgorithmException {
         EntityCertificate record = new EntityCertificate();
-        record.fingerprint = getFingerprint(certificate);
+        record.fingerprint = getFingerprintSha256(certificate);
         record.intermediate = intermediate;
         record.email = email;
         record.subject = getSubject(certificate);
@@ -118,8 +121,26 @@ public class EntityCertificate {
         return ((this.after != null && now <= this.after) || (this.before != null && now > this.before));
     }
 
-    static String getFingerprint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
+    static String getFingerprintSha256(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
         return Helper.sha256(certificate.getEncoded());
+    }
+
+    static String getFingerprintSha1(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
+        return Helper.sha1(certificate.getEncoded());
+    }
+
+    static String getKeyId(X509Certificate certificate) {
+        try {
+            byte[] extension = certificate.getExtensionValue(Extension.subjectKeyIdentifier.getId());
+            if (extension == null)
+                return null;
+            byte[] bytes = DEROctetString.getInstance(extension).getOctets();
+            SubjectKeyIdentifier keyId = SubjectKeyIdentifier.getInstance(bytes);
+            return Helper.hex(keyId.getKeyIdentifier());
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
     }
 
     static String getSubject(X509Certificate certificate) {
@@ -199,7 +220,7 @@ public class EntityCertificate {
         certificate.data = json.getString("data");
 
         X509Certificate cert = certificate.getCertificate();
-        certificate.fingerprint = getFingerprint(cert);
+        certificate.fingerprint = getFingerprintSha256(cert);
         certificate.subject = getSubject(cert);
 
         Date after = cert.getNotBefore();

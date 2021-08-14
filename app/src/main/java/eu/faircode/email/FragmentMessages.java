@@ -7018,7 +7018,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 if (s.verify(verifier)) {
                                     boolean known = true;
-                                    String fingerprint = EntityCertificate.getFingerprint(cert);
+                                    String fingerprint = EntityCertificate.getFingerprintSha256(cert);
                                     List<String> emails = EntityCertificate.getEmailAddresses(cert);
                                     for (String email : emails) {
                                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
@@ -7349,7 +7349,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                                         if (message == null)
                                                             return null;
 
-                                                        String fingerprint = EntityCertificate.getFingerprint(cert);
+                                                        String fingerprint = EntityCertificate.getFingerprintSha256(cert);
                                                         List<String> emails = EntityCertificate.getEmailAddresses(cert);
                                                         for (String email : emails) {
                                                             EntityCertificate record = db.certificate().getCertificate(fingerprint, email);

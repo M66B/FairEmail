@@ -1443,7 +1443,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         }
                     }
 
-                    String fingerprint = EntityCertificate.getFingerprint(cert);
+                    String fingerprint = EntityCertificate.getFingerprintSha256(cert);
                     List<String> emails = EntityCertificate.getEmailAddresses(cert);
 
                     if (emails.size() == 0)

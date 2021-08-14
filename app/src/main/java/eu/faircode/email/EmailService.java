@@ -40,10 +40,6 @@ import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
 
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -58,10 +54,8 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
-import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
 import java.security.PrivateKey;
-import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -490,7 +484,7 @@ public class EmailService implements AutoCloseable {
             Throwable ce = ex;
             while (ce != null) {
                 if (factory != null && ce instanceof CertificateException)
-                    throw new UntrustedException(factory.getFingerPrintSelect(), ex);
+                    throw new UntrustedException(factory.certificate, ex);
                 if (ce instanceof IOException)
                     ioError = true;
                 ce = ce.getCause();
@@ -989,12 +983,12 @@ public class EmailService implements AutoCloseable {
         private static boolean matches(X509Certificate certificate, @NonNull String trustedFingerprint) {
             // Get certificate fingerprint
             try {
-                String fingerprint = getFingerPrint(certificate);
+                String fingerprint = EntityCertificate.getFingerprintSha1(certificate);
                 int slash = trustedFingerprint.indexOf('/');
                 if (slash < 0)
                     return trustedFingerprint.equals(fingerprint);
                 else {
-                    String keyId = getKeyId(certificate);
+                    String keyId = EntityCertificate.getKeyId(certificate);
                     if (trustedFingerprint.substring(slash + 1).equals(keyId))
                         return true;
                     return trustedFingerprint.substring(0, slash).equals(fingerprint);
@@ -1002,37 +996,6 @@ public class EmailService implements AutoCloseable {
             } catch (Throwable ex) {
                 Log.w(ex);
                 return false;
-            }
-        }
-
-        private static String getKeyId(X509Certificate certificate) {
-            try {
-                byte[] extension = certificate.getExtensionValue(Extension.subjectKeyIdentifier.getId());
-                if (extension == null)
-                    return null;
-                byte[] bytes = DEROctetString.getInstance(extension).getOctets();
-                SubjectKeyIdentifier keyId = SubjectKeyIdentifier.getInstance(bytes);
-                return Helper.hex(keyId.getKeyIdentifier());
-            } catch (Throwable ex) {
-                Log.e(ex);
-                return null;
-            }
-        }
-
-        private static String getFingerPrint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
-            return Helper.sha1(certificate.getEncoded());
-        }
-
-        String getFingerPrintSelect() {
-            try {
-                if (certificate == null)
-                    return null;
-                String keyId = getKeyId(certificate);
-                String fingerPrint = getFingerPrint(certificate);
-                return fingerPrint + (keyId == null ? "" : "/" + keyId);
-            } catch (Throwable ex) {
-                Log.e(ex);
-                return null;
             }
         }
     }
@@ -1075,15 +1038,28 @@ public class EmailService implements AutoCloseable {
     }
 
     class UntrustedException extends MessagingException {
-        private String fingerprint;
+        private X509Certificate certificate;
 
-        UntrustedException(@NonNull String fingerprint, @NonNull Exception cause) {
+        UntrustedException(@NonNull X509Certificate certificate, @NonNull Exception cause) {
             super("Untrusted", cause);
-            this.fingerprint = fingerprint;
+            this.certificate = certificate;
+        }
+
+        X509Certificate getCertificate() {
+            return certificate;
         }
 
         String getFingerprint() {
-            return fingerprint;
+            try {
+                if (certificate == null)
+                    return null;
+                String keyId = EntityCertificate.getKeyId(certificate);
+                String fingerPrint = EntityCertificate.getFingerprintSha1(certificate);
+                return fingerPrint + (keyId == null ? "" : "/" + keyId);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                return null;
+            }
         }
 
         @NonNull
