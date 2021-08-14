@@ -254,17 +254,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvImapTitle" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvImapFingerprint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fingerprint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            android:textIsSelectable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImap" />
-
-        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSmtpTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -272,7 +261,7 @@
             android:text="@string/title_setup_quick_smtp"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImapFingerprint" />
+            app:layout_constraintTop_toBottomOf="@id/tvImap" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSmtp"
@@ -286,7 +275,17 @@
             app:layout_constraintTop_toBottomOf="@id/tvSmtpTitle" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvSmtpFingerprint"
+            android:id="@+id/tvCertificateInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_quick_certificates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvImapFingerprint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fingerprint"
@@ -294,7 +293,43 @@
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
+            app:layout_constraintTop_toBottomOf="@id/tvCertificateInfo" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvImapDnsNames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="names"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImapFingerprint" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSmtpFingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="fingerprint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImapDnsNames" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSmtpDnsNames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="names"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSmtpFingerprint" />
 
         <Button
             android:id="@+id/btnSave"
@@ -306,7 +341,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSmtpFingerprint" />
+            app:layout_constraintTop_toBottomOf="@id/tvSmtpDnsNames" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -324,8 +359,16 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            tvImapTitle,tvImap,tvImapFingerprint,tvSmtpTitle,
-            tvSmtp,tvSmtpFingerprint" />
+            tvImapTitle,tvImap,
+            tvSmtpTitle,tvSmtp" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpCertificate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvCertificateInfo,
+            tvImapFingerprint,tvImapDnsNames,
+            tvSmtpFingerprint,tvSmtpDnsNames" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"

@@ -484,7 +484,7 @@ public class EmailService implements AutoCloseable {
             Throwable ce = ex;
             while (ce != null) {
                 if (factory != null && ce instanceof CertificateException)
-                    throw new UntrustedException(factory.certificate, ex);
+                    throw new UntrustedException(ex, factory.certificate);
                 if (ce instanceof IOException)
                     ioError = true;
                 ce = ce.getCause();
@@ -1037,29 +1037,16 @@ public class EmailService implements AutoCloseable {
         }
     }
 
-    class UntrustedException extends MessagingException {
+    static class UntrustedException extends MessagingException {
         private X509Certificate certificate;
 
-        UntrustedException(@NonNull X509Certificate certificate, @NonNull Exception cause) {
+        UntrustedException(@NonNull Exception cause, @NonNull X509Certificate certificate) {
             super("Untrusted", cause);
             this.certificate = certificate;
         }
 
         X509Certificate getCertificate() {
             return certificate;
-        }
-
-        String getFingerprint() {
-            try {
-                if (certificate == null)
-                    return null;
-                String keyId = EntityCertificate.getKeyId(certificate);
-                String fingerPrint = EntityCertificate.getFingerprintSha1(certificate);
-                return fingerPrint + (keyId == null ? "" : "/" + keyId);
-            } catch (Throwable ex) {
-                Log.e(ex);
-                return null;
-            }
         }
 
         @NonNull

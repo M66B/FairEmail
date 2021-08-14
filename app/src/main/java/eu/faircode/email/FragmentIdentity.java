@@ -66,6 +66,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.FileNotFoundException;
 import java.net.UnknownHostException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -1044,9 +1045,10 @@ public class FragmentIdentity extends FragmentBase {
         grpError.setVisibility(View.VISIBLE);
 
         if (ex instanceof EmailService.UntrustedException) {
-            EmailService.UntrustedException e = (EmailService.UntrustedException) ex;
-            cbTrust.setTag(e.getFingerprint());
-            cbTrust.setText(getString(R.string.title_trust, e.getFingerprint()));
+            X509Certificate certificate = ((EmailService.UntrustedException) ex).getCertificate();
+            String fingerprint = EntityCertificate.getKeyFingerprint(certificate);
+            cbTrust.setTag(fingerprint);
+            cbTrust.setText(getString(R.string.title_trust, fingerprint));
             cbTrust.setVisibility(View.VISIBLE);
         }
 

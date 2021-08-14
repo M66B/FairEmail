@@ -50,6 +50,8 @@ import androidx.fragment.app.FragmentActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.net.UnknownHostException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -77,13 +79,18 @@ public class FragmentQuickSetup extends FragmentBase {
     private Button btnSupport;
 
     private TextView tvImap;
-    private TextView tvImapFingerprint;
     private TextView tvSmtp;
+
+    private TextView tvImapFingerprint;
+    private TextView tvImapDnsNames;
     private TextView tvSmtpFingerprint;
+    private TextView tvSmtpDnsNames;
+
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
 
     private Group grpSetup;
+    private Group grpCertificate;
     private Group grpError;
 
     private static final String PRIVACY_URI = "https://www.mozilla.org/privacy/";
@@ -114,13 +121,18 @@ public class FragmentQuickSetup extends FragmentBase {
         btnSupport = view.findViewById(R.id.btnSupport);
 
         tvImap = view.findViewById(R.id.tvImap);
-        tvImapFingerprint = view.findViewById(R.id.tvImapFingerprint);
         tvSmtp = view.findViewById(R.id.tvSmtp);
+
+        tvImapFingerprint = view.findViewById(R.id.tvImapFingerprint);
+        tvImapDnsNames = view.findViewById(R.id.tvImapDnsNames);
         tvSmtpFingerprint = view.findViewById(R.id.tvSmtpFingerprint);
+        tvSmtpDnsNames = view.findViewById(R.id.tvSmtpDnsNames);
+
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
 
         grpSetup = view.findViewById(R.id.grpSetup);
+        grpCertificate = view.findViewById(R.id.grpCertificate);
         grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
@@ -209,6 +221,7 @@ public class FragmentQuickSetup extends FragmentBase {
         btnHelp.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         grpSetup.setVisibility(View.GONE);
+        grpCertificate.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
         return view;
@@ -219,8 +232,6 @@ public class FragmentQuickSetup extends FragmentBase {
         args.putString("name", etName.getText().toString().trim());
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
-        args.putString("imap_fingerprint", tvImapFingerprint.getText().toString());
-        args.putString("smtp_fingerprint", tvSmtpFingerprint.getText().toString());
         args.putBoolean("check", check);
 
         new SimpleTask<EmailProvider>() {
@@ -237,6 +248,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 btnHelp.setVisibility(View.GONE);
                 btnSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
+                if (check)
+                    grpCertificate.setVisibility(View.GONE);
             }
 
             @Override
@@ -253,8 +266,6 @@ public class FragmentQuickSetup extends FragmentBase {
                 String email = args.getString("email");
                 String password = args.getString("password");
                 boolean check = args.getBoolean("check");
-                String imap_fingerprint = args.getString("imap_fingerprint");
-                String smtp_fingerprint = args.getString("smtp_fingerprint");
 
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
@@ -264,10 +275,6 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
-                if (TextUtils.isEmpty(imap_fingerprint))
-                    imap_fingerprint = null;
-                if (TextUtils.isEmpty(smtp_fingerprint))
-                    smtp_fingerprint = null;
 
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
@@ -284,6 +291,10 @@ public class FragmentQuickSetup extends FragmentBase {
                 Log.i("User type=" + provider.user + " name=" + user);
 
                 List<EntityFolder> folders;
+                String imap_fingerprint = null;
+                String smtp_fingerprint = null;
+                X509Certificate imap_certificate = null;
+                X509Certificate smtp_certificate = null;
 
                 String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
                 int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
@@ -294,17 +305,15 @@ public class FragmentQuickSetup extends FragmentBase {
                                 provider.imap.host, provider.imap.port,
                                 AUTH_TYPE_PASSWORD, null,
                                 user, password,
-                                null, imap_fingerprint);
+                                null, null);
                     } catch (EmailService.UntrustedException ex) {
-                        if (check) {
-                            imap_fingerprint = ex.getFingerprint();
-                            iservice.connect(
-                                    provider.imap.host, provider.imap.port,
-                                    AUTH_TYPE_PASSWORD, null,
-                                    user, password,
-                                    null, imap_fingerprint);
-                        } else
-                            throw ex;
+                        imap_certificate = ex.getCertificate();
+                        imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
+                        iservice.connect(
+                                provider.imap.host, provider.imap.port,
+                                AUTH_TYPE_PASSWORD, null,
+                                user, password,
+                                null, imap_fingerprint);
                     } catch (Throwable ex) {
                         Log.w(ex);
                         // Why not AuthenticationFailedException?
@@ -348,29 +357,35 @@ public class FragmentQuickSetup extends FragmentBase {
                         }
                 }
 
-                Long max_size = null;
+                Long max_size;
                 String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                 int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, iencryption, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.setUseIp(provider.useip, null);
-                    iservice.connect(
-                            provider.smtp.host, provider.smtp.port,
-                            AUTH_TYPE_PASSWORD, null,
-                            user, password,
-                            null, smtp_fingerprint);
+                    try {
+                        iservice.connect(
+                                provider.smtp.host, provider.smtp.port,
+                                AUTH_TYPE_PASSWORD, null,
+                                user, password,
+                                null, null);
+                    } catch (EmailService.UntrustedException ex) {
+                        smtp_certificate = ex.getCertificate();
+                        smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
+                        iservice.connect(
+                                provider.smtp.host, provider.smtp.port,
+                                AUTH_TYPE_PASSWORD, null,
+                                user, password,
+                                null, smtp_fingerprint);
+                    }
+
                     max_size = iservice.getMaxSize();
-                } catch (EmailService.UntrustedException ex) {
-                    if (check)
-                        smtp_fingerprint = ex.getFingerprint();
-                    else
-                        throw ex;
                 }
 
                 if (check) {
-                    args.putString("imap_fingerprint", imap_fingerprint);
-                    args.putString("smtp_fingerprint", smtp_fingerprint);
+                    args.putSerializable("imap_certificate", imap_certificate);
+                    args.putSerializable("smtp_certificate", smtp_certificate);
                     return provider;
                 }
 
@@ -468,11 +483,38 @@ public class FragmentQuickSetup extends FragmentBase {
                 boolean check = args.getBoolean("check");
                 if (check) {
                     tvImap.setText(result == null ? null : result.imap.toString());
-                    tvImapFingerprint.setText(args.getString("imap_fingerprint"));
                     tvSmtp.setText(result == null ? null : result.smtp.toString());
-                    tvSmtpFingerprint.setText(args.getString("smtp_fingerprint"));
-                    btnSave.setVisibility(result == null ? View.GONE : View.VISIBLE);
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
+
+                    X509Certificate imap_certificate =
+                            (X509Certificate) args.getSerializable("imap_certificate");
+                    X509Certificate smtp_certificate =
+                            (X509Certificate) args.getSerializable("smtp_certificate");
+
+                    List<String> imapNames = new ArrayList<>();
+                    if (imap_certificate != null)
+                        try {
+                            imapNames = EntityCertificate.getDnsNames(imap_certificate);
+                        } catch (Throwable ignored) {
+                        }
+
+                    List<String> smtpNames = new ArrayList<>();
+                    if (smtp_certificate != null)
+                        try {
+                            smtpNames = EntityCertificate.getDnsNames(smtp_certificate);
+                        } catch (Throwable ignored) {
+                        }
+
+                    tvImapFingerprint.setText(EntityCertificate.getKeyFingerprint(imap_certificate));
+                    tvImapDnsNames.setText(TextUtils.join(", ", imapNames));
+                    tvSmtpFingerprint.setText(EntityCertificate.getKeyFingerprint(smtp_certificate));
+                    tvSmtpDnsNames.setText(TextUtils.join(", ", smtpNames));
+
+                    grpCertificate.setVisibility(
+                            imap_certificate == null && smtp_certificate == null
+                                    ? View.GONE : View.VISIBLE);
+
+                    btnSave.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
                     FragmentDialogAccount fragment = new FragmentDialogAccount();
                     fragment.setArguments(args);
@@ -527,10 +569,9 @@ public class FragmentQuickSetup extends FragmentBase {
                     if (provider != null &&
                             provider.imap != null && provider.smtp != null) {
                         tvImap.setText(provider.imap.toString());
-                        tvImapFingerprint.setText(null);
                         tvSmtp.setText(provider.smtp.toString());
-                        tvSmtpFingerprint.setText(null);
                         grpSetup.setVisibility(View.VISIBLE);
+                        grpCertificate.setVisibility(View.GONE);
                     }
 
                     getMainHandler().post(new Runnable() {

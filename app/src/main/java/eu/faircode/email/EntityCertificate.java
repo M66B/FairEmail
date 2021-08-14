@@ -143,6 +143,19 @@ public class EntityCertificate {
         }
     }
 
+    static String getKeyFingerprint(X509Certificate certificate) {
+        if (certificate == null)
+            return null;
+        try {
+            String keyId = getKeyId(certificate);
+            String fingerPrint = getFingerprintSha1(certificate);
+            return fingerPrint + (keyId == null ? "" : "/" + keyId);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
     static String getSubject(X509Certificate certificate) {
         return certificate.getSubjectX500Principal().getName(X500Principal.RFC2253);
     }
