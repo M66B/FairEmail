@@ -5955,8 +5955,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("labels changed", next.id);
                 }
-                // notifying
                 // fts
+                if (!prev.auto_classified.equals(next.auto_classified)) {
+                    same = false;
+                    log("auto_classified changed " + prev.auto_classified + "/" + next.auto_classified, next.id);
+                }
+                // notifying
                 if (!prev.ui_seen.equals(next.ui_seen)) {
                     same = false;
                     log("ui_seen changed " + prev.ui_seen + "/" + next.ui_seen, next.id);

@@ -196,11 +196,11 @@ public class EntityMessage implements Serializable {
     public String[] keywords; // user flags
     public String[] labels; // Gmail
     @NonNull
-    public Integer notifying = 0;
-    @NonNull
     public Boolean fts = false;
     @NonNull
     public Boolean auto_classified = false;
+    @NonNull
+    public Integer notifying = 0;
     @NonNull
     public Boolean ui_seen = false;
     @NonNull
@@ -570,6 +570,7 @@ public class EntityMessage implements Serializable {
                     this.deleted.equals(other.deleted) &&
                     Objects.equals(this.flags, other.flags) &&
                     Helper.equal(this.keywords, other.keywords) &&
+                    this.auto_classified.equals(other.auto_classified) &&
                     this.notifying.equals(other.notifying) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
