@@ -5532,7 +5532,9 @@ public class FragmentCompose extends FragmentBase {
                             else
                                 mid = R.string.title_draft_saved;
                             final String msg = context.getString(mid) +
-                                    (BuildConfig.DEBUG ? ":" + draft.revision : "");
+                                    (BuildConfig.DEBUG
+                                            ? " " + draft.revision + (dirty ? "*" : "")
+                                            : "");
 
                             getMainHandler().post(new Runnable() {
                                 public void run() {
