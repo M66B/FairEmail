@@ -55,12 +55,24 @@ public class EntityLog {
     @NonNull
     public Long time;
     @NonNull
+    public Integer type = LOG_GENERAL;
+    @NonNull
     public String data;
+
+    static final int LOG_GENERAL = 0;
+    static final int LOG_STATS = 1;
+    static final int LOG_SCHEDULE = 2;
+    static final int LOG_NETWORK = 3;
+    static final int LOG_ACCOUNT = 4;
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "log");
 
     static void log(final Context context, String data) {
+        log(context, LOG_GENERAL, data);
+    }
+
+    static void log(final Context context, int type, String data) {
         Log.i(data);
 
         if (context == null)
@@ -73,6 +85,7 @@ public class EntityLog {
 
         final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();
+        entry.type = type;
         entry.data = data;
 
         final DB db = DB.getInstance(context);

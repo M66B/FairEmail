@@ -84,7 +84,7 @@ public class FragmentLogs extends FragmentBase {
         long from = new Date().getTime() - 24 * 3600 * 1000L;
 
         DB db = DB.getInstance(getContext());
-        db.log().liveLogs(from).observe(getViewLifecycleOwner(), new Observer<List<EntityLog>>() {
+        db.log().liveLogs(from, null).observe(getViewLifecycleOwner(), new Observer<List<EntityLog>>() {
             @Override
             public void onChanged(List<EntityLog> logs) {
                 if (logs == null)

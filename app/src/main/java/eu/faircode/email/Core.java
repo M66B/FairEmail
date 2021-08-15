@@ -24,6 +24,8 @@ import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 import static javax.mail.Folder.READ_WRITE;
 
+import static eu.faircode.email.EntityLog.LOG_STATS;
+
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -1480,7 +1482,8 @@ class Core {
             }
 
             if (!stats.isEmpty())
-                EntityLog.log(context, account.name + "/" + folder.name + " fetch stats " + stats);
+                EntityLog.log(context, LOG_STATS,
+                        account.name + "/" + folder.name + " fetch stats " + stats);
         } catch (MessageRemovedException | MessageRemovedIOException ex) {
             Log.i(ex);
 
@@ -3206,7 +3209,8 @@ class Core {
 
             stats.total = (SystemClock.elapsedRealtime() - search);
 
-            EntityLog.log(context, account.name + "/" + folder.name + " sync stats " + stats);
+            EntityLog.log(context, LOG_STATS,
+                    account.name + "/" + folder.name + " sync stats " + stats);
         } finally {
             Log.i(folder.name + " end sync state=" + state);
             db.folder().setFolderSyncState(folder.id, null);

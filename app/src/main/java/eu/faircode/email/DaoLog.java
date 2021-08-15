@@ -30,14 +30,16 @@ import java.util.List;
 public interface DaoLog {
     @Query("SELECT * FROM log" +
             " WHERE time > :from" +
+            " AND (:type IS NULL OR type = :type)" +
             " ORDER BY time DESC" +
             " LIMIT 2000")
-    LiveData<List<EntityLog>> liveLogs(long from);
+    LiveData<List<EntityLog>> liveLogs(long from, Integer type);
 
     @Query("SELECT * FROM log" +
             " WHERE time > :from" +
+            " AND (:type IS NULL OR type = :type)" +
             " ORDER BY time DESC")
-    List<EntityLog> getLogs(long from);
+    List<EntityLog> getLogs(long from, Integer type);
 
     @Insert
     long insertLog(EntityLog log);

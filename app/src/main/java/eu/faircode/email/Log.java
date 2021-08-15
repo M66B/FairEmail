@@ -2099,7 +2099,7 @@ public class Log {
             long from = new Date().getTime() - 24 * 3600 * 1000L;
             DateFormat TF = Helper.getTimeInstance(context);
 
-            for (EntityLog entry : db.log().getLogs(from))
+            for (EntityLog entry : db.log().getLogs(from, null))
                 size += write(os, String.format("%s %s\r\n", TF.format(entry.time), entry.data));
         }
 

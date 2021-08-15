@@ -21,6 +21,10 @@ package eu.faircode.email;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
+import static eu.faircode.email.EntityLog.LOG_ACCOUNT;
+import static eu.faircode.email.EntityLog.LOG_NETWORK;
+import static eu.faircode.email.EntityLog.LOG_SCHEDULE;
+
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -273,17 +277,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
                             if (current.canRun()) {
-                                EntityLog.log(ServiceSynchronize.this, "### new " + current +
-                                        " force=" + force +
-                                        " start=" + current.canRun() +
-                                        " sync=" + current.accountState.isEnabled(current.enabled) +
-                                        " enabled=" + current.accountState.synchronize +
-                                        " ondemand=" + current.accountState.ondemand +
-                                        " folders=" + current.accountState.folders +
-                                        " ops=" + current.accountState.operations +
-                                        " tbd=" + current.accountState.tbd +
-                                        " state=" + current.accountState.state +
-                                        " active=" + current.networkState.getActive());
+                                EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                        "### new " + current +
+                                                " force=" + force +
+                                                " start=" + current.canRun() +
+                                                " sync=" + current.accountState.isEnabled(current.enabled) +
+                                                " enabled=" + current.accountState.synchronize +
+                                                " ondemand=" + current.accountState.ondemand +
+                                                " folders=" + current.accountState.folders +
+                                                " ops=" + current.accountState.operations +
+                                                " tbd=" + current.accountState.tbd +
+                                                " state=" + current.accountState.state +
+                                                " active=" + current.networkState.getActive());
                                 event = true;
                                 start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                             }
@@ -308,22 +313,23 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     prev.canRun() != current.canRun() ||
                                     !prev.accountState.equals(current.accountState)) {
                                 if (prev.canRun() || current.canRun())
-                                    EntityLog.log(ServiceSynchronize.this, "### changed " + current +
-                                            " reload=" + reload +
-                                            " force=" + force +
-                                            " stop=" + prev.canRun() +
-                                            " start=" + current.canRun() +
-                                            " sync=" + sync +
-                                            " enabled=" + current.accountState.isEnabled(current.enabled) +
-                                            " should=" + current.accountState.shouldRun(current.enabled) +
-                                            " changed=" + !prev.accountState.equals(current.accountState) +
-                                            " synchronize=" + current.accountState.synchronize +
-                                            " ondemand=" + current.accountState.ondemand +
-                                            " folders=" + current.accountState.folders +
-                                            " ops=" + current.accountState.operations +
-                                            " tbd=" + current.accountState.tbd +
-                                            " state=" + current.accountState.state +
-                                            " active=" + prev.networkState.getActive() + "/" + current.networkState.getActive());
+                                    EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                            "### changed " + current +
+                                                    " reload=" + reload +
+                                                    " force=" + force +
+                                                    " stop=" + prev.canRun() +
+                                                    " start=" + current.canRun() +
+                                                    " sync=" + sync +
+                                                    " enabled=" + current.accountState.isEnabled(current.enabled) +
+                                                    " should=" + current.accountState.shouldRun(current.enabled) +
+                                                    " changed=" + !prev.accountState.equals(current.accountState) +
+                                                    " synchronize=" + current.accountState.synchronize +
+                                                    " ondemand=" + current.accountState.ondemand +
+                                                    " folders=" + current.accountState.folders +
+                                                    " ops=" + current.accountState.operations +
+                                                    " tbd=" + current.accountState.tbd +
+                                                    " state=" + current.accountState.state +
+                                                    " active=" + prev.networkState.getActive() + "/" + current.networkState.getActive());
                                 if (prev.canRun()) {
                                     event = true;
                                     stop(prev);
@@ -336,8 +342,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (state != null) {
                                     Network p = prev.networkState.getActive();
                                     if (p != null && !p.equals(current.networkState.getActive())) {
-                                        EntityLog.log(ServiceSynchronize.this, "### changed " + current +
-                                                " active=" + prev.networkState.getActive() + "/" + current.networkState.getActive());
+                                        EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                                "### changed " + current +
+                                                        " active=" + prev.networkState.getActive() + "/" + current.networkState.getActive());
                                         state.error(new OperationCanceledException("Active network changed"));
                                     }
                                 }
@@ -354,7 +361,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     if (event) {
                         lastEventId++;
-                        EntityLog.log(ServiceSynchronize.this, "### eventId=" + lastEventId);
+                        EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                "### eventId=" + lastEventId);
                     }
 
                     if (lastAccounts != accounts || lastOperations != operations) {
@@ -394,9 +402,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     if (!runService && lastQuitId != lastEventId) {
-                        EntityLog.log(ServiceSynchronize.this, "### quitting" +
-                                " run=" + runService +
-                                " startId=" + lastQuitId + "/" + lastEventId);
+                        EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                "### quitting" +
+                                        " run=" + runService +
+                                        " startId=" + lastQuitId + "/" + lastEventId);
                         lastQuitId = lastEventId;
                         quit(lastEventId);
                     }
@@ -407,7 +416,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        EntityLog.log(ServiceSynchronize.this, "### init " + accountNetworkState);
+                        EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                "### init " + accountNetworkState);
 
                         DB db = DB.getInstance(ServiceSynchronize.this);
                         try {
@@ -435,7 +445,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void start(final TupleAccountNetworkState accountNetworkState, boolean sync, boolean force) {
-                EntityLog.log(ServiceSynchronize.this,
+                EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
                         "Service start=" + accountNetworkState + " sync=" + sync + " force=" + force);
 
                 final Core.State astate = new Core.State(accountNetworkState.networkState);
@@ -466,7 +476,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             Log.i("### start=" + accountNetworkState + " sync=" + sync);
                             astate.start();
-                            EntityLog.log(ServiceSynchronize.this, "### started=" + accountNetworkState);
+                            EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                    "### started=" + accountNetworkState);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
@@ -480,7 +491,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     return;
                 coreStates.remove(accountNetworkState.accountState.id);
 
-                EntityLog.log(ServiceSynchronize.this, "Service stop=" + accountNetworkState);
+                EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                        "Service stop=" + accountNetworkState);
 
                 queue.submit(new Runnable() {
                     @Override
@@ -499,7 +511,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.account().setAccountThread(accountNetworkState.accountState.id, null);
                             state.stop();
                             state.join();
-                            EntityLog.log(ServiceSynchronize.this, "### stopped=" + accountNetworkState);
+                            EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                    "### stopped=" + accountNetworkState);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
@@ -508,7 +521,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void delete(final TupleAccountNetworkState accountNetworkState) {
-                EntityLog.log(ServiceSynchronize.this, "Service delete=" + accountNetworkState);
+                EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                        "Service delete=" + accountNetworkState);
 
                 queue.submit(new Runnable() {
                     @Override
@@ -533,7 +547,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
-                            EntityLog.log(ServiceSynchronize.this, "### quit eventId=" + eventId);
+                            EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                    "### quit eventId=" + eventId);
 
                             if (eventId == null) {
                                 // Service destroy
@@ -554,14 +569,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     }
 
                                     if (!eventId.equals(lastEventId)) {
-                                        EntityLog.log(ServiceSynchronize.this, "### quit cancelled eventId=" + eventId + "/" + lastEventId);
+                                        EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                                "### quit cancelled eventId=" + eventId + "/" + lastEventId);
                                         return;
                                     }
                                 }
 
                                 // Stop service
                                 stopSelf();
-                                EntityLog.log(ServiceSynchronize.this, "### stop self eventId=" + eventId);
+                                EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                        "### stop self eventId=" + eventId);
 
                                 WorkerCleanup.cleanupConditionally(ServiceSynchronize.this);
                             }
@@ -799,8 +816,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = (intent == null ? null : intent.getAction());
         String reason = (intent == null ? null : intent.getStringExtra("reason"));
-        EntityLog.log(ServiceSynchronize.this, "### Service command " + intent +
-                " action=" + action + " reason=" + reason);
+        EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                "### Service command " + intent +
+                        " action=" + action + " reason=" + reason);
         Log.logExtras(intent);
 
         super.onStartCommand(intent, flags, startId);
@@ -899,11 +917,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         Core.State state = coreStates.get(account);
 
         if (state == null)
-            EntityLog.log(this, "### wakeup missing account=" + account);
+            EntityLog.log(this, LOG_SCHEDULE,
+                    "### wakeup missing account=" + account);
         else {
-            EntityLog.log(this, "### waking up account=" + account);
+            EntityLog.log(this, LOG_SCHEDULE,
+                    "### waking up account=" + account);
             if (!state.release())
-                EntityLog.log(this, "### waking up failed account=" + account);
+                EntityLog.log(this, LOG_SCHEDULE,
+                        "### waking up failed account=" + account);
         }
     }
 
@@ -940,18 +961,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEND);
                             }
                         } else {
-                            EntityLog.log(ServiceSynchronize.this, folder.name + " Unsnooze" +
-                                    " id=" + message.id +
-                                    " ui_seen=" + message.ui_seen + "" +
-                                    " ui_ignored=" + message.ui_ignored +
-                                    " ui_hide=" + message.ui_hide +
-                                    " notifying=" + message.notifying +
-                                    " silent=" + message.ui_silent +
-                                    " received=" + new Date(message.received) +
-                                    " sent=" + (message.sent == null ? null : new Date(message.sent)) +
-                                    " created=" + (account.created == null ? null : new Date(account.created)) +
-                                    " notify=" + folder.notify +
-                                    " sync=" + account.synchronize);
+                            EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                                    folder.name + " Unsnooze" +
+                                            " id=" + message.id +
+                                            " ui_seen=" + message.ui_seen + "" +
+                                            " ui_ignored=" + message.ui_ignored +
+                                            " ui_hide=" + message.ui_hide +
+                                            " notifying=" + message.notifying +
+                                            " silent=" + message.ui_silent +
+                                            " received=" + new Date(message.received) +
+                                            " sent=" + (message.sent == null ? null : new Date(message.sent)) +
+                                            " created=" + (account.created == null ? null : new Date(account.created)) +
+                                            " notify=" + folder.notify +
+                                            " sync=" + account.synchronize);
 
                             if (folder.notify) {
                                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -1109,7 +1131,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onWatchdog(Intent intent) {
-        EntityLog.log(this, "Watchdog");
+        EntityLog.log(this, LOG_SCHEDULE, "Watchdog");
         schedule(this, false);
 
         if (lastNetworkState == null || !lastNetworkState.isSuitable())
@@ -1259,7 +1281,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (TextUtils.isEmpty(message))
                             message = "?";
                         if (e.getMessageType() == StoreEvent.NOTICE) {
-                            EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + message);
+                            EntityLog.log(ServiceSynchronize.this, LOG_ACCOUNT,
+                                    account.name + " notice: " + message);
 
                             if ("Still here".equals(message) &&
                                     !account.isTransient(ServiceSynchronize.this)) {
@@ -1277,7 +1300,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 wlFolder.acquire();
 
-                                EntityLog.log(ServiceSynchronize.this, account.name + " alert: " + message);
+                                EntityLog.log(ServiceSynchronize.this, LOG_ACCOUNT,
+                                        account.name + " alert: " + message);
 
                                 if (!ConnectionHelper.isMaxConnections(message))
                                     try {
@@ -1298,7 +1322,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 List<Thread> idlers = new ArrayList<>();
                 try {
                     // Initiate connection
-                    EntityLog.log(this, account.name + " connecting");
+                    EntityLog.log(this, LOG_ACCOUNT,
+                            account.name + " connecting");
                     db.folder().setFolderStates(account.id, null);
                     db.account().setAccountState(account.id, "connecting");
 
@@ -1353,10 +1378,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Store istore = iservice.getStore();
                     if (istore instanceof IMAPStore) {
                         Map<String, String> caps = ((IMAPStore) istore).getCapabilities();
-                        EntityLog.log(this, account.name + " connected" +
-                                " caps=" + (caps == null ? null : TextUtils.join(" ", caps.keySet())));
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " connected" +
+                                        " caps=" + (caps == null ? null : TextUtils.join(" ", caps.keySet())));
                     } else
-                        EntityLog.log(this, account.name + " connected");
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " connected");
 
                     db.account().setAccountMaxSize(account.id, iservice.getMaxSize());
                     if (istore instanceof IMAPStore)
@@ -1523,8 +1550,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        EntityLog.log(
-                                                ServiceSynchronize.this,
+                                        EntityLog.log(ServiceSynchronize.this,
                                                 folder.name + " added " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
@@ -1554,8 +1580,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        EntityLog.log(
-                                                ServiceSynchronize.this,
+                                        EntityLog.log(ServiceSynchronize.this,
                                                 folder.name + " removed " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
@@ -1580,8 +1605,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        EntityLog.log(
-                                                ServiceSynchronize.this,
+                                        EntityLog.log(ServiceSynchronize.this,
                                                 folder.name + " changed " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
@@ -1603,8 +1627,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        EntityLog.log(
-                                                ServiceSynchronize.this,
+                                        EntityLog.log(ServiceSynchronize.this, LOG_ACCOUNT,
                                                 folder.name + " idle " + Log.formatThrowable(ex, false));
                                         state.error(new FolderClosedException(ifolder, "IDLE", new Exception(ex)));
                                     } finally {
@@ -1847,8 +1870,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                         } catch (Throwable ex) {
                                                             Log.e(folder.name, ex);
-                                                            EntityLog.log(
-                                                                    ServiceSynchronize.this,
+                                                            EntityLog.log(ServiceSynchronize.this, LOG_ACCOUNT,
                                                                     folder.name + " process " + Log.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                                             if (!(ex instanceof FolderNotFoundException))
@@ -1887,9 +1909,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 !account.keep_alive_ok && account.poll_interval > 9 &&
                                 Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L);
                         if (tune_keep_alive && !first && !account.keep_alive_ok)
-                            EntityLog.log(this, account.name +
-                                    " Tune interval=" + account.poll_interval +
-                                    " idle=" + idleTime + "/" + tune);
+                            EntityLog.log(this, LOG_ACCOUNT,
+                                    account.name +
+                                            " Tune interval=" + account.poll_interval +
+                                            " idle=" + idleTime + "/" + tune);
                         try {
                             if (!state.isRecoverable()) {
                                 Throwable unrecoverable = state.getUnrecoverable();
@@ -1902,9 +1925,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             // Sends store NOOP
                             if (EmailService.SEPARATE_STORE_CONNECTION) {
-                                EntityLog.log(this, account.name + " checking store" +
-                                        " memory=" + Log.getFreeMemMb() +
-                                        " battery=" + Helper.getBatteryLevel(this));
+                                EntityLog.log(this, LOG_ACCOUNT,
+                                        account.name + " checking store" +
+                                                " memory=" + Log.getFreeMemMb() +
+                                                " battery=" + Helper.getBatteryLevel(this));
                                 if (!iservice.getStore().isConnected())
                                     throw new StoreClosedException(iservice.getStore(), "NOOP");
                             }
@@ -1917,7 +1941,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
 
                             if (sync) {
-                                EntityLog.log(this, account.name + " checking folders");
+                                EntityLog.log(this, LOG_ACCOUNT,
+                                        account.name + " checking folders");
                                 for (EntityFolder folder : mapFolders.keySet())
                                     if (folder.selectable && folder.synchronize)
                                         if (!folder.poll && capIdle) {
@@ -1981,7 +2006,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         // Record successful connection
                         account.last_connected = new Date().getTime();
-                        EntityLog.log(this, account.name + " set last_connected=" + new Date(account.last_connected));
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " set last_connected=" + new Date(account.last_connected));
                         db.account().setAccountConnected(account.id, account.last_connected);
                         db.account().setAccountWarning(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
@@ -2000,8 +2026,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         try {
                             long duration = account.poll_interval * 60 * 1000L;
                             long trigger = System.currentTimeMillis() + duration;
-                            EntityLog.log(this, "### " + account.name + " keep alive" +
-                                    " wait=" + account.poll_interval + " until=" + new Date(trigger));
+                            EntityLog.log(this, LOG_ACCOUNT,
+                                    "### " + account.name + " keep alive" +
+                                            " wait=" + account.poll_interval + " until=" + new Date(trigger));
                             AlarmManagerCompatEx.setAndAllowWhileIdle(ServiceSynchronize.this, am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
@@ -2024,13 +2051,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     last_fail = ex;
                     Log.e(account.name, ex);
-                    EntityLog.log(this,
+                    EntityLog.log(this, LOG_ACCOUNT,
                             account.name + " connect " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
                     // Report account connection error
                     if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
-                        EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " last connected: " + new Date(account.last_connected));
 
                         int pollInterval = getPollInterval(this);
                         long now = new Date().getTime();
@@ -2057,7 +2085,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
                 } finally {
                     // Update state
-                    EntityLog.log(this, account.name + " closing");
+                    EntityLog.log(this, LOG_ACCOUNT,
+                            account.name + " closing");
 
                     // Stop watching operations
                     Log.i(account.name + " stop watching operations");
@@ -2084,13 +2113,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         for (EntityFolder folder : mapFolders.keySet())
                             if (folder.selectable && folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
                                 db.folder().setFolderState(folder.id, "closing");
-                        EntityLog.log(this, account.name + " store closing");
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " store closing");
                         iservice.close();
-                        EntityLog.log(this, account.name + " store closed");
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " store closed");
                     } catch (Throwable ex) {
                         Log.w(account.name, ex);
                     } finally {
-                        EntityLog.log(this, account.name + " closed");
+                        EntityLog.log(this, LOG_ACCOUNT,
+                                account.name + " closed");
                         db.account().setAccountState(account.id, null);
                         for (EntityFolder folder : mapFolders.keySet())
                             db.folder().setFolderState(folder.id, null);
@@ -2140,7 +2172,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " ex=" + Log.formatThrowable(last_fail, false);
                                         if (compensate > 2)
                                             Log.e(msg);
-                                        EntityLog.log(this, msg);
+                                        EntityLog.log(this, LOG_ACCOUNT, msg);
 
                                         state.setBackoff(backoff * 60);
                                     }
@@ -2154,7 +2186,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     int backoff = state.getBackoff();
                     int recently = (lastLost + LOST_RECENTLY < now ? 1 : 2);
-                    EntityLog.log(this, account.name + " backoff=" + backoff + " recently=" + recently + "x");
+                    EntityLog.log(this, LOG_ACCOUNT,
+                            account.name + " backoff=" + backoff + " recently=" + recently + "x");
 
                     if (backoff < CONNECT_BACKOFF_MAX)
                         state.setBackoff(backoff * 2);
@@ -2205,7 +2238,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                         try {
                             long trigger = System.currentTimeMillis() + backoff * 1000L;
-                            EntityLog.log(this, "### " + account.name + " backoff until=" + new Date(trigger));
+                            EntityLog.log(this, LOG_ACCOUNT,
+                                    "### " + account.name + " backoff until=" + new Date(trigger));
                             AlarmManagerCompatEx.setAndAllowWhileIdle(ServiceSynchronize.this, am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
@@ -2231,7 +2265,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (!currentThread.equals(accountThread) && accountThread != null)
                 Log.w(account.name + " orphan thread id=" + currentThread + "/" + accountThread);
         } finally {
-            EntityLog.log(this, account.name + " stopped");
+            EntityLog.log(this, LOG_ACCOUNT,
+                    account.name + " stopped");
             wlAccount.release();
         }
     }
@@ -2276,9 +2311,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         DB db = DB.getInstance(this);
 
         int pollInterval = getPollInterval(this);
-        EntityLog.log(this, account.name + " auto optimize" +
-                " reason=" + reason +
-                " poll interval=" + pollInterval);
+        EntityLog.log(this, LOG_ACCOUNT,
+                account.name + " auto optimize" +
+                        " reason=" + reason +
+                        " poll interval=" + pollInterval);
         if (pollInterval == 0) {
             try {
                 db.beginTransaction();
@@ -2315,7 +2351,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         @Override
         public void onBlockedStatusChanged(@NonNull Network network, boolean blocked) {
-            EntityLog.log(ServiceSynchronize.this, "Network " + network + " blocked=" + blocked);
+            EntityLog.log(ServiceSynchronize.this, LOG_NETWORK,
+                    "Network " + network + " blocked=" + blocked);
         }
 
         @Override
@@ -2332,7 +2369,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
                 boolean on = intent.getBooleanExtra("state", false);
-                EntityLog.log(context, "Airplane mode on=" + on);
+                EntityLog.log(context, LOG_NETWORK,
+                        "Airplane mode on=" + on);
                 if (!on)
                     lastLost = 0;
             }
@@ -2375,13 +2413,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     if (active != null && !active.equals(lastActive)) {
                         if (ConnectionHelper.isConnected(ServiceSynchronize.this, active)) {
-                            EntityLog.log(ServiceSynchronize.this,
+                            EntityLog.log(ServiceSynchronize.this, LOG_NETWORK,
                                     reason + ": new active network=" + active + "/" + lastActive);
                             lastActive = active;
                         }
                     } else if (lastActive != null) {
                         if (!ConnectionHelper.isConnected(ServiceSynchronize.this, lastActive)) {
-                            EntityLog.log(ServiceSynchronize.this,
+                            EntityLog.log(ServiceSynchronize.this, LOG_NETWORK,
                                     reason + ": lost active network=" + lastActive);
                             lastActive = null;
                             lastLost = new Date().getTime();
@@ -2391,7 +2429,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (network == null || Objects.equals(network, active)) {
                         ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
                         if (!Objects.equals(lastNetworkState, ns)) {
-                            EntityLog.log(ServiceSynchronize.this,
+                            EntityLog.log(ServiceSynchronize.this, LOG_NETWORK,
                                     reason + ": updating state network=" + active +
                                             " info=" + ConnectionHelper.getNetworkInfo(ServiceSynchronize.this, active) + " " + ns);
                             lastNetworkState = ns;
@@ -2402,7 +2440,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     boolean isSuitable = (lastNetworkState != null && lastNetworkState.isSuitable());
                     if (lastSuitable == null || lastSuitable != isSuitable) {
                         lastSuitable = isSuitable;
-                        EntityLog.log(ServiceSynchronize.this, reason + ": updated suitable=" + lastSuitable);
+                        EntityLog.log(ServiceSynchronize.this, LOG_NETWORK,
+                                reason + ": updated suitable=" + lastSuitable);
 
                         if (!isBackgroundService(ServiceSynchronize.this))
                             try {
@@ -2428,8 +2467,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         private List<TupleAccountState> lastAccountStates = null;
 
         private void post(Bundle command) {
-            EntityLog.log(ServiceSynchronize.this, "### command " +
-                    TextUtils.join(" ", Log.getExtras(command)));
+            EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE,
+                    "### command " + TextUtils.join(" ", Log.getExtras(command)));
 
             if (command.getBoolean("sync") || command.getBoolean("force"))
                 lastNetworkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
@@ -2464,7 +2503,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
 
             if (accountStates == null) {
-                EntityLog.log(ServiceSynchronize.this, "### no accounts");
+                EntityLog.log(ServiceSynchronize.this, LOG_SCHEDULE, "### no accounts");
                 lastCommand = command;
                 return;
             }
@@ -2589,7 +2628,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 if (polled && next < now + interval / 5)
                     next += interval;
 
-                EntityLog.log(context, "Poll next=" + new Date(next) + " polled=" + polled);
+                EntityLog.log(context, LOG_SCHEDULE,
+                        "Poll next=" + new Date(next) + " polled=" + polled);
 
                 AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, piSync);
             }
