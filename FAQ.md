@@ -307,6 +307,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(169) Why does the app not start automatically?](#user-content-faq169)
 * [(170) Why can't folders be created with POP3?](#user-content-faq170)
 * [(171) How can I delete a contact?](#user-content-faq171)
+* [(172) How can I import contacts?](#user-content-faq172)
 
 [I have another question.](#user-content-get-support)
 
@@ -3828,6 +3829,27 @@ When a contact is store in the local contact database, you can delete it like th
 * Tap on the *Manage* button under *Suggest locally stored contacts*
 * Locate the contact (you can use the magnifier glass in the top action bar)
 * Long press the contact and select to delete it
+
+<br />
+
+<a name="faq172"></a>
+**(172) How can I import contacts?**
+
+FairEmail consults the Android address book and a local contact database for contact information.
+
+The local contact database is filled with contacts from sent and received messages.
+You can enable/disable this in the send settings of the app.
+
+The Android address book is managed by the Android Contacts app (or a replacement for this app).
+Please see [this article] about importing contacts to the Android address book.
+
+Related questions:
+
+* [What are local contacts for?](#user-content-faq84)
+* [Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
+* [Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
+* [How can I insert a contact group?](#user-content-faq152)
+* [How can I delete a contact?](#user-content-faq171)
 
 <br />
 

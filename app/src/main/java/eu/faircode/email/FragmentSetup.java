@@ -85,6 +85,7 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvPermissionsDone;
     private Button btnPermissions;
+    private TextView tvImportContacts;
 
     private TextView tvDozeDone;
     private Button btnDoze;
@@ -146,6 +147,7 @@ public class FragmentSetup extends FragmentBase {
 
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
         btnPermissions = view.findViewById(R.id.btnPermissions);
+        tvImportContacts = view.findViewById(R.id.tvImportContacts);
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
@@ -404,6 +406,14 @@ public class FragmentSetup extends FragmentBase {
                           at eu.faircode.email.FragmentSetup$11.onClick(SourceFile:2)
                      */
                 }
+            }
+        });
+
+        tvImportContacts.setPaintFlags(tvImportContacts.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvImportContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 172, true);
             }
         });
 
