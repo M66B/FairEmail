@@ -42,6 +42,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.BadParcelableException;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
@@ -1760,7 +1761,9 @@ public class Log {
         sb.append(String.format("Battery optimizations: %s\r\n",
                 ignoring == null ? null : Boolean.toString(!ignoring)));
 
-        sb.append(String.format("Charging: %b\r\n", Helper.isCharging(context)));
+        BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+        int batlevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+        sb.append(String.format("Charging: %b; level: %d\r\n", Helper.isCharging(context), batlevel));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
