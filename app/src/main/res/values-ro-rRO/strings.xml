@@ -1175,6 +1175,7 @@
     <string name="title_select_all">Selectează tot</string>
     <string name="title_select_found">Selectare găsite</string>
     <string name="title_mark_all_read">Marcheaza tot ca citit</string>
+    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Vizualizați conversația</string>
     <string name="title_force_sync">Sincronizare forțată</string>
     <string name="title_force_send">Trimite forțat</string>
     <string name="title_language_all">Toate</string>

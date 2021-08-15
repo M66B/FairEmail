@@ -120,12 +120,14 @@
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_intro">Bir hesap oluşturmak sadece üç adımdan oluşur ve bundan sonra e-posta gönderip alabilirsiniz</string>
     <string name="title_setup_simple">Başka herhangi bir ayarı değiştirmeye gerek yoktur</string>
+    <string name="title_setup_issue">FairEmail, gizliliğinizi korumanıza yardımcı olmak için geliştirildi ve kelimenin tam anlamıyla binlerce saatlik çalışmayı temsil ediyor. Herhangi bir sorununuz varsa, lütfen kötü bir yorum bırakmadan önce destek için benimle iletişime geçin. Yardım etmekten mutluluk duyarim!</string>
     <string name="title_setup_quick_accounts">Hesap ekle veya değiştir</string>
     <string name="title_setup_quick_support">Bazı sağlayıcılar hesap eklemeyi zorlaştırır. Lütfen bunun için FairEmail\'i suçlamayın, bunun yerine destek isteyin.</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
     <string name="title_setup_quick_patience">Lütfen sabırlı olun &#8230;</string>
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
+    <string name="title_setup_quick_certificates">Sunucu sertifikaları</string>
     <string name="title_setup_wizard">Yardımcı</string>
     <string name="title_setup_wizard_multiple">Kurulum sihirbazı, birden fazla hesabı ayarlamak için birden çok kez kullanılabilir</string>
     <string name="title_setup_wizard_new">Yeni bir e-posta adresi istiyorum</string>
@@ -299,6 +301,7 @@
     <string name="title_advanced_limit_reply">İç içe geçmiş tekliflerin sayısını sınırlayın</string>
     <string name="title_advanced_resize_reply">Yanıtlanan metindeki görselleri boyutlandır</string>
     <string name="title_advanced_signature_location">İmza konumu</string>
+    <string name="title_advanced_signature_new">Yeni mesajlar için imzayı kullan</string>
     <string name="title_advanced_signature_reply">Yanıtlarken imza kullan</string>
     <string name="title_advanced_signature_forward">Yönlendirirken imza kullan</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
@@ -328,6 +331,14 @@
     <string name="title_advanced_caption_message">İleti</string>
     <string name="title_advanced_caption_message_header">İleti başlığı</string>
     <string name="title_advanced_caption_message_body">İleti metni</string>
+    <string name="title_advanced_portrait">Dikey modu</string>
+    <string name="title_advanced_landscape">Yatay modu</string>
+    <string name="title_advanced_two_row">İki satır kullan</string>
+    <string name="title_advanced_two_col">İki sütun kullan</string>
+    <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
+    <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
+    <string name="title_advanced_nav_hide_title">Gezinme menüsü seçenekleri gizlensin mi?</string>
+    <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
@@ -374,6 +385,7 @@
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
+    <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
@@ -464,6 +476,7 @@
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirimleri için ekranı kısaca aç</string>
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
+    <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
     <string name="title_advanced_browse_links">Android\'i bağlantıları açması için görevlendir</string>
     <string name="title_advanced_confirm_images">Görüntüleri göstermeyi onayla</string>
     <string name="title_advanced_confirm_html">Yeniden formatlanmış mesajları varsayılan olarak göster</string>
@@ -584,6 +597,7 @@
     <string name="title_advanced_notify_manage_hint">Kanal özelliklerini ayarlamak için kanal adına dokunun</string>
     <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak için, vs</string>
     <string name="title_advanced_notify_manage_service_hint">\'İzleme\' bildirimini devre dışı bırakmak için</string>
+    <string name="title_advanced_notify_separate_hint">Hesaplar, klasörler ve gönderenler için bildirimleri nasıl yapılandırırım?</string>
     <string name="title_advanced_notify_preview_all_hint">Tüm metni gösterebilen giyilebilir cihazlar için (5.000 karaktere kadar)</string>
     <string name="title_advanced_notify_preview_only_hint">Bu, mesaj metni indirilene kadar bildirimlerin gösterilmesini geciktirir</string>
     <string name="title_advanced_wearable_hint">Bildirimler, sadece mesaj metni indirildikten sonra giyilebilir cihazlara gönderilmektedir</string>
@@ -849,6 +863,8 @@
     <string name="title_save_all">Tümünü kaydet</string>
     <string name="title_save_eml">Ham mesaj dosyasını kaydet</string>
     <string name="title_eml_remark">Mesajları iletmek için ham (orijinal) mesajların sunucudan indirilmesi gerekir. Bu bir internet bağlantısı gerektirir.</string>
+    <string name="title_eml_option">Bu, bağlantı ayarlarında her zaman ham mesaj dosyalarının indirilmesini etkinleştirerek önlenebilir</string>
+    <string name="title_eml_downloaded">İndirilen ham iletiler: %1$s</string>
     <string name="title_buttons">Seçim düğmeleri</string>
     <string name="title_buttons_hint">Gerçek eylemler, hesap türüne ve yapılandırmaya bağlıdır</string>
     <string name="title_button_search">Mesajlarda ara</string>
@@ -860,6 +876,7 @@
     <string name="title_subscribe">Abonelik</string>
     <string name="title_delete">Sil</string>
     <string name="title_more">Daha fazla</string>
+    <string name="title_less">Daha az</string>
     <string name="title_spam">İstenmeyen posta</string>
     <string name="title_move">Taşı</string>
     <string name="title_copy_btn">Kopyala</string>
@@ -1092,6 +1109,7 @@
         Aşağıdaki seçenekler e-posta sunucusunu aramaya devam etmektir.
     </string>
     <string name="title_search_text_hint">Mesajlarda metin arama, çok sayıda mesaj varken, bazı sunucularda çalışmayabilir</string>
+    <string name="title_search_text_unsupported">\'%s\', posta sunucusunun mesaj metinlerinde aramayı desteklemediği anlamına gelir</string>
     <string name="title_search_size_hint">Boyutlara göre mesaj aramak, çok sayıda mesaj olduğunda, bazı sunucularda çalışmayabilir</string>
     <string name="title_search_more">Daha fazla seçenek</string>
     <string name="title_search_use_index">Arama fihristini kullan</string>
@@ -1323,7 +1341,9 @@
     <string name="title_legend_create_rule">Kural oluştur</string>
     <string name="title_legend_show_unsubscribe">Listeden Çık</string>
     <string name="title_legend_show_images">Resimleri göster</string>
+    <string name="title_legend_hide_images">Resimleri gizle</string>
     <string name="title_legend_show_full">Orijinal iletiyi gör</string>
+    <string name="title_legend_show_reformatted">Yeniden biçimlendirilmiş mesajı göster</string>
     <string name="title_legend_edit">Düzenle</string>
     <string name="title_legend_default_color">Varsayılan renk</string>
     <string name="title_legend_close_hint">Ipucuları kapat</string>
@@ -1370,8 +1390,10 @@
     <string name="title_check_owner">Sahibini denetle</string>
     <string name="title_remark_owner">Bilgi <a href="https://ipinfo.io/">ipinfo.io</a>\'dan alınacak</string>
     <string name="title_ip_owner">Sahibinin İP adresi</string>
+    <string name="title_default_apps">Varsayılan uygulamalar</string>
     <string name="title_reset_open">Varsayılan uygulamaları ayarlayın veya temizleyin</string>
     <string name="title_select_app">Uygulama seçin</string>
+    <string name="title_updated">%1$s sürümüne güncelleme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
     <string name="title_yes">Evet</string>
     <string name="title_no">Hayır</string>

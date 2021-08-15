@@ -32,13 +32,13 @@ Bazı durumlarda, hesabınıza harici erişimi etkinleştirmeniz ve / veya özel
 
 Yetkilendirmek için:
 
-* Gmail / G Suite, [6. soru](#user-content-faq6)ya bakınız
-* Outlook / Live / Hotmail, [14. soru](#user-content-faq14)ya bakınız
-* Office 365, [14. soru](#user-content-faq156)ya bakınız
-* Microsoft Exchange, [8. soru](#user-content-faq8)ya bakınız
-* Yahoo, AOL and Sky, [88. soru](#user-content-faq88)ya bakınız
-* Apple iCloud, [148. soru](#user-content-faq148)ya bakınız
-* Free.fr, [157. soru](#user-content-faq157)ya bakınız
+* Gmail/G Suite, [6. soruna](#user-content-faq6) bakınız
+* Outlook/Live/Hotmail, [14. soruna](#user-content-faq14) bakınız
+* Office 365, [14. soruna](#user-content-faq156) bakınız
+* Microsoft Exchange, [8. soruna](#user-content-faq8) bakınız
+* Yahoo, AOL ve Sky, [88. soruna](#user-content-faq88) bakınız
+* Apple iCloud, [148. soruna](#user-content-faq148) bakınız
+* Free.fr, [157. soruna](#user-content-faq157) bakınız
 
 Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-faq22) kontrol ediniz.
 
@@ -72,7 +72,7 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 
 <h2><a name="known-problems"></a>Bilinen sorun</h2>
 
-* ~~ Android 5.1 ve 6'daki bir [ hata](https://issuetracker.google.com/issues/37054851), uygulamaların bazen yanlış bir saat biçimi göstermesine neden oluyor. Android ayarını, * 24 saatlik biçimi kullan* olarak ayarlamak sorunu geçici olarak çözebilir. Bir geçici çözüm eklendi.~~
+* ~~[Android 5.1 ve 6'daki hata ](https://issuetracker.google.com/issues/37054851), uygulamaların bazen yanlış bir saat biçimi göstermesine neden oluyor. Android ayarını, * 24 saatlik biçimi kullan* olarak ayarlamak sorunu geçici olarak çözebilir. Bir geçici çözüm eklendi.~~
 * ~~ Google Drive'daki bir [ hata ](https://issuetracker.google.com/issues/126362828), Google Drive'a dışa aktarılan dosyaların boş olmasına neden oluyor. Google bunu düzeltti. ~~
 * ~~ AndroidX'teki bir [ hata ](https://issuetracker.google.com/issues/78495471), FairEmail'in bazen uzun basma veya kaydırma sırasında çökmesine neden oluyor. Google bunu düzeltti. ~~
 * ~~ AndroidX ROM'daki bir [ hatası ](https://issuetracker.google.com/issues/138441698), bazen çökmeye sebep oluyor "*... Veritabanı canlı verilerini hesaplarken datalar... Satır okunamadı ... * ". Bir geçici çözüm eklendi. ~~
@@ -98,19 +98,19 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 <h2><a name="planned-features"></a>Planlanan özellikler</h2>
 
   
-  * ~~ Talep üzerine senkronize et (manuel) ~~
+  * ~~İsteğe bağlı olarak senkronize et (manuel)~~
 * ~~Yarı-otomatik şifreleme~~
 * ~~ Mesajı kopyala ~~
 * ~~Renkli yıldızlar~~
 * ~~Her bir klasör için bildirim ayarı~~
-* ~~ İmzalar için yerel resimler seçmek ~~ (bu eklenmeyecektir çünkü resim dosyası yönetimi gerektirmektedir ve resimler zaten çoğu e-posta istemcisinde varsayılan olarak gösterilmemektedir)
-* ~~ Bir kuralla eşleşen mesajları göster ~~
-* ~~[ ManageSieve ](https://tools.ietf.org/html/rfc5804) ~~ (uygun bir lisansa sahip ve bağımlılıkları olmayan korunan Java kitaplıkları yoktur ve bunun yanında, FairEmail'in kendi filtre kuralları vardır)
-* ~~ Ekli / eksiz mesajları ara ~~ (bu eklenemez çünkü IMAP ekleri aramayı desteklemiyor)
-* ~~ Bir klasör arayın ~~ (hiyerarşik bir klasör listesini filtrelemek sorun teşkil eder)
-* ~~ Arama önerileri ~~
-* ~~[ Otomatik Şifreleme Kurulum Mesajı ](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (bölüm 4.4) ~~ (IMO, bir e-posta istemcisinin istisnai bir kullanım durumu için hassas şifreleme anahtarlarını işlemesine izin verirken, OpenKeychain de anahtarları dışa aktarabilir)
-* ~~ Genel birleşik klasörler ~~
+* ~~İmzalar için yerel resimleri seçin~~ (bu, görüntü dosyası yönetimi gerektirdiği ve çoğu e-posta istemcisinde varsayılan olarak görüntüler gösterilmediği için eklenmeyecektir.)
+* ~~Kuralla eşleşen mesajları göster~~
+* ~~[ ManageSieve ](https://tools.ietf.org/html/rfc5804) ~~ (uygun lisansa sahip ve bağımlılıkları olmayan bakımlı Java kitaplıkları yoktur ve bunun yanı sıra FairEmail'in kendi filtre kuralları vardır.)
+* ~~Ekli/eksiz mesajları ara~~ (bu eklenemez çünkü IMAP eklerde aramayı desteklemez)
+* ~~Klasör ara~~ (hiyerarşik bir klasör listesini filtrelemek sorunlu)
+* ~~Arama önerileri~~
+* ~~[Otomatik Şifreleme Kurulum Mesajı](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (Bölüm 4.4)~~ (IMO, OpenKeychain anahtarları dışa aktarabilirken, istisnai bir kullanım durumu için bir e-posta istemcisinin hassas şifreleme anahtarlarını işlemesine izin vermek iyi bir fikir değildir.)
+* ~~Genel birleştirilmiş klasörler~~
 * ~~ Hesap başına yeni mesaj bildirim programları ~~ (kurallara bir zaman koşulu eklenerek uygulanır, böylece mesajlar seçilen dönemlerde ertelenebilir)
 * ~~ Hesapları ve kimlikleri kopyalayın ~~
 * ~~ Kıstırma yakınlaştırma ~~ (kayan bir listede güvenilir bir şekilde mümkün değildir; bunun yerine tam ileti görünümü yakınlaştırılabilir)
@@ -229,42 +229,42 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 * [(92) Spam filtreleme, DKIM imzasının doğrulanması ve SPF yetkilendirmesi ekleyebilir misiniz?](#user-content-faq92)
 * [(93) Harici depolama ortamında (sdcard) kurulum/veri depolamasına izin verebilir misiniz?](#user-content-faq93)
 * [(94) Başlığın sonundaki kırmızı/turuncu şerit ne anlama geliyor?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
+* [(95) Bir ek veya resim seçerken neden tüm uygulamalar gösterilmiyor?](#user-content-faq95)
+* [(96) IMAP ve SMTP ayarlarını nerede bulabilirim?](#user-content-faq96)
+* [(97) 'Temizleme' nedir?](#user-content-faq97)
+* [(98) Kişi izinlerini iptal ettikten sonra neden hala kişileri seçebiliyorum?](#user-content-faq98)
+* [(99) Zengin bir metin veya işaretleme düzenleyicisi ekleyebilir misiniz?](#user-content-faq99)
+* [(100) Gmail kategorilerini nasıl senkronize edebilirim?](#user-content-faq100)
+* [(101) Görüşmelerin altındaki mavi/turuncu nokta ne anlama geliyor?](#user-content-faq101)
+* [(102) Görüntülerin otomatik olarak döndürülmesini nasıl etkinleştirebilirim?](#user-content-faq102)
 * [(103) Nasıl ses kaydı alabilirim?](#user-content-faq158)
 * [(104) Hata raporlama hakkında bilmem gerekenler nelerdir?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
+* [(105) Evdeki gibi dolaş seçeneği nasıl çalışır?](#user-content-faq105)
+* [(106) Hangi başlatıcılar, okunmamış mesajların sayısıyla birlikte bir rozet sayısı gösterebilir?](#user-content-faq106)
 * [(107) Renkli yıldızları nasıl kullanırım?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
+* [~~(108) Herhangi bir klasörden kalıcı olarak silinen mesajları ekleyebilir misiniz?~~](#user-content-faq108)
+* [~~(109) 'Hesap seç' neden yalnızca resmi sürümlerde kullanılabilir?~~](#user-content-faq109)
+* [(110) Neden (bazı) iletiler boş ve/veya ekler bozuk?](#user-content-faq110)
 * [(111) OAuth destekleniyor mu?](#user-content-faq111)
 * [(112) Hangi e-posta sağlayıcısını öneriyorsunuz?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) Mesaj hatası ne anlama geliyor?](#user-content-faq130)
+* [(113) Biyometrik kimlik doğrulama nasıl çalışır?](#user-content-faq113)
+* [(114) Diğer e-posta uygulamalarının ayarları için bir içe aktarma ekleyebilir misiniz?](#user-content-faq114)
+* [(115) E-posta adresi çipleri ekleyebilir misiniz?](#user-content-faq115)
+* [~~(116) Varsayılan olarak güvenilir göndericilerden gelen iletilerdeki resimleri nasıl gösterebilirim?~~](#user-content-faq116)
+* [(117) Satın alma işlemimi geri yüklememe yardım eder misiniz?](#user-content-faq117)
+* [(118) 'İzleme parametrelerini kaldır' tam olarak nedir?](#user-content-faq118)
+* [~~(119) Birleşik gelen kutusu widget'ına renk ekleyebilir misiniz?~~](#user-content-faq119)
+* [(120) Uygulama açıldığında yeni mesaj bildirimleri neden kaldırılmıyor?](#user-content-faq120)
+* [(121) Konuşmada mesajlar nasıl gruplandırılır?](#user-content-faq121)
+* [~~(122) Alıcı adı/e-posta adresi neden bir uyarı rengiyle gösteriliyor?~~](#user-content-faq122)
+* [(123) FairEmail bir e-posta sunucusuna bağlanamadığında ne olacak?](#user-content-faq123)
+* [(124) Neden 'Mesaj görüntülenemeyecek kadar büyük veya çok karmaşık' mesajı alıyorum?](#user-content-faq124)
+* [(125) Mevcut deneysel özellikler nelerdir?](#user-content-faq125)
+* [(126) Giyilebilir cihazıma (Akıllı saatler gibi) mesaj önizlemeleri gönderilebilir mi?](#user-content-faq126)
+* [(127) 'Sözdizimsel olarak geçersiz HELO argüman(lar)'ı nasıl düzeltebilirim?](#user-content-faq127)
+* [(128) Örneğin resimleri göstermek için sorulan soruları nasıl sıfırlayabilirim?](#user-content-faq128)
+* [(129) ProtonMail, Tutanota destekleniyor mu?](#user-content-faq129)
+* [(130) Mesaj hatası.. ne anlama geliyor?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 * [(132) Yeni mesaj bildirimleri neden sessiz?](#user-content-faq132)
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
@@ -3107,9 +3107,9 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Destek alın</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+FairEmail, yalnızca Android akıllı telefonlarda ve tabletlerde ve ChromeOS'ta desteklenir.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Yalnızca en son Play Store sürümü ve en son GitHub sürümü desteklenir. F-Droid derlemesi, yalnızca sürüm numarası en son GitHub sürümünün sürüm numarasıyla aynıysa desteklenir. This also means that downgrading is not supported.
 
 There is no support on things that are not directly related to FairEmail.
 
@@ -3126,8 +3126,8 @@ Features not fulfilling these requirements will likely be rejected. This is also
 
 If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+GitHub sorunları, sık sık yanlış kullanım nedeniyle devre dışı bırakıldı.
 
 <br />
 
-Telif hakkı &copy; 2018-2021 M. Bokhorst 'a aittir.
+Telif hakkı &copy; 2018-2021 M. Bokhorst'a aittir.

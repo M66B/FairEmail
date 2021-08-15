@@ -1167,6 +1167,7 @@
     <string name="title_select_all">Alle auswählen</string>
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
     <string name="title_mark_all_read">Alle als gelesen markieren</string>
+    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Unterhaltung ansehen</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
     <string name="title_language_all">Alle</string>

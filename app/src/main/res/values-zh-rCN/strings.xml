@@ -116,6 +116,7 @@
     <string name="title_setup_quick_patience">请耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
+    <string name="title_setup_quick_certificates">服务器证书</string>
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>

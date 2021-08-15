@@ -127,6 +127,7 @@
     <string name="title_setup_quick_patience">Sei pregato di pazientare&#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere i messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare i messaggi</string>
+    <string name="title_setup_quick_certificates">Certificati del server</string>
     <string name="title_setup_wizard">Procedura Guidata</string>
     <string name="title_setup_wizard_multiple">La procedura guidata è utilizzabile diverse volte per configurare più profili</string>
     <string name="title_setup_wizard_new">Mi serve un nuovo indirizzo email</string>

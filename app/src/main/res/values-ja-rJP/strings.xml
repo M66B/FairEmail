@@ -109,12 +109,14 @@
     <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_intro">アカウントの設定はたったの3ステップだけで、その後はメールの送受信ができます。</string>
     <string name="title_setup_simple">他のオプションを変更する必要はありません</string>
+    <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間の仕事を要しています。 何か問題がある場合は悪いレビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
     <string name="title_setup_quick_accounts">アカウントの追加または変更</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
     <string name="title_setup_quick_patience">しばらくお待ちください &#8230;</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
+    <string name="title_setup_quick_certificates">サーバー証明書</string>
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます。</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
@@ -288,6 +290,7 @@
     <string name="title_advanced_limit_reply">入れ子になった引用の数を制限する</string>
     <string name="title_advanced_resize_reply">返信したテキストの画像のサイズを変更する</string>
     <string name="title_advanced_signature_location">署名の場所</string>
+    <string name="title_advanced_signature_new">新しいメッセージに署名を使用する</string>
     <string name="title_advanced_signature_reply">返信時に署名を使用する</string>
     <string name="title_advanced_signature_forward">転送時に署名を使用する</string>
     <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
@@ -317,6 +320,14 @@
     <string name="title_advanced_caption_message">メッセージ</string>
     <string name="title_advanced_caption_message_header">メッセージヘッダー</string>
     <string name="title_advanced_caption_message_body">本文</string>
+    <string name="title_advanced_portrait">ポートレートモード</string>
+    <string name="title_advanced_landscape">ランドスケープモード</string>
+    <string name="title_advanced_two_row">2つの行を使用</string>
+    <string name="title_advanced_two_col">2つの列を使用</string>
+    <string name="title_advanced_nav_options">ナビゲーションメニューのオプションを表示</string>
+    <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留めする</string>
+    <string name="title_advanced_nav_hide_title">ナビゲーションメニューのオプションを非表示にしますか？</string>
+    <string name="title_advanced_nav_hide_message">表示設定でもう一度オプションを有効にすることができます</string>
     <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示する</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
@@ -574,6 +585,7 @@
     <string name="title_advanced_notify_manage_hint">カテゴリ名をタップして、カテゴリのプロパティを設定します</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定</string>
     <string name="title_advanced_notify_manage_service_hint">「モニタリング」通知を無効にする</string>
+    <string name="title_advanced_notify_separate_hint">アカウント、フォルダ、送信者の通知を設定するにはどうすればよいですか?</string>
     <string name="title_advanced_notify_preview_all_hint">全文を表示出来るウェアラブル(最大5,000文字)</string>
     <string name="title_advanced_notify_preview_only_hint">メッセージテキストがダウンロードされるまで通知の表示を遅延します</string>
     <string name="title_advanced_wearable_hint">通知はメッセージテキストをダウンロード後、ウェアラブルにのみ送信されます</string>
@@ -840,6 +852,8 @@
     <string name="title_save_all">すべて保存</string>
     <string name="title_save_eml">素のメッセージファイルを保存する</string>
     <string name="title_eml_remark">メッセージを転送するには、生(オリジナル) メッセージをサーバーからダウンロードする必要があります。インターネット接続が必要です。</string>
+    <string name="title_eml_option">接続設定で常にオリジナルメッセージファイルをダウンロードすることで、これを防ぐことができます。</string>
+    <string name="title_eml_downloaded">オリジナルメッセージをダウンロード: %1$s</string>
     <string name="title_buttons">ボタンを選択</string>
     <string name="title_buttons_hint">利用可能な実際のアクションは、アカウントの種類と構成によって異なります</string>
     <string name="title_button_search">メッセージを検索</string>
@@ -1365,8 +1379,10 @@
     <string name="title_check_owner">所有者を確認</string>
     <string name="title_remark_owner">情報は<a href="https://ipinfo.io/">ipinfo.io</a>から取得されます</string>
     <string name="title_ip_owner">所有者のIPアドレス</string>
+    <string name="title_default_apps">既定のアプリ</string>
     <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
+    <string name="title_updated">バージョン %1$s のアップデートが利用可能です</string>
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>

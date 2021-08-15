@@ -1163,6 +1163,7 @@
     <string name="title_select_all">Επιλογή όλων</string>
     <string name="title_select_found">Επιλογή αποτελεσμάτων αναζήτησης</string>
     <string name="title_mark_all_read">Επισήμανση όλων ως αναγνωσμένων</string>
+    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Προβολή συζήτησης</string>
     <string name="title_force_sync">Αναγκαστικός συγχρονισμός</string>
     <string name="title_force_send">Αναγκαστική αποστολή</string>
     <string name="title_language_all">Όλα</string>

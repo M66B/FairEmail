@@ -2338,7 +2338,7 @@ Chips eignen sich nicht für die Anzeige in einer Liste und da der Nachrichtenko
 
 <a name="faq38"></a>
 <a name="faq117"></a>
-**(117) Can you help me restore my purchase?**
+**(117) Kannst du mir helfen, meinen Kauf wiederherzustellen?**
 
 First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
 

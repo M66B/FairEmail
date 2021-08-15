@@ -1163,6 +1163,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_select_found">Selecteer gevonden</string>
     <string name="title_mark_all_read">Markeer alle gelezen</string>
+    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Toon gesprek</string>
     <string name="title_force_sync">Forceer verversen</string>
     <string name="title_force_send">Forceer verzenden</string>
     <string name="title_language_all">Alle</string>

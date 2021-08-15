@@ -110,12 +110,14 @@
     <string name="title_setup_quick">Thiết lập nhanh</string>
     <string name="title_setup_intro">Việc thiết lập một tài khoản chỉ bao gồm ba bước và sau đó bạn có thể gửi và nhận email</string>
     <string name="title_setup_simple">Không cần thiết phải thay đổi bất kỳ tuỳ chọn nào khác</string>
+    <string name="title_setup_issue">FairEmail được phát triển để giúp bạn bảo vệ sự riêng tư và đại diện cho hàng nghìn tiếng làm việc. Nếu bạn gặp vấn đề, vui lòng liên hệ với tôi trước tiên để được hỗ trợ trước khi để lại bài đánh giá xấu. Tôi rất vui khi được giúp đỡ!</string>
     <string name="title_setup_quick_accounts">Thêm hoặc đổi tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Vui lòng kiên nhẫn &#8230;</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
     <string name="title_setup_quick_smtp">Máy chủ SMTP để gửi thư</string>
+    <string name="title_setup_quick_certificates">Chứng chỉ máy chủ</string>
     <string name="title_setup_wizard">Trình hướng dẫn</string>
     <string name="title_setup_wizard_multiple">Trình hướng dẫn có thể được sử dụng nhiều lần để thiết lập nhiều tài khoản</string>
     <string name="title_setup_wizard_new">Tôi cần một địa chỉ email mới</string>
@@ -235,6 +237,7 @@
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.
         Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
     </string>
+    <string name="title_advanced_hint_setup">Bạn có thể thiết lập một tài khoản bằng cách nhấn nút trình hướng dẫn trên màn hình thiết lập chính.</string>
     <string name="title_advanced_section_main">Chính</string>
     <string name="title_advanced_section_synchronize">Nhận</string>
     <string name="title_advanced_section_send">Gửi</string>
@@ -288,6 +291,7 @@
     <string name="title_advanced_limit_reply">Giới hạn số lượng trích dẫn con</string>
     <string name="title_advanced_resize_reply">Thay đổi kích cỡ hình ảnh trong văn bản được trả lời</string>
     <string name="title_advanced_signature_location">Vị trí chữ ký</string>
+    <string name="title_advanced_signature_new">Sử dụng chữ ký cho thư mới</string>
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
@@ -317,6 +321,14 @@
     <string name="title_advanced_caption_message">Thư</string>
     <string name="title_advanced_caption_message_header">Tiêu đề thư</string>
     <string name="title_advanced_caption_message_body">Nội dung thư</string>
+    <string name="title_advanced_portrait">Chế độ dọc</string>
+    <string name="title_advanced_landscape">Chế độ ngang</string>
+    <string name="title_advanced_two_row">Sử dụng hai dòng</string>
+    <string name="title_advanced_two_col">Sử dụng hai cột</string>
+    <string name="title_advanced_nav_options">Hiện các tùy chọn menu điều hướng</string>
+    <string name="title_advanced_nav_pin">Ghim menu điều hướng</string>
+    <string name="title_advanced_nav_hide_title">Ẩn các tùy chọn menu điều hướng?</string>
+    <string name="title_advanced_nav_hide_message">Bạn có thể bật lại các tùy chọn trong cài đặt hiển thị</string>
     <string name="title_advanced_nav_message_count">Hiện số thư được lưu trữ cục bộ trong menu điều hướng</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
@@ -363,6 +375,7 @@
     <string name="title_advanced_addresses">Mở rộng chi tiết địa chỉ theo mặc định</string>
     <string name="title_advanced_attachments_alt">Hiện các tệp đính kèm sau văn bản thư</string>
     <string name="title_advanced_thumbnails">Hiện hình ảnh xem trước sau văn bản thư</string>
+    <string name="title_advanced_message_text_zoom2">Độ phóng văn bản thư mặc định: %1$s %%</string>
     <string name="title_advanced_overview_mode">Phóng thư gốc để vừa với màn hình</string>
     <string name="title_advanced_contrast">Sử dụng độ tương phản cao cho văn bản thư</string>
     <string name="title_advanced_monospaced">Sử dụng phông chữ đơn cách cho văn bản thư theo mặc định</string>
@@ -453,6 +466,7 @@
     <string name="title_advanced_sound">Chọn âm thanh thông báo</string>
     <string name="title_advanced_notify_screen_on">Bật màn hình một lúc ngắn khi có thông báo thư mới</string>
     <string name="title_advanced_confirm_links">Xác nhận mở các liên kết</string>
+    <string name="title_advanced_check_links_dbl">Kiểm tra các danh sách chặn miền để tìm liên kết đáng nghi</string>
     <string name="title_advanced_browse_links">Giao việc mở các liên kết cho Android</string>
     <string name="title_advanced_confirm_images">Xác nhận hiện các hình ảnh</string>
     <string name="title_advanced_confirm_html">Hiện các thư được định dạng lại theo mặc định</string>
@@ -572,6 +586,7 @@
     <string name="title_advanced_notify_manage_hint">Nhấn vào tên kênh để đặt thuộc tính kênh</string>
     <string name="title_advanced_notify_manage_default_hint">Để đặt âm thanh mặc định, v.v.</string>
     <string name="title_advanced_notify_manage_service_hint">Để tắt thông báo \'đang giám sát\'</string>
+    <string name="title_advanced_notify_separate_hint">Tôi thiết lập thông báo cho các tài khoản, thư mục và người gửi như thế nào?</string>
     <string name="title_advanced_notify_preview_all_hint">Dành cho các thiết bị đeo có thể hiện văn bản đầy đủ (nhiều nhất 5,000 kí tự)</string>
     <string name="title_advanced_notify_preview_only_hint">Cái này sẽ trì hoãn việc hiện thông báo đến khi văn bản thư đã được tải xuống</string>
     <string name="title_advanced_wearable_hint">Các thông báo chỉ được gửi đến thiết bị đeo sau khi văn bản thư đã được tải xuống</string>
@@ -838,6 +853,8 @@
     <string name="title_save_all">Lưu tất cả</string>
     <string name="title_save_eml">Lưu tập tin thư thô</string>
     <string name="title_eml_remark">Để chuyển tiếp thư, thư thô (thư gốc) cần được tải xuống từ máy chủ. Điều này yêu cầu kết nối internet.</string>
+    <string name="title_eml_option">Việc này có thể được ngăn chặn bằng cách bật luôn tải xuống tệp thư thô trong cài đặt kết nối</string>
+    <string name="title_eml_downloaded">Thư thô đã tải xuống: %1$s</string>
     <string name="title_buttons">Chọn các nút</string>
     <string name="title_buttons_hint">Các hành động thực sự có sẵn còn tuỳ vào loại tài khoản và thiết lập tài khoản</string>
     <string name="title_button_search">Tìm kiếm trong các thư</string>
@@ -849,6 +866,7 @@
     <string name="title_subscribe">Đăng ký</string>
     <string name="title_delete">Xoá</string>
     <string name="title_more">Thêm</string>
+    <string name="title_less">Ít hơn</string>
     <string name="title_spam">Thư rác</string>
     <string name="title_move">Di chuyển</string>
     <string name="title_copy_btn">Sao chép</string>
@@ -1081,6 +1099,7 @@
         Các tuỳ chọn ở dưới là để tiếp tục tìm kiếm máy chủ email.
     </string>
     <string name="title_search_text_hint">Việc tìm kiếm văn bản trong thư khi có nhiều thư có thể không được trên một số máy chủ</string>
+    <string name="title_search_text_unsupported">\'%s\' có nghĩa là máy chủ mail không hỗ trợ tìm kiếm trong văn bản thư</string>
     <string name="title_search_size_hint">Việc tìm kiếm thư theo kích cỡ khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_more">Thêm tuỳ chọn</string>
     <string name="title_search_use_index">Sử dụng mục lục tìm kiếm</string>
@@ -1312,7 +1331,9 @@
     <string name="title_legend_create_rule">Tạo quy tắc</string>
     <string name="title_legend_show_unsubscribe">Hủy đăng ký khỏi danh sách</string>
     <string name="title_legend_show_images">Hiện hình ảnh</string>
+    <string name="title_legend_hide_images">Ẩn hình ảnh</string>
     <string name="title_legend_show_full">Hiện thư gốc</string>
+    <string name="title_legend_show_reformatted">Hiện thư đã định dạng lại</string>
     <string name="title_legend_edit">Chỉnh sửa</string>
     <string name="title_legend_default_color">Màu mặc định</string>
     <string name="title_legend_close_hint">Đóng gợi ý</string>
@@ -1359,8 +1380,10 @@
     <string name="title_check_owner">Kiểm tra chủ sở hữu</string>
     <string name="title_remark_owner">Thông tin sẽ được lấy từ <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Địa chỉ IP của chủ sở hữu</string>
+    <string name="title_default_apps">Ứng dụng mặc định</string>
     <string name="title_reset_open">Đặt hoặc xóa các ứng dụng mặc định</string>
     <string name="title_select_app">Chọn ứng dụng</string>
+    <string name="title_updated">Có bản cập nhật lên phiên bản %1$s</string>
     <string name="title_issue">Bạn có câu hỏi hoặc vấn đề không?</string>
     <string name="title_yes">Có</string>
     <string name="title_no">Không</string>
