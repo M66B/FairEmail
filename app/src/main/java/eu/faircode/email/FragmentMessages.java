@@ -423,7 +423,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cards = prefs.getBoolean("cards", true);
         date = prefs.getBoolean("date", true);
         date_bold = prefs.getBoolean("date_bold", false);
-        threading = prefs.getBoolean("threading", true);
+        threading = (prefs.getBoolean("threading", true) ||
+                args.getBoolean("force_threading"));
         seekbar = prefs.getBoolean("seekbar", false);
         actionbar = prefs.getBoolean("actionbar", true);
         actionbar_color = prefs.getBoolean("actionbar_color", false);
@@ -4362,11 +4363,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
 
-        menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
+        menu.findItem(R.id.menu_view_thread).setVisible(viewType == AdapterMessage.ViewType.THREAD && !threading);
 
         menu.findItem(R.id.menu_sync_more).setVisible(folder);
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
+
+        menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
 
         ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
         ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
@@ -4465,6 +4468,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_mark_all_read) {
             onMenuMarkAllRead();
+            return true;
+        } else if (itemId == R.id.menu_view_thread) {
+            onMenuViewThread();
             return true;
         } else if (itemId == R.id.menu_sync_more) {
             onMenuSyncMore();
@@ -4730,6 +4736,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     }
 
+    private void onMenuViewThread() {
+        Bundle args = new Bundle(getArguments());
+        args.putBoolean("force_threading", true);
+
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
+        fragmentTransaction.commit();
+    }
+
     private void markAllRead() {
         Bundle args = new Bundle();
         args.putString("type", type);
@@ -4974,7 +4992,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ViewModelMessages.Model vmodel = model.getModel(
                 getContext(), getViewLifecycleOwner(),
-                viewType, type, account, folder, thread, id, filter_archive, criteria, server);
+                viewType, type, account, folder, thread, id, threading, filter_archive, criteria, server);
 
         vmodel.setCallback(getViewLifecycleOwner(), callback);
         vmodel.setObserver(getViewLifecycleOwner(), observer);

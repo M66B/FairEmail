@@ -142,6 +142,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_view_thread"
+        android:title="@string/title_view_thread"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_sync_more"
         android:title="@string/title_synchronize_more"
         app:showAsAction="never">

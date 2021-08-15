@@ -1327,6 +1327,7 @@
     <string name="title_select_all">Select all</string>
     <string name="title_select_found">Select found</string>
     <string name="title_mark_all_read">Mark all read</string>
+    <string name="title_view_thread">View conversation</string>
     <string name="title_force_sync">Force sync</string>
     <string name="title_force_send">Force send</string>
 
