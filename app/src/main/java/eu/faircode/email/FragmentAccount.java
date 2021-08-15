@@ -337,8 +337,9 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (TextUtils.isEmpty(s))
-                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
+                // https://github.com/material-components/material-components-android/issues/503
+                //if (TextUtils.isEmpty(s))
+                //   tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
             }
 
             @Override
