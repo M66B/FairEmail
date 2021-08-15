@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -151,13 +152,27 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
+                    Bundle options;
+                    try {
+                        options = ActivityOptions.makeCustomAnimation(ActivityMain.this,
+                                R.anim.activity_open_enter, 0).toBundle();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        options = new Bundle();
+                    }
+
                     if (hasAccounts) {
-                        Intent view = new Intent(ActivityMain.this, ActivityView.class);
-                        view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        Intent view = new Intent(ActivityMain.this, ActivityView.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                         Intent saved = args.getParcelable("intent");
                         if (saved == null) {
-                            startActivity(view);
+                            try {
+                                startActivity(view, options);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                startActivity(view);
+                            }
                             if (sync_on_launch)
                                 ServiceUI.sync(ActivityMain.this, null);
                         } else
@@ -175,9 +190,16 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 ServiceSend.watchdog(ActivityMain.this);
                             }
                         }, SERVICE_START_DELAY);
-                    } else
-                        startActivity(new Intent(ActivityMain.this, ActivitySetup.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    } else {
+                        Intent setup = new Intent(ActivityMain.this, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        try {
+                            startActivity(setup, options);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            startActivity(setup);
+                        }
+                    }
 
                     long end = new Date().getTime();
                     Log.i("Main booted " + (end - start) + " ms");
