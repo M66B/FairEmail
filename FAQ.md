@@ -3842,7 +3842,7 @@ There is also a local contact database, which is filled with contacts from sent 
 You can enable/disable this in the send settings of the app.
 
 The Android address book is managed by the Android Contacts app (or a replacement for this app).
-Please see [this article] about importing contacts to the Android address book.
+Please see [this article](https://support.google.com/contacts/answer/1069522) about importing contacts to the Android address book.
 
 Note that some vendors, notably Microsoft, try to lock you into their contact (data) storage.
 This is not how it should work on Android, which is more open to sharing information.
