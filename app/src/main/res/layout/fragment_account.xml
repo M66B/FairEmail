@@ -264,9 +264,9 @@
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPassword"
-            app:passwordToggleEnabled="true">
+            app:layout_constraintTop_toBottomOf="@id/tvPassword">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
