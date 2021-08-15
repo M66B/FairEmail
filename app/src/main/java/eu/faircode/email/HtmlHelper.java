@@ -552,6 +552,9 @@ public class HtmlHelper {
             // Element style
             style = mergeStyles(style, element.attr("style"));
 
+            if ("fairemail_debug_info".equals(clazz))
+                style = mergeStyles(style, "font-size: smaller");
+
             if (text_align) {
                 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center
                 if ("center".equals(element.tagName())) {

@@ -1520,7 +1520,7 @@ public class Log {
             sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
         if (log != null)
             sb.append(log);
-        String body = "<pre>" + TextUtils.htmlEncode(sb.toString()) + "</pre>";
+        String body = "<pre class=\"fairemail_debug_info\">" + TextUtils.htmlEncode(sb.toString()) + "</pre>";
 
         EntityMessage draft;
 
