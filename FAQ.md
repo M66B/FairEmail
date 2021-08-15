@@ -3835,13 +3835,16 @@ When a contact is store in the local contact database, you can delete it like th
 <a name="faq172"></a>
 **(172) How can I import contacts?**
 
-FairEmail consults the Android address book and a local contact database for contact information.
+Like most Android apps, FairEmail consults the Android address book for contact information.
 
-The local contact database is filled with contacts from sent and received messages.
+There is also a local contact database, which is filled with contacts from sent and received messages.
 You can enable/disable this in the send settings of the app.
 
 The Android address book is managed by the Android Contacts app (or a replacement for this app).
 Please see [this article] about importing contacts to the Android address book.
+
+Note that some vendors, notably Microsoft, try to lock you into their contact (data) storage.
+This is not how it should work on Android, which is more open to sharing information.
 
 Related questions:
 
