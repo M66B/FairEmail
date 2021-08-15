@@ -1,19 +1,15 @@
 package com.bugsnag.android;
 
-import static com.bugsnag.android.ContextExtensionsKt.getActivityManagerFrom;
-import static com.bugsnag.android.ContextExtensionsKt.getStorageManagerFrom;
 import static com.bugsnag.android.SeverityReason.REASON_HANDLED_EXCEPTION;
-import static com.bugsnag.android.internal.ImmutableConfigKt.sanitiseConfiguration;
 
 import com.bugsnag.android.internal.ImmutableConfig;
 import com.bugsnag.android.internal.StateObserver;
+import com.bugsnag.android.internal.dag.ConfigModule;
+import com.bugsnag.android.internal.dag.ContextModule;
+import com.bugsnag.android.internal.dag.SystemServiceModule;
 
-import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
-import android.content.res.Resources;
-import android.os.Environment;
-import android.os.storage.StorageManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,12 +19,14 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
 import java.util.concurrent.RejectedExecutionException;
 
 /**
@@ -67,24 +65,16 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
     @NonNull
     protected final EventStore eventStore;
 
-    private final SessionStore sessionStore;
-
     final SessionTracker sessionTracker;
 
     final SystemBroadcastReceiver systemBroadcastReceiver;
-    private final ActivityBreadcrumbCollector activityBreadcrumbCollector;
-    private final SessionLifecycleCallback sessionLifecycleCallback;
-
-    final Connectivity connectivity;
-
-    @Nullable
-    private final StorageManager storageManager;
 
     final Logger logger;
+    final Connectivity connectivity;
     final DeliveryDelegate deliveryDelegate;
 
     final ClientObservable clientObservable;
-    private PluginClient pluginClient;
+    PluginClient pluginClient;
 
     final Notifier notifier = new Notifier();
 
@@ -121,8 +111,8 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
      * @param configuration  a configuration for the Client
      */
     public Client(@NonNull Context androidContext, @NonNull final Configuration configuration) {
-        Context ctx = androidContext.getApplicationContext();
-        appContext = ctx != null ? ctx : androidContext;
+        ContextModule contextModule = new ContextModule(androidContext);
+        appContext = contextModule.getCtx();
 
         connectivity = new ConnectivityCompat(appContext, new Function2<Boolean, String, Unit>() {
             @Override
@@ -140,78 +130,53 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         });
 
         // set sensible defaults for delivery/project packages etc if not set
-        immutableConfig = sanitiseConfiguration(appContext, configuration, connectivity);
+        ConfigModule configModule = new ConfigModule(contextModule, configuration, connectivity);
+        immutableConfig = configModule.getConfig();
         logger = immutableConfig.getLogger();
         warnIfNotAppContext(androidContext);
-        clientObservable = new ClientObservable();
 
-        // Set up breadcrumbs
-        callbackState = configuration.impl.callbackState.copy();
-        int maxBreadcrumbs = immutableConfig.getMaxBreadcrumbs();
-        breadcrumbState = new BreadcrumbState(maxBreadcrumbs, callbackState, logger);
+        // setup storage as soon as possible
+        final StorageModule storageModule = new StorageModule(appContext,
+                immutableConfig, logger);
 
-        storageManager = getStorageManagerFrom(appContext);
-        contextState = new ContextState();
+        // setup state trackers for bugsnag
+        BugsnagStateModule bugsnagStateModule = new BugsnagStateModule(
+                configModule, configuration);
+        clientObservable = bugsnagStateModule.getClientObservable();
+        callbackState = bugsnagStateModule.getCallbackState();
+        breadcrumbState = bugsnagStateModule.getBreadcrumbState();
+        contextState = bugsnagStateModule.getContextState();
+        metadataState = bugsnagStateModule.getMetadataState();
 
-        if (configuration.getContext() != null) {
-            contextState.setManualContext(configuration.getContext());
-        }
+        // lookup system services
+        final SystemServiceModule systemServiceModule = new SystemServiceModule(contextModule);
 
-        sessionStore = new SessionStore(immutableConfig, logger, null);
-        sessionTracker = new SessionTracker(immutableConfig, callbackState, this,
-                sessionStore, logger, bgTaskService);
-        metadataState = copyMetadataState(configuration);
+        // block until storage module has resolved everything
+        storageModule.resolveDependencies(bgTaskService, TaskType.IO);
 
-        ActivityManager am = getActivityManagerFrom(appContext);
+        // setup further state trackers and data collection
+        TrackerModule trackerModule = new TrackerModule(configModule,
+                storageModule, this, bgTaskService, callbackState);
+        launchCrashTracker = trackerModule.getLaunchCrashTracker();
+        sessionTracker = trackerModule.getSessionTracker();
 
-        launchCrashTracker = new LaunchCrashTracker(immutableConfig);
-        appDataCollector = new AppDataCollector(appContext, appContext.getPackageManager(),
-                immutableConfig, sessionTracker, am, launchCrashTracker, logger);
+        DataCollectionModule dataCollectionModule = new DataCollectionModule(contextModule,
+                configModule, systemServiceModule, trackerModule,
+                bgTaskService, connectivity, storageModule.getDeviceId());
+        dataCollectionModule.resolveDependencies(bgTaskService, TaskType.IO);
+        appDataCollector = dataCollectionModule.getAppDataCollector();
+        deviceDataCollector = dataCollectionModule.getDeviceDataCollector();
 
         // load the device + user information
-        SharedPrefMigrator sharedPrefMigrator = new SharedPrefMigrator(appContext);
-        DeviceIdStore deviceIdStore = new DeviceIdStore(appContext, sharedPrefMigrator, logger);
-        String deviceId = deviceIdStore.loadDeviceId();
-        UserStore userStore = new UserStore(immutableConfig, deviceId, sharedPrefMigrator, logger);
-        userState = userStore.load(configuration.getUser());
-        sharedPrefMigrator.deleteLegacyPrefs();
+        userState = storageModule.getUserStore().load(configuration.getUser());
+        storageModule.getSharedPrefMigrator().deleteLegacyPrefs();
 
-        DeviceBuildInfo info = DeviceBuildInfo.Companion.defaultInfo();
-        Resources resources = appContext.getResources();
-        deviceDataCollector = new DeviceDataCollector(connectivity, appContext,
-                resources, deviceId, info, Environment.getDataDirectory(),
-                new RootDetector(logger), bgTaskService, logger);
+        registerLifecycleCallbacks();
 
-        if (appContext instanceof Application) {
-            Application application = (Application) appContext;
-            sessionLifecycleCallback = new SessionLifecycleCallback(sessionTracker);
-            application.registerActivityLifecycleCallbacks(sessionLifecycleCallback);
-
-            if (!immutableConfig.shouldDiscardBreadcrumb(BreadcrumbType.STATE)) {
-                this.activityBreadcrumbCollector = new ActivityBreadcrumbCollector(
-                    new Function2<String, Map<String, ? extends Object>, Unit>() {
-                        @SuppressWarnings("unchecked")
-                        @Override
-                        public Unit invoke(String activity, Map<String, ?> metadata) {
-                            leaveBreadcrumb(activity, (Map<String, Object>) metadata,
-                                    BreadcrumbType.STATE);
-                            return null;
-                        }
-                    }
-                );
-                application.registerActivityLifecycleCallbacks(activityBreadcrumbCollector);
-            } else {
-                this.activityBreadcrumbCollector = null;
-            }
-        } else {
-            this.activityBreadcrumbCollector = null;
-            this.sessionLifecycleCallback = null;
-        }
-
-        InternalReportDelegate delegate = new InternalReportDelegate(appContext, logger,
-                immutableConfig, storageManager, appDataCollector, deviceDataCollector,
-                sessionTracker, notifier, bgTaskService);
-        eventStore = new EventStore(immutableConfig, logger, notifier, bgTaskService, delegate);
+        EventStorageModule eventStorageModule = new EventStorageModule(contextModule, configModule,
+                dataCollectionModule, bgTaskService, trackerModule, systemServiceModule, notifier);
+        eventStorageModule.resolveDependencies(bgTaskService, TaskType.IO);
+        eventStore = eventStorageModule.getEventStore();
 
         deliveryDelegate = new DeliveryDelegate(logger, eventStore,
                 immutableConfig, breadcrumbState, notifier, bgTaskService);
@@ -223,8 +188,8 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         }
 
         // load last run info
-        lastRunInfoStore = new LastRunInfoStore(immutableConfig);
-        lastRunInfo = loadLastRunInfo();
+        lastRunInfoStore = storageModule.getLastRunInfoStore();
+        lastRunInfo = storageModule.getLastRunInfo();
 
         // initialise plugins before attempting to flush any errors
         loadPlugins(configuration);
@@ -258,13 +223,9 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
             @NonNull AppDataCollector appDataCollector,
             @NonNull BreadcrumbState breadcrumbState,
             @NonNull EventStore eventStore,
-            SessionStore sessionStore,
             SystemBroadcastReceiver systemBroadcastReceiver,
             SessionTracker sessionTracker,
-            ActivityBreadcrumbCollector activityBreadcrumbCollector,
-            SessionLifecycleCallback sessionLifecycleCallback,
             Connectivity connectivity,
-            @Nullable StorageManager storageManager,
             Logger logger,
             DeliveryDelegate deliveryDelegate,
             LastRunInfoStore lastRunInfoStore,
@@ -282,19 +243,38 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         this.appDataCollector = appDataCollector;
         this.breadcrumbState = breadcrumbState;
         this.eventStore = eventStore;
-        this.sessionStore = sessionStore;
         this.systemBroadcastReceiver = systemBroadcastReceiver;
         this.sessionTracker = sessionTracker;
-        this.activityBreadcrumbCollector = activityBreadcrumbCollector;
-        this.sessionLifecycleCallback = sessionLifecycleCallback;
         this.connectivity = connectivity;
-        this.storageManager = storageManager;
         this.logger = logger;
         this.deliveryDelegate = deliveryDelegate;
         this.lastRunInfoStore = lastRunInfoStore;
         this.launchCrashTracker = launchCrashTracker;
         this.lastRunInfo = null;
         this.exceptionHandler = exceptionHandler;
+    }
+
+    void registerLifecycleCallbacks() {
+        if (appContext instanceof Application) {
+            Application application = (Application) appContext;
+            SessionLifecycleCallback sessionCb = new SessionLifecycleCallback(sessionTracker);
+            application.registerActivityLifecycleCallbacks(sessionCb);
+
+            if (!immutableConfig.shouldDiscardBreadcrumb(BreadcrumbType.STATE)) {
+                ActivityBreadcrumbCollector activityCb = new ActivityBreadcrumbCollector(
+                        new Function2<String, Map<String, ? extends Object>, Unit>() {
+                            @SuppressWarnings("unchecked")
+                            @Override
+                            public Unit invoke(String activity, Map<String, ?> metadata) {
+                                leaveBreadcrumb(activity, (Map<String, Object>) metadata,
+                                        BreadcrumbType.STATE);
+                                return null;
+                            }
+                        }
+                );
+                application.registerActivityLifecycleCallbacks(activityCb);
+            }
+        }
     }
 
     /**
@@ -316,12 +296,6 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         }
     }
 
-    private LastRunInfo loadLastRunInfo() {
-        LastRunInfo lastRunInfo = lastRunInfoStore.load();
-        LastRunInfo currentRunInfo = new LastRunInfo(0, false, false);
-        persistRunInfo(currentRunInfo);
-        return lastRunInfo;
-    }
 
     /**
      * Load information about the last run, and reset the persisted information to the defaults.
@@ -339,22 +313,15 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         }
     }
 
-    private void loadPlugins(@NonNull Configuration configuration) {
-        NativeInterface.setClient(this);
+    private void loadPlugins(@NonNull final Configuration configuration) {
+        NativeInterface.setClient(Client.this);
         Set<Plugin> userPlugins = configuration.getPlugins();
         pluginClient = new PluginClient(userPlugins, immutableConfig, logger);
-        pluginClient.loadPlugins(this);
+        pluginClient.loadPlugins(Client.this);
     }
 
     private void logNull(String property) {
         logger.e("Invalid null value supplied to client." + property + ", ignoring");
-    }
-
-    private MetadataState copyMetadataState(@NonNull Configuration configuration) {
-        // performs deep copy of metadata to preserve immutability of Configuration interface
-        Metadata orig = configuration.impl.metadataState.getMetadata();
-        Metadata copy = orig.copy();
-        return configuration.impl.metadataState.copy(copy);
     }
 
     private void registerComponentCallbacks() {
@@ -381,11 +348,30 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
     }
 
     void setupNdkPlugin() {
+        if (!setupNdkDirectory()) {
+            logger.w("Failed to setup NDK directory.");
+            return;
+        }
+
         String lastRunInfoPath = lastRunInfoStore.getFile().getAbsolutePath();
         int crashes = (lastRunInfo != null) ? lastRunInfo.getConsecutiveLaunchCrashes() : 0;
         clientObservable.postNdkInstall(immutableConfig, lastRunInfoPath, crashes);
         syncInitialState();
         clientObservable.postNdkDeliverPending();
+    }
+
+    private boolean setupNdkDirectory() {
+        try {
+            return bgTaskService.submitTask(TaskType.IO, new Callable<Boolean>() {
+                @Override
+                public Boolean call() {
+                    File outFile = new File(NativeInterface.getNativeReportPath());
+                    return outFile.exists() || outFile.mkdirs();
+                }
+            }).get();
+        } catch (Throwable exc) {
+            return false;
+        }
     }
 
     void addObserver(StateObserver observer) {

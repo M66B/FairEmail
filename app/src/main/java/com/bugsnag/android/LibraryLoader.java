@@ -18,17 +18,29 @@ class LibraryLoader {
      * @param callback an OnErrorCallback
      * @return true if the library was loaded, false if not
      */
-    boolean loadLibrary(String name, Client client, OnErrorCallback callback) {
+    boolean loadLibrary(final String name, final Client client, final OnErrorCallback callback) {
+        try {
+            client.bgTaskService.submitTask(TaskType.IO, new Runnable() {
+                @Override
+                public void run() {
+                    loadLibInternal(name, client, callback);
+                }
+            }).get();
+            return loaded;
+        } catch (Throwable exc) {
+            return false;
+        }
+    }
+
+    void loadLibInternal(String name, Client client, OnErrorCallback callback) {
         if (!attemptedLoad.getAndSet(true)) {
             try {
                 System.loadLibrary(name);
                 loaded = true;
-                return true;
             } catch (UnsatisfiedLinkError error) {
                 client.notify(error, callback);
             }
         }
-        return false;
     }
 
     boolean isLoaded() {

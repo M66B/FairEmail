@@ -28,7 +28,7 @@ internal class DeviceDataCollector(
     private val buildInfo: DeviceBuildInfo,
     private val dataDirectory: File,
     rootDetector: RootDetector,
-    bgTaskService: BackgroundTaskService,
+    private val bgTaskService: BackgroundTaskService,
     private val logger: Logger
 ) {
 
@@ -207,7 +207,12 @@ internal class DeviceDataCollector(
     fun calculateFreeDisk(): Long {
         // for this specific case we want the currently usable space, not
         // StorageManager#allocatableBytes() as the UsableSpace lint inspection suggests
-        return dataDirectory.usableSpace
+        return runCatching {
+            bgTaskService.submitTask(
+                TaskType.IO,
+                Callable { dataDirectory.usableSpace }
+            ).get()
+        }.getOrDefault(0L)
     }
 
     /**

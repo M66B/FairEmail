@@ -11,7 +11,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionException;
@@ -53,7 +52,7 @@ class EventStore extends FileStore {
                Notifier notifier,
                BackgroundTaskService bgTaskSevice,
                Delegate delegate) {
-        super(new File(config.getPersistenceDirectory(), "bugsnag-errors"),
+        super(new File(config.getPersistenceDirectory().getValue(), "bugsnag-errors"),
                 config.getMaxPersistedEvents(),
                 EVENT_COMPARATOR,
                 logger,

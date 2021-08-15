@@ -63,13 +63,7 @@ abstract class FileStore {
      */
     private boolean isStorageDirValid(@NonNull File storageDir) {
         try {
-            if (!storageDir.isDirectory() || !storageDir.canWrite()) {
-                if (!storageDir.mkdirs()) {
-                    this.logger.e("Could not prepare storage directory at "
-                            + storageDir.getAbsolutePath());
-                    return false;
-                }
-            }
+            storageDir.mkdirs();
         } catch (Exception exception) {
             this.logger.e("Could not prepare file storage directory", exception);
             return false;

@@ -56,7 +56,7 @@ public class NativeInterface {
     @NonNull
     public static String getNativeReportPath() {
         ImmutableConfig config = getClient().getConfig();
-        File persistenceDirectory = config.getPersistenceDirectory();
+        File persistenceDirectory = config.getPersistenceDirectory().getValue();
         return new File(persistenceDirectory, "bugsnag-native").getAbsolutePath();
     }
 

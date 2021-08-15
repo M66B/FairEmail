@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import android.net.TrafficStats
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.PrintWriter
@@ -42,6 +43,7 @@ internal class DefaultDelivery(
         headers: Map<String, String?>
     ): DeliveryStatus {
 
+        TrafficStats.setThreadStatsTag(1)
         if (connectivity != null && !connectivity.hasNetworkConnection()) {
             return DeliveryStatus.UNDELIVERED
         }
@@ -64,7 +66,7 @@ internal class DefaultDelivery(
             return DeliveryStatus.UNDELIVERED
         } catch (exception: IOException) {
             logger.w("IOException encountered in request", exception)
-            return DeliveryStatus.FAILURE
+            return DeliveryStatus.UNDELIVERED
         } catch (exception: Exception) {
             logger.w("Unexpected error delivering payload", exception)
             return DeliveryStatus.FAILURE

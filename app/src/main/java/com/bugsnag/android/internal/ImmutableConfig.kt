@@ -47,7 +47,7 @@ data class ImmutableConfig(
     val maxBreadcrumbs: Int,
     val maxPersistedEvents: Int,
     val maxPersistedSessions: Int,
-    val persistenceDirectory: File,
+    val persistenceDirectory: Lazy<File>,
     val sendLaunchCrashesSynchronously: Boolean,
 
     // results cached here to avoid unnecessary lookups in Client.
@@ -128,7 +128,8 @@ internal fun convertToImmutableConfig(
     config: Configuration,
     buildUuid: String? = null,
     packageInfo: PackageInfo? = null,
-    appInfo: ApplicationInfo? = null
+    appInfo: ApplicationInfo? = null,
+    persistenceDir: Lazy<File> = lazy { requireNotNull(config.persistenceDirectory) }
 ): ImmutableConfig {
     val errorTypes = when {
         config.autoDetectErrors -> config.enabledErrorTypes.copy()
@@ -158,7 +159,7 @@ internal fun convertToImmutableConfig(
         maxPersistedEvents = config.maxPersistedEvents,
         maxPersistedSessions = config.maxPersistedSessions,
         enabledBreadcrumbTypes = config.enabledBreadcrumbTypes?.toSet(),
-        persistenceDirectory = config.persistenceDirectory!!,
+        persistenceDirectory = persistenceDir,
         sendLaunchCrashesSynchronously = config.sendLaunchCrashesSynchronously,
         packageInfo = packageInfo,
         appInfo = appInfo
@@ -214,11 +215,13 @@ internal fun sanitiseConfiguration(
     if (configuration.delivery == null) {
         configuration.delivery = DefaultDelivery(connectivity, configuration.logger!!)
     }
-
-    if (configuration.persistenceDirectory == null) {
-        configuration.persistenceDirectory = appContext.cacheDir
-    }
-    return convertToImmutableConfig(configuration, buildUuid, packageInfo, appInfo)
+    return convertToImmutableConfig(
+        configuration,
+        buildUuid,
+        packageInfo,
+        appInfo,
+        lazy { configuration.persistenceDirectory ?: appContext.cacheDir }
+    )
 }
 
 internal const val RELEASE_STAGE_DEVELOPMENT = "development"

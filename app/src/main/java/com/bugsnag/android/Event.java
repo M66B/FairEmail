@@ -320,6 +320,10 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware {
         impl.updateSeverityInternal(severity);
     }
 
+    protected void updateSeverityReason(@NonNull @SeverityReason.SeverityReasonType String reason) {
+        impl.updateSeverityReason(reason);
+    }
+
     void setApp(@NonNull AppWithState app) {
         impl.setApp(app);
     }

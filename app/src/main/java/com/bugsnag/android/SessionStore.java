@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 
 import java.io.File;
 import java.util.Comparator;
-import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -37,7 +36,7 @@ class SessionStore extends FileStore {
     SessionStore(@NonNull ImmutableConfig config,
                  @NonNull Logger logger,
                  @Nullable Delegate delegate) {
-        super(new File(config.getPersistenceDirectory(), "bugsnag-sessions"),
+        super(new File(config.getPersistenceDirectory().getValue(), "bugsnag-sessions"),
                 config.getMaxPersistedSessions(),
                 SESSION_COMPARATOR,
                 logger,

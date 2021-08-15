@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference
 internal class UserStore @JvmOverloads constructor(
     private val config: ImmutableConfig,
     private val deviceId: String?,
-    file: File = File(config.persistenceDirectory, "user-info"),
+    file: File = File(config.persistenceDirectory.value, "user-info"),
     private val sharedPrefMigrator: SharedPrefMigrator,
     private val logger: Logger
 ) {
@@ -23,9 +23,7 @@ internal class UserStore @JvmOverloads constructor(
 
     init {
         try {
-            if (!file.exists()) {
-                file.createNewFile()
-            }
+            file.createNewFile()
         } catch (exc: IOException) {
             logger.w("Failed to created device ID file", exc)
         }

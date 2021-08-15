@@ -28,9 +28,7 @@ internal class DeviceIdStore @JvmOverloads constructor(
 
     init {
         try {
-            if (!file.exists()) {
-                file.createNewFile()
-            }
+            file.createNewFile()
         } catch (exc: Throwable) {
             logger.w("Failed to created device ID file", exc)
         }
