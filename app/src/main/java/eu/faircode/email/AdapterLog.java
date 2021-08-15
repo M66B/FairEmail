@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,10 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private int textColorSecondary;
+    private int colorAccent;
+    private int colorWarning;
+
     private List<EntityLog> items = new ArrayList<>();
 
     private DateFormat TF;
@@ -62,16 +68,39 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
         private void bindTo(EntityLog log) {
             tvTime.setText(TF.format(log.time));
-            tvData.setText(log.data);
+            SpannableStringBuilder ssb = new SpannableStringBuilder(log.data);
+            switch (log.type) {
+                case EntityLog.LOG_GENERAL:
+                    break;
+                case EntityLog.LOG_STATS:
+                    ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
+                    break;
+                case EntityLog.LOG_SCHEDULE:
+                    ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
+                    break;
+                case EntityLog.LOG_NETWORK:
+                    ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
+                    break;
+                case EntityLog.LOG_ACCOUNT:
+                    ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
+                    break;
+                case EntityLog.LOG_PROTOCOL:
+                    ssb.setSpan(new ForegroundColorSpan(textColorSecondary), 0, ssb.length(), 0);
+                    break;
+            }
+            tvData.setText(ssb);
         }
     }
-
 
     AdapterLog(Fragment parentFragment) {
         this.parentFragment = parentFragment;
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(parentFragment.getContext());
+
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         this.TF = Helper.getTimeInstance(context);
 

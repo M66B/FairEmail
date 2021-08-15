@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.EntityLog.LOG_PROTOCOL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 
@@ -576,7 +577,7 @@ public class EmailService implements AutoCloseable {
                             String line = bos.toString();
                             if (!line.endsWith("ignoring socket timeout"))
                                 if (log)
-                                    EntityLog.log(context, user + " " + line);
+                                    EntityLog.log(context, LOG_PROTOCOL, user + " " + line);
                                 else {
                                     if (BuildConfig.DEBUG)
                                         Log.i("javamail", user + " " + line);

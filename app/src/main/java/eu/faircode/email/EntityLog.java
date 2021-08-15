@@ -64,6 +64,7 @@ public class EntityLog {
     static final int LOG_SCHEDULE = 2;
     static final int LOG_NETWORK = 3;
     static final int LOG_ACCOUNT = 4;
+    static final int LOG_PROTOCOL = 5;
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "log");
