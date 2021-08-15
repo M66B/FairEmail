@@ -152,13 +152,13 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
-                    Bundle options;
+                    Bundle options = null;
                     try {
-                        options = ActivityOptions.makeCustomAnimation(ActivityMain.this,
-                                R.anim.activity_open_enter, 0).toBundle();
+                        if (BuildConfig.DEBUG)
+                            options = ActivityOptions.makeCustomAnimation(ActivityMain.this,
+                                    R.anim.activity_open_enter, 0).toBundle();
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        options = new Bundle();
                     }
 
                     if (hasAccounts) {
@@ -167,12 +167,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                         Intent saved = args.getParcelable("intent");
                         if (saved == null) {
-                            try {
-                                startActivity(view, options);
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                                startActivity(view);
-                            }
+                            startActivity(view, options);
                             if (sync_on_launch)
                                 ServiceUI.sync(ActivityMain.this, null);
                         } else
@@ -193,12 +188,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     } else {
                         Intent setup = new Intent(ActivityMain.this, ActivitySetup.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        try {
-                            startActivity(setup, options);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                            startActivity(setup);
-                        }
+                        startActivity(setup, options);
                     }
 
                     long end = new Date().getTime();
