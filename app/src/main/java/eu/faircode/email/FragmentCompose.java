@@ -1233,15 +1233,8 @@ public class FragmentCompose extends FragmentBase {
                             p.html(TextUtils.join("<br>", line));
                             document.body().appendChild(p);
                             return document.html();
-                        } else {
-                            Document d = HtmlHelper.sanitizeCompose(context, ref.outerHtml(), true);
-                            Element b = d.body();
-                            b.tagName("div");
-                            document.body().appendChild(b);
-
-                            Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                            return HtmlHelper.toHtml(spanned, context);
-                        }
+                        } else
+                            return ref.html(); // Edit-ref
                     }
 
                     @Override
@@ -4167,12 +4160,10 @@ public class FragmentCompose extends FragmentBase {
 
                         String b = args.getString("body", "");
                         if (!TextUtils.isEmpty(b)) {
-                            Document d = HtmlHelper.sanitizeCompose(context, b, false);
-                            Spanned spanned = HtmlHelper.fromDocument(context, d, null, null);
-                            String shtml = HtmlHelper.toHtml(spanned, context);
+                            Document d = JsoupEx.parse(b); // Passed html
                             Element e = document
                                     .createElement("div")
-                                    .html(shtml);
+                                    .html(d.body().html());
                             document.body().appendChild(e);
                         }
 
@@ -4334,16 +4325,8 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.cc = ref.cc;
                             data.draft.bcc = ref.bcc;
                             data.draft.subject = ref.subject;
-                            if (ref.content) {
-                                String html = Helper.readText(ref.getFile(context));
-                                Document d = HtmlHelper.sanitizeCompose(context, html, true);
-                                Spanned spanned = HtmlHelper.fromDocument(context, d, null, null);
-                                String shtml = HtmlHelper.toHtml(spanned, context);
-                                Element e = document
-                                        .createElement("div")
-                                        .html(shtml);
-                                document.body().appendChild(e);
-                            }
+                            if (ref.content) // Edit-as-new
+                                document = JsoupEx.parse(ref.getFile(context));
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
                         } else if ("dsn".equals(action)) {
@@ -4442,8 +4425,7 @@ public class FragmentCompose extends FragmentBase {
                                 // Get referenced message body
                                 d = JsoupEx.parse(ref.getFile(context));
                                 HtmlHelper.normalizeNamespaces(d, false);
-                                for (Element e : d.select("[x-plain=true]"))
-                                    e.removeAttr("x-plain");
+                                HtmlHelper.clearAnnotations(d); // Legacy left-overs
 
                                 if (BuildConfig.DEBUG)
                                     d.select(".faircode_remove").remove();
@@ -4515,7 +4497,8 @@ public class FragmentCompose extends FragmentBase {
                                 String clazz = element.attr("class");
                                 String style = HtmlHelper.processStyles(tag, clazz, null, sheets);
                                 style = HtmlHelper.mergeStyles(style, element.attr("style"));
-                                element.attr("style", style);
+                                if (!TextUtils.isEmpty(style))
+                                    element.attr("style", style);
                             }
 
                             // Quote referenced message body
@@ -4707,22 +4690,21 @@ public class FragmentCompose extends FragmentBase {
                             refFile.delete();
                         }
 
-                        // Could be external draft
-                        Document document = HtmlHelper.sanitizeCompose(context, doc.html(), true);
+                        // Possibly external draft
 
                         for (Element e : ref)
                             if (write_below)
-                                document.body().prependChild(e);
+                                doc.body().prependChild(e);
                             else
-                                document.body().appendChild(e);
+                                doc.body().appendChild(e);
 
                         EntityIdentity identity = null;
                         if (data.draft.identity != null)
                             identity = db.identity().getIdentity(data.draft.identity);
 
-                        addSignature(context, document, data.draft, identity);
+                        addSignature(context, doc, data.draft, identity);
 
-                        String html = document.html();
+                        String html = doc.html();
                         Helper.writeText(file, html);
                         Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
 
@@ -5209,8 +5191,7 @@ public class FragmentCompose extends FragmentBase {
 
                     if (!dirty)
                         if (loaded == null) {
-                            Document b = HtmlHelper.sanitizeCompose(context, body, true);
-                            HtmlHelper.clearAnnotations(b);
+                            Document b = JsoupEx.parse(body); // Is-dirty
                             if (!Objects.equals(b.body().html(), doc.body().html()))
                                 dirty = true;
                         } else {
@@ -5248,7 +5229,7 @@ public class FragmentCompose extends FragmentBase {
 
                             d = JsoupEx.parse(extras.getString("html"));
                         } else {
-                            d = HtmlHelper.sanitizeCompose(context, body, true);
+                            d = JsoupEx.parse(body); // Save
 
                             for (Element e : ref)
                                 if (write_below)
@@ -5259,7 +5240,6 @@ public class FragmentCompose extends FragmentBase {
                             addSignature(context, d, draft, identity);
                         }
 
-                        HtmlHelper.clearAnnotations(d);
                         body = d.html();
 
                         // Create new revision
@@ -5916,6 +5896,10 @@ public class FragmentCompose extends FragmentBase {
                 doc.select("div[fairemail=signature]").remove();
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
+
+                HtmlHelper.clearAnnotations(doc); // Legacy left-overs
+
+                doc = HtmlHelper.sanitizeCompose(context, doc.html(), true);
 
                 Spanned spannedBody = HtmlHelper.fromDocument(context, doc, new Html.ImageGetter() {
                     @Override

@@ -3032,7 +3032,8 @@ public class HtmlHelper {
                 .removeAttr("x-dashed")
                 .removeAttr("x-tracking")
                 .removeAttr("x-border")
-                .removeAttr("x-list-style");
+                .removeAttr("x-list-style")
+                .removeAttr("x-plain");
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
