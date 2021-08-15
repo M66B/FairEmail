@@ -571,6 +571,7 @@ class Core {
                             // Move: NO APPEND processing failed.
                             // Move: NO Server Unavailable. 15
                             // Move: NO [CANNOT] Operation is not supported on mailbox
+                            // Move: NO [ALREADYEXISTS] Mailbox already exists
                             // Copy: NO Client tried to access nonexistent namespace. (Mailbox name should probably be prefixed with: INBOX.) (n.nnn + n.nnn secs).
                             // Add: BAD Data length exceeds limit
                             // Add: NO [LIMIT] APPEND Command exceeds the maximum allowed size
