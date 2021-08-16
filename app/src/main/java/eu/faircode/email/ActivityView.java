@@ -196,6 +196,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         nav_pinned = getDrawerPinned();
         nav_options = prefs.getBoolean("nav_options", true);
 
+        // Fix imported settings from other device
+        if (nav_expanded && nav_pinned && !canExpandAndPin())
+            nav_pinned = false;
+
         Configuration config = getResources().getConfiguration();
         boolean portrait2 = prefs.getBoolean("portrait2", false);
         boolean portrait2c = prefs.getBoolean("portrait2c", false);
