@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -26,12 +27,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -153,13 +154,6 @@ public class FragmentLogs extends FragmentBase {
         menu.findItem(R.id.menu_show).setVisible(all);
         menu.findItem(R.id.menu_clear).setVisible(all);
 
-        List<EntityLog.Type> types = getTypes();
-        SubMenu smenu = menu.findItem(R.id.menu_show).getSubMenu();
-        smenu.clear();
-        for (EntityLog.Type type : EntityLog.Type.values())
-            smenu.add(1, type.ordinal(), type.ordinal(), type.toString())
-                    .setCheckable(true).setChecked(types.contains(type));
-
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -176,10 +170,8 @@ public class FragmentLogs extends FragmentBase {
             item.setChecked(enabled);
             onMenuAutoScoll(enabled);
             return true;
-        } else if (item.getGroupId() == 1 && item.isCheckable()) {
-            boolean enabled = !item.isChecked();
-            item.setChecked(enabled);
-            onMenuShowTypes(item.getOrder(), enabled);
+        } else if (itemId == R.id.menu_show) {
+            onMenuShow();
         } else if (itemId == R.id.menu_clear) {
             onMenuClear();
             return true;
@@ -196,24 +188,44 @@ public class FragmentLogs extends FragmentBase {
         autoScroll = enabled;
     }
 
-    private void onMenuShowTypes(int ordinal, boolean enabled) {
+    private void onMenuShow() {
+        String[] titles = new String[EntityLog.Type.values().length];
+        boolean[] states = new boolean[EntityLog.Type.values().length];
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String name = EntityLog.Type.values()[ordinal].toString().toLowerCase(Locale.ROOT);
-        prefs.edit().putBoolean("show_log_" + name, enabled).apply();
-        adapter.setTypes(getTypes());
+        for (int i = 0; i < EntityLog.Type.values().length; i++) {
+            EntityLog.Type type = EntityLog.Type.values()[i];
+            titles[i] = type.toString();
+            String name = type.toString().toLowerCase(Locale.ROOT);
+            states[i] = prefs.getBoolean("show_log_" + name, true);
+        }
+
+        new AlertDialog.Builder(getContext())
+                .setTitle(R.string.title_unhide)
+                .setMultiChoiceItems(titles, states, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int pos, boolean checked) {
+                        EntityLog.Type type = EntityLog.Type.values()[pos];
+                        prefs.edit().putBoolean(getKey(type), checked).apply();
+                        adapter.setTypes(getTypes());
+                    }
+                })
+                .setPositiveButton(R.string.title_setup_done, null)
+                .show();
     }
 
     private List<EntityLog.Type> getTypes() {
         List<EntityLog.Type> types = new ArrayList<>();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        for (EntityLog.Type type : EntityLog.Type.values()) {
-            String name = type.toString().toLowerCase(Locale.ROOT);
-            if (prefs.getBoolean("show_log_" + name, true))
+        for (EntityLog.Type type : EntityLog.Type.values())
+            if (prefs.getBoolean(getKey(type), true))
                 types.add(type);
-        }
 
         return types;
+    }
+
+    private String getKey(EntityLog.Type type) {
+        return "show_log_" + type.toString().toLowerCase(Locale.ROOT);
     }
 
     private void onMenuClear() {
