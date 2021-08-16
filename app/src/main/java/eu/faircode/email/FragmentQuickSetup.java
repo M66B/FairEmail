@@ -277,208 +277,223 @@ public class FragmentQuickSetup extends FragmentBase {
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
+                int at = email.indexOf('@');
+                String username = email.substring(0, at);
+
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
                 if (ani == null || !ani.isConnected())
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
-                EmailProvider provider = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
-                args.putParcelable("provider", provider);
-
-                int at = email.indexOf('@');
-                String username = email.substring(0, at);
-
-                String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
-                Log.i("User type=" + provider.user + " name=" + user);
-
-                List<EntityFolder> folders;
-                String imap_fingerprint = null;
-                String smtp_fingerprint = null;
-                X509Certificate imap_certificate = null;
-                X509Certificate smtp_certificate = null;
-
-                String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
-                int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
-                try (EmailService iservice = new EmailService(
-                        context, aprotocol, null, aencryption, false, EmailService.PURPOSE_CHECK, true)) {
+                Throwable fail = null;
+                List<EmailProvider> providers = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
+                for (EmailProvider provider : providers)
                     try {
-                        iservice.connect(
-                                provider.imap.host, provider.imap.port,
-                                AUTH_TYPE_PASSWORD, null,
-                                user, password,
-                                null, null);
-                    } catch (EmailService.UntrustedException ex) {
-                        imap_certificate = ex.getCertificate();
-                        String similar = EntityCertificate.getSimilarDnsName(imap_certificate, provider.imap.host);
-                        if (similar == null)
-                            imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
-                        else
-                            provider.imap.host = similar;
-                        iservice.connect(
-                                provider.imap.host, provider.imap.port,
-                                AUTH_TYPE_PASSWORD, null,
-                                user, password,
-                                null, imap_fingerprint);
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                        // Why not AuthenticationFailedException?
-                        // Some providers terminate the connection with an invalid username
-                        if (user.equals(username))
-                            throw ex;
-                        else
+                        EntityLog.log(context, "imap=" + provider.imap);
+                        EntityLog.log(context, "smtp=" + provider.smtp);
+
+                        String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
+                        Log.i("User type=" + provider.user + " name=" + user);
+
+                        List<EntityFolder> folders;
+                        String imap_fingerprint = null;
+                        String smtp_fingerprint = null;
+                        X509Certificate imap_certificate = null;
+                        X509Certificate smtp_certificate = null;
+
+                        String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
+                        int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+                        try (EmailService iservice = new EmailService(
+                                context, aprotocol, null, aencryption, false, EmailService.PURPOSE_CHECK, true)) {
                             try {
-                                user = username;
-                                Log.i("Retry with user=" + user);
                                 iservice.connect(
                                         provider.imap.host, provider.imap.port,
                                         AUTH_TYPE_PASSWORD, null,
                                         user, password,
                                         null, null);
-                            } catch (Throwable ex1) {
-                                Log.w(ex1);
-                                if (!(ex instanceof AuthenticationFailedException) &&
-                                        ex1 instanceof AuthenticationFailedException)
-                                    throw ex1;
+                            } catch (EmailService.UntrustedException ex) {
+                                imap_certificate = ex.getCertificate();
+                                String similar = EntityCertificate.getSimilarDnsName(imap_certificate, provider.imap.host);
+                                if (similar == null)
+                                    imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
                                 else
+                                    provider.imap.host = similar;
+                                iservice.connect(
+                                        provider.imap.host, provider.imap.port,
+                                        AUTH_TYPE_PASSWORD, null,
+                                        user, password,
+                                        null, imap_fingerprint);
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                                // Why not AuthenticationFailedException?
+                                // Some providers terminate the connection with an invalid username
+                                if (user.equals(username))
                                     throw ex;
+                                else
+                                    try {
+                                        user = username;
+                                        Log.i("Retry with user=" + user);
+                                        iservice.connect(
+                                                provider.imap.host, provider.imap.port,
+                                                AUTH_TYPE_PASSWORD, null,
+                                                user, password,
+                                                null, null);
+                                    } catch (Throwable ex1) {
+                                        Log.w(ex1);
+                                        if (!(ex instanceof AuthenticationFailedException) &&
+                                                ex1 instanceof AuthenticationFailedException)
+                                            throw ex1;
+                                        else
+                                            throw ex;
+                                    }
                             }
-                    }
 
-                    folders = iservice.getFolders();
-
-                    if (folders.size() == 1 &&
-                            EntityFolder.INBOX.equals(folders.get(0).type))
-                        try {
-                            Log.i("Creating system folders");
-                            Store istore = iservice.getStore();
-                            istore.getFolder(EntityFolder.DRAFTS).create(Folder.HOLDS_FOLDERS);
-                            istore.getFolder(EntityFolder.SENT).create(Folder.HOLDS_FOLDERS);
-                            istore.getFolder(EntityFolder.ARCHIVE).create(Folder.HOLDS_FOLDERS);
-                            istore.getFolder(EntityFolder.TRASH).create(Folder.HOLDS_FOLDERS);
-                            istore.getFolder(EntityFolder.JUNK).create(Folder.HOLDS_FOLDERS);
                             folders = iservice.getFolders();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-                }
 
-                Long max_size;
-                String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
-                int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
-                try (EmailService iservice = new EmailService(
-                        context, iprotocol, null, iencryption, false,
-                        EmailService.PURPOSE_CHECK, true)) {
-                    iservice.setUseIp(provider.useip, null);
-                    try {
-                        iservice.connect(
-                                provider.smtp.host, provider.smtp.port,
-                                AUTH_TYPE_PASSWORD, null,
-                                user, password,
-                                null, null);
-                    } catch (EmailService.UntrustedException ex) {
-                        smtp_certificate = ex.getCertificate();
-                        String similar = EntityCertificate.getSimilarDnsName(smtp_certificate, provider.smtp.host);
-                        if (similar == null)
-                            smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
-                        else
-                            provider.smtp.host = similar;
-                        iservice.connect(
-                                provider.smtp.host, provider.smtp.port,
-                                AUTH_TYPE_PASSWORD, null,
-                                user, password,
-                                null, smtp_fingerprint);
+                            if (folders.size() == 1 &&
+                                    EntityFolder.INBOX.equals(folders.get(0).type))
+                                try {
+                                    Log.i("Creating system folders");
+                                    Store istore = iservice.getStore();
+                                    istore.getFolder(EntityFolder.DRAFTS).create(Folder.HOLDS_FOLDERS);
+                                    istore.getFolder(EntityFolder.SENT).create(Folder.HOLDS_FOLDERS);
+                                    istore.getFolder(EntityFolder.ARCHIVE).create(Folder.HOLDS_FOLDERS);
+                                    istore.getFolder(EntityFolder.TRASH).create(Folder.HOLDS_FOLDERS);
+                                    istore.getFolder(EntityFolder.JUNK).create(Folder.HOLDS_FOLDERS);
+                                    folders = iservice.getFolders();
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+                        }
+
+                        Long max_size;
+                        String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
+                        int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+                        try (EmailService iservice = new EmailService(
+                                context, iprotocol, null, iencryption, false,
+                                EmailService.PURPOSE_CHECK, true)) {
+                            iservice.setUseIp(provider.useip, null);
+                            try {
+                                iservice.connect(
+                                        provider.smtp.host, provider.smtp.port,
+                                        AUTH_TYPE_PASSWORD, null,
+                                        user, password,
+                                        null, null);
+                            } catch (EmailService.UntrustedException ex) {
+                                smtp_certificate = ex.getCertificate();
+                                String similar = EntityCertificate.getSimilarDnsName(smtp_certificate, provider.smtp.host);
+                                if (similar == null)
+                                    smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
+                                else
+                                    provider.smtp.host = similar;
+                                iservice.connect(
+                                        provider.smtp.host, provider.smtp.port,
+                                        AUTH_TYPE_PASSWORD, null,
+                                        user, password,
+                                        null, smtp_fingerprint);
+                            }
+
+                            max_size = iservice.getMaxSize();
+                        }
+
+                        if (check) {
+                            args.putParcelable("provider", provider);
+                            args.putSerializable("imap_certificate", imap_certificate);
+                            args.putSerializable("smtp_certificate", smtp_certificate);
+                            return provider;
+                        }
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityAccount primary = db.account().getPrimaryAccount();
+
+                            // Create account
+                            EntityAccount account = new EntityAccount();
+
+                            account.host = provider.imap.host;
+                            account.encryption = aencryption;
+                            account.port = provider.imap.port;
+                            account.auth_type = AUTH_TYPE_PASSWORD;
+                            account.user = user;
+                            account.password = password;
+                            account.fingerprint = imap_fingerprint;
+
+                            account.name = provider.name + "/" + username;
+
+                            account.synchronize = true;
+                            account.primary = (primary == null);
+
+                            if (provider.keepalive > 0)
+                                account.poll_interval = provider.keepalive;
+
+                            account.partial_fetch = provider.partial;
+
+                            account.created = new Date().getTime();
+                            account.last_connected = account.created;
+
+                            account.id = db.account().insertAccount(account);
+                            args.putLong("account", account.id);
+                            EntityLog.log(context, "Quick added account=" + account.name);
+
+                            // Create folders
+                            for (EntityFolder folder : folders) {
+                                EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                                if (existing == null) {
+                                    folder.account = account.id;
+                                    folder.setSpecials(account);
+                                    folder.id = db.folder().insertFolder(folder);
+                                    EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
+                                    if (folder.synchronize)
+                                        EntityOperation.sync(context, folder.id, true);
+                                }
+                            }
+
+                            // Set swipe left/right folder
+                            for (EntityFolder folder : folders)
+                                if (EntityFolder.TRASH.equals(folder.type))
+                                    account.swipe_left = folder.id;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    account.swipe_right = folder.id;
+
+                            db.account().updateAccount(account);
+
+                            // Create identity
+                            EntityIdentity identity = new EntityIdentity();
+                            identity.name = name;
+                            identity.email = email;
+                            identity.account = account.id;
+
+                            identity.host = provider.smtp.host;
+                            identity.encryption = iencryption;
+                            identity.port = provider.smtp.port;
+                            identity.auth_type = AUTH_TYPE_PASSWORD;
+                            identity.user = user;
+                            identity.password = password;
+                            identity.fingerprint = smtp_fingerprint;
+                            identity.use_ip = provider.useip;
+                            identity.synchronize = true;
+                            identity.primary = true;
+                            identity.max_size = max_size;
+
+                            identity.id = db.identity().insertIdentity(identity);
+                            EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        break;
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        if (fail == null)
+                            fail = ex;
                     }
 
-                    max_size = iservice.getMaxSize();
-                }
-
-                if (check) {
-                    args.putSerializable("imap_certificate", imap_certificate);
-                    args.putSerializable("smtp_certificate", smtp_certificate);
-                    return provider;
-                }
-
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityAccount primary = db.account().getPrimaryAccount();
-
-                    // Create account
-                    EntityAccount account = new EntityAccount();
-
-                    account.host = provider.imap.host;
-                    account.encryption = aencryption;
-                    account.port = provider.imap.port;
-                    account.auth_type = AUTH_TYPE_PASSWORD;
-                    account.user = user;
-                    account.password = password;
-                    account.fingerprint = imap_fingerprint;
-
-                    account.name = provider.name + "/" + username;
-
-                    account.synchronize = true;
-                    account.primary = (primary == null);
-
-                    if (provider.keepalive > 0)
-                        account.poll_interval = provider.keepalive;
-
-                    account.partial_fetch = provider.partial;
-
-                    account.created = new Date().getTime();
-                    account.last_connected = account.created;
-
-                    account.id = db.account().insertAccount(account);
-                    args.putLong("account", account.id);
-                    EntityLog.log(context, "Quick added account=" + account.name);
-
-                    // Create folders
-                    for (EntityFolder folder : folders) {
-                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
-                        if (existing == null) {
-                            folder.account = account.id;
-                            folder.setSpecials(account);
-                            folder.id = db.folder().insertFolder(folder);
-                            EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
-                            if (folder.synchronize)
-                                EntityOperation.sync(context, folder.id, true);
-                        }
-                    }
-
-                    // Set swipe left/right folder
-                    for (EntityFolder folder : folders)
-                        if (EntityFolder.TRASH.equals(folder.type))
-                            account.swipe_left = folder.id;
-                        else if (EntityFolder.ARCHIVE.equals(folder.type))
-                            account.swipe_right = folder.id;
-
-                    db.account().updateAccount(account);
-
-                    // Create identity
-                    EntityIdentity identity = new EntityIdentity();
-                    identity.name = name;
-                    identity.email = email;
-                    identity.account = account.id;
-
-                    identity.host = provider.smtp.host;
-                    identity.encryption = iencryption;
-                    identity.port = provider.smtp.port;
-                    identity.auth_type = AUTH_TYPE_PASSWORD;
-                    identity.user = user;
-                    identity.password = password;
-                    identity.fingerprint = smtp_fingerprint;
-                    identity.use_ip = provider.useip;
-                    identity.synchronize = true;
-                    identity.primary = true;
-                    identity.max_size = max_size;
-
-                    identity.id = db.identity().insertIdentity(identity);
-                    EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
+                if (fail != null)
+                    throw fail;
 
                 ServiceSynchronize.eval(context, "quick setup");
 

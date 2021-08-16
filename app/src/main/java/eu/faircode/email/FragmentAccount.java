@@ -591,7 +591,9 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
                 String domain = args.getString("domain");
-                return EmailProvider.fromDomain(context, domain, EmailProvider.Discover.IMAP);
+                return EmailProvider
+                        .fromDomain(context, domain, EmailProvider.Discover.IMAP)
+                        .get(0);
             }
 
             @Override

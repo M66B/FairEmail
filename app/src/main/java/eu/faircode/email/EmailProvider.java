@@ -57,6 +57,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -241,12 +242,12 @@ public class EmailProvider implements Parcelable {
     }
 
     @NonNull
-    static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
+    static List<EmailProvider> fromDomain(Context context, String domain, Discover discover) throws IOException {
         return fromEmail(context, domain, discover);
     }
 
     @NonNull
-    static EmailProvider fromEmail(Context context, String email, Discover discover) throws IOException {
+    static List<EmailProvider> fromEmail(Context context, String email, Discover discover) throws IOException {
         int at = email.indexOf('@');
         String domain = (at < 0 ? email : email.substring(at + 1));
         if (at < 0)
@@ -258,130 +259,133 @@ public class EmailProvider implements Parcelable {
         if (PROPRIETARY.contains(domain))
             throw new IllegalArgumentException(context.getString(R.string.title_no_standard));
 
-        if (BuildConfig.DEBUG && false)
-            try {
-                // Scan ports
-                EntityLog.log(context, "Provider from template domain=" + domain);
-                return fromTemplate(context, domain, discover);
-            } catch (Throwable ex) {
-                Log.w(ex);
-                throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
-            }
-
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
             if (provider.domain != null)
                 for (String d : provider.domain)
                     if (domain.toLowerCase(Locale.ROOT).matches(d)) {
                         EntityLog.log(context, "Provider from domain=" + domain + " (" + d + ")");
-                        provider.log(context);
-                        return provider;
+                        return Arrays.asList(provider);
                     }
 
-        EmailProvider autoconfig = null;
+        List<EmailProvider> result = new ArrayList<>();
+        for (EmailProvider provider : _fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover))
+            if (result.contains(provider))
+                Log.i("Duplicate " + provider);
+            else
+                result.add(provider);
+
         try {
-            autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover);
+            DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
+
+            for (DnsHelper.DnsRecord record : records)
+                if (!TextUtils.isEmpty(record.name))
+                    for (EmailProvider provider : providers) {
+                        if (provider.mx != null)
+                            for (String mx : provider.mx)
+                                if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
+                                    EntityLog.log(context, "Provider from mx=" + record.name + " domain=" + domain);
+                                    if (result.contains(provider))
+                                        Log.i("Duplicate " + provider);
+                                    else
+                                        result.add(provider);
+                                    break;
+                                }
+
+                        String mxparent = UriHelper.getParentDomain(context, record.name);
+                        String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
+                        if (mxparent.equalsIgnoreCase(pdomain)) {
+                            EntityLog.log(context, "Provider from mx=" + record.name + " host=" + provider.imap.host);
+                            if (result.contains(provider))
+                                Log.i("Duplicate " + provider);
+                            else
+                                result.add(provider);
+                            break;
+                        }
+                    }
+
+            for (DnsHelper.DnsRecord record : records) {
+                String target = record.name;
+                while (result.size() == 0 && target != null && target.indexOf('.') > 0) {
+                    try {
+                        for (EmailProvider provider : _fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover))
+                            if (result.contains(provider))
+                                Log.i("Duplicate " + provider);
+                            else
+                                result.add(provider);
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        int dot = target.indexOf('.');
+                        target = target.substring(dot + 1);
+                    }
+                }
+            }
+
         } catch (Throwable ex) {
             Log.w(ex);
-
-            try {
-                // Retry at MX server addresses
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
-
-                for (DnsHelper.DnsRecord record : records)
-                    if (!TextUtils.isEmpty(record.name))
-                        for (EmailProvider provider : providers) {
-                            if (provider.mx != null)
-                                for (String mx : provider.mx)
-                                    if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
-                                        EntityLog.log(context, "Provider from mx=" + record.name + " domain=" + domain);
-                                        provider.log(context);
-                                        return provider;
-                                    }
-
-                            String mxparent = UriHelper.getParentDomain(context, record.name);
-                            String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
-                            if (mxparent.equalsIgnoreCase(pdomain)) {
-                                EntityLog.log(context, "Provider from mx=" + record.name + " host=" + provider.imap.host);
-                                provider.log(context);
-                                return provider;
-                            }
-                        }
-
-                for (DnsHelper.DnsRecord record : records) {
-                    String target = record.name;
-                    while (autoconfig == null && target != null && target.indexOf('.') > 0) {
-                        try {
-                            autoconfig = _fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover);
-                        } catch (Throwable ex1) {
-                            Log.w(ex1);
-                            int dot = target.indexOf('.');
-                            target = target.substring(dot + 1);
-                        }
-                    }
-                    if (autoconfig != null)
-                        break;
-                }
-            } catch (Throwable ex1) {
-                Log.w(ex1);
-            }
-
-            if (autoconfig == null)
-                throw ex;
         }
 
-        // Always prefer built-in profiles
-        // - ISPDB is not always correct
-        // - documentation links
-        for (EmailProvider provider : providers)
-            if (provider.imap.host.equals(autoconfig.imap.host) ||
-                    provider.smtp.host.equals(autoconfig.smtp.host)) {
-                EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
-                provider.log(context);
-                return provider;
+        if (result.size() == 0)
+            throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
+
+        for (EmailProvider autoconfig : result)
+            for (EmailProvider provider : providers) {
+                // Always prefer built-in profiles
+                // - ISPDB is not always correct
+                // - documentation links
+                if (provider.imap.host.equals(autoconfig.imap.host) ||
+                        provider.smtp.host.equals(autoconfig.smtp.host)) {
+                    EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
+                    return Arrays.asList(provider);
+                }
+
+                // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
+                if (autoconfig.imap.host != null &&
+                        autoconfig.imap.host.endsWith(".dreamhost.com"))
+                    autoconfig.imap.host = "imap.dreamhost.com";
+
+                if (autoconfig.smtp.host != null &&
+                        autoconfig.smtp.host.endsWith(".dreamhost.com"))
+                    autoconfig.smtp.host = "smtp.dreamhost.com";
+
+                // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
+                if (autoconfig.imap.host != null &&
+                        autoconfig.imap.host.endsWith(".awsapps.com"))
+                    autoconfig.partial = false;
             }
 
-        // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
-        if (autoconfig.imap.host != null &&
-                autoconfig.imap.host.endsWith(".dreamhost.com"))
-            autoconfig.imap.host = "imap.dreamhost.com";
-
-        if (autoconfig.smtp.host != null &&
-                autoconfig.smtp.host.endsWith(".dreamhost.com"))
-            autoconfig.smtp.host = "smtp.dreamhost.com";
-
-        // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
-        if (autoconfig.imap.host != null &&
-                autoconfig.imap.host.endsWith(".awsapps.com"))
-            autoconfig.partial = false;
-
-        return autoconfig;
+        return result;
     }
 
     @NonNull
-    private static EmailProvider _fromDomain(Context context, String domain, String email, Discover discover) throws IOException {
+    private static List<EmailProvider> _fromDomain(Context context, String domain, String email, Discover discover) throws IOException {
+        List<EmailProvider> result = new ArrayList<>();
+
         try {
             // Assume the provider knows best
             Log.i("Provider from DNS domain=" + domain);
-            return fromDNS(context, domain, discover);
+            result.add(fromDNS(context, domain, discover));
         } catch (Throwable ex) {
             Log.w(ex);
-            try {
-                // Check ISPDB
-                Log.i("Provider from ISPDB domain=" + domain);
-                return fromISPDB(context, domain, email);
-            } catch (Throwable ex1) {
-                Log.w(ex1);
-                try {
-                    // Scan ports
-                    Log.i("Provider from template domain=" + domain);
-                    return fromTemplate(context, domain, discover);
-                } catch (Throwable ex2) {
-                    Log.w(ex2);
-                    throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
-                }
-            }
         }
+
+        try {
+            // Check ISPDB
+            Log.i("Provider from ISPDB domain=" + domain);
+            result.add(fromISPDB(context, domain, email));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        try {
+            // Scan ports
+            Log.i("Provider from template domain=" + domain);
+            result.add(fromScan(context, domain, discover));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return result;
     }
 
     @NonNull
@@ -584,7 +588,6 @@ public class EmailProvider implements Parcelable {
             }
 
             provider.validate();
-            provider.log(context);
 
             return provider;
         } finally {
@@ -643,13 +646,12 @@ public class EmailProvider implements Parcelable {
             }
 
         provider.validate();
-        provider.log(context);
 
         return provider;
     }
 
     @NonNull
-    private static EmailProvider fromTemplate(Context context, String domain, Discover discover)
+    private static EmailProvider fromScan(Context context, String domain, Discover discover)
             throws ExecutionException, InterruptedException, UnknownHostException {
         // https://tools.ietf.org/html/rfc8314
         Server imap = null;
@@ -731,7 +733,6 @@ public class EmailProvider implements Parcelable {
         if (smtp != null)
             provider.smtp = smtp;
 
-        provider.log(context);
         return provider;
     }
 
@@ -742,11 +743,6 @@ public class EmailProvider implements Parcelable {
             provider.documentation.append("<br><br>");
 
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
-    }
-
-    private void log(Context context) {
-        EntityLog.log(context, "imap=" + imap);
-        EntityLog.log(context, "smtp=" + smtp);
     }
 
     protected EmailProvider(Parcel in) {
@@ -811,6 +807,21 @@ public class EmailProvider implements Parcelable {
             return new EmailProvider[size];
         }
     };
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof EmailProvider) {
+            EmailProvider other = (EmailProvider) obj;
+            return (Objects.equals(this.imap, other.imap) &&
+                    Objects.equals(this.smtp, other.smtp));
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(imap, smtp);
+    }
 
     @NonNull
     @Override
@@ -984,6 +995,22 @@ public class EmailProvider implements Parcelable {
                 return (SSLSocket) sslFactory.createSocket(socket, host, port, false);
             } else
                 throw new SocketException("No STARTTLS");
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Server) {
+                Server other = (Server) obj;
+                return (Objects.equals(this.host, other.host) &&
+                        this.port == other.port &&
+                        this.starttls == other.starttls);
+            } else
+                return false;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(host, port, starttls);
         }
 
         @NonNull

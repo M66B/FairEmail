@@ -413,7 +413,9 @@ public class FragmentGmail extends FragmentBase {
                 int at = user.indexOf('@');
                 String username = user.substring(0, at);
 
-                EmailProvider provider = EmailProvider.fromDomain(context, "gmail.com", EmailProvider.Discover.ALL);
+                EmailProvider provider = EmailProvider
+                        .fromDomain(context, "gmail.com", EmailProvider.Discover.ALL)
+                        .get(0);
 
                 List<EntityFolder> folders;
 
