@@ -394,10 +394,12 @@
                     android:layout_marginStart="6dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="24dp"
                     android:text="@string/title_no_format"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
-                    app:layout_constraintEnd_toStartOf="@+id/ibReferenceEdit"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/ibCloseRefHint"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
 
@@ -411,7 +413,7 @@
                     android:contentDescription="@string/title_legend_edit"
                     android:padding="3dp"
                     app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
-                    app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
+                    app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/twotone_edit_24" />
 
                 <ImageButton
@@ -424,15 +426,8 @@
                     android:contentDescription="@string/title_legend_show_images"
                     android:padding="3dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
+                    app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/twotone_image_24" />
-
-                <androidx.constraintlayout.widget.Barrier
-                    android:id="@+id/barrier_reference"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:barrierDirection="bottom"
-                    app:constraint_referenced_ids="ibCloseRefHint,tvReferenceHint,ibReferenceEdit,ibReferenceImages" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvReference"
@@ -447,7 +442,7 @@
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/barrier_reference" />
+                    app:layout_constraintTop_toBottomOf="@id/ibReferenceEdit" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpHeader"
