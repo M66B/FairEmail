@@ -89,6 +89,9 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
                 case Protocol:
                     ssb.setSpan(new ForegroundColorSpan(textColorSecondary), 0, ssb.length(), 0);
                     break;
+                case Classification:
+                    ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
+                    break;
             }
             tvData.setText(ssb);
         }
