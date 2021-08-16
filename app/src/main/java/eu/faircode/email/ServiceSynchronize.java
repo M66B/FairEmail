@@ -2463,7 +2463,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         private List<TupleAccountState> lastAccountStates = null;
 
         private void post(Bundle command) {
-            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Network,
+            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                     "### command " + TextUtils.join(" ", Log.getExtras(command)));
 
             if (command.getBoolean("sync") || command.getBoolean("force"))
