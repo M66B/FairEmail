@@ -289,8 +289,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 List<EmailProvider> providers = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
                 for (EmailProvider provider : providers)
                     try {
-                        EntityLog.log(context, "imap=" + provider.imap);
-                        EntityLog.log(context, "smtp=" + provider.smtp);
+                        EntityLog.log(context, "Checking" +
+                                " imap=" + provider.imap + " smtp=" + provider.smtp);
 
                         String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
                         Log.i("User type=" + provider.user + " name=" + user);
@@ -313,16 +313,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                         null, null);
                             } catch (EmailService.UntrustedException ex) {
                                 imap_certificate = ex.getCertificate();
-                                String similar = EntityCertificate.getSimilarDnsName(imap_certificate, provider.imap.host);
-                                if (similar == null)
-                                    imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
-                                else
-                                    provider.imap.host = similar;
-                                iservice.connect(
-                                        provider.imap.host, provider.imap.port,
-                                        AUTH_TYPE_PASSWORD, null,
-                                        user, password,
-                                        null, imap_fingerprint);
+                                imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
                             } catch (Throwable ex) {
                                 Log.w(ex);
                                 // Why not AuthenticationFailedException?
@@ -338,6 +329,9 @@ public class FragmentQuickSetup extends FragmentBase {
                                                 AUTH_TYPE_PASSWORD, null,
                                                 user, password,
                                                 null, null);
+                                    } catch (EmailService.UntrustedException ex1) {
+                                        imap_certificate = ex1.getCertificate();
+                                        imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
                                     } catch (Throwable ex1) {
                                         Log.w(ex1);
                                         if (!(ex instanceof AuthenticationFailedException) &&
@@ -381,16 +375,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                         null, null);
                             } catch (EmailService.UntrustedException ex) {
                                 smtp_certificate = ex.getCertificate();
-                                String similar = EntityCertificate.getSimilarDnsName(smtp_certificate, provider.smtp.host);
-                                if (similar == null)
-                                    smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
-                                else
-                                    provider.smtp.host = similar;
-                                iservice.connect(
-                                        provider.smtp.host, provider.smtp.port,
-                                        AUTH_TYPE_PASSWORD, null,
-                                        user, password,
-                                        null, smtp_fingerprint);
+                                smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
                             }
 
                             max_size = iservice.getMaxSize();

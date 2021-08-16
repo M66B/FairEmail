@@ -320,7 +320,6 @@ public class EmailProvider implements Parcelable {
                     }
                 }
             }
-
         } catch (Throwable ex) {
             Log.w(ex);
         }
@@ -338,21 +337,35 @@ public class EmailProvider implements Parcelable {
                     EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
                     return Arrays.asList(provider);
                 }
-
-                // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
-                if (autoconfig.imap.host != null &&
-                        autoconfig.imap.host.endsWith(".dreamhost.com"))
-                    autoconfig.imap.host = "imap.dreamhost.com";
-
-                if (autoconfig.smtp.host != null &&
-                        autoconfig.smtp.host.endsWith(".dreamhost.com"))
-                    autoconfig.smtp.host = "smtp.dreamhost.com";
-
-                // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
-                if (autoconfig.imap.host != null &&
-                        autoconfig.imap.host.endsWith(".awsapps.com"))
-                    autoconfig.partial = false;
             }
+
+        Collections.sort(providers, new Comparator<EmailProvider>() {
+            @Override
+            public int compare(EmailProvider p1, EmailProvider p2) {
+                return -Integer.compare(p1.getScore(), p2.getScore());
+            }
+        });
+
+        for (EmailProvider autoconfig : result) {
+            EntityLog.log(context, "Provider" +
+                    " score=" + autoconfig.getScore() +
+                    " imap=" + autoconfig.imap +
+                    " smtp=" + autoconfig.smtp);
+
+            // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
+            if (autoconfig.imap.host != null &&
+                    autoconfig.imap.host.endsWith(".dreamhost.com"))
+                autoconfig.imap.host = "imap.dreamhost.com";
+
+            if (autoconfig.smtp.host != null &&
+                    autoconfig.smtp.host.endsWith(".dreamhost.com"))
+                autoconfig.smtp.host = "smtp.dreamhost.com";
+
+            // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
+            if (autoconfig.imap.host != null &&
+                    autoconfig.imap.host.endsWith(".awsapps.com"))
+                autoconfig.partial = false;
+        }
 
         return result;
     }
@@ -611,6 +624,7 @@ public class EmailProvider implements Parcelable {
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = false;
+                provider.imap.checkCertificate(context);
                 EntityLog.log(context, "_imaps._tcp." + domain + "=" + provider.imap);
             } catch (UnknownHostException ignored) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
@@ -620,6 +634,7 @@ public class EmailProvider implements Parcelable {
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = (provider.imap.port == 143);
+                provider.imap.checkCertificate(context);
                 EntityLog.log(context, "_imap._tcp." + domain + "=" + provider.imap);
             }
         }
@@ -633,6 +648,7 @@ public class EmailProvider implements Parcelable {
                 provider.smtp.host = records[0].name;
                 provider.smtp.port = records[0].port;
                 provider.smtp.starttls = (provider.smtp.port == 587);
+                provider.smtp.checkCertificate(context);
                 EntityLog.log(context, "_submission._tcp." + domain + "=" + provider.smtp);
             } catch (UnknownHostException ignored) {
                 // https://tools.ietf.org/html/rfc8314
@@ -642,6 +658,7 @@ public class EmailProvider implements Parcelable {
                 provider.smtp.host = records[0].name;
                 provider.smtp.port = records[0].port;
                 provider.smtp.starttls = false;
+                provider.smtp.checkCertificate(context);
                 EntityLog.log(context, "_submissions._tcp." + domain + "=" + provider.smtp);
             }
 
@@ -808,6 +825,12 @@ public class EmailProvider implements Parcelable {
         }
     };
 
+    private int getScore() {
+        if (imap == null || smtp == null)
+            return -1;
+        return imap.score + smtp.score;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EmailProvider) {
@@ -834,6 +857,7 @@ public class EmailProvider implements Parcelable {
         public int port;
         public boolean starttls;
 
+        private int score = 0;
         private Future<Boolean> isReachable;
 
         private Server() {
@@ -843,9 +867,20 @@ public class EmailProvider implements Parcelable {
             this.host = (prefix == null ? "" : prefix + ".") + domain;
             this.port = port;
             this.starttls = starttls;
+            this.isReachable = getReachable(context);
+        }
 
+        private void checkCertificate(Context context) {
+            try {
+                getReachable(context).get();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+
+        private Future<Boolean> getReachable(Context context) {
             Log.i("Scanning " + this);
-            this.isReachable = executor.submit(new Callable<Boolean>() {
+            return executor.submit(new Callable<Boolean>() {
                 // Returns:
                 //   false: closed
                 //   true: listening
@@ -881,10 +916,28 @@ public class EmailProvider implements Parcelable {
                                             List<String> names = EntityCertificate.getDnsNames((X509Certificate) cert);
                                             EntityLog.log(context, "Certificate " + address +
                                                     " " + TextUtils.join(",", names));
+
                                             if (EntityCertificate.matches(host, names)) {
+                                                score += 2;
                                                 EntityLog.log(context, "Trusted " + address);
                                                 return true;
                                             }
+
+                                            for (String name : names)
+                                                try {
+                                                    String similar = name;
+                                                    if (similar.startsWith("*."))
+                                                        similar = similar.substring(2);
+                                                    InetAddress isimilar = InetAddress.getByName(similar);
+                                                    if (iaddr.equals(isimilar)) {
+                                                        score += 1;
+                                                        EntityLog.log(context, "Similar " + similar + " host=" + host);
+                                                        host = similar;
+                                                        return true;
+                                                    }
+                                                } catch (Throwable ex) {
+                                                    Log.w(ex);
+                                                }
                                         }
 
                                     EntityLog.log(context, "Untrusted " + address);
