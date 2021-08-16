@@ -162,6 +162,7 @@
     <string name="title_setup_permissions">授予權限</string>
     <string name="title_setup_permissions_remark">存取聯絡人資訊 (可選項)</string>
     <string name="title_setup_permissions_explanation">需要聯絡人權限才能查詢聯絡人資料及建議聯絡人</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">如何匯入聯絡人</string>
     <string name="title_setup_doze">停用電池效能最佳化設定</string>
     <string name="title_setup_doze_remark">為了穩定地接收及傳送電子郵件</string>
     <string name="title_setup_doze_explanation">請停用電池效能最佳化設定，以確保應用程式能可靠地在後台傳送和接收訊息</string>
@@ -586,7 +587,7 @@
     <string name="title_advanced_notify_manage_hint">輕觸頻道名稱以設定頻道屬性</string>
     <string name="title_advanced_notify_manage_default_hint">設定預設音效等等</string>
     <string name="title_advanced_notify_manage_service_hint">選擇關閉以停用‘正在監視’通知</string>
-    <string name="title_advanced_notify_separate_hint">我如何針對帳戶、資料夾和寄件者配置通知？</string>
+    <string name="title_advanced_notify_separate_hint">如何針對帳戶、資料夾和寄件者配置通知？</string>
     <string name="title_advanced_notify_preview_all_hint">針對可顯示全文的穿戴式裝置 (最多5000個字元)</string>
     <string name="title_advanced_notify_preview_only_hint">通知顯示延後，直至訊息本文被下載</string>
     <string name="title_advanced_wearable_hint">通知僅在訊息本文下載後才會被傳送至穿戴式裝置</string>
@@ -1445,6 +1446,7 @@
     <string name="title_pro_hint">購買完整專業版功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
     <string name="title_pro_price">為什麼專業版功能如此昂貴？</string>
     <string name="title_pro_family">我可以利用 Google Play 家庭媒體庫嗎？</string>
+    <string name="title_pro_restore">如何恢復購買 (於另一部裝置上)？</string>
     <string name="title_pro_pending">購買待處理</string>
     <string name="title_pro_activated">所有專業版功能均已激活</string>
     <string name="title_pro_valid">已激活所有專業版功能</string>

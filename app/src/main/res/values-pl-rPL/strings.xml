@@ -191,6 +191,7 @@
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_permissions_explanation">Uprawnienia dostępu do listy kontaktów są wymagane, aby wyszukiwać informacje kontaktowe i sugerować kontakty</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Jak mogę zaimportować kontakty?</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
     <string name="title_setup_doze_remark">Dla niezawodnego wysyłania i odbierania wiadomości e-mail</string>
     <string name="title_setup_doze_explanation">Optymalizacja baterii powinna być wyłączona dla aplikacji, aby zapewnić niezawodne wysyłanie i odbieranie wiadomości w tle</string>
