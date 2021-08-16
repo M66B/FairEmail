@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,21 +80,19 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
                 case General:
                     break;
                 case Statistics:
-                    ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
+                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), 0, ssb.length(), 0);
                     break;
                 case Scheduling:
+                case Account:
                     ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
                     break;
                 case Network:
-                    ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
-                    break;
-                case Account:
-                    ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
-                    break;
                 case Protocol:
                     ssb.setSpan(new ForegroundColorSpan(textColorSecondary), 0, ssb.length(), 0);
                     break;
                 case Classification:
+                case Notification:
+                case Rules:
                     ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
                     break;
             }
