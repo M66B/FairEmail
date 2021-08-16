@@ -47,22 +47,22 @@ Perguntas relacionadas:
 
 ## Como ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Altere o nome da conta: Configurações, configuração manual, cliques, contas de toque
+* Mudar alvo para deslizar para a esquerda/direita: Configurações, comportamento da página de abas, definir ações de deslizar
+* Altere a senha: Configurações, toque em Configuração manual, toque em Contas, toque em conta e altere a senha
+* Defina uma assinatura: Configurações, toque em Configuração manual, toque em Identidades, toque em identidade, Editar assinatura.
 * Adicionar endereços CC e BCC: toque no ícone de pessoas ao final do assunto
 * Ir para a próxima/anterior mensagem no arquivo/excluídos: na configuração de comportamente desative *Fechar conversas automaticamente* e seleciona *Ir para a próxima/anterior mensagem* em *Ao fechar uma conversa*
 * Adicionar uma pasta à caixa de entrada unificada: toque e segure a pasta na lista de pastas e marque *Mostrar na caixa de entrada unificada*
 * Adicionar uma pasta ao menu de navegação: toque e segure a pasta na lista de pastas e marque *Mostrar no menu de navegação*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Carregar mais mensagens: pressione uma pasta na lista de pastas, selecione *Buscar mais mensagens*
+* Excluir uma mensagem, ignorando lixeira: pressione e segure o ícone da lixeira
+* Excluir uma conta/identidade: Configurações, toque na configuração manual, toque em Contas/Identidades, toque na conta/identidade, ícone de lixo no canto superior direito
+* Excluir uma pasta: mantenha pressionada a pasta na lista de pastas, Editar propriedades, ícone do lixo no canto superior direito
+* Desfazer envio: Outbox, deslize a mensagem na lista para esquerda ou direita
 * Armazenas mensagens enviadas na caixa de entrada: por favor [veja esse FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Alterar pastas do sistema: Configurações, configuração manual, cliques, contas de toque, na parte inferior
+* Exportar/importar configurações: configurações, navegação (lado esquerdo) menu
 
 <h2><a name="known-problems"></a>Known problem</h2>
 
@@ -79,11 +79,11 @@ Perguntas relacionadas:
 * ~~Um [problema no AndroidX](https://issuetracker.google.com/issues/64729576) torna difícil selecionar a rolagem rápida. Uma solução alternativa foi adicionada.~~
 * ~~Criptografia com YubiKey resulta em um loop (ciclo) infinito. Isso parece ser causado por um [problema no OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Rolar para um local com link interno nas mensagens originais não funciona. Não é possível corrigir porque a visualização de mensagem original é limitada na visualização de rolagem.
-* A pré-visualização do texto de uma mensagem não aparece (sempre) nos relógios Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. Veja também [ esse FAQ](#user-content-faq126).
+* A pré-visualização do texto de uma mensagem não aparece (sempre) nos relógios Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. Sabe-se que os textos de pré-visualização da mensagem são exibidos corretamente no Pebble 2, Carga de Fitbit 3, Mi band 3 e Xiaomi Amazfit BIP wearables. Veja também [ esse FAQ](#user-content-faq126).
 * Um [problema no Android 6.0](https://issuetracker.google.com/issues/37068143) às vezes causa um travamento com a mensagem *... Invalid offset: ... Valid range is ...* ao selecionar o texto e depois tocar fora do texto selecionado. Esse erro foi corrigido no Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* Links internos (ancoragem) não funcionarão porque as mensagens originais são mostradas em uma WebView incorporada numa visualização de rolagem (a lista de conversação). Essa é uma limitação do Android que não pode ser fixa nem funcionada.
+* Detecção de idiomas [não está mais funcionando](https://issuetracker.google.com/issues/173337263) em dispositivos Pixel com (atualizado para?) Android 11
+* Um erro de [no OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causa assinaturas PGP inválidas ao usar um token de hardware.
 
 <h2><a name="planned-features"></a>Funcionalidades planejadas</h2>
 
@@ -105,7 +105,7 @@ Perguntas relacionadas:
 * ~~Zoom ao aproximar dois dedos~~ (não é possível com segurança em uma lista de rolagem; em vez disso, a visualização de mensagem completa pode ser ampliada)
 * ~~Visualização de pastas mais compacta~~
 * ~~Criar listas e tabelas~~ (requer um editor de texto completo, veja [nessa FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
+* ~~~Pinch zoom tamanho~~
 * ~~Mostrar GIFs~~
 * ~~Temas~~ (temas escuro e cinza claro foram adicionados porque é isso que a maioria das pessoas parece querer)
 * ~~Qualquer condição de hora do dia~~ (qualquer dia realmente não se encaixa na condição de/para dia/horário)
@@ -118,11 +118,11 @@ Perguntas relacionadas:
 * ~~Suporte a S/MIME~~
 * ~~Busca por configurações~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Tudo que está nesta lista é em ordem aleatória e *pode ser adicionado* em um futuro próximo.
 
 <h2><a name="frequently-requested-features"></a>Funcionalidades solicitadas frequentemente</h2>
 
-O design é baseado em várias discussões e se voce quiser, pode discutir sobre isso [ nesse fórum ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)também. O objetivo do design é ser minimalista (sem menus ou botões desnecessários, etc) e sem distrações (cores extravagantes, animações, etc). Todas as coisas exibidas devem ser úteis de alguma forma e devem ser cuidadosamente posicionadas para um uso fácil. Fonts, sizes, colors, etc should be material design whenever possible.
+O design é baseado em várias discussões e se voce quiser, pode discutir sobre isso [ nesse fórum ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)também. O objetivo do design é ser minimalista (sem menus ou botões desnecessários, etc) e sem distrações (cores extravagantes, animações, etc). Todas as coisas exibidas devem ser úteis de alguma forma e devem ser cuidadosamente posicionadas para um uso fácil. Fontes, tamanhos, cores, etc devem ser material design sempre que possível.
 
 <h2><a name="frequently-asked-questions"></a>Perguntas Frequentes (FAQ)</h2>
 
@@ -160,16 +160,16 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(32) Como posso verificar se a leitura de um e-mail é realmente segura?](#user-content-faq32)
 * [(33) Por que os endereços de remetente editados não estão funcionando?](#user-content-faq33)
 * [(34) Como as identidades são combinadas?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
+* [(35) Por que devo ter cuidado ao visualizar imagens, anexos, mensagem original e links de abertura?](#user-content-faq35)
 * [(36) Como os arquivos de configuração são criptografados?](#user-content-faq36)
 * [(37) Como são armazenadas as senhas?](#user-content-faq37)
 * [(39) Como posso reduzir o uso de bateria do FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
-* [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
+* [(40) Como posso reduzir o uso de dados do FairEmail?](#user-content-faq40)
+* [(41) Como posso corrigir o erro 'Handshake falhou'?](#user-content-faq41)
 * [(42) Você pode adicionar um novo provedor à lista de provedores?](#user-content-faq42)
 * [(43) Você pode mostrar a/o ... original?](#user-content-faq43)
 * [(44) Você pode mostrar fotos de contatos / ícones de identificação na pasta de enviados?](#user-content-faq44)
-* [(45) Como posso corrigir o erro 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
+* [(45) Como posso corrigir o erro 'This key is not available. Para usá-lo, você deve importá-lo como um dos seus!" ?](#user-content-faq45)
 * [(46) Por que a lista de mensagens continua atualizando?](#user-content-faq46)
 * [(47) Como posso resolver o erro 'Nenhuma conta principal ou nenhuma pasta de rascunhos' ?](#user-content-faq47)
 * [~~(48) Como posso resolver o erro 'Nenhuma conta principal ou nenhuma pasta de arquivos' ?~~](#user-content-faq48)
@@ -178,10 +178,10 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(51) Como as pastas são ordenadas?](#user-content-faq51)
 * [(52) Porque leva algum tempo para se reconectar a uma conta?](#user-content-faq52)
 * [(53) Você pode colocar a barra de ação na parte superior/inferior?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
+* [~~(54) Como usar o prefixo de um namespace?~~](#user-content-faq54)
 * [(55) Como posso marcar todas as mensagens como lidas / mover ou excluir todas as mensagens?](#user-content-faq55)
 * [(56) Você pode adicionar suporte para JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
+* [(57) Posso usar HTML em assinaturas?](#user-content-faq57)
 * [(58) O que um ícone de e-mail aberto/fechado significa?](#user-content-faq58)
 * [(59) Mensagens originais podem ser abertas no navegador?](#user-content-faq59)
 * [(60) Você sabia ...?](#user-content-faq60)
@@ -231,7 +231,7 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(105) Como a opção roam-like-at-home funciona?](#user-content-faq105)
 * [(106) Quais launcher (inicializadores) podem mostrar um contador com o número de mensagens não lidas?](#user-content-faq106)
 * [(107) Como eu utilizo estrelas coloridas?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [~~~(108) Você pode adicionar mensagens permanentemente de qualquer pasta?~~](#user-content-faq108)
 * [~~(109) Porque 'selecionar conta' está disponível apenas nas versões oficiais?~~](#user-content-faq109)
 * [(110) Por que (algumas) mensagems estão vazias e/ou com anexos corrompidos?](#user-content-faq110)
 * [(111) OAuth é suportado?](#user-content-faq111)
@@ -261,7 +261,7 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(135) Porque mensagens e rascunhos apagados são exibidos em conversas?](#user-content-faq135)
 * [(136) Como posso excluir uma conta/identidade/pasta?](#user-content-faq136)
 * [(137) Como posso redefinir o 'Não perguntar novamente'?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
+* [(138) Você pode adicionar calendário/contato/tarefas/gerenciamento de notas?](#user-content-faq138)
 * [(139) Como posso resolver o erro 'Usuário está autenticado mas não conectado'?](#user-content-faq139)
 * [(140) Porque a mensagem contém caracteres estranhos?](#user-content-faq140)
 * [(141) Como posso corrigir o erro 'Uma pasta de rascunhos é necessária para enviar mensagens'?](#user-content-faq141)
@@ -284,19 +284,19 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(158) Qual câmera / gravador de áudio você recomenda?](#user-content-faq158)
 * [(159) O que são listas de proteção de rastreador de desconexão?](#user-content-faq159)
 * [(160) Vocês podem adicionar a exclusão permanente de mensagens sem confirmação?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
+* [(161) Você pode adicionar uma configuração para alterar a cor primária e de destaque?](#user-content-faq161)
+* [(162) A NOTIFY do IMAP é suportada?](#user-content-faq162)
+* [(163) O que é a classificação de mensagens?](#user-content-faq163)
 * [(164) Você consegue adicionar temas personalizáveis?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(165) O Android é suportado automaticamente?](#user-content-faq165)
+* [(166) Posso silenciar uma mensagem em vários dispositivos?](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Tenho uma outra pergunta.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Quais permissões são necessárias e por quê?**
 
-The following Android permissions are needed:
+As seguintes permissões do Android são necessárias:
 
 * *acesso completo à rede* (INTERNET): para enviar e receber e-mails
 * *ver conexões de rede* (ACCESS_NETWORK_STATE): para monitorar mudanças de conectividade com a internet
@@ -304,17 +304,17 @@ The following Android permissions are needed:
 * *serviço de primeiro plano* (FOREGROUND_SERVICE): para rodar como um serviço de primeiro plano no Android 9 Pie e posteriores, veja também a próxima pergunta
 * *evitar que o dispositivo hiberne* (WAKE_LOCK): para manter o dispositivo ativado durante a sincronização de mensagens
 * *compras no aplicativo* (BILLING): para permitir compras no aplicativo
-* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
+* *programar o alarme exato* (SCHEDULE_EXACT_ALARM): para usar o agendamento exato do alarme (Android 12 e superior)
 * Opcional:*leia seus contatos*(READ_CONTACTS): para completar automaticamente os endereços, para exibir fotos dos contatos e [para selecionar contatos](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Opcional: *leia o conteúdo do seu cartão SD* (READ_EXTERNAL_STORAGE): para aceitar arquivos de outros aplicativos desatualizados, veja também [este FAQ](#user-content-faq49)
 * Opcional:*usar o hardware de impressão digital* (USE_FINGERPRINT) e usar *hardware de biometria* (USE_BIOMETRIC): para usar autenticação biométrica
 * Opcional: *encontre contas no dispositivo*(GET_ACCOUNTS): para selecionar uma conta ao utilizar a configuração rápida do Gmail
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Android 5. Lollipop e anteriormente: *use contas no dispositivo* (USE_CREDENTIALS): para selecionar uma conta quando estiver usando a instalação rápida do Gmail (não é solicitada em versões posteriores do Android)
+* Android 5. Lollipop e anteriormente: *Ler perfil* (READ_PROFILE): para ler o seu nome quando estiver usando a configuração rápida do Gmail (não é solicitado em versões posteriores do Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[As permissões opcionais](https://developer.android.com/training/permissions/requesting) são suportadas somente no Android 6 Marshmallow ou posterior. Em versões anteriores do Android, você será solicitado a conceder as permissões opcionais para instalar o FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+As seguintes permissões são necessárias para mostrar a contagem de mensagens não lidas como uma insígnia (veja também [este FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -333,18 +333,18 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+O FairEmail manterá uma lista de endereços que você recebe mensagens e envia mensagens para e usará esta lista para sugestões de contatos quando nenhuma permissão de contato for concedida para o FairEmail. Isso significa que você pode usar o FairEmail sem o provedor de contatos Android (livro de endereços). Observe que você ainda pode escolher contatos sem conceder permissões de contatos ao FairEmail, apenas sugerindo contatos não funcionarão sem as permissões de contatos.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Por que há uma notificação exibida de forma permanente?**
+**(2) Por que há uma notificação permanente mostrada?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Uma notificação com baixa prioridade na barra de status com o número de contas sendo monitoradas e o número de operações pendentes (veja a próxima questão) é mostrada para evitar que o Android cancele o serviço que cuida de e-mails de recepção contínuos. Isto era [já necessário](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), mas com a introdução do [modo doze](https://developer.android.com/training/monitoring-device-state/doze-standby) no Android 6 Marshmallow isso é mais do que nunca necessário. O Modo Doze irá parar todos os apps quando a tela estiver desligada por algum tempo, a menos que o aplicativo inicie um serviço em primeiro plano, que requer mostrar uma notificação na barra de status.
 
 A maioria, se não todos, dos outros aplicativos de email não exibem a notificação com o "efeito secundário" de que novas mensagens não são frequentemente relatadas, ou são relatadas com atraso e que mensagens não são enviadas ou são enviadas com atraso.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. Na prática, isso significa que a notificação da barra de status não ocupa espaço na barra de status, a não ser que haja espaço disponível.
+O Android mostra os ícones de notificações da barra de status de alta prioridade primeiro e ocultará o ícone da notificação do FairEmail, se não houver mais espaço para mostrar os ícones. Na prática, isso significa que a notificação da barra de status não ocupa espaço na barra de status, a não ser que haja espaço disponível.
 
 A notificação da barra de status pode ser desabilitada por meio das configurações de notificação do FairEmail:
 
@@ -353,18 +353,18 @@ A notificação da barra de status pode ser desabilitada por meio das configura�
 
 Você pode alternar para a sincronização periódica de mensagens, nas configurações de recebimento, para remover a notificação, mas esteja ciente de que isso pode usar mais a bateria. Veja[aqui](#user-content-faq39)para mais detalhes sobre o uso da bateria.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+O Android 8 Oreo também pode mostrar uma notificação na barra de status com o texto *Apps são executados em segundo plano*. Veja [aqui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) sobre como você pode desativar essa notificação.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Algumas pessoas sugeriram usar o [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) em vez de um serviço Android com uma notificação na barra de status, mas isto requer que provedores de e-mail enviem mensagens FCM ou um servidor central onde todas as mensagens são coletadas enviando mensagens FCM. A primeira não vai acontecer e a última teria implicações significativas em termos de privacidade.
 
 Se você chegou aqui após clicar na notificação, saiba que o próximo clique irá abrir a caixa de entrada unificada.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) O que são as operações e por que elas estão pendentes?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+A notificação da barra de status de baixa prioridade mostra o número de operações pendentes, que podem ser:
 
 * *a adicionar*: adicionar mensagens a uma pasta remota
 * *a mover*: mover mensagens para outra pasta remota
@@ -386,26 +386,26 @@ The low priority status bar notification shows the number of pending operations,
 * *a enviar*: enviando mensagens
 * *a checar*: checando se a mensagens existe
 * *regra*: executando uma regra no texto do corpo
-* *expunge*: permanently delete messages
+* *excluir mensagens permanentemente*
 
-Operações são processadas somente quando existe uma conexão com o servidor do e-mail ou quando a sincronização é feita manualmente. See also [this FAQ](#user-content-faq16).
+Operações são processadas somente quando existe uma conexão com o servidor do e-mail ou quando a sincronização é feita manualmente. Veja também [este FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Como posso usar um certificado de segurança inválido/senha em branco / conexão em texto simples.**
 
-*... Untrusted ... not in certificate ...*
+*... Não confiável ... não está no certificado ...*
 <br />
 *... Certificado de segurança inválido (Não é possivel verificar a identidade do servidor)...*
 
 Isso pode ser causado pelo uso de um nome incorreto do host, então primeiro verifique o nome do host nas configurações avançadas de identidade/conta (toque na configuração manual). Consulte a documentação do provedor do e-mail sobre o nome correto do host.
 
-Voce deve tentar corrigir isso contactando seu provedor ou obtendo um certificado de segurança válido prque certificados de segurança inválidos são inseguros e permitem[ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Voce deve tentar corrigir isso contactando seu provedor ou obtendo um certificado de segurança válido prque certificados de segurança inválidos são inseguros e permitem[ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se o dinheiro for um obstáculo, você pode obter certificados de segurança gratuitos em [Vamos Criptografar](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
+A solução rápida, mas insegura (não aconselhada), é habilitar *conexões inseguras* nas configurações avançadas de identidade (menu de navegação, toque em *Configurações*, toque em *Configuração manual*, toque em *Identidades*, toque na identidade, toque em *Avançado*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Como alternativa, você pode aceitar a impressão digital de certificados de servidor inválidos como este:
 
 1. Certifique-se de usar uma conexão de internet confiável (sem redes públicas, etc)
 1. Vá para a tela de configuração pelo menu de navegação (deslize do lado esquerdo para dentro)
@@ -413,42 +413,42 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 1. Verificar/salvar a conta e identidade
 1. Marque a caixa de seleção abaixo da mensagem de erro e salve novamente
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Isto "fixará" o certificado do servidor para evitar ataques man-in-the-middle.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
-
-<br />
-
-*Trust anchor for certification path not found*
-
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
-
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
-
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
-
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
-
-You can pin the certificate too, see above.
+Note que as versões mais antigas do Android podem não reconhecer as autoridades de certificação mais recentes como o Encrypt que faz com que as conexões sejam consideradas inseguras, veja também [aqui](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
-*Empty password*
+*Âncora de confiança para o caminho de certificação não encontrado*
 
-Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
+*... java.security.cert.CertPathValidatorException: Âncora de confiança para o caminho de certificação não encontrado...* significa que o gerenciador de confiança padrão do Android não foi capaz de verificar a cadeia de certificados do servidor.
 
-*Plain text connection*
+Isto pode ser devido ao certificado raiz não estar instalado no seu dispositivo ou porque estão faltando certificados intermediários, por exemplo, porque o servidor de email não os enviou.
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Você pode corrigir o primeiro problema baixando e instalando o certificado raiz a partir do site do provedor do certificado.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+O segundo problema deve ser corrigido alterando a configuração do servidor ou importando os certificados intermediários no seu dispositivo.
+
+Você também pode fixar o certificado, veja acima.
+
+<br />
+
+*Senha vazia*
+
+Seu nome de usuário provavelmente é facilmente adivinhado, então isso é bem inseguro, a não ser que o servidor SMTP esteja disponível apenas por uma rede local restrita ou uma VPN.
+
+*Conexão de texto simples*
+
+Seu nome de usuário e senha e todas as mensagens serão enviadas e recebidas sem criptografia, que é **muito inseguro** porque um [ataque homem no meio](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) é muito simples para uma conexão não criptografada.
+
+Se quiser usar um certificado de segurança inválido, uma senha vazia ou uma conexão de texto simples você precisará para habilitar conexões inseguras na conta e/ou nas configurações de identidade. STARTTLS deve ser selecionado para conexões de texto simples. Se você ativar conexões inseguras, você deve se conectar através de redes privadas e confiáveis apenas e nunca através de redes públicas, como oferecidas em hotéis, aeroportos, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Como personalizar a exibição de mensagens?**
 
-In the three dot overflow menu you can enable or disable or select:
+No menu de estouro de três pontos você pode ativar ou desativar ou selecionar:
 
 * *tamanho do texto*: para três tamanhos de texto diferentes
 * *visualização compacta*: para mensagens mais compactas e uma fonte de mensagem menor
@@ -456,73 +456,73 @@ In the three dot overflow menu you can enable or disable or select:
 Na seção de exibição das configurações você pode habilitar ou desabilitar, por exemplo:
 
 * *Caixa de entrada unificada*: para desativar a caixa de entrada unificada e mostrar pastas distintas no lugar da caixa unificada
-* *Tabular style*: to show a linear list instead of cards
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
-* *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Estilo Tabular*: para mostrar uma lista linear em vez de cartas
+* *Agrupar por data*: mostrar o cabeçalho da data acima das mensagens com a mesma data
+* *Sequência da conversa*: para desativar a conversa e mostrar mensagens individuais ao invés
+* *Barra de ação de conversa*: para desativar a barra de navegação inferior
+* *Cor de destaque*: para selecionar uma cor para o remetente de mensagens não lidas
+* *Mostrar fotos de contatos*: para ocultar fotos de contatos
+* *Mostrar nomes e endereços de e-mail*: para mostrar nomes ou endereços de e-mail
+* *Mostrar assunto em itálico*: para mostrar o assunto da mensagem como texto normal
+* *Mostrar estrelas*: para ocultar estrelas (favoritos)
+* *Mostrar pré-visualização de mensagem*: para mostrar de 1 a 4 linhas do texto da mensagem
+* *Mostrar detalhes do endereço por padrão*: para expandir a seção de endereços por padrão
+* *Mostrar automaticamente a mensagem original para contatos conhecidos*: para mostrar automaticamente as mensagens originais dos contatos no seu dispositivo, por favor, leia [esta FAQ](#user-content-faq35)
+* *Mostra automaticamente imagens para contatos conhecidos*: para mostrar automaticamente imagens para contatos no seu dispositivo, por favor, leia [esta FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Observe que as mensagens só podem ser visualizadas quando o texto da mensagem foi baixado. Textos maiores de mensagens não são baixados por padrão em redes limitadas (geralmente móveis). Você pode alterar isso nas configurações de conexão.
 
-Some people ask:
+Algumas pessoas perguntam:
 
 * para mostrar o assunto em negrito, mas o negrito já é utilizado para destacar mensagens não lidas
-* to move the star to the left, but it is much easier to operate the star on the right side
+* para mover a estrela para a esquerda, mas é muito mais fácil operar a estrela no lado direito
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Como posso fazer login no Gmail / G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Se você usa a versão do FairEmail, na Play Store ou no GitHub, você pode usar o assistente de configuração rápida para configurar facilmente uma conta e identidade do Gmail. O assistente de configuração rápida do Gmail não está disponível para compilações de terceiros, como a compilação F-Droid porque o Google aprovou o uso do OAuth apenas para compilações oficiais.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Se você não quer usar ou não pode usar uma conta do Google no dispositivo, por exemplo, em dispositivos recentes Huawei, Você pode habilitar o acesso para "aplicativos menos seguros" e usar a senha da sua conta (não recomendado) ou habilitar a autenticação de dois fatores e usar uma senha específica do aplicativo. Para usar uma senha você precisará configurar uma conta e identidade por meio da configuração manual, ao invés de através do assistente de configuração rápida.
 
-**Important**: sometimes Google issues this alert:
+**Importante**: às vezes, o Google emite este alerta:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Por favor, faça o login através do seu navegador da web: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Esta verificação de segurança do Google é acionada mais frequentemente com *aplicativos menos seguros* ativados menos com uma senha de aplicativo, e dificilmente ao usar uma conta no dispositivo (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Por favor veja [este FAQ](#user-content-faq111) sobre por que apenas as contas no dispositivo podem ser usadas.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Note que uma senha específica do aplicativo é necessária quando a autenticação em duas etapas está ativada.
 
 <br />
 
-*Enable "Less secure apps"*
+*Senha específica do app*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Veja [aqui](https://support.google.com/accounts/answer/185833) sobre como gerar uma senha específica do aplicativo.
 
 <br />
 
-*General*
+*Ativar "Apps menos seguros"*
+
+**Importante**: usar este método não é recomendado porque é menos confiável.
+
+**Importante**: Contas Gsuite autorizadas com um nome de usuário/senha deixarão de funcionar [no futuro próximo](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Veja [aqui](https://support.google.com/accounts/answer/6010255) sobre como ativar "aplicativos menos seguros" ou vá [diretamente para a configuração](https://www.google.com/settings/security/lesssecureapps).
+
+Se você usar várias contas do Gmail, certifique-se de alterar a configuração "apps menos seguros" da(s) conta(s) correta(s).
+
+Esteja ciente de que você precisa sair da tela de configurações "apps menos seguros" usando a seta traseira para aplicar a configuração.
+
+Se você usa este método, você deve usar uma [senha forte](https://en.wikipedia.org/wiki/Password_strength) para sua conta do Gmail, que é uma boa idéia de qualquer forma. Observe que o uso do [protocolo IMAP padrão](https://tools.ietf.org/html/rfc3501) em si não é menos seguro.
+
+Quando "apps menos seguros" não estiver habilitado, você receberá o erro *Autenticação falhou - credenciais inválidas* para contas (IMAP) e *Nome de usuário e senha não aceitos* para identidades (SMTP).
+
+<br />
+
+*Gerais*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 

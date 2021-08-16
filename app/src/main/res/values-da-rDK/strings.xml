@@ -171,6 +171,7 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_permissions_explanation">Kontakttilladelser kræves for at slå kontaktoplysninger op og foreslå kontaktpersoner</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Hvordan importeres kontakter?</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt</string>
     <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>
@@ -1156,6 +1157,7 @@
     <string name="title_select_all">Markér alle</string>
     <string name="title_select_found">Markér fundne</string>
     <string name="title_mark_all_read">Markér alle som læst</string>
+    <string name="title_view_thread">Vis samtale</string>
     <string name="title_force_sync">Gennemtving synk</string>
     <string name="title_force_send">Gennemtving afsend</string>
     <string name="title_language_all">Alle</string>
@@ -1446,7 +1448,6 @@
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
     <string name="title_pro_price">Hvorfor er Pro-funktionerne så dyre?</string>
     <string name="title_pro_family">Kan man bruge Google Play Familie-biblioteket?</string>
-    <string name="title_pro_restore">Hvordan gendannes et køb?</string>
     <string name="title_pro_pending">Afventende køb</string>
     <string name="title_pro_activated">Alle Pro-funktioner er aktiveret</string>
     <string name="title_pro_valid">Alle Pro-funktioner er aktiveret</string>

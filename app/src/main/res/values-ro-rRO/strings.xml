@@ -182,6 +182,7 @@
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Cum pot importa contacte?</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a trimite și primi e-mail în mod fiabil</string>
     <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
@@ -1175,7 +1176,7 @@
     <string name="title_select_all">Selectează tot</string>
     <string name="title_select_found">Selectare găsite</string>
     <string name="title_mark_all_read">Marcheaza tot ca citit</string>
-    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Vizualizați conversația</string>
+    <string name="title_view_thread">Vizualizați conversația</string>
     <string name="title_force_sync">Sincronizare forțată</string>
     <string name="title_force_send">Trimite forțat</string>
     <string name="title_language_all">Toate</string>
@@ -1466,7 +1467,7 @@
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">De ce sunt caracteristicile Pro sunt atât de scumpe?</string>
     <string name="title_pro_family">Pot folosi Biblioteca de familie Google Play?</string>
-    <string name="title_pro_restore">Cum pot restaura o achiziție?</string>
+    <string name="title_pro_restore">Cum pot restaura o achiziție (pe un alt dispozitiv)?</string>
     <string name="title_pro_pending">Achiziție în așteptare</string>
     <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
     <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>

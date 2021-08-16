@@ -172,6 +172,7 @@
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
     <string name="title_setup_permissions_explanation">L\'autorisation d\'accès aux contacts est requise pour rechercher des informations de contact et pour suggérer des contacts</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Comment puis-je importer des contacts ?</string>
     <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour envoyer et recevoir des e-mails de manière fiable</string>
     <string name="title_setup_doze_explanation">Les optimisations de la batterie doivent être désactivées pour que l\'application assure un envoi et une réception fiables des messages en arrière-plan</string>
@@ -1165,7 +1166,7 @@
     <string name="title_select_all">Tout sélectionner</string>
     <string name="title_select_found">Sélectionner tous les messages trouvés</string>
     <string name="title_mark_all_read">Tout marquer comme lu</string>
-    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Afficher la conversation</string>
+    <string name="title_view_thread">Afficher la conversation</string>
     <string name="title_force_sync">Forcer la synchronisation</string>
     <string name="title_force_send">Forcer l\'envoi</string>
     <string name="title_language_all">Toutes</string>
@@ -1456,7 +1457,7 @@
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de soutenir cette application.</string>
     <string name="title_pro_price">Pourquoi les fonctionnalités Pro sont-elles si chères ?</string>
     <string name="title_pro_family">Puis-je utiliser la bibliothèque familiale Google Play ?</string>
-    <string name="title_pro_restore">Comment puis-je me faire rembourser ?</string>
+    <string name="title_pro_restore">Comment puis-je récupérer un achat (sur un autre appareil) ?</string>
     <string name="title_pro_pending">Achat en attente</string>
     <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>

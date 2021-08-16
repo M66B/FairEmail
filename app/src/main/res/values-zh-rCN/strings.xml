@@ -161,6 +161,7 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_permissions_explanation">需要联系人权限来查找联系人信息和推荐联系人</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">如何导入联系人？</string>
     <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">可靠地发送和接收电子邮件</string>
     <string name="title_setup_doze_explanation">应禁用针对本应用的电池优化，以确保后台消息的可靠发送和接收。</string>
@@ -1153,6 +1154,7 @@
     <string name="title_select_all">全选</string>
     <string name="title_select_found">选中找到的</string>
     <string name="title_mark_all_read">全部标为已读</string>
+    <string name="title_view_thread">查看对话</string>
     <string name="title_force_sync">强制同步</string>
     <string name="title_force_send">强制发送</string>
     <string name="title_language_all">全部</string>
@@ -1442,7 +1444,7 @@
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">为什么专业功能如此昂贵？</string>
     <string name="title_pro_family">我可以使用 Google Play 家人共享内容库吗？</string>
-    <string name="title_pro_restore">如何恢复购买？</string>
+    <string name="title_pro_restore">我如何恢复购买？(在另一部设备上)</string>
     <string name="title_pro_pending">购买待处理</string>
     <string name="title_pro_activated">全部专业版功能已激活</string>
     <string name="title_pro_valid">全部专业版功能已激活</string>

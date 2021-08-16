@@ -147,6 +147,7 @@
     <string name="title_setup_quick_patience">Пожалуйста, будьте терпеливы&#8230;</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
+    <string name="title_setup_quick_certificates">Сертификаты сервера</string>
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
@@ -191,6 +192,7 @@
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Как импортировать контакты?</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжного получения и отправки электронной почты</string>
     <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
@@ -1184,6 +1186,7 @@
     <string name="title_select_all">Выбрать все</string>
     <string name="title_select_found">Выбрать найденное</string>
     <string name="title_mark_all_read">Отметь все прочитанными</string>
+    <string name="title_view_thread">Просмотр диалога</string>
     <string name="title_force_sync">Принудительная синхронизация</string>
     <string name="title_force_send">Принудительная отправка</string>
     <string name="title_language_all">Все</string>
@@ -1474,7 +1477,7 @@
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Почему функции Pro так дороги?</string>
     <string name="title_pro_family">Можно ли использовать семейную библиотеку Google Play?</string>
-    <string name="title_pro_restore">Как восстановить покупку?</string>
+    <string name="title_pro_restore">Как восстановить покупку (на другом устройстве)?</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>
     <string name="title_pro_activated">Все функции Pro активированы</string>
     <string name="title_pro_valid">Все функции Pro активированы</string>

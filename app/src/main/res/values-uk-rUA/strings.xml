@@ -1184,6 +1184,7 @@
     <string name="title_select_all">Виділити все</string>
     <string name="title_select_found">Вибрати знайдене</string>
     <string name="title_mark_all_read">Позначити всі як прочитані</string>
+    <string name="title_view_thread">Переглянути бесіду</string>
     <string name="title_force_sync">Примусова синхронізація</string>
     <string name="title_force_send">Примусове надсилання</string>
     <string name="title_language_all">Усі</string>
@@ -1474,7 +1475,6 @@
     <string name="title_pro_hint">Купівля Pro-функцій дозволить вам використовувати всі поточні та майбутні Pro-функції, і допоможе підтримувати і обслуговувати цей додаток.</string>
     <string name="title_pro_price">Чому Pro функції такі дорогі?</string>
     <string name="title_pro_family">Чи можна використовувати сімейну бібліотеку Google Play?</string>
-    <string name="title_pro_restore">Як я можу відновити покупку?</string>
     <string name="title_pro_pending">Покупка в очікуванні</string>
     <string name="title_pro_activated">Всі Pro-функції активовано</string>
     <string name="title_pro_valid">Всі Pro-функції активовані</string>

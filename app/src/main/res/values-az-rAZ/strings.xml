@@ -172,6 +172,7 @@
     <string name="title_setup_permissions">Verilən icazələr</string>
     <string name="title_setup_permissions_remark">Əlaqə məlumatlarına müraciət (məcburi deyil)</string>
     <string name="title_setup_permissions_explanation">Əlaqə icazələri, əlaqə məlumatlarının axtarışı və əlaqə təklifi üçün tələb olunur</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Əlaqələri necə idxal edə bilərəm?</string>
     <string name="title_setup_doze">Batareya optimallaşdırmasını sıradan çıxart</string>
     <string name="title_setup_doze_remark">E-poçtların güvənlə göndərilməsi və alınması üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
@@ -1164,6 +1165,7 @@
     <string name="title_select_all">Hamısını seçin</string>
     <string name="title_select_found">Tapılanı seçin</string>
     <string name="title_mark_all_read">Hamısını oxunmuş kimi işarələ</string>
+    <string name="title_view_thread">Danışığa bax</string>
     <string name="title_force_sync">Məcburi eyniləşdirmə</string>
     <string name="title_force_send">Məcburi göndərmə</string>
     <string name="title_language_all">Hamısı</string>
@@ -1454,7 +1456,7 @@
     <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
     <string name="title_pro_price">Pro xüsusiyyətlər niyə bu qədər bahalıdır?</string>
     <string name="title_pro_family">Google Play Ailə Kitabxanasını istifadə edə bilərəm?</string>
-    <string name="title_pro_restore">Satın alma prosesimi necə bərpa edim?</string>
+    <string name="title_pro_restore">Bir satın almanı (başqa bir cihazda) necə geri yükləyə bilərəm?</string>
     <string name="title_pro_pending">Satın alma gözləyir</string>
     <string name="title_pro_activated">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
     <string name="title_pro_valid">Bütün pro xüsusiyyətlər aktivdir</string>

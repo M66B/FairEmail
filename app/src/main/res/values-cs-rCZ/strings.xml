@@ -858,6 +858,7 @@
     <string name="title_subscribe">Přihlásit odběr</string>
     <string name="title_delete">Smazat</string>
     <string name="title_more">Více</string>
+    <string name="title_less">Méně</string>
     <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
     <string name="title_copy_btn">Kopírovat</string>
@@ -1315,6 +1316,7 @@
     <string name="title_legend_create_rule">Vytvořit pravidlo</string>
     <string name="title_legend_show_unsubscribe">Ukončit odebírání kanálu</string>
     <string name="title_legend_show_images">Zobrazit obrázky</string>
+    <string name="title_legend_hide_images">Skrýt obrázky</string>
     <string name="title_legend_show_full">Zobrazit původní zprávu</string>
     <string name="title_legend_edit">Upravit</string>
     <string name="title_legend_default_color">Výchozí barva</string>
@@ -1362,6 +1364,7 @@
     <string name="title_check_owner">Zkontrolovat vlastníka</string>
     <string name="title_remark_owner">Informace bude získána z <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP adresa vlastníka</string>
+    <string name="title_default_apps">Výchozí aplikace</string>
     <string name="title_select_app">Vybrat aplikaci</string>
     <string name="title_issue">Máte dotaz nebo problém?</string>
     <string name="title_yes">Ano</string>
@@ -1423,7 +1426,6 @@
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Proč jsou Pro funkce tak drahé?</string>
     <string name="title_pro_family">Mohu použít Rodinnou mediatéku Google Play?</string>
-    <string name="title_pro_restore">Jak mohu obnovit svůj nákup?</string>
     <string name="title_pro_pending">Probíhá nákup</string>
     <string name="title_pro_activated">Všechny Pro funkce jsou aktivní</string>
     <string name="title_pro_valid">Všechny Pro funkce aktivovány</string>

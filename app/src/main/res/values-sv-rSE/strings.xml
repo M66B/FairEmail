@@ -120,12 +120,14 @@
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_intro">Att lägga till ett konto tar bara tre steg och efter det kan du skicka och ta emot e-post</string>
     <string name="title_setup_simple">Det finns ingen anledning att ändra några andra inställningar</string>
+    <string name="title_setup_issue">FairEmail har utvecklats för att hjälpa dig att skydda din integritet och representerar bokstavligen tusentals timmars arbete. Om du har några problem, vängligen kontakta mig först för support innan du lämnar en dålig recension. Jag hjälper gärna till!</string>
     <string name="title_setup_quick_accounts">Lägg till eller byt konton</string>
     <string name="title_setup_quick_support">Vissa leverantörer gör det svårt att lägga till ett konto. Vänligen skyll inte på FairEmail för det, be om support istället.</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Vänligen vänta &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
+    <string name="title_setup_quick_certificates">Servercertifikat</string>
     <string name="title_setup_wizard">Guide</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan användas flera gånger om för att lägga till fler konton</string>
     <string name="title_setup_wizard_new">Jag behöver en ny e-postadress</string>
@@ -170,6 +172,7 @@
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_permissions_explanation">Kontaktbehörigheter krävs för att söka kontaktinfo och föreslå kontakter</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Hur kan jag importera kontakter?</string>
     <string name="title_setup_doze">Inaktivera batterioptimeringar</string>
     <string name="title_setup_doze_remark">Att på ett tillförlitligt sätt skicka och ta emot e-post</string>
     <string name="title_setup_doze_explanation">Batterioptimeringar bör inaktiveras för appen för att säkerställa tillförlitlig sändning och mottagning av meddelanden i bakgrunden</string>
@@ -296,6 +299,7 @@
     <string name="title_advanced_limit_reply">Begränsa antalet nästlade citat</string>
     <string name="title_advanced_resize_reply">Ändra storlek på bilder i svarande text</string>
     <string name="title_advanced_signature_location">Signaturens position</string>
+    <string name="title_advanced_signature_new">Använd signatur för nya meddelanden</string>
     <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
     <string name="title_advanced_signature_forward">Använd signatur vid vidarebefordran</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
@@ -1159,6 +1163,7 @@
     <string name="title_select_all">Markera alla</string>
     <string name="title_select_found">Välj hittade</string>
     <string name="title_mark_all_read">Markera alla lästa</string>
+    <string name="title_view_thread">Visa konversation</string>
     <string name="title_force_sync">Tvinga synkronisering</string>
     <string name="title_force_send">Tvinga skickning</string>
     <string name="title_language_all">Alla</string>
@@ -1385,6 +1390,7 @@
     <string name="title_check_owner">Kontrollera ägare</string>
     <string name="title_remark_owner">Information hämtas från <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Ägarens IP-adress</string>
+    <string name="title_default_apps">Standardappar</string>
     <string name="title_reset_open">Ange eller rensa standardappar</string>
     <string name="title_select_app">Välj app</string>
     <string name="title_updated">Uppdatering till version %1$s tillgänglig</string>
@@ -1448,7 +1454,7 @@
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
     <string name="title_pro_price">Varför är pro-funktionerna så dyra?</string>
     <string name="title_pro_family">Kan jag använda Google Play Family Library?</string>
-    <string name="title_pro_restore">Hur kan jag återställa ett tidigare köp?</string>
+    <string name="title_pro_restore">Hur kan jag återställa ett köp (på en annan enhet) ?</string>
     <string name="title_pro_pending">Väntande köp</string>
     <string name="title_pro_activated">Alla pro-funktioner aktiverades</string>
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>

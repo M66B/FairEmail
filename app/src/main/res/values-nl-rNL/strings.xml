@@ -172,6 +172,7 @@
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Hoe kan ik contacten importeren?</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Om betrouwbaar e-mail te verzenden en ontvangen</string>
     <string name="title_setup_doze_explanation">Batterij optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
@@ -1163,7 +1164,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_select_found">Selecteer gevonden</string>
     <string name="title_mark_all_read">Markeer alle gelezen</string>
-    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Toon gesprek</string>
+    <string name="title_view_thread">Toon gesprek</string>
     <string name="title_force_sync">Forceer verversen</string>
     <string name="title_force_send">Forceer verzenden</string>
     <string name="title_language_all">Alle</string>
@@ -1453,7 +1454,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
     <string name="title_pro_price">Waarom zijn de pro functies zo duur?</string>
     <string name="title_pro_family">Kan ik de Google Play Familie-bibliotheek gebruiken?</string>
-    <string name="title_pro_restore">Hoe kan ik een aankoop herstellen?</string>
+    <string name="title_pro_restore">Hoe kan ik een aankoop herstellen (op een ander apparaat) ?</string>
     <string name="title_pro_pending">Aankoop in behandeling</string>
     <string name="title_pro_activated">Alle pro-functies zijn geactiveerd</string>
     <string name="title_pro_valid">Alle pro-functies geactiveerd</string>

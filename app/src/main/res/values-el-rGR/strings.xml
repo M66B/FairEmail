@@ -172,6 +172,7 @@
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
     <string name="title_setup_permissions_explanation">Απαιτείται άδεια πρόσβασης στις επαφές για την αναζήτηση πληροφοριών επικοινωνίας και για προτάσεις επαφών</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Πώς μπορώ να εισαγάγω επαφές;</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
     <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη ηλ. μηνυμάτων</string>
     <string name="title_setup_doze_explanation">Οι βελτιστοποιήσεις μπαταρίας θα πρέπει να απενεργοποιηθούν για την εφαρμογή, ώστε να διασφαλιστεί η αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
@@ -425,7 +426,7 @@
     <string name="title_advanced_swipe_close">Σύρετε προς τα κάτω για να κλείσετε μια συζήτηση</string>
     <string name="title_advanced_swipe_move">Σύρετε προς τα πάνω για να μετακινήσετε μια συζήτηση</string>
     <string name="title_advanced_autoexpand">Αυτόματη ανάπτυξη των μηνυμάτων</string>
-    <string name="title_advanced_expand_first">Αυτόματη επέκταση του πρώτου μηνύματος, όταν η συνομιλία είναι αναγνωσμένη</string>
+    <string name="title_advanced_expand_first">Αυτόματη επέκταση του πρώτου μηνύματος, όταν η συζήτηση είναι αναγνωσμένη</string>
     <string name="title_advanced_expand_all">Αυτόματη ανάπτυξη όλων των αναγνωσμένων μηνυμάτων</string>
     <string name="title_advanced_expand_one">Ανάπτυξη μόνο ενός μηνύματος κάθε φορά</string>
     <string name="title_advanced_collapse_multiple">Σύμπτυξη των μηνυμάτων σε μια συζήτηση με πολλαπλά μηνύματα, πατώντας \"πίσω\"</string>
@@ -1163,7 +1164,7 @@
     <string name="title_select_all">Επιλογή όλων</string>
     <string name="title_select_found">Επιλογή αποτελεσμάτων αναζήτησης</string>
     <string name="title_mark_all_read">Επισήμανση όλων ως αναγνωσμένων</string>
-    <string name="title_view_thread" comment="title_view_thread&#10;Menu item to show conversation thread for single message">Προβολή συζήτησης</string>
+    <string name="title_view_thread">Προβολή συζήτησης</string>
     <string name="title_force_sync">Αναγκαστικός συγχρονισμός</string>
     <string name="title_force_send">Αναγκαστική αποστολή</string>
     <string name="title_language_all">Όλα</string>
@@ -1454,7 +1455,7 @@
     <string name="title_pro_hint">Αγοράζοντας την έκδοση pro θα μπορείτε να χρησιμοποιείτε όλες τις τρέχουσες και μελλοντικές δυνατότητες pro, και θα βοηθήσετε να ενημερώνεται και να αναπτύσσεται περαιτέρω αυτή η εφαρμογή.</string>
     <string name="title_pro_price">Γιατί είναι οι δυνατότητες pro τόσο ακριβές;</string>
     <string name="title_pro_family">Μπορώ να χρησιμοποιήσω την Οικογενειακή Βιβλιοθήκη του Google Play;</string>
-    <string name="title_pro_restore">Πώς μπορώ να επαναφέρω μια αγορά;</string>
+    <string name="title_pro_restore">Πώς μπορώ να επαναφέρω μια αγορά (σε μια άλλη συσκευή);</string>
     <string name="title_pro_pending">Εκκρεμεί αγορά</string>
     <string name="title_pro_activated">Όλες οι δυνατότητες pro έχουν ενεργοποιηθεί</string>
     <string name="title_pro_valid">Ενεργοποιημένες όλες οι δυνατότητες pro</string>
@@ -1570,8 +1571,8 @@
     </string-array>
     <string-array name="onCloseNames">
         <item>Καμία ενέργεια</item>
-        <item>Μετάβαση στην προηγούμενη συνομιλία</item>
-        <item>Μετάβαση στην επόμενη συνομιλία</item>
+        <item>Μετάβαση στην προηγούμενη συζήτηση</item>
+        <item>Μετάβαση στην επόμενη συζήτηση</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Μικρό</item>

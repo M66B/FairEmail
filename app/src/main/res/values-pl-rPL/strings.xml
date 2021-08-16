@@ -146,6 +146,7 @@
     <string name="title_setup_quick_patience">Proszę o cierpliwość &#8230;</string>
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
+    <string name="title_setup_quick_certificates">Certyfikaty serwera</string>
     <string name="title_setup_wizard">Kreator</string>
     <string name="title_setup_wizard_multiple">Kreator może być używany wielokrotnie, aby skonfigurować wiele kont</string>
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
@@ -319,6 +320,7 @@
     <string name="title_advanced_limit_reply">Ogranicz liczbę zagnieżdżonych cytatów</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
+    <string name="title_advanced_signature_new">Użyj podpisu dla nowych wiadomości</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
     <string name="title_advanced_signature_forward">Użyj podpisu podczas przesyłania dalej</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej usuń ją trwale</string>
@@ -614,6 +616,7 @@
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
     <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
     <string name="title_advanced_notify_manage_service_hint">Aby wyłączyć powiadomienie \"monitorowanie\"</string>
+    <string name="title_advanced_notify_separate_hint">Jak skonfigurować powiadomienia dla kont, folderów i nadawców?</string>
     <string name="title_advanced_notify_preview_all_hint">Dla urządzeń do noszenia, które mogą wyświetlać pełny tekst (do 5000 znaków)</string>
     <string name="title_advanced_notify_preview_only_hint">Opóźnia to wyświetlanie powiadomień do momentu pobrania tekstu wiadomości</string>
     <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
@@ -879,7 +882,9 @@
     <string name="title_download_all">Pobierz wszystkie</string>
     <string name="title_save_all">Zapisz wszystkie</string>
     <string name="title_save_eml">Zapisz nieprzetworzony plik wiadomości</string>
-    <string name="title_eml_remark">Aby przesyłać wiadomości dalej, należy pobrać surowe (oryginalne) wiadomości z serwera. Wymaga to połączenia z Internetem.</string>
+    <string name="title_eml_remark">Aby przesyłać wiadomości dalej, należy pobrać nieprzetworzone (oryginalne) wiadomości z serwera. Wymaga to połączenia z Internetem.</string>
+    <string name="title_eml_option">Można temu zapobiec poprzez włączanie \"Pobierz nieprzetworzone pliki wiadomości\" w ustawieniach połączenia</string>
+    <string name="title_eml_downloaded">Pobrano nieprzetworzone wiadomości: %1$s</string>
     <string name="title_buttons">Wybierz przyciski</string>
     <string name="title_buttons_hint">Dostępne działania zależą od typu konta i konfiguracji</string>
     <string name="title_button_search">Szukaj w wiadomościach</string>
@@ -1179,6 +1184,7 @@
     <string name="title_select_all">Wybierz wszystkie</string>
     <string name="title_select_found">Wybierz znalezione</string>
     <string name="title_mark_all_read">Oznacz wszystko jako przeczytane</string>
+    <string name="title_view_thread">Zobacz konwersację</string>
     <string name="title_force_sync">Wymuś synchronizację</string>
     <string name="title_force_send">Wymuś wysłanie</string>
     <string name="title_language_all">Wszystkie</string>
@@ -1468,7 +1474,7 @@
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Dlaczego funkcje pro są tak drogie?</string>
     <string name="title_pro_family">Czy mogę korzystać z biblioteki rodzinnej Google Play?</string>
-    <string name="title_pro_restore">Jak mogę przywrócić zakup?</string>
+    <string name="title_pro_restore">Jak mogę przywrócić zakup (na innym urządzeniu)?</string>
     <string name="title_pro_pending">Zakup w toku</string>
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
     <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>

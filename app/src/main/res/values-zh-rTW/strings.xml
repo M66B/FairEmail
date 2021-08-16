@@ -117,6 +117,7 @@
     <string name="title_setup_quick_patience">請耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">用於接收訊息的 IMAP 伺服器</string>
     <string name="title_setup_quick_smtp">用於傳送訊息的 SMTP 伺服器</string>
+    <string name="title_setup_quick_certificates">伺服器憑證</string>
     <string name="title_setup_wizard">精靈</string>
     <string name="title_setup_wizard_multiple">此精靈可以多次使用以設置多個帳戶</string>
     <string name="title_setup_wizard_new">我需要一個新的電子郵件地址。</string>
@@ -1153,6 +1154,7 @@
     <string name="title_select_all">全選</string>
     <string name="title_select_found">選取已尋獲的</string>
     <string name="title_mark_all_read">全部標示為已讀取</string>
+    <string name="title_view_thread">檢視會話</string>
     <string name="title_force_sync">強制同步</string>
     <string name="title_force_send">強制傳送</string>
     <string name="title_language_all">全部</string>
@@ -1443,7 +1445,6 @@
     <string name="title_pro_hint">購買完整專業版功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
     <string name="title_pro_price">為什麼專業版功能如此昂貴？</string>
     <string name="title_pro_family">我可以利用 Google Play 家庭媒體庫嗎？</string>
-    <string name="title_pro_restore">我如何恢復購買？</string>
     <string name="title_pro_pending">購買待處理</string>
     <string name="title_pro_activated">所有專業版功能均已激活</string>
     <string name="title_pro_valid">已激活所有專業版功能</string>
