@@ -19,7 +19,7 @@
         android:id="@+id/tvData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="3dp"
         android:text="log"
         android:textAppearance="@android:style/TextAppearance.Small"
         android:textColor="?android:attr/textColorPrimary"
