@@ -208,13 +208,13 @@ public class EntityOperation {
                 jargs.put(1, autoread);
                 jargs.put(3, autounflag);
 
-                EntityLog.log(context, EntityLog.Type.General,message,
+                EntityLog.log(context, EntityLog.Type.General, message,
                         "Move message=" + message.id +
-                        "@" + new Date(message.received) +
-                        ":" + message.subject +
-                        " source=" + source.id + ":" + source.type + ":" + source.name + "" +
-                        " target=" + target.id + ":" + target.type + ":" + target.name +
-                        " auto read=" + autoread + " flag=" + autounflag + " importance=" + reset_importance);
+                                "@" + new Date(message.received) +
+                                ":" + message.subject +
+                                " source=" + source.id + ":" + source.type + ":" + source.name + "" +
+                                " target=" + target.id + ":" + target.type + ":" + target.name +
+                                " auto read=" + autoread + " flag=" + autounflag + " importance=" + reset_importance);
 
                 if (autoread || autounflag || reset_importance)
                     for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
