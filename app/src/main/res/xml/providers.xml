@@ -508,6 +508,18 @@
             starttls="false" />
     </provider>
     <provider
+        name="Zoho AU"
+        domain="zohomail\\.com\\.au">
+        <imap
+            host="imap.zoho.com.au"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.zoho.com.au"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
         name="Mail.ru"
         domain="mail\\.ru,inbox\\.ru,list\\.ru,bk\\.ru"
         id="mailru"
