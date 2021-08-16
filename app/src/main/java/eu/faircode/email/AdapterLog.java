@@ -51,7 +51,9 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private int colorAccent;
     private int colorWarning;
 
-    private List<EntityLog> items = new ArrayList<>();
+    List<EntityLog.Type> types = new ArrayList<>();
+    private List<EntityLog> all = new ArrayList<>();
+    private List<EntityLog> selected = new ArrayList<>();
 
     private DateFormat TF;
 
@@ -70,21 +72,21 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
             tvTime.setText(TF.format(log.time));
             SpannableStringBuilder ssb = new SpannableStringBuilder(log.data);
             switch (log.type) {
-                case EntityLog.LOG_GENERAL:
+                case General:
                     break;
-                case EntityLog.LOG_STATS:
+                case Statistics:
                     ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
                     break;
-                case EntityLog.LOG_SCHEDULE:
+                case Scheduling:
                     ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
                     break;
-                case EntityLog.LOG_NETWORK:
+                case Network:
                     ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
                     break;
-                case EntityLog.LOG_ACCOUNT:
+                case Account:
                     ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
                     break;
-                case EntityLog.LOG_PROTOCOL:
+                case Protocol:
                     ssb.setSpan(new ForegroundColorSpan(textColorSecondary), 0, ssb.length(), 0);
                     break;
             }
@@ -115,12 +117,20 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         });
     }
 
-    public void set(@NonNull List<EntityLog> logs) {
+    public void set(@NonNull List<EntityLog> logs, @NonNull List<EntityLog.Type> types) {
         Log.i("Set logs=" + logs.size());
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, logs), false);
+        this.all = logs;
+        this.types = types;
 
-        items = logs;
+        List<EntityLog> items = new ArrayList<>();
+        for (EntityLog log : all)
+            if (types.contains(log.type))
+                items.add(log);
+
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
+
+        this.selected = items;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -144,6 +154,10 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void setTypes(@NonNull List<EntityLog.Type> types) {
+        set(all, types);
     }
 
     private static class DiffCallback extends DiffUtil.Callback {
@@ -182,12 +196,12 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).id;
+        return selected.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return selected.size();
     }
 
     @Override
@@ -198,7 +212,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        EntityLog log = items.get(position);
+        EntityLog log = selected.get(position);
         holder.bindTo(log);
     }
 }

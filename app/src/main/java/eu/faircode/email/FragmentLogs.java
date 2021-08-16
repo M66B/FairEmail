@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -39,6 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class FragmentLogs extends FragmentBase {
     private RecyclerView rvLog;
@@ -46,7 +48,15 @@ public class FragmentLogs extends FragmentBase {
     private Group grpReady;
 
     private boolean autoScroll = true;
+
     private AdapterLog adapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null)
+            autoScroll = savedInstanceState.getBoolean("fair:scroll");
+    }
 
     @Override
     @Nullable
@@ -90,7 +100,7 @@ public class FragmentLogs extends FragmentBase {
                 if (logs == null)
                     logs = new ArrayList<>();
 
-                adapter.set(logs);
+                adapter.set(logs, getTypes());
                 if (autoScroll)
                     rvLog.scrollToPosition(0);
 
@@ -98,6 +108,12 @@ public class FragmentLogs extends FragmentBase {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:scroll", autoScroll);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -113,6 +129,14 @@ public class FragmentLogs extends FragmentBase {
 
         menu.findItem(R.id.menu_enabled).setChecked(main_log);
         menu.findItem(R.id.menu_auto_scroll).setChecked(autoScroll);
+
+        List<EntityLog.Type> types = getTypes();
+        SubMenu smenu = menu.findItem(R.id.menu_show).getSubMenu();
+        smenu.clear();
+        for (EntityLog.Type type : EntityLog.Type.values())
+            smenu.add(1, type.ordinal(), type.ordinal(), type.toString())
+                    .setCheckable(true).setChecked(types.contains(type));
+
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -121,14 +145,18 @@ public class FragmentLogs extends FragmentBase {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_enabled) {
             boolean enabled = !item.isChecked();
-            onMenuEnable(enabled);
             item.setChecked(enabled);
+            onMenuEnable(enabled);
             return true;
         } else if (itemId == R.id.menu_auto_scroll) {
             boolean enabled = !item.isChecked();
-            onMenuAutoScoll(enabled);
             item.setChecked(enabled);
+            onMenuAutoScoll(enabled);
             return true;
+        } else if (item.getGroupId() == 1 && item.isCheckable()) {
+            boolean enabled = !item.isChecked();
+            item.setChecked(enabled);
+            onMenuShowTypes(item.getOrder(), enabled);
         } else if (itemId == R.id.menu_clear) {
             onMenuClear();
             return true;
@@ -143,6 +171,26 @@ public class FragmentLogs extends FragmentBase {
 
     private void onMenuAutoScoll(boolean enabled) {
         autoScroll = enabled;
+    }
+
+    private void onMenuShowTypes(int ordinal, boolean enabled) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String name = EntityLog.Type.values()[ordinal].toString().toLowerCase(Locale.ROOT);
+        prefs.edit().putBoolean("show_log_" + name, enabled).apply();
+        adapter.setTypes(getTypes());
+    }
+
+    private List<EntityLog.Type> getTypes() {
+        List<EntityLog.Type> types = new ArrayList<>();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        for (EntityLog.Type type : EntityLog.Type.values()) {
+            String name = type.toString().toLowerCase(Locale.ROOT);
+            if (prefs.getBoolean("show_log_" + name, true))
+                types.add(type);
+        }
+
+        return types;
     }
 
     private void onMenuClear() {

@@ -2104,7 +2104,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("ALTER TABLE `log` ADD COLUMN `type` INTEGER NOT NULL DEFAULT " + EntityLog.LOG_GENERAL);
+                        db.execSQL("ALTER TABLE `log` ADD COLUMN `type` INTEGER NOT NULL DEFAULT " + EntityLog.Type.General.ordinal());
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
@@ -2234,6 +2234,15 @@ public abstract class DB extends RoomDatabase {
             }
             return result.toArray(new Address[0]);
         }
+
+        @TypeConverter
+        public static EntityLog.Type toLogType(int ordinal) {
+            return EntityLog.Type.values()[ordinal];
+        }
+
+        @TypeConverter
+        public static int fromLogType(EntityLog.Type type) {
+            return type.ordinal();
+        }
     }
 }
-

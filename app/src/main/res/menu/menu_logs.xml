@@ -14,6 +14,13 @@
         android:title="@string/title_auto_scroll"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_show"
+        android:title="@string/title_unhide"
+        app:showAsAction="never">
+        <menu />
+    </item>
+
+    <item
         android:id="@+id/menu_clear"
         android:title="@string/title_log_clear"
         app:showAsAction="never" />
