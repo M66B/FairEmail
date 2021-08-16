@@ -20,16 +20,15 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -50,8 +49,14 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private LayoutInflater inflater;
 
     private int textColorSecondary;
-    private int colorAccent;
-    private int colorWarning;
+    private int solarizedYellow;
+    private int solarizedOrange;
+    private int solarizedRed;
+    private int solarizedMagenta;
+    private int solarizedViolet;
+    private int solarizedBlue;
+    private int solarizedCyan;
+    private int solarizedGreen;
 
     private Long account = null;
     private Long folder = null;
@@ -80,20 +85,28 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
                 case General:
                     break;
                 case Statistics:
-                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), 0, ssb.length(), 0);
+                    ssb.setSpan(new ForegroundColorSpan(solarizedGreen), 0, ssb.length(), 0);
                     break;
                 case Scheduling:
-                case Account:
-                    ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
+                    ssb.setSpan(new ForegroundColorSpan(solarizedYellow), 0, ssb.length(), 0);
                     break;
                 case Network:
+                    ssb.setSpan(new ForegroundColorSpan(solarizedOrange), 0, ssb.length(), 0);
+                    break;
+                case Account:
+                    ssb.setSpan(new ForegroundColorSpan(solarizedMagenta), 0, ssb.length(), 0);
+                    break;
                 case Protocol:
                     ssb.setSpan(new ForegroundColorSpan(textColorSecondary), 0, ssb.length(), 0);
                     break;
                 case Classification:
+                    ssb.setSpan(new ForegroundColorSpan(solarizedViolet), 0, ssb.length(), 0);
+                    break;
                 case Notification:
+                    ssb.setSpan(new ForegroundColorSpan(solarizedBlue), 0, ssb.length(), 0);
+                    break;
                 case Rules:
-                    ssb.setSpan(new ForegroundColorSpan(colorAccent), 0, ssb.length(), 0);
+                    ssb.setSpan(new ForegroundColorSpan(solarizedCyan), 0, ssb.length(), 0);
                     break;
             }
             tvData.setText(ssb);
@@ -107,8 +120,14 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         this.inflater = LayoutInflater.from(parentFragment.getContext());
 
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
-        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+        this.solarizedYellow = ContextCompat.getColor(context, R.color.solarizedYellow);
+        this.solarizedOrange = ContextCompat.getColor(context, R.color.solarizedOrange);
+        this.solarizedRed = ContextCompat.getColor(context, R.color.solarizedRed);
+        this.solarizedMagenta = ContextCompat.getColor(context, R.color.solarizedMagenta);
+        this.solarizedViolet = ContextCompat.getColor(context, R.color.solarizedViolet);
+        this.solarizedBlue = ContextCompat.getColor(context, R.color.solarizedBlue);
+        this.solarizedCyan = ContextCompat.getColor(context, R.color.solarizedCyan);
+        this.solarizedGreen = ContextCompat.getColor(context, R.color.solarizedGreen);
 
         this.TF = Helper.getTimeInstance(context);
 

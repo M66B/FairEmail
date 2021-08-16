@@ -152,4 +152,13 @@
     <color name="grey">#ff7f7f7f</color>
     <color name="red">#ffff0000</color>
     <color name="transparent">#00000000</color>
+
+    <color name="solarizedYellow">#b58900</color>
+    <color name="solarizedOrange">#cb4b16</color>
+    <color name="solarizedMagenta">#d33682</color>
+    <color name="solarizedRed">#dc322f</color>
+    <color name="solarizedViolet">#6c71c4</color>
+    <color name="solarizedBlue">#268bd2</color>
+    <color name="solarizedCyan">#2aa198</color>
+    <color name="solarizedGreen">#859900</color>
 </resources>
