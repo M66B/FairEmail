@@ -344,8 +344,14 @@ public class FragmentOAuth extends FragmentBase {
                             .setState(provider.id)
                             .setAdditionalParameters(params);
 
-            if (askAccount)
-                authRequestBuilder.setLoginHint(etEmail.getText().toString().trim());
+            if (askAccount) {
+                String address = etEmail.getText().toString().trim();
+                int backslash = address.indexOf('\\');
+                if (backslash > 0)
+                    authRequestBuilder.setLoginHint(address.substring(0, backslash));
+                else
+                    authRequestBuilder.setLoginHint(address);
+            }
 
             if (provider.oauth.pcke)
                 authRequestBuilder.setCodeVerifier(CodeVerifierUtil.generateRandomCodeVerifier());
@@ -483,6 +489,12 @@ public class FragmentOAuth extends FragmentBase {
 
                 List<String> usernames = new ArrayList<>();
                 usernames.add(address);
+
+                // Outlook shared mailbox
+                // https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#sasl-xoauth2-authentication-for-shared-mailboxes-in-office-365
+                int backslash = address.indexOf('\\');
+                if (backslash > 0)
+                    usernames.add(address.substring(backslash + 1));
 
                 if (token != null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
