@@ -4190,7 +4190,9 @@ class Core {
 
             for (Long id : remove) {
                 String tag = "unseen." + group + "." + Math.abs(id);
-                EntityLog.log(context, "Notify cancel tag=" + tag + " id=" + id);
+                EntityLog.log(context, EntityLog.Type.Notification,
+                        null, null, id == 0 ? null : Math.abs(id),
+                        "Notify cancel tag=" + tag + " id=" + id);
                 nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
 
                 data.groupNotifying.get(group).remove(id);
@@ -4199,7 +4201,8 @@ class Core {
 
             if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;
-                EntityLog.log(context, "Notify cancel tag=" + tag);
+                EntityLog.log(context, EntityLog.Type.Notification,
+                        "Notify cancel tag=" + tag);
                 nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
             }
 
@@ -4223,12 +4226,14 @@ class Core {
 
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Notification notification = builder.build();
-                    EntityLog.log(context, "Notifying tag=" + tag +
-                            " id=" + id + " group=" + notification.getGroup() +
-                            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O
-                                    ? " sdk=" + Build.VERSION.SDK_INT
-                                    : " channel=" + notification.getChannelId()) +
-                            " sort=" + notification.getSortKey());
+                    EntityLog.log(context, EntityLog.Type.Notification,
+                            null, null, id == 0 ? null : Math.abs(id),
+                            "Notifying tag=" + tag +
+                                    " id=" + id + " group=" + notification.getGroup() +
+                                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.O
+                                            ? " sdk=" + Build.VERSION.SDK_INT
+                                            : " channel=" + notification.getChannelId()) +
+                                    " sort=" + notification.getSortKey());
                     try {
                         nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
@@ -5266,7 +5271,8 @@ class Core {
                                 groupNotifying.put(group, new ArrayList<>());
 
                             if (id > 0) {
-                                EntityLog.log(context, "Notify restore " + tag + " id=" + id);
+                                EntityLog.log(context, null, null, null, id,
+                                        "Notify restore " + tag + " id=" + id);
                                 groupNotifying.get(group).add(id);
                             }
                         }
