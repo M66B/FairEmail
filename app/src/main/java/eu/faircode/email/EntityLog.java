@@ -56,6 +56,9 @@ public class EntityLog {
     public Long time;
     @NonNull
     public Type type = Type.General;
+    public Long account;
+    public Long folder;
+    public Long message;
     @NonNull
     public String data;
 
@@ -68,7 +71,27 @@ public class EntityLog {
         log(context, Type.General, data);
     }
 
+    static void log(final Context context, Type type, EntityAccount account, String data) {
+        log(context, type, account.id, null, null, account.name + " " + data);
+    }
+
+    static void log(final Context context, Type type, EntityAccount account, EntityFolder folder, String data) {
+        log(context, type, account.id, folder.id, null, account.name + "/" + folder.name + " " + data);
+    }
+
+    static void log(final Context context, Type type, EntityFolder folder, String data) {
+        log(context, type, folder.account, folder.id, null, folder.name + " " + data);
+    }
+
+    static void log(final Context context, Type type, EntityMessage message, String data) {
+        log(context, type, message.account, message.folder, message.id, data);
+    }
+
     static void log(final Context context, Type type, String data) {
+        log(context, type, null, null, null, data);
+    }
+
+    static void log(final Context context, Type type, Long account, Long folder, Long message, String data) {
         Log.i(data);
 
         if (context == null)
@@ -82,6 +105,9 @@ public class EntityLog {
         final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();
         entry.type = type;
+        entry.account = account;
+        entry.folder = folder;
+        entry.message = message;
         entry.data = data;
 
         final DB db = DB.getInstance(context);

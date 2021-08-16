@@ -51,7 +51,10 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private int colorAccent;
     private int colorWarning;
 
-    List<EntityLog.Type> types = new ArrayList<>();
+    private Long account = null;
+    private Long folder = null;
+    private Long message = null;
+    private List<EntityLog.Type> types = new ArrayList<>();
     private List<EntityLog> all = new ArrayList<>();
     private List<EntityLog> selected = new ArrayList<>();
 
@@ -120,16 +123,28 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         });
     }
 
-    public void set(@NonNull List<EntityLog> logs, @NonNull List<EntityLog.Type> types) {
+    public void set(@NonNull List<EntityLog> logs,
+                    Long account, Long folder, Long message,
+                    @NonNull List<EntityLog.Type> types) {
         Log.i("Set logs=" + logs.size());
 
         this.all = logs;
+        this.account = account;
+        this.folder = folder;
+        this.message = message;
         this.types = types;
 
         List<EntityLog> items = new ArrayList<>();
         for (EntityLog log : all)
-            if (types.contains(log.type))
-                items.add(log);
+            if (account == null && folder == null && message == null) {
+                if (types.contains(log.type))
+                    items.add(log);
+            } else {
+                if ((account == null || account.equals(log.account)) &&
+                        (folder == null || folder.equals(log.folder)) &&
+                        (message == null || message.equals(log.message)))
+                    items.add(log);
+            }
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
 
@@ -160,7 +175,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     }
 
     public void setTypes(@NonNull List<EntityLog.Type> types) {
-        set(all, types);
+        set(all, account, folder, message, types);
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

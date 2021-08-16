@@ -136,4 +136,9 @@
                 android:title="@string/title_raw_send_thread" />
         </menu>
     </item>
+
+    <item
+        android:id="@+id/menu_log"
+        android:icon="@drawable/twotone_dns_24"
+        android:title="@string/title_log" />
 </menu>

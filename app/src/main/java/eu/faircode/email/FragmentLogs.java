@@ -47,6 +47,9 @@ public class FragmentLogs extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private Long account = null;
+    private Long folder = null;
+    private Long message = null;
     private boolean autoScroll = true;
 
     private AdapterLog adapter;
@@ -54,6 +57,22 @@ public class FragmentLogs extends FragmentBase {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        if (args == null)
+            args = new Bundle();
+
+        account = args.getLong("account", -1L);
+        folder = args.getLong("folder", -1L);
+        message = args.getLong("message", -1L);
+
+        if (account < 0)
+            account = null;
+        if (folder < 0)
+            folder = null;
+        if (message < 0)
+            message = null;
+
         if (savedInstanceState != null)
             autoScroll = savedInstanceState.getBoolean("fair:scroll");
     }
@@ -100,7 +119,7 @@ public class FragmentLogs extends FragmentBase {
                 if (logs == null)
                     logs = new ArrayList<>();
 
-                adapter.set(logs, getTypes());
+                adapter.set(logs, account, folder, message, getTypes());
                 if (autoScroll)
                     rvLog.scrollToPosition(0);
 
@@ -127,8 +146,12 @@ public class FragmentLogs extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean main_log = prefs.getBoolean("main_log", true);
 
+        boolean all = (account == null && folder == null && message == null);
+
         menu.findItem(R.id.menu_enabled).setChecked(main_log);
         menu.findItem(R.id.menu_auto_scroll).setChecked(autoScroll);
+        menu.findItem(R.id.menu_show).setVisible(all);
+        menu.findItem(R.id.menu_clear).setVisible(all);
 
         List<EntityLog.Type> types = getTypes();
         SubMenu smenu = menu.findItem(R.id.menu_show).getSubMenu();

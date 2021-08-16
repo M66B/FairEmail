@@ -124,6 +124,8 @@ import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -4646,6 +4648,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_raw_send_thread) {
                         onMenuRawSend(message, true);
                         return true;
+                    } else if (itemId == R.id.menu_log) {
+                        onMenuLog(message);
+                        return true;
                     }
                     return false;
                 }
@@ -5350,6 +5355,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:raw");
+        }
+
+        private void onMenuLog(TupleMessageEx message) {
+            if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                parentFragment.getParentFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+            Bundle args = new Bundle();
+            args.putLong("message", message.id);
+
+            Fragment fragment = new FragmentLogs();
+            fragment.setArguments(args);
+
+            FragmentTransaction fragmentTransaction = parentFragment.getParentFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("logs");
+            fragmentTransaction.commit();
         }
 
         private SpannableStringBuilder getKeywords(TupleMessageEx message) {
