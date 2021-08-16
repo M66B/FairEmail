@@ -90,14 +90,15 @@ public class MessageClassifier {
             String classified = classify(folder.account, folder.name, texts, target == null, context);
 
             long elapsed = new Date().getTime() - start;
-            EntityLog.log(context, "Classifier" +
-                    " folder=" + folder.name +
-                    " message=" + message.id +
-                    "@" + new Date(message.received) +
-                    ":" + message.subject +
-                    " class=" + classified +
-                    " re=" + message.auto_classified +
-                    " elapsed=" + elapsed);
+            EntityLog.log(context, EntityLog.Type.Classification,
+                    "Classifier" +
+                            " folder=" + folder.name +
+                            " message=" + message.id +
+                            "@" + new Date(message.received) +
+                            ":" + message.subject +
+                            " class=" + classified +
+                            " re=" + message.auto_classified +
+                            " elapsed=" + elapsed);
 
             // Auto classify message
             if (classified != null &&
@@ -182,7 +183,8 @@ public class MessageClassifier {
         for (String clazz : new ArrayList<>(classMessages.get(account).keySet())) {
             EntityFolder folder = db.folder().getFolderByName(account, clazz);
             if (folder == null) {
-                EntityLog.log(context, "Classifier deleting folder class=" + account + ":" + clazz);
+                EntityLog.log(context, EntityLog.Type.Classification,
+                        "Classifier deleting folder class=" + account + ":" + clazz);
                 classMessages.get(account).remove(clazz);
                 for (String word : wordClassFrequency.get(account).keySet())
                     wordClassFrequency.get(account).get(word).remove(clazz);
@@ -250,10 +252,11 @@ public class MessageClassifier {
             double chance = stat.totalFrequency / maxMessages / words;
             Chance c = new Chance(clazz, chance);
             chances.add(c);
-            EntityLog.log(context, "Classifier " + c +
-                    " frequency=" + (Math.round(stat.totalFrequency * 100.0) / 100.0) + "/" + maxMessages + " msgs" +
-                    " matched=" + stat.matchedWords + "/" + words + " words" +
-                    " text=" + TextUtils.join(", ", stat.words));
+            EntityLog.log(context, EntityLog.Type.Classification,
+                    "Classifier " + c +
+                            " frequency=" + (Math.round(stat.totalFrequency * 100.0) / 100.0) + "/" + maxMessages + " msgs" +
+                            " matched=" + stat.matchedWords + "/" + words + " words" +
+                            " text=" + TextUtils.join(", ", stat.words));
         }
 
         if (BuildConfig.DEBUG)
