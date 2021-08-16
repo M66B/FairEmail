@@ -292,6 +292,9 @@ public class FragmentQuickSetup extends FragmentBase {
                         EntityLog.log(context, "Checking" +
                                 " imap=" + provider.imap + " smtp=" + provider.smtp);
 
+                        if (fail == null)
+                            args.putParcelable("provider", provider);
+
                         String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
                         Log.i("User type=" + provider.user + " name=" + user);
 
@@ -382,7 +385,6 @@ public class FragmentQuickSetup extends FragmentBase {
                         }
 
                         if (check) {
-                            args.putParcelable("provider", provider);
                             args.putSerializable("imap_certificate", imap_certificate);
                             args.putSerializable("smtp_certificate", smtp_certificate);
                             return provider;
