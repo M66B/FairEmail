@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -64,8 +66,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityRule.TABLE_NAME,
@@ -164,7 +164,7 @@ public class EntityRule {
                             }
                         } else {
                             String formatted = ((personal == null ? "" : personal + " ") + "<" + email + ">");
-                            if (matches(context, value, formatted, regex)) {
+                            if (matches(context, message, value, formatted, regex)) {
                                 matches = true;
                                 break;
                             }
@@ -191,7 +191,7 @@ public class EntityRule {
                     InternetAddress ia = (InternetAddress) recipient;
                     String personal = ia.getPersonal();
                     String formatted = ((personal == null ? "" : personal + " ") + "<" + ia.getAddress() + ">");
-                    if (matches(context, value, formatted, regex)) {
+                    if (matches(context, message, value, formatted, regex)) {
                         matches = true;
                         break;
                     }
@@ -206,7 +206,7 @@ public class EntityRule {
                 String value = jsubject.getString("value");
                 boolean regex = jsubject.getBoolean("regex");
 
-                if (!matches(context, value, message.subject, regex))
+                if (!matches(context, message, value, message.subject, regex))
                     return false;
             }
 
@@ -251,7 +251,7 @@ public class EntityRule {
                 while (headers.hasMoreElements()) {
                     Header header = headers.nextElement();
                     String formatted = header.getName() + ": " + header.getValue();
-                    if (matches(context, value, formatted, regex)) {
+                    if (matches(context, message, value, formatted, regex)) {
                         matches = true;
                         break;
                     }
@@ -303,7 +303,7 @@ public class EntityRule {
         return true;
     }
 
-    private boolean matches(Context context, String needle, String haystack, boolean regex) {
+    private boolean matches(Context context, EntityMessage message, String needle, String haystack, boolean regex) {
         boolean matched = false;
         if (needle != null && haystack != null)
             if (regex) {
@@ -313,8 +313,9 @@ public class EntityRule {
                 matched = haystack.toLowerCase().contains(needle.trim().toLowerCase());
 
         if (matched)
-            EntityLog.log(context, "Rule=" + name + ":" + order + " matched " +
-                    " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
+            EntityLog.log(context, EntityLog.Type.Rules, message,
+                    "Rule=" + name + ":" + order + " matched " +
+                            " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
         else
             Log.i("Rule=" + name + ":" + order + " matched=" + matched +
                     " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
@@ -504,7 +505,8 @@ public class EntityRule {
         boolean attachments = jargs.optBoolean("attachments");
 
         if (message.auto_submitted != null && message.auto_submitted) {
-            EntityLog.log(context, "Auto submitted rule=" + name);
+            EntityLog.log(context, EntityLog.Type.Rules, message,
+                    "Auto submitted rule=" + name);
             return false;
         }
 
@@ -590,9 +592,10 @@ public class EntityRule {
         for (EntityMessage threaded : messages)
             if (!threaded.id.equals(message.id) &&
                     MessageHelper.equal(threaded.from, from)) {
-                EntityLog.log(context, "Answer loop" +
-                        " name=" + answer.name +
-                        " from=" + MessageHelper.formatAddresses(from));
+                EntityLog.log(context, EntityLog.Type.Rules, message,
+                        "Answer loop" +
+                                " name=" + answer.name +
+                                " from=" + MessageHelper.formatAddresses(from));
                 return;
             }
 
@@ -695,7 +698,8 @@ public class EntityRule {
         automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
 
         List<String> extras = Log.getExtras(automation.getExtras());
-        EntityLog.log(context, "Sending " + automation + " " + TextUtils.join(" ", extras));
+        EntityLog.log(context, EntityLog.Type.Rules, message,
+                "Sending " + automation + " " + TextUtils.join(" ", extras));
         context.sendBroadcast(automation);
 
         return true;
@@ -731,7 +735,8 @@ public class EntityRule {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         int callState = tm.getCallState();
         if (callState != TelephonyManager.CALL_STATE_IDLE) {
-            EntityLog.log(context, "Call state=" + callState + " rule=" + rule.name);
+            EntityLog.log(context, EntityLog.Type.Rules, message,
+                    "Call state=" + callState + " rule=" + rule.name);
             return;
         }
 

@@ -62,7 +62,7 @@ public class EntityLog {
     @NonNull
     public String data;
 
-    enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification}
+    enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules}
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "log");

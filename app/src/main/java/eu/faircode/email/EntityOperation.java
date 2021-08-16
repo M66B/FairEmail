@@ -208,7 +208,8 @@ public class EntityOperation {
                 jargs.put(1, autoread);
                 jargs.put(3, autounflag);
 
-                EntityLog.log(context, "Move message=" + message.id +
+                EntityLog.log(context, EntityLog.Type.General,message,
+                        "Move message=" + message.id +
                         "@" + new Date(message.received) +
                         ":" + message.subject +
                         " source=" + source.id + ":" + source.type + ":" + source.name + "" +
