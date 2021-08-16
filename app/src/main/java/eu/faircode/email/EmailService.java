@@ -312,7 +312,8 @@ public class EmailService implements AutoCloseable {
                         DB db = DB.getInstance(context);
                         int accounts = db.account().setAccountPassword(account.id, newPassword);
                         int identities = db.identity().setIdentityPassword(account.id, account.user, newPassword, account.auth_type);
-                        EntityLog.log(context, account.name + " token refreshed=" + accounts + "/" + identities);
+                        EntityLog.log(context, EntityLog.Type.Account, account,
+                                "token refreshed=" + accounts + "/" + identities);
                     }
                 },
                 account.certificate_alias, account.fingerprint);
@@ -328,7 +329,8 @@ public class EmailService implements AutoCloseable {
                     public void onPasswordChanged(Context context, String newPassword) {
                         DB db = DB.getInstance(context);
                         int count = db.identity().setIdentityPassword(identity.id, newPassword);
-                        EntityLog.log(context, identity.email + " token refreshed=" + count);
+                        EntityLog.log(context, EntityLog.Type.Account, identity.account, null, null,
+                                identity.email + " token refreshed=" + count);
 
                     }
                 },
