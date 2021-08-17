@@ -1038,7 +1038,8 @@ public class EmailProvider implements Parcelable {
                 do {
                     response = lis.readLine();
                     if (response != null)
-                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                        EntityLog.log(context, EntityLog.Type.Protocol,
+                                socket.getRemoteSocketAddress() + " <" + response);
                 } while (response != null && !response.startsWith("220 "));
 
                 command = "EHLO " + EmailService.getDefaultEhlo() + "\n";
@@ -1048,7 +1049,8 @@ public class EmailProvider implements Parcelable {
                 do {
                     response = lis.readLine();
                     if (response != null) {
-                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                        EntityLog.log(context, EntityLog.Type.Protocol,
+                                socket.getRemoteSocketAddress() + " <" + response);
                         if (response.contains("STARTTLS"))
                             has = true;
                     }
@@ -1057,14 +1059,16 @@ public class EmailProvider implements Parcelable {
 
                 if (has) {
                     command = "STARTTLS\n";
-                    EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " >" + command);
                     socket.getOutputStream().write(command.getBytes());
                 }
             } else if (port == 143) {
                 do {
                     response = lis.readLine();
                     if (response != null) {
-                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                        EntityLog.log(context, EntityLog.Type.Protocol,
+                                socket.getRemoteSocketAddress() + " <" + response);
                         if (response.contains("STARTTLS"))
                             has = true;
                     }
@@ -1073,7 +1077,8 @@ public class EmailProvider implements Parcelable {
 
                 if (has) {
                     command = "A001 STARTTLS\n";
-                    EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " >" + command);
                     socket.getOutputStream().write(command.getBytes());
                 }
             }
@@ -1082,7 +1087,8 @@ public class EmailProvider implements Parcelable {
                 do {
                     response = lis.readLine();
                     if (response != null)
-                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                        EntityLog.log(context, EntityLog.Type.Protocol,
+                                socket.getRemoteSocketAddress() + " <" + response);
                 } while (response != null &&
                         !(response.startsWith("A001 OK") || response.startsWith("220 ")));
 
