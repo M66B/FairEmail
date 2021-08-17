@@ -14,98 +14,102 @@
         android:title="@string/title_folder_primary"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/menu_empty_trash"
-        android:icon="@drawable/twotone_delete_24"
-        android:title="@string/title_empty_trash"
-        app:showAsAction="ifRoom" />
+    <group android:id="@+id/group_purge">
+        <item
+            android:id="@+id/menu_empty_trash"
+            android:icon="@drawable/twotone_delete_24"
+            android:title="@string/title_empty_trash"
+            app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/menu_empty_spam"
-        android:icon="@drawable/twotone_delete_24"
-        android:title="@string/title_empty_spam"
-        app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/menu_empty_spam"
+            android:icon="@drawable/twotone_delete_24"
+            android:title="@string/title_empty_spam"
+            app:showAsAction="ifRoom" />
+    </group>
 
-    <item
-        android:id="@+id/menu_sort_on"
-        android:icon="@drawable/twotone_sort_24"
-        android:title="@string/title_sort_on"
-        app:showAsAction="ifRoom">
-        <menu>
-            <group android:checkableBehavior="single">
+    <group android:id="@+id/group_selection">
+        <item
+            android:id="@+id/menu_sort_on"
+            android:icon="@drawable/twotone_sort_24"
+            android:title="@string/title_sort_on"
+            app:showAsAction="ifRoom">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/menu_sort_on_time"
+                        android:title="@string/title_sort_on_time" />
+                    <item
+                        android:id="@+id/menu_sort_on_unread"
+                        android:title="@string/title_sort_on_unread" />
+                    <item
+                        android:id="@+id/menu_sort_on_starred"
+                        android:title="@string/title_sort_on_starred" />
+                    <item
+                        android:id="@+id/menu_sort_on_priority"
+                        android:title="@string/title_sort_on_priority" />
+                    <item
+                        android:id="@+id/menu_sort_on_sender"
+                        android:title="@string/title_sort_on_sender" />
+                    <item
+                        android:id="@+id/menu_sort_on_subject"
+                        android:title="@string/title_sort_on_subject" />
+                    <item
+                        android:id="@+id/menu_sort_on_size"
+                        android:title="@string/title_sort_on_size" />
+                    <item
+                        android:id="@+id/menu_sort_on_attachments"
+                        android:title="@string/title_sort_on_attachments" />
+                    <item
+                        android:id="@+id/menu_sort_on_snoozed"
+                        android:title="@string/title_sort_on_hidden" />
+                </group>
                 <item
-                    android:id="@+id/menu_sort_on_time"
-                    android:title="@string/title_sort_on_time" />
-                <item
-                    android:id="@+id/menu_sort_on_unread"
-                    android:title="@string/title_sort_on_unread" />
-                <item
-                    android:id="@+id/menu_sort_on_starred"
-                    android:title="@string/title_sort_on_starred" />
-                <item
-                    android:id="@+id/menu_sort_on_priority"
-                    android:title="@string/title_sort_on_priority" />
-                <item
-                    android:id="@+id/menu_sort_on_sender"
-                    android:title="@string/title_sort_on_sender" />
-                <item
-                    android:id="@+id/menu_sort_on_subject"
-                    android:title="@string/title_sort_on_subject" />
-                <item
-                    android:id="@+id/menu_sort_on_size"
-                    android:title="@string/title_sort_on_size" />
-                <item
-                    android:id="@+id/menu_sort_on_attachments"
-                    android:title="@string/title_sort_on_attachments" />
-                <item
-                    android:id="@+id/menu_sort_on_snoozed"
-                    android:title="@string/title_sort_on_hidden" />
-            </group>
-            <item
-                android:id="@+id/menu_ascending"
-                android:checkable="true"
-                android:title="@string/title_sort_ascending" />
-        </menu>
-    </item>
+                    android:id="@+id/menu_ascending"
+                    android:checkable="true"
+                    android:title="@string/title_sort_ascending" />
+            </menu>
+        </item>
 
-    <item
-        android:id="@+id/menu_filter"
-        android:icon="@drawable/twotone_filter_list_24"
-        android:title="@string/title_filter"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/menu_filter_seen"
-                android:checkable="true"
-                android:title="@string/title_filter_seen" />
+        <item
+            android:id="@+id/menu_filter"
+            android:icon="@drawable/twotone_filter_list_24"
+            android:title="@string/title_filter"
+            app:showAsAction="ifRoom">
+            <menu>
+                <item
+                    android:id="@+id/menu_filter_seen"
+                    android:checkable="true"
+                    android:title="@string/title_filter_seen" />
 
-            <item
-                android:id="@+id/menu_filter_unflagged"
-                android:checkable="true"
-                android:title="@string/title_filter_unflagged" />
+                <item
+                    android:id="@+id/menu_filter_unflagged"
+                    android:checkable="true"
+                    android:title="@string/title_filter_unflagged" />
 
-            <item
-                android:id="@+id/menu_filter_unknown"
-                android:checkable="true"
-                android:title="@string/title_filter_unknown" />
+                <item
+                    android:id="@+id/menu_filter_unknown"
+                    android:checkable="true"
+                    android:title="@string/title_filter_unknown" />
 
-            <item
-                android:id="@+id/menu_filter_snoozed"
-                android:checkable="true"
-                android:title="@string/title_filter_hidden" />
+                <item
+                    android:id="@+id/menu_filter_snoozed"
+                    android:checkable="true"
+                    android:title="@string/title_filter_hidden" />
 
-            <item
-                android:id="@+id/menu_filter_language"
-                android:title="@string/title_select_language">
-                <menu />
-            </item>
+                <item
+                    android:id="@+id/menu_filter_language"
+                    android:title="@string/title_select_language">
+                    <menu />
+                </item>
 
-            <item
-                android:id="@+id/menu_filter_duplicates"
-                android:checkable="true"
-                android:title="@string/title_filter_duplicates" />
-        </menu>
-    </item>
+                <item
+                    android:id="@+id/menu_filter_duplicates"
+                    android:checkable="true"
+                    android:title="@string/title_filter_duplicates" />
+            </menu>
+        </item>
+    </group>
 
     <group android:id="@+id/group_appearance">
         <item
@@ -148,7 +152,9 @@
             android:id="@+id/menu_view_thread"
             android:title="@string/title_view_thread"
             app:showAsAction="never" />
+    </group>
 
+    <group android:id="@+id/group_special">
         <item
             android:id="@+id/menu_sync_more"
             android:title="@string/title_synchronize_more"
