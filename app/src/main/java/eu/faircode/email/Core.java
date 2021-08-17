@@ -998,6 +998,7 @@ class Core {
         // Get arguments
         long target = jargs.optLong(0, folder.id);
         boolean autoread = jargs.optBoolean(1, false);
+        boolean copy = jargs.optBoolean(2, false); // Cross account
 
         if (target != folder.id)
             throw new IllegalArgumentException("Invalid folder");
@@ -1161,7 +1162,8 @@ class Core {
                         EntityOperation.queue(context, message, EntityOperation.SEEN, true);
 
                     // Delete source
-                    EntityOperation.queue(context, message, EntityOperation.DELETE);
+                    if (!copy)
+                        EntityOperation.queue(context, message, EntityOperation.DELETE);
                 }
 
                 db.setTransactionSuccessful();
@@ -1704,7 +1706,7 @@ class Core {
         }
 
         if (jargs.length() > 0) {
-            // Cross account move
+            // Cross account move/copy
             long tid = jargs.getLong(0);
             EntityFolder target = db.folder().getFolder(tid);
             if (target == null)
