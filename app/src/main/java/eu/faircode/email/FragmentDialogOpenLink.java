@@ -171,9 +171,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         // Process title
         final Uri uriTitle;
-        if (title != null && PatternsCompat.WEB_URL.matcher(title).matches())
-            uriTitle = Uri.parse(title.contains("://") ? title : "http://" + title);
-        else
+        if (title != null && PatternsCompat.WEB_URL.matcher(title).matches()) {
+            Uri u = Uri.parse(title.contains("://") ? title : "http://" + title);
+            String host = u.getHost(); // Capture1.PNG
+            uriTitle = (UriHelper.hasParentDomain(context, host) ? u : null);
+        } else
             uriTitle = null;
 
         // Get views
