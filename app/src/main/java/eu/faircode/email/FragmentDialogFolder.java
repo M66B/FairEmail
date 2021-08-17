@@ -67,7 +67,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final String title = aargs.getString("title");
         final long account = aargs.getLong("account");
         final long[] disabled = aargs.getLongArray("disabled");
-        final boolean cancopy = aargs.getBoolean("cancopy");
+        final boolean cancopy = aargs.getBoolean("cancopy") && false;
 
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
