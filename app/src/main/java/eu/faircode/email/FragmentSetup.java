@@ -53,6 +53,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -205,13 +206,13 @@ public class FragmentSetup extends FragmentBase {
 
                 int order = 1;
                 String gmail = getString(R.string.title_setup_oauth, getString(R.string.title_setup_gmail));
-                menu.add(Menu.NONE, R.string.title_setup_gmail, order++, gmail);
+                menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.oauth != null &&
                             (provider.oauth.enabled || BuildConfig.DEBUG)) {
                         MenuItem item = menu
-                                .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.description))
+                                .add(Menu.FIRST, -1, order++, getString(R.string.title_setup_oauth, provider.description))
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
                                         .putExtra("name", provider.description)
@@ -228,7 +229,7 @@ public class FragmentSetup extends FragmentBase {
 
                 menu.add(Menu.NONE, R.string.title_setup_classic, order++, R.string.title_setup_classic)
                         .setIcon(R.drawable.twotone_settings_24)
-                        .setVisible(BuildConfig.DEBUG);
+                        .setVisible(false);
 
                 SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
@@ -239,6 +240,8 @@ public class FragmentSetup extends FragmentBase {
                         .setVisible(false);
 
                 popupMenu.insertIcons(context);
+
+                MenuCompat.setGroupDividerEnabled(menu, true);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
