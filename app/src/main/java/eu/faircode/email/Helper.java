@@ -52,6 +52,7 @@ import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
+import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.TextUtils;
@@ -816,12 +817,33 @@ public class Helper {
             Intent intent = new Intent(Intent.ACTION_SEND);
             //intent.setPackage(BuildConfig.APPLICATION_ID);
             intent.setType("text/plain");
+
             try {
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Log.myAddress().getAddress()});
             } catch (UnsupportedEncodingException ex) {
                 Log.w(ex);
             }
+
             intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.title_issue_subject, version));
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String language = prefs.getString("language", null);
+            String uuid = prefs.getString("uuid", null);
+            Locale slocale = Resources.getSystem().getConfiguration().locale;
+
+            String html = "<br><br>";
+
+            html += "<p style=\"font-size:small;\">";
+            html += "Locale: " + Html.escapeHtml(slocale.toString()) + "<br>";
+            if (language != null)
+                html += "Language: " + Html.escapeHtml(language) + "<br>";
+            if (uuid != null)
+                html += "UUID: " + Html.escapeHtml(uuid) + "<br>";
+            html += "</p>";
+
+            intent.putExtra(Intent.EXTRA_TEXT, HtmlHelper.getText(context, html));
+            intent.putExtra(Intent.EXTRA_HTML_TEXT, html);
+
             return intent;
         } else {
             if (Helper.hasValidFingerprint(context))
@@ -1116,7 +1138,7 @@ public class Helper {
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    static void hideKeyboard(Activity activity){
+    static void hideKeyboard(Activity activity) {
         if (activity == null)
             return;
         View focused = activity.getCurrentFocus();
