@@ -14,42 +14,48 @@
         android:title="@string/title_folder_unified"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/menu_theme"
-        android:title="@string/title_setup_theme"
-        app:showAsAction="never" />
+    <group android:id="@+id/group_appearance">
+        <item
+            android:id="@+id/menu_theme"
+            android:title="@string/title_setup_theme"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_compact"
-        android:checkable="true"
-        android:title="@string/title_compact"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_compact"
+            android:checkable="true"
+            android:title="@string/title_compact"
+            app:showAsAction="never" />
+    </group>
 
-    <item
-        android:id="@+id/menu_show_hidden"
-        android:checkable="true"
-        android:title="@string/title_show_folders"
-        app:showAsAction="never" />
+    <group android:id="@+id/group_options">
+        <item
+            android:id="@+id/menu_show_hidden"
+            android:checkable="true"
+            android:title="@string/title_show_folders"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_show_flagged"
-        android:checkable="true"
-        android:title="@string/title_show_flagged"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_show_flagged"
+            android:checkable="true"
+            android:title="@string/title_show_flagged"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_subscribed_only"
-        android:checkable="true"
-        android:title="@string/title_subscribed_only"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_subscribed_only"
+            android:checkable="true"
+            android:title="@string/title_subscribed_only"
+            app:showAsAction="never" />
+    </group>
 
-    <item
-        android:id="@+id/menu_apply_all"
-        android:title="@string/title_apply_to_all"
-        app:showAsAction="never" />
+    <group android:id="@+id/group_operations">
+        <item
+            android:id="@+id/menu_apply_all"
+            android:title="@string/title_apply_to_all"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_force_sync"
-        android:title="@string/title_force_sync"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_force_sync"
+            android:title="@string/title_force_sync"
+            app:showAsAction="never" />
+    </group>
 </menu>
