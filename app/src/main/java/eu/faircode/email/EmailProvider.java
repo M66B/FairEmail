@@ -183,10 +183,12 @@ public class EmailProvider implements Parcelable {
                         else if ("email".equals(user))
                             provider.user = UserType.EMAIL;
                     } else if ("imap".equals(name)) {
+                        provider.imap.score = 100;
                         provider.imap.host = xml.getAttributeValue(null, "host");
                         provider.imap.port = xml.getAttributeIntValue(null, "port", 0);
                         provider.imap.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
                     } else if ("smtp".equals(name)) {
+                        provider.smtp.score = 100;
                         provider.smtp.host = xml.getAttributeValue(null, "host");
                         provider.smtp.port = xml.getAttributeIntValue(null, "port", 0);
                         provider.smtp.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
@@ -265,15 +267,12 @@ public class EmailProvider implements Parcelable {
                 for (String d : provider.domain)
                     if (domain.toLowerCase(Locale.ROOT).matches(d)) {
                         EntityLog.log(context, "Provider from domain=" + domain + " (" + d + ")");
-                        return Arrays.asList(provider);
+                        if (!BuildConfig.DEBUG)
+                            return Arrays.asList(provider);
                     }
 
-        List<EmailProvider> result = new ArrayList<>();
-        for (EmailProvider provider : _fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover))
-            if (result.contains(provider))
-                Log.i("Duplicate " + provider);
-            else
-                result.add(provider);
+        List<EmailProvider> candidates =
+                new ArrayList<>(_fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover));
 
         try {
             DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
@@ -285,10 +284,7 @@ public class EmailProvider implements Parcelable {
                             for (String mx : provider.mx)
                                 if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
                                     EntityLog.log(context, "Provider from mx=" + record.name + " domain=" + domain);
-                                    if (result.contains(provider))
-                                        Log.i("Duplicate " + provider);
-                                    else
-                                        result.add(provider);
+                                    candidates.add(provider);
                                     break;
                                 }
 
@@ -296,82 +292,81 @@ public class EmailProvider implements Parcelable {
                         String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
                         if (mxparent.equalsIgnoreCase(pdomain)) {
                             EntityLog.log(context, "Provider from mx=" + record.name + " host=" + provider.imap.host);
-                            if (result.contains(provider))
-                                Log.i("Duplicate " + provider);
-                            else
-                                result.add(provider);
+                            candidates.add(provider);
                             break;
                         }
                     }
 
             for (DnsHelper.DnsRecord record : records) {
                 String target = record.name;
-                while (result.size() == 0 && target != null && target.indexOf('.') > 0) {
-                    try {
-                        for (EmailProvider provider : _fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover))
-                            if (result.contains(provider))
-                                Log.i("Duplicate " + provider);
-                            else
-                                result.add(provider);
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                        int dot = target.indexOf('.');
-                        target = target.substring(dot + 1);
-                    }
+                while (candidates.size() == 0 && target != null && target.indexOf('.') > 0) {
+                    candidates.addAll(_fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover));
+                    int dot = target.indexOf('.');
+                    target = target.substring(dot + 1);
                 }
             }
         } catch (Throwable ex) {
             Log.w(ex);
         }
 
-        if (result.size() == 0)
+        if (candidates.size() == 0)
             throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
 
-        for (EmailProvider autoconfig : result)
-            for (EmailProvider provider : providers) {
-                // Always prefer built-in profiles
-                // - ISPDB is not always correct
-                // - documentation links
-                if (provider.imap.host.equals(autoconfig.imap.host) ||
-                        provider.smtp.host.equals(autoconfig.smtp.host)) {
+        for (EmailProvider candidate : candidates) {
+            // Always prefer built-in profiles
+            // - ISPDB is not always correct
+            // - documentation links
+            for (EmailProvider provider : providers)
+                if (provider.imap.host.equals(candidate.imap.host) ||
+                        provider.smtp.host.equals(candidate.smtp.host)) {
                     EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
-                    return Arrays.asList(provider);
+                    if (!BuildConfig.DEBUG)
+                        return Arrays.asList(provider);
                 }
-            }
 
-        Collections.sort(providers, new Comparator<EmailProvider>() {
+            // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
+            if (candidate.imap.host != null &&
+                    candidate.imap.host.endsWith(".dreamhost.com"))
+                candidate.imap.host = "imap.dreamhost.com";
+
+            if (candidate.smtp.host != null &&
+                    candidate.smtp.host.endsWith(".dreamhost.com"))
+                candidate.smtp.host = "smtp.dreamhost.com";
+
+            // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
+            if (candidate.imap.host != null &&
+                    candidate.imap.host.endsWith(".awsapps.com"))
+                candidate.partial = false;
+        }
+
+        // Sort by score
+        Collections.sort(candidates, new Comparator<EmailProvider>() {
             @Override
             public int compare(EmailProvider p1, EmailProvider p2) {
                 return -Integer.compare(p1.getScore(), p2.getScore());
             }
         });
 
-        for (EmailProvider autoconfig : result) {
-            EntityLog.log(context, "Provider" +
-                    " score=" + autoconfig.getScore() +
-                    " imap=" + autoconfig.imap +
-                    " smtp=" + autoconfig.smtp);
+        // Log candidates
+        for (EmailProvider candidate : candidates)
+            EntityLog.log(context, "Candidate" +
+                    " score=" + candidate.getScore() +
+                    " imap=" + candidate.imap +
+                    " smtp=" + candidate.smtp);
 
-            // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
-            if (autoconfig.imap.host != null &&
-                    autoconfig.imap.host.endsWith(".dreamhost.com"))
-                autoconfig.imap.host = "imap.dreamhost.com";
+        // Remove duplicates
+        List<EmailProvider> result = new ArrayList<>();
+        for (EmailProvider candidate : candidates)
+            if (!result.contains(candidate))
+                result.add(candidate);
 
-            if (autoconfig.smtp.host != null &&
-                    autoconfig.smtp.host.endsWith(".dreamhost.com"))
-                autoconfig.smtp.host = "smtp.dreamhost.com";
-
-            // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
-            if (autoconfig.imap.host != null &&
-                    autoconfig.imap.host.endsWith(".awsapps.com"))
-                autoconfig.partial = false;
-        }
+        Log.i("Candidates=" + result.size());
 
         return result;
     }
 
     @NonNull
-    private static List<EmailProvider> _fromDomain(Context context, String domain, String email, Discover discover) throws IOException {
+    private static List<EmailProvider> _fromDomain(Context context, String domain, String email, Discover discover) {
         List<EmailProvider> result = new ArrayList<>();
 
         try {
@@ -494,10 +489,13 @@ public class EmailProvider implements Parcelable {
                         if (eventType == XmlPullParser.TEXT) {
                             String host = xml.getText();
                             Log.i("Host=" + host);
-                            if (imap)
+                            if (imap) {
+                                provider.imap.score = 20;
                                 provider.imap.host = host;
-                            else if (smtp)
+                            } else if (smtp) {
+                                provider.smtp.score = 20;
                                 provider.smtp.host = host;
+                            }
                         }
                         continue;
 
@@ -621,20 +619,20 @@ public class EmailProvider implements Parcelable {
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
                 // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
+                provider.imap.score = 50;
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = false;
-                provider.imap.checkCertificate(context);
                 EntityLog.log(context, "_imaps._tcp." + domain + "=" + provider.imap);
             } catch (UnknownHostException ignored) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imap._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
+                provider.imap.score = 50;
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = (provider.imap.port == 143);
-                provider.imap.checkCertificate(context);
                 EntityLog.log(context, "_imap._tcp." + domain + "=" + provider.imap);
             }
         }
@@ -645,20 +643,20 @@ public class EmailProvider implements Parcelable {
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
+                provider.smtp.score = 50;
                 provider.smtp.host = records[0].name;
                 provider.smtp.port = records[0].port;
                 provider.smtp.starttls = (provider.smtp.port == 587);
-                provider.smtp.checkCertificate(context);
                 EntityLog.log(context, "_submission._tcp." + domain + "=" + provider.smtp);
             } catch (UnknownHostException ignored) {
                 // https://tools.ietf.org/html/rfc8314
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv");
                 if (records.length == 0)
                     throw new UnknownHostException(domain);
+                provider.smtp.score = 50;
                 provider.smtp.host = records[0].name;
                 provider.smtp.port = records[0].port;
                 provider.smtp.starttls = false;
-                provider.smtp.checkCertificate(context);
                 EntityLog.log(context, "_submissions._tcp." + domain + "=" + provider.smtp);
             }
 
@@ -770,6 +768,7 @@ public class EmailProvider implements Parcelable {
             imap.host = in.readString();
             imap.port = in.readInt();
             imap.starttls = (in.readInt() != 0);
+            imap.score = in.readInt();
         }
 
         if (in.readInt() == 0)
@@ -779,6 +778,7 @@ public class EmailProvider implements Parcelable {
             smtp.host = in.readString();
             smtp.port = in.readInt();
             smtp.starttls = (in.readInt() != 0);
+            smtp.score = in.readInt();
         }
 
         appPassword = (in.readInt() != 0);
@@ -794,6 +794,7 @@ public class EmailProvider implements Parcelable {
             dest.writeString(imap.host);
             dest.writeInt(imap.port);
             dest.writeInt(imap.starttls ? 1 : 0);
+            dest.writeInt(imap.score);
         }
 
         dest.writeInt(smtp == null ? 0 : 1);
@@ -801,6 +802,7 @@ public class EmailProvider implements Parcelable {
             dest.writeString(smtp.host);
             dest.writeInt(smtp.port);
             dest.writeInt(smtp.starttls ? 1 : 0);
+            dest.writeInt(smtp.score);
         }
 
         dest.writeInt(appPassword ? 1 : 0);
@@ -857,6 +859,12 @@ public class EmailProvider implements Parcelable {
         public int port;
         public boolean starttls;
 
+        // Scores:
+        //  10 from scan; +2 trusted; +1 trusted alt
+        //  20 from autoconfig
+        //  50 from DNS
+        // 100 from profile
+
         private int score = 0;
         private Future<Boolean> isReachable;
 
@@ -864,6 +872,7 @@ public class EmailProvider implements Parcelable {
         }
 
         private Server(Context context, String domain, String prefix, int port, boolean starttls) {
+            this.score = 10;
             this.host = (prefix == null ? "" : prefix + ".") + domain;
             this.port = port;
             this.starttls = starttls;
@@ -1069,7 +1078,7 @@ public class EmailProvider implements Parcelable {
         @NonNull
         @Override
         public String toString() {
-            return host + ":" + port + (starttls ? " starttls" : " ssl/tls");
+            return host + ":" + port + (starttls ? " starttls" : " ssl/tls") + " " + score;
         }
     }
 
