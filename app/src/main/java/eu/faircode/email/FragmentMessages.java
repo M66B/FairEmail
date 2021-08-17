@@ -3044,29 +3044,29 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         .setIcon(R.drawable.baseline_arrow_downward_24)
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
-                if (result.hasInbox && !result.isInbox) // not is inbox
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_inbox, order++, R.string.title_folder_inbox)
-                            .setIcon(R.drawable.twotone_move_to_inbox_24);
-
-                if (result.hasArchive && !result.isArchive) // has archive and not is archive
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive)
-                            .setIcon(R.drawable.twotone_archive_24);
-
-                if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam)
-                            .setIcon(R.drawable.twotone_report_problem_24);
-
-                if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash)
-                            .setIcon(R.drawable.twotone_delete_24);
-
-                if (result.isTrash || !result.hasTrash || result.isJunk || true) // is trash or no trash or is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
-                            .setIcon(R.drawable.twotone_delete_forever_24);
-
                 if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send)
                             .setIcon(R.drawable.twotone_attachment_24);
+
+                if (result.hasInbox && !result.isInbox) // not is inbox
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_folder_inbox, order++, R.string.title_folder_inbox)
+                            .setIcon(R.drawable.twotone_move_to_inbox_24);
+
+                if (result.hasArchive && !result.isArchive) // has archive and not is archive
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_archive, order++, R.string.title_archive)
+                            .setIcon(R.drawable.twotone_archive_24);
+
+                if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_spam, order++, R.string.title_spam)
+                            .setIcon(R.drawable.twotone_report_problem_24);
+
+                if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_trash, order++, R.string.title_trash)
+                            .setIcon(R.drawable.twotone_delete_24);
+
+                if (result.isTrash || !result.hasTrash || result.isJunk || true) // is trash or no trash or is junk
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
+                            .setIcon(R.drawable.twotone_delete_forever_24);
 
                 for (EntityAccount account : result.accounts) {
                     String title = getString(R.string.title_move_to_account, account.name);
@@ -3077,13 +3077,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         int count = Character.charCount(first);
                         ss.setSpan(new ForegroundColorSpan(account.color), i, i + count, 0);
                     }
-                    MenuItem item = popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_account, order++, ss)
+                    MenuItem item = popupMenu.getMenu().add(Menu.FIRST, R.string.title_move_to_account, order++, ss)
                             .setIcon(R.drawable.twotone_drive_file_move_24);
                     item.setIntent(new Intent().putExtra("account", account.id));
                 }
 
                 if (result.copyto != null)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_copy_to, order++, R.string.title_copy_to)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_copy_to, order++, R.string.title_copy_to)
                             .setIcon(R.drawable.twotone_file_copy_24);
 
                 popupMenu.insertIcons(context);
@@ -3125,6 +3125,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         } else if (itemId == R.string.title_importance_high) {
                             onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH);
                             return true;
+                        } else if (itemId == R.string.title_raw_send) {
+                            onActionRaw();
+                            return true;
                         } else if (itemId == R.string.title_folder_inbox) {
                             onActionMoveSelection(EntityFolder.INBOX);
                             return true;
@@ -3142,9 +3145,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     result.hasPop && !result.hasImap,
                                     result.leave_deleted != null && result.leave_deleted);
                             return true;
-                        } else if (itemId == R.string.title_raw_send) {
-                            onActionRaw();
-                            return true;
                         } else if (itemId == R.string.title_move_to_account) {
                             long account = target.getIntent().getLongExtra("account", -1);
                             onActionMoveSelectionAccount(account, false, result.folders);
@@ -3156,6 +3156,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return false;
                     }
                 });
+
+                MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
 
                 popupMenu.show();
             }
@@ -3428,6 +3430,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:set:importance");
     }
 
+    private void onActionRaw() {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", getSelection());
+        args.putBoolean("threads", false);
+
+        selectionTracker.clearSelection();
+
+        FragmentDialogForwardRaw ask = new FragmentDialogForwardRaw();
+        ask.setArguments(args);
+        ask.show(getParentFragmentManager(), "messages:raw");
+    }
+
     private void onActionDeleteSelection(boolean popOnly, Boolean leave_delete) {
         Bundle args = new Bundle();
         args.putLongArray("selected", getSelection());
@@ -3574,18 +3588,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "messages:move");
-    }
-
-    private void onActionRaw() {
-        Bundle args = new Bundle();
-        args.putLongArray("ids", getSelection());
-        args.putBoolean("threads", false);
-
-        selectionTracker.clearSelection();
-
-        FragmentDialogForwardRaw ask = new FragmentDialogForwardRaw();
-        ask.setArguments(args);
-        ask.show(getParentFragmentManager(), "messages:raw");
     }
 
     private void onActionMoveSelectionAccount(long account, boolean copy, List<Long> disabled) {
