@@ -8,23 +8,27 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
 
-    <item
-        android:id="@+id/menu_export"
-        android:title="@string/title_rules_export"
-        app:showAsAction="never" />
+    <group android:id="@+id/group_backup">
+        <item
+            android:id="@+id/menu_export"
+            android:title="@string/title_rules_export"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_import"
-        android:title="@string/title_rules_import"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_import"
+            android:title="@string/title_rules_import"
+            app:showAsAction="never" />
+    </group>
 
-    <item
-        android:id="@+id/menu_delete_all"
-        android:title="@string/title_rules_delete_all"
-        app:showAsAction="never" />
+    <group android:id="@+id/group_operations">
+        <item
+            android:id="@+id/menu_delete_all"
+            android:title="@string/title_rules_delete_all"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_delete_junk"
-        android:title="@string/title_rules_delete_junk"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_delete_junk"
+            android:title="@string/title_rules_delete_junk"
+            app:showAsAction="never" />
+    </group>
 </menu>
