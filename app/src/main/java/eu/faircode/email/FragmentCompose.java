@@ -1233,8 +1233,11 @@ public class FragmentCompose extends FragmentBase {
                             p.html(TextUtils.join("<br>", line));
                             document.body().appendChild(p);
                             return document.html();
-                        } else
-                            return ref.html(); // Edit-ref
+                        } else {
+                            for (Element element : ref)
+                                document.body().appendChild(element);
+                            return document.html(); // Edit-ref
+                        }
                     }
 
                     @Override
