@@ -2098,8 +2098,13 @@ public class Log {
             DateFormat TF = Helper.getTimeInstance(context);
 
             for (EntityLog entry : db.log().getLogs(from, null))
-                size += write(os, String.format("%s [%d] %s\r\n",
-                        TF.format(entry.time), entry.type.ordinal(), entry.data));
+                size += write(os, String.format("%s [%d:%d:%d:%d] %s\r\n",
+                        TF.format(entry.time),
+                        entry.type.ordinal(),
+                        (entry.account == null ? 0 : entry.account),
+                        (entry.folder == null ? 0 : entry.folder),
+                        (entry.message == null ? 0 : entry.message),
+                        entry.data));
         }
 
         db.attachment().setDownloaded(attachment.id, size);
