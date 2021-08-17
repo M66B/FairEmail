@@ -114,6 +114,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
+import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
@@ -2043,7 +2044,8 @@ public class FragmentCompose extends FragmentBase {
     private void onTranslate(View anchor) {
         final Context context = anchor.getContext();
 
-        List<DeepL.Language> languages = DeepL.getTargetLanguages(context);
+        boolean grouped = BuildConfig.DEBUG;
+        List<DeepL.Language> languages = DeepL.getTargetLanguages(context, grouped);
         if (languages == null)
             languages = new ArrayList<>();
 
@@ -2056,12 +2058,16 @@ public class FragmentCompose extends FragmentBase {
 
         for (int i = 0; i < languages.size(); i++) {
             DeepL.Language lang = languages.get(i);
-            MenuItem item = popupMenu.getMenu().add(Menu.NONE, i + 2, i + 2, lang.name)
+            MenuItem item = popupMenu.getMenu()
+                    .add(lang.favorite ? Menu.FIRST : Menu.NONE, i + 2, i + 2, lang.name)
                     .setIntent(new Intent().putExtra("target", lang.target));
             if (lang.icon != null)
                 item.setIcon(lang.icon);
             item.setEnabled(canTranslate);
         }
+
+        if (grouped)
+            MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override

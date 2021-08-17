@@ -86,7 +86,7 @@ public class DeepL {
         return !TextUtils.isEmpty(deepl_key);
     }
 
-    public static List<Language> getTargetLanguages(Context context) {
+    public static List<Language> getTargetLanguages(Context context, boolean favorites) {
         try {
             ensureLanguages(context);
 
@@ -106,13 +106,13 @@ public class DeepL {
                     name = locale.getDisplayName();
 
                 int frequency = prefs.getInt("translated_" + target, 0);
-                if (BuildConfig.DEBUG && frequency > 0)
-                    name += " ★";
 
                 String resname = "language_" + target.toLowerCase().replace('-', '_');
                 int resid = res.getIdentifier(resname, "drawable", pkg);
 
-                languages.add(new Language(name, target, resid == 0 ? null : resid));
+                languages.add(new Language(name, target,
+                        resid == 0 ? null : resid,
+                        favorites && frequency > 0));
                 frequencies.put(target, frequency);
             }
 
@@ -124,7 +124,7 @@ public class DeepL {
                     int freq1 = frequencies.get(l1.target);
                     int freq2 = frequencies.get(l2.target);
 
-                    if (freq1 == freq2 || !BuildConfig.DEBUG)
+                    if (freq1 == freq2 || !favorites)
                         return collator.compare(l1.name, l2.name);
                     else
                         return -Integer.compare(freq1, freq2);
@@ -290,11 +290,13 @@ public class DeepL {
         public String name;
         public String target;
         public Integer icon;
+        public boolean favorite;
 
-        private Language(String name, String target, Integer icon) {
+        private Language(String name, String target, Integer icon, boolean favorit) {
             this.name = name;
             this.target = target;
             this.icon = icon;
+            this.favorite = favorit;
         }
 
         @Override
