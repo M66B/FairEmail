@@ -309,6 +309,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(170) Why can't folders be created with POP3?](#user-content-faq170)
 * [(171) How can I delete a contact?](#user-content-faq171)
 * [(172) How can I import contacts?](#user-content-faq172)
+* [(173) What is the difference between Play store / GitHub / F-Droid version?](#user-content-faq173)
 
 [I have another question.](#user-content-get-support)
 
@@ -3856,6 +3857,20 @@ Related questions:
 * [How can I delete a contact?](#user-content-faq171)
 
 <br />
+
+<a name="faq173"></a>
+**(173) What is the difference between Play store / GitHub / F-Droid version?**
+
+* The Play store version does not support Android Auto, see [this FAQ](#user-content-faq165) for more information
+* The Play store version does not support [Gravatars](https://gravatar.com/), see [here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-85226179) for the reason
+* The Play store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in Android
+* The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases)
+* The GitHub version has some different links and some options have a different default values (more geared to advanced users)
+* The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
+* The F-Droid build is supported only if the version number is the same as the the version number of the latest GitHub version, see also [this FAQ](#user-content-faq147)
+
+<br />
+
 
 <h2><a name="get-support"></a>Get support</h2>
 
