@@ -1232,7 +1232,8 @@ class Core {
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
         boolean duplicate = (copy && !account.isGmail());
         if (draft || duplicate) {
-            Log.i(folder.name + " move from " + folder.type + " to " + target.type);
+            Log.i(folder.name + " " + (duplicate ? "copy" : "move") +
+                    " from " + folder.type + " to " + target.type);
 
             List<Message> icopies = new ArrayList<>();
             for (Message imessage : map.keySet()) {
