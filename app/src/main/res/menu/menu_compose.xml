@@ -19,74 +19,78 @@
         android:title="@string/title_zoom"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/menu_save_drafts"
-        android:checkable="true"
-        android:checked="true"
-        android:icon="@drawable/twotone_save_24"
-        android:title="@string/title_save_drafts"
-        app:showAsAction="never" />
+    <group android:id="@+id/group_options">
+        <item
+            android:id="@+id/menu_save_drafts"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/twotone_save_24"
+            android:title="@string/title_save_drafts"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_send_dialog"
-        android:checkable="true"
-        android:checked="true"
-        android:icon="@drawable/twotone_send_24"
-        android:title="@string/title_send_dialog"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_send_dialog"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/twotone_send_24"
+            android:title="@string/title_send_dialog"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_image_dialog"
-        android:checkable="true"
-        android:checked="true"
-        android:icon="@drawable/twotone_image_24"
-        android:title="@string/title_image_dialog"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_image_dialog"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/twotone_image_24"
+            android:title="@string/title_image_dialog"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_media"
-        android:checkable="true"
-        android:checked="true"
-        android:icon="@drawable/twotone_attachment_24"
-        android:title="@string/title_media_toolbar"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_media"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/twotone_attachment_24"
+            android:title="@string/title_media_toolbar"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/menu_compact"
-        android:checkable="true"
-        android:icon="@drawable/outline_unfold_less_24"
-        android:title="@string/title_compact"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_compact"
+            android:checkable="true"
+            android:icon="@drawable/outline_unfold_less_24"
+            android:title="@string/title_compact"
+            app:showAsAction="never" />
+    </group>
 
-    <item
-        android:id="@+id/menu_contact_group"
-        android:icon="@drawable/twotone_people_24"
-        android:title="@string/title_insert_contact_group"
-        app:showAsAction="never">
-        <menu />
-    </item>
+    <group android:id="@+id/group_operations">
+        <item
+            android:id="@+id/menu_contact_group"
+            android:icon="@drawable/twotone_people_24"
+            android:title="@string/title_insert_contact_group"
+            app:showAsAction="never">
+            <menu />
+        </item>
 
-    <item
-        android:id="@+id/menu_answer_insert"
-        android:icon="@drawable/twotone_text_snippet_24"
-        android:title="@string/title_insert_template"
-        app:showAsAction="never">
-        <menu />
-    </item>
+        <item
+            android:id="@+id/menu_answer_insert"
+            android:icon="@drawable/twotone_text_snippet_24"
+            android:title="@string/title_insert_template"
+            app:showAsAction="never">
+            <menu />
+        </item>
 
-    <item
-        android:id="@+id/menu_answer_create"
-        android:icon="@drawable/outline_post_add_24"
-        android:title="@string/title_create_template"
-        app:showAsAction="never">
-        <menu />
-    </item>
+        <item
+            android:id="@+id/menu_answer_create"
+            android:icon="@drawable/outline_post_add_24"
+            android:title="@string/title_create_template"
+            app:showAsAction="never">
+            <menu />
+        </item>
 
-    <item
-        android:id="@+id/menu_clear"
-        android:icon="@drawable/twotone_format_clear_24"
-        android:title="@string/title_style_clear"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_clear"
+            android:icon="@drawable/twotone_format_clear_24"
+            android:title="@string/title_style_clear"
+            app:showAsAction="never" />
+    </group>
 
     <item
         android:id="@+id/menu_legend"

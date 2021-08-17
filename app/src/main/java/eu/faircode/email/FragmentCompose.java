@@ -1497,6 +1497,8 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        MenuCompat.setGroupDividerEnabled(menu, true);
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
