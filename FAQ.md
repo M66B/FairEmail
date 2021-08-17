@@ -3864,7 +3864,7 @@ Related questions:
 
 * The Play store version does not support Android Auto, see [this FAQ](#user-content-faq165) for more information
 * The Play store version does not support [Gravatars](https://gravatar.com/), see [here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-85226179) for the reason
-* The Play store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in Android
+* The Play store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in this Android version of Amazon
 * The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases)
 * The GitHub version has some different links and some options have a different default values (more geared to advanced users)
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
@@ -3877,7 +3877,7 @@ Related questions:
 
 Yes, multiple methods of auto discovery are available.
 
-The preferred and simplest and fastest method is using DNS records,
+The preferred, simplest and fastest method is using DNS records,
 please see see [RFC6186](https://tools.ietf.org/html/rfc6186) and [RFC8314](https://tools.ietf.org/html/rfc8314) for the details.
 
 Example DNS records (SRV=record type, 0=priority, 1=weight, 993/587=port number):
