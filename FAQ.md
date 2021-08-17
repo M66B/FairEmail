@@ -310,6 +310,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(171) How can I delete a contact?](#user-content-faq171)
 * [(172) How can I import contacts?](#user-content-faq172)
 * [(173) What is the difference between Play store / GitHub / F-Droid version?](#user-content-faq173)
+* [(174) Is auto discovery supported?](#user-content-faq174)
 
 [I have another question.](#user-content-get-support)
 
@@ -3868,6 +3869,30 @@ Related questions:
 * The GitHub version has some different links and some options have a different default values (more geared to advanced users)
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
 * The F-Droid build is supported only if the version number is the same as the the version number of the latest GitHub version, see also [this FAQ](#user-content-faq147)
+
+<br />
+
+<a name="faq174"></a>
+**(174) Is auto discovery supported?**
+
+Yes, multiple methods of auto discovery are available.
+
+The preferred and simplest and fastest method is using DNS records,
+please see see [RFC6186](https://tools.ietf.org/html/rfc6186) and [RFC8314](https://tools.ietf.org/html/rfc8314) for the details.
+
+Example DNS records (SRV=record type, 0=priority, 1=weight, 993/587=port number):
+
+```
+_imaps._tcp SRV 0 1 993 imap.example.com.
+_submission._tcp SRV 0 1 587 smtp.example.com.
+```
+
+[Mozilla's autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) is supported too,
+but only if the configuration file is accessible via a secure (https) connection.
+
+FairEmail will also check the [MX record](https://en.wikipedia.org/wiki/MX_record) and if common email ports (143/993, 465/587) are open.
+
+There is no auto discovery for POP3.
 
 <br />
 
