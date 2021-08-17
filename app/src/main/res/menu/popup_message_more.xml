@@ -5,140 +5,148 @@
         android:icon="@drawable/twotone_smart_button_24"
         android:title="@string/title_configure_buttons" />
 
-    <item
-        android:id="@+id/menu_unseen"
-        android:title="@string/title_unseen" />
+    <group android:id="@+id/group_operations">
+        <item
+            android:id="@+id/menu_unseen"
+            android:title="@string/title_unseen" />
 
-    <item
-        android:id="@+id/menu_snooze"
-        android:icon="@drawable/twotone_timelapse_24"
-        android:title="@string/title_snooze" />
+        <item
+            android:id="@+id/menu_snooze"
+            android:icon="@drawable/twotone_timelapse_24"
+            android:title="@string/title_snooze" />
 
-    <item
-        android:id="@+id/menu_hide"
-        android:title="@string/title_hide" />
+        <item
+            android:id="@+id/menu_hide"
+            android:title="@string/title_hide" />
 
-    <item
-        android:id="@+id/menu_flag_color"
-        android:icon="@drawable/twotone_auto_awesome_24"
-        android:title="@string/title_flag_color" />
+        <item
+            android:id="@+id/menu_flag_color"
+            android:icon="@drawable/twotone_auto_awesome_24"
+            android:title="@string/title_flag_color" />
 
-    <item
-        android:id="@+id/menu_set_importance"
-        android:icon="@drawable/baseline_arrow_upward_24"
-        android:title="@string/title_set_importance">
-        <menu>
-            <item
-                android:id="@+id/menu_set_importance_high"
-                android:icon="@drawable/baseline_arrow_upward_24"
-                android:title="@string/title_importance_high" />
-            <item
-                android:id="@+id/menu_set_importance_normal"
-                android:icon="@drawable/twotone_horizontal_rule_24"
-                android:title="@string/title_importance_normal" />
-            <item
-                android:id="@+id/menu_set_importance_low"
-                android:icon="@drawable/baseline_arrow_downward_24"
-                android:title="@string/title_importance_low" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/menu_set_importance"
+            android:icon="@drawable/baseline_arrow_upward_24"
+            android:title="@string/title_set_importance">
+            <menu>
+                <item
+                    android:id="@+id/menu_set_importance_high"
+                    android:icon="@drawable/baseline_arrow_upward_24"
+                    android:title="@string/title_importance_high" />
+                <item
+                    android:id="@+id/menu_set_importance_normal"
+                    android:icon="@drawable/twotone_horizontal_rule_24"
+                    android:title="@string/title_importance_normal" />
+                <item
+                    android:id="@+id/menu_set_importance_low"
+                    android:icon="@drawable/baseline_arrow_downward_24"
+                    android:title="@string/title_importance_low" />
+            </menu>
+        </item>
 
-    <item
-        android:id="@+id/menu_move_to"
-        android:icon="@drawable/twotone_drive_file_move_24"
-        android:title="@string/title_move_to" />
+        <item
+            android:id="@+id/menu_move_to"
+            android:icon="@drawable/twotone_drive_file_move_24"
+            android:title="@string/title_move_to" />
 
-    <item
-        android:id="@+id/menu_copy_to"
-        android:icon="@drawable/twotone_file_copy_24"
-        android:title="@string/title_copy_to" />
+        <item
+            android:id="@+id/menu_copy_to"
+            android:icon="@drawable/twotone_file_copy_24"
+            android:title="@string/title_copy_to" />
 
-    <item
-        android:id="@+id/menu_delete"
-        android:icon="@drawable/twotone_delete_forever_24"
-        android:title="@string/title_delete_permanently" />
+        <item
+            android:id="@+id/menu_delete"
+            android:icon="@drawable/twotone_delete_forever_24"
+            android:title="@string/title_delete_permanently" />
+    </group>
 
-    <item
-        android:id="@+id/menu_resync"
-        android:icon="@drawable/twotone_sync_24"
-        android:title="@string/title_resync" />
+    <group android:id="@+id/group_properties">
+        <item
+            android:id="@+id/menu_edit_notes"
+            android:icon="@drawable/twotone_sticky_note_2_24"
+            android:title="@string/title_edit_notes" />
 
-    <item
-        android:id="@+id/menu_edit_notes"
-        android:icon="@drawable/twotone_sticky_note_2_24"
-        android:title="@string/title_edit_notes" />
+        <item
+            android:id="@+id/menu_create_rule"
+            android:icon="@drawable/twotone_filter_alt_24"
+            android:title="@string/title_create_rule" />
 
-    <item
-        android:id="@+id/menu_search_in_text"
-        android:icon="@drawable/twotone_search_24"
-        android:title="@string/title_search_in_text" />
+        <item
+            android:id="@+id/menu_manage_keywords"
+            android:icon="@drawable/twotone_label_important_24"
+            android:title="@string/title_manage_keywords" />
 
-    <item
-        android:id="@+id/menu_create_rule"
-        android:icon="@drawable/twotone_filter_alt_24"
-        android:title="@string/title_create_rule" />
+        <item
+            android:id="@+id/menu_search_in_text"
+            android:icon="@drawable/twotone_search_24"
+            android:title="@string/title_search_in_text" />
+    </group>
 
-    <item
-        android:id="@+id/menu_manage_keywords"
-        android:icon="@drawable/twotone_label_important_24"
-        android:title="@string/title_manage_keywords" />
+    <group android:id="@+id/group_sharing">
+        <item
+            android:id="@+id/menu_event"
+            android:icon="@drawable/twotone_event_24"
+            android:title="@string/title_event" />
 
-    <item
-        android:id="@+id/menu_event"
-        android:icon="@drawable/twotone_event_24"
-        android:title="@string/title_event" />
+        <item
+            android:id="@+id/menu_share"
+            android:icon="@drawable/twotone_share_24"
+            android:title="@string/title_share" />
 
-    <item
-        android:id="@+id/menu_share"
-        android:icon="@drawable/twotone_share_24"
-        android:title="@string/title_share" />
+        <item
+            android:id="@+id/menu_pin"
+            android:icon="@drawable/twotone_push_pin_24"
+            android:title="@string/title_pin" />
 
-    <item
-        android:id="@+id/menu_pin"
-        android:icon="@drawable/twotone_push_pin_24"
-        android:title="@string/title_pin" />
+        <item
+            android:id="@+id/menu_print"
+            android:icon="@drawable/twotone_print_24"
+            android:title="@string/title_print" />
+    </group>
 
-    <item
-        android:id="@+id/menu_print"
-        android:icon="@drawable/twotone_print_24"
-        android:title="@string/title_print" />
+    <group android:id="@+id/group_advanced">
+        <item
+            android:id="@+id/menu_show_headers"
+            android:checkable="true"
+            android:icon="@drawable/baseline_code_24"
+            android:title="@string/title_show_headers" />
 
-    <item
-        android:id="@+id/menu_show_headers"
-        android:checkable="true"
-        android:icon="@drawable/baseline_code_24"
-        android:title="@string/title_show_headers" />
+        <item
+            android:id="@+id/menu_share_as_html"
+            android:icon="@drawable/twotone_source_24"
+            android:title="@string/title_share_as_html" />
 
-    <item
-        android:id="@+id/menu_share_as_html"
-        android:icon="@drawable/twotone_source_24"
-        android:title="@string/title_share_as_html" />
+        <item
+            android:id="@+id/menu_raw_save"
+            android:enabled="false"
+            android:icon="@drawable/twotone_save_24"
+            android:title="@string/title_raw_save" />
 
-    <item
-        android:id="@+id/menu_raw_save"
-        android:enabled="false"
-        android:icon="@drawable/twotone_save_24"
-        android:title="@string/title_raw_save" />
+        <item
+            android:id="@+id/menu_raw_send"
+            android:icon="@drawable/twotone_attachment_24"
+            android:title="@string/title_raw_send">
+            <menu>
+                <item
+                    android:id="@+id/menu_raw_send_message"
+                    android:enabled="false"
+                    android:title="@string/title_raw_send_message" />
 
-    <item
-        android:id="@+id/menu_raw_send"
-        android:icon="@drawable/twotone_attachment_24"
-        android:title="@string/title_raw_send">
-        <menu>
-            <item
-                android:id="@+id/menu_raw_send_message"
-                android:enabled="false"
-                android:title="@string/title_raw_send_message" />
+                <item
+                    android:id="@+id/menu_raw_send_thread"
+                    android:enabled="false"
+                    android:title="@string/title_raw_send_thread" />
+            </menu>
+        </item>
 
-            <item
-                android:id="@+id/menu_raw_send_thread"
-                android:enabled="false"
-                android:title="@string/title_raw_send_thread" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/menu_resync"
+            android:icon="@drawable/twotone_sync_24"
+            android:title="@string/title_resync" />
 
-    <item
-        android:id="@+id/menu_log"
-        android:icon="@drawable/twotone_dns_24"
-        android:title="@string/title_log" />
+        <item
+            android:id="@+id/menu_log"
+            android:icon="@drawable/twotone_dns_24"
+            android:title="@string/title_log" />
+    </group>
 </menu>
