@@ -3744,13 +3744,17 @@ Unfortunately, it is not possible to hide messages on the email server too.
 <a name="faq167"></a>
 **(167) How can I use DeepL?**
 
+1. Make sure you have the latest version of the app installed
 1. Check if [DeepL](https://www.deepl.com/) supports your language
 1. Enable DeepL support in the miscellaneous settings
 1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
 1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
-1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
+1. In the message composer tap on the translate button (文A) in the top action bar, select *Configure* and paste the key
 
 This feature requires an internet connection.
+
+Note that when reading a message, you can use the horizontal three-dots menu to translate too.
+If you use this frequently, you can configure a button for this.
 
 <br />
 
