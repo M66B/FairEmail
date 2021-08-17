@@ -278,33 +278,63 @@ public class EmailProvider implements Parcelable {
             DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
 
             for (DnsHelper.DnsRecord record : records)
-                if (!TextUtils.isEmpty(record.name))
+                if (!TextUtils.isEmpty(record.name)) {
+                    String target = record.name.toLowerCase(Locale.ROOT);
+                    EntityLog.log(context, "MX target=" + target);
+
                     for (EmailProvider provider : providers) {
                         if (provider.mx != null)
                             for (String mx : provider.mx)
-                                if (record.name.toLowerCase(Locale.ROOT).matches(mx)) {
-                                    EntityLog.log(context, "Provider from mx=" + record.name + " domain=" + domain);
+                                if (target.matches(mx)) {
+                                    EntityLog.log(context, "From MX domain=" + domain);
                                     candidates.add(provider);
                                     break;
                                 }
 
-                        String mxparent = UriHelper.getParentDomain(context, record.name);
+                        String mxparent = UriHelper.getParentDomain(context, target);
                         String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
                         if (mxparent.equalsIgnoreCase(pdomain)) {
-                            EntityLog.log(context, "Provider from mx=" + record.name + " host=" + provider.imap.host);
+                            EntityLog.log(context, "From MX host=" + provider.imap.host);
                             candidates.add(provider);
                             break;
                         }
                     }
 
-            for (DnsHelper.DnsRecord record : records) {
-                String target = record.name;
-                while (candidates.size() == 0 && target != null && target.indexOf('.') > 0) {
-                    candidates.addAll(_fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover));
-                    int dot = target.indexOf('.');
-                    target = target.substring(dot + 1);
+                    while (candidates.size() == 0 && target.indexOf('.') > 0) {
+                        candidates.addAll(_fromDomain(context, target, email, discover));
+                        int dot = target.indexOf('.');
+                        target = target.substring(dot + 1);
+                    }
                 }
-            }
+
+            for (DnsHelper.DnsRecord record : records)
+                if (!TextUtils.isEmpty(record.name)) {
+                    String target = record.name.toLowerCase(Locale.ROOT);
+
+                    EmailProvider mx1 = new EmailProvider(domain);
+                    mx1.imap.score = 0;
+                    mx1.imap.host = target;
+                    mx1.imap.port = 993;
+                    mx1.imap.starttls = false;
+                    mx1.smtp.score = 0;
+                    mx1.smtp.host = target;
+                    mx1.smtp.port = 587;
+                    mx1.smtp.starttls = true;
+                    candidates.add(mx1);
+
+                    EmailProvider mx2 = new EmailProvider(domain);
+                    mx2.imap.score = 0;
+                    mx2.imap.host = target;
+                    mx2.imap.port = 993;
+                    mx2.imap.starttls = false;
+                    mx2.smtp.score = 0;
+                    mx2.smtp.host = target;
+                    mx2.smtp.port = 465;
+                    mx2.smtp.starttls = false;
+                    candidates.add(mx2);
+
+                    break;
+                }
         } catch (Throwable ex) {
             Log.w(ex);
         }
@@ -387,7 +417,7 @@ public class EmailProvider implements Parcelable {
 
         try {
             // Scan ports
-            Log.i("Provider from template domain=" + domain);
+            Log.i("Provider from scan domain=" + domain);
             result.add(fromScan(context, domain, discover));
         } catch (Throwable ex) {
             Log.w(ex);
@@ -860,7 +890,10 @@ public class EmailProvider implements Parcelable {
         public boolean starttls;
 
         // Scores:
-        //  10 from scan; +2 trusted; +1 trusted alt
+        //   0 from MX record
+        //  10 from port scan
+        //     +2 trusted host
+        //     +1 trusted DNS name
         //  20 from autoconfig
         //  50 from DNS
         // 100 from profile
