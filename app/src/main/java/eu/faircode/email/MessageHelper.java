@@ -689,6 +689,10 @@ public class MessageHelper {
         // Build html body
         Document document = JsoupEx.parse(message.getFile(context));
 
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
+        if (message.language != null)
+            document.body().attr("lang", message.language);
+
         // When sending message
         if (identity != null && send) {
             if (auto_link)
