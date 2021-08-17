@@ -2634,7 +2634,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     int order = 100;
                     for (EntityAnswer answer : data.answers) {
                         order++;
-                        popupMenu.getMenu().add(1, order, order, answer.name)
+                        popupMenu.getMenu().add(Menu.FIRST, order, order, answer.name)
                                 .setIcon(R.drawable.twotone_star_24)
                                 .setIntent(new Intent().putExtra("id", answer.id));
                     }
@@ -2642,10 +2642,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 popupMenu.insertIcons(context);
 
+                MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
+
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
-                        if (target.getGroupId() == 1) {
+                        if (target.getGroupId() == Menu.FIRST) {
                             startActivity(new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
