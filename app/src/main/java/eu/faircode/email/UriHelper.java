@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -46,7 +48,7 @@ public class UriHelper {
         return (host != null && _getSuffix(context, host) != null);
     }
 
-    private static String _getSuffix(Context context, String host) {
+    private static String _getSuffix(Context context, @NonNull String host) {
         ensureSuffixList(context);
 
         String h = host.toLowerCase(Locale.ROOT);
