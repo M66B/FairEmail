@@ -4264,6 +4264,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        MenuCompat.setGroupDividerEnabled(menu, true);
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
