@@ -122,6 +122,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.view.MenuCompat;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -2744,6 +2745,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     });
                     snackbar.show();
                 } else {
+                    boolean grouped = BuildConfig.DEBUG;
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabReply);
                     Menu main = popupMenu.getMenu();
 
@@ -2759,7 +2761,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Collections.sort(answers, new Comparator<EntityAnswer>() {
                         @Override
                         public int compare(EntityAnswer a1, EntityAnswer a2) {
-                            if (!BuildConfig.DEBUG || a1.applied.equals(a2.applied))
+                            if (!grouped || a1.applied.equals(a2.applied))
                                 return collator.compare(a1.name, a2.name);
                             else
                                 return -a1.applied.compareTo(a2.applied);
@@ -2776,18 +2778,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         order++;
 
                         String name = answer.name;
-                        if (BuildConfig.DEBUG && answer.applied > 0)
-                            name += " ★";
 
                         MenuItem item;
                         if (answer.group == null)
                             item = main.add(Menu.NONE, order, order++, name);
                         else {
                             SubMenu smenu = map.get(answer.group);
-                            item = smenu.add(Menu.NONE, smenu.size(), smenu.size() + 1, name);
+                            item = smenu.add(answer.applied > 0 ? Menu.FIRST : Menu.NONE,
+                                    smenu.size(), smenu.size() + 1, name);
                         }
                         item.setIntent(new Intent().putExtra("id", answer.id));
                     }
+
+                    if (grouped)
+                        MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override

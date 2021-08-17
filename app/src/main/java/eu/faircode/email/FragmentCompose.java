@@ -1803,6 +1803,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 }
 
+                boolean grouped = BuildConfig.DEBUG;
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
                 Menu main = popupMenu.getMenu();
 
@@ -1821,7 +1822,7 @@ public class FragmentCompose extends FragmentBase {
                 Collections.sort(answers, new Comparator<EntityAnswer>() {
                     @Override
                     public int compare(EntityAnswer a1, EntityAnswer a2) {
-                        if (!BuildConfig.DEBUG || a1.applied.equals(a2.applied))
+                        if (!grouped || a1.applied.equals(a2.applied))
                             return collator.compare(a1.name, a2.name);
                         else
                             return -a1.applied.compareTo(a2.applied);
@@ -1847,15 +1848,14 @@ public class FragmentCompose extends FragmentBase {
                     order++;
 
                     String name = answer.name;
-                    if (BuildConfig.DEBUG && answer.applied > 0)
-                        name += " ★";
 
                     MenuItem item;
                     if (answer.group == null)
                         item = main.add(Menu.NONE, order, order++, name);
                     else {
                         SubMenu smenu = map.get(answer.group);
-                        item = smenu.add(Menu.NONE, smenu.size(), smenu.size() + 1, name);
+                        item = smenu.add(answer.applied > 0 ? Menu.FIRST : Menu.NONE,
+                                smenu.size(), smenu.size() + 1, name);
                     }
                     item.setIntent(new Intent().putExtra("id", answer.id));
                 }
@@ -1921,6 +1921,9 @@ public class FragmentCompose extends FragmentBase {
                                 .setIntent(new Intent().putExtra("config", ssb));
                     }
                 }
+
+                if (grouped)
+                    MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
