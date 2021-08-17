@@ -234,6 +234,11 @@ public class FragmentOAuth extends FragmentBase {
 
                 if (TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(getString(R.string.title_no_email));
+
+                int backslash = email.indexOf('\\');
+                if (backslash > 0)
+                    email = email.substring(0, backslash);
+
                 if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
             }
