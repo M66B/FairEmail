@@ -52,6 +52,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -351,8 +353,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (account.protocol == EntityAccount.TYPE_IMAP && settings)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
 
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_log, 5, R.string.title_log);
+
             if (debug)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 5, R.string.title_reset);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 6, R.string.title_reset);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -369,6 +373,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         return true;
                     } else if (itemId == R.string.title_copy) {
                         onActionCopy();
+                        return true;
+                    } else if (itemId == R.string.title_log) {
+                        onActionLog();
                         return true;
                     } else if (itemId == R.string.title_reset) {
                         onActionReset();
@@ -471,6 +478,21 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                     .putExtra("id", account.id)
                                     .putExtra("protocol", account.protocol)
                                     .putExtra("copy", true));
+                }
+
+                private void onActionLog() {
+                    if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        parentFragment.getParentFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                    Bundle args = new Bundle();
+                    args.putLong("account", account.id);
+
+                    Fragment fragment = new FragmentLogs();
+                    fragment.setArguments(args);
+
+                    FragmentTransaction fragmentTransaction = parentFragment.getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("logs");
+                    fragmentTransaction.commit();
                 }
 
                 private void onActionReset() {
