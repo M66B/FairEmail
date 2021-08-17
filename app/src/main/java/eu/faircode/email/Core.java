@@ -5272,7 +5272,7 @@ class Core {
                                 groupNotifying.put(group, new ArrayList<>());
 
                             if (id > 0) {
-                                EntityLog.log(context, null, null, null, id,
+                                EntityLog.log(context, EntityLog.Type.Notification, null, null, id,
                                         "Notify restore " + tag + " id=" + id);
                                 groupNotifying.get(group).add(id);
                             }

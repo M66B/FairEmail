@@ -71,27 +71,27 @@ public class EntityLog {
         log(context, Type.General, data);
     }
 
-    static void log(final Context context, Type type, EntityAccount account, String data) {
+    static void log(final Context context, @NonNull Type type, EntityAccount account, String data) {
         log(context, type, account.id, null, null, account.name + " " + data);
     }
 
-    static void log(final Context context, Type type, EntityAccount account, EntityFolder folder, String data) {
+    static void log(final Context context, @NonNull Type type, EntityAccount account, EntityFolder folder, String data) {
         log(context, type, account.id, folder.id, null, account.name + "/" + folder.name + " " + data);
     }
 
-    static void log(final Context context, Type type, EntityFolder folder, String data) {
+    static void log(final Context context, @NonNull Type type, EntityFolder folder, String data) {
         log(context, type, folder.account, folder.id, null, folder.name + " " + data);
     }
 
-    static void log(final Context context, Type type, EntityMessage message, String data) {
+    static void log(final Context context, @NonNull Type type, EntityMessage message, String data) {
         log(context, type, message.account, message.folder, message.id, data);
     }
 
-    static void log(final Context context, Type type, String data) {
+    static void log(final Context context, @NonNull Type type, String data) {
         log(context, type, null, null, null, data);
     }
 
-    static void log(final Context context, Type type, Long account, Long folder, Long message, String data) {
+    static void log(final Context context, @NonNull Type type, Long account, Long folder, Long message, String data) {
         Log.i(data);
 
         if (context == null)

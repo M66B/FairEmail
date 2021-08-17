@@ -2250,6 +2250,8 @@ public abstract class DB extends RoomDatabase {
 
         @TypeConverter
         public static int fromLogType(EntityLog.Type type) {
+            if (type == null)
+                type = EntityLog.Type.General;
             return type.ordinal();
         }
     }
