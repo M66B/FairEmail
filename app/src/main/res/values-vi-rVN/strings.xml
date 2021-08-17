@@ -162,6 +162,7 @@
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
     <string name="title_setup_permissions_explanation">Quyền danh bạ được yêu cầu để tra cứu thông tin liên hệ và để đề xuất các liên hệ</string>
+    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Tôi có thể nhập các liên hệ như thế nào?</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
     <string name="title_setup_doze_remark">Để gửi và nhận email một cách đáng tin cậy</string>
     <string name="title_setup_doze_explanation">Tối ưu hoá pin nên được tắt cho ứng dụng này để đảm bảo việc gửi và nhận thư trong nền được đáng tin cậy</string>
@@ -1154,6 +1155,7 @@
     <string name="title_select_all">Chọn tất cả</string>
     <string name="title_select_found">Chọn các thư được tìm thấy</string>
     <string name="title_mark_all_read">Đánh dấu tất cả đã đọc</string>
+    <string name="title_view_thread">Xem cuộc hội thoại</string>
     <string name="title_force_sync">Buộc đồng bộ hoá</string>
     <string name="title_force_send">Buộc gửi</string>
     <string name="title_language_all">Tất cả</string>
@@ -1444,6 +1446,7 @@
     <string name="title_pro_hint">Việc mua các tính năng pro sẽ cho phép bạn sử dụng các tính năng pro hiện tại và tương lai và sẽ giữ cho ứng dụng này được duy trì và hỗ trợ.</string>
     <string name="title_pro_price">Tại sao các tính năng pro lại đắt thế?</string>
     <string name="title_pro_family">Tôi có thể sử dụng Thư viện Gia đình của Google Play không?</string>
+    <string name="title_pro_restore">Tôi có thể khôi phục thanh toán (trên một thiết bị khác) như thế nào?</string>
     <string name="title_pro_pending">Đang chờ mua</string>
     <string name="title_pro_activated">Tất cả tính năng pro được kích hoạt</string>
     <string name="title_pro_valid">Tất cả tính năng pro được kích hoạt</string>

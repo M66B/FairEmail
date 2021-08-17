@@ -47,36 +47,35 @@ Səlahiyyət vermək üçün:
 
 ## Necə ...?
 
-* Hesab adını dəyişdirin: Tənzimləmələr > Əllə quraşdır > Hesablar > "Hesab"a toxunun
-* Sola/sağa sürüşdürmə hədəfini dəyişdirin: Tənzimləmələr > Davranış > "Sürüşdürmə əməliyyatlarını tənzimlə"yə toxunun
-* Şifrəni dəyişdirin: Tənzimləmələr > Əllə quraşdır > Hesablar > "Hesab"a toxunun
-* Bir imza tənzimləyin: Tənzimləmələr > Əllə quraşdır > Kimliklər > Kimlik > İmzaya düzəliş et.
-* CC və BCC ünvanlarını əlavə edin: mövzunun sonunda insanların nişanına toxunun
-* Arxivləmə/silmə ilə əlaqəli sonrakı/əvvəlki mesaja gedin: Davranış tənzimləmələrində sıradan çıxardın *Danışıqları avtomatik bağlayın və *Bir danışığı bağlayanda* üçün *"Növbəti/əvvəlki danışığa gedin"i* seçin</li>
-* Birləşmiş gələn qutusuna bir qovluq əlavə edin: qovluq siyahısındakı qovluğa uzun basın və *"Birləşmiş gələn qutusunda göstər"i* işarələyin
-* Naviqasiya menyusuna bir qovluq əlavə edin: qovluq siyahısındakı qovluğu uzun müddət basın və * Naviqasiya menyusunda göstər * işarəsini vurun.
-* Daha çox mesaj yükləyin: qovluq siyahısında bir qovluğu uzun müddət basın, * Daha çox mesaj gətir <0> seçin</li>
-* Zibil qutusunu atlayaraq bir mesajı silin: zibil simgesini uzun müddət basın
-* Bir hesabı / şəxsiyyəti silin: Parametrlər, Əl ilə quraşdırma vurun, Hesablar / Şəxsiyyətlər vurun, hesaba / şəxsiyyətə vurun, zibil işarəsi yuxarı sağda
-* Qovluğu silin: qovluq siyahısındakı qovluğu uzun müddət basın, Xüsusiyyətləri redaktə edin, zibil işarəsi yuxarı sağda
-* Göndərməni geri qaytarın: Gələnlər qutusundakı mesajı sola və ya sağa sürüşdürün
-* Göndərilən mesajları gələnlər qutusunda saxlayın: xahiş edirəm [ bu suala baxın ](#user-content-faq142)
-* Sistem qovluqlarını dəyişdirin: Parametrlər, Əl ilə qurma vurun, Hesablar vurun, altındakı hesaba vurun
-* İxrac / idxal parametrləri: Ayarlar, naviqasiya (sol tərəf) menyusu</ul>
+* Hesab adını dəyişdirmə: Tənzimləmələr > Əllə quraşdır > Hesablar > "Hesab"a toxunun
+* Sola/sağa sürüşdürmə hədəfini dəyişdirmə: Tənzimləmələr > Davranış > "Sürüşdürmə əməliyyatlarını tənzimlə"yə toxunun
+* Şifrəni dəyişdirmə: Tənzimləmələr > Əllə quraşdır > Hesablar > "Hesab"a toxunun
+* Bir imza tənzimləmə: Tənzimləmələr > Əllə quraşdır > Kimliklər > Kimlik > İmzaya düzəliş et.
+* CC və BCC ünvanlarını əlavə etmə: mövzunun sonunda insanların nişanına toxunun
+* Arxivləmə/silmə ilə əlaqəli sonrakı/əvvəlki mesaja getmə: Davranış tənzimləmələrində sıradan çıxardın *Danışıqları avtomatik bağlayın və *Bir danışığı bağlayanda* üçün *"Növbəti/əvvəlki danışığa gedin"i* seçin</li>
+* Birləşmiş gələn qutusuna bir qovluq əlavə etmə: qovluq siyahısındakı qovluğa uzun basın və *"Birləşmiş gələn qutusunda göstər"i* işarələyin
+* Naviqasiya menyusuna bir qovluq əlavə etmə: qovluq siyahısındakı qovluğa uzun basın və *"Naviqasiya menyusunda göstər"i* işarələyin
+* Daha çox mesaj yükləmə: qovluq siyahısındakı bir qovluğa uzun basın, *"Daha çox mesaj gətir"i* seçin
+* Bir mesajı silin, tullantı qutusunu ötürün: tullantı nişanına uzun basın
+* Bir hesabı/kimliyi silmə: Tənzimləmələr > Əllə quraşdırma > Hesablar/Kimliklər > hesab/kimlik > sağ üstdəki tullantı nişanı
+* Bir qovluğu silmə: qovluq siyahısındakı bir qovluğa uzun basın > Xüsusiyyətlərə düzəliş et > sağ üstdəki tullantı nişanı
+* Göndərişi geri alma: Gedən qutusu, siyahıdakı mesajı sola və ya sağa sürüşdürün
+* Göndərilən mesajları gələn qutusunda saxlama: zəhmət olmasa [bu TSS-a baxın](#user-content-faq142)
+* Sistem qovluqlarını dəyişdirmə: Tənzimləmələr > Əllə quraşdırma > Hesablar > hesab > ən altda
+* İxrac/idxal tənzimləmələri: Tənzimləmələr > naviqasiya menyusu (sol tərəf)</ul>
 
-<h2><a name="known-problems"></a>Məlum problem</h2>
+<h2><a name="known-problems"></a>Bilinən problem</h2>
 
-* ~~Android 5.1 və 6 </a> bir
-
- səhv, tətbiqlərin bəzən səhv bir zaman formatı göstərməsinə səbəb olur. Android ayarı * 24 saatlıq format istifadə edin * problemi müvəqqəti həll edə bilər. Keçid yolu əlavə edildi.~~</li> 
-  
-  * ~~ Google Diskdəki bir [ səhv ](https://issuetracker.google.com/issues/126362828), Google Drive-a ixrac olunan faylların boş olmasına səbəb olur. Google bunu düzəltdi. ~~
+* ~~[Android 5.1 və 6 versiyalarındakı bir xəta](https://issuetracker.google.com/issues/37054851), tətbiqlərin bəzən yanlış vaxt formatını göstərməsinə səbəb olur. Android ayarı * 24 saatlıq format istifadə edin * problemi müvəqqəti həll edə bilər. Keçid yolu əlavə edildi.~~
+* ~~ Google Diskdəki bir [ səhv ](https://issuetracker.google.com/issues/126362828), Google Drive-a ixrac olunan faylların boş olmasına səbəb olur. Google bunu düzəltdi. ~~
 * ~~ AndroidX-də bir [ səhv ](https://issuetracker.google.com/issues/78495471) FairEmail-in bəzən uzun müddət basarkən və ya sürüşdürərkən qəzaya səbəb olur. Google bunu düzəltdi. ~~
 * ~~ AndroidX ROOM'dakı bir [ səhv ](https://issuetracker.google.com/issues/138441698) bəzən "* ... ilə qəzaya səbəb olur ... Verilənlər bazası canlı məlumatların hesablanması zamanı istisna ... Sıra oxunmadı ... * ". Keçid yolu əlavə edildi. ~~
 * Android-də bir [ səhv ](https://issuetracker.google.com/issues/119872129) FairEmail-in "* ... ilə qəzaya uğramasına səbəb olur ... Səhv bildiriş göndərildi ... * "FairEmail-i yenilədikdən və bildiriş vurduqdan sonra bəzi cihazlarda".
 * Android-də bir [ səhv ](https://issuetracker.google.com/issues/62427912) bəzən "* ... ilə qəzaya səbəb olur ... FairEmail yeniləndikdən sonra ... * "üçün ActivityRecord tapılmadı. Yenidən quraşdırmaq ([ mənbə ](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) problemi həll edə bilər.
 * Android-də bir [ səhv ](https://issuetracker.google.com/issues/37018931) bəzən * ilə qəzaya səbəb olur ... InputChannel başlatılmamış ... * bəzi cihazlarda.
-* ~~ LineageOS-dakı bir  səhv, bəzən * ... java.lang.ArrayIndexOutOfBoundsException: length = ...; indeks = ... ... *. ~~</li> 
+* ~~ LineageOS-dakı bir
+
+ səhv, bəzən * ... java.lang.ArrayIndexOutOfBoundsException: length = ...; indeks = ... ... *. ~~</li> 
   
   * Android 5.x-də Nova Launcher-da bir səhv Nova Launcher-in əlçatanlıq xidmətinə çıxışı olduqda FairEmail-in * java.lang.StackOverflowError * ilə qəzaya uğramasına səbəb olur.
 * ~~ Qovluq seçicisi bəzən hələ bilinməyən səbəblərdən qovluq göstərmir. Bu düzəldilmişdir. ~~
@@ -90,7 +89,7 @@ Səlahiyyət vermək üçün:
 * Bu düzəldilə bilməyən və ya ətrafında işlənməyən bir Android məhdudiyyətidir. Android 11
 * OpenKeychain-dəki bir [ səhv ](https://github.com/open-keychain/open-keychain/issues/2688) bir donanma işarəsi istifadə edərkən etibarsız PGP imzalarına səbəb olur.</ul>
 
-<h2><a name="planned-features"></a>Planlaşdırılan xüsusiyyətlər</h2>
+<h2><a name="planned-features"></a>Planlaşdırılan özəlliklər</h2>
 
 * ~~ Tələbə görə sinxronizasiya edin (əl ilə) ~~
 * ~~ Yarı avtomatik şifrələmə ~~
@@ -125,7 +124,7 @@ Səlahiyyət vermək üçün:
 
 Bu siyahıda hər hansı bir şey təsadüfi sıradadır və yaxın gələcəkdə * ola bilər *.
 
-<h2><a name="frequently-requested-features"></a>Tez-tez tələb olunan xüsusiyyətlər</h2>
+<h2><a name="frequently-requested-features"></a>Tez-tez tələb olunan özəlliklər</h2>
 
 Dizayn bir çox müzakirələrə əsaslanır və istəsəniz bu barədə [ bu forumda da ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) müzakirə edə bilərsiniz. Dizaynın məqsədi minimalist (lazımsız menyu, düymə və s.) Və diqqəti yayındırmayan (qəşəng rənglər, animasiyalar və s.) Olmaqdır. Göstərilən bütün şeylər bu və ya digər şəkildə faydalı olmalıdır və asan istifadə üçün diqqətlə yerləşdirilməlidir. Şriftlər, ölçülər, rənglər və s. Mümkün olduqda material dizaynı olmalıdır.
 
