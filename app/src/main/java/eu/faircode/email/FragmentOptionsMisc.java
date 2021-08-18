@@ -402,6 +402,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
                     new AlertDialog.Builder(view.getContext())
                             .setTitle(languages.get(position - 1).second)
+                            .setMessage(R.string.title_advanced_english_hint)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -433,7 +434,28 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibResetLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().remove("language").commit(); // apply won't work here
+                new AlertDialog.Builder(view.getContext())
+                        .setTitle(R.string.title_advanced_language_system)
+                        .setMessage(R.string.title_advanced_english_hint)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                prefs.edit().remove("language").commit(); // apply won't work here
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Do nothing
+                            }
+                        })
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                setOptions();
+                            }
+                        })
+                        .show();
             }
         });
 
