@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -35,8 +37,6 @@ import java.util.Locale;
 import java.util.Objects;
 
 import javax.mail.Part;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityAttachment.TABLE_NAME,
@@ -91,7 +91,7 @@ public class EntityAttachment {
     }
 
     boolean isImage() {
-        return Helper.isImage(getMimeType());
+        return ImageHelper.isImage(getMimeType());
     }
 
     boolean isEncryption() {

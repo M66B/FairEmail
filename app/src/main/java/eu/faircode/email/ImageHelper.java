@@ -75,7 +75,10 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
@@ -90,6 +93,29 @@ class ImageHelper {
     private static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
     private static final int MAX_PROBE = 64 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
+
+    // https://developer.android.com/guide/topics/media/media-formats#image-formats
+    static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
+            "image/bmp",
+            "image/gif",
+            "image/jpeg",
+            "image/jpg",
+            "image/png",
+            "image/webp"
+    ));
+
+    static final List<String> IMAGE_TYPES8 = Collections.unmodifiableList(Arrays.asList(
+            "image/heic",
+            "image/heif"
+    ));
+
+    static boolean isImage(String mimeType) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            if (IMAGE_TYPES8.contains(mimeType))
+                return true;
+
+        return IMAGE_TYPES.contains(mimeType);
+    }
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
         byte[] hash = getHash(email);

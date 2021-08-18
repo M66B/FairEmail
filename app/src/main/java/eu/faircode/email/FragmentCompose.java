@@ -7007,7 +7007,7 @@ public class FragmentCompose extends FragmentBase {
         Long size;
 
         boolean isImage() {
-            return Helper.isImage(type);
+            return ImageHelper.isImage(type);
         }
     }
 
