@@ -1055,7 +1055,6 @@
     <string name="title_no_connection">Connecting to one or more accounts &#8230;</string>
     <string name="title_no_folder">Folder does not exist</string>
     <string name="title_no_format">The originally received message will be included</string>
-    <string name="title_no_image">Image could not be decoded</string>
     <string name="title_no_search">Search on server is not available for this account</string>
     <string name="title_too_large">Message too large to completely reformat</string>
     <string name="title_truncated">Message too large to display completely</string>
