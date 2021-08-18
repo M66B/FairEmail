@@ -872,17 +872,46 @@
             port="465"
             starttls="false" />
     </provider>
+
     <provider
-        name="Alice.it"
+        name="Tim.it"
         appPassword="true"
-        domain="alice\\.it,tim\\.it"
-        link="https://assistenzatecnica.tim.it/at/portals/mini.portal?_nfpb=true&amp;_pageLabel=null&amp;nodeId=/AT_REPOSITORY/302010&amp;radice=help_virgilio">
+        domain="tim\\.it"
+        link="https://www.tim.it/assistenza/assistenza-tecnica/mail/configurazione/protocolli-posta">
         <imap
             host="imap.tim.it"
             port="143"
             starttls="true" />
         <smtp
             host="smtp.tim.it"
+            port="587"
+            starttls="true" />
+    </provider>
+    <provider
+        name="Alice.it"
+        appPassword="true"
+        domain="alice\\.it"
+        link="https://www.tim.it/assistenza/assistenza-tecnica/mail/configurazione/protocolli-posta">
+        <imap
+            host="in.alice.it"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="out.alice.it"
+            port="587"
+            starttls="true" />
+    </provider>
+    <provider
+        name="Tin.it"
+        appPassword="true"
+        domain="tin\\.it"
+        link="https://www.tim.it/assistenza/assistenza-tecnica/mail/configurazione/protocolli-posta">
+        <imap
+            host="imaps.tin.it"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="smtps.tin.it"
             port="587"
             starttls="true" />
     </provider>
