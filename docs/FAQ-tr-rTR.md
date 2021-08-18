@@ -285,31 +285,31 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 * [(148) Apple iCloud hesabını nasıl kullanabilirim?](#user-content-faq148)
 * [(149) Okunmamış mesaj sayımı widget'ı nasıl çalışır?](#user-content-faq149)
 * [(150) İptal eden takvim davetlerini ekleyebilir misiniz?](#user-content-faq150)
-* [(151) Can you add backup/restore of messages?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
+* [(151) Mesajların yedeğini / geri yüklemesini ekleyebilir misiniz?](#user-content-faq151)
+* [(152) Bir kişi grubunu nasıl ekleyebilirim?](#user-content-faq152)
+* [(153) Gmail iletisini kalıcı olarak silmek neden çalışmıyor?](#user-content-faq153)
+* [~~ (154) Kişi fotoğrafları olarak sık kullanılanlar ekleyebilir misiniz? ~~](#user-content-faq154)
+* [(155) winmail.dat dosyası nedir?](#user-content-faq155)
 * [(156) Nasıl bir Office 365 hesabı oluşturabilirim?](#user-content-faq156)
 * [157) Nasıl bir Free.Fr hesabı oluşturabilirim?](#user-content-faq157)
 * [(158) Hangi kamera / ses kaydediciyi tavsiye edersiniz?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(159) Disconnect'in izleyici koruma listeleri nelerdir?](#user-content-faq159)
 * [(160) Onay olmadan mesajların kalıcı olarak silinmesini ekleyebilir misiniz?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(161) Birincil ve vurgu rengini değiştirmek için bir ayar ekleyebilir misiniz?](#user-content-faq161)
+* [(162) IMAP BİLDİRİMİ destekleniyor mu?](#user-content-faq162)
+* [(163) Mesaj sınıflandırması nedir?](#user-content-faq163)
+* [(164) Özelleştirilebilir temalar ekleyebilir misiniz?](#user-content-faq164)
+* [(165) Android Auto destekleniyor mu?](#user-content-faq165)
+* [(166) Bir mesajı birden fazla cihazda erteleyebilir miyim?](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Başka bir sorum daha var.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+** (1) Hangi izinler gereklidir ve neden? **
 
-The following Android permissions are needed:
+Aşağıdaki android izinleri gereklidir:
 
-* *have full network access* (INTERNET): to send and receive email
+* * tam ağ erişimine sahip * (internet): e-posta göndermek ve almak için
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
 * *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question

@@ -66,10 +66,10 @@ Səlahiyyət vermək üçün:
 
 <h2><a name="known-problems"></a>Bilinən problem</h2>
 
-* ~~[Android 5.1 və 6 versiyalarındakı bir xəta](https://issuetracker.google.com/issues/37054851), tətbiqlərin bəzən yanlış vaxt formatını göstərməsinə səbəb olur. Android ayarı * 24 saatlıq format istifadə edin * problemi müvəqqəti həll edə bilər. Keçid yolu əlavə edildi.~~
-* ~~ Google Diskdəki bir [ səhv ](https://issuetracker.google.com/issues/126362828), Google Drive-a ixrac olunan faylların boş olmasına səbəb olur. Google bunu düzəltdi. ~~
-* ~~ AndroidX-də bir [ səhv ](https://issuetracker.google.com/issues/78495471) FairEmail-in bəzən uzun müddət basarkən və ya sürüşdürərkən qəzaya səbəb olur. Google bunu düzəltdi. ~~
-* ~~ AndroidX ROOM'dakı bir [ səhv ](https://issuetracker.google.com/issues/138441698) bəzən "* ... ilə qəzaya səbəb olur ... Verilənlər bazası canlı məlumatların hesablanması zamanı istisna ... Sıra oxunmadı ... * ". Keçid yolu əlavə edildi. ~~
+* ~~[Android 5.1 və 6 versiyalarındakı bir xəta](https://issuetracker.google.com/issues/37054851), tətbiqlərin bəzən yanlış vaxt formatını göstərməsinə səbəb olur. *24 saatlıq format istifadə et* Android tənzimləməsini dəyişdirmək, problemi müvəqqəti həll edəcək. Bir müvəqqəti həll yolu əlavə edildi.~~
+* ~~[Google Drive-dakı bir xətaya](https://issuetracker.google.com/issues/126362828) görə, Google Drive-a ixrac edilən fayllar boş olur. Google bunu düzəltdi.~~
+* ~~[AndroidX-dəki bir xətaya](https://issuetracker.google.com/issues/78495471) görə, uzun basanda və ya sürüşdürəndə FairEmail, arada çökür. Google bunu düzəltdi.~~
+* ~~[AndroidX ROOM-dakı bir xətaya görə](https://issuetracker.google.com/issues/138441698) bəzən bu çökməyə səbəb olur: "*... Verilənlər bazasının canlı verilənləri hesablaması istisna ... Sətir oxuna bilmədi ... * ". Bir müvəqqəti həll yolu əlavə edildi.~~
 * Android-də bir [ səhv ](https://issuetracker.google.com/issues/119872129) FairEmail-in "* ... ilə qəzaya uğramasına səbəb olur ... Səhv bildiriş göndərildi ... * "FairEmail-i yenilədikdən və bildiriş vurduqdan sonra bəzi cihazlarda".
 * Android-də bir [ səhv ](https://issuetracker.google.com/issues/62427912) bəzən "* ... ilə qəzaya səbəb olur ... FairEmail yeniləndikdən sonra ... * "üçün ActivityRecord tapılmadı. Yenidən quraşdırmaq ([ mənbə ](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) problemi həll edə bilər.
 * Android-də bir [ səhv ](https://issuetracker.google.com/issues/37018931) bəzən * ilə qəzaya səbəb olur ... InputChannel başlatılmamış ... * bəzi cihazlarda.
