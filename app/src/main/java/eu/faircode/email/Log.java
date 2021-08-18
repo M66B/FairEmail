@@ -1879,12 +1879,14 @@ public class Log {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean enabled = prefs.getBoolean("enabled", true);
             int pollInterval = ServiceSynchronize.getPollInterval(context);
+            boolean metered = prefs.getBoolean("metered", true);
             Boolean ignoring = Helper.isIgnoringOptimizations(context);
             boolean schedule = prefs.getBoolean("schedule", false);
 
             size += write(os, "accounts=" + accounts.size() +
                     " enabled=" + enabled +
                     " interval=" + pollInterval +
+                    " metered=" + metered +
                     " optimizing=" + (ignoring == null ? null : !ignoring) +
                     "\r\n\r\n");
 
