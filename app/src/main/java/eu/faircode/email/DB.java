@@ -427,6 +427,9 @@ public abstract class DB extends RoomDatabase {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             for (String img : ImageHelper.IMAGE_TYPES8)
                 image.add("'" + img + "'");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+            for (String img : ImageHelper.IMAGE_TYPES12)
+                image.add("'" + img + "'");
         String images = TextUtils.join(",", image);
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
