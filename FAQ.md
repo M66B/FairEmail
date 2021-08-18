@@ -433,9 +433,9 @@ See also [this FAQ](#user-content-faq16).
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*... Untrusted ... not in certificate ...*
-<br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Untrusted ... not in certificate ...*<br />
+*... Invalid security certificate (Can't verify identity of server) ...*<br />
+*... Chain validation failed ... timestamp check failed ... Certificate expired at ...*<br />
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup).
 Please see the documentation of the email provider about the right host name.
