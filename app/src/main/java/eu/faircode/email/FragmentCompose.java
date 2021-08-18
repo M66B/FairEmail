@@ -4528,7 +4528,7 @@ public class FragmentCompose extends FragmentBase {
                                 e.tagName("p");
                             reply.appendChild(e);
 
-                            if (write_below)
+                            if (write_below && data.draft.wasforwardedfrom == null)
                                 document.body().prependChild(reply);
                             else
                                 document.body().appendChild(reply);
@@ -4707,7 +4707,7 @@ public class FragmentCompose extends FragmentBase {
                         // Possibly external draft
 
                         for (Element e : ref)
-                            if (write_below)
+                            if (write_below && data.draft.wasforwardedfrom == null)
                                 doc.body().prependChild(e);
                             else
                                 doc.body().appendChild(e);
@@ -5232,7 +5232,7 @@ public class FragmentCompose extends FragmentBase {
                             Document c = JsoupEx.parse(body);
 
                             for (Element e : ref)
-                                if (write_below)
+                                if (write_below && draft.wasforwardedfrom == null)
                                     c.body().prependChild(e);
                                 else
                                     c.body().appendChild(e);
@@ -5246,7 +5246,7 @@ public class FragmentCompose extends FragmentBase {
                             d = JsoupEx.parse(body); // Save
 
                             for (Element e : ref)
-                                if (write_below)
+                                if (write_below && draft.wasforwardedfrom == null)
                                     d.body().prependChild(e);
                                 else
                                     d.body().appendChild(e);
@@ -5831,8 +5831,8 @@ public class FragmentCompose extends FragmentBase {
         getActivity().invalidateOptionsMenu();
     }
 
-    private static void addSignature(Context context, Document document, EntityMessage message, EntityIdentity identity) {
-        if (!message.signature ||
+    private static void addSignature(Context context, Document document, EntityMessage draft, EntityIdentity identity) {
+        if (!draft.signature ||
                 identity == null || TextUtils.isEmpty(identity.signature))
             return;
 
@@ -5860,7 +5860,7 @@ public class FragmentCompose extends FragmentBase {
         else if (ref.size() == 0 || signature_location == 2) // bottom
             document.body().appendChild(div);
         else if (signature_location == 1) // below text
-            if (write_below)
+            if (write_below && draft.wasforwardedfrom == null)
                 document.body().appendChild(div);
             else
                 ref.first().before(div);
