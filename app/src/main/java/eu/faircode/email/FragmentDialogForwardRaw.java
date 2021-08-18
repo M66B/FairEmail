@@ -108,6 +108,8 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, "raw");
+
                 return Helper.toLongArray(result);
             }
 
