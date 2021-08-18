@@ -351,13 +351,13 @@ public class FragmentCompose extends FragmentBase {
         etExtra = view.findViewById(R.id.etExtra);
         tvDomain = view.findViewById(R.id.tvDomain);
         etTo = view.findViewById(R.id.etTo);
-        ibToAdd = view.findViewById(R.id.ivToAdd);
+        ibToAdd = view.findViewById(R.id.ibToAdd);
         etCc = view.findViewById(R.id.etCc);
-        ibCcAdd = view.findViewById(R.id.ivCcAdd);
+        ibCcAdd = view.findViewById(R.id.ibCcAdd);
         etBcc = view.findViewById(R.id.etBcc);
-        ibBccAdd = view.findViewById(R.id.ivBccAdd);
+        ibBccAdd = view.findViewById(R.id.ibBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
-        ibCcBcc = view.findViewById(R.id.ivCcBcc);
+        ibCcBcc = view.findViewById(R.id.ibCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         tvDsn = view.findViewById(R.id.tvDsn);
@@ -498,11 +498,11 @@ public class FragmentCompose extends FragmentBase {
             public void onClick(View view) {
                 int request;
                 int id = view.getId();
-                if (id == R.id.ivToAdd) {
+                if (id == R.id.ibToAdd) {
                     request = REQUEST_CONTACT_TO;
-                } else if (id == R.id.ivCcAdd) {
+                } else if (id == R.id.ibCcAdd) {
                     request = REQUEST_CONTACT_CC;
-                } else if (id == R.id.ivBccAdd) {
+                } else if (id == R.id.ibBccAdd) {
                     request = REQUEST_CONTACT_BCC;
                 } else {
                     return;

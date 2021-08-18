@@ -93,17 +93,18 @@
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress|textNoSuggestions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toStartOf="@+id/ivToAdd"
+                    app:layout_constraintEnd_toStartOf="@+id/ibToAdd"
                     app:layout_constraintStart_toEndOf="@id/ivToLegend"
                     app:layout_constraintTop_toBottomOf="@id/etExtra" />
 
                 <ImageButton
-                    android:id="@+id/ivToAdd"
+                    android:id="@+id/ibToAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_pick"
+                    android:tooltipText="@string/title_legend_pick"
                     app:layout_constraintBottom_toBottomOf="@id/etTo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etTo"
@@ -135,17 +136,18 @@
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress|textNoSuggestions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toStartOf="@+id/ivCcAdd"
+                    app:layout_constraintEnd_toStartOf="@+id/ibCcAdd"
                     app:layout_constraintStart_toEndOf="@id/ivCcLegend"
                     app:layout_constraintTop_toBottomOf="@+id/etTo" />
 
                 <ImageButton
-                    android:id="@+id/ivCcAdd"
+                    android:id="@+id/ibCcAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_pick"
+                    android:tooltipText="@string/title_legend_pick"
                     app:layout_constraintBottom_toBottomOf="@id/etCc"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etCc"
@@ -177,17 +179,18 @@
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress|textNoSuggestions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toStartOf="@+id/ivBccAdd"
+                    app:layout_constraintEnd_toStartOf="@+id/ibBccAdd"
                     app:layout_constraintStart_toEndOf="@id/ivBccLegend"
                     app:layout_constraintTop_toBottomOf="@+id/etCc" />
 
                 <ImageButton
-                    android:id="@+id/ivBccAdd"
+                    android:id="@+id/ibBccAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_pick"
+                    android:tooltipText="@string/title_legend_pick"
                     app:layout_constraintBottom_toBottomOf="@id/etBcc"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etBcc"
@@ -206,12 +209,12 @@
                     android:imeOptions="actionNext"
                     android:inputType="textEmailSubject|textCapSentences|textAutoCorrect"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toStartOf="@+id/ivCcBcc"
+                    app:layout_constraintEnd_toStartOf="@+id/ibCcBcc"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBcc" />
 
                 <ImageButton
-                    android:id="@+id/ivCcBcc"
+                    android:id="@+id/ibCcBcc"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
@@ -362,6 +365,7 @@
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_show_images"
                     android:padding="3dp"
+                    android:tooltipText="@string/title_legend_show_images"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cbSignature"
                     app:srcCompat="@drawable/twotone_file_copy_24" />
@@ -381,7 +385,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/title_no_format"
                     app:layout_constraintBottom_toBottomOf="@+id/tvReferenceHint"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvReferenceHint"
@@ -412,6 +415,7 @@
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_edit"
                     android:padding="3dp"
+                    android:tooltipText="@string/title_legend_edit"
                     app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
                     app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/twotone_edit_24" />
@@ -425,6 +429,7 @@
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_show_images"
                     android:padding="3dp"
+                    android:tooltipText="@string/title_legend_show_images"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/twotone_image_24" />
@@ -448,7 +453,7 @@
                     android:id="@+id/grpHeader"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="spIdentity,ivToLegend,etTo,ivToAdd,etSubject,vSeparator" />
+                    app:constraint_referenced_ids="spIdentity,ivToLegend,etTo,ibToAdd,etSubject,vSeparator" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpExtra"
@@ -460,7 +465,7 @@
                     android:id="@+id/grpAddresses"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="ivCcLegend,etCc,ivCcAdd,ivBccLegend,etBcc,ivBccAdd" />
+                    app:constraint_referenced_ids="ivCcLegend,etCc,ibCcAdd,ivBccLegend,etBcc,ibBccAdd" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpAttachments"
