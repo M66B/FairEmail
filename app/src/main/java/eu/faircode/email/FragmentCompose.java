@@ -2125,6 +2125,26 @@ public class FragmentCompose extends FragmentBase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                         // Insert translated text
+                        /*
+                            java.lang.IndexOutOfBoundsException: charAt: -1 < 0
+                             at android.text.SpannableStringBuilder.charAt(SpannableStringBuilder.java:123)
+                             at java.lang.Character.codePointBefore(Character.java:5002)
+                             at android.widget.SpellChecker.spellCheck(SpellChecker.java:317)
+                             at android.widget.SpellChecker.access$900(SpellChecker.java:48)
+                             at android.widget.SpellChecker$SpellParser.parse(SpellChecker.java:760)
+                             at android.widget.SpellChecker$SpellParser.parse(SpellChecker.java:649)
+                             at android.widget.SpellChecker.spellCheck(SpellChecker.java:263)
+                             at android.widget.SpellChecker.spellCheck(SpellChecker.java:229)
+                             at android.widget.Editor.updateSpellCheckSpans(Editor.java:1015)
+                             at android.widget.Editor.sendOnTextChanged(Editor.java:1610)
+                             at android.widget.TextView.sendOnTextChanged(TextView.java:10793)
+                             at android.widget.TextView.handleTextChanged(TextView.java:10904)
+                             at android.widget.TextView$ChangeWatcher.onTextChanged(TextView.java:13798)
+                             at android.text.SpannableStringBuilder.sendTextChanged(SpannableStringBuilder.java:1268)
+                             at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:577)
+                             at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:226)
+                             at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:38)
+                         */
                         edit.insert(paragraph.second, "\n\n" + translation.translated_text);
                         etBody.setSelection(paragraph.second + 2 + translation.translated_text.length());
 
