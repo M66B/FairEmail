@@ -167,7 +167,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     if (log)
                         Log.i("Executed task=" + name + " elapsed=" + elapsed + " ms");
                 } catch (Throwable ex) {
-                    if (!(ex instanceof IllegalArgumentException))
+                    if (ex instanceof IllegalArgumentException)
+                        Log.i(ex);
+                    else
                         Log.e(ex);
                     this.ex = ex;
                 } finally {
