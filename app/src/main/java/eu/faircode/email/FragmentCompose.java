@@ -743,24 +743,24 @@ public class FragmentCompose extends FragmentBase {
                     return;
 
                 ClipboardManager clipboard =
-                        (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                        (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
                 if (clipboard == null)
                     return;
 
                 ClipData clip = ClipData.newHtmlText(
-                        getContext().getString(R.string.title_edit_signature_text),
-                        HtmlHelper.getText(getContext(), identity.signature),
+                        v.getContext().getString(R.string.title_edit_signature_text),
+                        HtmlHelper.getText(v.getContext(), identity.signature),
                         identity.signature);
                 clipboard.setPrimaryClip(clip);
 
-                ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(v.getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
             }
         });
 
         ibCloseRefHint.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            public void onClick(View v) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
                 prefs.edit().putBoolean("compose_reference", false).apply();
                 grpReferenceHint.setVisibility(View.GONE);
             }
