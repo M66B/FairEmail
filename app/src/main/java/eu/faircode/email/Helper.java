@@ -26,6 +26,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
+import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -543,6 +544,23 @@ public class Helper {
         } catch (Throwable ex) {
             Log.e(ex);
             return false;
+        }
+    }
+
+    static String getStandbyBucketName(int bucket) {
+        switch (bucket) {
+            case UsageStatsManager.STANDBY_BUCKET_ACTIVE:
+                return "active";
+            case UsageStatsManager.STANDBY_BUCKET_WORKING_SET:
+                return "workingset";
+            case UsageStatsManager.STANDBY_BUCKET_FREQUENT:
+                return "frequent";
+            case UsageStatsManager.STANDBY_BUCKET_RARE:
+                return "rare";
+            case UsageStatsManager.STANDBY_BUCKET_RESTRICTED:
+                return "restricted";
+            default:
+                return Integer.toString(bucket);
         }
     }
 

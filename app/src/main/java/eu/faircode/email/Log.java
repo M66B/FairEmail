@@ -1766,7 +1766,9 @@ public class Log {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
             int bucket = usm.getAppStandbyBucket();
-            sb.append(String.format("Standby bucket: %d\r\n", bucket));
+            boolean inactive = usm.isAppInactive(BuildConfig.APPLICATION_ID);
+            sb.append(String.format("Standby bucket: %d-%s;p inactive: %b\r\n",
+                    bucket, Helper.getStandbyBucketName(bucket), inactive));
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
