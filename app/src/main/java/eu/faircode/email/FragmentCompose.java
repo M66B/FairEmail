@@ -45,7 +45,6 @@ import android.database.MatrixCursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -2698,7 +2697,6 @@ public class FragmentCompose extends FragmentBase {
         args.putParcelableArrayList("uris", new ArrayList<>(uris));
         args.putBoolean("image", image);
         args.putInt("resize", resize);
-        args.putInt("zoom", zoom);
         args.putBoolean("privacy", privacy);
         args.putCharSequence("body", etBody.getText());
         args.putInt("start", etBody.getSelectionStart());
@@ -2710,7 +2708,6 @@ public class FragmentCompose extends FragmentBase {
                 List<Uri> uris = args.getParcelableArrayList("uris");
                 boolean image = args.getBoolean("image");
                 int resize = args.getInt("resize");
-                int zoom = args.getInt("zoom");
                 boolean privacy = args.getBoolean("privacy");
                 CharSequence body = args.getCharSequence("body");
                 int start = args.getInt("start");
@@ -2731,23 +2728,9 @@ public class FragmentCompose extends FragmentBase {
                     File file = attachment.getFile(context);
                     Uri cid = Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id);
 
-                    Drawable d;
-                    try {
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-                            ImageDecoder.Source source = ImageDecoder.createSource(file.getAbsoluteFile());
-                            d = ImageDecoder.decodeDrawable(source);
-                        } else
-                            d = Drawable.createFromPath(file.getAbsolutePath());
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                        d = Drawable.createFromPath(file.getAbsolutePath());
-                    }
-
-                    if (d == null) {
-                        int px = Helper.dp2pixels(context, (zoom + 1) * 24);
-                        d = context.getDrawable(R.drawable.twotone_broken_image_24);
-                        d.setBounds(0, 0, px, px);
-                    }
+                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                    if (d == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_image));
 
                     s.insert(start, "\n\uFFFC\n"); // Object replacement character
                     ImageSpan is = new ImageSpan(context, cid);

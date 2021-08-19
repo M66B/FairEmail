@@ -795,11 +795,8 @@ class ImageHelper {
     static Bitmap getScaledBitmap(InputStream is, String source, String mimeType, int scaleToPixels) throws IOException {
         if (TextUtils.isEmpty(mimeType))
             mimeType = Helper.guessMimeType(source);
-
         if ("image/svg+xml".equals(mimeType))
             return ImageHelper.renderSvg(is, Color.WHITE, scaleToPixels);
-
-        // ImageDecoder cannot decode streams
 
         BufferedInputStream bis = new BufferedInputStream(is);
 
@@ -843,63 +840,36 @@ class ImageHelper {
     private static Bitmap _decodeImage(File file, String mimeType, int scaleToPixels) throws IOException {
         if (mimeType == null)
             mimeType = Helper.guessMimeType(file.getName());
-
         if ("image/svg+xml".equals(mimeType))
             try (FileInputStream fis = new FileInputStream(file)) {
                 return ImageHelper.renderSvg(fis, Color.WHITE, scaleToPixels);
             }
 
-        Bitmap bm = null;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getAbsolutePath(), options);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            try {
-                ImageDecoder.Source isource = ImageDecoder.createSource(file);
-                bm = ImageDecoder.decodeBitmap(isource, new ImageDecoder.OnHeaderDecodedListener() {
-                    @Override
-                    public void onHeaderDecoded(
-                            @NonNull ImageDecoder decoder,
-                            @NonNull ImageDecoder.ImageInfo info,
-                            @NonNull ImageDecoder.Source source) {
-                        int factor = 1;
-                        while (info.getSize().getWidth() / factor > scaleToPixels)
-                            factor *= 2;
+        int factor = 1;
+        while (options.outWidth / factor > scaleToPixels)
+            factor *= 2;
 
-                        Log.i("Decode image (decoder) factor=" + factor);
-                        decoder.setTargetSampleSize(factor);
-                    }
-                });
-            } catch (Throwable ex) {
-                Log.i(ex);
+        Matrix rotation = getImageRotation(file);
+        if (factor > 1 || rotation != null) {
+            Log.i("Decode image factor=" + factor);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = factor;
+            Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+            if (scaled != null && rotation != null) {
+                Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
+                scaled.recycle();
+                scaled = rotated;
             }
 
-        if (bm == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-
-            int factor = 1;
-            while (options.outWidth / factor > scaleToPixels)
-                factor *= 2;
-
-            if (factor > 1) {
-                Log.i("Decode image (factory) factor=" + factor);
-                options.inJustDecodeBounds = false;
-                options.inSampleSize = factor;
-                bm = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-            } else
-                bm = BitmapFactory.decodeFile(file.getAbsolutePath());
+            return scaled;
         }
 
-        if (bm != null) {
-            Matrix rotation = getImageRotation(file);
-            if (rotation != null) {
-                Bitmap rotated = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), rotation, true);
-                bm.recycle();
-                bm = rotated;
-            }
-        }
-
-        return bm;
+        return BitmapFactory.decodeFile(file.getAbsolutePath());
     }
 
     static Matrix getImageRotation(File file) {
