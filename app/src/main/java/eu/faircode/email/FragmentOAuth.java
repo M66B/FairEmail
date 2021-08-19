@@ -490,18 +490,29 @@ public class FragmentOAuth extends FragmentBase {
                 String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                 int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
 
-                String username = address;
+                /*
+                 * Outlook shared mailbox
+                 * Authenticate: main/shared account
+                 * IMAP: shared account
+                 * SMTP: main account
+                 * https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#sasl-xoauth2-authentication-for-shared-mailboxes-in-office-365
+                 */
+
+                String username;
+                String sharedname;
+                int backslash = address.indexOf('\\');
+                if (backslash > 0) {
+                    username = address.substring(0, backslash);
+                    sharedname = address.substring(backslash + 1);
+                } else {
+                    username = address;
+                    sharedname = null;
+                }
 
                 List<String> usernames = new ArrayList<>();
-                usernames.add(address);
+                usernames.add(sharedname == null ? username : sharedname);
 
-                // Outlook shared mailbox
-                // https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#sasl-xoauth2-authentication-for-shared-mailboxes-in-office-365
-                int backslash = address.indexOf('\\');
-                if (backslash > 0)
-                    usernames.add(address.substring(backslash + 1));
-
-                if (token != null) {
+                if (token != null && sharedname == null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
                     String[] segments = token.split("\\.");
                     if (segments.length > 1)
@@ -532,7 +543,7 @@ public class FragmentOAuth extends FragmentBase {
                         }
                 }
 
-                if (jwt != null) {
+                if (jwt != null && sharedname == null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/id-tokens
                     String[] segments = jwt.split("\\.");
                     if (segments.length > 1)
@@ -617,7 +628,7 @@ public class FragmentOAuth extends FragmentBase {
                 List<Pair<String, String>> identities = new ArrayList<>();
 
                 if (askAccount)
-                    identities.add(new Pair<>(address, personal));
+                    identities.add(new Pair<>(username, personal));
                 else if ("mailru".equals(id)) {
                     URL url = new URL("https://oauth.mail.ru/userinfo?access_token=" + token);
                     Log.i("GET " + url);
@@ -637,9 +648,8 @@ public class FragmentOAuth extends FragmentBase {
                         Log.i("json=" + json);
                         JSONObject data = new JSONObject(json);
                         name = data.getString("name");
-                        address = data.getString("email");
-                        username = address;
-                        identities.add(new Pair<>(address, name));
+                        username = data.getString("email");
+                        identities.add(new Pair<>(username, name));
                     } finally {
                         connection.disconnect();
                     }
@@ -665,7 +675,7 @@ public class FragmentOAuth extends FragmentBase {
                     aservice.connect(
                             provider.imap.host, provider.imap.port,
                             AUTH_TYPE_OAUTH, provider.id,
-                            username, state,
+                            sharedname == null ? username : sharedname, state,
                             null, null);
 
                     folders = aservice.getFolders();
@@ -705,11 +715,11 @@ public class FragmentOAuth extends FragmentBase {
                         account.port = provider.imap.port;
                         account.auth_type = AUTH_TYPE_OAUTH;
                         account.provider = provider.id;
-                        account.user = username;
+                        account.user = (sharedname == null ? username : sharedname);
                         account.password = state;
 
-                        int at = address.indexOf('@');
-                        String user = address.substring(0, at);
+                        int at = account.user.indexOf('@');
+                        String user = account.user.substring(0, at);
 
                         account.name = provider.name + "/" + user;
 
