@@ -58,6 +58,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestReceived;
     private SwitchCompat swSuggestFrequently;
     private Button btnLocalContacts;
+    private SwitchCompat swPrefixOnce;
     private RadioGroup rgRe;
     private RadioGroup rgFwd;
     private SwitchCompat swSendReminders;
@@ -65,7 +66,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSendPending;
 
     private Spinner spComposeFont;
-    private SwitchCompat swPrefixOnce;
     private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
     private SwitchCompat swWriteBelow;
@@ -118,6 +118,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
+        swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         rgRe = view.findViewById(R.id.rgRe);
         rgFwd = view.findViewById(R.id.rgFwd);
         swSendReminders = view.findViewById(R.id.swSendReminders);
@@ -125,7 +126,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSendPending = view.findViewById(R.id.swSendPending);
 
         spComposeFont = view.findViewById(R.id.spComposeFont);
-        swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swWriteBelow = view.findViewById(R.id.swWriteBelow);
@@ -221,6 +221,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefix_once", checked).apply();
+            }
+        });
+
         rgRe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -276,13 +283,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("compose_font").apply();
-            }
-        });
-
-        swPrefixOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("prefix_once", checked).apply();
             }
         });
 
@@ -513,6 +513,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
 
+        swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
         rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
 
@@ -537,7 +538,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
 
-        swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swWriteBelow.setChecked(prefs.getBoolean("write_below", false));
