@@ -2040,6 +2040,30 @@ class Core {
                 " separator=" + separator +
                 " fetched in " + duration + " ms");
 
+        // Check if system folders were renamed
+        for (Folder ifolder : ifolders) {
+            String fullName = ifolder.getFullName();
+            if (TextUtils.isEmpty(fullName))
+                continue;
+
+            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+            String type = EntityFolder.getType(attrs, fullName, false);
+            if (type != null &&
+                    !EntityFolder.USER.equals(type) &&
+                    !EntityFolder.SYSTEM.equals(type)) {
+                for (EntityFolder folder : local.values())
+                    if (type.equals(folder.type) &&
+                            !fullName.equals(folder.name) &&
+                            !istore.getFolder(folder.name).exists()) {
+                        Log.e(account.host +
+                                " renaming " + type + " folder" +
+                                " from " + folder.name + " to " + fullName);
+                        folder.name = fullName;
+                        db.folder().setFolderName(folder.id, fullName);
+                    }
+            }
+        }
+
         Map<String, EntityFolder> nameFolder = new HashMap<>();
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {

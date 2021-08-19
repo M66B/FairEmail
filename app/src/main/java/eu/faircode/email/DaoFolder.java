@@ -281,6 +281,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET inferiors = :inferiors WHERE id = :id AND NOT (inferiors IS :inferiors)")
     int setFolderInferiors(long id, Boolean inferiors);
 
+    @Query("UPDATE folder SET name = :name WHERE id = :id AND NOT (name IS :name)")
+    int setFolderName(long id, String name);
+
     @Query("UPDATE folder SET type = :type WHERE id = :id AND NOT (type IS :type)")
     int setFolderType(long id, String type);
 
