@@ -109,18 +109,9 @@ class ImageHelper {
             "image/heif"
     ));
 
-    // https://developer.android.com/about/versions/12/features#avif
-    static final List<String> IMAGE_TYPES12 = Collections.unmodifiableList(Arrays.asList(
-            "image/avif"
-    ));
-
     static boolean isImage(String mimeType) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             if (IMAGE_TYPES8.contains(mimeType))
-                return true;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-            if (IMAGE_TYPES12.contains(mimeType))
                 return true;
 
         return IMAGE_TYPES.contains(mimeType);
