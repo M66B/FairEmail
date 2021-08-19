@@ -167,6 +167,9 @@ public class EntityAttachment {
         extension = extension.toLowerCase(Locale.ROOT);
 
         // Fix types
+        if ("dxf".equals(extension))
+            return "application/dxf";
+
         if ("gpx".equals(extension))
             return "application/gpx+xml";
 
