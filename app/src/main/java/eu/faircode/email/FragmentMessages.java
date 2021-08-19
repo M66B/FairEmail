@@ -2535,9 +2535,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return;
 
-            if (sender && message.content)
-                onMenuReply(message, "reply", selected);
-            else
+            if (sender && message.content) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean reply_all = prefs.getBoolean("reply_all", false);
+                onMenuReply(message, reply_all ? "reply_all" : "reply", selected);
+            } else
                 onReply(message, selected, fabReply);
         }
     }
