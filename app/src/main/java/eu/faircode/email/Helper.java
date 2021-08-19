@@ -1685,10 +1685,13 @@ public class Helper {
     static void authenticate(final FragmentActivity activity, final LifecycleOwner owner,
                              Boolean enabled, final
                              Runnable authenticated, final Runnable cancelled) {
+        Log.i("Authenticate " + activity);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         String pin = prefs.getString("pin", null);
 
         if (enabled != null || TextUtils.isEmpty(pin)) {
+            Log.i("Authenticate biometric enabled=" + enabled);
             BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
                     .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
 
@@ -1709,7 +1712,7 @@ public class Helper {
                     new BiometricPrompt.AuthenticationCallback() {
                         @Override
                         public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
-                            Log.w("Biometric error " + errorCode + ": " + errString);
+                            Log.w("Authenticate biometric error " + errorCode + ": " + errString);
 
                             if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
                                     errorCode != BiometricPrompt.ERROR_CANCELED &&
@@ -1728,14 +1731,14 @@ public class Helper {
 
                         @Override
                         public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                            Log.i("Biometric succeeded");
+                            Log.i("Authenticate biometric succeeded");
                             setAuthenticated(activity);
                             ApplicationEx.getMainHandler().post(authenticated);
                         }
 
                         @Override
                         public void onAuthenticationFailed() {
-                            Log.w("Biometric failed");
+                            Log.w("Authenticate biometric failed");
                             ApplicationEx.getMainHandler().post(cancelled);
                         }
                     });
@@ -1758,11 +1761,13 @@ public class Helper {
             owner.getLifecycle().addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroy() {
+                    Log.i("Authenticate destroyed");
                     ApplicationEx.getMainHandler().post(cancelPrompt);
                 }
             });
 
         } else {
+            Log.i("Authenticate PIN");
             final View dview = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_ask, null);
             final EditText etPin = dview.findViewById(R.id.etPin);
 
@@ -1775,22 +1780,26 @@ public class Helper {
                             String pin = prefs.getString("pin", "");
                             String entered = etPin.getText().toString();
 
+                            Log.i("Authenticate PIN ok=" + pin.equals(entered));
                             if (pin.equals(entered)) {
                                 setAuthenticated(activity);
                                 ApplicationEx.getMainHandler().post(authenticated);
-                            } else
+                            } else {
                                 ApplicationEx.getMainHandler().post(cancelled);
+                            }
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Log.i("Authenticate PIN cancelled");
                             ApplicationEx.getMainHandler().post(cancelled);
                         }
                     })
                     .setOnDismissListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
+                            Log.i("Authenticate PIN dismissed");
                             ApplicationEx.getMainHandler().post(cancelled);
                         }
                     })
@@ -1857,11 +1866,14 @@ public class Helper {
     }
 
     static void setAuthenticated(Context context) {
+        Date now = new Date();
+        Log.i("Authenticated now=" + now);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().putLong("last_authentication", new Date().getTime()).apply();
+        prefs.edit().putLong("last_authentication", now.getTime()).apply();
     }
 
     static void clearAuthentication(Context context) {
+        Log.i("Authenticate clear");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().remove("last_authentication").apply();
     }
