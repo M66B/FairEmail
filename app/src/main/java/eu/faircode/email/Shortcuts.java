@@ -247,7 +247,7 @@ class Shortcuts {
                 circular && !identicon ? null : Helper.dp2pixels(context, 3));
 
         IconCompat icon = IconCompat.createWithBitmap(bitmap);
-        String id = Integer.toHexString(Objects.hash(name, email));
+        String id = (name == null ? email : "\"" + name + "\" <" + email + ">");
         Set<String> categories = new HashSet<>(Arrays.asList(BuildConfig.APPLICATION_ID + ".TEXT_SHARE_TARGET"));
         ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
                 .setIcon(icon)
