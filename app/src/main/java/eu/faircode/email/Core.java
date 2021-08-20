@@ -2476,7 +2476,7 @@ class Core {
 
                         try {
                             Long sent = helper.getSent();
-                            Long received = helper.getReceivedHeader();
+                            Long received = helper.getReceivedHeader(helper.getResent());
                             if (received == null)
                                 received = sent;
                             if (received == null)
