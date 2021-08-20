@@ -1800,7 +1800,8 @@ public class Helper {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
                             Log.i("Authenticate PIN dismissed");
-                            ApplicationEx.getMainHandler().post(cancelled);
+                            if (shouldAuthenticate(activity)) // Some Android versions call dismiss on OK
+                                ApplicationEx.getMainHandler().post(cancelled);
                         }
                     })
                     .create();
