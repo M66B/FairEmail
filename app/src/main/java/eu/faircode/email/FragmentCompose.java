@@ -4961,6 +4961,26 @@ public class FragmentCompose extends FragmentBase {
                         if (draft.content && state == State.NONE)
                             showDraft(draft);
 
+                        if (args.containsKey("images")) {
+                            ArrayList<Uri> images = args.getParcelableArrayList("images");
+                            args.remove("images"); // once
+
+                            boolean image_dialog = prefs.getBoolean("image_dialog", true);
+                            if (image_dialog) {
+                                Helper.hideKeyboard(view);
+
+                                Bundle aargs = new Bundle();
+                                aargs.putInt("title", android.R.string.ok);
+                                aargs.putParcelableArrayList("images", images);
+
+                                FragmentDialogAddImage fragment = new FragmentDialogAddImage();
+                                fragment.setArguments(aargs);
+                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
+                                fragment.show(getParentFragmentManager(), "compose:shared");
+                            } else
+                                onAddImageFile(images);
+                        }
+
                         tvDsn.setVisibility(
                                 draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
                                         ? View.VISIBLE : View.GONE);
@@ -4974,24 +4994,6 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
             });
-
-            if (args.containsKey("images")) {
-                ArrayList<Uri> images = args.getParcelableArrayList("images");
-                boolean image_dialog = prefs.getBoolean("image_dialog", true);
-                if (image_dialog) {
-                    Helper.hideKeyboard(view);
-
-                    Bundle aargs = new Bundle();
-                    aargs.putInt("title", android.R.string.ok);
-                    aargs.putParcelableArrayList("images", images);
-
-                    FragmentDialogAddImage fragment = new FragmentDialogAddImage();
-                    fragment.setArguments(aargs);
-                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
-                    fragment.show(getParentFragmentManager(), "compose:shared");
-                } else
-                    onAddImageFile(images);
-            }
         }
 
         @Override
