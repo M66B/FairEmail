@@ -503,19 +503,28 @@ public class EmailService implements AutoCloseable {
 
                     boolean has4 = false;
                     boolean has6 = false;
-                    Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-                    while (interfaces != null && interfaces.hasMoreElements()) {
-                        NetworkInterface ni = interfaces.nextElement();
-                        for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
-                            InetAddress addr = iaddr.getAddress();
-                            boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
-                            EntityLog.log(context, "Interface=" + ni + " addr=" + addr + " local=" + local);
-                            if (!local)
-                                if (addr instanceof Inet4Address)
-                                    has4 = true;
-                                else if (addr instanceof Inet6Address)
-                                    has6 = true;
+                    try {
+                        Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                        while (interfaces != null && interfaces.hasMoreElements()) {
+                            NetworkInterface ni = interfaces.nextElement();
+                            for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                                InetAddress addr = iaddr.getAddress();
+                                boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
+                                EntityLog.log(context, "Interface=" + ni + " addr=" + addr + " local=" + local);
+                                if (!local)
+                                    if (addr instanceof Inet4Address)
+                                        has4 = true;
+                                    else if (addr instanceof Inet6Address)
+                                        has6 = true;
+                            }
                         }
+                    } catch (Throwable ex2) {
+                        Log.e(ex2);
+                        /*
+                            java.lang.NullPointerException: Attempt to read from field 'java.util.List java.net.NetworkInterface.childs' on a null object reference
+                                at java.net.NetworkInterface.getAll(NetworkInterface.java:498)
+                                at java.net.NetworkInterface.getNetworkInterfaces(NetworkInterface.java:398)
+                         */
                     }
 
                     EntityLog.log(context, "Address main=" + main +
