@@ -142,7 +142,7 @@
     <color name="darkSolarizedAccent">#268bd2</color>
     <color name="darkSolarizedActionBackground">#444</color><!-- Base01 is too light -->
     <color name="lightSolarizedPaper">#fdf6e3</color><!-- Base3 -->
-    <color name="lightSolarizedBackground">#eee8d5</color><!-- Base3 -->
+    <color name="lightSolarizedBackground">#eee8d5</color><!-- Base2 -->
     <color name="lightSolarizedActionBackground">#93a1a1</color><!-- Base1 -->
 
     <!-- default: #323232 -->
