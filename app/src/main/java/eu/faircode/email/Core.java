@@ -2061,6 +2061,23 @@ class Core {
                         folder.name = fullName;
                         db.folder().setFolderName(folder.id, fullName);
                     }
+
+                // Reselect Gmail archive folder
+                if (EntityFolder.ARCHIVE.equals(type) && account.isGmail()) {
+                    boolean gmail_archive_fixed = prefs.getBoolean("gmail_archive_fixed", false);
+                    if (!gmail_archive_fixed) {
+                        prefs.edit().putBoolean("gmail_archive_fixed", true).apply();
+                        EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
+                        if (archive == null) {
+                            archive = db.folder().getFolderByName(account.id, fullName);
+                            if (archive != null) {
+                                Log.e("Reselecting Gmail archive=" + fullName);
+                                archive.type = EntityFolder.ARCHIVE;
+                                db.folder().setFolderType(archive.id, archive.type);
+                            }
+                        }
+                    }
+                }
             }
         }
 
