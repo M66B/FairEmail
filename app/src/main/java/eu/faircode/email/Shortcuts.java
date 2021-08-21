@@ -41,7 +41,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.Person;
-import androidx.core.content.LocusIdCompat;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
@@ -304,16 +303,11 @@ class Shortcuts {
 
         IconCompat icon = IconCompat.createWithBitmap(bm);
         String id = "message:" + message.id;
-        ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
+        return new ShortcutInfoCompat.Builder(context, id)
                 .setIcon(icon)
                 .setShortLabel(label)
                 .setLongLabel(label)
                 .setIntent(thread);
-
-        if (message.thread != null)
-            builder.setLocusId(new LocusIdCompat(message.thread));
-
-        return builder;
     }
 
     @NonNull

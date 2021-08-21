@@ -49,7 +49,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.Person;
 import androidx.core.app.RemoteInput;
-import androidx.core.content.LocusIdCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -4561,10 +4560,6 @@ class Core {
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
-
-            // https://developer.android.com/reference/android/content/LocusId
-            if (message.thread != null)
-                mbuilder.setLocusId(new LocusIdCompat(message.thread));
 
             if (message.ui_silent) {
                 mbuilder.setSilent(true);
