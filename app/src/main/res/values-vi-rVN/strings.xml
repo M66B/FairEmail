@@ -162,7 +162,7 @@
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
     <string name="title_setup_permissions_explanation">Quyền danh bạ được yêu cầu để tra cứu thông tin liên hệ và để đề xuất các liên hệ</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Tôi có thể nhập các liên hệ như thế nào?</string>
+    <string name="title_setup_permission_import_contacts">Tôi có thể nhập các liên hệ như thế nào?</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
     <string name="title_setup_doze_remark">Để gửi và nhận email một cách đáng tin cậy</string>
     <string name="title_setup_doze_explanation">Tối ưu hoá pin nên được tắt cho ứng dụng này để đảm bảo việc gửi và nhận thư trong nền được đáng tin cậy</string>
@@ -906,7 +906,6 @@
     <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>
     <string name="title_no_format">Thư được nhận ban đầu sẽ được bao gồm</string>
-    <string name="title_no_image">Hình ảnh không thể được giải mã</string>
     <string name="title_no_search">Tìm kiếm trên máy chủ không có sẵn cho tài khoản này</string>
     <string name="title_too_large">Thư quá lớn để định dạng lại hoàn toàn</string>
     <string name="title_truncated">Thư quá lớn để hiển thị hoàn toàn</string>

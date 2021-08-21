@@ -310,22 +310,22 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 Aşağıdaki android izinleri gereklidir:
 
 * * tam ağ erişimine sahip * (internet): e-posta göndermek ve almak için
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* * ağ bağlantılarını görüntüle * (access_network_state): İnternet bağlantısı değişikliklerini izlemek için
+* *Başlangıçta çalıştır* (RECEIVE_BOOT_COMPLETED): Cihazda izlemeye başlamak için
+* *Ön plan hizmeti* (FOREGROUND_SERVICE): Android 9 Pie ve sonraki sürümlerde bir ön plan hizmeti çalıştırmak için, sonraki soruya da bakın
+* *Cihazın uyumasını engelle* (WAKE_LOCK): Mesajları senkronize ederken cihazı uyanık tutmak için
+* *Uygulama içi faturalandırma* (BILLING): Uygulama içi satın alma işlemlerine izin vermek için
+* *Gerçekçi alarmı programla* (SCHEDULE_EXACT_ALARM): Gerçekçi alarm zamanlamasını kullanmak için (Android 12 ve üstü)
+* İsteğe bağlı: *Kişilerinizi okuma* (READ_CONTACTS): Adresleri otomatik olarak tamamlamak, kişi fotoğraflarını göstermek ve [kişileri seçmek](https://developer.android.com/guide/components/intents-common#PickContactDat) için
+* İsteğe bağlı: *SD kartınızın içeriğini okuma* (READ_EXTERNAL_STORAGE): Diğer, tarihi geçmiş uygulamalardan dosyaları kabul etmek için. Ayrıca [SSS](#user-content-faq49)'e bakın
+* İsteğe bağlı: *Parmak izi donanımı kullan* (USE_FINGERPRINT) ve *Biyometrik donanım* kullan, (USE_BIOMETRIC): biyometrik kimlik doğrulamayı kullanmak için
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop ve öncesi: *cihazdaki hesapları kullan* (USE_CREDENTIALS): Gmail hızlı kurulumunu kullanırken bir hesap seçmek için (daha sonraki Android sürümlerinde istenmez)
+* Android 5.1 Lollipop ve öncesi: *Profili oku* (READ_PROFILE): Gmail hızlı kurulumunu kullanırken adınızı okumak için (sonraki Android sürümlerinde istenmez)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[İsteğe bağlı izinler](https://developer.android.com/training/permissions/requesting) yalnızca Android 6 Marshmallow ve sonraki sürümlerde desteklenir. Daha önceki Android sürümlerinde, FairEmail'i yüklemek için isteğe bağlı izinleri vermeniz istenecektir.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Okunmamış iletilerin sayısını rozet olarak göstermek için aşağıdaki izinler gereklidir. (Ayrıca [SSS](#user-content-faq106)'e bakın):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -344,22 +344,22 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail, mesaj aldığınız ve mesaj gönderdiğiniz adreslerin bir listesini tutacaktır. ve FairEmail'e hiçbir kişi izni verilmediğinde bu listeyi kişi önerileri için kullanacaktır. Bu, FairEmail'i Android kişi sağlayıcısı (adres defteri) olmadan kullanabileceğiniz anlamına gelir. FairEmail'e kişi izinleri vermeden de kişileri seçebileceğinizi unutmayın. yalnızca kişileri önermek, kişi izinleri olmadan çalışmaz.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Neden kalıcı bildirim gösteriliyor?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+İzlenen hesap sayısı ve bekleyen işlem sayısı (Bir sonraki soruya bakın) ile düşük öncelikli kalıcı durum çubuğu bildirimi gösterilir Android'in sürekli e-posta almaya özen gösteren hizmeti kapatmasını önlemek için. Bu [zaten gerekliydi](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), ancak Android 6 Marshmallow'da [uyku modunun](https://developer.android.com/training/monitoring-device-state/doze-standby) tanıtılmasıyla bu her zamankinden fazla gerekli hale geldi. Uygulama bir durum çubuğu bildirimi gösterilmesini gerektiren bir ön plan hizmeti başlatmadıkça, ekran bir süre kapalı olduğunda Uyku modu tüm uygulamaları durduracaktır.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Hepsi olmasa da çoğu diğer e-posta uygulamaları bildirim göstermiyor yeni mesajların genellikle bildirilmemesi veya geç bildirilmesi ve mesajların gönderilmemesi veya geç gönderilmesi "yan etkisi" ile.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android, önce yüksek öncelikli durum çubuğu bildirimlerinin simgelerini gösterir ve artık simgeleri gösterecek yer kalmadığında FairEmail'in bildiriminin simgesini gizler. Pratikte bu, boş yer olmadığı sürece durum çubuğu bildiriminin durum çubuğunda yer kaplamadığı anlamına gelir.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Durum çubuğu bildirimi, FairEmail'in bildirim ayarları aracılığıyla devre dışı bırakılabilir:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
+* Android 8 Oreo ve üstü: *Kanalı al* düğmesine dokunun ve kanalı Android ayarları aracılığıyla devre dışı bırakın (bu, yeni mesaj bildirimlerini devre dışı bırakmaz)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.

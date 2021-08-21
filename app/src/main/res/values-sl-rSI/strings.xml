@@ -608,7 +608,6 @@
     <string name="title_no_connection">Povezovanje na enega ali več računov &#8230;</string>
     <string name="title_no_folder">Mapa ne obstaja</string>
     <string name="title_no_format">Izvirno prejeto sporočilo bo vključeno.</string>
-    <string name="title_no_image">Slike ni bilo mogoče odkodirati.</string>
     <string name="title_no_search">Iskanje na strežniku za ta račun ni na voljo.</string>
     <string name="title_too_large">Sporočilo je preveliko za popolno preoblikovanje.</string>
     <string name="title_truncated">Sporočilo je preveliko za popoln prikaz.</string>

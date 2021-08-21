@@ -651,7 +651,6 @@
     <string name="title_no_connection">Konektatzen kontu batera edo batzuetara &#8230;</string>
     <string name="title_no_folder">Karpeta ez da existitzen</string>
     <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
-    <string name="title_no_image">Ezin izan da irudia deskodetu</string>
     <string name="title_no_search">Zerbitzariko bilaketa ez dago erabilgarri kontu honetarako</string>
     <string name="title_too_large">Mezua luzeegia da guztiz birformulatzeko</string>
     <string name="title_truncated">Mezua luzeegia da osorik erakusteko</string>

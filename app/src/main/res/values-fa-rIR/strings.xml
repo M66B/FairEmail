@@ -571,7 +571,6 @@
     <string name="title_no_internet">اینترنت یا اتصال سازگاری در دسترس نیست</string>
     <string name="title_no_connection">در حال اتصال به یک یا چند حساب &#8230;</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
-    <string name="title_no_image">تصویر نمی‌تواند رمزگشایی شود</string>
     <string name="title_no_search">جستجو روی سرور برای این حساب در دسترس نیست</string>
     <string name="title_show_full">نمایش تمام پیام</string>
     <string name="title_accross_remark">پیام‌های انتقال یافته میان حساب‌ها موجب دانلود مجدد خواهد شد و در نتیجه افزایش مصرف دیتا را در پی دارد</string>

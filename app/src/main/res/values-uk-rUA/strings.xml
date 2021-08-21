@@ -935,7 +935,6 @@
     <string name="title_no_connection">Підключення до одного або декількох облікових записів &#8230;</string>
     <string name="title_no_folder">Тека не існує</string>
     <string name="title_no_format">Початкове повідомлення буде включено</string>
-    <string name="title_no_image">Неможливо декодувати зображення</string>
     <string name="title_no_search">Пошук на сервері недоступний для цього облікового запису</string>
     <string name="title_too_large">Лист завеликий для повного переформатування</string>
     <string name="title_truncated">Лист завеликий для показу</string>

@@ -828,7 +828,6 @@
     <string name="title_no_connection">Menghubungkan ke beberapa akun &#8230;</string>
     <string name="title_no_folder">Folder tidak ada</string>
     <string name="title_no_format">Pesan asli yang diterima akan disertakan</string>
-    <string name="title_no_image">Gambar tidak dapat dibaca</string>
     <string name="title_no_search">Pencarian di server tidak tersedia untuk akun ini</string>
     <string name="title_too_large">Pesan terlalu besar untuk diformat ulang sepenuhnya</string>
     <string name="title_truncated">Pesan terlalu besar untuk ditampilkan sepenuhnya</string>

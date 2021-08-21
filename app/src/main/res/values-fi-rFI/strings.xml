@@ -894,7 +894,6 @@
     <string name="title_no_connection">Yhdistetään yhteen tai useampaan tiliin &#8230;</string>
     <string name="title_no_folder">Kansiota ei ole</string>
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
-    <string name="title_no_image">Kuvan koodauksen purku epäonnistui</string>
     <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
     <string name="title_too_large">Viesti liian suuri uudelleenmuotoiltavaksi kokonaisuudessaan</string>
     <string name="title_truncated">Viesti liian suuri näytettäväksi kokonaisuudessaan</string>

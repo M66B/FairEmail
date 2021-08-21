@@ -172,7 +172,7 @@
     <string name="title_setup_permissions">Verilən icazələr</string>
     <string name="title_setup_permissions_remark">Əlaqə məlumatlarına müraciət (məcburi deyil)</string>
     <string name="title_setup_permissions_explanation">Əlaqə icazələri, əlaqə məlumatlarının axtarışı və əlaqə təklifi üçün tələb olunur</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Əlaqələri necə idxal edə bilərəm?</string>
+    <string name="title_setup_permission_import_contacts">Əlaqələri necə idxal edə bilərəm?</string>
     <string name="title_setup_doze">Batareya optimallaşdırmasını sıradan çıxart</string>
     <string name="title_setup_doze_remark">E-poçtların güvənlə göndərilməsi və alınması üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
@@ -916,7 +916,6 @@
     <string name="title_no_connection">Bir və ya bir neçə hesabla bağlantı qurulur &#8230;</string>
     <string name="title_no_folder">Qovluq mövcud deyil</string>
     <string name="title_no_format">Alınan orijinal mesaj daxil ediləcək</string>
-    <string name="title_no_image">Təsvirin kodu açıla bilmədi</string>
     <string name="title_no_search">Bu hesab üçün serverdə axtarış edilə bilmir</string>
     <string name="title_too_large">Mesaj, tamamilə yenidən formatlanmayacaq qədər böyükdür</string>
     <string name="title_truncated">Mesaj, tamamilə görüntülənməyəcək qədər böyükdür</string>

@@ -670,7 +670,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_no_connection">Connectat a un o més comptes &#8230;</string>
     <string name="title_no_folder">La carpeta no existeix</string>
     <string name="title_no_format">S\'inclourà el missatge rebut originalment</string>
-    <string name="title_no_image">La imatge no s\'ha pogut descodificar</string>
     <string name="title_no_search">Cercar al servidor no està disponible per aquest compte</string>
     <string name="title_too_large">Missatge massa gran per reformatejar-lo completament</string>
     <string name="title_truncated">Missatge massa gran per mostrar-lo completament</string>

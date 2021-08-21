@@ -172,7 +172,7 @@
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
     <string name="title_setup_permissions_explanation">Απαιτείται άδεια πρόσβασης στις επαφές για την αναζήτηση πληροφοριών επικοινωνίας και για προτάσεις επαφών</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Πώς μπορώ να εισαγάγω επαφές;</string>
+    <string name="title_setup_permission_import_contacts">Πώς μπορώ να εισαγάγω επαφές;</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
     <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη ηλ. μηνυμάτων</string>
     <string name="title_setup_doze_explanation">Οι βελτιστοποιήσεις μπαταρίας θα πρέπει να απενεργοποιηθούν για την εφαρμογή, ώστε να διασφαλιστεί η αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
@@ -259,7 +259,7 @@
     <string name="title_advanced_section_encryption">Κρυπτογράφηση</string>
     <string name="title_advanced_section_notifications">Ειδοποιήσεις</string>
     <string name="title_advanced_section_misc">Διάφορα</string>
-    <string name="title_advanced_default">Όλες οι επιλογές έχουν, συνήθως χρησιμοποιούμενες, τυπικές τιμές, χωρίς να είναι ανάγκη να αλλάξουν για να χρησιμοποιηθεί η εφαρμογή</string>
+    <string name="title_advanced_default">Όλες οι επιλογές έχουν συνήθως χρησιμοποιούμενες τυπικές τιμές, χωρίς να είναι ανάγκη να αλλάξουν για να χρησιμοποιηθεί η εφαρμογή</string>
     <string name="title_advanced_receive">Λήψη μηνυμάτων για όλους τους λογαριασμούς</string>
     <string name="title_advanced_when">Πότε</string>
     <string name="title_advanced_optimize">Αυτόματη βελτιστοποίηση</string>
@@ -915,7 +915,6 @@
     <string name="title_no_connection">Σύνδεση σε έναν ή περισσότερους λογαριασμούς &#8230;</string>
     <string name="title_no_folder">Ο φάκελος δεν υπάρχει</string>
     <string name="title_no_format">Θα συμπεριληφθεί το μήνυμα που λήφθηκε αρχικά</string>
-    <string name="title_no_image">Η εικόνα δεν μπόρεσε να αποκωδικοποιηθεί</string>
     <string name="title_no_search">Η αναζήτηση στο διακομιστή δεν είναι διαθέσιμη για αυτόν το λογαριασμό</string>
     <string name="title_too_large">Το μήνυμα είναι υπερβολικά μεγάλο για να αναμορφοποιηθεί πλήρως</string>
     <string name="title_truncated">Το μύνημα είναι πολύ μεγάλο για να προβληθεί ολόκληρο</string>

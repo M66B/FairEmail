@@ -803,7 +803,6 @@
     <string name="title_no_connection">Csatlakozás egy vagy több fiókhoz &#8230;</string>
     <string name="title_no_folder">A mappa nem létezik</string>
     <string name="title_no_format">Az eredetileg kapott üzenet tartalmazva lesz</string>
-    <string name="title_no_image">A kép nem dekódolható</string>
     <string name="title_no_search">Nem elérhető a szerveren keresés ezen a fiókon</string>
     <string name="title_too_large">Az üzenet túl nagy a teljes újraformázáshoz</string>
     <string name="title_truncated">Az üzenet túl nagy a teljes megjelnítéshez</string>

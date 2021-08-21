@@ -172,7 +172,7 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
     <string name="title_setup_permissions_explanation">Permissões de contato são exigidas para procurar por informações de contato e para sugerir contatos</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Como posso importar os contatos?</string>
+    <string name="title_setup_permission_import_contacts">Como posso importar os contatos?</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
     <string name="title_setup_doze_remark">Para enviar e receber e-mails corretamente</string>
     <string name="title_setup_doze_explanation">As otimizações de bateria devem estar desativadas para que seja garantido o envio e recebimento de mensagens em segundo plano</string>
@@ -917,7 +917,6 @@
     <string name="title_no_connection">Conectando-se a uma ou mais contas &#8230;</string>
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_no_format">Mensagem originalmente recebida será incluída</string>
-    <string name="title_no_image">A imagem não pôde ser decodificada</string>
     <string name="title_no_search">Pesquisa no servidor não está disponível para esta conta</string>
     <string name="title_too_large">Mensagem muito grande para reformar completamente</string>
     <string name="title_truncated">Mensagem muito grande para exibir completamente</string>

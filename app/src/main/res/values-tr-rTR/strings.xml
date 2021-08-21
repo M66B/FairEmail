@@ -172,7 +172,7 @@
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_permissions_explanation">Kişi bilgilerini aramak ve kişi önermek için kişi izinleri gerekir</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Kişileri nasıl içe aktarabilirim?</string>
+    <string name="title_setup_permission_import_contacts">Kişileri nasıl içe aktarabilirim?</string>
     <string name="title_setup_doze">Pil optimizasyonlarını devre dışı bırak</string>
     <string name="title_setup_doze_remark">Güvenilir bir şekilde e-posta almak için</string>
     <string name="title_setup_doze_explanation">Arka planda mesajların güvenilir bir şekilde gönderilmesini ve alınmasını sağlamak için uygulamanın pil optimizasyonları devre dışı bırakılmalıdır</string>
@@ -916,7 +916,6 @@
     <string name="title_no_connection">Bir veya daha fazla hesaba bağlanılıyor &#8230;</string>
     <string name="title_no_folder">Klasör yok</string>
     <string name="title_no_format">Alınan özgün iletiye eklenecek</string>
-    <string name="title_no_image">Görselin kodu çözülemedi</string>
     <string name="title_no_search">Bu hesap için sunucuda arama yapılamıyor</string>
     <string name="title_too_large">Mesaj, tamamen yeniden biçimlendirilemeyecek kadar büyük</string>
     <string name="title_truncated">Mesaj tamamen görüntülenemeyecek kadar büyük</string>

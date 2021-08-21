@@ -879,7 +879,6 @@
     <string name="title_no_connection">Conectando a unha o máis contas &#8230;</string>
     <string name="title_no_folder">Non existe o cartafol</string>
     <string name="title_no_format">A mensaxe orixinalmente recibida será incluída</string>
-    <string name="title_no_image">A imaxe non puido ser descodificada</string>
     <string name="title_no_search">A procura no servidor non está dispoñible nesta conta</string>
     <string name="title_too_large">A mensaxe é moi grande para podela reformatar</string>
     <string name="title_truncated">A mensaxe é moi grande para podela visualizar completamente</string>

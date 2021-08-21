@@ -921,7 +921,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_connection">Pripájanie k jednému alebo viacerým účtom &#8230;</string>
     <string name="title_no_folder">Priečinok neexistuje</string>
     <string name="title_no_format">Pôvodne obdržaná správa bude priložená</string>
-    <string name="title_no_image">Obrázok nemohol byť dekódovaný</string>
     <string name="title_no_search">Hľadanie na servery nie je dostupné pre tento účet</string>
     <string name="title_too_large">Správa je príliš veľká na úplné preformátovanie</string>
     <string name="title_truncated">Správa je príliš veľká na úplné zobrazenie</string>

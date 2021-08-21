@@ -161,7 +161,7 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_permissions_explanation">需要联系人权限来查找联系人信息和推荐联系人</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">如何导入联系人？</string>
+    <string name="title_setup_permission_import_contacts">如何导入联系人？</string>
     <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">可靠地发送和接收电子邮件</string>
     <string name="title_setup_doze_explanation">应禁用针对本应用的电池优化，以确保后台消息的可靠发送和接收。</string>
@@ -905,7 +905,6 @@
     <string name="title_no_connection">正在连接到一个或多个账户 &#8230;</string>
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_no_format">将包含最初收到的消息</string>
-    <string name="title_no_image">无法解码图像</string>
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
     <string name="title_too_large">消息内容太多，不能完全重新格式化</string>
     <string name="title_truncated">消息内容太多，无法完全显示</string>

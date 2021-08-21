@@ -736,7 +736,6 @@
     <string name="title_no_connection">Koble til en eller flere kontoer &#8230;</string>
     <string name="title_no_folder">Mappe eksisterer ikke</string>
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
-    <string name="title_no_image">Bildet kunne ikke dekodes</string>
     <string name="title_no_search">Søk på serveren er ikke tilgjengelig for denne kontoen</string>
     <string name="title_too_large">Melding for stor til å omformatere fullstendig</string>
     <string name="title_truncated">Meldingen er for stor til å vises fullstendig</string>

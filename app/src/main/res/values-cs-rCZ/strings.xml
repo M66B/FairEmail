@@ -897,7 +897,6 @@
     <string name="title_no_connection">Připojování k jednomu nebo více účtům &#8230;</string>
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
-    <string name="title_no_image">Obrázek nemohl být dekódován</string>
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
     <string name="title_too_large">Zpráva je příliš velká pro úplné přeformátování</string>
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>

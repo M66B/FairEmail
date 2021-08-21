@@ -673,7 +673,6 @@
     <string name="title_no_connection">Свързване с един или повече профили &#8230;</string>
     <string name="title_no_folder">Папката не съществува</string>
     <string name="title_no_format">Оригиналното съобщение ще бъде добавено</string>
-    <string name="title_no_image">Изображението не може да бъде декодирано</string>
     <string name="title_no_search">Търсенето в сървъра не е налично за този профил</string>
     <string name="title_too_large">Съобщението е твърде голямо, за да се преформатира напълно</string>
     <string name="title_truncated">Съобщението е твърде голямо, за да се покаже напълно</string>

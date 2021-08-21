@@ -589,7 +589,6 @@
     <string name="title_no_connection">Povezivanje s jednim ili više računa &#8230;</string>
     <string name="title_no_folder">Mapa ne postoji</string>
     <string name="title_no_format">Prvobitno primljena poruka bit će uključena</string>
-    <string name="title_no_image">Slika se ne može dekodirati</string>
     <string name="title_no_search">Pretraživanje na poslužitelju nije dostupno za ovaj račun</string>
     <string name="title_too_large">Poruka je prevelika da bi se u potpunosti preoblikovala</string>
     <string name="title_truncated">Poruka je prevelika da bi se u potpunosti prikazala</string>

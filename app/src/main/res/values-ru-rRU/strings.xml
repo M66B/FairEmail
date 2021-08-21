@@ -192,7 +192,7 @@
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Как импортировать контакты?</string>
+    <string name="title_setup_permission_import_contacts">Как импортировать контакты?</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжного получения и отправки электронной почты</string>
     <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
@@ -937,7 +937,6 @@
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
-    <string name="title_no_image">Изображение не может быть декодировано</string>
     <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
     <string name="title_too_large">Сообщение слишком большое для полного переформатирования</string>
     <string name="title_truncated">Сообщение слишком велико для полного отображения</string>

@@ -182,7 +182,7 @@
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Cum pot importa contacte?</string>
+    <string name="title_setup_permission_import_contacts">Cum pot importa contacte?</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a trimite și primi e-mail în mod fiabil</string>
     <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
@@ -927,7 +927,6 @@
     <string name="title_no_connection">Conectare la unul sau mai multe conturi &#8230;</string>
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
-    <string name="title_no_image">Imaginea nu a putut fi decodată</string>
     <string name="title_no_search">Căutarea pe server nu este disponibilă pentru acest cont</string>
     <string name="title_too_large">Mesaj prea mare pentru a fi complet reformatat</string>
     <string name="title_truncated">Mesaj prea mare pentru a-l putea afișa complet</string>

@@ -172,6 +172,7 @@
     <string name="title_setup_permissions">Concedi autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_permissions_explanation">Le autorizzazioni di contatto sono necessarie per cercare informazioni di contatto e suggerire contatti</string>
+    <string name="title_setup_permission_import_contacts">Come posso importare i contatti?</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email in modo affidabile</string>
     <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
@@ -916,7 +917,6 @@
     <string name="title_no_connection">Connessione a uno o più profili&#8230;</string>
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Il messaggio originale ricevuto sarà incluso</string>
-    <string name="title_no_image">Impossibile decrittografare l\'immagine</string>
     <string name="title_no_search">La ricerca sul server non è disponibile per questo profilo</string>
     <string name="title_too_large">Messaggio troppo grande da riformattare completamente</string>
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
@@ -1165,6 +1165,7 @@
     <string name="title_select_all">Seleziona tutto</string>
     <string name="title_select_found">Seleziona trovati</string>
     <string name="title_mark_all_read">Segna tutto come letto</string>
+    <string name="title_view_thread">Visualizza conversazione</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
     <string name="title_force_send">Forza invio</string>
     <string name="title_language_all">Tutte</string>
@@ -1455,6 +1456,7 @@
     <string name="title_pro_hint">Acquistare le funzionalità pro ti consentirà di usare tutte le funzionalità pro correnti e future, aiuterà a mantenere e supportare quest\'app.</string>
     <string name="title_pro_price">Perché le funzionalità pro sono così costose?</string>
     <string name="title_pro_family">Posso usare la Libreria di Famiglia di Google Play?</string>
+    <string name="title_pro_restore">Come posso ripristinare un acquisto (su un altro dispositivo)?</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
     <string name="title_pro_activated">Tutte le funzionalità pro sono attive</string>
     <string name="title_pro_valid">Tutte le funzionalità pro attivate</string>

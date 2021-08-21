@@ -2124,67 +2124,67 @@ FairEmail can show a warning flag too if the domain name of the (reply) email ad
 
 If the domain name of the sender and the domain name of the reply address differ, the warning flag will be shown too because this is most often the case with phishing messages. If desired, this can be disabled in the receive settings (from version 1.1506).
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
+If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. Göndərən, kimlik təsdiqləməsini və digər şeyləri yoxlamaq üçün [bu aləti](https://www.mail-tester.com/) istifadə edə bilər.
 
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation/data storage on external storage media (sdcard)?**
+**(93) Xarici anbarda (SD kart) quraşdırma faylının və ya verilənlərin saxlanılmasına icazə verirsiniz?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail, xidmətləri və zəngli saatları istifadə edir, vicetləri təmin edir və cihaz açılanda başladılmalı ön yükləmə tamamlandı tədbirlərini dinləyir, ona görə də, tətbiqi SD kart kimi xarici anbarlarda saxlamaq mümkün deyil. Həmçinin [bura](https://developer.android.com/guide/topics/data/install-location) baxın.
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Digər tətbiqlər, SD kart kimi xarici anbarlarda saxlanılan mesajlara, qoşmalara və s. müraciət edə bilər və bu güvənli deyil. Təfsilatlar üçün [bura](https://developer.android.com/training/data-storage) baxın.
 
-When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
+Lazım gəlsə mesaj mətninin üstündəki üç nöqtə menyusu vasitəsilə (xam) mesajları saxlaya və disket nişanına toxunaraq qoşmaları saxlaya bilərsiniz.
 
-If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for. You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
+Anbar sahəsinə qənaət etməlisinizsə, mesajların eyniləşdirildiyi və saxlanıldığı gün sayına limit qoya bilərsiniz. Qovluq siyahısında bir qovluğa uzun basıb *"Xüsusiyyətlərə düzəliş et"i* seçərək bu tənzimləmələri dəyişdirə bilərsiniz.
 
 <br />
 
 <a name="faq94"></a>
-**(94) What does the red/orange stripe at the end of the header mean?**
+**(94) Başlığın sonundakı qırmızı/narıncı zolaq nə məna verir?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+Başlığın sol hissəsindəki qırmızı/narıncı zolaq, DKIM, SPF və ya DMARC kimlik təsdiqləməsinin uğursuz olduğunu bildirir. Həmçinin [bu TSS-a](#user-content-faq92) baxın.
 
 <br />
 
 <a name="faq95"></a>
-**(95) Why are not all apps shown when selecting an attachment or image?**
+**(95) Bir qoşma və ya təsvir seçərkən nəyə görə bütün tətbiqlər görünmür?**
 
-For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+Gizlilik və güvənlik səbəblərinə görə, FairEmail-in fayllara birbaşa müraciət icazəsi yoxdur, bunun əvəzinə faylları seçmək üçün Android 4.4 KitKat (2013-cü ildə buraxılıb) mövcud və məsləhət görülən Storage Access Framework istifadə edilir.
 
-If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider). If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
+Bir tətbiqin siyahılanması, tətbiqin [sənəd təchizatçısını](https://developer.android.com/guide/topics/providers/document-provider) tətbiq etməsindən asılıdır. Tətbiq siyahılanmayıbsa, tətbiqin tərtibatçısından Storage Access Framework üçün dəstək əlavə etməsini xahiş edə bilərsiniz.
 
-Android Q will make it harder and maybe even impossible to directly access files, see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
+Android Q, fayllara birbaşa müraciət etməyi çətinləşdirəcək və hətta mümkünsüz edəcək, daha çox məlumat üçün [bura](https://developer.android.com/preview/privacy/scoped-storage) və [bura](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) baxın.
 
 <br />
 
 <a name="faq96"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) IMAP və SMTP tənzimləmələrini harada tapa bilərəm?**
 
-The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+IMAP tənzimləmələri (özəl) hesab tənzimləmələrinin bir hissəsidir və SMTP tənzimləmələri isə kimlik tənzimləmələrinin bir hissəsidir.
 
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) "Təmizləmə" nədir?**
 
-About each four hours FairEmail runs a cleanup job that:
+FairEmail təxminən hər dörd saatdan bir aşağıdakıları icra edən bir təmizlik prosesi həyata keçirir:
 
-* Removes old message texts
-* Removes old attachment files
-* Removes old image files
-* Removes old local contacts
-* Removes old log entries
+* Köhnə mesaj mətnlərini çıxarır
+* Köhnə qoşma fayllarını çıxarır
+* Köhnə təsvir fayllarını çıxarır
+* Köhnə yerli əlaqələri çıxarır
+* Köhnə jurnal girişlərini çıxarır
 
-Note that the cleanup job will only run when the synchronize service is active.
+Unutmayın: Təmizlik işi, yalnız eyniləşdirmə xidməti aktiv olanda icra edilir.
 
 <br />
 
 <a name="faq98"></a>
-**(98) Why can I still pick contacts after revoking contacts permissions?**
+**(98) Əlaqə icazələrini ləğv etdikdən sonra nəyə görə hələ də, əlaqələri seçə bilirəm?**
 
-After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+Əlaqə icazələrini ləğv etdikdən sonra, Android, FairEmail-in əlaqələrinizə müraciət etməsinə icazə vermir. Buna görə də, əlaqələri seçmə əməliyyatına, Android tərəfindən imtiyaz verilir və bunu Android icra edir, FairEmail yox. Ona görə də, əlaqə icazələri olmadan bu proses mümkündür.
 
 <br />
 

@@ -904,7 +904,6 @@
     <string name="title_no_connection">1つ以上のアカウント &#8230; への接続</string>
     <string name="title_no_folder">フォルダーが存在しません</string>
     <string name="title_no_format">受信したメッセージを引用しています</string>
-    <string name="title_no_image">画像をデコード出来ませんでした</string>
     <string name="title_no_search">サーバでの検索はこのアカウントでは利用出来ません</string>
     <string name="title_too_large">メッセージが大き過ぎて完全に再フォーマット出来ません</string>
     <string name="title_truncated">完全に表示するには大き過ぎるメッセージです</string>

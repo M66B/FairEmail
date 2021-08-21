@@ -73,7 +73,7 @@ Zur Autorisierung:
 * Ein [Bug im Android](https://issuetracker.google.com/issues/119872129) verursacht manchmal einen FairEmail-Absturz mit "*... Fehlerhafte Benachrichtigung ...*" auf einigen Geräten nach dem Aktualisieren von FairEmail und dem Tippen auf eine Benachrichtigung.
 * Ein [Bug in Android](https://issuetracker.google.com/issues/62427912) verursacht manchmal einen Absturz mit "*... ActivityRecord nicht gefunden für ...*" nach dem Update von FairEmail. Eine Neuinstallation ([quelle](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) könnte das Problem beheben.
 * Ein [Fehler in Android](https://issuetracker.google.com/issues/37018931) verursacht manchmal einen Absturz mit *... Der Eingabekanal wurde auf einigen Geräten nicht initialisiert ...*.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) verursacht manchmal einen Absturz mit *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* ~~Ein [Bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) verursacht manchmal einen Absturz mit *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Ein Fehler in Nova Launcher unter Android 5.x lässt FairEmail mit einem *java.lang.StackOverflowError* abstürzen, wenn Nova Launcher einen Zugriff auf die Bedienungshilfen hat.
 * ~~Die Ordnerauswahl zeigt manchmal aus noch unbekannten Gründen keine Ordner an. Dies scheint behoben zu sein.~~
 * ~~Ein [Bug in AndroidX](https://issuetracker.google.com/issues/64729576) macht es schwer, den Schnellscroller zu fassen. Ein Workaround wurde hinzugefügt.~~
@@ -366,23 +366,23 @@ Wenn Sie durch Klicken auf die Benachrichtigung hierhergekommen sind, sollten Si
 
 Die Benachrichtigung in der Statusleiste mit niedriger Priorität zeigt die Anzahl der anstehenden Vorgänge an, die sein können:
 
-* *Hinzufügen*: Nachricht zum Remote-Ordner hinzufügen
-* *Verschieben*: Nachricht in einen anderen Remote-Ordner verschieben
-* *kopieren*: Nachricht in einen anderen Remote-Ordner kopieren
+* *Hinzufügen*: Nachricht zu einem entfernten Ordner hinzufügen
+* *Verschieben*: Nachricht in einen anderen entfernten Ordner verschieben
+* *Kopieren*: Nachricht in einen anderen entfernten Ordner kopieren
 * *Abruf*: Abruf der geänderten (gedrückten) Nachricht
-* *Löschen*: Lösche Nachricht aus dem Remote-Ordner
-* *Gesehen*: Markiere Nachricht als gelesen/ungelesen im Remote-Ordner
-* *Beantwortet*: Markiere die Nachricht als beantwortet im Remote-Ordner
+* *Löschen*: Nachricht vom entfernten Ordner löschen
+* *Gesehen*: Nachricht als gelesen/ungelesen im entfernten Ordner markieren
+* *Beantwortet*: Nachricht als beantwortet im entfernten Ordner markieren
 * *Hinzufügen*: Nachricht zum entfernten Ordner hinzufügen
 * *Stichwort*: IMAP-Markierungen im entfernten Ordner hinzufügen/entfernen
 * *Label*: Gmail-Label im entfernten Ordner festlegen/zurücksetzen
-* *Kopfzeilen*: Nachrichtenüberschriften herunterladen
+* *Kopfzeilen*: Nachrichtenkopfzeilen herunterladen
 * *Roh*: Rohnachricht herunterladen
 * *body*: Nachrichtentext herunterladen
 * *Anhang*: Anhang herunterladen
 * *Synchronisation*: lokale und entfernte Nachrichten synchronisieren
 * *Abonnieren*: entfernten Ordner abonnieren
-* *Bereinigen*: Lösche alle Nachrichten aus dem entfernten Ordner
+* *Bereinigen*: Alle Nachrichten aus dem entfernten Ordner löschen
 * *Senden*: Nachricht senden
 * *Existiert*: Prüfen, ob Nachricht existiert
 * *Regel*: Regel im Text ausführen
@@ -2355,7 +2355,7 @@ You can also try to clear the cache of the Play store app via the Android apps s
 
 Note that:
 
-* Wenn Sie *ITEM_ALREADY_OWNED*erhalten, muss die Play Store App wahrscheinlich aktualisiert werden, bitte [hier finden](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Wenn Sie *ITEM_ALREADY_OWNED* erhalten, muss die Play Store App wahrscheinlich aktualisiert werden, siehe [hier](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Einkäufe werden in der Google Cloud gespeichert und können nicht verloren gehen
 * Bei Einkäufen gibt es keine Zeitbegrenzung, daher können sie nicht auslaufen
 * Google gibt keine Details (Name, E-Mail usw.) über Käufer an Entwickler weiter
@@ -2363,7 +2363,7 @@ Note that:
 * Es kann eine Weile dauern, bis die Play Store-App einen Kauf mit einem anderen Gerät synchronisiert hat
 * Käufe über den Play Store können ohne den Play Store nicht verwendet werden, was nach den Play-Store-Regeln ebenfalls nicht zulässig ist
 
-If you cannot solve the problem with the purchase, you will have to contact Google about it.
+Wenn Sie ein Problem beim Kauf der App nicht lösen können, kontaktieren Sie Google.
 
 <br />
 
@@ -2488,11 +2488,11 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) Wird ProtonMail oder Tutanota unterstützt?**
 
-ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
+ProtonMail verwendet ein proprietäres E-Mail-Protokoll und [unterstützt IMAP nicht direkt](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), daher können Sie mit FairEmail nicht auf ProtonMail zugreifen.
 
-Tutanota uses a proprietary email protocol and [does not support IMAP](https://tutanota.com/faq/#imap), so you cannot use FairEmail to access Tutanota.
+Tutanota verwendet ein proprietäres E-Mail-Protokoll und [unterstützt kein IMAP](https://tutanota.com/faq/#imap), daher können Sie mit FairEmail nicht auf Tutanota zugreifen.
 
 <br />
 
@@ -2861,13 +2861,13 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Wie kann ich ein E-Mail-Konto bei Free.fr einrichten?**
 
-Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+Folgen Sie der Anleitung [hier](https://free.fr/assistance/597.html).
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP ist standardmäßig deaktiviert**, wie es eingeschaltet werden kann, lesen Sie [hier](https://free.fr/assistance/2406.html) nach.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Eine ausführliche Anleitung finden Sie [hier](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr).
 
 <br />
 
@@ -2927,15 +2927,15 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 <a name="faq162"></a>
-**(162) Is IMAP NOTIFY supported?***
+**(162) Wird IMAP NOTIFY unterstützt?***
 
-Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+Ja, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) wird seit Version 1.1413 unterstützt.
 
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+IMAP NOTIFY bedeutet, dass Benachrichtigungen für hinzugefügte, geänderte oder gelöschte Nachrichten aller *abonnierten* Ordner angefordert werden und wenn eine Benachrichtigung für einen abonnierten Ordner empfangen wird, dass der Ordner synchronisiert wird. Die Synchronisierung von abonnierten Ordnern kann deaktiviert werden, um Verbinungen zu Ordnern auf dem E-Mail-Server einzusparen.
 
-**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
+**Wichtig**: Push-Nachrichten (=immer synchronisiert) für den Posteingang und Abonnierte Ordner (Empfangseinstellungen) müssen immer aktiviert sein.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**Wichtig**: Die meisten E-Mail-Server unterstützen die Funktion nicht! Wenn Sie im Hauptmenü die Logdatei aufrufen, können Sie überprüfen, ob NOTIFY vom E-Mail-Server unterstützt wird.
 
 <br />
 
@@ -2982,15 +2982,15 @@ Message classification is a pro feature, except for the spam folder.
 <br />
 
 <a name="faq164"></a>
-**(164) Can you add customizable themes?**
+**(164) Können Sie anpassbare Themes hinzufügen?**
 
-Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+Leider unterstützt Android [keine](https://stackoverflow.com/a/26511725/1794097) dynamische Themes, was bedeutet, dass alle Themes [vordefiniert sein müssen](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
+Da für jedes Theme eine helle, dunkle und schwarze Variante erforderlich sind, ist es nicht möglich, für jede Farbkombination (buchstäblich Millionen) ein vordefiniertes Theme hinzuzufügen.
 
-Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
+Außerdem ist ein Theme mehr als nur ein paar Farben. Zum Beispiel brauchen Themes mit gelber Akzentfarbe eine dunklere Link-Farbe für genügend Kontrast.
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+Die Farben des Themes basieren auf dem Farbkreis nach [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
@@ -3025,13 +3025,13 @@ Um diese Probleme zu vermeiden, wird das Schlummern lokal auf dem Gerät durchge
 
 <h2><a name="get-support"></a>Hilfe erhalten</h2>
 
-FairEmail wird nur auf Android-Smartphones und -Tablets und ChromeOS unterstützt.
+Neben Smartphones und Tablets mit Android-Betriebssystem, werden auch Geräte mit ChromeOS-Betriebssystem von FairMail unterstützt.
 
-Es werden nur die neuesten Versionen aus dem Play Store und von GitHub unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass eine Herabstufung nicht unterstützt wird.
+Es werden nur die neueste Play Store-Version und die neueste GitHub-Version unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass ein Downgrade nicht unterstützt wird.
 
-Es gibt keine Hilfe für Dinge, die nicht direkt mit FairEmail zusammenhängen.
+Es gibt keinen Support für Dinge, die nicht direkt mit FairEmail verbunden sind.
 
-Es gibt keine Unterstützung beim Selberbauen und Entwickeln von eigenen Dingen.
+Es wird kein Support für ein eigenes Build oder eine eigene Entwicklung durch Sie angeboten.
 
 Angefragte Funktionen sollten:
 

@@ -500,7 +500,6 @@
     <string name="title_no_connection">Повезивање на један или више налога&#8230;</string>
     <string name="title_no_folder">Фасцикла не постоји</string>
     <string name="title_no_format">Биће укључена и оригинална порука</string>
-    <string name="title_no_image">Слика не може да се декодује</string>
     <string name="title_no_search">Претрага на серверу није доступна за овај налог</string>
     <string name="title_show_full">Прикажи целу поруку</string>
     <string name="title_unused_inline">Неискоришћене уметнуте слике ће бити уклоњене при слању</string>

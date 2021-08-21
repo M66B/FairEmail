@@ -173,7 +173,7 @@
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
     <string name="title_setup_permissions_explanation">Der Zugriff auf Kontakte ist erforderlich, um Kontaktinformationen nachzuschlagen und Kontakte vorzuschlagen</string>
-    <string name="title_setup_permission_import_contacts" comment="title_setup_permission_import_contacts&#10;Title for link in setup screen">Wie kann ich Kontakte importieren?</string>
+    <string name="title_setup_permission_import_contacts">Wie kann ich Kontakte importieren?</string>
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
     <string name="title_setup_doze_remark">Um Nachrichten zuverlässig zu senden und zu empfangen</string>
     <string name="title_setup_doze_explanation">Batterieoptimierungen sollten für die App deaktiviert werden, um ein zuverlässiges Senden und Empfangen von Nachrichten im Hintergrund zu gewährleisten</string>
@@ -918,7 +918,6 @@
     <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_no_format">Die ursprünglich empfangene Nachricht wird miteinbezogen</string>
-    <string name="title_no_image">Bild konnte nicht dekodiert werden</string>
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
     <string name="title_too_large">Nachricht zu groß, um sie vollständig umformatieren zu können</string>
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
