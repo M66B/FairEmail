@@ -510,7 +510,7 @@
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
     <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Reset importance on moving messages</string>
-    <string name="title_advanced_reply_all">Long press the answer button to reply to all</string>
+    <string name="title_advanced_reply_all">Long press answer button to reply to all</string>
     <string name="title_advanced_default_snooze">Default snooze time</string>
 
     <string name="title_advanced_notifications">Manage notifications</string>
