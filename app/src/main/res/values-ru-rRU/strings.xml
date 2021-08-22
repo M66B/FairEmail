@@ -317,6 +317,7 @@
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_separate_reply">Вставлять горизонтальную линию перед заголовком ответа/пересылки</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
+    <string name="title_advanced_write_above">Писать над текстом отправителя</string>
     <string name="title_advanced_write_below">Писать под текстом отправителя</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_limit_reply">Ограничивать количество вложенных кавычек</string>
@@ -356,10 +357,10 @@
     <string name="title_advanced_landscape">Альбомный режим</string>
     <string name="title_advanced_two_row">Использовать две строки</string>
     <string name="title_advanced_two_col">Использовать две колонки</string>
-    <string name="title_advanced_nav_options">Показать настройки меню навигации</string>
+    <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
     <string name="title_advanced_nav_pin">Закрепить меню навигации</string>
-    <string name="title_advanced_nav_hide_title">Скрыть настройки меню навигации?</string>
-    <string name="title_advanced_nav_hide_message">Снова включить отображение настроек можно в параметрах отображения</string>
+    <string name="title_advanced_nav_hide_title">Скрыть панель меню навигации?</string>
+    <string name="title_advanced_nav_hide_message">Снова включить панель можно в разделе настройек \"Отображение\"</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>

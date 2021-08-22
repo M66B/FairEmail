@@ -316,6 +316,7 @@
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
     <string name="title_advanced_separate_reply">Вставити горизонтальну лінію перед заголовком відповіді/перенаправлення</string>
     <string name="title_advanced_extended_reply">Використовувати розширений заголовок відповіді/перенаправлення</string>
+    <string name="title_advanced_write_above">Писати перед текстом відправника</string>
     <string name="title_advanced_write_below">Писати під текстом відправника</string>
     <string name="title_advanced_quote_reply">Цитувати текст відповіді</string>
     <string name="title_advanced_limit_reply">Обмежити кількість вкладених лапок</string>

@@ -446,7 +446,7 @@ You can pin the certificate too, see above.
 
 <br />
 
-*Empty password*
+*Şifre boş*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
@@ -459,7 +459,7 @@ If you still want to use an invalid security certificate, an empty password or a
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Mesaj görünümünü nasıl özelleştirebilirim?**
 
 In the three dot overflow menu you can enable or disable or select:
 
@@ -493,13 +493,13 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Gmail / G Suite'e nasıl giriş yapabilirim?**
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
-**Important**: sometimes Google issues this alert:
+**Önemli**: bazen Google şu uyarıyı verir:
 
 *[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 

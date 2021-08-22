@@ -297,6 +297,7 @@
     <string name="title_advanced_prefix_once">Mövzunu yalnız bir dəfə cavablayarkən və ya yönləndirərkən prefiks</string>
     <string name="title_advanced_separate_reply">Cavablama/yönləndirmə başlığından əvvəl üfüqi bir xətt əlavə et</string>
     <string name="title_advanced_extended_reply">Genişləndirilmiş cavablama/yönləndirmə başlığı istifadə et</string>
+    <string name="title_advanced_write_above">Göndərən mətninin üstünə yaz</string>
     <string name="title_advanced_write_below">Göndərən mətninin altına yaz</string>
     <string name="title_advanced_quote_reply">Cavablanan mətndən sitat gətir</string>
     <string name="title_advanced_limit_reply">Gətirilən sitatların sayını məhdudlaşdır</string>
@@ -441,6 +442,7 @@
     <string name="title_advanced_autounstar">Mesajları köçürəndə ulduzları mesajlardan avtomatik çıxart</string>
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_reset_importance">Mesajları köçürəndə vacibliyi sıfırla</string>
+    <string name="title_advanced_reply_all">Hamısını cavablandırmaq üçün cavabla düyməsinə uzun basın</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə vaxtı</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
     <string name="title_advanced_notifications_default">İlkin kanal</string>

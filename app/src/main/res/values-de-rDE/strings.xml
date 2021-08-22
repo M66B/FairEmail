@@ -299,6 +299,7 @@
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
+    <string name="title_advanced_write_above">Oberhalb des zitierten Textes des Absenders schreiben</string>
     <string name="title_advanced_write_below">Unter dem zitierten Text des Absenders schreiben</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_limit_reply">Anzahl der verschachtelten Zitate begrenzen</string>

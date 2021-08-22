@@ -2368,7 +2368,7 @@ Wenn Sie ein Problem beim Kauf der App nicht lösen können, kontaktieren Sie Go
 <br />
 
 <a name="faq118"></a>
-**(118) What does 'Remove tracking parameters' exactly?**
+**(118) Was genau bedeutet 'Tracking-Parameter entfernen'?**
 
 Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
 
@@ -2386,9 +2386,9 @@ Aufgrund von Android-Einschränkungen ist es nicht möglich, die Deckkraft des H
 <br />
 
 <a name="faq120"></a>
-**(120) Why are new message notifications not removed on opening the app?**
+**(120) Warum werden die Benachrichtigungen über neue Nachrichten beim Öffnen der App nicht entfernt?**
 
-New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
+Neue Benachrichtigungen werden beim Wischen von Benachrichtigungen oder beim Markieren der Nachrichten als gelesen entfernt. Das Öffnen der App löscht keine neuen Nachrichten-Benachrichtigungen. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
 
 Auf Android 7 Nougat und später werden neue Benachrichtigungen [gruppiert](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
 

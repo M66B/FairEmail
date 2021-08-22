@@ -297,6 +297,7 @@
     <string name="title_advanced_prefix_once">Ne préfixer l’objet qu’une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_separate_reply">Insérer une ligne horizontale avant l\'en-tête de réponse/transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l’en-tête de réponse/transfert étendu</string>
+    <string name="title_advanced_write_above">Écrire au-dessus du texte de l\'expéditeur</string>
     <string name="title_advanced_write_below">Écrire sous le texte de l\'expéditeur</string>
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
     <string name="title_advanced_limit_reply">Limiter le nombre de citations imbriquées</string>

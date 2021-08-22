@@ -294,6 +294,7 @@
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_separate_reply">Indsæt en vandret linje før en svar-/videresendelsesoverskrift</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
+    <string name="title_advanced_write_above">Skriv over afsenderteksten</string>
     <string name="title_advanced_write_below">Skriv under afsenderens tekst</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
     <string name="title_advanced_limit_reply">Begræns antallet af indlejrede citater</string>
