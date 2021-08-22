@@ -55,6 +55,10 @@ public class ActivityWidgetSync extends ActivityBase {
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetSync.this);
+        boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+        int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+
         getSupportActionBar().setSubtitle(R.string.title_widget_title_sync);
         setContentView(R.layout.activity_widget_sync);
 
@@ -113,7 +117,9 @@ public class ActivityWidgetSync extends ActivityBase {
             }
         });
 
-        btnColor.setColor(Color.TRANSPARENT);
+        // Initialize
+        cbSemiTransparent.setChecked(semi);
+        btnColor.setColor(background);
 
         setResult(RESULT_CANCELED, resultValue);
     }
