@@ -76,6 +76,12 @@ public class ActivityWidget extends ActivityBase {
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidget.this);
+        long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+        boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+        int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+        int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
+
         getSupportActionBar().setSubtitle(R.string.title_widget_title_count);
         setContentView(R.layout.activity_widget);
 
@@ -154,7 +160,6 @@ public class ActivityWidget extends ActivityBase {
             public void onClick(View view) {
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidget.this);
                 SharedPreferences.Editor editor = prefs.edit();
                 if (account != null && account.id > 0)
                     editor.putString("widget." + appWidgetId + ".name", account.name);
@@ -178,16 +183,22 @@ public class ActivityWidget extends ActivityBase {
         adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAccount.setAdapter(adapterAccount);
 
+        // Initialize
         ((TextView) inOld.findViewById(R.id.tvCount)).setText("12");
         ((TextView) inNew.findViewById(R.id.tvCount)).setText("12");
 
-        btnColor.setColor(Color.TRANSPARENT);
+        cbSemiTransparent.setChecked(semi);
+        btnColor.setColor(background);
+        rbOld.setChecked(layout != 1);
+        rbNew.setChecked(layout == 1);
         setBackground();
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         setResult(RESULT_CANCELED, resultValue);
+
+        Bundle args = new Bundle();
 
         new SimpleTask<List<EntityAccount>>() {
             @Override
@@ -210,6 +221,12 @@ public class ActivityWidget extends ActivityBase {
 
                 adapterAccount.addAll(accounts);
 
+                for (int i = 0; i < accounts.size(); i++)
+                    if (accounts.get(i).id.equals(account)) {
+                        spAccount.setSelection(i);
+                        break;
+                    }
+
                 grpReady.setVisibility(View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
             }
@@ -218,7 +235,7 @@ public class ActivityWidget extends ActivityBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getSupportFragmentManager(), ex);
             }
-        }.execute(this, new Bundle(), "widget:accounts");
+        }.execute(this, args, "widget:accounts");
     }
 
     private void setBackground() {

@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -61,6 +62,9 @@ public class Widget extends AppWidgetProvider {
                     int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
                     int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
+
+                    if (version <= 1550)
+                        semi = true; // Legacy
 
                     List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
                     if (folders == null)
@@ -126,8 +130,15 @@ public class Widget extends AppWidgetProvider {
                     }
 
                     if (background == Color.TRANSPARENT) {
-                        if (!semi && version > 1550)
+                        if (semi)
+                            views.setInt(R.id.widget, "setBackgroundResource", R.drawable.widget_background);
+                        else
                             views.setInt(R.id.widget, "setBackgroundColor", background);
+
+                        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
+                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
+                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
+                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
                     } else {
                         float lum = (float) ColorUtils.calculateLuminance(background);
 
@@ -142,6 +153,9 @@ public class Widget extends AppWidgetProvider {
                             views.setTextColor(R.id.tvAccount, Color.BLACK);
                         }
                     }
+
+                    int pad = Helper.dp2pixels(context, layout == 0 ? 3 : 6);
+                    views.setViewPadding(R.id.widget, pad, pad, pad, pad);
 
                     appWidgetManager.updateAppWidget(appWidgetId, views);
                 }
