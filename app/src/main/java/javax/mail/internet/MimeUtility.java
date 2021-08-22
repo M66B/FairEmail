@@ -1293,15 +1293,15 @@ public class MimeUtility {
 							"8859_1");
 	    } catch (SecurityException sex) {
 		
-		class NullInputStream extends InputStream {
-		    @Override
-		    public int read() {
-			return 0;
-		    }
-		}
-		InputStreamReader reader = 
-			new InputStreamReader(new NullInputStream());
-		defaultJavaCharset = reader.getEncoding();
+		//class NullInputStream extends InputStream {
+		//    @Override
+		//    public int read() {
+		//	return 0;
+		//    }
+		//}
+		//InputStreamReader reader =
+		//	new InputStreamReader(new NullInputStream());
+		//defaultJavaCharset = reader.getEncoding();
 		if (defaultJavaCharset == null)
 		    defaultJavaCharset = "8859_1";
 	    }
