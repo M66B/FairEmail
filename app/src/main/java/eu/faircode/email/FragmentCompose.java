@@ -252,6 +252,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibSignature;
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
+    private ImageButton ibWriteAboveBelow;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private View vwAnchor;
@@ -370,6 +371,7 @@ public class FragmentCompose extends FragmentBase {
         ibSignature = view.findViewById(R.id.ibSignature);
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
+        ibWriteAboveBelow = view.findViewById(R.id.ibWriteAboveBelow);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
@@ -767,6 +769,21 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        ibWriteAboveBelow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
+                boolean write_below = !prefs.getBoolean("write_below", false);
+                prefs.edit().putBoolean("write_below", write_below).apply();
+                ibWriteAboveBelow.setImageLevel(write_below ? 1 : 0);
+                ToastEx.makeText(v.getContext(),
+                        write_below
+                                ? R.string.title_advanced_write_below
+                                : R.string.title_advanced_write_above,
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -904,6 +921,7 @@ public class FragmentCompose extends FragmentBase {
         grpBody.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
+        ibWriteAboveBelow.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
@@ -5235,11 +5253,18 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     Document doc = JsoupEx.parse(draft.getFile(context));
+                    Element first = (doc.body().childrenSize() == 0 ? null : doc.body().child(0));
+                    boolean below = (first != null && first.attr("fairemail").equals("reference"));
                     doc.select("div[fairemail=signature]").remove();
                     Elements ref = doc.select("div[fairemail=reference]");
                     ref.remove();
 
                     if (extras != null && extras.containsKey("html"))
+                        dirty = true;
+
+                    if (below != write_below &&
+                            doc.body().childrenSize() > 0 &&
+                            draft.wasforwardedfrom == null)
                         dirty = true;
 
                     if (!dirty)
@@ -6022,10 +6047,15 @@ public class FragmentCompose extends FragmentBase {
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean ref_hint = prefs.getBoolean("compose_reference", true);
+                boolean write_below = prefs.getBoolean("write_below", false);
 
                 tvReference.setText(text[1]);
                 tvReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
+                ibWriteAboveBelow.setImageLevel(write_below ? 1 : 0);
+                ibWriteAboveBelow.setVisibility(text[1] == null ||
+                        draft.wasforwardedfrom != null || BuildConfig.PLAY_STORE_RELEASE
+                        ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
