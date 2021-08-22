@@ -461,6 +461,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
+    <string name="title_advanced_reply_all">Долгое нажатие на кнопку ответа, чтобы ответить всем</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>

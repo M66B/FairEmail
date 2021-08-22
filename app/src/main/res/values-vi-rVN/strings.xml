@@ -431,6 +431,7 @@
     <string name="title_advanced_autounstar">Tự động bỏ sao khỏi thư khi di chuyển thư</string>
     <string name="title_advanced_auto_important">Tự động làm cho thư được gắn sao trở nên quan trọng</string>
     <string name="title_advanced_reset_importance">Đặt lại tầm quan trọng khi di chuyển thư</string>
+    <string name="title_advanced_reply_all">Nhấn giữ nút trả lời để trả lời tất cả</string>
     <string name="title_advanced_default_snooze">Thời gian báo lại mặc định</string>
     <string name="title_advanced_notifications">Quản lý thông báo</string>
     <string name="title_advanced_notifications_default">Kênh mặc định</string>

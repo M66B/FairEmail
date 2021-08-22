@@ -2340,9 +2340,9 @@ Chips eignen sich nicht für die Anzeige in einer Liste und da der Nachrichtenko
 <a name="faq117"></a>
 **(117) Können Sie mir helfen, meinen Kauf wiederherzustellen?**
 
-First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
+Zunächst einmal ist ein Kauf auf allen Geräten verfügbar, die mit demselben Google-Konto angemeldet sind, *wenn* die App auch über dasselbe Google-Konto installiert ist. Sie können das Konto in der Play Store App auswählen.
 
-Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
+Google verwaltet alle Einkäufe, so dass ich als Entwickler wenig Kontrolle über Einkäufe habe. Also kann ich im Grunde nichts anderes tun, als einen Rat zu geben:
 
 * Stellen Sie sicher, dass Sie über eine stabile Internetverbindung verfügen
 * Stellen Sie sicher, dass Sie mit dem richtigen Google-Konto angemeldet sind und dass alles mit Ihrem Google-Konto in Ordnung ist
@@ -2351,9 +2351,9 @@ Google manages all purchases, so as a developer I have little control over purch
 * Öffnen Sie die App des Play Store und warten Sie mindestens eine Minute, um ihr Zeit zu geben, sich mit den Google-Servern zu synchronisieren
 * Öffnen Sie FairEmail und wechseln Sie zum Bildschirm mit den Profifunktionen, damit FairEmail die Einkäufe überprüfen kann. Oftmals hilft es, auf die Schaltfläche *Kaufen* zu tippen
 
-You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
+Sie können auch versuchen, den Cache der Play Store App über die Android-App-Einstellungen zu löschen. Ein Neustart des Geräts könnte notwendig sein, damit der Play Store den Kauf richtig erkennen kann.
 
-Note that:
+Beachten Sie:
 
 * Wenn Sie *ITEM_ALREADY_OWNED* erhalten, muss die Play Store App wahrscheinlich aktualisiert werden, siehe [hier](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Einkäufe werden in der Google Cloud gespeichert und können nicht verloren gehen
@@ -2379,9 +2379,9 @@ Checking *Remove tracking parameters* will remove all [UTM parameters](https://e
 
 ~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~ ~~This way the widget will nicely blend in, while still being properly readable.~~
 
-~~Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.~~
+~~Das Hinzufügen von Farben wird Probleme mit einigen Hintergründen verursachen und zu Problemen bei der Lesbarkeit führen, weshalb dies nicht hinzugefügt wird.~~
 
-Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
+Aufgrund von Android-Einschränkungen ist es nicht möglich, die Deckkraft des Hintergrunds dynamisch einzustellen und gleichzeitig gerundete Ecken zu haben.
 
 <br />
 
@@ -2390,16 +2390,16 @@ Due to Android limitations it is not possible to dynamically set the opacity of 
 
 New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
 
-On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+Auf Android 7 Nougat und später werden neue Benachrichtigungen [gruppiert](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
 
 <br />
 
 <a name="faq121"></a>
 **(121) How are messages grouped into a conversation?**
 
-By default FairEmail groups messages in conversations. This can be turned of in the display settings.
+Standardmäßig gruppiert FairEmail Nachrichten in Unterhaltungen. Dies kann in den Anzeigeeinstellungen ausgeschaltet werden.
 
-FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers. FairEmail does not group on other criteria, like the subject, because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
+FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers. FairEmail gruppiert nicht nach anderen Kriterien, wie dem Betreff, weil dies dazu führen könnte, dass Nachrichten gruppiert werden, die nichts miteinander zu tun haben und zu Lasten eines erhöhten Akkuverbrauchs ginge.
 
 <br />
 

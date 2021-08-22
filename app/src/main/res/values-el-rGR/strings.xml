@@ -441,6 +441,7 @@
     <string name="title_advanced_autounstar">Αυτόματη αφαίρεση των αστεριών από τα μηνύματα κατά τη μετακίνησή τους</string>
     <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_reset_importance">Επαναφορά του βαθμού σημαντικότητας κατά τη μετακίνηση των μηνυμάτων</string>
+    <string name="title_advanced_reply_all">Πατήστε παρατεταμένα το κουμπί απάντησης για να απαντήσετε σε όλους</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>

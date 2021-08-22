@@ -430,6 +430,7 @@
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
+    <string name="title_advanced_reply_all">长按答复按钮回复所有</string>
     <string name="title_advanced_default_snooze">默认打盹时间</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>

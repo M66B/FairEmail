@@ -460,6 +460,7 @@
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
+    <string name="title_advanced_reply_all">Натисніть і утримуйте кнопку відповідь, щоб відповісти всім</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>

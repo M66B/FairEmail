@@ -437,6 +437,7 @@
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
+    <string name="title_advanced_reply_all">Langt tryk på svarknappen for at besvare alle</string>
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>

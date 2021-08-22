@@ -443,6 +443,7 @@
     <string name="title_advanced_autounstar">Markierungen automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
+    <string name="title_advanced_reply_all">Schaltfläche „Antworten” länger gedrückt halten, um allen zu antworten</string>
     <string name="title_advanced_default_snooze">Voreingestellte Zurückstellzeit</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
