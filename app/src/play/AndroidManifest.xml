@@ -25,6 +25,9 @@
         android:name="android.permission.READ_PROFILE"
         android:maxSdkVersion="22" />
 
+    <!-- https://github.com/leolin310148/ShortcutBadger/pull/368 -->
+    <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
+
     <!-- https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference -->
     <uses-feature
         android:name="android.software.app_widgets"
@@ -40,6 +43,7 @@
         android:required="false" />
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
+    <!-- https://developer.android.com/training/package-visibility/use-cases -->
     <queries>
         <!-- Customtabs -->
         <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
@@ -80,7 +84,9 @@
             <data android:mimeType="text/plain" />
         </intent>
 
-        <package android:name="com.google.android.tts" />
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
     </queries>
 
     <application
@@ -130,7 +136,9 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_EMAIL" />
             </intent-filter>
 
             <intent-filter>
@@ -209,6 +217,31 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="eu.faircode.email.search" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityAnswer"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:icon="@drawable/twotone_reply_24"
+            android:label="@string/app_answer"
+            android:launchMode="singleTask">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -243,6 +276,11 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ActivityError"
+            android:exported="false"
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".ActivityEML"
