@@ -666,6 +666,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 EntityLog.log(ServiceSynchronize.this, "Widget update");
                 Widget.update(ServiceSynchronize.this);
+                ServiceTileWear.update(ServiceSynchronize.this);
 
                 boolean badge = prefs.getBoolean("badge", true);
                 boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);

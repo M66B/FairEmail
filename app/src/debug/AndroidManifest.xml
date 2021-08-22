@@ -42,6 +42,8 @@
         android:name="android.hardware.fingerprint"
         android:required="false" />
 
+    <uses-sdk tools:overrideLibrary="androidx.wear.tiles.renderer" />
+
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
     <!-- https://developer.android.com/training/package-visibility/use-cases -->
     <queries>
@@ -338,6 +340,12 @@
         <activity
             android:name=".ActivityBilling"
             android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ActivityTileWear"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask" />
 
