@@ -41,6 +41,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1652,23 +1653,36 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
     };
 
-    private List<Long> updatedFolders = new ArrayList<>();
+    private List<Pair<Long, String>> updatedFolders = new ArrayList<>();
 
-    boolean isFolderUpdated(long folder) {
-        boolean value = updatedFolders.contains(folder);
+    boolean isFolderUpdated(Long folder, String type) {
+        Pair<Long, String> key = new Pair<>(
+                folder == null ? -1L : folder,
+                folder == null ? type : null);
+        boolean value = updatedFolders.contains(key);
         if (value)
-            updatedFolders.remove(folder);
+            updatedFolders.remove(key);
         return value;
     }
 
     private void onNewMessage(Intent intent) {
         long folder = intent.getLongExtra("folder", -1);
+        String type = intent.getStringExtra("type");
         boolean unified = intent.getBooleanExtra("unified", false);
 
-        if (!updatedFolders.contains(folder))
-            updatedFolders.add(folder);
-        if (unified && !updatedFolders.contains(-1L))
-            updatedFolders.add(-1L);
+        Pair<Long, String> pfolder = new Pair<>(folder, null);
+        if (!updatedFolders.contains(pfolder))
+            updatedFolders.add(pfolder);
+
+        Pair<Long, String> ptype = new Pair<>(-1L, type);
+        if (!updatedFolders.contains(ptype))
+            updatedFolders.add(ptype);
+
+        if (unified) {
+            Pair<Long, String> punified = new Pair<>(-1L, null);
+            if (!updatedFolders.contains(punified))
+                updatedFolders.add(punified);
+        }
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {

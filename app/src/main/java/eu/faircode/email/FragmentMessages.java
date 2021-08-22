@@ -5066,7 +5066,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (autoscroll) {
                     ActivityView activity = (ActivityView) getActivity();
                     if (activity != null &&
-                            activity.isFolderUpdated(viewType == AdapterMessage.ViewType.UNIFIED ? -1L : folder))
+                            activity.isFolderUpdated(viewType == AdapterMessage.ViewType.UNIFIED ? null : folder, type))
                         adapter.gotoTop();
                 }
             }

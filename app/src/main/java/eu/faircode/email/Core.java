@@ -3918,8 +3918,11 @@ class Core {
                 message.received > account.created) {
             Intent report = new Intent(ActivityView.ACTION_NEW_MESSAGE);
             report.putExtra("folder", folder.id);
+            report.putExtra("type", folder.type);
             report.putExtra("unified", folder.unified);
-            Log.i("Report new id=" + message.id + " folder=" + folder.name + " unified=" + folder.unified);
+            Log.i("Report new id=" + message.id +
+                    " folder=" + folder.type + ":" + folder.name +
+                    " unified=" + folder.unified);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(report);
