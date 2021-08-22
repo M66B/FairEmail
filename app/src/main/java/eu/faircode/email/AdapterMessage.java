@@ -931,9 +931,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeenBottom.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(touchListener);
-                tvBody.setMovementMethod(movementMethod);
                 tvBody.setTextIsSelectable(false);
                 tvBody.setTextIsSelectable(true);
+                tvBody.setMovementMethod(movementMethod);
                 tvBody.addOnLayoutChangeListener(this);
 
                 ibCalendar.setOnClickListener(this);
