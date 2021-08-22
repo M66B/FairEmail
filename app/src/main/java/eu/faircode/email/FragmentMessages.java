@@ -2142,9 +2142,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Drawable d = context.getDrawable(icon).mutate();
             d.setTint(Helper.resolveColor(context, android.R.attr.textColorSecondary));
 
+            int half = rect.width() / 2;
             if (dX > 0) {
                 // Right swipe
-                d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
+                if (dX < half)
+                    d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
+                else
+                    d.setAlpha(Math.round(255 * (1.0f - (dX - half) / half)));
                 if (swipes.right_color == null) {
                     Integer color = EntityFolder.getDefaultColor(swipes.swipe_right, swipes.right_type, context);
                     if (color != null)
@@ -2160,7 +2164,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 d.draw(canvas);
             } else if (dX < 0) {
                 // Left swipe
-                d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
+                if (-dX < half)
+                    d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
+                else
+                    d.setAlpha(Math.round(255 * (1.0f - (-dX - half) / half)));
                 if (swipes.left_color == null) {
                     Integer color = EntityFolder.getDefaultColor(swipes.swipe_left, swipes.left_type, context);
                     if (color != null)
