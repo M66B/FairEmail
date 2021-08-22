@@ -6714,9 +6714,10 @@ mil.vc
 edu.vc
 
 // ve : https://registro.nic.ve/
-// Submitted by registry
+// Submitted by registry nic@nic.ve and nicve@conatel.gob.ve
 ve
 arts.ve
+bib.ve
 co.ve
 com.ve
 e12.ve
@@ -6728,7 +6729,9 @@ info.ve
 int.ve
 mil.ve
 net.ve
+nom.ve
 org.ve
+rar.ve
 rec.ve
 store.ve
 tec.ve
@@ -7125,7 +7128,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-08-05T15:14:20Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-08-19T15:13:52Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8716,6 +8719,9 @@ kfh
 
 // kia : 2015-07-09 KIA MOTORS CORPORATION
 kia
+
+// kids : 2021-08-13 DotKids Foundation Limited
+kids
 
 // kim : 2013-09-23 Afilias Limited
 kim
@@ -11037,6 +11043,8 @@ cleverapps.io
 
 // Clerk : https://www.clerk.dev
 // Submitted by Colin Sidoti <systems@clerk.dev>
+clerk.app
+clerkstage.app
 *.lcl.dev
 *.lclstage.dev
 *.stg.dev
@@ -13301,6 +13309,10 @@ beta.bounty-full.com
 // Small Technology Foundation : https://small-tech.org
 // Submitted by Aral Balkan <aral@small-tech.org>
 small-web.org
+
+// Smoove.io : https://www.smoove.io/
+// Submitted by Dan Kozak <dan@smoove.io>
+vp4.me
 
 // Snowplow Analytics : https://snowplowanalytics.com/
 // Submitted by Ian Streeter <ian@snowplowanalytics.com>
