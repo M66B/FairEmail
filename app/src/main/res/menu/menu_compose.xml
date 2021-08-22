@@ -24,7 +24,7 @@
             android:id="@+id/menu_save_drafts"
             android:checkable="true"
             android:checked="true"
-            android:icon="@drawable/twotone_save_24"
+            android:icon="@drawable/twotone_save_alt_24"
             android:title="@string/title_save_drafts"
             app:showAsAction="never" />
 

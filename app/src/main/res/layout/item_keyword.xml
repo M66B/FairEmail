@@ -62,7 +62,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/btnColor"
             app:layout_constraintStart_toEndOf="@id/etKeyword"
             app:layout_constraintTop_toTopOf="@+id/btnColor"
-            app:srcCompat="@drawable/twotone_save_24" />
+            app:srcCompat="@drawable/twotone_save_alt_24" />
 
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"

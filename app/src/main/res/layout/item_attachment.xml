@@ -81,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/twotone_save_24" />
+            app:srcCompat="@drawable/twotone_save_alt_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvType"

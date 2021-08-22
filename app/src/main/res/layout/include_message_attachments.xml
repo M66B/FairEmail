@@ -49,7 +49,7 @@
         android:tooltipText="@string/title_save_all"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
-        app:srcCompat="@drawable/twotone_save_24" />
+        app:srcCompat="@drawable/twotone_save_alt_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_internet"

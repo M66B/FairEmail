@@ -119,7 +119,7 @@
         <item
             android:id="@+id/menu_raw_save"
             android:enabled="false"
-            android:icon="@drawable/twotone_save_24"
+            android:icon="@drawable/twotone_save_alt_24"
             android:title="@string/title_raw_save" />
 
         <item
