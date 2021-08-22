@@ -76,7 +76,7 @@ public class ActivityWidget extends ActivityBase {
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidget.this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);

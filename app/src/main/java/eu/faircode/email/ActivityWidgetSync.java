@@ -55,7 +55,7 @@ public class ActivityWidgetSync extends ActivityBase {
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetSync.this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
 
