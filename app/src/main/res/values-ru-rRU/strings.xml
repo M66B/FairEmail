@@ -360,7 +360,7 @@
     <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
     <string name="title_advanced_nav_pin">Закрепить меню навигации</string>
     <string name="title_advanced_nav_hide_title">Скрыть панель меню навигации?</string>
-    <string name="title_advanced_nav_hide_message">Снова включить панель можно в разделе настройек \"Отображение\"</string>
+    <string name="title_advanced_nav_hide_message">Снова включить панель можно в разделе настроек \"Отображение\"</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
@@ -574,6 +574,7 @@
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
+    <string name="title_advanced_reply_all_hint">Если отключено, долгое нажатие на кнопку ответа приведёт к ответу отправителю</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>

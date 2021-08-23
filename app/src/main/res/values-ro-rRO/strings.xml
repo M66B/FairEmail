@@ -564,6 +564,7 @@
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
+    <string name="title_advanced_reply_all_hint">Dacă este dezactivată, apăsarea lungă a butonului de răspuns va răspunde expeditorului</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>

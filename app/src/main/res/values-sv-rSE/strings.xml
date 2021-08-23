@@ -551,6 +551,7 @@
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
+    <string name="title_advanced_reply_all_hint">Om inaktiverad, långtryck på svarsknappen kommer att svara avsändaren</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>

@@ -442,7 +442,7 @@
     <string name="title_advanced_autounstar">Retirer automatiquement l’étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_reset_importance">Réinitialiser l’importance lors du déplacement des messages</string>
-    <string name="title_advanced_reply_all">Appuyer longuement sur le bouton Répondre pour répondre à tous</string>
+    <string name="title_advanced_reply_all">Appuyer longuement sur le bouton « Répondre » pour répondre à tous</string>
     <string name="title_advanced_default_snooze">Délai de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
@@ -554,6 +554,7 @@
     <string name="title_advanced_suggest_names_hint">Si désactivé, seules les adresses courriel seront utilisées lors de la sélection des contacts</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les données de contact seront stockées pour les messages récemment envoyés ou reçus uniquement lorsque ceci est activé.</string>
     <string name="title_advanced_usenet_hint">Insérer -- entre le texte et la signature</string>
+    <string name="title_advanced_reply_all_hint">Si ceci est désactivé, un appui long sur le bouton « Répondre » répondra à l\'expéditeur</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie peut également ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
