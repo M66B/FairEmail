@@ -2852,6 +2852,62 @@ public class FragmentCompose extends FragmentBase {
         }.setExecutor(executor).execute(this, args, "compose:attachment:add");
     }
 
+    void onSharedAttachments(ArrayList<Uri> uris) {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putParcelableArrayList("uris", uris);
+
+        new SimpleTask<ArrayList<Uri>>() {
+            @Override
+            protected ArrayList<Uri> onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                List<Uri> uris = args.getParcelableArrayList("uris");
+
+                ArrayList<Uri> images = new ArrayList<>();
+                for (Uri uri : uris)
+                    try {
+                        UriInfo info = getInfo(uri, context);
+                        if (info.isImage())
+                            images.add(uri);
+                        else
+                            addAttachment(context, id, uri, false, 0, false);
+                    } catch (IOException ex) {
+                        Log.e(ex);
+                    }
+
+                return images;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, ArrayList<Uri> images) {
+                if (images.size() == 0)
+                    return;
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean image_dialog = prefs.getBoolean("image_dialog", true);
+
+                if (image_dialog) {
+                    Helper.hideKeyboard(view);
+
+                    Bundle aargs = new Bundle();
+                    aargs.putInt("title", android.R.string.ok);
+                    aargs.putParcelableArrayList("images", images);
+
+                    FragmentDialogAddImage fragment = new FragmentDialogAddImage();
+                    fragment.setArguments(aargs);
+                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
+                    fragment.show(getParentFragmentManager(), "compose:shared");
+                } else
+                    onAddImageFile(images);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "compose:shared");
+    }
+
     private List<Uri> getUris(Intent data) {
         List<Uri> result = new ArrayList<>();
 

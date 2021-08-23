@@ -30,6 +30,7 @@ import android.text.TextUtils;
 
 import androidx.core.app.TaskStackBuilder;
 import androidx.core.net.MailTo;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
@@ -54,14 +55,14 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 0)
-            handle(getIntent());
+            handle(getIntent(), true);
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        handle(intent);
+        handle(intent, false);
     }
 
     @Override
@@ -84,13 +85,13 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         }
     }
 
-    private void handle(Intent intent) {
+    private void handle(Intent intent, boolean create) {
         Bundle args;
         String action = intent.getAction();
+        Log.i("Handle action=" + action + " create=" + create + " " + this);
+
         if (isShared(action)) {
             args = new Bundle();
-            args.putString("action", "new");
-            args.putLong("account", -1);
 
             Uri uri = intent.getData();
             if (uri != null && "mailto".equalsIgnoreCase(uri.getScheme())) {
@@ -204,10 +205,27 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         } else
             args = intent.getExtras();
 
+        FragmentManager fm = getSupportFragmentManager();
+
+        if (!create &&
+                args.size() == 1 && args.containsKey("attachments")) {
+            List<Fragment> fragments = fm.getFragments();
+            if (fragments.size() == 1) {
+                ((FragmentCompose) fragments.get(0)).onSharedAttachments(
+                        args.getParcelableArrayList("attachments"));
+                return;
+            }
+        }
+
+        if (isShared(action)) {
+            args.putString("action", "new");
+            args.putLong("account", -1);
+        }
+
         FragmentCompose fragment = new FragmentCompose();
         fragment.setArguments(args);
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose");
         fragmentTransaction.commit();
     }
