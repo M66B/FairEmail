@@ -2102,23 +2102,23 @@ Note that original messages are shown exactly as they are, which means also that
 <br />
 
 <a name="faq92"></a>
-**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
+**(92) Spam filtrləmə, DKIM imza təsdiqləmə və SPF səlahiyyətləndirmə əlavə edə bilərsiniz?**
 
-Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+Spam filtrləmə, [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) imza təsdiqləmə və [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) səlahiyyətləndirmə, e-poçt müştərisinin (client) yox, e-poçt serverlərinin tapşırıqlarıdır. Adətən serverlər, daha çox yaddaşa və məlumat hesablama gücünə sahib olurlar, ona görə də bu tapşırıq üçün batereya ilə işləyən cihazlara görə daha uyğundur. Həmçinin, yalnız bir e-poçt müştərisi (client) üçün yox, böyük ehtimal veb e-poçt daxil olmaqla, bütün e-poçt müştəriləriniz üçün spam filtrləməsi istəyəcəksiniz. Bundan əlavə, e-poçt serverlərinin, bir e-poçt müştərisinin müraciət olmayan, bağlantı qurulan serverin IP ünvanı kimi məlumatlara müraciəti var.
 
-Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
+Mesaj başlıqları əsasında spam filtrləmə mümkün ola bilərdi, ancaq təəssüf ki, bu texnika [Microsoft tərəfindən patentləşdirilib](https://patents.google.com/patent/US7543076).
 
-Recent versions of FairEmail can filter spam to a certain extend using a message classifier. Please see [this FAQ](#user-content-faq163) for more information about this.
+FairEmail-in son versiyaları, mesaj sinifləşdirici istifadə edilərək spam poçtlarını müəyyən ölçüdə filtrləyə bilər. Bu haqda daha çox məlumat üçün zəhmət olmasa [bu TSS-a](#user-content-faq163) baxın.
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+Təbii ki, FairEmail ilə mesajları spam olaraq bildirə bilərsiniz. Bu da, bildirilən mesajları spam qovluğuna köçürəcək və təchizatçının spam filtrini necə işləməsi barədə öyrədəcək. Bu, [filtr qaydaları](#user-content-faq71) ilə də avtomatik edilə bilər. Göndərəni əngəlləmək, həmin göndərənin gələcəkdəki mesajlarını avtomatik olaraq spam qovluğuna köçürmək üçün bir filtr qaydası yaradacaq.
 
-Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
+Unutmayın ki, POP3 protokolu yalnız gələn qutusuna müraciəti təmin edir. Buna görə də, POP3 hesabları üçün spam bildirmək mümkün olmayacaq.
 
-Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+Unutmayın ki, spam mesajlarını spam qovluğundan da silməməlisiniz, çünki e-poçt serverləri, spam mesajları "öyrənmək" üçün spam qovluğundakı mesajları istifadə edir.
 
-If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
+Gələn qutusunda həddən çox spam mesaj alsanız, edəcəyiniz ən yaxşı şey, spam filtrləmənin təkmilləşdiyini soruşmaq üçün e-poçt təchizatçısı ilə əlaqə saxlamaqdır.
 
-Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
+Həmçinin FairEmail, alınan serverdə DKIM, SPF və ya [DMARC](https://en.wikipedia.org/wiki/DMARC) kimlik təsdiqləməsi uğursuz olanda, kiçik bir qırmızı xəbərdarlıq bayrağı göstərə bilər. [Kimlik təsdiqləməsini](https://en.wikipedia.org/wiki/Email_authentication) görüntü tənzimləmələrində fəallaşdıra/sıradan çıxarda bilərsiniz.
 
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 

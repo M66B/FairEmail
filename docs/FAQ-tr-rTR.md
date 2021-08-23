@@ -319,7 +319,7 @@ Aşağıdaki android izinleri gereklidir:
 * İsteğe bağlı: *Kişilerinizi okuma* (READ_CONTACTS): Adresleri otomatik olarak tamamlamak, kişi fotoğraflarını göstermek ve [kişileri seçmek](https://developer.android.com/guide/components/intents-common#PickContactDat) için
 * İsteğe bağlı: *SD kartınızın içeriğini okuma* (READ_EXTERNAL_STORAGE): Diğer, tarihi geçmiş uygulamalardan dosyaları kabul etmek için. Ayrıca [SSS](#user-content-faq49)'e bakın
 * İsteğe bağlı: *Parmak izi donanımı kullan* (USE_FINGERPRINT) ve *Biyometrik donanım* kullan, (USE_BIOMETRIC): biyometrik kimlik doğrulamayı kullanmak için
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* İsteğe bağlı: * cihazdaki hesapları bulun * (GET_ACCOUNTS): Gmail hızlı kurulumunu kullanırken bir hesap seçmek için
 * Android 5.1 Lollipop ve öncesi: *cihazdaki hesapları kullan* (USE_CREDENTIALS): Gmail hızlı kurulumunu kullanırken bir hesap seçmek için (daha sonraki Android sürümlerinde istenmez)
 * Android 5.1 Lollipop ve öncesi: *Profili oku* (READ_PROFILE): Gmail hızlı kurulumunu kullanırken adınızı okumak için (sonraki Android sürümlerinde istenmez)
 
@@ -360,13 +360,13 @@ Android, önce yüksek öncelikli durum çubuğu bildirimlerinin simgelerini gö
 Durum çubuğu bildirimi, FairEmail'in bildirim ayarları aracılığıyla devre dışı bırakılabilir:
 
 * Android 8 Oreo ve üstü: *Kanalı al* düğmesine dokunun ve kanalı Android ayarları aracılığıyla devre dışı bırakın (bu, yeni mesaj bildirimlerini devre dışı bırakmaz)
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Android 7 Nougat ve öncesi: etkin * Mesajları senkronize etmek için arka plan hizmetini kullan *, ancak ayarın altındaki açıklamayı okuduğunuzdan emin olun
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Bildirimi kaldırmak için alma ayarlarında mesajların periyodik senkronizasyonuna geçebilirsiniz, ancak bunun daha fazla pil gücü gerektirebileceğini unutmayın. Pil kullanımı hakkında daha fazla ayrıntı için [ buraya ](#user-content-faq39) bakın.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo ayrıca * Uygulamalar arka planda çalışıyor * metniyle bir durum çubuğu bildirimi gösterebilir. Bu bildirimi nasıl devre dışı bırakabileceğinizi öğrenmek için lütfen [ buraya ](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) bakın.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Bazı kişiler, durum çubuğu bildirimi olan bir Android hizmeti yerine [ Firebase Bulut Mesajlaşma ](https://firebase.google.com/docs/cloud-messaging/) (FCM) kullanılmasını önerdi, ancak bu, e-posta sağlayıcılarının FCM mesajları göndermesini veya FCM mesajları göndererek tüm mesajların toplandığı merkezi bir sunucuyu gerektirir. Birincisi gerçekleşmeyecek ve sonuncusu önemli mahremiyet etkilerine sahip olacaktır.
 
 If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 

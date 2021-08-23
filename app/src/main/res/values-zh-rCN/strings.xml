@@ -286,6 +286,7 @@
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展的回复/转发头</string>
+    <string name="title_advanced_write_above">写在发件人正文的上方</string>
     <string name="title_advanced_write_below">写在发件人正文的下方</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
     <string name="title_advanced_limit_reply">限制嵌套引用层级</string>

@@ -294,6 +294,7 @@
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_separate_reply">Infoga en horisontell linje innan ett svar/framåt sidhuvud</string>
     <string name="title_advanced_extended_reply">Använd förlängd svars-/framåtriktad sidhuvud</string>
+    <string name="title_advanced_write_above">Skriv ovanför avsändarens text</string>
     <string name="title_advanced_write_below">Skriv under avsändarens text</string>
     <string name="title_advanced_quote_reply">Citera svarstext</string>
     <string name="title_advanced_limit_reply">Begränsa antalet nästlade citat</string>
@@ -438,6 +439,7 @@
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
+    <string name="title_advanced_reply_all">Långtryck på svarsknappen för att svara till alla</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>

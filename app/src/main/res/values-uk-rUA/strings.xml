@@ -572,6 +572,7 @@
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
+    <string name="title_advanced_reply_all_hint">Якщо вимкнено, то тривале натискання на кнопку відповіді відповість відправнику</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
