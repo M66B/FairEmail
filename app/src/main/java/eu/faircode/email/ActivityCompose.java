@@ -222,6 +222,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             args.putLong("account", -1);
         }
 
+        //if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        //    getSupportFragmentManager().popBackStack("compose", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         FragmentCompose fragment = new FragmentCompose();
         fragment.setArguments(args);
 
