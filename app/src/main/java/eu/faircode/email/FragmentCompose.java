@@ -4096,11 +4096,23 @@ public class FragmentCompose extends FragmentBase {
         protected DraftData onExecute(Context context, Bundle args) throws Throwable {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
+            long aid = args.getLong("account", -1);
+            long iid = args.getLong("identity", -1);
             long reference = args.getLong("reference", -1);
             int dsn = args.getInt("dsn", EntityMessage.DSN_RECEIPT);
             File ics = (File) args.getSerializable("ics");
             String status = args.getString("status");
+            // raw
             long answer = args.getLong("answer", -1);
+            String to = args.getString("to");
+            String cc = args.getString("cc");
+            String bcc = args.getString("bcc");
+            // inreplyto
+            String external_subject = args.getString("subject", "");
+            String external_body = args.getString("body", "");
+            String external_text = args.getString("text");
+            String selected_text = args.getString("selected");
+            ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
@@ -4141,8 +4153,6 @@ public class FragmentCompose extends FragmentBase {
 
                     // Select identity matching from address
                     EntityIdentity selected = null;
-                    long aid = args.getLong("account", -1);
-                    long iid = args.getLong("identity", -1);
 
                     if (aid < 0)
                         if (ref == null) {
@@ -4263,21 +4273,18 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.thread = data.draft.msgid;
 
                         try {
-                            String to = args.getString("to");
                             data.draft.to = MessageHelper.parseAddresses(context, to);
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
-                            String cc = args.getString("cc");
                             data.draft.cc = MessageHelper.parseAddresses(context, cc);
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
-                            String bcc = args.getString("bcc");
                             data.draft.bcc = MessageHelper.parseAddresses(context, bcc);
                         } catch (AddressException ex) {
                             Log.w(ex);
@@ -4285,11 +4292,10 @@ public class FragmentCompose extends FragmentBase {
 
                         data.draft.inreplyto = args.getString("inreplyto", null);
 
-                        data.draft.subject = args.getString("subject", "");
+                        data.draft.subject = external_subject;
 
-                        String b = args.getString("body", "");
-                        if (!TextUtils.isEmpty(b)) {
-                            Document d = JsoupEx.parse(b); // Passed html
+                        if (!TextUtils.isEmpty(external_body)) {
+                            Document d = JsoupEx.parse(external_body); // Passed html
                             Element e = document
                                     .createElement("div")
                                     .html(d.body().html());
@@ -4423,10 +4429,9 @@ public class FragmentCompose extends FragmentBase {
                                     alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply,
                                     subject);
 
-                            String t = args.getString("text");
-                            if (t != null) {
+                            if (external_text != null) {
                                 Element div = document.createElement("div");
-                                for (String line : t.split("\\r?\\n")) {
+                                for (String line : external_text.split("\\r?\\n")) {
                                     Element span = document.createElement("span");
                                     span.text(line);
                                     div.appendChild(span);
@@ -4532,10 +4537,9 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.signature = false;
 
                         // Reply header
-                        String s = args.getString("selected");
                         if (ref.content &&
                                 !"editasnew".equals(action) &&
-                                !("list".equals(action) && TextUtils.isEmpty(s)) &&
+                                !("list".equals(action) && TextUtils.isEmpty(selected_text)) &&
                                 !"dsn".equals(action)) {
                             // Reply/forward
                             Element reply = document.createElement("div");
@@ -4550,7 +4554,7 @@ public class FragmentCompose extends FragmentBase {
                             reply.appendChild(p);
 
                             Document d;
-                            if (TextUtils.isEmpty(s)) {
+                            if (TextUtils.isEmpty(selected_text)) {
                                 // Get referenced message body
                                 d = JsoupEx.parse(ref.getFile(context));
                                 HtmlHelper.normalizeNamespaces(d, false);
@@ -4608,7 +4612,7 @@ public class FragmentCompose extends FragmentBase {
                                 d = Document.createShell("");
 
                                 Element div = d.createElement("div");
-                                for (String line : s.split("\\r?\\n")) {
+                                for (String line : selected_text.split("\\r?\\n")) {
                                     Element span = document.createElement("span");
                                     span.text(line);
                                     div.appendChild(span);
@@ -4716,24 +4720,21 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }
 
-                    if ("new".equals(action)) {
-                        ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
-                        if (uris != null) {
-                            ArrayList<Uri> images = new ArrayList<>();
-                            for (Uri uri : uris)
-                                try {
-                                    UriInfo info = getInfo(uri, context);
-                                    if (info.isImage())
-                                        images.add(uri);
-                                    else
-                                        addAttachment(context, data.draft.id, uri, false, 0, false);
-                                } catch (IOException ex) {
-                                    Log.e(ex);
-                                }
+                    if ("new".equals(action) && uris != null) {
+                        ArrayList<Uri> images = new ArrayList<>();
+                        for (Uri uri : uris)
+                            try {
+                                UriInfo info = getInfo(uri, context);
+                                if (info.isImage())
+                                    images.add(uri);
+                                else
+                                    addAttachment(context, data.draft.id, uri, false, 0, false);
+                            } catch (IOException ex) {
+                                Log.e(ex);
+                            }
 
-                            if (images.size() > 0)
-                                args.putParcelableArrayList("images", images);
-                        }
+                        if (images.size() > 0)
+                            args.putParcelableArrayList("images", images);
                     }
 
                     if (ref != null &&
