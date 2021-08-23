@@ -25,6 +25,7 @@ import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.usage.UsageStatsManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -50,6 +51,7 @@ import android.os.Debug;
 import android.os.OperationCanceledException;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.InflateException;
@@ -1647,6 +1649,7 @@ public class Log {
     private static StringBuilder getAppInfo(Context context) {
         StringBuilder sb = new StringBuilder();
 
+        ContentResolver resolver = context.getContentResolver();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         PackageManager pm = context.getPackageManager();
@@ -1732,6 +1735,14 @@ public class Log {
         sb.append(String.format("Density %f resolution: %.2f x %.2f dp %s\r\n",
                 density, dim.x / density, dim.y / density, size));
 
+        try {
+            float animation_scale = Settings.Global.getFloat(resolver,
+                    Settings.Global.WINDOW_ANIMATION_SCALE, 0f);
+            sb.append(String.format("Animation scale: %f\r\n", animation_scale));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
         int uiMode = context.getResources().getConfiguration().uiMode;
         sb.append(String.format("UI mode: 0x"))
                 .append(Integer.toHexString(uiMode))
@@ -1776,6 +1787,14 @@ public class Log {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             sb.append(String.format("Data saving: %b\r\n", ConnectionHelper.isDataSaving(context)));
+
+        try {
+            int finish_activities = Settings.Global.getInt(resolver,
+                    Settings.Global.ALWAYS_FINISH_ACTIVITIES, 0);
+            sb.append(String.format("Always finish: %d\r\n", finish_activities));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
 
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
