@@ -61,6 +61,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swPrefixOnce;
     private RadioGroup rgRe;
     private RadioGroup rgFwd;
+    private SwitchCompat swReplyAll;
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
     private SwitchCompat swSendPending;
@@ -92,7 +93,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
-            "alt_re", "alt_fwd",
+            "alt_re", "alt_fwd", "reply_all",
             "send_reminders", "send_delayed", "send_pending",
             "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_forward",
@@ -121,6 +122,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         rgRe = view.findViewById(R.id.rgRe);
         rgFwd = view.findViewById(R.id.rgFwd);
+        swReplyAll = view.findViewById(R.id.swReplyAll);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
         swSendPending = view.findViewById(R.id.swSendPending);
@@ -239,6 +241,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 prefs.edit().putBoolean("alt_fwd", checkedId == R.id.rbFwd2).apply();
+            }
+        });
+
+        swReplyAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("reply_all", checked).apply();
             }
         });
 
@@ -517,6 +526,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
         rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
 
+        swReplyAll.setChecked(prefs.getBoolean("reply_all", false));
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
