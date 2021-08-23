@@ -217,7 +217,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         long now = new Date().getTime();
         long last = prefs.getLong("last_composed", 0L);
 
-        if (!create &&
+        if (!create && !BuildConfig.PLAY_STORE_RELEASE &&
                 now - last < APPEND_ATTACHMENT_INTERVAL &&
                 args.size() == 1 && args.containsKey("attachments")) {
             List<Fragment> fragments = fm.getFragments();
