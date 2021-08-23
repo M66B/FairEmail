@@ -5831,11 +5831,12 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
+                boolean autosave = extras.getBoolean("autosave");
                 setFocus(
                         args.getInt("focus"),
                         args.getInt("start", -1),
                         args.getInt("end", -1),
-                        args.getBoolean("ime"));
+                        args.getBoolean("ime") && !autosave);
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
