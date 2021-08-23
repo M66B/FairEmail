@@ -4121,6 +4121,7 @@ public class FragmentCompose extends FragmentBase {
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
             boolean write_below = prefs.getBoolean("write_below", false);
+            boolean save_drafts = prefs.getBoolean("save_drafts", true);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
@@ -4778,6 +4779,19 @@ public class FragmentCompose extends FragmentBase {
                                     args.putBoolean("incomplete", true);
                             }
                     }
+
+                    if (save_drafts &&
+                            (!"new".equals(action) ||
+                                    answer > 0 ||
+                                    !TextUtils.isEmpty(to) ||
+                                    !TextUtils.isEmpty(cc) ||
+                                    !TextUtils.isEmpty(bcc) ||
+                                    !TextUtils.isEmpty(external_subject) ||
+                                    !TextUtils.isEmpty(external_body) ||
+                                    !TextUtils.isEmpty(external_text) ||
+                                    !TextUtils.isEmpty(selected_text) ||
+                                    (uris != null && uris.size() > 0)))
+                        EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
                     args.putBoolean("saved", true);
 
