@@ -591,7 +591,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 							"plain".equalsIgnoreCase(bs.subtype)) ||
 							!(bs.type.equalsIgnoreCase(ct.getPrimaryType()) &&
 									bs.subtype.equalsIgnoreCase(ct.getSubType()))) {
-						eu.faircode.email.Log.e("Inconsistent" +
+						eu.faircode.email.Log.i("Inconsistent" +
 								" bs=" + bs.type + "/" + bs.subtype + "/" + bs.cParams + " header=" + ct);
 						type = ct.toString();
 						return type;
