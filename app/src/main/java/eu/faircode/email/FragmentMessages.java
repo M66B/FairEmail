@@ -103,7 +103,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -5961,11 +5960,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         etSearch.setText(null);
         etSearch.setVisibility(View.VISIBLE);
         etSearch.requestFocus();
-
-        InputMethodManager imm =
-                (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null)
-            imm.showSoftInput(etSearch, InputMethodManager.SHOW_IMPLICIT);
+        Helper.showKeyboard(etSearch);
     }
 
     private void endSearch() {

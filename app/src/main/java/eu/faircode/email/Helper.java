@@ -1131,22 +1131,26 @@ public class Helper {
         return (tv.string != null && !"light".contentEquals(tv.string));
     }
 
-    static void hideKeyboard(final View view) {
+    static void showKeyboard(final View view) {
+        final Context context = view.getContext();
         InputMethodManager imm =
-                (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (imm == null)
             return;
 
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        Log.i("showKeyboard view=" + view);
+        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
     }
 
-    static void hideKeyboard(Activity activity) {
-        if (activity == null)
+    static void hideKeyboard(final View view) {
+        final Context context = view.getContext();
+        InputMethodManager imm =
+                (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (imm == null)
             return;
-        View focused = activity.getCurrentFocus();
-        if (focused == null)
-            return;
-        hideKeyboard(focused);
+
+        Log.i("hideKeyboard view=" + view);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     // Formatting

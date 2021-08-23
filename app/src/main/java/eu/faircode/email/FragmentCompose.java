@@ -93,7 +93,6 @@ import android.view.MotionEvent;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -6171,18 +6170,10 @@ public class FragmentCompose extends FragmentBase {
                     target.requestFocus();
 
                     Context context = target.getContext();
-
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean keyboard = prefs.getBoolean("keyboard", true);
-                    if (!keyboard || !restore)
-                        return;
-
-                    InputMethodManager imm =
-                            (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    if (imm == null)
-                        return;
-
-                    imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
+                    if (keyboard && restore)
+                        Helper.showKeyboard(target);
 
                 } catch (Throwable ex) {
                     Log.e(ex);
