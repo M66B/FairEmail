@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
@@ -35,14 +36,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int PI_REPLY = 1;
+
+    private static final long APPEND_ATTACHMENT_INTERVAL = 3 * 60 * 1000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,8 +212,13 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             args = intent.getExtras();
 
         FragmentManager fm = getSupportFragmentManager();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        long now = new Date().getTime();
+        long last = prefs.getLong("last_composed", 0L);
 
         if (!create &&
+                now - last < APPEND_ATTACHMENT_INTERVAL &&
                 args.size() == 1 && args.containsKey("attachments")) {
             List<Fragment> fragments = fm.getFragments();
             if (fragments.size() == 1) {

@@ -1419,13 +1419,18 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onPause() {
+        final Context context = getContext();
+
         if (state == State.LOADED) {
             Bundle extras = new Bundle();
             extras.putBoolean("autosave", true);
             onAction(R.id.action_save, extras, "pause");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putLong("last_composed", new Date().getTime()).apply();
         }
 
-        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
 
         super.onPause();
