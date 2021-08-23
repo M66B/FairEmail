@@ -156,7 +156,7 @@ public class Helper {
 
     static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
-    static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport&version=" + BuildConfig.VERSION_NAME;
+    static final String SUPPORT_URI = "https://contact.faircode.eu/";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String BIMI_PRIVACY_URI = "https://datatracker.ietf.org/doc/html/draft-brotman-ietf-bimi-guidance-03#section-7.4";
     static final String FAVICON_PRIVACY_URI = "https://en.wikipedia.org/wiki/Favicon";
@@ -803,8 +803,16 @@ public class Helper {
     }
 
     static Uri getSupportUri(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String language = prefs.getString("language", null);
+        Locale slocale = Resources.getSystem().getConfiguration().locale;
+
         return Uri.parse(SUPPORT_URI)
                 .buildUpon()
+                .appendQueryParameter("product", "fairemailsupport")
+                .appendQueryParameter("version", BuildConfig.VERSION_NAME)
+                .appendQueryParameter("locale", slocale.toString())
+                .appendQueryParameter("language", language == null ? "" : language)
                 .appendQueryParameter("installed", Helper.hasValidFingerprint(context) ? "" : "Other")
                 .build();
     }

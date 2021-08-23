@@ -278,7 +278,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     private void onPurchaseError(Intent intent) {
         String message = intent.getStringExtra("message");
-        Uri uri = Uri.parse(Helper.SUPPORT_URI);
+        Uri uri = Helper.getSupportUri(this);
         if (!TextUtils.isEmpty(message))
             uri = uri.buildUpon().appendQueryParameter("message", "IAB: " + message).build();
         Helper.view(this, uri, true);
