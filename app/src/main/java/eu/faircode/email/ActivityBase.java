@@ -192,6 +192,14 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        if (intent != null)
+            EntityLog.log(this, "New " + intent +
+                    " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
+        super.onNewIntent(intent);
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         int before = Helper.getSize(outState);
         super.onSaveInstanceState(outState);
