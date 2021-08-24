@@ -2051,13 +2051,16 @@ class Core {
             if (type != null &&
                     !EntityFolder.USER.equals(type) &&
                     !EntityFolder.SYSTEM.equals(type)) {
-                for (EntityFolder folder : local.values())
+                for (EntityFolder folder : new ArrayList<>(local.values()))
                     if (type.equals(folder.type) &&
                             !fullName.equals(folder.name) &&
+                            !local.containsKey(fullName) &&
                             !istore.getFolder(folder.name).exists()) {
                         Log.e(account.host +
                                 " renaming " + type + " folder" +
                                 " from " + folder.name + " to " + fullName);
+                        local.remove(folder.name);
+                        local.put(fullName, folder);
                         folder.name = fullName;
                         db.folder().setFolderName(folder.id, fullName);
                     }
