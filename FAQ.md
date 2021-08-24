@@ -3252,7 +3252,9 @@ you@example.com\shared@example.com
 
 Note that it should be a backslash and not a forward slash.
 
-When using a shared mailbox, you'll likely want to enable the option *Synchronize shared folder lists* in the receive settings.
+The Outlook/Office 365 quick setup wizard supports setting up shared mailboxes.
+
+When using a shared mailbox, you might want to enable the option *Synchronize shared folder lists* in the receive settings.
 
 <br />
 
