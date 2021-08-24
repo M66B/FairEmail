@@ -1424,9 +1424,6 @@ public class FragmentCompose extends FragmentBase {
             Bundle extras = new Bundle();
             extras.putBoolean("autosave", true);
             onAction(R.id.action_save, extras, "pause");
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().putLong("last_composed", new Date().getTime()).apply();
         }
 
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

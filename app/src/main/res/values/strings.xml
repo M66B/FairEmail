@@ -351,6 +351,7 @@
     <string name="title_advanced_alt_re_fwd">Alternative reply/forward prefix</string>
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
+    <string name="title_advanced_attach_new">Add shared files to a new draft</string>
     <string name="title_advanced_reply_all">Long press answer button to reply to all</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 

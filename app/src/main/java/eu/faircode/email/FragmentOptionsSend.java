@@ -63,6 +63,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private RadioGroup rgFwd;
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
+    private SwitchCompat swAttachNew;
     private SwitchCompat swReplyAll;
     private SwitchCompat swSendPending;
 
@@ -95,7 +96,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
             "alt_re", "alt_fwd",
             "send_reminders", "send_delayed",
-            "reply_all", "send_pending",
+            "attach_new", "reply_all", "send_pending",
             "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_forward",
             "discard_delete", "reply_move",
@@ -125,6 +126,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         rgFwd = view.findViewById(R.id.rgFwd);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
+        swAttachNew = view.findViewById(R.id.swAttachNew);
         swReplyAll = view.findViewById(R.id.swReplyAll);
         swSendPending = view.findViewById(R.id.swSendPending);
 
@@ -262,6 +264,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("send_delayed").apply();
+            }
+        });
+
+        swAttachNew.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("attach_new", checked).apply();
             }
         });
 
@@ -537,6 +546,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
 
+        swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
         swReplyAll.setChecked(prefs.getBoolean("reply_all", false));
         swSendPending.setChecked(prefs.getBoolean("send_pending", true));
 

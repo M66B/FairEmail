@@ -40,14 +40,11 @@ import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int PI_REPLY = 1;
-
-    private static final long APPEND_ATTACHMENT_INTERVAL = 3 * 60 * 1000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,12 +210,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
         FragmentManager fm = getSupportFragmentManager();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean attach_new = prefs.getBoolean("attach_new", true);
 
-        long now = new Date().getTime();
-        long last = prefs.getLong("last_composed", 0L);
-
-        if (!create && !BuildConfig.PLAY_STORE_RELEASE &&
-                now - last < APPEND_ATTACHMENT_INTERVAL &&
+        if (!attach_new && !create &&
                 args.size() == 1 && args.containsKey("attachments")) {
             List<Fragment> fragments = fm.getFragments();
             if (fragments.size() == 1) {
