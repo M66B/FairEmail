@@ -125,15 +125,23 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             long start = new Date().getTime();
             Log.i("Main boot");
 
+            final Runnable splash = new Runnable() {
+                @Override
+                public void run() {
+                    getWindow().setBackgroundDrawableResource(R.drawable.splash);
+                }
+            };
+
             final SimpleTask<Boolean> boot = new SimpleTask<Boolean>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
-                    getMainHandler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            getWindow().setBackgroundDrawableResource(R.drawable.splash);
-                        }
-                    }, SPLASH_DELAY);
+                    getMainHandler().postDelayed(splash, SPLASH_DELAY);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    getMainHandler().removeCallbacks(splash);
+                    getWindow().setBackgroundDrawable(null);
                 }
 
                 @Override
