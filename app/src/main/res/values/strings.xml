@@ -351,6 +351,7 @@
     <string name="title_advanced_alt_re_fwd">Alternative reply/forward prefix</string>
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
+    <string name="title_advanced_reply_all">Long press answer button to reply to all</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
     <string name="title_advanced_compose_font">Default font</string>
@@ -511,7 +512,6 @@
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
     <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Reset importance on moving messages</string>
-    <string name="title_advanced_reply_all">Long press answer button to reply to all</string>
     <string name="title_advanced_default_snooze">Default snooze time</string>
 
     <string name="title_advanced_notifications">Manage notifications</string>
@@ -657,8 +657,8 @@
     <string name="title_advanced_suggest_names_hint">If disabled, only email addresses will be used when selecting contacts</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
-    <string name="title_advanced_reply_all_hint">If disabled, long pressing the answer button will answer the sender</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
+    <string name="title_advanced_reply_all_hint">If disabled, long pressing the answer button will answer the sender</string>
     <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
