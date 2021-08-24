@@ -1219,8 +1219,14 @@ public class MessageHelper {
     Boolean getAutoSubmitted() throws MessagingException {
         // https://tools.ietf.org/html/rfc3834
         String header = imessage.getHeader("Auto-Submitted", null);
-        if (header == null)
+        if (header == null) {
+            // https://github.com/jpmckinney/multi_mail/wiki/Detecting-autoresponders
+            header = imessage.getHeader("Precedence", null);
+            if ("bulk".equalsIgnoreCase(header)) // Used by Amazon
+                return true;
             return null;
+        }
+
         return !"no".equalsIgnoreCase(header);
     }
 
