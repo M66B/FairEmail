@@ -1824,12 +1824,13 @@ public class MessageHelper {
     }
 
     static byte[] decodeWord(String word, String encoding, String charset) throws IOException {
+        String e = encoding.trim();
         ByteArrayInputStream bis = new ByteArrayInputStream(ASCIIUtility.getBytes(word));
 
         InputStream is;
-        if (encoding.equalsIgnoreCase("B"))
+        if (e.equalsIgnoreCase("B"))
             is = new BASE64DecoderStream(bis);
-        else if (encoding.equalsIgnoreCase("Q"))
+        else if (e.equalsIgnoreCase("Q"))
             is = new QDecoderStreamEx(bis);
         else {
             Log.e(new UnsupportedEncodingException("Encoding=" + encoding));
