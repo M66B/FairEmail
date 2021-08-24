@@ -146,18 +146,18 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         int idSubject = (subject_top ? R.id.tvFrom : R.id.tvSubject);
         int idAccount = (subject_top ? R.id.tvTime : R.id.tvAccount);
 
-        if (font > 0) {
-            int sp = WidgetUnified.getFontSizeSp(font);
-            views.setTextViewTextSize(idFrom, TypedValue.COMPLEX_UNIT_SP, sp);
-            views.setTextViewTextSize(idTime, TypedValue.COMPLEX_UNIT_SP, sp);
-            views.setTextViewTextSize(idSubject, TypedValue.COMPLEX_UNIT_SP, sp);
-            views.setTextViewTextSize(idAccount, TypedValue.COMPLEX_UNIT_SP, sp);
-        }
+        if (font == 0)
+            font = 1; // Default small
 
-        if (padding > 0) {
-            int px = WidgetUnified.getPaddingPx(padding, context);
-            views.setViewPadding(R.id.llMessage, px, px, px, px);
-        }
+        int sp = WidgetUnified.getFontSizeSp(font);
+        views.setTextViewTextSize(idFrom, TypedValue.COMPLEX_UNIT_SP, sp);
+        views.setTextViewTextSize(idTime, TypedValue.COMPLEX_UNIT_SP, sp);
+        views.setTextViewTextSize(idSubject, TypedValue.COMPLEX_UNIT_SP, sp);
+        views.setTextViewTextSize(idAccount, TypedValue.COMPLEX_UNIT_SP, sp);
+
+        // Default no padding
+        int px = (padding == 0 ? 0 : WidgetUnified.getPaddingPx(padding, context));
+        views.setViewPadding(R.id.llMessage, px, px, px, px);
 
         if (position >= messages.size())
             return views;

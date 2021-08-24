@@ -52,6 +52,10 @@ public class WidgetUnified extends AppWidgetProvider {
 
             if (version <= 1550)
                 semi = true; // Legacy
+            if (font == 0)
+                font = 2; // Default medium
+            if (padding == 0)
+                padding = 2; // Default medium
 
             Intent view = new Intent(context, ActivityView.class);
             view.setAction("folder:" + folder);
@@ -65,13 +69,10 @@ public class WidgetUnified extends AppWidgetProvider {
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
-            if (font > 0)
-                views.setTextViewTextSize(R.id.title, TypedValue.COMPLEX_UNIT_SP, getFontSizeSp(font));
+            views.setTextViewTextSize(R.id.title, TypedValue.COMPLEX_UNIT_SP, getFontSizeSp(font));
 
-            if (padding > 0) {
-                int px = getPaddingPx(padding, context);
-                views.setViewPadding(R.id.title, px, px, px, px);
-            }
+            int px = getPaddingPx(padding, context);
+            views.setViewPadding(R.id.title, px, px, px, px);
 
             if (name == null)
                 views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
