@@ -2988,7 +2988,7 @@ because this could result in grouping unrelated messages and would be at the exp
 If FairEmail cannot connect to an email server to synchronize messages,
 for example if the internet connection is bad or a firewall or a VPN is blocking the connection,
 FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power).
-If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+If this fails, FairEmail will schedule an alarm to retry after 5, 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
 does not allow to wake the device earlier than after 15 minutes.
