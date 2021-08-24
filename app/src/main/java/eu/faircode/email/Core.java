@@ -2041,47 +2041,51 @@ class Core {
                 " fetched in " + duration + " ms");
 
         // Check if system folders were renamed
-        for (Folder ifolder : ifolders) {
-            String fullName = ifolder.getFullName();
-            if (TextUtils.isEmpty(fullName))
-                continue;
+        try {
+            for (Folder ifolder : ifolders) {
+                String fullName = ifolder.getFullName();
+                if (TextUtils.isEmpty(fullName))
+                    continue;
 
-            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-            String type = EntityFolder.getType(attrs, fullName, false);
-            if (type != null &&
-                    !EntityFolder.USER.equals(type) &&
-                    !EntityFolder.SYSTEM.equals(type)) {
-                for (EntityFolder folder : new ArrayList<>(local.values()))
-                    if (type.equals(folder.type) &&
-                            !fullName.equals(folder.name) &&
-                            !local.containsKey(fullName) &&
-                            !istore.getFolder(folder.name).exists()) {
-                        Log.e(account.host +
-                                " renaming " + type + " folder" +
-                                " from " + folder.name + " to " + fullName);
-                        local.remove(folder.name);
-                        local.put(fullName, folder);
-                        folder.name = fullName;
-                        db.folder().setFolderName(folder.id, fullName);
-                    }
+                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                String type = EntityFolder.getType(attrs, fullName, false);
+                if (type != null &&
+                        !EntityFolder.USER.equals(type) &&
+                        !EntityFolder.SYSTEM.equals(type)) {
+                    for (EntityFolder folder : new ArrayList<>(local.values()))
+                        if (type.equals(folder.type) &&
+                                !fullName.equals(folder.name) &&
+                                !local.containsKey(fullName) &&
+                                !istore.getFolder(folder.name).exists()) {
+                            Log.e(account.host +
+                                    " renaming " + type + " folder" +
+                                    " from " + folder.name + " to " + fullName);
+                            local.remove(folder.name);
+                            local.put(fullName, folder);
+                            folder.name = fullName;
+                            db.folder().setFolderName(folder.id, fullName);
+                        }
 
-                // Reselect Gmail archive folder
-                if (EntityFolder.ARCHIVE.equals(type) && account.isGmail()) {
-                    boolean gmail_archive_fixed = prefs.getBoolean("gmail_archive_fixed", false);
-                    if (!gmail_archive_fixed) {
-                        prefs.edit().putBoolean("gmail_archive_fixed", true).apply();
-                        EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
-                        if (archive == null) {
-                            archive = db.folder().getFolderByName(account.id, fullName);
-                            if (archive != null) {
-                                Log.e("Reselecting Gmail archive=" + fullName);
-                                archive.type = EntityFolder.ARCHIVE;
-                                db.folder().setFolderType(archive.id, archive.type);
+                    // Reselect Gmail archive folder
+                    if (EntityFolder.ARCHIVE.equals(type) && account.isGmail()) {
+                        boolean gmail_archive_fixed = prefs.getBoolean("gmail_archive_fixed", false);
+                        if (!gmail_archive_fixed) {
+                            prefs.edit().putBoolean("gmail_archive_fixed", true).apply();
+                            EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
+                            if (archive == null) {
+                                archive = db.folder().getFolderByName(account.id, fullName);
+                                if (archive != null) {
+                                    Log.e("Reselecting Gmail archive=" + fullName);
+                                    archive.type = EntityFolder.ARCHIVE;
+                                    db.folder().setFolderType(archive.id, archive.type);
+                                }
                             }
                         }
                     }
                 }
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
 
         Map<String, EntityFolder> nameFolder = new HashMap<>();
