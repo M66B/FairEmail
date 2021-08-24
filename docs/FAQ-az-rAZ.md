@@ -2093,11 +2093,11 @@ Note that original messages are shown exactly as they are, which means also that
 <br />
 
 <a name="faq91"></a>
-**~~(91) Can you add periodical synchronization to save battery power?~~**
+**~~(91) Batereyaya qənaət etmək üçün mütəmadi eyniləşdirməni əlavə edə bilərsiniz?~~**
 
-~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
+~~Yerli və uzaq mesajların müqayisəsinə ehtiyac olduğu üçün, mesajların eyniləşdirilməsi, bahalı bir prosesdir.~~ ~~Buna görə də mesajların eyniləşdirilməsi batereyaya qənaət etmir, əksinə daha çox batereya enerjisi istifadə edir.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~Batereya istifadəsinin optimallaşdırılması haqqında [bu TSS-a](#user-content-faq39) baxın.~~
 
 <br />
 
@@ -2120,11 +2120,11 @@ Gələn qutusunda həddən çox spam mesaj alsanız, edəcəyiniz ən yaxşı ş
 
 Həmçinin FairEmail, alınan serverdə DKIM, SPF və ya [DMARC](https://en.wikipedia.org/wiki/DMARC) kimlik təsdiqləməsi uğursuz olanda, kiçik bir qırmızı xəbərdarlıq bayrağı göstərə bilər. [Kimlik təsdiqləməsini](https://en.wikipedia.org/wiki/Email_authentication) görüntü tənzimləmələrində fəallaşdıra/sıradan çıxarda bilərsiniz.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
+Göndərənin (cavab) e-poçt ünvanının domen adı, bir e-poçt serverinə işarə edən MX qeydini müəyyən etmirsə, FairEmail, bir xəbərdarlıq bayrağı da göstərə bilər. Bu, alan tənzimləmələrində fəallaşdırıla bilər. Unutmayın ki, bu, mesajların eyniləşdirilməsini əhəmiyyətli dərəcədə yavaşlandıracaq.
 
-If the domain name of the sender and the domain name of the reply address differ, the warning flag will be shown too because this is most often the case with phishing messages. If desired, this can be disabled in the receive settings (from version 1.1506).
+Göndərənin domen adı ilə cavab ünvanının domen adı fərqlidirsə, xəbərdarlıq bayrağı göstərilə bilər, çünki bu əksər hallarda kimlik ovu mesajlarında görünür. İstəsəniz, bunu alma tənzimləmələrində sıradan çıxarda bilərsiniz (1.1506 versiyasından etibarən).
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. Göndərən, kimlik təsdiqləməsini və digər şeyləri yoxlamaq üçün [bu aləti](https://www.mail-tester.com/) istifadə edə bilər.
+Qanuni mesajlar, kimlik təsdiqləməsində uğursuz olsa, göndərənə bunu bildirməlisiniz, çünki bu, mesajların spam qovluğuna düşmə riskinin yüksək olması ilə nəticələnir. Həmçinin, uyğun kimlik təsdiqləmə olmadan göndərənin kimliyini təqlid etmə riski də var. Göndərən, kimlik təsdiqləməsini və digər şeyləri yoxlamaq üçün [bu aləti](https://www.mail-tester.com/) istifadə edə bilər.
 
 <br />
 

@@ -282,6 +282,8 @@
     <string name="title_advanced_alt_re_fwd">可替代的回覆/轉寄前綴</string>
     <string name="title_advanced_send_reminders">顯示提醒</string>
     <string name="title_advanced_send_delayed">延後傳送訊息</string>
+    <string name="title_advanced_attach_new">將分享的檔案加至新建草稿中</string>
+    <string name="title_advanced_reply_all">長按應答按鈕回覆所有人</string>
     <string name="title_advanced_send_pending">顯示低存在感的傳送延後圖示</string>
     <string name="title_advanced_compose_font">預設字型</string>
     <string name="title_advanced_prefix_once">在回覆或轉寄時，主題前綴只出現一次</string>
@@ -432,7 +434,6 @@
     <string name="title_advanced_autounstar">移動訊息時自動移除其中包含的星號</string>
     <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_reset_importance">移動訊息時重設重要性</string>
-    <string name="title_advanced_reply_all">長按應答按鈕回覆所有人</string>
     <string name="title_advanced_default_snooze">預設延後時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
@@ -543,8 +544,8 @@
     <string name="title_advanced_suggest_names_hint">如果停用，則在選取聯絡人時僅有電子郵件地址會被使用</string>
     <string name="title_advanced_suggest_local_hint">除了 Android 提供的聯絡人以外，針對新近傳送或接收訊息的聯絡人數據儲存，將僅在相應選項被啟用後才會進行。</string>
     <string name="title_advanced_usenet_hint">在本文和簽名之間插入 ‘-- ’</string>
-    <string name="title_advanced_reply_all_hint">如果停用此項設定，則長按應答按鈕僅會回覆寄件者</string>
     <string name="title_advanced_send_reminders_hint">當訊息本文或主旨為空或在附件可能有缺失時顯示警告</string>
+    <string name="title_advanced_reply_all_hint">如果停用此項設定，則長按應答按鈕僅會回覆寄件者</string>
     <string name="title_advanced_reply_move_hint">電子郵件伺服器仍可將訊息新增至已傳送訊息資料夾</string>
     <string name="title_advanced_metered_hint">計量付費連線通常是行動網路連線或付費 Wi-Fi 熱點</string>
     <string name="title_advanced_metered_warning">停用此選項也將停用在使用行動網路連線期間的訊息接收和傳送。</string>

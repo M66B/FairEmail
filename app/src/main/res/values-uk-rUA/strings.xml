@@ -311,6 +311,8 @@
     <string name="title_advanced_alt_re_fwd">Альтернативний префікс для відповіді/пересилання</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
+    <string name="title_advanced_attach_new">Додати спільні файли до нової чернетки</string>
+    <string name="title_advanced_reply_all">Натисніть і утримуйте кнопку відповідь, щоб відповісти всім</string>
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
@@ -461,7 +463,6 @@
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
-    <string name="title_advanced_reply_all">Натисніть і утримуйте кнопку відповідь, щоб відповісти всім</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>
@@ -572,8 +573,8 @@
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
-    <string name="title_advanced_reply_all_hint">Якщо вимкнено, то тривале натискання на кнопку відповіді відповість відправнику</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
+    <string name="title_advanced_reply_all_hint">Якщо вимкнено, то тривале натискання на кнопку відповіді відповість відправнику</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
     <string name="title_advanced_metered_warning">Вимкнення цієї опції вимкне отримання та надсилання повідомлень через мобільні підключення до Інтернету</string>

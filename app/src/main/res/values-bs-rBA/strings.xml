@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail pretraga</string>
+    <string name="app_changelog">Spisak izmjena</string>
+    <string name="app_welcome">FairEmail je e-mail aplikacija otvorenog koda, s fokusom na privatnost i sigurnost. Zbog toga neke funkcionalnosti mogu raditi drugačije od onog što ste navikli.</string>
+    <string name="app_limitations">Na primjer, poruke su preformatirane po zadanom režimu kako bi se uklonili nesigurni elementi i poboljšala čitljivost, te otvarali linkovi (hiperveze) koji se moraju potvrditi zbog sigurnosti. Te se mogućnosti mogu isključiti, ukoliko želite.</string>
+    <string name="app_crash">FairEmail nije podržan na ovom uređaju zbog grešaka koje uzrokuju rušenje u Androidu</string>
+    <string name="app_exit">Ponovo pritisnite \'nazad\' za izlaz</string>
+    <string name="app_cake">Nedovoljno prostora za pohranu</string>
+    <string name="app_updated">Posljednje ažuriranje:  %1$s</string>
+    <string name="channel_service">Prijem</string>
+    <string name="channel_send">Slanje</string>
+    <string name="channel_notification">Email</string>
+    <string name="channel_progress">Napredak</string>
+    <string name="channel_update">Ažuriranja</string>
+    <string name="channel_warning">Upozorenja</string>
+    <string name="channel_error">Greške</string>
+    <string name="channel_alert">Upozorenja servera</string>
+    <string name="channel_group_contacts">Kontakti</string>
+    <string name="channel_service_description">Sinhronizacija i nadzor naloga</string>
+    <string name="channel_send_description">Slanje poruka</string>
+    <string name="channel_notification_description">Obavještenja novih poruka</string>
+    <string name="channel_progress_description">Obavještenja o napretku dugotrajnih aktivnosti</string>
+    <string name="page_folders">Folderi</string>
+    <string name="page_compose">Napiši</string>
+    <string name="tile_synchronize">Sinhronizuj</string>
+    <string name="tile_unseen">Nove poruke</string>
+    <string name="shortcut_refresh">Osvježi</string>
+    <string name="shortcut_compose">Napiši</string>
+    <string name="shortcut_setup">Postavke</string>
+    <string name="title_ask_spam_who">Tretirati poruku od %1$s kao spam?</string>
+    <string name="title_junk_hint">Vaš email provajder (poslužitelj) je nadležan za filtriranje spam poruka. Email aplikacija nema sve potrebne podatke kako bi to obavljala pouzdano.</string>
+    <string name="title_block">Blokiraj %1$s</string>
+    <string name="title_block_sender">Blokiraj pošiljaoca</string>
+    <string name="title_block_domain">Blokiraj domenu pošiljaoca</string>
+    <string name="title_block_sender_hint">        Blokiranjem pošiljaoca napravit će se pravilo za automatsko premještanje njegovih poruka u spam folder u buduće.
+        Kreiranje i upotreba pravila je mogućnost pro verzije.
+    </string>
+    <string name="title_junk_filter">Koristi lokalni filter za spam poruke</string>
+    <string name="title_junk_filter_hint">Ovo može povećati potrošnju baterije i netačno označavati poruke kao spam</string>
+    <string name="title_junk_blocklist">Koristi liste blokiranja za spam poruke</string>
+    <string name="title_notification_sending">Slanje poruka</string>
+    <string name="title_notification_waiting">Čekanje na prihvatljivu konekciju</string>
+    <string name="title_notification_idle">Stanje mirovanja</string>
+    <string name="title_notification_failed">\'%1$s\' nije uspjelo</string>
+    <string name="title_notification_alert">Upozorenje servera: \'%1$s\'</string>
+    <string name="title_notification_sending_left">Preostalih pokušaja: %1$d</string>
+    <string name="title_notification_sending_retry">Slanje će se ponoviti mijenjanjem internet konekcije ili povlačenjem prema dolje u outbox-u tj. izlaznoj pošti</string>
+    <string name="title_notification_sending_failed">Slanje za %1$s nije uspjelo</string>
+    <string name="title_notification_redacted">Uređivano: uključena biometrijska ili PIN provjera</string>
+    <string name="title_factor_minutes">%1$d minute/a</string>
+    <string name="menu_answers">Prijedlošci</string>
+    <string name="menu_operations">Operacije</string>
+    <string name="menu_contacts">Lokalni kontakti</string>
+    <string name="menu_setup">Postavke</string>
+    <string name="menu_legend">Legenda</string>
+    <string name="menu_test">Testiraj program</string>
+    <string name="menu_faq">Podrška</string>
+    <string name="menu_translate">Pomozite u prijevodu</string>
+    <string name="menu_issue">Prijavi problem</string>
+    <string name="menu_attribution">Priznanje</string>
+    <string name="menu_privacy">Privatnost</string>
+    <string name="menu_about">O aplikaciji</string>
+    <string name="menu_pro">Funkcionalnosti pro verzije</string>
+    <string name="menu_rate">Ocijenite ovu aplikaciju</string>
+    <string name="title_welcome">Dobro došli</string>
+    <string name="title_eula">Licencni sporazum za krajnjeg korisnika</string>
+    <string name="title_contributors">Saradnici</string>
+    <string name="title_agree">Slažem se</string>
+    <string name="title_disagree">Ne slažem se</string>
+    <string name="title_version">Verzija %1$s</string>
+    <string name="title_privacy_policy">Pravila o privatnosti</string>
+    <string name="title_list_accounts">Nalozi</string>
+    <string name="title_list_identities">Identiteti</string>
+    <string name="title_edit_account">Uredi nalog</string>
+    <string name="title_edit_identity">Uredi identitet</string>
+    <string name="title_edit_folder">Uredi folder</string>
+    <string name="title_setup">Postavke</string>
+    <string name="title_setup_help">Pomoć</string>
+    <string name="title_setup_quick">Brzo podešavanje</string>
+    <string name="title_setup_intro">Postavljanje naloga odvija se u samo tri koraka i nakon toga možete slati i primati e-poštu</string>
+    <string name="title_setup_simple">Nije potrebno mijenjati druge opcije</string>
+    <string name="title_setup_issue">FairEmail je razvijen kako bi zaštitio vašu privatnost i predstavlja djelo u koje je doslovno uloženo na hiljade sati. Ukoliko imate nekih problema, molim da me prvo kontaktirate za podršku, prije nego ostavite lošu recenziju. Rado ću Vam pomoći!</string>
+    <string name="title_setup_quick_accounts">Dodaj ili ukloni naloge</string>
+    <string name="title_setup_quick_support">Neki provajderi (poslužitelji) otežavaju način za dodavanje naloga. Molimo da ne krivite FairEmail zbog toga, nego da zatražite podršku.</string>
+    <string name="title_setup_quick_hint">Brzo podešavanje će dohvatiti konfiguracijske podatke sa autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Molimo da budete strpljivi &#8230;</string>
+    <string name="title_setup_quick_imap">IMAP server za primanje poruka</string>
+    <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
+    <string name="title_setup_quick_certificates">Certifikati servera</string>
+    <string name="title_setup_wizard">Čarobnjak</string>
+    <string name="title_setup_wizard_multiple">Čarobnjak se može koristiti višestruko kad postavljate više naloga</string>
+    <string name="title_setup_wizard_new">Potrebna je nova email adresa</string>
+    <string name="title_setup_manual">Ručno podešavanje i opcije za nalog</string>
+    <string name="title_setup_classic">Klasično podešavanje</string>
+    <string name="title_setup_documentation">Molimo da provjerite dokumente od vašeg email provajdera (poslužitelja) za tačno podešavanje email servera</string>
+    <string name="title_setup_account_remark">Prijem poruka</string>
+    <string name="title_setup_identity_remark">Pošalji poruku</string>
+    <string name="title_setup_account_identity_hint">Možete podesiti naziv, boju i klizanje prstima u postavkama naloga, a podešavanje potpisa u postavkama identiteta</string>
+    <string name="title_setup_accounts">Nalozi</string>
+    <string name="title_setup_identities">Identiteti</string>
+    <string name="title_setup_other">Drugi provajder</string>
+    <string name="title_setup_pop3">POP3 račun</string>
+    <string name="title_setup_error">Greška</string>
+    <string name="title_setup_configuring">Podešavanje naloga &#8230;</string>
+    <string name="title_setup_close">Zatvori postavke</string>
+    <string name="title_setup_export">Izvezi postavke</string>
+    <string name="title_setup_import">Uvezi postavke</string>
+    <string name="title_advanced_section_synchronize">Prijem</string>
+    <string name="title_advanced_section_send">Slanje</string>
+    <string name="title_advanced_section_privacy">Privatnost</string>
+    <string name="title_advanced_caption_conversation">Konverzacija</string>
+    <string name="title_advanced_threading">Nizanje konverzacija</string>
+    <string name="title_synchronize_enabled">Sinhronizuj</string>
+    <string name="title_raw_send_thread">Konverzacija</string>
+    <string name="title_compose">Napiši</string>
+    <string name="title_send">Slanje</string>
+    <string name="title_legend_section_synchronize">Sinhronizuj</string>
+    <string name="title_legend_section_folders">Folderi</string>
+    <string name="title_legend_section_messages">Poruke</string>
+    <string name="title_legend_section_compose">Napiši</string>
+    <string name="title_legend_thread">Konverzacija</string>
+    <string name="title_legend_c">Napiši</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>Nalozi</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
