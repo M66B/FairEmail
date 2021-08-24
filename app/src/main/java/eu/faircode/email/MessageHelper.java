@@ -1183,8 +1183,7 @@ public class MessageHelper {
             priority = EntityMessage.PRIORITIY_HIGH;
         else if ("normal".equalsIgnoreCase(header) ||
                 "medium".equalsIgnoreCase(header) ||
-                "med".equalsIgnoreCase(header) ||
-                "none".equalsIgnoreCase(header))
+                "med".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_NORMAL;
         else if ("low".equalsIgnoreCase(header) ||
                 "lowest".equalsIgnoreCase(header) ||
@@ -1192,7 +1191,8 @@ public class MessageHelper {
                 "marketing".equalsIgnoreCase(header) ||
                 "bulk".equalsIgnoreCase(header) ||
                 "batch".equalsIgnoreCase(header) ||
-                "mass".equalsIgnoreCase(header))
+                "mass".equalsIgnoreCase(header) ||
+                "none".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
         else if ("a".equalsIgnoreCase(header) ||
                 "b".equalsIgnoreCase(header) ||
