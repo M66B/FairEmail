@@ -1184,8 +1184,6 @@ public class MessageHelper {
         else if ("normal".equalsIgnoreCase(header) ||
                 "medium".equalsIgnoreCase(header) ||
                 "med".equalsIgnoreCase(header) ||
-                "a".equalsIgnoreCase(header) ||
-                "aplus".equalsIgnoreCase(header) ||
                 "none".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_NORMAL;
         else if ("low".equalsIgnoreCase(header) ||
@@ -1194,9 +1192,13 @@ public class MessageHelper {
                 "marketing".equalsIgnoreCase(header) ||
                 "bulk".equalsIgnoreCase(header) ||
                 "batch".equalsIgnoreCase(header) ||
-                "b".equalsIgnoreCase(header) ||
                 "mass".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
+        else if ("a".equalsIgnoreCase(header) ||
+                "b".equalsIgnoreCase(header) ||
+                "c".equalsIgnoreCase(header) ||
+                "aplus".equalsIgnoreCase(header))
+            ; // Ignore unknown
         else if (!TextUtils.isEmpty(header))
             try {
                 priority = Integer.parseInt(header);
