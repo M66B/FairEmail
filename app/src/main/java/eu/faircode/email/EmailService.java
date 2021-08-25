@@ -911,6 +911,7 @@ public class EmailService implements AutoCloseable {
 
         @Override
         public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
+            configureSocketOptions(s);
             return configure(factory.createSocket(s, server, port, autoClose));
         }
 
@@ -932,8 +933,6 @@ public class EmailService implements AutoCloseable {
         }
 
         private Socket configure(Socket socket) throws SocketException {
-            configureSocketOptions(socket);
-
             if (socket instanceof SSLSocket) {
                 SSLSocket sslSocket = (SSLSocket) socket;
 
