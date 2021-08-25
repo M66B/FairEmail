@@ -164,6 +164,9 @@ public class Helper {
     static final String LICENSE_URI = "https://www.gnu.org/licenses/gpl-3.0.html";
     static final String DONTKILL_URI = "https://dontkillmyapp.com/";
 
+    // https://developer.android.com/distribute/marketing-tools/linking-to-google-play#PerformingSearch
+    private static final String PLAY_STORE_SEARCH = "https://play.google.com/store/search";
+
     static final Pattern EMAIL_ADDRESS
             = Pattern.compile(
             "[\\S]{1,256}" +
@@ -999,24 +1002,47 @@ public class Helper {
     }
 
     static void reportNoViewer(Context context, Intent intent) {
-        StringBuilder sb = new StringBuilder();
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_no_viewer, null);
+        TextView tvName = dview.findViewById(R.id.tvName);
+        TextView tvFullName = dview.findViewById(R.id.tvFullName);
+        TextView tvType = dview.findViewById(R.id.tvType);
 
         String title = intent.getStringExtra(Intent.EXTRA_TITLE);
-        if (TextUtils.isEmpty(title)) {
-            Uri data = intent.getData();
-            if (data == null)
-                sb.append(intent.toString());
-            else
-                sb.append(data.toString());
-        } else
-            sb.append(title);
-
+        Uri data = intent.getData();
         String type = intent.getType();
-        if (!TextUtils.isEmpty(type))
-            sb.append(' ').append(type);
+        String fullName = (data == null ? intent.toString() : data.toString());
+        String extension = (data == null ? null : getExtension(data.getLastPathSegment()));
 
-        String message = context.getString(R.string.title_no_viewer, sb.toString());
-        ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+        tvName.setText(title == null ? fullName : title);
+        tvFullName.setText(fullName);
+        tvFullName.setVisibility(title == null ? View.GONE : View.VISIBLE);
+
+        tvType.setText(type == null ? "?" : type);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                .setView(dview)
+                .setNegativeButton(android.R.string.cancel, null);
+
+        if (hasPlayStore(context) && !TextUtils.isEmpty(extension)) {
+            builder.setNeutralButton(R.string.title_no_viewer_search, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    try {
+                        Uri search = Uri.parse(PLAY_STORE_SEARCH)
+                                .buildUpon()
+                                .appendQueryParameter("q", extension)
+                                .build();
+                        Intent intent = new Intent(Intent.ACTION_VIEW, search);
+                        context.startActivity(intent);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }
+
+        builder.show();
     }
 
     static void excludeFromRecents(Context context) {
