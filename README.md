@@ -121,8 +121,7 @@ Supported download locations:
 * ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~
 * ~~[Amazon](https://www.amazon.com/gp/product/B0983R6MH2)~~ (the APK file repackaged by Amazon is incomplete! An issue report was never answered by Amazon.)
 
-All versions provide the same features, except that there is no Android Auto support in the Play store version.
-Please [see here](https://forum.xda-developers.com/showpost.php?p=83801249&postcount=16542) about why not.
+Please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq173) about the differences between the different releases.
 
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
 you cannot use third party email apps anymore, please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq22) for more information.
@@ -159,7 +158,9 @@ One line command to display certificate fingerprints:
 ```unzip -p fairemail.apk META-INF/CERT.RSA | keytool -printcert```
 
 I do not hand over the signing keys of my apps to Google.
-However, in the second half of 2021 [I am required](https://commonsware.com/blog/2020/09/23/uncomfortable-questions-app-signing.html) to hand over my signing keys to Google.
+Please see [this Google blog](https://android-developers.googleblog.com/2021/06/the-future-of-android-app-bundles-is.html)
+and [this article](https://commonsware.com/blog/2020/09/23/uncomfortable-questions-app-signing.html)
+for more information.
 
 ## Compatibility
 
