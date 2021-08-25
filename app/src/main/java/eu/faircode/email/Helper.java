@@ -1017,7 +1017,7 @@ public class Helper {
         tvFullName.setText(fullName);
         tvFullName.setVisibility(title == null ? View.GONE : View.VISIBLE);
 
-        tvType.setText(type == null ? "?" : type);
+        tvType.setText(type);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dview)
