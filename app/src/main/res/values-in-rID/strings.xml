@@ -819,7 +819,6 @@
     <string name="title_receipt_subject">Bukti telah dibaca: %1$s</string>
     <string name="title_receipt_text">Bukti telah dibaca ini hanya menyatakan bahwa pesan itu ditampilkan. Tidak ada jaminan bahwa penerima telah membaca isi pesan.</string>
     <string name="title_no_answers">Tidak ada template balasan yang ditentukan</string>
-    <string name="title_no_viewer">Tidak ada aplikasi penampil yang tersedia untuk %1$s</string>
     <string name="title_no_recorder">Tidak ada aplikasi perekam suara yang sesuai</string>
     <string name="title_no_camera">Aplikasi kamera tidak sesuai</string>
     <string name="title_no_saf">Akses penyimpanan tidak tersedia</string>

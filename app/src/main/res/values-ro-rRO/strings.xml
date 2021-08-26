@@ -922,7 +922,10 @@
     <string name="title_receipt_subject">Confirmare de citire: %1$s</string>
     <string name="title_receipt_text">Confirmarea de citire doar arată că mesajul a fost afișat. Nu există garanția că destinatarul a citit conținutul mesajului.</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
-    <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
+    <string name="title_no_viewer_caption">Nici o aplicație nu poate deschide</string>
+    <string name="title_no_viewer_name">Denumire conținut</string>
+    <string name="title_no_viewer_type">Tip de conținut</string>
+    <string name="title_no_viewer_search">Căutați aplicația</string>
     <string name="title_no_recorder">Nu este disponibilă o aplicație de înregistrat audio</string>
     <string name="title_no_camera">Nu este disponibilă o aplicație de fotografiat</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>

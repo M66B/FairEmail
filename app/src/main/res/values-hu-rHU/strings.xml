@@ -794,7 +794,6 @@
     <string name="title_receipt_subject">Olvasási visszajelzés: %1$s</string>
     <string name="title_receipt_text">Az olvasási visszaigazolás csak az üzenet megjelenítését igazolja. Nem jelent garanciát arra, hogy a címzett valóban el is olvasta az üzenet tartalmát.</string>
     <string name="title_no_answers">Nincs elmentett válaszsablon</string>
-    <string name="title_no_viewer">Nincs elérhető megjenítő alkalmazás ehhez: %1$s</string>
     <string name="title_no_recorder">Nem elérhető használható hang felvevő alkalmazás</string>
     <string name="title_no_camera">Nem elérhető használható kamera alkalmazás</string>
     <string name="title_no_saf">Tárhely hozzáférés keretrendszer nem elérhető</string>

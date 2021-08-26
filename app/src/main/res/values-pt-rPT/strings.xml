@@ -266,6 +266,7 @@
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
+    <string name="title_advanced_attach_new">Adicionar arquivos partilhados a um novo rascunho</string>
     <string name="title_advanced_reply_all">Pressione e segure o botão de resposta para responder a todos</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
@@ -485,6 +486,8 @@
     <string name="title_copy_btn">Copiar</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
+    <string name="title_no_viewer_name">Nome do conteúdo</string>
+    <string name="title_no_viewer_type">Tipo de conteúdo</string>
     <string name="title_ask_show_html_dark">Usar tema escuro</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_compose">Compor</string>

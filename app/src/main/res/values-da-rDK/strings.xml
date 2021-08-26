@@ -903,7 +903,10 @@
     <string name="title_receipt_subject">Læsningskvittering: %1$s</string>
     <string name="title_receipt_text">Denne læsekvittering bekræfter kun, at beskeden er blevet vist. Der er ingen garanti for, at modtageren også har læst beskedindholdet.</string>
     <string name="title_no_answers">Ingen svarskabeloner defineret</string>
-    <string name="title_no_viewer">Ingen fremviser-app tilgængelig for %1$s</string>
+    <string name="title_no_viewer_caption">Ingen fremviser-app tilgængelig</string>
+    <string name="title_no_viewer_name">Indholdsnavn</string>
+    <string name="title_no_viewer_type">Indholdstype</string>
+    <string name="title_no_viewer_search">Søg efter app</string>
     <string name="title_no_recorder">Ingen passende lydoptager-app tilgængelig</string>
     <string name="title_no_camera">Ingen passende kamera-app tilgængelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>

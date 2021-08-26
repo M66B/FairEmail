@@ -912,7 +912,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_receipt_subject">Potvrdenie o prečítaní: %1$s</string>
     <string name="title_receipt_text">Potvrdenie o prečítaní odzrkadľuje len zobrazenie správy. Nie je možné garantovať, že príjemca si naozaj prečítal jej obsah.</string>
     <string name="title_no_answers">Nie sú definované žiadne šablóny odpovedí</string>
-    <string name="title_no_viewer">Nie je dostupná aplikácia na zobrazenie %1$s</string>
     <string name="title_no_recorder">Nie je k dispozícii vhodná aplikácia na nahrávanie zvuku</string>
     <string name="title_no_camera">Nie je k dispozícii vhodný fotoaparát</string>
     <string name="title_no_saf">Nie je dostupný Storage access framework</string>

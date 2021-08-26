@@ -931,7 +931,10 @@
     <string name="title_receipt_subject">Potwierdzenie: %1$s</string>
     <string name="title_receipt_text">To potwierdzenie odczytu potwierdza tylko, że wiadomość została wyświetlona. Nie ma gwarancji, że odbiorca przeczytał treść wiadomości.</string>
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
-    <string name="title_no_viewer">Brak aplikacji do podglądu dla %1$s</string>
+    <string name="title_no_viewer_caption">Brak aplikacji do podglądu</string>
+    <string name="title_no_viewer_name">Nazwa zawartości</string>
+    <string name="title_no_viewer_type">Typ zawartości</string>
+    <string name="title_no_viewer_search">Wyszukiwarka</string>
     <string name="title_no_recorder">Brak dostępnej odpowiedniej aplikacji do nagrywania dźwięku</string>
     <string name="title_no_camera">Brak dostępnej odpowiedniej aplikacji aparatu</string>
     <string name="title_no_saf">Brak dostępu do plików</string>

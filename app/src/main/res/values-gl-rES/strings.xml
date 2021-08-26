@@ -870,7 +870,6 @@
     <string name="title_receipt_subject">Acuse de recibo: %1$s</string>
     <string name="title_receipt_text">Este acuse de recibo só indica que a mensaxe foi mostrada. Non hai garantías de que o destinatario lise o contido da mensaxe.</string>
     <string name="title_no_answers">Non hai patróns de resposta definidos</string>
-    <string name="title_no_viewer">Non hai aplicación para ver %1$s</string>
     <string name="title_no_recorder">Non hai unha aplicación de gravación de son</string>
     <string name="title_no_camera">Non hai unha aplicación de cámara axeitada</string>
     <string name="title_no_saf">Non está dispoñible o sistema de acceso á almacenaxe</string>

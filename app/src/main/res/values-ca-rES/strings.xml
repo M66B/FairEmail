@@ -661,7 +661,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_receipt_subject">Avisos de recepció: %1$s</string>
     <string name="title_receipt_text">Aquest rebut de lectura només reconeix que el missatge es va mostrar. No hi ha garantia que el destinatari hagi llegit el contingut del missatge.</string>
     <string name="title_no_answers">No s\'han definit plantilles de resposta</string>
-    <string name="title_no_viewer">No hi ha cap visor disponible per a %1$s</string>
     <string name="title_no_recorder">No hi ha disponible cap aplicació de gravadora d’àudio adequada</string>
     <string name="title_no_camera">No hi ha disponible cap aplicació de càmera adequada</string>
     <string name="title_no_saf">Marc d\'accés d\'emmagatzematge no disponible</string>

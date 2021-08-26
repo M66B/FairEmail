@@ -912,7 +912,10 @@
     <string name="title_receipt_subject">Confirmación de lectura: %1$s</string>
     <string name="title_receipt_text">Esta confirmación de lectura sólo afirma que el mensaje fue mostrado. No hay garantía de que el destinatario haya leído el contenido del mensaje.</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
-    <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
+    <string name="title_no_viewer_caption">No hay app de visualización disponible</string>
+    <string name="title_no_viewer_name">Nombre de contenido</string>
+    <string name="title_no_viewer_type">Tipo de contenido</string>
+    <string name="title_no_viewer_search">Buscar app</string>
     <string name="title_no_recorder">No hay una aplicación de grabación de audio adecuada</string>
     <string name="title_no_camera">No hay una aplicación de cámara adecuada disponible</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>

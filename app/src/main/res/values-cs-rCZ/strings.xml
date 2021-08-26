@@ -888,7 +888,10 @@
     <string name="title_receipt_subject">Potvrzení o přečtení: %1$s</string>
     <string name="title_receipt_text">Potvrzení o přečtení potvrzuje pouze zobrazení zprávy. Nelze zaručit, že si příjemce přečetl obsah zprávy.</string>
     <string name="title_no_answers">Nebyly definovány žádné šablony odpovědi</string>
-    <string name="title_no_viewer">Není k dispozici žádná aplikace prohlížeče pro %1$s</string>
+    <string name="title_no_viewer_caption">Aplikace k prohlížení není dostupná</string>
+    <string name="title_no_viewer_name">Název obsahu</string>
+    <string name="title_no_viewer_type">Druh obsahu</string>
+    <string name="title_no_viewer_search">Vyhledat aplikaci</string>
     <string name="title_no_recorder">Není k dispozici žádná vhodná aplikace nahrávání zvuku</string>
     <string name="title_no_camera">Není k dispozici žádná vhodná aplikace fotoaparátu</string>
     <string name="title_no_saf">Rozhraní přístupu k úložišti není k dispozici</string>

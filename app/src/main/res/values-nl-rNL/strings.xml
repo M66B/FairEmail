@@ -913,7 +913,10 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_receipt_subject">Leesbevestiging: %1$s</string>
     <string name="title_receipt_text">Deze leesbevestiging erkent alleen dat het bericht is weergegeven. Er is geen garantie dat de ontvanger de inhoud van het bericht heeft gelezen.</string>
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>
-    <string name="title_no_viewer">Geen app beschikbaar om %1$s te tonen</string>
+    <string name="title_no_viewer_caption">Geen viewer app beschikbaar</string>
+    <string name="title_no_viewer_name">Naam inhoud</string>
+    <string name="title_no_viewer_type">Type inhoud</string>
+    <string name="title_no_viewer_search">Zoek app</string>
     <string name="title_no_recorder">Geen geschikte audio-recorder app beschikbaar</string>
     <string name="title_no_camera">Geen geschikte camera app beschikbaar</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>

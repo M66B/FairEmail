@@ -901,7 +901,8 @@
     <string name="title_receipt_subject">已讀回條: %1$s</string>
     <string name="title_receipt_text">此已讀回條僅能確認訊息被顯示，不能保證收件者已閱讀訊息內容。</string>
     <string name="title_no_answers">無已定義回覆模板</string>
-    <string name="title_no_viewer">未有可用於 %1$s 的檢視器程式</string>
+    <string name="title_no_viewer_caption">無可用檢視器程式</string>
+    <string name="title_no_viewer_type">內容類型</string>
     <string name="title_no_recorder">無適用的音頻錄製程式</string>
     <string name="title_no_camera">無適用的相機程式</string>
     <string name="title_no_saf">儲存空間存取架構不可用</string>

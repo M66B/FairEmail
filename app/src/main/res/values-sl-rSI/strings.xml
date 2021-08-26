@@ -599,7 +599,6 @@
     <string name="title_receipt_subject">Potrdilo o branju: %1$s</string>
     <string name="title_receipt_text">To potrdilo o branju potrjuje samo, da je bilo sporočilo prikazano.  Ni nobenega zagotovila, da je prejemnik prebral vsebino sporočila.</string>
     <string name="title_no_answers">Nobena predloga za odgovor ni določena.</string>
-    <string name="title_no_viewer">Za %1$s pregledovalnik ni na voljo.</string>
     <string name="title_no_recorder">Primerni program za snemanje zvoka ni na voljo.</string>
     <string name="title_no_camera">Primerni program za fotoaparat ni na voljo.</string>
     <string name="title_no_saf">Ogrodje za dostop do pomnilniške naprave ni na voljo.</string>

@@ -910,7 +910,6 @@
     <string name="title_receipt_subject">Okundu bilgisi:%1$s</string>
     <string name="title_receipt_text">Bu okundu bilgisi yalnızca iletinin görüntülendiğini onaylar. Alıcının ileti içeriğini okuduğu garanti edilmez.</string>
     <string name="title_no_answers">Tanımlanmış yanıt kalıbı yok</string>
-    <string name="title_no_viewer">%1$s için mevcut görüntüleme uygulaması yok</string>
     <string name="title_no_recorder">Uygun bir ses kaydedici uygulaması yok</string>
     <string name="title_no_camera">Uygun bir kamera uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>

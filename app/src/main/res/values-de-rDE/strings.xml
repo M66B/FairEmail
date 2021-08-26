@@ -294,7 +294,7 @@
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für „Antworten” bzw. „Weiterleiten”</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
-    <string name="title_advanced_attach_new">Dateien zu einem neuen Mail-Entwurf hinzufügen</string>
+    <string name="title_advanced_attach_new">Dateien als Anhang zu einem neuen Entwurf hinzufügen</string>
     <string name="title_advanced_reply_all">Schaltfläche „Antworten” länger gedrückt halten, um allen zu antworten</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
@@ -913,7 +913,10 @@
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
     <string name="title_receipt_text">Diese Lesebestätigung bestätigt nur, dass die Nachricht angezeigt wurde. Es gibt keine Garantie, dass der Empfänger den Nachrichteninhalt gelesen hat.</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
-    <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
+    <string name="title_no_viewer_caption">Keine App zum Anzeigen verfügbar</string>
+    <string name="title_no_viewer_name">Inhaltsname</string>
+    <string name="title_no_viewer_type">Inhaltstyp</string>
+    <string name="title_no_viewer_search">App suchen</string>
     <string name="title_no_recorder">Keine geeignete App zur Audioaufnahme verfügbar</string>
     <string name="title_no_camera">Keine passende Kamera-App verfügbar</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>

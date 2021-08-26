@@ -563,7 +563,6 @@
     <string name="title_receipt_subject">رسید خواندن: %1$s</string>
     <string name="title_receipt_text">این رسید خواندن تنها نشان می‌دهد که پیام نمایش داده شده. هیچ ضمانتی وجود ندارد که گیرنده محتویات پیام را خوانده باشد.</string>
     <string name="title_no_answers">هیچ الگوی پاسخی تعریف نشده است</string>
-    <string name="title_no_viewer">هیچ برنامه نمایش دهنده‌ای در دسترس نیست برای %1$s</string>
     <string name="title_no_recorder">برنامه ضبط صدا سازگاری در دسترس نیست</string>
     <string name="title_no_camera">برنامه دوربین سازگاری در دسترس نیست</string>
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>

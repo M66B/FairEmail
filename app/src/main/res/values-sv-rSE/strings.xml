@@ -289,6 +289,7 @@
     <string name="title_advanced_alt_re_fwd">Alternativt svar-/vidarebefordringsprefix</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
+    <string name="title_advanced_attach_new">Lägg till delade filer till ett nytt utkast</string>
     <string name="title_advanced_reply_all">Långtryck på svarsknappen för att svara till alla</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
@@ -908,7 +909,10 @@
     <string name="title_receipt_subject">Läs kvitto: %1$s</string>
     <string name="title_receipt_text">Detta läskvitto bekräftar bara att meddelandet visades. Det finns ingen garanti för att mottagaren har läst meddelandets innehåll.</string>
     <string name="title_no_answers">Inga svarsmallar definierade</string>
-    <string name="title_no_viewer">Ingen visarapp tillgänglig för %1$s</string>
+    <string name="title_no_viewer_caption">Ingen läsapp tillgänglig</string>
+    <string name="title_no_viewer_name">Innehållets namn</string>
+    <string name="title_no_viewer_type">Typ av innehåll</string>
+    <string name="title_no_viewer_search">Sök app</string>
     <string name="title_no_recorder">Ingen lämplig ljudinspelningsapp tillgänglig</string>
     <string name="title_no_camera">Ingen lämplig kameraapp tillgänglig</string>
     <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>

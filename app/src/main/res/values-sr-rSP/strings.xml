@@ -493,7 +493,6 @@
     <string name="title_receipt_subject">Потврда о пријему: %1$s</string>
     <string name="title_receipt_text">Ова потврда о пријему само потврђује да је порука приказана. Нема гаранција да ли је прималац прочитао садржај поруке.</string>
     <string name="title_no_answers">Нема дефинисаних шаблона одговора</string>
-    <string name="title_no_viewer">Нема апликације за преглед %1$s</string>
     <string name="title_no_saf">Радни оквир приступа складишту није доступан</string>
     <string name="title_no_stream">Застарела апликација је послала путању до фајла уместо фајл</string>
     <string name="title_no_internet">Нема везе или нема прикладне везе</string>

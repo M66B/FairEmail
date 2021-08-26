@@ -69,21 +69,21 @@
 * ~~ [Android 5.1和6中的錯誤](https://issuetracker.google.com/issues/37054851)導致app在顯示時間格式時偶爾會出錯。 將Android切換為*使用24小時格式*可能會暫時解決此問題。 解決方法已添加。~~
 * ~~ [Google雲端的bug](https://issuetracker.google.com/issues/126362828)  造成檔案無法順利輸出到Google 雲端。 Google已修正這個問題~~
 * ~~ [AndroidX的bug](https://issuetracker.google.com/issues/78495471)造成當你進行長按或滑動操作時，可能會導致 FairEmail 崩潰。 Google 已修正此錯誤~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ Exception while computing database live data ... Couldn't read row ...</em>". 解決方法已添加。
+* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ 計算數據庫實時數據時出現異常... 無法讀取行...</em>”。 解決方法已添加。
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification. Bad notification posted ...</em>" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.</li>
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * 於 Android5.x 下，當 Nova Launcher 擁有無障礙服務的存取權時，它所存在的一個 bug 會導致 FairEmail 遭遇由 *java.lang.StackOverflowError* 引發的崩潰。
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~ This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~ A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. 目前已知在Pebble 2， Fitbit Charge 3， Mi band 3，以及 小米 Amazfit BIP wearables上都能順利進行訊息預覽。 目前已知在Pebble 2， Fitbit Charge 3， Mi band 3，以及 小米 Amazfit BIP wearables上都能順利進行訊息預覽。 參見 [這個常見問題](#user-content-faq126)。
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1. Invalid offset: ... Valid range is ...</em> when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). 此問題受限於Android系統本身的問題而無法解決。 此問題受限於Android系統本身的問題而無法解決。
-* 自動偵測語言功能已 [不再運作](https://issuetracker.google.com/issues/173337263) ，若您使用的是 Pixel 裝置，版本(升級到？ ) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.</ul>
+* ~~文件夾選擇器偶爾會不顯示文件夾，其肇因不明。 此錯誤尚待修復~~
+* ~~[AndroidX 的一個bug](https://issuetracker.google.com/issues/64729576) 讓滾動條變得超難用的。 解決方法已經新增了喔~~
+* ~~使用 YubiKey 加密會導致無限循環。 這是由[OpenKeychain 中的一個錯誤](https://github.com/open-keychain/open-keychain/issues/2507)引起的。~~
+* 移動到原消息中的內部連結功能失效。 這無法修復，因為原始消息視圖包含在滾動視圖中。
+* 三星手錶不支援郵件的預覽功能，因為 [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) 被禁用了。 目前已知在Pebble 2， Fitbit Charge 3， Mi band 3，以及 小米 Amazfit BIP wearables上都能順利進行訊息預覽。 參見 [這個常見問題](#user-content-faq126)。
+* [Android 6.0 中的錯誤](https://issuetracker.google.com/issues/37068143) 導致 * 崩潰... 無效的偏移量：... 有效範圍是 ...* 當文字被選中並在所選文字外點擊時。 這個錯誤在 Android 6.0.1 已經修復了喔。
+* 因原消息在滾動視圖之對話列表的嵌入式 WebView 中顯示，致使內部連結失效。 此問題受限於Android系統本身的問題而無法解決。
+* 自動偵測語言功能已 [不再運作](https://issuetracker.google.com/issues/173337263) ，若您使用的是 Pixel 裝置，版本(升級到？ Android 11
+* 使用硬件令牌時，[OpenKeychain 中的錯誤](https://github.com/open-keychain/open-keychain/issues/2688)會導致無效的 PGP 簽名。</ul>
 
 <h2><a name="planned-features"></a>計畫中的功能</h2>
 
@@ -100,7 +100,7 @@
 * ~~搜尋建議~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
+* ~~新的每個帳戶消息通知時間表~~（通過向規則添加時間條件來實現，以便可以在選定的時間段內暫停消息）
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
@@ -608,18 +608,18 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*General*
+*一般*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+[點擊這裡](https://en.wikipedia.org/wiki/Public-key_cryptography)可以進一步了解公鑰/私鑰加密的工作原理喔。
 
-Encryption in short:
+簡而言之，加密就是：
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **傳出**消息使用收件人的**公鑰**加密
+* **傳入**消息使用收件人的**私鑰**解密
 
-Signing in short:
+簽到簡述：
 
-* **Outgoing** messages are signed with the **private key** of the sender
+* **傳出**消息用發件人的**私鑰**簽名
 * **Incoming** messages are verified with the **public key** of the sender
 
 To sign/encrypt a message, just select the appropriate method in the send dialog. To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
@@ -2241,16 +2241,16 @@ Some email clients use IMAP keywords for colors. Some email clients use IMAP key
 <br />
 
 <a name="faq108"></a>
-**~~(108) Can you add permanently delete messages from any folder?~~**
+**~~(108) 可以永久刪除任何文件夾中的郵件嗎？~~**
 
-~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
+~~當您從文件夾中刪除郵件時，郵件將被移動到垃圾箱文件夾，因此您有機會恢復郵件。~~ ~~您可以從垃圾箱文件夾中永久刪除郵件~~ ~~從其他文件夾永久刪除郵件會破壞垃圾文件夾的目的，所以不會添加。~~
 
 <br />
 
 <a name="faq109"></a>
-**~~(109) Why is 'select account' available in official versions only?~~**
+**~~(109) 為什麼“選擇賬號”只有官方版本？~~**
 
-~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
+~~出於安全和隱私原因，使用*選擇帳戶*來選擇和授權 Google 帳戶需要獲得 Google 的特別許可。~~ ~~此特殊權限只能由開發者管理和負責的應用程序獲得。~~ ~~第三方構建，如F-Droid構建，由第三方管理，由這些第三方負責。~~ ~~所以，只有這些第三方才能獲得谷歌所需的許可。~~ ~~由於這些第三方實際上並不支持 FairEmail，他們很可能不會請求所需的許可。~~
 
 ~~You can solve this in two ways:~~
 
@@ -2940,19 +2940,19 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) 什麼是郵件分類？**
 
-*This is an experimental feature!*
+*這是一個實驗性功能！*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc. In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+郵件分類將嘗試根據其內容自動將電子郵件分組， 使用[貝葉斯統計](https://en.wikipedia.org/wiki/Bayesian_statistics)。 在 FairEmail 中，文件夾是一個分類。 例如，收件箱、垃圾郵件、廣告郵件等。
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+你可於其他設置啟用郵件分類功能。 此僅將啟用「學習」模式。 預設情況下，分類器將從收件箱和垃圾郵件文件夾中的新郵件「學習」。 文件夾屬性*分類此文件夾中的新郵件* 將啟用或禁用文件夾的“學習”模式。 您可清除本地消息（長按帳戶文件夾列表中的文件夾）並重新同步消息，以對現有消息進行分類。
 
-Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+每個文件夾都有一個選項*自動將分類郵件移動到此文件夾*（簡稱“自動分類”）。 啟用此功能後，分類器認為屬於該文件夾的其他文件夾中的新郵件將自動移動。
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92). Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+檢舉垃圾郵件對話框中的選項*使用本地垃圾郵件過濾器*將打開雜項設置中的郵件分類 和垃圾郵件文件夾的自動分類。 請理解，這不能替代電子郵件服務器的垃圾郵件過濾器，並且可能導致[誤報和漏報](https://en.wikipedia.org/wiki/False_positives_and_false_negatives)。 另請參閱[常見問題解答](#user-content-faq92)。
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text). Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
+一個實際示例：假設有一個文件夾“marketing”，並且為此文件夾啟用了自動消息分類。 Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is. If the classifier is unsure, it will simply leave an email where it is.
 
@@ -2995,31 +2995,31 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) 是否支持 Android Auto？**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+是的，支持 Android Auto，但僅限於 GitHub 版本， 請[查看此處](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249)了解原因。
 
-For notification (messaging) support you'll need to enable the following notification options:
+對於通知（消息）支持，您需要啟用以下通知選項：
 
-* *Use Android 'messaging style' notification format*
-* Notification actions: *Direct reply* and (mark as) *Read*
+* *使用 Android 的“消息風格”通知格式*
+* 通知操作：*直接回覆*和（標記為）*已讀*
 
-You can enable other notification actions too, if you like, but they are not supported by Android Auto.
+如果您願意，您也可以啟用其他通知操作，但 Android Auto 不支持這些操作。
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+開發者指南位於[此處](https://developer.android.com/training/cars/messaging)。
 
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) 我可以在多個設備上暫停消息嗎？**
 
-First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+首先，暫停消息沒有標準，所以所有的暫停實現都是自定義解決方案。
 
-Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder. Unfortunately, third party apps have no access to this special folder.
+某些電子郵件提供商（例如 Gmail）會將已延後的郵件移至特殊文件夾。 不幸的是，第三方應用程序無權訪問此特殊文件夾。
 
-Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message. This is problematic because a message can be snoozed only after moving the message.
+將郵件移回另一個文件夾並移回可能會失敗，如果沒有 Internet 連接，則可能無法實現。 這是有問題的，因為只有在移動消息後才能暫停消息。
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too. Unfortunately, it is not possible to hide messages on the email server too.
+為防止出現這些問題，您可將app設置為休眠以隱藏消息。 不幸的是，也無法在電子郵件服務器上隱藏消息。
 
 <br />
 
@@ -3027,7 +3027,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 僅 Android 手機和平板電腦以及 ChromeOS 支持 FairEmail。
 
-Only the latest Play store version and latest GitHub release are supported. 僅當版本號與最新 GitHub 版本的版本號相同時，才支持 F-Droid 構建。 亦即，我們不支援版本降級。
+僅支援最新之 Play 商店版本暨最新之 GitHub 版本。 僅當版本號與最新 GitHub 版本的版本號相同時，才支持 F-Droid 構建。 亦即，我們不支援版本降級。
 
 我們不支援與 FairEmail 沒有直接關聯的事情。
 

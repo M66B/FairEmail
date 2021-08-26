@@ -312,7 +312,7 @@
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
-    <string name="title_advanced_attach_new">Прикрепить файлы к новому черновику</string>
+    <string name="title_advanced_attach_new">Прикреплять общие файлы к новому черновику</string>
     <string name="title_advanced_reply_all">Долгое нажатие на кнопку ответа, чтобы ответить всем</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
@@ -932,7 +932,10 @@
     <string name="title_receipt_subject">Отчёты о прочтении: %1$s</string>
     <string name="title_receipt_text">Это уведомление о прочтении подтверждает только тот факт, что сообщение было открыто. Нет гарантии, что получатель прочёл содержимое сообщения.</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>
-    <string name="title_no_viewer">Нет приложения для просмотра %1$s</string>
+    <string name="title_no_viewer_caption">Нет приложения для просмотра</string>
+    <string name="title_no_viewer_name">Название содержимого</string>
+    <string name="title_no_viewer_type">Тип содержимого</string>
+    <string name="title_no_viewer_search">Поиск приложения</string>
     <string name="title_no_recorder">Нет подходящего приложения аудиозаписи</string>
     <string name="title_no_camera">Нет подходящего приложения камеры</string>
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>

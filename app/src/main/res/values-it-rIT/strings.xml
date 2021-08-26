@@ -292,11 +292,14 @@
     <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta/inoltro</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
+    <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
+    <string name="title_advanced_reply_all">Tieni premuto il pulsante di risposta per rispondere a tutti</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima dell\'instestazione di risposta/inoltro</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposto/inoltro</string>
+    <string name="title_advanced_write_above">Scrivi sopra al testo del mittente</string>
     <string name="title_advanced_write_below">Scrivi sotto il testo del mittente</string>
     <string name="title_advanced_quote_reply">Cita il testo risposto</string>
     <string name="title_advanced_limit_reply">Limita il numero di citazioni nidificate</string>
@@ -553,6 +556,7 @@
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
+    <string name="title_advanced_reply_all_hint">Se disabilitato, tenere premuto il pulsante di risposta risponderà al mittente</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitare quest\'opzione disabiliterà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
@@ -908,7 +912,6 @@
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>
     <string name="title_receipt_text">Questa conferma di lettura riconosce solo che il messaggio è stato visualizzato. Non esiste garanzia che il destinatario ne abbia letti i contenuti.</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
-    <string name="title_no_viewer">Nessun\'app di visualizzazione disponibile per %1$s</string>
     <string name="title_no_recorder">Nessun\'app di registrazione audio adatta disponibile</string>
     <string name="title_no_camera">Nessun\'app fotocamera adatta</string>
     <string name="title_no_saf">Framework di accesso all\'archiviazione non disponibile</string>
@@ -1165,7 +1168,7 @@
     <string name="title_select_all">Seleziona tutto</string>
     <string name="title_select_found">Seleziona trovati</string>
     <string name="title_mark_all_read">Segna tutto come letto</string>
-    <string name="title_view_thread">Visualizza conversazione</string>
+    <string name="title_view_thread">Visualizza la conversazione</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
     <string name="title_force_send">Forza invio</string>
     <string name="title_language_all">Tutte</string>

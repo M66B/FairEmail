@@ -1,41 +1,41 @@
-# Setup help
+# Pomoć za postavljanje
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Postavljanje FairEmail-a je prilično jednostavno. Potrebno je dodati najmanje jedan nalog za prijem e-pošte i najmanje jedan identitet za slanje e-pošte. Brzo postavljanje će dodati nalog i identitet u jednom potezu za većinu glavnih provajdera (poslužitelja).
 
-## Requirements
+## Zahtjevi
 
-An internet connection is required to set up accounts and identities.
+Internet konekcija je neophodna za postavljanje naloga i identiteta.
 
-## Quick setup
+## Brzo postavljanje
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Samo izaberite prikladnog provajdera ili *ostale provajdere* i unesite svoje ime, adresu e-pošte i lozinku te dodirnite dugme *Provjeri*.
 
-This will work for most email providers.
+Ovo će raditi za većinu email provajdera.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Ukoliko brzo postavljanje ne radi, trebate onda ručno postaviti nalog i identitet. Pogledajte dolje za uputstvo.
 
-## Set up account - to receive email
+## Postavljanje naloga - za prijem e-pošte
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Za dodavanje naloga, dodirnite *Ručno postavljanje i više opcija*, dodirnite *Nalozi* i potom dugme 'plus' na dnu i izaberite IMAP (ili POP3). Izaberite provajdera sa spiska, unesite korisničko ime, koje je najčešće vaša email adresa i unesite lozinku. Dodirnite *Provjera* kako bi dozvolili FairEmail-u da se poveže sa email serverom i dohvati spisak sistemskih foldera. Nakon pregledanja i izbora sistemskih foldera, možete dodati nalog dodirom na dugme *Sačuvaj*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ukoliko vaš provajder nije na spisku provajdera, onda izaberite *Posebno*. Unesite naziv domene, npr. *gmail.com* i dodirnite *Dohvati postavke*. Ukoliko vaš provajder podržava [auto-pronalaženje](https://tools.ietf.org/html/rfc6186), FairEmail će popuniti naziv host servera i broj porta (ulaza), u suprotnom provjerite uputstvo vašeg provajdera za postavljanje pravog naziva IMAP host servera, broja porta i protokola za šifriranje (SSL/TLS ili STARTTLS). Za više informacija, molimo da pogledate [ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Postavljanje identiteta - za slanje e-pošte
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Za dodavanje identiteta dodirnite *Ručno postavljanje i više opcija*, dodirnite *Identiteti* i potom dugme 'plus' na dnu. Unesite ime koje želite da se prikazuje u adresnom polju vaših poruka koje šaljete i izaberite povezani nalog. Dodirnite *Sačuvaj* da dodate identitet.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+Ukoliko je nalog ručno postavljen, vjerovatno trebate ručno postaviti i identitet. Unesite naziv domene, npr. *gmail.com* i dodirnite *Dohvati postavke*. Ukoliko vaš provajder podržava [auto-pronalaženje](https://tools.ietf.org/html/rfc6186), FairEmail će popuniti naziv host servera i broj porta (ulaza), u suprotnom provjerite uputstvo vašeg provajdera za postavljanje pravog naziva SMTP host servera, broja porta i protokola za šifriranje (SSL/TLS ili STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Pogledajte [ova ČPP](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) za više informacije o alijasima.
 
-## Grant permissions - to access contact information
+## Odobrenja - za pristup informacija o kontaktima
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Ukoliko želite pretraživati email adrese, imati prikazane fotografije kontakata itd., trebate omogućiti FairEmail-u dopuštenja za čitanje informacija o kontaktima. Samo dodirnite *Odobri* i izaberite *Dopusti*.
 
-## Setup battery optimizations - to continuously receive emails
+## Postavljanje optimizacije baterije - za neprekidan prijem e-pošte
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+Na novijim verzijama Android-a, sistem će postaviti aplikacije u stanje mirovanja kada se ekran isključi kako bi se smanjila potrošnja baterije. Ako želite da primate nove poruke bez kašnjenja, trebate isključiti optimizaciju baterije za FairEmail. Dodirnite *Upravljaj* i pratite uputstva.
 
-## Questions or problems
+## Pitanja ili problemi
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Ukoliko imate pitanje ili problem, molimo potražite pomoć [ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

@@ -910,7 +910,10 @@
     <string name="title_receipt_subject">Αποδεικτικό ανάγνωσης: %1$s</string>
     <string name="title_receipt_text">Αυτό το αποδεικτικό ανάγνωσης πιστοποιεί μόνον ότι το μήνυμα έχει προβληθεί. Δεν υπάρχει εγγύηση ότι ο αποδέκτης έχει διαβάσει το περιεχόμενο του μηνύματος.</string>
     <string name="title_no_answers">Δεν έχουν οριστεί πρότυπα</string>
-    <string name="title_no_viewer">Καμία εφαρμογή διαθέσιμη για προβολή του %1$s</string>
+    <string name="title_no_viewer_caption">Δεν υπάρχει διαθέσιμη εφαρμογή προβολής</string>
+    <string name="title_no_viewer_name">Όνομα περιεχομένου</string>
+    <string name="title_no_viewer_type">Τύπος περιεχομένου</string>
+    <string name="title_no_viewer_search">Αναζήτηση εφαρμογής</string>
     <string name="title_no_recorder">Δεν βρέθηκε καμία κατάλληλη εφαρμογή ηχογράφησης</string>
     <string name="title_no_camera">Καμία κατάλληλη εφαρμογή κάμερας δεν είναι διαθέσιμη</string>
     <string name="title_no_saf">Πλαίσιο πρόσβασης αποθήκευσης δεν είναι διαθέσιμο</string>

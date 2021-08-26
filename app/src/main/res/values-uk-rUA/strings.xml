@@ -930,7 +930,10 @@
     <string name="title_receipt_subject">Повідомлення про перегляд: %1$s</string>
     <string name="title_receipt_text">Це повідомлення буде показано лише з інформацією про прочитання. Немає гарантії, що отримувач прочитав повідомлення вмісту.</string>
     <string name="title_no_answers">Шаблони відповідей не визначені</string>
-    <string name="title_no_viewer">Немає додатку для перегляду %1$s</string>
+    <string name="title_no_viewer_caption">Немає доступних програм для перегляду</string>
+    <string name="title_no_viewer_name">Назва вмісту</string>
+    <string name="title_no_viewer_type">Тип вмісту</string>
+    <string name="title_no_viewer_search">Пошук програм</string>
     <string name="title_no_recorder">Немає відповідного додатку для запису аудіо</string>
     <string name="title_no_camera">Немає відповідного додатку для камери</string>
     <string name="title_no_saf">Компонент для доступу до сховища недоступний</string>

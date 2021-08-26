@@ -292,6 +292,7 @@
     <string name="title_advanced_alt_re_fwd">Alternativ cavab/yönləndirmə prefiksi</string>
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
+    <string name="title_advanced_attach_new">Yeni bir qaralamaya paylaşılan faylları əlavə edin</string>
     <string name="title_advanced_reply_all">Hamısını cavablandırmaq üçün cavabla düyməsinə uzun basın</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
     <string name="title_advanced_compose_font">İlkin şrift</string>
@@ -910,7 +911,10 @@
     <string name="title_receipt_subject">Oxundu bildirişi: %1$s</string>
     <string name="title_receipt_text">Bu oxundu bildirişi yalnız mesajın görüntüləndiyini təsdiqləyir. Alıcının mesajın məzmununu oxuduğuna zəmanət vermir.</string>
     <string name="title_no_answers">Heç bir cavab şablonu təyin edilmədi</string>
-    <string name="title_no_viewer">%1$s üçün heç bir görüntüləmə tətbiqi yoxdur</string>
+    <string name="title_no_viewer_caption">Görüntüləyəcək heç bir tətbiq yoxdur</string>
+    <string name="title_no_viewer_name">Məzmun adı</string>
+    <string name="title_no_viewer_type">Məzmun növü</string>
+    <string name="title_no_viewer_search">Tətbiq axtar</string>
     <string name="title_no_recorder">Uyğun bir səsyazan tətbiq yoxdur</string>
     <string name="title_no_camera">Uyğun bir kamera tətbiqi yoxdur</string>
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>

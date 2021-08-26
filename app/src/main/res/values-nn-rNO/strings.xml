@@ -727,7 +727,6 @@
     <string name="title_receipt_subject">Lesebekreftelse: %1$s</string>
     <string name="title_receipt_text">Denne lesekvitteringen bekrefter bare at meldingen ble vist. Det er ingen garanti for at mottakeren har lest meldings innholdet.</string>
     <string name="title_no_answers">Ingen svarmaler definert</string>
-    <string name="title_no_viewer">Ingen visningsprogram tilgjengelig for %1$s</string>
     <string name="title_no_recorder">Ingen passende lydopptaker app tilgjengelig</string>
     <string name="title_no_camera">Ingen passende kamera app tilgjengelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgjengelig</string>

@@ -909,7 +909,6 @@
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>
     <string name="title_receipt_text">Tämä vastaanottokuittaus tarkoittaa, että viesti on näytetty. Ei ole varmuutta, että vastaanottaja on lukenut viestin sisällön.</string>
     <string name="title_no_answers">Vastausviestipohjia ei ole määritetty</string>
-    <string name="title_no_viewer">Katselusovellusta ei ole saatavilla tiedostolle %1$s</string>
     <string name="title_no_recorder">Sopivaa audiotallennussovellusta ei ole saatavilla</string>
     <string name="title_no_camera">Sopivaa kamerasovellusta ei ole saatavilla</string>
     <string name="title_no_saf">Storage access framework ei ole käytettävissä</string>

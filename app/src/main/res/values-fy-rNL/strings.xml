@@ -834,7 +834,6 @@
     <string name="title_receipt_subject">Untfang lêze: %1$s</string>
     <string name="title_receipt_text">Dizze lêsbewiis befestiget allinich dat it berjocht waard werjûn. D\'r is gjin garânsje dat de ûntfanger de ynhâld fan it berjocht hat lêzen.</string>
     <string name="title_no_answers">Gjin antwurd sjabloanen definieare</string>
-    <string name="title_no_viewer">Gjin sjogger-app beskikber foar %1$s</string>
     <string name="title_no_recorder">Gjin geskikte app foar audio-recorder beskikber</string>
     <string name="title_no_camera">Gjin geskikte kamera-app beskikber</string>
     <string name="title_no_saf">Ramt opslach tagong net beskikber</string>

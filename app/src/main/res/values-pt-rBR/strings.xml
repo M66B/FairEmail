@@ -908,7 +908,7 @@
     <string name="title_receipt_subject">Confirmação se leitura: %1$s</string>
     <string name="title_receipt_text">Esta confirmação de leitura só reconhece que a mensagem foi exibida. Não há garantia de que o destinatário tenha lido o conteúdo da mensagem.</string>
     <string name="title_no_answers">Nenhum modelo de resposta definido</string>
-    <string name="title_no_viewer">Nenhum aplicativo visualizador disponível para %1$s</string>
+    <string name="title_no_viewer_caption">Sem aplicativo visualizador</string>
     <string name="title_no_recorder">Nenhum aplicativo de gravador de áudio adequado disponível</string>
     <string name="title_no_camera">Nenhum aplicativo de câmera adequado disponível</string>
     <string name="title_no_saf">Storage access framework não disponivel</string>

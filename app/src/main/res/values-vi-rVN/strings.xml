@@ -898,7 +898,6 @@
     <string name="title_receipt_subject">Xác nhận đã đọc: %1$s</string>
     <string name="title_receipt_text">Xác nhận đã đọc này chỉ biết rằng thư đã được hiển thị. Không có đảm bảo rằng người nhận đã đọc nội dung thư.</string>
     <string name="title_no_answers">Không có mẫu trả lời nào được định nghĩa</string>
-    <string name="title_no_viewer">Không có ứng dụng xem %1$s</string>
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
     <string name="title_no_saf">Storage access framework không có sẵn</string>
