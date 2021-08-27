@@ -2523,7 +2523,7 @@ public class HtmlHelper {
                 while (block.size() > 0) {
                     tnode = block.get(block.size() - 1);
                     text = tnode.getWholeText();
-                    if (endsWithSpace(text)) {
+                    if (endsWithSpace(text) && !"-- ".equals(text)) {
                         text = text.substring(0, text.length() - 1);
                         tnode.text(text);
                     }
