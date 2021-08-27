@@ -64,6 +64,7 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.print.PrintAttributes;
@@ -261,6 +262,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibSeen;
     private ImageButton ibUnflagged;
     private ImageButton ibSnoozed;
+    private TextView tvDebug;
     private TextViewAutoCompleteAction etSearch;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -491,6 +493,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibUp = view.findViewById(R.id.ibUp);
         ibOutbox = view.findViewById(R.id.ibOutbox);
         tvOutboxCount = view.findViewById(R.id.tvOutboxCount);
+        tvDebug = view.findViewById(R.id.tvDebug);
         ibSeen = view.findViewById(R.id.ibSeen);
         ibUnflagged = view.findViewById(R.id.ibUnflagged);
         ibSnoozed = view.findViewById(R.id.ibSnoozed);
@@ -820,6 +823,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        tvDebug.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("Manual GC");
+                Runtime.getRuntime().runFinalization();
+                Runtime.getRuntime().gc();
+                updateDebugInfo();
+            }
+        });
+
         ibSeen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -846,7 +859,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onMenuFilter(name, !filter);
             }
         });
-
 
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -1210,6 +1222,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         sbThread.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
+        tvDebug.setText(null);
+        tvDebug.setVisibility(
+                BuildConfig.DEBUG && viewType != AdapterMessage.ViewType.THREAD
+                        ? View.VISIBLE : View.GONE);
         ibSeen.setVisibility(View.GONE);
         ibUnflagged.setVisibility(View.GONE);
         ibSnoozed.setVisibility(View.GONE);
@@ -5114,11 +5130,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
         tvNoEmailHint.setVisibility(none && filtered ? View.VISIBLE : View.GONE);
 
+        if (BuildConfig.DEBUG)
+            updateDebugInfo();
+
         Log.i("List state reason=" + reason +
                 " tasks=" + tasks + " loading=" + loading +
                 " items=" + items + " initialized=" + initialized +
                 " wait=" + (pbWait.getVisibility() == View.VISIBLE) +
                 " no=" + (tvNoEmail.getVisibility() == View.VISIBLE));
+    }
+
+    private void updateDebugInfo() {
+        Runtime rt = Runtime.getRuntime();
+        long hused = rt.totalMemory() - rt.freeMemory();
+        long hmax = rt.maxMemory();
+        long nheap = Debug.getNativeHeapAllocatedSize();
+        int perc = Math.round(hused * 100f / hmax);
+        tvDebug.setText(perc + "% " + (nheap / (1024 * 1024)) + "M");
     }
 
     private boolean handleThreadActions(
