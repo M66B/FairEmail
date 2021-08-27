@@ -118,6 +118,19 @@ public class EntityAnswer implements Serializable {
             }
         }
 
+        if (first == null) {
+            String username = UriHelper.getEmailUser(email);
+            if (username != null) {
+                int dot = username.indexOf('.');
+                if (dot < 0)
+                    first = username;
+                else
+                    first = username.substring(0, dot);
+                if (first.length() > 0)
+                    first = first.substring(0, 1).toUpperCase() + first.substring(1).toLowerCase();
+            }
+        }
+
         text = text.replace("$name$", fullName == null ? "" : Html.escapeHtml(fullName));
         text = text.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
         text = text.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
