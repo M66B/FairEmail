@@ -3145,26 +3145,26 @@ class Core {
                     Log.i(folder.name + " deleted orphans=" + orphans);
                 }
             } else {
-                List<Message> _imessages = new ArrayList<>();
                 List<Long> _ids = new ArrayList<>();
+                List<Long> _uids = new ArrayList<>();
 
-                List<EntityMessage> messages = db.message().getMessagesWithoutContent(
-                        folder.id, sync_kept || force ? null : sync_time);
-                if (messages != null) {
-                    Log.i(folder.name + " needs content=" + messages.size());
-                    for (EntityMessage message : messages) {
-                        Message imessage = ifolder.getMessageByUID(message.uid);
-                        if (imessage != null) {
-                            _imessages.add(imessage);
+                if (download && initialize == 0) {
+                    List<EntityMessage> messages = db.message().getMessagesWithoutContent(
+                            folder.id, sync_kept || force ? null : sync_time);
+                    if (messages != null) {
+                        Log.i(folder.name + " needs content=" + messages.size());
+                        for (EntityMessage message : messages) {
                             _ids.add(message.id);
+                            _uids.add(message.uid);
                         }
                     }
                 }
 
-                search = SystemClock.elapsedRealtime();
-
-                imessages = _imessages.toArray(new Message[0]);
+                // This will result in message changed events
+                imessages = ifolder.getMessagesByUID(Helper.toLongArray(_uids));
                 ids = _ids.toArray(new Long[0]);
+
+                search = SystemClock.elapsedRealtime();
             }
 
             // Update modseq
