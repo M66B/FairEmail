@@ -2385,9 +2385,6 @@ class Core {
                     " sync=" + sync +
                     " uidl=" + hasUidl);
 
-            folder.last_sync_count = imessages.length;
-            db.folder().setFolderLastSyncCount(folder.id, folder.last_sync_count);
-
             if (sync) {
                 // Index IDs
                 Map<String, String> uidlMsgId = new HashMap<>();
@@ -2645,6 +2642,8 @@ class Core {
                 }
             }
 
+            folder.last_sync_count = imessages.length;
+            db.folder().setFolderLastSyncCount(folder.id, folder.last_sync_count);
             db.folder().setFolderLastSync(folder.id, new Date().getTime());
             EntityLog.log(context, account.name + " POP done");
         } finally {
