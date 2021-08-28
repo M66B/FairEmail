@@ -1027,8 +1027,8 @@ This alert will be sent when there are too many folder connections for the same 
 
 Possible causes are:
 
-* There are multiple email clients connected to the same account
-* The same email client is connected multiple times to the same account
+* Hay múltiples clientes de correo conectados a una misma cuenta
+* El mismo cliente de correo está conectado múltiple veces a una misma cuenta
 * Previous connections were terminated abruptly for example by abruptly losing internet connectivity
 
 First try to wait some time to see if the problem resolves itself, else:
@@ -2982,9 +2982,9 @@ Message classification is a pro feature, except for the spam folder.
 <br />
 
 <a name="faq164"></a>
-**(164) Can you add customizable themes?**
+**(164) ¿Puedes agregar temas personalizados?**
 
-Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+Desafortunadamente, Android [no soporta](https://stackoverflow.com/a/26511725/1794097) temas dinámicos esto significa que todos los temas [serán predefinidos](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
 Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
@@ -2995,11 +2995,11 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) ¿Android Auto es compatible?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Si, Android Auto es compatible, pero solo con la versión de Github, por favor [véase aquí](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) porque.
 
-For notification (messaging) support you'll need to enable the following notification options:
+Para soporte de notificaciones (mensajería) deberá tener activado las siguientes opciones de notificación:
 
 * *Use Android 'messaging style' notification format*
 * Notification actions: *Direct reply* and (mark as) *Read*
@@ -3025,24 +3025,24 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Get support</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+FairEmail es compatible con teléfonos y tabletas con Android y ChromeOS respectivamente.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Solo la última versión de Play Store y Github serán soportadas. La versión de F-Droid solo es compatible si el número de la versión es igual al de la última actualización de Github. This also means that downgrading is not supported.
 
-There is no support on things that are not directly related to FairEmail.
+No hay soporte para cosas que no estén directamente relacionadas con FairEmail.
 
-There is no support on building and developing things by yourself.
+No hay soporte en versiones y desarrollos hechos por usted mismo.
 
 Requested features should:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* ser útil para la mayoría de la gente. 
+* no complique el uso de FairEmail
+* encaja con la filosofía de FairEmail (orientado a la privacidad y pensado en la seguridad)
 * comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Si tienes una pregunta, quieres solicitar una característica o reportar un error, **por favor usa [este formulario](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

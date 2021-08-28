@@ -43,7 +43,7 @@
 
 <a name="howto">
 
-## 如何 ...?
+## 如何操作…？
 
 * 更改账户名称：“设置”，点击 “手动配置“，点击 ”账户“，然后再点击账户。
 * 更改向左/右滑动的目标：设置、标签页行为、设定滑动操作
@@ -68,7 +68,7 @@
 * ~~ [Google Drive 中的一个 Bug](https://issuetracker.google.com/issues/126362828) 会导致导出到 Google Drive 的文件为空。 谷歌已将其修复。~~
 * ~~[AndroidX 中的一个 Bug](https://issuetracker.google.com/issues/78495471) 会导致 FairEmail 在长按或滑动操作时偶尔崩溃。 谷歌已将其修复。~~
 * ~~ [AndroidX ROOM 的一个 Bug](https://issuetracker.google.com/issues/138441698) 会导致有时出现崩溃并报告错误 “*... 计算数据库实时数据时出现异常... 无法读取行...*”。 已添加解决方案。~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification. Bad notification posted ...</em>" on some devices once after updating FairEmail and tapping on a notification.
+* 更新 FairEmail 并点击通知后，[Android 中的一个 Bug](https://issuetracker.google.com/issues/119872129)会导致 FairEmail 在某些设备上崩溃，并显示“* ... Bad notification posted ...*“。
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.</li>
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~

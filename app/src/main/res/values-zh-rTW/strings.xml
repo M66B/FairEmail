@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">FairEmail 搜尋</string>
     <string name="app_changelog">變更紀錄</string>
-    <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，有些功能的工作方式可能與您所熟悉的不同。</string>
+    <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，其中一些功能的工作方式可能與您所熟悉的不同。</string>
     <string name="app_limitations">例如，預設重排訊息以移除不安全的元件並改善可讀性，並且為了安全，連結的開啟還需要獲得確認。如有需要，兩者皆可停用。</string>
     <string name="app_crash">此裝置不支援 FairEmail 的執行，因為 Android 系統中存在會導致本程式崩潰的 bugs</string>
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
@@ -902,7 +902,9 @@
     <string name="title_receipt_text">此已讀回條僅能確認訊息被顯示，不能保證收件者已閱讀訊息內容。</string>
     <string name="title_no_answers">無已定義回覆模板</string>
     <string name="title_no_viewer_caption">無可用檢視器程式</string>
+    <string name="title_no_viewer_name">內容名稱</string>
     <string name="title_no_viewer_type">內容類型</string>
+    <string name="title_no_viewer_search">搜尋適用程式</string>
     <string name="title_no_recorder">無適用的音頻錄製程式</string>
     <string name="title_no_camera">無適用的相機程式</string>
     <string name="title_no_saf">儲存空間存取架構不可用</string>

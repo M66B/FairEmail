@@ -2368,16 +2368,16 @@ Wenn Sie ein Problem beim Kauf der App nicht lösen können, kontaktieren Sie Go
 <br />
 
 <a name="faq118"></a>
-**(118) Was genau bedeutet 'Tracking-Parameter entfernen'?**
+**(118) Was genau bedeutet »Verfolgungsparameter entfernen«?**
 
-Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
+*Verefolgungsparameter entfernen* entfernt alle [UTM-Parameter](https://en.wikipedia.org/wiki/UTM_parameters) von einem Link.
 
 <br />
 
 <a name="faq119"></a>
-**~~(119) Can you add colors to the unified inbox widget?~~**
+**~~(119) Kannst du dem Sammeleingangs-Widget Farben hinzufügen?~~**
 
-~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~ ~~This way the widget will nicely blend in, while still being properly readable.~~
+~~Das Widget ist so konzipiert, dass es auf den meisten Home/Launcher Bildschirmen gut aussieht, indem es monochrome Farben und einen halbtransparenten Hintergrund verwendet. ~ ~~Auf diese Weise wird das Widget schön integriert, während es trotzdem gut lesbar ist.~~
 
 ~~Das Hinzufügen von Farben wird Probleme mit einigen Hintergründen verursachen und zu Problemen bei der Lesbarkeit führen, weshalb dies nicht hinzugefügt wird.~~
 
@@ -2388,73 +2388,73 @@ Aufgrund von Android-Einschränkungen ist es nicht möglich, die Deckkraft des H
 <a name="faq120"></a>
 **(120) Warum werden die Benachrichtigungen über neue Nachrichten beim Öffnen der App nicht entfernt?**
 
-Neue Benachrichtigungen werden beim Wischen von Benachrichtigungen oder beim Markieren der Nachrichten als gelesen entfernt. Das Öffnen der App löscht keine neuen Nachrichten-Benachrichtigungen. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
+Neue Benachrichtigungen werden beim Wischen von Benachrichtigungen oder beim Markieren der Nachrichten als gelesen entfernt. Das Öffnen der App löscht keine neuen Nachrichten-Benachrichtigungen. Dies gibt dir die Möglichkeit, Benachrichtigungen über neue Nachrichten als Erinnerung zu behalten, dass es immer noch ungelesene Nachrichten gibt.
 
-Auf Android 7 Nougat und später werden neue Benachrichtigungen [gruppiert](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+Auf Android 7 Nougat und später werden neue Benachrichtigungen [gruppiert](https://developer.android.com/training/notify-user/group). Wenn Sie auf eine Zusammenfassungs-Benachrichtigung tippen, öffnet sich der Sammeleingang. Die Zusammenfassungs-Benachrichtigung kann erweitert werden, um einzelne neue Nachrichten anzuzeigen. Tippen Sie auf eine individuelle Benachrichtigung, um die Unterhaltung zu öffnen, zu der die Nachricht gehört. Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq70) darüber, wann Nachrichten in einer Unterhaltung automatisch erweitert und als gelesen markiert werden.
 
 <br />
 
 <a name="faq121"></a>
-**(121) How are messages grouped into a conversation?**
+**(121) Wie werden Nachrichten in einer Unterhaltung gruppiert?**
 
 Standardmäßig gruppiert FairEmail Nachrichten in Unterhaltungen. Dies kann in den Anzeigeeinstellungen ausgeschaltet werden.
 
-FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers. FairEmail gruppiert nicht nach anderen Kriterien, wie dem Betreff, weil dies dazu führen könnte, dass Nachrichten gruppiert werden, die nichts miteinander zu tun haben und zu Lasten eines erhöhten Akkuverbrauchs ginge.
+FairEmail gruppiert Nachrichten basierend auf der *Message-ID*, *In-Antwort-An* und *Referenzen*-Header. FairEmail gruppiert nicht nach anderen Kriterien, wie dem Betreff, weil dies dazu führen könnte, dass Nachrichten gruppiert werden, die nichts miteinander zu tun haben und zu Lasten eines erhöhten Akkuverbrauchs ginge.
 
 <br />
 
 <a name="faq122"></a>
-**~~(122) Why is the recipient name/email address show with a warning color?~~**
+**~~(122) Warum wird der Empfängername/die E-Mail-Adresse mit einer Warnfarbe angezeigt? ~**
 
-~~The recipient name and/or email address in the addresses section will be shown in a warning color~~ ~~when the sender domain name and the domain name of the *to* address do not match.~~ ~~Mostly this indicates that the message was received *via* an account with another email address.~~
+~~Der Empfängername und/oder die E-Mail-Adresse im Adressbereich werden in einer Warnfarbe angezeigt,~ ~~~wenn der Absender-Domain-Name und der Domain-Name der *"an"-* Adresse nicht übereinstimmen. ~ ~~Meist zeigt dies an, dass die Nachricht *über* ein Konto mit einer anderen E-Mail-Adresse empfangen wurde.~~
 
 <br />
 
 <a name="faq123"></a>
-**(123) What will happen when FairEmail cannot connect to an email server?**
+**(123) Was passiert, wenn FairEmail keine Verbindung zu einem E-Mail-Server herstellen kann?**
 
-If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+Wenn FairEmail keine Verbindung zu einem E-Mail-Server herstellen kann, um Nachrichten zu synchronisieren (z. B. wenn die Internetverbindung schlecht ist oder eine Firewall oder ein VPN die Verbindung unterbindet), wird FairEmail nach einer Wartezeit von 8 Sekunden einen erneuten Versuch unternehmen, während das Gerät eingeschaltet bleibt (=verwendet Batterieleistung). Falls dies fehlschlägt, wird FairEmail einen Alarm zum erneuten Versuch nach 15, 30 und schließlich alle 60 Minuten ansetzen und das Gerät in den Ruhezustand versetzen (=kein Batterieverbrauch).
 
-Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
+Bitte beachten, dass der [Android-Doze-Modus](https://developer.android.com/training/monitoring-device-state/doze-standby) es nicht erlaubt, das Gerät früher als nach 15 Minuten aufzuwecken.
 
-*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+*Synchronisation erzwingen* (im Drei-Punkte-Menü des Sammeleingangs) kann verwendet werden, um eine erneute Verbindung zu versuchen, ohne die Wartezeit zu beachten.
 
-Sending messages will be retried on connectivity changes only (reconnecting to the same network or connecting to another network) to prevent the email server from blocking the connection permanently. You can pull down the outbox to retry manually.
+Das Senden von Nachrichten wird nur bei Verbindungsänderungen erneut versucht (erneute Verbindung zum selben Netzwerk oder eine Verbindung zu einem anderen Netzwerk), um zu verhindern, dass der E-Mail-Server die Verbindung dauerhaft blockiert. Sie können im Posteingang herunterziehen, um eine (erneute) Synchronisation manuell auszulösen.
 
-Note that sending will not be retried in case of authentication problems and when the server rejected the message. In this case you can pull down the outbox to try again.
+Beachten Sie, dass das Senden bei Authentifizierungsproblemen und/oder bei Ablehnung der Nachricht durch den Server nicht erneut versucht wird. In diesem Fall können Sie den Posteingang herunterziehen, um es erneut zu versuchen.
 
 <br />
 
 <a name="faq124"></a>
-**(124) Why do I get 'Message too large or too complex to display'?**
+**(124) Warum erhalte ich 'Nachricht zu groß oder zu komplex, um sie anzuzeigen'?**
 
-The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
+Die Fehlermeldung *Nachricht ist zu groß oder zu komplex für die Anzeige* wird angezeigt, wenn mehr als 100.000 Zeichen oder mehr als 500 Links in einer Nachricht vorhanden sind. Die Neuformatierung und Anzeige solcher Nachrichten dauert zu lange. Sie können stattdessen versuchen, die ursprüngliche Nachrichtenansicht zu verwenden, die durch den Browser betrieben wird.
 
 <br />
 
 <a name="faq125"></a>
-**(125) What are the current experimental features?**
+**(125) Was sind die aktuellen experimentellen Funktionen?**
 
-*Message classification (version 1.1438+)*
+*Nachrichtenklassifizierung (Version 1.1438+)*
 
-Please see [this FAQ](#user-content-faq163) for details.
+Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq163) für Details.
 
-Since this is an experimental feature, my advice is to start with just one folder.
+Da es eine experimentelle Funktion ist, empfehle ich, mit nur einem Ordner zu beginnen.
 
 <br />
 
-*Send hard bounce (version 1.1477+)*
+*Unzustellbarkeitsnachricht (Hard Bounce) senden (Version 1.1477+)*
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+Eine [Zustellstatusbenachrichtigung](https://tools.ietf.org/html/rfc3464) (≙ Hard Bounce) über das Antwortmenü senden.
 
-Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+Unzustellbarkeitsnachrichten (Hard Bounce) werden meist automatisch verarbeitet, da sie die Reputation des E-Mail-Providers beeinträchtigen. Die E-Mail-Adresse der Unzustellbarkeitsnachricht (Bounce-Adresse) (=*Antwortpfad*-Header) ist meist sehr konkret, damit der E-Mail-Server das Absenderkonto ermitteln kann.
 
 Für einige Hintergründe siehe [diesen Wikipedia-Artikel](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 
 <a name="faq126"></a>
-**(126) Can message previews be sent to my wearable?**
+**(126) Kann eine Vorschau des Nachrichtentexts auf mein Wearable (z.B. Smartwatch) gesendet werden?**
 
 FairEmail ruft eine Nachricht in zwei Schritten ab:
 
