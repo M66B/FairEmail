@@ -140,6 +140,6 @@ public interface DaoAttachment {
 
     @Query("DELETE FROM attachment" +
             " WHERE message = :message" +
-            " AND encryption IS NULL")
-    int deleteAttachments(long message);
+            " AND (encryption IS NULL OR encryption NOT IN (:keep))")
+    int deleteAttachments(long message, int[] keep);
 }

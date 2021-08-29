@@ -5959,7 +5959,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Helper.writeText(file, null);
             db.message().setMessageContent(message.id, true, null, null, null, null);
             //db.message().setMessageSubject(id, subject);
-            db.attachment().deleteAttachments(message.id);
+            db.attachment().deleteAttachments(message.id, new int[]{
+                    EntityAttachment.PGP_MESSAGE,
+                    EntityAttachment.SMIME_MESSAGE,
+                    EntityAttachment.SMIME_SIGNED_DATA
+            });
             db.message().setMessageEncrypt(message.id, message.ui_encrypt);
             db.message().setMessageStored(message.id, new Date().getTime());
 
@@ -6825,14 +6829,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                                 message.warning);
 
                                         // Remove existing attachments
-                                        db.attachment().deleteAttachments(message.id);
+                                        db.attachment().deleteAttachments(message.id, new int[]{EntityAttachment.PGP_MESSAGE});
 
                                         // Add decrypted attachments
                                         List<EntityAttachment> remotes = parts.getAttachments();
                                         for (int index = 0; index < remotes.size(); index++) {
                                             EntityAttachment remote = remotes.get(index);
-                                            if (remote.encryption != null)
-                                                continue;
                                             remote.message = message.id;
                                             remote.sequence = index + 1;
                                             remote.id = db.attachment().insertAttachment(remote);
@@ -7486,7 +7488,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             message.warning);
 
                     // Remove existing attachments
-                    db.attachment().deleteAttachments(message.id);
+                    db.attachment().deleteAttachments(message.id, new int[]{
+                            EntityAttachment.SMIME_MESSAGE,
+                            EntityAttachment.SMIME_SIGNED_DATA
+                    });
 
                     // Add decrypted attachments
                     List<EntityAttachment> remotes = parts.getAttachments();
