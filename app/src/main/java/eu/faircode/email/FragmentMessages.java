@@ -8125,22 +8125,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     URL url = new URL(src);
                                     Log.i("Caching url=" + url);
 
-                                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                                    connection.setRequestMethod("GET");
-                                    connection.setReadTimeout(timeout);
-                                    connection.setConnectTimeout(timeout);
-                                    connection.setInstanceFollowRedirects(true);
-                                    connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
-                                    connection.connect();
-
+                                    HttpURLConnection connection = null;
                                     try {
-                                        int status = connection.getResponseCode();
-                                        if (status != HttpURLConnection.HTTP_OK)
-                                            throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
-
+                                        connection = Helper.openUrlRedirect(context, src, timeout);
                                         Helper.copy(connection.getInputStream(), os);
                                     } finally {
-                                        connection.disconnect();
+                                        if (connection != null)
+                                            connection.disconnect();
                                     }
                                 } catch (Throwable ex) {
                                     Log.w(ex);
