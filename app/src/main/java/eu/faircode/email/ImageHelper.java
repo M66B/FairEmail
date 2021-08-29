@@ -70,9 +70,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -90,7 +87,6 @@ class ImageHelper {
             Helper.getBackgroundExecutor(0, "image_n");
 
     static final int DOWNLOAD_TIMEOUT = 15; // seconds
-    private static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
     private static final int MAX_PROBE = 64 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
 
@@ -670,50 +666,7 @@ class ImageHelper {
         Bitmap bm;
         HttpURLConnection urlConnection = null;
         try {
-            int redirects = 0;
-            URL url = new URL(source);
-            while (true) {
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("GET");
-                urlConnection.setDoOutput(false);
-                urlConnection.setReadTimeout(timeout);
-                urlConnection.setConnectTimeout(timeout);
-                urlConnection.setInstanceFollowRedirects(true);
-                urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
-                urlConnection.connect();
-
-                try {
-                    int status = urlConnection.getResponseCode();
-
-                    if (status == HttpURLConnection.HTTP_MOVED_PERM ||
-                            status == HttpURLConnection.HTTP_MOVED_TEMP ||
-                            status == HttpURLConnection.HTTP_SEE_OTHER ||
-                            status == 307 /* Temporary redirect */ ||
-                            status == 308 /* Permanent redirect */) {
-                        if (++redirects > MAX_REDIRECTS)
-                            throw new IOException("Too many redirects");
-
-                        String header = urlConnection.getHeaderField("Location");
-                        if (header == null)
-                            throw new IOException("Location header missing");
-
-                        String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
-                        url = new URL(url, location);
-                        Log.i("Redirect #" + redirects + " to " + url);
-
-                        urlConnection.disconnect();
-                        continue;
-                    }
-
-                    if (status != HttpURLConnection.HTTP_OK)
-                        throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
-                } catch (IOException ex) {
-                    urlConnection.disconnect();
-                    throw ex;
-                }
-
-                break;
-            }
+            urlConnection = Helper.openUrlRedirect(context, source, timeout);
 
             if (id > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 File file = getCacheFile(context, id, source, ".blob");
