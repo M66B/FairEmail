@@ -1944,6 +1944,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press the send action to show the send dialog, even if it was disabled?
 * Did you know that you can long press the full screen icon to show the original message text only?
 * Did you know that you can long press the answer button to reply to the sender? (since version 1.1562)
+* Did you know that you can long press the message move button to move across accounts? (since version 1.1702)
 
 <br />
 
