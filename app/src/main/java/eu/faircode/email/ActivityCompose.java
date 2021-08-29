@@ -71,7 +71,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            if (!isShared(getIntent().getAction())) {
+            String action = getIntent().getAction();
+            if (!isShared(action) &&
+                    (action == null || !action.startsWith("widget:"))) {
                 Intent parent = getParentActivityIntent();
                 if (parent != null)
                     if (shouldUpRecreateTask(parent))

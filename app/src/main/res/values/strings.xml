@@ -1696,6 +1696,7 @@
     <string name="title_widget_font_size">Text size</string>
     <string name="title_widget_padding">Padding size</string>
     <string name="title_widget_semi_transparent">Semi transparent background</string>
+    <string name="title_widget_compose">Show compose new message button</string>
     <string name="title_widget_background">Background color</string>
 
     <string name="title_accessibility_collapsed">Collapsed</string>

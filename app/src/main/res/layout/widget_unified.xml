@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/widget"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,16 +9,33 @@
     android:paddingStart="6dp"
     android:paddingEnd="6dp">
 
-    <TextView
-        android:id="@+id/title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="6dp"
-        android:text="@string/title_widget_title_list"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorWidgetForeground"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/title_widget_title_list"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWidgetForeground"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/compose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:contentDescription="@string/title_compose"
+            android:padding="6dp"
+            android:src="@drawable/twotone_edit_24"
+            app:tint="@color/colorWidgetForeground" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/separator"
