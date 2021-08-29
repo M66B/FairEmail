@@ -61,6 +61,7 @@ import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.text.Html;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -915,6 +916,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibKeywords.setOnClickListener(this);
                 ibCopy.setOnClickListener(this);
                 ibMove.setOnClickListener(this);
+                ibMove.setOnLongClickListener(this);
                 ibArchive.setOnClickListener(this);
                 ibTrash.setOnClickListener(this);
                 ibTrash.setOnLongClickListener(this);
@@ -928,6 +930,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrashBottom.setOnLongClickListener(this);
                 ibArchiveBottom.setOnClickListener(this);
                 ibMoveBottom.setOnClickListener(this);
+                ibMoveBottom.setOnLongClickListener(this);
                 ibSeenBottom.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(touchListener);
@@ -1006,6 +1009,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibKeywords.setOnClickListener(null);
                 ibCopy.setOnClickListener(null);
                 ibMove.setOnClickListener(null);
+                ibMove.setOnClickListener(null);
                 ibArchive.setOnClickListener(null);
                 ibTrash.setOnClickListener(null);
                 ibTrash.setOnLongClickListener(null);
@@ -1019,6 +1023,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrashBottom.setOnLongClickListener(null);
                 ibArchiveBottom.setOnClickListener(null);
                 ibMoveBottom.setOnClickListener(null);
+                ibMoveBottom.setOnLongClickListener(null);
                 ibSeenBottom.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
@@ -3521,6 +3526,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else if (id == R.id.ibFull) {
                 onActionOpenFull(message);
                 return true;
+            } else if (id == R.id.ibMove) {
+                onActionMoveAccount(message, ibMove);
+                return true;
+            } else if (id == R.id.ibMoveBottom) {
+                onActionMoveAccount(message, ibMoveBottom);
+                return true;
             } else if (id == R.id.ibTrash || id == R.id.ibTrashBottom) {
                 if (EntityFolder.OUTBOX.equals(message.folderType))
                     return false;
@@ -4410,10 +4421,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionMove(TupleMessageEx message, final boolean copy) {
+            onActionMove(message, copy, message.account, new long[]{message.folder});
+        }
+
+        private void onActionMove(TupleMessageEx message, final boolean copy, long account, long[] disabled) {
             Bundle args = new Bundle();
             args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
-            args.putLong("account", message.account);
-            args.putLongArray("disabled", new long[]{message.folder});
+            args.putLong("account", account);
+            args.putLongArray("disabled", disabled);
             args.putLong("message", message.id);
             args.putBoolean("copy", copy);
             args.putBoolean("similar", false);
@@ -4422,6 +4437,57 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
             fragment.show(parentFragment.getParentFragmentManager(), "message:move");
+        }
+
+        private void onActionMoveAccount(TupleMessageEx message, View anchor) {
+            Bundle args = new Bundle();
+
+            new SimpleTask<List<EntityAccount>>() {
+                @Override
+                protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    return db.account().getSynchronizingAccounts();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                    if (accounts == null)
+                        return;
+
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+
+                    int order = 0;
+                    for (EntityAccount account : accounts) {
+                        String title = context.getString(R.string.title_move_to_account, account.name);
+                        SpannableString ss = new SpannableString(title);
+                        if (account.name != null && account.color != null) {
+                            int i = title.indexOf(account.name);
+                            int first = title.codePointAt(i);
+                            int count = Character.charCount(first);
+                            ss.setSpan(new ForegroundColorSpan(account.color), i, i + count, 0);
+                        }
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_account, order++, ss)
+                                .setIntent(new Intent().putExtra("account", account.id));
+                    }
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            long account = item.getIntent().getLongExtra("account", -1);
+                            long[] disabled = (message.account.equals(account) ? new long[]{account} : new long[]{});
+                            onActionMove(message, false, account, disabled);
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:amove");
         }
 
         private void onActionArchive(TupleMessageEx message) {
