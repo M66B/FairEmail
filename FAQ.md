@@ -56,7 +56,7 @@ Related questions:
 ## How to ...?
 
 * Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
+* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions (*)
 * Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
@@ -72,6 +72,8 @@ Related questions:
 * Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
+
+(*) Swipe actions for individual and POP3 accounts can be configured in the account setting: Settings, tap Manual setup, tap Accounts, tap account
 
 <h2><a name="known-problems"></a>Known problem</h2>
 
