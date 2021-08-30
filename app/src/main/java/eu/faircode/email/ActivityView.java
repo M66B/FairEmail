@@ -103,7 +103,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private View content_separator;
     private View content_pane;
 
-    private TwoStateOwner owner = new TwoStateOwner("drawer");
+    private TwoStateOwner owner;
     private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NestedScrollView drawerContainer;
@@ -238,6 +238,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             content_separator.getLayoutParams().width = Helper.dp2pixels(this, 34);
         }
 
+        owner = new TwoStateOwner(this, "drawer");
         drawerLayout = findViewById(R.id.drawer_layout);
 
         final ViewGroup childContent = (ViewGroup) drawerLayout.getChildAt(0);
