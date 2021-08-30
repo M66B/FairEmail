@@ -1842,6 +1842,16 @@ public class Log {
             sb.append("\r\n");
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            try {
+                Map<String, String> stats = Debug.getRuntimeStats();
+                for (String key : stats.keySet())
+                    sb.append(key).append('=').append(stats.get(key)).append("\r\n");
+                sb.append("\r\n");
+            } catch (Throwable ex) {
+                sb.append(ex.toString()).append("\r\n");
+            }
+
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
         sb.append(String.format("Now: %s\r\n", new Date()));
 
