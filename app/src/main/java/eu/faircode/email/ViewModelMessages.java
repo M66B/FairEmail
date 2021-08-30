@@ -90,12 +90,12 @@ public class ViewModelMessages extends ViewModel {
                 viewType, type, account, folder,
                 thread, id, threading,
                 filter_archive, criteria, server);
-        Log.d("Get model=" + viewType + " " + args);
+        Log.i("Get model=" + viewType + " " + args);
         dump();
 
         Model model = models.get(viewType);
         if (model == null || !model.args.equals(args)) {
-            Log.d("Creating model=" + viewType + " replace=" + (model != null));
+            Log.i("Creating model=" + viewType + " replace=" + (model != null));
 
             if (model != null)
                 model.list.removeObservers(owner);
@@ -209,16 +209,16 @@ public class ViewModelMessages extends ViewModel {
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                Log.d("Destroy model=" + viewType);
+                Log.i("Destroy model=" + viewType);
 
                 Model model = models.get(viewType);
                 if (model != null) {
-                    Log.d("Remove observer model=" + viewType);
+                    Log.i("Remove observer model=" + viewType);
                     model.list.removeObservers(owner);
                 }
 
                 if (viewType == AdapterMessage.ViewType.THREAD) {
-                    Log.d("Remove model=" + viewType);
+                    Log.i("Remove model=" + viewType);
                     models.remove(viewType);
                 }
 
@@ -234,10 +234,10 @@ public class ViewModelMessages extends ViewModel {
 
         if (viewType != AdapterMessage.ViewType.THREAD) {
             last = viewType;
-            Log.d("Last model=" + last);
+            Log.i("Last model=" + last);
         }
 
-        Log.d("Returning model=" + viewType);
+        Log.i("Returning model=" + viewType);
         dump();
 
         return model;
@@ -555,7 +555,7 @@ public class ViewModelMessages extends ViewModel {
     }
 
     private void dump() {
-        Log.d("Current models=" + TextUtils.join(", ", models.keySet()));
+        Log.i("Current models=" + TextUtils.join(", ", models.keySet()));
     }
 
     class Model {
