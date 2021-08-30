@@ -2465,9 +2465,9 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
+If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Beachten Sie, dass dies auch für Wearables gilt, die keinen Vorschautext anzeigen, selbst wenn die Android Wear App angibt, dass die Benachrichtigung gesendet (überbrückt) wurde.
 
-If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
+Wenn Sie den Vollnachrichtentext an Ihre Wearable senden möchten, können Sie die Benachrichtigungsoption *Vorschau des Textes* aktivieren. Beachten Sie, dass einige Wearables bekanntermaßen abstürzen, wenn diese Option aktiviert ist.
 
 If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
 

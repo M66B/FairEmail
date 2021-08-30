@@ -1501,6 +1501,7 @@
     <string name="title_widget_font_size">Mətn ölçüsü</string>
     <string name="title_widget_padding">Boşluğun ölçüsü</string>
     <string name="title_widget_semi_transparent">Yarışəffaf arxaplan</string>
+    <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>
     <string name="title_accessibility_collapsed">Yığcamlaşdırılan</string>
     <string name="title_accessibility_expanded">Genişləndirilən</string>

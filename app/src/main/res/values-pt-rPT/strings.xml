@@ -538,6 +538,7 @@
     <string name="title_debug_info_remark">Por favor descreva o problema e indique quando ocorreu:</string>
     <string name="title_power_menu_off">Desligado</string>
     <string name="title_widget_account_all">Todos</string>
+    <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_accessibility_seen">Lida</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">Pendente</string>

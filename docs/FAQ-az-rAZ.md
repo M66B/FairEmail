@@ -2082,13 +2082,13 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 <br />
 
 <a name="faq90"></a>
-**(90) Why are some texts linked while not being a link?**
+**(90) Niyə bəzi mətnlər bir bağlantı olmasa da, əlaqələndirilib?**
 
-FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
+FairEmail, rahatlığınız üçün əlaqə yaradılmamış veb bağlantılarını (http və https) və əlaqə yaradılmamış e-poçt ünvanlarını (mailto) avtomatik əlaqələndirir. Ancaq, mətnlər və bağlantılar asanlıqla fərqlənmir, xüsusən də [üst səviyyəli domenlərin](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) söz olduğu bir çox halda heç fərqlənmir. Buna görə də, nöqtəli mətnlər əksər hallarda yanlış olaraq bağlantı olaraq tanınır, bu da bəzi bağlantıları tanımamaqdan daha yaxşıdır.
 
-Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+tel, geo, rtsp və xmpp protokolları üçün bağlantılar tanınacaq, ancaq telnet və ftp kimi daha az adi və daha az güvənli protokollar üçün üçün tanınmayacaq. Bağlantıları tanımaq üçün normal ifadə, onsuz da *çox* mürəkkəbdir və daha çox protokolun əlavə edilməsi onu sadəcə yavaşladacaq və mümkün xətalara səbəb olacaq.
 
-Note that original messages are shown exactly as they are, which means also that links are not automatically added.
+Orijinal mesajların tam da olduğu kimi göstərildiyinə diqqət edin. Bu da, bağlantıların avtomatik əlavə edilmədiyini bildirir.
 
 <br />
 

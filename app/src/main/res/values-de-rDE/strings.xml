@@ -294,7 +294,7 @@
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für „Antworten” bzw. „Weiterleiten”</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
-    <string name="title_advanced_attach_new">Dateien als Anhang zu einem neuen Entwurf hinzufügen</string>
+    <string name="title_advanced_attach_new">Dateien als Anhang immer zu einem neuen (statt zu einem bestehenden) Mail-Entwurf hinzufügen</string>
     <string name="title_advanced_reply_all">Schaltfläche „Antworten” länger gedrückt halten, um allen zu antworten</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
@@ -1504,6 +1504,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_font_size">Schriftgröße</string>
     <string name="title_widget_padding">Abstand zwischen den Texten</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
+    <string name="title_widget_compose">Schaltfläche „Neue Nachricht verfassen” anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>
     <string name="title_accessibility_collapsed">Eingeklappt</string>
     <string name="title_accessibility_expanded">Erweitert</string>

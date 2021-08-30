@@ -912,6 +912,10 @@
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>
     <string name="title_receipt_text">Questa conferma di lettura riconosce solo che il messaggio è stato visualizzato. Non esiste garanzia che il destinatario ne abbia letti i contenuti.</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
+    <string name="title_no_viewer_caption">Nessun\'app di visualizzazione disponibile</string>
+    <string name="title_no_viewer_name">Nome del contenuto</string>
+    <string name="title_no_viewer_type">Tipo di contenuto</string>
+    <string name="title_no_viewer_search">Cerca app</string>
     <string name="title_no_recorder">Nessun\'app di registrazione audio adatta disponibile</string>
     <string name="title_no_camera">Nessun\'app fotocamera adatta</string>
     <string name="title_no_saf">Framework di accesso all\'archiviazione non disponibile</string>
@@ -1498,6 +1502,7 @@
     <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
+    <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>
     <string name="title_widget_background">Colore di sfondo</string>
     <string name="title_accessibility_collapsed">Compresso</string>
     <string name="title_accessibility_expanded">Espanso</string>

@@ -368,67 +368,67 @@ Android 8 Oreo ayrıca * Uygulamalar arka planda çalışıyor * metniyle bir du
 
 Bazı kişiler, durum çubuğu bildirimi olan bir Android hizmeti yerine [ Firebase Bulut Mesajlaşma ](https://firebase.google.com/docs/cloud-messaging/) (FCM) kullanılmasını önerdi, ancak bu, e-posta sağlayıcılarının FCM mesajları göndermesini veya FCM mesajları göndererek tüm mesajların toplandığı merkezi bir sunucuyu gerektirir. Birincisi gerçekleşmeyecek ve sonuncusu önemli mahremiyet etkilerine sahip olacaktır.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Buraya bildirime tıklayarak geldiyseniz, bir sonraki tıklamanın birleşik gelen kutusunu açacağını bilmelisiniz.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) İşlemler nelerdir ve neden beklemedeler?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Düşük öncelikli durum çubuğu bildirimi, bekleyen işlemlerin sayısını gösterir; bunlar şunlar olabilir:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
-* *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
-* *keyword*: add/remove IMAP flag in remote folder
-* *label*: set/reset Gmail label in remote folder
-* *headers*: download message headers
-* *raw*: download raw message
-* *body*: download message text
-* *attachment*: download attachment
-* *sync*: synchronize local and remote messages
-* *subscribe*: subscribe to remote folder
-* *purge*: delete all messages from remote folder
-* *send*: send message
-* *exists*: check if message exists
-* *rule*: execute rule on body text
-* *expunge*: permanently delete messages
+* *ekle*: uzak klasöre mesaj ekle
+* *taşı*: mesajı başka bir uzak klasöre taşı
+* *kopyala*: mesajı başka bir uzak klasöre kopyala
+* *getir*: değiştirilen (gönderilen) mesajı al
+* *sil*: uzak klasörden mesajı sil
+* *görüldü*: uzak klasörde mesajı okundu/okunmadı olarak işaretle
+* *cevaplandı*: mesajı uzak klasörde cevaplandı olarak işaretle
+* *bayrak*: uzak klasöre yıldız ekle/kaldır
+* *anahtar kelime*: uzak klasöre IMAP bayrağı ekle/kaldır
+* *etiket*: uzak klasörde Gmail etiketini ayarla/sıfırla
+* *başlıklar*: mesaj üstbilgilerini indir
+* *ham*: ham mesajı indir
+* *gövde*: mesaj metnini indir
+* *ek*: eki indir
+* *senkronize et*: yerel ve uzak mesajları senkronize edin
+* *abone ol*: uzak klasöre abone ol
+* *temizleme*: uzak klasördeki tüm mesajları sil
+* *gönder*: mesaj gönder
+* *var*: mesajın var olup olmadığını kontrol edin
+* *kural*: gövde metninde kuralı yürüt
+* *silme*: iletileri kalıcı olarak sil
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+İşlemler yalnızca e-posta sunucusuna bağlantı olduğunda veya manuel olarak eşitleme yapıldığında işlenir. Ayrıca [bu SSS](#user-content-faq16)'e bakın.
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Geçersiz bir güvenlik sertifikasını / boş şifreyi / düz metin bağlantısını nasıl kullanabilirim?**
 
-*... Untrusted ... not in certificate ...*
+*... Güvenilmeyen ... sertifikada değil ...*
 
 <br />
 
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Geçersiz güvenlik sertifikası (Sunucunun kimliği doğrulanamıyor) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
+Bunun nedeni yanlış bir ana bilgisayar adı kullanılması olabilir, bu nedenle önce gelişmiş kimlik/hesap ayarlarında ana bilgisayar adını iki kez kontrol edin (Manuel kurulum'a dokunun). Lütfen doğru ana bilgisayar adı hakkında e-posta sağlayıcısının belgelerine bakın.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Sağlayıcınızla iletişime geçerek veya geçerli bir güvenlik sertifikası alarak bunu düzeltmeye çalışmalısınız. çünkü geçersiz güvenlik sertifikaları güvensizdir ve [ortadaki adam saldırılarına](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) izin verir. Para bir engelse, [Let's Encrypt](https://letsencrypt.org)'ten ücretsiz güvenlik sertifikaları alabilirsiniz.
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
+Hızlı ancak güvenli olmayan çözüm (önerilmez), gelişmiş kimlik ayarlarında *Güvenli olmayan bağlantıları* etkinleştirmektir. (gezinme menüsü, *Ayarlar*'a dokunun, *Manuel kurulum*'a dokunun, *Identiti'ye dokunun).</p> 
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternatif olarak, aşağıdaki gibi geçersiz sunucu sertifikalarının parmak izini kabul edebilirsiniz:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Güvenilir bir internet bağlantısı kullandığınızdan emin olun (herkese açık Wi-Fi ağları vb. yok)
+1. Navigasyon menüsü aracılığıyla kurulum ekranına gidin (soldan içe doğru kaydırın)
+1. Manuel kurulum'a dokunun, Hesaplar/Kimlikler'e dokunun ve hatalı hesap ve kimliğe dokunun
+1. Hesabı ve kimliği kontrol edin/kaydedin
+1. Hata mesajının altındaki onay kutusunu işaretleyin ve tekrar kaydedin
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Bu, ortadaki adam saldırılarını önlemek için sunucu sertifikasını "sabitleyecektir".
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Eski Android sürümlerinin, bağlantıların güvensiz olarak değerlendirilmesine neden olan Let's Encrypt gibi daha yeni sertifika yetkililerini tanımayabileceğini unutmayın. ayrıca [buraya](https://developer.android.com/training/articles/security-ssl) bakın.
 
 <br />
 

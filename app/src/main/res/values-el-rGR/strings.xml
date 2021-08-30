@@ -1500,6 +1500,7 @@
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>
+    <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>
     <string name="title_accessibility_collapsed">Συνεπτυγμένο</string>
     <string name="title_accessibility_expanded">Ανεπτυγμένο</string>

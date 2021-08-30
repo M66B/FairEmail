@@ -1491,6 +1491,7 @@
     <string name="title_widget_font_size">文字大小</string>
     <string name="title_widget_padding">填充大小</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
+    <string name="title_widget_compose">顯示撰寫新訊息按鈕</string>
     <string name="title_widget_background">背景顏色</string>
     <string name="title_accessibility_collapsed">已摺疊</string>
     <string name="title_accessibility_expanded">已展開</string>

@@ -1502,6 +1502,7 @@
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Taille de l\'espacement des messages</string>
     <string name="title_widget_semi_transparent">Arrière-plan semi-transparent</string>
+    <string name="title_widget_compose">Afficher le bouton Rédiger un nouveau message</string>
     <string name="title_widget_background">Couleur d\'arrière-plan</string>
     <string name="title_accessibility_collapsed">Réduit</string>
     <string name="title_accessibility_expanded">Développé</string>

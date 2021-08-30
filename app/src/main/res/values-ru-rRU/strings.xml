@@ -312,7 +312,7 @@
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
-    <string name="title_advanced_attach_new">Прикреплять общие файлы к новому черновику</string>
+    <string name="title_advanced_attach_new">Создавать новый черновик для файлов, которыми поделились</string>
     <string name="title_advanced_reply_all">Долгое нажатие на кнопку ответа, чтобы ответить всем</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
@@ -1522,6 +1522,7 @@
     <string name="title_widget_font_size">Размер текста</string>
     <string name="title_widget_padding">Размер отступа</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
+    <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>
     <string name="title_accessibility_collapsed">Свёрнуто</string>
     <string name="title_accessibility_expanded">Развёрнуто</string>

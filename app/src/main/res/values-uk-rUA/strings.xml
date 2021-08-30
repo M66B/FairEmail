@@ -1519,6 +1519,7 @@
     <string name="title_widget_font_size">Розмір тексту</string>
     <string name="title_widget_padding">Розмір відступів</string>
     <string name="title_widget_semi_transparent">Напівпрозорий фон</string>
+    <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>
     <string name="title_accessibility_collapsed">Згорнуто</string>
     <string name="title_accessibility_expanded">Розгорнуто</string>

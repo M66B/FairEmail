@@ -292,6 +292,7 @@
     <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
+    <string name="title_advanced_attach_new">Yeni bir taslağa paylaşılan dosyalar ekleyin</string>
     <string name="title_advanced_reply_all">Tümünü yanıtlamak için yanıtla düğmesine uzun basın</string>
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
@@ -910,6 +911,10 @@
     <string name="title_receipt_subject">Okundu bilgisi:%1$s</string>
     <string name="title_receipt_text">Bu okundu bilgisi yalnızca iletinin görüntülendiğini onaylar. Alıcının ileti içeriğini okuduğu garanti edilmez.</string>
     <string name="title_no_answers">Tanımlanmış yanıt kalıbı yok</string>
+    <string name="title_no_viewer_caption">Görüntüleyici uygulaması yok</string>
+    <string name="title_no_viewer_name">İçerik adı</string>
+    <string name="title_no_viewer_type">İçerik türü</string>
+    <string name="title_no_viewer_search">Uygulama ara</string>
     <string name="title_no_recorder">Uygun bir ses kaydedici uygulaması yok</string>
     <string name="title_no_camera">Uygun bir kamera uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
