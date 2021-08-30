@@ -1201,11 +1201,16 @@ public class Helper {
     }
 
     private static String humanReadableByteCount(long bytes, boolean si) {
-        int unit = si ? 1000 : 1024;
-        if (bytes < unit) return bytes + " B";
+        int sign = (int) Math.signum(bytes);
+        bytes = Math.abs(bytes);
+
+        int unit = (si ? 1000 : 1024);
+        if (bytes < unit)
+            return sign * bytes + " B";
+
         int exp = (int) (Math.log(bytes) / Math.log(unit));
         String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
-        return df.format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
+        return df.format(sign * bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
     static boolean isPrintableChar(char c) {
