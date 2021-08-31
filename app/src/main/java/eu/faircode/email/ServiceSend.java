@@ -68,8 +68,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private Network lastActive = null;
     private boolean lastSuitable = false;
 
+    private TwoStateOwner owner;
     private PowerManager.WakeLock wlOutbox;
-    private TwoStateOwner owner = new TwoStateOwner("send");
     private List<Long> handling = new ArrayList<>();
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
@@ -85,6 +85,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         super.onCreate();
         startForeground(NotificationHelper.NOTIFICATION_SEND,
                 getNotificationService().build());
+
+        owner = new TwoStateOwner(this, "send");
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
