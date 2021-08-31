@@ -679,10 +679,9 @@ public class FragmentAccount extends FragmentBase {
                 String realm = args.getString("realm");
                 String fingerprint = args.getString("fingerprint");
 
-                if (host.contains(":")) {
-                    Uri h = Uri.parse(host);
-                    host = h.getHost();
-                }
+                int semi = host.indexOf(':');
+                if (semi > 0 && host.indexOf(':', semi + 1) < 0)
+                    host = host.substring(0, semi);
 
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
