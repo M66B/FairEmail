@@ -22,17 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvEncrypted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/title_setup_export_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword1"
             android:layout_width="0dp"
@@ -41,7 +30,7 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEncrypted">
+            app:layout_constraintTop_toBottomOf="@+id/tvCaption">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
