@@ -1299,4 +1299,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+      name="Mailo.com"
+      domain="mailo\..*,net-c\..*,netc\..*,netcourrier.com,netcmail.com"
+      enabled="true">
+      <imap
+           host="mail.mailo.com"
+           port="993"
+           starttls="false" />
+      <smtp
+           host="mail.mailo.com"
+           port="465"
+           starttls="false" />
+    </provider>
 </providers>
