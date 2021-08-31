@@ -1938,7 +1938,7 @@ public class FragmentCompose extends FragmentBase {
                         if (!TextUtils.isEmpty(p.link))
                             ssb.append(p.link).append("\n\n");
 
-                        profiles.add(999, order, order++, p.name +
+                        profiles.add(999, profiles.size(), profiles.size() + 1, p.name +
                                 (p.appPassword ? "+" : ""))
                                 .setIntent(new Intent().putExtra("config", ssb));
                     }
