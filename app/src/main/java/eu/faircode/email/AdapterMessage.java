@@ -7007,7 +7007,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_manage, null);
             final RecyclerView rvKeyword = dview.findViewById(R.id.rvKeyword);
-            final TextView tvPro = dview.findViewById(R.id.tvPro);
             final FloatingActionButton fabAdd = dview.findViewById(R.id.fabAdd);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
@@ -7018,9 +7017,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final AdapterKeyword adapter = new AdapterKeyword(getContext(), getViewLifecycleOwner());
             rvKeyword.setAdapter(adapter);
 
-            Helper.linkPro(tvPro);
-
-            fabAdd.setEnabled(ActivityBilling.isPro(getContext()));
             fabAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

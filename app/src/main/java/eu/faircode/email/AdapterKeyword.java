@@ -54,7 +54,6 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
     private LifecycleOwner owner;
     private LayoutInflater inflater;
     private SharedPreferences prefs;
-    private boolean pro;
 
     private long id;
     private List<TupleKeyword> all = new ArrayList<>();
@@ -99,9 +98,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
         private void bindTo(TupleKeyword keyword) {
             cbKeyword.setText(getTitle(keyword.name));
             cbKeyword.setChecked(keyword.selected);
-            cbKeyword.setEnabled(pro);
             btnColor.setColor(keyword.color);
-            btnColor.setEnabled(pro);
             grpNotEdit.setVisibility(View.VISIBLE);
             grpEdit.setVisibility(View.GONE);
         }
@@ -242,7 +239,6 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
         this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.pro = ActivityBilling.isPro(context);
 
         setHasStableIds(false);
     }

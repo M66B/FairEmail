@@ -83,7 +83,6 @@ All pro features are convenience or advanced features.
 * Filter rules
 * Automatic message classification
 * Search indexing, search on server
-* Keyword management
 * S/MIME sign/encrypt
 * Biometric/PIN authentication
 * Message list widget
