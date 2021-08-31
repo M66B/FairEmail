@@ -432,41 +432,41 @@ Eski Android sürümlerinin, bağlantıların güvensiz olarak değerlendirilmes
 
 <br />
 
-*Trust anchor for certification path not found*
+*Sertifika yolu için güven bağlantısı bulunamadı*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+* ... java.security.cert.certpathvalidatorexception: Sertifika yolu için güven bağlantısı bulunamadı ... * varsayılan Android güven yöneticisinin sunucu sertifika zincirini doğrulayamadığı anlamına gelir.
 
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
+Bunun nedeni, cihazınızda yüklü olmayan kök sertifika olabilir. veya ara sertifikalar eksik olduğundan, örneğin e-posta sunucusu bunları göndermediğinden.
 
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
+İlk sorunu, kök sertifikayı sertifika sağlayıcısının web sitesinden indirip yükleyerek çözebilirsiniz.
 
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
+İkinci sorun, sunucu yapılandırmasını değiştirerek veya ara sertifikaları cihazınıza aktararak çözülmelidir.
 
-You can pin the certificate too, see above.
+Sertifikayı da sabitleyebilirsiniz, yukarıya bakın.
 
 <br />
 
 *Şifre boş*
 
-Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
+Kullanıcı adınız büyük olasılıkla kolayca tahmin edilebilir, bu nedenle SMTP sunucusu sınırlı bir yerel ağ veya yalnızca bir VPN aracılığıyla kullanılamıyorsa, bu oldukça güvensizdir.
 
-*Plain text connection*
+*Düz metin bağlantısı*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Kullanıcı adınız, şifreniz ve tüm mesajlar şifrelenmemiş olarak gönderilecek ve alınacaktır, bu da ** çok güvensiz ** çünkü şifrelenmemiş bir bağlantıda [ ortadaki adam saldırısı ](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) çok basittir.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Yine de geçersiz bir güvenlik sertifikası, boş bir parola veya düz metin bağlantısı kullanmak istiyorsanız hesap ve/veya kimlik ayarlarında güvenli olmayan bağlantıları etkinleştirmeniz gerekir. Düz metin bağlantıları için STARTTLS seçilmelidir. Güvenli olmayan bağlantıları etkinleştirirseniz, yalnızca özel, güvenilir ağlar aracılığıyla bağlanmalı ve asla otellerde, havaalanlarında vb. sunulan gibi genel ağlar aracılığıyla bağlanmamalısınız.
 
 <br />
 
 <a name="faq5"></a>
 **(5) Mesaj görünümünü nasıl özelleştirebilirim?**
 
-In the three dot overflow menu you can enable or disable or select:
+Üç noktalı taşma menüsünde etkinleştirebilir veya devre dışı bırakabilir veya şunları seçebilirsiniz:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* * metin boyutu *: üç farklı yazı tipi boyutu için
+* * kompakt görünüm *: daha yoğun mesaj öğeleri ve daha küçük bir mesaj metni yazı tipi için
 
-In the display section of the settings you can enable or disable for example:
+Ayarların görüntüleme bölümünde örneğin etkinleştirebilir veya devre dışı bırakabilirsiniz:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
 * *Tabular style*: to show a linear list instead of cards
