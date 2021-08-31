@@ -3053,19 +3053,11 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
 
-                Intent result;
-                if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction()) && identity.sign_key != null) {
-                    // Short circuit
-                    result = data;
-                    result.putExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_SUCCESS);
-                    result.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
-                } else {
-                    // Call OpenPGP
-                    Log.i("Executing " + data.getAction());
-                    Log.logExtras(data);
-                    OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                    result = api.executeApi(data, new FileInputStream(input), new FileOutputStream(output));
-                }
+                // Call OpenPGP
+                Log.i("Executing " + data.getAction());
+                Log.logExtras(data);
+                OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                Intent result = api.executeApi(data, new FileInputStream(input), new FileOutputStream(output));
 
                 // Process result
                 try {
