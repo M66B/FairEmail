@@ -103,6 +103,7 @@ public class FragmentFolders extends FragmentBase {
     private boolean compact;
 
     private long account;
+    private boolean unified = false;
     private boolean imap = false;
     private boolean primary;
     private boolean show_hidden = false;
@@ -126,6 +127,7 @@ public class FragmentFolders extends FragmentBase {
         // Get arguments
         Bundle args = getArguments();
         account = args.getLong("account", -1);
+        unified = args.getBoolean("unified");
         primary = args.getBoolean("primary");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -205,7 +207,7 @@ public class FragmentFolders extends FragmentBase {
             rvFolder.addItemDecoration(itemDecorator);
         }
 
-        adapter = new AdapterFolder(this, account, primary, compact, show_hidden, show_flagged, null);
+        adapter = new AdapterFolder(this, account, unified, primary, compact, show_hidden, show_flagged, null);
         rvFolder.setAdapter(adapter);
 
         fabAdd.setOnClickListener(new View.OnClickListener() {

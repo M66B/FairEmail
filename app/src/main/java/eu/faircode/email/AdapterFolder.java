@@ -80,6 +80,7 @@ import java.util.Map;
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Fragment parentFragment;
     private long account;
+    private boolean unified;
     private boolean primary;
     private boolean show_compact;
     private boolean show_hidden;
@@ -220,7 +221,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
             if (listener == null) {
-                vwColor.setBackgroundColor(folder.color == null ? Color.TRANSPARENT : folder.color);
+                Integer color =
+                        (folder.color == null && unified && EntityFolder.INBOX.equals(folder.type)
+                                ? folder.accountColor : folder.color);
+                vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
                 vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
 
                 if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
@@ -1097,13 +1101,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Fragment parentFragment, long account, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
-        this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, primary, show_compact, show_hidden, show_flagged, listener);
+    AdapterFolder(Fragment parentFragment, long account, boolean unified, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
+        this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, unified, primary, show_compact, show_hidden, show_flagged, listener);
         this.parentFragment = parentFragment;
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
+    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean unified, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
         this.account = account;
+        this.unified = unified;
         this.primary = primary;
         this.show_compact = show_compact;
         this.show_hidden = show_hidden;

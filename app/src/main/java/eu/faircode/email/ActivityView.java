@@ -568,6 +568,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             case "folders":
                 fragment = new FragmentFolders();
                 args.putLong("account", account);
+                args.putBoolean("unified", true);
                 break;
             case "primary":
                 fragment = new FragmentFolders();

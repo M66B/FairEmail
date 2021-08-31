@@ -37,7 +37,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT message.id) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
@@ -76,7 +76,7 @@ public interface DaoFolder {
     @Transaction
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
@@ -99,7 +99,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT message.id) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
@@ -137,7 +137,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.state AS accountState" +
+            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT message.id) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
