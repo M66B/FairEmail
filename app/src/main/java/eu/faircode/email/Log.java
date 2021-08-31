@@ -420,6 +420,8 @@ public class Log {
                         event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
                         event.addMetadata("extra", "memory_free", getFreeMemMb());
                         event.addMetadata("extra", "memory_available", getAvailableMb());
+                        event.addMetadata("extra", "native_allocated", Debug.getNativeHeapAllocatedSize() / 1024L / 1024L);
+                        event.addMetadata("extra", "native_size", Debug.getNativeHeapSize() / 1024L / 1024L);
 
                         Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
                         event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
@@ -1710,10 +1712,11 @@ public class Log {
                 Helper.humanReadableByteCount(storage_used)));
 
         Runtime rt = Runtime.getRuntime();
-        long hused = (rt.totalMemory() - rt.freeMemory()) / 1024L;
-        long hmax = rt.maxMemory() / 1024L;
-        long nheap = Debug.getNativeHeapAllocatedSize() / 1024L;
-        sb.append(String.format("Heap usage: %s/%s KiB native: %s KiB\r\n", hused, hmax, nheap));
+        long hused = (rt.totalMemory() - rt.freeMemory()) / 1024L / 1024L;
+        long hmax = rt.maxMemory() / 1024L / 1024L;
+        long nheap = Debug.getNativeHeapAllocatedSize() / 1024L / 1024L;
+        long nsize = Debug.getNativeHeapSize() / 1024 / 1024L;
+        sb.append(String.format("Heap usage: %d/%d MiB native: %d/%d MiB\r\n", hused, hmax, nheap, nsize));
 
         Configuration config = context.getResources().getConfiguration();
         String size;
