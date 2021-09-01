@@ -27,6 +27,16 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:contentDescription="@string/tile_synchronize"
+            android:padding="6dp"
+            android:src="@drawable/twotone_sync_24"
+            app:tint="@color/colorWidgetForeground" />
+
+        <ImageView
             android:id="@+id/compose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

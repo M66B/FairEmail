@@ -25,6 +25,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.RemoteInput;
@@ -35,6 +37,7 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -57,6 +60,8 @@ public class ServiceUI extends IntentService {
     static final int PI_SNOOZE = 10;
     static final int PI_IGNORED = 11;
     static final int PI_THREAD = 12;
+
+    private static final long WIDGET_SYNC_DURATION = 1500L;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -158,7 +163,11 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "sync":
-                    onSync(id);
+                    onSync(id, -1L);
+                    break;
+
+                case "widget":
+                    onWidget(intent, (int) id);
                     break;
 
                 case "exists":
@@ -456,14 +465,18 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onSync(long aid) {
+    private void onSync(long aid, long fid) {
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
 
             List<EntityAccount> accounts = db.account().getPollAccounts(aid < 0 ? null : aid);
             for (EntityAccount account : accounts) {
-                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                List<EntityFolder> folders;
+                if (fid < 0)
+                    folders = db.folder().getSynchronizingFolders(account.id);
+                else
+                    folders = Arrays.asList(db.folder().getFolder(fid));
                 if (folders.size() > 0)
                     Collections.sort(folders, folders.get(0).getComparator(this));
                 for (EntityFolder folder : folders)
@@ -474,6 +487,29 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+    }
+
+    private void onWidget(Intent intent, int appWidgetId) {
+        long aid = intent.getLongExtra("account", -1L);
+        long fid = intent.getLongExtra("folder", -1L);
+        onSync(aid, fid);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String key = "widget." + appWidgetId + ".sync";
+        prefs.edit().putLong(key, new Date().getTime() + WIDGET_SYNC_DURATION).apply();
+        WidgetUnified.init(this, appWidgetId);
+
+        ApplicationEx.getMainHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    prefs.edit().remove(key).apply();
+                    WidgetUnified.init(ServiceUI.this, appWidgetId);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        }, WIDGET_SYNC_DURATION);
     }
 
     static void sync(Context context, Long account) {
