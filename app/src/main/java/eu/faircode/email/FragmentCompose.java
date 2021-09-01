@@ -5040,27 +5040,39 @@ public class FragmentCompose extends FragmentBase {
                         getActivity().invalidateOptionsMenu();
 
                         Log.i("Draft content=" + draft.content);
-                        if (draft.content && state == State.NONE)
-                            showDraft(draft);
+                        if (draft.content && state == State.NONE) {
+                            Runnable postShow = null;
+                            if (args.containsKey("images")) {
+                                ArrayList<Uri> images = args.getParcelableArrayList("images");
+                                args.remove("images"); // once
 
-                        if (args.containsKey("images")) {
-                            ArrayList<Uri> images = args.getParcelableArrayList("images");
-                            args.remove("images"); // once
+                                postShow = new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
 
-                            boolean image_dialog = prefs.getBoolean("image_dialog", true);
-                            if (image_dialog) {
-                                Helper.hideKeyboard(view);
+                                            boolean image_dialog = prefs.getBoolean("image_dialog", true);
+                                            if (image_dialog) {
+                                                Helper.hideKeyboard(view);
 
-                                Bundle aargs = new Bundle();
-                                aargs.putInt("title", android.R.string.ok);
-                                aargs.putParcelableArrayList("images", images);
+                                                Bundle aargs = new Bundle();
+                                                aargs.putInt("title", android.R.string.ok);
+                                                aargs.putParcelableArrayList("images", images);
 
-                                FragmentDialogAddImage fragment = new FragmentDialogAddImage();
-                                fragment.setArguments(aargs);
-                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
-                                fragment.show(getParentFragmentManager(), "compose:shared");
-                            } else
-                                onAddImageFile(images);
+                                                FragmentDialogAddImage fragment = new FragmentDialogAddImage();
+                                                fragment.setArguments(aargs);
+                                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
+                                                fragment.show(getParentFragmentManager(), "compose:shared");
+                                            } else
+                                                onAddImageFile(images);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
+                                    }
+                                };
+                            }
+
+                            showDraft(draft, postShow);
                         }
 
                         tvDsn.setVisibility(
@@ -5815,7 +5827,7 @@ public class FragmentCompose extends FragmentBase {
             Bundle extras = args.getBundle("extras");
             boolean show = extras.getBoolean("show");
             if (show)
-                showDraft(draft);
+                showDraft(draft, null);
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
@@ -5836,7 +5848,7 @@ public class FragmentCompose extends FragmentBase {
                 finish();
 
             } else if (action == R.id.action_undo || action == R.id.action_redo) {
-                showDraft(draft);
+                showDraft(draft, null);
 
             } else if (action == R.id.action_save) {
                 boolean autosave = extras.getBoolean("autosave");
@@ -5995,7 +6007,7 @@ public class FragmentCompose extends FragmentBase {
                 ref.first().before(div);
     }
 
-    private void showDraft(final EntityMessage draft) {
+    private void showDraft(final EntityMessage draft, Runnable postShow) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
@@ -6130,7 +6142,9 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                setFocus(null, -1, -1, true);
+                setFocus(null, -1, -1, postShow == null);
+                if (postShow != null)
+                    getMainHandler().post(postShow);
             }
 
             @Override
