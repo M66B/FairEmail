@@ -2227,16 +2227,16 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 <a name="faq101"></a>
 **(101) Danışıqların altındakı mavi/narıncı nöqtənin mənası nədir?**
 
-Nöqtə, mesaj siyahısında danışığın əlaqəli mövqeyini göstərir. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+Nöqtə, mesaj siyahısında danışığın əlaqəli mövqeyini göstərir. Danışıq, mesaj siyahısında ilk və ya son olduqda nöqtə narıncı olacaq, əks təqdirdə mavi olacaq. Nöqtə, əvvəlki/sonrakı danışığa getmək üçün sola/sağa sürüşdürərkən kömək etdiyi mənasını verir.
 
-The dot is disabled by default and can be enabled with the display settings *Show relative conversation position with a dot*.
+Nöqtə, ilkin olaraq sıradan çıxarılıb və görüntü tənzimləmələrində *"Bir nöqtə ilə əlaqəli danışıq mövqeyini göstər"i* açaraq nöqtəni fəallaşdıra bilərsiniz.
 
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Təsvirlərin avto-döndərilməsini necə fəallaşdıra bilərəm?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). Ancaq, avtomatik döndərmə [Exif](https://en.wikipedia.org/wiki/Exif) məlumatlarının mövcud və doğru olmasından asılıdır, ki bu da həmişə belədir. Xüsusilə də, FairEmail-dən bir kamera tətbiqi ilə bir foto çəkərkən yox.
+Tənzimləmələrdə təsvirlərin avtomatik olaraq yenidən ölçüləndirilməsi fəal olanda (ilkin olaraq fəaldır), təsvirlər, avtomatik olaraq döndəriləcək. Ancaq, avtomatik döndərmə [Exif](https://en.wikipedia.org/wiki/Exif) məlumatlarının mövcud və doğru olmasından asılıdır, ki bu da həmişə belədir. Xüsusilə də, FairEmail-dən bir kamera tətbiqi ilə bir foto çəkərkən yox.
 
 Unutmayın ki, yalnız [JPEG](https://en.wikipedia.org/wiki/JPEG) və [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) formatlı təsvirlər, Exif məlumatları ehtiva edə bilər.
 

@@ -469,6 +469,7 @@
     <string name="title_folder_all">Arhiv</string>
     <string name="title_folder_trash">Otpad</string>
     <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_system">Sistemski</string>
     <string name="title_hide">Sakrij</string>
     <string name="title_raw_send_message">Poruka</string>
     <string name="title_raw_send_thread">Konverzacija</string>
@@ -476,9 +477,15 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Premjesti</string>
     <string name="title_archive">Arhiv</string>
+    <string name="title_reply">Odgovori</string>
+    <string name="title_ask_reporting">Pošalji izvještaj o greški?</string>
     <string name="title_compose">Napiši</string>
+    <string name="title_language">Jezik:</string>
     <string name="title_send">Slanje</string>
     <string name="title_send_encryption">Šifriranje</string>
+    <string name="title_style_list">Spisak</string>
+    <string name="title_search_more">Više opcija</string>
+    <string name="title_filter_seen">Pročitano</string>
     <string name="title_rule_hide">Sakrij</string>
     <string name="title_rule_snooze">Odgodi</string>
     <string name="title_rule_move">Premjesti</string>
@@ -492,10 +499,13 @@
     <string name="title_legend_thread">Konverzacija</string>
     <string name="title_legend_a">Arhiv</string>
     <string name="title_legend_c">Napiši</string>
+    <string name="title_legend_r">Odgovori</string>
     <string name="title_enable">Uključi</string>
     <string name="title_disable">Isključi</string>
     <string name="title_snooze_now">Odgodi</string>
+    <string name="title_accessibility_seen">Pročitano</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label4">Za uraditi</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
