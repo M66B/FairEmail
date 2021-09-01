@@ -1171,43 +1171,25 @@ public class Helper {
     }
 
     static void showKeyboard(final View view) {
-        Context context = view.getContext();
+        final Context context = view.getContext();
         InputMethodManager imm =
                 (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (imm == null)
             return;
 
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Log.i("showKeyboard view=" + view);
-                    imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
+        Log.i("showKeyboard view=" + view);
+        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
     }
 
     static void hideKeyboard(final View view) {
-        Context context = view.getContext();
+        final Context context = view.getContext();
         InputMethodManager imm =
                 (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (imm == null)
             return;
 
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Log.i("hideKeyboard view=" + view);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
+        Log.i("hideKeyboard view=" + view);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     // Formatting
