@@ -1492,6 +1492,7 @@
     <string name="title_widget_font_size">Tekststørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
+    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>
     <string name="title_widget_background">Baggrundsfarve</string>
     <string name="title_accessibility_collapsed">Sammenfoldet</string>

@@ -1512,6 +1512,7 @@
     <string name="title_widget_font_size">Mărime text</string>
     <string name="title_widget_padding">Mărime spațiu liber</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>
+    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>
     <string name="title_accessibility_collapsed">Restrâns</string>
