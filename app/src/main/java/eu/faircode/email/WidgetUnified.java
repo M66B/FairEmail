@@ -101,9 +101,12 @@ public class WidgetUnified extends AppWidgetProvider {
 
             views.setOnClickPendingIntent(R.id.title, pi);
 
-            long now = new Date().getTime();
-            long refreshing = prefs.getLong("widget." + appWidgetId + ".sync", 0L);
-            views.setViewVisibility(R.id.refresh, refresh && refreshing < now ? View.VISIBLE : View.INVISIBLE);
+            if (refresh) {
+                long now = new Date().getTime();
+                long refreshing = prefs.getLong("widget." + appWidgetId + ".sync", 0L);
+                views.setViewVisibility(R.id.refresh, refreshing < now ? View.VISIBLE : View.INVISIBLE);
+            } else
+                views.setViewVisibility(R.id.refresh, View.GONE);
 
             views.setViewPadding(R.id.refresh, px, px, px, px);
             views.setOnClickPendingIntent(R.id.refresh, piSync);
