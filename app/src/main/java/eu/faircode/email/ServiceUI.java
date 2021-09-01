@@ -59,7 +59,6 @@ public class ServiceUI extends IntentService {
     static final int PI_HIDE = 9;
     static final int PI_SNOOZE = 10;
     static final int PI_IGNORED = 11;
-    static final int PI_THREAD = 12;
 
     private static final long WIDGET_SYNC_DURATION = 1500L;
 
