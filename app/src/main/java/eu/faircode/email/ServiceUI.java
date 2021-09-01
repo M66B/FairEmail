@@ -60,7 +60,7 @@ public class ServiceUI extends IntentService {
     static final int PI_SNOOZE = 10;
     static final int PI_IGNORED = 11;
 
-    private static final long WIDGET_SYNC_DURATION = 1500L;
+    private static final long WIDGET_SYNC_DURATION = 500;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
