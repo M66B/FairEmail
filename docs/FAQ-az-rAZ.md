@@ -2225,9 +2225,9 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Danışıqların altındakı mavi/narıncı nöqtənin mənası nədir?**
 
-The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+Nöqtə, mesaj siyahısında danışığın əlaqəli mövqeyini göstərir. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
 
 The dot is disabled by default and can be enabled with the display settings *Show relative conversation position with a dot*.
 

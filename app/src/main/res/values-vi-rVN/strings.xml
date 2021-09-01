@@ -282,12 +282,14 @@
     <string name="title_advanced_alt_re_fwd">Tiền tố trả lời/chuyển tiếp thay thế</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
+    <string name="title_advanced_attach_new">Thêm các tệp được chia sẻ vào bản nháp mới</string>
     <string name="title_advanced_reply_all">Nhấn giữ nút trả lời để trả lời tất cả</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
     <string name="title_advanced_separate_reply">Chèn một đường thẳng ngang trước tiêu đề trả lời/chuyển tiếp</string>
     <string name="title_advanced_extended_reply">Sử dụng tiêu đề trả lời/chuyển tiếp mở rộng</string>
+    <string name="title_advanced_write_above">Viết trên văn bản của người gửi</string>
     <string name="title_advanced_write_below">Viết dưới văn bản của người gửi</string>
     <string name="title_advanced_quote_reply">Trích dẫn văn bản được trả lời</string>
     <string name="title_advanced_limit_reply">Giới hạn số lượng trích dẫn con</string>
@@ -543,6 +545,7 @@
     <string name="title_advanced_suggest_local_hint">Bên cạnh các liên hệ được Android cung cấp. Dữ liệu liên hệ sẽ được lưu trữ cho các thư mới được gửi hoặc nhận chỉ khi được bật.</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
+    <string name="title_advanced_reply_all_hint">Nếu bị tắt, việc nhấn giữ nút trả lời sẽ trả lời người gửi</string>
     <string name="title_advanced_reply_move_hint">Máy chủ email vẫn có thể thêm thư vào thư mục thư đã gửi</string>
     <string name="title_advanced_metered_hint">Các kết nối trả phí nói chung là kết nối di động hoặc điểm phát sóng Wi-Fi trả phí</string>
     <string name="title_advanced_metered_warning">Việc tắt tuỳ chọn này sẽ tắt việc nhận và gửi thư khi dùng kết nối internet di động</string>
@@ -898,6 +901,10 @@
     <string name="title_receipt_subject">Xác nhận đã đọc: %1$s</string>
     <string name="title_receipt_text">Xác nhận đã đọc này chỉ biết rằng thư đã được hiển thị. Không có đảm bảo rằng người nhận đã đọc nội dung thư.</string>
     <string name="title_no_answers">Không có mẫu trả lời nào được định nghĩa</string>
+    <string name="title_no_viewer_caption">Không có ứng dụng xem</string>
+    <string name="title_no_viewer_name">Tên nội dung</string>
+    <string name="title_no_viewer_type">Loại nội dung</string>
+    <string name="title_no_viewer_search">Tìm kiếm ứng dụng</string>
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
     <string name="title_no_saf">Storage access framework không có sẵn</string>
@@ -1484,6 +1491,7 @@
     <string name="title_widget_font_size">Cỡ chữ</string>
     <string name="title_widget_padding">Kích cỡ lùi</string>
     <string name="title_widget_semi_transparent">Nền bán trong suốt</string>
+    <string name="title_widget_compose">Hiện nút soạn thư mới</string>
     <string name="title_widget_background">Màu nền</string>
     <string name="title_accessibility_collapsed">Thu gọn</string>
     <string name="title_accessibility_expanded">Mở rộng</string>
