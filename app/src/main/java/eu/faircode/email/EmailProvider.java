@@ -308,8 +308,9 @@ public class EmailProvider implements Parcelable {
                 }
 
             for (DnsHelper.DnsRecord record : records)
-                if (!TextUtils.isEmpty(record.name)) {
+                try {
                     String target = record.name.toLowerCase(Locale.ROOT);
+                    InetAddress.getByName(target);
 
                     EmailProvider mx1 = new EmailProvider(domain);
                     mx1.imap.score = 0;
@@ -334,6 +335,8 @@ public class EmailProvider implements Parcelable {
                     candidates.add(mx2);
 
                     break;
+                } catch (UnknownHostException ex) {
+                    Log.w(ex);
                 }
         } catch (Throwable ex) {
             Log.w(ex);
