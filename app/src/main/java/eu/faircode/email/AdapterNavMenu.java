@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.graphics.ColorUtils;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -147,7 +148,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
-        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+        this.colorWarning = ColorUtils.setAlphaComponent(Helper.resolveColor(context, R.attr.colorWarning), 128);
 
         setHasStableIds(true);
     }
