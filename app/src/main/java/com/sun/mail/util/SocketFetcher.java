@@ -16,6 +16,8 @@
 
 package com.sun.mail.util;
 
+import android.text.TextUtils;
+
 import java.security.*;
 import java.net.*;
 import java.io.*;
@@ -325,14 +327,19 @@ public class SocketFetcher {
 	if (localaddr != null)
 	    socket.bind(new InetSocketAddress(localaddr, localport));
 	try {
+	    InetAddress iaddr = InetAddress.getByName(host);
+	    String server = props.getProperty("fairemail.server");
+	    if (!TextUtils.isEmpty(server))
+			iaddr = InetAddress.getByAddress(server, iaddr.getAddress());
+	    eu.faircode.email.Log.i("Socket connect " + iaddr);
 	    logger.finest("connecting...");
 	    if (proxyHost != null)
 		proxyConnect(socket, proxyHost, proxyPort,
 				proxyUser, proxyPassword, host, port, cto);
 	    else if (cto >= 0)
-		socket.connect(new InetSocketAddress(host, port), cto);
+		socket.connect(new InetSocketAddress(iaddr, port), cto);
 	    else
-		socket.connect(new InetSocketAddress(host, port));
+		socket.connect(new InetSocketAddress(iaddr, port));
 	    logger.finest("success!");
 	} catch (IOException ex) {
 	    logger.log(Level.FINEST, "connection failed", ex);

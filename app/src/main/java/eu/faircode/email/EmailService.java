@@ -478,7 +478,7 @@ public class EmailService implements AutoCloseable {
                 }
 
             EntityLog.log(context, "Connecting to " + main);
-            _connect(main, port, require_id, user, authenticator, factory);
+            _connect(host, main, port, require_id, user, authenticator, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
@@ -552,7 +552,7 @@ public class EmailService implements AutoCloseable {
 
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr);
-                            _connect(iaddr, port, require_id, user, authenticator, factory);
+                            _connect(host, iaddr, port, require_id, user, authenticator, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
@@ -570,9 +570,10 @@ public class EmailService implements AutoCloseable {
     }
 
     private void _connect(
-            InetAddress address, int port, boolean require_id,
+            String host, InetAddress address, int port, boolean require_id,
             String user, Authenticator authenticator,
             SSLSocketFactoryService factory) throws MessagingException {
+        properties.setProperty("fairemail.server", host);
         isession = Session.getInstance(properties, authenticator);
 
         isession.setDebug(debug || log);
