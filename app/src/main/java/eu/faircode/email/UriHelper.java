@@ -20,7 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.webkit.URLUtil;
 
 import androidx.annotation.NonNull;
 
@@ -94,6 +96,28 @@ public class UriHelper {
             return address.substring(at + 1);
 
         return null;
+    }
+
+    static @NonNull
+    Uri guessScheme(@NonNull Uri uri) {
+        if (uri.getScheme() != null)
+            return uri;
+
+        String url = uri.toString();
+        if (Helper.EMAIL_ADDRESS.matcher(url).matches())
+            return Uri.parse("mailto:" + url);
+        else if (android.util.Patterns.PHONE.matcher(url).matches())
+            // Alternative: PhoneNumberUtils.isGlobalPhoneNumber()
+            return Uri.parse("tel:" + url);
+        else {
+            Uri g = Uri.parse(URLUtil.guessUrl(url));
+            String scheme = g.getScheme();
+            if (scheme == null)
+                return uri;
+            else if ("http".equals(scheme))
+                scheme = "https";
+            return Uri.parse(scheme + "://" + url);
+        }
     }
 
     static void ensureSuffixList(Context context) {

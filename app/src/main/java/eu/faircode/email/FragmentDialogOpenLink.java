@@ -46,7 +46,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -139,26 +138,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         // Preload web view
         Helper.customTabsWarmup(context);
 
-        final Uri uri;
-        if (_uri.getScheme() == null) {
-            String url = _uri.toString();
-            if (Helper.EMAIL_ADDRESS.matcher(url).matches())
-                uri = Uri.parse("mailto:" + _uri.toString());
-            else if (android.util.Patterns.PHONE.matcher(url).matches())
-                // Alternative: PhoneNumberUtils.isGlobalPhoneNumber()
-                uri = Uri.parse("tel:" + _uri.toString());
-            else {
-                Uri g = Uri.parse(URLUtil.guessUrl(url));
-                String scheme = g.getScheme();
-                if (scheme != null) {
-                    if ("http".equals(scheme))
-                        scheme = "https";
-                    uri = Uri.parse(scheme + "://" + _uri.toString());
-                } else
-                    uri = _uri;
-            }
-        } else
-            uri = _uri;
+        final Uri uri = UriHelper.guessScheme(_uri);
 
         // Process link
         final Uri sanitized;
