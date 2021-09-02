@@ -150,9 +150,12 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             else {
                 Uri g = Uri.parse(URLUtil.guessUrl(url));
                 String scheme = g.getScheme();
-                if (scheme == null || "http".equals(scheme))
-                    scheme = "https";
-                uri = Uri.parse(scheme + "://" + _uri.toString());
+                if (scheme != null) {
+                    if ("http".equals(scheme))
+                        scheme = "https";
+                    uri = Uri.parse(scheme + "://" + _uri.toString());
+                } else
+                    uri = _uri;
             }
         } else
             uri = _uri;
