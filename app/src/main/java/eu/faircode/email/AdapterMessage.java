@@ -4778,7 +4778,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     fragment.show(parentFragment.getParentFragmentManager(), "open:link");
                 } else {
                     boolean browse_links = prefs.getBoolean("browse_links", false);
-                    Helper.view(context, uri, browse_links, browse_links);
+                    Helper.view(context, UriHelper.guessScheme(uri), browse_links, browse_links);
                 }
             }
 
