@@ -351,6 +351,8 @@ public class EmailService implements AutoCloseable {
             String user, String password,
             ServiceAuthenticator.IAuthenticated intf,
             String certificate, String fingerprint) throws MessagingException {
+        properties.put("fairemail.server", host);
+
         SSLSocketFactoryService factory = null;
         try {
             PrivateKey key = null;
@@ -478,7 +480,7 @@ public class EmailService implements AutoCloseable {
                 }
 
             EntityLog.log(context, "Connecting to " + main);
-            _connect(host, main, port, require_id, user, authenticator, factory);
+            _connect(main, port, require_id, user, authenticator, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
@@ -552,7 +554,7 @@ public class EmailService implements AutoCloseable {
 
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr);
-                            _connect(host, iaddr, port, require_id, user, authenticator, factory);
+                            _connect(iaddr, port, require_id, user, authenticator, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
@@ -570,10 +572,9 @@ public class EmailService implements AutoCloseable {
     }
 
     private void _connect(
-            String host, InetAddress address, int port, boolean require_id,
+            InetAddress address, int port, boolean require_id,
             String user, Authenticator authenticator,
             SSLSocketFactoryService factory) throws MessagingException {
-        properties.setProperty("fairemail.server", host);
         isession = Session.getInstance(properties, authenticator);
 
         isession.setDebug(debug || log);
