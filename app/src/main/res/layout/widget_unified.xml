@@ -34,6 +34,7 @@
             android:contentDescription="@string/tile_synchronize"
             android:padding="6dp"
             android:src="@drawable/twotone_sync_24"
+            android:visibility="gone"
             app:tint="@color/colorWidgetForeground" />
 
         <ImageView
@@ -44,6 +45,7 @@
             android:contentDescription="@string/title_compose"
             android:padding="6dp"
             android:src="@drawable/twotone_edit_24"
+            android:visibility="gone"
             app:tint="@color/colorWidgetForeground" />
     </LinearLayout>
 
