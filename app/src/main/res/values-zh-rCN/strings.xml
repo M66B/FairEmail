@@ -1489,6 +1489,7 @@
     <string name="title_widget_font_size">文本大小</string>
     <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
+    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
     <string name="title_accessibility_collapsed">折叠</string>

@@ -161,6 +161,7 @@
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
     <string name="title_setup_permissions_explanation">連絡先情報を検索し、連絡先を提案するには連絡先の権限が必要です</string>
+    <string name="title_setup_permission_import_contacts">連絡先をインポートするにはどうすればいいですか?</string>
     <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
     <string name="title_setup_doze_remark">確実にメールを送受信するために必要です</string>
     <string name="title_setup_doze_explanation">バックグラウンドでのメッセージの送受信を確実に行うには、アプリのバッテリー最適化を無効にする必要があります</string>
@@ -280,11 +281,14 @@
     <string name="title_advanced_alt_re_fwd">代替返信/接頭辞</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
+    <string name="title_advanced_attach_new">共有ファイルを新しい下書きに追加</string>
+    <string name="title_advanced_reply_all">回答ボタンを長押しして全員に返信</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_compose_font">デフォルトフォント</string>
     <string name="title_advanced_prefix_once">返信または転送時にプレフィックスを1回だけにします</string>
     <string name="title_advanced_separate_reply">返信/転送ヘッダーの前に水平線を挿入</string>
     <string name="title_advanced_extended_reply">拡張した返信/転送ヘッダーを使用</string>
+    <string name="title_advanced_write_above">送信文の上に書く</string>
     <string name="title_advanced_write_below">送信文の下に書く</string>
     <string name="title_advanced_quote_reply">返信テキスト時に引用符を付ける</string>
     <string name="title_advanced_limit_reply">入れ子になった引用の数を制限する</string>
@@ -540,6 +544,7 @@
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>
     <string name="title_advanced_send_reminders_hint">メッセージテキスト又は件名が空の場合や添付ファイルが無い場合に警告を表示</string>
+    <string name="title_advanced_reply_all_hint">無効になっている場合、応答ボタンを長押しすると送信者に応答します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーは、メッセージを送信済みメッセージフォルダに追加することができます</string>
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>
     <string name="title_advanced_metered_warning">このオプションを無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
@@ -895,6 +900,10 @@
     <string name="title_receipt_subject">開封確認: %1$s</string>
     <string name="title_receipt_text">この開封確認メッセージはメッセージが表示されたことをお知らせするものです。受信者がメッセージの内容を読んだという保証はありません</string>
     <string name="title_no_answers">返信テンプレートが定義されていません</string>
+    <string name="title_no_viewer_caption"> 利用出来るビューアアプリが有りません</string>
+    <string name="title_no_viewer_name">コンテンツ名</string>
+    <string name="title_no_viewer_type">コンテンツの種類</string>
+    <string name="title_no_viewer_search">アプリを検索</string>
     <string name="title_no_recorder">適切なオーディオレコーダーアプリが有りません</string>
     <string name="title_no_camera">適切なカメラアプリが有りません</string>
     <string name="title_no_saf">ストレージアクセスフレームワークは利用出来ません</string>
@@ -1151,6 +1160,7 @@
     <string name="title_select_all">すべて選択</string>
     <string name="title_select_found">見つかったものを選択</string>
     <string name="title_mark_all_read">すべて既読にする</string>
+    <string name="title_view_thread">会話を見る</string>
     <string name="title_force_sync">強制同期</string>
     <string name="title_force_send">強制送信</string>
     <string name="title_language_all">全て</string>
@@ -1441,6 +1451,7 @@
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price">なぜプロ機能はそんなに高価なのですか？</string>
     <string name="title_pro_family">Google Playファミリーライブラリを使用できますか？</string>
+    <string name="title_pro_restore">（別のデバイスで）購入を復元するにはどうすればよいですか？</string>
     <string name="title_pro_pending">購入保留中</string>
     <string name="title_pro_activated">全てのプロ機能がアクティブになりました</string>
     <string name="title_pro_valid">全てのプロ機能が有効化されました</string>
@@ -1479,6 +1490,8 @@
     <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白のサイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
+    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">メッセージ更新ボタンを表示</string>
+    <string name="title_widget_compose">新しいメッセージ作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
     <string name="title_accessibility_collapsed">折りたたんだ</string>
     <string name="title_accessibility_expanded">拡大</string>

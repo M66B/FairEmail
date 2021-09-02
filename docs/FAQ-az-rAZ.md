@@ -2047,37 +2047,37 @@ If the account authorization has expired, you will have to select the account ag
 <br />
 
 <a name="faq88"></a>
-**(88) How can I use a Yahoo, AOL or Sky account?**
+**(88) Yahoo, AOL və ya Sky hesabını necə istifadə edə bilərəm?**
 
-The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
+Yahoo hesabını quraşdırmağın tərcih edilən yolu, şifrə əvəzinə OAuth istifadə edəcək və buna görə də, daha güvənli (və daha asan) olan cəld quraşdırma sehrbazını istifadə etməkdir.
 
-To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
+Bir Yahoo, AOL və ya Sky hesabına səlahiyyət vermək üçün bir tətbiq şifrəsi yaratmalısınız. Təlimatlar üçün, zəhmət olmasa bura baxın:
 
-* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
+* [Yahoo üçün](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [AOL üçün](https://help.aol.com/articles/Create-and-manage-app-password)
+* [Sky üçün](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (*Digər e-poçt tətbiqləri*nin altında)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+OAuth dəstəyi üçün zəhmət olmasa [bu TSS-a](#user-content-faq111) baxın.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+Unutmayın ki, Yahoo, AOL və ya Sky standart ani mesajları dəstəkləmir. Yahoo e-poçt tətbiqi, ani mesajlar üçün xüsusiyyətçi, sənədləşdirilməmiş protokol istifadə edir.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+Ani mesajlar [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) tələb edir və Yahoo e-poçt serveri, IDLE-ı bacarıq olaraq bildirmir:
 
 
 
 ```
 Y1 CAPABILITY
 * CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
-Y1 OK CAPABILITY completed
+Y1 OK CAPABILITY tamamlandı
 ```
 
 
 <br />
 
 <a name="faq89"></a>
-**(89) How can I send plain text only messages?**
+**(89) Yalnız düz mətn mesajlarını necə göndərə bilərəm?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+FairEmail, ilkin olaraq hər bir mesajı həm düz mətn, həm də HTML formatı ilə göndərir, çünki bu günlərdə əksər alıcı demək olar ki, formatlanmış mesaj gözləyir. Yalnız düz mətn mesajları göndərmək istəyirsinizsə/lazımdırsa, bunu qabaqcıl kimlik seçimlərində fəallaşdıra bilərsiniz. Vəziyyətə gör düz mətn mesajı göndərmək istəyirsinizsə/lazımdırsa, bunun üçün yeni bir kimlik yarada bilərsiniz.
 
 <br />
 
