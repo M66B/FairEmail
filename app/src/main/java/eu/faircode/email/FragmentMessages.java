@@ -3038,7 +3038,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze)
                         .setIcon(R.drawable.twotone_timelapse_24);
 
-                if (result.visible)
+                if (result.visible && !result.isDrafts)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, order++, R.string.title_hide)
                             .setIcon(R.drawable.twotone_visibility_off_24);
                 if (result.hidden)
