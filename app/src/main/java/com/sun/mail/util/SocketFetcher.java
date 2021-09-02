@@ -330,8 +330,11 @@ public class SocketFetcher {
 	    InetAddress iaddr = InetAddress.getByName(host);
 	    String server = props.getProperty("fairemail.server");
 	    if (!TextUtils.isEmpty(server))
-			iaddr = InetAddress.getByAddress(server, iaddr.getAddress());
-	    eu.faircode.email.Log.i("Socket connect " + iaddr);
+				iaddr = InetAddress.getByAddress(server, iaddr.getAddress());
+	    eu.faircode.email.Log.i("Socket connect " + iaddr +
+				" timeout=" + cto +
+				" reuse=" + socket.getReuseAddress() +
+				" local=" + socket.getLocalSocketAddress());
 	    logger.finest("connecting...");
 	    if (proxyHost != null)
 		proxyConnect(socket, proxyHost, proxyPort,
@@ -340,6 +343,9 @@ public class SocketFetcher {
 		socket.connect(new InetSocketAddress(iaddr, port), cto);
 	    else
 		socket.connect(new InetSocketAddress(iaddr, port));
+	    eu.faircode.email.Log.i("Socket connected" +
+				" local=" + socket.getLocalSocketAddress() +
+				" remote=" + socket.getRemoteSocketAddress());
 	    logger.finest("success!");
 	} catch (IOException ex) {
 	    logger.log(Level.FINEST, "connection failed", ex);
