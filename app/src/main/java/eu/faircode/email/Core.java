@@ -803,7 +803,7 @@ class Core {
         DB db = DB.getInstance(context);
 
         boolean seen = jargs.getBoolean(0);
-        db.message().setMessageUiSeen(folder.id, seen);
+        db.message().setMessageUiSeen(message.id, seen);
     }
 
     private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
