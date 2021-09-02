@@ -160,7 +160,7 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "sync":
-                    onSync(id, -1L);
+                    onSync(id, -1L, false);
                     break;
 
                 case "widget":
@@ -462,7 +462,7 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onSync(long aid, long fid) {
+    private void onSync(long aid, long fid, boolean unified) {
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
@@ -477,7 +477,8 @@ public class ServiceUI extends IntentService {
                 if (folders.size() > 0)
                     Collections.sort(folders, folders.get(0).getComparator(this));
                 for (EntityFolder folder : folders)
-                    EntityOperation.sync(this, folder.id, true);
+                    if (!unified || folder.unified)
+                        EntityOperation.sync(this, folder.id, true);
             }
 
             db.setTransactionSuccessful();
@@ -489,7 +490,7 @@ public class ServiceUI extends IntentService {
     private void onWidget(Intent intent, int appWidgetId) {
         long aid = intent.getLongExtra("account", -1L);
         long fid = intent.getLongExtra("folder", -1L);
-        onSync(aid, fid);
+        onSync(aid, fid, fid < 0);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String key = "widget." + appWidgetId + ".sync";
