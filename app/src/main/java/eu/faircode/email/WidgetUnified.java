@@ -101,15 +101,14 @@ public class WidgetUnified extends AppWidgetProvider {
 
             views.setOnClickPendingIntent(R.id.title, pi);
 
-            if (refresh) {
-                long now = new Date().getTime();
-                long refreshing = prefs.getLong("widget." + appWidgetId + ".sync", 0L);
-                views.setViewVisibility(R.id.refresh, refreshing < now ? View.VISIBLE : View.INVISIBLE);
-            } else
-                views.setViewVisibility(R.id.refresh, View.GONE);
-
+            views.setViewVisibility(R.id.refresh, refresh ? View.VISIBLE : View.GONE);
             views.setViewPadding(R.id.refresh, px, px, px, px);
             views.setOnClickPendingIntent(R.id.refresh, piSync);
+
+            long now = new Date().getTime();
+            long refreshing = prefs.getLong("widget." + appWidgetId + ".sync", 0L);
+            views.setImageViewResource(R.id.refresh, refreshing < now ? R.drawable.twotone_sync_24 : R.drawable.twotone_compare_arrows_24);
+            views.setViewVisibility(R.id.refresh, refresh ? View.VISIBLE : View.INVISIBLE);
 
             views.setViewVisibility(R.id.compose, compose ? View.VISIBLE : View.GONE);
             views.setViewPadding(R.id.compose, px, px, px, px);

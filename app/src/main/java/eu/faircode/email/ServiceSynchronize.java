@@ -24,7 +24,9 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -604,14 +606,60 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
 
-        db.folder().liveSynchronizing().observe(this, new Observer<Integer>() {
+        db.folder().liveSynchronizing().observe(this, new Observer<List<TupleFolderSync>>() {
             @Override
-            public void onChanged(Integer count) {
-                Log.i("Synchronizing folders=" + count);
-                if (count == null || count == 0)
+            public void onChanged(List<TupleFolderSync> syncs) {
+                int syncing = 0;
+                List<Long> accounts = new ArrayList<>();
+                List<Long> folders = new ArrayList<>();
+                if (syncs != null)
+                    for (TupleFolderSync sync : syncs) {
+                        if ("syncing".equals(sync.sync_state))
+                            syncing++;
+                        if (sync.unified && !accounts.contains(sync.account))
+                            accounts.add(sync.account);
+                        folders.add(sync.folder);
+                    }
+
+                Log.i("Syncing=" + syncing +
+                        " folders=" + folders.size() +
+                        " accounts=" + accounts.size());
+
+                if (syncing == 0)
                     cowner.start();
                 else
                     cowner.stop();
+
+                for (String _key : prefs.getAll().keySet())
+                    if (_key.startsWith("widget.") && _key.endsWith(".refresh") &&
+                            prefs.getBoolean(_key, false)) {
+                        int appWidgetId = Integer.parseInt(_key.split("\\.")[1]);
+
+                        String key = "widget." + appWidgetId + ".sync";
+                        boolean sync = prefs.contains(key);
+                        if (!sync)
+                            continue;
+
+                        long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+                        long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
+
+                        if (folder > 0) {
+                            if (!folders.contains(folder)) {
+                                prefs.edit().remove(key).apply();
+                                WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
+                            }
+                        } else if (account > 0) {
+                            if (!accounts.contains(account)) {
+                                prefs.edit().remove(key).apply();
+                                WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
+                            }
+                        } else {
+                            if (accounts.size() == 0) {
+                                prefs.edit().remove(key).apply();
+                                WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
+                            }
+                        }
+                    }
             }
         });
 
