@@ -309,8 +309,11 @@ public class SocketFetcher {
 					prefix + ".usesocketchannels", false)) {
 		logger.finer("using SocketChannels");
 		socket = SocketChannel.open().socket();
-	    } else
-		socket = new Socket();
+	    } else {
+				SocketFactory f = (SocketFactory) props.get("fairemail.factory");
+				eu.faircode.email.Log.i("Using socket factory=" + f);
+				socket = (f == null ? new Socket() : f.createSocket());
+	    }
 	}
 	if (to >= 0) {
 	    if (logger.isLoggable(Level.FINEST))
@@ -333,6 +336,7 @@ public class SocketFetcher {
 				iaddr = InetAddress.getByAddress(server, iaddr.getAddress());
 	    eu.faircode.email.Log.i("Socket connect " + iaddr +
 				" timeout=" + cto +
+				" server=" + server +
 				" reuse=" + socket.getReuseAddress() +
 				" local=" + socket.getLocalSocketAddress());
 	    logger.finest("connecting...");

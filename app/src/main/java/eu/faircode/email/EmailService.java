@@ -24,6 +24,10 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.security.KeyChain;
 import android.system.ErrnoException;
@@ -352,6 +356,19 @@ public class EmailService implements AutoCloseable {
             ServiceAuthenticator.IAuthenticated intf,
             String certificate, String fingerprint) throws MessagingException {
         properties.put("fairemail.server", host);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean bind_socket = prefs.getBoolean("bind_socket", false);
+        if (bind_socket &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            try {
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                Network active = cm.getActiveNetwork();
+                if (active != null)
+                    properties.put("fairemail.factory", active.getSocketFactory());
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         SSLSocketFactoryService factory = null;
         try {
