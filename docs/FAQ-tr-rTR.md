@@ -469,9 +469,9 @@ Yine de geçersiz bir güvenlik sertifikası, boş bir parola veya düz metin ba
 Ayarların görüntüleme bölümünde örneğin etkinleştirebilir veya devre dışı bırakabilirsiniz:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Tabular style*: to show a linear list instead of cards
+* *Tablo stili*: kartlar yerine doğrusal bir liste göstermek için
 * *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Konuşma dizisi oluşturma*: konuşma dizisini devre dışı bırakmak ve bunun yerine bireysel mesajları göstermek için
 * *Conversation action bar*: to disable the bottom navigation bar
 * *Highlight color*: to select a color for the sender of unread messages
 * *Show contact photos*: to hide contact photos
