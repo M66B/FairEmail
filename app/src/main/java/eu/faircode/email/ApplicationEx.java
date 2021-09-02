@@ -128,6 +128,8 @@ public class ApplicationEx extends Application
                             StackTraceElement[] stack = v.getStackTrace();
                             for (StackTraceElement ste : stack) {
                                 String clazz = ste.getClassName();
+                                if ("com.sun.mail.util.WriteTimeoutSocket".equals(clazz))
+                                    return;
                                 if (clazz != null &&
                                         (clazz.startsWith("org.chromium") ||
                                                 clazz.startsWith("com.android.webview.chromium") ||
