@@ -791,13 +791,16 @@ Common errors:
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
 
 Private keys are stored by Android and can be imported via the Android advanced security settings.
-There is a shortcut (button) for this in the encryption settings.
+There is a shortcut (button) for this in the encryption settings for Android version 10 and before.
 Android will ask you to set a PIN, pattern, or password if you didn't before.
 If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing.
 Android only imports the first key, so to import all the keys, the certificate must first be split.
 This is not very trivial and you are advised to ask the certificate supplier for support.
+
+If you renewed a certificate, you should import the renewed certificate and reset the key.
+This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
 
 Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this.
 S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
