@@ -1520,6 +1520,7 @@
     <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
+    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>
     <string name="title_widget_background">Kolor tła</string>
     <string name="title_accessibility_collapsed">Zwinięta</string>

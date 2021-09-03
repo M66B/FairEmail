@@ -2,7 +2,7 @@
 
 # Поддержка FairEmail
 
-Если у вас есть вопрос, пожалуйста, сначала просмотрите следующие часто задаваемые вопросы. [Ниже](#user-content-get-support), вы можете найти как задать другие вопросы, предложить идеи и сообщить об ошибках.
+Если у вас есть вопросы, пожалуйста, сначала просмотрите следующие часто задаваемые вопросы. [Ниже](#user-content-get-support), вы можете найти как задать другие вопросы, предложить идеи и сообщить об ошибках.
 
 Если у вас есть вопрос, пожалуйста, сначала проверьте часто задаваемые вопросы (FAQ) ниже. [ В самом низу вы узнаете](#user-content-get-support), как задавать дополнительные вопросы, запрашивать функции и сообщать об ошибках.
 
@@ -680,7 +680,7 @@ FairEmail отправит заголовок [Autocrypt](https://autocrypt.org/
 
 Обратите внимание, что сертификаты могут содержать несколько ключей для нескольких целей, например для аутентификации, шифрования и подписи. Android импортирует только первый ключ, поэтому для импорта всех ключей, сертификат должен быть разделен. Это не очень просто, и Вам рекомендуется обратиться к поставщику сертификатов за поддержкой.
 
-Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME шифрование возможно только с асимметричными алгоритмами, что на практике означает использование RSA.
+Обратите внимание, что S/MIME подписывается с другими алгоритмами, чем RSA поддерживается, но имейте в виду, что другие клиенты электронной почты могут не поддерживать это. S/MIME шифрование возможно только с асимметричными алгоритмами, что на практике означает использование RSA.
 
 The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
