@@ -235,6 +235,7 @@ task copyMarkdown(type: Copy) {
 preBuild.dependsOn copyMarkdown
 
 task downloadPublicSuffixList(type: Download) {
+    // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
     dest "src/main/assets"
     overwrite true
