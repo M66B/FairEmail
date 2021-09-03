@@ -658,29 +658,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             prefs.getBoolean(_key, false)) {
                         int appWidgetId = Integer.parseInt(_key.split("\\.")[1]);
 
-                        String key = "widget." + appWidgetId + ".sync";
-                        boolean sync = prefs.contains(key);
-                        if (!sync)
-                            continue;
-
                         long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                         long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
 
-                        if (folder > 0) {
-                            if (!folders.contains(folder)) {
-                                prefs.edit().remove(key).apply();
-                                WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
-                            }
-                        } else if (account > 0) {
-                            if (!accounts.contains(account)) {
-                                prefs.edit().remove(key).apply();
-                                WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
-                            }
-                        } else {
-                            if (accounts.size() == 0) {
-                                prefs.edit().remove(key).apply();
-                                WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
-                            }
+                        boolean state;
+                        if (folder > 0)
+                            state = folders.contains(folder);
+                        else if (account > 0)
+                            state = accounts.contains(account);
+                        else
+                            state = (accounts.size() > 0);
+
+                        String key = "widget." + appWidgetId + ".syncing";
+                        if (state != prefs.getBoolean(key, false)) {
+                            prefs.edit().putBoolean(key, state).apply();
+                            WidgetUnified.init(ServiceSynchronize.this, appWidgetId);
                         }
                     }
             }

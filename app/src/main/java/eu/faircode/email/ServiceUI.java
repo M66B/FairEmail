@@ -58,8 +58,6 @@ public class ServiceUI extends IntentService {
     static final int PI_SNOOZE = 10;
     static final int PI_IGNORED = 11;
 
-    private static final long WIDGET_SYNC_DURATION = 90 * 1000L;
-
     public ServiceUI() {
         this(ServiceUI.class.getName());
     }
@@ -491,23 +489,6 @@ public class ServiceUI extends IntentService {
         long aid = intent.getLongExtra("account", -1L);
         long fid = intent.getLongExtra("folder", -1L);
         onSync(aid, fid, fid < 0);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String key = "widget." + appWidgetId + ".sync";
-        prefs.edit().putLong(key, new Date().getTime() + WIDGET_SYNC_DURATION).apply();
-        WidgetUnified.init(this, appWidgetId);
-
-        ApplicationEx.getMainHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    prefs.edit().remove(key).apply();
-                    WidgetUnified.init(ServiceUI.this, appWidgetId);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        }, WIDGET_SYNC_DURATION);
     }
 
     static void sync(Context context, Long account) {
