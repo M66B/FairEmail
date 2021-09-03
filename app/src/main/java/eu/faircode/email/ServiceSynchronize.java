@@ -607,21 +607,41 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
 
         db.folder().liveSynchronizing().observe(this, new Observer<List<TupleFolderSync>>() {
+            private List<Long> lastAccounts = new ArrayList<>();
+            private List<Long> lastFolders = new ArrayList<>();
+
             @Override
             public void onChanged(List<TupleFolderSync> syncs) {
                 int syncing = 0;
+                boolean changed = false;
                 List<Long> accounts = new ArrayList<>();
                 List<Long> folders = new ArrayList<>();
                 if (syncs != null)
                     for (TupleFolderSync sync : syncs) {
                         if ("syncing".equals(sync.sync_state))
                             syncing++;
-                        if (sync.unified && !accounts.contains(sync.account))
+
+                        if (sync.unified && !accounts.contains(sync.account)) {
                             accounts.add(sync.account);
+                            if (lastAccounts.contains(sync.account))
+                                lastAccounts.remove(sync.account); // same
+                            else
+                                changed = true; // new
+                        }
+
                         folders.add(sync.folder);
+                        if (lastFolders.contains(sync.folder))
+                            lastFolders.remove(sync.folder); // same
+                        else
+                            changed = true; // new
                     }
 
-                Log.i("Syncing=" + syncing +
+                changed = (changed || lastAccounts.size() > 0 || lastFolders.size() > 0); // deleted
+                lastAccounts = accounts;
+                lastFolders = folders;
+
+                Log.i("Changed=" + changed +
+                        " syncing=" + syncing +
                         " folders=" + folders.size() +
                         " accounts=" + accounts.size());
 
@@ -629,6 +649,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     cowner.start();
                 else
                     cowner.stop();
+
+                if (!changed)
+                    return;
 
                 for (String _key : prefs.getAll().keySet())
                     if (_key.startsWith("widget.") && _key.endsWith(".refresh") &&
