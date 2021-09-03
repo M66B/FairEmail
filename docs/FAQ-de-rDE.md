@@ -2461,22 +2461,22 @@ FairEmail ruft eine Nachricht in zwei Schritten ab:
 1. Nachrichtenköpfe abrufen
 1. Nachrichtentext und Anhänge abrufen
 
-Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+Direkt nach dem ersten Schritt werden neue Nachrichten benachrichtigt. Jedoch wird der Text erst nach dem zweiten Schritt zur Verfügung stehen. FairEmail aktualisiert laufende Benachrichtigungen mit einer Vorschau des Nachrichtentextes, aber leider können Trägergerät Benachrichtigungen nicht aktualisiert werden.
 
-Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
+Da es keine Garantie dafür gibt, dass ein Nachrichtentext immer direkt nach einem Nachrichtenkopf abgerufen wird, kann nicht garantiert werden, dass eine neue Nachrichtenmeldung mit einem Vorschautext immer an ein Trägergerät gesendet wird.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Beachten Sie, dass dies auch für Wearables gilt, die keinen Vorschautext anzeigen, selbst wenn die Android Wear App angibt, dass die Benachrichtigung gesendet (überbrückt) wurde.
+Wenn Sie der Meinung sind, dass dies ausreichend ist, können Sie die Benachrichtigungsoption *Nur Benachrichtigungen mit einer Nachrichtenvorschau an tragbare Geräte senden* und wenn dies nicht funktioniert, können Sie versuchen, die Benachrichtigungsoption *Benachrichtigungen nur mit einem Vorschautext anzeigen* zu aktivieren. Beachten Sie, dass dies auch für Wearables gilt, die keinen Vorschautext anzeigen, selbst wenn die Android Wear App angibt, dass die Benachrichtigung gesendet (überbrückt) wurde.
 
 Wenn Sie den Vollnachrichtentext an Ihre Wearable senden möchten, können Sie die Benachrichtigungsoption *Vorschau des Textes* aktivieren. Beachten Sie, dass einige Wearables bekanntermaßen abstürzen, wenn diese Option aktiviert ist.
 
-If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
+Wenn Sie ein Samsung Gerät mit der Galaxy Wearable (Samsung Gear) App verwenden, müssen Sie möglicherweise Benachrichtigungen für FairEmail aktivieren, wenn die Einstellung *Benachrichtigungen*, *Zukünftig installierte Apps* in dieser App deaktiviert ist.
 
 <br />
 
 <a name="faq127"></a>
-**(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
+**(127) Wie kann ich 'Syntaktisch ungültige(s) HELO-Argument(e)' beheben?**
 
-The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+Der Fehler *... Syntaktisch ungültige(s) HELO-Argument(e) ...* bedeutet, dass der SMTP-Server die lokale IP-Adresse oder den Hostnamen abgelehnt hat. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
 
 <br />
 
