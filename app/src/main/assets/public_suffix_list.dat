@@ -11260,9 +11260,7 @@ dedyn.io
 
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
-rss.my.id
 *.rss.my.id
-diher.solutions
 *.diher.solutions
 
 // DNS Africa Ltd https://dns.business
@@ -12731,10 +12729,6 @@ for.sale
 that.win
 from.work
 to.work
-
-// NCTU.ME : https://nctu.me/
-// Submitted by Tocknicsu <admin@nctu.me>
-nctu.me
 
 // Netlify : https://www.netlify.com
 // Submitted by Jessica Parsons <jessica@netlify.com>
