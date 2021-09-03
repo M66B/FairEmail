@@ -5,6 +5,7 @@ buildscript {
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
+
     dependencies {
         // https://developer.android.com/studio/releases/gradle-plugin
         classpath 'com.android.tools.build:gradle:7.0.2'
@@ -12,8 +13,8 @@ buildscript {
         // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android-gradle-plugin
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.0.0'
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.5.21"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.5.30"
     }
 }
 
