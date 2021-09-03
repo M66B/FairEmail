@@ -364,8 +364,10 @@ public class EmailService implements AutoCloseable {
             try {
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 Network active = cm.getActiveNetwork();
-                if (active != null)
+                if (active != null) {
+                    EntityLog.log(context, "Binding to active network " + active);
                     properties.put("fairemail.factory", active.getSocketFactory());
+                }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
