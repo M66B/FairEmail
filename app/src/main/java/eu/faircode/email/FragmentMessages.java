@@ -2146,7 +2146,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.twotone_folder_24;
             else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action))
-                icon = R.drawable.twotone_report_problem_24;
+                icon = R.drawable.twotone_report_24;
             else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
@@ -3082,7 +3082,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_spam, order++, R.string.title_spam)
-                            .setIcon(R.drawable.twotone_report_problem_24);
+                            .setIcon(R.drawable.twotone_report_24);
 
                 if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_trash, order++, R.string.title_trash)

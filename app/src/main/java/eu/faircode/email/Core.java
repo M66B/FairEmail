@@ -4659,7 +4659,7 @@ class Core {
                 PendingIntent piJunk = PendingIntentCompat.getService(
                         context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_report_problem_24,
+                        R.drawable.twotone_report_24,
                         context.getString(R.string.title_advanced_notify_action_junk),
                         piJunk)
                         .setShowsUserInterface(false)
