@@ -401,18 +401,22 @@ public abstract class DB extends RoomDatabase {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
 
-                        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-                        int class_mb = am.getMemoryClass();
-                        int cache_size = class_mb * 1024 * 100 / DB_CACHE_PERCENTAGE;
+                        try {
+                            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+                            int class_mb = am.getMemoryClass();
+                            int cache_size = class_mb * 1024 * 100 / DB_CACHE_PERCENTAGE;
 
-                        // https://www.sqlite.org/pragma.html#pragma_cache_size
-                        Log.i("Set PRAGMA cache_size=" + cache_size);
-                        try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
-                            cursor.moveToNext(); // required
-                        }
+                            // https://www.sqlite.org/pragma.html#pragma_cache_size
+                            Log.i("Set PRAGMA cache_size=" + cache_size);
+                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
+                                cursor.moveToNext(); // required
+                            }
 
-                        try (Cursor cursor = db.query("PRAGMA cache_size;")) {
-                            Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                            try (Cursor cursor = db.query("PRAGMA cache_size;")) {
+                                Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
 
                         Log.i("Set PRAGMA cache_spill=0");
