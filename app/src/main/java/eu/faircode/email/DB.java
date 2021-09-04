@@ -400,15 +400,13 @@ public abstract class DB extends RoomDatabase {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
 
-                        if (BuildConfig.DEBUG) {
-                            Log.i("Set PRAGMA cache_size=" + DB_CACHE_SIZE);
-                            try (Cursor cursor = db.query("PRAGMA cache_size=" + DB_CACHE_SIZE + ";", null)) {
-                                cursor.moveToNext(); // required
-                            }
+                        Log.i("Set PRAGMA cache_size=" + DB_CACHE_SIZE);
+                        try (Cursor cursor = db.query("PRAGMA cache_size=" + DB_CACHE_SIZE + ";", null)) {
+                            cursor.moveToNext(); // required
+                        }
 
-                            try (Cursor cursor = db.query("PRAGMA cache_size;")) {
-                                Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
-                            }
+                        try (Cursor cursor = db.query("PRAGMA cache_size;")) {
+                            Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
                         }
 
                         if (BuildConfig.DEBUG && false) {
