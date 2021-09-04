@@ -101,9 +101,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int colorUnread;
     private int colorControlNormal;
 
+    private String search = null;
     private List<Long> disabledIds = new ArrayList<>();
     private List<TupleFolderEx> all = new ArrayList<>();
-    private List<TupleFolderEx> items = new ArrayList<>();
+    private List<TupleFolderEx> selected = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -393,7 +394,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (pos == RecyclerView.NO_POSITION)
                     return;
 
-                TupleFolderEx folder = items.get(pos);
+                TupleFolderEx folder = selected.get(pos);
                 if (folder.tbd != null)
                     return;
 
@@ -486,7 +487,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            final TupleFolderEx folder = items.get(pos);
+            final TupleFolderEx folder = selected.get(pos);
             if (folder.tbd != null || folder.local)
                 return false;
 
@@ -1178,7 +1179,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     public void set(@NonNull List<TupleFolderEx> folders) {
-        Log.i("Set folders=" + folders.size());
+        Log.i("Set folders=" + folders.size() + " search=" + search);
         all = folders;
 
         List<TupleFolderEx> hierarchical;
@@ -1237,9 +1238,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             hierarchical = getHierarchical(parents, anyChild ? 0 : 1);
         }
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, hierarchical), false);
+        List<TupleFolderEx> items;
+        if (TextUtils.isEmpty(search))
+            items = hierarchical;
+        else {
+            items = new ArrayList<>();
+            String query = search.toLowerCase().trim();
+            for (TupleFolderEx item : hierarchical)
+                if (item.getDisplayName(context).toLowerCase().contains(query))
+                    items.add(item);
+        }
 
-        items = hierarchical;
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
+
+        selected = items;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -1265,6 +1277,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
+    public void search(String query) {
+        Log.i("Contacts query=" + query);
+        search = query;
+        set(all);
+    }
+
     public void search(String query, final int result, final ISearchResult intf) {
         if (TextUtils.isEmpty(query)) {
             intf.onNotFound();
@@ -1283,8 +1301,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 int pos = -1;
                 int next = -1;
                 int count = result + 1;
-                for (int i = 0; i < items.size(); i++)
-                    if (items.get(i).getDisplayName(context).toLowerCase().contains(query.toLowerCase())) {
+                for (int i = 0; i < selected.size(); i++)
+                    if (selected.get(i).getDisplayName(context).toLowerCase().contains(query.toLowerCase())) {
                         count--;
                         if (count == 0)
                             pos = i;
@@ -1398,18 +1416,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).id;
+        return selected.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return selected.size();
     }
 
     @Override
     public int getItemViewType(int position) {
         if (listener == null)
-            return (items.get(position).selectable ? R.layout.item_folder : R.layout.item_folder_unselectable);
+            return (selected.get(position).selectable ? R.layout.item_folder : R.layout.item_folder_unselectable);
         else
             return R.layout.item_folder_select;
     }
@@ -1422,7 +1440,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        TupleFolderEx folder = items.get(position);
+        TupleFolderEx folder = selected.get(position);
         holder.powner.recreate(folder == null ? null : folder.id);
 
         holder.unwire();
