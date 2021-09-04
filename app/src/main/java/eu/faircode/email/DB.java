@@ -395,7 +395,7 @@ public abstract class DB extends RoomDatabase {
                                 "synchronous", "journal_mode",
                                 "wal_checkpoint", "wal_autocheckpoint",
                                 "page_count", "page_size",
-                                "cache_size"})
+                                "cache_size", "cache_spill"})
                             try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
@@ -407,6 +407,15 @@ public abstract class DB extends RoomDatabase {
 
                         try (Cursor cursor = db.query("PRAGMA cache_size;")) {
                             Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                        }
+
+                        Log.i("Set PRAGMA cache_spill=0");
+                        try (Cursor cursor = db.query("PRAGMA cache_spill=0;", null)) {
+                            cursor.moveToNext(); // required
+                        }
+
+                        try (Cursor cursor = db.query("PRAGMA cache_spill;")) {
+                            Log.i("Get PRAGMA cache_spill=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
                         }
 
                         if (BuildConfig.DEBUG && false) {
