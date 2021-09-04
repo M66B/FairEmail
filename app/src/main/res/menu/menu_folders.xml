@@ -18,7 +18,9 @@
         <item
             android:id="@+id/menu_theme"
             android:title="@string/title_setup_theme"
-            app:showAsAction="never" />
+            app:showAsAction="never">
+            <menu />
+        </item>
 
         <item
             android:id="@+id/menu_compact"
@@ -50,14 +52,16 @@
     <group android:id="@+id/group_operations">
         <item
             android:id="@+id/menu_search_folder"
-            android:title="@string/title_search"
+            android:title="@string/title_search_folder"
             app:actionViewClass="androidx.appcompat.widget.SearchView"
             app:showAsAction="collapseActionView|never" />
 
         <item
             android:id="@+id/menu_apply_all"
             android:title="@string/title_apply_to_all"
-            app:showAsAction="never" />
+            app:showAsAction="never">
+            <menu />
+        </item>
 
         <item
             android:id="@+id/menu_force_sync"
