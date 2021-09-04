@@ -2,6 +2,7 @@ package eu.faircode.email;
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -118,7 +119,7 @@ public abstract class DB extends RoomDatabase {
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
-    private static final int DB_CACHE_SIZE = -5000; // https://www.sqlite.org/pragma.html#pragma_cache_size
+    private static final int DB_CACHE_PERCENTAGE = 3;
 
     private static final String[] DB_TABLES = new String[]{
             "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "log"};
@@ -400,8 +401,13 @@ public abstract class DB extends RoomDatabase {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
 
-                        Log.i("Set PRAGMA cache_size=" + DB_CACHE_SIZE);
-                        try (Cursor cursor = db.query("PRAGMA cache_size=" + DB_CACHE_SIZE + ";", null)) {
+                        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+                        int class_mb = am.getMemoryClass();
+                        int cache_size = class_mb * 1024 * 100 / DB_CACHE_PERCENTAGE;
+
+                        // https://www.sqlite.org/pragma.html#pragma_cache_size
+                        Log.i("Set PRAGMA cache_size=" + cache_size);
+                        try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
                             cursor.moveToNext(); // required
                         }
 
