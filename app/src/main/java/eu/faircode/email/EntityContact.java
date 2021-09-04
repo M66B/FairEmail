@@ -240,7 +240,7 @@ public class EntityContact implements Serializable {
     public boolean equals(@Nullable Object obj) {
         if (obj instanceof EntityContact) {
             EntityContact other = (EntityContact) obj;
-            return (this.account == other.account &&
+            return (this.account.equals(other.account) &&
                     this.type == other.type &&
                     this.email.equals(other.email) &&
                     Objects.equals(this.name, other.name) &&
