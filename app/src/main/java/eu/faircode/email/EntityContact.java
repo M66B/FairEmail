@@ -68,6 +68,7 @@ public class EntityContact implements Serializable {
 
     static final int TYPE_TO = 0;
     static final int TYPE_FROM = 1;
+    static final int TYPE_NO_JUNK = 3;
 
     static final int STATE_DEFAULT = 0;
     static final int STATE_FAVORITE = 1;

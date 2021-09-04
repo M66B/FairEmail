@@ -1282,10 +1282,42 @@ class Core {
                     imessage.setFlag(Flags.Flag.FLAGGED, false);
 
                 // Mark not spam
-                if (EntityFolder.JUNK.equals(folder.type)
-                        && ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+                if (EntityFolder.JUNK.equals(folder.type) &&
+                        ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
                     Flags notJunk = new Flags(MessageHelper.FLAG_NOT_JUNK);
                     imessage.setFlags(notJunk, true);
+                }
+
+                EntityMessage message = map.get(imessage);
+                if (message != null && message.from != null) {
+                    for (Address from : message.from) {
+                        String email = ((InternetAddress) from).getAddress();
+                        if (TextUtils.isEmpty(email))
+                            continue;
+                        if (EntityFolder.JUNK.equals(folder.type)) {
+                            // From junk
+                            long now = new Date().getTime();
+                            EntityContact contact = db.contact().getContact(message.account, EntityContact.TYPE_NO_JUNK, email);
+                            if (contact == null) {
+                                contact = new EntityContact();
+                                contact.account = message.account;
+                                contact.name = ((InternetAddress) from).getPersonal();
+                                contact.email = email;
+                                contact.type = EntityContact.TYPE_NO_JUNK;
+                                contact.first_contacted = now;
+                                contact.last_contacted = now;
+                                contact.times_contacted = 1;
+                                db.contact().insertContact(contact);
+                            } else {
+                                contact.times_contacted++;
+                                contact.last_contacted = now;
+                                db.contact().updateContact(contact);
+                            }
+                        } else if (EntityFolder.JUNK.equals(target.type)) {
+                            // To junk
+                            int count = db.contact().deleteContact(message.account, EntityContact.TYPE_NO_JUNK, email);
+                        }
+                    }
                 }
             }
 
@@ -3543,6 +3575,21 @@ class Core {
                     message.warning = Log.formatThrowable(ex, false);
                 }
 
+            boolean notJunk = false;
+            if (message.from != null)
+                for (Address from : message.from) {
+                    String email = ((InternetAddress) from).getAddress();
+                    if (TextUtils.isEmpty(email))
+                        continue;
+                    EntityContact contact = db.contact().getContact(message.account, EntityContact.TYPE_NO_JUNK, email);
+                    if (contact != null) {
+                        contact.times_contacted++;
+                        contact.last_contacted = new Date().getTime();
+                        db.contact().updateContact(contact);
+                        notJunk = true;
+                    }
+                }
+
             boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
             if (check_blocklist &&
                     !have &&
@@ -3550,6 +3597,7 @@ class Core {
                     !EntityFolder.ARCHIVE.equals(folder.type) &&
                     !EntityFolder.TRASH.equals(folder.type) &&
                     !EntityFolder.JUNK.equals(folder.type) &&
+                    !notJunk &&
                     !Arrays.asList(message.keywords).contains(MessageHelper.FLAG_NOT_JUNK))
                 try {
                     message.blocklist = DnsBlockList.isJunk(context,
