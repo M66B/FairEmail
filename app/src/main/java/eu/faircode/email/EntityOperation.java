@@ -452,7 +452,7 @@ public class EntityOperation {
         DB db = DB.getInstance(context);
 
         boolean force = false;
-        List<EntityOperation> ops = db.operation().getOperationsByFolder(fid, EntityOperation.SYNC);
+        List<EntityOperation> ops = db.operation().getOperationsByFolder(fid, SYNC);
         if (ops != null)
             for (EntityOperation op : ops)
                 if (EntityFolder.isSyncForced(op.args)) {
@@ -460,7 +460,7 @@ public class EntityOperation {
                     break;
                 }
 
-        db.operation().deleteOperation(fid, EntityOperation.SYNC);
+        db.operation().deleteOperation(fid, SYNC);
         sync(context, fid, false, force);
     }
 
