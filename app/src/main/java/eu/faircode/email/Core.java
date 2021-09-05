@@ -775,6 +775,34 @@ class Core {
         return uid;
     }
 
+    private static Message findMessage(Context context, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
+        Message[] imessages = ifolder.getMessages();
+        Log.i(folder.name + " POP messages=" + imessages.length);
+
+        Map<String, String> caps = istore.capabilities();
+        boolean hasUidl = caps.containsKey("UIDL");
+        if (hasUidl) {
+            FetchProfile ifetch = new FetchProfile();
+            ifetch.add(UIDFolder.FetchProfileItem.UID);
+            ifolder.fetch(imessages, ifetch);
+        }
+
+        for (Message imessage : imessages) {
+            MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+
+            String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
+            String msgid = helper.getMessageID();
+
+            Log.i(folder.name + " POP searching=" + message.uidl + "/" + message.msgid +
+                    " iterate=" + uidl + "/" + msgid);
+            if ((uidl != null && uidl.equals(message.uidl)) ||
+                    (msgid != null && msgid.equals(message.msgid)))
+                return imessage;
+        }
+
+        return null;
+    }
+
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
@@ -1620,39 +1648,13 @@ class Core {
                 db.message().resetMessageContent(message.id);
                 db.attachment().resetAvailable(message.id);
             } else {
-                Map<String, String> caps = istore.capabilities();
+                Message imessage = findMessage(context, folder, message, istore, ifolder);
+                if (imessage != null) {
+                    Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
+                    imessage.setFlag(Flags.Flag.DELETED, true);
 
-                Message[] imessages = ifolder.getMessages();
-                Log.i(folder.name + " POP messages=" + imessages.length);
-
-                boolean hasUidl = caps.containsKey("UIDL");
-                if (hasUidl) {
-                    FetchProfile ifetch = new FetchProfile();
-                    ifetch.add(UIDFolder.FetchProfileItem.UID);
-                    ifolder.fetch(imessages, ifetch);
-                }
-
-                boolean found = false;
-                for (Message imessage : imessages) {
-                    MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
-
-                    String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
-                    String msgid = helper.getMessageID();
-
-                    Log.i(folder.name + " POP searching=" + message.uidl + "/" + message.msgid +
-                            " iterate=" + uidl + "/" + msgid);
-                    if ((uidl != null && uidl.equals(message.uidl)) ||
-                            (msgid != null && msgid.equals(message.msgid))) {
-                        found = true;
-                        Log.i(folder.name + " POP delete=" + uidl + "/" + msgid);
-                        imessage.setFlag(Flags.Flag.DELETED, true);
-                        break;
-                    }
-                }
-
-                if (found) {
                     try {
-                        Log.i(folder.name + " POP expunge=" + found);
+                        Log.i(folder.name + " POP expunge");
                         ifolder.close(true);
                         ifolder.open(Folder.READ_WRITE);
                     } catch (Throwable ex) {
