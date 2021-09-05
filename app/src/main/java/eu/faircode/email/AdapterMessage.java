@@ -1927,7 +1927,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_notes = prefs.getBoolean("button_notes", false);
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_hide = prefs.getBoolean("button_hide", false);
-                    boolean button_translate = prefs.getBoolean("button_translate", false);
+                    boolean button_translate = prefs.getBoolean("button_translate", true);
                     boolean button_search = prefs.getBoolean("button_search", false);
                     boolean button_search_text = prefs.getBoolean("button_search_text", false);
                     boolean button_event = prefs.getBoolean("button_event", false);
@@ -7339,7 +7339,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbKeywords.setChecked(prefs.getBoolean("button_keywords", false));
             cbSearch.setChecked(prefs.getBoolean("button_search", false));
             cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
-            cbTranslate.setChecked(prefs.getBoolean("button_translate", false));
+            cbTranslate.setChecked(prefs.getBoolean("button_translate", true));
             cbEvent.setChecked(prefs.getBoolean("button_event", false));
             cbShare.setChecked(prefs.getBoolean("button_share", false));
             cbPin.setChecked(prefs.getBoolean("button_pin", false));
