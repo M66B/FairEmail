@@ -317,6 +317,11 @@ public class FragmentQuickSetup extends FragmentBase {
                             } catch (EmailService.UntrustedException ex) {
                                 imap_certificate = ex.getCertificate();
                                 imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
+                                iservice.connect(
+                                        provider.imap.host, provider.imap.port,
+                                        AUTH_TYPE_PASSWORD, null,
+                                        user, password,
+                                        null, imap_fingerprint);
                             } catch (Throwable ex) {
                                 Log.w(ex);
                                 // Why not AuthenticationFailedException?
@@ -335,6 +340,11 @@ public class FragmentQuickSetup extends FragmentBase {
                                     } catch (EmailService.UntrustedException ex1) {
                                         imap_certificate = ex1.getCertificate();
                                         imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
+                                        iservice.connect(
+                                                provider.imap.host, provider.imap.port,
+                                                AUTH_TYPE_PASSWORD, null,
+                                                user, password,
+                                                null, imap_fingerprint);
                                     } catch (Throwable ex1) {
                                         Log.w(ex1);
                                         if (!(ex instanceof AuthenticationFailedException) &&
@@ -379,6 +389,11 @@ public class FragmentQuickSetup extends FragmentBase {
                             } catch (EmailService.UntrustedException ex) {
                                 smtp_certificate = ex.getCertificate();
                                 smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
+                                iservice.connect(
+                                        provider.smtp.host, provider.smtp.port,
+                                        AUTH_TYPE_PASSWORD, null,
+                                        user, password,
+                                        null, smtp_fingerprint);
                             }
 
                             max_size = iservice.getMaxSize();
