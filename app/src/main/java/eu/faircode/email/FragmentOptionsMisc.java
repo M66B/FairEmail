@@ -124,6 +124,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDebug;
     private SwitchCompat swQueries;
     private SwitchCompat swWal;
+    private TextView tvSqliteCache;
+    private SeekBar sbSqliteCache;
+    private ImageButton ibSqliteCache;
     private SwitchCompat swModSeq;
     private SwitchCompat swExpunge;
     private SwitchCompat swAuthPlain;
@@ -154,7 +157,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "language", "deepl_enabled", "watchdog", "updates", "weekly",
-            "experiments", "wal", "query_threads", "crash_reports", "cleanup_attachments",
+            "experiments", "wal", "query_threads", "sqlite_cache", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
             "use_modseq", "perform_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl",
@@ -236,6 +239,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug = view.findViewById(R.id.swDebug);
         swQueries = view.findViewById(R.id.swQueries);
         swWal = view.findViewById(R.id.swWal);
+        tvSqliteCache = view.findViewById(R.id.tvSqliteCache);
+        sbSqliteCache = view.findViewById(R.id.sbSqliteCache);
+        ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
         swModSeq = view.findViewById(R.id.swModSeq);
         swExpunge = view.findViewById(R.id.swExpunge);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
@@ -605,6 +611,30 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("wal", checked).commit(); // apply won't work here
+            }
+        });
+
+        sbSqliteCache.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("sqlite_cache", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        ibSqliteCache.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ApplicationEx.restart(v.getContext());
             }
         });
 
@@ -1010,6 +1040,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        int class_mb = am.getMemoryClass();
+        int class_large_mb = am.getLargeMemoryClass();
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        am.getMemoryInfo(mi);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
@@ -1061,6 +1097,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
         swWal.setChecked(prefs.getBoolean("wal", true));
+
+        int sqlite_cache = prefs.getInt("sqlite_cache", DB.DB_DEFAULT_CACHE);
+        int cache_size = sqlite_cache * class_mb * 1024 / 100;
+        tvSqliteCache.setText(getString(R.string.title_advanced_sqlite_cache,
+                NF.format(sqlite_cache),
+                Helper.humanReadableByteCount(cache_size * 1024L)));
+        sbSqliteCache.setProgress(sqlite_cache);
+
         swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
@@ -1071,12 +1115,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
-
-        ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        int class_mb = am.getMemoryClass();
-        int class_large_mb = am.getLargeMemoryClass();
-        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-        am.getMemoryInfo(mi);
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class,
                 class_mb + " MB",
                 class_large_mb + " MB",

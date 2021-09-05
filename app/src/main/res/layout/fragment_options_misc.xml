@@ -640,6 +640,50 @@
                     app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSqliteCache"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_sqlite_cache"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swWal" />
+
+                <SeekBar
+                    android:id="@+id/sbSqliteCache"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="20"
+                    android:min="0"
+                    android:progress="5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSqliteCache" />
+
+                <ImageButton
+                    android:id="@+id/ibSqliteCache"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbSqliteCache"
+                    app:srcCompat="@drawable/twotone_check_24" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSqliteCacheHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_english_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibSqliteCache" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swModSeq"
                     android:layout_width="0dp"
@@ -649,7 +693,7 @@
                     android:text="@string/title_advanced_modseq"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swWal"
+                    app:layout_constraintTop_toBottomOf="@id/tvSqliteCacheHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

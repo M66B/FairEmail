@@ -117,9 +117,10 @@ public abstract class DB extends RoomDatabase {
     private static Context sContext;
     private static DB sInstance;
 
+    static final int DB_DEFAULT_CACHE = 5; // percentage
+
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
-    private static final int DB_CACHE_PERCENTAGE = 3;
 
     private static final String[] DB_TABLES = new String[]{
             "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "log"};
@@ -374,6 +375,7 @@ public abstract class DB extends RoomDatabase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int threads = prefs.getInt("query_threads", 4); // AndroidX default thread count: 4
         boolean wal = prefs.getBoolean("wal", true);
+        int sqlite_cache = prefs.getInt("sqlite_cache", DB.DB_DEFAULT_CACHE);
         Log.i("DB query threads=" + threads + " wal=" + wal);
         ExecutorService executorQuery = Helper.getBackgroundExecutor(threads, "query");
         ExecutorService executorTransaction = Helper.getBackgroundExecutor(0, "transaction");
@@ -404,7 +406,7 @@ public abstract class DB extends RoomDatabase {
                         try {
                             ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
                             int class_mb = am.getMemoryClass();
-                            int cache_size = DB_CACHE_PERCENTAGE * class_mb * 1024 / 100;
+                            int cache_size = sqlite_cache * class_mb * 1024 / 100;
                             if (cache_size > 2000) {
                                 // https://www.sqlite.org/pragma.html#pragma_cache_size
                                 cache_size = -cache_size; // kibibytes

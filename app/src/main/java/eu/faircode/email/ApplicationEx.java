@@ -245,7 +245,7 @@ public class ApplicationEx extends Application
             case "query_threads": // misc
             case "wal": // misc
                 // Should be excluded for import
-                restart();
+                restart(this);
                 break;
             case "debug":
             case "log_level":
@@ -254,10 +254,10 @@ public class ApplicationEx extends Application
         }
     }
 
-    void restart() {
-        Intent intent = new Intent(this, ActivityMain.class);
+    static void restart(Context context) {
+        Intent intent = new Intent(context, ActivityMain.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        context.startActivity(intent);
         Runtime.getRuntime().exit(0);
     }
 
