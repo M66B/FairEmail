@@ -778,7 +778,8 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
     <string name="title_show_flagged">Toon aantal berichten met ster</string>
     <string name="title_subscribed_only">Alleen geabonneerde</string>
-    <string name="title_apply_to_all">Toepassen op alle &#8230;</string>
+    <string name="title_search_folder">Zoeken naar map</string>
+    <string name="title_apply_to_all">Toepassen op alle</string>
     <string name="title_hide_folder">Verberg map</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_navigation_folder">Toon in navigatiemenu</string>
@@ -1500,7 +1501,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_widget_font_size">Tekstgrootte</string>
     <string name="title_widget_padding">Opvul grootte</string>
     <string name="title_widget_semi_transparent">Semi transparante achtergrond</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Toon knop voor het verversen van berichten</string>
+    <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>
     <string name="title_widget_background">Achtergrondkleur</string>
     <string name="title_accessibility_collapsed">Ingevouwen</string>

@@ -137,7 +137,7 @@
     <string name="title_setup_doze_hint">Iako ovo možda zvuči kontradiktorno, isključivanjem optimizacije baterije za ovu aplikaciju rezultirat će u njenoj manjoj potrošnji</string>
     <string name="title_setup_doze_instructions">U slijedećem dijaloškom okviru Androida promijenite \"Neoptimizirano\" u \"Sve aplikacije\", izaberite ovu aplikaciju i označite \"Ne optimizuj\"</string>
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
-    <string name="title_setup_doze_stopped">Sinronizacija zaustavljena?</string>
+    <string name="title_setup_doze_stopped">Sinhronizacija zaustavljena?</string>
     <string name="title_setup_doze_device">Ovo je vjerovatno neophodno za ovaj uređaj</string>
     <string name="title_setup_doze_android">Ovo je neophodno za ovu verziju Androida</string>
     <string name="title_setup_inexact">Alarmi &amp; podsjetnici su isključeni</string>
@@ -478,7 +478,17 @@
     <string name="title_domain">Naziv domene</string>
     <string name="title_autoconfig">Dohvati postavke</string>
     <string name="title_encryption">Šifriranje</string>
+    <string name="title_allow_insecure">Dozvoli nesigurne konekcije</string>
+    <string name="title_insecure_remark">Nesigurne konekcije trebaju biti dozvoljene samo na pouzdanim mrežama i nikada na javnim mrežama</string>
+    <string name="title_port">Broj porta</string>
+    <string name="title_user">Korisničko ime</string>
     <string name="title_password">Lozinka</string>
+    <string name="title_password_storage">Kako se čuvaju lozinke?</string>
+    <string name="title_case_sensitive">Korisnička imena i lozinke su obično precizne veličine slova</string>
+    <string name="title_client_certificate">Certifikat klijenta</string>
+    <string name="title_realm">Oblast</string>
+    <string name="title_use_ip">Koristi lokalne IP adrese umjesto naziva hosta</string>
+    <string name="title_ehlo">Prilagođena HELO/EHLO identifikacija</string>
     <string name="title_no_password">Nedostaje lozinka</string>
     <string name="title_no_inbox">Inbox nije pronađen</string>
     <string name="title_synchronize_now">Sinhronizuj sada</string>
@@ -529,7 +539,10 @@
     <string name="title_folder_all">Arhiv</string>
     <string name="title_folder_trash">Otpad</string>
     <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_sent">Poslano</string>
     <string name="title_folder_system">Sistemski</string>
+    <string name="title_subject_reply">Odg: %1$s</string>
+    <string name="title_subject_forward">Pro: %1$s</string>
     <string name="title_subject_reply_alt">Odg: %1$s</string>
     <string name="title_subject_forward_alt">Pro: %1$s</string>
     <string name="title_seen">Oznaci kao pročitano</string>
@@ -588,6 +601,13 @@
     <string name="title_move">Premjesti</string>
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
+    <string name="title_show_full">Prikaži cijelu poruku</string>
+    <string name="title_unused_inline">Nekorištene poravnate slike bit će uklonjene pri slanju</string>
+    <string name="title_accross_remark">Poruke koje se premještaju na računima bit će opet preuzete, što povećava potrošnju podataka</string>
+    <string name="title_raw_saved">Raw poruka je sačuvana</string>
+    <string name="title_attachment_eml">Priložena poruka</string>
+    <string name="title_attachment_saved">Prilog je sačuvan</string>
+    <string name="title_attachments_saved">Prilozi su sačuvani</string>
     <string name="title_attachments_incomplete">Neki prilozi ili slike nisu preuzete i ne mogu se dodati</string>
     <string name="title_ask_save">Sačuvati promjene?</string>
     <string name="title_ask_delete">Trajno izbrisati poruku?</string>
@@ -647,20 +667,78 @@
     <string name="title_send_at">Pošalji u &#8230;</string>
     <string name="title_send_auto_archive">Arhiviraj odgovorenu poruku</string>
     <string name="title_send_encryption">Šifriranje</string>
+    <string name="title_send_priority">Prioritet</string>
+    <string name="title_no_server">Nije pronađen server na \'%1$s\'</string>
+    <string name="title_style">Stil</string>
+    <string name="title_style_bold">Podebljan</string>
+    <string name="title_style_italic">Kurziv</string>
+    <string name="title_style_underline">Podvučen</string>
+    <string name="title_style_size">Veličina</string>
+    <string name="title_style_size_small">Mali</string>
+    <string name="title_style_size_medium">Srednji</string>
+    <string name="title_style_size_large">Veliki</string>
+    <string name="title_style_align">Poravnat</string>
+    <string name="title_style_align_start">Početak</string>
+    <string name="title_style_align_center">Sredina</string>
     <string name="title_style_list">Spisak</string>
+    <string name="title_add_image_select">Izaberi datoteku</string>
+    <string name="title_add_attachment">Dodaj prilog</string>
+    <string name="title_attachment_file">Priloži datoteku</string>
+    <string name="title_attachment_photo">Uslikaj</string>
+    <string name="title_attachment_audio">Snimi zvuk</string>
+    <string name="title_show_addresses">Prikaži CC/BCC</string>
+    <string name="title_save_drafts">Sačuvaj nacrte na serveru</string>
+    <string name="title_send_dialog">Prikaži opcije za slanje</string>
+    <string name="title_image_dialog">Prikaži opcije za slike</string>
+    <string name="title_media_toolbar">Medijska alatna traka</string>
+    <string name="title_insert_contact_group">Ubaci grupu kontakata</string>
+    <string name="title_insert_template">Ubaci prijedložak</string>
+    <string name="title_create_template">Napravi prijedložak</string>
+    <string name="title_translate">Prevedi</string>
+    <string name="title_translate_configure">Podesi &#8230;</string>
+    <string name="title_translate_key">Unesite ključ</string>
+    <string name="title_translating">Prevođenje &#8230;</string>
+    <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
+    <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Dodirnite tekst za prevođenje</string>
+    <string name="title_edit_plain_text">Uredi kao obični tekst</string>
+    <string name="title_edit_formatted_text">Uredi kao preformatirani tekst</string>
+    <string name="title_select_certificate">Izaberi javni ključ</string>
+    <string name="title_certificate_missing">Nema javnog ključa za %1$s</string>
+    <string name="title_certificate_invalid">Javni ključ primaoca %1$s je nevažeći</string>
+    <string name="title_no_key">Nema privatnog ključa</string>
+    <string name="title_invalid_key">Nevažeći privatni ključ</string>
+    <string name="title_unknown_key">Privatni ključ nije podudaran sa bilo kojim šifriranim ključem</string>
+    <string name="title_key_missing">Nema ključa za %1$s</string>
+    <string name="title_send_reminder_remark">Podsjetnici se mogu ponovo uključiti u postavkama za slanje</string>
+    <string name="title_send_plain_text">Samo običan tekst</string>
+    <string name="title_signature_subject">Predmet</string>
     <string name="title_search_more">Više opcija</string>
+    <string name="title_sort_on_subject">Predmet</string>
+    <string name="title_sort_on_size">Veličina</string>
     <string name="title_filter_seen">Pročitano</string>
+    <string name="title_rule_seen">Oznaci kao pročitano</string>
+    <string name="title_rule_unseen">Označi kao nepročitano</string>
     <string name="title_rule_hide">Sakrij</string>
     <string name="title_rule_snooze">Odgodi</string>
+    <string name="title_rule_flag">Zvjezdica</string>
+    <string name="title_rule_importance">Postavi važnost</string>
+    <string name="title_rule_keyword">Dodaj ključnu riječ</string>
     <string name="title_rule_move">Premjesti</string>
+    <string name="title_rule_tts_prefix">Nova poruka</string>
+    <string name="title_rule_tts_from">Od</string>
+    <string name="title_rule_tts_subject">Predmet</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>
     <string name="title_legend_section_compose">Napiši</string>
+    <string name="title_legend_sent">Poslano</string>
     <string name="title_legend_archive">Arhiv</string>
     <string name="title_legend_trash">Otpad</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_thread">Konverzacija</string>
+    <string name="title_legend_save">Sačuvaj</string>
+    <string name="title_legend_delete">Izbriši</string>
     <string name="title_legend_a">Arhiv</string>
     <string name="title_legend_c">Napiši</string>
     <string name="title_legend_r">Odgovori</string>
@@ -670,6 +748,7 @@
     <string name="title_accessibility_seen">Pročitano</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">Za uraditi</string>
+    <string name="title_accessibility_attachment">Prilog</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
@@ -678,5 +757,15 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>Za</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Niska</item>
+        <item>Normalna</item>
+        <item>Visoka</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

@@ -779,7 +779,8 @@
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
     <string name="title_show_flagged">Anzahl markierter Nachrichten anzeigen</string>
     <string name="title_subscribed_only">Nur abonnierte</string>
-    <string name="title_apply_to_all">Auf alle anwenden &#8230;</string>
+    <string name="title_search_folder">Nach Ordnern suchen</string>
+    <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>
@@ -1504,7 +1505,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_font_size">Schriftgröße</string>
     <string name="title_widget_padding">Abstand zwischen den Texten</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Schaltfläche „Nachrichten aktualisieren“ anzeigen</string>
+    <string name="title_widget_refresh">Schaltfläche „Nachrichten aktualisieren“ anzeigen</string>
     <string name="title_widget_compose">Schaltfläche „Neue Nachricht verfassen” anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>
     <string name="title_accessibility_collapsed">Eingeklappt</string>

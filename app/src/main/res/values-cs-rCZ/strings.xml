@@ -755,7 +755,6 @@
     <string name="title_show_folders">Zobrazit skryté složky</string>
     <string name="title_show_flagged">Zobrazit počet zpráv s hvězdičkou</string>
     <string name="title_subscribed_only">Pouze odebírané</string>
-    <string name="title_apply_to_all">Použít na všechny &#8230;</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>

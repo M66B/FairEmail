@@ -484,7 +484,6 @@
     <string name="title_folder_name">Naziv mape</string>
     <string name="title_display_name">Prikaži ime</string>
     <string name="title_show_folders">Prikaži skrivene mape</string>
-    <string name="title_apply_to_all">Primijeni na sve &#8230;</string>
     <string name="title_hide_folder">Sakrij mapu</string>
     <string name="title_unified_folder">Prikaži u objedinjenoj ulaznom spremniku</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom izborniku</string>

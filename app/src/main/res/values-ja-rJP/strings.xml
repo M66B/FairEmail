@@ -765,7 +765,8 @@
     <string name="title_show_folders">隠しフォルダーを表示</string>
     <string name="title_show_flagged">スター付きメッセージの数を表示</string>
     <string name="title_subscribed_only">購読済みのみ</string>
-    <string name="title_apply_to_all">全ての &#8230; に適用</string>
+    <string name="title_search_folder">フォルダを検索</string>
+    <string name="title_apply_to_all">すべてに適用</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
@@ -1490,7 +1491,7 @@
     <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白のサイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">メッセージ更新ボタンを表示</string>
+    <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">新しいメッセージ作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
     <string name="title_accessibility_collapsed">折りたたんだ</string>

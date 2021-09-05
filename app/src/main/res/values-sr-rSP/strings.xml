@@ -397,7 +397,6 @@
     <string name="title_folder_name">Име фасцикле</string>
     <string name="title_display_name">Име за приказ</string>
     <string name="title_show_folders">Прикажи скривене фасцикле</string>
-    <string name="title_apply_to_all">Примени на све&#8230;</string>
     <string name="title_hide_folder">Сакриј фасциклу</string>
     <string name="title_unified_folder">Прикажи међу свим примљеним</string>
     <string name="title_navigation_folder">Прикажи у навигационом менију</string>

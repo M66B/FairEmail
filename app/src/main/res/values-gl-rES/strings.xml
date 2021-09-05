@@ -738,7 +738,6 @@
     <string name="title_show_folders">Mostrar cartafoles ocultos</string>
     <string name="title_show_flagged">Mostrar número de mensaxes con estrela</string>
     <string name="title_subscribed_only">Só subscritos</string>
-    <string name="title_apply_to_all">Asignar a todos &#8230;</string>
     <string name="title_hide_folder">Agochar cartafol</string>
     <string name="title_unified_folder">Mostrar na caixa unificada</string>
     <string name="title_navigation_folder">Mostrar en menú de navegación</string>

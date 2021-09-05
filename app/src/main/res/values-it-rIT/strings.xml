@@ -777,7 +777,8 @@
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_show_flagged">Mostra conteggio dei messaggi stellati</string>
     <string name="title_subscribed_only">Solo sottoscritte</string>
-    <string name="title_apply_to_all">Applica a tutti &#8230;</string>
+    <string name="title_search_folder">Cerca per cartella</string>
+    <string name="title_apply_to_all">Applica a tutti</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_unified_folder">Mostra nella posta in arrivo unificata</string>
     <string name="title_navigation_folder">Mostra nel menu di navigazione</string>
@@ -1502,6 +1503,7 @@
     <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
+    <string name="title_widget_refresh">Mostra il pulsante ricarica messaggi</string>
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>
     <string name="title_widget_background">Colore di sfondo</string>
     <string name="title_accessibility_collapsed">Compresso</string>

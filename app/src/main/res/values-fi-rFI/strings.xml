@@ -774,7 +774,6 @@
     <string name="title_show_folders">Näytä piilotetut kansiot</string>
     <string name="title_show_flagged">Näytä tähdellisten viestien lukumäärä</string>
     <string name="title_subscribed_only">Vain tilatut</string>
-    <string name="title_apply_to_all">Käytä kaikille &#8230;</string>
     <string name="title_hide_folder">Piilota kansio</string>
     <string name="title_unified_folder">Näytä yhdistetyssä saapuneet-kansiossa</string>
     <string name="title_navigation_folder">Näytä navigointivalikossa</string>

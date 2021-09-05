@@ -783,7 +783,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_show_folders">Zobraziť skryté priečinky</string>
     <string name="title_show_flagged">Zobraziť počet správ s hviezdičkou</string>
     <string name="title_subscribed_only">Len odoberané</string>
-    <string name="title_apply_to_all">Použiť na všetky &#8230;</string>
     <string name="title_hide_folder">Skryť priečinok</string>
     <string name="title_unified_folder">Zobraziť v spoločnej doručenej pošte</string>
     <string name="title_navigation_folder">Zobrazovať v navigačnom menu</string>

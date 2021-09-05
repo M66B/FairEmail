@@ -797,7 +797,8 @@
     <string name="title_show_folders">Показывать скрытые папки</string>
     <string name="title_show_flagged">Показывать количество избранных сообщений</string>
     <string name="title_subscribed_only">Только подписки</string>
-    <string name="title_apply_to_all">Применить ко всем&#8230;</string>
+    <string name="title_search_folder">Поиск в названии папки</string>
+    <string name="title_apply_to_all">Применить ко всем</string>
     <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_unified_folder">Показывать в единой папке \"Входящие\"</string>
     <string name="title_navigation_folder">Показывать в меню навигации</string>
@@ -1522,7 +1523,7 @@
     <string name="title_widget_font_size">Размер текста</string>
     <string name="title_widget_padding">Размер отступа</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Показать кнопку обновления сообщений</string>
+    <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>
     <string name="title_accessibility_collapsed">Свёрнуто</string>

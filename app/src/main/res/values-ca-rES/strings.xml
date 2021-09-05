@@ -551,7 +551,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_show_folders">Mostra les carpetes ocultes</string>
     <string name="title_show_flagged">Mostra el recompte de missatges destacats</string>
     <string name="title_subscribed_only">Només subscrits</string>
-    <string name="title_apply_to_all">Aplicar a tots &#8230;</string>
     <string name="title_hide_folder">Amagar carpeta</string>
     <string name="title_unified_folder">Mostra en la safata d\'entrada unificada</string>
     <string name="title_navigation_folder">Mostra en el menú de navegació</string>

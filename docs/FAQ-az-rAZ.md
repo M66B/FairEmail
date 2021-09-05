@@ -2026,23 +2026,23 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq86"></a>
-**~~(86) What are 'extra privacy features'?~~**
+**~~(86) "Əlavə gizlilik özəllikləri" nədir?~~**
 
-~~The advanced option *extra privacy features* enables:~~
+~~Qabaqcıl *əlavə gizlilik özəllikləri* bunları təmin edir:~~
 
-* ~~Looking up the owner of the IP address of a link~~
-* ~~Detection and removal of [tracking images](#user-content-faq82)~~
+* ~~Bir bağlantının IP ünvanının sahibinin axtarılması~~
+* ~~[İzləmə təsvirlərinin](#user-content-faq82) aşkarlanması və çıxarılması~~
 
 <br />
 
 <a name="faq87"></a>
-**(87) What does 'invalid credentials' mean?**
+**(87) "Etibarsız kimlik məlumatları" nə deməkdir?**
 
-The error message *invalid credentials* means either that the user name and/or password is incorrect, for example because the password was changed or expired, or that the account authorization has expired.
+*Etibarsız kimlik məlumatları*, istifadəçi adı və/və ya şifrənin yanlış yazıldığını bildirir, məsələn, şifrənin dəyişdirilməsi və ya müddətinin bitməsi, hesab səlahiyyətinin müddətinin bitməsi.
 
-If the password is incorrect/expired, you will have to update the password in the account and/or identity settings.
+Şifrə yanlışdırsa/müddəti bitibsə, hesab və/və ya kimlik tənzimləmələrində şifrəni yeniləməlisiniz.
 
-If the account authorization has expired, you will have to select the account again. You will likely need to save the associated identity again as well.
+Hesab səlahiyyətinin müddəti bitibsə, hesabı təkrar seçməlisiniz. Böyük ehtimal, əlaqəli kimliyi də yenidən saxlamalı olacaqsınız.
 
 <br />
 

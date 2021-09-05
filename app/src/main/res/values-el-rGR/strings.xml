@@ -775,7 +775,8 @@
     <string name="title_show_folders">Εμφάνιση κρυμμένων φακέλων</string>
     <string name="title_show_flagged">Εμφάνιση του αριθμού μηνυμάτων με αστέρι</string>
     <string name="title_subscribed_only">Μόνο με συνδρομή</string>
-    <string name="title_apply_to_all">Εφαρμογή σε όλα &#8230;</string>
+    <string name="title_search_folder">Αναζήτηση φακέλου</string>
+    <string name="title_apply_to_all">Εφαρμογή σε όλα</string>
     <string name="title_hide_folder">Απόκρυψη φακέλου</string>
     <string name="title_unified_folder">Προβολή στα ενοποιημένα εισερχόμενα</string>
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
@@ -1500,7 +1501,7 @@
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
+    <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>
     <string name="title_accessibility_collapsed">Συνεπτυγμένο</string>

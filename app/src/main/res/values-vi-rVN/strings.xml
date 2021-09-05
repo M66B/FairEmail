@@ -766,7 +766,6 @@
     <string name="title_show_folders">Hiện các thư mục ẩn</string>
     <string name="title_show_flagged">Hiện số thư gắn sao</string>
     <string name="title_subscribed_only">Chỉ có đã đăng ký</string>
-    <string name="title_apply_to_all">Áp dụng cho tất cả &#8230;</string>
     <string name="title_hide_folder">Ẩn thư mục</string>
     <string name="title_unified_folder">Hiện trong hộp thư đến hợp nhất</string>
     <string name="title_navigation_folder">Hiện trong menu điều hướng</string>

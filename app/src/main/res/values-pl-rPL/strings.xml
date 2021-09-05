@@ -796,7 +796,8 @@
     <string name="title_show_folders">Pokaż ukryte foldery</string>
     <string name="title_show_flagged">Pokaż liczbę wiadomości oznaczonych gwiazdką</string>
     <string name="title_subscribed_only">Tylko subskrybowane</string>
-    <string name="title_apply_to_all">Zastosuj dla wszystkich &#8230;</string>
+    <string name="title_search_folder">Szukaj folderu</string>
+    <string name="title_apply_to_all">Zastosuj dla wszystkich</string>
     <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
@@ -1520,7 +1521,7 @@
     <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Pokaż przycisk odświeżania wiadomości</string>
+    <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>
     <string name="title_widget_background">Kolor tła</string>
     <string name="title_accessibility_collapsed">Zwinięta</string>

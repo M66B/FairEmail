@@ -777,7 +777,6 @@
     <string name="title_show_folders">Mostrar carpetas ocultas</string>
     <string name="title_show_flagged">Mostrar cantidad de mensajes destacados</string>
     <string name="title_subscribed_only">Sólo suscritas</string>
-    <string name="title_apply_to_all">Aplicar a todos/as los/las &#8230;</string>
     <string name="title_hide_folder">Ocultar carpeta</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar en el menú de navegación</string>
@@ -1502,7 +1501,7 @@
     <string name="title_widget_font_size">Tamaño del texto</string>
     <string name="title_widget_padding">Tamaño de margen interno</string>
     <string name="title_widget_semi_transparent">Fondo semi transparente</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Mostrar botón de actualizar mensajes</string>
+    <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>
     <string name="title_accessibility_collapsed">Oculto</string>

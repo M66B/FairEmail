@@ -795,7 +795,8 @@
     <string name="title_show_folders">Відображати приховані теки</string>
     <string name="title_show_flagged">Відображати кількість позначених повідомлень</string>
     <string name="title_subscribed_only">Тільки підписані</string>
-    <string name="title_apply_to_all">Застосувати до всіх &#8230;</string>
+    <string name="title_search_folder">Знайти теку</string>
+    <string name="title_apply_to_all">Застосувати до всіх</string>
     <string name="title_hide_folder">Сховати теку</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
@@ -1519,7 +1520,7 @@
     <string name="title_widget_font_size">Розмір тексту</string>
     <string name="title_widget_padding">Розмір відступів</string>
     <string name="title_widget_semi_transparent">Напівпрозорий фон</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Показувати кнопку оновлення повідомлень</string>
+    <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>
     <string name="title_accessibility_collapsed">Згорнуто</string>

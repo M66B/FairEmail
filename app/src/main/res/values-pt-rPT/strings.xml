@@ -538,7 +538,7 @@
     <string name="title_debug_info_remark">Por favor descreva o problema e indique quando ocorreu:</string>
     <string name="title_power_menu_off">Desligado</string>
     <string name="title_widget_account_all">Todos</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Mostrar botão para atualizar mensagens</string>
+    <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_accessibility_seen">Lida</string>
     <!-- Thunderbird -->

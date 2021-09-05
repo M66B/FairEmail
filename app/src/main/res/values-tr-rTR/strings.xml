@@ -777,7 +777,6 @@
     <string name="title_show_folders">Gizli klasörleri göster</string>
     <string name="title_show_flagged">Yıldızlı mesaj sayısını göster</string>
     <string name="title_subscribed_only">Sadece abone olunanlar</string>
-    <string name="title_apply_to_all">Tümüne uygula &#8230;</string>
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>

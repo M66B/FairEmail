@@ -500,7 +500,6 @@
     <string name="title_display_name">Prikazano ime</string>
     <string name="title_show_folders">Prikaži skrite mape</string>
     <string name="title_subscribed_only">Samo naročene</string>
-    <string name="title_apply_to_all">Uporabi za vse &#8230;</string>
     <string name="title_hide_folder">Skrij mapo</string>
     <string name="title_unified_folder">Prikaži v poenoteni mapi \'Prejeto\'</string>
     <string name="title_navigation_folder">Prikaži v meniju za krmarjenje</string>

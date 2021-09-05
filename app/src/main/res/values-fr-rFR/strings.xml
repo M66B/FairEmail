@@ -777,7 +777,8 @@
     <string name="title_show_folders">Afficher les dossiers cachés</string>
     <string name="title_show_flagged">Afficher le nombre de messages suivis</string>
     <string name="title_subscribed_only">Abonnés uniquement</string>
-    <string name="title_apply_to_all">Appliquer à tous&#8230;</string>
+    <string name="title_search_folder">Rechercher un dossier</string>
+    <string name="title_apply_to_all">Appliquer à tous</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
@@ -1502,7 +1503,7 @@
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Taille de l\'espacement des messages</string>
     <string name="title_widget_semi_transparent">Arrière-plan semi-transparent</string>
-    <string name="title_widget_refresh" comment="title_widget_refresh&#10;Title of widget option to show a button to synchronize messages">Afficher le bouton d\'actualisation des messages</string>
+    <string name="title_widget_refresh">Afficher le bouton d\'actualisation des messages</string>
     <string name="title_widget_compose">Afficher le bouton Rédiger un nouveau message</string>
     <string name="title_widget_background">Couleur d\'arrière-plan</string>
     <string name="title_accessibility_collapsed">Replié</string>
