@@ -742,8 +742,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 if (lastCount == null || !lastCount.equals(count)) {
                     lastCount = count;
 
-                    EntityLog.log(ServiceSynchronize.this, " Badge count=" + count +
-                            "enabled=" + badge + " Unseen/ignored=" + unseen_ignored);
+                    EntityLog.log(ServiceSynchronize.this, "Badge count=" + count +
+                            " enabled=" + badge + " Unseen/ignored=" + unseen_ignored);
 
                     // Broadcast new message count
                     try {
