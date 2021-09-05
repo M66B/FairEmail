@@ -265,7 +265,7 @@ public class ActivityEML extends ActivityBase {
                     result.sent = helper.getSent();
                     result.received = helper.getReceived();
                     result.subject = helper.getSubject();
-                    result.parts = helper.getMessageParts();
+                    result.parts = helper.getMessageParts(false);
 
                     String html = result.parts.getHtml(context);
                     if (html != null) {

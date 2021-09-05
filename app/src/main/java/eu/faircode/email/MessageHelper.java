@@ -1938,6 +1938,18 @@ public class MessageHelper {
             return false;
         }
 
+        void normalize() {
+            Boolean plain = isPlainOnly();
+            if (plain == null || plain)
+                for (AttachmentPart apart : attachments)
+                    if (!TextUtils.isEmpty(apart.attachment.cid) ||
+                            !Part.ATTACHMENT.equals(apart.attachment.disposition)) {
+                        Log.i("Normalizing " + apart.attachment);
+                        apart.attachment.cid = null;
+                        apart.attachment.disposition = Part.ATTACHMENT;
+                    }
+        }
+
         Long getBodySize() throws MessagingException {
             Long size = null;
 
@@ -2542,6 +2554,10 @@ public class MessageHelper {
     }
 
     MessageParts getMessageParts() throws IOException, MessagingException {
+        return getMessageParts(true);
+    }
+
+    MessageParts getMessageParts(boolean normalize) throws IOException, MessagingException {
         MessageParts parts = new MessageParts();
 
         try {
@@ -2677,6 +2693,9 @@ public class MessageHelper {
                         at eu.faircode.email.MessageHelper.getMessageParts(MessageHelper:2368)
              */
         }
+
+        if (normalize)
+            parts.normalize();
 
         return parts;
     }
