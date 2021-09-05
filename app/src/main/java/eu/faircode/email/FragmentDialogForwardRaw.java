@@ -86,6 +86,22 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                         if (message == null)
                             continue;
 
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            continue;
+
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null)
+                            continue;
+
+                        if (account.protocol == EntityAccount.TYPE_IMAP) {
+                            if (message.uid == null)
+                                continue;
+                        } else if (account.protocol == EntityAccount.TYPE_POP) {
+                            if (!EntityFolder.INBOX.equals(folder.type))
+                                continue;
+                        }
+
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threads ? null : id, null);
                         if (messages == null)

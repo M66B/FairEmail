@@ -4624,12 +4624,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_share_as_html).setVisible(message.content && BuildConfig.DEBUG);
 
-            popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send_message).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(message.uid != null);
-
-            popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            boolean canRaw = (message.uid != null ||
+                    (EntityFolder.INBOX.equals(message.folderType) &&
+                            message.accountProtocol == EntityAccount.TYPE_POP));
+            popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(canRaw);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send_message).setEnabled(canRaw);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(canRaw);
 
             popupMenu.getMenu().findItem(R.id.menu_resync)
                     .setEnabled(message.uid != null)

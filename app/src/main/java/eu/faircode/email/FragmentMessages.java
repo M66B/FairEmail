@@ -3068,7 +3068,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         .setIcon(R.drawable.baseline_arrow_downward_24)
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
-                if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
+                if (ids.length < MAX_SEND_RAW)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send)
                             .setIcon(R.drawable.twotone_attachment_24);
 

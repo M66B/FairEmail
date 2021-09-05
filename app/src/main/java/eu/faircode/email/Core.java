@@ -350,6 +350,10 @@ class Core {
                                     onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
+                                case EntityOperation.RAW:
+                                    onRaw(context, jargs, folder, message, (POP3Store) istore, (POP3Folder) ifolder);
+                                    break;
+
                                 case EntityOperation.SYNC:
                                     Helper.gc();
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
@@ -1756,6 +1760,26 @@ class Core {
             operation.args = jargs.toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
+        }
+    }
+
+    private static void onRaw(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException, JSONException {
+        // Download raw message
+        if (!EntityFolder.INBOX.equals(folder.type))
+            throw new IllegalArgumentException("Unexpected folder=" + folder.type);
+
+        if (message.raw == null || !message.raw) {
+            Message imessage = findMessage(context, folder, message, istore, ifolder);
+            if (imessage == null)
+                throw new IllegalArgumentException("Message not found msgid=" + message.msgid);
+
+            File file = message.getRawFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                imessage.writeTo(os);
+            }
+
+            DB db = DB.getInstance(context);
+            db.message().setMessageRaw(message.id, true);
         }
     }
 
