@@ -404,21 +404,25 @@ public abstract class DB extends RoomDatabase {
                         try {
                             ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
                             int class_mb = am.getMemoryClass();
-                            int cache_size = class_mb * 1024 * 100 / DB_CACHE_PERCENTAGE;
+                            int cache_size = DB_CACHE_PERCENTAGE * class_mb * 1024 / 100;
+                            if (cache_size > 2000) {
+                                // https://www.sqlite.org/pragma.html#pragma_cache_size
+                                cache_size = -cache_size; // kibibytes
 
-                            // https://www.sqlite.org/pragma.html#pragma_cache_size
-                            Log.i("Set PRAGMA cache_size=" + cache_size);
-                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
-                                cursor.moveToNext(); // required
-                            }
+                                Log.i("Set PRAGMA cache_size=" + cache_size);
+                                try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
+                                    cursor.moveToNext(); // required
+                                }
 
-                            try (Cursor cursor = db.query("PRAGMA cache_size;")) {
-                                Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                                try (Cursor cursor = db.query("PRAGMA cache_size;")) {
+                                    Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                                }
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
 
+                        // Prevent long running operations from getting an exclusive lock
                         Log.i("Set PRAGMA cache_spill=0");
                         try (Cursor cursor = db.query("PRAGMA cache_spill=0;", null)) {
                             cursor.moveToNext(); // required
