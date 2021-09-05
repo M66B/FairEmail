@@ -60,6 +60,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class FragmentGmail extends FragmentBase {
     private String personal;
@@ -85,7 +86,7 @@ public class FragmentGmail extends FragmentBase {
 
     private Group grpError;
 
-    private static final long GET_TOKEN_TIMEOUT = 10 * 1000L;
+    private static final long GET_TOKEN_TIMEOUT = 20 * 1000L; // milliseconds
     private static final String PRIVACY_URI = "https://policies.google.com/privacy";
 
     @Override
@@ -294,15 +295,6 @@ public class FragmentGmail extends FragmentBase {
         final Handler handler = getMainHandler();
         final String disabled = getString(R.string.title_setup_advanced_protection);
 
-        final Runnable timeout = new Runnable() {
-            @Override
-            public void run() {
-                tvError.setText("Android failed to return a token");
-                grpError.setVisibility(View.VISIBLE);
-            }
-        };
-        handler.postDelayed(timeout, GET_TOKEN_TIMEOUT);
-
         boolean found = false;
         AccountManager am = AccountManager.get(getContext());
         Account[] accounts = am.getAccountsByType(type);
@@ -319,16 +311,18 @@ public class FragmentGmail extends FragmentBase {
                             @Override
                             public void run(AccountManagerFuture<Bundle> future) {
                                 try {
-                                    handler.removeCallbacks(timeout);
+                                    Bundle bundle = future.getResult(GET_TOKEN_TIMEOUT, TimeUnit.MILLISECONDS);
+                                    if (future.isCancelled())
+                                        throw new IllegalArgumentException("Android failed to return a token");
 
-                                    Bundle bundle = future.getResult();
                                     String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                     if (token == null)
-                                        throw new IllegalArgumentException("no token");
+                                        throw new IllegalArgumentException("Android returned no token");
                                     Log.i("Got token name=" + account.name);
 
                                     onAuthorized(name, token);
                                 } catch (Throwable ex) {
+                                    // android.accounts.OperationCanceledException = ServiceDisabled?
                                     if (ex instanceof AuthenticatorException &&
                                             "ServiceDisabled".equals(ex.getMessage()))
                                         ex = new IllegalArgumentException(disabled, ex);
