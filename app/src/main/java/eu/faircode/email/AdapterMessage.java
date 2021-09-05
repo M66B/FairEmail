@@ -2527,6 +2527,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));
 
+                        HtmlHelper.autoLink(document);
+                        HtmlHelper.guessSchemes(document);
+
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
                         HtmlHelper.setViewport(document, overview_mode);
                         if (inline || show_images)

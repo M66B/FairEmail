@@ -1327,6 +1327,19 @@ public class HtmlHelper {
         }, document);
     }
 
+    static void guessSchemes(Document document) {
+        for (Element a : document.select("a"))
+            try {
+                String href = a.attr("href");
+                if (TextUtils.isEmpty(href))
+                    continue;
+                Uri uri = UriHelper.guessScheme(Uri.parse(href));
+                a.attr("href", uri.toString());
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+    }
+
     static void normalizeNamespaces(Document parsed, boolean display_hidden) {
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
         //   xmlns:o="urn:schemas-microsoft-com:office:office"
