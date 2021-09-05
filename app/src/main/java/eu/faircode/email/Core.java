@@ -2389,6 +2389,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean sync_quick_pop = prefs.getBoolean("sync_quick_pop", true);
         boolean notify_known = prefs.getBoolean("notify_known", false);
+        boolean download_eml = prefs.getBoolean("download_eml", false);
         boolean pro = ActivityBilling.isPro(context);
 
         boolean force = jargs.optBoolean(5, false);
@@ -2689,6 +2690,18 @@ class Core {
                                 if (attachment.subsequence == null)
                                     parts.downloadAttachment(context, attachment);
 
+                            if (download_eml)
+                                try {
+                                    File raw = message.getRawFile(context);
+                                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(raw))) {
+                                        imessage.writeTo(os);
+                                    }
+
+                                    message.raw = true;
+                                    db.message().setMessageRaw(message.id, message.raw);
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
 
                             EntityContact.update(context, account, folder, message);
                         } catch (Throwable ex) {
