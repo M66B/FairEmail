@@ -2554,6 +2554,27 @@ class Core {
                         if (msgIdTuple.containsKey(msgid)) {
                             _new = false;
                             Log.i(account.name + " POP having " + msgid + "/" + uidl);
+
+                            if (download_eml)
+                                try {
+                                    TupleUidl tuple = msgIdTuple.get(msgid);
+                                    if (tuple == null)
+                                        continue;
+
+                                    File raw = EntityMessage.getRawFile(context, tuple.id);
+                                    if (raw.exists())
+                                        continue;
+
+                                    Log.i(account.name + " POP raw " + msgid + "/" + uidl);
+                                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(raw))) {
+                                        imessage.writeTo(os);
+                                    }
+
+                                    db.message().setMessageRaw(tuple.id, true);
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
                             continue;
                         }
 
