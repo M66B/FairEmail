@@ -1112,6 +1112,18 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	    try {
 		IMAPProtocol p = getProtocol();
 		checkExpunged(); // Insure that this message is not expunged
+			if (flag.contains(javax.mail.Flags.Flag.DELETED) &&
+					"imap.mail.yahoo.co.jp".equals(p.getInetAddress().getHostName())) {
+				// NO [CANNOT] STORE It's not possible to perform specified operation
+				long uid = ((IMAPFolder) getFolder()).getUID(this);
+				Response[] r = p.command("UID STORE " + uid +
+						" " + (set ? '+' : '-') + "FLAGS (\\Deleted)", null);
+				p.notifyResponseHandlers(r);
+				p.handleResult(r[r.length - 1]);
+				flag.remove(javax.mail.Flags.Flag.DELETED);
+				if (flag.getSystemFlags().length == 0)
+					return;
+			}
 		p.storeFlags(getSequenceNumber(), flag, set);
 	    } catch (ConnectionException cex) {
 		throw new FolderClosedException(folder, cex.getMessage());

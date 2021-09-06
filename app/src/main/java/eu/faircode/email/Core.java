@@ -368,7 +368,7 @@ class Core {
                                     Log.w(folder.name + " ignored=" + op.name);
                             }
                         else {
-                            ensureUid(context, folder, message, op, (IMAPFolder) ifolder);
+                            ensureUid(context, account, folder, message, op, (IMAPFolder) ifolder);
 
                             switch (op.name) {
                                 case EntityOperation.SEEN:
@@ -445,7 +445,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.PURGE:
-                                    onPurgeFolder(context, jargs, folder, (IMAPFolder) ifolder);
+                                    onPurgeFolder(context, jargs, account, folder, (IMAPFolder) ifolder);
                                     break;
 
                                 case EntityOperation.EXPUNGE:
@@ -685,7 +685,7 @@ class Core {
         }
     }
 
-    private static void ensureUid(Context context, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException {
+    private static void ensureUid(Context context, EntityAccount account, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
         if (folder.local)
             return;
         if (message == null || message.uid != null)
@@ -707,7 +707,7 @@ class Core {
 
         DB db = DB.getInstance(context);
 
-        Long uid = findUid(context, ifolder, message.msgid, false);
+        Long uid = findUid(context, account, ifolder, message.msgid, false);
         if (uid == null) {
             if (EntityOperation.MOVE.equals(op.name) &&
                     EntityFolder.DRAFTS.equals(folder.type))
@@ -729,15 +729,25 @@ class Core {
         message.uid = uid;
     }
 
-    private static Long findUid(Context context, IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException {
+    private static Long findUid(Context context, EntityAccount account, IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException, IOException {
         String name = ifolder.getFullName();
         Log.i(name + " searching for msgid=" + msgid);
 
         Long uid = null;
 
-        Message[] imessages = ifolder.search(new MessageIDTerm(msgid));
+        Message[] imessages;
+        // https://stackoverflow.com/questions/18891509/how-to-get-message-from-messageidterm-for-yahoo-imap-profile
+        if (account.isYahooJp())
+            imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date()));
+        else
+            imessages = ifolder.search(new MessageIDTerm(msgid));
         if (imessages != null) {
             for (Message iexisting : imessages) {
+                if (account.isYahooJp()) {
+                    MessageHelper helper = new MessageHelper((MimeMessage) iexisting, context);
+                    if (!msgid.equals(helper.getMessageID()))
+                        continue;
+                }
                 long muid = ifolder.getUID(iexisting);
                 if (muid < 0)
                     continue;
@@ -1137,7 +1147,7 @@ class Core {
 
             // Some providers do not list the new message yet
             try {
-                Long found = findUid(context, ifolder, message.msgid, true);
+                Long found = findUid(context, account, ifolder, message.msgid, true);
                 if (found != null)
                     if (newuid == null)
                         newuid = found;
@@ -1175,7 +1185,7 @@ class Core {
             int count = 0;
             Long found = newuid;
             while (found == null && count++ < FIND_RETRY_COUNT) {
-                found = findUid(context, ifolder, message.msgid, false);
+                found = findUid(context, account, ifolder, message.msgid, false);
                 if (found == null)
                     try {
                         Thread.sleep(FIND_RETRY_DELAY);
@@ -1263,7 +1273,10 @@ class Core {
             }
 
         // Some servers return different capabilities for different sessions
-        boolean canMove = MessageHelper.hasCapability(ifolder, "MOVE");
+        // NO [CANNOT] MOVE It's not possible to perform specified operation
+        // https://stackoverflow.com/questions/56148668/cannot-delete-emails-of-domain-co-jp-type
+        boolean canMove = !account.isYahooJp() &&
+                MessageHelper.hasCapability(ifolder, "MOVE");
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
@@ -1400,7 +1413,7 @@ class Core {
                         if (TextUtils.isEmpty(msgid))
                             throw new IllegalArgumentException("move: msgid missing");
 
-                        Long uid = findUid(context, itarget, msgid, false);
+                        Long uid = findUid(context, account, itarget, msgid, false);
                         if (uid == null)
                             throw new IllegalArgumentException("move: uid not found");
 
@@ -2312,7 +2325,7 @@ class Core {
         Log.i(folder.name + " subscribed=" + subscribe);
     }
 
-    private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
+    private static void onPurgeFolder(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
         // Delete all messages from folder
         try {
             DB db = DB.getInstance(context);
@@ -2333,7 +2346,11 @@ class Core {
             }
 
             EntityLog.log(context, folder.name + " purging=" + idelete.size() + "/" + imessages.length);
-            ifolder.setFlags(idelete.toArray(new Message[0]), new Flags(Flags.Flag.DELETED), true);
+            if (account.isYahooJp()) {
+                for (Message imessage : idelete)
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+            } else
+                ifolder.setFlags(idelete.toArray(new Message[0]), new Flags(Flags.Flag.DELETED), true);
             Log.i(folder.name + " purge deleted");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
