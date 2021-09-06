@@ -1115,6 +1115,7 @@ public class FragmentCompose extends FragmentBase {
                                     if (l != 0)
                                         return l;
                                 } else {
+                                    // Prefer Android contacts
                                     int a = -Boolean.compare(i1.id == 0, i2.id == 0);
                                     if (a != 0)
                                         return a;
