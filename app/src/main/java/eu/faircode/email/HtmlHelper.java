@@ -2760,6 +2760,26 @@ public class HtmlHelper {
                                 break;
                             case "br":
                                 ssb.append('\n');
+
+                                int l = ssb.length() - 1;
+                                List<Object> spans = new ArrayList<>();
+                                spans.addAll(Arrays.asList(ssb.getSpans(l, l, AbsoluteSizeSpan.class)));
+                                spans.addAll(Arrays.asList(ssb.getSpans(l, l, RelativeSizeSpan.class)));
+                                for (Object span : spans) {
+                                    int s = ssb.getSpanStart(span);
+                                    int e = ssb.getSpanEnd(span);
+                                    int f = ssb.getSpanFlags(span);
+                                    if (e == l) {
+                                        ssb.removeSpan(span);
+                                        if (span instanceof AbsoluteSizeSpan) {
+                                            int size = ((AbsoluteSizeSpan) span).getSize();
+                                            setSpan(ssb, new AbsoluteSizeSpan(size), s, e + 1, f);
+                                        } else if (span instanceof RelativeSizeSpan) {
+                                            float size = ((RelativeSizeSpan) span).getSizeChange();
+                                            setSpan(ssb, new RelativeSizeSpan(size), s, e + 1, f);
+                                        }
+                                    }
+                                }
                                 break;
                             case "body":
                                 // Do nothing
