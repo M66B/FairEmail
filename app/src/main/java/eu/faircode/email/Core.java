@@ -780,11 +780,13 @@ class Core {
     }
 
     private static Message findMessage(Context context, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
-        Message[] imessages = ifolder.getMessages();
-        Log.i(folder.name + " POP messages=" + imessages.length);
-
         Map<String, String> caps = istore.capabilities();
         boolean hasUidl = caps.containsKey("UIDL");
+
+        Message[] imessages = ifolder.getMessages();
+        Log.i(folder.name + " POP searching for=" + message.uidl + "/" + message.msgid +
+                " messages=" + imessages.length + " uidl=" + hasUidl);
+
         if (hasUidl) {
             FetchProfile ifetch = new FetchProfile();
             ifetch.add(UIDFolder.FetchProfileItem.UID);
@@ -797,13 +799,14 @@ class Core {
             String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
             String msgid = helper.getMessageID();
 
-            Log.i(folder.name + " POP searching=" + message.uidl + "/" + message.msgid +
-                    " iterate=" + uidl + "/" + msgid);
             if ((uidl != null && uidl.equals(message.uidl)) ||
-                    (msgid != null && msgid.equals(message.msgid)))
+                    (msgid != null && msgid.equals(message.msgid))) {
+                Log.i(folder.name + " POP found=" + uidl + "/" + msgid);
                 return imessage;
+            }
         }
 
+        Log.i(folder.name + " POP not found=" + message.uidl + "/" + message.msgid);
         return null;
     }
 
@@ -2692,6 +2695,8 @@ class Core {
 
                             if (download_eml)
                                 try {
+                                    Log.i(account.name + " POP raw " + msgid + "/" + uidl);
+
                                     File raw = message.getRawFile(context);
                                     try (OutputStream os = new BufferedOutputStream(new FileOutputStream(raw))) {
                                         imessage.writeTo(os);
