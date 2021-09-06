@@ -863,7 +863,6 @@
     <string name="title_download_all">Baixar todos</string>
     <string name="title_save_all">Salvar todos</string>
     <string name="title_save_eml">Salvar arquivo de mensagem bruta</string>
-    <string name="title_eml_remark">Para o encaminhamento, as mensagens brutas (originais) precisam ser baixadas do servidor. Uma conexão de internet é necessária para isso.</string>
     <string name="title_eml_option">Isso pode ser impedido ao ativar sempre baixar arquivos de mensagens brutas nas configurações de conexão</string>
     <string name="title_eml_downloaded">Mensagens não baixadas: %1$s</string>
     <string name="title_buttons">Selecionar botões</string>

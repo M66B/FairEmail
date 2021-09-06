@@ -864,7 +864,6 @@
     <string name="title_download_all">Hämta alla</string>
     <string name="title_save_all">Spara alla</string>
     <string name="title_save_eml">Spara raw-meddelandefil</string>
-    <string name="title_eml_remark">För att vidarebefordra meddelanden måste de råa (ursprungliga) meddelandena laddas ner från servern. Detta kräver en internetanslutning.</string>
     <string name="title_eml_option">Detta kan förhindras genom att alltid välja att ladda ner råa meddelandefiler i anslutningsinställningarna</string>
     <string name="title_eml_downloaded">Råa meddelanden nedladdade: %1$s</string>
     <string name="title_buttons">Välj knappar</string>

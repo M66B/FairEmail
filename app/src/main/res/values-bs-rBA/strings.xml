@@ -584,7 +584,6 @@
     <string name="title_download_all">Preuzmi sve</string>
     <string name="title_save_all">Sačuvaj sve</string>
     <string name="title_save_eml">Sačuvaj datoteku raw poruke</string>
-    <string name="title_eml_remark">Za prosljeđivanje poruka, raw (izvorne) poruke trebaju biti preuzete sa servera. Za to je neophodna internet veza.</string>
     <string name="title_eml_option">Ovo se može spriječiti uključivanjem opcije \'uvijek preuzimaj datoteke raw poruka\' u postavkama konekcije</string>
     <string name="title_eml_downloaded">Preuzetih raw poruka: %1$s</string>
     <string name="title_buttons">Izaberi dugmad</string>
@@ -714,6 +713,7 @@
     <string name="title_send_plain_text">Samo običan tekst</string>
     <string name="title_signature_subject">Predmet</string>
     <string name="title_search_more">Više opcija</string>
+    <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_subject">Predmet</string>
     <string name="title_sort_on_size">Veličina</string>
     <string name="title_filter_seen">Pročitano</string>
@@ -737,6 +737,10 @@
     <string name="title_legend_trash">Otpad</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_thread">Konverzacija</string>
+    <string name="title_legend_cc">Prikaži CC/BCC</string>
+    <string name="title_legend_file">Priloži datoteku</string>
+    <string name="title_legend_photo">Uslikaj</string>
+    <string name="title_legend_audio">Snimi zvuk</string>
     <string name="title_legend_save">Sačuvaj</string>
     <string name="title_legend_delete">Izbriši</string>
     <string name="title_legend_a">Arhiv</string>
@@ -755,6 +759,12 @@
         <item>Primary account folders</item>
         <item>Nalozi</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Mali</item>
+        <item>Srednji</item>
+        <item>Veliki</item>
+        <item>Extra large</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
@@ -766,6 +776,12 @@
         <item>Niska</item>
         <item>Normalna</item>
         <item>Visoka</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Default</item>
+        <item>Mali</item>
+        <item>Srednji</item>
+        <item>Veliki</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

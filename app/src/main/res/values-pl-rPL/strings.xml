@@ -888,7 +888,6 @@
     <string name="title_download_all">Pobierz wszystkie</string>
     <string name="title_save_all">Zapisz wszystkie</string>
     <string name="title_save_eml">Zapisz nieprzetworzony plik wiadomości</string>
-    <string name="title_eml_remark">Aby przesyłać wiadomości dalej, należy pobrać nieprzetworzone (oryginalne) wiadomości z serwera. Wymaga to połączenia z Internetem.</string>
     <string name="title_eml_option">Można temu zapobiec poprzez włączanie \"Pobierz nieprzetworzone pliki wiadomości\" w ustawieniach połączenia</string>
     <string name="title_eml_downloaded">Pobrano nieprzetworzone wiadomości: %1$s</string>
     <string name="title_buttons">Wybierz przyciski</string>

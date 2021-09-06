@@ -845,7 +845,6 @@
     <string name="title_download_all">Stáhnout vše</string>
     <string name="title_save_all">Uložit vše</string>
     <string name="title_save_eml">Uložit soubor zdrojové zprávy</string>
-    <string name="title_eml_remark">Pro přeposílání zpráv je třeba stáhnout zdrojové (původní) zprávy ze serveru. K tomu je vyžadováno připojení k internetu.</string>
     <string name="title_buttons">Vyberte tlačítka</string>
     <string name="title_buttons_hint">Skutečně dostupné akce závisí na typu účtu a konfiguraci</string>
     <string name="title_button_search">Hledat ve zprávách</string>

@@ -868,7 +868,6 @@
     <string name="title_download_all">Hamısını endir</string>
     <string name="title_save_all">Hamısını saxla</string>
     <string name="title_save_eml">Xam mesaj faylını saxla</string>
-    <string name="title_eml_remark">Mesajları yönləndirmək üçün xam (orijinal) mesajların serverdən endirilməsi lazımdır. Bu, internet bağlantısı tələb edir.</string>
     <string name="title_eml_option">Bunun qarşısı, bağlantı tənzimləmələrində xam mesajlarının endirilməsi həmişəlik fəallaşdırılaraq alına bilər</string>
     <string name="title_eml_downloaded">Xam mesajlar endirildi: %1$s</string>
     <string name="title_buttons">Düymələri seçin</string>

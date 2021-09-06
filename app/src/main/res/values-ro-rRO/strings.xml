@@ -879,7 +879,6 @@
     <string name="title_download_all">Descarcă tot</string>
     <string name="title_save_all">Salvează tot</string>
     <string name="title_save_eml">Salvează mesaj original în fișier</string>
-    <string name="title_eml_remark">Pentru a redirecționa mesaje, mesajele brute (originale) trebuie descărcate de pe server. Acest lucru necesită o conexiune la internet.</string>
     <string name="title_eml_option">Acest lucru poate fi prevenit prin activarea funcției de descărcare permanentă a fișierelor de mesaje brute în setările de conectare</string>
     <string name="title_eml_downloaded">Mesaje brute descărcate: %1$s</string>
     <string name="title_buttons">Selectare butoane</string>
