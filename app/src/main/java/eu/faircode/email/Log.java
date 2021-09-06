@@ -1915,13 +1915,15 @@ public class Log {
             int pollInterval = ServiceSynchronize.getPollInterval(context);
             boolean metered = prefs.getBoolean("metered", true);
             Boolean ignoring = Helper.isIgnoringOptimizations(context);
+            boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
             boolean schedule = prefs.getBoolean("schedule", false);
 
             size += write(os, "accounts=" + accounts.size() +
                     " enabled=" + enabled +
                     " interval=" + pollInterval +
-                    " metered=" + metered +
+                    "\r\nmetered=" + metered +
                     " optimizing=" + (ignoring == null ? null : !ignoring) +
+                    " auto_optimize=" + auto_optimize +
                     "\r\n\r\n");
 
             if (schedule) {
