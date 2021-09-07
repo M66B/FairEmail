@@ -498,9 +498,11 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
-        menu.findItem(R.id.menu_search).setActionView(R.layout.action_button);
-        ImageButton ibSearch = (ImageButton) menu.findItem(R.id.menu_search).getActionView();
+        LayoutInflater infl = LayoutInflater.from(getContext());
+        ImageButton ibSearch = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibSearch.setId(View.generateViewId());
         ibSearch.setImageResource(R.drawable.twotone_search_24);
+        ibSearch.setContentDescription(getString(R.string.title_legend_search));
         ibSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -514,6 +516,7 @@ public class FragmentFolders extends FragmentBase {
                 return true;
             }
         });
+        menu.findItem(R.id.menu_search).setActionView(ibSearch);
 
         MenuCompat.setGroupDividerEnabled(menu, true);
         super.onCreateOptionsMenu(menu, inflater);

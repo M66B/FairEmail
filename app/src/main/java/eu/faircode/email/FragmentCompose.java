@@ -1477,8 +1477,11 @@ public class FragmentCompose extends FragmentBase {
 
         PopupMenuLifecycle.insertIcons(getContext(), menu);
 
-        menu.findItem(R.id.menu_encrypt).setActionView(R.layout.action_button_text);
-        ImageButton ib = menu.findItem(R.id.menu_encrypt).getActionView().findViewById(R.id.button);
+        LayoutInflater infl = LayoutInflater.from(getContext());
+
+        View v = infl.inflate(R.layout.action_button_text, null);
+        v.setId(View.generateViewId());
+        ImageButton ib = v.findViewById(R.id.button);
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1498,26 +1501,31 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             }
         });
+        menu.findItem(R.id.menu_encrypt).setActionView(v);
 
-        menu.findItem(R.id.menu_translate).setActionView(R.layout.action_button);
-        ImageButton ibTranslate = (ImageButton) menu.findItem(R.id.menu_translate).getActionView();
+        ImageButton ibTranslate = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibTranslate.setId(View.generateViewId());
         ibTranslate.setImageResource(R.drawable.twotone_translate_24);
+        ib.setContentDescription(getString(R.string.title_translate));
         ibTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onTranslate(vwAnchorMenu);
             }
         });
+        menu.findItem(R.id.menu_translate).setActionView(ibTranslate);
 
-        menu.findItem(R.id.menu_zoom).setActionView(R.layout.action_button);
-        ImageButton ibZoom = (ImageButton) menu.findItem(R.id.menu_zoom).getActionView();
+        ImageButton ibZoom = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibZoom.setId(View.generateViewId());
         ibZoom.setImageResource(R.drawable.twotone_format_size_24);
+        ib.setContentDescription(getString(R.string.title_legend_zoom));
         ibZoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onMenuZoom();
             }
         });
+        menu.findItem(R.id.menu_zoom).setActionView(ibZoom);
 
         MenuCompat.setGroupDividerEnabled(menu, true);
 
@@ -1528,9 +1536,11 @@ public class FragmentCompose extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
+        final Context context = getContext();
+
         menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
-        menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(getContext()));
+        menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
@@ -1540,7 +1550,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
-        int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
+        int colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
+        int colorActionForeground = Helper.resolveColor(context, R.attr.colorActionForeground);
 
         View v = menu.findItem(R.id.menu_encrypt).getActionView();
         ImageButton ib = v.findViewById(R.id.button);
@@ -1551,7 +1562,7 @@ public class FragmentCompose extends FragmentBase {
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
             ib.setImageResource(R.drawable.twotone_gesture_24);
-            ib.setImageTintList(null);
+            ib.setImageTintList(ColorStateList.valueOf(colorActionForeground));
             tv.setText(EntityMessage.PGP_SIGNONLY.equals(encrypt) ? "P" : "S");
         } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) || EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt)) {
             ib.setImageResource(R.drawable.twotone_lock_24);
@@ -1559,11 +1570,11 @@ public class FragmentCompose extends FragmentBase {
             tv.setText(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ? "P" : "S");
         } else {
             ib.setImageResource(R.drawable.twotone_lock_open_24);
-            ib.setImageTintList(null);
+            ib.setImageTintList(ColorStateList.valueOf(colorActionForeground));
             tv.setText(null);
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);

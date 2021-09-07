@@ -4269,8 +4269,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_messages, menu);
 
-        menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
-        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
+        LayoutInflater infl = LayoutInflater.from(getContext());
+        ImageButton ib = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ib.setId(View.generateViewId());
         ib.setImageResource(R.drawable.twotone_folder_24);
         ib.setContentDescription(getString(R.string.title_legend_section_folders));
         ib.setOnClickListener(new View.OnClickListener() {
@@ -4289,6 +4290,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
             }
         });
+        menu.findItem(R.id.menu_folders).setActionView(ib);
 
         MenuCompat.setGroupDividerEnabled(menu, true);
 

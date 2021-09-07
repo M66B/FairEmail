@@ -12,7 +12,8 @@
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/twotone_lock_24" />
+        app:srcCompat="@drawable/twotone_lock_24"
+        app:tint="?colorActionForeground" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/text"
@@ -22,7 +23,7 @@
         android:clickable="false"
         android:text="P"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="?attr/colorControlNormal"
+        android:textColor="?colorActionForeground"
         app:layout_constraintBottom_toBottomOf="@id/button"
         app:layout_constraintEnd_toEndOf="@id/button"
         app:layout_constraintTop_toTopOf="@id/button" />
