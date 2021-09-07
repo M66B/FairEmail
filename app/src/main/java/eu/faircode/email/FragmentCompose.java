@@ -3538,7 +3538,7 @@ public class FragmentCompose extends FragmentBase {
 
                 // Build message
                 ContentType ct = new ContentType("multipart/signed");
-                ct.setParameter("micalg", "sha-256");
+                ct.setParameter("micalg", micalg);
                 ct.setParameter("protocol", "application/pkcs7-signature");
                 ct.setParameter("smime-type", "signed-data");
                 String ctx = ct.toString();
