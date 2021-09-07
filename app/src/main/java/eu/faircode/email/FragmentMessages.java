@@ -149,6 +149,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.bouncycastle.asn1.ASN1Encoding;
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.cms.Attribute;
 import org.bouncycastle.asn1.cms.AttributeTable;
 import org.bouncycastle.asn1.cms.CMSAttributes;
@@ -170,6 +171,7 @@ import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
+import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
 import org.bouncycastle.util.Store;
 import org.json.JSONException;
 import org.jsoup.nodes.Document;
@@ -7095,6 +7097,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     args.putString("sender", sender);
                                     args.putBoolean("known", known);
 
+                                    String algo;
+                                    try {
+                                        DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
+                                        algo = af.getAlgorithmName(s.getDigestAlgorithmID()) +
+                                                "/" + af.getAlgorithmName(new ASN1ObjectIdentifier(s.getEncryptionAlgOID()));
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        algo = s.getDigestAlgOID() + "/" + s.getEncryptionAlgOID();
+                                    }
+                                    args.putString("algo", algo);
+
                                     List<X509Certificate> certs = new ArrayList<>();
                                     try {
                                         for (Object m : store.getMatches(null)) {
@@ -7319,6 +7332,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             boolean known = args.getBoolean("known");
                             boolean valid = args.getBoolean("valid");
                             String reason = args.getString("reason");
+                            String algo = args.getString("algo");
                             final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
 
@@ -7349,6 +7363,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 TextView tvAfter = dview.findViewById(R.id.tvAfter);
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
+                                TextView tvAlgorithm = dview.findViewById(R.id.tvAlgorithm);
 
                                 tvCertificateInvalid.setVisibility(valid ? View.GONE : View.VISIBLE);
                                 tvCertificateReason.setText(reason);
@@ -7362,6 +7377,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 tvAfter.setText(record.after == null ? null : TF.format(record.after));
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
                                 tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
+
+                                tvAlgorithm.setText(algo);
 
                                 ibInfo.setOnClickListener(new View.OnClickListener() {
                                     @Override
