@@ -80,6 +80,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private SwitchCompat swAutocryptMutual;
     private SwitchCompat swEncryptSubject;
 
+    private Spinner spSignAlgoSmime;
     private SwitchCompat swCheckCertificate;
     private Button btnManageCertificates;
     private Button btnImportKey;
@@ -93,7 +94,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private final static String[] RESET_OPTIONS = new String[]{
             "sign_default", "encrypt_default", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
-            "check_certificate"
+            "sign_algo_smime", "check_certificate"
     };
 
     @Override
@@ -119,6 +120,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
         swEncryptSubject = view.findViewById(R.id.swEncryptSubject);
 
+        spSignAlgoSmime = view.findViewById(R.id.spSignAlgoSmime);
         swCheckCertificate = view.findViewById(R.id.swCheckCertificate);
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
@@ -252,6 +254,19 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         });
 
         // S/MIME
+
+        spSignAlgoSmime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.smimeSignAlgo);
+                prefs.edit().putString("sign_algo_smime", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("sign_algo_smime").apply();
+            }
+        });
 
         swCheckCertificate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -408,6 +423,14 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
         swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
         swEncryptSubject.setChecked(prefs.getBoolean("encrypt_subject", false));
+
+        String signAlgorithm = prefs.getString("sign_algo_smime", "SHA256");
+        String[] smimeSignAlgo = getResources().getStringArray(R.array.smimeSignAlgo);
+        for (int pos = 0; pos < smimeSignAlgo.length; pos++)
+            if (smimeSignAlgo[pos].equals(signAlgorithm)) {
+                spSignAlgoSmime.setSelection(pos);
+                break;
+            }
 
         swCheckCertificate.setChecked(prefs.getBoolean("check_certificate", true));
     }

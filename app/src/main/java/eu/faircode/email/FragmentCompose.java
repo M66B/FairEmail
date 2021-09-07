@@ -3422,14 +3422,28 @@ public class FragmentCompose extends FragmentBase {
                 CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
                 cmsGenerator.addCertificates(store);
 
+                String signAlgorithm = prefs.getString("sign_algo_smime", "SHA256");
+
+                // https://datatracker.ietf.org/doc/html/rfc5751#page-29
+                String micalg = signAlgorithm.toLowerCase(Locale.ROOT);
+                if (micalg.startsWith("sha"))
+                    micalg = micalg.substring(0, 3) + "-" + micalg.substring(3);
+
                 String algorithm = privkey.getAlgorithm();
-                Log.i("Private key algorithm=" + algorithm);
+                if (TextUtils.isEmpty(algorithm) || "RSA".equals(algorithm))
+                    Log.i("Private key algorithm=" + algorithm);
+                else
+                    Log.e("Private key algorithm=" + algorithm);
+
                 if (TextUtils.isEmpty(algorithm))
                     algorithm = "RSA";
                 else if ("EC".equals(algorithm))
                     algorithm = "ECDSA";
 
-                ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256with" + algorithm)
+                algorithm = signAlgorithm + "with" + algorithm;
+                Log.i("Sign algorithm=" + algorithm);
+
+                ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
                         .build(privkey);
                 DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
                         .build();
@@ -3451,7 +3465,7 @@ public class FragmentCompose extends FragmentBase {
                 // Build signature
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     ContentType ct = new ContentType("application/pkcs7-signature");
-                    ct.setParameter("micalg", "sha-256");
+                    ct.setParameter("micalg", micalg);
 
                     EntityAttachment sattachment = new EntityAttachment();
                     sattachment.message = draft.id;

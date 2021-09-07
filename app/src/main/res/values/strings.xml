@@ -585,6 +585,7 @@
     <string name="title_advanced_autocrypt">Use Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
     <string name="title_advanced_encrypt_subject">Encrypt subject</string>
+    <string name="title_advanced_sign_algo">Signature algoritm</string>
     <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Manage public keys</string>
     <string name="title_advanced_import_key">Import private key</string>
@@ -1260,6 +1261,7 @@
     <string name="title_signature_sender">Sender\'s address</string>
     <string name="title_signature_email">Signature\'s address</string>
     <string name="title_signature_mismatch">The email address of the sender and signature do not match</string>
+    <string name="title_signature_algorithm">Algorithm</string>
     <string name="title_signature_subject">Subject</string>
     <string name="title_signature_validity">Validity</string>
     <string name="title_signature_outdated">This public key is currently not valid</string>
@@ -2013,6 +2015,16 @@
         <item>Name only</item>
         <item>Email only</item>
         <item>Name and email</item>
+    </string-array>
+
+    <!-- https://www.bouncycastle.org/specifications.html -->
+    <string-array name="smimeSignAlgo">
+        <item>MD5</item>
+        <item>SHA1</item>
+        <item>SHA224</item>
+        <item>SHA256</item>
+        <item>SHA384</item>
+        <item>SHA512</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
