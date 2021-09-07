@@ -869,6 +869,7 @@
     <string name="title_download_all">Descargar todo</string>
     <string name="title_save_all">Guardar todo</string>
     <string name="title_save_eml">Guardar archivo de mensajes sin procesar</string>
+    <string name="title_eml_remark">Para reenviar mensajes, los mensajes sin procesar (originales) deben ser descargados desde el servidor de correo electrónico. Esto requiere una conexión a Internet y los mensajes deben estar aún almacenados en el servidor de correo electrónico.</string>
     <string name="title_eml_option">Esto se puede prevenir al habilitar siempre la descarga de archivos de mensajes sin procesar en la configuración de la conexión</string>
     <string name="title_eml_downloaded">Mensajes sin procesar descargados: %1$s</string>
     <string name="title_buttons">Seleccionar botones</string>

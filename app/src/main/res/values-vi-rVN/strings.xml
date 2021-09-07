@@ -766,6 +766,8 @@
     <string name="title_show_folders">Hiện các thư mục ẩn</string>
     <string name="title_show_flagged">Hiện số thư gắn sao</string>
     <string name="title_subscribed_only">Chỉ có đã đăng ký</string>
+    <string name="title_search_folder">Tìm kiếm thư mục</string>
+    <string name="title_apply_to_all">Áp dụng cho tất cả</string>
     <string name="title_hide_folder">Ẩn thư mục</string>
     <string name="title_unified_folder">Hiện trong hộp thư đến hợp nhất</string>
     <string name="title_navigation_folder">Hiện trong menu điều hướng</string>
@@ -856,6 +858,7 @@
     <string name="title_download_all">Tải về tất cả</string>
     <string name="title_save_all">Lưu tất cả</string>
     <string name="title_save_eml">Lưu tập tin thư thô</string>
+    <string name="title_eml_remark">Để chuyển tiếp thư, các thư thô (gốc) cần phải được tải xuống từ máy chủ email. Việc này yêu cầu phải có kết nối internet và các thư phải vẫn còn được lưu trữ trên máy chủ email.</string>
     <string name="title_eml_option">Việc này có thể được ngăn chặn bằng cách bật luôn tải xuống tệp thư thô trong cài đặt kết nối</string>
     <string name="title_eml_downloaded">Thư thô đã tải xuống: %1$s</string>
     <string name="title_buttons">Chọn các nút</string>
@@ -1489,6 +1492,7 @@
     <string name="title_widget_font_size">Cỡ chữ</string>
     <string name="title_widget_padding">Kích cỡ lùi</string>
     <string name="title_widget_semi_transparent">Nền bán trong suốt</string>
+    <string name="title_widget_refresh">Hiện nút làm mới thư</string>
     <string name="title_widget_compose">Hiện nút soạn thư mới</string>
     <string name="title_widget_background">Màu nền</string>
     <string name="title_accessibility_collapsed">Thu gọn</string>

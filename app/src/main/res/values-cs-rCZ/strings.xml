@@ -1318,6 +1318,7 @@
     <string name="title_legend_show_images">Zobrazit obrázky</string>
     <string name="title_legend_hide_images">Skrýt obrázky</string>
     <string name="title_legend_show_full">Zobrazit původní zprávu</string>
+    <string name="title_legend_show_reformatted">Zobrazit přeformátovanou zprávu</string>
     <string name="title_legend_edit">Upravit</string>
     <string name="title_legend_default_color">Výchozí barva</string>
     <string name="title_legend_close_hint">Zavřít tip</string>
@@ -1366,6 +1367,7 @@
     <string name="title_ip_owner">IP adresa vlastníka</string>
     <string name="title_default_apps">Výchozí aplikace</string>
     <string name="title_select_app">Vybrat aplikaci</string>
+    <string name="title_updated">Dostupná nová verze %1$s</string>
     <string name="title_issue">Máte dotaz nebo problém?</string>
     <string name="title_yes">Ano</string>
     <string name="title_no">Ne</string>

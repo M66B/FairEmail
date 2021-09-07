@@ -774,6 +774,8 @@
     <string name="title_show_folders">Visa dolda mappar</string>
     <string name="title_show_flagged">Visa antal stjärnmärkta meddelanden</string>
     <string name="title_subscribed_only">Endast prenumerationer</string>
+    <string name="title_search_folder">Sök efter mapp</string>
+    <string name="title_apply_to_all">Tillämpa för alla</string>
     <string name="title_hide_folder">Dölj mapp</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>
@@ -864,6 +866,7 @@
     <string name="title_download_all">Hämta alla</string>
     <string name="title_save_all">Spara alla</string>
     <string name="title_save_eml">Spara raw-meddelandefil</string>
+    <string name="title_eml_remark">För att vidarebefordra meddelanden, måste de råa (ursprungliga) meddelandena laddas ner från e-postservern. Detta kräver en internetanslutning och meddelandena måste fortfarande lagras på e-postservern.</string>
     <string name="title_eml_option">Detta kan förhindras genom att alltid välja att ladda ner råa meddelandefiler i anslutningsinställningarna</string>
     <string name="title_eml_downloaded">Råa meddelanden nedladdade: %1$s</string>
     <string name="title_buttons">Välj knappar</string>
