@@ -133,6 +133,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.cert.jcajce.JcaCertStore;
 import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.cms.CMSEnvelopedData;
@@ -3575,7 +3576,25 @@ public class FragmentCompose extends FragmentBase {
                 }
                 CMSTypedData msg = new CMSProcessableFile(einput);
 
-                OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES128_CBC)
+                // https://datatracker.ietf.org/doc/html/rfc5751#section-2.7
+                ASN1ObjectIdentifier encryptionOID;
+                String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES128");
+                switch (encryptAlgorithm) {
+                    case "AES128":
+                        encryptionOID = CMSAlgorithm.AES128_CBC;
+                        break;
+                    case "AES192":
+                        encryptionOID = CMSAlgorithm.AES192_CBC;
+                        break;
+                    case "AES256":
+                        encryptionOID = CMSAlgorithm.AES256_CBC;
+                        break;
+                    default:
+                        encryptionOID = CMSAlgorithm.AES128_CBC;
+                }
+                Log.i("Encryption algorithm=" + encryptAlgorithm + " OID=" + encryptionOID);
+
+                OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(encryptionOID)
                         .build();
                 CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
                         .generate(msg, encryptor);

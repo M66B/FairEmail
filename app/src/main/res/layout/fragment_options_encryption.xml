@@ -286,6 +286,28 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSignAlgoSmime" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvEncryptAlgoSmime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_encrypt_algo"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spSignAlgoSmime" />
+
+                <Spinner
+                    android:id="@+id/spEncryptAlgoSmime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/smimeEncryptAlgo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEncryptAlgoSmime" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCheckCertificate"
                     android:layout_width="0dp"
@@ -295,7 +317,7 @@
                     android:text="@string/title_advanced_check_certificate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSignAlgoSmime"
+                    app:layout_constraintTop_toBottomOf="@id/spEncryptAlgoSmime"
                     app:switchPadding="12dp" />
 
                 <Button

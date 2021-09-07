@@ -7277,6 +7277,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
                                             decodeMessage(context, is, message, args);
                                             decoded = true;
+
+                                            String algo;
+                                            try {
+                                                DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
+                                                algo = af.getAlgorithmName(envelopedData.getContentEncryptionAlgorithm());
+                                            } catch (Throwable ex) {
+                                                Log.e(ex);
+                                                algo = envelopedData.getEncryptionAlgOID();
+                                            }
+                                            Log.i("Encryption algo=" + algo);
+                                            args.putString("algo", algo);
                                         } catch (CMSException ex) {
                                             Log.w(ex);
                                         }
@@ -7460,6 +7471,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Snackbar.make(view, Log.formatThrowable(ex), Snackbar.LENGTH_LONG)
                                     .setGestureInsetBottomIgnored(true).show();
                         }
+                } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
+                    String algo = args.getString("algo");
+                    if (!TextUtils.isEmpty(algo)) {
+                        Snackbar.make(view, algo, Snackbar.LENGTH_LONG)
+                                .setGestureInsetBottomIgnored(true).show();
+                    }
                 }
             }
 

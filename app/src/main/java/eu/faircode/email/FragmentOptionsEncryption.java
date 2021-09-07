@@ -81,6 +81,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private SwitchCompat swEncryptSubject;
 
     private Spinner spSignAlgoSmime;
+    private Spinner spEncryptAlgoSmime;
     private SwitchCompat swCheckCertificate;
     private Button btnManageCertificates;
     private Button btnImportKey;
@@ -94,7 +95,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private final static String[] RESET_OPTIONS = new String[]{
             "sign_default", "encrypt_default", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
-            "sign_algo_smime", "check_certificate"
+            "sign_algo_smime", "encrypt_algo_smime", "check_certificate"
     };
 
     @Override
@@ -121,6 +122,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swEncryptSubject = view.findViewById(R.id.swEncryptSubject);
 
         spSignAlgoSmime = view.findViewById(R.id.spSignAlgoSmime);
+        spEncryptAlgoSmime = view.findViewById(R.id.spEncryptAlgoSmime);
         swCheckCertificate = view.findViewById(R.id.swCheckCertificate);
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
@@ -265,6 +267,19 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("sign_algo_smime").apply();
+            }
+        });
+
+        spEncryptAlgoSmime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.smimeEncryptAlgo);
+                prefs.edit().putString("encrypt_algo_smime", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("encrypt_algo_smime").apply();
             }
         });
 
@@ -429,6 +444,14 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         for (int pos = 0; pos < smimeSignAlgo.length; pos++)
             if (smimeSignAlgo[pos].equals(signAlgorithm)) {
                 spSignAlgoSmime.setSelection(pos);
+                break;
+            }
+
+        String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES128");
+        String[] smimeEncryptAlgo = getResources().getStringArray(R.array.smimeEncryptAlgo);
+        for (int pos = 0; pos < smimeEncryptAlgo.length; pos++)
+            if (smimeEncryptAlgo[pos].equals(encryptAlgorithm)) {
+                spEncryptAlgoSmime.setSelection(pos);
                 break;
             }
 

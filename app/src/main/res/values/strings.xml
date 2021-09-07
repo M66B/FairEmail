@@ -585,7 +585,8 @@
     <string name="title_advanced_autocrypt">Use Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
     <string name="title_advanced_encrypt_subject">Encrypt subject</string>
-    <string name="title_advanced_sign_algo">Signature algoritm</string>
+    <string name="title_advanced_sign_algo">Signature algorithm</string>
+    <string name="title_advanced_encrypt_algo">Encryption algorithm</string>
     <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Manage public keys</string>
     <string name="title_advanced_import_key">Import private key</string>
@@ -2025,6 +2026,12 @@
         <item>SHA256</item>
         <item>SHA384</item>
         <item>SHA512</item>
+    </string-array>
+
+    <string-array name="smimeEncryptAlgo">
+        <item>AES128</item>
+        <item>AES192</item>
+        <item>AES256</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
