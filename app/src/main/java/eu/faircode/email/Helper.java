@@ -673,10 +673,14 @@ public class Helper {
     }
 
     static void view(Context context, Uri uri, boolean browse) {
-        view(context, uri, browse, false);
+        view(context, uri, null, browse, false);
     }
 
     static void view(Context context, Uri uri, boolean browse, boolean task) {
+        view(context, uri, null, browse, task);
+    }
+
+    static void view(Context context, Uri uri, String mimeType, boolean browse, boolean task) {
         if (context == null) {
             Log.e(new Throwable("view"));
             return;
@@ -687,7 +691,11 @@ public class Helper {
 
         if (browse || !has) {
             try {
-                Intent view = new Intent(Intent.ACTION_VIEW, uri);
+                Intent view = new Intent(Intent.ACTION_VIEW);
+                if (mimeType == null)
+                    view.setData(uri);
+                else
+                    view.setDataAndType(uri, mimeType);
                 if (task)
                     view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(view);
@@ -791,9 +799,9 @@ public class Helper {
             base = "https://email.faircode.eu/docs/FAQ-" + locale + ".md";
 
         if (question == 0)
-            view(context, Uri.parse(base + "#top"), false);
+            view(context, Uri.parse(base + "#top"), "text/html", false, false);
         else
-            view(context, Uri.parse(base + "#user-content-faq" + question), false);
+            view(context, Uri.parse(base + "#user-content-faq" + question), "text/html", false, false);
     }
 
     static String getOpenKeychainPackage(Context context) {
