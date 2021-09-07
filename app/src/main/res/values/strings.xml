@@ -2023,7 +2023,7 @@
     </string-array>
 
     <!-- https://www.bouncycastle.org/specifications.html -->
-    <string-array name="smimeSignAlgo">
+    <string-array name="smimeSignAlgo" translatable="false">
         <item>MD5</item>
         <item>SHA1</item>
         <item>SHA224</item>
@@ -2032,7 +2032,7 @@
         <item>SHA512</item>
     </string-array>
 
-    <string-array name="smimeEncryptAlgo">
+    <string-array name="smimeEncryptAlgo" translatable="false">
         <item>AES128</item>
         <item>AES192</item>
         <item>AES256</item>
