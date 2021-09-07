@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,6 +36,7 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -60,7 +63,11 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         boolean day = args.getBoolean("day");
         long time = args.getLong("time", 0);
 
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int default_snooze = prefs.getInt("default_snooze", 1);
+
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_duration, null);
         final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final Button btn1hour = dview.findViewById(R.id.btn1hour);
         final Button btn1day = dview.findViewById(R.id.btn1day);
@@ -74,17 +81,17 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                 cal.set(Calendar.MINUTE, 0);
                 cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MILLISECOND, 0);
-                cal.set(Calendar.HOUR_OF_DAY, day ? 0 : cal.get(Calendar.HOUR_OF_DAY) + 1);
+                cal.set(Calendar.HOUR_OF_DAY, day ? 0 : cal.get(Calendar.HOUR_OF_DAY) + default_snooze);
             } else
                 cal.setTimeInMillis(time);
         } else
             cal.setTimeInMillis(savedInstanceState.getLong("fair:time"));
         Log.i("Set init=" + new Date(cal.getTimeInMillis()));
 
-        final DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
+        final DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
         tvDuration.setText(DTF.format(cal.getTime()));
 
-        timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(getContext()));
+        timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(context));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
             timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
@@ -93,7 +100,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
             timePicker.setMinute(cal.get(Calendar.MINUTE));
         }
 
-        Dialog dialog = new AlertDialog.Builder(getContext())
+        Dialog dialog = new AlertDialog.Builder(context)
                 .setTitle(title)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
