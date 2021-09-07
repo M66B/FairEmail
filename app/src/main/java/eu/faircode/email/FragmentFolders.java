@@ -498,6 +498,22 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
+        menu.findItem(R.id.menu_search).setActionView(R.layout.action_button);
+        ImageButton ibSearch = (ImageButton) menu.findItem(R.id.menu_search).getActionView();
+        ibSearch.setImageResource(R.drawable.twotone_search_24);
+        ibSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMenuSearch();
+            }
+        });
+        ibSearch.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                onMenuSearchFolder(menu.findItem(R.id.menu_search_folder));
+                return true;
+            }
+        });
 
         MenuCompat.setGroupDividerEnabled(menu, true);
         super.onCreateOptionsMenu(menu, inflater);
