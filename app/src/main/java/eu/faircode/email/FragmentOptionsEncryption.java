@@ -29,7 +29,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.security.KeyChain;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -59,6 +62,8 @@ import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
+import java.security.Provider;
+import java.security.Security;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -87,7 +92,10 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private Button btnImportKey;
     private Button btnManageKeys;
     private Button btnCa;
+
+    private CardView cardDebug;
     private TextView tvKeySize;
+    private TextView tvProviders;
 
     private OpenPgpServiceConnection pgpService;
     private List<String> openPgpProvider = new ArrayList<>();
@@ -128,7 +136,10 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         btnImportKey = view.findViewById(R.id.btnImportKey);
         btnManageKeys = view.findViewById(R.id.btnManageKeys);
         btnCa = view.findViewById(R.id.btnCa);
+
+        cardDebug = view.findViewById(R.id.cardDebug);
         tvKeySize = view.findViewById(R.id.tvKeySize);
+        tvProviders = view.findViewById(R.id.tvProviders);
 
         try {
             openPgpProvider.clear();
@@ -370,11 +381,32 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
+        boolean debug = prefs.getBoolean("debug", false);
+        cardDebug.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
             tvKeySize.setText(getString(R.string.title_advanced_aes_key_size, maxKeySize));
         } catch (NoSuchAlgorithmException ex) {
             tvKeySize.setText(Log.formatThrowable(ex));
+        }
+
+        try {
+            int dp24 = Helper.dp2pixels(getContext(), 24);
+
+            SpannableStringBuilder ssb = new SpannableStringBuilder();
+            for (Provider p : Security.getProviders()) {
+                ssb.append(p.toString()).append('\n');
+                //for (Enumeration e = p.keys(); e.hasMoreElements(); ) {
+                //    int start = ssb.length();
+                //    ssb.append(e.nextElement().toString()).append('\n');
+                //    ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
+                //    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+                //}
+            }
+            tvProviders.setText(ssb);
+        } catch (Throwable ex) {
+            tvProviders.setText(Log.formatThrowable(ex));
         }
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);

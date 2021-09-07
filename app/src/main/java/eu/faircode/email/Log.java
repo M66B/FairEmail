@@ -99,6 +99,8 @@ import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
+import java.security.Provider;
+import java.security.Security;
 import java.security.cert.CertPathValidatorException;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
@@ -1816,6 +1818,9 @@ public class Log {
 
         sb.append(String.format("Configuration: %s\r\n", config.toString()));
 
+        sb.append("\r\n");
+        for (Provider p : Security.getProviders())
+            sb.append(p).append("\r\n");
         sb.append("\r\n");
 
         try {
