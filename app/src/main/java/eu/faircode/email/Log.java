@@ -48,6 +48,7 @@ import android.os.Bundle;
 import android.os.DeadObjectException;
 import android.os.DeadSystemException;
 import android.os.Debug;
+import android.os.IBinder;
 import android.os.OperationCanceledException;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
@@ -1717,6 +1718,11 @@ public class Log {
         long nheap = Debug.getNativeHeapAllocatedSize() / 1024L / 1024L;
         long nsize = Debug.getNativeHeapSize() / 1024 / 1024L;
         sb.append(String.format("Heap usage: %d/%d MiB native: %d/%d MiB\r\n", hused, hmax, nheap, nsize));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            int ipc = IBinder.getSuggestedMaxIpcSizeBytes();
+            sb.append(String.format("IPC max: %s\r\n", Helper.humanReadableByteCount(ipc)));
+        }
 
         Configuration config = context.getResources().getConfiguration();
         String size;
