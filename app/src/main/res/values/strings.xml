@@ -587,6 +587,10 @@
     <string name="title_advanced_encrypt_subject">Encrypt subject</string>
     <string name="title_advanced_sign_algo">Signature algorithm</string>
     <string name="title_advanced_encrypt_algo">Encryption algorithm</string>
+    <string name="title_advanced_remark_algo">
+        Please be aware that not all email clients support all algorithms.
+        The default algorithms SHA256 and AES128 are commonly supported.
+    </string>
     <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Manage public keys</string>
     <string name="title_advanced_import_key">Import private key</string>
