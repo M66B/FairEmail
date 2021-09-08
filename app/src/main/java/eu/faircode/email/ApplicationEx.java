@@ -56,19 +56,20 @@ public class ApplicationEx extends Application
     private Thread.UncaughtExceptionHandler prev = null;
 
     static {
-        try {
-            Provider[] providers = Security.getProviders();
-            for (int p = 0; p < providers.length; p++)
-                if (BouncyCastleProvider.PROVIDER_NAME.equals(providers[p].getName())) {
-                    Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
-                    Provider bc = new BouncyCastleProvider();
-                    Security.insertProviderAt(bc, p + 1);
-                    Log.i("Replacing provider " + providers[p] + " at " + p + " by " + bc);
-                    break;
-                }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        if (BuildConfig.DEBUG)
+            try {
+                Provider[] providers = Security.getProviders();
+                for (int p = 0; p < providers.length; p++)
+                    if (BouncyCastleProvider.PROVIDER_NAME.equals(providers[p].getName())) {
+                        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
+                        Provider bc = new BouncyCastleProvider();
+                        Security.insertProviderAt(bc, p + 1);
+                        Log.i("Replacing provider " + providers[p] + " at " + p + " by " + bc);
+                        break;
+                    }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
     }
 
     @Override
