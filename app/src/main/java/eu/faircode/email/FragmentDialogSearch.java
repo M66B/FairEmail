@@ -356,7 +356,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbKeywords.setChecked(last_search_keywords);
         cbMessage.setChecked(last_search_message);
         tvSearchTextUnsupported.setText(getString(R.string.title_search_text_unsupported,
-                        "full text search not supported"));
+                "full text search not supported"));
         cbNotes.setChecked(last_search_notes);
         tvAfter.setText(null);
         tvBefore.setText(null);
@@ -524,7 +524,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         etQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_GO ||
-                        event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                        (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
                     dialog.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
                     return true;
                 }
