@@ -1208,7 +1208,7 @@ public class Helper {
         return humanReadableByteCount(bytes, true);
     }
 
-    private static String humanReadableByteCount(long bytes, boolean si) {
+    static String humanReadableByteCount(long bytes, boolean si) {
         int sign = (int) Math.signum(bytes);
         bytes = Math.abs(bytes);
 

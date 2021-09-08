@@ -387,7 +387,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
             tvKeySize.setText(getString(R.string.title_advanced_aes_key_size,
-                    Helper.humanReadableByteCount(maxKeySize)));
+                    Helper.humanReadableByteCount(maxKeySize, false)));
         } catch (NoSuchAlgorithmException ex) {
             tvKeySize.setText(Log.formatThrowable(ex));
         }
