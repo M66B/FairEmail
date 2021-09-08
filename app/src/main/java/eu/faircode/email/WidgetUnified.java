@@ -107,7 +107,7 @@ public class WidgetUnified extends AppWidgetProvider {
 
             boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
             views.setImageViewResource(R.id.refresh, syncing ? R.drawable.twotone_compare_arrows_24 : R.drawable.twotone_sync_24);
-            views.setViewVisibility(R.id.refresh, refresh ? View.VISIBLE : View.INVISIBLE);
+            views.setViewVisibility(R.id.refresh, refresh ? View.VISIBLE : View.GONE);
 
             views.setViewVisibility(R.id.compose, compose ? View.VISIBLE : View.GONE);
             views.setViewPadding(R.id.compose, px, px, px, px);
