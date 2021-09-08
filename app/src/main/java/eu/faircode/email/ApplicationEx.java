@@ -42,6 +42,10 @@ import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 import androidx.work.WorkManager;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+import java.security.Provider;
+import java.security.Security;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -50,6 +54,22 @@ import java.util.Map;
 public class ApplicationEx extends Application
         implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Thread.UncaughtExceptionHandler prev = null;
+
+    static {
+        try {
+            Provider[] providers = Security.getProviders();
+            for (int p = 0; p < providers.length; p++)
+                if (BouncyCastleProvider.PROVIDER_NAME.equals(providers[p].getName())) {
+                    Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
+                    Provider bc = new BouncyCastleProvider();
+                    Security.insertProviderAt(bc, p + 1);
+                    Log.i("Replacing provider " + providers[p] + " at " + p + " by " + bc);
+                    break;
+                }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
