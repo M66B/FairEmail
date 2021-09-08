@@ -2023,19 +2023,21 @@
     </string-array>
 
     <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <string-array name="smimeSignAlgo" translatable="false">
         <item>MD5</item>
-        <item>SHA1</item>
-        <item>SHA224</item>
-        <item>SHA256</item>
-        <item>SHA384</item>
-        <item>SHA512</item>
+        <item>SHA-1</item>
+        <item>SHA-224</item>
+        <item>SHA-256</item>
+        <item>SHA-384</item>
+        <item>SHA-512</item>
     </string-array>
 
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
     <string-array name="smimeEncryptAlgo" translatable="false">
-        <item>AES128</item>
-        <item>AES192</item>
-        <item>AES256</item>
+        <item>AES-128</item>
+        <item>AES-192</item>
+        <item>AES-256</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

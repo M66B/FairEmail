@@ -3434,12 +3434,7 @@ public class FragmentCompose extends FragmentBase {
                 CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
                 cmsGenerator.addCertificates(store);
 
-                String signAlgorithm = prefs.getString("sign_algo_smime", "SHA256");
-
-                // https://datatracker.ietf.org/doc/html/rfc5751#page-29
-                String micalg = signAlgorithm.toLowerCase(Locale.ROOT);
-                if (micalg.startsWith("sha"))
-                    micalg = micalg.substring(0, 3) + "-" + micalg.substring(3);
+                String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
 
                 String algorithm = privkey.getAlgorithm();
                 if (TextUtils.isEmpty(algorithm) || "RSA".equals(algorithm))
@@ -3477,7 +3472,7 @@ public class FragmentCompose extends FragmentBase {
                 // Build signature
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     ContentType ct = new ContentType("application/pkcs7-signature");
-                    ct.setParameter("micalg", micalg);
+                    ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
 
                     EntityAttachment sattachment = new EntityAttachment();
                     sattachment.message = draft.id;
@@ -3550,7 +3545,7 @@ public class FragmentCompose extends FragmentBase {
 
                 // Build message
                 ContentType ct = new ContentType("multipart/signed");
-                ct.setParameter("micalg", micalg);
+                ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
                 ct.setParameter("protocol", "application/pkcs7-signature");
                 ct.setParameter("smime-type", "signed-data");
                 String ctx = ct.toString();
@@ -3587,17 +3582,16 @@ public class FragmentCompose extends FragmentBase {
                 }
                 CMSTypedData msg = new CMSProcessableFile(einput);
 
-                // https://datatracker.ietf.org/doc/html/rfc5751#section-2.7
                 ASN1ObjectIdentifier encryptionOID;
-                String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES128");
+                String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES-128");
                 switch (encryptAlgorithm) {
-                    case "AES128":
+                    case "AES-128":
                         encryptionOID = CMSAlgorithm.AES128_CBC;
                         break;
-                    case "AES192":
+                    case "AES-192":
                         encryptionOID = CMSAlgorithm.AES192_CBC;
                         break;
-                    case "AES256":
+                    case "AES-256":
                         encryptionOID = CMSAlgorithm.AES256_CBC;
                         break;
                     default:

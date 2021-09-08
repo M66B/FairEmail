@@ -516,6 +516,9 @@ public class ApplicationEx extends Application
                 if (!prefs.contains("landscape3"))
                     editor.putBoolean("landscape3", false);
             }
+        } else if (version < 17150) {
+            editor.remove("sign_algo_smime");
+            editor.remove("encrypt_algo_smime");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

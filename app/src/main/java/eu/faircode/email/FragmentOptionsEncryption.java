@@ -471,7 +471,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
         swEncryptSubject.setChecked(prefs.getBoolean("encrypt_subject", false));
 
-        String signAlgorithm = prefs.getString("sign_algo_smime", "SHA256");
+        String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
         String[] smimeSignAlgo = getResources().getStringArray(R.array.smimeSignAlgo);
         for (int pos = 0; pos < smimeSignAlgo.length; pos++)
             if (smimeSignAlgo[pos].equals(signAlgorithm)) {
@@ -479,7 +479,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
                 break;
             }
 
-        String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES128");
+        String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES-128");
         String[] smimeEncryptAlgo = getResources().getStringArray(R.array.smimeEncryptAlgo);
         for (int pos = 0; pos < smimeEncryptAlgo.length; pos++)
             if (smimeEncryptAlgo[pos].equals(encryptAlgorithm)) {
