@@ -1574,6 +1574,14 @@ public class FragmentCompose extends FragmentBase {
             tv.setText(null);
         }
 
+        ImageButton ibTranslate = (ImageButton) menu.findItem(R.id.menu_translate).getActionView();
+        ibTranslate.setAlpha(state == State.LOADED ? 1f : Helper.LOW_LIGHT);
+        ibTranslate.setEnabled(state == State.LOADED);
+
+        ImageButton ibZoom = (ImageButton) menu.findItem(R.id.menu_zoom).getActionView();
+        ibZoom.setAlpha(state == State.LOADED ? 1f : Helper.LOW_LIGHT);
+        ibZoom.setEnabled(state == State.LOADED);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
