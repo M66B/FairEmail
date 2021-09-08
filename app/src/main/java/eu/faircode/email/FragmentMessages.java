@@ -7475,10 +7475,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                 } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
                     String algo = args.getString("algo");
-                    if (!TextUtils.isEmpty(algo)) {
+                    if (BuildConfig.DEBUG && !TextUtils.isEmpty(algo))
                         Snackbar.make(view, algo, Snackbar.LENGTH_LONG)
                                 .setGestureInsetBottomIgnored(true).show();
-                    }
                 }
             }
 
