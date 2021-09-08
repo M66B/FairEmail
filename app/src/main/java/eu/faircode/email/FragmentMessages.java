@@ -7102,11 +7102,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     String algo;
                                     try {
                                         DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
-                                        algo = af.getAlgorithmName(s.getDigestAlgorithmID()) +
-                                                "/" + af.getAlgorithmName(new ASN1ObjectIdentifier(s.getEncryptionAlgOID()));
+                                        algo = af.getAlgorithmName(new ASN1ObjectIdentifier(s.getEncryptionAlgOID()));
                                     } catch (Throwable ex) {
                                         Log.e(ex);
-                                        algo = s.getDigestAlgOID() + "/" + s.getEncryptionAlgOID();
+                                        algo = s.getEncryptionAlgOID();
                                     }
                                     args.putString("algo", algo);
 
@@ -7224,7 +7223,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         args.putString("reason", matching
                                 ? "Signature could not be verified"
                                 : "Certificates and signatures do not match");
-
 
                     if (is != null)
                         decodeMessage(context, is, message, args);
@@ -7391,6 +7389,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
                                 tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
 
+                                if (!TextUtils.isEmpty(algo))
+                                    algo = algo.replace("WITH", "/");
                                 tvAlgorithm.setText(algo);
 
                                 ibInfo.setOnClickListener(new View.OnClickListener() {
@@ -7475,7 +7475,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                 } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
                     String algo = args.getString("algo");
-                    if (BuildConfig.DEBUG && !TextUtils.isEmpty(algo))
+                    if (!TextUtils.isEmpty(algo))
                         Snackbar.make(view, algo, Snackbar.LENGTH_LONG)
                                 .setGestureInsetBottomIgnored(true).show();
                 }

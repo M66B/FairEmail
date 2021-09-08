@@ -3447,7 +3447,7 @@ public class FragmentCompose extends FragmentBase {
                 else if ("EC".equals(algorithm))
                     algorithm = "ECDSA";
 
-                algorithm = signAlgorithm + "with" + algorithm;
+                algorithm = signAlgorithm.replace("-", "") + "with" + algorithm;
                 Log.i("Sign algorithm=" + algorithm);
 
                 ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
