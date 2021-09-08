@@ -501,6 +501,11 @@
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
     <string name="title_advanced_encrypt_subject">Kryptera ämne</string>
+    <string name="title_advanced_sign_algo">Signaturalgoritm</string>
+    <string name="title_advanced_encrypt_algo">Krypteringsalgoritm</string>
+    <string name="title_advanced_remark_algo">        Tänk på att inte alla e-postklienter stöder alla algoritmer.
+        Standardalgoritmerna SHA256 och AES128 stöds ofta.
+    </string>
     <string name="title_advanced_check_certificate">Kontrollera offentlig nyckel när du skickar</string>
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
@@ -1102,6 +1107,7 @@
     <string name="title_signature_sender">Avsändarens adress</string>
     <string name="title_signature_email">Signaturens adress</string>
     <string name="title_signature_mismatch">Avsändarens och signaturens e-postadress matchar inte</string>
+    <string name="title_signature_algorithm">Algoritm</string>
     <string name="title_signature_subject">Ämne</string>
     <string name="title_signature_validity">Giltighet</string>
     <string name="title_signature_outdated">Denna publika nyckel är för närvarande inte giltig</string>
@@ -1676,4 +1682,5 @@
         <item>Endast e-post</item>
         <item>Namn och e-post</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

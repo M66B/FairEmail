@@ -1349,4 +1349,5 @@
         <item>Само имейл</item>
         <item>Име и имейл</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

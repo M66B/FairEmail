@@ -506,6 +506,9 @@
     <string name="title_advanced_autocrypt">Autocrypt verwenden</string>
     <string name="title_advanced_autocrypt_mutual">Gegenseitiger Autocrypt-Modus</string>
     <string name="title_advanced_encrypt_subject">Betreff verschlüsseln</string>
+    <string name="title_advanced_sign_algo">Signaturalgorithmus</string>
+    <string name="title_advanced_encrypt_algo">Verschlüsselungsalgorithmus</string>
+    <string name="title_advanced_remark_algo">Bitte beachten Sie, dass nicht alle E-Mail-Clients alle Algorithmen unterstützen. Die Standardalgorithmen SHA256 und AES128 werden üblicherweise unterstützt.    </string>
     <string name="title_advanced_check_certificate">Öffentlichen Schlüssel beim Senden überprüfen</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
@@ -1106,6 +1109,7 @@
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
     <string name="title_signature_email">E-Mail-Adresse der Unterschrift</string>
     <string name="title_signature_mismatch">Die E-Mail-Adresse des Absenders und der Signatur stimmen nicht überein</string>
+    <string name="title_signature_algorithm">Algorithmus</string>
     <string name="title_signature_subject">Betreff</string>
     <string name="title_signature_validity">Gültigkeit</string>
     <string name="title_signature_outdated">Dieser öffentliche Schlüssel ist derzeit nicht gültig</string>
@@ -1681,4 +1685,5 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Nur E-Mail-Adresse</item>
         <item>Name und E-Mail-Adresse</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

@@ -504,6 +504,11 @@
     <string name="title_advanced_autocrypt">Utiliser Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
     <string name="title_advanced_encrypt_subject">Chiffrer l\'objet</string>
+    <string name="title_advanced_sign_algo">Algorithme de signature</string>
+    <string name="title_advanced_encrypt_algo">Algorithme de chiffrement</string>
+    <string name="title_advanced_remark_algo">        Veuillez noter que tous les clients de messagerie ne prennent pas en charge tous les algorithmes.
+        Les algorithmes par défaut SHA256 et AES128 sont couramment pris en charge.
+    </string>
     <string name="title_advanced_check_certificate">Vérifier la clé publique lors de l\'envoi</string>
     <string name="title_advanced_manage_certificates">Gérer les clés publiques</string>
     <string name="title_advanced_import_key">Importer une clé privée</string>
@@ -1105,6 +1110,7 @@
     <string name="title_signature_sender">Adresse de l\'expéditeur</string>
     <string name="title_signature_email">Adresse de la signature</string>
     <string name="title_signature_mismatch">Les adresses e-mail de l\'expéditeur et de la signature ne correspondent pas</string>
+    <string name="title_signature_algorithm">Algorithme</string>
     <string name="title_signature_subject">Objet</string>
     <string name="title_signature_validity">Validité</string>
     <string name="title_signature_outdated">Cette clé publique n\'est actuellement pas valide</string>
@@ -1679,4 +1685,5 @@
         <item>E-mail uniquement</item>
         <item>Nom et e-mail</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

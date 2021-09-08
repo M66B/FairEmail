@@ -505,6 +505,11 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_autocrypt">Gebruik Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt wederzijdse modus</string>
     <string name="title_advanced_encrypt_subject">Versleuteld onderwerp</string>
+    <string name="title_advanced_sign_algo">Handtekening algoritme</string>
+    <string name="title_advanced_encrypt_algo">Encryptie algoritme</string>
+    <string name="title_advanced_remark_algo">        Houd er rekening mee dat niet alle e-mail clients alle algoritmen ondersteunen.
+        De standaard algoritmen SHA256 en AES128 worden meestal ondersteund.
+    </string>
     <string name="title_advanced_check_certificate">Controleer de publieke sleutel bij verzenden</string>
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
@@ -1106,6 +1111,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_signature_sender">Adres van de afzender</string>
     <string name="title_signature_email">Adres van de handtekening</string>
     <string name="title_signature_mismatch">Het e-mailadres van de afzender en de handtekening komen niet overeen</string>
+    <string name="title_signature_algorithm">Algoritme</string>
     <string name="title_signature_subject">Onderwerp</string>
     <string name="title_signature_validity">Geldigheid</string>
     <string name="title_signature_outdated">Deze publieke sleutel is momenteel niet geldig</string>
@@ -1677,4 +1683,5 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
         <item>Alleen e-mail</item>
         <item>Naam en e-mail</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

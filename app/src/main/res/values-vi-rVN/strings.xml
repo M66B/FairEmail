@@ -1660,4 +1660,5 @@
         <item>Chỉ email</item>
         <item>Tên và email</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

@@ -1699,4 +1699,5 @@
         <item>Tylko e-mail</item>
         <item>Nazwa oraz e-mail</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

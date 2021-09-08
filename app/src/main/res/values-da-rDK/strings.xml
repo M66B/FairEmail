@@ -499,6 +499,11 @@
     <string name="title_advanced_autocrypt">Benyt Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gensidig tilstand</string>
     <string name="title_advanced_encrypt_subject">Kryptér emne</string>
+    <string name="title_advanced_sign_algo">Signaturalgoritme</string>
+    <string name="title_advanced_encrypt_algo">Krypteringsalgoritme</string>
+    <string name="title_advanced_remark_algo">        Bemærk, at ikke alle e -mailklienter understøtter alle algoritmer.
+        Standardalgoritmerne SHA256 og AES128 understøttes almindeligvis.
+    </string>
     <string name="title_advanced_check_certificate">Tjek offentlig nøgle ved afsendelse</string>
     <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
     <string name="title_advanced_import_key">Importér privat nøgle</string>
@@ -1096,6 +1101,7 @@
     <string name="title_signature_sender">Afsenderadresse</string>
     <string name="title_signature_email">Signaturadresse</string>
     <string name="title_signature_mismatch">Afsenders e-mailadresse og signatur matcher ikke</string>
+    <string name="title_signature_algorithm">Algoritme</string>
     <string name="title_signature_subject">Emne</string>
     <string name="title_signature_validity">Gyldighed</string>
     <string name="title_signature_outdated">Den offentlige nøgle er pt, ikke gyldig</string>
@@ -1669,4 +1675,5 @@
         <item>Kun e-mail</item>
         <item>Navn eller e-mail</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

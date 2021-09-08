@@ -1665,4 +1665,5 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Len email</item>
         <item>Meno aj email</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

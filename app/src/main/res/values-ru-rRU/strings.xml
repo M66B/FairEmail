@@ -524,6 +524,11 @@
     <string name="title_advanced_autocrypt">Использовать Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Шифровать тему</string>
+    <string name="title_advanced_sign_algo">Алгоритм подписи</string>
+    <string name="title_advanced_encrypt_algo">Алгоритм шифрования</string>
+    <string name="title_advanced_remark_algo">        Имейте в виду, что не все почтовые клиенты поддерживают все алгоритмы.
+        Алгоритмы по умолчанию (SHA256 и AES128) обычно поддерживаются.
+    </string>
     <string name="title_advanced_check_certificate">Проверять публичный ключ при отправке</string>
     <string name="title_advanced_manage_certificates">Управление публичными ключами</string>
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
@@ -1125,6 +1130,7 @@
     <string name="title_signature_sender">Адрес отправителя</string>
     <string name="title_signature_email">Адрес подписи</string>
     <string name="title_signature_mismatch">Адреса электронной почты отправителя и подписи не совпадают</string>
+    <string name="title_signature_algorithm">Алгоритм</string>
     <string name="title_signature_subject">Тема</string>
     <string name="title_signature_validity">Достоверность</string>
     <string name="title_signature_outdated">Этот публичный ключ недействителен в настоящее время</string>
@@ -1701,4 +1707,5 @@
         <item>Только электронная почта</item>
         <item>Имя и электронная почта</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

@@ -514,6 +514,11 @@
     <string name="title_advanced_autocrypt">Folosește Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modul mutual Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Criptează subiectul</string>
+    <string name="title_advanced_sign_algo">Algoritm de semnătură</string>
+    <string name="title_advanced_encrypt_algo">Algoritm de criptare</string>
+    <string name="title_advanced_remark_algo">        Vă rugăm să rețineți că nu toți clienții de e-mail acceptă toți algoritmii.
+        Algoritmii impliciți SHA256 și AES128 sunt suportați în mod obișnuit.
+    </string>
     <string name="title_advanced_check_certificate">Verifică cheia publică la trimitere</string>
     <string name="title_advanced_manage_certificates">Gestionare chei publice</string>
     <string name="title_advanced_import_key">Importare cheie privată</string>
@@ -1115,6 +1120,7 @@
     <string name="title_signature_sender">Adresa expeditorului</string>
     <string name="title_signature_email">Adresa semnăturii</string>
     <string name="title_signature_mismatch">Adresa email a expeditorului și semnătura nu corespund</string>
+    <string name="title_signature_algorithm">Algoritm</string>
     <string name="title_signature_subject">Subiect</string>
     <string name="title_signature_validity">Valabilitate</string>
     <string name="title_signature_outdated">Această cheie publică nu este validă în acest moment</string>
@@ -1690,4 +1696,5 @@
         <item>Doar e-mail</item>
         <item>Nume și e-mail</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

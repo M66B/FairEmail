@@ -504,6 +504,11 @@
     <string name="title_advanced_autocrypt">Χρήση Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Αμοιβαία λειτουργία Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Κρυπτογράφηση θέματος</string>
+    <string name="title_advanced_sign_algo">Αλγόριθμος υπογραφής</string>
+    <string name="title_advanced_encrypt_algo">Αλγόριθμος κρυπτογράφησης</string>
+    <string name="title_advanced_remark_algo">        Παρακαλούμε, λάβετε υπόψη ότι δεν υποστηρίζουν όλοι οι πελάτες ηλεκτρονικού ταχυδρομείου όλους τους αλγορίθμους.
+        Οι προεπιλεγμένοι αλγόριθμοι SHA256  και AES128 συνήθως υποστηρίζονται.
+    </string>
     <string name="title_advanced_check_certificate">Επαλήθευση δημόσιου κλειδιού κατά την αποστολή</string>
     <string name="title_advanced_manage_certificates">Διαχείριση δημόσιων κλειδιών</string>
     <string name="title_advanced_import_key">Εισαγωγή ιδιωτικού κλειδιού</string>
@@ -1103,6 +1108,7 @@
     <string name="title_signature_sender">Διεύθυνση αποστολέα</string>
     <string name="title_signature_email">Διεύθυνση της υπογραφής</string>
     <string name="title_signature_mismatch">Η διεύθυνση ηλ. ταχυδρομείου του αποστολέα δεν ταιριάζει με την υπογραφή</string>
+    <string name="title_signature_algorithm">Αλγόριθμος</string>
     <string name="title_signature_subject">Θέμα</string>
     <string name="title_signature_validity">Εγκυρότητα</string>
     <string name="title_signature_outdated">Το δημόσιο κλειδί δεν είναι έγκυρο αυτή τη στιγμή</string>
@@ -1677,4 +1683,5 @@
         <item>Μέιλ μόνο</item>
         <item>Όνομα και μέιλ</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

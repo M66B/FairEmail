@@ -1698,4 +1698,5 @@
         <item>Тільки електронна адреса</item>
         <item>Ім\'я та електронна адреса</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

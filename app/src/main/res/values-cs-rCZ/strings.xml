@@ -140,12 +140,14 @@
     <string name="title_setup_quick">Rychlé nastavení</string>
     <string name="title_setup_intro">Nastavení účtu jsou jen tři kroky a poté již můžete posílat a přijímat e-maily</string>
     <string name="title_setup_simple">Není třeba měnit žádné další volby</string>
+    <string name="title_setup_issue">FairEmail byl vyvinut tak, aby Vám pomohl chránit vaše soukromí a zabral doslova tisíce hodin práce. Pokud máte nějaké problémy, prosím kontaktujte s Vašimi dotazy nejprve mě, než se rozhodnete pro špatné hodnocení. S radostí Vám pomůžu!</string>
     <string name="title_setup_quick_accounts">Přidat nebo upravit účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Vyčkejte prosím &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
+    <string name="title_setup_quick_certificates">Certifikáty serveru</string>
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce lze použít vícekrát, pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
@@ -190,6 +192,7 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_permissions_explanation">Oprávnění pro přístup ke kontaktům je vyžadováno pro zobrazování kontaktních informací a navrhování kontaktů</string>
+    <string name="title_setup_permission_import_contacts">Jak mohu importovat kontakty?</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Pro spolehlivé odesílání a příjem e-mailu</string>
     <string name="title_setup_doze_explanation">Optimalizace baterie by měly být pro aplikaci zakázány, aby bylo zajištěno spolehlivé odesílání a přijímání zpráv na pozadí</string>
@@ -216,13 +219,22 @@
     <string name="title_setup_export_remark">        Protože soubor s nastavením obsahuje všechna nastavení a informace účtů, je proto zašifrován heslem.
         Heslo je vyžadováno pro zpětný import nastavení, nezapomeňte jej tedy prosím!
     </string>
+    <string name="title_setup_export_do">Exportovaný soubor bude obsahovat všechna nastavení a data, ale žádné zprávy a obrázky, uvedené v podpisech</string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
+    <string name="title_setup_import_gmail">        Od Androidu 8 - Oreo, již nelze importovat Gmail účty, protože každý účet musí být vybrán zvlášť, aby k němu byla udělena přístupová práva.
+        Gmail účty můžete snadno konfigurovat pomocí průvodce rychlým nastavením.
+    </string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
     <string name="title_setup_password_missing">Chybí heslo</string>
     <string name="title_setup_password_different">Hesla se neshodují</string>
     <string name="title_setup_password_invalid">Nesprávné heslo</string>
+    <string name="title_setup_import_accounts">Import účtů a identit</string>
+    <string name="title_setup_import_rules">Import pravidel filtrů</string>
+    <string name="title_setup_import_contacts">Import místních kontaktů</string>
+    <string name="title_setup_import_answers">Import šablon pro odpovědi</string>
+    <string name="title_setup_import_settings">Možnosti importu</string>
     <string name="title_setup_exported">Nastavení exportována</string>
     <string name="title_setup_imported">Nastavení importována</string>
     <string name="title_setup_import_invalid">Neplatný soubor s nastavením</string>
@@ -256,6 +268,7 @@
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
         Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
+    <string name="title_advanced_hint_setup">Účet můžete nakonfigurovat klepnutím na tlačítko průvodce na hlavní obrazovce nastavení.</string>
     <string name="title_advanced_section_main">Hlavní</string>
     <string name="title_advanced_section_synchronize">Příjem</string>
     <string name="title_advanced_section_send">Odesílání</string>
@@ -273,6 +286,7 @@
     <string name="title_advanced_always">Neustále přijímat zprávy pro tyto účty</string>
     <string name="title_advanced_schedule">Plán</string>
     <string name="title_advanced_advanced">Pokročilé</string>
+    <string name="title_advanced_quick_sync">Rychlá synchronizace</string>
     <string name="title_advanced_no_date">Zprávy bez data</string>
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
@@ -285,6 +299,7 @@
     <string name="title_advanced_check_authentication">Zkontrolovat ověření zprávy</string>
     <string name="title_advanced_check_reply_domain">Kontrolovat adresu pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
+    <string name="title_advanced_check_blocklist">Zkontrolujte, zda je doména odesílatele v seznamu blokovaných adres</string>
     <string name="title_advanced_use_blocklist">Přesunout zprávy z domén na seznamu blokovaných do složky nevyžádané pošty</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
@@ -294,18 +309,23 @@
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
+    <string name="title_advanced_alt_re_fwd">Alternativní adresa pro odpovědi/přeposílání</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
+    <string name="title_advanced_attach_new">Přidat sdílené soubory do nového konceptu</string>
+    <string name="title_advanced_reply_all">Pro odpověď všem stiskněte tlačítko odpovědi dlouze</string>
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
     <string name="title_advanced_separate_reply">Vložit vodorovnou čáru před hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_extended_reply">Použít rozšířenou hlavičku odpovědi/přeposlání</string>
+    <string name="title_advanced_write_above">Psát nad textem odesílatele</string>
     <string name="title_advanced_write_below">Psát pod textem odesílatele</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_limit_reply">Omezit počet vnořených citací</string>
     <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
     <string name="title_advanced_signature_location">Umístění podpisu</string>
+    <string name="title_advanced_signature_new">Použít podpis pro nové zprávy</string>
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
     <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
@@ -335,6 +355,10 @@
     <string name="title_advanced_caption_message">Zpráva</string>
     <string name="title_advanced_caption_message_header">Hlavička zprávy</string>
     <string name="title_advanced_caption_message_body">Tělo zprávy</string>
+    <string name="title_advanced_portrait">Režim na výšku</string>
+    <string name="title_advanced_landscape">Režim na šířku</string>
+    <string name="title_advanced_two_row">Použít dva řádky</string>
+    <string name="title_advanced_two_col">Použít dva sloupce</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>
@@ -489,6 +513,11 @@
     <string name="title_advanced_autocrypt">Použít Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Vzájemný režim Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Šifrovat předmět</string>
+    <string name="title_advanced_sign_algo">Algoritmus podpisu</string>
+    <string name="title_advanced_encrypt_algo">Šifrovací algoritmus</string>
+    <string name="title_advanced_remark_algo">        Mějte prosím na paměti, že ne každý e-mailový klient podporuje všechny algoritmy.
+        Běžně jsou podporovány výchozí algoritmy SHA256 a AES128.
+    </string>
     <string name="title_advanced_check_certificate">Zkontrolovat veřejný klíč při odesílání</string>
     <string name="title_advanced_manage_certificates">Spravovat veřejné klíče</string>
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
@@ -1077,6 +1106,7 @@
     <string name="title_signature_sender">Adresa odesílatele</string>
     <string name="title_signature_email">Adresa podpisu</string>
     <string name="title_signature_mismatch">E-mailová adresa odesílatele a podpis se neshodují</string>
+    <string name="title_signature_algorithm">Algoritmus</string>
     <string name="title_signature_subject">Subjekt</string>
     <string name="title_signature_validity">Platnost</string>
     <string name="title_signature_outdated">Tento veřejný klíč není v současné době platný</string>
@@ -1641,4 +1671,5 @@
         <item>Pouze e-mail</item>
         <item>Jméno a e-mail</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

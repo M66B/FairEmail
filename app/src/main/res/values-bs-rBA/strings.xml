@@ -10,14 +10,14 @@
     <string name="app_updated">Posljednje ažuriranje:  %1$s</string>
     <string name="channel_service">Prijem</string>
     <string name="channel_send">Slanje</string>
-    <string name="channel_notification">Email</string>
+    <string name="channel_notification">E-pošta</string>
     <string name="channel_progress">Napredak</string>
     <string name="channel_update">Ažuriranja</string>
     <string name="channel_warning">Upozorenja</string>
     <string name="channel_error">Greške</string>
     <string name="channel_alert">Upozorenja servera</string>
     <string name="channel_group_contacts">Kontakti</string>
-    <string name="channel_service_description">Sinhronizacija i nadzor naloga</string>
+    <string name="channel_service_description">Sinhronizacija i nadzor računa</string>
     <string name="channel_send_description">Slanje poruka</string>
     <string name="channel_notification_description">Obavještenja novih poruka</string>
     <string name="channel_progress_description">Obavještenja o napretku dugotrajnih aktivnosti</string>
@@ -29,7 +29,7 @@
     <string name="shortcut_compose">Napiši</string>
     <string name="shortcut_setup">Postavke</string>
     <string name="title_ask_spam_who">Tretirati poruku od %1$s kao spam?</string>
-    <string name="title_junk_hint">Vaš email provajder (poslužitelj) je nadležan za filtriranje spam poruka. Email aplikacija nema sve potrebne podatke kako bi to obavljala pouzdano.</string>
+    <string name="title_junk_hint">Vaš e-mail provajder (poslužitelj) je nadležan za filtriranje spam poruka. E-mail aplikacija nema sve potrebne podatke kako bi to obavljala pouzdano.</string>
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljaoca</string>
     <string name="title_block_domain">Blokiraj domenu pošiljaoca</string>
@@ -72,53 +72,53 @@
     <string name="title_privacy_policy">Pravila o privatnosti</string>
     <string name="title_list_accounts">Nalozi</string>
     <string name="title_list_identities">Identiteti</string>
-    <string name="title_edit_account">Uredi nalog</string>
+    <string name="title_edit_account">Uredi račun</string>
     <string name="title_edit_identity">Uredi identitet</string>
     <string name="title_edit_folder">Uredi folder</string>
     <string name="title_setup">Postavke</string>
     <string name="title_setup_help">Pomoć</string>
     <string name="title_setup_quick">Brzo podešavanje</string>
-    <string name="title_setup_intro">Postavljanje naloga odvija se u samo tri koraka i nakon toga možete slati i primati e-poštu</string>
+    <string name="title_setup_intro">Postavljanje računa odvija se u samo tri koraka i nakon toga možete slati i primati e-poštu</string>
     <string name="title_setup_simple">Nije potrebno mijenjati druge opcije</string>
     <string name="title_setup_issue">FairEmail je razvijen kako bi zaštitio vašu privatnost i predstavlja djelo u koje je doslovno uloženo na hiljade sati. Ukoliko imate nekih problema, molim da me prvo kontaktirate za podršku, prije nego ostavite lošu recenziju. Rado ću Vam pomoći!</string>
-    <string name="title_setup_quick_accounts">Dodaj ili ukloni naloge</string>
-    <string name="title_setup_quick_support">Neki provajderi (poslužitelji) otežavaju način za dodavanje naloga. Molimo da ne krivite FairEmail zbog toga, nego da zatražite podršku.</string>
+    <string name="title_setup_quick_accounts">Dodaj ili ukloni račune</string>
+    <string name="title_setup_quick_support">Neki provajderi (poslužitelji) otežavaju način za dodavanje računa. Molimo da ne krivite FairEmail zbog toga, nego da zatražite podršku.</string>
     <string name="title_setup_quick_hint">Brzo podešavanje će dohvatiti konfiguracijske podatke sa autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Molimo da budete strpljivi &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server za primanje poruka</string>
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_quick_certificates">Certifikati servera</string>
     <string name="title_setup_wizard">Čarobnjak</string>
-    <string name="title_setup_wizard_multiple">Čarobnjak se može koristiti višestruko kad postavljate više naloga</string>
-    <string name="title_setup_wizard_new">Potrebna je nova email adresa</string>
-    <string name="title_setup_manual">Ručno podešavanje i opcije za nalog</string>
+    <string name="title_setup_wizard_multiple">Čarobnjak se može koristiti višestruko kada postavljate više računa</string>
+    <string name="title_setup_wizard_new">Potrebna je nova e-mail adresa</string>
+    <string name="title_setup_manual">Ručno podešavanje i opcije za račun</string>
     <string name="title_setup_classic">Klasično podešavanje</string>
-    <string name="title_setup_documentation">Molimo da provjerite dokumente od vašeg email provajdera (poslužitelja) za tačno podešavanje email servera</string>
-    <string name="title_setup_account_remark">Prijem poruka</string>
-    <string name="title_setup_identity_remark">Pošalji poruku</string>
-    <string name="title_setup_account_identity_hint">Možete podesiti naziv, boju i prevlačenje prstima u postavkama naloga, a podešavanje potpisa u postavkama identiteta</string>
+    <string name="title_setup_documentation">Molimo da provjerite dokumente od vašeg e-mail provajdera (poslužitelja) za tačno podešavanje e-mail servera</string>
+    <string name="title_setup_account_remark">Prijem e-pošte</string>
+    <string name="title_setup_identity_remark">Pošalji e-poštu</string>
+    <string name="title_setup_account_identity_hint">Možete podesiti naziv, boju i prevlačenje prstima u postavkama računa, a podešavanje potpisa u postavkama identiteta</string>
     <string name="title_setup_accounts">Nalozi</string>
     <string name="title_setup_identities">Identiteti</string>
     <string name="title_setup_other">Drugi provajder</string>
     <string name="title_setup_pop3">POP3 račun</string>
-    <string name="title_setup_gmail_rationale">Molimo da potrvdite dopuštenja za izbor naloga i čitanje vašeg imena</string>
+    <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_drafts">Ukoliko folder \'nacrti\' nije dostupan putem IMAP-a, onda se to može popraviti u postavkama Gmail oznaka (etiketa)</string>
-    <string name="title_setup_gmail_password">Želim autorizovati nalog s lozinkom</string>
+    <string name="title_setup_gmail_password">Želim autorizovati račun s lozinkom</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
-    <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s nalogu</string>
-    <string name="title_setup_oauth_update">Autorizuj postojeći nalog opet</string>
-    <string name="title_setup_oauth_updated">Autorizacija naloga je ažurirana</string>
+    <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
+    <string name="title_setup_oauth_update">Autorizuj postojeći račun opet</string>
+    <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
     <string name="title_setup_oauth_authorize">Autorizuj</string>
-    <string name="title_setup_select_account">Izaberite nalog</string>
+    <string name="title_setup_select_account">Izaberite račun</string>
     <string name="title_setup_instructions">Uputstva za postavljanje</string>
     <string name="title_setup_no_settings">Nema postavki za domenu \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Pokušajte ručno postaviti nalog koristeći postavke od vašeg provajdera e-pošte</string>
-    <string name="title_setup_no_auth_hint">Molimo da provjerite još jednom svoju email adresu i lozinku i osigurate vanjski pristup (IMAP/SMTP) za vaš nalog</string>
-    <string name="title_setup_app_password_hint">Ovaj provajder zahtijeva lozinku aplikacije umjesto naloga, molimo da provjerite uputstva vašeg provajdera</string>
+    <string name="title_setup_no_settings_hint">Pokušajte ručno postaviti račun koristeći postavke od vašeg provajdera e-pošte</string>
+    <string name="title_setup_no_auth_hint">Molimo da provjerite još jednom svoju e-mail adresu i lozinku i osigurate vanjski pristup (IMAP/SMTP) za vaš račun</string>
+    <string name="title_setup_app_password_hint">Ovaj provajder zahtijeva lozinku aplikacije umjesto računa, molimo da provjerite uputstva vašeg provajdera</string>
     <string name="title_setup_no_inbox">Inbox nije pronađen</string>
-    <string name="title_setup_advanced_protection">Ako ste učesnik napredne zaštite programa, onda nije moguće koristiti email aplikaciju trećih strana. Ovo ograničenje je uveo Google.</string>
-    <string name="title_setup_quick_success">Nalog je uspješno dodan</string>
+    <string name="title_setup_advanced_protection">Ako ste učesnik napredne zaštite programa, onda nije moguće koristiti e-mail aplikaciju trećih strana. Ovo ograničenje je uveo Google.</string>
+    <string name="title_setup_quick_success">Račun je uspješno dodan</string>
     <string name="title_setup_quick_no_sent">Nije izabran folder za poslane poruke. Te poruke se možda neće sačuvati.</string>
     <string name="title_setup_quick_configure">Za uređivanje naziva, boja, prevlačenja prstima, itd.</string>
     <string name="title_setup_manage">Uređivanje</string>
@@ -150,7 +150,7 @@
     <string name="title_setup_done">Gotovo</string>
     <string name="title_setup_still">Još treba uraditi</string>
     <string name="title_setup_error">Greška</string>
-    <string name="title_setup_configuring">Podešavanje naloga &#8230;</string>
+    <string name="title_setup_configuring">Podešavanje računa &#8230;</string>
     <string name="title_setup_close">Zatvori postavke</string>
     <string name="title_setup_export">Izvezi postavke</string>
     <string name="title_setup_import">Uvezi postavke</string>
@@ -160,7 +160,7 @@
     <string name="title_setup_password_missing">Nedostaje lozinka</string>
     <string name="title_setup_password_different">Lozinke se ne podudaraju</string>
     <string name="title_setup_password_invalid">Nevažeća lozinka</string>
-    <string name="title_setup_import_accounts">Uvoz naloga i identiteta</string>
+    <string name="title_setup_import_accounts">Uvoz računa i identiteta</string>
     <string name="title_setup_import_rules">Uvoz pravila filtriranja</string>
     <string name="title_setup_import_contacts">Uvezi lokalne kontakte</string>
     <string name="title_setup_import_answers">Uvezi prijedloške za odgovore</string>
@@ -168,7 +168,7 @@
     <string name="title_setup_exported">Postavke izvezene</string>
     <string name="title_setup_imported">Postavke uvezene</string>
     <string name="title_setup_import_invalid">Nevažeća datoteka postavki</string>
-    <string name="title_setup_reorder_accounts">Redoslijed naloga</string>
+    <string name="title_setup_reorder_accounts">Redoslijed računa</string>
     <string name="title_setup_reorder_folders">Redoslijed foldera</string>
     <string name="title_reset_order">Resetuj redoslijed</string>
     <string name="title_setup_authentication">Provjera</string>
@@ -198,7 +198,7 @@
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
     </string>
-    <string name="title_advanced_hint_setup">Možete podesiti nalog dodirom na dugme \'čarobnjak\' na početnom ekranu postavki.</string>
+    <string name="title_advanced_hint_setup">Možete podesiti račun dodirom na dugme \'čarobnjak\' na početnom ekranu postavki.</string>
     <string name="title_advanced_section_main">Početni ekran</string>
     <string name="title_advanced_section_synchronize">Prijem</string>
     <string name="title_advanced_section_send">Slanje</string>
@@ -210,10 +210,10 @@
     <string name="title_advanced_section_notifications">Obavijesti</string>
     <string name="title_advanced_section_misc">Razno</string>
     <string name="title_advanced_default">Sve opcije imaju uobičajene standardne vrijednosti, koje ne morate mijenjati da bi koristili aplikaciju</string>
-    <string name="title_advanced_receive">Primaj poruke sa svih naloga</string>
+    <string name="title_advanced_receive">Primaj poruke sa svih računa</string>
     <string name="title_advanced_when">Kada</string>
     <string name="title_advanced_optimize">Automatski optimizuj</string>
-    <string name="title_advanced_always">Uvijek primaj poruke s ovih naloga</string>
+    <string name="title_advanced_always">Uvijek primaj poruke s ovih računa</string>
     <string name="title_advanced_schedule">Raspored</string>
     <string name="title_advanced_advanced">Napredno</string>
     <string name="title_advanced_quick_sync">Brza sinhronizacija</string>
@@ -227,12 +227,12 @@
     <string name="title_advanced_subscriptions">Upravljaj folderskim pretplatama</string>
     <string name="title_advanced_check_authentication">Provjeri vjerodostojnost poruke</string>
     <string name="title_advanced_check_reply_domain">Provjeri adresu za odgovore tokom sinhronizacije poruka</string>
-    <string name="title_advanced_check_mx">Provjeri email adrese pošiljaoca tokom sinhronizacije poruka</string>
+    <string name="title_advanced_check_mx">Provjeri e-mail adrese pošiljaoca tokom sinhronizacije poruka</string>
     <string name="title_advanced_check_blocklist">Provjeri da li je naziv domene pošiljaoca na spisku za blokiranje spama</string>
     <string name="title_advanced_use_blocklist">Premjesti poruke od blokiranih domena u spam folder</string>
     <string name="title_advanced_keyboard">Prikaži tastaturu po zadanom</string>
     <string name="title_advanced_keyboard_no_fullscreen">Spriječi tastaturu preko cijelog ekrana</string>
-    <string name="title_advanced_suggest_names">Prikaži imena i email adrese</string>
+    <string name="title_advanced_suggest_names">Prikaži imena i e-mail adrese</string>
     <string name="title_advanced_suggest_local">Predloži lokalne kontakte</string>
     <string name="title_advanced_suggest_sent">Predloži adrese pronađene u poslanim porukama</string>
     <string name="title_advanced_suggest_received">Predloži adrese pronađene u primljenim porukama</string>
@@ -264,7 +264,7 @@
     <string name="title_advanced_usenet_signature">Prati Usenet-ovu konvenciju za potpise</string>
     <string name="title_advanced_remove_signatures">Ukloni prepoznate potpise</string>
     <string name="title_advanced_receipt">Kada se zahtijeva potvrda</string>
-    <string name="title_advanced_lookup_mx">Provjeri email adresu primaoca prije slanja</string>
+    <string name="title_advanced_lookup_mx">Provjeri e-mail adresu primaoca prije slanja</string>
     <string name="title_advanced_metered">Koristi konekcije \'s ograničenim paketom\'</string>
     <string name="title_advanced_download">Automatski preuzimaj poruke i priloge na mrežama \'s ograničenim paketom\' do</string>
     <string name="title_advanced_roaming">Preuzimaj poruke i priloge u roamingu</string>
@@ -316,7 +316,7 @@
     <string name="title_advanced_color_saturation">Zasićenost: %1$s %%</string>
     <string name="title_advanced_color_value">Svjetlina: %1$s %%</string>
     <string name="title_advanced_color_threshold">Boja graničnih slova: %1$s %%</string>
-    <string name="title_advanced_name_email">Prikaži imena i email adrese</string>
+    <string name="title_advanced_name_email">Prikaži imena i e-mail adrese</string>
     <string name="title_advanced_replace_name">Preferiraj ime kontakta prije imena za slanje</string>
     <string name="title_advanced_only_name">Prikaži samo imena kontakata</string>
     <string name="title_advanced_distinguish_contacts">Podvuci pošiljaoca kada je on/a poznat/a kao lokalni \'za\' kontakt</string>
@@ -407,7 +407,7 @@
     <string name="title_advanced_confirm_html">Po zadanom prikaži preformatirane poruke</string>
     <string name="title_advanced_tracking">Pokušaj prepoznati i isključiti slike koje mogu pratiti</string>
     <string name="title_advanced_hide_timezone">Pošalji poruke bez informacija o vremenskoj zoni</string>
-    <string name="title_advanced_client_id">Pošalji naziv i verziju aplikacije email serveru</string>
+    <string name="title_advanced_client_id">Pošalji naziv i verziju aplikacije e-mail serveru</string>
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
     <string name="title_advanced_incognito_keyboard">Koristi inkognito tastaturu (Android 8+)</string>
     <string name="title_advanced_secure">Sakrij na ekranu nedavnih aplikacija i spriječi snimke ekrana</string>
@@ -459,7 +459,7 @@
     <string name="title_advanced_query_threads">Ograniči paralelni pristuo bazama podataka</string>
     <string name="title_advanced_manual_hint">Ako je prijem poruka isključen, još uvijek je moguće ručno primati poruke putem povlačenja na spisku poruka</string>
     <string name="title_advanced_poll_hint">Povremena provjera novih poruka uporedit će lokalne i udaljene poruke svaki put, što je zahtjevna operacija koja može uticati na potrošnju baterije, posebno ukoliko ima mnogo poruka. Stalni prijem će spriječiti ovo tako što će se stalno pratiti promjene.</string>
-    <string name="title_advanced_optimize_hint">Ovo može promijeniti učestalost sinhronizacija kako bi se smanjila potrošnja baterije, u zavisnosti od mogućnosti i ponašanja email servera</string>
+    <string name="title_advanced_optimize_hint">Ovo može promijeniti učestalost sinhronizacija kako bi se smanjila potrošnja baterije, u zavisnosti od mogućnosti i ponašanja e-mail servera</string>
     <string name="title_advanced_schedule_hint">Dodirnite za postavljanje vremena</string>
     <string name="title_advanced_navbar_colorize_hint">Ova funkcija radi u zavisnosti od verzije i varijante Androida</string>
     <string name="title_advanced_split_hint">Ovo će podijeliti ekran u dijelove</string>
@@ -478,10 +478,10 @@
     <string name="title_advanced_swipe_sensitivity">Osjetljivost prevlačenja lijevo/desno</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
-    <string name="title_identity_color_hint">Boje identiteta su preče od boja foldera i naloga</string>
+    <string name="title_identity_color_hint">Boje identiteta su preče od boja foldera i računa</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljaoca</string>
     <string name="title_advanced_sender_name">Koristi ime kada je adresa pošiljaoca uređena</string>
-    <string name="title_advanced_sender_regex">Regularni izrazi za poklapanje korisničkog imena dolaznih email adresa</string>
+    <string name="title_advanced_sender_regex">Regularni izrazi za podudaranje korisničkog imena dolaznih e-mail adresa</string>
     <string name="title_identity_reply_to">Odgovori na adresu</string>
     <string name="title_identity_internal">Interni nazivi domena (razdvojeni zarezima)</string>
     <string name="title_identity_unicode">Koristi Unicode način transporta</string>
@@ -509,6 +509,7 @@
     <string name="title_domain">Naziv domene</string>
     <string name="title_autoconfig">Dohvati postavke</string>
     <string name="title_encryption">Šifriranje</string>
+    <string name="title_encryption_none">Nijedno</string>
     <string name="title_allow_insecure">Dozvoli nesigurne konekcije</string>
     <string name="title_insecure_remark">Nesigurne konekcije trebaju biti dozvoljene samo na pouzdanim mrežama i nikada na javnim mrežama</string>
     <string name="title_port">Broj porta</string>
@@ -520,6 +521,7 @@
     <string name="title_realm">Oblast</string>
     <string name="title_use_ip">Koristi lokalne IP adrese umjesto naziva hosta</string>
     <string name="title_ehlo">Prilagođena HELO/EHLO identifikacija</string>
+    <string name="title_check">Provjeri</string>
     <string name="title_no_password">Nedostaje lozinka</string>
     <string name="title_no_inbox">Inbox nije pronađen</string>
     <string name="title_no_idle">Ovaj provajder (poslužitelj) ne podržava trenutna obavještenja. To će odložiti prijem novih poruka i povećati potrošnju baterije.</string>
@@ -575,7 +577,8 @@
     <string name="title_navigation_folder">Prikaži u navigacijskom meniju</string>
     <string name="title_synchronize_folder">Sinhronizuj (primaj poruke)</string>
     <string name="title_poll_folder">Provjeri povremeno umjesto stalnog sinhroniziranja</string>
-    <string name="title_poll_folder_remark">Većina email servera dozvoljava trenutna obavještenja samo za određene foldere!</string>
+    <string name="title_poll_folder_remark">Većina e-mail servera dozvoljava trenutna obavještenja samo za određene foldere!</string>
+    <string name="title_folder_unified">Objedinjeni inbox</string>
     <string name="title_folder_all">Arhiv</string>
     <string name="title_folder_trash">Otpad</string>
     <string name="title_folder_junk">Spam</string>
@@ -767,7 +770,7 @@
     <string name="title_send_plain_text">Samo običan tekst</string>
     <string name="title_send_dsn">Izvještaj o statusu</string>
     <string name="title_send_receipt">Zahtjevaj potvrdu</string>
-    <string name="title_send_receipt_remark">Većina provajdera i email klijenata ignorišu zahtjeve za potvrdama</string>
+    <string name="title_send_receipt_remark">Većina provajdera i e-mail klijenata ignorišu zahtjeve za potvrdama</string>
     <string name="title_from_missing">Nedostaje pošiljalac</string>
     <string name="title_pgp_reminder">Dostupni PGP ključevi</string>
     <string name="title_smime_reminder">Dostupni S/MIME ključevi</string>
@@ -785,7 +788,7 @@
     <string name="title_signature_certificate_invalid">Nevažeći lanac certifikata</string>
     <string name="title_signature_sender">Adresa pošiljaoca</string>
     <string name="title_signature_email">Potpisna adresa</string>
-    <string name="title_signature_mismatch">Email adresa pošiljaoca i potpisa se ne podudaraju</string>
+    <string name="title_signature_mismatch">E-mail adresa pošiljaoca i potpisa se ne podudaraju</string>
     <string name="title_signature_subject">Predmet</string>
     <string name="title_signature_validity">Valjanost</string>
     <string name="title_signature_outdated">Ovaj javni ključ trenutno nije važeći</string>
@@ -793,12 +796,17 @@
     <string name="title_search">Pretraga</string>
     <string name="title_search_for_hint">Unesite tekst</string>
     <string name="title_search_more">Više opcija</string>
+    <string name="title_search_with_unseen">Nepročitano</string>
+    <string name="title_search_flag_unseen">nepročitano</string>
+    <string name="title_sort_on_unread">Nepročitano</string>
     <string name="title_sort_on_priority">Prioritet</string>
+    <string name="title_sort_on_sender">Pošiljalac</string>
     <string name="title_sort_on_subject">Predmet</string>
     <string name="title_sort_on_size">Veličina</string>
     <string name="title_filter_seen">Pročitano</string>
     <string name="title_edit_signature">Uredi potpis</string>
     <string name="title_edit_signature_text">Tekst potpisa</string>
+    <string name="title_answer_standard">Zadani</string>
     <string name="title_rule_seen">Oznaci kao pročitano</string>
     <string name="title_rule_unseen">Označi kao nepročitano</string>
     <string name="title_rule_hide">Sakrij</string>
@@ -833,9 +841,16 @@
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_thread">Konverzacija</string>
     <string name="title_legend_cc">Prikaži CC/BCC</string>
+    <string name="title_legend_link">Ubaci link</string>
     <string name="title_legend_file">Priloži datoteku</string>
     <string name="title_legend_photo">Uslikaj</string>
     <string name="title_legend_audio">Snimi zvuk</string>
+    <string name="title_legend_metered">Konekcija je \'s ograničenim paketom\'</string>
+    <string name="title_legend_unmetered">Konekcija je neograničena</string>
+    <string name="title_legend_roaming">Roaming</string>
+    <string name="title_legend_connection_state">Status konekcije</string>
+    <string name="title_legend_sync_state">Status sinhronizacije</string>
+    <string name="title_legend_download_state">Status preuzimanja</string>
     <string name="title_legend_save">Sačuvaj</string>
     <string name="title_legend_delete">Izbriši</string>
     <string name="title_legend_a">Arhiv</string>
@@ -843,24 +858,78 @@
     <string name="title_legend_r">Odgovori</string>
     <string name="title_hint_message_actions">Prevuci lijevo za otpad; Prevuci desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
+    <string name="title_updated">Dostupno ažuriranje na verziju %1$s</string>
+    <string name="title_issue">Imate li pitanje ili problem?</string>
+    <string name="title_yes">Da</string>
+    <string name="title_no">Ne</string>
     <string name="title_enable">Uključi</string>
     <string name="title_disable">Isključi</string>
     <string name="title_snooze_now">Odgodi</string>
+    <string name="title_power_menu_off">Isključeno</string>
+    <string name="title_widget_semi_transparent">Poluprovidna pozadina</string>
+    <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
+    <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
+    <string name="title_widget_background">Boja pozadine</string>
+    <string name="title_accessibility_collapsed">Suženo</string>
+    <string name="title_accessibility_expanded">Prošireno</string>
     <string name="title_accessibility_seen">Pročitano</string>
+    <string name="title_accessibility_unseen">Nepročitano</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">Za uraditi</string>
+    <string name="title_accessibility_show_addresses">Prikaži adrese</string>
+    <string name="title_accessibility_hide_addresses">Sakrij adrese</string>
     <string name="title_accessibility_attachment">Prilog</string>
+    <string name="title_accessibility_from">Pošiljalac</string>
+    <string name="title_accessibility_to">Primalac</string>
+    <string-array name="pollIntervalNames">
+        <item>Uvijek</item>
+        <item>Svakih 15 minuta</item>
+        <item>Svakih 30 minuta</item>
+        <item>Svakog sata</item>
+        <item>Svaka 2 sata</item>
+        <item>Svaka 4 sata</item>
+        <item>Svakih 8 sati</item>
+        <item>Svakog dana</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Bez odlaganja</item>
+        <item>15 sekundi</item>
+        <item>30 sekundi</item>
+        <item>1 minuta</item>
+        <item>2 minute</item>
+        <item>5 minuta</item>
+        <item>10 minuta</item>
+    </string-array>
     <string-array name="startupNames">
-        <item>Unified inbox</item>
-        <item>Unified folders</item>
+        <item>Objedinjeni inbox</item>
+        <item>Objedinjeni folderi</item>
         <item>Primary account folders</item>
         <item>Nalozi</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
+        <item>∞</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Ne radi ništa</item>
+        <item>Idi na prethodnu konverzaciju</item>
+        <item>Idi na sljedeću konverzaciju</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Mali</item>
         <item>Srednji</item>
         <item>Veliki</item>
-        <item>Extra large</item>
+        <item>Vrlo veliko</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
@@ -869,16 +938,79 @@
         <item>Cc</item>
         <item>Bcc</item>
     </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Jedna minuta</item>
+        <item>2 minute</item>
+        <item>5 minuta</item>
+        <item>10 minuta</item>
+        <item>20 minuta</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Na početku</item>
+        <item>U sredini</item>
+        <item>Na kraju</item>
+        <item>Prikaži potpuno ime</item>
+    </string-array>
     <string-array name="priorityNames">
         <item>Niska</item>
         <item>Normalna</item>
         <item>Visoka</item>
     </string-array>
     <string-array name="fontSizeNames">
-        <item>Default</item>
+        <item>Zadani</item>
         <item>Mali</item>
         <item>Srednji</item>
         <item>Veliki</item>
     </string-array>
+    <string name="title_size_tiny">Mali</string>
+    <string-array name="receiptNames">
+        <item>Samo potvrda o čitanju</item>
+        <item>Samo potvrda o dospjeću</item>
+        <item>Potvrda o čitanju i dospjeću</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Iznad teksta</item>
+        <item>Ispod teksta</item>
+        <item>Na dnu</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Nijedno</item>
+        <item>Samo PGP potpisani</item>
+        <item>PGP potpisani i šifrirani</item>
+        <item>Samo S/MIME potpisani</item>
+        <item>S/MIME potpisani i šifrirani</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Isključeno</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Kurziv</item>
+        <item>Serif</item>
+        <item>Sans Serif</item>
+        <item>Monospace</item>
+        <item>Fantazija</item>
+        <item>OpenDyslexic</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Samo ime</item>
+        <item>Samo e-mail</item>
+        <item>Ime i e-mail</item>
+    </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

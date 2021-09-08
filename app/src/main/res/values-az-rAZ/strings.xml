@@ -504,6 +504,11 @@
     <string name="title_advanced_autocrypt">Autocrypt istifadə et</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt qarşılıqlı rejim</string>
     <string name="title_advanced_encrypt_subject">Mövzunu şifrələ</string>
+    <string name="title_advanced_sign_algo">İmza alqoritmi</string>
+    <string name="title_advanced_encrypt_algo">Şifrələmə alqoritmi</string>
+    <string name="title_advanced_remark_algo">        Zəhmət olmasa yadda saxlayın ki, bütün e-poçt müştəriləri (client) bütün alqoritmləri dəstəkləmir.
+        İlkin alqoritmlər, çox vaxt SHA256 və AES128-i dəstəkləyir.
+    </string>
     <string name="title_advanced_check_certificate">Göndərəndə ictimai açarları yoxla</string>
     <string name="title_advanced_manage_certificates">İctimai açarları idarə et</string>
     <string name="title_advanced_import_key">Gizli açar idxal et</string>
@@ -1104,6 +1109,7 @@
     <string name="title_signature_sender">Göndərənin ünvanı</string>
     <string name="title_signature_email">İmzanın ünvanı</string>
     <string name="title_signature_mismatch">Göndərənin və imzanın e-poçt ünvanları uyğunlaşmır</string>
+    <string name="title_signature_algorithm">Alqoritm</string>
     <string name="title_signature_subject">Mövzu</string>
     <string name="title_signature_validity">Etibarlılıq</string>
     <string name="title_signature_outdated">Bu ictimai açar hazırda etibarsızdır</string>
@@ -1671,4 +1677,5 @@
         <item>Yalnız e-poçt</item>
         <item>Ad və e-poçt</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

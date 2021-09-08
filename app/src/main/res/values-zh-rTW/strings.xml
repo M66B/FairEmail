@@ -1667,4 +1667,5 @@
         <item>僅郵件地址</item>
         <item>姓名及郵件地址</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

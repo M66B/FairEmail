@@ -504,6 +504,11 @@
     <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mutuo Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Cifrar asunto</string>
+    <string name="title_advanced_sign_algo">Algoritmo de firma</string>
+    <string name="title_advanced_encrypt_algo">Algoritmo de cifrado</string>
+    <string name="title_advanced_remark_algo">        Tenga en cuenta que no todos los clientes de correo electrónico soportan todos los algoritmos.
+        Los algoritmos por defecto SHA256 y AES128 son generalmente soportados.
+    </string>
     <string name="title_advanced_check_certificate">Comprobar clave pública al enviar</string>
     <string name="title_advanced_manage_certificates">Administrar claves públicas</string>
     <string name="title_advanced_import_key">Importar clave privada</string>
@@ -1105,6 +1110,7 @@
     <string name="title_signature_sender">Dirección del remitente</string>
     <string name="title_signature_email">Dirección de la firma</string>
     <string name="title_signature_mismatch">La dirección de correo electrónico del remitente y la firma no coinciden</string>
+    <string name="title_signature_algorithm">Algorítmo</string>
     <string name="title_signature_subject">Asunto</string>
     <string name="title_signature_validity">Validez</string>
     <string name="title_signature_outdated">Esta clave pública no es válida actualmente</string>
@@ -1679,4 +1685,5 @@
         <item>Sólo email</item>
         <item>Nombre y correo electrónico</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>

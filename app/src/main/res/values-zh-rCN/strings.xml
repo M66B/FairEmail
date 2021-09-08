@@ -493,6 +493,11 @@
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
     <string name="title_advanced_encrypt_subject">加密邮件主题</string>
+    <string name="title_advanced_sign_algo">签名算法</string>
+    <string name="title_advanced_encrypt_algo">加密算法</string>
+    <string name="title_advanced_remark_algo">        请注意，并非所有电子邮件客户端都支持所有算法。
+        通常支持默认算法 SHA256 和 AES128。
+    </string>
     <string name="title_advanced_check_certificate">发送时检查公钥</string>
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
@@ -1093,6 +1098,7 @@
     <string name="title_signature_sender">发件人地址：</string>
     <string name="title_signature_email">签名地址</string>
     <string name="title_signature_mismatch">发件人和签名的电子邮件地址不匹配</string>
+    <string name="title_signature_algorithm">算法</string>
     <string name="title_signature_subject">主题</string>
     <string name="title_signature_validity">有效性</string>
     <string name="title_signature_outdated">此公钥当前无效</string>
@@ -1665,4 +1671,5 @@
         <item>仅电子邮件</item>
         <item>名字和电子邮箱</item>
     </string-array>
+    <!-- https://www.bouncycastle.org/specifications.html -->
 </resources>
