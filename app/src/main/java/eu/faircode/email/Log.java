@@ -1773,7 +1773,8 @@ public class Log {
 
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
-            sb.append(context.getString(R.string.title_advanced_aes_key_size, maxKeySize)).append("\r\n");
+            sb.append(context.getString(R.string.title_advanced_aes_key_size,
+                    Helper.humanReadableByteCount(maxKeySize))).append("\r\n");
         } catch (Throwable ex) {
             sb.append(ex.toString()).append("\r\n");
         }

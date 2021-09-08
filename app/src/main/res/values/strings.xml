@@ -600,7 +600,7 @@
         This will open to the Android security settings.
         Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
-    <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>
+    <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$s</string>
 
     <string name="title_advanced_power_menu">Add actions to the Android power menu</string>
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>

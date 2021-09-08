@@ -386,23 +386,23 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
-            tvKeySize.setText(getString(R.string.title_advanced_aes_key_size, maxKeySize));
+            tvKeySize.setText(getString(R.string.title_advanced_aes_key_size,
+                    Helper.humanReadableByteCount(maxKeySize)));
         } catch (NoSuchAlgorithmException ex) {
             tvKeySize.setText(Log.formatThrowable(ex));
         }
 
         try {
-            int dp24 = Helper.dp2pixels(getContext(), 24);
-
             SpannableStringBuilder ssb = new SpannableStringBuilder();
-            for (Provider p : Security.getProviders()) {
-                ssb.append(p.toString()).append('\n');
-                //for (Enumeration e = p.keys(); e.hasMoreElements(); ) {
-                //    int start = ssb.length();
-                //    ssb.append(e.nextElement().toString()).append('\n');
-                //    ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
-                //    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
-                //}
+            Provider[] providers = Security.getProviders();
+            for (int p = 0; p < providers.length; p++) {
+                Provider provider = providers[p];
+                ssb.append(Integer.toString(p + 1)).append(' ')
+                        .append(provider.toString()).append('\n');
+                //int start = ssb.length();
+                //for (Enumeration e = provider.keys(); e.hasMoreElements(); )
+                //    ssb.append('-').append(e.nextElement().toString()).append('\n');
+                //ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
             }
             tvProviders.setText(ssb);
         } catch (Throwable ex) {
