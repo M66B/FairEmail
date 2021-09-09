@@ -523,6 +523,11 @@
     <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
     <string name="title_advanced_encrypt_subject">Zaszyfruj temat</string>
+    <string name="title_advanced_sign_algo">Algorytm podpisu</string>
+    <string name="title_advanced_encrypt_algo">Algorytm szyfrowania</string>
+    <string name="title_advanced_remark_algo">        Należy pamiętać, że nie wszyscy klienci poczty e-mail obsługują wszystkie algorytmy.
+        Powszechnie obsługiwane są domyślne algorytmy SHA256 i AES128.
+    </string>
     <string name="title_advanced_check_certificate">Sprawdź klucz publiczny podczas wysyłania</string>
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
@@ -1124,6 +1129,7 @@
     <string name="title_signature_sender">Adres nadawcy</string>
     <string name="title_signature_email">Adres podpisu</string>
     <string name="title_signature_mismatch">Adres e-mail nadawcy i podpis nie są zgodne</string>
+    <string name="title_signature_algorithm">Algorytm</string>
     <string name="title_signature_subject">Temat</string>
     <string name="title_signature_validity">Ważność</string>
     <string name="title_signature_outdated">Ten klucz publiczny jest obecnie nieprawidłowy</string>

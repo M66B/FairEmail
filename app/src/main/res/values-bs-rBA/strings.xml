@@ -865,6 +865,25 @@
     <string name="title_enable">Uključi</string>
     <string name="title_disable">Isključi</string>
     <string name="title_snooze_now">Odgodi</string>
+    <string name="title_pro_feature">Ovo je pro funkcionalnost</string>
+    <string name="title_pro_list">Spisak pro funkcionalnosti</string>
+    <string name="title_pro_purchase">Kupi</string>
+    <string name="title_pro_one_time">%1$s (jednokratna kupovina)</string>
+    <string name="title_pro_no_play">Play Store aplikacija nije pronađena</string>
+    <string name="title_pro_info">        Razvoj FairEmail-a trajao je doslovno na hiljade sati i, uprkos tome, većina funkcionalnosti je besplatna za korištenje.
+        FairEmail ozbiljno shvata vašu privatnosti i ne prikazuje reklame niti koristi alate za praćenje i analitiku kako bi zarađivao novac.
+        Za održavanje i dugoročnu podršku FairEmail-a, neke pogodnosti i napredne funkcionalnosti nisu besplatne.
+        FairEmail prikazuje kratku poruku kako bi Vas podsjetio na ovo, a ista se može ukloniti kupovinom pro verzije.
+    </string>
+    <string name="title_pro_hide">Sakrij kratku poruku %1$d sedmice/a</string>
+    <string name="title_pro_hint">Kupovinom pro funkcionalnosti omogućava Vam korištenje svih trenutnih ali i budućih pro funkcionalnosti, te omogućava dalje održavanje i podršku ove aplikacije.</string>
+    <string name="title_pro_price">Zašto su pro funkcionalnosti tako skupe?</string>
+    <string name="title_pro_family">Mogu li koristiti Google Play porodičnu zbirku?</string>
+    <string name="title_pro_restore">Kako da vratim kupovinu (na drugom uređaju) ?</string>
+    <string name="title_pro_pending">Kupovina na čekanju</string>
+    <string name="title_pro_activated">Sve pro funkcionalnosti su aktivirane</string>
+    <string name="title_pro_valid">Aktivirane sve pro funkcionalnosti</string>
+    <string name="title_pro_support">FairEmail treba vašu pomoć. Dodirnite za kupovinu pro funkcionalnosti kako bi pomogli održavanje projekta ili isključili ovu poruku.</string>
     <string name="title_power_menu_off">Isključeno</string>
     <string name="title_widget_semi_transparent">Poluprovidna pozadina</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
