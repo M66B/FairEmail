@@ -53,9 +53,9 @@ public class TupleFolderNav extends EntityFolder implements Serializable {
                 if (f1.accountName == null && f2.accountName == null)
                     return 0;
                 else if (f1.accountName == null)
-                    return 1;
-                else if (f2.accountName == null)
                     return -1;
+                else if (f2.accountName == null)
+                    return 1;
 
                 int fo = Integer.compare(
                         f1.order == null ? -1 : f1.order,
