@@ -508,7 +508,9 @@
     <string name="title_advanced_encrypt_subject">Betreff verschlüsseln</string>
     <string name="title_advanced_sign_algo">Signaturalgorithmus</string>
     <string name="title_advanced_encrypt_algo">Verschlüsselungsalgorithmus</string>
-    <string name="title_advanced_remark_algo">Bitte beachten Sie, dass nicht alle E-Mail-Clients alle Algorithmen unterstützen. Die Standardalgorithmen SHA256 und AES128 werden üblicherweise unterstützt.    </string>
+    <string name="title_advanced_remark_algo">        Bitte beachten Sie, dass nicht alle E-Mail-Programme alle Algorithmen unterstützen.
+        Die Standardalgorithmen SHA256 und AES128 werden üblicherweise unterstützt.
+    </string>
     <string name="title_advanced_check_certificate">Öffentlichen Schlüssel beim Senden überprüfen</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>

@@ -494,6 +494,11 @@
     <string name="title_advanced_autocrypt">使用 Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt 相互模式</string>
     <string name="title_advanced_encrypt_subject">加密主旨</string>
+    <string name="title_advanced_sign_algo">簽名算法</string>
+    <string name="title_advanced_encrypt_algo">加密算法</string>
+    <string name="title_advanced_remark_algo">        請知悉，並非所有的電子郵件用戶端都支援全部演算法。
+        預設演算法 SHA256 和 AES128 一般皆受支援。
+    </string>
     <string name="title_advanced_check_certificate">傳送時檢查公鑰</string>
     <string name="title_advanced_manage_certificates">管理公鑰</string>
     <string name="title_advanced_import_key">匯入私鑰</string>
@@ -1094,6 +1099,7 @@
     <string name="title_signature_sender">寄件者地址</string>
     <string name="title_signature_email">簽名地址</string>
     <string name="title_signature_mismatch">寄件者的電郵地址不匹配簽名的電郵地址</string>
+    <string name="title_signature_algorithm">演算法</string>
     <string name="title_signature_subject">主旨</string>
     <string name="title_signature_validity">有效</string>
     <string name="title_signature_outdated">該公鑰當前無效</string>

@@ -342,7 +342,7 @@ FairEmail manterrà un elenco di indirizzi da cui ricevi e invii i messaggi e us
 
 Una notifica sulla barra di stato permanente a bassa priorità con il numero di profili monitorati e di operazioni in sospeso (vedi la prossima domanda) è mostrata per prevenire che Android termini il servizio che si occupa della continua ricezione di email. Questo era [già necessario](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), ma con l'introduzione della [modalità standby](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow ciò è diventato più necessario che mai. La modalità standby interromperà tutte le app quando lo schermo è spento per un po', a meno che l'app non avvii un servizio in primo piano, che richiede la visualizzazione di una notifica sulla barra di stato.
 
-Gran parte, se non tutte, le altre app email non mostrano una notifica, con lo 'effetto laterale' che i nuovi messaggi spesso non sono o sono segnalati e inviati in ritardo.
+Gran parte delle altre app email, se non tutte, non mostrano una notifica, con l'"effetto collaterale" che i nuovi messaggi spesso non sono segnalati o sono segnalati in ritardo e che i messaggi non sono inviati o sono inviati in ritardo.
 
 Android mostra per prime le icone delle notifiche ad alta priorità nella barra di stato e nasconde le icone delle notifiche di FairEmail se non c'è più spazio per mostrarne altre. In pratica ciò significa che la notifica della barra di stato non richiede spazio nella barra di stato, a meno che non ci sia spazio disponibile.
 

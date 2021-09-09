@@ -431,6 +431,11 @@
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
     <string name="title_advanced_autocrypt">Usar Autocript</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt modo mútuo</string>
+    <string name="title_advanced_sign_algo">Algoritmo de assinatura</string>
+    <string name="title_advanced_encrypt_algo">Algoritmo de encriptação</string>
+    <string name="title_advanced_remark_algo">        Saiba que nem todos os clientes de e-mail suportam todos os algoritmos.
+        Os algoritmos padrão SHA256 e AES128 são comummente suportados.
+    </string>
     <string name="title_advanced_check_certificate">Verificar a chave pública ao enviar</string>
     <string name="title_advanced_manage_certificates">Gerir chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
@@ -500,6 +505,7 @@
     <string name="title_style_list">Lista</string>
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
+    <string name="title_signature_algorithm">Algoritmo</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
     <string name="title_search_more">Mais opções</string>

@@ -504,6 +504,11 @@
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modalità reciproca di Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Crittografa l\'oggetto</string>
+    <string name="title_advanced_sign_algo">Algoritmo della firma</string>
+    <string name="title_advanced_encrypt_algo">Algoritmo della crittografia</string>
+    <string name="title_advanced_remark_algo">        Sei pregato di tenere presente che non tutti i client email supportano tutti gli algoritmi.
+        Gli algoritmi predefiniti SHA256 e AES128 sono comunemente supportati.
+    </string>
     <string name="title_advanced_check_certificate">Controlla la chiave pubblica all\'invio</string>
     <string name="title_advanced_manage_certificates">Gestisci chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importa la chiave privata</string>
@@ -869,6 +874,7 @@
     <string name="title_download_all">Scarica tutti</string>
     <string name="title_save_all">Salva tutto</string>
     <string name="title_save_eml">Salva il file del messaggio non elaborato</string>
+    <string name="title_eml_remark">Per inoltrare i messaggi, quelli non elaborati (originali) devono esser scaricati dal server email. Questo richiede una connessione a Internet e i messaggi devono ancora esser memorizzati sul server email.</string>
     <string name="title_eml_option">Questo può esser impedito abilitando sempre il download dei file dei messaggi non elaborati nelle impostazioni di connessione</string>
     <string name="title_eml_downloaded">Messaggi non elaborati scaricati: %1$s</string>
     <string name="title_buttons">Seleziona i pulsanti</string>
@@ -1104,6 +1110,7 @@
     <string name="title_signature_sender">Indirizzo del mittente</string>
     <string name="title_signature_email">Indirizzo della firma</string>
     <string name="title_signature_mismatch">L\'indirizzo email del mittente e la firma non corrispondono</string>
+    <string name="title_signature_algorithm">Algoritmo</string>
     <string name="title_signature_subject">Oggetto</string>
     <string name="title_signature_validity">Validità</string>
     <string name="title_signature_outdated">Questa chiave pubblica non è correntemente valida</string>
