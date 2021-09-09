@@ -159,7 +159,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         List<CharSequence> fn = new ArrayList<>();
         for (int i = 0; i < fontNameNames.length; i++) {
-            SpannableStringBuilder ssb = new SpannableStringBuilder(fontNameNames[i]);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(fontNameNames[i]);
             ssb.setSpan(new TypefaceSpan(fontNameValues[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             fn.add(ssb);
         }

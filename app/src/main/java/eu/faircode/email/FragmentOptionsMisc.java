@@ -1189,7 +1189,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         try {
             int start = 0;
             int dp24 = Helper.dp2pixels(getContext(), 24);
-            SpannableStringBuilder ssb = new SpannableStringBuilder();
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
             PackageManager pm = getContext().getPackageManager();
             PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
             for (int i = 0; i < pi.requestedPermissions.length; i++) {

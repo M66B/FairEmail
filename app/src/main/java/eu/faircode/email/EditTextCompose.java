@@ -161,7 +161,7 @@ public class EditTextCompose extends FixedEditText {
                         try {
                             SpannableStringBuilder ssb;
                             if (raw)
-                                ssb = new SpannableStringBuilder(html);
+                                ssb = new SpannableStringBuilderEx(html);
                             else {
                                 Document document = HtmlHelper.sanitizeCompose(context, html, false);
                                 Spanned paste = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
@@ -172,7 +172,7 @@ public class EditTextCompose extends FixedEditText {
                                     }
                                 }, null);
 
-                                ssb = new SpannableStringBuilder(paste);
+                                ssb = new SpannableStringBuilderEx(paste);
                                 QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
                                 for (QuoteSpan span : spans) {
                                     QuoteSpan q;

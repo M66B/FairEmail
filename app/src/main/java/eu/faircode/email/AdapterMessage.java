@@ -1996,7 +1996,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private Spanned formatAddresses(Address[] addresses, boolean full, int max) {
-            SpannableStringBuilder ssb = new SpannableStringBuilder();
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
             if (addresses == null || addresses.length == 0)
                 return ssb;
@@ -4771,7 +4771,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean confirm_links = prefs.getBoolean("confirm_links", true);
                 Uri guri = UriHelper.guessScheme(uri);
                 String scheme = guri.getScheme();
-                String host = guri.getHost();;
+                String host = guri.getHost();
+                ;
                 boolean confirm_link =
                         !"https".equals(scheme) || TextUtils.isEmpty(host) ||
                                 prefs.getBoolean(host + ".confirm_link", true);
@@ -5451,7 +5452,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private SpannableStringBuilder getKeywords(TupleMessageEx message) {
-            SpannableStringBuilder ssb = new SpannableStringBuilder();
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
             if (message.keyword_titles == null || message.keyword_colors == null) {
                 ssb.append("Keywords missing!");
@@ -6833,7 +6834,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         icon.setBounds(0, 0, iconSize, iconSize);
                         ImageSpan imageSpan = new CenteredImageSpan(icon);
 
-                        SpannableStringBuilder ssb = new SpannableStringBuilder(language.name);
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx(language.name);
                         ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
                         ssb.setSpan(imageSpan, 0, 1, 0);
 
@@ -6957,7 +6958,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onExecuted(Bundle args, DeepL.Translation translation) {
-                                    SpannableStringBuilder ssb = new SpannableStringBuilder(tvText.getText());
+                                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(tvText.getText());
                                     int start = ssb.getSpanStart(mark);
                                     int end = ssb.getSpanEnd(mark);
                                     int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);

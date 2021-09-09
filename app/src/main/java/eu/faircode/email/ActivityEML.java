@@ -275,7 +275,7 @@ public class ActivityEML extends ActivityBase {
                     }
 
                     int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
-                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                     getStructure(imessage, ssb, 0, textColorLink);
                     result.structure = ssb;
 

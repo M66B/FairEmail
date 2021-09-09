@@ -80,7 +80,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
         private void bindTo(EntityLog log) {
             tvTime.setText(TF.format(log.time));
-            SpannableStringBuilder ssb = new SpannableStringBuilder(log.data);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(log.data);
             switch (log.type) {
                 case General:
                     break;

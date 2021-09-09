@@ -416,7 +416,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             protected Spanned onExecute(Context context, Bundle args) {
                 boolean debug = args.getBoolean("debug");
-                SpannableStringBuilder ssb = new SpannableStringBuilder();
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
                 int dp24 = Helper.dp2pixels(context, 24);
 

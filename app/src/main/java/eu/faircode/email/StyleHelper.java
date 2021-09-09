@@ -146,7 +146,7 @@ public class StyleHelper {
                     int[] titles = new int[]{R.string.title_style_size_small, R.string.title_style_size_medium, R.string.title_style_size_large};
                     float[] sizes = new float[]{HtmlHelper.FONT_SMALL, 1.0f, HtmlHelper.FONT_LARGE};
                     for (int i = 0; i < ids.length; i++) {
-                        SpannableStringBuilder ssb = new SpannableStringBuilder(context.getString(titles[i]));
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx(context.getString(titles[i]));
                         ssb.setSpan(new RelativeSizeSpan(sizes[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         smenu.add(R.id.group_style_size, ids[i], i, ssb);
                     }
@@ -156,7 +156,7 @@ public class StyleHelper {
                 String[] fontNameValues = anchor.getResources().getStringArray(R.array.fontNameValues);
                 SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
                 for (int i = 0; i < fontNameNames.length; i++) {
-                    SpannableStringBuilder ssb = new SpannableStringBuilder(fontNameNames[i]);
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(fontNameNames[i]);
                     ssb.setSpan(getTypefaceSpan(fontNameValues[i], context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     smenu.add(R.id.group_style_font, i, 0, ssb);
                 }

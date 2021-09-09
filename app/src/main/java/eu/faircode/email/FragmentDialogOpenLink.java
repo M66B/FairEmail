@@ -641,7 +641,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         String scheme = uri.getScheme();
         String host = uri.getHost();
         String text = uri.toString();
-        SpannableStringBuilder ssb = new SpannableStringBuilder(text);
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx(text);
 
         try {
             int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);

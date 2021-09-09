@@ -2260,7 +2260,7 @@ public class HtmlHelper {
     }
 
     static Spanned highlightHeaders(Context context, String headers, boolean blocklist) {
-        SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers);
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         int index = 0;
@@ -2584,7 +2584,7 @@ public class HtmlHelper {
         }, document.body());
 
         // https://developer.android.com/guide/topics/text/spans
-        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
         NodeTraversor.traverse(new NodeVisitor() {
             private Element element;

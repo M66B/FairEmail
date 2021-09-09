@@ -356,7 +356,7 @@ public class ActivitySignature extends ActivityBase {
             if (etText.isRaw())
                 etText.getText().insert(start, "<img src=\"" + Html.escapeHtml(uri.toString()) + "\" />");
             else {
-                SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx(etText.getText());
                 ssb.insert(start, " \uFFFC"); // Object replacement character
                 String source = uri.toString();
                 Drawable d = ImageHelper.decodeImage(this, -1, source, true, 0, 1.0f, etText);

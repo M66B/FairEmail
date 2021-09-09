@@ -220,7 +220,7 @@ public class FragmentOptions extends FragmentBase {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             Drawable d = context.getDrawable(PAGE_ICONS[i]);
             d.setColorFilter(colorAccent, PorterDuff.Mode.SRC_ATOP);
-            SpannableStringBuilder title = new SpannableStringBuilder(getString(PAGE_TITLES[i]));
+            SpannableStringBuilder title = new SpannableStringBuilderEx(getString(PAGE_TITLES[i]));
             if (i > 0)
                 title.setSpan(new RelativeSizeSpan(0.85f), 0, title.length(), 0);
             tabLayout.getTabAt(i)

@@ -532,7 +532,7 @@ public class FragmentCompose extends FragmentBase {
 
         setZoom();
 
-        SpannableStringBuilder hint = new SpannableStringBuilder();
+        SpannableStringBuilder hint = new SpannableStringBuilderEx();
         hint.append(getString(R.string.title_body_hint));
         hint.append("\n");
         int pos = hint.length();
@@ -1910,7 +1910,7 @@ public class FragmentCompose extends FragmentBase {
                 if (BuildConfig.DEBUG) {
                     SubMenu profiles = main.addSubMenu(Menu.NONE, order, order++, "Profiles");
                     for (EmailProvider p : EmailProvider.loadProfiles(getContext())) {
-                        SpannableStringBuilder ssb = new SpannableStringBuilder();
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                         int start;
                         ssb.append("IMAP (account, receive)");
 
@@ -2755,7 +2755,7 @@ public class FragmentCompose extends FragmentBase {
                 CharSequence body = args.getCharSequence("body");
                 int start = args.getInt("start");
 
-                SpannableStringBuilder s = new SpannableStringBuilder(body);
+                SpannableStringBuilder s = new SpannableStringBuilderEx(body);
                 if (start < 0)
                     start = 0;
                 if (start > s.length())
@@ -6118,7 +6118,7 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }, null);
 
-                SpannableStringBuilder bodyBuilder = new SpannableStringBuilder(spannedBody);
+                SpannableStringBuilder bodyBuilder = new SpannableStringBuilderEx(spannedBody);
                 QuoteSpan[] bodySpans = bodyBuilder.getSpans(0, bodyBuilder.length(), QuoteSpan.class);
                 for (QuoteSpan quoteSpan : bodySpans) {
                     QuoteSpan q;

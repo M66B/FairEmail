@@ -444,7 +444,7 @@ public class FragmentAnswer extends FragmentBase {
             getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
             int start = etText.getSelectionStart();
-            SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(etText.getText());
             ssb.insert(start, " \uFFFC"); // Object replacement character
             String source = uri.toString();
             Drawable d = ImageHelper.decodeImage(getContext(), -1, source, true, 0, 1.0f, etText);
