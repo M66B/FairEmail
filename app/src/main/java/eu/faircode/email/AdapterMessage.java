@@ -4769,9 +4769,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return false;
 
                 boolean confirm_links = prefs.getBoolean("confirm_links", true);
+                Uri guri = UriHelper.guessScheme(uri);
+                String scheme = guri.getScheme();
+                String host = guri.getHost();;
                 boolean confirm_link =
-                        !"https".equals(uri.getScheme()) || TextUtils.isEmpty(uri.getHost()) ||
-                                prefs.getBoolean(uri.getHost() + ".confirm_link", true);
+                        !"https".equals(scheme) || TextUtils.isEmpty(host) ||
+                                prefs.getBoolean(host + ".confirm_link", true);
                 if (always_confirm || (confirm_links && confirm_link)) {
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
