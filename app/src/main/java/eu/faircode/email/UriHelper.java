@@ -25,6 +25,7 @@ import android.text.TextUtils;
 import android.webkit.URLUtil;
 
 import androidx.annotation.NonNull;
+import androidx.core.util.PatternsCompat;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -106,8 +107,11 @@ public class UriHelper {
         String url = uri.toString();
         if (Helper.EMAIL_ADDRESS.matcher(url).matches())
             return Uri.parse("mailto:" + url);
+        else if (PatternsCompat.IP_ADDRESS.matcher(url).matches())
+            return Uri.parse("https://" + url);
         else if (android.util.Patterns.PHONE.matcher(url).matches())
-            // Alternative: PhoneNumberUtils.isGlobalPhoneNumber()
+            // Patterns.PHONE (\+[0-9]+[\- \.]*)?(\([0-9]+\)[\- \.]*)?([0-9][0-9\- \.]+[0-9])
+            // PhoneNumberUtils.isGlobalPhoneNumber() [\+]?[0-9.-]+
             return Uri.parse("tel:" + url);
         else {
             Uri g = Uri.parse(URLUtil.guessUrl(url));
