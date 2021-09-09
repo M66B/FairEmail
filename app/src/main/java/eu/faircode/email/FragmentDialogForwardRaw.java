@@ -23,6 +23,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,6 +37,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
@@ -53,6 +58,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_forward_raw, null);
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
         TextView tvOption = dview.findViewById(R.id.tvOption);
+        TextView tvNoInternet = dview.findViewById(R.id.tvNoInternet);
 
         tvRemaining.setText(getString(R.string.title_eml_downloaded, "-"));
 
@@ -173,6 +179,12 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        checkInternet.run();
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         setButtonEnabled(enabled);
@@ -182,6 +194,24 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
         ((AlertDialog) getDialog())
                 .getButton(AlertDialog.BUTTON_POSITIVE)
                 .setEnabled(enabled);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkRequest.Builder builder = new NetworkRequest.Builder();
+        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+        cm.registerNetworkCallback(builder.build(), networkCallback);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        cm.unregisterNetworkCallback(networkCallback);
     }
 
     @Override
@@ -211,4 +241,45 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }
+
+    private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(Network network) {
+            check();
+        }
+
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+            check();
+        }
+
+        @Override
+        public void onLost(Network network) {
+            check();
+        }
+
+        private void check() {
+            ApplicationEx.getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        checkInternet.run();
+                }
+            });
+        }
+    };
+
+    private Runnable checkInternet = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                ConnectionHelper.NetworkState state =
+                        ConnectionHelper.getNetworkState(getContext());
+                getDialog().findViewById(R.id.tvNoInternet).setVisibility(
+                        state.isSuitable() ? View.GONE : View.VISIBLE);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+    };
 }
