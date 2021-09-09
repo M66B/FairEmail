@@ -4772,7 +4772,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Uri guri = UriHelper.guessScheme(uri);
                 String scheme = guri.getScheme();
                 String host = guri.getHost();
-                ;
+
                 boolean confirm_link =
                         !"https".equals(scheme) || TextUtils.isEmpty(host) ||
                                 prefs.getBoolean(host + ".confirm_link", true);
