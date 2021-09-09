@@ -25,13 +25,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.security.KeyChain;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -392,26 +395,67 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             tvKeySize.setText(Log.formatThrowable(ex));
         }
 
-        try {
-            SpannableStringBuilder ssb = new SpannableStringBuilder();
-            Provider[] providers = Security.getProviders();
-            for (int p = 0; p < providers.length; p++) {
-                Provider provider = providers[p];
-                ssb.append(Integer.toString(p + 1)).append(' ')
-                        .append(provider.toString()).append('\n');
-                //int start = ssb.length();
-                //for (Enumeration e = provider.keys(); e.hasMoreElements(); )
-                //    ssb.append('-').append(e.nextElement().toString()).append('\n');
-                //ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
-            }
-            tvProviders.setText(ssb);
-        } catch (Throwable ex) {
-            tvProviders.setText(Log.formatThrowable(ex));
-        }
+        tvProviders.setText(null);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean debug = prefs.getBoolean("debug", false);
+
+        Bundle args = new Bundle();
+        args.putBoolean("debug", debug);
+
+        new SimpleTask<Spanned>() {
+            @Override
+            protected Spanned onExecute(Context context, Bundle args) {
+                boolean debug = args.getBoolean("debug");
+                SpannableStringBuilder ssb = new SpannableStringBuilder();
+
+                int dp24 = Helper.dp2pixels(context, 24);
+
+                Provider[] providers = Security.getProviders();
+                for (int p = 0; p < providers.length; p++) {
+                    Provider provider = providers[p];
+                    ssb.append(Integer.toString(p + 1)).append(' ')
+                            .append(provider.toString()).append('\n');
+                    String info = provider.getInfo();
+                    if (info != null) {
+                        int line = ssb.length();
+                        ssb.append(info).append('\n');
+                        ssb.setSpan(new IndentSpan(dp24), line, ssb.length(), 0);
+                        ssb.setSpan(new StyleSpan(Typeface.ITALIC), line, ssb.length(), 0);
+                    }
+                    if (debug) {
+                        int start = ssb.length();
+                        for (Enumeration<Object> e = provider.keys(); e.hasMoreElements(); ) {
+                            int line = ssb.length();
+                            ssb.append(e.nextElement().toString()).append('\n');
+                            ssb.setSpan(new IndentSpan(dp24), line, ssb.length(), 0);
+                        }
+                        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+                    }
+                }
+
+                return ssb;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Spanned providers) {
+                tvProviders.setText(providers);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                tvProviders.setText(Log.formatThrowable(ex));
+            }
+        }.execute(this, args, "encryption:providers");
     }
 
     @Override
