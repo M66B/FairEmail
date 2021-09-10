@@ -875,7 +875,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(this);
-                if (!BuildConfig.PLAY_STORE) {
+                if (!BuildConfig.PLAY_STORE_RELEASE) {
                     tvFolder.setOnClickListener(this);
                     if (selectableItemBackground != 0)
                         tvFolder.setBackgroundResource(selectableItemBackground);
@@ -974,7 +974,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(null);
-                if (!BuildConfig.PLAY_STORE)
+                if (!BuildConfig.PLAY_STORE_RELEASE)
                     tvFolder.setOnClickListener(null);
             }
             ibHelp.setOnClickListener(null);
