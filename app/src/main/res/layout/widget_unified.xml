@@ -1,65 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/widget"
+    android:id="@android:id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/widget_background"
-    android:orientation="vertical"
-    android:paddingStart="6dp"
-    android:paddingEnd="6dp">
+    android:background="@drawable/widget_background">
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="@string/title_widget_title_list"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorWidgetForeground"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:contentDescription="@string/tile_synchronize"
-            android:padding="6dp"
-            android:src="@drawable/twotone_sync_24"
-            android:visibility="gone"
-            app:tint="@color/colorWidgetForeground" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/title_widget_title_list"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWidgetForeground"
+                android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/compose"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="@string/tile_synchronize"
+                android:padding="6dp"
+                android:src="@drawable/twotone_sync_24"
+                android:visibility="gone"
+                app:tint="@color/colorWidgetForeground" />
+
+            <ImageView
+                android:id="@+id/compose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="@string/title_compose"
+                android:padding="6dp"
+                android:src="@drawable/twotone_edit_24"
+                android:visibility="gone"
+                app:tint="@color/colorWidgetForeground" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorWidgetRead" />
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:contentDescription="@string/title_compose"
-            android:padding="6dp"
-            android:src="@drawable/twotone_edit_24"
-            android:visibility="gone"
-            app:tint="@color/colorWidgetForeground" />
+            android:layout_marginBottom="6dp"
+            android:divider="@color/colorWidgetRead"
+            android:dividerHeight="1dp" />
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorWidgetRead" />
-
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:divider="@color/colorWidgetRead"
-        android:dividerHeight="1dp" />
-</LinearLayout>
+</FrameLayout>

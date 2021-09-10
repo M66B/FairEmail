@@ -1,52 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/widget"
+    android:id="@android:id/background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/widget_background"
-    android:padding="6dp">
+    android:background="@drawable/widget_background">
 
-    <ImageView
-        android:id="@+id/ivMessage"
+    <RelativeLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/title_legend_count"
-        android:padding="3dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/baseline_mail_widget_24"
-        app:tint="@color/colorWidgetForeground" />
+        android:padding="6dp">
 
-    <TextView
-        android:id="@+id/tvCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/ivMessage"
-        android:layout_alignBottom="@id/ivMessage"
-        android:background="@drawable/widget_background_unread"
-        android:includeFontPadding="false"
-        android:lines="1"
-        android:paddingStart="3dp"
-        android:paddingEnd="3dp"
-        android:text="\?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/colorWidgetForeground"
-        android:textSize="12dp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/ivMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/title_legend_count"
+            android:padding="3dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/baseline_mail_widget_24"
+            app:tint="@color/colorWidgetForeground" />
 
-    <TextView
-        android:id="@+id/tvAccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ivMessage"
-        android:ellipsize="end"
-        android:gravity="center_horizontal"
-        android:includeFontPadding="false"
-        android:lines="1"
-        android:text="account"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/colorWidgetForeground"
-        android:textSize="12dp"
-        android:visibility="gone" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/ivMessage"
+            android:layout_alignBottom="@id/ivMessage"
+            android:background="@drawable/widget_background_unread"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:text="\?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorWidgetForeground"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivMessage"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="account"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorWidgetForeground"
+            android:textSize="12dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</FrameLayout>

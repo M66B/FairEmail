@@ -111,7 +111,7 @@ public class Widget extends AppWidgetProvider {
                     RemoteViews views = new RemoteViews(context.getPackageName(),
                             layout == 0 ? R.layout.widget : R.layout.widget_new);
 
-                    views.setOnClickPendingIntent(R.id.widget, pi);
+                    views.setOnClickPendingIntent(android.R.id.background, pi);
 
                     if (layout == 1)
                         views.setImageViewResource(R.id.ivMessage, unseen == 0
@@ -131,9 +131,9 @@ public class Widget extends AppWidgetProvider {
 
                     if (background == Color.TRANSPARENT) {
                         if (semi)
-                            views.setInt(R.id.widget, "setBackgroundResource", R.drawable.widget_background);
+                            views.setInt(android.R.id.background, "setBackgroundResource", R.drawable.widget_background);
                         else
-                            views.setInt(R.id.widget, "setBackgroundColor", background);
+                            views.setInt(android.R.id.background, "setBackgroundColor", background);
 
                         int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
                         views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
@@ -145,7 +145,7 @@ public class Widget extends AppWidgetProvider {
                         if (semi)
                             background = ColorUtils.setAlphaComponent(background, 127);
 
-                        views.setInt(R.id.widget, "setBackgroundColor", background);
+                        views.setInt(android.R.id.background, "setBackgroundColor", background);
 
                         if (lum > 0.7f) {
                             views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
@@ -155,7 +155,7 @@ public class Widget extends AppWidgetProvider {
                     }
 
                     int pad = Helper.dp2pixels(context, layout == 0 ? 3 : 6);
-                    views.setViewPadding(R.id.widget, pad, pad, pad, pad);
+                    views.setViewPadding(R.id.content, pad, pad, pad, pad);
 
                     appWidgetManager.updateAppWidget(appWidgetId, views);
                 }

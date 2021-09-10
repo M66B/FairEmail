@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/widget"
+    android:id="@android:id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/widget_background"
-    android:orientation="vertical"
-    android:padding="3dp">
+    android:background="@drawable/widget_background">
 
-    <ImageView
-        android:id="@+id/ivMessage"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="2"
-        android:contentDescription="@string/title_legend_count"
-        android:src="@drawable/baseline_mail_24"
-        app:tint="@color/colorWidgetForeground" />
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="3dp">
 
-    <TextView
-        android:id="@+id/tvCount"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="2"
-        android:includeFontPadding="false"
-        android:lines="1"
-        android:text="\?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorWidgetForeground"
-        android:textSize="18dp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/ivMessage"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:contentDescription="@string/title_legend_count"
+            android:src="@drawable/baseline_mail_24"
+            app:tint="@color/colorWidgetForeground" />
 
-    <TextView
-        android:id="@+id/tvAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:ellipsize="end"
-        android:includeFontPadding="false"
-        android:lines="1"
-        android:text="account"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/colorWidgetForeground"
-        android:textSize="12dp"
-        android:visibility="gone" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="\?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWidgetForeground"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="account"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorWidgetForeground"
+            android:textSize="12dp"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>
