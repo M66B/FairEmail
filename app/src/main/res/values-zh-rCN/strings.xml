@@ -763,7 +763,7 @@
     <string name="title_delete_operation_deleted">%1$d 个操作已删除</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
-    <string name="title_hint_operations">删除操作可能导致丢失消息和同步问题</string>
+    <string name="title_hint_operations">删除这些操作可能弄丢相应消息和导致同步问题</string>
     <string name="title_op_title_headers">正在下载信头</string>
     <string name="title_op_title_raw">正在下载原始消息</string>
     <string name="title_folder_name">文件夹名</string>

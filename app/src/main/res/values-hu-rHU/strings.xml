@@ -119,6 +119,7 @@
     <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
     <string name="title_setup_quick_imap">Az üzenetek fogadásához használt IMAP szerver</string>
     <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
+    <string name="title_setup_quick_certificates">Szerver tanúsítványok</string>
     <string name="title_setup_wizard">Varázsló</string>
     <string name="title_setup_wizard_multiple">A varázsló többször is használható több fiók hozzáadásához</string>
     <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
@@ -173,6 +174,7 @@
     <string name="title_setup_still">Még meg kell csinálni</string>
     <string name="title_setup_error">Hiba</string>
     <string name="title_setup_configuring">Felhasználói fiók beállítása &#8230;</string>
+    <string name="title_setup_close">Beállítások bezárása</string>
     <string name="title_setup_export">Beállítások exportálása</string>
     <string name="title_setup_import">Beállítások importálása</string>
     <string name="title_setup_import_do">Az importált kapcsolatok hozzáadása során nem módosulnak a meglévőek</string>

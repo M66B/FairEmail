@@ -129,7 +129,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_quick_certificates">Certificats du serveur</string>
     <string name="title_setup_wizard">Assistant</string>
-    <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
+    <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer de multiples comptes</string>
     <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse e-mail</string>
     <string name="title_setup_manual">Configuration manuelle et options des comptes</string>
     <string name="title_setup_classic">Configuration classique</string>
@@ -196,8 +196,8 @@
     <string name="title_setup_close">Fermer les paramètres</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
-    <string name="title_setup_export_remark">        Comme le fichier de paramètres contient tous les réglages et les informations des comptes, il est chiffré avec un mot de passe.
-        Le mot de passe est requis pour importer les paramètres à nouveau donc s\'il vous plaît, ne l\'oubliez pas !
+    <string name="title_setup_export_remark">        Étant donné que le fichier de paramètres contient tous les réglages et informations des comptes, il est chiffré avec un mot de passe.
+        Le mot de passe est requis pour importer à nouveau les paramètres, donc s\'il vous plaît, ne l\'oubliez pas !
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
@@ -280,7 +280,7 @@
     <string name="title_advanced_check_reply_domain">Vérifier l\'adresse de réponse lors de la synchronisation des messages</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse e-mail de l\'expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_check_blocklist">Vérifier si le nom de domaine de l\'expéditeur est sur une liste de blocage de courrier indésirable</string>
-    <string name="title_advanced_use_blocklist">Déplacer des messages depuis des domaines d\'une liste de blocage vers le dossier des indésirables</string>
+    <string name="title_advanced_use_blocklist">Déplacer les messages dont le domaine est présent dans une liste de blocage vers le dossier des indésirables</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
@@ -435,7 +435,7 @@
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
-    <string name="title_advanced_autoclose_unread">Fermer les conversations en marquant les messages comme non lus</string>
+    <string name="title_advanced_autoclose_unread">Fermer les conversations lors du marquage des messages comme non lus</string>
     <string name="title_advanced_undo">Délai d\'expiration de l\'annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
@@ -707,7 +707,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier « Indésirables » sélectionné pour ce compte</string>
-    <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée par l\'identité principale du compte principal</string>
+    <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée à partir de l\'identité principale du compte principal</string>
     <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
