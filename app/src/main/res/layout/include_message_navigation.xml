@@ -5,395 +5,397 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/vSeparator"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/workaround"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="3dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <eu.faircode.email.ContentLoadingProgressBar
-        android:id="@+id/pbBody"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:indeterminate="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:show_delay="750" />
-
-    <ImageButton
-        android:id="@+id/ibTools"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_more"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_expander"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/expander_hor" />
-
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/ibFlow"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibAnswer,ibSeen,ibHide,ibTranslate,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibUnsubscribe,ibRule,ibUndo"
-        app:flow_horizontalBias="0"
-        app:flow_horizontalGap="3dp"
-        app:flow_horizontalStyle="packed"
-        app:flow_wrapMode="chain"
-        app:layout_constraintEnd_toStartOf="@+id/ibVerify"
-        app:layout_constraintStart_toEndOf="@id/ibTools"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
-
-    <ImageButton
-        android:id="@+id/ibMore"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_advanced_more"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_advanced_more"
-        app:srcCompat="@drawable/twotone_more_horiz_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibInbox"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_folder_inbox"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_folder_inbox"
-        app:srcCompat="@drawable/twotone_move_to_inbox_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibJunk"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_spam"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_spam"
-        app:srcCompat="@drawable/twotone_report_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibTrash"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_delete"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_delete"
-        app:srcCompat="@drawable/twotone_delete_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibArchive"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_archive"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_archive"
-        app:srcCompat="@drawable/twotone_archive_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibMove"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_move"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_move"
-        app:srcCompat="@drawable/twotone_drive_file_move_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibCopy"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_copy"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_copy"
-        app:srcCompat="@drawable/twotone_file_copy_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibKeywords"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/twotone_label_important_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibLabels"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/twotone_label_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibNotes"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/twotone_sticky_note_2_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibAnswer"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_reply"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_reply"
-        app:srcCompat="@drawable/twotone_reply_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibSeen"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_toggle_seen"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_toggle_seen"
-        app:srcCompat="@drawable/twotone_mail_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibHide"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_toggle_hide"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_toggle_hide"
-        app:srcCompat="@drawable/twotone_visibility_off_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibTranslate"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_translate"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_translate"
-        app:srcCompat="@drawable/twotone_translate_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibSearch"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_search"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_search"
-        app:srcCompat="@drawable/twotone_search_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibSearchText"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_search_in_text"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_search_in_text"
-        app:srcCompat="@drawable/twotone_manage_search_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibEvent"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_event"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_event"
-        app:srcCompat="@drawable/twotone_event_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibShare"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_share"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_share"
-        app:srcCompat="@drawable/twotone_share_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibPin"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_pin"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_pin"
-        app:srcCompat="@drawable/twotone_push_pin_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibPrint"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_print"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_print"
-        app:srcCompat="@drawable/twotone_print_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibHeaders"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_show_headers"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_show_headers"
-        app:srcCompat="@drawable/baseline_code_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibUnsubscribe"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_show_unsubscribe"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_show_unsubscribe"
-        app:srcCompat="@drawable/twotone_unsubscribe_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibRule"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_create_rule"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_create_rule"
-        app:srcCompat="@drawable/twotone_filter_alt_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibUndo"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_undo"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_undo"
-        app:srcCompat="@drawable/twotone_cancel_schedule_send_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/ibVerify"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="3dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_verify"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_verify"
-        app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/twotone_gesture_24" />
-
-    <ImageButton
-        android:id="@+id/ibDecrypt"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="3dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_decrypt"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_decrypt"
-        app:layout_constraintEnd_toStartOf="@+id/ibImages"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/twotone_lock_open_24" />
-
-    <ImageButton
-        android:id="@+id/ibImages"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="3dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_show_images"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_show_images"
-        app:layout_constraintEnd_toStartOf="@+id/ibFull"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/twotone_image_24" />
-
-    <ImageButton
-        android:id="@+id/ibFull"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_show_full"
-        android:padding="3dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_show_full"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/twotone_fullscreen_24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ibTools,ibFlow,ibVerify,ibDecrypt,ibImages,ibFull" />
+        <View
+            android:id="@+id/vSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <eu.faircode.email.ContentLoadingProgressBar
+            android:id="@+id/pbBody"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:indeterminate="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator"
+            app:show_delay="750" />
+
+        <ImageButton
+            android:id="@+id/ibTools"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_more"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_expander"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator"
+            app:srcCompat="@drawable/expander_hor" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/ibFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibAnswer,ibSeen,ibHide,ibTranslate,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibUnsubscribe,ibRule,ibUndo"
+            app:flow_horizontalBias="0"
+            app:flow_horizontalGap="3dp"
+            app:flow_horizontalStyle="packed"
+            app:flow_wrapMode="chain"
+            app:layout_constraintEnd_toStartOf="@+id/ibVerify"
+            app:layout_constraintStart_toEndOf="@id/ibTools"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+        <ImageButton
+            android:id="@+id/ibMore"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_advanced_more"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_advanced_more"
+            app:srcCompat="@drawable/twotone_more_horiz_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibInbox"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_folder_inbox"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_folder_inbox"
+            app:srcCompat="@drawable/twotone_move_to_inbox_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibJunk"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_spam"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_spam"
+            app:srcCompat="@drawable/twotone_report_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibTrash"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_delete"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_delete"
+            app:srcCompat="@drawable/twotone_delete_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibArchive"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_archive"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_archive"
+            app:srcCompat="@drawable/twotone_archive_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibMove"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_move"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_move"
+            app:srcCompat="@drawable/twotone_drive_file_move_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibCopy"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_copy"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_copy"
+            app:srcCompat="@drawable/twotone_file_copy_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibKeywords"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/twotone_label_important_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibLabels"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/twotone_label_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibNotes"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/twotone_sticky_note_2_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibAnswer"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_reply"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_reply"
+            app:srcCompat="@drawable/twotone_reply_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibSeen"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_toggle_seen"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_toggle_seen"
+            app:srcCompat="@drawable/twotone_mail_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibHide"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_toggle_hide"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_toggle_hide"
+            app:srcCompat="@drawable/twotone_visibility_off_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibTranslate"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_translate"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_translate"
+            app:srcCompat="@drawable/twotone_translate_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibSearch"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search"
+            app:srcCompat="@drawable/twotone_search_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibSearchText"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_in_text"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_in_text"
+            app:srcCompat="@drawable/twotone_manage_search_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibEvent"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_event"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_event"
+            app:srcCompat="@drawable/twotone_event_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibShare"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_share"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_share"
+            app:srcCompat="@drawable/twotone_share_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibPin"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_pin"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_pin"
+            app:srcCompat="@drawable/twotone_push_pin_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibPrint"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_print"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_print"
+            app:srcCompat="@drawable/twotone_print_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibHeaders"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_show_headers"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_show_headers"
+            app:srcCompat="@drawable/baseline_code_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibUnsubscribe"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_show_unsubscribe"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_show_unsubscribe"
+            app:srcCompat="@drawable/twotone_unsubscribe_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibRule"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_create_rule"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_create_rule"
+            app:srcCompat="@drawable/twotone_filter_alt_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibUndo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_undo"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_undo"
+            app:srcCompat="@drawable/twotone_cancel_schedule_send_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibVerify"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="3dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_verify"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_verify"
+            app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator"
+            app:srcCompat="@drawable/twotone_gesture_24" />
+
+        <ImageButton
+            android:id="@+id/ibDecrypt"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="3dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_decrypt"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_decrypt"
+            app:layout_constraintEnd_toStartOf="@+id/ibImages"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator"
+            app:srcCompat="@drawable/twotone_lock_open_24" />
+
+        <ImageButton
+            android:id="@+id/ibImages"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="3dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_show_images"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_show_images"
+            app:layout_constraintEnd_toStartOf="@+id/ibFull"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator"
+            app:srcCompat="@drawable/twotone_image_24" />
+
+        <ImageButton
+            android:id="@+id/ibFull"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_show_full"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_show_full"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator"
+            app:srcCompat="@drawable/twotone_fullscreen_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvReformatted"
@@ -405,7 +407,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_action" />
+        app:layout_constraintTop_toBottomOf="@id/workaround" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSignedData"
