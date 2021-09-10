@@ -875,9 +875,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(this);
-                tvFolder.setOnClickListener(this);
-                if (selectableItemBackground != 0)
-                    tvFolder.setBackgroundResource(selectableItemBackground);
+                if (!BuildConfig.PLAY_STORE) {
+                    tvFolder.setOnClickListener(this);
+                    if (selectableItemBackground != 0)
+                        tvFolder.setBackgroundResource(selectableItemBackground);
+                }
             }
             ibHelp.setOnClickListener(this);
 
@@ -972,7 +974,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(null);
-                tvFolder.setOnClickListener(null);
+                if (!BuildConfig.PLAY_STORE)
+                    tvFolder.setOnClickListener(null);
             }
             ibHelp.setOnClickListener(null);
 
