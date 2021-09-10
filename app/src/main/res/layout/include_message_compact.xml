@@ -314,7 +314,7 @@
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvFolder"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
@@ -323,7 +323,9 @@
         android:singleLine="true"
         android:text="Folder"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
         app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
 

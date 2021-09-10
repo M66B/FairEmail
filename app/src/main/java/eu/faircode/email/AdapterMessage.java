@@ -237,6 +237,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorWarning;
     private int colorError;
     private int colorControlNormal;
+    private int selectableItemBackground;
 
     private boolean hasWebView;
     private boolean pin;
@@ -872,8 +873,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPriority.setOnClickListener(this);
             ibSnoozed.setOnClickListener(this);
             ibFlagged.setOnClickListener(this);
-            if (viewType == ViewType.THREAD)
+            if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(this);
+                tvFolder.setOnClickListener(this);
+                if (selectableItemBackground != 0)
+                    tvFolder.setBackgroundResource(selectableItemBackground);
+            }
             ibHelp.setOnClickListener(this);
 
             if (vsBody != null) {
@@ -965,8 +970,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPriority.setOnClickListener(null);
             ibSnoozed.setOnClickListener(null);
             ibFlagged.setOnClickListener(null);
-            if (viewType == ViewType.THREAD)
+            if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(null);
+                tvFolder.setOnClickListener(null);
+            }
             ibHelp.setOnClickListener(null);
 
             if (vsBody != null) {
@@ -3293,6 +3300,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ibFlagged)
                 onToggleFlag(message);
+            else if (view.getId() == R.id.tvFolder)
+                onGotoFolder(message);
             else if (view.getId() == R.id.ibHelp)
                 onHelp(message);
             else if (view.getId() == R.id.ibReceipt)
@@ -3754,6 +3763,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:flag");
+        }
+
+        private void onGotoFolder(TupleMessageEx message) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            if (EntityFolder.OUTBOX.equals(message.folderType))
+                lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
+            else
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("account", message.account)
+                                .putExtra("folder", message.folder)
+                                .putExtra("type", message.folderType));
         }
 
         private void onHelp(TupleMessageEx message) {
@@ -5775,6 +5796,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorError = Helper.resolveColor(context, R.attr.colorError);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
+
+        TypedValue tv = new TypedValue();
+        context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, tv, true);
+        this.selectableItemBackground = tv.resourceId;
 
         this.hasWebView = Helper.hasWebView(context);
         this.pin = ShortcutManagerCompat.isRequestPinShortcutSupported(context);
