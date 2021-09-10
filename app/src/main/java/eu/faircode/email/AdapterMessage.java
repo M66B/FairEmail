@@ -237,7 +237,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorWarning;
     private int colorError;
     private int colorControlNormal;
-    private int selectableItemBackground;
 
     private boolean hasWebView;
     private boolean pin;
@@ -875,11 +874,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(this);
-                if (!BuildConfig.PLAY_STORE_RELEASE) {
-                    tvFolder.setOnClickListener(this);
-                    if (selectableItemBackground != 0)
-                        tvFolder.setBackgroundResource(selectableItemBackground);
-                }
+                tvFolder.setOnLongClickListener(this);
             }
             ibHelp.setOnClickListener(this);
 
@@ -974,8 +969,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD) {
                 ibFlagged.setOnLongClickListener(null);
-                if (!BuildConfig.PLAY_STORE_RELEASE)
-                    tvFolder.setOnClickListener(null);
+                tvFolder.setOnLongClickListener(null);
             }
             ibHelp.setOnClickListener(null);
 
@@ -3303,8 +3297,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ibFlagged)
                 onToggleFlag(message);
-            else if (view.getId() == R.id.tvFolder)
-                onGotoFolder(message);
             else if (view.getId() == R.id.ibHelp)
                 onHelp(message);
             else if (view.getId() == R.id.ibReceipt)
@@ -3531,6 +3523,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int id = view.getId();
             if (id == R.id.ibFlagged) {
                 onMenuColoredStar(message);
+                return true;
+            } else if (view.getId() == R.id.tvFolder) {
+                onGotoFolder(message);
                 return true;
             } else if (id == R.id.ibNotes) {
                 onActionCopyNote(message);
@@ -5799,10 +5794,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorError = Helper.resolveColor(context, R.attr.colorError);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
-
-        TypedValue tv = new TypedValue();
-        context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, tv, true);
-        this.selectableItemBackground = tv.resourceId;
 
         this.hasWebView = Helper.hasWebView(context);
         this.pin = ShortcutManagerCompat.isRequestPinShortcutSupported(context);
