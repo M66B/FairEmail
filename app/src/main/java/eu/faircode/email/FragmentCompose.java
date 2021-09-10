@@ -543,6 +543,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
             public void onInputContent(Uri uri) {
+                Log.i("Received input uri=" + uri);
                 onAddAttachment(Arrays.asList(uri), true, 0, false);
             }
         });
