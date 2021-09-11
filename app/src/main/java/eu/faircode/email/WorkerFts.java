@@ -57,10 +57,11 @@ public class WorkerFts extends Worker {
             Log.i("FTS index");
             Context context = getApplicationContext();
 
+            DB.checkpoint(context);
+
             int indexed = 0;
             List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);
             DB db = DB.getInstance(context);
-            db.checkpoint(context);
 
             SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

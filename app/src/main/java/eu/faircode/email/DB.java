@@ -397,8 +397,9 @@ public abstract class DB extends RoomDatabase {
                         for (String pragma : new String[]{
                                 "synchronous", "journal_mode",
                                 "wal_checkpoint", "wal_autocheckpoint",
-                                "page_count", "page_size",
-                                "cache_size", "cache_spill"})
+                                "page_count", "page_size", "max_page_count", "freelist_count",
+                                "cache_size", "cache_spill",
+                                "soft_heap_limit", "hard_heap_limit", "mmap_size"})
                             try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
@@ -2153,26 +2154,53 @@ public abstract class DB extends RoomDatabase {
                 });
     }
 
-    public void checkpoint(Context context) {
+    public static void checkpoint(Context context) {
         if (!BuildConfig.DEBUG)
             return;
 
         // https://www.sqlite.org/pragma.html#pragma_wal_checkpoint
-        long start = new Date().getTime();
-        StringBuilder sb = new StringBuilder();
-        SupportSQLiteDatabase db = getInstance(context).getOpenHelper().getWritableDatabase();
-        try (Cursor cursor = db.query("PRAGMA wal_checkpoint(PASSIVE);")) {
-            if (cursor.moveToNext()) {
-                for (int i = 0; i < cursor.getColumnCount(); i++) {
-                    if (i > 0)
-                        sb.append(",");
-                    sb.append(cursor.getInt(i));
+        DB db = getInstance(context);
+        db.getQueryExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    long start = new Date().getTime();
+                    StringBuilder sb = new StringBuilder();
+                    SupportSQLiteDatabase sdb = db.getOpenHelper().getWritableDatabase();
+                    try (Cursor cursor = sdb.query("PRAGMA wal_checkpoint(PASSIVE);")) {
+                        if (cursor.moveToNext()) {
+                            for (int i = 0; i < cursor.getColumnCount(); i++) {
+                                if (i > 0)
+                                    sb.append(",");
+                                sb.append(cursor.getInt(i));
+                            }
+                        }
+                    }
+
+                    long elapse = new Date().getTime() - start;
+                    Log.i("PRAGMA wal_checkpoint=" + sb + " elapse=" + elapse);
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
             }
-        }
+        });
+    }
 
-        long elapse = new Date().getTime() - start;
-        Log.i("PRAGMA wal_checkpoint=" + sb + " elapse=" + elapse);
+    public static void shrinkMemory(Context context) {
+        DB db = getInstance(context);
+        db.getQueryExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    SupportSQLiteDatabase sdb = db.getOpenHelper().getWritableDatabase();
+                    try (Cursor cursor = sdb.query("PRAGMA shrink_memory;")) {
+                        cursor.moveToNext();
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     @Override
