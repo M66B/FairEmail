@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
 def getVersionCode = { -> return 1719 }
-def getReleaseName = { -> return "\"Xiyunykus\"" }
+def getReleaseName = { -> return "\"Yaverlandia\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
