@@ -8778,6 +8778,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             TextView tvSourceFolders = dview.findViewById(R.id.tvSourceFolders);
             TextView tvTargetFolders = dview.findViewById(R.id.tvTargetFolders);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            TextView tvJunkLearn = dview.findViewById(R.id.tvJunkLearn);
 
             String question = context.getResources()
                     .getQuantityString(R.plurals.title_moving_messages,
@@ -8791,6 +8792,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             List<String> targets = new ArrayList<>();
             Integer sourceColor = null;
             Integer targetColor = null;
+            boolean junk = false;
             for (MessageTarget t : result) {
                 if (!sources.contains(t.sourceFolder.type))
                     sources.add(t.sourceFolder.type);
@@ -8800,6 +8802,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     sourceColor = t.sourceFolder.color;
                 if (targetColor == null)
                     targetColor = t.targetFolder.color;
+                if (!junk &&
+                        (EntityFolder.JUNK.equals(t.sourceFolder.type) ||
+                                EntityFolder.JUNK.equals(t.targetFolder.type)))
+                    junk = true;
             }
 
             Drawable source = null;
@@ -8843,6 +8849,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         prefs.edit().putBoolean(notagain, isChecked).apply();
                     }
                 });
+
+            tvJunkLearn.setVisibility(junk ? View.VISIBLE : View.GONE);
 
             return new AlertDialog.Builder(context)
                     .setView(dview)
