@@ -112,6 +112,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDozeDevice" />
 
+        <ImageButton
+            android:id="@+id/ibInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDozeAndroid"
+            app:srcCompat="@drawable/twotone_info_24" />
+
         <CheckBox
             android:id="@+id/cbNotAgain"
             android:layout_width="wrap_content"
@@ -120,7 +131,7 @@
             android:text="@string/title_no_ask_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDozeAndroid" />
+            app:layout_constraintTop_toBottomOf="@id/ibInfo" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grp2"
@@ -132,6 +143,6 @@
             android:id="@+id/grp3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="three,title3,tvDoze" />
+            app:constraint_referenced_ids="three,title3,tvDoze,ibInfo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

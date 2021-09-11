@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,7 @@ public class FragmentDialogStill extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
         TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);
         TextView tvDozeAndroid = dview.findViewById(R.id.tvDozeAndroid);
+        ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         Group grp2 = dview.findViewById(R.id.grp2);
         Group grp3 = dview.findViewById(R.id.grp3);
@@ -57,6 +59,13 @@ public class FragmentDialogStill extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Helper.view(context, Uri.parse(Helper.DONTKILL_URI), true);
+            }
+        });
+
+        ibInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.DONTKILL_URI), true);
             }
         });
 
