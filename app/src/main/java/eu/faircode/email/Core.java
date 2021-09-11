@@ -5037,7 +5037,7 @@ class Core {
                             .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id)
                     /* .setBridgeTag(id < 0 ? "header" : "body") */);
 
-            // https://developer.android.com/reference/androidx/car/app/notification/CarAppExtender
+            // https://developer.android.com/reference/androidx/core/app/NotificationCompat.CarExtender
             mbuilder.extend(new NotificationCompat.CarExtender());
 
             notifications.add(mbuilder);
