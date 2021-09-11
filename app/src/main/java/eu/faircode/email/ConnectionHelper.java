@@ -80,8 +80,7 @@ public class ConnectionHelper {
             "SK", // Slovakia
             "SI", // Slovenia
             "ES", // Spain
-            "SE", // Sweden
-            "GB" // United Kingdom
+            "SE" // Sweden
     ));
 
     static class NetworkState {
