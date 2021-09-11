@@ -83,7 +83,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.safety.Cleaner;
-import org.jsoup.safety.Whitelist;
+import org.jsoup.safety.Safelist;
 import org.jsoup.select.Elements;
 import org.jsoup.select.NodeFilter;
 import org.jsoup.select.NodeTraversor;
@@ -442,7 +442,7 @@ public class HtmlHelper {
         if (parse_classes)
             sheets = parseStyles(parsed.head().select("style"));
 
-        Whitelist whitelist = Whitelist.relaxed()
+        Safelist safelist = Safelist.relaxed()
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
@@ -461,17 +461,17 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "data")
                 .removeTags("a").addAttributes("a", "href", "title");
         if (text_color)
-            whitelist.addAttributes("font", "color");
+            safelist.addAttributes("font", "color");
         if (text_size)
-            whitelist.addAttributes("font", "size");
+            safelist.addAttributes("font", "size");
         if (text_font)
-            whitelist.addAttributes("font", "face");
+            safelist.addAttributes("font", "face");
         if (text_align)
-            whitelist.addTags("center").addAttributes(":all", "align");
+            safelist.addTags("center").addAttributes(":all", "align");
         if (!view)
-            whitelist.addProtocols("img", "src", "content");
+            safelist.addProtocols("img", "src", "content");
 
-        final Document document = new Cleaner(whitelist).clean(parsed);
+        final Document document = new Cleaner(safelist).clean(parsed);
 
         // Remove tracking pixels
         if (disable_tracking)
