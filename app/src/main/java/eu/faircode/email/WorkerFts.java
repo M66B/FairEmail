@@ -57,14 +57,14 @@ public class WorkerFts extends Worker {
             Log.i("FTS index");
             Context context = getApplicationContext();
 
-            DB.checkpoint(context);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean checkpoints = prefs.getBoolean("checkpoints", true);
 
             int indexed = 0;
             List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);
             DB db = DB.getInstance(context);
 
             SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             for (long id : db.message().getMessageFts())
                 try {
@@ -104,6 +104,9 @@ public class WorkerFts extends Worker {
                 }
 
             markIndexed(db, ids);
+
+            if (checkpoints)
+                DB.checkpoint(context);
 
             Log.i("FTS indexed=" + indexed);
             return Result.success();

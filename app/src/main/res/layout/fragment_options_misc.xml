@@ -640,6 +640,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swCheckpoints"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_checkpoints"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swWal"
+                    app:switchPadding="12dp" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSqliteCache"
                     android:layout_width="0dp"
@@ -650,7 +661,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swWal" />
+                    app:layout_constraintTop_toBottomOf="@id/swCheckpoints" />
 
                 <SeekBar
                     android:id="@+id/sbSqliteCache"
