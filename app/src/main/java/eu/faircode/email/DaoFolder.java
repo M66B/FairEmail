@@ -125,8 +125,7 @@ public interface DaoFolder {
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " WHERE account.id IS NULL" +
-            " OR (account.`synchronize` AND folder.navigation)" +
+            " WHERE (account.`synchronize` AND folder.navigation)" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderNav>> liveNavigation();
 
@@ -189,10 +188,11 @@ public interface DaoFolder {
     @Query("SELECT folder.type" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
+            ", CASE WHEN folder.account IS NULL THEN folder.sync_state ELSE NULL END AS sync_state" +
             " FROM folder" +
-            " JOIN account ON account.id = folder.account" +
+            " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " WHERE account.synchronize" +
+            " WHERE (account.id IS NULL OR account.synchronize)" +
             " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
             " GROUP BY folder.type")

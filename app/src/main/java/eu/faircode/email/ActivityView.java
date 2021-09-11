@@ -772,11 +772,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
+        ibExpanderFolder.setVisibility(View.GONE);
         db.folder().liveNavigation().observe(owner, new Observer<List<TupleFolderNav>>() {
             @Override
             public void onChanged(List<TupleFolderNav> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
+                ibExpanderFolder.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
                 adapterNavFolder.set(folders, nav_expanded);
             }
         });
