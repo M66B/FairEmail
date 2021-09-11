@@ -3075,6 +3075,10 @@ Note that some wearables are known to crash with this option enabled.
 If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail
 when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
 
+Some companion apps ignore [local only](https://developer.android.com/training/wearables/notifications/bridger#non-bridged) notifications,
+causing the summary notification (*nnn new messages*) to be bridged.
+Unfortunately, it is not possible to workaround this problem.
+
 <br />
 
 <a name="faq127"></a>
