@@ -324,6 +324,7 @@
     <string name="title_advanced_download_headers">Scarica tutte le intestazioni del messaggio</string>
     <string name="title_advanced_download_eml">Scarica i file dei messaggi non elaborati</string>
     <string name="title_advanced_validated">Richiede una connessione convalidata (verificata)</string>
+    <string name="title_advanced_vpn_only">Connettiti solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
@@ -1686,4 +1687,6 @@
         <item>Nome ed email</item>
     </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
 </resources>

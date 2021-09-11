@@ -653,8 +653,14 @@
     <string name="title_delete">Izbriši</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Premjesti</string>
+    <string name="title_no_junk">Nije spam</string>
+    <string name="title_report_spam">Tretiraj kao spam</string>
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
+    <string name="title_open_with">Otvori pomoću</string>
+    <string name="title_on_blocklist">Na listi za blokiranje spama</string>
+    <string name="title_no_recorder">Ne postoji aplikacija za snimanje zvuka</string>
+    <string name="title_no_camera">Ne postoji aplikacija kamere</string>
     <string name="title_show_full">Prikaži cijelu poruku</string>
     <string name="title_unused_inline">Nekorištene poravnate slike bit će uklonjene pri slanju</string>
     <string name="title_accross_remark">Poruke koje se premještaju na računima bit će opet preuzete, što povećava potrošnju podataka</string>
@@ -791,6 +797,24 @@
     <string name="title_external_reminder">Slanje na vanjsku adresu</string>
     <string name="title_subject_reminder">Predmet je prazan</string>
     <string name="title_text_reminder">Poruka je prazna</string>
+    <string name="title_attachment_keywords">priložen,priložena,priloženo,priloženi,priložene,prilozi,uključen,uključena,uključeno,uključeni,uključene</string>
+    <string name="title_attachment_reminder">Da li ste željeli dodati prilog?</string>
+    <string name="title_attachments_missing">Nisu preuzeti svi prilozi</string>
+    <string name="title_dialog_hint">Ovaj dijalog može se ponovo uključiti preko menija s 3 tačke na vrhu radne trake</string>
+    <string name="title_draft_deleted">Nacrt odbačen</string>
+    <string name="title_draft_saved">Nacrt sačuvan</string>
+    <string name="title_sign">Potpiši</string>
+    <string name="title_verify">Potvrdi</string>
+    <string name="title_encrypt">Šifriraj</string>
+    <string name="title_decrypt">Dešifriraj</string>
+    <string name="title_resync">Ponovo sinhronizuj</string>
+    <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
+    <string name="title_user_interaction">Prebacivanje na OpenKeychain</string>
+    <string name="title_signed_data">Potvrdi potpis za prikazivanje teksta poruke</string>
+    <string name="title_not_encrypted">Poruka nije potpisana niti šifrirana</string>
+    <string name="title_no_sign_key">Nema izabranog ključa za potpis</string>
+    <string name="title_reset_sign_key">Resetuj ključ za potpis</string>
+    <string name="title_signature_none">Poruka nije potpisana</string>
     <string name="title_signature_valid_from">Važeći potpis poruke: %1$s</string>
     <string name="title_signature_unconfirmed">Potpis poruke je važeći, ali nije potvrđen</string>
     <string name="title_signature_unconfirmed_from">Potpis poruke je važeći, ali nije potvrđen: %1$s</string>
@@ -848,6 +872,11 @@
     <string name="title_sort_on_attachments">Prilozima</string>
     <string name="title_sort_on_hidden">Skrivenom</string>
     <string name="title_filter_seen">Pročitano</string>
+    <string name="title_filter_hidden">Skrivenom</string>
+    <string name="title_filter_duplicates">Duplikati</string>
+    <string name="title_compact">Kompaktni izgled</string>
+    <string name="title_zoom">Veličina teksta</string>
+    <string name="title_select_language">Izaberite jezik</string>
     <string name="title_edit_signature">Uredi potpis</string>
     <string name="title_edit_signature_text">Tekst potpisa</string>
     <string name="title_answer_standard">Zadani</string>
@@ -874,13 +903,16 @@
     <string name="title_rule_no_headers">Uvjeti zaglavlja se ne mogu provjeriti</string>
     <string name="title_rule_matched">Podudarne poruke</string>
     <string name="title_rule_no_matches">Nemaa podudarnih poruka</string>
+    <string name="title_rule_tts_data">Instaliraj glasovne podatke</string>
     <string name="title_rule_tts_prefix">Nova poruka</string>
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Predmet</string>
+    <string name="title_rule_tts_content">Tekst</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>
     <string name="title_legend_section_compose">Napiši</string>
+    <string name="title_legend_section_keyboard">Tastatura</string>
     <string name="title_legend_download_on">Preuzmi sadržaj poruke automatski</string>
     <string name="title_legend_download_off">Preuzmi sadržaj poruke na zahtjev</string>
     <string name="title_legend_synchronize_on">Sinhronizacija uključena</string>
@@ -916,6 +948,11 @@
     <string name="title_legend_metered">Konekcija je \'s ograničenim paketom\'</string>
     <string name="title_legend_unmetered">Konekcija je neograničena</string>
     <string name="title_legend_roaming">Roaming</string>
+    <string name="title_legend_show_junk">Tretiraj kao spam</string>
+    <string name="title_legend_show_images">Prikaži slike</string>
+    <string name="title_legend_hide_images">Sakrij slike</string>
+    <string name="title_legend_show_full">Prikaži izvornu poruku</string>
+    <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
     <string name="title_legend_connection_state">Status konekcije</string>
     <string name="title_legend_sync_state">Status sinhronizacije</string>
     <string name="title_legend_download_state">Status preuzimanja</string>
@@ -926,10 +963,13 @@
     <string name="title_legend_r">Odgovori</string>
     <string name="title_hint_message_actions">Prevuci lijevo za otpad; Prevuci desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
+    <string name="title_hint_junk">Filtriranje spama trebao bi rješavati e-mail server i ne može se pouzdano odvijati na uređajima koje pogone baterije s ograničenim mogućnostima.</string>
     <string name="title_updated">Dostupno ažuriranje na verziju %1$s</string>
     <string name="title_issue">Imate li pitanje ili problem?</string>
     <string name="title_yes">Da</string>
     <string name="title_no">Ne</string>
+    <string name="title_browse">Otvori pomoću</string>
+    <string name="title_info">Informacije</string>
     <string name="title_enable">Uključi</string>
     <string name="title_disable">Isključi</string>
     <string name="title_snooze_now">Odgodi</string>
@@ -952,7 +992,10 @@
     <string name="title_pro_activated">Sve pro funkcionalnosti su aktivirane</string>
     <string name="title_pro_valid">Aktivirane sve pro funkcionalnosti</string>
     <string name="title_pro_support">FairEmail treba vašu pomoć. Dodirnite za kupovinu pro funkcionalnosti kako bi pomogli održavanje projekta ili isključili ovu poruku.</string>
+    <string name="title_rules_delete_junk">Izbriši pravila za spam</string>
+    <string name="title_rules_delete_junk_confirm">Želite li izbrisati sva pravila premještanja poruka u spam folder?</string>
     <string name="title_power_menu_off">Isključeno</string>
+    <string name="title_widget_font_size">Veličina teksta</string>
     <string name="title_widget_semi_transparent">Poluprovidna pozadina</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
@@ -963,6 +1006,7 @@
     <string name="title_accessibility_unseen">Nepročitano</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">Za uraditi</string>
+    <string name="title_accessibility_flagged">Favoritima</string>
     <string name="title_accessibility_show_addresses">Prikaži adrese</string>
     <string name="title_accessibility_hide_addresses">Sakrij adrese</string>
     <string name="title_accessibility_attachment">Prilog</string>
@@ -1100,4 +1144,6 @@
         <item>Ime i e-mail</item>
     </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
 </resources>

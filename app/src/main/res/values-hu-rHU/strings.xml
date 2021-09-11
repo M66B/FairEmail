@@ -184,6 +184,7 @@
     <string name="title_setup_password_missing">Hiányzó jelszó</string>
     <string name="title_setup_password_different">A jelszavak nem egyeznek</string>
     <string name="title_setup_password_invalid">Érvénytelen jelszó</string>
+    <string name="title_setup_import_contacts">Helyi névjegyek importálása</string>
     <string name="title_setup_exported">Beállítások exportálva</string>
     <string name="title_setup_imported">Beállítások importálva</string>
     <string name="title_setup_import_invalid">Érvénytelen beállítás fájl</string>
@@ -1498,4 +1499,6 @@
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
 </resources>

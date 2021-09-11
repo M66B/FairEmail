@@ -334,6 +334,7 @@
     <string name="title_advanced_download_headers">Descărcați toate anteturile mesajelor</string>
     <string name="title_advanced_download_eml">Descărcați fișiere cu mesaje brute</string>
     <string name="title_advanced_validated">Necesită o conexiune validată (verificată)</string>
+    <string name="title_advanced_vpn_only">Conectați-vă numai prin intermediul unui VPN</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
@@ -1697,4 +1698,6 @@
         <item>Nume și e-mail</item>
     </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
 </resources>
