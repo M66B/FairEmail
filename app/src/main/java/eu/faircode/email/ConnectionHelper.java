@@ -45,7 +45,7 @@ import java.util.Objects;
 
 public class ConnectionHelper {
     static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
-            "metered", "roaming", "rlah" // update network state
+            "metered", "roaming", "rlah", "require_validated", "vpn_only" // update network state
     ));
 
     // Roam like at home
@@ -213,6 +213,7 @@ public class ConnectionHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
         boolean require_validated = prefs.getBoolean("require_validated", false);
+        boolean vpn_only = prefs.getBoolean("vpn_only", false);
 
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null) {
@@ -274,6 +275,13 @@ public class ConnectionHelper {
                 !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
             Log.i("isMetered: active background");
             return null;
+        }
+
+        if (vpn_only) {
+            boolean vpn = vpnActive(context);
+            Log.i("VPN only vpn=" + vpn);
+            if (!vpn)
+                return null;
         }
 
         if (standalone_vpn ||

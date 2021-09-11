@@ -271,6 +271,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swValidated" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swVpnOnly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_vpn_only"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvValidatedHint"
+                    app:switchPadding="12dp" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvTimeout"
                     android:layout_width="0dp"
@@ -282,7 +293,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvValidatedHint" />
+                    app:layout_constraintTop_toBottomOf="@id/swVpnOnly" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvTimeoutHint"
@@ -432,7 +443,7 @@
                     android:id="@+id/grpValidated"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swValidated,tvValidatedHint" />
+                    app:constraint_referenced_ids="swValidated,tvValidatedHint,swVpnOnly" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

@@ -386,6 +386,7 @@
     <string name="title_advanced_download_headers">Download all message headers</string>
     <string name="title_advanced_download_eml">Download raw message files</string>
     <string name="title_advanced_validated">Require a validated (checked) connection</string>
+    <string name="title_advanced_vpn_only">Connect only via a VPN</string>
     <string name="title_advanced_timeout">Connection timeout (seconds)</string>
     <string name="title_advanced_prefer_ip4">Prefer IPv4 over IPv6</string>
     <string name="title_advanced_bind_socket" translatable="false">Bind sockets to the active network</string>

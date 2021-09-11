@@ -63,6 +63,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swDownloadHeaders;
     private SwitchCompat swDownloadEml;
     private SwitchCompat swValidated;
+    private SwitchCompat swVpnOnly;
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
     private SwitchCompat swBindSocket;
@@ -81,7 +82,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "roaming", "rlah",
             "download_headers", "download_eml",
-            "require_validated", "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "ssl_harden"
+            "require_validated", "vpn_only",
+            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "ssl_harden"
     };
 
     @Override
@@ -101,6 +103,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDownloadHeaders = view.findViewById(R.id.swDownloadHeaders);
         swDownloadEml = view.findViewById(R.id.swDownloadEml);
         swValidated = view.findViewById(R.id.swValidated);
+        swVpnOnly = view.findViewById(R.id.swVpnOnly);
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
         swBindSocket = view.findViewById(R.id.swBindSocket);
@@ -178,6 +181,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("require_validated", checked).apply();
+            }
+        });
+
+        swVpnOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("vpn_only", checked).apply();
             }
         });
 
@@ -353,6 +363,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDownloadEml.setChecked(prefs.getBoolean("download_eml", false));
 
         swValidated.setChecked(prefs.getBoolean("require_validated", false));
+        swVpnOnly.setChecked(prefs.getBoolean("vpn_only", false));
 
         int timeout = prefs.getInt("timeout", 0);
         etTimeout.setText(timeout == 0 ? null : Integer.toString(timeout));
