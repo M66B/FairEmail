@@ -4632,6 +4632,9 @@ class Core {
                             .setSummaryText(title));
                 }
 
+            //builder.extend(new NotificationCompat.WearableExtender()
+            //        .setDismissalId(BuildConfig.APPLICATION_ID));
+
             notifications.add(builder);
         }
 
