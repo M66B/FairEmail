@@ -118,11 +118,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvLastCleanup;
     private Button btnApp;
     private Button btnMore;
-
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
-    private SwitchCompat swQueries;
+
+    private TextView tvRoomQueryThreads;
+    private SeekBar sbRoomQueryThreads;
+    private ImageButton ibRoom;
     private SwitchCompat swWal;
     private SwitchCompat swCheckpoints;
     private TextView tvSqliteCache;
@@ -234,11 +236,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
-
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
-        swQueries = view.findViewById(R.id.swQueries);
+
+        tvRoomQueryThreads = view.findViewById(R.id.tvRoomQueryThreads);
+        sbRoomQueryThreads = view.findViewById(R.id.sbRoomQueryThreads);
+        ibRoom = view.findViewById(R.id.ibRoom);
         swWal = view.findViewById(R.id.swWal);
         swCheckpoints = view.findViewById(R.id.swCheckpoints);
         tvSqliteCache = view.findViewById(R.id.tvSqliteCache);
@@ -599,13 +603,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swQueries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sbRoomQueryThreads.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked)
-                    prefs.edit().putInt("query_threads", 2).commit(); // apply won't work here
-                else
-                    prefs.edit().remove("query_threads").commit(); // apply won't work here
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("query_threads", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        ibRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ApplicationEx.restart(v.getContext());
             }
         });
 
@@ -1104,11 +1122,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
-        swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
+
+        int query_threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
+        tvRoomQueryThreads.setText(getString(R.string.title_advanced_room_query_threads, NF.format(query_threads)));
+        sbRoomQueryThreads.setProgress(query_threads);
+
         swWal.setChecked(prefs.getBoolean("wal", true));
         swCheckpoints.setChecked(prefs.getBoolean("checkpoints", true));
 
-        int sqlite_cache = prefs.getInt("sqlite_cache", DB.DB_DEFAULT_CACHE);
+        int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
         int cache_size = sqlite_cache * class_mb * 1024 / 100;
         tvSqliteCache.setText(getString(R.string.title_advanced_sqlite_cache,
                 NF.format(sqlite_cache),

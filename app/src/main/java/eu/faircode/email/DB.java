@@ -117,7 +117,8 @@ public abstract class DB extends RoomDatabase {
     private static Context sContext;
     private static DB sInstance;
 
-    static final int DB_DEFAULT_CACHE = 5; // percentage
+    static final int DEFAULT_QUERY_THREADS = 4; // AndroidX default thread count: 4
+    static final int DEFAULT_CACHE_SIZE = 5; // percentage
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
@@ -373,9 +374,9 @@ public abstract class DB extends RoomDatabase {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int threads = prefs.getInt("query_threads", 4); // AndroidX default thread count: 4
+        int threads = prefs.getInt("query_threads", DEFAULT_QUERY_THREADS);
         boolean wal = prefs.getBoolean("wal", true);
-        int sqlite_cache = prefs.getInt("sqlite_cache", DB.DB_DEFAULT_CACHE);
+        int sqlite_cache = prefs.getInt("sqlite_cache", DEFAULT_CACHE_SIZE);
         Log.i("DB query threads=" + threads + " wal=" + wal);
         ExecutorService executorQuery = Helper.getBackgroundExecutor(threads, "query");
         ExecutorService executorTransaction = Helper.getBackgroundExecutor(0, "transaction");

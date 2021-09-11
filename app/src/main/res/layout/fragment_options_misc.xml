@@ -594,31 +594,40 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swQueries"
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvRoomQueryThreads"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_query_threads"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_room_query_threads"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug"
-                    app:switchPadding="12dp" />
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvQueriesHint"
+                <SeekBar
+                    android:id="@+id/sbRoomQueryThreads"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_queries_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
+                    android:max="32"
+                    android:min="0"
+                    android:progress="4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swQueries" />
+                    app:layout_constraintTop_toBottomOf="@id/tvRoomQueryThreads" />
+
+                <ImageButton
+                    android:id="@+id/ibRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbRoomQueryThreads"
+                    app:srcCompat="@drawable/twotone_check_24" />
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvQueriesRemark"
+                    android:id="@+id/tvRoomHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="48dp"
@@ -627,7 +636,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvQueriesHint" />
+                    app:layout_constraintTop_toBottomOf="@id/ibRoom" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWal"
@@ -637,7 +646,7 @@
                     android:text="@string/title_advanced_wal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
+                    app:layout_constraintTop_toBottomOf="@id/tvRoomHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
