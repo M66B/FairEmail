@@ -565,7 +565,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         rvMessage.setHasFixedSize(false);
 
-        int threads = prefs.getInt("query_threads", 4);
+        int threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
         if (threads >= 4)
             rvMessage.setItemViewCacheSize(10); // Default: 2
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10); // Default 5

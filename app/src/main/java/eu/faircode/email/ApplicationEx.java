@@ -263,7 +263,6 @@ public class ApplicationEx extends Application
             case "secure": // privacy
             case "shortcuts": // misc
             case "language": // misc
-            case "query_threads": // misc
             case "wal": // misc
                 // Should be excluded for import
                 restart(this);

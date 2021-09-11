@@ -95,10 +95,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             return localExecutor;
 
         if (globalExecutor == null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            int threads = prefs.getInt("query_threads", Runtime.getRuntime().availableProcessors());
-            Log.i("Task threads=" + threads);
-            globalExecutor = Helper.getBackgroundExecutor(threads, "task");
+            int processors = Runtime.getRuntime().availableProcessors();
+            globalExecutor = Helper.getBackgroundExecutor(processors, "task");
         }
 
         return globalExecutor;

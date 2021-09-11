@@ -628,10 +628,10 @@
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Debug mode</string>
-    <string name="title_advanced_room_query_threads" translatable="false">ROOM query threads %1$s</string>
+    <string name="title_advanced_room_query_threads" translatable="false">ROOM query threads: %1$s</string>
     <string name="title_advanced_wal" translatable="false">WAL</string>
     <string name="title_advanced_checkpoints" translatable="false">Checkpoints</string>
-    <string name="title_advanced_sqlite_cache" translatable="false">Sqlite cache %1$s %% - %2$s</string>
+    <string name="title_advanced_sqlite_cache" translatable="false">Sqlite cache: %1$s %% - %2$s</string>
     <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
     <string name="title_advanced_expunge" translatable="false">EXPUNGE</string>
     <string name="title_advanced_auth_plain" translatable="false">PLAIN</string>
