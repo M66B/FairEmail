@@ -299,7 +299,7 @@ dependencies {
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
-    def bugsnag_version = "5.11.0"
+    def bugsnag_version = "5.12.0"
     def biweekly_version = "0.6.6"
     def relinker_version = "1.4.3"
     def markwon_version = "4.6.2"

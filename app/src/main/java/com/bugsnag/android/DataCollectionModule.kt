@@ -17,7 +17,8 @@ internal class DataCollectionModule(
     trackerModule: TrackerModule,
     bgTaskService: BackgroundTaskService,
     connectivity: Connectivity,
-    deviceId: String?
+    deviceId: String?,
+    memoryTrimState: MemoryTrimState
 ) : DependencyModule() {
 
     private val ctx = contextModule.ctx
@@ -34,7 +35,7 @@ internal class DataCollectionModule(
             trackerModule.sessionTracker,
             systemServiceModule.activityManager,
             trackerModule.launchCrashTracker,
-            logger
+            memoryTrimState
         )
     }
 

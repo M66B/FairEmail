@@ -20,8 +20,9 @@ internal class AppDataCollector(
     private val sessionTracker: SessionTracker,
     private val activityManager: ActivityManager?,
     private val launchCrashTracker: LaunchCrashTracker,
-    private val logger: Logger
+    private val memoryTrimState: MemoryTrimState
 ) {
+
     var codeBundleId: String? = null
 
     private val packageName: String = appContext.packageName
@@ -51,8 +52,10 @@ internal class AppDataCollector(
         val map = HashMap<String, Any?>()
         map["name"] = appName
         map["activeScreen"] = sessionTracker.contextActivity
-        map["memoryUsage"] = getMemoryUsage()
-        map["lowMemory"] = isLowMemory()
+        map["lowMemory"] = memoryTrimState.isLowMemory
+        map["memoryTrimLevel"] = memoryTrimState.trimLevelDescription
+
+        populateRuntimeMemoryMetadata(map)
 
         bgWorkRestricted?.let {
             map["backgroundWorkRestricted"] = bgWorkRestricted
@@ -63,13 +66,14 @@ internal class AppDataCollector(
         return map
     }
 
-    /**
-     * Get the actual memory used by the VM (which may not be the total used
-     * by the app in the case of NDK usage).
-     */
-    private fun getMemoryUsage(): Long {
+    private fun populateRuntimeMemoryMetadata(map: MutableMap<String, Any?>) {
         val runtime = Runtime.getRuntime()
-        return runtime.totalMemory() - runtime.freeMemory()
+        val totalMemory = runtime.totalMemory()
+        val freeMemory = runtime.freeMemory()
+        map["memoryUsage"] = totalMemory - freeMemory
+        map["totalMemory"] = totalMemory
+        map["freeMemory"] = freeMemory
+        map["memoryLimit"] = runtime.maxMemory()
     }
 
     /**
@@ -84,22 +88,6 @@ internal class AppDataCollector(
         } else {
             null
         }
-    }
-
-    /**
-     * Check if the device is currently running low on memory.
-     */
-    private fun isLowMemory(): Boolean? {
-        try {
-            if (activityManager != null) {
-                val memInfo = ActivityManager.MemoryInfo()
-                activityManager.getMemoryInfo(memInfo)
-                return memInfo.lowMemory
-            }
-        } catch (exception: Exception) {
-            logger.w("Could not check lowMemory status")
-        }
-        return null
     }
 
     fun setBinaryArch(binaryArch: String) {

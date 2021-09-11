@@ -62,5 +62,9 @@ sealed class StateEvent { // JvmField allows direct field access optimizations
 
     class UpdateUser(@JvmField val user: User) : StateEvent()
 
-    class UpdateMemoryTrimEvent(@JvmField val isLowMemory: Boolean) : StateEvent()
+    class UpdateMemoryTrimEvent(
+        @JvmField val isLowMemory: Boolean,
+        @JvmField val memoryTrimLevel: Int? = null,
+        @JvmField val memoryTrimLevelDescription: String = "None"
+    ) : StateEvent()
 }

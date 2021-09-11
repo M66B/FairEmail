@@ -63,6 +63,9 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
     final BreadcrumbState breadcrumbState;
 
     @NonNull
+    final MemoryTrimState memoryTrimState = new MemoryTrimState();
+
+    @NonNull
     protected final EventStore eventStore;
 
     final SessionTracker sessionTracker;
@@ -162,7 +165,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
 
         DataCollectionModule dataCollectionModule = new DataCollectionModule(contextModule,
                 configModule, systemServiceModule, trackerModule,
-                bgTaskService, connectivity, storageModule.getDeviceId());
+                bgTaskService, connectivity, storageModule.getDeviceId(), memoryTrimState);
         dataCollectionModule.resolveDependencies(bgTaskService, TaskType.IO);
         appDataCollector = dataCollectionModule.getAppDataCollector();
         deviceDataCollector = dataCollectionModule.getDeviceDataCollector();
@@ -337,10 +340,21 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
                         clientObservable.postOrientationChange(newOrientation);
                         return null;
                     }
-                }, new Function1<Boolean, Unit>() {
+                }, new Function2<Boolean, Integer, Unit>() {
                     @Override
-                    public Unit invoke(Boolean isLowMemory) {
-                        clientObservable.postMemoryTrimEvent(isLowMemory);
+                    public Unit invoke(Boolean isLowMemory, Integer memoryTrimLevel) {
+                        memoryTrimState.setLowMemory(Boolean.TRUE.equals(isLowMemory));
+                        if (memoryTrimState.updateMemoryTrimLevel(memoryTrimLevel)) {
+                            leaveAutoBreadcrumb(
+                                    "Trim Memory",
+                                    BreadcrumbType.STATE,
+                                    Collections.<String, Object>singletonMap(
+                                            "trimLevel", memoryTrimState.getTrimLevelDescription()
+                                    )
+                            );
+                        }
+
+                        memoryTrimState.emitObservableEvent();
                         return null;
                     }
                 }
@@ -383,6 +397,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         contextState.addObserver(observer);
         deliveryDelegate.addObserver(observer);
         launchCrashTracker.addObserver(observer);
+        memoryTrimState.addObserver(observer);
     }
 
     void removeObserver(StateObserver observer) {
@@ -394,6 +409,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         contextState.removeObserver(observer);
         deliveryDelegate.removeObserver(observer);
         launchCrashTracker.removeObserver(observer);
+        memoryTrimState.removeObserver(observer);
     }
 
     /**
@@ -403,6 +419,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         metadataState.emitObservableEvent();
         contextState.emitObservableEvent();
         userState.emitObservableEvent();
+        memoryTrimState.emitObservableEvent();
     }
 
     /**

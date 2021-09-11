@@ -8,10 +8,6 @@ internal class ClientObservable : BaseObservable() {
         updateState { StateEvent.UpdateOrientation(orientation) }
     }
 
-    fun postMemoryTrimEvent(isLowMemory: Boolean) {
-        updateState { StateEvent.UpdateMemoryTrimEvent(isLowMemory) }
-    }
-
     fun postNdkInstall(
         conf: ImmutableConfig,
         lastRunInfoPath: String,
