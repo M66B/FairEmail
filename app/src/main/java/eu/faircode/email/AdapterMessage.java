@@ -4763,6 +4763,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (isActivate(alt))
                         uri = alt;
                 }
+
+                Uri sanitized = UriHelper.sanitize(uri);
+                if (sanitized != null && isActivate(sanitized))
+                    uri = sanitized;
             } catch (Throwable ignored) {
             }
 
