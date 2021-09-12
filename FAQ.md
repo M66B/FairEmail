@@ -1950,6 +1950,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press the full screen icon to show the original message text only?
 * Did you know that you can long press the answer button to reply to the sender? (since version 1.1562)
 * Did you know that you can long press the message move button to move across accounts? (since version 1.1702)
+* Did you know that you can long press the add contact button in the message composer to insert a contact group? (since version 1.1721)
 
 <br />
 
