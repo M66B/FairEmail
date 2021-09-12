@@ -321,7 +321,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                etLink.setText(format(secure(checked ? sanitized : uri, cbSecure.isChecked()), context));
+                Uri link = (checked ? sanitized : uri);
+                boolean secure = (!link.isOpaque() && "https".equals(link.getScheme()));
+                cbSecure.setTag(secure);
+                cbSecure.setChecked(secure);
+                etLink.setText(format(secure(link, secure), context));
             }
         });
 
