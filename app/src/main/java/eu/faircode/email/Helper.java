@@ -985,6 +985,27 @@ public class Helper {
         return "Blackview".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
+    static boolean isSony() {
+        return "sony".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
+    static boolean isStaminaEnabled(Context context) {
+        // https://dontkillmyapp.com/sony
+        if (BuildConfig.DEBUG)
+            return true;
+
+        if (!isSony())
+            return false;
+
+        try {
+            ContentResolver resolver = context.getContentResolver();
+            return (Settings.Secure.getInt(resolver, "somc.stamina_mode", 0) > 0);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
+    }
+
     static boolean isSurfaceDuo() {
         return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
     }
@@ -1003,6 +1024,7 @@ public class Helper {
                 // Vivo
                 isRealme() ||
                 isBlackview() ||
+                isSony() ||
                 BuildConfig.DEBUG);
     }
 

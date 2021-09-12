@@ -779,6 +779,21 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDataSaver" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvStamina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
+                    android:text="@string/title_setup_stamina"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnDataSaver" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBatteryUsage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -790,7 +805,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnDataSaver" />
+                    app:layout_constraintTop_toBottomOf="@id/tvStamina" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSyncStopped"

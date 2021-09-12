@@ -228,6 +228,7 @@
     <string name="title_setup_inexact">Alarms &amp; reminders are disabled</string>
     <string name="title_setup_background">Background restrictions are enabled</string>
     <string name="title_setup_data">Data saver is enabled</string>
+    <string name="title_setup_stamina" translatable="false">Stamina mode is enabled</string>
     <string name="title_setup_advanced_options">Show advanced options</string>
     <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Go</string>

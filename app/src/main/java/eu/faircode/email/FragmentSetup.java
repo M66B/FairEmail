@@ -97,6 +97,7 @@ public class FragmentSetup extends FragmentBase {
     private Button btnInexactAlarms;
     private Button btnBackgroundRestricted;
     private Button btnDataSaver;
+    private TextView tvStamina;
 
     private TextView tvBatteryUsage;
     private TextView tvSyncStopped;
@@ -161,6 +162,7 @@ public class FragmentSetup extends FragmentBase {
         btnInexactAlarms = view.findViewById(R.id.btnInexactAlarms);
         btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
+        tvStamina = view.findViewById(R.id.tvStamina);
 
         tvBatteryUsage = view.findViewById(R.id.tvBatteryUsage);
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
@@ -444,6 +446,14 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        tvStamina.setPaintFlags(tvStamina.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvStamina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.DONTKILL_URI + "sony"), true);
+            }
+        });
+
         tvBatteryUsage.setPaintFlags(tvBatteryUsage.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvBatteryUsage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -530,6 +540,7 @@ public class FragmentSetup extends FragmentBase {
         grpInexactAlarms.setVisibility(View.GONE);
         grpBackgroundRestricted.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
+        tvStamina.setVisibility(View.GONE);
 
         setContactsPermission(hasPermission(Manifest.permission.READ_CONTACTS));
 
@@ -662,6 +673,9 @@ public class FragmentSetup extends FragmentBase {
         }
 
         grpDataSaver.setVisibility(ConnectionHelper.isDataSaving(getContext())
+                ? View.VISIBLE : View.GONE);
+
+        tvStamina.setVisibility(Helper.isStaminaEnabled(getContext())
                 ? View.VISIBLE : View.GONE);
     }
 
