@@ -152,6 +152,8 @@ public class FragmentAnswer extends FragmentBase {
         });
 
         // Initialize
+        FragmentDialogTheme.setBackground(getContext(), view, true);
+
         cbExternal.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);

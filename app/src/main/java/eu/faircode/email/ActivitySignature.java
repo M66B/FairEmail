@@ -174,6 +174,8 @@ public class ActivitySignature extends ActivityBase {
             }
         }, this);
 
+        // Initialize
+        FragmentDialogTheme.setBackground(this, view, true);
         style_bar.setVisibility(View.GONE);
 
         setResult(RESULT_CANCELED, new Intent());
