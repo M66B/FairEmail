@@ -1285,38 +1285,42 @@ class Core {
             Log.i(folder.name + " " + (duplicate ? "copy" : "move") +
                     " from " + folder.type + " to " + target.type);
 
-            List<Message> icopies = new ArrayList<>();
-            for (Message imessage : map.keySet()) {
-                EntityMessage message = map.get(imessage);
+            if (!duplicate && account.isSeznam())
+                ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);
+            else {
+                List<Message> icopies = new ArrayList<>();
+                for (Message imessage : map.keySet()) {
+                    EntityMessage message = map.get(imessage);
 
-                File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
-                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                    imessage.writeTo(os);
+                    File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
+                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                        imessage.writeTo(os);
+                    }
+
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
+
+                    Message icopy;
+                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                        if (duplicate) {
+                            String msgid = EntityMessage.generateMessageId();
+                            msgids.put(message, msgid);
+                            icopy = new MimeMessageEx(isession, is, msgid);
+                            icopy.saveChanges();
+                        } else
+                            icopy = new MimeMessage(isession, is);
+                    }
+
+                    file.delete();
+
+                    for (Flags.Flag flag : imessage.getFlags().getSystemFlags())
+                        icopy.setFlag(flag, true);
+
+                    icopies.add(icopy);
                 }
 
-                Properties props = MessageHelper.getSessionProperties();
-                Session isession = Session.getInstance(props, null);
-
-                Message icopy;
-                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                    if (duplicate) {
-                        String msgid = EntityMessage.generateMessageId();
-                        msgids.put(message, msgid);
-                        icopy = new MimeMessageEx(isession, is, msgid);
-                        icopy.saveChanges();
-                    } else
-                        icopy = new MimeMessage(isession, is);
-                }
-
-                file.delete();
-
-                for (Flags.Flag flag : imessage.getFlags().getSystemFlags())
-                    icopy.setFlag(flag, true);
-
-                icopies.add(icopy);
+                itarget.appendMessages(icopies.toArray(new Message[0]));
             }
-
-            itarget.appendMessages(icopies.toArray(new Message[0]));
         } else {
             for (Message imessage : map.keySet()) {
                 Log.i((copy ? "Copy" : "Move") + " seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags() + " can=" + canMove);
