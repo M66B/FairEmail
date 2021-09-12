@@ -41,6 +41,7 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -65,6 +66,8 @@ import androidx.preference.PreferenceManager;
 
 import java.net.IDN;
 import java.net.InetAddress;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -568,6 +571,22 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 u = u.substring(p + 1);
                 p = u.indexOf("/");
             }
+
+            changed = (result != null);
+            url = (result == null ? uri : result);
+        } else if (uri.getQueryParameterNames().size() == 1) {
+            // Sophos Email Appliance
+            Uri result = null;
+            String key = uri.getQueryParameterNames().iterator().next();
+            if (TextUtils.isEmpty(uri.getQueryParameter(key)))
+                try {
+                    String data = new String(Base64.decode(key, Base64.DEFAULT));
+                    int u = data.indexOf("&&url=");
+                    if (u > 0)
+                        result = Uri.parse(URLDecoder.decode(data.substring(u + 6), StandardCharsets.UTF_8.name()));
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
 
             changed = (result != null);
             url = (result == null ? uri : result);
