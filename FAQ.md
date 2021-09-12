@@ -824,7 +824,7 @@ Common errors:
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
 * *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
 * *No private key*: no certificate was selected or no certificate was available in the Android keystore
-* *Memory allocation failed*: Android fails to sign with RSA-8192 private keys
+* *Memory allocation failed*: Android fails to sign with RSA-8192 private keys (Android [issue 199605614](https://issuetracker.google.com/issues/199605614))
 
 In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates.
 After the certificate details the issuer or "selfSign" is shown.
