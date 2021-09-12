@@ -787,12 +787,16 @@ public interface DaoMessage {
             " AND account IN (" +
             "  SELECT id FROM account" +
             "   WHERE :folder IS NOT NULL" +
+            "   OR :type IS NOT NULL" +
             "   OR id = :account" +
-            "   OR (:account IS NULL AND NOT account.notify))" +
+            "   OR (:account IS NULL AND NOT notify))" +
             " AND folder IN (" +
             "  SELECT id FROM folder" +
-            "  WHERE (:folder IS NULL AND folder.unified) OR id = :folder)")
-    int ignoreAll(Long account, Long folder);
+            "   WHERE notify" +
+            "   AND (id = :folder" +
+            "   OR (type = :type AND type <> '" + EntityFolder.OUTBOX + "')" +
+            "   OR (:folder IS NULL AND :type IS NULL AND unified)))")
+    int ignoreAll(Long account, Long folder, String type);
 
     @Query("UPDATE message SET ui_found = 1 WHERE id = :id AND NOT (ui_found IS 1)")
     int setMessageFound(long id);

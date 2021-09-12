@@ -4078,16 +4078,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (notify_clear) {
                 Bundle args = new Bundle();
                 args.putLong("folder", folder);
+                args.putString("type", type);
 
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
                         Long folder = args.getLong("folder");
+                        String type = args.getString("type");
+
                         if (folder < 0)
                             folder = null;
 
                         DB db = DB.getInstance(context);
-                        db.message().ignoreAll(null, folder);
+                        db.message().ignoreAll(null, folder, type);
                         return null;
                     }
 
