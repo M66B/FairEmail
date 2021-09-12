@@ -230,12 +230,14 @@ public class UriHelper {
         } else if (uri.getQueryParameterNames().size() == 1) {
             // Sophos Email Appliance
             Uri result = null;
+
             String key = uri.getQueryParameterNames().iterator().next();
             if (TextUtils.isEmpty(uri.getQueryParameter(key)))
                 try {
                     String data = new String(Base64.decode(key, Base64.DEFAULT));
+                    int v = data.indexOf("ver=");
                     int u = data.indexOf("&&url=");
-                    if (u > 0)
+                    if (v == 0 && u > 0)
                         result = Uri.parse(URLDecoder.decode(data.substring(u + 6), StandardCharsets.UTF_8.name()));
                 } catch (Throwable ex) {
                     Log.w(ex);
