@@ -187,10 +187,11 @@ public class UriHelper {
     }
 
     static Uri sanitize(Uri uri) {
-        boolean changed = false;
+        if (uri.isOpaque())
+            return uri;
 
         Uri url;
-        Uri.Builder builder;
+        boolean changed = false;
         if (uri.getHost() != null &&
                 uri.getHost().endsWith("safelinks.protection.outlook.com") &&
                 !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
@@ -248,7 +249,7 @@ public class UriHelper {
         if (url.isOpaque())
             return uri;
 
-        builder = url.buildUpon();
+        Uri.Builder builder = url.buildUpon();
 
         builder.clearQuery();
         String host = uri.getHost();
