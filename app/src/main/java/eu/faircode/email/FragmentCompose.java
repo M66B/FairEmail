@@ -6485,7 +6485,7 @@ public class FragmentCompose extends FragmentBase {
                     } else if (view.getId() == R.id.tvAccount && BuildConfig.DEBUG) {
                         String account = cursor.getString(3);
                         String type = cursor.getString(4);
-                        ((TextView) view).setText(account + ":" + type);
+                        ((TextView) view).setText(account + (BuildConfig.DEBUG ? "/" + type : ""));
                         return true;
                     } else
                         return false;
