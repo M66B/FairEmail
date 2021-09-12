@@ -123,6 +123,23 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvPrivacy"
                     app:layout_constraintTop_toBottomOf="@id/analytics" />
+
+                <ImageButton
+                    android:id="@+id/ibWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSupport"
+                    app:srcCompat="@drawable/expander" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpWelcome"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="intro,simple,issue,analytics,tvPrivacy,tvSupport" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

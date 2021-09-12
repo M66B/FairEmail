@@ -67,6 +67,9 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvPrivacy;
     private TextView tvSupport;
 
+    private ImageButton ibWelcome;
+    private Group grpWelcome;
+
     private TextView tvNoInternet;
     private ImageButton ibHelp;
     private Button btnQuick;
@@ -128,6 +131,8 @@ public class FragmentSetup extends FragmentBase {
 
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
         tvSupport = view.findViewById(R.id.tvSupport);
+        ibWelcome = view.findViewById(R.id.ibWelcome);
+        grpWelcome = view.findViewById(R.id.grpWelcome);
 
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         ibHelp = view.findViewById(R.id.ibHelp);
@@ -183,6 +188,18 @@ public class FragmentSetup extends FragmentBase {
                 Intent view = new Intent(Intent.ACTION_VIEW)
                         .setData(Helper.getSupportUri(v.getContext()));
                 v.getContext().startActivity(view);
+            }
+        });
+
+        updateWelcome();
+
+        ibWelcome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                boolean setup_welcome = !prefs.getBoolean("setup_welcome", true);
+                prefs.edit().putBoolean("setup_welcome", setup_welcome).apply();
+                updateWelcome();
             }
         });
 
@@ -656,6 +673,13 @@ public class FragmentSetup extends FragmentBase {
             ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             cm.unregisterNetworkCallback(networkCallback);
         }
+    }
+
+    private void updateWelcome() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean setup_welcome = prefs.getBoolean("setup_welcome", true);
+        ibWelcome.setImageLevel(setup_welcome ? 0 /* less */ : 1 /* more */);
+        grpWelcome.setVisibility(setup_welcome ? View.VISIBLE : View.GONE);
     }
 
     private void updateManual() {
