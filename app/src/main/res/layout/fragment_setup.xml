@@ -84,6 +84,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/simple" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/analytics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_setup_analytics"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/issue" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPrivacy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +107,7 @@
                     android:textColor="?android:attr/textColorLink"
                     app:layout_constraintEnd_toStartOf="@+id/tvSupport"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/issue" />
+                    app:layout_constraintTop_toBottomOf="@id/analytics" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSupport"
@@ -111,7 +122,7 @@
                     android:textColor="?android:attr/textColorLink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvPrivacy"
-                    app:layout_constraintTop_toBottomOf="@id/issue" />
+                    app:layout_constraintTop_toBottomOf="@id/analytics" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
