@@ -4630,6 +4630,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content && !full);
+            popupMenu.getMenu().findItem(R.id.menu_translate).setVisible(
+                    DeepL.isAvailable(context) && message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(pin);
@@ -4708,6 +4710,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_search_in_text) {
                         onSearchText(message);
+                        return true;
+                    } else if (itemId == R.id.menu_translate) {
+                        onActionTranslate(message);
                         return true;
                     } else if (itemId == R.id.menu_event) {
                         if (ActivityBilling.isPro(context))
