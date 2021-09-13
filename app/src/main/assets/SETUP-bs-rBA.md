@@ -16,7 +16,7 @@ Ukoliko brzo postavljanje ne radi, trebate onda ručno postaviti nalog i identit
 
 ## Postavljanje naloga - za prijem e-pošte
 
-Za dodavanje naloga, dodirnite *Ručno postavljanje i više opcija*, dodirnite *Nalozi* i potom dugme 'plus' na dnu i izaberite IMAP (ili POP3). Izaberite provajdera sa spiska, unesite korisničko ime, koje je najčešće vaša email adresa i unesite lozinku. Dodirnite *Provjera* kako bi dozvolili FairEmail-u da se poveže sa email serverom i dohvati spisak sistemskih foldera. Nakon pregledanja i izbora sistemskih foldera, možete dodati nalog dodirom na dugme *Sačuvaj*.
+Za dodavanje računa, dodirnite *Ručno postavljanje i više opcija*, dodirnite *Računi* i potom dugme 'plus' na dnu i izaberite IMAP (ili POP3). Izaberite provajdera sa spiska, unesite korisničko ime, koje je najčešće vaša email adresa i unesite lozinku. Dodirnite *Provjera* kako bi dozvolili FairEmail-u da se poveže sa email serverom i dohvati spisak sistemskih foldera. Nakon pregledanja i izbora sistemskih foldera, možete dodati nalog dodirom na dugme *Sačuvaj*.
 
 Ukoliko vaš provajder nije na spisku provajdera, onda izaberite *Posebno*. Unesite naziv domene, npr. *gmail.com* i dodirnite *Dohvati postavke*. Ukoliko vaš provajder podržava [auto-pronalaženje](https://tools.ietf.org/html/rfc6186), FairEmail će popuniti naziv host servera i broj porta (ulaza), u suprotnom provjerite uputstvo vašeg provajdera za postavljanje pravog naziva IMAP host servera, broja porta i protokola za šifriranje (SSL/TLS ili STARTTLS). Za više informacija, molimo da pogledate [ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 

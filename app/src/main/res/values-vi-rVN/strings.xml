@@ -314,6 +314,7 @@
     <string name="title_advanced_download_headers">Tải xuống tất cả tiêu đề thư</string>
     <string name="title_advanced_download_eml">Tải xuống các tệp thư thô</string>
     <string name="title_advanced_validated">Yêu cầu kết nối đã xác minh (đã kiểm tra)</string>
+    <string name="title_advanced_vpn_only">Kết nối chỉ qua VPN</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>
     <string name="title_advanced_ssl_harden">Tăng bảo mật cho các kết nối SSL</string>
@@ -494,6 +495,11 @@
     <string name="title_advanced_autocrypt">Sử dụng Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Chế độ Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Mã hoá chủ đề</string>
+    <string name="title_advanced_sign_algo">Thuật toán chữ ký</string>
+    <string name="title_advanced_encrypt_algo">Thuật toán mã hóa</string>
+    <string name="title_advanced_remark_algo">        Vui lòng chú ý rằng không phải tất cả ứng dụng email đều hỗ trợ tất cả thuật toán.
+        Các thuật toán mặc định SHA256 và AES128 thường được hỗ trợ.
+    </string>
     <string name="title_advanced_check_certificate">Kiểm tra mã khoá công khai khi gửi</string>
     <string name="title_advanced_manage_certificates">Quản lý các mã khoá công khai</string>
     <string name="title_advanced_import_key">Nhập mã khoá riêng</string>
@@ -525,7 +531,6 @@
     <string name="title_advanced_protocol">Ghi nhật ký giao thức</string>
     <string name="title_advanced_log_info">Nhật ký gỡ lỗi</string>
     <string name="title_advanced_debug">Chế độ gỡ lỗi</string>
-    <string name="title_advanced_query_threads">Giới hạn truy cập cơ sở dữ liệu song song</string>
     <string name="title_advanced_manual_hint">Nếu việc nhận thư bị tắt thì vẫn có thể nhận thư thủ công bằng cách kéo danh sách thư xuống</string>
     <string name="title_advanced_poll_hint">Việc kiểm tra thư mới định kỳ sẽ so sánh thư cục bộ và thư trên mạng mỗi lần kiểm tra, nó là một hoạt động tốn kém có thể dẫn đến sử dụng thêm pin, đặc biệt là nếu có nhiều thư. Luôn nhận sẽ ngăn chặn điều này bằng cách liên tục theo dõi các thay đổi.</string>
     <string name="title_advanced_optimize_hint">Điều này có thể thay đổi tần số đồng bộ hoá để tiết kiệm pin tuỳ thuộc vào khả năng và hành vi của các máy chủ email</string>
@@ -599,7 +604,6 @@
     <string name="title_advanced_move_hint">Thư mục mục tiêu có thể được thiết lập trong cài đặt tài khoản</string>
     <string name="title_advanced_notify_no_grouping">Phiên bản Android này không hỗ trợ gộp nhóm thông báo</string>
     <string name="title_advanced_notify_no_channels">Phiên bản Android này không hỗ trợ kênh thông báo</string>
-    <string name="title_advanced_queries_hint">Việc bật cái này sẽ làm giảm hiệu năng, tuy nhiên cần phải bật trên một số thiết bị</string>
     <string name="title_advanced_fts_hint">Việc bật cái này cải thiện hiệu năng tìm kiếm, nhưng cũng tăng sử dụng pin và không gian bộ nhớ</string>
     <string name="title_advanced_english_hint">Cái này sẽ khởi động lại ứng dụng</string>
     <string name="title_advanced_experiments_hint">Danh sách các tính năng thử nghiệm hiện tại</string>
@@ -1094,6 +1098,7 @@
     <string name="title_signature_sender">Địa chỉ người gửi</string>
     <string name="title_signature_email">Địa chỉ chữ ký</string>
     <string name="title_signature_mismatch">Địa chỉ email của người gửi và của chữ ký không khớp</string>
+    <string name="title_signature_algorithm">Thuật toán</string>
     <string name="title_signature_subject">Chủ đề</string>
     <string name="title_signature_validity">Tính hợp lệ</string>
     <string name="title_signature_outdated">Mã khoá công khai này hiện tại không hợp lệ</string>
@@ -1375,6 +1380,7 @@
     <string name="title_hint_reformat">Theo mặc định, FairEmail định dạng lại các thư vì lý do riêng tư và bảo mật. Để xem thư gốc, hãy nhấn biểu tượng \'toàn màn hình\' trên văn bản thư.</string>
     <string name="title_hint_design">Thiết kế này có chủ ý không gây xao lãng, nhưng vẫn rất hữu dụng. Có nhiều tuỳ chọn để tuỳ biến ngoại hình, nhưng hãy hiểu rằng không thể nào làm cho mọi người hoàn toàn vui cùng lúc.</string>
     <string name="title_hint_junk">Việc lọc thư rác nên được làm bởi máy chủ email và không thể làm một cách đáng tin cậy trên một thiết bị chạy bằng pin có khả năng giới hạn.</string>
+    <string name="title_hint_junk_learn">Bằng cách di chuyển thư đến và từ thư mục thư rác, máy chủ email sẽ \"học\" được thư rác là gì</string>
     <string name="title_hint_contact_actions">Nhấn giữ để xem các tuỳ chọn</string>
     <string name="title_hint_eml">Đây là tóm tắt của nội dung của một tập tin thư thô. Lưu thư thô bằng biểu tượng lưu trong thanh hành động để xem tất cả nội dung.</string>
     <string name="title_open_link">Mở liên kết</string>

@@ -540,7 +540,6 @@
     <string name="title_advanced_protocol">Protokol jurnalı</string>
     <string name="title_advanced_log_info">Sazlama jurnalı</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
-    <string name="title_advanced_query_threads">Paralel verilənlər bazasına müraciəti məhdudlaşdır</string>
     <string name="title_advanced_manual_hint">Əgər mesaj qəbulu sıradan çıxarılsa, mesaj siyahısını aşağı çəkərək mesaj qəbulunu manual şəkildə təmin edə bilərsiniz</string>
     <string name="title_advanced_poll_hint">Yeni mesajların vaxtaşırı yoxlanılması, hər dəfəsində yerli və uzaq mesajları müqayisə edəcək; bu, xüsusilə də həddən çox mesaj olanda əlavə batareya istifadəsinə səbəb olacaq bahalı bir əməliyyatdır. \"Həmişə al\", dəyişiklikləri davamlı izləyərək bunun qarşısını alacaq.</string>
     <string name="title_advanced_optimize_hint">Bu, e-poçt serverlərinin imkan və davranışlarından asılı olaraq batareya istifadəsinə qənaət etmək üçün eyniləşdirmə tezliyini dəyişdirə bilər</string>
@@ -614,7 +613,6 @@
     <string name="title_advanced_move_hint">Hədəf qovluq, hesab tənzimləmələrində konfiqurasiya edilə bilər</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyası bildiriş qruplaşdırmasını dəstəkləmir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyası bildiriş kanallarını dəstəkləmir</string>
-    <string name="title_advanced_queries_hint">Bunu fəallaşdırmaq, performansı aşağı salır, ancaq bəzi cihazlarda fəallaşdırmaq tələb olunur</string>
     <string name="title_advanced_fts_hint">Bunu fəallaşdırmaq, axtarış performansını yaxşılaşdırır, ancaq batareya və anbar sahəsinin istifadəsini də artırır</string>
     <string name="title_advanced_english_hint">Bu, tətbiqi yenidən başladacaq</string>
     <string name="title_advanced_experiments_hint">Təcrübi xüsusiyyətlərin siyahısı</string>

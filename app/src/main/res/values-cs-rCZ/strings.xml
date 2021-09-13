@@ -550,7 +550,6 @@
     <string name="title_advanced_protocol">Protokolovat protokoly</string>
     <string name="title_advanced_log_info">Protokolování při ladění</string>
     <string name="title_advanced_debug">Režim ladění</string>
-    <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_manual_hint">Je-li příjem zpráv zakázán, stále je možno zprávy přijímat ručně tažením dolů v seznamu zpráv</string>
     <string name="title_advanced_poll_hint">Pravidelná kontrola nových zpráv pokaždé porovnává místní a vzdálené zprávy, což je zdlouhavá operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv. Neustálý příjem tomuto předchází průběžným sledováním změn.</string>
     <string name="title_advanced_optimize_hint">Může změnit synchronizační interval pro úsporu spotřeby baterie, v závislosti na možnostech a chování e-mailových serverů</string>
@@ -620,7 +619,6 @@
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
-    <string name="title_advanced_queries_hint">Povolením se sníží výkonnost, avšak na některých zařízeních je povolení nezbytné</string>
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>

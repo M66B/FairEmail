@@ -458,7 +458,6 @@
     <string name="title_advanced_protocol">Aktifitas Protokol</string>
     <string name="title_advanced_log_info">Pencatatan debug</string>
     <string name="title_advanced_debug">Mode debug</string>
-    <string name="title_advanced_query_threads">Batasi akses database paralel</string>
     <string name="title_advanced_manual_hint">Bila penerimaan pesan dinonaktifkan, masih mungkin untuk menerima pesan secara manual dengan cara menarik daftar pesan</string>
     <string name="title_advanced_poll_hint">Secara berkala memeriksa pesan baru yang akan membandingkan pesan lokal dan server setiap saat, operasi ini bisa memakai penggunaan baterai secara ekstra, terutama jika ada banyak pesan. Selalu menerima akan mencegah hal ini dengan terus mengikuti perubahan.</string>
     <string name="title_advanced_optimize_hint">Ini mungkin mengubah frekuensi sinkronisasi untuk menghemat penggunaan baterai tergantung pada kemampuan dan perilaku server email</string>
@@ -527,7 +526,6 @@
     <string name="title_advanced_move_hint">Folder target dapat dikonfigurasi dalam pengaturan akun</string>
     <string name="title_advanced_notify_no_grouping">Versi Android ini tidak mendukung pengelompokan notifikasi</string>
     <string name="title_advanced_notify_no_channels">Versi Android ini tidak mendukung notifikasi channel</string>
-    <string name="title_advanced_queries_hint">Mengaktifkan hal ini akan menurunkan performa. Namun, pengaktifan diwajibkan untuk beberapa perangkat</string>
     <string name="title_advanced_fts_hint">Mengaktifkan hal ini akan meningkatkan performa pencarian, namun juga menurunkan penggunaan baterai dan ruang penyimpanan</string>
     <string name="title_advanced_english_hint">Hal ini akan mengulang aplikasi kembali</string>
     <string name="title_advanced_experiments_hint">Daftar fitur eksperimental yang sedang berjalan</string>

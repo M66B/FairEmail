@@ -140,6 +140,7 @@
     <string name="title_setup_intro">Założenie konta to tylko trzy kroki, po których możesz wysyłać i odbierać wiadomości e-mail</string>
     <string name="title_setup_simple">Nie ma potrzeby zmiany innych opcji</string>
     <string name="title_setup_issue">FairEmail został stworzony po to, aby chronić Twoją prywatność, i reprezentuje dosłownie tysiące godzin pracy. Jeśli masz jakieś problemy, najpierw skontaktuj się ze mną, zanim zostawisz złą recenzję. Chętnie pomogę!</string>
+    <string name="title_setup_analytics">FairEmail nie wyświetla reklam, nie śledzi ani nie analizuje Twojego zachowania. Bugsnag jest używany do raportowania błędów i jest domyślnie wyłączony.</string>
     <string name="title_setup_quick_accounts">Dodaj lub zmień konta</string>
     <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
@@ -343,6 +344,7 @@
     <string name="title_advanced_download_headers">Pobierz wszystkie nagłówki wiadomości</string>
     <string name="title_advanced_download_eml">Pobierz nieprzetworzone pliki wiadomości</string>
     <string name="title_advanced_validated">Wymagaj zweryfikowanego (sprawdzonego) połączenia</string>
+    <string name="title_advanced_vpn_only">Połącz tylko przez VPN</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
@@ -560,7 +562,6 @@
     <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
     <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
     <string name="title_advanced_debug">Debuguj</string>
-    <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_manual_hint">Gdy synchronizacja jest wyłączona, nadal można odbierać wiadomości ręcznie, przeciągając listę wiadomości</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_optimize_hint">Może to zmienić częstotliwość synchronizacji, aby zaoszczędzić zużycie baterii w zależności od możliwości i zachowania serwerów e-mail</string>
@@ -634,7 +635,6 @@
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
-    <string name="title_advanced_queries_hint">Włączenie tej opcji obniży wydajność, jednakże jej włączenie jest wymagane na niektórych urządzeniach</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">To uruchomi aplikację ponownie</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
@@ -1411,6 +1411,7 @@
     <string name="title_hint_reformat">Domyślnie FairEmail przeformatowuje wiadomości ze względu na prywatność i bezpieczeństwo. Aby wyświetlić oryginalną wiadomość, dotknij ikonę \"pełny ekran\" nad tekstem wiadomości.</string>
     <string name="title_hint_design">Projekt celowo nie rozprasza, ale jest bardzo funkcjonalny. Istnieje wiele opcji dostosowania wyglądu, ale proszę zrozumieć, że nie da się uszczęśliwić wszystkich jednocześnie.</string>
     <string name="title_hint_junk">Filtrowanie spamu powinno być wykonywane przez serwer poczty e-mail i nie może być wykonywane niezawodnie na urządzeniu o ograniczonych możliwościach i zasilanym z baterii.</string>
+    <string name="title_hint_junk_learn">Przesyłając wiadomości do i z folderu spam, serwer e-mail \"uczy się\" czym jest spam</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>
     <string name="title_open_link">Otwórz link</string>

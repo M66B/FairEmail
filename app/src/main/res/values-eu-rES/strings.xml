@@ -354,7 +354,6 @@
     <string name="title_advanced_app">Aplikazioaren ezarpenak</string>
     <string name="title_advanced_more">Aukera gehiago</string>
     <string name="title_advanced_debug">Arazketa modua</string>
-    <string name="title_advanced_query_threads">Mugatu datu-baseak paraleloki atzitzea</string>
     <string name="title_advanced_manual_hint">Mezuak jasotzea desgaituta badago, mezuak jaso daitezke oraindik ere mezuen zerrenda behera tiratuz</string>
     <string name="title_advanced_poll_hint">Aldiro mezu berriak bilatzean tokiko eta urruneko mezuak konparatuko ditu bakoitzean, hau eragiketa garestia da eta bateria kontsumituko du, bereziki mezu asko badaude. Beti jasok hau ekiditen du aldaketak etengabe jarraituz.</string>
     <string name="title_advanced_schedule_hint">Sakatu orduren batean ordua ezartzeko</string>

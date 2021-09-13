@@ -110,6 +110,7 @@
     <string name="title_setup_intro">アカウントの設定はたったの3ステップだけで、その後はメールの送受信ができます。</string>
     <string name="title_setup_simple">他のオプションを変更する必要はありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間の仕事を要しています。 何か問題がある場合は悪いレビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
+    <string name="title_setup_analytics">FairEmailは広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnagはエラーレポートに使用され、デフォルトでは無効になっています。</string>
     <string name="title_setup_quick_accounts">アカウントの追加または変更</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
@@ -313,6 +314,7 @@
     <string name="title_advanced_download_headers">すべてのメッセージヘッダーをダウンロード</string>
     <string name="title_advanced_download_eml">メッセージの生データファイルをダウンロード</string>
     <string name="title_advanced_validated">検証済み(チェック済み)接続が必要です</string>
+    <string name="title_advanced_vpn_only">VPN経由でのみ接続</string>
     <string name="title_advanced_timeout">接続タイムアウト(秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6よりIPv4を優先する</string>
     <string name="title_advanced_ssl_harden">SSL接続を有効</string>
@@ -493,6 +495,10 @@
     <string name="title_advanced_autocrypt">自動暗号化を使用</string>
     <string name="title_advanced_autocrypt_mutual">相互暗号化モード</string>
     <string name="title_advanced_encrypt_subject">件名を暗号化する</string>
+    <string name="title_advanced_sign_algo">署名アルゴリズム</string>
+    <string name="title_advanced_encrypt_algo">暗号化アルゴリズム</string>
+    <string name="title_advanced_remark_algo">        すべての電子メールクライアントがすべてのアルゴリズムをサポートしているわけではないことに注意してください。
+        デフォルトのアルゴリズム SHA256 と AES128 は一般的にサポートされています。</string>
     <string name="title_advanced_check_certificate">送信時に公開鍵を確認する</string>
     <string name="title_advanced_manage_certificates">公開鍵の管理</string>
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
@@ -524,7 +530,6 @@
     <string name="title_advanced_protocol">プロトコルログの収集</string>
     <string name="title_advanced_log_info">デバッグログ</string>
     <string name="title_advanced_debug">デバッグモード</string>
-    <string name="title_advanced_query_threads">並列データベースアクセスを制限</string>
     <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます。</string>
     <string name="title_advanced_poll_hint">新しいメッセージを定期的にチェックすると、ローカルメッセージとリモートメッセージが毎回比較されます。これはコストのかかる操作であり、特にメッセージが多い場合は、バッテリーの使用量が増える可能性があります。 常に受信することで、変更を継続的に追跡してこれを防ぎます。</string>
     <string name="title_advanced_optimize_hint">これは、バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
@@ -598,7 +603,6 @@
     <string name="title_advanced_move_hint">ターゲットフォルダはアカウント設定で設定できます</string>
     <string name="title_advanced_notify_no_grouping">このAndroidバージョンは通知のグループ化をサポートしていません</string>
     <string name="title_advanced_notify_no_channels">このAndroidバージョンは通知チャネルをサポートしていません</string>
-    <string name="title_advanced_queries_hint">これを有効にするとパフォーマンスが低下しますが、一部のデバイスで有効にする必要があります</string>
     <string name="title_advanced_fts_hint">有効にすると検索パフォーマンスが向上しますが、バッテリーとストレージ使用量も増加します</string>
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
     <string name="title_advanced_experiments_hint">現在の実験的な機能のリスト</string>
@@ -1093,6 +1097,7 @@
     <string name="title_signature_sender">差出人のメールアドレス</string>
     <string name="title_signature_email">署名のアドレス</string>
     <string name="title_signature_mismatch">送信者のメールアドレスと署名が一致しません</string>
+    <string name="title_signature_algorithm">アルゴリズム</string>
     <string name="title_signature_subject">件名</string>
     <string name="title_signature_validity">署名有効</string>
     <string name="title_signature_outdated">この公開鍵は現在無効です</string>
@@ -1374,6 +1379,7 @@
     <string name="title_hint_reformat">デフォルトではFairEmailはプライバシーとセキュリティ上の理由からメッセージを再フォーマットします。 元のメッセージを表示するにはメッセージテキストの上にある[全画面]アイコンをタップします</string>
     <string name="title_hint_design">デザインは意図的に紛らわしくしている訳ではありませんが、豊富な機能があります。 見た目をカスタマイズするオプションはたくさんありますが、皆さん全てを満足させることは不可能ですので、ご了承ください。</string>
     <string name="title_hint_junk">スパムフィルタリングはメールサーバーで実行する必要があり、機能が制限されているバッテリー駆動のデバイスでは確実に実行できません。</string>
+    <string name="title_hint_junk_learn">迷惑メールフォルダとの間でメッセージを移動することで、メールサーバーはスパムとは何かを学びます。</string>
     <string name="title_hint_contact_actions">長押しでオプションへ</string>
     <string name="title_hint_eml">これは素のメッセージファイルの内容の要約です。全てのコンテンツを表示するにはアクションバーの保存アイコンで素のメッセージを保存します</string>
     <string name="title_open_link">リンクを開く</string>

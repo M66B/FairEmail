@@ -1,47 +1,47 @@
 <a name="top"></a>
 
-# FairEmail support
+# FairEmail podrška
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Ukoliko imate pitanje, molimo da prvo provjerite sljedeća često postavljana pitanja. [Na dnu](#user-content-get-support), možete saznati kako postaviti drugo pitanje, zatražiti mogućnosti i prijaviti greške.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
-## Index
+## Indeks
 
-* [Authorizing accounts](#user-content-authorizing-accounts)
-* [How to ...?](#user-content-howto)
-* [Known problems](#user-content-known-problems)
-* [Planned features](#user-content-planned-features)
-* [Frequently requested features](#user-content-frequently-requested-features)
-* [Frequently Asked Questions](#user-content-frequently-asked-questions)
-* [Get support](#user-content-get-support)
+* [Autorizacija računa](#user-content-authorizing-accounts)
+* [Kako da...?](#user-content-howto)
+* [Poznati problemi](#user-content-known-problems)
+* [Planirane mogućnosti](#user-content-planned-features)
+* [Često zahtjevane mogućnosti](#user-content-frequently-requested-features)
+* [Često postavljena pitanja](#user-content-frequently-asked-questions)
+* [Dobijte podršku](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
+<h2><a name="authorizing-accounts"></a>Autorizacija računa</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+U većini slučajeva, čarobnjak za brzo postavljanje će automatski identifikovati ispravna podešavanja.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Ukoliko čarobnjak za brzu postavku ne radi, trebat ćete ručno podesiti račun (za prijem e-pošte) i identitet (za slanje e-pošte). Za ovo Vam trebaju adrese IMAP i SMTP servera, brojevi portova, koja od mogućnosti SSL/TLS ili STARTTLS bi se trebala koristiti te Vaše korisničko ime (uglavnom, ali ne uvijek, Vaša e-mail adresa) i lozinka.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Traženje *IMAP*-a i naziva provajdera je najčešće dovoljno za pronalazak ispravne dokumentacije.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+U nekim slučajevima, trebat ćete uključiti vanjski pristup Vašem računu i/ili korištenje specijalne (aplikacijske) lozinke, npr. kada je uključena dvofaktorska provjera.
 
-For authorizing:
+Za autorizaciju:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail-a / G suite-a, pogledajte  [pitanje 6](#user-content-faq6)
+* Outlook-a / Live-a / Hotmail-a, pogledajte  [pitanje 14](#user-content-faq14)
+* Office-a 365, pogledajte [pitanje 14](#user-content-faq156)
+* Microsoft Exchange-a, pogledajte [pitanje 8](#user-content-faq8)
+* Yahoo-a, AOL-a i Sky-a, pogledajte [pitanje 88](#user-content-faq88)
+* Apple iCloud-a, pogledajte [pitanje 148](#user-content-faq148)
+* Free.fr-a, pogledajte [pitanje 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Molimo da pogledate [ovdje](#user-content-faq22) za uobičajene poruke o greškama i rješenja za iste.
 
-Related questions:
+Povezana pitanja:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Da li je OAuth podržan?](#user-content-faq111)
+* [Zašto ActiveSync nije podržan?](#user-content-faq133)
 
 <a name="howto">
 

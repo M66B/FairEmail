@@ -460,7 +460,6 @@
     <string name="title_advanced_protocol">Protokol naplózás</string>
     <string name="title_advanced_log_info">Hibakeresési naplózás</string>
     <string name="title_advanced_debug">Hibakeresési mód</string>
-    <string name="title_advanced_query_threads">Párhuzamos adatbázis hozzáférés korlátozása</string>
     <string name="title_advanced_manual_hint">Amennyiben az üzenetek folyamatos fogadása ki van kapcsolva, az üzenetlista a lehúzásávan manuálisan még mindíg frissíthető</string>
     <string name="title_advanced_poll_hint">A periodikus szinkronizálás minden egyes alkalommal összehasonlítja a helyileg tárolt üzeneteket a távoliakkal. Ez erőforrásigényes folyamat amely fokozott akkumulátorhasználathoz vezethet. A folyamatos szinkronizálás kiküszöböli ezt, mivel csak a változásokat figyeli és alkalmazza.</string>
     <string name="title_advanced_optimize_hint">A szinkronizálás sűrűségének az E-Mail kiszolgáló képességeihez való igazítása, az akumlátorhasználat csökkentse érdekében</string>
@@ -524,7 +523,6 @@
     <string name="title_advanced_move_hint">A célmappa szerkeszthető a fiók beállításai között</string>
     <string name="title_advanced_notify_no_grouping">Ez az Android verzió nem támogatja az értesítések csoportosítását</string>
     <string name="title_advanced_notify_no_channels">Ez az Android verzió nem támogatja az értesítés csatornákat</string>
-    <string name="title_advanced_queries_hint">Ennek az engedélyezésével romlik a teljesítmény, azonban néhány eszközön szükséges bekapcsolni</string>
     <string name="title_advanced_fts_hint">Bekapcsolása javítja a keresés sebességét, a tárhely- és akkumulátorhasználat kárára</string>
     <string name="title_advanced_english_hint">Ez újraindítja az alkalmazást</string>
     <string name="title_advanced_experiments_hint">A jelenlegi kísérleti funkciók listája</string>

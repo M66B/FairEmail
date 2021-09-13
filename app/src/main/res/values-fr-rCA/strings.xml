@@ -121,6 +121,7 @@
     <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des courriels</string>
     <string name="title_setup_simple">Il n\'est pas nécessaire de modifier d\'autres options</string>
     <string name="title_setup_issue">FairEmail a été développé pour vous aider à protéger votre vie privée et représente littéralement des milliers d\'heures de travail. Si vous avez des problèmes, veuillez me contacter d\'abord pour obtenir de l\'aide avant de laisser une mauvaise évaluation. Je suis heureux de vous aider !</string>
+    <string name="title_setup_analytics">FairEmail n\'affiche pas de publicités et ne piste pas ou n\'analyse pas votre comportement. Bugsnag est utilisé pour les rapports d\'erreurs et est désactivé par défaut.</string>
     <string name="title_setup_quick_accounts">Ajouter ou modifier des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -196,8 +197,8 @@
     <string name="title_setup_close">Fermer les paramètres</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
-    <string name="title_setup_export_remark">        Comme le fichier de paramètres contient tous les réglages et les informations des comptes, il est chiffré avec un mot de passe.
-        Le mot de passe est requis pour importer les paramètres à nouveau donc s\'il vous plaît, ne l\'oubliez pas !
+    <string name="title_setup_export_remark">        Étant donné que le fichier de paramètres contient tous les réglages et informations des comptes, il est chiffré avec un mot de passe.
+        Le mot de passe est requis pour importer à nouveau les paramètres, donc s\'il vous plaît, ne l\'oubliez pas !
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
@@ -280,7 +281,7 @@
     <string name="title_advanced_check_reply_domain">Vérifier l\'adresse de réponse lors de la synchronisation des messages</string>
     <string name="title_advanced_check_mx">Vérifier l’adresse courriel de l’expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_check_blocklist">Vérifier si le nom de domaine de l\'expéditeur est sur une liste de blocage de courrier indésirable</string>
-    <string name="title_advanced_use_blocklist">Déplacer des messages depuis des domaines d\'une liste de blocage vers le dossier des indésirables</string>
+    <string name="title_advanced_use_blocklist">Déplacer les messages dont le domaine est présent dans une liste de blocage vers le dossier des indésirables</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
@@ -436,7 +437,7 @@
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d’une conversation</string>
-    <string name="title_advanced_autoclose_unread">Fermer les conversations en marquant les messages comme non lus</string>
+    <string name="title_advanced_autoclose_unread">Fermer les conversations lors du marquage des messages comme non lus</string>
     <string name="title_advanced_undo">Délai d’expiration de l’annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
@@ -542,7 +543,6 @@
     <string name="title_advanced_protocol">Journalisation du protocole</string>
     <string name="title_advanced_log_info">Journal de débogage</string>
     <string name="title_advanced_debug">Débogage</string>
-    <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la pile en fonction des capacités et du comportement des serveurs de courriel</string>
@@ -616,7 +616,6 @@
     <string name="title_advanced_move_hint">Le dossier cible peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d’Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
-    <string name="title_advanced_queries_hint">Activer ceci réduira les performances, cependant l\'activation est nécessaire sur certains appareils</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l’utilisation de la pile et de l’espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -708,7 +707,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier pourriel sélectionné pour ce compte</string>
-    <string name="title_default_composable">L\'adresse courriel par défaut est déterminée par l\'identité principale du compte principal</string>
+    <string name="title_default_composable">L\'adresse courriel par défaut est déterminée à partir de l\'identité principale du compte principal</string>
     <string name="title_no_composable">L\'envoi de courriels nécessite la configuration d\'une identité et la sélection d\'un dossier Brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception de nouveaux messages et augmentera l’utilisation de la pile.</string>
@@ -1393,6 +1392,7 @@
     <string name="title_hint_reformat">Par défaut, FairEmail reformate les messages pour des raisons de confidentialité et de sécurité. Appuyez sur l’icône « plein écran » au-dessus du texte du message pour afficher le message original.</string>
     <string name="title_hint_design">La conception est intentionnellement peu agrémentée mais elle reste très fonctionnelle. Il y a beaucoup d\'options pour personnaliser l\'apparence mais s\'il vous plaît, comprenez qu\'il est impossible de satisfaire pleinement tout le monde en même temps.</string>
     <string name="title_hint_junk">Le filtrage du pourriel devrait être fait par le serveur de messagerie et ne peut pas être fait de manière fiable sur un appareil ayant des capacités limitées et alimenté par une pile.</string>
+    <string name="title_hint_junk_learn">En déplaçant les messages vers et depuis le dossier des indésirables, le serveur de messagerie \"apprend\" ce qu\'est le courrier indésirable</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_hint_eml">Ceci est l’aperçu d’un fichier contenant un message original. Enregistrez le message original au moyen de l’icône de sauvegarde dans la barre d’action pour afficher tout son contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>

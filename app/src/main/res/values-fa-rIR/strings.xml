@@ -335,7 +335,6 @@
     <string name="title_advanced_app">تنظیمات برنامه</string>
     <string name="title_advanced_more">گزینه‌های بیشتر</string>
     <string name="title_advanced_debug">حالت عیب‌یابی</string>
-    <string name="title_advanced_query_threads">دسترسی موازی پایگاه‌داده را محدود کن</string>
     <string name="title_advanced_schedule_hint">برای تنظیم زمان روی زمان ضربه بزنید</string>
     <string name="title_advanced_lookup_mx_hint">این بررسی خواهد کرد که آیا سابقه DNS MX وجود دارد</string>
     <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>

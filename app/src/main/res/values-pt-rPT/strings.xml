@@ -456,7 +456,6 @@
     <string name="title_advanced_app">Definições da aplicação</string>
     <string name="title_advanced_more">Mais opções</string>
     <string name="title_advanced_debug">Modo de Depuração</string>
-    <string name="title_advanced_query_threads">Limitar acesso paralelo à base de dados</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>

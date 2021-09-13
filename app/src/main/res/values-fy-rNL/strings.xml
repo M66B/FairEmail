@@ -475,7 +475,6 @@
     <string name="title_advanced_protocol">Protokol oanmeld</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Debug mode</string>
-    <string name="title_advanced_query_threads">Beheine tagong ta parallel databank</string>
     <string name="title_advanced_manual_hint">As it ûntfangen fan berjochten is útskeakele, is it noch altyd mooglik om berjochten mei de hân te ûntfangen troch de berjochtenlist nei ûnderen te lûken</string>
     <string name="title_advanced_poll_hint">Periodyk kontrolearje op nije berjochten sil elke kear lokale en eksterne berjochten fergelykje, wat in djoere operaasje is dy\'t kin resultearje yn ekstra batterijgebrûk, fral as d\'r in soad berjochten binne. Altyd ûntfange sil dit foarkomme troch wizigingen kontinu te folgjen.</string>
     <string name="title_advanced_optimize_hint">Hjirtroch kin de syngronisaasjefrekwinsje feroarje om batterijgebrûk te sparjen, ôfhinklik fan \'e mooglikheden en gedrach fan \'e emailservers</string>
@@ -543,7 +542,6 @@
     <string name="title_advanced_move_hint">De doelmap kin wurde ynsteld yn \'e akkountynstellingen</string>
     <string name="title_advanced_notify_no_grouping">Dizze Android-ferzje stipet gjin groepearring notifikaasjes</string>
     <string name="title_advanced_notify_no_channels">Dizze Android-ferzje stipet gjin meldingskanalen</string>
-    <string name="title_advanced_queries_hint">As jo dit ynskeakelje, sille de prestaasjes ferminderje, lykwols is ynskeakeljen ferplicht op guon apparaten</string>
     <string name="title_advanced_fts_hint">As jo dit ynskeakelje, ferbettert it sykjen fan prestaasjes, mar fergruttet ek it gebrûk fan batterij en opslachromte</string>
     <string name="title_advanced_english_hint">Dit sil de app opnij starte</string>
     <string name="title_advanced_experiments_hint">List fan aktuele eksperimintele funksjes</string>

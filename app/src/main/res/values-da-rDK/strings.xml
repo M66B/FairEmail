@@ -321,6 +321,7 @@
     <string name="title_advanced_download_headers">Download alle brevoverskrifter</string>
     <string name="title_advanced_download_eml">Download råformat beskedfiler</string>
     <string name="title_advanced_validated">Kræv en valideret (kontrolleret) forbindelse</string>
+    <string name="title_advanced_vpn_only">Tilslut kun vha. VPN</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Foretræk IPv4 frem for IPv6</string>
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
@@ -536,7 +537,6 @@
     <string name="title_advanced_protocol">Protokollogning</string>
     <string name="title_advanced_log_info">Fejllogning</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
-    <string name="title_advanced_query_threads">Begræns parallel databaseadgang</string>
     <string name="title_advanced_manual_hint">Er beskedmodtagelse er deaktiveret, er det stadig muligt at modtage beskeder ved at trække beskedlisten ned</string>
     <string name="title_advanced_poll_hint">Periodisk tjek for nye beskeder sammenligner lokal- og fjernbeskeder hver gang, hvilket er en kostbar handling, der kan resultere i ekstra batteriforbrug, især hvis der er mange beskeder. Modtag altid vilforhindre dette ved løbende at følge ændringer.</string>
     <string name="title_advanced_optimize_hint">Dette kan ændre synkfrekvensen for at spare strøm afhængigt af e-mailserverens funktioner og adfærd</string>
@@ -608,7 +608,6 @@
     <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
-    <string name="title_advanced_queries_hint">Aktivering af dette vil reducere ydelsen, men aktivering kræves på visse enheder</string>
     <string name="title_advanced_fts_hint">Aktivering af dette forøger søgeydelsen, men forøge også batteri- og lagerpladsforbruget</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
@@ -1383,6 +1382,7 @@
     <string name="title_hint_reformat">Af fortrolighedshensyn og sikkerhedsårsager omformaterer FairEmail som standard beskeder. For at se den originale besked, tryk på ikonet \"fuldskærm\" over beskedteksten.</string>
     <string name="title_hint_design">Designet er bevidst ikke-distraherende, men holdt meget funktionel. Der er mange muligheder for at tilpasse udseende, men vær opmærksom på, at det er umuligt at gøre alle glade.</string>
     <string name="title_hint_junk">Spamfiltrering bør udføres på e-mailserveren, da dette ikke ske pålideligt på en batteridrevet enhed med begrænset kapacitet.</string>
+    <string name="title_hint_junk_learn">Ved at flytte beskeder til og fra spammappen, \"lærer\" e-mailserveren, hvad spam er</string>
     <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>

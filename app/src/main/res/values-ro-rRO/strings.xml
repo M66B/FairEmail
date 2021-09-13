@@ -131,6 +131,7 @@
     <string name="title_setup_intro">Configurarea unui cont are doar trei pași și după aceea puteți trimite și primi e-mailuri</string>
     <string name="title_setup_simple">Nu este nevoie să schimbați alte opțiuni</string>
     <string name="title_setup_issue">FairEmail a fost dezvoltat pentru a vă ajuta să vă protejați confidențialitatea și reprezintă literalmente mii de ore de muncă. Dacă aveți probleme, vă rog să mă contactați mai întâi pentru asistență înainte de a lăsa o recenzie proastă. Sunt bucuros să vă ajut!</string>
+    <string name="title_setup_analytics">FairEmail nu afișează reclame și nu urmărește sau analizează comportamentul dumneavoastră. Bugsnag este utilizat pentru raportarea erorilor și este dezactivat în mod implicit.</string>
     <string name="title_setup_quick_accounts">Adăugați sau modificați conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
@@ -552,7 +553,6 @@
     <string name="title_advanced_protocol">Jurnalizare protocol</string>
     <string name="title_advanced_log_info">Jurnal depanare</string>
     <string name="title_advanced_debug">Depanare</string>
-    <string name="title_advanced_query_threads">Limitează accesul paralel la baza de date</string>
     <string name="title_advanced_manual_hint">Dacă primirea mesajelor este dezactivată, încă este posibilă primirea manuală a mesajelor glisând în jos lista de mesaje</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje. Modul de sincronizare permanent evită aceasta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_optimize_hint">Acest lucru ar putea schimba frecvența de sincronizare pentru a economisi consumul bateriei în funcție de capacitățile și comportamentul serverelor de e-mail</string>
@@ -626,7 +626,6 @@
     <string name="title_advanced_move_hint">Dosarul țintă poate fi configurat în setările contului</string>
     <string name="title_advanced_notify_no_grouping">Această versiune de Android nu suportă gruparea notificărilor</string>
     <string name="title_advanced_notify_no_channels">Această versiune de Android nu suportă canale de notificare</string>
-    <string name="title_advanced_queries_hint">Activarea acesteia va scădea performanța, dar activarea este necesară pe unele dispozitive</string>
     <string name="title_advanced_fts_hint">Activată îmbunătățește performanța de căutare, dar de asemenea crește folosirea bateriei și a spațiului de stocare</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
@@ -1403,6 +1402,7 @@
     <string name="title_hint_reformat">În mod implicit, FairEmail reformatează mesajele din motive de confidenţialitate şi securitate. Pentru a vizualiza mesajul original, apăsaţi pictograma \"ecran complet\" deasupra textului mesajului.</string>
     <string name="title_hint_design">Designul este intenționat ca să nu distragă, ci este păstrat foarte funcțional. Există multe opțiuni pentru a personaliza aspectul, dar vă rugăm să înțelegeți că este imposibil să facem pe toată lumea fericită în același timp.</string>
     <string name="title_hint_junk">Filtrarea spam-ului ar trebui să fie efectuată de către serverul de e-mail și nu poate fi efectuată în mod fiabil pe un dispozitiv alimentat cu baterie și cu capacități limitate.</string>
+    <string name="title_hint_junk_learn">Prin mutarea mesajelor în și din folderul de spam, serverul de e-mail \"învață\" ce este un spam</string>
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_eml">Acesta este sumarul conținutului unui fișier cu mesajul original. Salvați mesajul original folosind iconița de salvare din bara de acțiuni pentru a putea vizualiza tot conținutul.</string>
     <string name="title_open_link">Deschide legătura</string>

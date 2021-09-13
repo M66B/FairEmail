@@ -122,6 +122,7 @@
     <string name="title_setup_intro">Die Einrichtung eines Kontos ist mit nur drei Schritten erledigt und danach können Sie bereits E-Mails senden und empfangen</string>
     <string name="title_setup_simple">Es ist nicht notwendig, andere Optionen zu ändern</string>
     <string name="title_setup_issue">FairEmail wurde entwickelt, um Ihnen zu helfen, Ihre Privatsphäre zu schützen, und erforderte buchstäblich Tausende von Arbeitsstunden. Wenn Sie irgendwelche Probleme haben, kontaktieren Sie mich bitte zuerst für Unterstützung, bevor Sie eine schlechte Bewertung abgeben. Ich freue mich Ihnen zu helfen!</string>
+    <string name="title_setup_analytics">FairEmail zeigt keine Werbung an und verfolgt oder analysiert Ihr Verhalten nicht. „Bugsnag” wird für Fehlerberichte verwendet und ist standardmäßig deaktiviert.</string>
     <string name="title_setup_quick_accounts">Konten hinzufügen oder ändern</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
@@ -326,6 +327,7 @@
     <string name="title_advanced_download_headers">Alle Kopfzeilen der Nachricht herunterladen</string>
     <string name="title_advanced_download_eml">Rohnachrichtendateien herunterladen</string>
     <string name="title_advanced_validated">Erfordert eine validierte (geprüfte) Verbindung</string>
+    <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
@@ -543,7 +545,6 @@
     <string name="title_advanced_protocol">Protokollaufzeichnung</string>
     <string name="title_advanced_log_info">Fehlerprotokollierung</string>
     <string name="title_advanced_debug">Fehlersuchmodus</string>
-    <string name="title_advanced_query_threads">Parallelen Datenbankzugriff beschränken</string>
     <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste nach unten ziehen</string>
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
     <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers.</string>
@@ -617,7 +618,6 @@
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine Benachrichtigungsgruppierung</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
-    <string name="title_advanced_queries_hint">Das Aktivieren dieser Option wird die Leistung verringern, jedoch ist die Aktivierung auf einigen Geräten erforderlich</string>
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>

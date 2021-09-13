@@ -413,7 +413,6 @@
     <string name="title_advanced_more">Flere valg</string>
     <string name="title_advanced_protocol">Loggprotokoll</string>
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
-    <string name="title_advanced_query_threads">Begrens parallell databasetilgang</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, kan du fremdeles oppdatere listen ved å sveipe ned fra toppen</string>
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en dyr operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger som skal synkroniseres. Alltid synkronisering vil unngå dette ved kontinuerlig sjekking for endringer.</string>
     <string name="title_advanced_optimize_hint">Dette kan forandre synkroniseringsfrekvensen for å spare batteribruk, avhengig av e-posttjenernes muligheter og oppførsel</string>
@@ -471,7 +470,6 @@
     <string name="title_advanced_move_hint">Målmappen kan konfigureres i kontoinnstillingene</string>
     <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android versjonen støtter ikke varslingskanaler</string>
-    <string name="title_advanced_queries_hint">Aktivering av dette vil redusere ytelsen, men aktivering er nødvendig på noen enheter</string>
     <string name="title_advanced_fts_hint">Aktivering av dette vil øke søke ytelsen, men også øke batteri bruken og bruke mer lagringsplass</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funksjoner</string>

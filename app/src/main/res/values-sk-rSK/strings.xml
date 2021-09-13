@@ -543,7 +543,6 @@
     <string name="title_advanced_protocol">Záznam na úrovni protokolu</string>
     <string name="title_advanced_log_info">Zaznamenávanie ladiacich informácií</string>
     <string name="title_advanced_debug">Ladiaci režim</string>
-    <string name="title_advanced_query_threads">Obmedziť viacnásobný prístup k databáze</string>
     <string name="title_advanced_manual_hint">Ak je prijímanie správ zakázané, správy je možné prijať ručne stiahnutím zoznamu správ</string>
     <string name="title_advanced_poll_hint">Pravidelné kontrolovanie nových správ každú chvíľu porovnáva správy v zariadení so správami na servery, čo je náročná operácia a dôsledkom môže byť rýchlejšie vybíjanie batérie, hlavne ak máte v doručenej pošte veľa správ. 
 Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
@@ -616,7 +615,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_move_hint">Cieľový priečinok je možné nastaviť v nastaveniach účtu</string>
     <string name="title_advanced_notify_no_grouping">Táto verzia Androidu nepodporuje zoskupovanie upozornení</string>
     <string name="title_advanced_notify_no_channels">Táto verzia Androidu nepodporuje kanály upozornení</string>
-    <string name="title_advanced_queries_hint">Zapnutie tejto funkcie zníži výkon, je však potrebné na niektorých zariadeniach</string>
     <string name="title_advanced_fts_hint">Zapnutie tejto funkcie zvýši rýchlosť vyhľadávania, no taktiež spotrebu batérie a využitie úložiska</string>
     <string name="title_advanced_english_hint">Toto reštartuje aplikáciu</string>
     <string name="title_advanced_experiments_hint">Zoznam aktuálnych experimentálnych funkcií</string>

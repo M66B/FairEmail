@@ -192,6 +192,7 @@
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
+    <string name="title_setup_permission_import_contacts">Як можна імпортувати контакти?</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання та надсилання електронної пошти</string>
     <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
@@ -343,6 +344,7 @@
     <string name="title_advanced_download_headers">Завантажити всі заголовки повідомлень</string>
     <string name="title_advanced_download_eml">Завантажити неформатовані повідомлення</string>
     <string name="title_advanced_validated">Вимагати надійне (перевірене) підключення</string>
+    <string name="title_advanced_vpn_only">Під’єднатися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування зв\'язку (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
     <string name="title_advanced_ssl_harden">Посилене SSL з\'єднання</string>
@@ -523,6 +525,11 @@
     <string name="title_advanced_autocrypt">Використовувати Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt режим mutual</string>
     <string name="title_advanced_encrypt_subject">Шифрувати тему</string>
+    <string name="title_advanced_sign_algo">Алгоритм підпису</string>
+    <string name="title_advanced_encrypt_algo">Алгоритм шифрування</string>
+    <string name="title_advanced_remark_algo">        Майте на увазі, що не всі поштові клієнти підтримують всі алгоритми.
+        Типові алгоритми SHA256 і AES128 зазвичай підтримуються.
+    </string>
     <string name="title_advanced_check_certificate">Перевіряти відкритий ключ при відправленні</string>
     <string name="title_advanced_manage_certificates">Керування публічними ключами</string>
     <string name="title_advanced_import_key">Імпортувати особистий ключ</string>
@@ -554,7 +561,6 @@
     <string name="title_advanced_protocol">Журналювання протоколів</string>
     <string name="title_advanced_log_info">Журнал налагодження</string>
     <string name="title_advanced_debug">Режим зневадження</string>
-    <string name="title_advanced_query_threads">Обмежити паралельний доступ до бази даних</string>
     <string name="title_advanced_manual_hint">Якщо отримання повідомлень вимкнено, то можливо отримувати повідомлення вручну, шляхом відтягуваня списку повідомлень донизу</string>
     <string name="title_advanced_poll_hint">Періодичнна перевірка на нові повідомлення щоразу порівнювнює локальні і віддалені повідомлення, є навантаженою операцією, що може призвести до додаткового розряджання батареї, особливо якщо є багато повідомлень. Режим \'завжди отримувати\' буде перешкоджати наступними перевіркам локального та відаленного змісту.</string>
     <string name="title_advanced_optimize_hint">Це може змінити частоту синхронізації для економії заряду акумулятора в залежності від можливостей і поведінки серверів електронної пошти</string>
@@ -628,7 +634,6 @@
     <string name="title_advanced_move_hint">Цільову теку можна налаштувати у налаштуваннях облікового запису</string>
     <string name="title_advanced_notify_no_grouping">Ця версія Android не підтримує групування сповіщень</string>
     <string name="title_advanced_notify_no_channels">Ця версія Android не підтримує канали сповіщень</string>
-    <string name="title_advanced_queries_hint">Включення цієї опції призведе до зниження продуктивності в роботі, однак, вимагається для деяких пристроїв</string>
     <string name="title_advanced_fts_hint">Увімкнення цієї функції покращує продуктивність пошуку, але також збільшує використання батареї і потребує більше місця для зберігання</string>
     <string name="title_advanced_english_hint">Буде перезапущено додаток</string>
     <string name="title_advanced_experiments_hint">Список експериментальних функцій</string>
@@ -1123,6 +1128,7 @@
     <string name="title_signature_sender">Адреса відправника</string>
     <string name="title_signature_email">Адреса підпису</string>
     <string name="title_signature_mismatch">Електронна адреса відправника і підпису не збігаються</string>
+    <string name="title_signature_algorithm">Алгоритм</string>
     <string name="title_signature_subject">Тема</string>
     <string name="title_signature_validity">Дійсний</string>
     <string name="title_signature_outdated">Цей відкритий ключ в даний час недійсний</string>
@@ -1404,6 +1410,7 @@
     <string name="title_hint_reformat">За замовчуванням FairEmail переформатує повідомлення з міркувань конфіденційності та безпеки. Для перегляду оригінального повідомлення натисніть на іконку \"Повний екран\" над текстом повідомлення.</string>
     <string name="title_hint_design">Дизайн навмисно створено так щоб не відволікав, але залишався високо функціональним. Існує багато варіантів для налаштування зовнішнього вигляду, але будь ласка, розумійте, що неможливо зробити всіх повністю задоволеними одночасно.</string>
     <string name="title_hint_junk">Фільтрування на спам потрібно робити за допомогою сервера електронної пошти і не можна надійно робити це на пристрої з обмеженими можливостями.</string>
+    <string name="title_hint_junk_learn">Переміщення повідомлення до та з теки спаму дозволяє навчити сервер електронної пошти що є спам, а що ні</string>
     <string name="title_hint_contact_actions">Довге натискання для параметрів</string>
     <string name="title_hint_eml">Це короткий виклад вмісту raw повідомлення. Збережіть raw повідомлення зі значком збереження на панелі дій для перегляду всього вмісту.</string>
     <string name="title_open_link">Відкрити посилання</string>
@@ -1482,6 +1489,7 @@
     <string name="title_pro_hint">Купівля Pro-функцій дозволить вам використовувати всі поточні та майбутні Pro-функції, і допоможе підтримувати і обслуговувати цей додаток.</string>
     <string name="title_pro_price">Чому Pro функції такі дорогі?</string>
     <string name="title_pro_family">Чи можна використовувати сімейну бібліотеку Google Play?</string>
+    <string name="title_pro_restore">Як можна відновити покупку (на іншому пристрої)?</string>
     <string name="title_pro_pending">Покупка в очікуванні</string>
     <string name="title_pro_activated">Всі Pro-функції активовано</string>
     <string name="title_pro_valid">Всі Pro-функції активовані</string>

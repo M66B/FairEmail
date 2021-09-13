@@ -538,7 +538,6 @@
     <string name="title_advanced_protocol">Loggar för protokoll</string>
     <string name="title_advanced_log_info">Debug Logging</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
-    <string name="title_advanced_query_threads">Begränsa parallell åtkomst till databas</string>
     <string name="title_advanced_manual_hint">Om mottagande av meddelanden är inaktiverat är det fortfarande möjligt att manuellt ta emot meddelanden genom att dra ner meddelandelistan</string>
     <string name="title_advanced_poll_hint">Genom att regelbundet kontrollera efter nya meddelanden kommer att jämföra lokala- och fjärrmeddelanden varje gång, detta är en drastisk åtgärd som kan leda till extra batterianvändning, särskilt om det finns många meddelanden. Genom att alltid ta emot kommer att förhindra detta genom att kontinuerligt följa förändringar.</string>
     <string name="title_advanced_optimize_hint">Detta kan ändra synkroniseringsfrekvensen för att spara på batteriet, beroende på e-postservrarnas funktioner och beteende</string>
@@ -612,7 +611,6 @@
     <string name="title_advanced_move_hint">Målmappen kan konfigureras i kontoinställningarna</string>
     <string name="title_advanced_notify_no_grouping">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
-    <string name="title_advanced_queries_hint">Aktivering av detta kommer att minska prestandan, men aktivering krävs på vissa enheter</string>
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>

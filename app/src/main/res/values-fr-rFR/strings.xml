@@ -121,6 +121,7 @@
     <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des e-mails</string>
     <string name="title_setup_simple">Il n\'est pas nécessaire de modifier d\'autres options</string>
     <string name="title_setup_issue">FairEmail a été développé pour vous aider à protéger votre vie privée et représente littéralement des milliers d\'heures de travail. Si vous avez des problèmes, veuillez me contacter d\'abord pour obtenir de l\'aide avant de laisser une mauvaise évaluation. Je suis heureux de vous aider !</string>
+    <string name="title_setup_analytics">FairEmail n\'affiche pas de publicités et ne piste pas ou n\'analyse pas votre comportement. Bugsnag est utilisé pour les rapports d\'erreurs et est désactivé par défaut.</string>
     <string name="title_setup_quick_accounts">Ajouter ou modifier des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -542,7 +543,6 @@
     <string name="title_advanced_protocol">Journalisation du protocole</string>
     <string name="title_advanced_log_info">Journal de débogage</string>
     <string name="title_advanced_debug">Débogage</string>
-    <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la batterie en fonction des capacités et du comportement des serveurs de messagerie</string>
@@ -616,7 +616,6 @@
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
-    <string name="title_advanced_queries_hint">Activer ceci réduira les performances, cependant l\'activation est nécessaire sur certains appareils</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l\'utilisation de la batterie et de l\'espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -1393,6 +1392,7 @@
     <string name="title_hint_reformat">FairEmail reformate par défaut les messages pour des raisons de confidentialité et de sécurité. Pour afficher le message original, appuyez sur l’icône « plein écran » au-dessus du texte du message.</string>
     <string name="title_hint_design">La conception est intentionnellement peu agrémentée mais elle reste très fonctionnelle. Il y a beaucoup d\'options pour personnaliser l\'apparence mais s\'il vous plaît, comprenez qu\'il est impossible de satisfaire pleinement tout le monde à la fois.</string>
     <string name="title_hint_junk">Le filtrage du courrier indésirable devrait être effectué par le serveur de messagerie et ne peut pas être réalisé de manière fiable sur un appareil alimenté par une batterie et ayant des capacités limitées.</string>
+    <string name="title_hint_junk_learn">En déplaçant les messages vers et depuis le dossier des indésirables, le serveur de messagerie \"apprend\" ce qu\'est le courrier indésirable</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_hint_eml">Ceci est l’aperçu du contenu d’un fichier de message original. Enregistrez le message original au moyen de l’icône de sauvegarde dans la barre d’action pour afficher tout son contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>

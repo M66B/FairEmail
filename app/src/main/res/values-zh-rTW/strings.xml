@@ -111,6 +111,7 @@
     <string name="title_setup_intro">僅需三步即可設置完成帳戶，完成後即可收發郵件</string>
     <string name="title_setup_simple">不需要改變任何其他選項</string>
     <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時實實在在的辛勤工作。如果您遇到了任何問題，請在留下負評之前先與我聯絡以取得支援。我很樂意幫忙！</string>
+    <string name="title_setup_analytics">FairEmail 不顯示廣告，也不會追蹤或分析您的行為。Bugsnag 用於回報錯誤，且於預設情況下處於停用狀態。</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">快速設置將會透過 autoconfig.thunderbird.net 取得配置資訊</string>
@@ -314,6 +315,7 @@
     <string name="title_advanced_download_headers">下載全部的訊息標頭</string>
     <string name="title_advanced_download_eml">下載元訊息檔</string>
     <string name="title_advanced_validated">需要經過驗證 (檢查) 的連線</string>
+    <string name="title_advanced_vpn_only">僅透過 VPN 連線</string>
     <string name="title_advanced_timeout">連線時限 (秒)</string>
     <string name="title_advanced_prefer_ip4">偏好使用 IPv4 而非 IPv6</string>
     <string name="title_advanced_ssl_harden">加固 SSL 連線</string>
@@ -530,7 +532,6 @@
     <string name="title_advanced_protocol">協定資訊記錄</string>
     <string name="title_advanced_log_info">除錯資訊記錄</string>
     <string name="title_advanced_debug">除錯模式</string>
-    <string name="title_advanced_query_threads">限制平行資料庫存取</string>
     <string name="title_advanced_manual_hint">如果停用訊息接收功能，訊息仍可透過於訊息清單中執行下拉操作手動接收</string>
     <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時時接收會通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">依據郵件伺服器的能力和行為，可能會改變同步頻率以節省電池用量</string>
@@ -604,7 +605,6 @@
     <string name="title_advanced_move_hint">目標資料夾可在帳戶設定中配置</string>
     <string name="title_advanced_notify_no_grouping">此 Android 版本不支援通知分組</string>
     <string name="title_advanced_notify_no_channels">這一 Android 版本不支援通知頻道</string>
-    <string name="title_advanced_queries_hint">啟用這一設定項會降低效能，然而一些裝置需要此項設定。</string>
     <string name="title_advanced_fts_hint">啟用此選項可改善搜尋效能，但也會增加電池和儲存空間的使用量</string>
     <string name="title_advanced_english_hint">程式將重新啟動</string>
     <string name="title_advanced_experiments_hint">當前實驗功能清單</string>
@@ -1381,6 +1381,7 @@
     <string name="title_hint_reformat">出於隱私和安全原因，FairEmail 預設重排訊息。 要檢視原始訊息，請輕觸訊息本文上方的“鋪滿螢幕”圖示。</string>
     <string name="title_hint_design">本程式介面設計並非意圖使您分心，而是意圖保持高度的實用性。 程式內有許多可供自訂外觀的選項，但請您理解，這些自訂項所提供的內容不可能令得每個人都完全滿意。</string>
     <string name="title_hint_junk">垃圾郵件篩選應由電子郵件伺服器執行完成，而在能力有限的由電池所驅動的裝置上執行，產生的結果並不可靠。</string>
+    <string name="title_hint_junk_learn">透過移動訊息進出垃圾郵件資料夾，電子郵件伺服器將會“記住”什麼是垃圾郵件</string>
     <string name="title_hint_contact_actions">長按以獲取選項</string>
     <string name="title_hint_eml">這是元訊息檔的內容摘要。 欲檢視全部內容，請先利用工具列中的保存圖示將元訊息保存。</string>
     <string name="title_open_link">開啟連結</string>

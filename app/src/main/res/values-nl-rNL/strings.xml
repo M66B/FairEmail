@@ -121,6 +121,7 @@
     <string name="title_setup_intro">Het instellen van een account is slechts drie stappen en daarna kunt u e-mails verzenden en ontvangen</string>
     <string name="title_setup_simple">Het is niet nodig om enige andere opties te wijzigen</string>
     <string name="title_setup_issue">FairEmail is ontwikkeld om u te helpen uw privacy te beschermen en vertegenwoordigt letterlijk duizenden uren werk. Als u problemen ondervindt, neem dan eerst contact met mij op voor ondersteuning voordat u een slechte beoordeling achterlaat. Ik help graag!</string>
+    <string name="title_setup_analytics">FairEmail toont geen advertenties en volgt of analyseert uw gedrag niet. Bugsnag wordt gebruikt voor foutrapportage en is standaard uitgeschakeld.</string>
     <string name="title_setup_quick_accounts">Accounts toevoegen of wijzigen</string>
     <string name="title_setup_quick_support">Sommige providers maken het moeilijk om een account toe te voegen. Geef a.u.b. FairEmail hiervoor niet de schuld, maar vraag om ondersteuning.</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
@@ -543,7 +544,6 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
-    <string name="title_advanced_query_threads">Beperk parallelle database toegang</string>
     <string name="title_advanced_manual_hint">Als het ontvangen van berichten is uitgeschakeld, is het nog steeds mogelijk om handmatig berichten te ontvangen door de berichtenlijst omlaag te trekken</string>
     <string name="title_advanced_poll_hint">Periodiek controleren op nieuwe berichten zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is die kan resulteren in extra batterijgebruik, vooral als er veel berichten zijn. Altijd ontvangen zal dit voorkomen door continu veranderingen te volgen.</string>
     <string name="title_advanced_optimize_hint">Dit kan de synchronisatie-frequentie wijzigen om op batterijgebruik te besparen, afhankelijk van de mogelijkheden en het gedrag van de e-mailservers</string>
@@ -617,7 +617,6 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_move_hint">De doelmap kan worden geconfigureerd in de accountinstellingen</string>
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>
     <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
-    <string name="title_advanced_queries_hint">Dit inschakelen zal de prestaties verminderen, maar dit is noodzakelijk op sommige apparaten</string>
     <string name="title_advanced_fts_hint">Dit inschakelen verbetert de zoekprestaties, maar verhoogt ook het batterij- en opslaggebruik</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
     <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>

@@ -504,7 +504,6 @@
     <string name="title_advanced_protocol">Rexistros de protocolo</string>
     <string name="title_advanced_log_info">Rexistro de problemas</string>
     <string name="title_advanced_debug">Modo de depuración</string>
-    <string name="title_advanced_query_threads">Limitar o acceso simultáneo á base de datos</string>
     <string name="title_advanced_manual_hint">Se a recepción de mensaxes non está activa, aínda se poden recibir mensaxes manualmente tirando cara abaixo a lista de mensaxes</string>
     <string name="title_advanced_poll_hint">A comprobación periódica de novas mensaxes vai comparar as mensaxes locais e remotas de cada vez, o que é unha operación custosa que pode levar a un maior consumo de batería, especialmente se hai moitas mensaxes. Recibir sempre evita isto facendo un seguimento continuo dos cambios.</string>
     <string name="title_advanced_optimize_hint">Isto podería cambiar a frecuencia de sincronización para aforrar batería, dependendo das capacidades e comportamento dos servidores de correo</string>
@@ -574,7 +573,6 @@
     <string name="title_advanced_move_hint">O cartafol de destino pódese configurar na configuración das contas</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android non pode agrupar as notificacións</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android non admite canles de notificación</string>
-    <string name="title_advanced_queries_hint">Activar isto penalizará o rendemento, máis en algúns dispositivos é imperativo</string>
     <string name="title_advanced_fts_hint">Activar isto mellora o rendemento de procura, pero tamén incrementa o uso da batería de do espazo de almacenamento</string>
     <string name="title_advanced_english_hint">Isto reiniciará a aplicación</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentais</string>

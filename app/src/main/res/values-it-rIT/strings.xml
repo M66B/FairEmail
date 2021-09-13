@@ -121,6 +121,7 @@
     <string name="title_setup_intro">Configurare un profilo richiede solo tre fasi e, poi, puoi inviare e ricevere email</string>
     <string name="title_setup_simple">Non serve cambiare altre opzioni</string>
     <string name="title_setup_issue">FairEmail è stata sviluppata per aiutarti a proteggere la tua privacy e rappresenta letteralmente migliaia di ore di lavoro. Se riscontri qualche problema, sei pregato di contattarmi per supporto prima di lasciare una brutta recensione. Sono felice d\'aiutarti!</string>
+    <string name="title_setup_analytics">FairEmail non visualizza annunci e non monitora o analizza il tuo comportamento. Bugsnag è usato per la segnalazione degli errori ed è disabilitato di default.</string>
     <string name="title_setup_quick_accounts">Aggiungi o cambia profili</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un profilo. Sei pregato di non incolpare FairEmail per questo, ma piuttosto di chiedere supporto.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
@@ -542,7 +543,6 @@
     <string name="title_advanced_protocol">Registrazione del protocollo</string>
     <string name="title_advanced_log_info">Registrazione di debug</string>
     <string name="title_advanced_debug">Modalità di debug</string>
-    <string name="title_advanced_query_threads">Limita l\'accesso al database parallelo</string>
     <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi scorrendo in giù nell\'elenco dei messaggi</string>
     <string name="title_advanced_poll_hint">Cercare periodicamente i nuovi messaggi confronterà i messaggi locali e remoti ogni volta, che è un\'operazione costosa che potrebbe risultare in un uso extra della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamento le modifiche.</string>
     <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare sull\'uso della batteria in base alle capacità e il comportamento dei server email</string>
@@ -616,7 +616,6 @@
     <string name="title_advanced_move_hint">La cartella di destinazione è configurabile nelle impostazioni del profilo</string>
     <string name="title_advanced_notify_no_grouping">Questa versione di Android non supporta il raggruppamento delle notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione di Android non supporta i canali di notifica</string>
-    <string name="title_advanced_queries_hint">Abilitarlo diminuirà le prestazioni, tuttavia, l\'abilitazione è necessaria su alcuni dispositivi</string>
     <string name="title_advanced_fts_hint">Abilitarlo migliora le prestazioni di ricerca, ma aumenta anche l\'uso della batteria e dello spazio di archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle funzionalità sperimentali correnti</string>
@@ -1393,6 +1392,7 @@
     <string name="title_hint_reformat">Di default, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, tocca l\'icona \'schermo interno\' sul testo del messaggio.</string>
     <string name="title_hint_design">Il design è intenzionalmente non distraente, ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma sei pregato di comprendere che sia impossibile per rendere tutti completamente felici allo stesso tempo.</string>
     <string name="title_hint_junk">Il filtraggio antispam dovrebbe esser fatto dal server email e non può esser fatto affidabilmente su un dispositivo alimentato da batteria con capacità limitate.</string>
+    <string name="title_hint_junk_learn">Spostando i messaggi da e verso la cartella di spam, il server email \"impara\" cos\'è lo spam</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_eml">Questo è un riepilogo del contenuto del file di un messaggio non elaborato. Salva il messaggio non elaborato con l\'icona di salvataggio nella barra d\'azione per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri link</string>

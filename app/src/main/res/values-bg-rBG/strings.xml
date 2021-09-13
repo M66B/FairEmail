@@ -382,7 +382,6 @@
     <string name="title_advanced_app">Настройки на приложението</string>
     <string name="title_advanced_more">Още опции</string>
     <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
-    <string name="title_advanced_query_threads">Ограничете паралелния достъп до база данни</string>
     <string name="title_advanced_manual_hint">Ако получаването на съобщения е деактивирано, все още е възможно ръчно получаване на съобщения чрез изтегляне на списъка със съобщения</string>
     <string name="title_advanced_poll_hint">Периодичното проверяване за нови съобщения ще сравнява всеки път локални и отдалечени съобщения, което е скъпа операция, която може да доведе до допълнително използване на батерията, особено ако има много съобщения. Получаването винаги ще предотврати това.</string>
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>
@@ -431,7 +430,6 @@
     <string name="title_advanced_move_hint">Целевата папка може да бъде конфигурирана в настройките на профила</string>
     <string name="title_advanced_notify_no_grouping">Версията на Android не поддържа групиране на известия</string>
     <string name="title_advanced_notify_no_channels">Версията на Android не поддържа канали за уведомяване</string>
-    <string name="title_advanced_queries_hint">Активирането на това ще намали производителността, но това е необходимо при някои устройства</string>
     <string name="title_advanced_fts_hint">Активирането на това подобрява ефективността на търсенето, но също така увеличава използването на батерията и пространството за съхранение</string>
     <string name="title_advanced_english_hint">Това ще рестартира програмата</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>

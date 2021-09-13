@@ -541,7 +541,6 @@
     <string name="title_advanced_protocol">Registro de protocolos</string>
     <string name="title_advanced_log_info">Registro de depuración</string>
     <string name="title_advanced_debug">Modo de depuración</string>
-    <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_manual_hint">Si la recepción de mensajes está desactivada, todavía es posible recibir mensajes manualmente tirando hacia abajo en la lista de mensajes</string>
     <string name="title_advanced_poll_hint">Comprobar periódicamente si hay nuevos mensajes comparará los mensajes locales y remotos cada vez, lo que es una operación costosa que puede resultar en un uso adicional de la batería, especialmente si hay muchos mensajes. Siempre recibir evitará esto siguiendo continuamente los cambios.</string>
     <string name="title_advanced_optimize_hint">Esto podría cambiar la frecuencia de sincronización para ahorrar batería dependiendo de las capacidades y el comportamiento de los servidores de correo electrónico</string>
@@ -615,7 +614,6 @@
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android no es compatible con canales de notificación</string>
-    <string name="title_advanced_queries_hint">Activar esto reducirá el rendimiento, sin embargo, es necesario activarlo en algunos dispositivos</string>
     <string name="title_advanced_fts_hint">Activar esto mejora el rendimiento de búsqueda, pero también aumenta el uso de batería y espacio de almacenamiento</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentales actuales</string>
