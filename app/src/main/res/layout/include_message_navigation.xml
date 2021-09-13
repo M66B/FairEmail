@@ -144,6 +144,28 @@
             tools:ignore="MissingConstraints" />
 
         <ImageButton
+            android:id="@+id/ibNotes"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/twotone_sticky_note_2_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibRule"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_create_rule"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_create_rule"
+            app:srcCompat="@drawable/twotone_filter_alt_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
             android:id="@+id/ibKeywords"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -161,16 +183,6 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/twotone_label_24"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/ibNotes"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/twotone_sticky_note_2_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
@@ -210,18 +222,6 @@
             tools:ignore="MissingConstraints" />
 
         <ImageButton
-            android:id="@+id/ibTranslate"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_translate"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_translate"
-            app:srcCompat="@drawable/twotone_translate_24"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
             android:id="@+id/ibSearch"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -243,6 +243,18 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_search_in_text"
             app:srcCompat="@drawable/twotone_manage_search_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibTranslate"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_translate"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_translate"
+            app:srcCompat="@drawable/twotone_translate_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
@@ -315,18 +327,6 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_legend_show_unsubscribe"
             app:srcCompat="@drawable/twotone_unsubscribe_24"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/ibRule"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_legend_create_rule"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_legend_create_rule"
-            app:srcCompat="@drawable/twotone_filter_alt_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
