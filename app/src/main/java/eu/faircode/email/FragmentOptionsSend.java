@@ -572,7 +572,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSignatureNew.setChecked(prefs.getBoolean("signature_new", true));
         swSignatureReply.setChecked(prefs.getBoolean("signature_reply", true));
         swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
-        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
+        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));
         swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
 
         swAutoLink.setChecked(prefs.getBoolean("auto_link", false));

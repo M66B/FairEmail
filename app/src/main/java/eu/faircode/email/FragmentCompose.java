@@ -5251,7 +5251,7 @@ public class FragmentCompose extends FragmentBase {
             EntityMessage draft;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean discard_delete = prefs.getBoolean("discard_delete", false);
+            boolean discard_delete = prefs.getBoolean("discard_delete", true);
             boolean write_below = prefs.getBoolean("write_below", false);
             boolean save_drafts = prefs.getBoolean("save_drafts", true);
             int send_delayed = prefs.getInt("send_delayed", 0);
