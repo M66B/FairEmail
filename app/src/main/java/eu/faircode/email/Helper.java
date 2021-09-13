@@ -653,7 +653,7 @@ public class Helper {
             return true;
 
         if ("application/octet-stream".equals(type) &&
-                "winmail.dat".equals(name))
+                "winmail.dat".equalsIgnoreCase(name))
             return true;
 
         return false;
