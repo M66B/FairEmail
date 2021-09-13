@@ -78,7 +78,7 @@
 
         <item
             android:id="@+id/menu_search_in_text"
-            android:icon="@drawable/twotone_search_24"
+            android:icon="@drawable/twotone_manage_search_24"
             android:title="@string/title_search_in_text" />
     </group>
 
