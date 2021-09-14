@@ -85,6 +85,8 @@ android {
         exclude 'META-INF/LICENSE.gpl.txt'
         exclude 'META-INF/LICENSE.commercial.txt'
         exclude 'org/apache/**'
+        exclude 'LICENSE-2.0.txt'
+        exclude 'RELEASE.txt'
     }
 
     // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
@@ -260,6 +262,14 @@ configurations.all {
     // lifecycle-livedata: ComputableLiveData, MediatorLiveData, Transformations
     // lifecycle-livedata-core: LiveData, MutableLiveData, Observer
     // paging-runtime: AsyncPagedListDiffer, LivePagedListBuilder, PagedListAdapter, PagedStorageDiffHelper
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == "org.apache.poi") {
+            details.useVersion "3.17"
+        }
+    }
 }
 
 dependencies {
@@ -490,6 +500,9 @@ dependencies {
     // https://poi.apache.org/components/hmef/index.html
     // https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad
     implementation "org.apache.poi:poi-scratchpad:$apache_poi"
+
+    // https://github.com/bbottema/outlook-message-parser
+    implementation "org.simplejavamail:outlook-message-parser:1.7.12"
 
     // https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams
     // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
