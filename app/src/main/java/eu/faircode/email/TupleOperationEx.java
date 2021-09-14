@@ -69,6 +69,8 @@ public class TupleOperationEx extends EntityOperation {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+        else if (SYNC.equals(name))
+            key.id = "folder:" + folder;
         else if (!MOVE.equals(name))
             key.id = "id:" + id;
 
