@@ -71,6 +71,8 @@ public class FragmentLegend extends FragmentBase {
             }
         }
 
+        FragmentDialogTheme.setBackground(getContext(), view, false);
+
         return view;
     }
 
