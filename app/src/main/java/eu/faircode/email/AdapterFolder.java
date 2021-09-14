@@ -72,6 +72,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -86,6 +87,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private boolean show_hidden;
     private boolean show_flagged;
     private boolean subscribed_only;
+    private boolean sort_unread_atop;
     private IFolderSelectedListener listener;
 
     private Context context;
@@ -1128,6 +1130,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         this.subscriptions = prefs.getBoolean("subscriptions", false);
         this.subscribed_only = prefs.getBoolean("subscribed_only", false) && subscriptions;
+        this.sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
 
         this.dp12 = Helper.dp2pixels(context, 12);
         this.textSize = Helper.getTextSize(context, zoom);
@@ -1174,6 +1177,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
+    void setSortUnreadAtop(boolean sort_unread_atop) {
+        if (this.sort_unread_atop != sort_unread_atop) {
+            this.sort_unread_atop = sort_unread_atop;
+            set(all);
+        }
+    }
+
     void setDisabled(List<Long> ids) {
         disabledIds = ids;
     }
@@ -1187,6 +1197,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folders.size() > 0)
                 Collections.sort(folders, folders.get(0).getComparator(context));
             hierarchical = folders;
+
+            if (sort_unread_atop)
+                Collections.sort(hierarchical, new Comparator<TupleFolderEx>() {
+                    @Override
+                    public int compare(TupleFolderEx f1, TupleFolderEx f2) {
+                        return -Boolean.compare(f1.unseen > 0, f2.unseen > 0);
+                    }
+                });
         } else {
             List<TupleFolderEx> parents = new ArrayList<>();
             Map<Long, TupleFolderEx> idFolder = new HashMap<>();
@@ -1235,7 +1253,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         }
             }
 
-            hierarchical = getHierarchical(parents, anyChild ? 0 : 1);
+            hierarchical = getHierarchical(parents, anyChild ? 0 : 1, sort_unread_atop);
         }
 
         List<TupleFolderEx> items;
@@ -1325,11 +1343,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         void onNotFound();
     }
 
-    private List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {
+    private List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation, boolean sort_unread_atop) {
         List<TupleFolderEx> result = new ArrayList<>();
 
         if (parents.size() > 0)
             Collections.sort(parents, parents.get(0).getComparator(context));
+
+        if (sort_unread_atop)
+            Collections.sort(parents, new Comparator<TupleFolderEx>() {
+                @Override
+                public int compare(TupleFolderEx f1, TupleFolderEx f2) {
+                    return -Boolean.compare(f1.unseen > 0, f2.unseen > 0);
+                }
+            });
 
         for (TupleFolderEx parent : parents) {
             if (parent.hide && !show_hidden)
@@ -1337,7 +1363,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             List<TupleFolderEx> childs = null;
             if (parent.child_refs != null) {
-                childs = getHierarchical(parent.child_refs, indentation + 1);
+                childs = getHierarchical(parent.child_refs, indentation + 1, sort_unread_atop);
                 for (TupleFolderEx child : childs) {
                     parent.childs_unseen += child.unseen;
                     if (child.collapsed)
