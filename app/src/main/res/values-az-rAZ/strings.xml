@@ -121,6 +121,7 @@
     <string name="title_setup_intro">Bir hesabın hazırlanması üç addımdan ibarətdir və bundan sonra e-poçtları göndərə və ala bilərsiniz</string>
     <string name="title_setup_simple">Başqa hər hansısa bir seçimi dəyişdirməyə ehtiyac yoxdur</string>
     <string name="title_setup_issue">FairEmail, gizliliyinizi qorumağa kömək etməsi üçün təkmilləşdirildi və sözün əsl mənasında minlərlə saatlıq çalışmanı təmsil edir. Əgər tətbiqlə bağlı hər hansısa probleminiz varsa, pis bir rəy bildirməzdən əvvəl zəhmət olmasa dəstək üçün mənimlə əlaqə saxlayın. Məmnuniyyətlə kömək edərəm!</string>
+    <string name="title_setup_analytics">FairEmail, reklam göstərmir, davranışınızı izləmir və ya təhlil etmir. Bugsnag, xəta hesabatı üçün istifadə olunur və ilkin olaraq görüntülənir.</string>
     <string name="title_setup_quick_accounts">Hesab əlavə et və ya dəyişdir</string>
     <string name="title_setup_quick_support">Bəzi təchizatçılar hesab əlavə etməyi çətinləşdirir. Xahiş edirik buna görə \"FairEmail\"i günahlandırmayın, əvəzində dəstək istəyin.</string>
     <string name="title_setup_quick_hint">Cəld quraşdırma, konfiqurasiya məlumatlarını autoconfig.thunderbird.net ünvanından alır</string>
@@ -324,6 +325,7 @@
     <string name="title_advanced_download_headers">Bütün mesaj başlıqlarını endir</string>
     <string name="title_advanced_download_eml">Xam mesaj fayllarını endir</string>
     <string name="title_advanced_validated">Təsdiqlənmiş (yoxlanılmış) bir bağlantı tələb et</string>
+    <string name="title_advanced_vpn_only">Yalnız VPN vasitəsilə bağlantı qurun</string>
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlam et</string>
@@ -1389,6 +1391,7 @@
     <string name="title_hint_reformat">İlkin olaraq, FairEmail, mesajları gizlilik və təhlükəsizlik səbəbinə görə yenidən format edir. Orijinal mesaja baxmaq üçün, mesaj mətninin üstündəki \"tam ekran\" nişanına toxunun.</string>
     <string name="title_hint_design">Dizayn qəsdən diqqəti yayındırmır, lakin yüksək dərəcədə funksional saxlayır. Görünüşü özəlləşdirmək üçün bir neçə seçim var, ancaq hər kəsi eyni anda xoşbəxt etməyin mümkün olmadığını anlamağınızı istəyirik.</string>
     <string name="title_hint_junk">Spam filtrləmə, e-poçt serveri tərəfindən edilməlidir və məhdud imkanlara sahib batareyalı bir cihazda açıq şəkildə edilə bilməz.</string>
+    <string name="title_hint_junk_learn">Mesajları spam qovluğuna və qovluğundan köçürərək, e-poçt serveri, spamın nə olduğunu \"öyrənir\"</string>
     <string name="title_hint_contact_actions">Seçimlər üçün uzun basın</string>
     <string name="title_hint_eml">Bu, xam mesaj faylının məzmununun bir icmalıdır. Bütün məzmuna baxmaq üçün xam mesajı əməliyyat sətrindəki saxla nişanı ilə saxlayın.</string>
     <string name="title_open_link">Bağlantını aç</string>

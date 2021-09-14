@@ -111,6 +111,7 @@
     <string name="title_setup_intro">Việc thiết lập một tài khoản chỉ bao gồm ba bước và sau đó bạn có thể gửi và nhận email</string>
     <string name="title_setup_simple">Không cần thiết phải thay đổi bất kỳ tuỳ chọn nào khác</string>
     <string name="title_setup_issue">FairEmail được phát triển để giúp bạn bảo vệ sự riêng tư và đại diện cho hàng nghìn tiếng làm việc. Nếu bạn gặp vấn đề, vui lòng liên hệ với tôi trước tiên để được hỗ trợ trước khi để lại bài đánh giá xấu. Tôi rất vui khi được giúp đỡ!</string>
+    <string name="title_setup_analytics">FairEmail không hiển thị quảng cáo và không theo dõi hay phân tích hành vi của bạn. Bugsnag được sử dụng để báo cáo lỗi và được tắt theo mặc định.</string>
     <string name="title_setup_quick_accounts">Thêm hoặc đổi tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>

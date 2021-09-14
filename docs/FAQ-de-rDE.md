@@ -2476,14 +2476,14 @@ Wenn Sie ein Samsung Gerät mit der Galaxy Wearable (Samsung Gear) App verwenden
 <a name="faq127"></a>
 **(127) Wie kann ich 'Syntaktisch ungültige(s) HELO-Argument(e)' beheben?**
 
-Der Fehler *... Syntaktisch ungültige(s) HELO-Argument(e) ...* bedeutet, dass der SMTP-Server die lokale IP-Adresse oder den Hostnamen abgelehnt hat. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+Der Fehler *... Syntaktisch ungültige(s) HELO-Argument(e) ...* bedeutet, dass der SMTP-Server die lokale IP-Adresse oder den Hostnamen abgelehnt hat. Sie können diesen Fehler wahrscheinlich beheben, indem Sie die erweiterte Identitätsoption *Lokale IP-Adresse anstelle des Hostnamens* aktivieren oder deaktivieren.
 
 <br />
 
 <a name="faq128"></a>
-**(128) How can I reset asked questions, for example to show images?**
+**(128) Wie kann ich gestellte Fragen zurücksetzen, zum Beispiel um Bilder anzuzeigen?**
 
-You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
+Sie können gestellte Fragen über das Drei-Punkte-Menü in den verschiedenen Einstellungen zurücksetzen.
 
 <br />
 
@@ -2497,9 +2497,9 @@ Tutanota verwendet ein proprietäres E-Mail-Protokoll und [unterstützt kein IMA
 <br />
 
 <a name="faq130"></a>
-**(130) What does message error ... mean?**
+**(130) Was bedeutet Nachrichtenfehler ... ?**
 
-A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
+Eine Reihe von Zeilen mit orangem oder rotem Text mit technischen Informationen bedeutet, dass der Debug-Modus in den verschiedenen Einstellungen aktiviert wurde.
 
 The warning *No server found at ...* means that there was no email server registered at the indicated domain name. Replying to the message might not be possible and might result in an error. This could indicate a falsified email address and/or spam.
 
@@ -2514,61 +2514,61 @@ Please see [here](#user-content-faq22) for other error messages in the outbox.
 <br />
 
 <a name="faq131"></a>
-**(131) Can you change the direction for swiping to previous/next message?**
+**(131) Kann man die Richtung für das Wischen zur vorherigen/nächsten Nachricht ändern?**
 
-If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
+Wenn Sie von links nach rechts lesen, zeigt das Wischen nach links die nächste Nachricht. Umgekehrt, wenn Sie von rechts nach links lesen, zeigt das Wischen nach rechts die nächste Nachricht.
 
-This behavior seems quite natural to me, also because it is similar to turning pages.
+Dieses Verhalten erscheint mir recht natürlich, auch weil so ähnlich ist, wie Buchseiten umzublättern.
 
-Anyway, there is a behavior setting to reverse the swipe direction.
+Auf jeden Fall gibt es eine Verhaltenseinstellung, um die Wischrichtung umzukehren.
 
 <br />
 
 <a name="faq132"></a>
-**(132) Why are new message notifications silent?**
+**(132) Warum sind neue Benachrichtigungen stumm?**
 
-Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
+Bei einigen MIUI-Versionen sind Benachrichtigungen standardmäßig stumm. Siehe [hier](http://en.miui.com/thread-3930694-1-1.html) wie man das beheben kann.
 
-There is a bug in some Android versions causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to mute notifications. Since FairEmail shows new message notifications right after fetching the message headers and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
+Es gibt einen Fehler in einigen Android-Versionen, der [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) dazu veranlasst, Benachrichtigungen zu stummschalten. Da FairEmail Benachrichtigungen für neue Nachrichten direkt nach dem Abrufen der Nachrichtenüberschriften anzeigt, und FairEmail nach dem Abrufen des Nachrichtentextes neue Nachrichten aktualisieren muss, kann dies nicht durch FairEmail behoben oder umgangen werden.
 
-Android might rate limit the notification sound, which can cause some new message notifications to be silent.
+Android kann unter Umständen die Frequenz des Benachrichtigungstons einschränken, was dazu führen kann, dass einige neue Benachrichtigungen stumm sind.
 
 <br />
 
 <a name="faq133"></a>
-**(133) Why is ActiveSync not supported?**
+**(133) Warum wird ActiveSync nicht unterstützt?**
 
-The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
+Das Microsoft Exchange ActiveSync Protokoll [ist patentiert](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) und kann daher nicht unterstützt werden. Aus diesem Grund werden Sie, wenn überhaupt, nicht viele andere E-Mail-Clients finden, die ActiveSync unterstützen.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Beachten Sie, dass die Beschreibung von FairEmail mit der Bemerkung beginnt, dass nicht standardmäßige Protokolle, wie Microsoft Exchange Web Services und Microsoft ActiveSync, nicht unterstützt werden.
 
 <br />
 
 <a name="faq134"></a>
-**(134) Can you add deleting local messages?**
+**(134) Kannman das Löschen lokaler Nachrichten hinzufügen?**
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+In den Kontoeinstellungen (Einstellungen, wähle Manuelle Einrichtung, wähle Konten, wähle Konto) können Sie *gelöschte Nachrichten auf Server lassen* aktivieren.
 
 *IMAP*
 
-Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
+Da das IMAP-Protokoll dazu da ist in beide Richtungen zu synchronisieren, würde das Löschen einer Nachricht vom Gerät dazu führen, dass bei erneuter Synchronisation auch die Nachricht erneut abgerufen wird.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
+FairEmail unterstützt jedoch das Ausblenden von Nachrichten, entweder über das Drei-Punkte-Menü in der Aktionsleiste über dem Nachrichtentext oder durch die Auswahl mehrerer Nachrichten in der Nachrichtenliste. Im Grunde ist dies das gleiche wie das "auf dem Server lassen" des POP3-Protokolls mit dem Vorteil, dass Sie die Nachrichten bei Bedarf wieder anzeigen können.
 
-Note that it is possible to set the swipe left or right action to hide a message.
+Beachten Sie, dass es möglich ist, das Wischen nach links oder rechts zu aktivieren, um eine Nachricht auszublenden.
 
 <br />
 
 <a name="faq135"></a>
-**(135) Why are trashed messages and drafts shown in conversations?**
+**(135) Warum werden gelöschte Nachrichten oder Entwürfe in Konversationen angezeigt?**
 
-Individual messages will rarely be trashed and mostly this happens by accident. Showing trashed messages in conversations makes it easier to find them back.
+Einzelne Nachrichten werden selten gelöscht, und dies geschieht meist zufällig. Das Anzeigen von gelöschten Nachrichten in Unterhaltungen erleichtert das Wiederauffinden dieser Nachrichten.
 
-You can permanently delete a message using the message three-dots *delete* menu, which will remove the message from the conversation. Note that this irreversible.
+Sie können eine Nachricht dauerhaft löschen, in dem Sie im Drei-Punkt-Menü *löschen* auswählen, was die Nachricht aus der Konversation entfernt. Beachten Sie, dass dies die Nachricht unwiederruflich löscht.
 
-Similarly, drafts are shown in conversations to find them back in the context where they belong. It is easy to read through the received messages before continuing to write the draft later.
+Ebenso werden Entwürfe in Gesprächen gezeigt, um sie in dem Kontext wiederzufinden, wo sie hingehören. So ist es leicht, die empfangenen Nachrichten durchzulesen, bevor Sie den Entwurf später weiterschreiben.
 
 <br />
 
@@ -2586,9 +2586,9 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 <br />
 
 <a name="faq137"></a>
-**(137) How can I reset 'Don't ask again'?**
+**(137) Wie kann ich 'Nicht erneut fragen' zurücksetzen?**
 
-You can reset all questions set to be not asked again in the miscellaneous settings.
+Sie können alle 'Nicht erneut fragen' Fragen unter verschiedene Einstellungen zurücksetzen.
 
 <br />
 
@@ -2850,13 +2850,13 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office 365 account?**
+**(156) Wie kann ich ein Office 365-Konto erstellen?**
 
-An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
+Ein Office 365-Konto kann mit der Option *Office 365 (OAuth)* im Einrichtungsassistenten eingerichtet werden.
 
-If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+Wenn die Einrichtung mit *AUTHENTICATE fehlgeschlagen* endet, kann es sein, dass IMAP und/oder SMTP für das Konto deaktiviert wurden. In diesem Fall sollten Sie den Administrator bitten, IMAP und SMTP zu aktivieren. Die Vorgehensweise dafür ist [hier](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365) dokumentiert.
 
-If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+Wenn Sie *Sicherheitseinstellungen* in Ihrem Unternehmen aktiviert haben, müssen Sie möglicherweise das SMTP AUTH-Protokoll aktivieren. Bitte [schauen Sie hier](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission), wie das geht.
 
 <br />
 

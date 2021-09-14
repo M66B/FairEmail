@@ -121,6 +121,7 @@
     <string name="title_setup_intro">Att lägga till ett konto tar bara tre steg och efter det kan du skicka och ta emot e-post</string>
     <string name="title_setup_simple">Det finns ingen anledning att ändra några andra inställningar</string>
     <string name="title_setup_issue">FairEmail har utvecklats för att hjälpa dig att skydda din integritet och representerar bokstavligen tusentals timmars arbete. Om du har några problem, vängligen kontakta mig först för support innan du lämnar en dålig recension. Jag hjälper gärna till!</string>
+    <string name="title_setup_analytics">FairEmail visar inte annonser och spårar inte eller analyserar ditt beteende. Bugsnag används för felrapportering och är inaktiverat som standard.</string>
     <string name="title_setup_quick_accounts">Lägg till eller byt konton</string>
     <string name="title_setup_quick_support">Vissa leverantörer gör det svårt att lägga till ett konto. Vänligen skyll inte på FairEmail för det, be om support istället.</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
@@ -321,6 +322,7 @@
     <string name="title_advanced_download_headers">Ladda ner meddelande-huvuden</string>
     <string name="title_advanced_download_eml">Ladda ner råa meddelande-filer</string>
     <string name="title_advanced_validated">Kräv en validerad (kontrollerad) anslutning</string>
+    <string name="title_advanced_vpn_only">Anslut endast via VPN</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
@@ -1387,6 +1389,7 @@
     <string name="title_hint_reformat">Som standard formaterar FairEmail meddelanden av sekretess- och säkerhetsskäl. För att visa det ursprungliga meddelandet trycker du på ikonen \"helskärm\" ovanför meddelandetexten.</string>
     <string name="title_hint_design">Designen är avsiktligt inte distraherande, men hålls mycket funktionell. Det finns många alternativ för att anpassa utseendet, men vänligen förstå att det är omöjligt att göra alla helt glada på samma gång.</string>
     <string name="title_hint_junk">Spamfiltrering bör göras via e-postservern och kan inte göras tillförlitligt på en batteridriven enhet med begränsad kapacitet.</string>
+    <string name="title_hint_junk_learn">Genom att flytta meddelanden till och från skräppostmappen \"lär\" sig e-postservern vad skräppost är</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_hint_eml">Detta är en sammanfattning av innehållet i en raw-meddelandefil. Spara raw-meddelandet med ikonen spara i åtgärdsfältet för att visa allt innehåll.</string>
     <string name="title_open_link">Öppna länken</string>

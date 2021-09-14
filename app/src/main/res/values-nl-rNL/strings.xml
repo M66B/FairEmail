@@ -783,6 +783,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
     <string name="title_show_flagged">Toon aantal berichten met ster</string>
     <string name="title_subscribed_only">Alleen geabonneerde</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Sorteer ongelezen bovenaan</string>
     <string name="title_search_folder">Zoeken naar map</string>
     <string name="title_apply_to_all">Toepassen op alle</string>
     <string name="title_hide_folder">Verberg map</string>

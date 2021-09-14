@@ -120,6 +120,7 @@
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
     <string name="title_setup_issue">FairEmail er udviklet for at hjælpe dig med at beskytte din fortrolighed og repræsenterer bogstaveligt talt tusindvis af arbejdstimer. Oplever du problemer, så kontakte mig først mhp. support, inden du giver en dårlig bedømmelse. Jeg vil med glæde hjælpe!</string>
+    <string name="title_setup_analytics">FairEmail viser ikke annoncer eller sporer/analyserer brugeradfærd. Bugsnag bruges til fejlrapportering og er som standard deaktiveret.</string>
     <string name="title_setup_quick_accounts">Tilføj eller skift konti</string>
     <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>

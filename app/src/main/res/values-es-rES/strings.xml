@@ -121,6 +121,7 @@
     <string name="title_setup_intro">Configurar una cuenta son sólo tres pasos y después puede enviar y recibir correos electrónicos</string>
     <string name="title_setup_simple">No hay necesidad de cambiar ninguna otra opción</string>
     <string name="title_setup_issue">FairEmail fue desarrollado para ayudarle a proteger su privacidad y representa literalmente miles de horas de trabajo. Si tiene algún problema, por favor contácteme primero para obtener ayuda antes de dejar una mala revisión. ¡Estoy encantado de ayudar!</string>
+    <string name="title_setup_analytics">FairEmail no muestra anuncios y no rastrea o analiza su comportamiento. Bugsnag se utiliza para informar de errores y está deshabilitado por defecto.</string>
     <string name="title_setup_quick_accounts">Añadir o cambiar cuentas</string>
     <string name="title_setup_quick_support">Algunos proveedores hacen difícil añadir una cuenta. Por favor, no culpe a FairEmail por esto, en su lugar pida ayuda.</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
@@ -324,6 +325,7 @@
     <string name="title_advanced_download_headers">Descargar todos los encabezados de mensajes</string>
     <string name="title_advanced_download_eml">Descargar archivos de mensajes sin procesar</string>
     <string name="title_advanced_validated">Requerir una conexión validada (comprobada)</string>
+    <string name="title_advanced_vpn_only">Conectar sólo a través de una VPN</string>
     <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
@@ -1390,6 +1392,7 @@
     <string name="title_hint_reformat">Por defecto, FairEmail reformatea los mensajes por razones de privacidad y seguridad. Para ver el mensaje original, pulse el icono \'pantalla completa\' sobre el texto del mensaje.</string>
     <string name="title_hint_design">El diseño intencionalmente no distrae, pero se mantiene altamente funcional. Hay muchas opciones para personalizar la apariencia, pero por favor entienda que es imposible hacer felices a todos al mismo tiempo.</string>
     <string name="title_hint_junk">El filtrado de spam debería ser hecho por el servidor de correo electrónico y no se puede hacer de forma confiable en un dispositivo alimentado con batería y de capacidades limitadas.</string>
+    <string name="title_hint_junk_learn">Al mover los mensajes hacia y desde la carpeta de spam, el servidor de correo electrónico \"aprende\" qué es spam</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensajes sin procesar. Guarde el mensaje sin procesar con el icono de guardar en la barra de acciones para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>

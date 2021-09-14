@@ -45,24 +45,24 @@ Povezana pitanja:
 
 <a name="howto">
 
-## How to ...?
+## Kako...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Promijeniti naziv (ime) računa: 'Postavke', dodirnite 'Ručne postavke', dodirnite 'Računi', dodirnite 'Račun'
+* Promijeniti radnje prevlačenja lijevo/desno: 'Postavke', kartica 'Ponašanje', Postavi radnje prevlačenja
+* Promijeniti lozinku: 'Postavke', dodirnite 'Ručne postavke', dodirnite 'Računi', dodirnite račun, promjena lozinke
+* Postaviti potpis: 'Postavke', dodirnite 'Ručne postavke', dodirnite 'Indentiteti', dodirnite identitet, 'Uredi potpis'.
+* Dodati CC i BCC adrese: dodirnite ikonicu s ljudima na kraju predmeta
+* Prebacivati na sljedeću/prethodnu poruku pri arhiviranju/brisanju: u postavkama za ponašanje, isključite *Automatski zatvori konverzacije* i izaberite *Prebaci na sljedeću/prethodnu konverzaciju* za opciju *Pri zatvaranju konverzacije*
+* Dodati folder u objedinjeni inbox: dugo držite folder na spisku i izaberite *Prikaži u objedinjenom inbox-u*
+* Dodati folder na navigacijskom meniju: dugo držite folder na spisku i izaberite *Prikaži u navigacijskom meniju*
+* Učitati više poruka: dugo držite folder na spisku, te izaberite opciju *Dohvati više poruka*
+* Izbrisati poruku, zaobilazeći otpad: dugo držite na ikonicu za otpad
+* Izbrisati račun/identitet: 'Postavke', dodirnite 'Ručne postavke', dodirnite 'Računi/Identiteti', dodirnite račun/identitet, dodirnite ikonicu otpad (gore-desno)
+* Izbrisati folder: dugo držite folder na spisku, izaberite 'Uredi svojstva', zatim ikonicu otpad (gore-desno)
+* Poništiti poslano: izaberite 'Za slanje', zatim prevucite poruku sa spiska lijevo ili desno
+* Sačuvati poslane poruke u inbox-u: molimo da [pogledate ova ČPP](#user-content-faq142)
+* Promijeniti sistemske foldere: 'Postavke', dodirnite 'Ručne postavke', dodirnite 'Računi', dodirnite račun na dnu
+* Izvesti/uvesti postavke: 'Postavke', prevucite navigacijski (lijevi) meni
 
 <h2><a name="known-problems"></a>Known problem</h2>
 

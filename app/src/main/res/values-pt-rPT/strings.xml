@@ -120,6 +120,7 @@
     <string name="title_setup_intro">Configurar uma conta são apenas três passos e, depois disso, você pode enviar e receber e-mails</string>
     <string name="title_setup_simple">Não há necessidade de alterar outras opções</string>
     <string name="title_setup_issue">O FairEmail foi desenvolvido para ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Se tiver algum problema, por favor, entre em contato para suporte antes de deixar um feedback negativo. Tenho todo o gosto em ajudar!</string>
+    <string name="title_setup_analytics">O FairEmail não exibe anúncios e não rastreia ou analisa o seu comportamento. O Bugsnag é usado para reportar erros e está desativado por defeito.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
     <string name="title_setup_quick_hint">A configuração rápida irá obter informações de configuração a partir de autoconfig.thunderbird.net</string>
@@ -294,6 +295,7 @@
     <string name="title_advanced_roaming">Descarregar mensagens e anexos em roaming</string>
     <string name="title_advanced_rlah">Faça roaming como no país de origem</string>
     <string name="title_advanced_validated">Exigir uma conexão validada (verificada)</string>
+    <string name="title_advanced_vpn_only">Conecte-se apenas através de uma VPN</string>
     <string name="title_advanced_timeout">Conexão expira em (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
     <string name="title_advanced_ssl_harden">Fortificar conexões SSL</string>

@@ -102,6 +102,8 @@
     <string name="title_setup_identities">Identiteti</string>
     <string name="title_setup_other">Drugi provajder</string>
     <string name="title_setup_pop3">POP3 račun</string>
+    <string name="title_setup_oauth_permission">E-mail provajder je odobrio OAuth provjeru samo za zvanične verzije aplikacije</string>
+    <string name="title_setup_gmail_support">Autorizacija Google-ovih računa radi samo u zvaničnim verzijama jer Android sistem provjerava potpise aplikacije</string>
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_drafts">Ukoliko folder \'nacrti\' nije dostupan putem IMAP-a, onda se to može popraviti u postavkama Gmail oznaka (etiketa)</string>
@@ -155,6 +157,10 @@
     <string name="title_setup_close">Zatvori postavke</string>
     <string name="title_setup_export">Izvezi postavke</string>
     <string name="title_setup_import">Uvezi postavke</string>
+    <string name="title_setup_export_remark">        Kako datoteka s postavkama sadrži sve postavke i informacije o računa, ona je šifrirana s lozinkom.
+        Lozinka je neophodna za ponovni uvoz postavki, zato Vas molimo da je ne zaboravite!
+    </string>
+    <string name="title_setup_export_do">Izvozna datoteka sadržavat će sve postavke i podatke, ali ne i poruke ni slike koje su referencirane u potpisima</string>
     <string name="title_setup_password">Lozinka</string>
     <string name="title_setup_password_chars">Lozinka sadrži znakove ili prazna polja</string>
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
@@ -273,6 +279,7 @@
     <string name="title_advanced_download_headers">Preuzimaj zaglavlja svih poruka</string>
     <string name="title_advanced_download_eml">Preuzmi datoteke izvornih poruka</string>
     <string name="title_advanced_validated">Zahtjevaj provjerenu (validnu) konekciju</string>
+    <string name="title_advanced_vpn_only">Poveži se samo putem VPN-a</string>
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
@@ -354,6 +361,12 @@
     <string name="title_advanced_images_inline">Automatski prikaži poravnate slike</string>
     <string name="title_advanced_button_extra">Prikaži dodatna dugmad na dnu poruke</string>
     <string name="title_advanced_navbar_colorize">Oboji navigacijsku traku Androida</string>
+    <string name="title_advanced_authentication">Prikaži upozorenja kod provjere</string>
+    <string name="title_advanced_authentication_hint">Osnovne kontrole mogu se podesiti u postavkama za prijem</string>
+    <string name="title_advanced_authentication_indicator">Prikaži indikator statusa provjere</string>
+    <string name="title_advanced_authentication_none">Bez provjere</string>
+    <string name="title_advanced_authentication_some">Djelomična provjera</string>
+    <string name="title_advanced_authentication_all">Potpuna provjera</string>
     <string name="title_advanced_sync_on_launch">Sinhronizacija pri pokretanju</string>
     <string name="title_advanced_double_back">Dupli dodir dugmeta \'nazad\' za izlaz</string>
     <string name="title_advanced_conversation_actions">Predloži radnje (Android 10+)</string>
@@ -472,9 +485,12 @@
     <string name="title_advanced_poll_hint">Povremena provjera novih poruka uporedit će lokalne i udaljene poruke svaki put, što je zahtjevna operacija koja može uticati na potrošnju baterije, posebno ukoliko ima mnogo poruka. Stalni prijem će spriječiti ovo tako što će se stalno pratiti promjene.</string>
     <string name="title_advanced_optimize_hint">Ovo može promijeniti učestalost sinhronizacija kako bi se smanjila potrošnja baterije, u zavisnosti od mogućnosti i ponašanja e-mail servera</string>
     <string name="title_advanced_schedule_hint">Dodirnite za postavljanje vremena</string>
+    <string name="title_advanced_check_authentication_hint">Ovo će provjeriti rezultate DKIM, SPF i DMARC provjere koje se izvode na e-mail serveru</string>
+    <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
     <string name="title_advanced_metered_hint">Konekcije \'s ograničenim paketom\' su općenito mobilne konekcije ili plaćeni Wi-Fi hotspot-ovi</string>
     <string name="title_advanced_metered_warning">Isključivanje ove opcije će zaustaviti prijem i slanje poruka na mobilnim internet konekcijama</string>
     <string name="title_advanced_rlah_hint">Pretpostavka da nema roaminga unutar EU</string>
+    <string name="title_advanced_validate_hint">Ovo može rezultirati u zaustavljanju sinhronizacije poruka, npr. kada se koristi VPN, ali i u drugim situacijama</string>
     <string name="title_advanced_navbar_colorize_hint">Ova funkcija radi u zavisnosti od verzije i varijante Androida</string>
     <string name="title_advanced_split_hint">Ovo će podijeliti ekran u dijelove</string>
     <string name="title_advanced_threading_hint">Grupiši poruke povezane jedne s drugima</string>
@@ -482,6 +498,12 @@
     <string name="title_advanced_gravatars_hint">Moguće je da postoji rizik privatnosti</string>
     <string name="title_advanced_name_email_hint">Imena će se prikazivati samo kad su dostupna</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>
+    <string name="title_advanced_overview_mode_hint">Ovo može rezultirati u jako malim fontovima</string>
+    <string name="title_advanced_placeholders_hint">Ovo se primjenjuje samo na preformatirane poruke</string>
+    <string name="title_advanced_inline_hint">Poravnate slike su slike unutar tijela poruke</string>
+    <string name="title_advanced_language_detection_hint">Podrška za otkrivanje jezika zavisi od proizvođača uređaja</string>
+    <string name="title_advanced_e2e_encryption">Opcija za E2E (end-to-end) šifriranje</string>
+    <string name="title_advanced_display_pin_hint">PIN ima prednost naspram biometrijske provjere</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim launcher-ima</string>
     <string name="title_advanced_notify_remove_hint">Obavještenja o novim porukama će se uvijek skloniti kada se prevuku preko ekrana ili označavanjem poruka kao \'pročitane\'</string>
     <string name="title_advanced_english_hint">Ovo će restartovati aplikaciju</string>
@@ -538,7 +560,9 @@
     <string name="title_realm">Oblast</string>
     <string name="title_use_ip">Koristi lokalne IP adrese umjesto naziva hosta</string>
     <string name="title_ehlo">Prilagođena HELO/EHLO identifikacija</string>
+    <string name="title_primary">Primarni</string>
     <string name="title_check">Provjeri</string>
+    <string name="title_trust">Odobri certifikat servera pomoću otiska prsta %1$s</string>
     <string name="title_no_name">Nedostaje ime</string>
     <string name="title_no_email">Nedostaje e-mail adresa</string>
     <string name="title_email_invalid">E-mail adresa je nevažeća: \'%1$s\'</string>
@@ -556,6 +580,9 @@
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Pregledaj</string>
+    <string name="title_service_vpn">Ovo je možda uzrokovano od strane VPN-a koji se koristi</string>
+    <string name="title_service_port">Molimo, ponovo provjerite broj porta</string>
+    <string name="title_service_protocol">Molimo, ponovo provjerite protokol (SSL/TLS ili STARTTLS)</string>
     <string name="title_synchronize_now">Sinhronizuj sada</string>
     <string name="title_synchronize_subfolders">Podfolderi</string>
     <string name="title_synchronize_more">Dohvati više poruka</string>
@@ -611,6 +638,7 @@
     <string name="title_poll_folder_remark">Većina e-mail servera dozvoljava trenutna obavještenja samo za određene foldere!</string>
     <string name="title_folder_name_missing">Nedostaje naziv foldera</string>
     <string name="title_folder_exists">Folder %1$s postoji</string>
+    <string name="title_months_all">Svi</string>
     <string name="title_folder_unified">Objedinjeni inbox</string>
     <string name="title_folder_inbox">Inbox</string>
     <string name="title_folder_outbox">Izlazna pošta</string>
@@ -684,11 +712,13 @@
     <string name="title_delete">Izbriši</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Premjesti</string>
+    <string name="title_keywords_btn">Ključne riječi</string>
     <string name="title_no_junk">Nije spam</string>
     <string name="title_report_spam">Tretiraj kao spam</string>
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
     <string name="title_open_with">Otvori pomoću</string>
+    <string name="title_authentication_failed">%1$s provjera nije uspješna</string>
     <string name="title_on_blocklist">Na listi za blokiranje spama</string>
     <string name="title_no_recorder">Ne postoji aplikacija za snimanje zvuka</string>
     <string name="title_no_camera">Ne postoji aplikacija kamere</string>
@@ -847,6 +877,7 @@
     <string name="title_no_sign_key">Nema izabranog ključa za potpis</string>
     <string name="title_reset_sign_key">Resetuj ključ za potpis</string>
     <string name="title_signature_none">Poruka nije potpisana</string>
+    <string name="title_signature_valid">Važeći potpis poruke</string>
     <string name="title_signature_valid_from">Važeći potpis poruke: %1$s</string>
     <string name="title_signature_unconfirmed">Potpis poruke je važeći, ali nije potvrđen</string>
     <string name="title_signature_unconfirmed_from">Potpis poruke je važeći, ali nije potvrđen: %1$s</string>
@@ -904,12 +935,18 @@
     <string name="title_sort_on_size">Veličina</string>
     <string name="title_sort_on_attachments">Prilozima</string>
     <string name="title_sort_on_hidden">Skrivenom</string>
+    <string name="title_filter">Izdvoji</string>
     <string name="title_filter_seen">Pročitano</string>
+    <string name="title_filter_unflagged">Bez zvjezdice</string>
+    <string name="title_filter_unknown">Nepoznati pošiljaoci</string>
     <string name="title_filter_hidden">Skrivenom</string>
     <string name="title_filter_duplicates">Duplikati</string>
     <string name="title_compact">Kompaktni izgled</string>
     <string name="title_zoom">Veličina teksta</string>
     <string name="title_select_language">Izaberite jezik</string>
+    <string name="title_select_all">Označi sve</string>
+    <string name="title_select_found">Označi pronađene</string>
+    <string name="title_mark_all_read">Označi sve kao pročitano</string>
     <string name="title_view_thread">Pogledaj konverzaciju</string>
     <string name="title_force_sync">Forsiraj sinhronizaciju</string>
     <string name="title_force_send">Forsiraj slanje</string>
@@ -924,6 +961,8 @@
     <string name="title_answer_name">Naziv prijedloška</string>
     <string name="title_answer_group">Grupa prijedloška (opcionalno)</string>
     <string name="title_answer_standard">Zadani</string>
+    <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_text">Tekst prijedloška</string>
     <string name="title_answer_placeholder_firstname">Ime pošiljaoca</string>
     <string name="title_answer_placeholder_lastname">Prezime pošiljaoca</string>
     <string name="title_rule_noop">Bez radnji</string>
@@ -936,6 +975,8 @@
     <string name="title_rule_importance">Postavi važnost</string>
     <string name="title_rule_keyword">Dodaj ključnu riječ</string>
     <string name="title_rule_move">Premjesti</string>
+    <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_template">Prijedložak za odgovore</string>
     <string name="title_rule_name_missing">Nedostaje naziv pravila</string>
     <string name="title_rule_condition_missing">Nedostaje uvjet</string>
     <string name="title_rule_folder_missing">Nedostaje folder</string>
@@ -959,6 +1000,7 @@
     <string name="title_legend_section_messages">Poruke</string>
     <string name="title_legend_section_compose">Napiši</string>
     <string name="title_legend_section_keyboard">Tastatura</string>
+    <string name="title_legend_oauth">OAuth autorizacija</string>
     <string name="title_legend_download_on">Preuzmi sadržaj poruke automatski</string>
     <string name="title_legend_download_off">Preuzmi sadržaj poruke na zahtjev</string>
     <string name="title_legend_synchronize_on">Sinhronizacija uključena</string>
@@ -979,6 +1021,9 @@
     <string name="title_legend_primary">Primarni</string>
     <string name="title_legend_subscribed">Pretplaćen na</string>
     <string name="title_legend_thread">Konverzacija</string>
+    <string name="title_legend_signed">Potpisan</string>
+    <string name="title_legend_encrypted">Šifrirano</string>
+    <string name="title_legend_auth">Provjera nije uspješna</string>
     <string name="title_legend_contacts">Upravljaj kontaktima</string>
     <string name="title_legend_search">Traži pošiljaoca</string>
     <string name="title_legend_view">Prikaži sadržaj</string>
@@ -1023,8 +1068,10 @@
     <string name="title_legend_n">Sljedeći</string>
     <string name="title_legend_p">Prethodni</string>
     <string name="title_legend_r">Odgovori</string>
+    <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevuci lijevo za otpad; Prevuci desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
+    <string name="title_hint_design">Dizajn je namjerno takav da ne odvlači pažnju, ali je veoma funkcionalan. Postoje brojne opcije za podešavanje izgleda, ali trebate razumjeti da je istovremeno nemoguće zadovoljiti svačije želje.</string>
     <string name="title_hint_junk">Filtriranje spama trebao bi rješavati e-mail server i ne može se pouzdano odvijati na uređajima koje pogone baterije s ograničenim mogućnostima.</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_image_link">Link slike</string>
@@ -1047,8 +1094,14 @@
     <string name="title_no">Ne</string>
     <string name="title_browse">Otvori pomoću</string>
     <string name="title_info">Informacije</string>
+    <string name="title_report">Prijavi</string>
     <string name="title_enable">Uključi</string>
     <string name="title_disable">Isključi</string>
+    <string name="title_ask_what">Pitaj šta treba uraditi</string>
+    <string name="title_no_ask_again">Ne pitaj ovo ponovo</string>
+    <string name="title_no_ask_for_again">Ne pitaj ovo ponovo za %1$s</string>
+    <string name="title_no_body">Nije pronađen tekst poruke</string>
+    <string name="title_no_charset">Enkodiranje nije podržano: %1$s</string>
     <string name="title_snooze_now">Odgodi</string>
     <string name="title_icalendar_accept">Prihvati</string>
     <string name="title_icalendar_decline">Odbij</string>
@@ -1080,6 +1133,9 @@
     <string name="title_log">Zapisnik</string>
     <string name="title_rules_delete_junk">Izbriši pravila za spam</string>
     <string name="title_rules_delete_junk_confirm">Želite li izbrisati sva pravila premještanja poruka u spam folder?</string>
+    <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
+    <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
+    <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
     <string name="title_power_menu_off">Isključeno</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Svi</string>
@@ -1097,9 +1153,11 @@
     <!-- Thunderbird -->
     <string name="title_keyword_label4">Za uraditi</string>
     <string name="title_accessibility_flagged">Favoritima</string>
+    <string name="title_accessibility_unflagged">Bez zvjezdice</string>
     <string name="title_accessibility_collapse">Suzi</string>
     <string name="title_accessibility_expand">Proširi</string>
     <string name="title_accessibility_view_contact">Prikaži kontakt</string>
+    <string name="title_accessibility_show_authentication_result">Prikaži rezultat provjere</string>
     <string name="title_accessibility_show_addresses">Prikaži adrese</string>
     <string name="title_accessibility_hide_addresses">Sakrij adrese</string>
     <string name="title_accessibility_attachment">Prilog</string>

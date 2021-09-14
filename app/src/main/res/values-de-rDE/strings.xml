@@ -86,7 +86,7 @@
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_notification_alert">Serverwarnung: \'%1$s\'</string>
     <string name="title_notification_sending_left">Verbleibende Versuche: %1$d</string>
-    <string name="title_notification_sending_retry">Das Senden wird erneut versucht, wenn sich die Internetverbindung ändert oder der Ausgangskorb heruntergezogen wird</string>
+    <string name="title_notification_sending_retry">Das Senden wird erneut versucht, wenn sich die Internetverbindung ändert oder der Postausgang heruntergezogen wird</string>
     <string name="title_notification_sending_failed">Senden an %1$s fehlgeschlagen</string>
     <string name="title_notification_redacted">Geschwärzt: biometrische oder PIN-Authentifizierung aktiviert</string>
     <string name="title_factor_minutes">%1$d Minuten</string>
@@ -784,6 +784,7 @@
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
     <string name="title_show_flagged">Anzahl markierter Nachrichten anzeigen</string>
     <string name="title_subscribed_only">Nur abonnierte</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Ungelesene oben einreihen</string>
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
