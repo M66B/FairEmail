@@ -5343,8 +5343,8 @@ class Core {
             synchronized (this) {
                 FolderPriority key = new FolderPriority(folder, priority);
                 boolean can = batch.get(key).equals(current);
-                if (BuildConfig.DEBUG)
-                    Log.i("=== Can " + folder + ":" + priority + " can=" + can);
+                if (!can || BuildConfig.DEBUG)
+                    Log.i("=== Can " + folder + ":" + priority + " batch=" + batch.get(key) + " current=" + current + " can=" + can);
                 return can;
             }
         }
@@ -5364,7 +5364,8 @@ class Core {
         public String toString() {
             return "[running=" + running +
                     ",recoverable=" + recoverable +
-                    ",idle=" + getIdleTime() + "]";
+                    ",idle=" + getIdleTime() + "" +
+                    ",process=" + process + "]";
         }
 
         private static class FolderPriority {
