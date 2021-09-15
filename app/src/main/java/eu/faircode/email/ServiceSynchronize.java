@@ -1878,6 +1878,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                         Log.i(folder.name +
                                                                 " executing partition=" + key +
+                                                                " sequence=" + sequence +
                                                                 " operations=" + partition.size());
 
                                                         // Get folder

@@ -190,7 +190,7 @@ class Core {
 
             int retry = 0;
             boolean group = true;
-            Log.i(folder.name + " executing operations=" + ops.size());
+            Log.i(folder.name + " executing sequence=" + sequence + " operations=" + ops.size());
             while (retry < LOCAL_RETRY_MAX && ops.size() > 0 &&
                     state.isRunning() &&
                     state.batchCanRun(folder.id, priority, sequence)) {
@@ -679,6 +679,12 @@ class Core {
             else {
                 if (state.batchCanRun(folder.id, priority, sequence))
                     state.error(new OperationCanceledException("Processing"));
+                else {
+                    if (state.isProcessing())
+                        Log.e(folder.name + " cannot run " +
+                                " sequence=" + sequence +
+                                " batch=" + state.getBatch(folder.id, priority));
+                }
             }
         } finally {
             Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
@@ -5356,6 +5362,17 @@ class Core {
                     batch.put(key, batch.get(key) + 1);
                 if (BuildConfig.DEBUG)
                     Log.i("=== Completed " + folder + ":" + priority + " next=" + batch.get(key));
+            }
+        }
+
+        boolean isProcessing() {
+            return process;
+        }
+
+        Long getBatch(long folder, int priority) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                return batch.get(key);
             }
         }
 

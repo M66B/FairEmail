@@ -460,7 +460,8 @@ public class EntityOperation {
                     break;
                 }
 
-        db.operation().deleteOperation(fid, SYNC);
+        int count = db.operation().deleteOperation(fid, SYNC);
+        Log.i("Deleted stale sync=" + count);
         sync(context, fid, false, force);
     }
 
