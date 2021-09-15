@@ -1899,9 +1899,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                 try {
                                                                     ifolder = iservice.getStore().getFolder(folder.name);
                                                                 } catch (IllegalStateException ex) {
-                                                                    if ("Not connected".equals(ex.getMessage()))
+                                                                    if ("Not connected".equals(ex.getMessage())) {
+                                                                        Log.w(ex);
                                                                         return; // Store closed
-                                                                    else
+                                                                    } else
                                                                         throw ex;
                                                                 }
 
