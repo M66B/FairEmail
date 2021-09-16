@@ -177,19 +177,20 @@ public class MessageClassifier {
 
     private static String classify(EntityMessage message, @NonNull String currentClass, @NonNull List<String> texts, boolean added, @NonNull Context context) {
         State state = new State();
+        DB db = DB.getInstance(context);
 
         // Check classes
-        DB db = DB.getInstance(context);
+        boolean clear = false;
         for (String clazz : new ArrayList<>(classMessages.get(message.account).keySet())) {
             EntityFolder folder = db.folder().getFolderByName(message.account, clazz);
             if (folder == null) {
                 EntityLog.log(context, EntityLog.Type.Classification, message,
-                        "Classifier deleting folder class=" + message.account + ":" + clazz);
-                classMessages.get(message.account).remove(clazz);
-                for (String word : wordClassFrequency.get(message.account).keySet())
-                    wordClassFrequency.get(message.account).get(word).remove(clazz);
+                        "Classifier deleted folder=" + message.account + ":" + clazz);
+                clear = true;
             }
         }
+        if (clear)
+            clear(context);
 
         Log.i("Classifier texts=" + texts.size());
         for (String text : texts) {
