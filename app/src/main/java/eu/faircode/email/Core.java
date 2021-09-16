@@ -178,7 +178,7 @@ class Core {
             Context context,
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
             Store istore, Folder ifolder,
-            State state, int priority, long sequence)
+            State state, long serial)
             throws JSONException {
         try {
             Log.i(folder.name + " start process");
@@ -190,10 +190,10 @@ class Core {
 
             int retry = 0;
             boolean group = true;
-            Log.i(folder.name + " executing sequence=" + sequence + " operations=" + ops.size());
+            Log.i(folder.name + " executing serial=" + serial + " operations=" + ops.size());
             while (retry < LOCAL_RETRY_MAX && ops.size() > 0 &&
                     state.isRunning() &&
-                    state.batchCanRun(folder.id, priority, sequence)) {
+                    state.getSerial() == serial) {
                 TupleOperationEx op = ops.get(0);
 
                 try {
@@ -648,7 +648,7 @@ class Core {
                             retry++;
                             if (retry < LOCAL_RETRY_MAX &&
                                     state.isRunning() &&
-                                    state.batchCanRun(folder.id, priority, sequence))
+                                    state.getSerial() == serial)
                                 try {
                                     Thread.sleep(LOCAL_RETRY_DELAY);
                                 } catch (InterruptedException ex1) {
@@ -674,18 +674,8 @@ class Core {
                 }
             }
 
-            if (ops.size() == 0)
-                state.batchCompleted(folder.id, priority, sequence);
-            else {
-                if (state.batchCanRun(folder.id, priority, sequence))
-                    state.error(new OperationCanceledException("Processing"));
-                else {
-                    if (state.isProcessing())
-                        Log.e(folder.name + " cannot run" +
-                                " sequence=" + sequence +
-                                " batch=" + state.getBatch(folder.id, priority));
-                }
-            }
+            if (ops.size() != 0 && state.getSerial() == serial)
+                state.error(new OperationCanceledException("Processing"));
         } finally {
             Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
         }
@@ -5143,9 +5133,7 @@ class Core {
         private Throwable unrecoverable = null;
         private Long lastActivity = null;
 
-        private boolean process = false;
-        private Map<FolderPriority, Long> sequence = new HashMap<>();
-        private Map<FolderPriority, Long> batch = new HashMap<>();
+        private long serial = 0;
 
         State(ConnectionHelper.NetworkState networkState) {
             this.networkState = networkState;
@@ -5229,19 +5217,10 @@ class Core {
         void reset() {
             recoverable = true;
             lastActivity = null;
-            resetBatches();
-            process = true;
         }
 
-        void resetBatches() {
-            process = false;
-            synchronized (this) {
-                for (FolderPriority key : sequence.keySet()) {
-                    batch.put(key, sequence.get(key));
-                    if (BuildConfig.DEBUG)
-                        Log.i("=== Reset " + key.folder + ":" + key.priority + " batch=" + batch.get(key));
-                }
-            }
+        void nextSerial() {
+            serial++;
         }
 
         private void yield() {
@@ -5325,55 +5304,8 @@ class Core {
             return (last == null ? 0 : SystemClock.elapsedRealtime() - last);
         }
 
-        long getSequence(long folder, int priority) {
-            synchronized (this) {
-                FolderPriority key = new FolderPriority(folder, priority);
-                if (!sequence.containsKey(key)) {
-                    sequence.put(key, 0L);
-                    batch.put(key, 0L);
-                }
-                long result = sequence.get(key);
-                sequence.put(key, result + 1);
-                if (BuildConfig.DEBUG)
-                    Log.i("=== Get " + folder + ":" + priority + " sequence=" + result);
-                return result;
-            }
-        }
-
-        boolean batchCanRun(long folder, int priority, long current) {
-            if (!process) {
-                Log.i("=== Can " + folder + ":" + priority + " process=" + process);
-                return false;
-            }
-
-            synchronized (this) {
-                FolderPriority key = new FolderPriority(folder, priority);
-                boolean can = batch.get(key).equals(current);
-                if (!can || BuildConfig.DEBUG)
-                    Log.i("=== Can " + folder + ":" + priority + " batch=" + batch.get(key) + " current=" + current + " can=" + can);
-                return can;
-            }
-        }
-
-        void batchCompleted(long folder, int priority, long current) {
-            synchronized (this) {
-                FolderPriority key = new FolderPriority(folder, priority);
-                if (batch.get(key).equals(current))
-                    batch.put(key, batch.get(key) + 1);
-                if (BuildConfig.DEBUG)
-                    Log.i("=== Completed " + folder + ":" + priority + " next=" + batch.get(key));
-            }
-        }
-
-        boolean isProcessing() {
-            return process;
-        }
-
-        Long getBatch(long folder, int priority) {
-            synchronized (this) {
-                FolderPriority key = new FolderPriority(folder, priority);
-                return batch.get(key);
-            }
+        long getSerial() {
+            return serial;
         }
 
         @NonNull
@@ -5382,7 +5314,7 @@ class Core {
             return "[running=" + running +
                     ",recoverable=" + recoverable +
                     ",idle=" + getIdleTime() + "" +
-                    ",process=" + process + "]";
+                    ",serial=" + serial + "]";
         }
 
         private static class FolderPriority {
