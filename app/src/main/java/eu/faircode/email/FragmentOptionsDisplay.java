@@ -64,6 +64,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swTabularBackground;
     private SwitchCompat swShadow;
     private SwitchCompat swDate;
+    private SwitchCompat swDateFixed;
     private SwitchCompat swDateBold;
     private SwitchCompat swNavBarColorize;
     private SwitchCompat swPortrait2;
@@ -154,7 +155,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread",
-            "date", "date_bold",
+            "date", "date_fixed", "date_bold",
             "portrait2", "portrait2c", "landscape", "nav_options", "nav_count", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
@@ -188,6 +189,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTabularBackground = view.findViewById(R.id.swTabularCardBackground);
         swShadow = view.findViewById(R.id.swShadow);
         swDate = view.findViewById(R.id.swDate);
+        swDateFixed = view.findViewById(R.id.swDateFixed);
         swDateBold = view.findViewById(R.id.swDateBold);
         swPortrait2 = view.findViewById(R.id.swPortrait2);
         swPortrait2c = view.findViewById(R.id.swPortrait2c);
@@ -334,7 +336,16 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("date", checked).apply();
-                swDateBold.setEnabled(checked);
+                swDateFixed.setEnabled(!checked);
+                swDateBold.setEnabled(checked || swDateFixed.isChecked());
+            }
+        });
+
+        swDateFixed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("date_fixed", checked).apply();
+                swDateBold.setEnabled(swDate.isChecked() || checked);
             }
         });
 
@@ -1029,8 +1040,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTabularBackground.setEnabled(!swCards.isChecked());
         swShadow.setEnabled(swCards.isChecked());
         swDate.setChecked(prefs.getBoolean("date", true));
+        swDateFixed.setChecked(prefs.getBoolean("date_fixed", false));
+        swDateFixed.setEnabled(!swDate.isChecked());
         swDateBold.setChecked(prefs.getBoolean("date_bold", false));
-        swDateBold.setEnabled(swDate.isChecked());
+        swDateBold.setEnabled(swDate.isChecked() || swDateFixed.isChecked());
         swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
         swLandscape.setChecked(prefs.getBoolean("landscape", true));

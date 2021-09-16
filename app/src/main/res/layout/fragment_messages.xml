@@ -135,6 +135,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintSelect" />
 
+            <include
+                android:id="@+id/inDate"
+                layout="@layout/item_message_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+
             <eu.faircode.email.ViewTextDelayed
                 android:id="@+id/tvNoEmail"
                 android:layout_width="wrap_content"
@@ -173,7 +182,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+                app:layout_constraintTop_toBottomOf="@id/inDate" />
 
             <View
                 android:id="@+id/vwAnchor"

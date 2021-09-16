@@ -304,6 +304,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private boolean cards;
     private boolean date;
+    private boolean date_fixed;
     private boolean date_bold;
     private boolean threading;
     private boolean swipenav;
@@ -426,6 +427,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
         date = prefs.getBoolean("date", true);
+        date_fixed = (!date && prefs.getBoolean("date_fixed", false));
         date_bold = prefs.getBoolean("date_bold", false);
         threading = (prefs.getBoolean("threading", true) ||
                 args.getBoolean("force_threading"));
@@ -663,18 +665,42 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             rvMessage.addItemDecoration(itemDecorator);
         }
 
+        View inDate = view.findViewById(R.id.inDate);
+        TextView tvFixedDate = inDate.findViewById(R.id.tvDate);
+        View vSeparatorDate = inDate.findViewById(R.id.vSeparatorDate);
+
+        String sort = prefs.getString("sort", "time");
+        inDate.setVisibility(date_fixed && "time".equals(sort) ? View.INVISIBLE : View.GONE);
+        if (date_bold)
+            tvFixedDate.setTypeface(Typeface.DEFAULT_BOLD);
+
         DividerItemDecoration dateDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
             @Override
             public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-                for (int i = 0; i < parent.getChildCount(); i++) {
+                int count = parent.getChildCount();
+                if (date_fixed)
+                    if ("time".equals(adapter.getSort()))
+                        inDate.setVisibility(count > 0 ? View.VISIBLE : View.INVISIBLE);
+                    else
+                        inDate.setVisibility(View.GONE);
+
+                for (int i = 0; i < count; i++) {
                     View view = parent.getChildAt(i);
                     int pos = parent.getChildAdapterPosition(view);
-                    View header = getView(view, parent, pos);
-                    if (header != null) {
-                        canvas.save();
-                        canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
-                        header.draw(canvas);
-                        canvas.restore();
+
+                    if (i == 0 && date_fixed && "time".equals(adapter.getSort())) {
+                        TupleMessageEx top = adapter.getItemAtPosition(pos);
+                        tvFixedDate.setVisibility(top == null ? View.GONE : View.VISIBLE);
+                        vSeparatorDate.setVisibility(top == null || cards ? View.GONE : View.VISIBLE);
+                        tvFixedDate.setText(top == null ? null : getRelativeDate(top.received, parent.getContext()));
+                    } else {
+                        View header = getView(view, parent, pos);
+                        if (header != null) {
+                            canvas.save();
+                            canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
+                            header.draw(canvas);
+                            canvas.restore();
+                        }
                     }
                 }
             }
@@ -690,7 +716,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             private View getView(View view, RecyclerView parent, int pos) {
-                if (!date || !SORT_DATE_HEADER.contains(adapter.getSort()))
+                if (!date || !SORT_DATE_HEADER.contains(adapter.getSort()) || date_fixed)
                     return null;
 
                 if (pos == NO_POSITION)
@@ -716,7 +742,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return null;
                 }
 
-                View header = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_date, parent, false);
+                View header = inflater.inflate(R.layout.item_message_date, parent, false);
                 TextView tvDate = header.findViewById(R.id.tvDate);
                 tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.getTextSize(parent.getContext(), adapter.getZoom()));
                 if (date_bold)
@@ -727,26 +753,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     vSeparatorDate.setVisibility(View.GONE);
                 }
 
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(new Date());
-                cal.set(Calendar.HOUR_OF_DAY, 0);
-                cal.set(Calendar.MINUTE, 0);
-                cal.set(Calendar.SECOND, 0);
-                cal.set(Calendar.MILLISECOND, 0);
-                cal.add(Calendar.DAY_OF_MONTH, -1);
-                if (message.received <= cal.getTimeInMillis())
-                    tvDate.setText(
-                            DateUtils.formatDateRange(
-                                    parent.getContext(),
-                                    message.received,
-                                    message.received,
-                                    FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE));
-                else
-                    tvDate.setText(
-                            DateUtils.getRelativeTimeSpanString(
-                                    message.received,
-                                    new Date().getTime(),
-                                    DAY_IN_MILLIS, 0));
+                tvDate.setText(getRelativeDate(message.received, parent.getContext()));
 
                 view.setContentDescription(tvDate.getText().toString());
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
@@ -757,6 +764,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
 
                 return header;
+            }
+
+            CharSequence getRelativeDate(long time, Context context) {
+                Date now = new Date();
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(now);
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MILLISECOND, 0);
+                cal.add(Calendar.DAY_OF_MONTH, -1);
+
+                if (time <= cal.getTimeInMillis())
+                    return DateUtils.formatDateRange(context,
+                            time, time,
+                            FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE);
+                else
+                    return DateUtils.getRelativeTimeSpanString(
+                            time, now.getTime(),
+                            DAY_IN_MILLIS, 0);
             }
         };
         rvMessage.addItemDecoration(dateDecorator);
@@ -783,7 +810,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        String sort = prefs.getString("sort", "time");
         boolean ascending = prefs.getBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
