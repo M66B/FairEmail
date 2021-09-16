@@ -800,6 +800,7 @@
     <string name="title_show_folders">Відображати приховані теки</string>
     <string name="title_show_flagged">Відображати кількість позначених повідомлень</string>
     <string name="title_subscribed_only">Тільки підписані</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Сортувати, непрочитані зверху</string>
     <string name="title_search_folder">Знайти теку</string>
     <string name="title_apply_to_all">Застосувати до всіх</string>
     <string name="title_hide_folder">Сховати теку</string>

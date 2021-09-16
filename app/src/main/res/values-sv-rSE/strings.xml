@@ -779,6 +779,7 @@
     <string name="title_show_folders">Visa dolda mappar</string>
     <string name="title_show_flagged">Visa antal stjärnmärkta meddelanden</string>
     <string name="title_subscribed_only">Endast prenumerationer</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Sortera olästa högst upp</string>
     <string name="title_search_folder">Sök efter mapp</string>
     <string name="title_apply_to_all">Tillämpa för alla</string>
     <string name="title_hide_folder">Dölj mapp</string>

@@ -85,40 +85,40 @@ Povezana pitanja:
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-<h2><a name="planned-features"></a>Planned features</h2>
+<h2><a name="planned-features"></a>Planirane mogućnosti</h2>
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Sinhronizacija na zahtjev (ručno)~~
+* ~~Poluautomatsko šifriranje~~
+* ~~Kopiranje poruka~~
+* ~~Obojene zvjezdice~~
+* ~~Postavke obavještenja prema folderu~~
+* ~~Izbor lokalnih slika za potpise~~ (ovo neće biti dodano, jer zahtijeva upravljanje slikovnim datotekama i zato što se većina slika po zadanom ionako ne prikazuje u većini e-mail klijenata)
+* ~~Prikaz poruka podudarnih sa pravilom~~
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (ne postoje Java biblioteke sa prikladnom licencom i bez zavisnih datoteka, a osim toga FairEmail ima svoja vlastita pravila filtriranja)
+* ~~Traženje poruka sa/bez priloga~~ (ovo se ne može dodati, jer IMAP ne podržava pretraživanje priloga)
+* ~~Traženje foldera~~ (filtriranje hijerarhijskog spiska foldera je problematično)
+* ~~Pretraga sugestija~~
+* ~~[Poruka za postavku autošifriranja](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (sekcijan 4.4)~~ (IMO nije dobra ideja dozvoliti e-mail klijentu da upravlja osjetljivim enkripcijskim ključevima za izuzetne situacije, dok OpenKeychain također ,pže ozvoziti ključeve)
+* ~~Generički objedinjeni folderi~~
+* ~~Novi rasporedi obavještavanja o porukama prema računima~~ (implementirano preko dodavanja vremenskih uvjeta pravilima, tako da se poruke mogu odlagati tokom izabranih perioda)
+* ~~Kopiranje računa i identiteta~~
+* ~~Prstohvatno zumiranje~~ (nije moguće za listanje spiska poruka; umjesto toga zumiranje radi u prikazu cijelih poruka)
+* ~~Kompaktniji izgled foldera~~
+* ~~Pravljenje spiskova i tabela~~ (za ovo je potreban uređivač obogaćenog teksta, pogledajte [ova ČPP](#user-content-faq99))
+* ~~Prstohvatno zumiranje veličine teksta~~
+* ~~Prikazivanje GIF-ova~~
+* ~~Teme~~ (siva svjetla i tamna tema su dodane jer je izgleda to želja većine ljudi)
+* ~~Vremenski uvjet-bilo koji dan~~ (bilo koji dan se ne uklapa u vremenske uvjete od datuma-do datuma)
+* ~~Slanje kao priloga~~
+* ~~Vidžet za izabrani račun~~
+* ~~Podsjetnik za prilaganje datoteka~~
+* ~~Izbor određenih domena za prikaz slika~~ (ovo bi bilo prekomplikovano za korištenje)
+* ~~Prikaz objedinjenih poruka sa zvjezdicama~~ (već postoji specijalna vrsta pretrage za ovo)
+* ~~Radnja premještanja u obavještenju~~
+* ~~S/MIME podrška~~
+* ~~Pretraživanje postavki~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Sve na ovom spisku je nasumično raspoređeno i *moguće* da će biti dodano u bliskoj budućnosti.
 
 <h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
 
@@ -467,8 +467,8 @@ In the display section of the settings you can enable or disable for example:
 * *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show 1-4 lines of the message text
 * *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Automatski prikaži izvornu poruku za poznate kontakte*: za automatski prikaz izvornih poruka za kontakte na vašem uređaju, molimo da pročitate [ova ČPP](#user-content-faq35)
+* *Automatski prikaži slike za poznate kontakte*: za automatski prikaz slika za kontakte na vašem uređaju, molimo da pročitate [ova ČPP](#user-content-faq35)
 
 Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
@@ -535,7 +535,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. U ovim slučajevima, FairEmail će automatski dodati poslane poruke u folder 'Poslano' tokom sinhronizacije istog, što se događa nakon što poruka bude poslana. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -573,7 +573,7 @@ Note that you can copy an identity by long pressing it.
 
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail će automatski ažurirati lozinke povezanih identiteta, kada ažurirate lozinku dodijeljenog računa ili povezanog identiteta.
 
 See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
@@ -626,7 +626,7 @@ To sign/encrypt a message, just select the appropriate method in the send dialog
 
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail će automatski sačuvati izabrani potpisni ključ slijedeći put kada budete koristili identitet. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
 In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 

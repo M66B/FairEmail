@@ -389,6 +389,10 @@
     <string name="title_advanced_onclose">Pri zatvaranju konverzacija</string>
     <string name="title_advanced_autoclose_unread">Zatvori konverzacije markiranjem poruka kao \'nepročitane\'</string>
     <string name="title_advanced_undo">Vrati vrijeme isteka</string>
+    <string name="title_advanced_autoread">Automatski označi poruke kao pročitane pri premještanju istih</string>
+    <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu za odložene poruke</string>
+    <string name="title_advanced_autounstar">Automatski ukloni zvjezdicu s poruka pri premještanju istih</string>
+    <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
@@ -502,10 +506,14 @@
     <string name="title_advanced_placeholders_hint">Ovo se primjenjuje samo na preformatirane poruke</string>
     <string name="title_advanced_inline_hint">Poravnate slike su slike unutar tijela poruke</string>
     <string name="title_advanced_language_detection_hint">Podrška za otkrivanje jezika zavisi od proizvođača uređaja</string>
+    <string name="title_advanced_autoexpand_hint">Automatski otvori poruku kada se u konverzaciji nalazi samo jedna poruka ili samo jedna nepročitana poruka</string>
+    <string name="title_advanced_autoseen_hint">Automatsko označavanje poruke kao pročitane pri proširivanju je opcija koja se može isključiti u naprednim postavkama svakog računa</string>
+    <string name="title_advanced_autoclose_hint">Automatski zatvori konverzacije kada se sve poruke arhiviraju, pošalju ili izbrišu</string>
     <string name="title_advanced_e2e_encryption">Opcija za E2E (end-to-end) šifriranje</string>
     <string name="title_advanced_display_pin_hint">PIN ima prednost naspram biometrijske provjere</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim launcher-ima</string>
     <string name="title_advanced_notify_remove_hint">Obavještenja o novim porukama će se uvijek skloniti kada se prevuku preko ekrana ili označavanjem poruka kao \'pročitane\'</string>
+    <string name="title_advanced_notify_separate_hint">Kako da podesim obavještenja za račune, foldere i pošiljaoce?</string>
     <string name="title_advanced_english_hint">Ovo će restartovati aplikaciju</string>
     <string name="title_advanced_experiments_hint">Spisak trenutnih eksperimentalnih mogućnosti</string>
     <string name="title_advanced_protocol_hint">Ovo će značajno povećati potrošnju baterije i skladišnog prostora!</string>
@@ -576,6 +584,8 @@
     <string name="title_no_drafts">Nema foldera za nacrte</string>
     <string name="title_no_junk_folder">Nema izabranog spam foldera za ovaj račun</string>
     <string name="title_no_idle">Ovaj provajder (poslužitelj) ne podržava trenutna obavještenja. To će odložiti prijem novih poruka i povećati potrošnju baterije.</string>
+    <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
+    <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
@@ -636,6 +646,10 @@
     <string name="title_synchronize_folder">Sinhronizuj (primaj poruke)</string>
     <string name="title_poll_folder">Provjeri povremeno umjesto stalnog sinhroniziranja</string>
     <string name="title_poll_folder_remark">Većina e-mail servera dozvoljava trenutna obavještenja samo za određene foldere!</string>
+    <string name="title_download_folder">Automatski preuzmi tekst i priloge poruka</string>
+    <string name="title_auto_classify_target">Automatski premjesti klasifikovane poruke u ovaj folder</string>
+    <string name="title_auto_trash">Automatski premjesti stare poruke u otpad</string>
+    <string name="title_auto_delete">Automatski trajno briši stare poruke</string>
     <string name="title_folder_name_missing">Nedostaje naziv foldera</string>
     <string name="title_folder_exists">Folder %1$s postoji</string>
     <string name="title_months_all">Svi</string>
@@ -962,7 +976,10 @@
     <string name="title_answer_group">Grupa prijedloška (opcionalno)</string>
     <string name="title_answer_standard">Zadani</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_hide">Sakrij na menijima</string>
     <string name="title_answer_text">Tekst prijedloška</string>
+    <string name="title_answer_placeholder_name">Puno ime pošiljaoca</string>
+    <string name="title_answer_placeholder_email">E-mail adresa pošiljaoca</string>
     <string name="title_answer_placeholder_firstname">Ime pošiljaoca</string>
     <string name="title_answer_placeholder_lastname">Prezime pošiljaoca</string>
     <string name="title_rule_noop">Bez radnji</string>
@@ -975,6 +992,7 @@
     <string name="title_rule_importance">Postavi važnost</string>
     <string name="title_rule_keyword">Dodaj ključnu riječ</string>
     <string name="title_rule_move">Premjesti</string>
+    <string name="title_rule_automation">Automatizacija</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_template">Prijedložak za odgovore</string>
     <string name="title_rule_name_missing">Nedostaje naziv pravila</string>
@@ -1024,6 +1042,8 @@
     <string name="title_legend_signed">Potpisan</string>
     <string name="title_legend_encrypted">Šifrirano</string>
     <string name="title_legend_auth">Provjera nije uspješna</string>
+    <string name="title_legend_classified">Automatski klasifikovano</string>
+    <string name="title_legend_auto_submitted">Automatski poslano</string>
     <string name="title_legend_contacts">Upravljaj kontaktima</string>
     <string name="title_legend_search">Traži pošiljaoca</string>
     <string name="title_legend_view">Prikaži sadržaj</string>

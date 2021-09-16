@@ -792,6 +792,7 @@
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_show_flagged">Arată numărul de mesaje cu stea</string>
     <string name="title_subscribed_only">Doar abonat</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Sortează necitite în partea de sus</string>
     <string name="title_search_folder">Căutare folder</string>
     <string name="title_apply_to_all">Aplică la toate</string>
     <string name="title_hide_folder">Ascunde dosar</string>

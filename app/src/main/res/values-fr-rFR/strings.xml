@@ -782,7 +782,7 @@
     <string name="title_show_folders">Afficher les dossiers cachés</string>
     <string name="title_show_flagged">Afficher le nombre de messages suivis</string>
     <string name="title_subscribed_only">Abonnés uniquement</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Afficher les dossiers contenant des messages non-lus en haut de la liste</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Dossiers avec messages non-lus en haut</string>
     <string name="title_search_folder">Rechercher un dossier</string>
     <string name="title_apply_to_all">Appliquer à tous</string>
     <string name="title_hide_folder">Masquer le dossier</string>

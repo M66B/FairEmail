@@ -780,6 +780,7 @@
     <string name="title_show_folders">Εμφάνιση κρυμμένων φακέλων</string>
     <string name="title_show_flagged">Εμφάνιση του αριθμού μηνυμάτων με αστέρι</string>
     <string name="title_subscribed_only">Μόνο με συνδρομή</string>
+    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Ταξινόμηση των μη αναγνωσμένων στην κορυφή</string>
     <string name="title_search_folder">Αναζήτηση φακέλου</string>
     <string name="title_apply_to_all">Εφαρμογή σε όλα</string>
     <string name="title_hide_folder">Απόκρυψη φακέλου</string>
