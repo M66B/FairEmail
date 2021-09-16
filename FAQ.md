@@ -623,7 +623,8 @@ Note that this will result in extra internet traffic.
 <a name="faq8"></a>
 **(8) Can I use a Microsoft Exchange account?**
 
-The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055).
+The Microsoft Exchange Web Services (EWS) protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055).
+Microsoft stopped updating the EWS libraries [in 2018](https://github.com/OfficeDev/ews-java-api).
 So, it makes little sense to add this protocol anymore.
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case.
