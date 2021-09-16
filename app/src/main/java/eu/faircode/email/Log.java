@@ -307,8 +307,7 @@ public class Log {
                 sb.append(' ').append(key).append('=').append(val);
                 ocrumb.put(key, val);
             }
-            if (BuildConfig.DEBUG)
-                Log.i(sb.toString());
+            Log.i(sb.toString());
             Bugsnag.leaveBreadcrumb(name, ocrumb, BreadcrumbType.LOG);
         } catch (Throwable ex) {
             ex.printStackTrace();

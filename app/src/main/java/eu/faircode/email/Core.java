@@ -681,7 +681,7 @@ class Core {
                     state.error(new OperationCanceledException("Processing"));
                 else {
                     if (state.isProcessing())
-                        Log.e(folder.name + " cannot run " +
+                        Log.e(folder.name + " cannot run" +
                                 " sequence=" + sequence +
                                 " batch=" + state.getBatch(folder.id, priority));
                 }

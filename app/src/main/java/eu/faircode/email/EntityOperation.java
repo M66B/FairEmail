@@ -461,7 +461,13 @@ public class EntityOperation {
                 }
 
         int count = db.operation().deleteOperation(fid, SYNC);
-        Log.i("Deleted stale sync=" + count);
+
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("folder", Long.toString(fid));
+        crumb.put("stale", Integer.toString(count));
+        crumb.put("force", Boolean.toString(force));
+        Log.breadcrumb("Poll", crumb);
+
         sync(context, fid, false, force);
     }
 

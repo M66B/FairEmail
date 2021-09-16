@@ -1863,6 +1863,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                             final long sequence = state.getSequence(folder.id, key.getPriority());
 
+                                            Map<String, String> crumb = new HashMap<>();
+                                            crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
+                                            crumb.put("folder", folder.name + "/" + folder.type + ":" + folder.id);
+                                            crumb.put("partition", key.toString());
+                                            crumb.put("operations", Integer.toString(partitions.get(key).size()));
+                                            crumb.put("sequence", Long.toString(sequence));
+                                            Log.breadcrumb("Queuing", crumb);
+
                                             executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                 @Override
                                                 public void run() {
@@ -1880,6 +1888,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                 " executing partition=" + key +
                                                                 " sequence=" + sequence +
                                                                 " operations=" + partition.size());
+
+                                                        Map<String, String> crumb = new HashMap<>();
+                                                        crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
+                                                        crumb.put("folder", folder.name + "/" + folder.type + ":" + folder.id);
+                                                        crumb.put("partition", key.toString());
+                                                        crumb.put("operations", Integer.toString(partition.size()));
+                                                        crumb.put("sequence", Long.toString(sequence));
+                                                        Log.breadcrumb("Executing", crumb);
 
                                                         // Get folder
                                                         Folder ifolder = mapFolders.get(folder); // null when polling
@@ -1952,6 +1968,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                 db.folder().setFolderState(folder.id, null);
                                                             }
                                                         }
+                                                    } catch (Throwable ex) {
+                                                        Log.e(ex);
                                                     } finally {
                                                         wlOperations.release();
                                                     }
