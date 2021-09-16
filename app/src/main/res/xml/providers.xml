@@ -1301,7 +1301,7 @@
     </provider>
     <provider
         name="Mailo.com"
-        domain="mailo\..*,net-c\..*,netc\..*,netcourrier.com,netcmail.com"
+        domain="africamel\\.net,americamel\\.net,asiamel\\.net,brusseler\\.com,calidifontain\\.be,email\\.bzh,emailasso\\.net,europamel\\.net,francemel\\.fr,inmano\\.com,lavache\\.com,mailo\..*,mailoo\\.org,monemail\\.com,mongenie\\.com,net-c\\.be,net-c\\.ca,net-c\\.cat,net-c\\.com,net-c\\.es,net-c\\.fr,net-c\\.it,net-c\\.lu,net-c\\.nl,net-c\\.pl,netc\\.eu,netc\\.fr,netc\\.it,netc\\.lu,netc\\.pl,netcmail\\.com,netcourrier\\.com,perso\\.be,postel\\.bzh,teaser\\.fr"
         enabled="true">
         <imap
             host="mail.mailo.com"
