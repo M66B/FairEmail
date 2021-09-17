@@ -265,6 +265,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Float font_size_subject;
     private boolean subject_top;
     private boolean subject_italic;
+    private String sender_ellipsize;
     private String subject_ellipsize;
 
     private boolean keywords_header;
@@ -659,8 +660,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibHelp = itemView.findViewById(R.id.ibHelp);
 
             if (tvFrom != null) {
-                if (compact)
-                    tvFrom.setSingleLine(true);
+                if (compact) {
+                    boolean full = "full".equals(sender_ellipsize);
+                    tvFrom.setSingleLine(!full);
+
+                    if ("start".equals(sender_ellipsize))
+                        tvFrom.setEllipsize(TextUtils.TruncateAt.START);
+                    else if ("end".equals(sender_ellipsize))
+                        tvFrom.setEllipsize(TextUtils.TruncateAt.END);
+                    else if ("middle".equals(sender_ellipsize))
+                        tvFrom.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+                    else
+                        tvFrom.setEllipsize(null);
+                }
             }
 
             if (tvSubject != null) {
@@ -1419,11 +1431,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void clearExpanded(TupleMessageEx message) {
             if (compact) {
-                if (tvFrom.getMaxLines() > 1)
-                    tvFrom.setSingleLine(true);
-                boolean full = "full".equals(subject_ellipsize);
-                if (full ? tvSubject.getMaxLines() == 1 : tvSubject.getMaxLines() > 1)
-                    tvSubject.setSingleLine(!full);
+                if ("full".equals(sender_ellipsize)
+                        ? tvFrom.getMaxLines() == 1
+                        : tvFrom.getMaxLines() > 1)
+                    tvFrom.setSingleLine(!"full".equals(sender_ellipsize));
+
+                if ("full".equals(subject_ellipsize)
+                        ? tvSubject.getMaxLines() == 1
+                        : tvSubject.getMaxLines() > 1)
+                    tvSubject.setSingleLine(!"full".equals(subject_ellipsize));
             }
 
             tvPreview.setVisibility(
@@ -5846,6 +5862,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             font_size_subject = Helper.getTextSize(context, fz_subject);
 
         this.subject_italic = prefs.getBoolean("subject_italic", true);
+        this.sender_ellipsize = prefs.getString("sender_ellipsize", "end");
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "full");
         this.keywords_header = prefs.getBoolean("keywords_header", false);
         this.labels_header = prefs.getBoolean("labels_header", true);

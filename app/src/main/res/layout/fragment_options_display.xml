@@ -892,17 +892,6 @@
                     app:layout_constraintTop_toBottomOf="@id/swDistinguishContacts"
                     app:switchPadding="12dp" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swSubjectTop"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_subject_top"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swShowRecipients"
-                    app:switchPadding="12dp" />
-
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvFontSizeSender"
                     android:layout_width="0dp"
@@ -914,7 +903,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSubjectTop" />
+                    app:layout_constraintTop_toBottomOf="@id/swShowRecipients" />
 
                 <Spinner
                     android:id="@+id/spFontSizeSender"
@@ -926,12 +915,11 @@
                     app:layout_constraintTop_toBottomOf="@id/tvFontSizeSender" />
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvFontSizeSubject"
+                    android:id="@+id/tvSenderEllipsize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_font_size_subject"
+                    android:text="@string/title_advanced_sender_ellipsize"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -939,13 +927,37 @@
                     app:layout_constraintTop_toBottomOf="@id/spFontSizeSender" />
 
                 <Spinner
-                    android:id="@+id/spFontSizeSubject"
+                    android:id="@+id/spSenderEllipsize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:entries="@array/fontSizeNames"
+                    android:entries="@array/ellipsizeNames"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvFontSizeSubject" />
+                    app:layout_constraintTop_toBottomOf="@id/tvSenderEllipsize" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSenderEllipsizeRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_compact_mode_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spSenderEllipsize" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSubjectTop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_subject_top"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSenderEllipsizeRemark"
+                    app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSubjectItalic"
@@ -956,7 +968,7 @@
                     android:text="@string/title_advanced_subject_italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spFontSizeSubject"
+                    app:layout_constraintTop_toBottomOf="@id/swSubjectTop"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -983,16 +995,38 @@
                     app:layout_constraintTop_toBottomOf="@id/swHighlightSubject" />
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvSubjectEllipsize"
+                    android:id="@+id/tvFontSizeSubject"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_subject_elipsed"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_font_size_subject"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvHighlightSubjectHint" />
+
+                <Spinner
+                    android:id="@+id/spFontSizeSubject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/fontSizeNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFontSizeSubject" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSubjectEllipsize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_subject_ellipsize"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spFontSizeSubject" />
 
                 <Spinner
                     android:id="@+id/spSubjectEllipsize"
@@ -1003,6 +1037,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsize" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSubjectEllipsizeRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_compact_mode_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swKeywords"
                     android:layout_width="0dp"
@@ -1011,7 +1058,7 @@
                     android:text="@string/title_advanced_keywords"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize"
+                    app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsizeRemark"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

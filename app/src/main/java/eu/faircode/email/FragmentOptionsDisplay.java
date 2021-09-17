@@ -104,17 +104,21 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SeekBar sbBrightness;
     private TextView tvThreshold;
     private SeekBar sbThreshold;
+
     private Spinner spNameEmail;
     private SwitchCompat swPreferContact;
     private SwitchCompat swOnlyContact;
     private SwitchCompat swDistinguishContacts;
     private SwitchCompat swShowRecipients;
-    private SwitchCompat swSubjectTop;
     private Spinner spFontSizeSender;
-    private Spinner spFontSizeSubject;
+    private Spinner spSenderEllipsize;
+
+    private SwitchCompat swSubjectTop;
     private SwitchCompat swSubjectItalic;
     private SwitchCompat swHighlightSubject;
+    private Spinner spFontSizeSubject;
     private Spinner spSubjectEllipsize;
+
     private SwitchCompat swKeywords;
     private SwitchCompat swLabels;
     private SwitchCompat swFlags;
@@ -161,7 +165,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
-            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
+            "font_size_sender", "sender_ellipsize",
+            "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
@@ -229,17 +234,21 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         sbBrightness = view.findViewById(R.id.sbBrightness);
         tvThreshold = view.findViewById(R.id.tvThreshold);
         sbThreshold = view.findViewById(R.id.sbThreshold);
+
         spNameEmail = view.findViewById(R.id.spNameEmail);
         swPreferContact = view.findViewById(R.id.swPreferContact);
         swOnlyContact = view.findViewById(R.id.swOnlyContact);
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swShowRecipients = view.findViewById(R.id.swShowRecipients);
-        swSubjectTop = view.findViewById(R.id.swSubjectTop);
         spFontSizeSender = view.findViewById(R.id.spFontSizeSender);
-        spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
+        spSenderEllipsize = view.findViewById(R.id.spSenderEllipsize);
+
+        swSubjectTop = view.findViewById(R.id.swSubjectTop);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swHighlightSubject = view.findViewById(R.id.swHighlightSubject);
+        spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
+
         swKeywords = view.findViewById(R.id.swKeywords);
         swLabels = view.findViewById(R.id.swLabels);
         swFlags = view.findViewById(R.id.swFlags);
@@ -688,14 +697,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swSubjectTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("subject_top", checked).apply();
-                WidgetUnified.updateData(getContext());
-            }
-        });
-
         spFontSizeSender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -709,16 +710,24 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        spFontSizeSubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spSenderEllipsize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                int[] values = getResources().getIntArray(R.array.fontSizeValues);
-                prefs.edit().putInt("font_size_subject", values[position]).apply();
+                String[] values = getResources().getStringArray(R.array.ellipsizeValues);
+                prefs.edit().putString("sender_ellipsize", values[position]).apply();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("font_size_subject").apply();
+                prefs.edit().remove("sender_ellipsize").apply();
+            }
+        });
+
+        swSubjectTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subject_top", checked).apply();
+                WidgetUnified.updateData(getContext());
             }
         });
 
@@ -734,6 +743,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("highlight_subject", checked).apply();
+            }
+        });
+
+        spFontSizeSubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int[] values = getResources().getIntArray(R.array.fontSizeValues);
+                prefs.edit().putInt("font_size_subject", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("font_size_subject").apply();
             }
         });
 
@@ -1097,9 +1119,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swOnlyContact.setChecked(prefs.getBoolean("only_contact", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swShowRecipients.setChecked(prefs.getBoolean("show_recipients", false));
+
         swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
+        swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
+        swHighlightSubject.setChecked(prefs.getBoolean("highlight_subject", false));
 
         int[] fontSizeValues = getResources().getIntArray(R.array.fontSizeValues);
+        String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
 
         int font_size_sender = prefs.getInt("font_size_sender", -1);
         for (int pos = 0; pos < fontSizeValues.length; pos++)
@@ -1115,11 +1141,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 break;
             }
 
-        swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
-        swHighlightSubject.setChecked(prefs.getBoolean("highlight_subject", false));
+        String sender_ellipsize = prefs.getString("sender_ellipsize", "end");
+        for (int pos = 0; pos < startupValues.length; pos++)
+            if (ellipsizeValues[pos].equals(sender_ellipsize)) {
+                spSenderEllipsize.setSelection(pos);
+                break;
+            }
 
         String subject_ellipsize = prefs.getString("subject_ellipsize", "full");
-        String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
         for (int pos = 0; pos < startupValues.length; pos++)
             if (ellipsizeValues[pos].equals(subject_ellipsize)) {
                 spSubjectEllipsize.setSelection(pos);
