@@ -2,6 +2,10 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### 1.1726
+
+* Show in-app changelog after updating
+
 ### 1.1725
 
 * Added in-app changelog
