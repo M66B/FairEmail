@@ -769,7 +769,7 @@
     <string name="title_show_folders">隠しフォルダーを表示</string>
     <string name="title_show_flagged">スター付きメッセージの数を表示</string>
     <string name="title_subscribed_only">購読済みのみ</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">未読を先頭に並び替える</string>
+    <string name="title_sort_unread_atop">未読を先頭に並び替える</string>
     <string name="title_search_folder">フォルダを検索</string>
     <string name="title_apply_to_all">すべてに適用</string>
     <string name="title_hide_folder">フォルダーを非表示</string>

@@ -349,6 +349,7 @@
     <string name="title_advanced_tabular_background">Använd kortfärg som bakgrundsfärg när du använder tabulär stil</string>
     <string name="title_advanced_cards_shadow">Använd skugga för olästa meddelanden när du använder kort-stil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
+    <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
     <string name="title_advanced_date_bold">Visa datum i fetstil</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_threading_unread">Visa antal olästa meddelanden i konversationer</string>
@@ -779,7 +780,7 @@
     <string name="title_show_folders">Visa dolda mappar</string>
     <string name="title_show_flagged">Visa antal stjärnmärkta meddelanden</string>
     <string name="title_subscribed_only">Endast prenumerationer</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Sortera olästa högst upp</string>
+    <string name="title_sort_unread_atop">Sortera olästa högst upp</string>
     <string name="title_search_folder">Sök efter mapp</string>
     <string name="title_apply_to_all">Tillämpa för alla</string>
     <string name="title_hide_folder">Dölj mapp</string>

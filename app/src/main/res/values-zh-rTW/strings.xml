@@ -771,7 +771,7 @@
     <string name="title_show_folders">顯示隱藏的資料夾</string>
     <string name="title_show_flagged">顯示已加星號訊息的計數</string>
     <string name="title_subscribed_only">僅顯示已訂閱的資料夾</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">置頂含未讀訊息資料夾</string>
+    <string name="title_sort_unread_atop">置頂含未讀訊息資料夾</string>
     <string name="title_search_folder">搜尋資料夾</string>
     <string name="title_apply_to_all">套用至全部</string>
     <string name="title_hide_folder">隱藏資料夾</string>

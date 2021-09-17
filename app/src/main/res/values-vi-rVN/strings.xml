@@ -342,6 +342,7 @@
     <string name="title_advanced_tabular_background">Sử dụng màu thẻ làm màu nền khi dùng kiểu tab</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
+    <string name="title_advanced_date_fixed">Hiện tiêu đề ngày cố định ở đầu</string>
     <string name="title_advanced_date_bold">Hiện ngày bằng chữ đậm</string>
     <string name="title_advanced_threading">Chia cuộc hội thoại thành các chủ đề</string>
     <string name="title_advanced_threading_unread">Hiện số thư chưa đọc trong các cuộc hội thoại</string>
@@ -771,7 +772,7 @@
     <string name="title_show_folders">Hiện các thư mục ẩn</string>
     <string name="title_show_flagged">Hiện số thư gắn sao</string>
     <string name="title_subscribed_only">Chỉ có đã đăng ký</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Sắp xếp chưa đọc ở đầu</string>
+    <string name="title_sort_unread_atop">Sắp xếp chưa đọc ở đầu</string>
     <string name="title_search_folder">Tìm kiếm thư mục</string>
     <string name="title_apply_to_all">Áp dụng cho tất cả</string>
     <string name="title_hide_folder">Ẩn thư mục</string>

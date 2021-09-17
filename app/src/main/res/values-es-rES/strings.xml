@@ -352,6 +352,7 @@
     <string name="title_advanced_tabular_background">Usar el color de la tarjeta como color de fondo al utilizar el estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensajes no leídos al usar estilo de tarjeta</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
+    <string name="title_advanced_date_fixed">Mostrar encabezado de fecha fijado en la parte superior</string>
     <string name="title_advanced_date_bold">Mostrar fecha en negrita</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
@@ -782,7 +783,7 @@
     <string name="title_show_folders">Mostrar carpetas ocultas</string>
     <string name="title_show_flagged">Mostrar cantidad de mensajes destacados</string>
     <string name="title_subscribed_only">Sólo suscritas</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Mostrar no leídos arriba</string>
+    <string name="title_sort_unread_atop">Mostrar no leídos arriba</string>
     <string name="title_search_folder">Buscar carpeta</string>
     <string name="title_apply_to_all">Aplicar a todos</string>
     <string name="title_hide_folder">Ocultar carpeta</string>

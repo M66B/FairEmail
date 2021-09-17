@@ -372,6 +372,7 @@
     <string name="title_advanced_tabular_background">Использовать цвет карточки в качестве цвета фона при использовании табличного стиля</string>
     <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
+    <string name="title_advanced_date_fixed">Показывать постоянный заголовок с датой вверху</string>
     <string name="title_advanced_date_bold">Показывать дату жирным шрифтом</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
@@ -802,7 +803,7 @@
     <string name="title_show_folders">Показывать скрытые папки</string>
     <string name="title_show_flagged">Показывать количество избранных сообщений</string>
     <string name="title_subscribed_only">Только подписки</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Непрочитанные вверху</string>
+    <string name="title_sort_unread_atop">Непрочитанные вверху</string>
     <string name="title_search_folder">Поиск в названии папки</string>
     <string name="title_apply_to_all">Применить ко всем</string>
     <string name="title_hide_folder">Скрыть папку</string>

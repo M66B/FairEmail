@@ -362,6 +362,7 @@
     <string name="title_advanced_tabular_background">Utilizați culoarea cardului ca și culoare de fundal atunci când folosiți stilul tabular</string>
     <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
+    <string name="title_advanced_date_fixed">Afișați antetul cu dată fixă în partea de sus</string>
     <string name="title_advanced_date_bold">Afișați data marcată cu bold</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
@@ -792,7 +793,7 @@
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_show_flagged">Arată numărul de mesaje cu stea</string>
     <string name="title_subscribed_only">Doar abonat</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Sortează necitite în partea de sus</string>
+    <string name="title_sort_unread_atop">Sortează necitite în partea de sus</string>
     <string name="title_search_folder">Căutare folder</string>
     <string name="title_apply_to_all">Aplică la toate</string>
     <string name="title_hide_folder">Ascunde dosar</string>

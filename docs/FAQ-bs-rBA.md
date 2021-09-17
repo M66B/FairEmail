@@ -64,26 +64,26 @@ Povezana pitanja:
 * Promijeniti sistemske foldere: 'Postavke', dodirnite 'Ručne postavke', dodirnite 'Računi', dodirnite račun na dnu
 * Izvesti/uvesti postavke: 'Postavke', prevucite navigacijski (lijevi) meni
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Poznati problemi</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* ~~Greška [u Androidu 5.1 i 6](https://issuetracker.google.com/issues/37054851) uzrokuje prikaz pogrešnog vremenskog formata u aplikacijama. Uključivanje/isključivanje postavke u Androidu *Koristi 24-satni format* može privremeno riješiti problem. Dodano je zaobilazno rješenje.~~
+* ~~Greška [u Google Drive-u](https://issuetracker.google.com/issues/126362828) uzrokuje prazne datoteke koje se izvoze u Google Drive. Google je ovo riješio.~~
+* ~~Greška [u AndroidX-u](https://issuetracker.google.com/issues/78495471) uzrokuje povremeno rušenje FairEmail-a na dugi dodir ili prevlačenje. Google je ovo riješio.~~
+* ~~Greška [u AndroidX ROOM-u](https://issuetracker.google.com/issues/138441698) uzrokuje povremeno rušenje sa "*... Izuzetkom računanja podataka iz baze podataka ... Nemoguće pročitati red ...*". Dodano je zaobilazno rješenje.~~
+* Greška [u Androidu](https://issuetracker.google.com/issues/119872129) uzrokuje rušenje FairEmail-a uz "*... Prijavu lošeg obavještenja ...*" na nekim uređajima jednom kada se ažurira FairEmail i dodirivanjem na obavještenje.
+* Greška [u Androidu](https://issuetracker.google.com/issues/62427912) ponekad uzrokuje rušenje uz "*... Javljanje da nije pronađen ActivityRecord za ...*" nakon ažuriranja FairEmail-a. Reinstalacija ([izvora](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) može riješiti problem.
+* Greška [u Androidu](https://issuetracker.google.com/issues/37018931) ponekad uzrokuje rušenje uz "*... Javljanje da InputChannel nije pokrenut...* na nekim uređajima.
+* ~~Greška [u LineageOS-u](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) ponekad uzrokuje rušenje uz poruku *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Greška u Nova Launcher-u na Androidu 5.x uzrokuje rušenje FairEmail-a tuz poruku *java.lang.StackOverflowError* kada Nova Launcher ima pristup usluzi pristupačnosti.
+* ~~Izbornik foldera ponekad prikazuje da nema foldera iz još nerazješnjenih razloga. Ovo je izgleda riješeno.~~
+* ~~Greška [u AndroidX-u](https://issuetracker.google.com/issues/64729576) otežava zahvat brzog skrolera. Dodano je zaobilazno rješenje.~~
+* ~~Enkripicija sa YubiKey-em rezultira u beskonačnoj petlji. Ovo je izgleda rezultat [greške u OpenKeychain-u](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Pomicanje na interno vezanu lokaciju u izvornoj poruci ne radi. Ovo se ne može popraviti jer je prikaz izvorne poruke sadržan u prikazu pomicanja (skrolanja).
+* Pregled teksta poruke ne pojavljuje se (uvijek) na Samsung-ovim satovima jer se izgleda [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) ignoriše. Prikaz teksta poruke se ispravno prikazuje na nosivim uređajima Pebble 2, Fitbit Charge 3, Mi band 3 i Xiaomi Amazfit BIP. Također pogledajte [ova ČPP](#user-content-faq126).
+* Greška [u Androidu 6.0](https://issuetracker.google.com/issues/37068143) uzrokuje rušenje uz *... Nevažeći ofset: ... Validni raspon je...* kada se označi tekst i dodiruje na prostor izvan teksta. Ovaj problem je ispravljen u Androidu 6.0.1.
+* Unutrašnji (usidreni) linkovi neće raditi jer su izvorne poruke prikazane u ugrađenom WebView prikazu pomicanja (spisak konverzacija). Ovo je ograničenje Androida koje se ne može popraviti ni zaobići.
+* Otkrivanje jezika [ne radi više](https://issuetracker.google.com/issues/173337263) na Pixel uređajima sa (nadogradnjom na?) Android 11
+* Greška [u OpenKeychain-u](https://github.com/open-keychain/open-keychain/issues/2688) uzrokuje nevažeće PGP potpise kada se koristi hardverski token.
 
 <h2><a name="planned-features"></a>Planirane mogućnosti</h2>
 
@@ -120,11 +120,11 @@ Povezana pitanja:
 
 Sve na ovom spisku je nasumično raspoređeno i *moguće* da će biti dodano u bliskoj budućnosti.
 
-<h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
+<h2><a name="frequently-requested-features"></a>Često zahtjevane mogućnosti</h2>
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Dizajn je zasnovan na brojnim diskusijama i ukoliko želite, možete također raspravljati o njemu [na ovom forumu](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Cilj ovog dizajna je minimalistički (bez nepotrebnih menija, dugmadi itd.) i neometajući (bez jarkih boja, animacija itd.). Sve prikazane stavke trebaju biti korisne na neki način i pažljivo postavljene zbog jednostavne upotrebe. Fontovi, veličine, boje itd. trebaju koristiti materijalni dizajn kad god je moguće.
 
-<h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
+<h2><a name="frequently-asked-questions"></a>Često postavljena pitanja</h2>
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -3023,29 +3023,29 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<h2><a name="get-support"></a>Dobijte podršku</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+FairEmail je podržan samo na Android pametnim telefonima i tabletima i ChromeOS uređajima.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Podržani su samo najnovija verzija iz Play trgovine i najnovije GitHub izdanje. F-Droid izdanje je podržano samo ako je broj njegove verzija isti kao i broj verzije najnovijeg GitHub izdanja. Ovo također znači da povratak na stariju verziju nije podržan.
 
-There is no support on things that are not directly related to FairEmail.
+Stvari koje nisu u direktnoj vezi sa FairEmail-om, nisu podržane.
 
-There is no support on building and developing things by yourself.
+Stvari koje ste sami kreirali ili razvili nisu podržane.
 
-Requested features should:
+Zatražene mogućnosti trebaju:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* biti korisne za većinu ljudi
+* da ne komplikuju korištenje FairEmail-a
+* da se uklapaju u filozofiju FairEmail-a (orjetacija na privatnost, misliti na sigurnost)
+* poštivati uobičajene standarde (IMAP, SMTP itd.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Mogućnosti koje ne ispunjavaju ove zahtjeve vjerovatno će biti odbijene. Ovo je također važno zbog dugoročno izdvodivih održavanja i podrške.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Ukoliko imate pitanje, želite zatražiti neku mogućnost ili prijaviti grešku,  **molimo da koristite [ovaj formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+Pitanja o GitHub problemima su isključena zbog česte zloupotrebe.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Autorska prava &copy; 2018-2021 Marcel Bokhorst.

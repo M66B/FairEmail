@@ -341,6 +341,7 @@
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_date_header">按日期分组</string>
+    <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
     <string name="title_advanced_threading">邮件会话</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
@@ -771,7 +772,7 @@
     <string name="title_show_folders">显示隐藏文件夹</string>
     <string name="title_show_flagged">显示星标消息计数</string>
     <string name="title_subscribed_only">只显示已订阅的</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">将含未读邮件的文件夹排在最前面</string>
+    <string name="title_sort_unread_atop">将含未读邮件的文件夹排在最前面</string>
     <string name="title_search_folder">搜索文件夹</string>
     <string name="title_apply_to_all">应用到全部</string>
     <string name="title_hide_folder">隐藏文件夹</string>

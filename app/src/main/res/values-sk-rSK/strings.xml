@@ -802,7 +802,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_show_folders">Zobraziť skryté priečinky</string>
     <string name="title_show_flagged">Zobraziť počet správ s hviezdičkou</string>
     <string name="title_subscribed_only">Len odoberané</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Zotriediť s neprečítanými správami na vrchu</string>
+    <string name="title_sort_unread_atop">Zotriediť s neprečítanými správami na vrchu</string>
     <string name="title_search_folder">Hľadať priečinok</string>
     <string name="title_apply_to_all">Použiť pre všetky</string>
     <string name="title_hide_folder">Skryť priečinok</string>

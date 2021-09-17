@@ -371,6 +371,7 @@
     <string name="title_advanced_tabular_background">Використовувати колір картки як тло під час використання табличного стилю</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
+    <string name="title_advanced_date_fixed">Показати фіксований заголовок дати зверху</string>
     <string name="title_advanced_date_bold">Показувати дату в жирному шрифті</string>
     <string name="title_advanced_threading">Пов\'язанні розмови</string>
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
@@ -800,7 +801,7 @@
     <string name="title_show_folders">Відображати приховані теки</string>
     <string name="title_show_flagged">Відображати кількість позначених повідомлень</string>
     <string name="title_subscribed_only">Тільки підписані</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Сортувати, непрочитані зверху</string>
+    <string name="title_sort_unread_atop">Сортувати, непрочитані зверху</string>
     <string name="title_search_folder">Знайти теку</string>
     <string name="title_apply_to_all">Застосувати до всіх</string>
     <string name="title_hide_folder">Сховати теку</string>

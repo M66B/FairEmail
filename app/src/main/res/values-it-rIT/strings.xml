@@ -782,7 +782,7 @@
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_show_flagged">Mostra conteggio dei messaggi stellati</string>
     <string name="title_subscribed_only">Solo sottoscritte</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Porta in cima i non letti</string>
+    <string name="title_sort_unread_atop">Porta in cima i non letti</string>
     <string name="title_search_folder">Cerca per cartella</string>
     <string name="title_apply_to_all">Applica a tutti</string>
     <string name="title_hide_folder">Nascondi cartella</string>

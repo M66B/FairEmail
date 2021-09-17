@@ -352,6 +352,7 @@
     <string name="title_advanced_tabular_background">Utiliser la couleur de la carte comme couleur de fond lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_cards_shadow">Utiliser une ombre autour des messages non lus pour le style carte</string>
     <string name="title_advanced_date_header">Grouper par date</string>
+    <string name="title_advanced_date_fixed">Afficher l\'en-tête de la date fixe en haut</string>
     <string name="title_advanced_date_bold">Afficher la date en gras</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_threading_unread">Afficher le nombre de messages non lus dans les conversations</string>
@@ -782,7 +783,7 @@
     <string name="title_show_folders">Afficher les dossiers cachés</string>
     <string name="title_show_flagged">Afficher le nombre de messages suivis</string>
     <string name="title_subscribed_only">Abonnés uniquement</string>
-    <string name="title_sort_unread_atop" comment="title_sort_unread_atop&#10;Option title to let folders with unread messages be sorted at the top">Dossiers avec messages non-lus en haut</string>
+    <string name="title_sort_unread_atop">Dossiers avec messages non-lus en haut</string>
     <string name="title_search_folder">Rechercher un dossier</string>
     <string name="title_apply_to_all">Appliquer à tous</string>
     <string name="title_hide_folder">Masquer le dossier</string>
