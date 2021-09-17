@@ -3699,6 +3699,8 @@ Considering the default option values:
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can delete all classification data by turning classification in the miscellaneous settings three times off.
+This will be necessary when classification for a folder is enabled or disabled (or when a folder is deleted)
+because classification is based on comparision.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
 
