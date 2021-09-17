@@ -1103,15 +1103,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkFirst() {
+        String current = BuildConfig.VERSION_NAME + "-" + BuildConfig.REVISION;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("first", true))
             new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
         else if (!BuildConfig.PLAY_STORE_RELEASE) {
-            String current = BuildConfig.VERSION_NAME + "-" + BuildConfig.REVISION;
-            String last = prefs.getString("changelog", current);
+            String last = prefs.getString("changelog", null);
             if (!Objects.equals(current, last)) {
-                prefs.edit().putString("changelog", current).apply();
-
                 Bundle args = new Bundle();
                 args.putString("name", "CHANGELOG.md");
                 FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
@@ -1119,6 +1118,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 fragment.show(getSupportFragmentManager(), "changelog");
             }
         }
+
+        prefs.edit().putString("changelog", current).apply();
     }
 
     private void checkBanner() {
