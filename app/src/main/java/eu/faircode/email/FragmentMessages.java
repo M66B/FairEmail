@@ -671,6 +671,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         String sort = prefs.getString("sort", "time");
         inDate.setVisibility(date_fixed && "time".equals(sort) ? View.INVISIBLE : View.GONE);
+        if (cards)
+            vSeparatorDate.setVisibility(View.GONE);
         if (date_bold)
             tvFixedDate.setTypeface(Typeface.DEFAULT_BOLD);
 
@@ -690,8 +692,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if (i == 0 && date_fixed && "time".equals(adapter.getSort())) {
                         TupleMessageEx top = adapter.getItemAtPosition(pos);
-                        tvFixedDate.setVisibility(top == null ? View.GONE : View.VISIBLE);
-                        vSeparatorDate.setVisibility(top == null || cards ? View.GONE : View.VISIBLE);
+                        tvFixedDate.setVisibility(top == null ? View.INVISIBLE : View.VISIBLE);
+                        if (!cards)
+                            vSeparatorDate.setVisibility(top == null ? View.INVISIBLE : View.VISIBLE);
                         tvFixedDate.setText(top == null ? null : getRelativeDate(top.received, parent.getContext()));
                     } else {
                         View header = getView(view, parent, pos);
