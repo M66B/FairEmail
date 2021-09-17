@@ -4178,19 +4178,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (full) {
                 TextView tvDark = dview.findViewById(R.id.tvDark);
-                CheckBox cbDark = dview.findViewById(R.id.cbDark);
                 CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
 
                 boolean confirm_html = prefs.getBoolean("confirm_html", true);
-                cbDark.setChecked(prefs.getBoolean("html_dark", confirm_html));
                 cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
-
-                cbDark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        prefs.edit().putBoolean("html_dark", isChecked).apply();
-                    }
-                });
 
                 cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
@@ -4201,10 +4192,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 boolean isDark = Helper.isDarkTheme(context);
                 boolean canDark = WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK);
-
                 tvDark.setVisibility(isDark && !canDark ? View.VISIBLE : View.GONE);
-                cbDark.setVisibility(isDark && canDark ? View.VISIBLE : View.GONE);
-
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
@@ -7266,8 +7254,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean overview_mode = prefs.getBoolean("overview_mode", false);
             boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
-            boolean confirm_html = prefs.getBoolean("confirm_html", true);
-            boolean html_dark = prefs.getBoolean("html_dark", confirm_html);
 
             View view = inflater.inflate(R.layout.fragment_open_full, container, false);
             WebView wv = view.findViewById(R.id.wv);
@@ -7289,8 +7275,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 settings.setSafeBrowsingEnabled(safe_browsing);
 
-            if (html_dark &&
-                    WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
+            if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
                 WebSettingsCompat.setForceDark(settings,
                         Helper.isDarkTheme(getContext()) ? FORCE_DARK_ON : FORCE_DARK_OFF);
 

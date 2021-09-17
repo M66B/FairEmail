@@ -23,7 +23,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BlendMode;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Pair;
@@ -104,22 +107,17 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int message_zoom = prefs.getInt("message_zoom", 100);
         boolean monospaced = prefs.getBoolean("monospaced", false);
-        boolean confirm_html = prefs.getBoolean("confirm_html", true);
-        boolean html_dark = prefs.getBoolean("html_dark", confirm_html);
 
         WebSettings settings = getSettings();
 
-        boolean forced = false;
         boolean dark = Helper.isDarkTheme(context);
-        if (html_dark &&
-                WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+        if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
             WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
-            forced = true;
+            setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            if (!dark)
+                setBackgroundColor(Color.TRANSPARENT);
         }
-
-        setBackgroundColor(dark && !forced
-                ? Color.WHITE
-                : ColorUtils.setAlphaComponent(Color.WHITE, 127));
 
         float fontSize = 16f /* Default */ * message_zoom / 100f;
         if (zoom == 0 /* small */)
@@ -178,7 +176,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            setOnScrollChangeListener(new OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     Log.i("Scroll (x,y)=" + scrollX + "," + scrollY);
