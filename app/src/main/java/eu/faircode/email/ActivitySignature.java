@@ -59,6 +59,7 @@ import java.util.Objects;
 
 public class ActivitySignature extends ActivityBase {
     private ViewGroup view;
+    private TextView tvHtmlRemark;
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
@@ -81,6 +82,7 @@ public class ActivitySignature extends ActivityBase {
         view = (ViewGroup) inflater.inflate(R.layout.activity_signature, null, false);
         setContentView(view);
 
+        tvHtmlRemark = findViewById(R.id.tvHtmlRemark);
         etText = findViewById(R.id.etText);
         style_bar = findViewById(R.id.style_bar);
         bottom_navigation = findViewById(R.id.bottom_navigation);
@@ -176,6 +178,7 @@ public class ActivitySignature extends ActivityBase {
 
         // Initialize
         FragmentDialogTheme.setBackground(this, view, true);
+        tvHtmlRemark.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
 
         setResult(RESULT_CANCELED, new Intent());
@@ -279,6 +282,7 @@ public class ActivitySignature extends ActivityBase {
         String html = (dirty
                 ? getHtml()
                 : getIntent().getStringExtra("html"));
+        tvHtmlRemark.setVisibility(raw ? View.VISIBLE : View.GONE);
         etText.setRaw(raw);
         etText.setTypeface(raw ? Typeface.MONOSPACE : Typeface.DEFAULT);
         load(html);

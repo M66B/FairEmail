@@ -11,6 +11,17 @@
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHtmlRemark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@string/title_edit_signature_remark"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <eu.faircode.email.EditTextCompose
             android:id="@+id/etText"
             android:layout_width="0dp"
@@ -26,7 +37,7 @@
             app:layout_constraintBottom_toTopOf="@+id/style_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvHtmlRemark" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"

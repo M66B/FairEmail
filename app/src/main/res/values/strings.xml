@@ -1359,6 +1359,7 @@
     <string name="title_next">Next</string>
 
     <string name="title_edit_signature">Edit signature</string>
+    <string name="title_edit_signature_remark">Although Android cannot display all HTML, it will be sent as-is</string>
     <string name="title_edit_signature_text">Signature text</string>
     <string name="title_edit_signature_image">Insert image</string>
 
