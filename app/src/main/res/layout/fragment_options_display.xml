@@ -552,6 +552,16 @@
                     app:layout_constraintTop_toBottomOf="@id/btnHighlightColor"
                     app:switchPadding="12dp" />
 
+                <View
+                    android:id="@+id/vSeparatorAvatar"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swColorStripe" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAvatars"
                     android:layout_width="0dp"
@@ -561,7 +571,7 @@
                     android:text="@string/title_advanced_avatars"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swColorStripe"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorAvatar"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -813,6 +823,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvThreshold" />
 
+                <View
+                    android:id="@+id/vSeparatorSender"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbThreshold" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNameEmail"
                     android:layout_width="0dp"
@@ -824,7 +844,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbThreshold" />
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorSender" />
 
                 <Spinner
                     android:id="@+id/spNameEmail"
@@ -948,6 +968,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spSenderEllipsize" />
 
+                <View
+                    android:id="@+id/vSeparatorSubject"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSenderEllipsizeRemark" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSubjectTop"
                     android:layout_width="0dp"
@@ -956,7 +986,7 @@
                     android:text="@string/title_advanced_subject_top"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSenderEllipsizeRemark"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorSubject"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -1050,6 +1080,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize" />
 
+                <View
+                    android:id="@+id/vSeparatorOther"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsizeRemark" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swKeywords"
                     android:layout_width="0dp"
@@ -1058,7 +1098,7 @@
                     android:text="@string/title_advanced_keywords"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsizeRemark"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorOther"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
