@@ -87,6 +87,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -1105,6 +1106,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("first", true))
             new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
+        else if (!BuildConfig.PLAY_STORE_RELEASE) {
+            String current = BuildConfig.VERSION_NAME + "-" + BuildConfig.REVISION;
+            String last = prefs.getString("changelog", current);
+            if (!Objects.equals(current, last)) {
+                prefs.edit().putString("changelog", current).apply();
+
+                Bundle args = new Bundle();
+                args.putString("name", "CHANGELOG.md");
+                FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+                fragment.setArguments(args);
+                fragment.show(getSupportFragmentManager(), "changelog");
+            }
+        }
     }
 
     private void checkBanner() {

@@ -121,12 +121,6 @@ public class FragmentAbout extends FragmentBase {
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_changelog).setVisible(!TextUtils.isEmpty(BuildConfig.CHANGELOG));
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_changelog) {
@@ -140,7 +134,11 @@ public class FragmentAbout extends FragmentBase {
     }
 
     private void onMenuChangelog() {
-        Helper.view(getContext(), Uri.parse(BuildConfig.CHANGELOG), false);
+        Bundle args = new Bundle();
+        args.putString("name", "CHANGELOG.md");
+        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+        fragment.setArguments(args);
+        fragment.show(getParentFragmentManager(), "changelog");
     }
 
     private void onMenuAttribution() {
@@ -148,6 +146,6 @@ public class FragmentAbout extends FragmentBase {
         args.putString("name", "ATTRIBUTION.md");
         FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
         fragment.setArguments(args);
-        fragment.show(getParentFragmentManager(), "privacy");
+        fragment.show(getParentFragmentManager(), "attribution");
     }
 }
