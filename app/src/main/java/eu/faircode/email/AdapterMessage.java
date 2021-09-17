@@ -4332,11 +4332,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 LayoutInflater inflater = LayoutInflater.from(context);
                 View dview = inflater.inflate(R.layout.dialog_ask_again, null, false);
                 final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+                final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
                 final TextView tvRemark = dview.findViewById(R.id.tvRemark);
+                final CheckBox cbConfirm = dview.findViewById(R.id.cbConfirm);
                 final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+                final TextView tvAccept = dview.findViewById(R.id.tvAccept);
 
                 tvMessage.setText(R.string.title_ask_show_html);
+                ibInfo.setVisibility(View.GONE);
                 tvRemark.setText(R.string.title_ask_show_image_hint);
+                cbConfirm.setVisibility(View.GONE);
+                tvAccept.setVisibility(View.GONE);
 
                 new AlertDialog.Builder(context)
                         .setView(dview)
