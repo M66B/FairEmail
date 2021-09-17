@@ -78,6 +78,55 @@ public interface DaoAccount {
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
     @Query("SELECT account.*" +
+            ", NULL AS folderId, NULL AS folderType, -1 AS folderOrder" +
+            ", NULL AS folderName, NULL AS folderDisplay, NULL AS folderColor" +
+            ", 0 AS folderSync, NULL AS folderState, NULL AS folderSyncState" +
+            ", 0 AS executing" +
+            ", 0 AS messages" +
+            ", (SELECT COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END)" +
+            "    FROM message" +
+            "    JOIN folder ON folder.id = message.folder" +
+            "    WHERE message.account = account.id" +
+            "    AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
+            "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
+            "    AND folder.type <> '" + EntityFolder.JUNK + "'" +
+            "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
+            "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
+            "    AND NOT ui_seen" +
+            "    AND NOT ui_hide) AS unseen" +
+            " FROM account" +
+            " WHERE account.synchronize" +
+
+            " UNION " +
+
+            " SELECT account.*" +
+            ", folder.id AS folderId, folder.type AS folderType, folder.`order` AS folderOrder" +
+            ", folder.name AS folderName, folder.display AS folderDisplay, folder.color AS folderColor" +
+            ", folder.synchronize AS folderSync, folder.state AS foldeState, folder.sync_state AS folderSyncState" +
+            ", (SELECT COUNT(operation.id) FROM operation" +
+            "   WHERE operation.folder = folder.id" +
+            "   AND state = 'executing') AS executing" +
+            ", (SELECT COUNT(message.id) FROM message" +
+            "   WHERE message.folder = folder.id" +
+            "   AND NOT ui_hide) AS messages" +
+            ", (SELECT COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END)" +
+            "    FROM message" +
+            "    WHERE message.folder = folder.id" +
+            "    AND NOT ui_seen" +
+            "    AND NOT ui_hide) AS unseen" +
+            " FROM account" +
+            " JOIN folder ON folder.account = account.id" +
+            " WHERE account.synchronize" +
+            " AND folder.navigation")
+    LiveData<List<TupleAccountFolder>> liveAccountFolder();
+
+    @Query("SELECT account.*" +
             ", SUM(folder.synchronize) AS folders" +
             ", (SELECT COUNT(id) FROM operation" +
             "  WHERE operation.account = account.id AND operation.name <> '" + EntityOperation.SEND + "') AS operations" +

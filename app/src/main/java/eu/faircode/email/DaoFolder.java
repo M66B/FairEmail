@@ -116,19 +116,6 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified(String type);
 
-    @Query("SELECT folder.*" +
-            ", account.`order` AS accountOrder, account.name AS accountName, COALESCE(folder.color, account.color) AS accountColor" +
-            ", COUNT(message.id) AS messages" +
-            ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
-            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
-            ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
-            " FROM folder" +
-            " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " WHERE (account.`synchronize` AND folder.navigation)" +
-            " GROUP BY folder.id")
-    LiveData<List<TupleFolderNav>> liveNavigation();
-
     @Query("SELECT account, id AS folder, unified, sync_state FROM folder" +
             " WHERE sync_state IS NOT NULL" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
