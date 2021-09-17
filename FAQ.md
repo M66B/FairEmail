@@ -2841,8 +2841,11 @@ Note that this is clearly mentioned in the app description.
 
 There are plenty of email providers to choose from.
 Which email provider is best for you depends on your wishes/requirements.
-Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/)
-for a list of privacy oriented email providers with advantages and disadvantages.
+Please see these websites for lists of privacy oriented email providers with advantages and disadvantages:
+
+* [Restore privacy](https://restoreprivacy.com/secure-email/)
+* [Privacy Guides](https://privacyguides.org/providers/email/)
+* [Privacy Tools](https://www.privacytools.io/providers/email/)
 
 Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
 Please see [this FAQ](#user-content-faq129) for more information.
