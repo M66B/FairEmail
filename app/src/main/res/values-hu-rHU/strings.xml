@@ -300,7 +300,6 @@
     <string name="title_advanced_threading_unread">Olvasatlan üzenetek számának mutatása beszélgetésekben</string>
     <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
-    <string name="title_advanced_highlight_subject">Tárgy kiemelése</string>
     <string name="title_advanced_color_stripe">Színszalag megjelenítése</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_gravatars">Gravatar képek megjelenítése</string>
@@ -317,10 +316,10 @@
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi névjegy</string>
     <string name="title_advanced_show_recipients">Címzettek mutatása az üzenet fejlécében</string>
     <string name="title_advanced_font_size_sender">Feladó nevének betűmérete</string>
-    <string name="title_advanced_font_size_subject">Tárgy betűmérete</string>
     <string name="title_advanced_subject_top">Tárgy megjelenítése a küldő fölött</string>
     <string name="title_advanced_subject_italic">Tárgy megjelnítése dőlt betűvel</string>
-    <string name="title_advanced_subject_elipsed">Tárgy rövidítése szükség esetén</string>
+    <string name="title_advanced_highlight_subject">Tárgy kiemelése</string>
+    <string name="title_advanced_font_size_subject">Tárgy betűmérete</string>
     <string name="title_advanced_highlight_color">Kiemelő szín</string>
     <string name="title_advanced_keywords">Kulcsszavak megjelenítése az üzenetek fejlécében</string>
     <string name="title_advanced_labels">Gmail címkék mutatása az üzenet fejlécében</string>

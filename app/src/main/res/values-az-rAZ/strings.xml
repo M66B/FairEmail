@@ -358,7 +358,6 @@
     <string name="title_advanced_threading_unread">Danışıqda oxunmamış mesaj sayını göstər</string>
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
-    <string name="title_advanced_highlight_subject">Mövzunu vurğula</string>
     <string name="title_advanced_color_stripe">Rəng zolağını göstər</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_gravatars">\"Gravatar\"ları göstər</string>
@@ -377,10 +376,10 @@
     <string name="title_advanced_distinguish_contacts">Göndərən yerli \"alıcı\" əlaqəsi kimi bilinirsə göndərənin altından xətt çək</string>
     <string name="title_advanced_show_recipients">Mesaj başlığında alıcıları göstər</string>
     <string name="title_advanced_font_size_sender">Göndərən mətn ölçüsü</string>
-    <string name="title_advanced_font_size_subject">Mövzu mətn ölçüsü</string>
     <string name="title_advanced_subject_top">Göndərənin üstündə mövzunu göstər</string>
     <string name="title_advanced_subject_italic">Mövzunu \"italic\" göstər</string>
-    <string name="title_advanced_subject_elipsed">Ehtiyac olanda, mövzunu qısalt</string>
+    <string name="title_advanced_highlight_subject">Mövzunu vurğula</string>
+    <string name="title_advanced_font_size_subject">Mövzu mətn ölçüsü</string>
     <string name="title_advanced_highlight_color">Rəngi vurğula</string>
     <string name="title_advanced_keywords">Mesaj başlığında açar sözləri göstər</string>
     <string name="title_advanced_labels">Mesaj başlığında Gmail etiketlərini göstər</string>

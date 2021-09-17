@@ -359,7 +359,6 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
-    <string name="title_advanced_highlight_subject">Onderwerp markeren</string>
     <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_gravatars">Gravatars weergeven</string>
@@ -378,10 +377,13 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_show_recipients">Geadresseerden in berichtkop tonen</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
-    <string name="title_advanced_font_size_subject">Tekengrootte onderwerp</string>
+    <string name="title_advanced_sender_ellipsize">Indien nodig, verkort de afzender</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
-    <string name="title_advanced_subject_elipsed">Wanneer nodig, verkort het onderwerp</string>
+    <string name="title_advanced_highlight_subject">Onderwerp markeren</string>
+    <string name="title_advanced_font_size_subject">Tekengrootte onderwerp</string>
+    <string name="title_advanced_subject_ellipsize">Indien nodig, verkort het onderwerp</string>
+    <string name="title_advanced_compact_mode_remark">Alleen compacte modus</string>
     <string name="title_advanced_highlight_color">Markeerkleur</string>
     <string name="title_advanced_keywords">Toon sleutelwoorden in de berichtkop</string>
     <string name="title_advanced_labels">Toon Gmail labels in de berichtkop</string>
@@ -1187,6 +1189,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
     <string name="title_edit_signature">Handtekening bewerken</string>
+    <string name="title_edit_signature_remark">Hoewel Android niet alle HTML kan weergeven, zal het worden verzonden zoals het is</string>
     <string name="title_edit_signature_text">Tekst handtekening</string>
     <string name="title_edit_signature_image">Afbeelding invoegen</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>

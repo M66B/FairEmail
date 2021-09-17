@@ -205,7 +205,6 @@
     <string name="title_advanced_name_email">Прикажи имена и е-мејл адресе</string>
     <string name="title_advanced_subject_top">Прикажи наслов изнад пошиљаоца</string>
     <string name="title_advanced_subject_italic">Прикажи наслов курзивом</string>
-    <string name="title_advanced_subject_elipsed">Ако је потребно скратити наслов, скрати га</string>
     <string name="title_advanced_flags">Прикажи звездице</string>
     <string name="title_advanced_flags_background">Прикажи обојену позадину уместо обојених звездица</string>
     <string name="title_advanced_preview">Прикажи претпреглед поруке</string>

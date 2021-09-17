@@ -377,7 +377,6 @@
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
     <string name="title_advanced_indentation">Відступати ліворуч чи праворуч для отриманих або надісланих повідомлень у розмовах</string>
     <string name="title_advanced_highlight_unread">Підсвічувати непрочитані повідомлення</string>
-    <string name="title_advanced_highlight_subject">Підсвічувати тему</string>
     <string name="title_advanced_color_stripe">Показати смугу кольорів</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_gravatars">Показувати Gravatars</string>
@@ -396,10 +395,10 @@
     <string name="title_advanced_distinguish_contacts">Підкреслювати відправника в полі \'to\', коли відправник відомий як місцевий контакт</string>
     <string name="title_advanced_show_recipients">Показувати отримувачів в заголовку повідомлення</string>
     <string name="title_advanced_font_size_sender">Розмір тексту в полі відправник</string>
-    <string name="title_advanced_font_size_subject">Розмір тексту в полі тема</string>
     <string name="title_advanced_subject_top">Показувати поле тема над полем відправник</string>
     <string name="title_advanced_subject_italic">Показувати поле тема курсивом</string>
-    <string name="title_advanced_subject_elipsed">При необхідності скорочувати тему</string>
+    <string name="title_advanced_highlight_subject">Підсвічувати тему</string>
+    <string name="title_advanced_font_size_subject">Розмір тексту в полі тема</string>
     <string name="title_advanced_highlight_color">Колір підсвічування</string>
     <string name="title_advanced_keywords">Показувати ключові слова в заголовку повідомлення</string>
     <string name="title_advanced_labels">Показувати мітки Gmail в заголовку повідомлення</string>
@@ -1206,6 +1205,7 @@
     <string name="title_previous">Попереднє</string>
     <string name="title_next">Наступне</string>
     <string name="title_edit_signature">Редагувати підпис</string>
+    <string name="title_edit_signature_remark">Хоча Android не може відобразити весь HTML, він буде відправлений такий як є</string>
     <string name="title_edit_signature_text">Текст підпису</string>
     <string name="title_edit_signature_image">Вставити зображення</string>
     <string name="title_answer_caption">Редагувати шаблон</string>

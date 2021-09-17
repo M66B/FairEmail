@@ -378,7 +378,6 @@
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
-    <string name="title_advanced_highlight_subject">Выделять тему сообщения</string>
     <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_gravatars">Показывать Граватары</string>
@@ -397,10 +396,13 @@
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"Кому\"</string>
     <string name="title_advanced_show_recipients">Показывать получателей в заголовке сообщения</string>
     <string name="title_advanced_font_size_sender">Размера текста поля \"Отправитель\"</string>
-    <string name="title_advanced_font_size_subject">Размера текста поля \"Тема\"</string>
+    <string name="title_advanced_sender_ellipsize">При необходимости сокращать имя отправителя</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему сообщения курсивом</string>
-    <string name="title_advanced_subject_elipsed">При необходимости сокращать тему сообщения</string>
+    <string name="title_advanced_highlight_subject">Выделять тему сообщения</string>
+    <string name="title_advanced_font_size_subject">Размера текста поля \"Тема\"</string>
+    <string name="title_advanced_subject_ellipsize">При необходимости сокращать тему сообщения</string>
+    <string name="title_advanced_compact_mode_remark">Только компактный режим</string>
     <string name="title_advanced_highlight_color">Цвет выделения</string>
     <string name="title_advanced_keywords">Показывать ключевые слова в заголовке сообщения</string>
     <string name="title_advanced_labels">Показывать метки Gmail в заголовке сообщения</string>
@@ -1208,6 +1210,7 @@
     <string name="title_previous">Назад</string>
     <string name="title_next">Вперёд</string>
     <string name="title_edit_signature">Изменить подпись</string>
+    <string name="title_edit_signature_remark">Хотя Android не может отобразить весь HTML, он будет отправлен как есть</string>
     <string name="title_edit_signature_text">Текст подписи</string>
     <string name="title_edit_signature_image">Вставить изображение</string>
     <string name="title_answer_caption">Изменить шаблон</string>

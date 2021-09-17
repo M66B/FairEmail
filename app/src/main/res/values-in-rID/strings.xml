@@ -295,7 +295,6 @@
     <string name="title_advanced_threading_unread">Tampilkan jumlah pesan yang belum dibaca dalam obrolan</string>
     <string name="title_advanced_indentation">Indentasi kiri/kanan menerima/mengirim pesan dalam sebuah obrolan</string>
     <string name="title_advanced_highlight_unread">Sorot pesan yang belum dibaca</string>
-    <string name="title_advanced_highlight_subject">Sorot subjek</string>
     <string name="title_advanced_color_stripe">Tampilkan garis warna</string>
     <string name="title_advanced_avatars">Tampilkan kontak foto</string>
     <string name="title_advanced_gravatars">Tampilkan Gravatar</string>
@@ -312,10 +311,10 @@
     <string name="title_advanced_distinguish_contacts">Garis bawahi pengirim ketika pengirim dikenal sebagai kontak lokal</string>
     <string name="title_advanced_show_recipients">Tampilkan penerima di header pesan</string>
     <string name="title_advanced_font_size_sender">Ukuran teks pengirim</string>
-    <string name="title_advanced_font_size_subject">Ukuran teks subjek</string>
     <string name="title_advanced_subject_top">Tampilkan subjek di atas pengirim</string>
     <string name="title_advanced_subject_italic">Tampilkan subjek dengan huruf miring</string>
-    <string name="title_advanced_subject_elipsed">Ketika dibutuhkan, mempersingkat subjek</string>
+    <string name="title_advanced_highlight_subject">Sorot subjek</string>
+    <string name="title_advanced_font_size_subject">Ukuran teks subjek</string>
     <string name="title_advanced_highlight_color">Sorot warna</string>
     <string name="title_advanced_keywords">Tampilkan kata kunci di header pesan</string>
     <string name="title_advanced_labels">Tampilkan label Gmail di header pesan</string>

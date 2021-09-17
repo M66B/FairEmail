@@ -327,7 +327,6 @@
     <string name="title_advanced_threading_unread">Mostrar o número de mensaxes sen ler nas conversas</string>
     <string name="title_advanced_indentation">Sangrar á esquerda/dereita as mensaxes enviadas/recibidas nas conversas</string>
     <string name="title_advanced_highlight_unread">Resaltar as mensaxes non lidas</string>
-    <string name="title_advanced_highlight_subject">Resaltar o asunto</string>
     <string name="title_advanced_color_stripe">Mostrar a banda de cor</string>
     <string name="title_advanced_avatars">Mostrar as fotos dos contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatars</string>
@@ -346,10 +345,10 @@
     <string name="title_advanced_distinguish_contacts">Suliñar o remitente cando este é recoñecido como un destinatario local</string>
     <string name="title_advanced_show_recipients">Mostrar os destinatarios nas cabeceiras das mensaxes</string>
     <string name="title_advanced_font_size_sender">Tamaño do texto do remitente</string>
-    <string name="title_advanced_font_size_subject">Tamaño do texto do asunto</string>
     <string name="title_advanced_subject_top">Mostrar o asunto sobre o remitente</string>
     <string name="title_advanced_subject_italic">Mostrar o asunto en cursiva</string>
-    <string name="title_advanced_subject_elipsed">Abreviar o asunto se é preciso</string>
+    <string name="title_advanced_highlight_subject">Resaltar o asunto</string>
+    <string name="title_advanced_font_size_subject">Tamaño do texto do asunto</string>
     <string name="title_advanced_highlight_color">Cor de realce</string>
     <string name="title_advanced_keywords">Mostrar as palabras chave nas cabeceiras das mensaxes</string>
     <string name="title_advanced_labels">Mostrar as etiquetas de Gmail nas cabeceiras das mensaxes</string>

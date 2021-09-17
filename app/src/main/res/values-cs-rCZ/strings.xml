@@ -370,7 +370,6 @@
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
-    <string name="title_advanced_highlight_subject">Zvýraznit předmět</string>
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
@@ -389,10 +388,10 @@
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální „komu“ kontakt</string>
     <string name="title_advanced_show_recipients">Zobrazit příjemce v hlavičce zprávy</string>
     <string name="title_advanced_font_size_sender">Velikost textu odesílatele</string>
-    <string name="title_advanced_font_size_subject">Velikost textu předmětu</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
-    <string name="title_advanced_subject_elipsed">Zestručnit předmět v případě potřeby</string>
+    <string name="title_advanced_highlight_subject">Zvýraznit předmět</string>
+    <string name="title_advanced_font_size_subject">Velikost textu předmětu</string>
     <string name="title_advanced_highlight_color">Barva zvýraznění</string>
     <string name="title_advanced_keywords">Zobrazit klíčová slova v hlavičce zprávy</string>
     <string name="title_advanced_labels">Zobrazit Gmail štítky v hlavičce zprávy</string>

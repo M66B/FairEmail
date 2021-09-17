@@ -353,7 +353,6 @@
     <string name="title_advanced_threading_unread">Näytä lukemattomien viestien lukumäärä keskusteluissa</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
-    <string name="title_advanced_highlight_subject">Korosta aihe</string>
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_gravatars">Näytä Gravatarit</string>
@@ -372,10 +371,10 @@
     <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä, kun tämä on paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_show_recipients">Näytä vastaanottajat viestin tunnistetiedoissa</string>
     <string name="title_advanced_font_size_sender">Lähettäjä-tekstin koko</string>
-    <string name="title_advanced_font_size_subject">Aihe-tekstin koko</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
-    <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
+    <string name="title_advanced_highlight_subject">Korosta aihe</string>
+    <string name="title_advanced_font_size_subject">Aihe-tekstin koko</string>
     <string name="title_advanced_highlight_color">Korostusväri</string>
     <string name="title_advanced_keywords">Näytä avainsanat viestin tunnistetiedoissa</string>
     <string name="title_advanced_labels">Näytä Gmail-tunnisteet viestin tunnistetiedoissa</string>

@@ -238,7 +238,6 @@
     <string name="title_advanced_threading">Niti pogovorov</string>
     <string name="title_advanced_indentation">V pogovorih zamakni prejeta/poslana sporočila levo/desno</string>
     <string name="title_advanced_highlight_unread">Poudari neprebrana sporočila</string>
-    <string name="title_advanced_highlight_subject">Poudari zadevo</string>
     <string name="title_advanced_color_stripe">Prikaži barvno črto</string>
     <string name="title_advanced_avatars">Prikaži slike stikov</string>
     <string name="title_advanced_gravatars">Prikaži splošne podobe</string>
@@ -250,7 +249,7 @@
     <string name="title_advanced_distinguish_contacts">Podčrtaj pošiljatelja, ko je ta poznan kot krajevni stik \'Za\'</string>
     <string name="title_advanced_subject_top">Prikaži zadevo nad pošiljateljem</string>
     <string name="title_advanced_subject_italic">Prikaže zadevo v ležeči pisavi</string>
-    <string name="title_advanced_subject_elipsed">Skrajšaj zadevo, ko je to potrebno</string>
+    <string name="title_advanced_highlight_subject">Poudari zadevo</string>
     <string name="title_advanced_keywords">V glavi sporočila prikaži ključne besede</string>
     <string name="title_advanced_flags">Prikaži zvezdice</string>
     <string name="title_advanced_flags_background">Prikaži obarvano ozadje namesto obarvanih zvezdic</string>

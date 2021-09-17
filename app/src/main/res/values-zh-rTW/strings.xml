@@ -347,7 +347,6 @@
     <string name="title_advanced_threading_unread">顯示會話中的未讀訊息數</string>
     <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
-    <string name="title_advanced_highlight_subject">標亮主旨</string>
     <string name="title_advanced_color_stripe">顯示彩色條紋</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_gravatars">顯示 Gravatars</string>
@@ -366,10 +365,10 @@
     <string name="title_advanced_distinguish_contacts">當寄件者作為收件聯絡人是本地已知時為其加註底線</string>
     <string name="title_advanced_show_recipients">在訊息標頭中顯示收件者</string>
     <string name="title_advanced_font_size_sender">寄件者字段文字大小</string>
-    <string name="title_advanced_font_size_subject">主旨文字大小</string>
     <string name="title_advanced_subject_top">顯示主旨於寄件者上方位置</string>
     <string name="title_advanced_subject_italic">以斜體風格顯示主旨</string>
-    <string name="title_advanced_subject_elipsed">需要時，截短主旨</string>
+    <string name="title_advanced_highlight_subject">標亮主旨</string>
+    <string name="title_advanced_font_size_subject">主旨文字大小</string>
     <string name="title_advanced_highlight_color">強調色</string>
     <string name="title_advanced_keywords">在訊息標頭中顯示關鍵字</string>
     <string name="title_advanced_labels">在訊息標頭中顯示 Gmail 標籤</string>

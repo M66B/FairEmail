@@ -355,7 +355,6 @@
     <string name="title_advanced_threading_unread">Visa antal olästa meddelanden i konversationer</string>
     <string name="title_advanced_indentation">Vänster/höger indrag mottaget/skickade meddelanden i konversationer</string>
     <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>
-    <string name="title_advanced_highlight_subject">Markera ämnet</string>
     <string name="title_advanced_color_stripe">Visa färgrand</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_gravatars">Visa Gravatars</string>
@@ -374,10 +373,13 @@
     <string name="title_advanced_distinguish_contacts">Understryk avsändaren när avsändaren är känd som lokal \"till\" kontakt</string>
     <string name="title_advanced_show_recipients">Visa mottagare i meddelandehuvudet</string>
     <string name="title_advanced_font_size_sender">Teckenstorlek på avsändare</string>
-    <string name="title_advanced_font_size_subject">Teckenstorlek på ämnesrad</string>
+    <string name="title_advanced_sender_ellipsize">Om det behövs, förkorta avsändaren</string>
     <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
     <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
-    <string name="title_advanced_subject_elipsed">När det behövs, förkorta ämnet</string>
+    <string name="title_advanced_highlight_subject">Markera ämnet</string>
+    <string name="title_advanced_font_size_subject">Teckenstorlek på ämnesrad</string>
+    <string name="title_advanced_subject_ellipsize">Om det behövs, förkorta ämnet</string>
+    <string name="title_advanced_compact_mode_remark">Endast kompakt läge</string>
     <string name="title_advanced_highlight_color">Markera färg</string>
     <string name="title_advanced_keywords">Visa nyckelord i sidhuvudet för meddelandet</string>
     <string name="title_advanced_labels">Visa Gmail-etiketter i meddelandehuvud</string>
@@ -1185,6 +1187,7 @@
     <string name="title_previous">Föregående</string>
     <string name="title_next">Nästa</string>
     <string name="title_edit_signature">Redigera signatur</string>
+    <string name="title_edit_signature_remark">Även om Android inte kan visa all HTML, kommer det att skickas som det är</string>
     <string name="title_edit_signature_text">Signatur</string>
     <string name="title_edit_signature_image">Infoga bild</string>
     <string name="title_answer_caption">Redigera mall</string>

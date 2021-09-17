@@ -252,7 +252,6 @@
     <string name="title_advanced_threading_unread">Показване на броя на непрочетените съобщения в разговорите</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
-    <string name="title_advanced_highlight_subject">Маркирана тема</string>
     <string name="title_advanced_color_stripe">Показване на цветна ивица</string>
     <string name="title_advanced_avatars">Покажи снимка на контакт</string>
     <string name="title_advanced_gravatars">Покажи Gravatars</string>
@@ -268,7 +267,7 @@
     <string name="title_advanced_show_recipients">Показване на получателите в заглавката на съобщението</string>
     <string name="title_advanced_subject_top">Покажи темата над подателя</string>
     <string name="title_advanced_subject_italic">Покажи темата наклонена</string>
-    <string name="title_advanced_subject_elipsed">При нужда, съкрати темата</string>
+    <string name="title_advanced_highlight_subject">Маркирана тема</string>
     <string name="title_advanced_keywords">Показване на ключови думи в заглавката на съобщението</string>
     <string name="title_advanced_labels">Показване на етикетите на Gmail в заглавката на съобщението</string>
     <string name="title_advanced_flags">Показване на звездите</string>

@@ -258,7 +258,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_threading_unread">Mostra el nombre de missatges sense llegir a les converses</string>
     <string name="title_advanced_indentation">Sagnat dret/esquerra als missatges enviats/rebuts en les converses</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
-    <string name="title_advanced_highlight_subject">Destacar el Tema</string>
     <string name="title_advanced_color_stripe">Mostra la franja de color</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
     <string name="title_advanced_gravatars">Mostra Gravatars</string>
@@ -273,10 +272,10 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_distinguish_contacts">Subratlla l’emissor quan el remitent es coneix com a contacte “a” local</string>
     <string name="title_advanced_show_recipients">Mostra els destinataris a l’encapçalament del missatge</string>
     <string name="title_advanced_font_size_sender">Mida del text del remitent</string>
-    <string name="title_advanced_font_size_subject">Mida del text del assumpte</string>
     <string name="title_advanced_subject_top">Mostra l\'assumpte a sobre del remitent</string>
     <string name="title_advanced_subject_italic">Mostra els assumptes en cursiva</string>
-    <string name="title_advanced_subject_elipsed">Si cal, escurça l\'assumpte</string>
+    <string name="title_advanced_highlight_subject">Destacar el Tema</string>
+    <string name="title_advanced_font_size_subject">Mida del text del assumpte</string>
     <string name="title_advanced_keywords">Mostra les paraules clau a l’encapçalament de missatges</string>
     <string name="title_advanced_labels">Mostra les etiquetes de Gmail a l\'encapçalament del missatge</string>
     <string name="title_advanced_flags">Mostra estels</string>

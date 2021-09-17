@@ -368,7 +368,6 @@
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
-    <string name="title_advanced_highlight_subject">Evidențiază subiect</string>
     <string name="title_advanced_color_stripe">Arată banda de culori</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_gravatars">Arată iconițe de pe Gravatar</string>
@@ -387,10 +386,13 @@
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_show_recipients">Arată destinatarii în antetul mesajului</string>
     <string name="title_advanced_font_size_sender">Mărime text expeditor</string>
-    <string name="title_advanced_font_size_subject">Mărime text subiect</string>
+    <string name="title_advanced_sender_ellipsize">Dacă este necesar, scurtați expeditorul</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
-    <string name="title_advanced_subject_elipsed">La nevoie, scurtează subiectul</string>
+    <string name="title_advanced_highlight_subject">Evidențiază subiect</string>
+    <string name="title_advanced_font_size_subject">Mărime text subiect</string>
+    <string name="title_advanced_subject_ellipsize">Dacă este necesar, scurtați subiectul</string>
+    <string name="title_advanced_compact_mode_remark">Numai în modul compact</string>
     <string name="title_advanced_highlight_color">Culoare de evidențiere</string>
     <string name="title_advanced_keywords">Arată cuvinte cheie în antetul mesajului</string>
     <string name="title_advanced_labels">Arată etichetele Gmail în antetul mesajului</string>
@@ -1198,6 +1200,7 @@
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
     <string name="title_edit_signature">Editare semnătură</string>
+    <string name="title_edit_signature_remark">Deși Android nu poate afișa tot HTML-ul, acesta va fi trimis așa cum este</string>
     <string name="title_edit_signature_text">Text semnătură</string>
     <string name="title_edit_signature_image">Inserare imagine</string>
     <string name="title_answer_caption">Editare șablon</string>

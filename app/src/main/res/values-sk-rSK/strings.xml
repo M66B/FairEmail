@@ -372,12 +372,12 @@
     <string name="title_advanced_tabular_background">Použiť rovnakú farbu pozadia ako farbu karty v tabuľkovom štýle</string>
     <string name="title_advanced_cards_shadow">Zatieniť neprečítané správy v štýle kariet</string>
     <string name="title_advanced_date_header">Zoradiť podľa dátumu</string>
+    <string name="title_advanced_date_fixed">Pripnúť na vrchu hlavičku s dátumom</string>
     <string name="title_advanced_date_bold">Dátum zobraziť tučným písmom</string>
     <string name="title_advanced_threading">Vlákna konverzácií</string>
     <string name="title_advanced_threading_unread">Zobrazovať počet neprečítaných správ v konverzáciách</string>
     <string name="title_advanced_indentation">Ľavé/pravé odsadenie prijatých/odoslaných správ v konverzáciách</string>
     <string name="title_advanced_highlight_unread">Zvýrazniť neprečítané správy</string>
-    <string name="title_advanced_highlight_subject">Zvýrazniť predmet</string>
     <string name="title_advanced_color_stripe">Zobraziť farebný prúžok</string>
     <string name="title_advanced_avatars">Zobraziť fotografie kontaktov</string>
     <string name="title_advanced_gravatars">Zobraziť Gravatary</string>
@@ -396,10 +396,10 @@
     <string name="title_advanced_distinguish_contacts">Podčiarknúť odosielateľa ak je v lokálnych kontaktoch</string>
     <string name="title_advanced_show_recipients">Zobraziť príjemcov v hlavičke správy</string>
     <string name="title_advanced_font_size_sender">Veľkosť textu odosielateľ</string>
-    <string name="title_advanced_font_size_subject">Veľkosť textu predmet</string>
     <string name="title_advanced_subject_top">Zobraziť predmet nad odosielateľom</string>
     <string name="title_advanced_subject_italic">Zobraziť predmet kurzívou</string>
-    <string name="title_advanced_subject_elipsed">Skracovať predmet podľa potreby</string>
+    <string name="title_advanced_highlight_subject">Zvýrazniť predmet</string>
+    <string name="title_advanced_font_size_subject">Veľkosť textu predmet</string>
     <string name="title_advanced_highlight_color">Farba vysvietenia</string>
     <string name="title_advanced_keywords">Zobraziť kľúčové slová v hlavičke správy</string>
     <string name="title_advanced_labels">Zobraziť štítky Gmailu v hlavičke správy</string>

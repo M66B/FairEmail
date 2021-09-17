@@ -354,12 +354,12 @@
     <string name="title_advanced_tabular_background">Kartenfarbe als Hintergrundfarbe verwenden, wenn Tabellenstil genutzt wird</string>
     <string name="title_advanced_cards_shadow">Schatten für ungelesene Nachrichten verwenden, wenn Kartenstil verwendet wird</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
+    <string name="title_advanced_date_fixed">Feste Datumskopfzeile oben anzeigen</string>
     <string name="title_advanced_date_bold">Datum fett anzeigen</string>
     <string name="title_advanced_threading">Themenbaum</string>
     <string name="title_advanced_threading_unread">Anzahl ungelesener Nachrichten in Unterhaltungen anzeigen</string>
     <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
-    <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
@@ -378,10 +378,10 @@
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
-    <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
     <string name="title_advanced_subject_top">Betreff oberhalb des Absenders anzeigen</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
-    <string name="title_advanced_subject_elipsed">Wenn nötig, den Betreff kürzen</string>
+    <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
+    <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
     <string name="title_advanced_highlight_color">Hervorhebungsfarbe</string>
     <string name="title_advanced_keywords">Schlüsselwörter im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_labels">Gmail-Labels im Nachrichtenkopf anzeigen</string>
@@ -1189,6 +1189,7 @@
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
     <string name="title_edit_signature">Signatur bearbeiten</string>
+    <string name="title_edit_signature_remark">Obwohl Android nicht den gesamten HTML-Code anzeigen kann, wird er unverändert gesendet</string>
     <string name="title_edit_signature_text">Signaturtext</string>
     <string name="title_edit_signature_image">Bild einfügen</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>

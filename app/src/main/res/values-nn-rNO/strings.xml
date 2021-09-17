@@ -264,7 +264,6 @@
     <string name="title_advanced_threading_unread">Vis antall uleste meldinger i samtaler</string>
     <string name="title_advanced_indentation">Venstre/høyre innrykk mottatt/sendt meldinger i samtaler</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
-    <string name="title_advanced_highlight_subject">Uthev emne</string>
     <string name="title_advanced_color_stripe">Vis fargestripe</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
     <string name="title_advanced_gravatars">Vis Gravatars</string>
@@ -277,10 +276,10 @@
     <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>
     <string name="title_advanced_show_recipients">Vis mottakere i meldingshode</string>
     <string name="title_advanced_font_size_sender">Skriftstørrelse for avsender</string>
-    <string name="title_advanced_font_size_subject">Skriftstørrelse på emne</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
-    <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>
+    <string name="title_advanced_highlight_subject">Uthev emne</string>
+    <string name="title_advanced_font_size_subject">Skriftstørrelse på emne</string>
     <string name="title_advanced_highlight_color">Uthev farge</string>
     <string name="title_advanced_keywords">Vis nøkkelord i meldingshode</string>
     <string name="title_advanced_labels">Vis Gmail-etiketter i meldingshodet</string>

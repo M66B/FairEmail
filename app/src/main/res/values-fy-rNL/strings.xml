@@ -310,7 +310,6 @@
     <string name="title_advanced_threading_unread">Toan net-lêzen berjochten yn petearen</string>
     <string name="title_advanced_indentation">Yndruk links / rjochts ûntfangen / ferstjoerde berjochten yn petearen</string>
     <string name="title_advanced_highlight_unread">Unlês berjochten markearje</string>
-    <string name="title_advanced_highlight_subject">Underwerp markearje</string>
     <string name="title_advanced_color_stripe">Sjoch lit streep</string>
     <string name="title_advanced_avatars">Sjoch kontaktfoto\'s</string>
     <string name="title_advanced_gravatars">Sjoch gravatars</string>
@@ -327,10 +326,10 @@
     <string name="title_advanced_distinguish_contacts">Understreke de stjoerder as de stjoerder bekend is as lokaal \'nei\' kontakt</string>
     <string name="title_advanced_show_recipients">Untfangers sjen litte yn berjochtkop</string>
     <string name="title_advanced_font_size_sender">Tekstgrutte stjoerder</string>
-    <string name="title_advanced_font_size_subject">Tekstgrutte ûnderwerp</string>
     <string name="title_advanced_subject_top">Underwerp boppe stjoerder sjen litte</string>
     <string name="title_advanced_subject_italic">Underwerp kursyf sjen litte</string>
-    <string name="title_advanced_subject_elipsed">As it nedich is, koarter it ûnderwerp yn</string>
+    <string name="title_advanced_highlight_subject">Underwerp markearje</string>
+    <string name="title_advanced_font_size_subject">Tekstgrutte ûnderwerp</string>
     <string name="title_advanced_highlight_color">Kleur markearje</string>
     <string name="title_advanced_keywords">Toan kaaiwurden yn berjochtkop</string>
     <string name="title_advanced_labels">Toan Gmail labels yn berjochtkop</string>

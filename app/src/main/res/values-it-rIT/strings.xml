@@ -357,7 +357,6 @@
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
-    <string name="title_advanced_highlight_subject">Evidenzia oggetto</string>
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatar</string>
@@ -376,10 +375,10 @@
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando è noto come il contatto locale \'a\'</string>
     <string name="title_advanced_show_recipients">Mostra i destinatari nell\'intestazione del messaggio</string>
     <string name="title_advanced_font_size_sender">Dimensione testo del mittente</string>
-    <string name="title_advanced_font_size_subject">Dimensione testo dell\'oggetto</string>
     <string name="title_advanced_subject_top">Mostra oggetto sul mittente</string>
     <string name="title_advanced_subject_italic">Mostra oggetto in corsivo</string>
-    <string name="title_advanced_subject_elipsed">Quando necessario, abbrevia l\'oggetto</string>
+    <string name="title_advanced_highlight_subject">Evidenzia oggetto</string>
+    <string name="title_advanced_font_size_subject">Dimensione testo dell\'oggetto</string>
     <string name="title_advanced_highlight_color">Colore d\'evidenziazione</string>
     <string name="title_advanced_keywords">Mostra parole chiave nell\'intestazione del messaggio</string>
     <string name="title_advanced_labels">Mostra le etichette Gmail nell\'intestazione del messaggio</string>

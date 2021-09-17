@@ -346,7 +346,6 @@
     <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示する</string>
     <string name="title_advanced_indentation">会話の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージを強調表示</string>
-    <string name="title_advanced_highlight_subject">件名を強調する</string>
     <string name="title_advanced_color_stripe">カラーストライプを表示</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_gravatars">Gravatar(アバター)を表示</string>
@@ -365,10 +364,10 @@
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
     <string name="title_advanced_show_recipients">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_font_size_sender">送信者のテキストサイズ</string>
-    <string name="title_advanced_font_size_subject">件名のテキストサイズ</string>
     <string name="title_advanced_subject_top">送信者の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
-    <string name="title_advanced_subject_elipsed">必要に応じて件名を短くする</string>
+    <string name="title_advanced_highlight_subject">件名を強調する</string>
+    <string name="title_advanced_font_size_subject">件名のテキストサイズ</string>
     <string name="title_advanced_highlight_color">ハイライトカラー</string>
     <string name="title_advanced_keywords">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_labels">Gmailラベルをメッセージヘッダーに表示</string>

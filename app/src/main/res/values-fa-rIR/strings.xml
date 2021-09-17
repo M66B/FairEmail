@@ -231,7 +231,6 @@
     <string name="title_advanced_threading">دسته بندی مکالمه</string>
     <string name="title_advanced_threading_unread">شمار پیام‌های خوانده نشده را در گفتگوها نمایش بده</string>
     <string name="title_advanced_highlight_unread">برجسته‌سازی پیام‌های خوانده نشده</string>
-    <string name="title_advanced_highlight_subject">برجسته‌سازی موضوع</string>
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_gravatars">نمایش Gravatar ها</string>
@@ -243,10 +242,10 @@
     <string name="title_advanced_replace_name">نام مخاطب را بر نام فرستنده ترجیح بده</string>
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
     <string name="title_advanced_font_size_sender">اندازه متن فرستنده</string>
-    <string name="title_advanced_font_size_subject">اندازه متن موضوع</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
-    <string name="title_advanced_subject_elipsed">هنگامی که نیاز باشد، موضوع را کوچک‌تر کن</string>
+    <string name="title_advanced_highlight_subject">برجسته‌سازی موضوع</string>
+    <string name="title_advanced_font_size_subject">اندازه متن موضوع</string>
     <string name="title_advanced_keywords">کلیدواژه‌ها را در سرتیتر پیام نمایش بده</string>
     <string name="title_advanced_flags">نمایش ستاره‌ها</string>
     <string name="title_advanced_flags_background">به‌جای ستاره‌های رنگی، پس‌زمینه رنگی را نمایش بده</string>

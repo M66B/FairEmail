@@ -358,7 +358,6 @@
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
-    <string name="title_advanced_highlight_subject">Resaltar asunto</string>
     <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
@@ -377,10 +376,13 @@
     <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_show_recipients">Mostrar destinatarios en el encabezado del mensaje</string>
     <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
-    <string name="title_advanced_font_size_subject">Tamaño de fuente del asunto</string>
+    <string name="title_advanced_sender_ellipsize">Si es necesario, acortar el remitente</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
-    <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
+    <string name="title_advanced_highlight_subject">Resaltar asunto</string>
+    <string name="title_advanced_font_size_subject">Tamaño de fuente del asunto</string>
+    <string name="title_advanced_subject_ellipsize">Si es necesario, acortar el asunto</string>
+    <string name="title_advanced_compact_mode_remark">Sólo modo compacto</string>
     <string name="title_advanced_highlight_color">Color de resaltado</string>
     <string name="title_advanced_keywords">Mostrar palabras clave en encabezado del mensaje</string>
     <string name="title_advanced_labels">Mostrar etiquetas de Gmail en encabezado de mensaje</string>
@@ -1188,6 +1190,7 @@
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
     <string name="title_edit_signature">Editar firma</string>
+    <string name="title_edit_signature_remark">Aunque Android no puede mostrar todo el HTML, se enviará como es</string>
     <string name="title_edit_signature_text">Texto de la firma</string>
     <string name="title_edit_signature_image">Insertar imagen</string>
     <string name="title_answer_caption">Editar plantilla</string>

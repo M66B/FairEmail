@@ -358,7 +358,6 @@
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_highlight_unread">Να επισημαίνονται τα μη αναγνωσμένα μηνύματα</string>
-    <string name="title_advanced_highlight_subject">Να επισημαίνεται το θέμα</string>
     <string name="title_advanced_color_stripe">Προβολή χρωματιστής λωρίδας</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_gravatars">Προβολή Gravatar</string>
@@ -377,10 +376,10 @@
     <string name="title_advanced_distinguish_contacts">Να υπογραμμίζεται ο αποστολέας όταν ο αποστολέας είναι γνωστός ως τοπική επαφή</string>
     <string name="title_advanced_show_recipients">Να προβάλλονται οι παραλήπτες στην κεφαλίδα του μηνύματος</string>
     <string name="title_advanced_font_size_sender">Μέγεθος γραμματοσειράς για το πεδίο \"Αποστολέας\"</string>
-    <string name="title_advanced_font_size_subject">Μέγεθος γραμματοσειράς για το πεδίο \"Θέμα\"</string>
     <string name="title_advanced_subject_top">Να προβάλλεται το θέμα πάνω από τον αποστολέα</string>
     <string name="title_advanced_subject_italic">Να προβάλλεται το θέμα σε πλάγια γραφή</string>
-    <string name="title_advanced_subject_elipsed">Να συντομεύεται το θέμα, εφόσον χρειάζεται</string>
+    <string name="title_advanced_highlight_subject">Να επισημαίνεται το θέμα</string>
+    <string name="title_advanced_font_size_subject">Μέγεθος γραμματοσειράς για το πεδίο \"Θέμα\"</string>
     <string name="title_advanced_highlight_color">Χρώμα επισήμανσης</string>
     <string name="title_advanced_keywords">Να προβάλλονται οι λέξεις-κλειδιά στην κεφαλίδα του μηνύματος</string>
     <string name="title_advanced_labels">Να προβάλλονται οι ετικέτες Gmail στην κεφαλίδα του μηνύματος</string>
@@ -1186,6 +1185,7 @@
     <string name="title_previous">Προηγούμενο</string>
     <string name="title_next">Επόμενο</string>
     <string name="title_edit_signature">Επεξεργασία υπογραφής</string>
+    <string name="title_edit_signature_remark">Παρόλο που το Android δεν μπορεί να προβάλει όλον τον κώδικα HTML, θα αποσταλεί έτσι όπως είναι</string>
     <string name="title_edit_signature_text">Κείμενο υπογραφής</string>
     <string name="title_edit_signature_image">Εισαγωγή εικόνας</string>
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>

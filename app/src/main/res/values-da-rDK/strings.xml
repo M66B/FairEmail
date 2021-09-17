@@ -354,7 +354,6 @@
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
-    <string name="title_advanced_highlight_subject">Fremhæv emne</string>
     <string name="title_advanced_color_stripe">Vis farvestripe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_gravatars">Vis Gravatarer</string>
@@ -373,10 +372,10 @@
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
     <string name="title_advanced_show_recipients">Vis modtagere i beskedhoved</string>
     <string name="title_advanced_font_size_sender">Tekststørrelse, Afsender</string>
-    <string name="title_advanced_font_size_subject">Tekststørrelse, Emne</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
-    <string name="title_advanced_subject_elipsed">Når nødvendigt, afkort emnet</string>
+    <string name="title_advanced_highlight_subject">Fremhæv emne</string>
+    <string name="title_advanced_font_size_subject">Tekststørrelse, Emne</string>
     <string name="title_advanced_highlight_color">Fremhævelsesfarve</string>
     <string name="title_advanced_keywords">Vis nøgleord i beskedhovedet</string>
     <string name="title_advanced_labels">Vis Gmail-etiketter i beskedhoved</string>

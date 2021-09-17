@@ -235,7 +235,6 @@
     <string name="title_advanced_threading_unread">Erakutsi irakurri gabeko mezu kopurua elkarrizketetan</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
     <string name="title_advanced_highlight_unread">Nabarmendu irakurri gabeko mezuak</string>
-    <string name="title_advanced_highlight_subject">Nabarmendu gaia</string>
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_gravatars">Erakutsi gravatarrak</string>
@@ -248,7 +247,7 @@
     <string name="title_advanced_show_recipients">Erakutsi hartzaileak mezuaren goiburuan</string>
     <string name="title_advanced_subject_top">Erakutsi mintzagaia igorlearen gainean</string>
     <string name="title_advanced_subject_italic">Erakutsi mintzagaia letra etzanean</string>
-    <string name="title_advanced_subject_elipsed">Behar denean laburtu mintzagaia</string>
+    <string name="title_advanced_highlight_subject">Nabarmendu gaia</string>
     <string name="title_advanced_keywords">Erakutsi gako-hitzak mezuaren goiburuan</string>
     <string name="title_advanced_flags">Erakutsi izarrak</string>
     <string name="title_advanced_flags_background">Koloredun izarren ordez, koloredun atzealdea erakutsi</string>

@@ -321,7 +321,6 @@
     <string name="title_advanced_threading_unread">Mostrar número de mensagens não lidas nas conversas</string>
     <string name="title_advanced_indentation">Indentação esquerda/direita para mensagens recebidas/enviadas em conversas</string>
     <string name="title_advanced_highlight_unread">Destacar mensagens não lidas</string>
-    <string name="title_advanced_highlight_subject">Destacar assunto</string>
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatar</string>
@@ -338,10 +337,10 @@
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_show_recipients">Mostrar destinatários no cabeçalho da mensagem</string>
     <string name="title_advanced_font_size_sender">Tamanho da fonte do remetente</string>
-    <string name="title_advanced_font_size_subject">Tamanho da fonte do assunto</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
-    <string name="title_advanced_subject_elipsed">Quando necessário, encurte o assunto</string>
+    <string name="title_advanced_highlight_subject">Destacar assunto</string>
+    <string name="title_advanced_font_size_subject">Tamanho da fonte do assunto</string>
     <string name="title_advanced_highlight_color">Cor de destaque</string>
     <string name="title_advanced_keywords">Mostrar palavras-chave no cabeçalho da mensagem</string>
     <string name="title_advanced_labels">Mostrar rótulos do Gmail no cabeçalho da mensagem</string>
