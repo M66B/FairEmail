@@ -4200,7 +4200,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 TextView tvDark = dview.findViewById(R.id.tvDark);
                 CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
 
-                boolean confirm_html = prefs.getBoolean("confirm_html", true);
                 cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
 
                 cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
