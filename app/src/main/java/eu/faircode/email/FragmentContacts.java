@@ -44,6 +44,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FragmentContacts extends FragmentBase {
@@ -51,6 +52,7 @@ public class FragmentContacts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean junk = BuildConfig.DEBUG;
     private String searching = null;
     private AdapterContact adapter;
 
@@ -85,6 +87,7 @@ public class FragmentContacts extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:junk", junk);
         outState.putString("fair:searching", searching);
         super.onSaveInstanceState(outState);
     }
@@ -93,8 +96,11 @@ public class FragmentContacts extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (savedInstanceState != null)
+        if (savedInstanceState != null) {
+            junk = savedInstanceState.getBoolean("fair:junk");
             searching = savedInstanceState.getString("fair:searching");
+        }
+        onMenuJunk(junk);
         adapter.search(searching);
 
         DB db = DB.getInstance(getContext());
@@ -149,6 +155,12 @@ public class FragmentContacts extends FragmentBase {
     }
 
     @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.menu_junk).setChecked(junk);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_help) {
@@ -157,12 +169,23 @@ public class FragmentContacts extends FragmentBase {
         } else if (itemId == R.id.menu_delete) {
             new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
             return true;
+        } else if (itemId == R.id.menu_junk) {
+            item.setChecked(!item.isChecked());
+            onMenuJunk(item.isChecked());
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void onMenuHelp() {
         Helper.viewFAQ(getContext(), 84);
+    }
+
+    private void onMenuJunk(boolean junk) {
+        this.junk = junk;
+        adapter.filter(junk
+                ? Arrays.asList(EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK)
+                : new ArrayList<>());
     }
 
     public static class FragmentDelete extends FragmentDialogBase {

@@ -77,6 +77,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private int textColorSecondary;
 
     private String search = null;
+    private List<Integer> types = new ArrayList<>();
+
     private List<TupleContactEx> all = new ArrayList<>();
     private List<TupleContactEx> selected = new ArrayList<>();
 
@@ -369,17 +371,28 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     }
 
     public void set(@NonNull List<TupleContactEx> contacts) {
-        Log.i("Set contacts=" + contacts.size() + " search=" + search);
+        Log.i("Set contacts=" + contacts.size() +
+                " search=" + search + " types=" + types.size());
 
         all = contacts;
 
+        List<TupleContactEx> filtered;
+        if (types.size() == 0)
+            filtered = all;
+        else {
+            filtered = new ArrayList<>();
+            for (TupleContactEx contact : all)
+                if (types.contains(contact.type))
+                    filtered.add(contact);
+        }
+
         List<TupleContactEx> items;
         if (TextUtils.isEmpty(search))
-            items = all;
+            items = filtered;
         else {
             items = new ArrayList<>();
             String query = search.toLowerCase().trim();
-            for (TupleContactEx contact : contacts)
+            for (TupleContactEx contact : filtered)
                 if (contact.email.toLowerCase().contains(query) ||
                         (contact.name != null && contact.name.toLowerCase().contains(query)))
                     items.add(contact);
@@ -416,6 +429,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     public void search(String query) {
         Log.i("Contacts query=" + query);
         search = query;
+        set(all);
+    }
+
+    public void filter(List<Integer> types) {
+        this.types = types;
         set(all);
     }
 
