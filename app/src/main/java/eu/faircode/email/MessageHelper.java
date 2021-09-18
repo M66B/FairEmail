@@ -2333,9 +2333,13 @@ public class MessageHelper {
                 if (parts.length < 2)
                     throw new ParseException("Signed part missing");
 
+                // PGP: https://datatracker.ietf.org/doc/html/rfc3156#section-5
+                // S/MIME: https://datatracker.ietf.org/doc/html/rfc8551#section-3.1.1
                 String c = parts[1]
-                        .replaceAll(" +$", "") // trim trailing spaces
                         .replaceAll("\\r?\\n", "\r\n"); // normalize new lines
+                if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt))
+                    c = c.replaceAll(" +$", ""); // trim trailing spaces
+
                 try (OutputStream os = new FileOutputStream(file)) {
                     os.write(c.getBytes());
                 }
