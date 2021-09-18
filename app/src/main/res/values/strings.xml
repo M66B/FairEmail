@@ -101,6 +101,8 @@
     <string name="title_junk_filter">Use local spam filter</string>
     <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
     <string name="title_junk_blocklist">Use spam block lists</string>
+    <string name="title_junk_clear">Clear</string>
+    <string name="title_junk_clear_hint">This will delete all block sender rules</string>
 
     <string name="title_notification_sending">Sending messages</string>
     <string name="title_notification_waiting">Waiting for suitable connection</string>
@@ -1692,9 +1694,7 @@
     <string name="title_rules_export">Export rules</string>
     <string name="title_rules_import">Import rules</string>
     <string name="title_rules_delete_all">Delete all rules</string>
-    <string name="title_rules_delete_junk">Delete spam rules</string>
     <string name="title_rules_delete_all_confirm">Delete all rules?</string>
-    <string name="title_rules_delete_junk_confirm">Delete all rules moving messages to the spam folder?</string>
     <string name="title_debug_info">Debug info</string>
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>

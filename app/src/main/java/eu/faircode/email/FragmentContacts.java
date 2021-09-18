@@ -52,7 +52,7 @@ public class FragmentContacts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
-    private boolean junk = BuildConfig.DEBUG;
+    private boolean junk = false;
     private String searching = null;
     private AdapterContact adapter;
 

@@ -105,18 +105,6 @@
             app:layout_constraintStart_toEndOf="@+id/ibMore"
             app:layout_constraintTop_toTopOf="@+id/ibMore" />
 
-        <Button
-            android:id="@+id/btnEditRules"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/twotone_edit_24"
-            android:drawablePadding="6dp"
-            android:text="@string/title_edit_rules"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMore" />
-
         <CheckBox
             android:id="@+id/cbJunkFilter"
             android:layout_width="0dp"
@@ -126,7 +114,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toStartOf="@+id/ibInfoFilter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnEditRules" />
+            app:layout_constraintTop_toBottomOf="@id/tvMore" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvJunkFilterHint"
@@ -205,6 +193,31 @@
             app:srcCompat="@drawable/twotone_info_24"
             app:tint="?attr/colorAccent" />
 
+        <Button
+            android:id="@+id/btnClear"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_delete_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_junk_clear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBlocklistHint" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvClearHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_junk_clear_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfoFilter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnClear" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpInJunk"
             android:layout_width="0dp"
@@ -218,8 +231,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            btnEditRules,
             cbJunkFilter,tvJunkFilterHint,ibInfoFilter,
-            cbBlocklist,tvBlocklist,tvBlocklistHint,ibInfoBlocklist" />
+            cbBlocklist,tvBlocklist,tvBlocklistHint,ibInfoBlocklist,
+            btnClear,tvClearHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
