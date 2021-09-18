@@ -236,17 +236,7 @@ task copyMarkdown(type: Copy) {
     include "SETUP.md"
     include "ATTRIBUTION.md"
 }
-
 preBuild.dependsOn copyMarkdown
-
-task copyChangelog(type: Copy) {
-    from "${rootDir}"
-    into "../metadata/en-US/changelogs"
-    include "CHANGELOG.md"
-    rename "CHANGELOG.md", getVersionCode() + ".txt"
-}
-
-preBuild.dependsOn copyChangelog
 
 task downloadPublicSuffixList(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task
