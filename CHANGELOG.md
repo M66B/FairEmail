@@ -1,5 +1,7 @@
 ## Changelog
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
+
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
 ### 1.1726c

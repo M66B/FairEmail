@@ -1,11 +1,14 @@
 ## Changelog
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
+
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
-### 1.1726b
+### 1.1726c
 
 * Following dark/light theme for original message view
 * Added message menu item / optional button to force light theme for original message view
+* Fixed verifying some S/MIME signatures
 
 ### 1.1726
 
