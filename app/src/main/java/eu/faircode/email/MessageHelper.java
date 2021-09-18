@@ -145,6 +145,7 @@ public class MessageHelper {
     ));
 
     static final String FLAG_FORWARDED = "$Forwarded";
+    static final String FLAG_JUNK = "$Junk";
     static final String FLAG_NOT_JUNK = "$NotJunk";
     static final String FLAG_CLASSIFIED = "$Classified";
     static final String FLAG_FILTERED = "$Filtered";
@@ -153,13 +154,13 @@ public class MessageHelper {
     // Not black listed: Gmail $Phishing
     private static final List<String> FLAG_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
             MessageHelper.FLAG_FORWARDED,
+            MessageHelper.FLAG_JUNK,
             MessageHelper.FLAG_NOT_JUNK,
             MessageHelper.FLAG_CLASSIFIED, // FairEmail
             MessageHelper.FLAG_FILTERED, // FairEmail
             "$MDNSent", // https://tools.ietf.org/html/rfc3503
             "$SubmitPending",
             "$Submitted",
-            "$Junk",
             "Junk",
             "NonJunk",
             "$recent",

@@ -1330,10 +1330,21 @@ class Core {
                     imessage.setFlag(Flags.Flag.FLAGGED, false);
 
                 // Mark not spam
-                if (EntityFolder.JUNK.equals(folder.type) &&
-                        ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+                if (!copy && ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+                    Flags junk = new Flags(MessageHelper.FLAG_JUNK);
                     Flags notJunk = new Flags(MessageHelper.FLAG_NOT_JUNK);
-                    imessage.setFlags(notJunk, true);
+                    List<String> userFlags = Arrays.asList(imessage.getFlags().getUserFlags());
+                    if (EntityFolder.JUNK.equals(target.type)) {
+                        // To junk
+                        if (userFlags.contains(MessageHelper.FLAG_NOT_JUNK))
+                            imessage.setFlags(notJunk, false);
+                        imessage.setFlags(junk, true);
+                    } else if (EntityFolder.JUNK.equals(folder.type)) {
+                        // From junk
+                        if (userFlags.contains(MessageHelper.FLAG_JUNK))
+                            imessage.setFlags(junk, false);
+                        imessage.setFlags(notJunk, true);
+                    }
                 }
             }
 
