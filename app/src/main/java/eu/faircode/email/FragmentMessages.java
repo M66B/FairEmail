@@ -7827,6 +7827,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         return null;
 
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        return null;
+
                     EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                     if (junk == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
@@ -7834,7 +7838,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (!message.folder.equals(junk.id))
                         EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
-                    if (block_sender || block_domain) {
+                    if (block_sender)
+                        EntityContact.update(context,
+                                message.account, message.from,
+                                EntityContact.TYPE_JUNK, message.received);
+
+                    if (block_domain) {
                         EntityRule rule = EntityRule.blockSender(context, message, junk, block_domain, whitelist);
                         if (rule != null) {
                             if (message.folder.equals(junk.id)) {

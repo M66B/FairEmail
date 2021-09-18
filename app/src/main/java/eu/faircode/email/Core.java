@@ -1335,38 +1335,6 @@ class Core {
                     Flags notJunk = new Flags(MessageHelper.FLAG_NOT_JUNK);
                     imessage.setFlags(notJunk, true);
                 }
-
-                EntityMessage message = map.get(imessage);
-                if (message != null && message.from != null) {
-                    for (Address from : message.from) {
-                        String email = ((InternetAddress) from).getAddress();
-                        if (TextUtils.isEmpty(email))
-                            continue;
-                        if (EntityFolder.JUNK.equals(folder.type)) {
-                            // From junk
-                            long now = new Date().getTime();
-                            EntityContact contact = db.contact().getContact(message.account, EntityContact.TYPE_NO_JUNK, email);
-                            if (contact == null) {
-                                contact = new EntityContact();
-                                contact.account = message.account;
-                                contact.name = ((InternetAddress) from).getPersonal();
-                                contact.email = email;
-                                contact.type = EntityContact.TYPE_NO_JUNK;
-                                contact.first_contacted = now;
-                                contact.last_contacted = now;
-                                contact.times_contacted = 1;
-                                db.contact().insertContact(contact);
-                            } else {
-                                contact.times_contacted++;
-                                contact.last_contacted = now;
-                                db.contact().updateContact(contact);
-                            }
-                        } else if (EntityFolder.JUNK.equals(target.type)) {
-                            // To junk
-                            int count = db.contact().deleteContact(message.account, EntityContact.TYPE_NO_JUNK, email);
-                        }
-                    }
-                }
             }
 
             // https://tools.ietf.org/html/rfc6851
@@ -2746,7 +2714,7 @@ class Core {
                                     Log.w(ex);
                                 }
 
-                            EntityContact.update(context, account, folder, message);
+                            EntityContact.received(context, account, folder, message);
                         } catch (Throwable ex) {
                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                         }
@@ -3753,7 +3721,7 @@ class Core {
             }
 
             try {
-                EntityContact.update(context, account, folder, message);
+                EntityContact.received(context, account, folder, message);
 
                 // Download small messages inline
                 if (download && !message.ui_hide) {
@@ -3928,7 +3896,7 @@ class Core {
                 }
 
             if (process) {
-                EntityContact.update(context, account, folder, message);
+                EntityContact.received(context, account, folder, message);
                 MessageClassifier.classify(message, folder, null, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
@@ -4040,6 +4008,25 @@ class Core {
                     if (rule.stop)
                         break;
                 }
+
+            if (EntityFolder.INBOX.equals(folder.type))
+                if (message.from != null)
+                    for (Address from : message.from) {
+                        String email = ((InternetAddress) from).getAddress();
+                        if (TextUtils.isEmpty(email))
+                            continue;
+
+                        EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
+                        if (badboy != null) {
+                            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                            if (junk != null) {
+                                EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+                                executed = true;
+                            }
+                            break;
+                        }
+                    }
+
             if (executed &&
                     !message.hasKeyword(MessageHelper.FLAG_FILTERED))
                 EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_FILTERED, true);

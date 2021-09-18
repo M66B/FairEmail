@@ -126,6 +126,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             } else if (contact.type == EntityContact.TYPE_TO) {
                 ivType.setImageResource(R.drawable.twotone_call_made_24);
                 ivType.setContentDescription(context.getString(R.string.title_accessibility_to));
+            } else if (contact.type == EntityContact.TYPE_JUNK) {
+                ivType.setImageResource(R.drawable.twotone_report_24);
+                ivType.setContentDescription(context.getString(R.string.title_legend_junk));
             } else if (contact.type == EntityContact.TYPE_NO_JUNK) {
                 ivType.setImageResource(R.drawable.twotone_report_off_24);
                 ivType.setContentDescription(context.getString(R.string.title_no_junk));

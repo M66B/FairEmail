@@ -68,6 +68,7 @@ public class EntityContact implements Serializable {
 
     static final int TYPE_TO = 0;
     static final int TYPE_FROM = 1;
+    static final int TYPE_JUNK = 2;
     static final int TYPE_NO_JUNK = 3;
 
     static final int STATE_DEFAULT = 0;
@@ -94,41 +95,50 @@ public class EntityContact implements Serializable {
     @NonNull
     public Integer state = STATE_DEFAULT;
 
-    static void update(
+    static void received(
             @NonNull Context context,
             @NonNull EntityAccount account,
             @NonNull EntityFolder folder,
             @NonNull EntityMessage message) {
-        int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
-        if (days == Integer.MAX_VALUE)
-            days = EntityFolder.DEFAULT_KEEP;
-        if (message.received < account.created - days * 24 * 3600 * 1000L)
-            return;
+        if (!EntityFolder.JUNK.equals(folder.type)) {
+            int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
+            if (days == Integer.MAX_VALUE)
+                days = EntityFolder.DEFAULT_KEEP;
+            if (message.received < account.created - days * 24 * 3600 * 1000L)
+                return;
+        }
 
         if (EntityFolder.DRAFTS.equals(folder.type) ||
                 EntityFolder.ARCHIVE.equals(folder.type) ||
-                EntityFolder.TRASH.equals(folder.type) ||
-                EntityFolder.JUNK.equals(folder.type))
+                EntityFolder.TRASH.equals(folder.type))
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         boolean suggest_received = prefs.getBoolean("suggest_received", false);
-        if (!suggest_sent && !suggest_received)
+        boolean auto_junk = prefs.getBoolean("auto_junk", false);
+
+        // Shortcut
+        if (!suggest_sent && !suggest_received &&
+                !(EntityFolder.JUNK.equals(folder.type) && auto_junk))
             return;
 
-        DB db = DB.getInstance(context);
-
-        int type = (folder.isOutgoing() ? TYPE_TO : TYPE_FROM);
+        int type;
+        if (EntityFolder.JUNK.equals(folder.type))
+            type = TYPE_JUNK;
+        else
+            type = (folder.isOutgoing() ? TYPE_TO : TYPE_FROM);
 
         // Check if from self
-        if (type == TYPE_FROM) {
+        if (type == TYPE_FROM || type == TYPE_JUNK) {
             if (message.from != null) {
                 List<EntityIdentity> identities = Core.getIdentities(folder.account, context);
                 if (identities != null) {
                     for (Address sender : message.from) {
                         for (EntityIdentity identity : identities)
                             if (identity.similarAddress(sender)) {
+                                if (type == TYPE_JUNK)
+                                    return;
                                 type = TYPE_TO;
                                 break;
                             }
@@ -143,6 +153,8 @@ public class EntityContact implements Serializable {
             return;
         if (type == TYPE_FROM && !suggest_received)
             return;
+        if (type == TYPE_JUNK && !auto_junk)
+            return;
 
         List<Address> addresses = new ArrayList<>();
         if (type == TYPE_FROM) {
@@ -156,8 +168,29 @@ public class EntityContact implements Serializable {
                 addresses.addAll(Arrays.asList(message.to));
             if (message.cc != null)
                 addresses.addAll(Arrays.asList(message.cc));
+        } else if (type == TYPE_JUNK) {
+            if (message.from != null) {
+                DB db = DB.getInstance(context);
+                for (Address from : message.from) {
+                    String email = ((InternetAddress) from).getAddress();
+                    if (TextUtils.isEmpty(email))
+                        continue;
+                    EntityContact nojunk = db.contact().getContact(message.account, TYPE_NO_JUNK, email);
+                    if (nojunk != null)
+                        return;
+                }
+                addresses.addAll(Arrays.asList(message.from));
+            }
         }
 
+        update(context, folder.account, addresses.toArray(new Address[0]), type, message.received);
+    }
+
+    public static void update(Context context, long account, Address[] addresses, int type, long time) {
+        if (addresses == null)
+            return;
+
+        DB db = DB.getInstance(context);
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
             String name = ((InternetAddress) address).getPersonal();
@@ -171,17 +204,17 @@ public class EntityContact implements Serializable {
             try {
                 db.beginTransaction();
 
-                EntityContact contact = db.contact().getContact(folder.account, type, email);
+                EntityContact contact = db.contact().getContact(account, type, email);
                 if (contact == null) {
                     contact = new EntityContact();
-                    contact.account = folder.account;
+                    contact.account = account;
                     contact.type = type;
                     contact.email = email;
                     contact.name = name;
                     contact.avatar = (avatar == null ? null : avatar.toString());
                     contact.times_contacted = 1;
-                    contact.first_contacted = message.received;
-                    contact.last_contacted = message.received;
+                    contact.first_contacted = time;
+                    contact.last_contacted = time;
                     contact.id = db.contact().insertContact(contact);
                     Log.i("Inserted contact=" + contact + " type=" + type);
                 } else {
@@ -189,8 +222,8 @@ public class EntityContact implements Serializable {
                         contact.name = name;
                     contact.avatar = (avatar == null ? null : avatar.toString());
                     contact.times_contacted++;
-                    contact.first_contacted = Math.min(contact.first_contacted, message.received);
-                    contact.last_contacted = message.received;
+                    contact.first_contacted = Math.min(contact.first_contacted, time);
+                    contact.last_contacted = time;
                     db.contact().updateContact(contact);
                     Log.i("Updated contact=" + contact + " type=" + type);
                 }
@@ -199,6 +232,19 @@ public class EntityContact implements Serializable {
             } finally {
                 db.endTransaction();
             }
+        }
+    }
+
+    public static void delete(Context context, long account, Address[] addresses, int type) {
+        if (addresses == null)
+            return;
+
+        DB db = DB.getInstance(context);
+        for (Address address : addresses) {
+            String email = ((InternetAddress) address).getAddress();
+            if (TextUtils.isEmpty(email))
+                continue;
+            db.contact().deleteContact(account, type, email);
         }
     }
 
