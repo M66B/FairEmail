@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="3dp"
-            app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibAnswer,ibSeen,ibHide,ibTranslate,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibUnsubscribe,ibRule,ibUndo"
+            app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibAnswer,ibSeen,ibHide,ibTranslate,ibForceLight,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibUnsubscribe,ibRule,ibUndo"
             app:flow_horizontalBias="0"
             app:flow_horizontalGap="3dp"
             app:flow_horizontalStyle="packed"
@@ -255,6 +255,18 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_translate"
             app:srcCompat="@drawable/twotone_translate_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibForceLight"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_force_light"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_force_light"
+            app:srcCompat="@drawable/lightdark"
             tools:ignore="MissingConstraints" />
 
         <ImageButton

@@ -2,6 +2,11 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### 1.1726-b
+
+* Following dark/light theme for original message view
+* Added message menu item / optional button to force light theme for original message view
+
 ### 1.1726
 
 * Show in-app changelog after updating

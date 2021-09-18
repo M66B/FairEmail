@@ -86,7 +86,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
     }
 
-    void init(int height, float size, Pair<Integer, Integer> position, IWebView intf) {
+    void init(int height, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
         Log.i("Init height=" + height + " size=" + size);
 
         this.height = (height == 0 ? getMinimumHeight() : height);
@@ -104,16 +104,12 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int message_zoom = prefs.getInt("message_zoom", 100);
         boolean monospaced = prefs.getBoolean("monospaced", false);
-        boolean confirm_html = prefs.getBoolean("confirm_html", true);
-        boolean html_dark = prefs.getBoolean("html_dark", confirm_html);
 
         WebSettings settings = getSettings();
 
-        boolean dark = Helper.isDarkTheme(context);
-        if (html_dark &&
-                WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
+        boolean dark = (Helper.isDarkTheme(context) && !force_light);
+        if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
             WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
-
         if (!dark)
             setBackgroundColor(ColorUtils.setAlphaComponent(Color.WHITE, 127));
 
