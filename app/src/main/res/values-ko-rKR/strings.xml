@@ -63,12 +63,10 @@
     <string name="title_block">%1$s 차단</string>
     <string name="title_block_sender">발송자 차단</string>
     <string name="title_block_domain">발송자 도메인 차단</string>
-    <string name="title_block_sender_hint">        발송자 차단 시, 새 메일을 스팸함으로 이동하는 새로운 룰이 생성됩니다
-        룰 생성 및 사용은 pro버전에서 사용하실 수 있습니다.
-    </string>
     <string name="title_junk_filter">로컬 스팸 필터 사용</string>
     <string name="title_junk_filter_hint">배터리 사용량이 증가할 수 있으며 스팸 메일로 잘못 인식할 수도 있습니다.</string>
     <string name="title_junk_blocklist">스팸 차단 목록 사용</string>
+    <string name="title_junk_clear">비우기</string>
     <string name="title_notification_sending">메일 전송 중</string>
     <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
     <string name="title_notification_idle">유휴</string>
@@ -406,7 +404,6 @@
     <string name="title_ask_save">변경 사항을 저장합니까?</string>
     <string name="title_ask_delete_accept">메시지를 삭제하면 되돌릴 수 없음을 압니다</string>
     <string name="title_ask_discard">초안을 삭제하시겠습니까?</string>
-    <string name="title_ask_show_html_dark">어두운 테마 사용</string>
     <string name="title_need_help">도움 요청</string>
     <string name="title_download_message">&#8230; 다운로드 중</string>
     <string name="title_reformatted">        재구성된 메시지를 보고 있습니다.

@@ -74,9 +74,8 @@
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljatelja</string>
     <string name="title_block_domain">Blokiraj domenu pošiljatelja</string>
-    <string name="title_block_sender_hint">        Blokiranje pošiljatelja stvorit će pravilo za automatsko pomicanje budućih poruka u mapu neželjene pošte.
-        Stvaranje i korištenje pravila profesionalna je značajka.    </string>
     <string name="title_junk_filter">Koristi lokalni filter za neželjenu poštu</string>
+    <string name="title_junk_clear">Očisti</string>
     <string name="title_notification_sending">Poruka se šalje</string>
     <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_idle">Nevažno</string>
@@ -603,7 +602,6 @@
     <string name="title_ask_delete_rule">Želite li trajno izbrisati pravilo?</string>
     <string name="title_ask_discard">Odbaciti skicu?</string>
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
-    <string name="title_ask_show_html_dark">Koristi tamnu temu</string>
     <string name="title_ask_show_html_remark">Prikazivanje izvorne poruke na tamnoj pozadini nije moguće jer može uzrokovati nevidljive tamne tekstove i slike</string>
     <string name="title_ask_show_html_images">Uvijek prikažite slike pri prikazivanju originalnih poruka</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>

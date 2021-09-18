@@ -73,12 +73,10 @@
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
     <string name="title_block_domain">Blokér afsenderdomænet</string>
-    <string name="title_block_sender_hint">        Blokering af en afsender opretter en regel, der automatisk flytter fremtidige beskeder til Spam-mappen.
-        Oprettelse og brug af regler er en Pro-funktion.
-    </string>
     <string name="title_junk_filter">Brug lokalt spamfilter</string>
     <string name="title_junk_filter_hint">Dette kan øge strømforbruget samt ukorrekt markere beskeder som spam</string>
     <string name="title_junk_blocklist">Brug spamblokeringslister</string>
+    <string name="title_junk_clear">Ryd</string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -372,10 +370,13 @@
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
     <string name="title_advanced_show_recipients">Vis modtagere i beskedhoved</string>
     <string name="title_advanced_font_size_sender">Tekststørrelse, Afsender</string>
+    <string name="title_advanced_sender_ellipsize">Om nødvendigt, afkort afsender</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
     <string name="title_advanced_highlight_subject">Fremhæv emne</string>
     <string name="title_advanced_font_size_subject">Tekststørrelse, Emne</string>
+    <string name="title_advanced_subject_ellipsize">Om nødvendigt, afkort emnet</string>
+    <string name="title_advanced_compact_mode_remark">Kun kompakttilstand</string>
     <string name="title_advanced_highlight_color">Fremhævelsesfarve</string>
     <string name="title_advanced_keywords">Vis nøgleord i beskedhovedet</string>
     <string name="title_advanced_labels">Vis Gmail-etiketter i beskedhoved</string>
@@ -941,7 +942,6 @@
     <string name="title_ask_delete_rule">Slet regel permanent?</string>
     <string name="title_ask_discard">Kassér kladde?</string>
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
-    <string name="title_ask_show_html_dark">Benyt mørkt tema</string>
     <string name="title_ask_show_html_remark">Visning af originalbeskeden på en mørk baggrund er ikke mulig, da det kan afstedkomme usynlige mørke tekster og billeder</string>
     <string name="title_ask_show_html_images">Vis altid billeder, når originalbeskederne vises</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
@@ -1478,9 +1478,7 @@
     <string name="title_rules_export">Eksportér regler</string>
     <string name="title_rules_import">Eksportér regler</string>
     <string name="title_rules_delete_all">Slet alle regler</string>
-    <string name="title_rules_delete_junk">Slet spamregler</string>
     <string name="title_rules_delete_all_confirm">Slet alle regler?</string>
-    <string name="title_rules_delete_junk_confirm">Slet alle regler og flyt beskeder til spam-mappen?</string>
     <string name="title_debug_info">Fejlretningsinfo</string>
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>

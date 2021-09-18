@@ -63,9 +63,9 @@
     <string name="title_block">Blokir %1$s</string>
     <string name="title_block_sender">Blokir Pengirim</string>
     <string name="title_block_domain">Blokir Domain Pengirim</string>
-    <string name="title_block_sender_hint">Memblokir pengirim akan membuat aturan secara otomatis memindahkan setiap email terbaru dari pengirim ini ke folder spam. Untuk membuat dan menggunakan aturan ini adalah dengan beralih ke versi pro.</string>
     <string name="title_junk_filter">Pakai penyaring spam lokal</string>
     <string name="title_junk_filter_hint">Ini dapat meningkatkan penggunaan baterai dan salah menandai pesan sebagai spam</string>
+    <string name="title_junk_clear">Bersihkan</string>
     <string name="title_notification_sending">Mengirim pesan</string>
     <string name="title_notification_waiting">Menunggu koneksi yang sesuai</string>
     <string name="title_notification_idle">Siaga</string>
@@ -841,7 +841,6 @@
     <string name="title_ask_delete_rule">Hapus aturan secara permanen?</string>
     <string name="title_ask_discard">Buang draf?</string>
     <string name="title_ask_show_html">Menampilkan pesan asli dapat membocorkan informasi sensitif privasi</string>
-    <string name="title_ask_show_html_dark">Gunakan tema gelap</string>
     <string name="title_ask_show_html_images">Selalu tampilkan gambar saat menampilkan pesan asli</string>
     <string name="title_ask_show_image">Menampilkan gambar dapat membocorkan informasi sensitif privasi</string>
     <string name="title_ask_show_image_hint">Gambar yang dikenali sebagai gambar pelacakan tidak akan ditampilkan</string>

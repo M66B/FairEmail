@@ -97,8 +97,8 @@
     <string name="title_block">حظر %1$s</string>
     <string name="title_block_sender">حظر المرسل</string>
     <string name="title_block_domain">حظر نطاق المرسل</string>
-    <string name="title_block_sender_hint">حظر المرسل سيقوم لتحويل جميع رسائله المستقبلية الى صندوق البريد المزعج. يمكنك الحصول على هذه الخاصية باستخدام نسخة البرنامج الاحترافية.    </string>
     <string name="title_junk_filter">استخدام فلتر البريد المزعج محليا</string>
+    <string name="title_junk_clear">محو</string>
     <string name="title_notification_sending">جارٍ إرسال الرسالة</string>
     <string name="title_notification_waiting">في انتظار اتصال مناسب</string>
     <string name="title_notification_idle">خامل</string>
@@ -334,7 +334,6 @@
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
     <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
-    <string name="title_ask_show_html_dark">استخدم المظهر الداكن</string>
     <string name="title_ask_reporting">إرسال تقارير الأخطاء?</string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">مِن:</string>

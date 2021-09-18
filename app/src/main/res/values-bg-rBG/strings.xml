@@ -62,9 +62,7 @@
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
     <string name="title_block_domain">Блокиране на домейна на подателя</string>
-    <string name="title_block_sender_hint">        Блокирането на подател ще създаде правило за автоматично преместване на бъдещи съобщения в папката със спам.
-        Създаването и използването на правила е професионална функция.
-    </string>
+    <string name="title_junk_clear">Изчистване</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
     <string name="title_notification_idle">Празен</string>
@@ -686,7 +684,6 @@
     <string name="title_ask_delete_rule">Изтриване на правилото за постоянно?</string>
     <string name="title_ask_discard">Отхвърляне на черновата?</string>
     <string name="title_ask_show_html">При показването на оригиналното съобщение може да изтече чувствителна поверителна информация</string>
-    <string name="title_ask_show_html_dark">Употреба на тъмна тема</string>
     <string name="title_ask_show_html_remark">Показване на оригиналното съобщение с тъмен фон не е възможно, защото може да причини невидими тъмни текстове и изображения</string>
     <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
@@ -1151,7 +1148,6 @@
     <string name="title_auto_scroll">Автоматично превъртане</string>
     <string name="title_log_clear">Изчисти</string>
     <string name="title_rules_delete_all">Изтривате ли всички правила</string>
-    <string name="title_rules_delete_junk">Изтриване на правилата за спам</string>
     <string name="title_rules_delete_all_confirm">Изтривате ли всички правила?</string>
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>

@@ -73,12 +73,10 @@
     <string name="title_block">Blockera %1$s</string>
     <string name="title_block_sender">Blockera avsändare</string>
     <string name="title_block_domain">Blockera avsändardomän</string>
-    <string name="title_block_sender_hint">        Att blockera en avsändare skapar en regel att framtida meddelanden automatiskt ska flyttas till skräppostmappen.
-        Att skapa och använda regler är en pro-funktion.
-    </string>
     <string name="title_junk_filter">Använd lokalt skräppostfilter</string>
     <string name="title_junk_filter_hint">Detta kan öka batterianvändningen och felaktigt markera meddelanden som skräppost</string>
     <string name="title_junk_blocklist">Använd skräppostblockeringslistor</string>
+    <string name="title_junk_clear">Rensa</string>
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -950,7 +948,6 @@
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
-    <string name="title_ask_show_html_dark">Använd mörkt tema</string>
     <string name="title_ask_show_html_remark">Att visa originalmeddelandet med en mörk bakgrund är inte möjligt eftersom det kan orsaka osynliga mörka texter och bilder</string>
     <string name="title_ask_show_html_images">Visa alltid bilder när originalmeddelanden visas</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
@@ -1489,9 +1486,7 @@
     <string name="title_rules_export">Exportera regler</string>
     <string name="title_rules_import">Importera regler</string>
     <string name="title_rules_delete_all">Ta bort alla regler</string>
-    <string name="title_rules_delete_junk">Ta bort skräppostregler</string>
     <string name="title_rules_delete_all_confirm">Ta bort alla regler?</string>
-    <string name="title_rules_delete_junk_confirm">Ta bort alla regler som flyttar meddelanden till skräppostmappen?</string>
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>

@@ -33,9 +33,6 @@
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljaoca</string>
     <string name="title_block_domain">Blokiraj domenu pošiljaoca</string>
-    <string name="title_block_sender_hint">        Blokiranjem pošiljaoca napravit će se pravilo za automatsko premještanje njegovih poruka u spam folder u buduće.
-        Kreiranje i upotreba pravila je mogućnost pro verzije.
-    </string>
     <string name="title_junk_filter">Koristi lokalni filter za spam poruke</string>
     <string name="title_junk_filter_hint">Ovo može povećati potrošnju baterije i netačno označavati poruke kao spam</string>
     <string name="title_junk_blocklist">Koristi liste blokiranja za spam poruke</string>
@@ -838,7 +835,6 @@
     <string name="title_ask_delete_rule">Trajno izbrisati pravilo?</string>
     <string name="title_ask_discard">Odbaciti nacrt?</string>
     <string name="title_ask_show_html">Prikaz originalne poruke može uzrokovati curenje osjetljivih informacija</string>
-    <string name="title_ask_show_html_dark">Koristi tamnu temu</string>
     <string name="title_ask_show_html_remark">Prikaz izvorne poruke na tamnoj pozadini nije moguć jer bi to učinilo tamne tekstove i slike nevidljivim</string>
     <string name="title_ask_show_html_images">Uvijek prikazuj slike u prikazu izvornih poruka</string>
     <string name="title_ask_show_image">Prikaz slika može uzrokovati curenje osjetljivih informacija</string>
@@ -1285,9 +1281,7 @@
     <string name="title_rules_export">Izvezi pravila</string>
     <string name="title_rules_import">Uvezi pravila</string>
     <string name="title_rules_delete_all">Izbriši sva pravila</string>
-    <string name="title_rules_delete_junk">Izbriši pravila za spam</string>
     <string name="title_rules_delete_all_confirm">Izbrisati sva pravila?</string>
-    <string name="title_rules_delete_junk_confirm">Želite li izbrisati sva pravila premještanja poruka u spam folder?</string>
     <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
     <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>

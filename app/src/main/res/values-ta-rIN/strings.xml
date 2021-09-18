@@ -60,9 +60,7 @@
     <string name="title_block">%1$s-ஐ தடுக்கவும்</string>
     <string name="title_block_sender">அனுப்புனரை தடுக்கவும்</string>
     <string name="title_block_domain">அனுப்புநர் களத்தைத் தடுக்கவும்</string>
-    <string name="title_block_sender_hint">அனுப்புநரைத் தடுப்பது எதிர்கால செய்திகளை ஸ்பேம் கோப்புறையில் தானாக நகர்த்துவதற்கான விதியை உருவாக்கும்.
-        விதிகளை உருவாக்குவதும் பயன்படுத்துவதும் ஒரு விலையுள்ள அம்சமாகும்.
-    </string>
+    <string name="title_junk_clear">அகற்று</string>
     <string name="title_notification_sending">செய்திகள் அனுப்பப்படுகின்றது</string>
     <string name="title_notification_waiting">தகுந்த இணைப்பிற்காகக் காத்திருக்கிறது</string>
     <string name="title_notification_idle">செயலற்ற</string>
@@ -92,7 +90,6 @@
     <string name="title_raw_send_thread">உரையாடல்</string>
     <string name="title_delete">அழி</string>
     <string name="title_copy_btn">நகலெடு</string>
-    <string name="title_ask_show_html_dark">கருத்த கருப்பொருளை உபயோகி</string>
     <string name="title_compose">இயற்றுக</string>
     <string name="title_send">அனுப்புபவை</string>
     <string name="title_rule_enabled">வாங்கப்பட்டது</string>

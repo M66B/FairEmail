@@ -69,9 +69,8 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_block">Bloqueja %1$s</string>
     <string name="title_block_sender">Bloqueja remitent</string>
     <string name="title_block_domain">Bloquejar el domini complet del remitent</string>
-    <string name="title_block_sender_hint">Si bloqueges un remitent, es crearà una regla per traslladar automàticament els missatges futurs a la carpeta de correu brossa.
-La creació i l\'ús de regles és una característica professional.    </string>
     <string name="title_junk_filter">Utilitza el filtre local d\'SPAM</string>
+    <string name="title_junk_clear">Elimina</string>
     <string name="title_notification_sending">Enviant missatge</string>
     <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_idle">Inactiu</string>
@@ -683,7 +682,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_ask_delete_rule">Esborrar regla per sempre?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
     <string name="title_ask_show_html">Si es mostra el missatge original es pot filtrar informació sensible a la privadesa</string>
-    <string name="title_ask_show_html_dark">Utilitza un tema fosc</string>
     <string name="title_ask_show_html_remark">No es pot mostrar el missatge original amb un fons fosc perquè pot provocar imatges i textos foscos invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre les imatges al mostrar els missatges originals</string>
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>
@@ -1100,7 +1098,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_rules_export">Exporta regles</string>
     <string name="title_rules_import">Importa regles</string>
     <string name="title_rules_delete_all">Esborra totes les regles</string>
-    <string name="title_rules_delete_junk">Esborra totes les regles d\'SPAM</string>
     <string name="title_rules_delete_all_confirm">Esborra totes les regles?</string>
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>

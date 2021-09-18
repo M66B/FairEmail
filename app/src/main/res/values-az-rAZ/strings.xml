@@ -73,12 +73,10 @@
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
     <string name="title_block_domain">Göndərən domenini əngəllə</string>
-    <string name="title_block_sender_hint">        Göndərəni əngəlləyəndə, gələcəkdəki mesajları avtomatik olaraq spam qovluğuna köçürmək üçün bir qayda yaradılır.
-        Qaydaların yaradılması və istifadə edilməsi Pro xüsusiyyətdir.
-    </string>
     <string name="title_junk_filter">Yerli spam filtrini istifadə et</string>
     <string name="title_junk_filter_hint">Bu, batareya istifadəsini artıra və mesajları səhvən spam olaraq işarələ bilər</string>
     <string name="title_junk_blocklist">Spam əngəlləmə siyahılarını istifadə et</string>
+    <string name="title_junk_clear">Təmizlə</string>
     <string name="title_notification_sending">Mesaj göndərilir</string>
     <string name="title_notification_waiting">Əlverişli bağlantı gözlənilir</string>
     <string name="title_notification_idle">Aktiv deyil</string>
@@ -376,10 +374,13 @@
     <string name="title_advanced_distinguish_contacts">Göndərən yerli \"alıcı\" əlaqəsi kimi bilinirsə göndərənin altından xətt çək</string>
     <string name="title_advanced_show_recipients">Mesaj başlığında alıcıları göstər</string>
     <string name="title_advanced_font_size_sender">Göndərən mətn ölçüsü</string>
+    <string name="title_advanced_sender_ellipsize">Lazım gəlsə, göndərən hissəsini qısaldın</string>
     <string name="title_advanced_subject_top">Göndərənin üstündə mövzunu göstər</string>
     <string name="title_advanced_subject_italic">Mövzunu \"italic\" göstər</string>
     <string name="title_advanced_highlight_subject">Mövzunu vurğula</string>
     <string name="title_advanced_font_size_subject">Mövzu mətn ölçüsü</string>
+    <string name="title_advanced_subject_ellipsize">Lazım gəlsə, mövzu hissəsini qısaldın</string>
+    <string name="title_advanced_compact_mode_remark">Yalnız yığcam rejim</string>
     <string name="title_advanced_highlight_color">Rəngi vurğula</string>
     <string name="title_advanced_keywords">Mesaj başlığında açar sözləri göstər</string>
     <string name="title_advanced_labels">Mesaj başlığında Gmail etiketlərini göstər</string>
@@ -949,7 +950,6 @@
     <string name="title_ask_delete_rule">Qayda birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
-    <string name="title_ask_show_html_dark">Tünd temanı istifadə et</string>
     <string name="title_ask_show_html_remark">Orijinal mesajın tünd arxaplanda görüntülənməsi mümkün deyildir, çünki tünd tema mətn və təsvirlərin görünməz olmasına səbəb ola bilər</string>
     <string name="title_ask_show_html_images">Orijinal mesajları göstərəndə təsvirləri həmişə göstər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
@@ -1186,6 +1186,7 @@
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
     <string name="title_edit_signature">İmzaya düzəliş et</string>
+    <string name="title_edit_signature_remark">Android, bütün HTML-i görüntüləyə bilməsə də, olduğu kimi göndərəcək</string>
     <string name="title_edit_signature_text">İmza mətni</string>
     <string name="title_edit_signature_image">Təsvir daxil et</string>
     <string name="title_answer_caption">Şablona düzəliş et</string>
@@ -1487,9 +1488,7 @@
     <string name="title_rules_export">İxrac qaydaları</string>
     <string name="title_rules_import">İdxal qaydaları</string>
     <string name="title_rules_delete_all">Bütün qaydaları sil</string>
-    <string name="title_rules_delete_junk">Spam qaydalarını sil</string>
     <string name="title_rules_delete_all_confirm">Bütün qaydalar silinsin?</string>
-    <string name="title_rules_delete_junk_confirm">Mesajları spam qovluğuna daşıyan bütün qaydalar silinsin?</string>
     <string name="title_debug_info">Sazlama məlumatı</string>
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>

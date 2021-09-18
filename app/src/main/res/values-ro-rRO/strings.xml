@@ -83,12 +83,10 @@
     <string name="title_block">Blochează %1$s</string>
     <string name="title_block_sender">Blochează expeditor</string>
     <string name="title_block_domain">Blocare domeniu expeditor</string>
-    <string name="title_block_sender_hint">        Blocarea unui expeditor va crea o regulă ce mută automat orice mesaj viitor în dosarul de spam.
-        Crearea și utilizarea regulilor este o caracteristică Pro.
-    </string>
     <string name="title_junk_filter">Utilizați filtrul de spam local</string>
     <string name="title_junk_filter_hint">Acest lucru poate crește utilizarea bateriei și marchează incorect mesajele ca spam</string>
     <string name="title_junk_blocklist">Utilizați listele de blocare a spam-ului</string>
+    <string name="title_junk_clear">Golește jurnalul</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_idle">Inactiv</string>
@@ -868,6 +866,7 @@
     <string name="title_editasnew">Editare ca nou</string>
     <string name="title_edit_notes">Editează notele locale</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
+    <string name="title_force_light">Tema forțată a luminii</string>
     <string name="title_share">Partajează</string>
     <string name="title_event">Adaugă în calendar</string>
     <string name="title_pin">Adaugă scurtătură</string>
@@ -963,7 +962,6 @@
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
-    <string name="title_ask_show_html_dark">Folosește tema întunecată</string>
     <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibilă pentru că imaginile și textul închise la culoare ar putea sa nu se vadă</string>
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
@@ -1502,9 +1500,7 @@
     <string name="title_rules_export">Exportă regulile</string>
     <string name="title_rules_import">Importă regulile</string>
     <string name="title_rules_delete_all">Șterge toate regulile</string>
-    <string name="title_rules_delete_junk">Ștergere reguli de spam</string>
     <string name="title_rules_delete_all_confirm">Ștergeți toate regulile?</string>
-    <string name="title_rules_delete_junk_confirm">Ştergeţi toate regulile care mută mesajele în folderul spam?</string>
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>

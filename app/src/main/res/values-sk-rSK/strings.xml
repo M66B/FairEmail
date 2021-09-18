@@ -93,12 +93,10 @@
     <string name="title_block">Zablokovať %1$s</string>
     <string name="title_block_sender">Zablokovať odosielateľa</string>
     <string name="title_block_domain">Zablokovať doménu odosielateľa</string>
-    <string name="title_block_sender_hint">        Zablokovaním odosielateľa budú odteraz všetky správy od neho automaticky presúvané do priečinka s nevyžiadanou poštou.
-        Vytváranie a používanie pravidiel je pro funkcia.
-    </string>
     <string name="title_junk_filter">Použiť lokálny spam filter</string>
     <string name="title_junk_filter_hint">Môže zvýšiť spotrebu batérie a nesprávne označovať správy ako nevyžiadané</string>
     <string name="title_junk_blocklist">Používať zoznami na blokovanie nevyžiadanej pošty</string>
+    <string name="title_junk_clear">Vyčistiť</string>
     <string name="title_notification_sending">Správy sa odosielajú</string>
     <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -967,7 +965,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_ask_delete_rule">Natrvalo odstrániť pravidlo?</string>
     <string name="title_ask_discard">Zahodiť koncept?</string>
     <string name="title_ask_show_html">Pôvodné zobrazenie správy je náchylnejšie na únik citlivých informácií</string>
-    <string name="title_ask_show_html_dark">Používať tmavý vzhľad</string>
     <string name="title_ask_show_html_remark">Pôvodné zobrazenie správy nie je možné zobraziť na tmavom pozadí, pretože tmavý text a obrázky nemusia byť dostatočne viditeľné</string>
     <string name="title_ask_show_html_images">Vždy zobraziť obrázky v pôvodnom zobrazení správy</string>
     <string name="title_ask_show_image">Zobrazením obrázkov môže dojsť k úniku citlivých informácií</string>
@@ -1504,9 +1501,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rules_export">Exportovať pravidlá</string>
     <string name="title_rules_import">Importovať pravidlá</string>
     <string name="title_rules_delete_all">Vymazať všetky pravidlá</string>
-    <string name="title_rules_delete_junk">Vymazať pravidlá nevyžiadanej pošty</string>
     <string name="title_rules_delete_all_confirm">Vymazať všetky pravidlá?</string>
-    <string name="title_rules_delete_junk_confirm">Vymazať všetky pravidlá, ktoré premiestňujú správy do priečinka s nevyžiadanou poštou?</string>
     <string name="title_debug_info">Ladiace informácie</string>
     <string name="title_debug_info_remark">Prosím popíšte problém a uveďte čas výskytu:</string>
     <string name="title_crash_info_remark">Prosím vysvetlite, čo ste robili pred pádom aplikácie:</string>

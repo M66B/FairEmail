@@ -73,12 +73,10 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear Remetente</string>
     <string name="title_block_domain">Bloquear domínio do remetente</string>
-    <string name="title_block_sender_hint">        Bloquear um remetente irá criar uma regra para mover automaticamente mensagens futuras para a pasta de mensagens indesejadas.
-        Criar e usar regras é uma funcionalidade pro.
-    </string>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Isto pode aumentar o uso da bateria e marcar incorretamente mensagens como spam</string>
     <string name="title_junk_blocklist">Usar listas de bloqueio de spam</string>
+    <string name="title_junk_clear">Limpar</string>
     <string name="title_notification_sending">A enviar mensagens</string>
     <string name="title_notification_waiting">A aguardar conexão</string>
     <string name="title_notification_idle">Ausente</string>
@@ -496,7 +494,6 @@
     <string name="title_reply">Responder</string>
     <string name="title_no_viewer_name">Nome do conteúdo</string>
     <string name="title_no_viewer_type">Tipo de conteúdo</string>
-    <string name="title_ask_show_html_dark">Usar tema escuro</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_compose">Compor</string>
     <string name="title_language">Idioma:</string>

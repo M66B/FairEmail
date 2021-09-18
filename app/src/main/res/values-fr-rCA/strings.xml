@@ -73,12 +73,10 @@
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>
-    <string name="title_block_sender_hint">        Le blocage d\'un expéditeur créera une règle qui déplacera automatiquement les futurs messages vers le dossier courrier indésirable.
-        La création et l\'utilisation des règles sont des fonctionnalités Pro.
-    </string>
     <string name="title_junk_filter">Utiliser le filtre de pourriel local</string>
     <string name="title_junk_filter_hint">Ceci peut augmenter l\'utilisation de la pile et marquer par erreur des messages comme indésirables</string>
     <string name="title_junk_blocklist">Utiliser des listes de blocage de courrier indésirable</string>
+    <string name="title_junk_clear">Effacer</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>
@@ -858,6 +856,7 @@
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_edit_notes">Modifier les notes locales</string>
     <string name="title_create_rule">Créer une règle&#8230;</string>
+    <string name="title_force_light">Forcer le thème clair</string>
     <string name="title_share">Partager</string>
     <string name="title_event">Ajouter au calendrier</string>
     <string name="title_pin">Ajouter un raccourci</string>
@@ -953,7 +952,6 @@
     <string name="title_ask_delete_rule">Supprimer définitivement la règle?</string>
     <string name="title_ask_discard">Abandonner le brouillon?</string>
     <string name="title_ask_show_html">L’affichage du message original peut entraîner la divulgation d’informations confidentielles</string>
-    <string name="title_ask_show_html_dark">Utiliser le thème sombre</string>
     <string name="title_ask_show_html_remark">L’affichage du message original sur fond sombre n’est pas possible car le texte et les images sombres pourraient ne pas être visibles</string>
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l’affichage des messages originaux</string>
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>
@@ -1492,9 +1490,7 @@
     <string name="title_rules_export">Exporter les règles</string>
     <string name="title_rules_import">Importer les règles</string>
     <string name="title_rules_delete_all">Supprimer toutes les règles</string>
-    <string name="title_rules_delete_junk">Supprimer les règles d\'indésirables</string>
     <string name="title_rules_delete_all_confirm">Supprimer toutes les règles?</string>
-    <string name="title_rules_delete_junk_confirm">Supprimer toutes les règles qui déplacent les messages dans le dossier Indésirable?</string>
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>

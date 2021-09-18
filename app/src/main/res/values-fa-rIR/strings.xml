@@ -60,9 +60,7 @@
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_domain">مسدود کردن دامنه فرستنده</string>
-    <string name="title_block_sender_hint">        مسدود کردن یک فرستنده یک قانون ایجاد خواهد کرد که پیام‌های آینده را خودکار به پوشه هرزنامه انتقال خواهد داد.
-        ساخت و استفاده قوانین یک قابلیت ویژه است.
-    </string>
+    <string name="title_junk_clear">پاک‌سازی</string>
     <string name="title_notification_sending">درحال ارسال پیام‌ها</string>
     <string name="title_notification_waiting">درحال انتظار برای اتصال مناسب</string>
     <string name="title_notification_idle">بیکار</string>
@@ -579,7 +577,6 @@
     <string name="title_ask_delete_rule">دستور به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_discard">پیش‌نویس‌ کنار گذاشته شود؟</string>
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
-    <string name="title_ask_show_html_dark">استفاده از پوسته تیره</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
     <string name="title_ask_show_image_hint">تصاویری که به عنوان تصاویر ردیاب شناخته شده‌اند نشان داده نخواهند شد</string>
     <string name="title_ask_delete_local">پیام‌های محلی حذف شوند؟ پیام‌ها روی سرور راه دور باقی خواهند ماند.</string>

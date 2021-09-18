@@ -77,9 +77,7 @@
     <string name="title_block">חסום את %1$s</string>
     <string name="title_block_sender">חסום את השולח</string>
     <string name="title_block_domain">חסום את תחום השולח</string>
-    <string name="title_block_sender_hint">חסימה של השולח תיצור כלל שיעביר אוטומטית כל הודעה בעתיד של השולח לתיקיית דואר זבל.
-
-יצירה ושימוש בכללים אפשרית רק בגירסת התשלום של אפליקציה זו.    </string>
+    <string name="title_junk_clear">נקה</string>
     <string name="title_notification_sending">שולח הודעות</string>
     <string name="title_notification_waiting">ממתין לחיבור רשת</string>
     <string name="title_notification_idle">לא פעיל</string>
@@ -247,7 +245,6 @@
     <string name="title_no_folder">התיק אינו קיים!</string>
     <string name="title_show_full">הצג ההודעה השלמה</string>
     <string name="title_ask_save">לשמור את השינויים?</string>
-    <string name="title_ask_show_html_dark">השתמש בערכת נושא כהה</string>
     <string name="title_compose">חבר הודעה</string>
     <string name="title_submitter">נשלח מאת:</string>
     <string name="title_delivered_to">נמסר ל:</string>

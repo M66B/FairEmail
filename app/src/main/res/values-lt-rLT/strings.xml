@@ -2,6 +2,7 @@
 <resources>
     <string name="shortcut_refresh">Atnaujinti</string>
     <string name="shortcut_setup">Nustatymai</string>
+    <string name="title_junk_clear">Valyti</string>
     <string name="menu_setup">Nustatymai</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Pagalba</string>
@@ -17,7 +18,6 @@
     <string name="title_advanced_cleanup">Atstatyti</string>
     <string name="title_delete">Ištrinti</string>
     <string name="title_copy_btn">Kopijuoti</string>
-    <string name="title_ask_show_html_dark">Naudoti tamsią temą</string>
     <string name="title_rule_enabled">Įjungta</string>
     <string name="title_legend_delete">Ištrinti</string>
     <string name="title_add">Pridėti</string>

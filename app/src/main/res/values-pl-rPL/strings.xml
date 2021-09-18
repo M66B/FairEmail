@@ -93,11 +93,10 @@
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_domain">Blokuj domenę nadawcy</string>
-    <string name="title_block_sender_hint">        Blokowanie nadawcy utworzy regułę, aby automatycznie przenosić przyszłe wiadomości do folderu spam.
-        Tworzenie i używanie reguł jest funkcją Pro.    </string>
     <string name="title_junk_filter">Użyj lokalnego filtra spamu</string>
     <string name="title_junk_filter_hint">Może to zwiększyć zużycie baterii i niepoprawnie oznaczać wiadomości jako spam</string>
     <string name="title_junk_blocklist">Użyj list blokowanego spamu</string>
+    <string name="title_junk_clear">Wyczyść</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_idle">Bezczynny</string>
@@ -972,7 +971,6 @@
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
-    <string name="title_ask_show_html_dark">Użyj ciemnego motywu</string>
     <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
     <string name="title_ask_show_html_images">Zawsze pokazuj obrazy przy wyświetlaniu oryginalnych wiadomości</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
@@ -1510,9 +1508,7 @@
     <string name="title_rules_export">Eksportuj reguły</string>
     <string name="title_rules_import">Importuj reguły</string>
     <string name="title_rules_delete_all">Usuń wszystkie reguły</string>
-    <string name="title_rules_delete_junk">Usuń reguły folderu spam</string>
     <string name="title_rules_delete_all_confirm">Usunąć wszystkie reguły?</string>
-    <string name="title_rules_delete_junk_confirm">Usunąć wszystkie reguły przenoszenia wiadomości do folderu spam?</string>
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>

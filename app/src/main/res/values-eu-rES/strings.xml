@@ -61,8 +61,7 @@
     <string name="title_block">Blokeatu %1$s</string>
     <string name="title_block_sender">Blokeatu igorlea</string>
     <string name="title_block_domain">Blokeatu bidaltzailearen domeinua</string>
-    <string name="title_block_sender_hint">Bidaltzaile bat blokeatzeak etorkizuneko mezuak automatikoki spam karpetara eramateko arau bat sortuko du. Arauak sortu eta erabiltzea ordainpeko ezaugarri bat da.
-    </string>
+    <string name="title_junk_clear">Garbitu</string>
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
     <string name="title_notification_idle">Inaktiboa</string>
@@ -665,7 +664,6 @@
     <string name="title_ask_delete_rule">Ezabatu araua behin betiko?</string>
     <string name="title_ask_discard">Baztertu zirriborroa?</string>
     <string name="title_ask_show_html">Jatorrizko mezua erakusteak informazio pribatua agerira ekar lezake</string>
-    <string name="title_ask_show_html_dark">Erabili azal iluna</string>
     <string name="title_ask_show_html_remark">Ezin da jatorrizko mezua atzealde ilunean erakutsi testu eta irudi batzuk ikusezinak bihurtu litezkelako</string>
     <string name="title_ask_show_html_images">Beti erakutsi irudiak jatorrizko mezuak erakustean</string>
     <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>
@@ -1118,9 +1116,7 @@
     <string name="title_rules_export">Esportatu arauak</string>
     <string name="title_rules_import">Inportatu arauak</string>
     <string name="title_rules_delete_all">Ezabatu arau guztiak</string>
-    <string name="title_rules_delete_junk">Ezabatu spam arauak</string>
     <string name="title_rules_delete_all_confirm">Ezabatu arau guztiak?</string>
-    <string name="title_rules_delete_junk_confirm">Ezabatu mezuak spam karpetara daramatzaten arau guztiak?</string>
     <string name="title_debug_info">Arazketa informazioa</string>
     <string name="title_debug_info_remark">Azaldu arazoa eta esan noiz gertatu den:</string>
     <string name="title_crash_info_remark">Zaldu zer egiten ari zinen aplikazioak kraskatu duenean:</string>

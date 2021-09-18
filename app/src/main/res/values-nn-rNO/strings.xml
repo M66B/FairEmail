@@ -69,9 +69,7 @@
     <string name="title_block">Blokkere %1$s</string>
     <string name="title_block_sender">Blokker avsender</string>
     <string name="title_block_domain">Blokker avsenderdomenet</string>
-    <string name="title_block_sender_hint">        Blokkering av avsender vil opprette en regel for automatisk å flytte fremtidige meldinger til spam-mappen.
-        Å lage og bruke regler er en pro-funksjon.
-    </string>
+    <string name="title_junk_clear">Tøm</string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -749,7 +747,6 @@
     <string name="title_ask_delete_rule">Slett regel permanent?</string>
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
-    <string name="title_ask_show_html_dark">Bruk mørkt tema</string>
     <string name="title_ask_show_html_remark">Det er ikke mulig å vise den opprinnelige meldingen med mørk bakgrunn fordi den kan forårsake usynlige mørke tekster og bilder</string>
     <string name="title_ask_show_html_images">Vis alltid bilder når du viser originale meldinger</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
@@ -1222,9 +1219,7 @@
     <string name="title_rules_export">Eksporter regler</string>
     <string name="title_rules_import">Importer regler</string>
     <string name="title_rules_delete_all">Slett alle regler</string>
-    <string name="title_rules_delete_junk">Nullstill spam-filter</string>
     <string name="title_rules_delete_all_confirm">Slett alle regler?</string>
-    <string name="title_rules_delete_junk_confirm">Slette alle regler som flytter meldinger til søppelpostmappen?</string>
     <string name="title_debug_info">Feilsøkingsinformasjon</string>
     <string name="title_debug_info_remark">Vennligst beskriv problemet og angi tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>

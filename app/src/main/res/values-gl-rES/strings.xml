@@ -73,12 +73,10 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
     <string name="title_block_domain">Bloquear o dominio do remitente</string>
-    <string name="title_block_sender_hint">        Bloquear un remitente vai crear unha regra para mover mensaxes futuras automaticamente ao cartafol de spam.
-        Crear e usar regras é unha característica avanzada (pro).
-    </string>
     <string name="title_junk_filter">Usar o filtro local de correo non desexado</string>
     <string name="title_junk_filter_hint">Isto pode aumentar o uso da batería e clasificar algunhas mensaxes incorrectamente como correo non desexado</string>
     <string name="title_junk_blocklist">Usar listas de spam</string>
+    <string name="title_junk_clear">Limpar</string>
     <string name="title_notification_sending">Enviando mensaxes</string>
     <string name="title_notification_waiting">Agardando por unha conexión axeitada</string>
     <string name="title_notification_idle">Inactivo</string>
@@ -892,7 +890,6 @@
     <string name="title_ask_delete_rule">Borrar regra definitivamente?</string>
     <string name="title_ask_discard">Desbotar borrador?</string>
     <string name="title_ask_show_html">Mostrar a mensaxe orixinal pode filtrar información privada sensible</string>
-    <string name="title_ask_show_html_dark">Empregar un tema escuro</string>
     <string name="title_ask_show_html_remark">Non é posible mostrar a mensaxe orixinal nun fondo escuro porque faría que os textos e as imaxes escuras tamén invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre as imaxes cando se vexan as imaxes orixinais</string>
     <string name="title_ask_show_image">Mostrar imaxes pode filtrar información privada sensible</string>
@@ -1400,9 +1397,7 @@
     <string name="title_rules_export">Exportar regras</string>
     <string name="title_rules_import">Importar regras</string>
     <string name="title_rules_delete_all">Eliminar todas as regras</string>
-    <string name="title_rules_delete_junk">Eliminar regras de spam</string>
     <string name="title_rules_delete_all_confirm">Eliminar todas?</string>
-    <string name="title_rules_delete_junk_confirm">Eliminar todas as regras movendo as mensaxes ó cartafol spam?</string>
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor, describa o problema e indique o tempo do problema:</string>
     <string name="title_crash_info_remark">Por favor, describa que estaba a facer cando a aplicación se detivo:</string>

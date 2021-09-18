@@ -58,8 +58,7 @@
     <string name="title_block">%1$s ব্লক করুন</string>
     <string name="title_block_sender">ব্লক প্রেরক</string>
     <string name="title_block_domain">প্রেরক ডোমেন ব্লক করুন</string>
-    <string name="title_block_sender_hint">        প্রেরককে ব্লক করলে ভবিষ্যতে তার বার্তা স্বয়ংক্রিয়ভাবে স্প্যাম ফোল্ডারে অপসারণ করার একটি নিয়ম তৈরি হবে।
-        নিয়ম তৈরি এবং করা একটি প্রিমিয়াম বৈশিষ্ট্য।</string>
+    <string name="title_junk_clear">মুছে ফেলুন</string>
     <string name="title_notification_sending">বার্তাসমূহ প্রেরণ হচ্ছে</string>
     <string name="title_notification_waiting">উপযুক্ত সংযোগের জন্য অপেক্ষা করা হচ্ছে</string>
     <string name="title_notification_idle">নিষ্ক্রিয়</string>

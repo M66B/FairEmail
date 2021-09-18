@@ -38,6 +38,7 @@
         <item quantity="one">%1$d नया संदेश</item>
         <item quantity="other">%1$d नया संदेशें</item>
     </plurals>
+    <string name="title_junk_clear">खाली करें</string>
     <string name="menu_setup">सेटिंग्स</string>
     <string name="menu_legend">किंवदंती</string>
     <string name="menu_faq">सहायता</string>
@@ -64,7 +65,6 @@
     <string name="title_raw_send_thread">वार्तालाप</string>
     <string name="title_delete">मिटाए</string>
     <string name="title_copy_btn">कॉपी करें</string>
-    <string name="title_ask_show_html_dark">डार्क थीम का इस्तेमाल करें</string>
     <string name="title_compose">लिखें</string>
     <string name="title_send">भेजें</string>
     <string name="title_attachment_audio">ध्वनि रिकॉर्ड करना</string>

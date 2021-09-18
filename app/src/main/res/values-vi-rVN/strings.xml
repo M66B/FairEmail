@@ -63,12 +63,10 @@
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
     <string name="title_block_domain">Chặn miền người gửi</string>
-    <string name="title_block_sender_hint">        Việc chặn người gửi sẽ tạo quy tắc để tự động chuyển các thư trong tương lai vào thư mục thư rác.
-        Tạo và sử dụng các quy tắc là một tính năng pro.
-    </string>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
     <string name="title_junk_blocklist">Sử dụng các danh sách chặn thư rác</string>
+    <string name="title_junk_clear">Xóa</string>
     <string name="title_notification_sending">Đang gửi thư</string>
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_idle">Rảnh</string>
@@ -366,10 +364,13 @@
     <string name="title_advanced_distinguish_contacts">Gạch chân người gửi khi người gửi được biết đến là liên hệ \'đến\'</string>
     <string name="title_advanced_show_recipients">Hiện người nhận ở tiêu đề thư</string>
     <string name="title_advanced_font_size_sender">Cỡ chữ người gửi</string>
+    <string name="title_advanced_sender_ellipsize">Rút ngắn người gửi nếu cần</string>
     <string name="title_advanced_subject_top">Hiện chủ đề trên người gửi</string>
     <string name="title_advanced_subject_italic">Hiện chủ đề bằng chữ nghiêng</string>
     <string name="title_advanced_highlight_subject">Đánh dấu chủ đề</string>
     <string name="title_advanced_font_size_subject">Cỡ chữ chủ đề</string>
+    <string name="title_advanced_subject_ellipsize">Rút ngắn chủ đề nếu cần</string>
+    <string name="title_advanced_compact_mode_remark">Chỉ chế độ thu gọn</string>
     <string name="title_advanced_highlight_color">Màu sắc đánh dấu</string>
     <string name="title_advanced_keywords">Hiện từ khoá ở tiêu đề thư</string>
     <string name="title_advanced_labels">Hiện nhãn của Gmail ở tiêu đề thư</string>
@@ -844,6 +845,7 @@
     <string name="title_editasnew">Chỉnh sửa như mới</string>
     <string name="title_edit_notes">Chỉnh sửa các bản ghi chú cục bộ</string>
     <string name="title_create_rule">Tạo quy tắc &#8230;</string>
+    <string name="title_force_light">Buộc sử dụng chủ đề sáng</string>
     <string name="title_share">Chia sẻ</string>
     <string name="title_event">Thêm vào lịch</string>
     <string name="title_pin">Thêm lối tắt</string>
@@ -939,7 +941,6 @@
     <string name="title_ask_delete_rule">Xóa quy tắc vĩnh viễn?</string>
     <string name="title_ask_discard">Bỏ thư nháp?</string>
     <string name="title_ask_show_html">Việc hiện thư gốc có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
-    <string name="title_ask_show_html_dark">Sử dụng chủ đề tối</string>
     <string name="title_ask_show_html_remark">Không thể hiển thị thư gốc trên nền tối vì các văn bản tối và hình ảnh có thể không nhìn thấy được</string>
     <string name="title_ask_show_html_images">Luôn hiện các hình ảnh khi hiện các thư gốc</string>
     <string name="title_ask_show_image">Việc hiện các hình ảnh có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
@@ -1176,6 +1177,7 @@
     <string name="title_previous">Trước</string>
     <string name="title_next">Tiếp</string>
     <string name="title_edit_signature">Chỉnh sửa chữ ký</string>
+    <string name="title_edit_signature_remark">Dù Android không thể hiển thị tất cả HTML, nó sẽ được gửi đi mà không thay đổi</string>
     <string name="title_edit_signature_text">Văn bản chữ ký</string>
     <string name="title_edit_signature_image">Chèn hình ảnh</string>
     <string name="title_answer_caption">Chỉnh sửa mẫu</string>
@@ -1477,9 +1479,7 @@
     <string name="title_rules_export">Xuất các quy tắc</string>
     <string name="title_rules_import">Nhập các quy tắc</string>
     <string name="title_rules_delete_all">Xoá tất cả quy tắc</string>
-    <string name="title_rules_delete_junk">Xoá tất cả quy tắc thư rác</string>
     <string name="title_rules_delete_all_confirm">Xoá tất cả quy tắc?</string>
-    <string name="title_rules_delete_junk_confirm">Xoá tất cả quy tắc di chuyển thư vào thư mục thư rác?</string>
     <string name="title_debug_info">Thông tin gỡ lỗi</string>
     <string name="title_debug_info_remark">Hãy mô tả vấn đề và cho biết thời gian của vấn đề:</string>
     <string name="title_crash_info_remark">Hãy mô tả điều bạn đang làm khi ứng dụng bị văng ra:</string>

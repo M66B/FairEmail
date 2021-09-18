@@ -63,11 +63,10 @@
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
     <string name="title_block_domain">屏蔽发件人域名</string>
-    <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
-        创建和使用规则属于专业版功能</string>
     <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
     <string name="title_junk_filter_hint">这可能会增加耗电量和将邮件误标为垃圾邮件</string>
     <string name="title_junk_blocklist">使用垃圾邮件拦截列表</string>
+    <string name="title_junk_clear">清除</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
@@ -365,10 +364,13 @@
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
+    <string name="title_advanced_sender_ellipsize">如果需要，缩短发送者长度</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_highlight_subject">高亮邮件主题</string>
     <string name="title_advanced_font_size_subject">邮件主题文本大小</string>
+    <string name="title_advanced_subject_ellipsize">如有必要，缩短主题长度</string>
+    <string name="title_advanced_compact_mode_remark">仅紧凑模式</string>
     <string name="title_advanced_highlight_color">高亮色</string>
     <string name="title_advanced_keywords">在邮件头中显示关键字</string>
     <string name="title_advanced_labels">在邮件头中显示 Gmail 标签</string>
@@ -938,7 +940,6 @@
     <string name="title_ask_delete_rule">是否永久删除规则？</string>
     <string name="title_ask_discard">舍弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
-    <string name="title_ask_show_html_dark">使用深色主题</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
@@ -1175,6 +1176,7 @@
     <string name="title_previous">上一封</string>
     <string name="title_next">下一封</string>
     <string name="title_edit_signature">编辑签名</string>
+    <string name="title_edit_signature_remark">虽然 Android 不能显示所有的 HTML，但它将按原样发送</string>
     <string name="title_edit_signature_text">签名文本</string>
     <string name="title_edit_signature_image">插入图片</string>
     <string name="title_answer_caption">编辑模板</string>
@@ -1475,9 +1477,7 @@
     <string name="title_rules_export">导出规则</string>
     <string name="title_rules_import">导入规则</string>
     <string name="title_rules_delete_all">删除所有规则</string>
-    <string name="title_rules_delete_junk">删除垃圾邮件规则</string>
     <string name="title_rules_delete_all_confirm">确定要删除所有规则吗？</string>
-    <string name="title_rules_delete_junk_confirm">确定要删除所有将邮件移动到垃圾文件夹的规则吗?</string>
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>

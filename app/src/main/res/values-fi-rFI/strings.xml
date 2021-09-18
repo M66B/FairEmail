@@ -73,11 +73,10 @@
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
     <string name="title_block_domain">Estä lähettäjän verkkotunnus</string>
-    <string name="title_block_sender_hint">Lähettäjän estäminen luo säännön viestien käsittelemiseksi roskapostina.
-        Sääntöjen luominen ja käyttö ovat pro-ominaisuuksia.    </string>
     <string name="title_junk_filter">Käytä paikallista roskapostisuodinta</string>
     <string name="title_junk_filter_hint">Tämä voi lisätä akun käyttöä ja merkitä viestit virheellisesti roskapostiksi</string>
     <string name="title_junk_blocklist">Käytä roskapostin estolistoja</string>
+    <string name="title_junk_clear">Tyhjennä</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_idle">Toimeton</string>
@@ -931,7 +930,6 @@
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
-    <string name="title_ask_show_html_dark">Käytä tummaa teemaa</string>
     <string name="title_ask_show_html_remark">Alkuperäisen viestin näyttäminen tummalla taustalla ei ole mahdollista, koska tummat tekstit ja kuvat eivät erotu</string>
     <string name="title_ask_show_html_images">Näytä aina kuvat alkuperäisiä viestejä näytettäessä</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
@@ -1467,9 +1465,7 @@
     <string name="title_rules_export">Vie säännöt</string>
     <string name="title_rules_import">Tuo säännöt</string>
     <string name="title_rules_delete_all">Poista kaikki säännöt</string>
-    <string name="title_rules_delete_junk">Poista roskapostisäännöt</string>
     <string name="title_rules_delete_all_confirm">Poista kaikki säännöt?</string>
-    <string name="title_rules_delete_junk_confirm">Poistetaanko kaikki säännöt, jotka siirtävät viestejä roskapostikansioon?</string>
     <string name="title_debug_info">Vianetsintätiedot</string>
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>

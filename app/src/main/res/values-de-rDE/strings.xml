@@ -73,13 +73,10 @@
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_domain">Absenderdomain sperren</string>
-    <string name="title_block_sender_hint">        Das Sperren eines Absenders erstellt eine Regel, um zukünftige Nachrichten
-        von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
-        Regeln erstellen und verwenden ist eine Pro-Funktion.
-    </string>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
     <string name="title_junk_filter_hint">Das kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
     <string name="title_junk_blocklist">Spam-Sperrlisten verwenden</string>
+    <string name="title_junk_clear">Löschen</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
@@ -382,6 +379,7 @@
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
     <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
+    <string name="title_advanced_compact_mode_remark">Nur Kompaktmodus</string>
     <string name="title_advanced_highlight_color">Hervorhebungsfarbe</string>
     <string name="title_advanced_keywords">Schlüsselwörter im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_labels">Gmail-Labels im Nachrichtenkopf anzeigen</string>
@@ -856,6 +854,7 @@
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_edit_notes">Lokale Notizen bearbeiten</string>
     <string name="title_create_rule">Regel erstellen &#8230;</string>
+    <string name="title_force_light">Helles Farbschema erzwingen</string>
     <string name="title_share">Teilen</string>
     <string name="title_event">Zum Kalender hinzufügen</string>
     <string name="title_pin">Verknüpfung hinzufügen</string>
@@ -951,7 +950,6 @@
     <string name="title_ask_delete_rule">Regel dauerhaft löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann vertrauliche Daten preisgeben</string>
-    <string name="title_ask_show_html_dark">Dunkles Design verwenden</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
@@ -1491,9 +1489,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_rules_export">Regeln exportieren</string>
     <string name="title_rules_import">Regeln importieren</string>
     <string name="title_rules_delete_all">Alle Regeln löschen</string>
-    <string name="title_rules_delete_junk">Spam-Regeln löschen</string>
     <string name="title_rules_delete_all_confirm">Alle Regeln löschen?</string>
-    <string name="title_rules_delete_junk_confirm">Alle Regeln löschen, die Nachrichten in den Spam-Ordner verschieben?</string>
     <string name="title_debug_info">Fehlersuchinformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>

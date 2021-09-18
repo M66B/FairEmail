@@ -93,12 +93,10 @@
     <string name="title_block">Заблокувати %1$s</string>
     <string name="title_block_sender">Блокувати відправника</string>
     <string name="title_block_domain">Блокувати домен відправника</string>
-    <string name="title_block_sender_hint">        Блокування відправника створить правило для автоматичного переміщення майбутніх повідомлень до теки \"Спам\".
-        Створення і використання правил є Pro-функцією.
-    </string>
     <string name="title_junk_filter">Використовувати локальний фільтр спаму</string>
     <string name="title_junk_filter_hint">Це може збільшити використання заряду акумулятора та неправильно позначати повідомлення як спам</string>
     <string name="title_junk_blocklist">Використовувати списки спам-блоків</string>
+    <string name="title_junk_clear">Очистити</string>
     <string name="title_notification_sending">Надсилання повідомлень</string>
     <string name="title_notification_waiting">Очікування з\'єднання з інтернетом</string>
     <string name="title_notification_idle">Бездіяльність</string>
@@ -873,6 +871,7 @@
     <string name="title_editasnew">Редагувати як нове</string>
     <string name="title_edit_notes">Редагувати локальні нотатки</string>
     <string name="title_create_rule">Створити правило &#8230;</string>
+    <string name="title_force_light">Примусова світла тема</string>
     <string name="title_share">Поділитись</string>
     <string name="title_event">Додати у календар</string>
     <string name="title_pin">Додати ярлик</string>
@@ -968,7 +967,6 @@
     <string name="title_ask_delete_rule">Видалити правило остаточно?</string>
     <string name="title_ask_discard">Відхилити чернетку?</string>
     <string name="title_ask_show_html">Показ оригінального повідомлення може призвести до витоку конфіденційної інформації</string>
-    <string name="title_ask_show_html_dark">Використовувати темну тему</string>
     <string name="title_ask_show_html_remark">Показ оригінального повідомлення на темному тлі неможливе, оскільки воно може зробити темні тексти та зображення невидимими</string>
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
@@ -1507,9 +1505,7 @@
     <string name="title_rules_export">Експорт правил</string>
     <string name="title_rules_import">Імпорт правил</string>
     <string name="title_rules_delete_all">Видалити всі правила</string>
-    <string name="title_rules_delete_junk">Видалити правила спаму</string>
     <string name="title_rules_delete_all_confirm">Видалити всі правила?</string>
-    <string name="title_rules_delete_junk_confirm">Видалити всі правила з переміщення повідомлень до теки \"Спам\"?</string>
     <string name="title_debug_info">Інформація зневадження</string>
     <string name="title_debug_info_remark">Опишіть проблему й зазначте момент її виникнення:</string>
     <string name="title_crash_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>

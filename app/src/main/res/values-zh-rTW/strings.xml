@@ -63,12 +63,10 @@
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_domain">封鎖寄件者網域</string>
-    <string name="title_block_sender_hint">        勾選“封鎖寄件者”將會建立規則，自動把此寄件者今後的所有來信移至垃圾郵件資料夾。
-        建立與執行規則是專業版中的功能。
-    </string>
     <string name="title_junk_filter">使用本地垃圾郵件篩選器</string>
     <string name="title_junk_filter_hint">這可能會增大電池的用量，並導致訊息被錯誤地標記為垃圾郵件</string>
     <string name="title_junk_blocklist">使用垃圾郵件封鎖清單</string>
+    <string name="title_junk_clear">清除</string>
     <string name="title_notification_sending">正在傳送訊息</string>
     <string name="title_notification_waiting">正在等待合宜的網路連線</string>
     <string name="title_notification_idle">閒置</string>
@@ -938,7 +936,6 @@
     <string name="title_ask_delete_rule">您要永久刪除規則嗎？</string>
     <string name="title_ask_discard">您要丟棄草稿嗎？</string>
     <string name="title_ask_show_html">顯示原訊息可能會洩露隱私敏感資訊</string>
-    <string name="title_ask_show_html_dark">使用暗色主題</string>
     <string name="title_ask_show_html_remark">於深色背景上顯示原訊息不可行，因為這可能會使得深色文字和圖片不可見</string>
     <string name="title_ask_show_html_images">顯示原訊息時總是顯示圖片</string>
     <string name="title_ask_show_image">顯示圖片可能會洩露隱私敏感資訊</string>
@@ -1476,9 +1473,7 @@
     <string name="title_rules_export">匯出規則</string>
     <string name="title_rules_import">匯入規則</string>
     <string name="title_rules_delete_all">刪除所有規則</string>
-    <string name="title_rules_delete_junk">刪除垃圾郵件規則</string>
     <string name="title_rules_delete_all_confirm">您要刪除掉所有規則嗎？</string>
-    <string name="title_rules_delete_junk_confirm">要刪除掉所有移動訊息至垃圾郵件資料夾的規則嗎？</string>
     <string name="title_debug_info">除錯資訊</string>
     <string name="title_debug_info_remark">請描述問題並寫明問題發生的時間：</string>
     <string name="title_crash_info_remark">請描述應用程式崩潰時您正在做什麼：</string>

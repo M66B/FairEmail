@@ -93,12 +93,10 @@
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
     <string name="title_block_domain">Blokovat doménu odesílatele</string>
-    <string name="title_block_sender_hint">        Blokování odesílatele vytvoří pravidlo pro automatický přesun budoucích zpráv do složky nevyžádané pošty.
-        Vytváření a používání pravidel je Pro funkcí.
-    </string>
     <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
     <string name="title_junk_filter_hint">Může zvýšit využití baterie a nesprávně označovat zprávy jako nevyžádané</string>
     <string name="title_junk_blocklist">Použít seznam blokovaných adres</string>
+    <string name="title_junk_clear">Vymazat</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -943,7 +941,6 @@
     <string name="title_ask_delete_rule">Trvale smazat pravidlo?</string>
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
-    <string name="title_ask_show_html_dark">Použít tmavý motiv</string>
     <string name="title_ask_show_html_remark">Zobrazení původní zprávy na tmavém pozadí není možné, neboť může způsobit zneviditelnění tmavých textů a obrázků</string>
     <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
@@ -1470,9 +1467,7 @@
     <string name="title_rules_export">Exportovat pravidla</string>
     <string name="title_rules_import">Importovat pravidla</string>
     <string name="title_rules_delete_all">Smazat všechna pravidla</string>
-    <string name="title_rules_delete_junk">Smazat pravidla nevyžádané pošty</string>
     <string name="title_rules_delete_all_confirm">Smazat všechna pravidla?</string>
-    <string name="title_rules_delete_junk_confirm">Smazat všechna pravidla, která přesouvají zprávy do složky nevyžádané pošty?</string>
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>

@@ -72,11 +72,9 @@
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
     <string name="title_block_domain">Feladó domain tiltása</string>
-    <string name="title_block_sender_hint">        Ha letilt egy feladót, azzal létrehoz egy szabályt, ami az összes tőle származó jövőbeli üzenetet automatikusan a spam mappába mozgatja.
-        A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
-    </string>
     <string name="title_junk_filter">Lokális spam-filter használata</string>
     <string name="title_junk_filter_hint">Ez növelni tudja az akkumlátor használatát, és hamisan megjelöl üzeneteket spamként</string>
+    <string name="title_junk_clear">Törlés</string>
     <string name="title_notification_sending">Üzenetek küldése</string>
     <string name="title_notification_waiting">Megfelelő kapcsolatra várakozás</string>
     <string name="title_notification_idle">Tétlen</string>
@@ -819,7 +817,6 @@
     <string name="title_ask_delete_rule">Véglegesen törli a szabályt?</string>
     <string name="title_ask_discard">Elveti a piszkozatot?</string>
     <string name="title_ask_show_html">Az eredeti üzenet megjelenítése érzékeny adatok kiszivárgásával járhat</string>
-    <string name="title_ask_show_html_dark">Sötét téma használata</string>
     <string name="title_ask_show_html_remark">Az eredeti üzenet megjelenítése sötét háttérrel nem lehetséges mert láthatatlan sötét szövegeket és képeket okozhat</string>
     <string name="title_ask_show_html_images">Képek megjelenítése az eredeti üzenetek megjelenítésekor</string>
     <string name="title_ask_show_image">A képek megjelenítése érzékeny adatok kiszivárgásával járhat</string>
@@ -1307,9 +1304,7 @@
     <string name="title_rules_export">Szabályok exportálása</string>
     <string name="title_rules_import">Szabályok importálása</string>
     <string name="title_rules_delete_all">Szabályok törlése</string>
-    <string name="title_rules_delete_junk">Spam szűrő szabályok törlése</string>
     <string name="title_rules_delete_all_confirm">Biztosan törli az összes szabályt?</string>
-    <string name="title_rules_delete_junk_confirm">Biztosan törli az összes spam szűrési szabályt?</string>
     <string name="title_debug_info">Hibakeresési információ</string>
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>

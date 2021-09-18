@@ -73,12 +73,10 @@
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
     <string name="title_block_domain">Gönderenin alan adını engelle</string>
-    <string name="title_block_sender_hint">        Göndereni engellemek, gelecekteki iletileri otomatik olarak spam klasörüne taşımak için bir kural oluşturacaktır.
-        Kural oluşturma ve kullanma, pro sürümüne has bir özelliktir.
-    </string>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
     <string name="title_junk_filter_hint">Bu, pil kullanımını artırabilir ve iletileri yanlış olarak spam işaretleyebilir</string>
     <string name="title_junk_blocklist">Spam engelleme listelerini kullan</string>
+    <string name="title_junk_clear">Temizle</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
@@ -947,7 +945,6 @@
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
-    <string name="title_ask_show_html_dark">Karanlık tema kullan</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
@@ -1485,9 +1482,7 @@
     <string name="title_rules_export">Dışa aktarma kuralları</string>
     <string name="title_rules_import">İçe aktarma kuralları</string>
     <string name="title_rules_delete_all">Kuralları sil</string>
-    <string name="title_rules_delete_junk">Spam kurallarını sil</string>
     <string name="title_rules_delete_all_confirm">Tüm kuralları sil?</string>
-    <string name="title_rules_delete_junk_confirm">Spam klasöründeki tüm mesaj taşıma kuralları silinsin mi?</string>
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>

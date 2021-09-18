@@ -73,12 +73,10 @@
     <string name="title_block">Αποκλεισμός %1$s</string>
     <string name="title_block_sender">Αποκλεισμός αποστολέα</string>
     <string name="title_block_domain">Αποκλεισμός τομέα αποστολέα</string>
-    <string name="title_block_sender_hint">         Ο  αποκλεισμός ενός αποστολέα θα δημιουργήσει έναν κανόνα ο οποίος αυτόματα θα μετακινεί τα μελλοντικά μηνύματα στον φάκελο των Ανεπιθύμητων.
-        Η δημιουργία και χρήση κανόνων είναι μια δυνατότητα της έκδοσης Pro.
-    </string>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και να σημάνει εσφαλμένα μηνύματα ως ανεπιθύμητα</string>
     <string name="title_junk_blocklist">Χρήση λιστών αποκλεισμού Ανεπιθύμητων</string>
+    <string name="title_junk_clear">Καθαρισμός</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
     <string name="title_notification_waiting">Αναμονή για κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>
@@ -376,10 +374,13 @@
     <string name="title_advanced_distinguish_contacts">Να υπογραμμίζεται ο αποστολέας όταν ο αποστολέας είναι γνωστός ως τοπική επαφή</string>
     <string name="title_advanced_show_recipients">Να προβάλλονται οι παραλήπτες στην κεφαλίδα του μηνύματος</string>
     <string name="title_advanced_font_size_sender">Μέγεθος γραμματοσειράς για το πεδίο \"Αποστολέας\"</string>
+    <string name="title_advanced_sender_ellipsize">Να συντομεύεται ο αποστολέας, εφόσον χρειάζεται</string>
     <string name="title_advanced_subject_top">Να προβάλλεται το θέμα πάνω από τον αποστολέα</string>
     <string name="title_advanced_subject_italic">Να προβάλλεται το θέμα σε πλάγια γραφή</string>
     <string name="title_advanced_highlight_subject">Να επισημαίνεται το θέμα</string>
     <string name="title_advanced_font_size_subject">Μέγεθος γραμματοσειράς για το πεδίο \"Θέμα\"</string>
+    <string name="title_advanced_subject_ellipsize">Να συντομεύεται το θέμα, εφόσον χρειάζεται</string>
+    <string name="title_advanced_compact_mode_remark">Μόνο συμπαγής λειτουργία</string>
     <string name="title_advanced_highlight_color">Χρώμα επισήμανσης</string>
     <string name="title_advanced_keywords">Να προβάλλονται οι λέξεις-κλειδιά στην κεφαλίδα του μηνύματος</string>
     <string name="title_advanced_labels">Να προβάλλονται οι ετικέτες Gmail στην κεφαλίδα του μηνύματος</string>
@@ -853,6 +854,7 @@
     <string name="title_editasnew">Επεξεργασία ως νέου</string>
     <string name="title_edit_notes">Επεξεργασία τοπικών σημειώσεων</string>
     <string name="title_create_rule">Δημιουργία κανόνα &#8230;</string>
+    <string name="title_force_light">Υποχρεωτικό φωτεινό θέμα</string>
     <string name="title_share">Κοινοποίηση</string>
     <string name="title_event">Προσθήκη στο ημερολόγιο</string>
     <string name="title_pin">Προσθήκη συντόμευσης</string>
@@ -948,7 +950,6 @@
     <string name="title_ask_delete_rule">Οριστική διαγραφή του κανόνα;</string>
     <string name="title_ask_discard">Απόρριψη προχείρου;</string>
     <string name="title_ask_show_html">Η προβολή του αρχικού μηνύματος μπορεί να προδώσει ευαίσθητα προσωπικά δεδομένα</string>
-    <string name="title_ask_show_html_dark">Χρήση σκοτεινού θέματος</string>
     <string name="title_ask_show_html_remark">Η προβολή του αρχικού μηνύματος σε σκούρο φόντο δεν είναι εφικτή, καθώς ενδέχεται να κάνει αόρατα κείμενα και εικόνες με σκούρα χρώματα</string>
     <string name="title_ask_show_html_images">Να προβάλλονται πάντοτε οι εικόνες κατά την προβολή των αρχικών μηνυμάτων</string>
     <string name="title_ask_show_image">Η προβολή των εικόνων ίσως προκαλέσει διαρροή ευαίσθητων προσωπικών δεδομένων</string>
@@ -1487,9 +1488,7 @@
     <string name="title_rules_export">Εξαγωγή κανόνων</string>
     <string name="title_rules_import">Εισαγωγή κανόνων</string>
     <string name="title_rules_delete_all">Διαγραφή όλων των κανόνων</string>
-    <string name="title_rules_delete_junk">Διαγραφή κανόνων ανεπιθ. αλληλογραφίας</string>
     <string name="title_rules_delete_all_confirm">Διαγραφή όλων των κανόνων;</string>
-    <string name="title_rules_delete_junk_confirm">Να διαγραφούν όλοι οι κανόνες μετακίνησης μηνυμάτων στην ανεπιθ. αλληλογραφία;</string>
     <string name="title_debug_info">Πληροφορίες απασφαλμάτωσης</string>
     <string name="title_debug_info_remark">Παρακαλούμε, περιγράψτε το πρόβλημα καθώς και τον χρόνο εμφάνισής του:</string>
     <string name="title_crash_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε τη στιγμή που η εφαρμογή σταμάτησε να λειτουργεί:</string>

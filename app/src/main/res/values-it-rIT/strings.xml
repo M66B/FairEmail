@@ -73,12 +73,10 @@
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
     <string name="title_block_domain">Blocca dominio del mittente</string>
-    <string name="title_block_sender_hint">        Bloccare un mittente creerà una regola per spostare automaticamente i messaggi futuri alla cartella dello spam.
-        Creare e usare le regole è una funzionalità pro.
-    </string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
     <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
+    <string name="title_junk_clear">Pulisci</string>
     <string name="title_notification_sending">Inviando i messaggi</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
@@ -949,7 +947,6 @@
     <string name="title_ask_delete_rule">Eliminare permanentemente la regola?</string>
     <string name="title_ask_discard">Scartare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
-    <string name="title_ask_show_html_dark">Usa il tema scuro</string>
     <string name="title_ask_show_html_remark">Mostrare il messaggio originale su uno sfondo scuro è impossibile poiché potrebbe rendere i testi e le immagini scuri invisibili</string>
     <string name="title_ask_show_html_images">Mostra sempre le immagini mostrando i messaggi originali</string>
     <string name="title_ask_show_image">Mostrare le immagini potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
@@ -1487,9 +1484,7 @@
     <string name="title_rules_export">Regole di esportazione</string>
     <string name="title_rules_import">Importa le regole</string>
     <string name="title_rules_delete_all">Elimina tutte le regole</string>
-    <string name="title_rules_delete_junk">Elimina le regole di spam</string>
     <string name="title_rules_delete_all_confirm">Eliminare tutte le regole?</string>
-    <string name="title_rules_delete_junk_confirm">Eliminare tutte le regole spostando i messaggi alla cartella di spam?</string>
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Sei pregato di descrivere il problema e indicare quando si è verificato:</string>
     <string name="title_crash_info_remark">Sei pregato di descrivere cosa stavi facendo quando l\'app si arrestata in modo anomalo:</string>
