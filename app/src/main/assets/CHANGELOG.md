@@ -4,7 +4,7 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
-### Next version
+### 1.1727
 
 * Following dark/light theme for original message view
 * Added message menu item / optional button to force light theme for original message view
