@@ -4,10 +4,11 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
-### 1.1726c
+### Next version
 
 * Following dark/light theme for original message view
 * Added message menu item / optional button to force light theme for original message view
+* Moved block sender rules to local contact database to make it a free feature
 * Fixed verifying some S/MIME signatures
 
 ### 1.1726
