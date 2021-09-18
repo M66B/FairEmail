@@ -61,7 +61,8 @@ public class FragmentAbout extends FragmentBase {
         TextView tvGplV3 = view.findViewById(R.id.tvGplV3);
         LinearLayout llContributors = view.findViewById(R.id.llContributors);
 
-        tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
+        String version = BuildConfig.VERSION_NAME + BuildConfig.REVISION;
+        tvVersion.setText(getString(R.string.title_version, version));
         tvRelease.setText(BuildConfig.RELEASE_NAME);
 
         long last = 0;

@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
 def getVersionCode = { -> return 1726 }
+def getRevision = { -> "\"b\"" }
 def getReleaseName = { -> return "\"Yaverlandia\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
@@ -133,7 +134,7 @@ android {
     productFlavors {
         github {
             dimension "all"
-            buildConfigField "String", "REVISION", "\"b\""
+            buildConfigField "String", "REVISION", getRevision()
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "boolean", "AMAZON_RELEASE", "false"
@@ -144,7 +145,7 @@ android {
         }
         fdroid {
             dimension "all"
-            buildConfigField "String", "REVISION", "\"a\""
+            buildConfigField "String", "REVISION", getRevision()
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "boolean", "AMAZON_RELEASE", "false"
@@ -156,7 +157,7 @@ android {
         play {
             dimension "all"
             //minSdkVersion 23
-            buildConfigField "String", "REVISION", "\"a\""
+            buildConfigField "String", "REVISION", getRevision()
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
             buildConfigField "boolean", "AMAZON_RELEASE", "false"
