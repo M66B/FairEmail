@@ -98,9 +98,7 @@
         Blocking a sender domain uses filter rules, which is a pro feature.
     </string>
 
-    <string name="title_junk_auto">Automatically block spam senders</string>
     <string name="title_junk_filter">Use local spam filter</string>
-    <string name="title_junk_auto_hint">This will block senders of new messages in the spam folder</string>
     <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
     <string name="title_junk_blocklist">Use spam block lists</string>
 

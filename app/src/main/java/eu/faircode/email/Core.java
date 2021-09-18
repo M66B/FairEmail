@@ -4021,6 +4021,7 @@ class Core {
                             EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                             if (junk != null) {
                                 EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+                                message.ui_hide = true;
                                 executed = true;
                             }
                             break;

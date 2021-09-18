@@ -64,7 +64,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final ImageButton ibMore = view.findViewById(R.id.ibMore);
         final TextView tvMore = view.findViewById(R.id.tvMore);
         final Button btnEditRules = view.findViewById(R.id.btnEditRules);
-        final CheckBox cbJunkAuto = view.findViewById(R.id.cbJunkAuto);
         final CheckBox cbJunkFilter = view.findViewById(R.id.cbJunkFilter);
         final ImageButton ibInfoFilter = view.findViewById(R.id.ibInfoFilter);
         final CheckBox cbBlocklist = view.findViewById(R.id.cbBlocklist);
@@ -74,7 +73,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final Group grpMore = view.findViewById(R.id.grpMore);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean auto_junk = prefs.getBoolean("auto_junk", false);
         boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
         boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
 
@@ -155,13 +153,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                                     .putExtra("type", type));
                     dismiss();
                 }
-            }
-        });
-
-        cbJunkAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("auto_junk", isChecked).apply();
             }
         });
 
@@ -253,7 +244,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         cbBlockSender.setEnabled(canBlock);
         cbBlockDomain.setEnabled(false);
         ibMore.setImageLevel(1);
-        cbJunkAuto.setChecked(auto_junk);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));
         grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
