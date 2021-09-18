@@ -63,6 +63,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swCheckLinksDbl;
     private SwitchCompat swBrowseLinks;
     private SwitchCompat swConfirmImages;
+    private SwitchCompat swHtmlImages;
     private SwitchCompat swConfirmHtml;
     private SwitchCompat swDisableTracking;
     private SwitchCompat swHideTimeZone;
@@ -89,7 +90,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Group grpSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "check_links_dbl", "browse_links", "confirm_images", "confirm_html",
+            "confirm_links", "check_links_dbl", "browse_links",
+            "confirm_images", "html_always_images", "confirm_html",
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout",
             "client_id", "display_hidden", "incognito_keyboard", "secure",
@@ -111,6 +113,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swCheckLinksDbl = view.findViewById(R.id.swCheckLinksDbl);
         swBrowseLinks = view.findViewById(R.id.swBrowseLinks);
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
+        swHtmlImages = view.findViewById(R.id.swHtmlImages);
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swHideTimeZone = view.findViewById(R.id.swHideTimeZone);
@@ -169,6 +172,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("confirm_images", checked).apply();
+            }
+        });
+
+        swHtmlImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("html_always_images", checked).apply();
             }
         });
 
@@ -412,6 +422,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swBrowseLinks.setChecked(prefs.getBoolean("browse_links", false));
         swBrowseLinks.setEnabled(!swConfirmLinks.isChecked());
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
+        swHtmlImages.setChecked(prefs.getBoolean("html_always_images", false));
         swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", true));

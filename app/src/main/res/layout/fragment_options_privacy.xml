@@ -138,6 +138,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swConfirmImages" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swHtmlImages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_ask_show_html_images"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvConfirmImagesHint"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swConfirmHtml"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -146,7 +157,7 @@
                     android:text="@string/title_advanced_confirm_html"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvConfirmImagesHint"
+                    app:layout_constraintTop_toBottomOf="@+id/swHtmlImages"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
