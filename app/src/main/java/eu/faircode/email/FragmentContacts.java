@@ -169,23 +169,8 @@ public class FragmentContacts extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
-            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-            final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
-            final TextView tvRemark = dview.findViewById(R.id.tvRemark);
-            final CheckBox cbConfirm = dview.findViewById(R.id.cbConfirm);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-            final TextView tvAccept = dview.findViewById(R.id.tvAccept);
-
-            tvMessage.setText(getString(R.string.title_delete_contacts));
-            ibInfo.setVisibility(View.GONE);
-            tvRemark.setVisibility(View.GONE);
-            cbNotAgain.setVisibility(View.GONE);
-            cbConfirm.setVisibility(View.GONE);
-            tvAccept.setVisibility(View.GONE);
-
             return new AlertDialog.Builder(getContext())
-                    .setView(dview)
+                    .setMessage(getString(R.string.title_delete_contacts))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
