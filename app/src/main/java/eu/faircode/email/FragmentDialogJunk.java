@@ -199,53 +199,68 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putLong("folder", folder);
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle(R.string.title_junk_clear)
+                        .setMessage(R.string.title_junk_clear_hint)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Bundle args = new Bundle();
+                                args.putLong("folder", folder);
 
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        long fid = args.getLong("folder");
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                        long fid = args.getLong("folder");
 
-                        DB db = DB.getInstance(context);
-                        EntityFolder folder = db.folder().getFolder(fid);
-                        if (folder == null)
-                            return null;
+                                        DB db = DB.getInstance(context);
+                                        EntityFolder folder = db.folder().getFolder(fid);
+                                        if (folder == null)
+                                            return null;
 
-                        EntityFolder junk = db.folder().getFolderByType(folder.account, EntityFolder.JUNK);
-                        if (junk == null)
-                            return null;
+                                        EntityFolder junk = db.folder().getFolderByType(folder.account, EntityFolder.JUNK);
+                                        if (junk == null)
+                                            return null;
 
-                        List<EntityRule> rules = db.rule().getRules(fid);
-                        if (rules == null)
-                            return null;
+                                        List<EntityRule> rules = db.rule().getRules(fid);
+                                        if (rules == null)
+                                            return null;
 
-                        for (EntityRule rule : rules) {
-                            JSONObject jaction = new JSONObject(rule.action);
-                            int type = jaction.optInt("type", -1);
-                            long target = jaction.optLong("target", -1);
-                            if (type == EntityRule.TYPE_MOVE && target == junk.id) {
-                                EntityLog.log(context, "Deleting junk rule=" + rule.id);
-                                db.rule().deleteRule(rule.id);
+                                        for (EntityRule rule : rules) {
+                                            JSONObject jaction = new JSONObject(rule.action);
+                                            int type = jaction.optInt("type", -1);
+                                            long target = jaction.optLong("target", -1);
+                                            if (type == EntityRule.TYPE_MOVE && target == junk.id) {
+                                                EntityLog.log(context, "Deleting junk rule=" + rule.id);
+                                                db.rule().deleteRule(rule.id);
+                                            }
+                                        }
+
+                                        int count = db.contact().deleteContact(account, EntityContact.TYPE_JUNK);
+                                        EntityLog.log(context, "Deleted junk contacts=" + count);
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onExecuted(Bundle args, Void data) {
+                                        ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(getParentFragmentManager(), ex);
+                                    }
+                                }.execute(FragmentDialogJunk.this, args, "junk:clear");
                             }
-                        }
-
-                        int count = db.contact().deleteContact(account, EntityContact.TYPE_JUNK);
-                        EntityLog.log(context, "Deleted junk contacts=" + count);
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentDialogJunk.this, args, "junk:clear");
+                        })
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Do nothing
+                            }
+                        })
+                        .show();
             }
         });
 
