@@ -7,7 +7,7 @@
     <string name="app_crash">FairEmail در دستگاه شما پشتیبانی نمی‌شود، چون به دلیل وجود اشکالاتی در اندروید موجب خرابی برنامه می‌شود</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
     <string name="app_cake">فضای ذخیره سازی کافی باقی نمانده است</string>
-    <string name="app_updated">آخرین به روز رسانی:٪ 1 $ s</string>
+    <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="channel_service">دریافت</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">ایمیل</string>
