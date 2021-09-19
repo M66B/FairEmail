@@ -27,10 +27,12 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 
 import java.io.InputStream;
 
@@ -43,9 +45,18 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_markdown, null);
         final TextView tvMarkdown = dview.findViewById(R.id.tvMarkdown);
+        final ImageButton ibCancel = dview.findViewById(R.id.ibCancel);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+        final Group grpReady = dview.findViewById(R.id.grpReady);
 
         tvMarkdown.setText(null);
+
+        ibCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
 
         Dialog dialog = new Dialog(getContext());
         //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -57,13 +68,13 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
         new SimpleTask<Spanned>() {
             @Override
             protected void onPreExecute(Bundle args) {
-                tvMarkdown.setVisibility(View.GONE);
+                grpReady.setVisibility(View.GONE);
                 pbWait.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                tvMarkdown.setVisibility(View.VISIBLE);
+                grpReady.setVisibility(View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
             }
 

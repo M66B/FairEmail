@@ -7,8 +7,10 @@
     tools:context="eu.faircode.email.ActivityView">
 
     <eu.faircode.email.ScrollViewEx
+        android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="120dp"
         android:orientation="vertical"
         android:padding="24dp"
         android:scrollbarStyle="outsideOverlay"
@@ -32,6 +34,18 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ScrollViewEx>
 
+    <ImageButton
+        android:id="@+id/ibCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@android:string/no"
+        android:padding="12dp"
+        android:tooltipText="@android:string/no"
+        app:layout_constraintEnd_toEndOf="@+id/scroll"
+        app:layout_constraintTop_toTopOf="@+id/scroll"
+        app:srcCompat="@drawable/twotone_close_24" />
+
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"
         style="@style/Base.Widget.AppCompat.ProgressBar"
@@ -43,4 +57,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpReady"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="scroll,ibCancel" />
 </androidx.constraintlayout.widget.ConstraintLayout>
