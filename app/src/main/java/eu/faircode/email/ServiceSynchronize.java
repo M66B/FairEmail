@@ -1853,10 +1853,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         });
 
                                         for (TupleOperationEx.PartitionKey key : keys) {
+                                            int ops;
                                             synchronized (partitions) {
+                                                ops = partitions.get(key).size();
                                                 Log.i(folder.name +
                                                         " queuing partition=" + key +
-                                                        " operations=" + partitions.get(key).size());
+                                                        " operations=" + ops);
                                             }
 
                                             final long serial = state.getSerial();
@@ -1865,7 +1867,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
                                             crumb.put("folder", folder.name + "/" + folder.type + ":" + folder.id);
                                             crumb.put("partition", key.toString());
-                                            crumb.put("operations", Integer.toString(partitions.get(key).size()));
+                                            crumb.put("operations", Integer.toString(ops));
                                             crumb.put("serial", Long.toString(serial));
                                             Log.breadcrumb("Queuing", crumb);
 

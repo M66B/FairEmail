@@ -4,6 +4,10 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### 1.1729
+
+* Added miscellaneous option to disable showing the changelog
+
 ### 1.1728
 
 * Prevent suggesting spam contacts
