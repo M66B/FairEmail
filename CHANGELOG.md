@@ -4,6 +4,11 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### 1.1728
+
+* Prevent suggesting spam contacts
+* Confirm deleting block sender rules
+
 ### 1.1727
 
 * Following dark/light theme for original message view
