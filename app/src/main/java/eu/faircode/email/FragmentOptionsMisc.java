@@ -108,6 +108,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swCheckWeekly;
+    private SwitchCompat swChangelog;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
@@ -159,7 +160,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "deepl_enabled", "watchdog", "updates", "weekly",
+            "language", "deepl_enabled", "watchdog", "updates", "weekly", "show_changelog",
             "experiments", "wal", "checkpoints", "query_threads", "sqlite_cache", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
             "use_modseq", "perform_expunge",
@@ -226,6 +227,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
+        swChangelog = view.findViewById(R.id.swChangelog);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
@@ -509,6 +511,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("weekly", checked).apply();
+            }
+        });
+
+        swChangelog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("show_changelog", checked).apply();
             }
         });
 
@@ -1114,6 +1123,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
+        swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));

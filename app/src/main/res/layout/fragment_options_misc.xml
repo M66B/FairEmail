@@ -355,6 +355,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swChangelog"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_changelog"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swWeekly"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swExperiments"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -362,7 +373,7 @@
                     android:text="@string/title_advanced_experiments"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swWeekly"
+                    app:layout_constraintTop_toBottomOf="@id/swChangelog"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

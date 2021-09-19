@@ -1106,11 +1106,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         String version = BuildConfig.VERSION_NAME + BuildConfig.REVISION;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("first", true))
+        boolean first = prefs.getBoolean("first", true);
+        boolean show_changelog = prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE);
+
+        if (first)
             new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
-        else if (!BuildConfig.PLAY_STORE_RELEASE) {
+        else if (show_changelog) {
             String last = prefs.getString("changelog", null);
-            if (!Objects.equals(version, last)) {
+            if (!Objects.equals(version, last) || BuildConfig.DEBUG) {
                 Bundle args = new Bundle();
                 args.putString("name", "CHANGELOG.md");
                 FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
