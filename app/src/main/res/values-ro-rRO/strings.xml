@@ -83,10 +83,14 @@
     <string name="title_block">Blochează %1$s</string>
     <string name="title_block_sender">Blochează expeditor</string>
     <string name="title_block_domain">Blocare domeniu expeditor</string>
+    <string name="title_block_sender_hint">        Blocarea unui expeditor este o funcție gratuită.
+        Blocarea unui domeniu de expeditor utilizează reguli de filtrare, ceea ce reprezintă o caracteristică profesională.
+    </string>
     <string name="title_junk_filter">Utilizați filtrul de spam local</string>
     <string name="title_junk_filter_hint">Acest lucru poate crește utilizarea bateriei și marchează incorect mesajele ca spam</string>
     <string name="title_junk_blocklist">Utilizați listele de blocare a spam-ului</string>
     <string name="title_junk_clear">Golește jurnalul</string>
+    <string name="title_junk_clear_hint">Aceasta va șterge toate regulile de blocare a expeditorului</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_idle">Inactiv</string>

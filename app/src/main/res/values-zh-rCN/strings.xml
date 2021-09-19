@@ -63,10 +63,14 @@
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
     <string name="title_block_domain">屏蔽发件人域名</string>
+    <string name="title_block_sender_hint">        屏蔽发件人是一个免费功能。
+        屏蔽发件人域使用过滤规则，这是一个高级功能。
+    </string>
     <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
     <string name="title_junk_filter_hint">这可能会增加耗电量和将邮件误标为垃圾邮件</string>
     <string name="title_junk_blocklist">使用垃圾邮件拦截列表</string>
     <string name="title_junk_clear">清除</string>
+    <string name="title_junk_clear_hint">这将删除所有拦截发件人规则</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
@@ -845,6 +849,7 @@
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地笔记</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
+    <string name="title_force_light">强制使用浅色主题</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日历</string>
     <string name="title_pin">添加快捷方式</string>

@@ -93,10 +93,14 @@
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
     <string name="title_block_domain">Блокировать домен отправителя</string>
+    <string name="title_block_sender_hint">        Блокировка отправителя является бесплатной функцией.
+        Блокировка домена отправителя использует фильтрующие правила, которые являются функцией pro.
+    </string>
     <string name="title_junk_filter">Использовать локальный фильтр спама</string>
     <string name="title_junk_filter_hint">Может увеличить расход заряда батареи и неправильно помечать сообщения как спам</string>
     <string name="title_junk_blocklist">Использовать списки блокировки спама</string>
     <string name="title_junk_clear">Очистить</string>
+    <string name="title_junk_clear_hint">Это удалит все правила блокировки отправителя</string>
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_waiting">Ожидание подходящего подключения</string>
     <string name="title_notification_idle">Низкий</string>

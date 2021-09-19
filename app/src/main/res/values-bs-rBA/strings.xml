@@ -21,6 +21,11 @@
     <string name="channel_send_description">Slanje poruka</string>
     <string name="channel_notification_description">Obavještenja novih poruka</string>
     <string name="channel_progress_description">Obavještenja o napretku dugotrajnih aktivnosti</string>
+    <plurals name="page_message">
+        <item quantity="one">Poruka</item>
+        <item quantity="few">Poruke</item>
+        <item quantity="other">Poruka</item>
+    </plurals>
     <string name="page_folders">Folderi</string>
     <string name="page_compose">Napiši</string>
     <string name="tile_synchronize">Sinhronizuj</string>
@@ -28,14 +33,29 @@
     <string name="shortcut_refresh">Osvježi</string>
     <string name="shortcut_compose">Napiši</string>
     <string name="shortcut_setup">Postavke</string>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Premjestiti %1$d poruku?</item>
+        <item quantity="few">Premjestiti %1$d poruke?</item>
+        <item quantity="other">Premjestiti %1$d poruka?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Tretirati %1$d poruku kao spam?</item>
+        <item quantity="few">Tretirati %1$d poruke kao spam?</item>
+        <item quantity="other">Tretirati %1$d poruka kao spam?</item>
+    </plurals>
     <string name="title_ask_spam_who">Tretirati poruku od %1$s kao spam?</string>
     <string name="title_junk_hint">Vaš e-mail provajder (poslužitelj) je nadležan za filtriranje spam poruka. E-mail aplikacija nema sve potrebne podatke kako bi to obavljala pouzdano.</string>
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljaoca</string>
     <string name="title_block_domain">Blokiraj domenu pošiljaoca</string>
+    <string name="title_block_sender_hint">        Blokiranje pošiljaoca je besplatna funkcionalnost.
+        Blokiranje domene pošiljaoca koristi pravila filtriranja, što predstavlja pro funkcionalnost.
+    </string>
     <string name="title_junk_filter">Koristi lokalni filter za spam poruke</string>
     <string name="title_junk_filter_hint">Ovo može povećati potrošnju baterije i netačno označavati poruke kao spam</string>
     <string name="title_junk_blocklist">Koristi liste blokiranja za spam poruke</string>
+    <string name="title_junk_clear">Očisti</string>
+    <string name="title_junk_clear_hint">Ovo će izbrisati sva pravila za blokiranje pošiljaoca</string>
     <string name="title_notification_sending">Slanje poruka</string>
     <string name="title_notification_waiting">Čekanje na prihvatljivu konekciju</string>
     <string name="title_notification_idle">Stanje mirovanja</string>
@@ -332,10 +352,13 @@
     <string name="title_advanced_distinguish_contacts">Podvuci pošiljaoca kada je on/a poznat/a kao lokalni \'za\' kontakt</string>
     <string name="title_advanced_show_recipients">Prikaži primaoce u zaglavlju poruke</string>
     <string name="title_advanced_font_size_sender">Veličina teksta pošiljaoca</string>
+    <string name="title_advanced_sender_ellipsize">Ako je potrebno, skrati ime pošiljaoca</string>
     <string name="title_advanced_subject_top">Prikaži predmet iznad pošiljaoca</string>
     <string name="title_advanced_subject_italic">Prikaži predmet kosim slovima (kurzivom)</string>
     <string name="title_advanced_highlight_subject">Markiraj predmet</string>
     <string name="title_advanced_font_size_subject">Veličina teksta predmeta</string>
+    <string name="title_advanced_subject_ellipsize">Ako je potrebno, skrati naziv predmeta</string>
+    <string name="title_advanced_compact_mode_remark">Samo kompaktni način</string>
     <string name="title_advanced_highlight_color">Boja za markiranje</string>
     <string name="title_advanced_keywords">Prikaži ključne riječi u zaglavlju poruke</string>
     <string name="title_advanced_labels">Prikaži Gmail oznake u zaglavlju poruke</string>
@@ -656,18 +679,27 @@
     <string name="title_no_standard">Ovaj provajder koristi vlastiti e-mail protokol i stoga nije moguće koristiti e-mail klijente trećih strana</string>
     <string name="title_no_idle">Ovaj provajder (poslužitelj) ne podržava trenutna obavještenja. To će odložiti prijem novih poruka i povećati potrošnju baterije.</string>
     <string name="title_reply_domain">Razlikuju se domena pošiljaoca (%1$s) i odgovora (%2$s)</string>
+    <string name="title_identity_required">Identitet je neophodan za slanje e-pošte</string>
     <string name="title_drafts_required">Folder \'nacrti\' je neophodan za slanje e-pošte</string>
     <string name="title_drafts_select">Slanje e-pošte zahtijeva da se izabere folder za nacrte u postavkama računa</string>
     <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
+    <string name="title_storage_quota">Iskorištenost prostora na serveru: %1$s/%2$s</string>
+    <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka iz vašeg inbox-a. POP3 ne može označavati poruke kao pročitane, premještati poruke itd. Također, POP3 će trošiti više baterije i podataka od IMAP protokola. Zato razmotrite korištenje IMAP protokola kad god je moguće.</string>
+    <string name="title_pop_sent">Ukoliko izgubite uređaj ili Vam ga ukradu, poslane poruke mogu biti izgubljene.</string>
+    <string name="title_pop_warning">Ukoliko POP3 server ne podržava UIDL komandu, korištenje podataka može biti uvećano. Shodno tome podesite ispod učestalost odazivanja.</string>
+    <string name="title_pop_folders">POP3 protokol ne podržava kreiranje foldera</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Pregledaj</string>
     <string name="title_hint_alias">Dugo držite na identitet za prikaz opcija, poput kopiranja u svrhu kreiranja pseudonimskih identiteta</string>
+    <string name="title_service_auth">Poruka e-mail servera: \'%1$s\'</string>
     <string name="title_service_vpn">Ovo je možda uzrokovano od strane VPN-a koji se koristi</string>
     <string name="title_service_port">Molimo, ponovo provjerite broj porta</string>
     <string name="title_service_protocol">Molimo, ponovo provjerite protokol (SSL/TLS ili STARTTLS)</string>
+    <string name="title_advanced_browse">Pretražuj poruke na serveru</string>
+    <string name="title_advanced_expand_read">Pri proširivanju, označi poruke kao pročitane</string>
     <string name="title_synchronize_now">Sinhronizuj sada</string>
     <string name="title_synchronize_subfolders">Podfolderi</string>
     <string name="title_synchronize_more">Dohvati više poruka</string>
@@ -713,6 +745,7 @@
     <string name="title_show_folders">Prikaži skrivene foldere</string>
     <string name="title_show_flagged">Prikaži broj poruka sa zvjezdicom</string>
     <string name="title_subscribed_only">Samo pretplata</string>
+    <string name="title_sort_unread_atop">Sortiraj nepročitane na vrh</string>
     <string name="title_search_folder">Traži folder</string>
     <string name="title_apply_to_all">Primijeni za sve</string>
     <string name="title_hide_folder">Sakrij folder</string>
@@ -722,6 +755,8 @@
     <string name="title_poll_folder">Provjeri povremeno umjesto stalnog sinhroniziranja</string>
     <string name="title_poll_folder_remark">Većina e-mail servera dozvoljava trenutna obavještenja samo za određene foldere!</string>
     <string name="title_download_folder">Automatski preuzmi tekst i priloge poruka</string>
+    <string name="title_notify_folder">Obavijesti kad stignu nove poruke</string>
+    <string name="title_auto_classify_source">Klasifikuj nove poruke u ovom folderu</string>
     <string name="title_auto_classify_target">Automatski premjesti klasifikovane poruke u ovaj folder</string>
     <string name="title_auto_trash">Automatski premjesti stare poruke u otpad</string>
     <string name="title_auto_delete">Automatski trajno briši stare poruke</string>
@@ -744,6 +779,8 @@
     <string name="title_folder_local_drafts">Lokalni nacrti</string>
     <string name="title_no_folders">Nema foldera</string>
     <string name="title_no_messages">Nema poruka</string>
+    <string name="title_filters_active">Jedan ili više filtera je aktivno</string>
+    <string name="title_duplicate_in">Dupliciraj poruku u %1$s</string>
     <string name="title_subject_reply">Odg: %1$s</string>
     <string name="title_subject_forward">Pro: %1$s</string>
     <string name="title_subject_reply_alt">Odg: %1$s</string>
@@ -767,6 +804,7 @@
     <string name="title_editasnew">Uredi kao novu</string>
     <string name="title_edit_notes">Uredi lokalne bilješke</string>
     <string name="title_create_rule">Kreiraj pravilo &#8230;</string>
+    <string name="title_force_light">Forsiraj svijetlu temu</string>
     <string name="title_share">Podijeli</string>
     <string name="title_event">Dodaj u kalendar</string>
     <string name="title_pin">Dodaj prečac</string>
@@ -787,6 +825,7 @@
     <string name="title_download_all">Preuzmi sve</string>
     <string name="title_save_all">Sačuvaj sve</string>
     <string name="title_save_eml">Sačuvaj datoteku raw poruke</string>
+    <string name="title_eml_remark">Za prosljeđivanje poruka, izvorne (raw) poruke se trebaju prvo preuzeti s e-mail servera. Ovo zahtijeva internet konekciju i poruke se još uvijek moraju čuvati na e-mail serveru.</string>
     <string name="title_eml_option">Ovo se može spriječiti uključivanjem opcije \'uvijek preuzimaj datoteke raw poruka\' u postavkama konekcije</string>
     <string name="title_eml_downloaded">Preuzetih raw poruka: %1$s</string>
     <string name="title_buttons">Izaberi dugmad</string>
@@ -799,12 +838,22 @@
     <string name="title_copy_to">Kopiraj u &#8230;</string>
     <string name="title_subscribe">Pretplati se</string>
     <string name="title_delete">Izbriši</string>
+    <string name="title_more">Više</string>
+    <string name="title_less">Manje</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Premjesti</string>
+    <string name="title_copy_btn">Kopiraj</string>
     <string name="title_keywords_btn">Ključne riječi</string>
+    <string name="title_unsubscribe">Otkaži pretplatu</string>
     <string name="title_message_rule">Kreiraj pravilo</string>
     <string name="title_no_junk">Nije spam</string>
+    <string name="title_move_to">Premjesti u &#8230;</string>
+    <string name="title_move_to_folder">Premjesti u &#8230;</string>
+    <string name="title_move_to_account">Premjesti na %1$s &#8230;</string>
     <string name="title_report_spam">Tretiraj kao spam</string>
+    <string name="title_delete_permanently">Trajno izbriši</string>
+    <string name="title_no_undo">Razumijem da se ova radnja ne može vratiti</string>
+    <string name="title_snooze">Odgodi &#8230;</string>
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
     <string name="title_reply_to_sender">Odgovori pošiljaocu</string>
@@ -820,6 +869,11 @@
     <string name="title_no_recorder">Ne postoji aplikacija za snimanje zvuka</string>
     <string name="title_no_camera">Ne postoji aplikacija kamere</string>
     <string name="title_no_folder">Folder ne postoji</string>
+    <string name="title_no_format">Originalno primljena poruka bit će uvrštena</string>
+    <string name="title_no_search">Pretraživanju na serveru nije dostupno za ovaj račun</string>
+    <string name="title_too_large">Poruka je prevelika da bi se potpuno preformatirala</string>
+    <string name="title_truncated">Poruka je prevelika da bi se potpuno prikazala</string>
+    <string name="title_insufficient_memory">Poruka je prevelika da bi se uklopila u dostupnu memoriju</string>
     <string name="title_show_full">Prikaži cijelu poruku</string>
     <string name="title_unused_inline">Nekorištene poravnate slike bit će uklonjene pri slanju</string>
     <string name="title_accross_remark">Poruke koje se premještaju na računima bit će opet preuzete, što povećava potrošnju podataka</string>
@@ -961,6 +1015,8 @@
     <string name="title_dialog_hint">Ovaj dijalog može se ponovo uključiti preko menija s 3 tačke na vrhu radne trake</string>
     <string name="title_draft_deleted">Nacrt odbačen</string>
     <string name="title_draft_saved">Nacrt sačuvan</string>
+    <string name="title_queued">Slanje poruke</string>
+    <string name="title_queued_at">Poruka će biti poslana oko %1$s</string>
     <string name="title_sign">Potpiši</string>
     <string name="title_verify">Potvrdi</string>
     <string name="title_encrypt">Šifriraj</string>
@@ -991,6 +1047,9 @@
     <string name="title_signature_store">Skladište</string>
     <string name="title_search">Pretraga</string>
     <string name="title_search_for_hint">Unesite tekst</string>
+    <string name="title_search_hint">        U početku, pretraga se izvršava na uređaju.
+        Da bi pretraživali i server, dodirnite dugme \'traži ponovo\'.
+    </string>
     <string name="title_search_more">Više opcija</string>
     <string name="title_search_use_index">Koristi indeks pretraživanja</string>
     <string name="title_search_in_senders">U pošiljaocima (od)</string>
@@ -1161,6 +1220,7 @@
     <string name="title_legend_encrypted">Šifrirano</string>
     <string name="title_legend_auth">Provjera nije uspješna</string>
     <string name="title_legend_classified">Automatski klasifikovano</string>
+    <string name="title_legend_receipt">Zatražena je potvrda</string>
     <string name="title_legend_auto_submitted">Automatski poslano</string>
     <string name="title_legend_contacts">Upravljaj kontaktima</string>
     <string name="title_legend_search">Traži pošiljaoca</string>
@@ -1195,6 +1255,7 @@
     <string name="title_legend_hide_images">Sakrij slike</string>
     <string name="title_legend_show_full">Prikaži izvornu poruku</string>
     <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
+    <string name="title_legend_default_color">Zadana boja</string>
     <string name="title_legend_close_hint">Zatvori napomenu</string>
     <string name="title_legend_connection_state">Status konekcije</string>
     <string name="title_legend_sync_state">Status sinhronizacije</string>
@@ -1207,12 +1268,20 @@
     <string name="title_legend_n">Sljedeći</string>
     <string name="title_legend_p">Prethodni</string>
     <string name="title_legend_r">Odgovori</string>
+    <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevuci lijevo za otpad; Prevuci desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
     <string name="title_hint_important">Važno</string>
+    <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, a to zavisi od brzine provajdera, internet konekcije, samog uređaja te broja poruka. Prilikom preuzimanja poruka aplikacija će možda sporije reagovati.</string>
+    <string name="title_hint_sync_note">Po zadanom, sve poruke neće biti preuzete da bi se ograničili zauzeće prostora, potrošnja baterije i podataka. Ovo možete promijeniti dugim dodirom na folder sa spiska i biranjem opcije \'Sinhronizuj više\'.</string>
+    <string name="title_hint_battery">Pošto FairEmail po zadanom uvijek prima poruke, Android će označiti FairEmail kao stalno aktivnu aplikaciju. Prema tome, FairEmail možda izgleda kao da stalno troši bateriju, iako to u stvari nije slučaj.</string>
+    <string name="title_hint_reformat">Po zadanom, FairEmail preformatira poruke zbog privatnosti i sigurnosti. Da bi vidjeli izvornu poruku, dodirnite ikonicu \'cijeli ekran\' iznad teksta poruke.</string>
     <string name="title_hint_design">Dizajn je namjerno takav da ne odvlači pažnju, ali je veoma funkcionalan. Postoje brojne opcije za podešavanje izgleda, ali trebate razumjeti da je istovremeno nemoguće zadovoljiti svačije želje.</string>
     <string name="title_hint_junk">Filtriranje spama trebao bi rješavati e-mail server i ne može se pouzdano odvijati na uređajima koje pogone baterije s ograničenim mogućnostima.</string>
+    <string name="title_hint_junk_learn">Premještanjem poruka u i iz spam foldera, e-mail server \'pamti\' šta je spam</string>
+    <string name="title_hint_contact_actions">Dugi dodir za opcije</string>
+    <string name="title_hint_eml">Ovo je sažetak sadržaja datoteke raw poruke. Da bi mogli vidjeti cijeli sadržaj, sačuvajte raw poruku pritiskom na ikonicu sačuvaj na alatnoj traci.</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_image_link">Link slike</string>
     <string name="title_different_link">Naslovna i adresa linkova su različite</string>
@@ -1240,6 +1309,8 @@
     <string name="title_enable">Uključi</string>
     <string name="title_enabled">Uključeno</string>
     <string name="title_disable">Isključi</string>
+    <string name="title_clipboard_copy">Kopiraj u međuspremnik</string>
+    <string name="title_clipboard_copied">Kopirano u međuspremnik</string>
     <string name="title_ask_what">Pitaj šta treba uraditi</string>
     <string name="title_no_ask_again">Ne pitaj ovo ponovo</string>
     <string name="title_no_ask_for_again">Ne pitaj ovo ponovo za %1$s</string>
@@ -1247,7 +1318,11 @@
     <string name="title_no_charset">Enkodiranje nije podržano: %1$s</string>
     <string name="title_hours">Sati</string>
     <string name="title_snooze_now">Odgodi</string>
+    <string name="title_loading">Učitavanje &#8230;</string>
+    <string name="title_fetching_again">Ponovno dohvatanje poruka sa servera</string>
+    <string name="title_conversation_actions">Radnje</string>
     <string name="title_conversation_action_reply">Odgovori koristeći: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopiraj: \'%1$s\'</string>
     <string name="title_icalendar_accept">Prihvati</string>
     <string name="title_icalendar_decline">Odbij</string>
     <string name="title_icalendar_maybe">Možda</string>
@@ -1277,11 +1352,13 @@
     <string name="title_unexpected_error">Neočekivana greška</string>
     <string name="title_log">Zapisnik</string>
     <string name="title_auto_scroll">Auto pomicanje</string>
+    <string name="title_log_clear">Očisti</string>
     <string name="title_rules_search_hint">Traži ime ili uvjet</string>
     <string name="title_rules_export">Izvezi pravila</string>
     <string name="title_rules_import">Uvezi pravila</string>
     <string name="title_rules_delete_all">Izbriši sva pravila</string>
     <string name="title_rules_delete_all_confirm">Izbrisati sva pravila?</string>
+    <string name="title_debug_info">Info o otklanjanju grešaka</string>
     <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
     <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>

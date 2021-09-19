@@ -535,7 +535,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*General*
+*Genel*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 

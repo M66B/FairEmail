@@ -73,10 +73,14 @@
     <string name="title_block">Αποκλεισμός %1$s</string>
     <string name="title_block_sender">Αποκλεισμός αποστολέα</string>
     <string name="title_block_domain">Αποκλεισμός τομέα αποστολέα</string>
+    <string name="title_block_sender_hint">        Ο αποκλεισμός ενός αποστολέα είναι μια δωρεάν δυνατότητα.
+        Ο αποκλεισμός ενός τομέα αποστολέα χρησιμοποιεί κανόνες φιλτραρίσματος, κάτι που αποτελεί δυνατότητα της έκδοσης Pro.
+    </string>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και να σημάνει εσφαλμένα μηνύματα ως ανεπιθύμητα</string>
     <string name="title_junk_blocklist">Χρήση λιστών αποκλεισμού Ανεπιθύμητων</string>
     <string name="title_junk_clear">Καθαρισμός</string>
+    <string name="title_junk_clear_hint">Αυτό θα διαγράψει όλους τους κανόνες αποκλεισμού αποστολέα</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
     <string name="title_notification_waiting">Αναμονή για κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>

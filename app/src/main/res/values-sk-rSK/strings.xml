@@ -93,10 +93,14 @@
     <string name="title_block">Zablokovať %1$s</string>
     <string name="title_block_sender">Zablokovať odosielateľa</string>
     <string name="title_block_domain">Zablokovať doménu odosielateľa</string>
+    <string name="title_block_sender_hint">        Blokovanie odosielateľa je bezplatná funkcia.
+        Na blokovanie domény odosielateľa sa používajú pravidlá filtrovania, čo je Pro funkcia.
+    </string>
     <string name="title_junk_filter">Použiť lokálny spam filter</string>
     <string name="title_junk_filter_hint">Môže zvýšiť spotrebu batérie a nesprávne označovať správy ako nevyžiadané</string>
     <string name="title_junk_blocklist">Používať zoznami na blokovanie nevyžiadanej pošty</string>
     <string name="title_junk_clear">Vyčistiť</string>
+    <string name="title_junk_clear_hint">Týmto odstránite všetky pravidlá blokovania odosielateľa</string>
     <string name="title_notification_sending">Správy sa odosielajú</string>
     <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -394,10 +398,13 @@
     <string name="title_advanced_distinguish_contacts">Podčiarknúť odosielateľa ak je v lokálnych kontaktoch</string>
     <string name="title_advanced_show_recipients">Zobraziť príjemcov v hlavičke správy</string>
     <string name="title_advanced_font_size_sender">Veľkosť textu odosielateľ</string>
+    <string name="title_advanced_sender_ellipsize">Skrátiť text mena odosielateľa podľa potreby</string>
     <string name="title_advanced_subject_top">Zobraziť predmet nad odosielateľom</string>
     <string name="title_advanced_subject_italic">Zobraziť predmet kurzívou</string>
     <string name="title_advanced_highlight_subject">Zvýrazniť predmet</string>
     <string name="title_advanced_font_size_subject">Veľkosť textu predmet</string>
+    <string name="title_advanced_subject_ellipsize">Skrátiť text predmetu podľa potreby</string>
+    <string name="title_advanced_compact_mode_remark">Len v kompaktnom režime</string>
     <string name="title_advanced_highlight_color">Farba vysvietenia</string>
     <string name="title_advanced_keywords">Zobraziť kľúčové slová v hlavičke správy</string>
     <string name="title_advanced_labels">Zobraziť štítky Gmailu v hlavičke správy</string>
@@ -871,6 +878,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_editasnew">Upraviť ako novú</string>
     <string name="title_edit_notes">Upraviť lokálne poznámky</string>
     <string name="title_create_rule">Vytvoriť pravidlo &#8230;</string>
+    <string name="title_force_light">Vynútiť svetlý vzhľad</string>
     <string name="title_share">Zdieľať</string>
     <string name="title_event">Pridať do kalendára</string>
     <string name="title_pin">Pripnúť</string>
@@ -1200,6 +1208,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_previous">Predchádzajúca</string>
     <string name="title_next">Nasledujúca</string>
     <string name="title_edit_signature">Upraviť podpis</string>
+    <string name="title_edit_signature_remark">Napriek tomu, že Android nedokáže zobraziť všetok obsah HTML, takýto obsah bude odoslaný bez zmeny</string>
     <string name="title_edit_signature_text">Text podpisu</string>
     <string name="title_edit_signature_image">Vložiť obrázok</string>
     <string name="title_answer_caption">Upraviť šablónu</string>

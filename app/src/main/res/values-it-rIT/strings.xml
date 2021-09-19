@@ -73,10 +73,14 @@
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
     <string name="title_block_domain">Blocca dominio del mittente</string>
+    <string name="title_block_sender_hint">        Bloccare un mittente è una funzionalità gratuita.
+        Bloccare il dominio di un mittente usa le regole del filtro, una funzionalità pro.
+    </string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
     <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
-    <string name="title_junk_clear">Pulisci</string>
+    <string name="title_junk_clear">Cancella</string>
+    <string name="title_junk_clear_hint">Questo eliminerà tutte le regole di blocco del mittente</string>
     <string name="title_notification_sending">Inviando i messaggi</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
@@ -350,6 +354,7 @@
     <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo usando lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
+    <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
     <string name="title_advanced_threading">Thread della conversazione</string>
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
@@ -373,10 +378,13 @@
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando è noto come il contatto locale \'a\'</string>
     <string name="title_advanced_show_recipients">Mostra i destinatari nell\'intestazione del messaggio</string>
     <string name="title_advanced_font_size_sender">Dimensione testo del mittente</string>
+    <string name="title_advanced_sender_ellipsize">Se necessario, abbrevia il mittente</string>
     <string name="title_advanced_subject_top">Mostra oggetto sul mittente</string>
     <string name="title_advanced_subject_italic">Mostra oggetto in corsivo</string>
     <string name="title_advanced_highlight_subject">Evidenzia oggetto</string>
     <string name="title_advanced_font_size_subject">Dimensione testo dell\'oggetto</string>
+    <string name="title_advanced_subject_ellipsize">Se necessario, abbrevia l\'oggetto</string>
+    <string name="title_advanced_compact_mode_remark">Modalità solo compatta</string>
     <string name="title_advanced_highlight_color">Colore d\'evidenziazione</string>
     <string name="title_advanced_keywords">Mostra parole chiave nell\'intestazione del messaggio</string>
     <string name="title_advanced_labels">Mostra le etichette Gmail nell\'intestazione del messaggio</string>
@@ -779,7 +787,7 @@
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_show_flagged">Mostra conteggio dei messaggi stellati</string>
     <string name="title_subscribed_only">Solo sottoscritte</string>
-    <string name="title_sort_unread_atop">Porta in cima i non letti</string>
+    <string name="title_sort_unread_atop">Ordina non letti in cima</string>
     <string name="title_search_folder">Cerca per cartella</string>
     <string name="title_apply_to_all">Applica a tutti</string>
     <string name="title_hide_folder">Nascondi cartella</string>
@@ -852,6 +860,7 @@
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
+    <string name="title_force_light">Forza tema chiaro</string>
     <string name="title_share">Condividi</string>
     <string name="title_event">Aggiungi al calendario</string>
     <string name="title_pin">Aggiungi scorciatoia</string>
@@ -1183,6 +1192,7 @@
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
     <string name="title_edit_signature">Modifica firma</string>
+    <string name="title_edit_signature_remark">Sebbene Android non possa mostrare tutto lo HTML, sarà inviata così com\'è</string>
     <string name="title_edit_signature_text">Testo della firma</string>
     <string name="title_edit_signature_image">Inserisci immagine</string>
     <string name="title_answer_caption">Modifica modello</string>

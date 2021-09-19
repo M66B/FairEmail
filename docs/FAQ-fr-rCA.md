@@ -1015,25 +1015,25 @@ En cas de doute, vous pouvez demander le support [](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Pourquoi est-ce que je reçois une alerte ?**
 
-*General*
+*Généralités*
 
-Alerts are warning messages sent by email servers.
+Les alertes sont des messages d'avertissement envoyés par les serveurs de messagerie.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Trop de connexions simultanées* ou *Nombre maximal de connexions dépassées*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Cette alerte sera envoyée quand il y a trop de connexions de dossier pour le même compte de messagerie simultanément.
 
-Possible causes are:
+Les causes possibles sont:
 
-* There are multiple email clients connected to the same account
-* The same email client is connected multiple times to the same account
+* Il y a plusieurs clients de messagerie connectés au même compte
+* Le même client de messagerie est connecté plusieurs fois au même compte
 * Les connexions précédentes ont été interrompues brusquement, par exemple en perdant brusquement la connectivité Internet.
 
-First try to wait some time to see if the problem resolves itself, else:
+Tout d'abord, essayez d'attendre un peu de temps pour voir si le problème se résout par lui-même, sinon:
 
-* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* basculez vers la vérification périodique des messages dans les paramètres de réception, ce qui entraînera l'ouverture des dossiers un à la fois
 * or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.

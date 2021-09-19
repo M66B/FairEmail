@@ -73,10 +73,14 @@
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>
+    <string name="title_block_sender_hint">        Bloquer un expéditeur est une fonctionnalité gratuite.
+        Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
+    </string>
     <string name="title_junk_filter">Utiliser le filtre de pourriel local</string>
     <string name="title_junk_filter_hint">Ceci peut augmenter l\'utilisation de la pile et marquer par erreur des messages comme indésirables</string>
     <string name="title_junk_blocklist">Utiliser des listes de blocage de courrier indésirable</string>
     <string name="title_junk_clear">Effacer</string>
+    <string name="title_junk_clear_hint">Ceci supprimera toutes les règles de blocage d\'expéditeur</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>

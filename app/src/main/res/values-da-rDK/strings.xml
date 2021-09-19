@@ -73,10 +73,14 @@
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
     <string name="title_block_domain">Blokér afsenderdomænet</string>
+    <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
+        Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
+    </string>
     <string name="title_junk_filter">Brug lokalt spamfilter</string>
     <string name="title_junk_filter_hint">Dette kan øge strømforbruget samt ukorrekt markere beskeder som spam</string>
     <string name="title_junk_blocklist">Brug spamblokeringslister</string>
     <string name="title_junk_clear">Ryd</string>
+    <string name="title_junk_clear_hint">Dette sletter alle afsenderblokeringsregler</string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -847,6 +851,7 @@
     <string name="title_editasnew">Redigér som ny</string>
     <string name="title_edit_notes">Redigér lokale notater</string>
     <string name="title_create_rule">Opret regel &#8230;</string>
+    <string name="title_force_light">Gennemtving lyst tema</string>
     <string name="title_share">Del</string>
     <string name="title_event">Føj til kalender</string>
     <string name="title_pin">Tilføj genvej</string>

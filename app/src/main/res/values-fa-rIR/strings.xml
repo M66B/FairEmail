@@ -3,15 +3,24 @@
     <string name="app_search">جستجوی FairEmail</string>
     <string name="app_changelog">گزارش دگرگونی</string>
     <string name="app_welcome">FairEmail یک برنامه منبع باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
+    <string name="app_limitations">به عنوان مثال ، پیامها به طور پیش فرض برای حذف عناصر ناامن و بهبود خوانایی مجدداً قالب بندی می شوند و باز شدن پیوندها باید از نظر ایمنی تأیید شود. در صورت تمایل می توان هر دو را غیرفعال کرد.</string>
     <string name="app_crash">FairEmail در دستگاه شما پشتیبانی نمی‌شود، چون به دلیل وجود اشکالاتی در اندروید موجب خرابی برنامه می‌شود</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
+    <string name="app_cake">فضای ذخیره سازی کافی باقی نمانده است</string>
+    <string name="app_updated">آخرین به روز رسانی:٪ 1 $ s</string>
     <string name="channel_service">دریافت</string>
     <string name="channel_send">ارسال</string>
+    <string name="channel_notification">ایمیل</string>
+    <string name="channel_progress">پیش رفتن</string>
     <string name="channel_update">به‌روزرسانی‌ها</string>
     <string name="channel_warning">هشدارها</string>
     <string name="channel_error">خطاها</string>
     <string name="channel_alert">هشدارهای سرور</string>
     <string name="channel_group_contacts">مخاطبین</string>
+    <string name="channel_service_description">همگام سازی و نظارت بر حساب ها</string>
+    <string name="channel_send_description">ارسال پیام ها</string>
+    <string name="channel_notification_description">اعلان های پیام جدید</string>
+    <string name="channel_progress_description">اعلان پیشرفت فعالیتهای طولانی مدت</string>
     <plurals name="page_conversation">
         <item quantity="one">گفتگو</item>
         <item quantity="other">گفتگو</item>
@@ -47,6 +56,12 @@
         <item quantity="one">%1$d جدید</item>
         <item quantity="other">%1$d جدید</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">٪ 1 $ d پیام منتقل شود؟
+دیگر
+٪ 1 $ d پیام منتقل شود؟</item>
+        <item quantity="other">انتقال%1$d پیام به؟</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">حذف همیشگی %1$d پیام؟</item>
         <item quantity="other">حذف همیشگی %1$d پیام؟</item>
@@ -60,6 +75,9 @@
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_domain">مسدود کردن دامنه فرستنده</string>
+    <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.
+        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
+    <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
     <string name="title_junk_clear">پاک‌سازی</string>
     <string name="title_notification_sending">درحال ارسال پیام‌ها</string>
     <string name="title_notification_waiting">درحال انتظار برای اتصال مناسب</string>
