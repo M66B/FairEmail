@@ -270,6 +270,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 : getString(R.string.title_ask_spam_who, from));
         cbBlockSender.setEnabled(canBlock);
         cbBlockDomain.setEnabled(false);
+        cbBlockSender.setChecked(canBlock);
         ibMore.setImageLevel(1);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));
