@@ -219,6 +219,7 @@
                 android:id="@+id/ibDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_scroll_down"
                 android:padding="12dp"
@@ -227,12 +228,13 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/twotone_vertical_align_bottom_24"
-                app:tint="?attr/colorSeparator" />
+                app:tint="?attr/colorAccent" />
 
             <ImageButton
                 android:id="@+id/ibUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_scroll_up"
                 android:padding="12dp"
@@ -241,29 +243,31 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/ibDown"
                 app:srcCompat="@drawable/twotone_vertical_align_top_24"
-                app:tint="?attr/colorSeparator" />
+                app:tint="?attr/colorAccent" />
 
             <ImageButton
                 android:id="@+id/ibOutbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_folder_outbox"
                 android:padding="12dp"
                 app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/twotone_schedule_send_24"
-                app:tint="?attr/colorSeparator" />
+                app:tint="?attr/colorAccent" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvOutboxCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="3dp"
                 android:text="3"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?attr/colorSeparator"
+                android:textColor="?attr/colorAccent"
                 app:layout_constraintEnd_toEndOf="@+id/ibOutbox"
                 app:layout_constraintTop_toTopOf="@+id/ibOutbox" />
 
@@ -284,6 +288,7 @@
                 android:id="@+id/ibSeen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_filter_out_seen"
                 android:padding="12dp"
@@ -292,12 +297,13 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/twotone_drafts_24"
-                app:tint="?attr/colorSeparator" />
+                app:tint="?attr/colorAccent" />
 
             <ImageButton
                 android:id="@+id/ibUnflagged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_filter_out_unflagged"
                 android:padding="12dp"
@@ -305,12 +311,13 @@
                 app:layout_constraintEnd_toStartOf="@+id/ibSnoozed"
                 app:layout_constraintStart_toEndOf="@id/ibSeen"
                 app:srcCompat="@drawable/baseline_star_24"
-                app:tint="?attr/colorSeparator" />
+                app:tint="?attr/colorAccent" />
 
             <ImageButton
                 android:id="@+id/ibSnoozed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_filter_out_snoozed"
                 android:padding="12dp"
@@ -318,7 +325,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ibUnflagged"
                 app:srcCompat="@drawable/twotone_timelapse_24"
-                app:tint="?attr/colorSeparator" />
+                app:tint="?attr/colorAccent" />
 
             <SeekBar
                 android:id="@+id/sbThread"
