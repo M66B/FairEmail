@@ -373,7 +373,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 tvFlagged.setText(NF.format(folder.flagged));
                 ibFlagged.setImageResource(folder.flagged == 0
-                        ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
+                        ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
                 tvFlagged.setEnabled(folder.flagged > 0);
                 ibFlagged.setEnabled(folder.flagged > 0);
 
