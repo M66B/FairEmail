@@ -528,6 +528,7 @@
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
     <string name="title_advanced_check_weekly">每周而不是每天检查</string>
+    <string name="title_advanced_changelog">更新后显示更新日志</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>

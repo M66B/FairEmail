@@ -1213,6 +1213,7 @@
     <string name="title_legend_primary">Primarni</string>
     <string name="title_legend_subscribed">Pretplaćen na</string>
     <string name="title_legend_rule">Ima pravila</string>
+    <string name="title_legend_notify">Obavijesti kad stignu nove poruke</string>
     <string name="title_legend_stop">Zaustavi obradu pravila</string>
     <string name="title_legend_thread">Konverzacija</string>
     <string name="title_legend_draft">Nacrt</string>

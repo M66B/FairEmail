@@ -73,10 +73,14 @@
     <string name="title_block">Blockera %1$s</string>
     <string name="title_block_sender">Blockera avsändare</string>
     <string name="title_block_domain">Blockera avsändardomän</string>
+    <string name="title_block_sender_hint">        Att blockera en avsändare är en gratisfunktion.
+        Att blockera en avsändardomän använder filterregler, vilket är en pro-funktion.
+    </string>
     <string name="title_junk_filter">Använd lokalt skräppostfilter</string>
     <string name="title_junk_filter_hint">Detta kan öka batterianvändningen och felaktigt markera meddelanden som skräppost</string>
     <string name="title_junk_blocklist">Använd skräppostblockeringslistor</string>
     <string name="title_junk_clear">Rensa</string>
+    <string name="title_junk_clear_hint">Detta kommer att ta bort alla regler för blockering av avsändare</string>
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -531,6 +535,7 @@
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
     <string name="title_advanced_check_weekly">Kolla veckovis istället för dagligen</string>
+    <string name="title_advanced_changelog">Visa ändringslogg efter uppdatering</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
@@ -853,6 +858,7 @@
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_edit_notes">Redigera lokala anteckningar</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
+    <string name="title_force_light">Tvinga ljust tema</string>
     <string name="title_share">Dela</string>
     <string name="title_event">Lägg till i kalender</string>
     <string name="title_pin">Lägg till genväg</string>

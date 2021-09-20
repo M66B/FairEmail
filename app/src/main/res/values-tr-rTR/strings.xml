@@ -73,10 +73,13 @@
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
     <string name="title_block_domain">Gönderenin alan adını engelle</string>
+    <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
+Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
     <string name="title_junk_filter_hint">Bu, pil kullanımını artırabilir ve iletileri yanlış olarak spam işaretleyebilir</string>
     <string name="title_junk_blocklist">Spam engelleme listelerini kullan</string>
     <string name="title_junk_clear">Temizle</string>
+    <string name="title_junk_clear_hint">Bu, tüm engelleyici gönderen kurallarını siler</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
@@ -350,6 +353,7 @@
     <string name="title_advanced_tabular_background">Tablo stilini kullanırken kart rengini arka plan rengi olarak kullan</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
+    <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_threading_unread">Sohbetlerde okunmamış mesajların sayısını göster</string>
@@ -373,10 +377,13 @@
     <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
     <string name="title_advanced_show_recipients">Mesaj başlığında alıcıları göster</string>
     <string name="title_advanced_font_size_sender">Gönderen yazı boyutu</string>
+    <string name="title_advanced_sender_ellipsize">Gerekirse göndereni kısalt</string>
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_highlight_subject">Konuyu vurgula</string>
     <string name="title_advanced_font_size_subject">Konu yazı boyutu</string>
+    <string name="title_advanced_subject_ellipsize">Gerekirse konuyu kısalt</string>
+    <string name="title_advanced_compact_mode_remark">Yalnızca kompakt mod</string>
     <string name="title_advanced_highlight_color">Rengi vurgula</string>
     <string name="title_advanced_keywords">Mesaj başlığında anahtar kelimeleri göster</string>
     <string name="title_advanced_labels">Mesaj başlığında Gmail etiketlerini göster</string>
@@ -530,6 +537,7 @@
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
     <string name="title_advanced_check_weekly">Günlük yerine haftalık kontrol edin</string>
+    <string name="title_advanced_changelog">Güncellemeden sonra yapılan değişiklikler günlüğünü göster</string>
     <string name="title_advanced_experiments">Deneysel özellikleri deneyin</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
     <string name="title_advanced_cleanup_attachments">Eski iletilerin eklerini sil</string>
@@ -779,6 +787,7 @@
     <string name="title_show_folders">Gizli klasörleri göster</string>
     <string name="title_show_flagged">Yıldızlı mesaj sayısını göster</string>
     <string name="title_subscribed_only">Sadece abone olunanlar</string>
+    <string name="title_sort_unread_atop">Okunmamışları üstte sırala</string>
     <string name="title_search_folder">Klasörleri ara</string>
     <string name="title_apply_to_all">Tümüne uygula</string>
     <string name="title_hide_folder">Klasörü gizle</string>
@@ -850,6 +859,7 @@
     <string name="title_editasnew">Yeni olarak düzenle</string>
     <string name="title_edit_notes">Yerel notları düzenle</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
+    <string name="title_force_light">Aydınlık temasını zorla</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>
     <string name="title_pin">Kısayol ekle</string>
@@ -1181,6 +1191,7 @@
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
     <string name="title_edit_signature">İmzayı düzenle</string>
+    <string name="title_edit_signature_remark">Android tüm HTML\'yi görüntüleyemese de, olduğu gibi gönderilecektir</string>
     <string name="title_edit_signature_text">İmza metni</string>
     <string name="title_edit_signature_image">Resim ekle</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>

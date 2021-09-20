@@ -93,10 +93,14 @@
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_domain">Blokuj domenę nadawcy</string>
+    <string name="title_block_sender_hint">        Blokowanie nadawcy jest darmową funkcją.
+        Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
+    </string>
     <string name="title_junk_filter">Użyj lokalnego filtra spamu</string>
     <string name="title_junk_filter_hint">Może to zwiększyć zużycie baterii i niepoprawnie oznaczać wiadomości jako spam</string>
     <string name="title_junk_blocklist">Użyj list blokowanego spamu</string>
     <string name="title_junk_clear">Wyczyść</string>
+    <string name="title_junk_clear_hint">Spowoduje to usunięcie wszystkich zasad blokowania nadawcy</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_idle">Bezczynny</string>
@@ -554,6 +558,7 @@
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
     <string name="title_advanced_check_weekly">Sprawdzaj co tydzień zamiast codziennie</string>
+    <string name="title_advanced_changelog">Pokaż listę zmian po aktualizacji</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>
@@ -876,6 +881,7 @@
     <string name="title_editasnew">Edytuj jako nową</string>
     <string name="title_edit_notes">Edytuj lokalne notatki</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
+    <string name="title_force_light">Wymuś jasny motyw</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_event">Dodaj do kalendarza</string>
     <string name="title_pin">Dodaj skrót</string>

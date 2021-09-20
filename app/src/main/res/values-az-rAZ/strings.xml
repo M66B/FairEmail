@@ -73,10 +73,14 @@
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
     <string name="title_block_domain">Göndərən domenini əngəllə</string>
+    <string name="title_block_sender_hint">        Göndərəni əngəlləmə ödənişsiz bir özəllikdir.
+        Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
+    </string>
     <string name="title_junk_filter">Yerli spam filtrini istifadə et</string>
     <string name="title_junk_filter_hint">Bu, batareya istifadəsini artıra və mesajları səhvən spam olaraq işarələ bilər</string>
     <string name="title_junk_blocklist">Spam əngəlləmə siyahılarını istifadə et</string>
     <string name="title_junk_clear">Təmizlə</string>
+    <string name="title_junk_clear_hint">Bu, bütün blok göndərən qaydalarını siləcək</string>
     <string name="title_notification_sending">Mesaj göndərilir</string>
     <string name="title_notification_waiting">Əlverişli bağlantı gözlənilir</string>
     <string name="title_notification_idle">Aktiv deyil</string>
@@ -534,6 +538,7 @@
     <string name="title_advanced_watchdog">Mütəmadi olaraq \"FairEmail\"in aktivliyini yoxla</string>
     <string name="title_advanced_updates">GitHub yeniləmələrini yoxla</string>
     <string name="title_advanced_check_weekly">Gündəlik əvəzinə həftəlik yoxla</string>
+    <string name="title_advanced_changelog">Yenilənmədən sonra dəyişiklik jurnalını göstər</string>
     <string name="title_advanced_experiments">Təcrübi xüsusiyyətləri sına</string>
     <string name="title_advanced_crash_reports">Xəta hesabatlarını göndər</string>
     <string name="title_advanced_cleanup_attachments">Köhnə mesajların qoşmalarını sil</string>
@@ -855,6 +860,7 @@
     <string name="title_editasnew">Yeni kimi düzəliş et</string>
     <string name="title_edit_notes">Yerli qeydlərə düzəliş et</string>
     <string name="title_create_rule">Qayda yarat &#8230;</string>
+    <string name="title_force_light">Məcburi açıq tema</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Təqvimə əlavə et</string>
     <string name="title_pin">Qısayol əlavə et</string>

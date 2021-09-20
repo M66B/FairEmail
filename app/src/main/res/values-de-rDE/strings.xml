@@ -73,8 +73,9 @@
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_domain">Absenderdomain sperren</string>
-    <string name="title_block_sender_hint">Das Sperren eines Absenders ist eine kostenlose Funktion.
-Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der Pro-Version verfügbar sind.</string>
+    <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
+        Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der Pro-Version verfügbar sind.
+    </string>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
     <string name="title_junk_filter_hint">Das kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
     <string name="title_junk_blocklist">Spam-Sperrlisten verwenden</string>
@@ -538,6 +539,7 @@ Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
     <string name="title_advanced_check_weekly">Wöchentlich statt täglich prüfen</string>
+    <string name="title_advanced_changelog">Änderungsprotokoll nach Aktualisierungen anzeigen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
     <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>

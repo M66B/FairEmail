@@ -555,6 +555,7 @@
     <string name="title_advanced_watchdog">Періодично перевіряти, чи ще активнний додатк FairEmail</string>
     <string name="title_advanced_updates">Перевірити наявність оновлень з GitHub</string>
     <string name="title_advanced_check_weekly">Щотижнева перевірка замість щоденної</string>
+    <string name="title_advanced_changelog">Показати список змін після оновлення</string>
     <string name="title_advanced_experiments">Спробуйте експериментальні функції</string>
     <string name="title_advanced_crash_reports">Надіслати звіт про помилки</string>
     <string name="title_advanced_cleanup_attachments">Видалити вкладення для старих повідомлень</string>

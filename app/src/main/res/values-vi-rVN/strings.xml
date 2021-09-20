@@ -63,10 +63,14 @@
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
     <string name="title_block_domain">Chặn miền người gửi</string>
+    <string name="title_block_sender_hint">        Chặn người gửi là tính năng miễn phí.
+        Chặn miền người gửi có sử dụng quy tắc lọc, đó là tính năng pro.
+    </string>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
     <string name="title_junk_blocklist">Sử dụng các danh sách chặn thư rác</string>
     <string name="title_junk_clear">Xóa</string>
+    <string name="title_junk_clear_hint">Việc này sẽ xóa tất cả quy tắc chặn người gửi</string>
     <string name="title_notification_sending">Đang gửi thư</string>
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_idle">Rảnh</string>
@@ -524,6 +528,7 @@
     <string name="title_advanced_watchdog">Kiểm tra định kỳ xem FairEmail vẫn hoạt động hay không</string>
     <string name="title_advanced_updates">Kiểm tra cập nhật trên GitHub</string>
     <string name="title_advanced_check_weekly">Kiểm tra hàng tuần thay vì hàng ngày</string>
+    <string name="title_advanced_changelog">Hiện nhật ký thay đổi sau khi cập nhật</string>
     <string name="title_advanced_experiments">Thử các tính năng thử nghiệm</string>
     <string name="title_advanced_crash_reports">Gửi báo cáo lỗi</string>
     <string name="title_advanced_cleanup_attachments">Xoá tệp đính kèm của các thư cũ</string>
