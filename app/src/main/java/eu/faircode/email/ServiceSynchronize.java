@@ -2172,12 +2172,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Stop watching operations
                     Log.i(account.name + " stop watching operations");
+                    final TwoStateOwner _owner = cowner.value;
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             try {
-                                if (cowner.value != null)
-                                    cowner.value.destroy();
+                                _owner.destroy();
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             }
