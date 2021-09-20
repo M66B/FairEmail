@@ -4,6 +4,10 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### 1.1730
+
+* Small improvements and minor bug fixes
+
 ### 1.1729
 
 * Added miscellaneous option to disable showing the changelog
