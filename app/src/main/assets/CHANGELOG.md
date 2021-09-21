@@ -4,6 +4,10 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### 1.1731
+
+* Fixed invalid error reports
+
 ### 1.1730
 
 * Small improvements and minor bug fixes
