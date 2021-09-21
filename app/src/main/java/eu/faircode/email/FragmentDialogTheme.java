@@ -24,6 +24,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private SwitchCompat swReverse;
     private RadioGroup rgThemeOptions;
     private SwitchCompat swBlack;
+    private SwitchCompat swHtmlLight;
     private TextView tvSystem;
     private TextView tvMore;
 
@@ -45,6 +46,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
         swBlack.setEnabled(colored && !grey && !solarized && optionId != R.id.rbThemeLight);
 
+        swHtmlLight.setEnabled(!colored || optionId != R.id.rbThemeLight);
+
         tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
     }
 
@@ -56,6 +59,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         swReverse = dview.findViewById(R.id.swReverse);
         rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
         swBlack = dview.findViewById(R.id.swBlack);
+        swHtmlLight = dview.findViewById(R.id.swHtmlLight);
         tvSystem = dview.findViewById(R.id.tvSystem);
         tvMore = dview.findViewById(R.id.tvMore);
 
@@ -108,6 +112,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             rgThemeOptions.check(R.id.rbThemeLight);
 
         swBlack.setChecked(black);
+
+        boolean default_light = prefs.getBoolean("default_light", false);
+        swHtmlLight.setChecked(default_light);
 
         switch (theme) {
             case "light":
@@ -243,6 +250,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                         } else if (checkedRadioButtonId == R.id.rbThemeBlackAndWhite) {
                             editor.putString("theme", "black_and_white").apply();
                         }
+
+                        editor.putBoolean("default_light", swHtmlLight.isChecked());
 
                         editor.apply();
                     }

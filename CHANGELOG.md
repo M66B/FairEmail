@@ -4,6 +4,10 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
+### Next version
+
+* Added theme option for default light original message view
+
 ### 1.1731
 
 * Fixed invalid error reports

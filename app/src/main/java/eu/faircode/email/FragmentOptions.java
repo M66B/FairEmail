@@ -144,7 +144,8 @@ public class FragmentOptions extends FragmentBase {
             "language_detection",
             "quick_filter", "quick_scroll",
             "experiments", "debug",
-            "biometrics"
+            "biometrics",
+            "default_light"
     };
 
     @Override
