@@ -87,7 +87,7 @@ public class FragmentAbout extends FragmentBase {
                 if (BuildConfig.PLAY_STORE_RELEASE)
                     Helper.view(v.getContext(), Helper.getIntentRate(v.getContext()));
                 else
-                    onMenuChangelog();
+                    Helper.view(v.getContext(), Uri.parse(BuildConfig.CHANGELOG), false);
             }
         });
 
