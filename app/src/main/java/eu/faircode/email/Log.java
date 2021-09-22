@@ -2214,6 +2214,7 @@ public class Log {
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             for (SimpleTask task : SimpleTask.getList())
                 size += write(os, String.format("%s\r\n", task.toString()));
+            size += write(os, "\r\n");
             for (TwoStateOwner owner : TwoStateOwner.getList())
                 size += write(os, String.format("%s\r\n", owner.toString()));
         }

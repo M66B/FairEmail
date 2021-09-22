@@ -45,10 +45,12 @@ public class TwoStateOwner implements LifecycleOwner {
 
     private static DateFormat DTF = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
-    private static List<TwoStateOwner> list = new ArrayList<>();
+    private static final List<TwoStateOwner> list = new ArrayList<>();
 
     static List<TwoStateOwner> getList() {
-        return list;
+        synchronized (list) {
+            return new ArrayList<>(list);
+        }
     }
 
     // https://developer.android.com/topic/libraries/architecture/lifecycle#lc
@@ -91,7 +93,7 @@ public class TwoStateOwner implements LifecycleOwner {
                 list.add(this);
             }
         } else
-            Log.i(this + " not owned");
+            Log.e(this + " not owned");
     }
 
     void start() {
