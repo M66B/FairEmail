@@ -197,6 +197,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true"); // default false
         System.setProperty("mail.mime.multipart.ignoremissingendboundary", "true"); // default true
         System.setProperty("mail.mime.multipart.allowempty", "true"); // default false
+        System.setProperty("mail.mime.contentdisposition.strict", "false"); // default true
 
         //System.setProperty("mail.imap.parse.debug", "true");
     }
