@@ -5288,6 +5288,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     }
 
+                    EntityLog.log(context, "Sharing " + intent +
+                            " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
+
                     PackageManager pm = context.getPackageManager();
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R &&
                             intent.resolveActivity(pm) == null) // system whitelisted
