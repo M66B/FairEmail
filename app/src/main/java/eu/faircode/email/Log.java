@@ -2212,9 +2212,10 @@ public class Log {
         long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            for (SimpleTask task : SimpleTask.getList()) {
+            for (SimpleTask task : SimpleTask.getList())
                 size += write(os, String.format("%s\r\n", task.toString()));
-            }
+            for (TwoStateOwner owner : TwoStateOwner.getList())
+                size += write(os, String.format("%s\r\n", owner.toString()));
         }
 
         db.attachment().setDownloaded(attachment.id, size);
