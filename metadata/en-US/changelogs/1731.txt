@@ -7,6 +7,7 @@
 ### Next version
 
 * Added theme option for default light original message view
+* Unified color based on account folder colors
 
 ### 1.1731
 

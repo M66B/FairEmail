@@ -98,6 +98,11 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             } else
                 ivItem.setImageResource(EntityFolder.getIcon(folder.type));
 
+            if (folder.color != null && folder.colorCount == 1)
+                ivItem.setColorFilter(folder.color);
+            else
+                ivItem.clearColorFilter();
+
             long count;
             if (EntityFolder.DRAFTS.equals(folder.type) ||
                     EntityFolder.OUTBOX.equals(folder.type))
