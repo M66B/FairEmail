@@ -6,6 +6,7 @@
 
 ### Next version
 
+* Added collapsing of navigation menu folders
 * Added theme option for default light original message view
 * Unified color based on account folder colors
 

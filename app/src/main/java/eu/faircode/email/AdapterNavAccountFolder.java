@@ -65,6 +65,8 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     private int colorWarning;
 
     private boolean expanded = true;
+    private boolean folders = true;
+    private List<TupleAccountFolder> all = new ArrayList<>();
     private List<TupleAccountFolder> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -276,7 +278,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         setHasStableIds(false);
     }
 
-    public void set(@NonNull List<TupleAccountFolder> accounts, boolean expanded) {
+    public void set(@NonNull List<TupleAccountFolder> accounts, boolean expanded, boolean folders) {
         Log.i("Set nav accounts=" + accounts.size());
 
         if (accounts.size() > 0) {
@@ -328,6 +330,14 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             });
         }
 
+        all = accounts;
+        if (!folders) {
+            accounts = new ArrayList<>();
+            for (TupleAccountFolder item : all)
+                if (item.folderName == null)
+                    accounts.add(item);
+        }
+
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
 
         this.expanded = expanded;
@@ -360,6 +370,20 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
         notifyDataSetChanged();
+    }
+
+    public void setFolders(boolean folders) {
+        if (this.folders != folders) {
+            this.folders = folders;
+            set(all, expanded, folders);
+        }
+    }
+
+    public boolean hasFolders() {
+        for (TupleAccountFolder item : all)
+            if (item.folderName != null)
+                return true;
+        return false;
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

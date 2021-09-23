@@ -427,13 +427,30 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onClick(View v) {
                 boolean nav_account = prefs.getBoolean("nav_account", true);
                 boolean nav_folder = prefs.getBoolean("nav_folder", true);
-                nav_account = !(nav_account || nav_folder);
+                boolean nav_quick = prefs.getBoolean("nav_quick", true);
+                boolean expanded = (nav_account || nav_folder);
+
+                if (expanded && nav_quick && adapterNavAccount.hasFolders())
+                    nav_quick = false;
+                else {
+                    expanded = !expanded;
+                    if (expanded)
+                        nav_quick = true;
+                }
+
                 prefs.edit()
-                        .putBoolean("nav_account", nav_account)
-                        .putBoolean("nav_folder", false)
+                        .putBoolean("nav_account", expanded)
+                        .putBoolean("nav_folder", expanded)
+                        .putBoolean("nav_quick", nav_quick)
                         .apply();
-                ibExpanderAccount.setImageLevel(nav_account ? 0 /* less */ : 1 /* more */);
-                rvAccount.setVisibility(nav_account ? View.VISIBLE : View.GONE);
+
+                adapterNavAccount.setFolders(nav_quick);
+
+                if (expanded && nav_quick && adapterNavAccount.hasFolders())
+                    ibExpanderAccount.setImageLevel(2 /* unfold less */);
+                else
+                    ibExpanderAccount.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
+                rvAccount.setVisibility(expanded ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -736,13 +753,25 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Live data
 
         DB db = DB.getInstance(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         db.account().liveAccountFolder().observe(owner, new Observer<List<TupleAccountFolder>>() {
             @Override
             public void onChanged(@Nullable List<TupleAccountFolder> accounts) {
                 if (accounts == null)
                     accounts = new ArrayList<>();
-                adapterNavAccount.set(accounts, nav_expanded);
+
+                boolean nav_account = prefs.getBoolean("nav_account", true);
+                boolean nav_folder = prefs.getBoolean("nav_folder", true);
+                boolean nav_quick = prefs.getBoolean("nav_quick", true);
+                boolean expanded = (nav_account || nav_folder);
+
+                adapterNavAccount.set(accounts, nav_expanded, nav_quick);
+
+                if (expanded && nav_quick && adapterNavAccount.hasFolders())
+                    ibExpanderAccount.setImageLevel(2 /* unfold less */);
+                else
+                    ibExpanderAccount.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
             }
         });
 
