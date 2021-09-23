@@ -170,7 +170,16 @@ public class EntityAccount extends EntityOrder implements Serializable {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);
         int pollInterval = ServiceSynchronize.getPollInterval(context);
-        return (!enabled || this.ondemand || (pollInterval > 0 && !this.poll_exempted));
+        return (!enabled || this.ondemand || (pollInterval > 0 && !isExempted(context)));
+    }
+
+    boolean isExempted(Context context) {
+        if (Helper.isTarget(context, Build.VERSION_CODES.R)) {
+            Boolean ignoring = Helper.isIgnoringOptimizations(context);
+            if (ignoring != null && !ignoring)
+                return false;
+        }
+        return this.poll_exempted;
     }
 
     String getProtocol() {

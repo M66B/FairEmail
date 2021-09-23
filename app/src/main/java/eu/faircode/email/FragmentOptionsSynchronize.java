@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -449,7 +450,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
         swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
 
-        int pollInterval = ServiceSynchronize.getPollInterval(getContext());
+        int pollInterval = prefs.getInt("poll_interval", 0);
         int[] pollIntervalValues = getResources().getIntArray(R.array.pollIntervalValues);
         for (int pos = 0; pos < pollIntervalValues.length; pos++)
             if (pollIntervalValues[pos] == pollInterval) {

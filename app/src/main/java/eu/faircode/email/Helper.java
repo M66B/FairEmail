@@ -34,6 +34,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -430,6 +431,22 @@ public class Helper {
             return null;
 
         return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+    }
+
+    private static Integer targetSdk = null;
+
+    static boolean isTarget(Context context, int sdk) {
+        if (targetSdk == null)
+            try {
+                PackageManager pm = context.getPackageManager();
+                ApplicationInfo ai = pm.getApplicationInfo(BuildConfig.APPLICATION_ID, 0);
+                targetSdk = ai.targetSdkVersion;
+            } catch (Throwable ex) {
+                Log.e(ex);
+                targetSdk = Build.VERSION.SDK_INT;
+            }
+
+        return (targetSdk >= sdk);
     }
 
     static Integer getBatteryLevel(Context context) {

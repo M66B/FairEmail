@@ -2145,7 +2145,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         int pollInterval = getPollInterval(this);
                         long now = new Date().getTime();
                         long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
-                        long maxDelayed = (pollInterval > 0 && !account.poll_exempted
+                        long maxDelayed = (pollInterval > 0 && !account.isExempted(this)
                                 ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;
                         if (delayed > maxDelayed &&
                                 state.getBackoff() >= CONNECT_BACKOFF_ALARM_START * 60) {
@@ -2408,7 +2408,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 db.endTransaction();
             }
             prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
-        } else if (pollInterval <= 60 && account.poll_exempted) {
+        } else if (pollInterval <= 60 && account.isExempted(this)) {
             db.account().setAccountPollExempted(account.id, false);
             eval(this, "Optimize=" + reason);
         }
@@ -2609,7 +2609,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             List<TupleAccountNetworkState> result = new ArrayList<>();
             for (TupleAccountState accountState : accountStates)
                 result.add(new TupleAccountNetworkState(
-                        enabled && (pollInterval == 0 || accountState.poll_exempted) && scheduled,
+                        enabled && (pollInterval == 0 || accountState.isExempted(ServiceSynchronize.this)) && scheduled,
                         command,
                         networkState,
                         accountState));
@@ -2721,14 +2721,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static int getPollInterval(Context context) {
+        if (Helper.isTarget(context, Build.VERSION_CODES.R)) {
+            Boolean ignoring = Helper.isIgnoringOptimizations(context);
+            if (ignoring != null && !ignoring)
+                return 15;
+        }
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int poll_interval = prefs.getInt("poll_interval", 0); // minutes
-        //if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
-        //    Boolean ignoring = Helper.isIgnoringOptimizations(context);
-        //    if (ignoring != null && !ignoring)
-        //        poll_interval = 15;
-        //}
-        return poll_interval;
+        return prefs.getInt("poll_interval", 0); // minutes
     }
 
     static long[] getSchedule(Context context) {
