@@ -1783,8 +1783,26 @@ public class Helper {
         if (!TextUtils.isEmpty(pin))
             return true;
 
-        BiometricManager bm = BiometricManager.from(context);
-        return (bm.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS);
+        try {
+            BiometricManager bm = BiometricManager.from(context);
+            return (bm.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS);
+        } catch (Throwable ex) {
+            /*
+                java.lang.SecurityException: eu.faircode.email from uid 10377 not allowed to perform USE_FINGERPRINT
+                  at android.os.Parcel.createException(Parcel.java:1953)
+                  at android.os.Parcel.readException(Parcel.java:1921)
+                  at android.os.Parcel.readException(Parcel.java:1871)
+                  at android.hardware.fingerprint.IFingerprintService$Stub$Proxy.isHardwareDetected(IFingerprintService.java:460)
+                  at android.hardware.fingerprint.FingerprintManager.isHardwareDetected(FingerprintManager.java:792)
+                  at androidx.core.hardware.fingerprint.FingerprintManagerCompat.isHardwareDetected(SourceFile:3)
+                  at androidx.biometric.BiometricManager.canAuthenticateWithFingerprint(SourceFile:3)
+                  at androidx.biometric.BiometricManager.canAuthenticateWithFingerprintOrUnknownBiometric(SourceFile:2)
+                  at androidx.biometric.BiometricManager.canAuthenticateCompat(SourceFile:10)
+                  at androidx.biometric.BiometricManager.canAuthenticate(SourceFile:5)
+             */
+            Log.e(ex);
+            return false;
+        }
     }
 
     static boolean shouldAuthenticate(Context context) {
