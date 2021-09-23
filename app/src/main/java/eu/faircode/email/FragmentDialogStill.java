@@ -49,7 +49,7 @@ public class FragmentDialogStill extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
         TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);
         TextView tvDozeAndroid = dview.findViewById(R.id.tvDozeAndroid);
-        ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
+        TextView tvInexact = dview.findViewById(R.id.tvInexact);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         Group grp2 = dview.findViewById(R.id.grp2);
         Group grp3 = dview.findViewById(R.id.grp3);
@@ -59,13 +59,6 @@ public class FragmentDialogStill extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Helper.view(context, Uri.parse(Helper.DONTKILL_URI), true);
-            }
-        });
-
-        ibInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.DONTKILL_URI), true);
             }
         });
 
@@ -80,11 +73,12 @@ public class FragmentDialogStill extends FragmentDialogBase {
         boolean hasPermissions = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         Boolean isIgnoring = Helper.isIgnoringOptimizations(context);
         boolean isKilling = Helper.isKilling() && !(isIgnoring == null || isIgnoring);
-        boolean isRequired = Helper.isDozeRequired() && !(isIgnoring == null || isIgnoring);
+        boolean isOptimizing = Helper.isOptimizing12(context);
+        boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
 
-        tvDozeDevice.setVisibility(isKilling && !isRequired ? View.VISIBLE : View.GONE);
-        tvDozeAndroid.setVisibility(isRequired ? View.VISIBLE : View.GONE);
-        cbNotAgain.setVisibility(isRequired ? View.GONE : View.VISIBLE);
+        tvDozeDevice.setVisibility(isKilling && !isOptimizing ? View.VISIBLE : View.GONE);
+        tvDozeAndroid.setVisibility(isOptimizing ? View.VISIBLE : View.GONE);
+        tvInexact.setVisibility(canSchedule ? View.GONE : View.VISIBLE);
 
         grp2.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
         grp3.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
@@ -96,10 +90,8 @@ public class FragmentDialogStill extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         sendResult(Activity.RESULT_OK);
                     }
-                });
-
-        if (!isRequired)
-            builder.setNegativeButton(android.R.string.cancel, null);
+                })
+                .setNegativeButton(android.R.string.cancel, null);
 
         return builder.create();
     }

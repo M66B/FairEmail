@@ -4189,15 +4189,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
-        if (!Helper.isDozeRequired())
-            return false;
-
         final Context context = getContext();
-        Boolean isIgnoring = Helper.isIgnoringOptimizations(context);
-        if (isIgnoring == null || isIgnoring)
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
+        if (!setup_reminder)
             return false;
 
-        final Snackbar snackbar = Snackbar.make(view, R.string.title_setup_doze, Snackbar.LENGTH_INDEFINITE)
+        boolean isOptimizing = Helper.isOptimizing12(context);
+        boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
+
+        if (!isOptimizing && canSchedule)
+            return false;
+
+        final Snackbar snackbar = Snackbar.make(view,
+                canSchedule ? R.string.title_setup_doze_12 : R.string.title_setup_alarm_12,
+                Snackbar.LENGTH_INDEFINITE)
                 .setGestureInsetBottomIgnored(true);
         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
             @Override

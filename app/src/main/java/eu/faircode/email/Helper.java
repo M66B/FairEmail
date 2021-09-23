@@ -433,20 +433,12 @@ public class Helper {
         return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
     }
 
-    private static Integer targetSdk = null;
+    static boolean isOptimizing12(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
+            return false;
 
-    static boolean isTarget(Context context, int sdk) {
-        if (targetSdk == null)
-            try {
-                PackageManager pm = context.getPackageManager();
-                ApplicationInfo ai = pm.getApplicationInfo(BuildConfig.APPLICATION_ID, 0);
-                targetSdk = ai.targetSdkVersion;
-            } catch (Throwable ex) {
-                Log.e(ex);
-                targetSdk = Build.VERSION.SDK_INT;
-            }
-
-        return (targetSdk >= sdk);
+        Boolean ignoring = Helper.isIgnoringOptimizations(context);
+        return (ignoring != null && !ignoring);
     }
 
     static Integer getBatteryLevel(Context context) {

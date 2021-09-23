@@ -44,7 +44,7 @@ public class AlarmManagerCompatEx {
             AlarmManagerCompat.setAndAllowWhileIdle(am, type, trigger, pi);
     }
 
-    static boolean hasExactAlarms(Context context){
+    static boolean hasExactAlarms(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean exact_alarms = prefs.getBoolean("exact_alarms", true);
         return (exact_alarms && canScheduleExactAlarms(context));
@@ -53,10 +53,13 @@ public class AlarmManagerCompatEx {
     static boolean canScheduleExactAlarms(Context context) {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R)
             return true;
-        else {
+        try {
             // https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             return am.canScheduleExactAlarms();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
         }
     }
 }

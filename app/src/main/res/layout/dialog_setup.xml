@@ -89,7 +89,7 @@
             android:id="@+id/tvDozeDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
             android:drawableTint="?attr/colorWarning"
@@ -104,24 +104,25 @@
             android:id="@+id/tvDozeAndroid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_setup_doze_android"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_doze_12"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDozeDevice" />
 
-        <ImageButton
-            android:id="@+id/ibInfo"
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvInexact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:contentDescription="@string/title_info"
-            android:tooltipText="@string/title_info"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_alarm_12"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDozeAndroid"
-            app:srcCompat="@drawable/twotone_info_24" />
+            app:layout_constraintTop_toBottomOf="@id/tvDozeAndroid" />
 
         <CheckBox
             android:id="@+id/cbNotAgain"
@@ -131,7 +132,7 @@
             android:text="@string/title_no_ask_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ibInfo" />
+            app:layout_constraintTop_toBottomOf="@id/tvInexact" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grp2"
@@ -143,6 +144,6 @@
             android:id="@+id/grp3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="three,title3,tvDoze,ibInfo" />
+            app:constraint_referenced_ids="three,title3,tvDoze" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

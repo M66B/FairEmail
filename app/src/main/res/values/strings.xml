@@ -226,7 +226,8 @@
     <string name="title_setup_doze_battery">High battery usage?</string>
     <string name="title_setup_doze_stopped">Sync stopped?</string>
     <string name="title_setup_doze_device">This is probably required for this device</string>
-    <string name="title_setup_doze_android">This is required for this Android version</string>
+    <string name="title_setup_doze_12">Push messages are disabled</string>
+    <string name="title_setup_alarm_12">The app won\'t work</string>
     <string name="title_setup_inexact">Alarms &amp; reminders are disabled</string>
     <string name="title_setup_background">Background restrictions are enabled</string>
     <string name="title_setup_data">Data saver is enabled</string>
