@@ -313,6 +313,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(172) How can I import contacts?](#user-content-faq172)
 * [(173) What is the difference between Play store / GitHub / F-Droid version?](#user-content-faq173)
 * [(174) Is auto discovery supported?](#user-content-faq174)
+* [(175) Why should battery optimizations be disabled?](#user-content-faq175)
 
 [I have another question.](#user-content-get-support)
 
@@ -3922,6 +3923,20 @@ There is no auto discovery for POP3.
 
 <br />
 
+<a name="faq175"></a>
+**(175) Why should battery optimizations be disabled?**
+
+If battery optimizations ([Doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)) are enabled,
+Android might stop the app, which will result in not sending and receiving messages anymore.
+
+It shouldn't be necessary to disable battery optimizations for Android version 11 or earlier,
+but unfortunately modifications by manufacturers often [require it anyway](https://dontkillmyapp.com/).
+
+For Android 12 or later, battery optimizations need to be disabled to receive push messages
+due to [strict foreground restrictions](https://developer.android.com/about/versions/12/foreground-services).
+If battery optimizations are enabled, the app will periodically check for messages.
+
+<br />
 
 <h2><a name="get-support"></a>Get support</h2>
 

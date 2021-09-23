@@ -94,6 +94,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvDozeDone;
     private Button btnDoze;
     private TextView tvDoze12;
+    private ImageButton ibDoze;
 
     private Button btnInexactAlarms;
     private Button btnBackgroundRestricted;
@@ -160,6 +161,7 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
         tvDoze12 = view.findViewById(R.id.tvDoze12);
+        ibDoze = view.findViewById(R.id.ibDoze);
 
         btnInexactAlarms = view.findViewById(R.id.btnInexactAlarms);
         btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
@@ -445,6 +447,13 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 new FragmentDialogDoze().show(getParentFragmentManager(), "setup:doze");
+            }
+        });
+
+        ibDoze.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 175, true);
             }
         });
 
