@@ -1085,10 +1085,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain) ||
                             (Boolean.FALSE.equals(message.mx) && check_mx) ||
                             (Boolean.TRUE.equals(message.blocklist) && check_blocklist));
-            int auths = (check_authentication &&
-                    Boolean.TRUE.equals(message.dkim) ? 1 : 0) +
-                    (Boolean.TRUE.equals(message.spf) ? 1 : 0) +
-                    (Boolean.TRUE.equals(message.dmarc) ? 1 : 0);
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
             // Text size
@@ -1173,7 +1169,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setImageLevel(0);
                 ibAuth.setImageTintList(ColorStateList.valueOf(colorWarning));
                 ibAuth.setVisibility(View.VISIBLE);
-            } else if (authentication_indicator) {
+            } else if (authentication && authentication_indicator) {
+                int auths =
+                        (Boolean.TRUE.equals(message.dkim) ? 1 : 0) +
+                                (Boolean.TRUE.equals(message.spf) ? 1 : 0) +
+                                (Boolean.TRUE.equals(message.dmarc) ? 1 : 0);
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         auths < 3 ? colorControlNormal : colorVerified));
@@ -1703,7 +1703,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (main.isVerified() || BuildConfig.DEBUG) {
                         ibVerified.setVisibility(View.VISIBLE);
 
-                        if (authentication_indicator)
+                        if (authentication && authentication_indicator)
                             ibAuth.setVisibility(View.GONE);
                     }
                 }
@@ -5910,8 +5910,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.inline = prefs.getBoolean("inline_images", false);
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
-        this.authentication_indicator = (this.authentication &&
-                prefs.getBoolean("authentication_indicator", false));
+        this.authentication_indicator = prefs.getBoolean("authentication_indicator", false);
         this.language_detection = prefs.getBoolean("language_detection", false);
         this.autoclose_unseen = prefs.getBoolean("autoclose_unseen", false);
 
