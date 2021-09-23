@@ -914,7 +914,9 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
         for (Element q : document.select("q")) {
             q.tagName("a");
-            q.attr("href", q.attr("cite"));
+            String cite = q.attr("cite");
+            if (!TextUtils.isEmpty(cite) && !cite.trim().startsWith("#"))
+                q.attr("href", cite);
             q.removeAttr("cite");
         }
 
@@ -1159,7 +1161,7 @@ public class HtmlHelper {
                         while (p != null && !linked)
                             if ("a".equals(p.tagName())) {
                                 String href = p.attr("href");
-                                if (TextUtils.isEmpty(href) || href.equals("#"))
+                                if (TextUtils.isEmpty(href))
                                     break;
                                 if (!TextUtils.isEmpty(p.text()))
                                     break;
@@ -1235,6 +1237,14 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    static void removeRelativeLinks(Document document){
+        for (Element a : document.select("a"))
+            if (a.attr("href").trim().startsWith("#")) {
+                a.tagName("span");
+                a.removeAttr("href");
+            }
     }
 
     static void autoLink(Document document) {

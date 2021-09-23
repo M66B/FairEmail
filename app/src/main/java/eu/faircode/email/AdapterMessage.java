@@ -2520,6 +2520,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                     HtmlHelper.cleanup(document);
+                    HtmlHelper.removeRelativeLinks(document);
 
                     // Check for inline encryption
                     boolean iencrypted = HtmlHelper.contains(document, new String[]{
