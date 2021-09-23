@@ -708,6 +708,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_doze_12"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
@@ -727,11 +730,14 @@
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvInexactAlarms"
+                    android:id="@+id/tvInexactAlarmsWarning"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_setup_inexact"
+                    android:drawableStart="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
+                    android:text="@string/title_setup_alarm_12"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
@@ -739,16 +745,16 @@
                     app:layout_constraintTop_toBottomOf="@id/ibDoze" />
 
                 <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvInexactAlarmsWarning"
+                    android:id="@+id/tvInexactAlarms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="@string/title_setup_alarm_12"
+                    android:text="@string/title_setup_inexact"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvInexactAlarms" />
+                    app:layout_constraintTop_toBottomOf="@id/tvInexactAlarmsWarning" />
 
                 <Button
                     android:id="@+id/btnInexactAlarms"
@@ -761,13 +767,16 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_setup_manage"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvInexactAlarmsWarning" />
+                    app:layout_constraintTop_toBottomOf="@id/tvInexactAlarms" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBackgroundRestricted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_background"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
@@ -793,6 +802,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_data"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?attr/colorWarning"
@@ -818,7 +830,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_warning_24"
+                    android:drawableStart="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
                     android:drawableTint="?attr/colorWarning"
                     android:text="@string/title_setup_stamina"
