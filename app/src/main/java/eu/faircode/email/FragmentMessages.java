@@ -4115,11 +4115,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Long folder = args.getLong("folder");
                         String type = args.getString("type");
 
-                        if (folder < 0)
-                            folder = null;
-
                         DB db = DB.getInstance(context);
-                        db.message().ignoreAll(null, folder, type);
+                        if (folder < 0) {
+                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                            if (accounts != null)
+                                for (EntityAccount account : accounts)
+                                    db.message().ignoreAll(account.id, null, type);
+                        } else
+                            db.message().ignoreAll(null, folder, type);
+
                         return null;
                     }
 
