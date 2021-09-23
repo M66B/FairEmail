@@ -2029,37 +2029,55 @@ class Core {
         // Get remote folders
         long start = new Date().getTime();
         List<Folder> ifolders = new ArrayList<>();
-        ifolders.addAll(Arrays.asList(defaultFolder.list("*")));
-
         List<String> subscription = new ArrayList<>();
+
+        Folder[] personal;
         try {
-            Folder[] isubscribed = defaultFolder.listSubscribed("*");
-            for (Folder ifolder : isubscribed) {
-                String fullName = ifolder.getFullName();
-                if (TextUtils.isEmpty(fullName)) {
-                    Log.w("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
-                    continue;
+            personal = istore.getPersonalNamespaces();
+            if (personal.length == 0)
+                throw new MessagingException("Empty personal namespaces");
+        } catch (MessagingException ex) {
+            Log.e(ex);
+            personal = new Folder[]{istore.getDefaultFolder()};
+        }
+
+        for (Folder namespace : personal) {
+            EntityLog.log(context, "Personal namespace=" + namespace.getFullName());
+            if (namespace.getSeparator() == separator) {
+                String pattern = namespace.getFullName() + "*";
+                ifolders.addAll(Arrays.asList(defaultFolder.list(pattern)));
+
+                try {
+                    Folder[] isubscribed = defaultFolder.listSubscribed(pattern);
+                    for (Folder ifolder : isubscribed) {
+                        String fullName = ifolder.getFullName();
+                        if (TextUtils.isEmpty(fullName)) {
+                            Log.w("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
+                            continue;
+                        }
+                        subscription.add(fullName);
+                        Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
+                    }
+                } catch (Throwable ex) {
+                    /*
+                        06-21 10:02:38.035  9927 10024 E fairemail: java.lang.NullPointerException: Folder name is null
+                        06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:372)
+                        06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:411)
+                        06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPStore.newIMAPFolder(SourceFile:1809)
+                        06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.DefaultFolder.listSubscribed(SourceFile:89)
+                     */
+                    Log.e(account.name, ex);
                 }
-                subscription.add(fullName);
-                Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
-            }
-        } catch (Throwable ex) {
-            /*
-                06-21 10:02:38.035  9927 10024 E fairemail: java.lang.NullPointerException: Folder name is null
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:372)
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:411)
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPStore.newIMAPFolder(SourceFile:1809)
-                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.DefaultFolder.listSubscribed(SourceFile:89)
-             */
-            Log.e(account.name, ex);
+            } else
+                Log.e("Personal namespace separator=" + namespace.getSeparator() + " default=" + separator);
         }
 
         if (sync_shared_folders) {
             // https://tools.ietf.org/html/rfc2342
-            Folder[] namespaces = istore.getSharedNamespaces();
-            EntityLog.log(context, "Namespaces=" + namespaces.length);
-            for (Folder namespace : namespaces) {
-                EntityLog.log(context, "Namespace=" + namespace.getFullName());
+            Folder[] shared = istore.getSharedNamespaces();
+            EntityLog.log(context, "Shared namespaces=" + shared.length);
+            for (Folder namespace : shared) {
+                EntityLog.log(context, "Shared namespace=" + namespace.getFullName());
                 if (namespace.getSeparator() == separator) {
                     try {
                         ifolders.addAll(Arrays.asList(namespace.list("*")));
@@ -2082,7 +2100,7 @@ class Core {
                         Log.e(account.name, ex);
                     }
                 } else
-                    Log.e("Namespace separator=" + namespace.getSeparator() + " default=" + separator);
+                    Log.e("Shared namespace separator=" + namespace.getSeparator() + " default=" + separator);
             }
         }
 
