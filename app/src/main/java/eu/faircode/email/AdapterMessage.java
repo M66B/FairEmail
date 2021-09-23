@@ -5222,7 +5222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String link = "message://" + BuildConfig.APPLICATION_ID + "/" + message.id;
 
                     Document document = JsoupEx.parse(file);
-                    HtmlHelper.quoteLimit(document, MAX_QUOTE_LEVEL);
+                    HtmlHelper.truncate(document, HtmlHelper.MAX_FULL_TEXT_SIZE / 2);
 
                     Element a = document.createElement("a");
                     a.text(context.getString(R.string.app_name));
