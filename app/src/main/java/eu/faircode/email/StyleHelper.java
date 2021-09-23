@@ -60,12 +60,28 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 public class StyleHelper {
+    private static final List<Class> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
+            StyleSpan.class,
+            UnderlineSpan.class,
+            RelativeSizeSpan.class,
+            BackgroundColorSpan.class,
+            ForegroundColorSpan.class,
+            AlignmentSpan.class,
+            BulletSpan.class,
+            QuoteSpan.class, IndentSpan.class,
+            StrikethroughSpan.class,
+            URLSpan.class,
+            TypefaceSpan.class
+    ));
+
     static boolean apply(int action, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
         Log.i("Style action=" + action);
 
@@ -633,15 +649,12 @@ public class StyleHelper {
                             e++;
 
                         for (Object span : edit.getSpans(start, e, Object.class)) {
-                            if (span instanceof ImageSpan || span instanceof SuggestionSpan)
+                            if (!CLEAR_STYLES.contains(span.getClass()))
                                 continue;
 
                             int sstart = edit.getSpanStart(span);
                             int send = edit.getSpanEnd(span);
                             int flags = edit.getSpanFlags(span);
-
-                            if ((flags & Spanned.SPAN_COMPOSING) != 0)
-                                continue;
 
                             if (sstart < start && send > start)
                                 setSpan(edit, span, sstart, start, flags, etBody.getContext());
@@ -703,13 +716,8 @@ public class StyleHelper {
                 Log.breadcrumb("style", "action", "clear/all");
 
                 for (Object span : edit.getSpans(0, etBody.length(), Object.class)) {
-                    if (span instanceof ImageSpan || span instanceof SuggestionSpan)
+                    if (!CLEAR_STYLES.contains(span.getClass()))
                         continue;
-
-                    int flags = edit.getSpanFlags(span);
-                    if ((flags & Spanned.SPAN_COMPOSING) != 0)
-                        continue;
-
                     edit.removeSpan(span);
                 }
 
