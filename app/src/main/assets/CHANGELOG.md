@@ -4,11 +4,13 @@
 
 ### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
-### Next version
+### 1.1732
 
 * Added collapsing of navigation menu folders
 * Added theme option for default light original message view
-* Unified color based on account folder colors
+* Unified colors based on account folder colors
+* Showing folders of all personal namespaces
+* Improved Android 12 support
 * Fixed all reported bugs
 
 ### 1.1731
