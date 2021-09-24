@@ -29,6 +29,7 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 
 @Entity(
@@ -173,7 +174,13 @@ public class EntityLog {
     public boolean equals(Object obj) {
         if (obj instanceof EntityLog) {
             EntityLog other = (EntityLog) obj;
-            return (this.time.equals(other.time) && this.data.equals(other.data));
+            return (this.id.equals(other.id) &&
+                    this.time.equals(other.time) &&
+                    this.type.equals(other.type) &&
+                    Objects.equals(this.account, other.account) &&
+                    Objects.equals(this.folder, other.folder) &&
+                    Objects.equals(this.message, other.message) &&
+                    this.data.equals(other.data));
         } else
             return false;
     }
