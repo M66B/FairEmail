@@ -54,17 +54,19 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
+        final Context context = getContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String theme = prefs.getString("theme", "blue_orange_system");
+        boolean default_light = prefs.getBoolean("default_light", false);
+
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_theme, null);
         rgTheme = dview.findViewById(R.id.rgTheme);
         swReverse = dview.findViewById(R.id.swReverse);
         rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
+        tvSystem = dview.findViewById(R.id.tvSystem);
         swBlack = dview.findViewById(R.id.swBlack);
         swHtmlLight = dview.findViewById(R.id.swHtmlLight);
-        tvSystem = dview.findViewById(R.id.tvSystem);
         tvMore = dview.findViewById(R.id.tvMore);
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String theme = prefs.getString("theme", "blue_orange_system");
 
         rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -112,8 +114,6 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             rgThemeOptions.check(R.id.rbThemeLight);
 
         swBlack.setChecked(black);
-
-        boolean default_light = prefs.getBoolean("default_light", false);
         swHtmlLight.setChecked(default_light);
 
         switch (theme) {
