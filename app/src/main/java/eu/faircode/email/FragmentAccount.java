@@ -744,7 +744,7 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
-                    EntityFolder.guessTypes(result.folders, iservice.getStore().getDefaultFolder().getSeparator());
+                    EntityFolder.guessTypes(result.folders);
 
                     if (result.folders.size() > 0)
                         Collections.sort(result.folders, result.folders.get(0).getComparator(null));

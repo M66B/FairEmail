@@ -368,7 +368,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 ? textColorPrimary : textColorSecondary));
                 ibSync.setEnabled(folder.last_sync != null);
 
-                tvKeywords.setText(BuildConfig.DEBUG ? TextUtils.join(" ", folder.keywords) : null);
+                tvKeywords.setText(BuildConfig.DEBUG ?
+                        (folder.separator == null ? "" : folder.separator + " ") +
+                                (folder.namespace == null ? "" : folder.namespace + " ") +
+                                TextUtils.join(" ", folder.keywords) : null);
                 tvKeywords.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
 
                 tvFlagged.setText(NF.format(folder.flagged));

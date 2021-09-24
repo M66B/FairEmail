@@ -67,6 +67,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.Namespaces;
 import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.pop3.POP3Folder;
 import com.sun.mail.pop3.POP3Message;
@@ -2022,13 +2023,10 @@ class Core {
 
         // Get default folder
         Folder defaultFolder = istore.getDefaultFolder();
-        char separator = defaultFolder.getSeparator();
-        EntityLog.log(context, account.name + " folder separator=" + separator);
-        db.account().setFolderSeparator(account.id, separator);
 
         // Get remote folders
         long start = new Date().getTime();
-        List<Folder> ifolders = new ArrayList<>();
+        List<Pair<Folder, Folder>> ifolders = new ArrayList<>();
         List<String> subscription = new ArrayList<>();
 
         Folder[] personal;
@@ -2043,22 +2041,23 @@ class Core {
 
         for (Folder namespace : personal) {
             EntityLog.log(context, "Personal namespace=" + namespace.getFullName());
-            if (namespace.getSeparator() == separator) {
-                String pattern = namespace.getFullName() + "*";
-                ifolders.addAll(Arrays.asList(defaultFolder.list(pattern)));
 
-                try {
-                    Folder[] isubscribed = defaultFolder.listSubscribed(pattern);
-                    for (Folder ifolder : isubscribed) {
-                        String fullName = ifolder.getFullName();
-                        if (TextUtils.isEmpty(fullName)) {
-                            Log.w("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
-                            continue;
-                        }
-                        subscription.add(fullName);
-                        Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
+            String pattern = namespace.getFullName() + "*";
+            for (Folder ifolder : defaultFolder.list(pattern))
+                ifolders.add(new Pair<>(namespace, ifolder));
+
+            try {
+                Folder[] isubscribed = defaultFolder.listSubscribed(pattern);
+                for (Folder ifolder : isubscribed) {
+                    String fullName = ifolder.getFullName();
+                    if (TextUtils.isEmpty(fullName)) {
+                        Log.w("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
+                        continue;
                     }
-                } catch (Throwable ex) {
+                    subscription.add(fullName);
+                    Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
+                }
+            } catch (Throwable ex) {
                     /*
                         06-21 10:02:38.035  9927 10024 E fairemail: java.lang.NullPointerException: Folder name is null
                         06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:372)
@@ -2066,41 +2065,40 @@ class Core {
                         06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPStore.newIMAPFolder(SourceFile:1809)
                         06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.DefaultFolder.listSubscribed(SourceFile:89)
                      */
-                    Log.e(account.name, ex);
-                }
-            } else
-                Log.e("Personal namespace separator=" + namespace.getSeparator() + " default=" + separator);
+                Log.e(account.name, ex);
+            }
         }
 
         if (sync_shared_folders) {
             // https://tools.ietf.org/html/rfc2342
             Folder[] shared = istore.getSharedNamespaces();
             EntityLog.log(context, "Shared namespaces=" + shared.length);
+
             for (Folder namespace : shared) {
                 EntityLog.log(context, "Shared namespace=" + namespace.getFullName());
-                if (namespace.getSeparator() == separator) {
-                    try {
-                        ifolders.addAll(Arrays.asList(namespace.list("*")));
-                    } catch (FolderNotFoundException ex) {
-                        Log.w(ex);
-                    }
 
-                    try {
-                        Folder[] isubscribed = namespace.listSubscribed("*");
-                        for (Folder ifolder : isubscribed) {
-                            String fullName = ifolder.getFullName();
-                            if (TextUtils.isEmpty(fullName)) {
-                                Log.e("Subscribed folder name empty namespace=" + namespace.getFullName());
-                                continue;
-                            }
-                            subscription.add(fullName);
-                            Log.i("Subscribed " + namespace.getFullName() + ":" + fullName);
+                String pattern = namespace.getFullName() + "*";
+                try {
+                    for (Folder ifolder : defaultFolder.list(pattern))
+                        ifolders.add(new Pair<>(namespace, ifolder));
+                } catch (FolderNotFoundException ex) {
+                    Log.w(ex);
+                }
+
+                try {
+                    Folder[] isubscribed = namespace.listSubscribed(pattern);
+                    for (Folder ifolder : isubscribed) {
+                        String fullName = ifolder.getFullName();
+                        if (TextUtils.isEmpty(fullName)) {
+                            Log.e("Subscribed folder name empty namespace=" + namespace.getFullName());
+                            continue;
                         }
-                    } catch (Throwable ex) {
-                        Log.e(account.name, ex);
+                        subscription.add(fullName);
+                        Log.i("Subscribed " + namespace.getFullName() + ":" + fullName);
                     }
-                } else
-                    Log.e("Shared namespace separator=" + namespace.getSeparator() + " default=" + separator);
+                } catch (Throwable ex) {
+                    Log.e(account.name, ex);
+                }
             }
         }
 
@@ -2108,17 +2106,16 @@ class Core {
 
         Log.i("Remote folder count=" + ifolders.size() +
                 " subscriptions=" + subscription.size() +
-                " separator=" + separator +
                 " fetched in " + duration + " ms");
 
         // Check if system folders were renamed
         try {
-            for (Folder ifolder : ifolders) {
-                String fullName = ifolder.getFullName();
+            for (Pair<Folder, Folder> ifolder : ifolders) {
+                String fullName = ifolder.second.getFullName();
                 if (TextUtils.isEmpty(fullName))
                     continue;
 
-                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                String[] attrs = ((IMAPFolder) ifolder.second).getAttributes();
                 String type = EntityFolder.getType(attrs, fullName, false);
                 if (type != null &&
                         !EntityFolder.USER.equals(type) &&
@@ -2161,14 +2158,14 @@ class Core {
 
         Map<String, EntityFolder> nameFolder = new HashMap<>();
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
-        for (Folder ifolder : ifolders) {
-            String fullName = ifolder.getFullName();
+        for (Pair<Folder, Folder> ifolder : ifolders) {
+            String fullName = ifolder.second.getFullName();
             if (TextUtils.isEmpty(fullName)) {
                 Log.e("Folder name empty");
                 continue;
             }
 
-            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+            String[] attrs = ((IMAPFolder) ifolder.second).getAttributes();
             String type = EntityFolder.getType(attrs, fullName, false);
             boolean subscribed = subscription.contains(fullName);
 
@@ -2180,8 +2177,8 @@ class Core {
                 if (attr.equalsIgnoreCase("\\NoInferiors"))
                     inferiors = false;
             }
-            selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
-            inferiors = inferiors && ((ifolder.getType() & IMAPFolder.HOLDS_FOLDERS) != 0);
+            selectable = selectable && ((ifolder.second.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
+            inferiors = inferiors && ((ifolder.second.getType() & IMAPFolder.HOLDS_FOLDERS) != 0);
 
             if (EntityFolder.INBOX.equals(type))
                 selectable = true;
@@ -2202,12 +2199,15 @@ class Core {
                     folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         EntityFolder parent = null;
+                        char separator = ifolder.first.getSeparator();
                         int sep = fullName.lastIndexOf(separator);
                         if (sep > 0)
                             parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
 
                         folder = new EntityFolder();
                         folder.account = account.id;
+                        folder.namespace = ifolder.first.getFullName();
+                        folder.separator = separator;
                         folder.name = fullName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.subscribed = subscribed;
@@ -2234,6 +2234,10 @@ class Core {
                             EntityOperation.sync(context, folder.id, false);
                     } else {
                         Log.i(folder.name + " exists type=" + folder.type);
+
+                        folder.namespace = ifolder.first.getFullName();
+                        folder.separator = ifolder.first.getSeparator();
+                        db.folder().setFolderNamespace(folder.id, folder.namespace, folder.separator);
 
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
                             db.folder().setFolderSubscribed(folder.id, subscribed);
@@ -2262,7 +2266,7 @@ class Core {
                 }
 
                 nameFolder.put(folder.name, folder);
-                String parentName = folder.getParentName(separator);
+                String parentName = folder.getParentName();
                 if (!parentFolders.containsKey(parentName))
                     parentFolders.put(parentName, new ArrayList<EntityFolder>());
                 parentFolders.get(parentName).add(folder);

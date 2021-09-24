@@ -713,7 +713,7 @@ public class EmailService implements AutoCloseable {
                 folders.add(new EntityFolder(fullName, type));
         }
 
-        EntityFolder.guessTypes(folders, getStore().getDefaultFolder().getSeparator());
+        EntityFolder.guessTypes(folders);
 
         return folders;
     }

@@ -25,6 +25,7 @@ import java.util.Objects;
 
 public class TupleAccountFolder extends EntityAccount {
     public Long folderId;
+    public Character folderSeparator;
     public String folderType;
     public Integer folderOrder;
     public String folderName;
@@ -47,10 +48,10 @@ public class TupleAccountFolder extends EntityAccount {
         if (EntityFolder.INBOX.equals(folderType))
             return EntityFolder.localizeName(context, folderName);
 
-        if (separator == null)
+        if (folderSeparator == null)
             return folderName;
 
-        int s = folderName.lastIndexOf(separator);
+        int s = folderName.lastIndexOf(folderSeparator);
         if (s < 0)
             return folderName;
 
@@ -63,6 +64,7 @@ public class TupleAccountFolder extends EntityAccount {
             TupleAccountFolder other = (TupleAccountFolder) obj;
             return (super.equals(obj) &&
                     Objects.equals(this.folderId, other.folderId) &&
+                    Objects.equals(this.folderSeparator, other.folderSeparator) &&
                     Objects.equals(this.folderType, other.folderType) &&
                     Objects.equals(this.folderOrder, other.folderOrder) &&
                     Objects.equals(this.folderName, other.folderName) &&

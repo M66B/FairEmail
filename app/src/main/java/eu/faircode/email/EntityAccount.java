@@ -116,7 +116,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Integer max_messages; // POP3
     @NonNull
     public Boolean auto_seen = true;
-    public Character separator;
+    @ColumnInfo(name = "separator")
+    public Character _separator; // obsolete
     public Long swipe_left;
     public Long swipe_right;
     public Long move_to;

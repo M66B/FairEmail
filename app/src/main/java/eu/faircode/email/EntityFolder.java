@@ -71,6 +71,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Long parent;
     public Long uidv; // UIDValidity
     public Long modseq;
+    public String namespace;
+    public Character separator;
     @NonNull
     public String name;
     @NonNull
@@ -441,7 +443,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
     }
 
-    static void guessTypes(List<EntityFolder> folders, final Character separator) {
+    static void guessTypes(List<EntityFolder> folders) {
         List<String> types = new ArrayList<>();
         Map<String, List<FolderScore>> typeFolderScore = new HashMap<>();
 
@@ -471,16 +473,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
                         int s = Integer.compare(fs1.score, fs2.score);
                         if (s == 0) {
-                            if (separator == null)
-                                return Integer.compare(
-                                        fs1.folder.name.length(),
-                                        fs2.folder.name.length());
-                            else {
-                                String sep = Pattern.quote(String.valueOf(separator));
-                                return Integer.compare(
-                                        fs1.folder.name.split(sep).length,
-                                        fs2.folder.name.split(sep).length);
-                            }
+                            int len1 = (fs1.folder.separator == null ? 1
+                                    : fs1.folder.name.split(Pattern.quote(String.valueOf(fs1.folder.separator))).length);
+                            int len2 = (fs2.folder.separator == null ? 1
+                                    : fs2.folder.name.split(Pattern.quote(String.valueOf(fs2.folder.separator))).length);
+                            return Integer.compare(len1, len2);
                         } else
                             return s;
                     }
@@ -494,7 +491,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
     }
 
-    String getParentName(Character separator) {
+    String getParentName() {
         if (separator == null)
             return null;
         else {
@@ -531,6 +528,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     Objects.equals(this.account, other.account) &&
                     Objects.equals(this.parent, other.parent) &&
                     Objects.equals(this.uidv, other.uidv) &&
+                    Objects.equals(this.namespace, other.namespace) &&
+                    Objects.equals(this.separator, other.separator) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.level.equals(other.level) &&
@@ -577,6 +576,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("order", order);
+        json.put("namespace", namespace);
+        if (separator != null)
+            json.put("separator", (int) separator);
         json.put("name", name);
         json.put("type", type);
         json.put("synchronize", synchronize);
@@ -605,6 +607,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         if (json.has("order"))
             folder.order = json.getInt("order");
+
+        if (json.has("namespace"))
+            folder.namespace = json.getString("namespace");
+        if (json.has("separator"))
+            folder.separator = (char) json.getInt("separator");
 
         folder.name = json.getString("name");
         folder.type = json.getString("type");

@@ -4,6 +4,10 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### Next version
+
+* Storing folder namespaces
+
 ### 1.1732
 
 * Added collapsing of navigation menu folders

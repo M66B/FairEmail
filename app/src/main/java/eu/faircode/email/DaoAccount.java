@@ -78,7 +78,8 @@ public interface DaoAccount {
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
     @Query("SELECT account.*" +
-            ", NULL AS folderId, NULL AS folderType, -1 AS folderOrder" +
+            ", NULL AS folderId, NULL AS folderSeparator" +
+            ", NULL AS folderType, -1 AS folderOrder" +
             ", NULL AS folderName, NULL AS folderDisplay, NULL AS folderColor" +
             ", 0 AS folderSync, NULL AS folderState, NULL AS folderSyncState" +
             ", 0 AS executing" +
@@ -103,7 +104,8 @@ public interface DaoAccount {
             " UNION " +
 
             " SELECT account.*" +
-            ", folder.id AS folderId, folder.type AS folderType, folder.`order` AS folderOrder" +
+            ", folder.id AS folderId, folder.separator AS folderSeparator" +
+            ", folder.type AS folderType, folder.`order` AS folderOrder" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.color AS folderColor" +
             ", folder.synchronize AS folderSync, folder.state AS foldeState, folder.sync_state AS folderSyncState" +
             ", (SELECT COUNT(operation.id) FROM operation" +
@@ -176,9 +178,6 @@ public interface DaoAccount {
 
     @Update
     void updateAccount(EntityAccount account);
-
-    @Query("UPDATE account SET separator = :separator WHERE id = :id AND NOT (separator IS :separator)")
-    int setFolderSeparator(long id, Character separator);
 
     @Query("UPDATE account SET synchronize = :synchronize WHERE id = :id AND NOT (synchronize IS :synchronize)")
     int setAccountSynchronize(long id, boolean synchronize);

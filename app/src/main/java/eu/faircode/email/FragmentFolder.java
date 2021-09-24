@@ -574,11 +574,11 @@ public class FragmentFolder extends FragmentBase {
                         Log.i("Creating folder=" + name + " parent=" + parent);
 
                         if (parent != null) {
-                            EntityAccount account = db.account().getAccount(aid);
-                            if (account == null)
+                            EntityFolder p = db.folder().getFolderByName(aid, parent);
+                            if (p == null || p.separator == null)
                                 return false;
 
-                            name = parent + account.separator + name;
+                            name = parent + p.separator + name;
                         }
 
                         if (TextUtils.isEmpty(name))

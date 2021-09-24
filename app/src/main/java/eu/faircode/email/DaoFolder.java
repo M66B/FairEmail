@@ -233,6 +233,11 @@ public interface DaoFolder {
     @Insert
     long insertFolder(EntityFolder folder);
 
+    @Query("UPDATE folder" +
+            " SET namespace = :namespace, separator = :separator" +
+            " WHERE id = :id AND NOT (namespace IS :namespace AND separator IS :separator)")
+    int setFolderNamespace(long id, String namespace, Character separator);
+
     @Query("UPDATE folder SET unified = :unified WHERE id = :id AND NOT (unified IS :unified)")
     int setFolderUnified(long id, boolean unified);
 
