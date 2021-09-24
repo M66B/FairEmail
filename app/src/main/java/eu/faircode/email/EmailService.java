@@ -416,7 +416,7 @@ public class EmailService implements AutoCloseable {
             if ("outlook.office365.com".equals(host) &&
                     "AUTHENTICATE failed.".equals(ex.getMessage()))
                 throw new AuthenticationFailedException(
-                        "The Outlook IMAP server currently fails to authenticate. " +
+                        "The Outlook IMAP server is currently not accepting logins. " +
                                 "Synchronizing and configuring accounts will work again after Microsoft has fixed this.",
                         ex.getNextException());
 
