@@ -2,7 +2,7 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
+### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar)
 
 ### 1.1732
 
@@ -12,6 +12,8 @@
 * Showing folders of all personal namespaces
 * Improved Android 12 support
 * Fixed all reported bugs
+
+### [Yaverlandia](https://en.wikipedia.org/wiki/Yaverlandia)
 
 ### 1.1731
 
