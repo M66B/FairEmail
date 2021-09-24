@@ -184,7 +184,8 @@
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
     <string name="title_setup_doze_device">Αυτό πιθανόν απαιτείται για αυτήν τη συσκευή</string>
-    <string name="title_setup_doze_android">Αυτό απαιτείται για αυτήν την έκδοση Android</string>
+    <string name="title_setup_doze_12">Τα μηνύματα ώθησης (push) είναι απενεργοποιημένα</string>
+    <string name="title_setup_alarm_12">Η εφαρμογή δεν θα λειτουργήσει</string>
     <string name="title_setup_inexact">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
     <string name="title_setup_data">Η εξοικονόμηση δεδομένων είναι ενεργή</string>
@@ -241,6 +242,7 @@
     <string name="title_setup_theme_dark">Σκούρο</string>
     <string name="title_setup_theme_system">Σύμφωνα με το σύστημα</string>
     <string name="title_setup_theme_black_background">Μαύρο φόντο</string>
+    <string name="title_setup_theme_html_light">Φωτεινό φόντο για την προβολή του αρχικού μηνύματος</string>
     <string name="title_setup_theme_system_hint">Με την επιλογή αυτή θα εναλλάσσονται αυτόματα το φωτεινό και σκοτεινό θέμα ανάλογα με τη λειτουργία ημέρας/νύχτας, εφόσον η δυνατότητα αυτή υποστηρίζεται από το Andoid</string>
     <string name="title_setup_theme_more_colors">Θέλω περισσότερα χρώματα</string>
     <string name="title_setup_advanced">Για προχωρημένους</string>
@@ -652,7 +654,7 @@
     <string name="title_account_linked">Συνδεδεμένος λογαριασμός</string>
     <string name="title_account_name">Όνομα λογαριασμού</string>
     <string name="title_account_name_hint">Χρησιμοποιείται για τη διαφοροποίηση φακέλων</string>
-    <string name="title_account_interval_hint">Συχνότητα ανανέωσης της σύνδεσης για μηνύματα push ή συχνότητα ελέγχου για νέα μηνύματα</string>
+    <string name="title_account_interval_hint">Συχνότητα ανανέωσης της σύνδεσης για μηνύματα ώθησης (push) ή συχνότητα ελέγχου για νέα μηνύματα</string>
     <string name="title_account_partial_fetch_hint">Απενεργοποιήστε το μόνο σε περιπτώσεις κενών μηνυμάτων ή χαλασμένων συνημμένων</string>
     <string name="title_color">Χρώμα</string>
     <string name="title_background">Φόντο</string>
@@ -714,7 +716,7 @@
     <string name="title_default_composable">Η προεπιλεγμένη διεύθυνση ηλ. ταχυδρομείου καθορίζεται από την κύρια ταυτότητα του κύριου λογαριασμού</string>
     <string name="title_no_composable">Για την αποστολή μηνυμάτων απαιτείται να ρυθμιστεί μια ταυτότητα και να επιλεγεί ένα φάκελος για πρόχειρα στις ρυθμίσεις λογαριασμού</string>
     <string name="title_no_standard">Αυτός ο πάροχος χρησιμοποιεί ιδιόκτητο πρωτόκολλο ηλ. ταχυδρομείου και, ως εκ τούτου, δεν υποστηρίζει τη χρήση ενός ανεξάρτητου πελάτη ηλ. ταχυδρομείου</string>
-    <string name="title_no_idle">Ο πάροχος αυτός δεν υποστηρίζει μηνύματα push. Αυτό καθυστερεί τη λήψη νέων μηνυμάτων και αυξάνει τη χρήση μπαταρίας.</string>
+    <string name="title_no_idle">Ο πάροχος αυτός δεν υποστηρίζει μηνύματα ώθησης (push). Αυτό καθυστερεί τη λήψη νέων μηνυμάτων και αυξάνει τη χρήση μπαταρίας.</string>
     <string name="title_no_utf8">Ο πάροχος αυτός δεν υποστηρίζει UTF-8</string>
     <string name="title_no_sync">Σφάλματα συγχρονισμού από %1$s</string>
     <string name="title_reply_domain">Ο τομέας αποστολέα (%1$s) και ο τομέας απάντησης (%2$s) διαφέρουν</string>
@@ -794,7 +796,7 @@
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
     <string name="title_synchronize_folder">Συγχρονισμός (λήψη μηνυμάτων)</string>
     <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχής συγχρονισμός</string>
-    <string name="title_poll_folder_remark">Οι περισσότεροι διακομιστές ηλ. ταχυδρομείου επιτρέπουν μηνύματα ώθησης μόνον για έναν πολύ μικρό αριθμό φακέλων!</string>
+    <string name="title_poll_folder_remark">Οι περισσότεροι διακομιστές ηλ. ταχυδρομείου επιτρέπουν μηνύματα ώθησης (push) μόνον για έναν πολύ μικρό αριθμό φακέλων!</string>
     <string name="title_download_folder">Αυτόματο κατέβασμα των κειμένων των μηνυμάτων και των συνημμένων</string>
     <string name="title_notify_folder">Να ειδοποιούμαι για νέα μηνύματα</string>
     <string name="title_auto_classify_source">Ταξινόμηση νέων μηνυμάτων σε αυτόν το φάκελο</string>

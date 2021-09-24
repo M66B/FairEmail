@@ -73,10 +73,14 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
     <string name="title_block_domain">Bloquear dominio del remitente</string>
+    <string name="title_block_sender_hint">        Bloquear un remitente es una característica gratuita.
+        Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
+    </string>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Esto puede aumentar el uso de la batería y marcar incorrectamente mensajes como spam</string>
     <string name="title_junk_blocklist">Usar listas de bloqueo de spam</string>
     <string name="title_junk_clear">Vaciar</string>
+    <string name="title_junk_clear_hint">Esto eliminará todas las reglas de bloqueo de remitentes</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_waiting">Esperando conexión adecuada</string>
     <string name="title_notification_idle">Inactivo</string>
@@ -180,7 +184,8 @@
     <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
     <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
     <string name="title_setup_doze_device">Esto probablemente sea necesario para este dispositivo</string>
-    <string name="title_setup_doze_android">Esto es necesario para esta versión de Android</string>
+    <string name="title_setup_doze_12">Los mensajes push están desactivados</string>
+    <string name="title_setup_alarm_12">La aplicación no funcionará</string>
     <string name="title_setup_inexact">Alarmas &amp; recordatorios están deshabilitados</string>
     <string name="title_setup_background">Restricciones en segundo plano habilitadas</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
@@ -237,6 +242,7 @@
     <string name="title_setup_theme_dark">Oscuro</string>
     <string name="title_setup_theme_system">Igual que el sistema</string>
     <string name="title_setup_theme_black_background">Fondo negro</string>
+    <string name="title_setup_theme_html_light">Fondo claro para la vista original del mensaje</string>
     <string name="title_setup_theme_system_hint">Igual que el tema del sistema cambiará automáticamente a luz/oscuro en el día y la noche, si es compatible con Android</string>
     <string name="title_setup_theme_more_colors">Quiero más colores</string>
     <string name="title_setup_advanced">Avanzado</string>
@@ -534,6 +540,7 @@
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
     <string name="title_advanced_check_weekly">Comprobar semanalmente en lugar de diariamente</string>
+    <string name="title_advanced_changelog">Mostrar registro de cambios después de actualizar</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
@@ -856,6 +863,7 @@
     <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_edit_notes">Editar notas locales</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
+    <string name="title_force_light">Forzar tema claro</string>
     <string name="title_share">Compartir</string>
     <string name="title_event">Añadir al calendario</string>
     <string name="title_pin">Añadir acceso directo</string>

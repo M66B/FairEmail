@@ -204,7 +204,8 @@
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
-    <string name="title_setup_doze_android">Це потрібно для даної версії Android</string>
+    <string name="title_setup_doze_12">Push-повідомлення відключені</string>
+    <string name="title_setup_alarm_12">Додаток не працюватиме</string>
     <string name="title_setup_inexact">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
@@ -261,6 +262,7 @@
     <string name="title_setup_theme_dark">Темна</string>
     <string name="title_setup_theme_system">Як в системі</string>
     <string name="title_setup_theme_black_background">Чорний фон</string>
+    <string name="title_setup_theme_html_light">Світлий фон для оригінального перегляду повідомлень</string>
     <string name="title_setup_theme_system_hint">Автоматичне перемкнення на світлу або темну тему вдень або вночі, якщо це підтримується в Android</string>
     <string name="title_setup_theme_more_colors">Я хочу більше кольорів</string>
     <string name="title_setup_advanced">Додатково</string>

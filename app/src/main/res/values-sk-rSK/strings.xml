@@ -204,7 +204,8 @@
     <string name="title_setup_doze_battery">Vysoká spotreba batérie?</string>
     <string name="title_setup_doze_stopped">Zastavila sa synchronizácia?</string>
     <string name="title_setup_doze_device">Je to vyžadované pre toto zariadenie</string>
-    <string name="title_setup_doze_android">Je to vyžadované pre túto verziu systému android</string>
+    <string name="title_setup_doze_12">Správy push nie sú povolené</string>
+    <string name="title_setup_alarm_12">Aplikácia nebude pracovať správne</string>
     <string name="title_setup_inexact">Budíky a pripomienky nie sú povolené</string>
     <string name="title_setup_background">Obmedzenia spustenia na pozadí sú aktívne</string>
     <string name="title_setup_data">Šetrenie údajov je povolené</string>
@@ -261,6 +262,7 @@
     <string name="title_setup_theme_dark">Tmavá</string>
     <string name="title_setup_theme_system">Prispôsobiť sa systému</string>
     <string name="title_setup_theme_black_background">Čierne pozadie</string>
+    <string name="title_setup_theme_html_light">Svetlé pozadie v pôvodnom zobrazení správy</string>
     <string name="title_setup_theme_system_hint">Táto možnosť automaticky prepne na svetlý alebo tmavý motív podľa toho, či je zariadenie v dennom alebo nočnom režime, ak sú podporované systémom</string>
     <string name="title_setup_theme_more_colors">Chcem viac farieb</string>
     <string name="title_setup_advanced">Pokročilé</string>

@@ -174,7 +174,8 @@
     <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_doze_device">对此设备来说，这可能是必需的</string>
-    <string name="title_setup_doze_android">这是此 Android 版本所需的</string>
+    <string name="title_setup_doze_12">推送消息已禁用</string>
+    <string name="title_setup_alarm_12">应用将无法工作</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒已禁用</string>
     <string name="title_setup_background">已启用后台限制</string>
     <string name="title_setup_data">省流量模式已启用</string>
@@ -189,10 +190,10 @@
     <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
-    <string name="title_setup_export_remark">        因设置文件包含所有的设置和帐户信息，它受到密码加密保护。
-        导入该设置将需要密码，所以请不要忘记！
+    <string name="title_setup_export_remark">        由于该设置文件包含所有的设置和账户信息，它受到密码加密保护。
+        导入时将需要密码，所以请不要忘记！
     </string>
-    <string name="title_setup_export_do">导出文件将包含所有的设置和数据，但是没有在签名中引用的消息和图像</string>
+    <string name="title_setup_export_do">导出文件将包含所有的设置和数据，但是不含邮件，也不含签名中引用的图像</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
     <string name="title_setup_import_gmail">        从 Android 8.0 Oreo 起，Gmail 帐户不能再被导入，因为必须选择每个帐户才能授予该帐户的访问权限。
         您可以轻松地通过快速设置向导重新配置 Gmail 帐户。
@@ -231,6 +232,7 @@
     <string name="title_setup_theme_dark">深色</string>
     <string name="title_setup_theme_system">跟随系统</string>
     <string name="title_setup_theme_black_background">黑色背景</string>
+    <string name="title_setup_theme_html_light">原始消息视图使用浅色背景</string>
     <string name="title_setup_theme_system_hint">如果安卓系统支持，跟随系统主题将在白天/夜间自动切换到亮/暗色主题</string>
     <string name="title_setup_theme_more_colors">我想要更多颜色</string>
     <string name="title_setup_advanced">高级选项</string>
@@ -565,7 +567,7 @@
     <string name="title_advanced_rlah_hint">假设欧盟境内不存在漫游</string>
     <string name="title_advanced_usage_hint">这将增加电池、数据和存储空间的使用</string>
     <string name="title_advanced_tcp_keep_alive_hint">启用此选项可能会在某些设备上造成连接问题</string>
-    <string name="title_advanced_validate_hint">这可能导致消息停止同步，例如在使用 VPN 时或其他某些情况下</string>
+    <string name="title_advanced_validate_hint">这可能导致消息停止同步，例如使用 VPN 或其他某些情况下</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
     <string name="title_advanced_ssl_harden_hint">启用此选项将禁用较弱的 SSL 协议和加密算法，这可能导致连接遇到问题</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
@@ -636,7 +638,7 @@
     <string name="title_identity_unicode">使用 Unicode 传输</string>
     <string name="title_identity_unicode_remark">大多数服务器不支持这一功能</string>
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
-    <string name="title_identity_receipt">默认请求送达／已读回执</string>
+    <string name="title_identity_receipt">默认请求送达/已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
     <string name="title_identity_self_hint">也能防止您回复自己</string>
     <string name="title_optional">可选</string>

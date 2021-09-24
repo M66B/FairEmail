@@ -63,10 +63,14 @@
     <string name="title_block">ブロック %1$s</string>
     <string name="title_block_sender">送信者をブロック</string>
     <string name="title_block_domain">送信者ドメインをブロック</string>
+    <string name="title_block_sender_hint">        送信者のブロックは無料の機能です。
+        送信者のドメインをブロックするにはフィルタルールを使用します。これはPro版の機能です。
+    </string>
     <string name="title_junk_filter">ローカルのスパムフィルターを使用</string>
     <string name="title_junk_filter_hint">これにより、バッテリー使用量が増加、そしてメッセージをスパムとして誤ってマークする可能性があります。</string>
     <string name="title_junk_blocklist">迷惑メールブロックリストを使用する</string>
     <string name="title_junk_clear">消去</string>
+    <string name="title_junk_clear_hint">これにより、すべての送信者ブロックルールが削除されます</string>
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機中</string>
     <string name="title_notification_idle">待機</string>
@@ -170,7 +174,6 @@
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">これはおそらくこのデバイスに必要です</string>
-    <string name="title_setup_doze_android">このAndroidバージョンには必須です</string>
     <string name="title_setup_inexact">アラーム &amp; リマインダーは無効です</string>
     <string name="title_setup_background">バックグラウンドの制限は有効です</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
@@ -227,6 +230,7 @@
     <string name="title_setup_theme_dark">ダーク</string>
     <string name="title_setup_theme_system">システム設定に従う</string>
     <string name="title_setup_theme_black_background">ブラック背景</string>
+    <string name="title_setup_theme_html_light">元のメッセージを表示するときは背景色を明るくする</string>
     <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
     <string name="title_setup_theme_more_colors">もっと色が欲しい場合</string>
     <string name="title_setup_advanced">詳細</string>
@@ -340,6 +344,7 @@
     <string name="title_advanced_tabular_background">表形式の場合は背景色にカードの色を使用する</string>
     <string name="title_advanced_cards_shadow">カードスタイルを使用するときに未読メッセージにシャドウを使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
+    <string name="title_advanced_date_fixed">固定日付のヘッダーを上部に表示します。</string>
     <string name="title_advanced_date_bold">太字で日付を表示</string>
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示する</string>
@@ -363,10 +368,13 @@
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
     <string name="title_advanced_show_recipients">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_font_size_sender">送信者のテキストサイズ</string>
+    <string name="title_advanced_sender_ellipsize">必要に応じて送信者を短くする</string>
     <string name="title_advanced_subject_top">送信者の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
     <string name="title_advanced_highlight_subject">件名を強調する</string>
     <string name="title_advanced_font_size_subject">件名のテキストサイズ</string>
+    <string name="title_advanced_subject_ellipsize">必要に応じて件名を短くする</string>
+    <string name="title_advanced_compact_mode_remark">コンパクトモードのみ</string>
     <string name="title_advanced_highlight_color">ハイライトカラー</string>
     <string name="title_advanced_keywords">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_labels">Gmailラベルをメッセージヘッダーに表示</string>
@@ -519,6 +527,7 @@
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
     <string name="title_advanced_updates">GitHubのアップデートを確認する</string>
     <string name="title_advanced_check_weekly">毎日ではなく毎週チェックする</string>
+    <string name="title_advanced_changelog">更新後に更新履歴を表示する</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
@@ -840,6 +849,7 @@
     <string name="title_editasnew">新規として編集</string>
     <string name="title_edit_notes">ローカルノートを編集</string>
     <string name="title_create_rule">ルール &#8230; を作成します</string>
+    <string name="title_force_light">ライトテーマを強制する</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>
     <string name="title_pin">ショートカットを追加</string>
@@ -1171,6 +1181,7 @@
     <string name="title_previous">前へ</string>
     <string name="title_next">次へ</string>
     <string name="title_edit_signature">署名を編集</string>
+    <string name="title_edit_signature_remark">AndroidはすべてのHTMLを表示することはできませんが、そのまま送信されます</string>
     <string name="title_edit_signature_text">署名テキスト</string>
     <string name="title_edit_signature_image">画像を挿入</string>
     <string name="title_answer_caption">テンプレートを編集</string>

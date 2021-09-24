@@ -184,7 +184,8 @@
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Eyniləşdirmə dayandırılsın?</string>
     <string name="title_setup_doze_device">Bu, çox güman ki, bu cihaz üçün tələb olunur</string>
-    <string name="title_setup_doze_android">Bu, bu Android versiyası üçün tələb olunur</string>
+    <string name="title_setup_doze_12">Ani mesajlar sıradan çıxarıldı</string>
+    <string name="title_setup_alarm_12">Tətbiq işləmir</string>
     <string name="title_setup_inexact">Zəngli saatlar və xatırladıcılar sıradan çıxarıldı</string>
     <string name="title_setup_background">Arxaplan məhdudiyyətləri fəaldır</string>
     <string name="title_setup_data">Verilənlərə qənaət fəallaşdırıldı</string>
@@ -241,6 +242,7 @@
     <string name="title_setup_theme_dark">Tünd</string>
     <string name="title_setup_theme_system">Sistem ilə eyni</string>
     <string name="title_setup_theme_black_background">Qara arxaplan</string>
+    <string name="title_setup_theme_html_light">Orijinal mesaj görünüşü üçün açıq arxaplan</string>
     <string name="title_setup_theme_system_hint">Bu, Android tərəfindən dəstəklənirsə, gündüz/gecə rejimində temanı avtomatik olaraq açıq/tünd olaraq dəyişdirəcək</string>
     <string name="title_setup_theme_more_colors">Daha çox rəng istəyirəm</string>
     <string name="title_setup_advanced">Qabaqcıl</string>

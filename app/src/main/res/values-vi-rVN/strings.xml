@@ -174,7 +174,6 @@
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_doze_device">Điều này có thể là bắt buộc đối với thiết bị này</string>
-    <string name="title_setup_doze_android">Điều này là bắt buộc đối với phiên bản Android này</string>
     <string name="title_setup_inexact">Các báo thức &amp; lời nhắc đang tắt</string>
     <string name="title_setup_background">Hạn chế trong nền đang bật</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
@@ -231,6 +230,7 @@
     <string name="title_setup_theme_dark">Tối</string>
     <string name="title_setup_theme_system">Theo hệ thống</string>
     <string name="title_setup_theme_black_background">Nền đen</string>
+    <string name="title_setup_theme_html_light">Nền sáng cho mục hiển thị thư gốc</string>
     <string name="title_setup_theme_system_hint">Cái này sẽ tự động chuyển sang chủ đề sáng/tối ở chế độ ngày/đêm, nếu được hỗ trợ bởi Android</string>
     <string name="title_setup_theme_more_colors">Tôi muốn nhiều màu sắc hơn</string>
     <string name="title_setup_advanced">Nâng cao</string>

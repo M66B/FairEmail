@@ -159,7 +159,6 @@
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_doze_stopped">Sinhronizacija zaustavljena?</string>
     <string name="title_setup_doze_device">Ovo je vjerovatno neophodno za ovaj uređaj</string>
-    <string name="title_setup_doze_android">Ovo je neophodno za ovu verziju Androida</string>
     <string name="title_setup_inexact">Alarmi &amp; podsjetnici su isključeni</string>
     <string name="title_setup_background">Pozadinska ograničenja su uključena</string>
     <string name="title_setup_data">Štednja podataka je uključena</string>
@@ -216,6 +215,7 @@
     <string name="title_setup_theme_dark">Tamna</string>
     <string name="title_setup_theme_system">Prati sistem</string>
     <string name="title_setup_theme_black_background">Crna pozadina</string>
+    <string name="title_setup_theme_html_light">Svijetla pozadina za pregled izvorne poruke</string>
     <string name="title_setup_theme_system_hint">Ovo će automatski zamijeniti svijetlu/tamnu temu u odnosu na dan/noć, ukoliko je opcija podržana na Androidu</string>
     <string name="title_setup_theme_more_colors">Želim više boja</string>
     <string name="title_setup_advanced">Napredno</string>
@@ -385,6 +385,8 @@
     <string name="title_advanced_image_placeholders">Prikaži mjesta za prikaz slika</string>
     <string name="title_advanced_images_inline">Automatski prikaži poravnate slike</string>
     <string name="title_advanced_button_extra">Prikaži dodatna dugmad na dnu poruke</string>
+    <string name="title_advanced_actionbar">Prikaži radnu traku za konverzaciju</string>
+    <string name="title_advanced_actionbar_color">Koristi boju računa kao pozadinsku boju za radnu traku za konverzaciju</string>
     <string name="title_advanced_navbar_colorize">Oboji navigacijsku traku Androida</string>
     <string name="title_advanced_authentication">Prikaži upozorenja kod provjere</string>
     <string name="title_advanced_authentication_hint">Osnovne kontrole mogu se podesiti u postavkama za prijem</string>
@@ -507,6 +509,7 @@
     <string name="title_advanced_watchdog">Povremeno provjeri da li je FairEmail još aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja na GitHub-u</string>
     <string name="title_advanced_check_weekly">Provjeravaj sedmično umjesto dnevno</string>
+    <string name="title_advanced_changelog">Prikaži zapisnik promjena nakon ažuriranja</string>
     <string name="title_advanced_experiments">Probaj eksperimentalne mogućnosti</string>
     <string name="title_advanced_crash_reports">Pošalji izvještaj o greški</string>
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih poruka</string>
@@ -678,6 +681,8 @@
     <string name="title_no_composable">Slanje e-pošte zahtijeva da se postavi identitet, te izabere folder za nacrte u postavkama računa</string>
     <string name="title_no_standard">Ovaj provajder koristi vlastiti e-mail protokol i stoga nije moguće koristiti e-mail klijente trećih strana</string>
     <string name="title_no_idle">Ovaj provajder (poslužitelj) ne podržava trenutna obavještenja. To će odložiti prijem novih poruka i povećati potrošnju baterije.</string>
+    <string name="title_no_utf8">Provajder ne podržava UTF-8</string>
+    <string name="title_no_sync">Greške u sinhronizaciji od %1$s</string>
     <string name="title_reply_domain">Razlikuju se domena pošiljaoca (%1$s) i odgovora (%2$s)</string>
     <string name="title_identity_required">Identitet je neophodan za slanje e-pošte</string>
     <string name="title_drafts_required">Folder \'nacrti\' je neophodan za slanje e-pošte</string>
@@ -686,6 +691,7 @@
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
+    <string name="title_last_connected">Zadnja konekcija: %1$s</string>
     <string name="title_storage_quota">Iskorištenost prostora na serveru: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka iz vašeg inbox-a. POP3 ne može označavati poruke kao pročitane, premještati poruke itd. Također, POP3 će trošiti više baterije i podataka od IMAP protokola. Zato razmotrite korištenje IMAP protokola kad god je moguće.</string>
     <string name="title_pop_sent">Ukoliko izgubite uređaj ili Vam ga ukradu, poslane poruke mogu biti izgubljene.</string>
@@ -758,10 +764,14 @@
     <string name="title_notify_folder">Obavijesti kad stignu nove poruke</string>
     <string name="title_auto_classify_source">Klasifikuj nove poruke u ovom folderu</string>
     <string name="title_auto_classify_target">Automatski premjesti klasifikovane poruke u ovaj folder</string>
+    <string name="title_sync_days_remark">Povećanje ove vrijednosti utiče na potrošnju baterije i podataka</string>
+    <string name="title_keep_days_remark">Stare poruke će se ukloniti s uređaja, ali će se zadržati na serveru</string>
+    <string name="title_keep_all">Zadrži sve poruke</string>
     <string name="title_auto_trash">Automatski premjesti stare poruke u otpad</string>
     <string name="title_auto_delete">Automatski trajno briši stare poruke</string>
     <string name="title_folder_name_missing">Nedostaje naziv foldera</string>
     <string name="title_folder_exists">Folder %1$s postoji</string>
+    <string name="title_months">Mjeseci</string>
     <string name="title_months_all">Svi</string>
     <string name="title_folder_unified">Objedinjeni inbox</string>
     <string name="title_folder_inbox">Inbox</string>
@@ -862,9 +872,11 @@
     <string name="title_reply_receipt">Pošalji potvrdu o čitanju</string>
     <string name="title_reply_hard_bounce">Pošalji \'hard bounce\'</string>
     <string name="title_reply_template">Odgovori koristeći prijedložak</string>
+    <string name="title_move_undo">Premještanje u %1$s (%2$d)</string>
     <string name="title_open_with">Otvori pomoću</string>
     <string name="title_authentication_failed">%1$s provjera nije uspješna</string>
     <string name="title_on_blocklist">Na listi za blokiranje spama</string>
+    <string name="title_receipt_text">Potvrda o čitanju priznaje samo da je poruka prikazana. Međutim, to ne garantuje da je primalac pročitao njen sadržaj.</string>
     <string name="title_no_answers">Nema definisanih prijedložaka za odgovore</string>
     <string name="title_no_recorder">Ne postoji aplikacija za snimanje zvuka</string>
     <string name="title_no_camera">Ne postoji aplikacija kamere</string>
@@ -953,6 +965,10 @@
     <string name="title_style_align_start">Početak</string>
     <string name="title_style_align_center">Sredina</string>
     <string name="title_style_list">Spisak</string>
+    <string name="title_style_list_bullets">Označene liste</string>
+    <string name="title_style_list_numbered">Pobrojano</string>
+    <string name="title_style_list_level_increase">Povećaj uvlačenje</string>
+    <string name="title_style_list_level_decrease">Smanji uvlačenje</string>
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Zadani</string>
     <string name="title_style_blockquote">Blokiraj citate</string>
@@ -1011,10 +1027,13 @@
     <string name="title_text_reminder">Poruka je prazna</string>
     <string name="title_attachment_keywords">priložen,priložena,priloženo,priloženi,priložene,prilozi,uključen,uključena,uključeno,uključeni,uključene</string>
     <string name="title_attachment_reminder">Da li ste željeli dodati prilog?</string>
+    <string name="title_plain_reminder">Cijelo formatiranje će biti izgubljeno</string>
+    <string name="title_size_reminder">Poruka (%1$s) je veća od ograničenja servera (%2$s)</string>
     <string name="title_attachments_missing">Nisu preuzeti svi prilozi</string>
     <string name="title_dialog_hint">Ovaj dijalog može se ponovo uključiti preko menija s 3 tačke na vrhu radne trake</string>
     <string name="title_draft_deleted">Nacrt odbačen</string>
     <string name="title_draft_saved">Nacrt sačuvan</string>
+    <string name="title_ask_send_via">Poslati poruku za %1$s preko %2$s?</string>
     <string name="title_queued">Slanje poruke</string>
     <string name="title_queued_at">Poruka će biti poslana oko %1$s</string>
     <string name="title_sign">Potpiši</string>
@@ -1090,6 +1109,7 @@
     <string name="title_sort_on_size">Veličina</string>
     <string name="title_sort_on_attachments">Prilozima</string>
     <string name="title_sort_on_hidden">Skrivenom</string>
+    <string name="title_sort_ascending">Prvo najstarije</string>
     <string name="title_filter">Izdvoji</string>
     <string name="title_filter_seen">Pročitano</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>
@@ -1109,6 +1129,7 @@
     <string name="title_previous">Prethodni</string>
     <string name="title_next">Sljedeći</string>
     <string name="title_edit_signature">Uredi potpis</string>
+    <string name="title_edit_signature_remark">Iako Android ne može prikazati sav HTML, poslat će se kao takav</string>
     <string name="title_edit_signature_text">Tekst potpisa</string>
     <string name="title_edit_signature_image">Ubaci sliku</string>
     <string name="title_answer_caption">Uredi prijedložak</string>
@@ -1193,11 +1214,16 @@
     <string name="title_legend_section_compose">Napiši</string>
     <string name="title_legend_section_keyboard">Tastatura</string>
     <string name="title_legend_oauth">OAuth autorizacija</string>
+    <string name="title_legend_folder_connected">Folder povezan</string>
+    <string name="title_legend_folder_disconnected">Folder nije povezan</string>
     <string name="title_legend_download_on">Preuzmi sadržaj poruke automatski</string>
     <string name="title_legend_download_off">Preuzmi sadržaj poruke na zahtjev</string>
     <string name="title_legend_synchronize_on">Sinhronizacija uključena</string>
     <string name="title_legend_synchronize_off">Sinhronizacija isključena</string>
     <string name="title_legend_synchronize_poll">Periodična sinhronizacija</string>
+    <string name="title_legend_disconnected">Nije povezan</string>
+    <string name="title_legend_connecting">Povezivanje</string>
+    <string name="title_legend_connected">Povezano</string>
     <string name="title_legend_quota">Poštanski sanduk skoro pun</string>
     <string name="title_legend_executing">Izvršavanje operacija</string>
     <string name="title_legend_synchronizing">Sinhronizacija</string>
@@ -1213,16 +1239,33 @@
     <string name="title_legend_primary">Primarni</string>
     <string name="title_legend_subscribed">Pretplaćen na</string>
     <string name="title_legend_rule">Ima pravila</string>
+    <string name="title_legend_similar">Traži slične poruke</string>
     <string name="title_legend_notify">Obavijesti kad stignu nove poruke</string>
+    <string name="title_legend_sync_keep">Broj dana za sinhronizaciju / čuvanje poruka</string>
+    <string name="title_legend_download_fetch">Broj preuzetih poruka / dohvaćenih zaglavlja</string>
     <string name="title_legend_stop">Zaustavi obradu pravila</string>
     <string name="title_legend_thread">Konverzacija</string>
+    <string name="title_legend_bookmark">Zadnja otvorena konverzacija</string>
+    <string name="title_legend_zoom">Promijeni veličinu teksta</string>
     <string name="title_legend_draft">Nacrt</string>
+    <string name="title_legend_priority">S visokim prioritetom</string>
+    <string name="title_legend_priority_low">S niskim prioritetom</string>
+    <string name="title_legend_importance">Važno</string>
+    <string name="title_legend_importance_low">Nevažno</string>
     <string name="title_legend_signed">Potpisan</string>
     <string name="title_legend_encrypted">Šifrirano</string>
     <string name="title_legend_auth">Provjera nije uspješna</string>
+    <string name="title_legend_found">Pronađeno</string>
     <string name="title_legend_classified">Automatski klasifikovano</string>
+    <string name="title_legend_snoozed">Odloženo</string>
+    <string name="title_legend_browsed">Pregledavano ili pretraživano</string>
+    <string name="title_legend_answered">Odgovoreno</string>
+    <string name="title_legend_forwarded">Proslijeđeno</string>
+    <string name="title_legend_plain_only">Samo običan tekst</string>
     <string name="title_legend_receipt">Zatražena je potvrda</string>
     <string name="title_legend_auto_submitted">Automatski poslano</string>
+    <string name="title_legend_attachment">S prilogom</string>
+    <string name="title_legend_flagged">Favorit</string>
     <string name="title_legend_contacts">Upravljaj kontaktima</string>
     <string name="title_legend_search">Traži pošiljaoca</string>
     <string name="title_legend_view">Prikaži sadržaj</string>
@@ -1248,14 +1291,17 @@
     <string name="title_legend_metered">Konekcija je \'s ograničenim paketom\'</string>
     <string name="title_legend_unmetered">Konekcija je neograničena</string>
     <string name="title_legend_roaming">Roaming</string>
+    <string name="title_legend_expander">Proširenje</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Prikaži citate</string>
     <string name="title_legend_show_junk">Tretiraj kao spam</string>
     <string name="title_legend_create_rule">Kreiraj pravilo</string>
+    <string name="title_legend_show_unsubscribe">Otkaži pretplatu sa spiska</string>
     <string name="title_legend_show_images">Prikaži slike</string>
     <string name="title_legend_hide_images">Sakrij slike</string>
     <string name="title_legend_show_full">Prikaži izvornu poruku</string>
     <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
+    <string name="title_legend_edit">Uredi</string>
     <string name="title_legend_default_color">Zadana boja</string>
     <string name="title_legend_close_hint">Zatvori napomenu</string>
     <string name="title_legend_connection_state">Status konekcije</string>
@@ -1263,12 +1309,19 @@
     <string name="title_legend_download_state">Status preuzimanja</string>
     <string name="title_legend_save">Sačuvaj</string>
     <string name="title_legend_delete">Izbriši</string>
+    <string name="title_legend_count">Broj</string>
+    <string name="title_legend_folder_type">Tip foldera</string>
+    <string name="title_legend_enter">Otvori</string>
     <string name="title_legend_a">Arhiv</string>
     <string name="title_legend_c">Napiši</string>
     <string name="title_legend_d">Otpad (izbrisano)</string>
+    <string name="title_legend_m">Meni (višestruka selekcija)</string>
     <string name="title_legend_n">Sljedeći</string>
     <string name="title_legend_p">Prethodni</string>
     <string name="title_legend_r">Odgovori</string>
+    <string name="title_legend_s">Selekcija/deselekcija</string>
+    <string name="title_legend_t">Fokus na tekst</string>
+    <string name="title_hint_folder_actions">Dugi dodir na folder za opcije, poput dodavanja foldera u navigacijski meni za brzi pristup</string>
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevuci lijevo za otpad; Prevuci desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
@@ -1303,13 +1356,21 @@
     <string name="title_yes">Da</string>
     <string name="title_no">Ne</string>
     <string name="title_later">Kasnije</string>
+    <string name="title_undo">Vrati</string>
     <string name="title_redo">Vrati</string>
+    <string name="title_add">Dodaj</string>
     <string name="title_browse">Otvori pomoću</string>
     <string name="title_info">Informacije</string>
+    <string name="title_download">Preuzmi</string>
     <string name="title_report">Prijavi</string>
+    <string name="title_fix">Popravi</string>
     <string name="title_enable">Uključi</string>
     <string name="title_enabled">Uključeno</string>
     <string name="title_disable">Isključi</string>
+    <string name="title_keep_current">Zadrži trenutno</string>
+    <string name="title_executing">Izvršavanje</string>
+    <string name="title_completed">Završeno</string>
+    <string name="title_default_changed">Promjena zadanog</string>
     <string name="title_clipboard_copy">Kopiraj u međuspremnik</string>
     <string name="title_clipboard_copied">Kopirano u međuspremnik</string>
     <string name="title_ask_what">Pitaj šta treba uraditi</string>
@@ -1317,7 +1378,16 @@
     <string name="title_no_ask_for_again">Ne pitaj ovo ponovo za %1$s</string>
     <string name="title_no_body">Nije pronađen tekst poruke</string>
     <string name="title_no_charset">Enkodiranje nije podržano: %1$s</string>
+    <string name="title_via">Preko: %1$s</string>
+    <string name="title_1hour">1 sat</string>
+    <string name="title_1day">1 dan</string>
+    <string name="title_1week">1 sedmica</string>
+    <string name="title_now">Sada</string>
+    <string name="title_after">Nakon %1$s</string>
+    <string name="title_reset">Resetuj</string>
     <string name="title_hours">Sati</string>
+    <string name="title_minutes">Minute</string>
+    <string name="title_dismiss">Odbaci</string>
     <string name="title_snooze_now">Odgodi</string>
     <string name="title_loading">Učitavanje &#8230;</string>
     <string name="title_fetching_again">Ponovno dohvatanje poruka sa servera</string>
@@ -1363,6 +1433,7 @@
     <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
     <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
+    <string name="title_widget_title_list">Spisak poruka</string>
     <string name="title_power_menu_off">Isključeno</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Svi</string>
@@ -1389,9 +1460,11 @@
     <string name="title_accessibility_expand">Proširi</string>
     <string name="title_accessibility_view_contact">Prikaži kontakt</string>
     <string name="title_accessibility_show_authentication_result">Prikaži rezultat provjere</string>
+    <string name="title_accessibility_show_snooze_time">Prikaži vrijeme odlaganja</string>
     <string name="title_accessibility_view_help">Prikaži pomoć</string>
     <string name="title_accessibility_scroll_down">Pomakni dolje</string>
     <string name="title_accessibility_scroll_up">Pomakni gore</string>
+    <string name="title_accessibility_edit">Uredi</string>
     <string name="title_accessibility_show_addresses">Prikaži adrese</string>
     <string name="title_accessibility_hide_addresses">Sakrij adrese</string>
     <string name="title_accessibility_attachment">Prilog</string>
@@ -1419,7 +1492,7 @@
     <string-array name="startupNames">
         <item>Objedinjeni inbox</item>
         <item>Objedinjeni folderi</item>
-        <item>Primary account folders</item>
+        <item>Folder primarnog računa</item>
         <item>Računi</item>
     </string-array>
     <string-array name="downloadNames">

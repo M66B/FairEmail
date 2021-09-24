@@ -184,7 +184,8 @@
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_doze_device">Dies ist möglicherweise für dieses Gerät erforderlich</string>
-    <string name="title_setup_doze_android">Dies ist für diese Android-Version erforderlich</string>
+    <string name="title_setup_doze_12">Push-Nachrichten sind deaktiviert</string>
+    <string name="title_setup_alarm_12">Die App funktioniert nicht</string>
     <string name="title_setup_inexact">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
@@ -242,6 +243,7 @@
     <string name="title_setup_theme_dark">Dunkel</string>
     <string name="title_setup_theme_system">wie System</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
+    <string name="title_setup_theme_html_light">Heller Hintergrund für die Ansicht der Originalnachricht</string>
     <string name="title_setup_theme_system_hint">Dadurch wird automatisch auf ein helles/dunkles Design im Tag-/Nachtmodus umgeschaltet, wenn es von Android unterstützt wird</string>
     <string name="title_setup_theme_more_colors">Ich möchte mehr Farben</string>
     <string name="title_setup_advanced">Erweitert</string>
@@ -379,12 +381,12 @@
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
-    <string name="title_advanced_sender_ellipsize">Falls erforderlich, kürzen Sie den Absender</string>
+    <string name="title_advanced_sender_ellipsize">Falls erforderlich, Absendernamen kürzen</string>
     <string name="title_advanced_subject_top">Betreff oberhalb des Absenders anzeigen</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
     <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
-    <string name="title_advanced_subject_ellipsize">Wenn nötig den Betreff kürzen</string>
+    <string name="title_advanced_subject_ellipsize">Falls erforderlich, Betreff kürzen</string>
     <string name="title_advanced_compact_mode_remark">Nur Kompaktmodus</string>
     <string name="title_advanced_highlight_color">Hervorhebungsfarbe</string>
     <string name="title_advanced_keywords">Schlüsselwörter im Nachrichtenkopf anzeigen</string>

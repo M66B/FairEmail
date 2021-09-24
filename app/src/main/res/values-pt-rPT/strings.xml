@@ -174,6 +174,8 @@
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo do Android altere \"Não otimizado\" para \"Todos os aplicativos\", selecione esta app e selecione \"Não otimizar\"</string>
     <string name="title_setup_doze_battery">Utilização elevada de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
+    <string name="title_setup_doze_12">Mensagens push desativadas</string>
+    <string name="title_setup_alarm_12">O app não funcionará</string>
     <string name="title_setup_background">Restrições de segundo plano habilitadas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
     <string name="title_setup_advanced_options">Mostrar opções avançadas</string>
@@ -216,6 +218,7 @@
     <string name="title_setup_theme_dark">Escuro</string>
     <string name="title_setup_theme_system">Seguir o sistema</string>
     <string name="title_setup_theme_black_background">Fundo preto</string>
+    <string name="title_setup_theme_html_light">Fundo claro para visualização da mensagem original</string>
     <string name="title_setup_theme_system_hint">Isto mudará automaticamente para um tema claro/escuro no modo dia/noite, se suportado pelo Android</string>
     <string name="title_setup_theme_more_colors">Quero mais cores</string>
     <string name="title_setup_advanced">Avançado</string>
@@ -315,6 +318,8 @@
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
+    <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
+    <string name="title_advanced_date_bold">Mostrar data em negrito</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensagens não lidas nas conversas</string>
     <string name="title_advanced_indentation">Indentação esquerda/direita para mensagens recebidas/enviadas em conversas</string>
@@ -322,6 +327,8 @@
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatar</string>
+    <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
+    <string name="title_advanced_bimi_verified">Remetente verificado</string>
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar Identicons</string>
@@ -335,10 +342,13 @@
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_show_recipients">Mostrar destinatários no cabeçalho da mensagem</string>
     <string name="title_advanced_font_size_sender">Tamanho da fonte do remetente</string>
+    <string name="title_advanced_sender_ellipsize">Quando necessário, encurte o remetente</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_highlight_subject">Destacar assunto</string>
     <string name="title_advanced_font_size_subject">Tamanho da fonte do assunto</string>
+    <string name="title_advanced_subject_ellipsize">Quando necessário, encurte o assunto</string>
+    <string name="title_advanced_compact_mode_remark">Apenas modo compacto</string>
     <string name="title_advanced_highlight_color">Cor de destaque</string>
     <string name="title_advanced_keywords">Mostrar palavras-chave no cabeçalho da mensagem</string>
     <string name="title_advanced_labels">Mostrar rótulos do Gmail no cabeçalho da mensagem</string>
@@ -350,6 +360,7 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
+    <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %%</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_text_color">Usar cores de texto</string>
@@ -365,6 +376,7 @@
     <string name="title_advanced_actionbar_color">Usar cor da conta como cor de fundo para barra de ação de conversa</string>
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
+    <string name="title_advanced_authentication_some">Autenticação parcial</string>
     <string name="title_advanced_sync_on_launch">Sincronizar no início</string>
     <string name="title_advanced_double_back">Duplo \'voltar\' para sair</string>
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
@@ -448,6 +460,7 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Verificar atualizações do GitHub</string>
+    <string name="title_advanced_changelog">Mostrar changelog após atualização</string>
     <string name="title_advanced_experiments">Ativar funcionalidades experimentais</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
     <string name="title_advanced_cleanup_attachments">Apagar anexos de mensagens antigas</string>

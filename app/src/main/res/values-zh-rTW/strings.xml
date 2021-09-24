@@ -174,7 +174,6 @@
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_doze_device">此裝置可能需要這項設定</string>
-    <string name="title_setup_doze_android">此 Android 版本需要這一項設定</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒權限已被停用</string>
     <string name="title_setup_background">背景活動限制已啟用</string>
     <string name="title_setup_data">數據節省模式已啟用</string>
@@ -231,6 +230,7 @@
     <string name="title_setup_theme_dark">暗色主題</string>
     <string name="title_setup_theme_system">跟隨系統</string>
     <string name="title_setup_theme_black_background">純黑背景</string>
+    <string name="title_setup_theme_html_light">用於原始訊息視圖的亮色背景</string>
     <string name="title_setup_theme_system_hint">若 Android 支援時將會依據日/夜模式切換亮/暗主題</string>
     <string name="title_setup_theme_more_colors">我想要更多顏色</string>
     <string name="title_setup_advanced">進階</string>

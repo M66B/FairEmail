@@ -184,7 +184,6 @@
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_doze_device">Questo è probabilmente necessario per questo dispositivo</string>
-    <string name="title_setup_doze_android">Questo è necessario per questa versione di Android</string>
     <string name="title_setup_inexact">Sveglie e promemoria sono disabilitati</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
     <string name="title_setup_data">Risparmio dati abilitato</string>
@@ -241,6 +240,7 @@
     <string name="title_setup_theme_dark">Scuro</string>
     <string name="title_setup_theme_system">Segui il sistema</string>
     <string name="title_setup_theme_black_background">Sfondo nero</string>
+    <string name="title_setup_theme_html_light">Sfondo chiaro per la visualizzazione del messaggio originale</string>
     <string name="title_setup_theme_system_hint">Questo cambierà automaticamente il tema chiaro/scuro in modalità diurna/notturna, se supportato da Android</string>
     <string name="title_setup_theme_more_colors">Voglio altri colori</string>
     <string name="title_setup_advanced">Avanzate</string>

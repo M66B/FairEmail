@@ -184,7 +184,6 @@
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
     <string name="title_setup_doze_device">Detta krävs förmodligen för denna enhet</string>
-    <string name="title_setup_doze_android">Detta krävs för denna Android-version</string>
     <string name="title_setup_inexact">Larm &amp; påminnelser är inaktiverade</string>
     <string name="title_setup_background">Balgrundsrestriktioner är aktiverat</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>
@@ -239,6 +238,7 @@
     <string name="title_setup_theme_dark">Mörk</string>
     <string name="title_setup_theme_system">Använd systemtema</string>
     <string name="title_setup_theme_black_background">Svart bakgrund</string>
+    <string name="title_setup_theme_html_light">Ljus bakgrund för den ursprungliga meddelandevyn</string>
     <string name="title_setup_theme_system_hint">Systemtema kommer automatiskt att växla till ljus/mörk på dagen/natt, om det stöds av Android</string>
     <string name="title_setup_theme_more_colors">Jag vill ha fler färger</string>
     <string name="title_setup_advanced">Avancerat</string>
