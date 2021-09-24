@@ -413,6 +413,13 @@ public class EmailService implements AutoCloseable {
 
             connect(host, port, auth, user, authenticator, factory);
         } catch (AuthenticationFailedException ex) {
+            if ("outlook.office365.com".equals(host) &&
+                    "AUTHENTICATE failed.".equals(ex.getMessage()))
+                throw new AuthenticationFailedException(
+                        "The Outlook IMAP server currently fails to authenticate. " +
+                                "Synchronizing and configuring accounts will work again after Microsoft has fixed this.",
+                        ex.getNextException());
+
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
                     authenticator.refreshToken(true);
