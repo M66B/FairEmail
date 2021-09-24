@@ -159,7 +159,7 @@
         app:layout_constraintTop_toBottomOf="@id/rvUnified" />
 
     <ImageButton
-        android:id="@+id/ibExpanderMenu"
+        android:id="@+id/ibExpanderSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
@@ -167,6 +167,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorUnified"
+        app:srcCompat="@drawable/expander" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="false"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderSearch" />
+
+    <View
+        android:id="@+id/vSeparatorSearch"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvSearch" />
+
+    <ImageButton
+        android:id="@+id/ibExpanderMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/title_legend_expander"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorSearch"
         app:srcCompat="@drawable/expander" />
 
     <androidx.recyclerview.widget.RecyclerView

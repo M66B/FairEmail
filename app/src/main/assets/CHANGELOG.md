@@ -6,7 +6,7 @@
 
 ### Next version
 
-* Storing folder namespaces
+* Added saved searches
 
 ### 1.1732
 

@@ -114,19 +114,30 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ImageButton ibSettings;
     private ImageButton ibFetchMore;
     private ImageButton ibForceSync;
+
     private View vSeparatorOptions;
     private ImageButton ibExpanderAccount;
+
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
+
+    private ImageButton ibExpanderSearch;
+    private RecyclerView rvSearch;
+    private View vSeparatorSearch;
+
     private RecyclerView rvUnified;
     private ImageButton ibExpanderMenu;
+
     private RecyclerView rvMenu;
     private ImageButton ibExpanderExtra;
+
     private RecyclerView rvMenuExtra;
+
     private Group grpOptions;
 
     private AdapterNavAccountFolder adapterNavAccount;
     private AdapterNavUnified adapterNavUnified;
+    private AdapterNavSearch adapterNavSearch;
     private AdapterNavMenu adapterNavMenu;
     private AdapterNavMenu adapterNavMenuExtra;
 
@@ -291,12 +302,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ibForceSync = drawerContainer.findViewById(R.id.ibForceSync);
         vSeparatorOptions = drawerContainer.findViewById(R.id.vSeparatorOptions);
         grpOptions = drawerContainer.findViewById(R.id.grpOptions);
+
         ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
         rvAccount = drawerContainer.findViewById(R.id.rvAccount);
+
         ibExpanderUnified = drawerContainer.findViewById(R.id.ibExpanderUnified);
         rvUnified = drawerContainer.findViewById(R.id.rvUnified);
+
+        ibExpanderSearch = drawerContainer.findViewById(R.id.ibExpanderSearch);
+        rvSearch = drawerContainer.findViewById(R.id.rvSearch);
+        vSeparatorSearch = drawerContainer.findViewById(R.id.vSeparatorSearch);
+
         ibExpanderMenu = drawerContainer.findViewById(R.id.ibExpanderMenu);
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
+
         ibExpanderExtra = drawerContainer.findViewById(R.id.ibExpanderExtra);
         rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
 
@@ -470,6 +489,27 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 prefs.edit().putBoolean("unified_system", unified_system).apply();
                 ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
                 rvUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        // Menus
+        rvSearch.setLayoutManager(new LinearLayoutManager(this));
+        adapterNavSearch = new AdapterNavSearch(this, this, getSupportFragmentManager());
+        rvSearch.setAdapter(adapterNavSearch);
+
+        boolean nav_search = prefs.getBoolean("nav_search", true);
+        ibExpanderSearch.setImageLevel(nav_search ? 0 /* less */ : 1 /* more */);
+        ibExpanderSearch.setVisibility(View.GONE);
+        rvSearch.setVisibility(View.GONE);
+        vSeparatorSearch.setVisibility(View.GONE);
+
+        ibExpanderSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean nav_search = !prefs.getBoolean("nav_search", true);
+                prefs.edit().putBoolean("nav_search", nav_search).apply();
+                ibExpanderSearch.setImageLevel(nav_search ? 0 /* less */ : 1 /* more */);
+                rvSearch.setVisibility(nav_search ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -781,6 +821,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (folders == null)
                     folders = new ArrayList<>();
                 adapterNavUnified.set(folders, nav_expanded);
+            }
+        });
+
+        db.search().liveSearch().observe(owner, new Observer<List<EntitySearch>>() {
+            @Override
+            public void onChanged(List<EntitySearch> search) {
+                if (search == null)
+                    search = new ArrayList<>();
+                adapterNavSearch.set(search, nav_expanded);
+
+                boolean nav_search = prefs.getBoolean("nav_search", true);
+                ibExpanderSearch.setVisibility(search.size() > 0 ? View.VISIBLE : View.GONE);
+                rvSearch.setVisibility(search.size() > 0 && nav_search ? View.VISIBLE : View.GONE);
+                vSeparatorSearch.setVisibility(search.size() > 0 ? View.VISIBLE : View.GONE);
             }
         });
 

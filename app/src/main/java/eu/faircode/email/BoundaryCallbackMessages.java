@@ -39,6 +39,10 @@ import com.sun.mail.imap.protocol.IMAPResponse;
 import com.sun.mail.imap.protocol.SearchSequence;
 import com.sun.mail.util.MessageRemovedIOException;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -951,6 +955,86 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         Objects.equals(this.before, other.before));
             } else
                 return false;
+        }
+
+        JSONObject toJson() throws JSONException {
+            JSONObject json = new JSONObject();
+            json.put("query", query);
+            json.put("in_senders", in_senders);
+            json.put("in_recipients", in_recipients);
+            json.put("in_subject", in_subject);
+            json.put("in_keywords", in_keywords);
+            json.put("in_message", in_message);
+            json.put("in_notes", in_notes);
+            json.put("in_headers", in_headers);
+            json.put("in_html", in_html);
+            json.put("with_unseen", with_unseen);
+            json.put("with_flagged", with_flagged);
+            json.put("with_hidden", with_hidden);
+            json.put("with_encrypted", with_encrypted);
+            json.put("with_attachments", with_attachments);
+            json.put("with_notes", with_notes);
+
+            if (with_types != null) {
+                JSONArray jtypes = new JSONArray();
+                for (String type : with_types)
+                    jtypes.put(type);
+                json.put("with_types", jtypes);
+            }
+
+            if (with_size != null)
+                json.put("with_size", with_size);
+
+            json.put("in_trash", in_trash);
+            json.put("in_junk", in_junk);
+
+            if (after != null)
+                json.put("after", after);
+
+            if (before != null)
+                json.put("before", before);
+
+            return json;
+        }
+
+        public static SearchCriteria fromJSON(JSONObject json) throws JSONException {
+            SearchCriteria criteria = new SearchCriteria();
+            criteria.query = json.optString("query");
+            criteria.in_senders = json.optBoolean("in_senders");
+            criteria.in_recipients = json.optBoolean("in_recipients");
+            criteria.in_subject = json.optBoolean("in_subject");
+            criteria.in_keywords = json.optBoolean("in_keywords");
+            criteria.in_message = json.optBoolean("in_message");
+            criteria.in_notes = json.optBoolean("in_notes");
+            criteria.in_headers = json.optBoolean("in_headers");
+            criteria.in_html = json.optBoolean("in_html");
+            criteria.with_unseen = json.optBoolean("with_unseen");
+            criteria.with_flagged = json.optBoolean("with_flagged");
+            criteria.with_hidden = json.optBoolean("with_hidden");
+            criteria.with_encrypted = json.optBoolean("with_encrypted");
+            criteria.with_attachments = json.optBoolean("with_attachments");
+            criteria.with_notes = json.optBoolean("with_notes");
+
+            if (json.has("with_types")) {
+                JSONArray jtypes = json.getJSONArray("with_types");
+                criteria.with_types = new String[jtypes.length()];
+                for (int i = 0; i < jtypes.length(); i++)
+                    criteria.with_types[i] = jtypes.getString(i);
+            }
+
+            if (json.has("with_size"))
+                criteria.with_size = json.getInt("with_size");
+
+            criteria.in_trash = json.optBoolean("in_trash");
+            criteria.in_junk = json.optBoolean("in_junk");
+
+            if (json.has("after"))
+                criteria.after = json.getLong("after");
+
+            if (json.has("before"))
+                criteria.before = json.getLong("before");
+
+            return criteria;
         }
 
         @NonNull

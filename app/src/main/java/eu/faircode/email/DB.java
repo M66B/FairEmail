@@ -68,7 +68,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 210,
+        version = 211,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -80,6 +80,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
                 EntityCertificate.class,
                 EntityAnswer.class,
                 EntityRule.class,
+                EntitySearch.class,
                 EntityLog.class
         },
         views = {
@@ -111,6 +112,8 @@ public abstract class DB extends RoomDatabase {
 
     public abstract DaoRule rule();
 
+    public abstract DaoSearch search();
+
     public abstract DaoLog log();
 
     private static int sPid;
@@ -124,7 +127,7 @@ public abstract class DB extends RoomDatabase {
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
 
     private static final String[] DB_TABLES = new String[]{
-            "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "log"};
+            "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "search", "log"};
 
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
@@ -2143,14 +2146,23 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `log` ADD COLUMN `message` INTEGER");
                     }
                 }).addMigrations(new Migration(209, 210) {
-                        @Override
-                        public void migrate(@NonNull SupportSQLiteDatabase db) {
-                            Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                            db.execSQL("ALTER TABLE `folder` ADD COLUMN `namespace` TEXT");
-                            db.execSQL("ALTER TABLE `folder` ADD COLUMN `separator` INTEGER");
-                            db.execSQL("UPDATE folder SET separator =" +
-                                    " (SELECT separator FROM account WHERE account.id = folder.account)");
-                        }
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `folder` ADD COLUMN `namespace` TEXT");
+                        db.execSQL("ALTER TABLE `folder` ADD COLUMN `separator` INTEGER");
+                        db.execSQL("UPDATE folder SET separator =" +
+                                " (SELECT separator FROM account WHERE account.id = folder.account)");
+                    }
+                }).addMigrations(new Migration(210, 211) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE `search`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", name TEXT NOT NULL" +
+                                ", `data` TEXT NOT NULL)");
+                    }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {

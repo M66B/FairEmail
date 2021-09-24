@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
 def getVersionCode = { -> return 1732 }
-def getRevision = { -> "\"a\"" }
+def getRevision = { -> "\"b\"" }
 def getReleaseName = { -> return "\"Zanabazar\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
