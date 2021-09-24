@@ -326,7 +326,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sync_folders", checked).apply();
-                swSyncSharedFolders.setEnabled(checked);
             }
         });
 
@@ -478,7 +477,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
         swSyncSharedFolders.setChecked(prefs.getBoolean("sync_shared_folders", false));
-        swSyncSharedFolders.setEnabled(swSyncFolders.isChecked());
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
         swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
         swCheckAuthentication.setChecked(prefs.getBoolean("check_authentication", true));

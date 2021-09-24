@@ -1920,6 +1920,8 @@ class Core {
 
         if (force)
             sync_folders = true;
+        if (!sync_folders)
+            sync_shared_folders = false;
 
         // Get folder names
         boolean drafts = false;
