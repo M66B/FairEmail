@@ -4,9 +4,9 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
-### Next version
+### 1.1733
 
-* Added saved searches
+* Added saved searches (experimental)
 
 ### 1.1732
 
