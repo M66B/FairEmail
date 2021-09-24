@@ -126,12 +126,12 @@ Dizajn je zasnovan na brojnim diskusijama i ukoliko želite, možete također ra
 
 <h2><a name="frequently-asked-questions"></a>Često postavljena pitanja</h2>
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
+* [(1) Koje dozvole su potrebne i zbog čega?](#user-content-faq1)
+* [(2) Zašto je prikazano stalno obavještenje?](#user-content-faq2)
+* [(3) Šta su operacije i zašto su na čekanju?](#user-content-faq3)
+* [(4) Kako mogu imati nevažeći sigurnosni certifikat / praznu lozinku / vezu za običan tekst?](#user-content-faq4)
+* [(5) Kako mogu prilagoditi prikaz poruka?](#user-content-faq5)
+* [(6) Kako da se prijavim na Gmail / G suite?](#user-content-faq6)
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
