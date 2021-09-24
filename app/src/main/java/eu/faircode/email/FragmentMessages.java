@@ -4057,9 +4057,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     else
                         tvOutboxCount.setText(count == 0 ? null : NF.format(count));
 
-                    int color = (errors == 0 ? colorSeparator : colorWarning);
+                    int color = (errors == 0 ? colorAccent : colorWarning);
                     ibOutbox.setImageTintList(ColorStateList.valueOf(color));
                     tvOutboxCount.setTextColor(color);
+                    ibOutbox.setAlpha(errors == 0 ? 0.4f : 1.0f);
+                    tvOutboxCount.setAlpha(errors == 0 ? 0.4f : 1.0f);
 
                     grpOutbox.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
                 }
