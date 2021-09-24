@@ -434,7 +434,7 @@ public class Helper {
     }
 
     static boolean isOptimizing12(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || true)
             return false;
 
         Boolean ignoring = Helper.isIgnoringOptimizations(context);

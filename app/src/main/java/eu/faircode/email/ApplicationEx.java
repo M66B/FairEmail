@@ -196,7 +196,7 @@ public class ApplicationEx extends Application
 
         DisconnectBlacklist.init(this);
 
-        if (!Helper.isOptimizing12(this)) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             ServiceSynchronize.watchdog(this);
             ServiceSend.watchdog(this);
         }
@@ -521,9 +521,6 @@ public class ApplicationEx extends Application
         } else if (version < 1721) {
             if (!prefs.contains("discard_delete"))
                 editor.putBoolean("discard_delete", false);
-        } else if (version < 1732) {
-            if (Helper.isOptimizing12(context))
-                editor.remove("setup_reminder");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

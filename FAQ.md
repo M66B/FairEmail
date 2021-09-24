@@ -3926,15 +3926,11 @@ There is no auto discovery for POP3.
 <a name="faq175"></a>
 **(175) Why should battery optimizations be disabled?**
 
-If battery optimizations ([Doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)) are enabled,
+If battery optimizations are enabled ([Doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)),
 Android might stop the app, which will result in not sending and receiving messages anymore.
 
-It shouldn't be necessary to disable battery optimizations for Android version 11 or earlier,
+It shouldn't be necessary to disable battery optimizations,
 but unfortunately modifications by manufacturers often [require it anyway](https://dontkillmyapp.com/).
-
-For Android 12 or later, battery optimizations need to be disabled to receive push messages
-due to [strict foreground restrictions](https://developer.android.com/about/versions/12/foreground-services).
-If battery optimizations are enabled, the app will periodically check for messages.
 
 <br />
 
