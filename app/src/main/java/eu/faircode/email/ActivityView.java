@@ -1408,7 +1408,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (!TextUtils.isEmpty(info.download_url)) {
                     Intent download = new Intent(Intent.ACTION_VIEW, Uri.parse(info.download_url))
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    PendingIntent piDownload = PendingIntent.getActivity(
+                    PendingIntent piDownload = PendingIntentCompat.getActivity(
                             ActivityView.this, 0, download, 0);
                     NotificationCompat.Action.Builder actionDownload = new NotificationCompat.Action.Builder(
                             R.drawable.twotone_cloud_download_24,
