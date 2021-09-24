@@ -2,7 +2,7 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar)
+### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
 ### 1.1732
 
