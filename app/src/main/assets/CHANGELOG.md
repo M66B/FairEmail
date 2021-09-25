@@ -4,6 +4,10 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1734
+
+* Added color to saved searches
+
 ### 1.1733
 
 * Added saved searches (experimental)
