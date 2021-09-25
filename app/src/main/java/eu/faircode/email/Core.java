@@ -5118,10 +5118,12 @@ class Core {
         // Build pending intent
         Intent intent = new Intent(context, ActivityError.class);
         intent.setAction(channel + ":" + account.id + ":" + id);
-        intent.putExtra("type", channel);
         intent.putExtra("title", title);
         intent.putExtra("message", message);
+        intent.putExtra("provider", account.provider);
         intent.putExtra("account", account.id);
+        intent.putExtra("protocol", account.protocol);
+        intent.putExtra("auth_type", account.auth_type);
         intent.putExtra("faq", 22);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntentCompat.getActivity(

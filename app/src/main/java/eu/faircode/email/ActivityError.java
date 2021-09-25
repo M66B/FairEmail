@@ -19,13 +19,17 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class ActivityError extends ActivityBase {
     static final int PI_ERROR = 1;
@@ -42,6 +46,7 @@ public class ActivityError extends ActivityBase {
 
         TextView tvTitle = view.findViewById(R.id.tvTitle);
         TextView tvMessage = view.findViewById(R.id.tvMessage);
+        Button btnPassword = view.findViewById(R.id.btnPassword);
         ImageButton ibSetting = view.findViewById(R.id.ibSetting);
         ImageButton ibInfo = view.findViewById(R.id.ibInfo);
 
@@ -49,12 +54,80 @@ public class ActivityError extends ActivityBase {
         String type = intent.getStringExtra("type");
         String title = intent.getStringExtra("title");
         String message = intent.getStringExtra("message");
+        String provider = intent.getStringExtra("provider");
         long account = intent.getLongExtra("account", -1L);
+        int protocol = intent.getIntExtra("protocol", -1);
+        int auth_type = intent.getIntExtra("auth_type", -1);
         int faq = intent.getIntExtra("faq", -1);
 
         tvTitle.setText(title);
         tvMessage.setMovementMethod(LinkMovementMethod.getInstance());
         tvMessage.setText(message);
+
+        boolean outlook = (auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH &&
+                ("office365".equals(provider) || "outlook".equals(provider)));
+        btnPassword.setVisibility(outlook ? View.VISIBLE : View.GONE);
+        btnPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle args = new Bundle();
+                args.putLong("id", account);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityAccount account = db.account().getAccount(id);
+                            if (account == null)
+                                return null;
+
+                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH &&
+                                    ("office365".equals(account.provider) ||
+                                            "outlook".equals(account.provider))) {
+                                account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+                                account.password = "";
+                                db.account().updateAccount(account);
+
+                                List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                                if (identities != null)
+                                    for (EntityIdentity identity : identities)
+                                        if (identity.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH) {
+                                            identity.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+                                            identity.password = "";
+                                            db.identity().updateIdentity(identity);
+                                        }
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                .putExtra("target", "accounts")
+                                .putExtra("id", account)
+                                .putExtra("protocol", protocol));
+                        finish();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                    }
+                }.execute(ActivityError.this, args, "error:password");
+            }
+        });
 
         ibSetting.setVisibility(account < 0 ? View.GONE : View.VISIBLE);
         ibSetting.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +135,9 @@ public class ActivityError extends ActivityBase {
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra("target", "accounts"));
+                        .putExtra("target", "accounts")
+                        .putExtra("id", account)
+                        .putExtra("protocol", protocol));
             }
         });
 

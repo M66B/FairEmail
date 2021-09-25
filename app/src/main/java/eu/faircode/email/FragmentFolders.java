@@ -258,9 +258,42 @@ public class FragmentFolders extends FragmentBase {
         fabError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra("target", "accounts"));
+                Bundle args = new Bundle();
+                args.putLong("id", account);
+
+                new SimpleTask<EntityAccount>() {
+                    @Override
+                    protected EntityAccount onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        return db.account().getAccount(id);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityAccount account) {
+                        if (account == null)
+                            return;
+
+                        String title = getString(R.string.title_notification_failed, account.name);
+
+                        Intent intent = new Intent(getContext(), ActivityError.class);
+                        intent.putExtra("title", title);
+                        intent.putExtra("message", account.error);
+                        intent.putExtra("provider", account.provider);
+                        intent.putExtra("account", account.id);
+                        intent.putExtra("protocol", account.protocol);
+                        intent.putExtra("auth_type", account.auth_type);
+                        intent.putExtra("faq", 22);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentFolders.this, args, "folders:error");
             }
         });
 

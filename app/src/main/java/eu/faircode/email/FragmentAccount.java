@@ -96,6 +96,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private TextView tvAppPassword;
     private TextView tvPasswordStorage;
     private Button btnCertificate;
     private TextView tvCertificate;
@@ -201,6 +202,7 @@ public class FragmentAccount extends FragmentBase {
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvAppPassword = view.findViewById(R.id.tvAppPassword);
         tvPasswordStorage = view.findViewById(R.id.tvPasswordStorage);
         btnCertificate = view.findViewById(R.id.btnCertificate);
         tvCertificate = view.findViewById(R.id.tvCertificate);
@@ -288,6 +290,9 @@ public class FragmentAccount extends FragmentBase {
                 etUser.setTag(null);
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
+                tvAppPassword.setVisibility(
+                        "office365".equals(provider.id) || "outlook".equals(provider.id)
+                                ? View.VISIBLE : View.GONE);
                 certificate = null;
                 tvCertificate.setText(R.string.title_optional);
                 etRealm.setText(null);
@@ -350,6 +355,15 @@ public class FragmentAccount extends FragmentBase {
                 tilPassword.setHelperText(
                         warning ? getString(R.string.title_setup_password_chars) : null);
                 tilPassword.setHelperTextEnabled(warning);
+            }
+        });
+
+        tvAppPassword.setVisibility(View.GONE);
+        tvAppPassword.setPaintFlags(tvAppPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvAppPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(view.getContext(), 14);
             }
         });
 
@@ -1454,6 +1468,9 @@ public class FragmentAccount extends FragmentBase {
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
+                    tvAppPassword.setVisibility(account != null &&
+                            ("office365".equals(account.provider) || "outlook".equals(account.provider))
+                            ? View.VISIBLE : View.GONE);
                     certificate = (account == null ? null : account.certificate_alias);
                     tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);
                     etRealm.setText(account == null ? null : account.realm);

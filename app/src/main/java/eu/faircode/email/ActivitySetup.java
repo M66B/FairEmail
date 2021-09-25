@@ -301,13 +301,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         if (getSupportFragmentManager().getFragments().size() == 0) {
             Intent intent = getIntent();
             String target = intent.getStringExtra("target");
+            long id = intent.getLongExtra("id", -1L);
 
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            if ("accounts".equals(target))
-                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
-            else
-                fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
-            fragmentTransaction.commit();
+            if ("accounts".equals(target) && id > 0)
+                onEditAccount(intent);
+            else {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                if ("accounts".equals(target))
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
+                else
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
+                fragmentTransaction.commit();
+            }
 
             if (intent.hasExtra("target")) {
                 intent.removeExtra("target");

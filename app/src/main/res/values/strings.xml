@@ -240,6 +240,7 @@
     <string name="title_setup_still">Still to do</string>
     <string name="title_setup_error">Error</string>
     <string name="title_setup_configuring">Configuring account &#8230;</string>
+    <string name="title_setup_app_password">You might need to use an app password</string>
 
     <string name="title_setup_close">Close settings</string>
     <string name="title_setup_export">Export settings</string>

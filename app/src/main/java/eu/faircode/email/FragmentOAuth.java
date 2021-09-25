@@ -511,6 +511,52 @@ public class FragmentOAuth extends FragmentBase {
                 String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                 int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
 
+                if ("outlook".equals(id) && BuildConfig.DEBUG) {
+                    DB db = DB.getInstance(context);
+
+                    // Create account
+                    EntityAccount account = new EntityAccount();
+
+                    account.host = provider.imap.host;
+                    account.encryption = aencryption;
+                    account.port = provider.imap.port;
+                    account.auth_type = AUTH_TYPE_OAUTH;
+                    account.provider = provider.id;
+                    account.user = address;
+                    account.password = state;
+
+                    int at = account.user.indexOf('@');
+                    String user = account.user.substring(0, at);
+
+                    account.name = provider.name + "/" + user;
+
+                    account.synchronize = true;
+                    account.primary = false;
+
+                    if (provider.keepalive > 0)
+                        account.poll_interval = provider.keepalive;
+
+                    account.partial_fetch = provider.partial;
+
+                    account.created = new Date().getTime();
+                    account.last_connected = account.created;
+
+                    account.id = db.account().insertAccount(account);
+                    args.putLong("account", account.id);
+                    EntityLog.log(context, "OAuth account=" + account.name);
+
+                    EntityFolder folder = new EntityFolder("INBOX", EntityFolder.INBOX);
+                    folder.account = account.id;
+                    folder.setProperties();
+                    folder.setSpecials(account);
+                    folder.id = db.folder().insertFolder(folder);
+                    EntityLog.log(context, "OAuth folder=" + folder.name + " type=" + folder.type);
+                    if (folder.synchronize)
+                        EntityOperation.sync(context, folder.id, true);
+
+                    return null;
+                }
+
                 /*
                  * Outlook shared mailbox
                  * Authenticate: main/shared account
