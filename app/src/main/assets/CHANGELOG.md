@@ -4,6 +4,10 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1735
+
+* Added guided workaround for Outlook authentication errors
+
 ### 1.1734
 
 * Added color to saved searches
