@@ -950,7 +950,7 @@ The easiest way is to use the menu item *Fetch more messages* in the three-dots 
 <a name="faq14"></a>
 **(14) How can I set up an Outlook / Live / Hotmail account?**
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
+An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Other provider*.
 
 To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
