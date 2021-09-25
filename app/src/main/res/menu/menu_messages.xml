@@ -9,6 +9,18 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_save_search"
+        android:icon="@drawable/twotone_save_alt_24"
+        android:title="@string/title_save"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_delete_search"
+        android:icon="@drawable/twotone_delete_24"
+        android:title="@string/title_delete"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_folders"
         android:actionLayout="@layout/action_button"
         android:title="@string/title_folder_primary"

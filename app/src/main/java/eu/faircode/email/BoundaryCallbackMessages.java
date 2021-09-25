@@ -728,6 +728,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     static class SearchCriteria implements Serializable {
+        long id = -1;
         String query;
         boolean fts = false;
         boolean in_senders = true;

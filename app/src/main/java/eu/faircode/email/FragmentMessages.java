@@ -111,6 +111,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -383,6 +384,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final int REQUEST_PICK_CONTACT = 23;
     static final int REQUEST_BUTTONS = 24;
     private static final int REQUEST_ALL_READ = 25;
+    private static final int REQUEST_SAVE_SEARCH = 26;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -4399,6 +4401,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
         menuSearch.setVisible(folder);
 
+        menu.findItem(R.id.menu_save_search).setVisible(
+                viewType == AdapterMessage.ViewType.SEARCH &&
+                        criteria != null && criteria.id < 0);
+        menu.findItem(R.id.menu_delete_search).setVisible(
+                viewType == AdapterMessage.ViewType.SEARCH &&
+                        criteria != null && criteria.id >= 0);
+
         menu.findItem(R.id.menu_folders).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED &&
                         type == null && primary >= 0);
@@ -4489,6 +4498,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         int itemId = item.getItemId();
         if (itemId == R.id.menu_search) {
             onMenuSearch();
+            return true;
+        } else if (itemId == R.id.menu_save_search) {
+            onMenuSaveSearch();
+            return true;
+        } else if (itemId == R.id.menu_delete_search) {
+            onMenuDeleteSearch();
             return true;
         } else if (itemId == R.id.menu_folders) {// Obsolete
             onMenuFolders(primary);
@@ -4598,6 +4613,43 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         FragmentDialogSearch fragment = new FragmentDialogSearch();
         fragment.setArguments(args);
         fragment.show(getParentFragmentManager(), "search");
+    }
+
+    private void onMenuSaveSearch() {
+        Bundle args = new Bundle();
+        args.putSerializable("criteria", criteria);
+
+        FragmentDialogSaveSearch fragment = new FragmentDialogSaveSearch();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_SAVE_SEARCH);
+        fragment.show(getParentFragmentManager(), "search:save");
+    }
+
+    private void onMenuDeleteSearch() {
+        Bundle args = new Bundle();
+        args.putLong("id", criteria.id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                db.search().deleteSearch(id);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "search:delete");
     }
 
     private void onMenuFolders(long account) {
@@ -4835,7 +4887,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ask.setArguments(args);
         ask.setTargetFragment(FragmentMessages.this, REQUEST_ALL_READ);
         ask.show(getParentFragmentManager(), "messages:allread");
-
     }
 
     private void onMenuViewThread() {
@@ -4896,6 +4947,35 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:allread");
+    }
+
+    private void onSaveSearch(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                BoundaryCallbackMessages.SearchCriteria criteria =
+                        (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
+
+                EntitySearch search = new EntitySearch();
+                search.name = args.getString("name");
+                search.data = criteria.toJson().toString();
+
+                DB db = DB.getInstance(context);
+                search.id = db.search().insertSearch(search);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "search:save");
     }
 
     private void onMenuSyncMore() {
@@ -6608,6 +6688,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_ALL_READ:
                     if (resultCode == RESULT_OK)
                         markAllRead();
+                    break;
+                case REQUEST_SAVE_SEARCH:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSaveSearch(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -8906,6 +8990,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogSaveSearch extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_save_search, null);
+            EditText etName = dview.findViewById(R.id.etName);
+
+            BoundaryCallbackMessages.SearchCriteria criteria =
+                    (BoundaryCallbackMessages.SearchCriteria) getArguments().getSerializable("criteria");
+            etName.setText(criteria.getTitle(context));
+
+            return new AlertDialog.Builder(context)
+                    .setView(dview)
+                    .setPositiveButton(R.string.title_save, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getArguments().putString("name", etName.getText().toString());
                             sendResult(Activity.RESULT_OK);
                         }
                     })

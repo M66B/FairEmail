@@ -58,44 +58,6 @@ import java.util.List;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
-    private TextViewAutoCompleteAction etQuery;
-    private TextView tvSearch1;
-    private TextView tvSearch2;
-    private TextView tvSearch3;
-    private ImageButton ibResetSearches;
-
-    private ImageButton ibInfo;
-    private ImageButton ibFlagged;
-    private ImageButton ibUnseen;
-    private ImageButton ibInvite;
-    private ImageButton ibAttachment;
-    private ImageButton ibNotes;
-    private ImageButton ibMore;
-    private TextView tvMore;
-    private CheckBox cbSearchIndex;
-    private CheckBox cbSenders;
-    private CheckBox cbRecipients;
-    private CheckBox cbSubject;
-    private CheckBox cbKeywords;
-    private CheckBox cbMessage;
-    private TextView tvSearchTextUnsupported;
-    private CheckBox cbNotes;
-    private CheckBox cbHeaders;
-    private CheckBox cbHtml;
-    private CheckBox cbSearchTrash;
-    private CheckBox cbSearchJunk;
-    private CheckBox cbUnseen;
-    private CheckBox cbFlagged;
-    private CheckBox cbHidden;
-    private CheckBox cbEncrypted;
-    private CheckBox cbAttachments;
-    private Spinner spMessageSize;
-    private Button btnBefore;
-    private Button btnAfter;
-    private TextView tvBefore;
-    private TextView tvAfter;
-    private Group grpMore;
-
     private static final int MAX_SUGGESTIONS = 3;
 
     @NonNull
@@ -120,43 +82,43 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
-        etQuery = dview.findViewById(R.id.etQuery);
-        tvSearch1 = dview.findViewById(R.id.tvSearch1);
-        tvSearch2 = dview.findViewById(R.id.tvSearch2);
-        tvSearch3 = dview.findViewById(R.id.tvSearch3);
-        ibResetSearches = dview.findViewById(R.id.ibResetSearches);
+        TextViewAutoCompleteAction etQuery = dview.findViewById(R.id.etQuery);
+        TextView tvSearch1 = dview.findViewById(R.id.tvSearch1);
+        TextView tvSearch2 = dview.findViewById(R.id.tvSearch2);
+        TextView tvSearch3 = dview.findViewById(R.id.tvSearch3);
+        ImageButton ibResetSearches = dview.findViewById(R.id.ibResetSearches);
 
-        ibInfo = dview.findViewById(R.id.ibInfo);
-        ibFlagged = dview.findViewById(R.id.ibFlagged);
-        ibUnseen = dview.findViewById(R.id.ibUnseen);
-        ibInvite = dview.findViewById(R.id.ibInvite);
-        ibAttachment = dview.findViewById(R.id.ibAttachment);
-        ibNotes = dview.findViewById(R.id.ibNotes);
-        ibMore = dview.findViewById(R.id.ibMore);
-        tvMore = dview.findViewById(R.id.tvMore);
-        cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
-        cbSenders = dview.findViewById(R.id.cbSenders);
-        cbRecipients = dview.findViewById(R.id.cbRecipients);
-        cbSubject = dview.findViewById(R.id.cbSubject);
-        cbKeywords = dview.findViewById(R.id.cbKeywords);
-        cbMessage = dview.findViewById(R.id.cbMessage);
-        tvSearchTextUnsupported = dview.findViewById(R.id.tvSearchTextUnsupported);
-        cbNotes = dview.findViewById(R.id.cbNotes);
-        cbHeaders = dview.findViewById(R.id.cbHeaders);
-        cbHtml = dview.findViewById(R.id.cbHtml);
-        cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
-        cbSearchJunk = dview.findViewById(R.id.cbSearchJunk);
-        cbUnseen = dview.findViewById(R.id.cbUnseen);
-        cbFlagged = dview.findViewById(R.id.cbFlagged);
-        cbHidden = dview.findViewById(R.id.cbHidden);
-        cbEncrypted = dview.findViewById(R.id.cbEncrypted);
-        cbAttachments = dview.findViewById(R.id.cbAttachments);
-        spMessageSize = dview.findViewById(R.id.spMessageSize);
-        btnBefore = dview.findViewById(R.id.btnBefore);
-        btnAfter = dview.findViewById(R.id.btnAfter);
-        tvBefore = dview.findViewById(R.id.tvBefore);
-        tvAfter = dview.findViewById(R.id.tvAfter);
-        grpMore = dview.findViewById(R.id.grpMore);
+        ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
+        ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
+        ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
+        ImageButton ibInvite = dview.findViewById(R.id.ibInvite);
+        ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
+        ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
+        ImageButton ibMore = dview.findViewById(R.id.ibMore);
+        TextView tvMore = dview.findViewById(R.id.tvMore);
+        CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
+        CheckBox cbSenders = dview.findViewById(R.id.cbSenders);
+        CheckBox cbRecipients = dview.findViewById(R.id.cbRecipients);
+        CheckBox cbSubject = dview.findViewById(R.id.cbSubject);
+        CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
+        CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
+        TextView tvSearchTextUnsupported = dview.findViewById(R.id.tvSearchTextUnsupported);
+        CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
+        CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
+        CheckBox cbHtml = dview.findViewById(R.id.cbHtml);
+        CheckBox cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
+        CheckBox cbSearchJunk = dview.findViewById(R.id.cbSearchJunk);
+        CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
+        CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
+        CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
+        CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
+        CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
+        Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
+        Button btnBefore = dview.findViewById(R.id.btnBefore);
+        Button btnAfter = dview.findViewById(R.id.btnAfter);
+        TextView tvBefore = dview.findViewById(R.id.tvBefore);
+        TextView tvAfter = dview.findViewById(R.id.tvAfter);
+        Group grpMore = dview.findViewById(R.id.grpMore);
 
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -412,7 +374,45 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        BoundaryCallbackMessages.SearchCriteria criteria = getSearchCriteria();
+                        BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+
+                        criteria.query = etQuery.getText().toString().trim();
+                        if (TextUtils.isEmpty(criteria.query))
+                            criteria.query = null;
+
+                        criteria.fts = cbSearchIndex.isChecked();
+                        if (!criteria.fts) {
+                            criteria.in_senders = cbSenders.isChecked();
+                            criteria.in_recipients = cbRecipients.isChecked();
+                            criteria.in_subject = cbSubject.isChecked();
+                            criteria.in_keywords = cbKeywords.isChecked();
+                            criteria.in_message = cbMessage.isChecked();
+                            criteria.in_notes = cbNotes.isChecked();
+                            criteria.in_headers = cbHeaders.isChecked();
+                            criteria.in_html = cbHtml.isChecked();
+                            criteria.with_unseen = cbUnseen.isChecked();
+                            criteria.with_flagged = cbFlagged.isChecked();
+                            criteria.with_hidden = cbHidden.isChecked();
+                            criteria.with_encrypted = cbEncrypted.isChecked();
+                            criteria.with_attachments = cbAttachments.isChecked();
+
+                            int pos = spMessageSize.getSelectedItemPosition();
+                            if (pos > 0) {
+                                int[] sizes = getResources().getIntArray(R.array.sizeValues);
+                                criteria.with_size = sizes[pos];
+                            }
+                        }
+
+                        criteria.in_trash = cbSearchTrash.isChecked();
+                        criteria.in_junk = cbSearchJunk.isChecked();
+
+                        Object after = tvAfter.getTag();
+                        Object before = tvBefore.getTag();
+
+                        if (after != null)
+                            criteria.after = ((Calendar) after).getTimeInMillis();
+                        if (before != null)
+                            criteria.before = ((Calendar) before).getTimeInMillis();
 
                         if (criteria.query != null) {
                             List<String> searches = new ArrayList<>();
@@ -481,38 +481,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                     account, folder, false, criteria);
                     }
                 })
-                .setNeutralButton(R.string.title_save, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            BoundaryCallbackMessages.SearchCriteria criteria = getSearchCriteria();
-                            Bundle args = new Bundle();
-                            args.putString("name", criteria.getTitle(context));
-                            args.putString("data", criteria.toJson().toString());
-
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    EntitySearch search = new EntitySearch();
-                                    search.name = args.getString("name");
-                                    search.data = args.getString("data");
-
-                                    DB db = DB.getInstance(context);
-                                    db.search().insertSearch(search);
-
-                                    return null;
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Log.unexpectedError(getParentFragmentManager(), ex);
-                                }
-                            }.execute(FragmentDialogSearch.this, args, "search:save");
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-                    }
-                })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -576,50 +544,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-    }
-
-    private BoundaryCallbackMessages.SearchCriteria getSearchCriteria() {
-        BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
-
-        criteria.query = etQuery.getText().toString().trim();
-        if (TextUtils.isEmpty(criteria.query))
-            criteria.query = null;
-
-        criteria.fts = cbSearchIndex.isChecked();
-        if (!criteria.fts) {
-            criteria.in_senders = cbSenders.isChecked();
-            criteria.in_recipients = cbRecipients.isChecked();
-            criteria.in_subject = cbSubject.isChecked();
-            criteria.in_keywords = cbKeywords.isChecked();
-            criteria.in_message = cbMessage.isChecked();
-            criteria.in_notes = cbNotes.isChecked();
-            criteria.in_headers = cbHeaders.isChecked();
-            criteria.in_html = cbHtml.isChecked();
-            criteria.with_unseen = cbUnseen.isChecked();
-            criteria.with_flagged = cbFlagged.isChecked();
-            criteria.with_hidden = cbHidden.isChecked();
-            criteria.with_encrypted = cbEncrypted.isChecked();
-            criteria.with_attachments = cbAttachments.isChecked();
-
-            int pos = spMessageSize.getSelectedItemPosition();
-            if (pos > 0) {
-                int[] sizes = getResources().getIntArray(R.array.sizeValues);
-                criteria.with_size = sizes[pos];
-            }
-        }
-
-        criteria.in_trash = cbSearchTrash.isChecked();
-        criteria.in_junk = cbSearchJunk.isChecked();
-
-        Object after = tvAfter.getTag();
-        Object before = tvBefore.getTag();
-
-        if (after != null)
-            criteria.after = ((Calendar) after).getTimeInMillis();
-        if (before != null)
-            criteria.before = ((Calendar) before).getTimeInMillis();
-
-        return criteria;
     }
 
     private void pickDate(TextView tv) {
