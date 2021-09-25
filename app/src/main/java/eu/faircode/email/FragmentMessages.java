@@ -4958,7 +4958,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 EntitySearch search = new EntitySearch();
                 search.name = args.getString("name");
+                search.color = args.getInt("color", Color.TRANSPARENT);
                 search.data = criteria.toJson().toString();
+
+                if (search.color == Color.TRANSPARENT)
+                    search.color = null;
 
                 DB db = DB.getInstance(context);
                 search.id = db.search().insertSearch(search);
@@ -9004,16 +9008,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     public static class FragmentDialogSaveSearch extends FragmentDialogBase {
+        private ViewButtonColor btnColor;
+
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Context context = getContext();
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_save_search, null);
             EditText etName = dview.findViewById(R.id.etName);
+            btnColor = dview.findViewById(R.id.btnColor);
+
+            btnColor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.hideKeyboard(etName);
+
+                    Bundle args = new Bundle();
+                    args.putInt("color", btnColor.getColor());
+                    args.putString("title", getString(R.string.title_color));
+                    args.putBoolean("reset", true);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentDialogSaveSearch.this, 1);
+                    fragment.show(getParentFragmentManager(), "search:color");
+                }
+            });
 
             BoundaryCallbackMessages.SearchCriteria criteria =
                     (BoundaryCallbackMessages.SearchCriteria) getArguments().getSerializable("criteria");
             etName.setText(criteria.getTitle(context));
+            btnColor.setColor(Color.TRANSPARENT);
 
             return new AlertDialog.Builder(context)
                     .setView(dview)
@@ -9021,6 +9046,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             getArguments().putString("name", etName.getText().toString());
+                            getArguments().putInt("color", btnColor.getColor());
                             sendResult(Activity.RESULT_OK);
                         }
                     })
@@ -9031,6 +9057,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                     })
                     .create();
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            try {
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    int color = args.getInt("color");
+                    btnColor.setColor(color);
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
         }
     }
 }

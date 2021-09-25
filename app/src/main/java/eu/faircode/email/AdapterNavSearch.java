@@ -82,9 +82,13 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
 
         private void bindTo(EntitySearch search) {
             ivItem.setImageResource(R.drawable.twotone_search_24);
+            if (search.color == null)
+                ivItem.clearColorFilter();
+            else
+                ivItem.setColorFilter(search.color);
+
             ivBadge.setVisibility(View.GONE);
             tvItem.setText(search.name);
-
 
             tvItemExtra.setVisibility(View.GONE);
             ivExtra.setVisibility(View.GONE);

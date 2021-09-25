@@ -32,4 +32,15 @@
 
         <requestFocus />
     </eu.faircode.email.EditTextPlain>
+
+    <eu.faircode.email.ViewButtonColor
+        android:id="@+id/btnColor"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingHorizontal="6dp"
+        android:text="@string/title_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

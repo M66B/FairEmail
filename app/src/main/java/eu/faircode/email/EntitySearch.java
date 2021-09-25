@@ -23,6 +23,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 @Entity(
         tableName = EntitySearch.TABLE_NAME,
         foreignKeys = {
@@ -37,6 +39,7 @@ public class EntitySearch {
     public Long id;
     @NonNull
     public String name;
+    public Integer color;
     @NonNull
     public String data;
 
@@ -46,6 +49,7 @@ public class EntitySearch {
             EntitySearch other = (EntitySearch) obj;
             return (this.id.equals(other.id) &&
                     this.name.equals(other.name) &&
+                    Objects.equals(this.color, other.color) &&
                     this.data.equals(other.data));
         } else
             return false;
