@@ -63,8 +63,10 @@ import net.openid.appauth.AuthorizationServiceConfiguration;
 import net.openid.appauth.ClientAuthentication;
 import net.openid.appauth.ClientSecretPost;
 import net.openid.appauth.CodeVerifierUtil;
+import net.openid.appauth.GrantTypeValues;
 import net.openid.appauth.NoClientAuthentication;
 import net.openid.appauth.ResponseTypeValues;
+import net.openid.appauth.TokenRequest;
 import net.openid.appauth.TokenResponse;
 import net.openid.appauth.browser.BrowserDescriptor;
 import net.openid.appauth.browser.BrowserMatcher;
@@ -78,6 +80,7 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -331,10 +334,6 @@ public class FragmentOAuth extends FragmentBase {
             if ("gmail".equals(provider.id))
                 params.put("access_type", "offline");
 
-            // https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow
-            if ("office365".equals(provider.id))
-                params.put("tenant", "common");
-
             if ("yandex".equals(provider.id)) {
                 params.put("device_name", "Android/FairEmail");
                 params.put("force_confirm", "true");
@@ -369,8 +368,11 @@ public class FragmentOAuth extends FragmentBase {
             if ("gmail".equals(provider.id))
                 authRequestBuilder.setPrompt("consent");
 
+            // https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow
             if ("office365".equals(provider.id))
                 authRequestBuilder.setPrompt("select_account");
+            if ("outlook".equals(provider.id))
+                authRequestBuilder.setPrompt("consent");
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
@@ -423,8 +425,23 @@ public class FragmentOAuth extends FragmentBase {
             else
                 clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
 
+            TokenRequest.Builder builder = new TokenRequest.Builder(
+                    auth.request.configuration,
+                    auth.request.clientId)
+                    .setGrantType(GrantTypeValues.AUTHORIZATION_CODE)
+                    .setRedirectUri(auth.request.redirectUri)
+                    .setCodeVerifier(auth.request.codeVerifier)
+                    .setAuthorizationCode(auth.authorizationCode)
+                    .setAdditionalParameters(Collections.<String, String>emptyMap())
+                    .setNonce(auth.request.nonce);
+
+            if ("office365".equals(provider.id) || "outlook".equals(provider.id))
+                builder.setScope(TextUtils.join(" ", provider.oauth.scopes));
+
+            TokenRequest request = builder.build();
+
             authService.performTokenRequest(
-                    auth.createTokenExchangeRequest(),
+                    request,
                     clientAuth,
                     new AuthorizationService.TokenResponseCallback() {
                         @Override
@@ -852,7 +869,7 @@ public class FragmentOAuth extends FragmentBase {
         if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
-        if ("office365".equals(id)) {
+        if ("office365".equals(id) || "outlook".equals(id)) {
             if (ex instanceof AuthenticationFailedException)
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
         }

@@ -103,6 +103,34 @@
             enabled="true"
             privacy="https://privacy.microsoft.com/privacystatement"
             redirectUri="https://oauth.faircode.eu/"
+            scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
+            tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
+        <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
+    </provider>
+    <provider
+        name="Outlook"
+        description="Outlook"
+        id="outlook"
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        order="5"
+        partial="false"
+        useip="false">
+        <imap
+            host="outlook.office365.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.office365.com"
+            port="587"
+            starttls="true" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+            clientId="17e57eca-a59b-4574-ac91-b343004898a6"
+            clientSecret="k847Q~ZKtIBNp~ls_riKEbFDsvOQEdUA.YDNt"
+            enabled="false"
+            privacy="https://privacy.microsoft.com/privacystatement"
+            redirectUri="https://oauth.faircode.eu/"
             scopes="openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
             tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
         <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
