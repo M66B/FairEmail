@@ -6765,7 +6765,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     FragmentDialogColor fragment = new FragmentDialogColor();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentDialogNotes.this, 1);
-                    fragment.show(getParentFragmentManager(), "identity:color");
+                    fragment.show(getParentFragmentManager(), "notes:color");
                 }
             });
 
