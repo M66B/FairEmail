@@ -174,6 +174,8 @@
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">これはおそらくこのデバイスに必要です</string>
+    <string name="title_setup_doze_12">プッシュメッセージは無効です</string>
+    <string name="title_setup_alarm_12">このアプリは動作しません</string>
     <string name="title_setup_inexact">アラーム &amp; リマインダーは無効です</string>
     <string name="title_setup_background">バックグラウンドの制限は有効です</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
