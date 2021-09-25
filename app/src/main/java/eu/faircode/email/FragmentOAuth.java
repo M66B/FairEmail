@@ -331,6 +331,10 @@ public class FragmentOAuth extends FragmentBase {
             if ("gmail".equals(provider.id))
                 params.put("access_type", "offline");
 
+            // https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow
+            if ("office365".equals(provider.id))
+                params.put("tenant", "common");
+
             if ("yandex".equals(provider.id)) {
                 params.put("device_name", "Android/FairEmail");
                 params.put("force_confirm", "true");
