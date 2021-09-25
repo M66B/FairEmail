@@ -924,8 +924,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (with_size != null)
                 flags.add(context.getString(R.string.title_search_flag_size,
                         Helper.humanReadableByteCount(with_size)));
-            return (query == null ? "" : query)
-                    + (flags.size() > 0 ? " +" : "")
+            return (query == null ? "" : query + " ")
+                    + (flags.size() > 0 ? "+" : "")
                     + TextUtils.join(",", flags);
         }
 
