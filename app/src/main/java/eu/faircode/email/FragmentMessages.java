@@ -5551,6 +5551,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.endTransaction();
                     }
 
+                    if (junkOnly == null)
+                        junkOnly = false;
+
                     ActionData data = new ActionData();
                     data.delete = (trash == null || junkOnly ||
                             (account != null && account.protocol == EntityAccount.TYPE_POP));
