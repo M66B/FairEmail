@@ -4581,7 +4581,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean canBlock = false;
             if (message.from != null && message.from.length > 0) {
                 String email = ((InternetAddress) message.from[0]).getAddress();
-                canBlock = !TextUtils.isEmpty(email) && Helper.EMAIL_ADDRESS.matcher(email).matches();
+                canBlock = !TextUtils.isEmpty(email);
             }
 
             Bundle aargs = new Bundle();
