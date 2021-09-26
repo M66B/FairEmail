@@ -197,6 +197,7 @@
     <string name="title_setup_still">Encore à faire</string>
     <string name="title_setup_error">Erreur</string>
     <string name="title_setup_configuring">Configuration du compte&#8230;</string>
+    <string name="title_setup_app_password">Vous pourriez avoir besoin d\'utiliser un mot de passe d\'application</string>
     <string name="title_setup_close">Fermer les paramètres</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
@@ -243,6 +244,7 @@
     <string name="title_setup_theme_system">Suivre le mode système</string>
     <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_html_light">Arrière-plan clair pour l\'affichage du message original</string>
+    <string name="title_setup_theme_composer_light">Arrière-plan clair pour l\'éditeur de message</string>
     <string name="title_setup_theme_system_hint">Ceci basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_theme_more_colors">Je veux plus de couleurs</string>
     <string name="title_setup_advanced">Avancé</string>

@@ -186,6 +186,7 @@
     <string name="title_setup_still">Ainda por fazer</string>
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
+    <string name="title_setup_app_password">Talvez seja necessário usar uma senha da app</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
     <string name="title_setup_import_do">Contas importadas serão adicionadas sem sobrescrever as já existentes</string>

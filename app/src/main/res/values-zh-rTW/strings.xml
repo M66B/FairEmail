@@ -72,7 +72,7 @@
     <string name="title_junk_clear">清除</string>
     <string name="title_junk_clear_hint">這將刪除所有封鎖寄件者規則</string>
     <string name="title_notification_sending">正在傳送訊息</string>
-    <string name="title_notification_waiting">正在等待合宜的網路連線</string>
+    <string name="title_notification_waiting">正在等待適用的網路連線</string>
     <string name="title_notification_idle">閒置</string>
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">伺服器警報: \'%1$s\'</string>
@@ -174,6 +174,7 @@
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_doze_device">此裝置可能需要這項設定</string>
+    <string name="title_setup_doze_12">訊息推送已停用</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒權限已被停用</string>
     <string name="title_setup_background">背景活動限制已啟用</string>
     <string name="title_setup_data">數據節省模式已啟用</string>

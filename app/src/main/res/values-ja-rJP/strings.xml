@@ -187,6 +187,7 @@
     <string name="title_setup_still">実行中です</string>
     <string name="title_setup_error">エラー</string>
     <string name="title_setup_configuring">アカウントを設定しています &#8230;</string>
+    <string name="title_setup_app_password">アプリのパスワードを使用する必要があるかもしれません</string>
     <string name="title_setup_close">設定を閉じる</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
@@ -233,6 +234,7 @@
     <string name="title_setup_theme_system">システム設定に従う</string>
     <string name="title_setup_theme_black_background">ブラック背景</string>
     <string name="title_setup_theme_html_light">元のメッセージを表示するときは背景色を明るくする</string>
+    <string name="title_setup_theme_composer_light">メッセージエディタの背景色を明るくする</string>
     <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
     <string name="title_setup_theme_more_colors">もっと色が欲しい場合</string>
     <string name="title_setup_advanced">詳細</string>

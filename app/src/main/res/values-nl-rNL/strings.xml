@@ -196,6 +196,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_still">Nog te doen</string>
     <string name="title_setup_error">Fout</string>
     <string name="title_setup_configuring">Account configureren &#8230;</string>
+    <string name="title_setup_app_password">Mogelijk moet u een app-wachtwoord gebruiken</string>
     <string name="title_setup_close">Sluit instellingen</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
@@ -242,6 +243,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_theme_system">Volg systeem</string>
     <string name="title_setup_theme_black_background">Zwarte achtergrond</string>
     <string name="title_setup_theme_html_light">Lichte achtergrond voor oorspronkelijke berichtweergave</string>
+    <string name="title_setup_theme_composer_light">Lichte achtergrond voor berichteditor</string>
     <string name="title_setup_theme_system_hint">Systeemthema volgen zal automatisch overschakelen naar lichte/donker bij dag/nacht, indien ondersteund door Android</string>
     <string name="title_setup_theme_more_colors">Ik wil meer kleuren</string>
     <string name="title_setup_advanced">Geavanceerd</string>

@@ -183,6 +183,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
     <string name="title_setup_doze_device">Bu muhtemelen bu cihaz için gereklidir</string>
+    <string name="title_setup_doze_12">Push mesajları devre dışı</string>
+    <string name="title_setup_alarm_12">Uygulama çalışmayacak</string>
     <string name="title_setup_inexact">Alarmlar &amp; hatırlatıcılar devre dışı bırakıldı</string>
     <string name="title_setup_background">Arka plan kısıtlamaları etkinleştirildi</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
@@ -239,6 +241,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_theme_dark">Koyu</string>
     <string name="title_setup_theme_system">Sistem ile aynı</string>
     <string name="title_setup_theme_black_background">Siyah arka plan</string>
+    <string name="title_setup_theme_html_light">Orijinal mesaj görünümü için açık renkli arka plan</string>
     <string name="title_setup_theme_system_hint">Eğer Android tarafından destekleniyorsa, sistem temasını izleme, gündüz/gece otomatik olarak açık/koyu olarak değişecektir</string>
     <string name="title_setup_theme_more_colors">Daha fazla renk istiyorum</string>
     <string name="title_setup_advanced">Gelişmiş</string>

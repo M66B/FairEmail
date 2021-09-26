@@ -207,6 +207,7 @@
     <string name="title_setup_still">Încă de făcut</string>
     <string name="title_setup_error">Eroare</string>
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
+    <string name="title_setup_app_password">Este posibil să fie nevoie să folosiți o parolă de aplicație</string>
     <string name="title_setup_close">Închideți setările</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>

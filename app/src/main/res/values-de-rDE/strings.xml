@@ -197,6 +197,7 @@
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
     <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
+    <string name="title_setup_app_password">Möglicherweise musst du ein App-Passwort verwenden</string>
     <string name="title_setup_close">Einstellungen schließen</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>

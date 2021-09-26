@@ -187,6 +187,7 @@
     <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
+    <string name="title_setup_app_password">您可能需要使用 app 密码</string>
     <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>

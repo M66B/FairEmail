@@ -207,6 +207,7 @@
     <string name="title_setup_still">Još treba uraditi</string>
     <string name="title_setup_error">Greška</string>
     <string name="title_setup_configuring">Podešavanje računa &#8230;</string>
+    <string name="title_setup_app_password">Možda ćete trebati koristiti lozinku za aplikaciju</string>
     <string name="title_setup_close">Zatvori postavke</string>
     <string name="title_setup_export">Izvezi postavke</string>
     <string name="title_setup_import">Uvezi postavke</string>

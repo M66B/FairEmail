@@ -217,6 +217,7 @@
     <string name="title_setup_still">Все ще</string>
     <string name="title_setup_error">Помилка</string>
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
+    <string name="title_setup_app_password">Можливо, Ви повинні використовувати пароль для додатку</string>
     <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>

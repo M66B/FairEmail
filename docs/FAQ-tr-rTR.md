@@ -473,8 +473,8 @@ Ayarların görüntüleme bölümünde örneğin etkinleştirebilir veya devre d
 * *tarihe göre gruplandır*: aynı tarihe sahip mesajların üzerinde tarih başlığını göster
 * *Konuşma dizisi oluşturma*: konuşma dizisini devre dışı bırakmak ve bunun yerine bireysel mesajları göstermek için
 * *konuşma eylem çubuğu*: alt gezinme çubuğunu devre dışı bırakmak için
-* *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
+* *vurgu rengi*: okunmamış mesajları gönderen için bir renk seçmek
+* *kişi fotoğraflarını göster*: kişi fotoğraflarını gizlemek için
 * *Show names and email addresses*: to show names or to show names and email addresses
 * *Show subject italic*: to show the message subject as normal text
 * *Show stars*: to hide stars (favorites)
@@ -483,9 +483,9 @@ Ayarların görüntüleme bölümünde örneğin etkinleştirebilir veya devre d
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Mesajların yalnızca mesaj metni indirildiğinde önizlenebileceğini unutmayın. Daha büyük mesaj metinleri, ölçülü (genellikle mobil) ağlarda varsayılan olarak indirilmez. Bunu bağlantı ayarlarından değiştirebilirsiniz.
 
-Some people ask:
+Bazı insanlar soruyor:
 
 * to show the subject bold, but bold is already being used to highlight unread messages
 * to move the star to the left, but it is much easier to operate the star on the right side
