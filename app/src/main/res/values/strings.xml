@@ -295,6 +295,7 @@
     <string name="title_setup_theme_system">Follow system</string>
     <string name="title_setup_theme_black_background">Black background</string>
     <string name="title_setup_theme_html_light">Light background for original message view</string>
+    <string name="title_setup_theme_composer_light">Light background for message editor</string>
 
     <string name="title_setup_theme_system_hint">This will automatically switch to a light/dark theme on day/night mode, if supported by Android</string>
     <string name="title_setup_theme_more_colors">I want more colors</string>
