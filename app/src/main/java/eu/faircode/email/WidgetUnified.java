@@ -126,7 +126,7 @@ public class WidgetUnified extends AppWidgetProvider {
             thread.putExtra("widget_type", type);
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent piItem = PendingIntent.getActivity(
+            PendingIntent piItem = PendingIntentCompat.getActivity(
                     context, ActivityView.PI_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 
             views.setPendingIntentTemplate(R.id.lv, piItem);
