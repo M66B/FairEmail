@@ -4,6 +4,10 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1737
+
+* Fixed crash
+
 ### 1.1736
 
 * Small improvements and minor bug fixes
