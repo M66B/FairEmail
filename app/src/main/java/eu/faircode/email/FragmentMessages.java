@@ -3839,10 +3839,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (!folder.read_only &&
                                 (!filter_archive || !EntityFolder.ARCHIVE.equals(folder.type)) &&
                                 !EntityFolder.DRAFTS.equals(folder.type) &&
-                                !EntityFolder.OUTBOX.equals(folder.type) &&
-                                // sent
-                                // trash
-                                !EntityFolder.JUNK.equals(folder.type))
+                                !EntityFolder.OUTBOX.equals(folder.type)
+                            /* sent, trash, junk */)
                             result.add(threaded.id);
                     }
 
@@ -5505,6 +5503,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean trashable = false;
                     boolean snoozable = false;
                     boolean archivable = false;
+                    Boolean junkOnly = null;
 
                     DB db = DB.getInstance(context);
                     try {
@@ -5524,6 +5523,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             EntityFolder folder = db.folder().getFolder(message.folder);
                             if (filter_archive && EntityFolder.ARCHIVE.equals(folder.type))
                                 continue;
+
+                            junkOnly = (junkOnly == null || junkOnly) &&
+                                    EntityFolder.JUNK.equals(folder.type);
 
                             if (!folder.read_only &&
                                     !EntityFolder.DRAFTS.equals(folder.type) &&
@@ -5550,9 +5552,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     ActionData data = new ActionData();
-                    data.delete = (trash == null ||
+                    data.delete = (trash == null || junkOnly ||
                             (account != null && account.protocol == EntityAccount.TYPE_POP));
-                    data.trashable = trashable;
+                    data.trashable = trashable || junkOnly;
                     data.snoozable = snoozable;
                     data.archivable = (archivable && archive != null);
                     return data;
