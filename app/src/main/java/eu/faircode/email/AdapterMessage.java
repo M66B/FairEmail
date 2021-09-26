@@ -2269,8 +2269,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.setValue("full_asked", message.id, true);
             }
 
-            boolean default_light = prefs.getBoolean("default_light", false);
-            properties.setValue("force_light", message.id, default_light);
+            if (!properties.getValue("force_light_default", message.id)) {
+                boolean default_light = prefs.getBoolean("default_light", false);
+                properties.setValue("force_light", message.id, default_light);
+                properties.setValue("force_light_default", message.id, true);
+            }
         }
 
         private void bindBody(TupleMessageEx message, final boolean scroll) {
