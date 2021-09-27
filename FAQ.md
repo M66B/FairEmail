@@ -943,6 +943,11 @@ This will result in searching like this:
 Search expressions can be used for searching on the device via the search index and for searching on the email server,
 but not for searching on the device without search index for performance reasons.
 
+From version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later.
+You can save a search after searching by tapping on the save button in the top action bar.
+After repeating a search there will be a delete button at the same place to delete a saved search again.
+A saved search might be useful to quickly search for starred messages, or for messages from a specific email address, etc.
+
 Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 Note that you can download as many messages to your device as you like.
 The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
