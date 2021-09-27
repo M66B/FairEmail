@@ -23,9 +23,10 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private RadioGroup rgTheme;
     private SwitchCompat swReverse;
     private RadioGroup rgThemeOptions;
+    private TextView tvSystem;
     private SwitchCompat swBlack;
     private SwitchCompat swHtmlLight;
-    private TextView tvSystem;
+    private SwitchCompat swComposerLight;
     private TextView tvMore;
 
     private void eval() {
@@ -44,11 +45,11 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         for (int i = 0; i < rgThemeOptions.getChildCount(); i++)
             rgThemeOptions.getChildAt(i).setEnabled(colored);
 
+        tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
+
         swBlack.setEnabled(colored && !grey && !solarized && optionId != R.id.rbThemeLight);
 
         swHtmlLight.setEnabled(!colored || optionId != R.id.rbThemeLight);
-
-        tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
     }
 
     @NonNull
@@ -58,6 +59,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = prefs.getString("theme", "blue_orange_system");
         boolean default_light = prefs.getBoolean("default_light", false);
+        boolean composer_light = prefs.getBoolean("composer_light", false);
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_theme, null);
         rgTheme = dview.findViewById(R.id.rgTheme);
@@ -66,6 +68,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         tvSystem = dview.findViewById(R.id.tvSystem);
         swBlack = dview.findViewById(R.id.swBlack);
         swHtmlLight = dview.findViewById(R.id.swHtmlLight);
+        swComposerLight = dview.findViewById(R.id.swComposerLight);
         tvMore = dview.findViewById(R.id.tvMore);
 
         rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -115,6 +118,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
         swBlack.setChecked(black);
         swHtmlLight.setChecked(default_light);
+        swComposerLight.setChecked(composer_light);
 
         switch (theme) {
             case "light":
@@ -252,6 +256,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                         }
 
                         editor.putBoolean("default_light", swHtmlLight.isChecked());
+                        editor.putBoolean("composer_light", swComposerLight.isChecked());
 
                         editor.apply();
                     }
@@ -263,9 +268,14 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     static int getTheme(ActivityBase activity) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         String theme = prefs.getString("theme", "blue_orange_system");
+        boolean composer_light = prefs.getBoolean("composer_light", false);
 
         boolean night = Helper.isNight(activity);
-        EntityLog.log(activity, "Activity theme=" + theme + " night=" + night);
+        boolean light = (composer_light && activity instanceof ActivityCompose);
+        if (light)
+            night = false;
+        EntityLog.log(activity, "Activity theme=" + theme +
+                "light = " + light + " night=" + night);
 
         switch (theme) {
             // Light
@@ -288,55 +298,103 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             // Dark
             case "dark":
             case "blue_orange_dark":
-                return R.style.AppThemeBlueOrangeDark;
+                if (light)
+                    return R.style.AppThemeBlueOrangeLight;
+                else
+                    return R.style.AppThemeBlueOrangeDark;
             case "orange_blue_dark":
-                return R.style.AppThemeOrangeBlueDark;
+                if (light)
+                    return R.style.AppThemeOrangeBlueLight;
+                else
+                    return R.style.AppThemeOrangeBlueDark;
 
             case "yellow_purple_dark":
-                return R.style.AppThemeYellowPurpleDark;
+                if (light)
+                    return R.style.AppThemeYellowPurpleLight;
+                else
+                    return R.style.AppThemeYellowPurpleDark;
             case "purple_yellow_dark":
-                return R.style.AppThemePurpleYellowDark;
+                if (light)
+                    return R.style.AppThemePurpleYellowLight;
+                else
+                    return R.style.AppThemePurpleYellowDark;
 
             case "red_green_dark":
-                return R.style.AppThemeRedGreenDark;
+                if (light)
+                    return R.style.AppThemeRedGreenLight;
+                else
+                    return R.style.AppThemeRedGreenDark;
             case "green_red_dark":
-                return R.style.AppThemeGreenRedDark;
+                if (light)
+                    return R.style.AppThemeGreenRedLight;
+                else
+                    return R.style.AppThemeGreenRedDark;
 
-            // Black
+                // Black
             case "blue_orange_black":
-                return R.style.AppThemeBlueOrangeBlack;
+                if (light)
+                    return R.style.AppThemeBlueOrangeLight;
+                else
+                    return R.style.AppThemeBlueOrangeBlack;
             case "orange_blue_black":
-                return R.style.AppThemeOrangeBlueBlack;
+                if (light)
+                    return R.style.AppThemeOrangeBlueLight;
+                else
+                    return R.style.AppThemeOrangeBlueBlack;
             case "yellow_purple_black":
-                return R.style.AppThemeYellowPurpleBlack;
+                if (light)
+                    return R.style.AppThemeYellowPurpleLight;
+                else
+                    return R.style.AppThemeYellowPurpleBlack;
             case "purple_yellow_black":
-                return R.style.AppThemePurpleYellowBlack;
+                if (light)
+                    return R.style.AppThemePurpleYellowLight;
+                else
+                    return R.style.AppThemePurpleYellowBlack;
             case "red_green_black":
-                return R.style.AppThemeRedGreenBlack;
+                if (light)
+                    return R.style.AppThemeRedGreenLight;
+                else
+                    return R.style.AppThemeRedGreenBlack;
             case "green_red_black":
-                return R.style.AppThemeGreenRedBlack;
+                if (light)
+                    return R.style.AppThemeGreenRedLight;
+                else
+                    return R.style.AppThemeGreenRedBlack;
 
-            // Grey
+                // Grey
             case "grey_light":
                 return R.style.AppThemeGreySteelBlueLight;
             case "grey_dark":
-                return R.style.AppThemeGreySteelBlueDark;
+                if (light)
+                    return R.style.AppThemeGreySteelBlueLight;
+                else
+                    return R.style.AppThemeGreySteelBlueDark;
 
-            // Solarized
+                // Solarized
             case "solarized_light":
                 return R.style.AppThemeSolarizedLight;
             case "solarized":
             case "solarized_dark":
-                return R.style.AppThemeSolarizedDark;
+                if (light)
+                    return R.style.AppThemeSolarizedLight;
+                else
+                    return R.style.AppThemeSolarizedDark;
 
-            // Black
+                // Black
             case "black":
-                return R.style.AppThemeBlack;
+                if (light)
+                    return R.style.AppThemeGreySteelBlueLight;
+                else
+                    return R.style.AppThemeBlack;
 
             case "black_and_white":
-                return R.style.AppThemeBlackAndWhite;
+                if (light)
+                    return R.style.AppThemeGreySteelBlueLight;
+                else
+                    return R.style.AppThemeBlackAndWhite;
 
-            // System
+                // System
             case "system":
             case "blue_orange_system":
                 return (night
