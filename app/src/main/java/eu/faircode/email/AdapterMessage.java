@@ -1174,6 +1174,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         (Boolean.TRUE.equals(message.dkim) ? 1 : 0) +
                                 (Boolean.TRUE.equals(message.spf) ? 1 : 0) +
                                 (Boolean.TRUE.equals(message.dmarc) ? 1 : 0);
+
+                // https://en.wikipedia.org/wiki/DMARC#Alignment
+                if (Boolean.TRUE.equals(message.dkim) &&
+                        !Boolean.FALSE.equals(message.spf) &&
+                        !Boolean.FALSE.equals(message.dmarc))
+                    auths = 3;
+
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         auths < 3 ? colorControlNormal : colorVerified));
