@@ -197,6 +197,7 @@
     <string name="title_setup_still">Hələ ediləcəklər var</string>
     <string name="title_setup_error">Xəta</string>
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
+    <string name="title_setup_app_password">Bir tətbiq şifrəsi istifadə etməyiniz lazım gələ bilər</string>
     <string name="title_setup_close">Tənzimləmələri bağla</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
@@ -243,6 +244,7 @@
     <string name="title_setup_theme_system">Sistem ilə eyni</string>
     <string name="title_setup_theme_black_background">Qara arxaplan</string>
     <string name="title_setup_theme_html_light">Orijinal mesaj görünüşü üçün açıq arxaplan</string>
+    <string name="title_setup_theme_composer_light">Mesaj redaktoru üçün açıq arxaplan</string>
     <string name="title_setup_theme_system_hint">Bu, Android tərəfindən dəstəklənirsə, gündüz/gecə rejimində temanı avtomatik olaraq açıq/tünd olaraq dəyişdirəcək</string>
     <string name="title_setup_theme_more_colors">Daha çox rəng istəyirəm</string>
     <string name="title_setup_advanced">Qabaqcıl</string>

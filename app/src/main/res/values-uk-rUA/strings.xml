@@ -144,6 +144,7 @@
     <string name="title_setup_intro">Налаштування облікового запису лише за три кроки, і після цього ви зможете відправляти та отримувати листи</string>
     <string name="title_setup_simple">Немає необхідності змінювати будь-які інші параметри</string>
     <string name="title_setup_issue">FairEmail був розроблений для захисту Вашої приватності і являє собою буквально тисячі годин роботи. Якщо у Вас виникли проблеми, будь ласка, зв\'яжіться зі мною в першу чергу, перш ніж залишити поганий відгук. Дуже радий допомогти!</string>
+    <string name="title_setup_analytics">FairEmail не відображає рекламу і не відстежує та не проаналізує вашу поведінку. Bugsnag використовується для звітування про помилки та вимкнено за замовчуванням.</string>
     <string name="title_setup_quick_accounts">Додавання/зміна облікових записів</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
     <string name="title_setup_quick_hint">Швидке налаштування дасть інформацію про конфігурацію з autoconfig.thunderbird.net</string>
@@ -264,6 +265,7 @@
     <string name="title_setup_theme_system">Як в системі</string>
     <string name="title_setup_theme_black_background">Чорний фон</string>
     <string name="title_setup_theme_html_light">Світлий фон для оригінального перегляду повідомлень</string>
+    <string name="title_setup_theme_composer_light">Світлий фон для редактора повідомлень</string>
     <string name="title_setup_theme_system_hint">Автоматичне перемкнення на світлу або темну тему вдень або вночі, якщо це підтримується в Android</string>
     <string name="title_setup_theme_more_colors">Я хочу більше кольорів</string>
     <string name="title_setup_advanced">Додатково</string>
@@ -401,10 +403,13 @@
     <string name="title_advanced_distinguish_contacts">Підкреслювати відправника в полі \'to\', коли відправник відомий як місцевий контакт</string>
     <string name="title_advanced_show_recipients">Показувати отримувачів в заголовку повідомлення</string>
     <string name="title_advanced_font_size_sender">Розмір тексту в полі відправник</string>
+    <string name="title_advanced_sender_ellipsize">За потребою скоротити ім\'я відправника</string>
     <string name="title_advanced_subject_top">Показувати поле тема над полем відправник</string>
     <string name="title_advanced_subject_italic">Показувати поле тема курсивом</string>
     <string name="title_advanced_highlight_subject">Підсвічувати тему</string>
     <string name="title_advanced_font_size_subject">Розмір тексту в полі тема</string>
+    <string name="title_advanced_subject_ellipsize">За потребою скоротити тему</string>
+    <string name="title_advanced_compact_mode_remark">Тільки компактний режим</string>
     <string name="title_advanced_highlight_color">Колір підсвічування</string>
     <string name="title_advanced_keywords">Показувати ключові слова в заголовку повідомлення</string>
     <string name="title_advanced_labels">Показувати мітки Gmail в заголовку повідомлення</string>

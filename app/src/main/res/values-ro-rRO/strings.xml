@@ -254,6 +254,7 @@
     <string name="title_setup_theme_system">Setare sistem</string>
     <string name="title_setup_theme_black_background">Fundal negru</string>
     <string name="title_setup_theme_html_light">Fond deschis pentru vizualizarea mesajului original</string>
+    <string name="title_setup_theme_composer_light">Fundal luminos pentru editorul de mesaje</string>
     <string name="title_setup_theme_system_hint">Dacă este suportată de Android, setare sistem, va schimba automat la deschis/întunecat în timpul zilei/nopții</string>
     <string name="title_setup_theme_more_colors">Vreau mai multe culori</string>
     <string name="title_setup_advanced">Setări avansate</string>

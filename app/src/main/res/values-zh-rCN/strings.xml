@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail 是一款专注于隐私与安全的开源电子邮件应用。所以，某些功能的工作方式可能与您的习惯不同。</string>
     <string name="app_limitations">例如，默认情况下，消息将被重新格式化以移除不安全的元素并提高可读性；另外，为确保安全，打开链接前需要得到确认。当然如有需要，这两个选项都可以禁用</string>
     <string name="app_crash">FairEmail 不支持该设备，Android 中的 bug 会导致其崩溃</string>
-    <string name="app_exit">再按一次返回键退出</string>
+    <string name="app_exit">再按一次退出</string>
     <string name="app_cake">剩余存储空间不足</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="channel_service">接收</string>
@@ -234,6 +234,7 @@
     <string name="title_setup_theme_system">跟随系统</string>
     <string name="title_setup_theme_black_background">黑色背景</string>
     <string name="title_setup_theme_html_light">原始消息视图使用浅色背景</string>
+    <string name="title_setup_theme_composer_light">邮件编辑窗使用浅色背景</string>
     <string name="title_setup_theme_system_hint">如果安卓系统支持，跟随系统主题将在白天/夜间自动切换到亮/暗色主题</string>
     <string name="title_setup_theme_more_colors">我想要更多颜色</string>
     <string name="title_setup_advanced">高级选项</string>
@@ -488,7 +489,7 @@
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_client_id">将应用名称和版本发送到电子邮件服务器</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
-    <string name="title_advanced_incognito_keyboard">使用隐身键盘 (Android 8+)</string>
+    <string name="title_advanced_incognito_keyboard">使用隐身模式下的输入法 (Android 8+)</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
@@ -518,14 +519,14 @@
         密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
     </string>
     <string name="title_advanced_power_menu">添加操作到 Android 电源菜单</string>
-    <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
+    <string name="title_advanced_external_search">允许其他应用搜索邮件</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>
     <string name="title_advanced_class_min_chance">是否分类的最低概率：%1$s %%</string>
     <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
-    <string name="title_advanced_language">语言</string>
+    <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
-    <string name="title_advanced_app">应用设置</string>
+    <string name="title_advanced_app">应用信息</string>
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_protocol">协议日志</string>
     <string name="title_advanced_log_info">调试日志</string>
@@ -1678,9 +1679,9 @@
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">
-        <item>只有名字</item>
+        <item>仅名称</item>
         <item>仅电子邮件</item>
-        <item>名字和电子邮箱</item>
+        <item>名称+电子邮箱</item>
     </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->

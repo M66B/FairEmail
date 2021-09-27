@@ -264,6 +264,7 @@
     <string name="title_setup_theme_system">Системная</string>
     <string name="title_setup_theme_black_background">Чёрный фон</string>
     <string name="title_setup_theme_html_light">Светлый фон для просмотра исходного сообщения</string>
+    <string name="title_setup_theme_composer_light">Светлый фон для редактора сообщений</string>
     <string name="title_setup_theme_system_hint">Системная тема автоматически переключится на светлую или тёмную в зависимости от времени суток, если поддерживается Android</string>
     <string name="title_setup_theme_more_colors">Я хочу больше цветов</string>
     <string name="title_setup_advanced">Дополнительные настройки</string>

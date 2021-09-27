@@ -245,6 +245,7 @@
     <string name="title_setup_theme_system">wie System</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_html_light">Heller Hintergrund für die Ansicht der Originalnachricht</string>
+    <string name="title_setup_theme_composer_light">Heller Hintergrund für das Nachrichtenfenster</string>
     <string name="title_setup_theme_system_hint">Dadurch wird automatisch auf ein helles/dunkles Design im Tag-/Nachtmodus umgeschaltet, wenn es von Android unterstützt wird</string>
     <string name="title_setup_theme_more_colors">Ich möchte mehr Farben</string>
     <string name="title_setup_advanced">Erweitert</string>
