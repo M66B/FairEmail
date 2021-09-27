@@ -177,7 +177,13 @@ class NotificationHelper {
             channel.setDescription(jchannel.getString("description"));
 
         channel.setBypassDnd(jchannel.getBoolean("dnd"));
-        channel.setLockscreenVisibility(jchannel.getInt("visibility"));
+
+        int visibility = jchannel.getInt("visibility");
+        if (visibility == Notification.VISIBILITY_PRIVATE ||
+                visibility == Notification.VISIBILITY_PUBLIC ||
+                visibility == Notification.VISIBILITY_SECRET)
+            channel.setLockscreenVisibility(visibility);
+
         channel.setShowBadge(jchannel.getBoolean("badge"));
 
         if (jchannel.has("sound") && !jchannel.isNull("sound")) {
