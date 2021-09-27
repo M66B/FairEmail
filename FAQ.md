@@ -2287,7 +2287,15 @@ which is another possibility to have different synchronization schedules and to 
 
 It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition.
 This way it is possible to *snooze* business related messages until the start of the business hours.
-This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+This also means that the messages will be on your device for when there is (temporarily) no internet connection. How to:
+
+* Go to the folder list of an account by tapping on the account name in the navigation menu (left side menu)
+* Long press the inbox in the folder list and select *Edit rules*
+* Tap om the big *plus* button at the bottom to create a new rule
+* Enter as name for example *Snooze business messages*
+* Under relative time select a start and end date/time, for example Friday 17:00 and Monday 09:00
+* Select *Snooze* as action
+* Save the rule with the save button in the bottom action bar
 
 Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app,
 which could be used to (not) silence specific (business) notifications.
