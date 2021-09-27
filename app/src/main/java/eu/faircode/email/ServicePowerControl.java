@@ -138,7 +138,7 @@ public class ServicePowerControl extends ControlsProviderService {
                 ActivityView.PI_POWER,
                 new Intent(context, ActivitySetup.class)
                         .setAction("misc")
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("tab", "misc"),
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }

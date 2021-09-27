@@ -3675,7 +3675,7 @@ public class FragmentCompose extends FragmentBase {
                         public void onClick(View v) {
                             if (ex.getCause() instanceof CertificateException)
                                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                         .putExtra("tab", "encryption"));
                             else {
                                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
@@ -3696,7 +3696,7 @@ public class FragmentCompose extends FragmentBase {
                                             return true;
                                         } else if (itemId == R.string.title_advanced_manage_certificates) {
                                             startActivity(new Intent(getContext(), ActivitySetup.class)
-                                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                                     .putExtra("tab", "encryption"));
                                             return true;
                                         }
@@ -5191,7 +5191,7 @@ public class FragmentCompose extends FragmentBase {
                     @Override
                     public void onClick(View v) {
                         v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                         getActivity().finish();
                     }
                 });
@@ -6716,7 +6716,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onClick(View v) {
                     v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             .putExtra("target", "accounts"));
                 }
             });

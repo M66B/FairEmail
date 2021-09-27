@@ -1689,7 +1689,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         @Override
                         public void onClick(View v) {
                             v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("tab", "connection"));
                         }
                     });
@@ -4215,7 +4215,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         });
         snackbar.show();
@@ -5206,7 +5206,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         @Override
                         public void onClick(View v) {
                             v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("tab", "connection"));
                         }
                     });
@@ -7982,7 +7982,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         @Override
                         public void onClick(View v) {
                             v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("target", "accounts"));
                         }
                     });

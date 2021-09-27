@@ -208,7 +208,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         }, SERVICE_START_DELAY);
                     } else {
                         Intent setup = new Intent(ActivityMain.this, ActivitySetup.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(setup, options);
                     }
 

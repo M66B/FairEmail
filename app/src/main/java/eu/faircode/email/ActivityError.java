@@ -114,7 +114,7 @@ public class ActivityError extends ActivityBase {
                     @Override
                     protected void onExecuted(Bundle args, Void data) {
                         startActivity(new Intent(ActivityError.this, ActivitySetup.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 .putExtra("target", "accounts")
                                 .putExtra("id", account)
                                 .putExtra("protocol", protocol));
@@ -134,7 +134,7 @@ public class ActivityError extends ActivityBase {
             @Override
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("target", "accounts")
                         .putExtra("id", account)
                         .putExtra("protocol", protocol));
