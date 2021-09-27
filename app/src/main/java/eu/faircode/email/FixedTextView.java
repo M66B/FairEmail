@@ -253,6 +253,40 @@ public class FixedTextView extends AppCompatTextView {
     }
 
     @Override
+    public boolean performClick() {
+        try {
+            return super.performClick();
+        } catch (Throwable ex) {
+            /*
+                android.database.sqlite.SQLiteException: not an error (code 0 SQLITE_OK[0]): Could not open the database in read/write mode.
+                android.database.sqlite.SQLiteException: not an error (code 0 SQLITE_OK[0]): Could not open the database in read/write mode.
+                  at android.database.sqlite.SQLiteConnection.nativeOpen(Native Method)
+                  at android.database.sqlite.SQLiteConnection.open(SQLiteConnection.java:284)
+                  at android.database.sqlite.SQLiteConnection.open(SQLiteConnection.java:215)
+                  at android.database.sqlite.SQLiteConnectionPool.openConnectionLocked(SQLiteConnectionPool.java:705)
+                  at android.database.sqlite.SQLiteConnectionPool.open(SQLiteConnectionPool.java:272)
+                  at android.database.sqlite.SQLiteConnectionPool.open(SQLiteConnectionPool.java:239)
+                  at android.database.sqlite.SQLiteDatabase.openInner(SQLiteDatabase.java:1292)
+                  at android.database.sqlite.SQLiteDatabase.open(SQLiteDatabase.java:1247)
+                  at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java:903)
+                  at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java:893)
+                  at android.database.sqlite.SQLiteOpenHelper.getDatabaseLocked(SQLiteOpenHelper.java:365)
+                  at android.database.sqlite.SQLiteOpenHelper.getReadableDatabase(SQLiteOpenHelper.java:322)
+                  at com.androidx.galaxy.route.SpeedGps_MainActivity.readRadars(SpeedGps_MainActivity.java:2210)
+                  at com.androidx.galaxy.route.SpeedGps_MainActivity.onClick(SpeedGps_MainActivity.java:1753)
+                  at android.view.View.performClick(View.java:7357)
+                  at android.widget.TextView.performClick(TextView.java:14263)
+                  at android.view.View.performClickInternal(View.java:7323)
+                  at android.view.View.access$3200(View.java:849)
+                  at android.view.View$PerformClick.run(View.java:27884)
+                  at android.os.Handler.handleCallback(Handler.java:873)
+             */
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
     public boolean performLongClick() {
         try {
             return super.performLongClick();

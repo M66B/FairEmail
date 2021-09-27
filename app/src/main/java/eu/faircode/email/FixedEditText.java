@@ -223,6 +223,16 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     @Override
+    public boolean performClick() {
+        try {
+            return super.performClick();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
     public boolean performLongClick() {
         try {
             return super.performLongClick();
