@@ -2763,7 +2763,7 @@ Please double check if the notification dot (badge) is disabled for the receive 
 You can go to the right notification channel settings via the notification settings of FairEmail.
 This might not be obvious, but you can tap on the channel name for more settings.
 
-FairEmail does send a new message count intent as well:
+FairEmail does send a new message count *broadcast* intent as well:
 
 ```
 eu.faircode.email.NEW_MESSAGE_COUNT
