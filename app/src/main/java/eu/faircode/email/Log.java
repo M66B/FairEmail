@@ -1980,6 +1980,7 @@ public class Log {
                     for (TupleFolderEx folder : folders)
                         if (folder.synchronize)
                             size += write(os, "- " + folder.name + " " + folder.type +
+                                    " notify=" + folder.notify +
                                     " poll=" + folder.poll + "/" + folder.poll_factor +
                                     " days=" + folder.sync_days + "/" + folder.keep_days +
                                     " msgs=" + folder.content + "/" + folder.messages +
@@ -2277,6 +2278,31 @@ public class Log {
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+            String name;
+            int filter = nm.getCurrentInterruptionFilter();
+            switch (filter) {
+                case NotificationManager.INTERRUPTION_FILTER_UNKNOWN:
+                    name = "Unknown";
+                    break;
+                case NotificationManager.INTERRUPTION_FILTER_ALL:
+                    name = "All";
+                    break;
+                case NotificationManager.INTERRUPTION_FILTER_PRIORITY:
+                    name = "Priority";
+                    break;
+                case NotificationManager.INTERRUPTION_FILTER_NONE:
+                    name = "None";
+                    break;
+                case NotificationManager.INTERRUPTION_FILTER_ALARMS:
+                    name = "Alarms";
+                    break;
+                default:
+                    name = Integer.toString(filter);
+            }
+
+            size += write(os, String.format("Interruption filter=%s\r\n\r\n", name));
 
             for (NotificationChannel channel : nm.getNotificationChannels())
                 try {
