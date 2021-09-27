@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.ActivityManager;
 import android.app.ApplicationExitInfo;
 import android.app.Dialog;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.usage.UsageStatsManager;
@@ -2312,7 +2313,20 @@ public class Log {
                     size += write(os, ex.toString() + "\r\n");
                 }
 
-            size += write(os, "Importance none=0; min=1; low=2; default=3; high=4; max=5\r\n\r\n");
+            size += write(os,
+                    String.format("Importance none=%d; min=%d; low=%d; default=%d; high=%d; max=%d; unspecified=%d\r\n",
+                            NotificationManager.IMPORTANCE_NONE,
+                            NotificationManager.IMPORTANCE_MIN,
+                            NotificationManager.IMPORTANCE_LOW,
+                            NotificationManager.IMPORTANCE_DEFAULT,
+                            NotificationManager.IMPORTANCE_HIGH,
+                            NotificationManager.IMPORTANCE_MAX,
+                            NotificationManager.IMPORTANCE_UNSPECIFIED));
+            size += write(os,
+                    String.format("Visibility private=%d; public=%d; secret=%d\r\n",
+                            Notification.VISIBILITY_PRIVATE,
+                            Notification.VISIBILITY_PUBLIC,
+                            Notification.VISIBILITY_SECRET));
         }
 
         db.attachment().setDownloaded(attachment.id, size);
