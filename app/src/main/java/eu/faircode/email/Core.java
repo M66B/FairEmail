@@ -4900,7 +4900,7 @@ class Core {
                         .setAction("reply:" + message.id)
                         .putExtra("group", group);
                 PendingIntent piReply = PendingIntentCompat.getService(
-                        context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                        context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply_direct),

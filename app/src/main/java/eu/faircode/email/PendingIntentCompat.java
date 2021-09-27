@@ -31,21 +31,21 @@ public class PendingIntentCompat {
     }
 
     public static PendingIntent getActivity(Context context, int requestCode, Intent intent, int flags) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (flags & PendingIntent.FLAG_MUTABLE) != 0)
             return PendingIntent.getActivity(context, requestCode, intent, flags);
         else
             return PendingIntent.getActivity(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
     }
 
     public static PendingIntent getService(Context context, int requestCode, @NonNull Intent intent, int flags) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (flags & PendingIntent.FLAG_MUTABLE) != 0)
             return PendingIntent.getService(context, requestCode, intent, flags);
         else
             return PendingIntent.getService(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
     }
 
     static PendingIntent getForegroundService(Context context, int requestCode, @NonNull Intent intent, int flags) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || (flags & PendingIntent.FLAG_MUTABLE) != 0)
             return PendingIntent.getService(context, requestCode, intent, flags);
         else
             return PendingIntent.getForegroundService(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
