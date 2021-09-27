@@ -1278,20 +1278,14 @@ public class MessageHelper {
     String[] getAuthentication() throws MessagingException {
         ensureHeaders();
 
-        List<String> auths = new ArrayList<>();
-        Enumeration<Header> headers = imessage.getAllHeaders();
-        while (headers.hasMoreElements()) {
-            Header header = headers.nextElement();
-            if ("Received".equals(header.getName()))
-                break;
-            else if ("Authentication-Results".equals(header.getName()))
-                auths.add(MimeUtility.unfold(header.getValue()));
-        }
-
-        if (auths.size() == 0)
+        String[] headers = imessage.getHeader("Authentication-Results");
+        if (headers == null)
             return null;
-        else
-            return auths.toArray(new String[0]);
+
+        for (int i = 0; i < headers.length; i++)
+            headers[i] = MimeUtility.unfold(headers[i]);
+
+        return headers;
     }
 
     static Boolean getAuthentication(String type, String[] headers) {
