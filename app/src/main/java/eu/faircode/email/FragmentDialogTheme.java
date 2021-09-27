@@ -50,6 +50,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         swBlack.setEnabled(colored && !grey && !solarized && optionId != R.id.rbThemeLight);
 
         swHtmlLight.setEnabled(!colored || optionId != R.id.rbThemeLight);
+        swComposerLight.setEnabled(!colored || optionId != R.id.rbThemeLight);
     }
 
     @NonNull
