@@ -6,6 +6,8 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig g
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
+**🚩 Wenn Sie Probleme mit der Outlook-/Hotmail-/Live-/MSN-Authentifizierung haben, aktualisieren Sie bitte auf die neueste Version der App. Tippen Sie auf die Fehlermeldung und tippen Sie auf die Schaltfläche, um das Kontopasswort zu bearbeiten.**
+
 ## Übersicht
 
 * [Konten autorisieren](#user-content-authorizing-accounts)

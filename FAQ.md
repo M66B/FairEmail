@@ -10,6 +10,8 @@ If you have a question, please check the following frequently asked questions fi
 [At the bottom](#user-content-get-support),
 you can find out how to ask other questions, request features, and report bugs.
 
+**🚩 If you have Outlook/Hotmail/Live/MSN authentication problems, please update to the latest version of the app. Tap on the error notification, and tap on the button to edit the account password.**
+
 ## Index
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
