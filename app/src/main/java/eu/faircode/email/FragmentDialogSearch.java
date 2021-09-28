@@ -48,6 +48,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
@@ -537,6 +538,23 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        DB db = DB.getInstance(context);
+        db.message().liveFts().observe(getViewLifecycleOwner(), new Observer<TupleFtsStats>() {
+            private TupleFtsStats last = null;
+
+            @Override
+            public void onChanged(TupleFtsStats stats) {
+                if (stats == null)
+                    cbSearchIndex.setText(R.string.title_search_use_index);
+                else if (last == null || !last.equals(stats)) {
+                    int perc = (int) (100 * stats.fts / (float) stats.total);
+                    cbSearchIndex.setText(getString(R.string.title_name_count,
+                            getString(R.string.title_search_use_index), perc + "%"));
+                }
+                last = stats;
             }
         });
 
