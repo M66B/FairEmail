@@ -5192,13 +5192,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onLoading() {
             loading = true;
-            updateListState("Loading", SimpleTask.getCount(), adapter.getItemCount());
+            updateListState("Loading", SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount());
         }
 
         @Override
         public void onLoaded(int found) {
             loading = false;
-            updateListState("Loaded found=" + found, SimpleTask.getCount(), adapter.getItemCount() + found);
+            updateListState("Loaded found=" + found, SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount() + found);
         }
 
         @Override
