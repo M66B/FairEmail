@@ -300,6 +300,7 @@ public class FragmentCompose extends FragmentBase {
 
     private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
+    // http://regex.info/blog/lightroom-goodies/jpeg-quality
 
     private static final int MAX_SHOW_RECIPIENTS = 5;
     private static final int RECIPIENTS_WARNING = 10;
