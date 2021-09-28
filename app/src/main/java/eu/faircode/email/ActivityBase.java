@@ -60,6 +60,7 @@ import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -763,6 +764,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         @Override
         public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
             log(fm, f, "onFragmentDestroyed");
+            try {
+                for (Field field : f.getClass().getDeclaredFields())
+                    if (View.class.isAssignableFrom(field.getType())) {
+                        Log.i("Clearing " + f.getClass().getSimpleName() + ":" + field.getName());
+                        field.setAccessible(true);
+                        field.set(f, null);
+                    }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
         }
 
         @Override
