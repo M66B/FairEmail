@@ -250,9 +250,16 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbSenders.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
+                cbRecipients.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
+                cbSubject.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
+                cbKeywords.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
+                cbMessage.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
                 cbNotes.setEnabled(!isChecked);
                 cbHeaders.setEnabled(!isChecked);
                 cbHtml.setEnabled(!isChecked);
+                cbUnseen.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
+                cbFlagged.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
                 cbHidden.setEnabled(!isChecked);
                 cbEncrypted.setEnabled(!isChecked);
                 cbAttachments.setEnabled(!isChecked);
