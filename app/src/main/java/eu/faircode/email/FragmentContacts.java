@@ -74,11 +74,13 @@ public class FragmentContacts extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private long account;
     private boolean junk = false;
     private String searching = null;
     private AdapterContact adapter;
 
-    static final int REQUEST_IMPORT = 1;
+    private static final int REQUEST_ACCOUNT = 1;
+    private static final int REQUEST_IMPORT = 2;
 
     @Override
     @Nullable
@@ -111,6 +113,7 @@ public class FragmentContacts extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        outState.putLong("fair:account", account);
         outState.putBoolean("fair:junk", junk);
         outState.putString("fair:searching", searching);
         super.onSaveInstanceState(outState);
@@ -121,6 +124,7 @@ public class FragmentContacts extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
+            account = savedInstanceState.getLong("fair:account");
             junk = savedInstanceState.getBoolean("fair:junk");
             searching = savedInstanceState.getString("fair:searching");
         }
@@ -216,16 +220,10 @@ public class FragmentContacts extends FragmentBase {
     }
 
     private void onMenuImport() {
-        final Context context = getContext();
-        PackageManager pm = context.getPackageManager();
-
-        Intent open = new Intent(Intent.ACTION_GET_CONTENT);
-        open.addCategory(Intent.CATEGORY_OPENABLE);
-        open.setType("*/*");
-        if (open.resolveActivity(pm) == null)  // system whitelisted
-            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(context, open), REQUEST_IMPORT);
+        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetFragment(this, REQUEST_ACCOUNT);
+        fragment.show(getParentFragmentManager(), "messages:accounts");
     }
 
     private void onMenuDelete() {
@@ -238,6 +236,10 @@ public class FragmentContacts extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case REQUEST_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onAccountSelected(data.getBundleExtra("args"));
+                    break;
                 case REQUEST_IMPORT:
                     if (resultCode == RESULT_OK && data != null)
                         handleImport(data);
@@ -248,11 +250,27 @@ public class FragmentContacts extends FragmentBase {
         }
     }
 
+    private void onAccountSelected(Bundle args) {
+        account = args.getLong("account");
+
+        final Context context = getContext();
+        PackageManager pm = context.getPackageManager();
+
+        Intent open = new Intent(Intent.ACTION_GET_CONTENT);
+        open.addCategory(Intent.CATEGORY_OPENABLE);
+        open.setType("*/*");
+        if (open.resolveActivity(pm) == null)  // system whitelisted
+            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+        else
+            startActivityForResult(Helper.getChooser(context, open), REQUEST_IMPORT);
+    }
+
     private void handleImport(Intent data) {
         Uri uri = data.getData();
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
+        args.putLong("account", account);
 
         new SimpleTask<Void>() {
             @Override
@@ -263,6 +281,7 @@ public class FragmentContacts extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                long account = args.getLong("account");
 
                 if (uri == null)
                     throw new FileNotFoundException();
@@ -298,12 +317,11 @@ public class FragmentContacts extends FragmentBase {
                             addresses.add(new InternetAddress(address, name, StandardCharsets.UTF_8.name()));
                         }
 
-                        for (EntityAccount account : accounts)
-                            EntityContact.update(context,
-                                    account.id,
-                                    addresses.toArray(new Address[0]),
-                                    EntityContact.TYPE_TO,
-                                    now);
+                        EntityContact.update(context,
+                                account,
+                                addresses.toArray(new Address[0]),
+                                EntityContact.TYPE_TO,
+                                now);
                     }
                 }
 

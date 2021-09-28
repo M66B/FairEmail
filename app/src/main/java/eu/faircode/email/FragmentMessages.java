@@ -4353,7 +4353,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ib.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                FragmentDialogAccount fragment = new FragmentDialogAccount();
+                FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
                 fragment.setArguments(new Bundle());
                 fragment.setTargetFragment(FragmentMessages.this, REQUEST_ACCOUNT);
                 fragment.show(getParentFragmentManager(), "messages:accounts");
@@ -8845,46 +8845,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } catch (Throwable ex) {
                 Log.e(ex);
             }
-        }
-    }
-
-    public static class FragmentDialogAccount extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final ArrayAdapter<EntityAccount> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
-
-            // TODO: spinner
-            new SimpleTask<List<EntityAccount>>() {
-                @Override
-                protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-                    return db.account().getSynchronizingAccounts();
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                    adapter.addAll(accounts);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(this, new Bundle(), "messages:accounts");
-
-            return new AlertDialog.Builder(getContext())
-                    .setTitle(R.string.title_list_accounts)
-                    .setAdapter(adapter, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            EntityAccount account = adapter.getItem(which);
-                            getArguments().putLong("account", account.id);
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
         }
     }
 
