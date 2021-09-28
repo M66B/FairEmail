@@ -12,6 +12,8 @@ you can find out how to ask other questions, request features, and report bugs.
 
 **🚩 If you have Outlook/Hotmail/Live/MSN authentication problems, please update to the latest version of the app. Tap on the error notification, and tap on the button to edit the account password.**
 
+Microsoft is "*[completely aware](https://answers.microsoft.com/en-us/outlook_com/forum/all/hotmail-account-not-downloading-email-as-of-sep-24/783b3b24-a305-41ef-af02-121a8eb15bd4)*" of the issue.
+
 ## Index
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
