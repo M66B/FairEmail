@@ -6472,21 +6472,29 @@ public class FragmentCompose extends FragmentBase {
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
 
-            Cursor groups = context.getContentResolver().query(
-                    ContactsContract.Groups.CONTENT_SUMMARY_URI,
-                    new String[]{
-                            ContactsContract.Groups._ID,
-                            ContactsContract.Groups.TITLE,
-                            ContactsContract.Groups.SUMMARY_COUNT,
-                            ContactsContract.Groups.ACCOUNT_NAME,
-                            ContactsContract.Groups.ACCOUNT_TYPE,
-                    },
-                    // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
-                    ContactsContract.Groups.DELETED + " = 0" +
-                            " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
-                    null,
-                    ContactsContract.Groups.TITLE
-            );
+            String[] projection = new String[]{
+                    ContactsContract.Groups._ID,
+                    ContactsContract.Groups.TITLE,
+                    ContactsContract.Groups.SUMMARY_COUNT,
+                    ContactsContract.Groups.ACCOUNT_NAME,
+                    ContactsContract.Groups.ACCOUNT_TYPE,
+            };
+
+            Cursor groups;
+            try {
+                groups = context.getContentResolver().query(
+                        ContactsContract.Groups.CONTENT_SUMMARY_URI,
+                        projection,
+                        // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
+                        ContactsContract.Groups.DELETED + " = 0" +
+                                " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
+                        null,
+                        ContactsContract.Groups.TITLE
+                );
+            } catch (SecurityException ex) {
+                Log.w(ex);
+                groups = new MatrixCursor(projection);
+            }
 
             SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                     context,
