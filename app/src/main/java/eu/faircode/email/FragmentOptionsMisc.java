@@ -948,7 +948,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     tvFtsIndexed.setText(getString(R.string.title_advanced_fts_indexed,
                             stats.fts,
                             stats.total,
-                            Helper.humanReadableByteCount(FtsDbHelper.size(getContext()))));
+                            Helper.humanReadableByteCount(FtsDbHelper.size(tvFtsIndexed.getContext()))));
                 last = stats;
             }
         });
