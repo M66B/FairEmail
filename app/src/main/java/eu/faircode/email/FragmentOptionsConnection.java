@@ -447,13 +447,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         getMainHandler().post(new Runnable() {
             @Override
             public void run() {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    tvNetworkMetered.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
-                    tvNetworkInfo.setText(sb.toString());
-                    tvNetworkMetered.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
-                    tvNetworkRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
-                    cardDebug.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
-                }
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+                tvNetworkMetered.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
+                tvNetworkInfo.setText(sb.toString());
+                tvNetworkMetered.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
+                tvNetworkRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
+                cardDebug.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
             }
         });
     }

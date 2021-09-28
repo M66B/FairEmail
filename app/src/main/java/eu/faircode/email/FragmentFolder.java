@@ -382,6 +382,8 @@ public class FragmentFolder extends FragmentBase {
                         getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
+                                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                    return;
                                 scroll.smoothScrollTo(0, btnSave.getBottom());
                             }
                         });

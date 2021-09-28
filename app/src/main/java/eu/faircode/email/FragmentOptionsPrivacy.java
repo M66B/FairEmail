@@ -529,6 +529,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             ApplicationEx.getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
                     etPin.requestFocus();
                 }
             });

@@ -56,6 +56,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -483,6 +484,8 @@ public class FragmentRule extends FragmentBase {
                 getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
+                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                            return;
                         scroll.smoothScrollTo(0, content.getBottom());
                     }
                 });

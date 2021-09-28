@@ -55,6 +55,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -270,6 +271,8 @@ public class FragmentGmail extends FragmentBase {
         getMainHandler().post(new Runnable() {
             @Override
             public void run() {
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
                 etName.requestFocus();
             }
         });
@@ -335,6 +338,8 @@ public class FragmentGmail extends FragmentBase {
                                     getMainHandler().post(new Runnable() {
                                         @Override
                                         public void run() {
+                                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                                return;
                                             scroll.smoothScrollTo(0, tvError.getBottom());
                                         }
                                     });
@@ -565,6 +570,8 @@ public class FragmentGmail extends FragmentBase {
                 getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
+                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                            return;
                         scroll.smoothScrollTo(0, tvError.getBottom());
                     }
                 });

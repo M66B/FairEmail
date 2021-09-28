@@ -47,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -546,6 +547,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
                             scroll.smoothScrollTo(0, btnSupport.getBottom());
                         }
                     });
@@ -575,6 +578,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
                             scroll.smoothScrollTo(0, btnSupport.getBottom());
                         }
                     });

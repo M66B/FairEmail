@@ -579,6 +579,8 @@ public class FragmentCompose extends FragmentBase {
                     getMainHandler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
                             if (styling != selection) {
                                 styling = selection;
                                 media_bar.getMenu().clear();
@@ -1688,6 +1690,8 @@ public class FragmentCompose extends FragmentBase {
         getMainHandler().post(new Runnable() {
             @Override
             public void run() {
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
                 if (grpAddresses.getVisibility() == View.GONE)
                     etSubject.requestFocus();
                 else
@@ -6255,6 +6259,9 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void run() {
                 try {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
                     if (target instanceof EditText) {
                         EditText et = (EditText) target;
                         int len = et.length();
