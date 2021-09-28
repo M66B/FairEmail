@@ -835,7 +835,7 @@ public class Helper {
         return Uri.parse(SUPPORT_URI)
                 .buildUpon()
                 .appendQueryParameter("product", "fairemailsupport")
-                .appendQueryParameter("version", BuildConfig.VERSION_NAME)
+                .appendQueryParameter("version", BuildConfig.VERSION_NAME + BuildConfig.REVISION)
                 .appendQueryParameter("locale", slocale.toString())
                 .appendQueryParameter("language", language == null ? "" : language)
                 .appendQueryParameter("installed", Helper.hasValidFingerprint(context) ? "" : "Other")
@@ -844,7 +844,7 @@ public class Helper {
 
     static Intent getIntentIssue(Context context) {
         if (ActivityBilling.isPro(context)) {
-            String version = BuildConfig.VERSION_NAME + "/" +
+            String version = BuildConfig.VERSION_NAME + BuildConfig.REVISION + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
                     (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
                     (BuildConfig.DEBUG ? "d" : "") +

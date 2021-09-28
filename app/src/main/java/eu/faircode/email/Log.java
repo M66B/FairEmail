@@ -1512,7 +1512,7 @@ public class Log {
         Log.w("Writing exception to " + file);
 
         try (FileWriter out = new FileWriter(file, true)) {
-            out.write(BuildConfig.VERSION_NAME + " " + new Date() + "\r\n");
+            out.write(BuildConfig.VERSION_NAME + BuildConfig.REVISION + " " + new Date() + "\r\n");
             out.write(ex + "\r\n" + android.util.Log.getStackTraceString(ex) + "\r\n");
         } catch (IOException e) {
             Log.e(e);
@@ -1551,7 +1551,8 @@ public class Log {
             draft.msgid = EntityMessage.generateMessageId();
             draft.thread = draft.msgid;
             draft.to = new Address[]{myAddress()};
-            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
+            draft.subject = context.getString(R.string.app_name) + " " +
+                    BuildConfig.VERSION_NAME + BuildConfig.REVISION + " debug info";
             draft.received = new Date().getTime();
             draft.seen = true;
             draft.ui_seen = true;
@@ -1671,7 +1672,7 @@ public class Log {
                 context.getString(R.string.app_name),
                 BuildConfig.APPLICATION_ID,
                 installer,
-                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_NAME + BuildConfig.REVISION,
                 Helper.hasValidFingerprint(context) ? "1" : "3",
                 BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
                 Helper.hasPlayStore(context) ? "s" : "",

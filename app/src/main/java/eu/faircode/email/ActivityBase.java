@@ -87,7 +87,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         EntityLog.log(this, "Activity create " + this.getClass().getName() +
-                " version=" + BuildConfig.VERSION_NAME +
+                " version=" + BuildConfig.VERSION_NAME + BuildConfig.REVISION +
                 " process=" + android.os.Process.myPid());
         Intent intent = getIntent();
         if (intent != null)

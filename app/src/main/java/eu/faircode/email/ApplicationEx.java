@@ -97,7 +97,7 @@ public class ApplicationEx extends Application
 
         long start = new Date().getTime();
         Log.i("App create" +
-                " version=" + BuildConfig.VERSION_NAME +
+                " version=" + BuildConfig.VERSION_NAME + BuildConfig.REVISION +
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
 
