@@ -4,6 +4,12 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1739
+
+* Showing search index state
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1738
 
 * Added theme option for always light message editor
