@@ -1894,6 +1894,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
                     LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
                     View child = llm.getChildAt(pos);
                     int dy = (child == null ? 0 : llm.getTopDecorationHeight(child));
@@ -1907,6 +1909,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
                     rvMessage.scrollBy(x, y);
                 }
             });
@@ -1927,6 +1931,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void run() {
                     try {
+                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                            return;
                         adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.ALLOW);
                     } catch (Throwable ex) {
                         Log.e(ex);
@@ -4189,9 +4195,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        if (!rvMessage.isComputingLayout())
-                            adapter.checkInternet();
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+                    if (!rvMessage.isComputingLayout())
+                        adapter.checkInternet();
                 }
             });
         }
@@ -4859,16 +4866,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
             @Override
             public void onChanged(List<Long> ids) {
-                getMainHandler().post(new Runnable() {
+                view.post(new Runnable() {
                     @Override
                     public void run() {
                         selectionTracker.clearSelection();
                         for (long id : ids)
                             selectionTracker.select(id);
-
-                        Context context = getContext();
-                        if (context == null)
-                            return;
                     }
                 });
             }
