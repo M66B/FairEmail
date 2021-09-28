@@ -71,6 +71,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
+        boolean last_fts = prefs.getBoolean("last_fts", true);
         boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
         boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
         boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
@@ -250,6 +251,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_fts", isChecked).apply();
                 cbSenders.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
                 cbRecipients.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
                 cbSubject.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
@@ -355,8 +357,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         ibMore.setImageLevel(1);
-        cbSearchIndex.setChecked(fts && pro);
-        cbSearchIndex.setEnabled(pro);
+        cbSearchIndex.setChecked(last_fts && fts && pro);
+        cbSearchIndex.setEnabled(fts && pro);
         cbSenders.setChecked(last_search_senders);
         cbRecipients.setChecked(last_search_recipients);
         cbSubject.setChecked(last_search_subject);
