@@ -1415,6 +1415,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver<Long>() {
                 @Override
                 public void onSelectionChanged() {
+                    if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
                     FragmentActivity activity = getActivity();
                     if (activity != null)
                         activity.invalidateOptionsMenu();
@@ -1424,6 +1427,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 public void onItemStateChanged(@NonNull Long key, boolean selected) {
+                    if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
                     int pos = adapter.getPositionForKey(key);
                     if (pos == NO_POSITION)
                         return;
