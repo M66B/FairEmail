@@ -603,12 +603,18 @@ public class HtmlHelper {
                     String value = kv.get(key);
                     switch (key) {
                         case "color":
+                        case "background":
                         case "background-color":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/color
-                            if ("color".equals(key) && !text_color)
-                                continue;
-                            if ("background-color".equals(key) && !background_color)
-                                continue;
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/background
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
+                            if ("color".equals(key)) {
+                                if (!text_color)
+                                    continue;
+                            } else {
+                                if (!background_color)
+                                    continue;
+                            }
 
                             Integer color = parseColor(value);
 
@@ -1239,7 +1245,7 @@ public class HtmlHelper {
         return document;
     }
 
-    static void removeRelativeLinks(Document document){
+    static void removeRelativeLinks(Document document) {
         for (Element a : document.select("a"))
             if (a.attr("href").trim().startsWith("#")) {
                 a.tagName("span");
@@ -2656,6 +2662,7 @@ public class HtmlHelper {
                             String value = param.substring(semi + 1);
                             switch (key) {
                                 case "color":
+                                case "background":
                                 case "background-color":
                                     if (!TextUtils.isEmpty(value))
                                         try {
