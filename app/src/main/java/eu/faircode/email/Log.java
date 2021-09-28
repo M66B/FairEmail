@@ -2303,7 +2303,7 @@ public class Log {
                     name = Integer.toString(filter);
             }
 
-            size += write(os, String.format("Interruption filter=%s\r\n\r\n", name));
+            size += write(os, String.format("Interruption filter allow=%s\r\n\r\n", name));
 
             for (NotificationChannel channel : nm.getNotificationChannels())
                 try {
