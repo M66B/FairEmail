@@ -15,14 +15,19 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/menu_delete"
-        android:icon="@drawable/twotone_delete_24"
-        android:title="@string/title_delete"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/menu_junk"
         android:checkable="true"
         android:icon="@drawable/twotone_report_24"
         android:title="@string/title_spam" />
+
+    <item
+        android:id="@+id/menu_import"
+        android:icon="@drawable/twotone_unarchive_24"
+        android:title="@string/title_import_contacts" />
+
+    <item
+        android:id="@+id/menu_delete"
+        android:icon="@drawable/twotone_delete_24"
+        android:title="@string/title_delete"
+        app:showAsAction="ifRoom" />
 </menu>

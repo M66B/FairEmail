@@ -19,9 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
+import android.Manifest;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -33,6 +40,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,9 +51,23 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.BufferedInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
+import ezvcard.Ezvcard;
+import ezvcard.VCard;
+import ezvcard.io.text.VCardReader;
+import ezvcard.property.Email;
+import ezvcard.property.FormattedName;
 
 public class FragmentContacts extends FragmentBase {
     private RecyclerView rvContacts;
@@ -55,6 +77,8 @@ public class FragmentContacts extends FragmentBase {
     private boolean junk = false;
     private String searching = null;
     private AdapterContact adapter;
+
+    static final int REQUEST_IMPORT = 1;
 
     @Override
     @Nullable
@@ -166,12 +190,15 @@ public class FragmentContacts extends FragmentBase {
         if (itemId == R.id.menu_help) {
             onMenuHelp();
             return true;
-        } else if (itemId == R.id.menu_delete) {
-            new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
-            return true;
         } else if (itemId == R.id.menu_junk) {
             item.setChecked(!item.isChecked());
             onMenuJunk(item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_import) {
+            onMenuImport();
+            return true;
+        } else if (itemId == R.id.menu_delete) {
+            onMenuDelete();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -186,6 +213,115 @@ public class FragmentContacts extends FragmentBase {
         adapter.filter(junk
                 ? Arrays.asList(EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK)
                 : new ArrayList<>());
+    }
+
+    private void onMenuImport() {
+        final Context context = getContext();
+        PackageManager pm = context.getPackageManager();
+
+        Intent open = new Intent(Intent.ACTION_GET_CONTENT);
+        open.addCategory(Intent.CATEGORY_OPENABLE);
+        open.setType("*/*");
+        if (open.resolveActivity(pm) == null)  // system whitelisted
+            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+        else
+            startActivityForResult(Helper.getChooser(context, open), REQUEST_IMPORT);
+    }
+
+    private void onMenuDelete() {
+        new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_IMPORT:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleImport(data);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void handleImport(Intent data) {
+        Uri uri = data.getData();
+
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                if (uri == null)
+                    throw new FileNotFoundException();
+
+                if (!"content".equals(uri.getScheme()) &&
+                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    Log.w("Import uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                long now = new Date().getTime();
+                DB db = DB.getInstance(context);
+                List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+
+                Log.i("Reading URI=" + uri);
+                ContentResolver resolver = context.getContentResolver();
+                try (InputStream is = new BufferedInputStream(resolver.openInputStream(uri))) {
+                    VCardReader reader = new VCardReader(is);
+                    VCard vcard;
+                    while ((vcard = reader.readNext()) != null) {
+                        List<Email> emails = vcard.getEmails();
+                        if (emails == null)
+                            continue;
+
+                        FormattedName fn = vcard.getFormattedName();
+                        String name = (fn == null) ? null : fn.getValue();
+
+                        List<Address> addresses = new ArrayList<>();
+                        for (Email email : emails) {
+                            String address = email.getValue();
+                            if (address == null)
+                                continue;
+                            addresses.add(new InternetAddress(address, name, StandardCharsets.UTF_8.name()));
+                        }
+
+                        for (EntityAccount account : accounts)
+                            EntityContact.update(context,
+                                    account.id,
+                                    addresses.toArray(new Address[0]),
+                                    EntityContact.TYPE_TO,
+                                    now);
+                    }
+                }
+
+                Log.i("Imported contacts");
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "setup:import");
     }
 
     public static class FragmentDelete extends FragmentDialogBase {

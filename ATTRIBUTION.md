@@ -35,3 +35,4 @@ FairEmail uses:
 * [AndroidSVG](https://github.com/BigBadaboom/androidsvg). Copyright 2013 Paul LeBeau, Cave Rock Software Ltd. [Apache License 2.0](https://github.com/BigBadaboom/androidsvg/blob/master/LICENSE).
 * [Public Suffix List](https://publicsuffix.org/). Copyright © 2007–20 Mozilla Foundation. [Mozilla Public License, v. 2.0](https://mozilla.org/MPL/2.0/).
 * [Outlook Message Parser](https://github.com/bbottema/outlook-message-parser). Copyright (C) 2017 Benny Bottema. [Apache License 2.0](https://github.com/bbottema/outlook-message-parser/blob/master/LICENSE-2.0.txt).
+* [ez-vcard](https://github.com/mangstadt/ez-vcard). Copyright (c) 2012-2021, Michael Angstadt. All rights reserved. [FreeBSD License](https://github.com/mangstadt/ez-vcard/blob/master/LICENSE).

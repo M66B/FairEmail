@@ -4,6 +4,11 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### Next version
+
+* Added importing of vCards into local contact database
+* Reduced memory usage
+
 ### 1.1739
 
 * Showing search index state

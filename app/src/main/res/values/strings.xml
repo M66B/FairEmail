@@ -902,6 +902,7 @@
     <string name="title_delete_channel">Delete notification channel</string>
     <string name="title_insert_contact">Add contact</string>
     <string name="title_edit_contact">Edit contact</string>
+    <string name="title_import_contacts">Import vCards</string>
     <string name="title_create_sub_folder">Create sub folder</string>
 
     <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>

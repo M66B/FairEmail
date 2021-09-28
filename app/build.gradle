@@ -326,6 +326,7 @@ dependencies {
     def badge_version = "1.1.22"
     def bugsnag_version = "5.12.0"
     def biweekly_version = "0.6.6"
+    def vcard_version = "0.11.3"
     def relinker_version = "1.4.3"
     def markwon_version = "4.6.2"
     def bouncycastle_version = "1.69"
@@ -483,6 +484,9 @@ dependencies {
     implementation("net.sf.biweekly:biweekly:$biweekly_version") {
         exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
     }
+
+    // https://github.com/mangstadt/ez-vcard
+    implementation "com.googlecode.ez-vcard:ez-vcard:$vcard_version"
 
     // https://github.com/KeepSafe/ReLinker
     // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker
