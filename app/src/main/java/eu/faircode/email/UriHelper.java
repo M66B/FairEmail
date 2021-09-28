@@ -162,7 +162,14 @@ public class UriHelper {
         }
     }
 
-    static void ensureSuffixList(Context context) {
+    static int getSuffixCount(Context context) {
+        ensureSuffixList(context);
+        synchronized (suffixList) {
+            return suffixList.size();
+        }
+    }
+
+    private static void ensureSuffixList(Context context) {
         synchronized (suffixList) {
             if (suffixList.size() > 0)
                 return;

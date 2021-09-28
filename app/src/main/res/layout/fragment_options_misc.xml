@@ -856,6 +856,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvMemoryUsage" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSuffixes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_suffixes"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textIsSelectable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvFingerprint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -865,7 +876,7 @@
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
+                    app:layout_constraintTop_toBottomOf="@id/tvSuffixes" />
 
                 <Button
                     android:id="@+id/btnGC"
