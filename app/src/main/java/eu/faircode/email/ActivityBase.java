@@ -57,6 +57,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -766,12 +767,15 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
             log(fm, f, "onFragmentDestroyed");
             try {
-                for (Field field : f.getClass().getDeclaredFields())
-                    if (View.class.isAssignableFrom(field.getType())) {
+                for (Field field : f.getClass().getDeclaredFields()) {
+                    Class<?> type = field.getType();
+                    if (View.class.isAssignableFrom(type) ||
+                            RecyclerView.Adapter.class.isAssignableFrom(type)) {
                         Log.i("Clearing " + f.getClass().getSimpleName() + ":" + field.getName());
                         field.setAccessible(true);
                         field.set(f, null);
                     }
+                }
             } catch (Throwable ex) {
                 Log.w(ex);
             }
