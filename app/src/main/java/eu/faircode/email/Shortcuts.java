@@ -47,6 +47,7 @@ import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -228,9 +229,13 @@ class Shortcuts {
         if (avatar != null &&
                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             // Create icon from bitmap because launcher might not have contacts permission
-            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                    context.getContentResolver(), avatar);
-            bitmap = BitmapFactory.decodeStream(is);
+            ContentResolver resolver = context.getContentResolver();
+            try (InputStream is = ContactsContract.Contacts
+                    .openContactPhotoInputStream(resolver, avatar)) {
+                bitmap = BitmapFactory.decodeStream(is);
+            } catch (IOException ex) {
+                Log.e(ex);
+            }
         }
 
         boolean identicon = false;
