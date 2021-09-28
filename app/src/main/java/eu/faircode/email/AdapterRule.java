@@ -416,6 +416,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             public void onDestroyed() {
                 Log.d(AdapterRule.this + " parent destroyed");
                 AdapterRule.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

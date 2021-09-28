@@ -510,6 +510,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             public void onDestroyed() {
                 Log.d("Removing back listener=" + listener);
                 keyPressedListeners.remove(listener);
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

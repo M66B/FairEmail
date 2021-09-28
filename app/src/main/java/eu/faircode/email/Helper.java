@@ -1915,6 +1915,7 @@ public class Helper {
                 public void onDestroy() {
                     Log.i("Authenticate destroyed");
                     ApplicationEx.getMainHandler().post(cancelPrompt);
+                    owner.getLifecycle().removeObserver(this);
                 }
             });
 
@@ -2082,6 +2083,11 @@ public class Helper {
                                         intf.onNothingSelected();
                                     else
                                         intf.onSelected(selected);
+                                }
+
+                                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                                public void onDestroy() {
+                                    owner.getLifecycle().removeObserver(this);
                                 }
                             });
                         }

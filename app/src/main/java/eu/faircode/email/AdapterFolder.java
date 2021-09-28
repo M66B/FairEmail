@@ -1152,6 +1152,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             public void onDestroyed() {
                 Log.d(AdapterFolder.this + " parent destroyed");
                 AdapterFolder.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

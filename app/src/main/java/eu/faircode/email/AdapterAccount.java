@@ -573,6 +573,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             public void onDestroyed() {
                 Log.d(AdapterAccount.this + " parent destroyed");
                 AdapterAccount.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

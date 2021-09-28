@@ -132,6 +132,7 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
             public void onDestroyed() {
                 Log.d(AdapterNavSearch.this + " parent destroyed");
                 AdapterNavSearch.this.manager = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

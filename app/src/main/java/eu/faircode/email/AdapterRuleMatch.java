@@ -88,6 +88,7 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 Log.d(AdapterRuleMatch.this + " parent destroyed");
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

@@ -138,6 +138,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
             public void onDestroyed() {
                 Log.d(AdapterLog.this + " parent destroyed");
                 AdapterLog.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

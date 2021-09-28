@@ -286,6 +286,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             public void onDestroyed() {
                 Log.d(AdapterAnswer.this + " parent destroyed");
                 AdapterAnswer.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
 

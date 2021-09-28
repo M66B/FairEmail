@@ -359,6 +359,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             public void onDestroyed() {
                 Log.d(AdapterIdentity.this + " parent destroyed");
                 AdapterIdentity.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

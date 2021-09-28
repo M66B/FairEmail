@@ -366,6 +366,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             public void onDestroyed() {
                 Log.d(AdapterContact.this + " parent destroyed");
                 AdapterContact.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

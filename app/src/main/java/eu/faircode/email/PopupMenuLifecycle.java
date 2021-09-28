@@ -42,13 +42,20 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
-public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
+public class PopupMenuLifecycle extends PopupMenu {
 
     public PopupMenuLifecycle(@NonNull Context context, LifecycleOwner owner, @NonNull View anchor) {
         super(new ContextThemeWrapper(context, R.style.popupMenuStyle), anchor);
         Log.i("Instantiate " + this);
 
-        owner.getLifecycle().addObserver(this);
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroy() {
+                Log.i("Destroy " + this);
+                PopupMenuLifecycle.this.dismiss();
+                owner.getLifecycle().removeObserver(this);
+            }
+        });
     }
 
     public void insertIcons(Context context) {
@@ -86,12 +93,6 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
                 }
             }
         });
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy() {
-        Log.i("Destroy " + this);
-        this.dismiss();
     }
 
     static void insertIcons(Context context, Menu menu) {

@@ -81,6 +81,7 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.ViewHolder> 
             public void onDestroyed() {
                 Log.d(AdapterOrder.this + " parent destroyed");
                 AdapterOrder.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
             }
         });
     }

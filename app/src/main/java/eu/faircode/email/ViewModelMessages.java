@@ -223,6 +223,8 @@ public class ViewModelMessages extends ViewModel {
                 }
 
                 dump();
+
+                owner.getLifecycle().removeObserver(this);
             }
         });
 
@@ -580,6 +582,7 @@ public class ViewModelMessages extends ViewModel {
                     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                     public void onDestroyed() {
                         boundary.destroy(state);
+                        owner.getLifecycle().removeObserver(this);
                     }
                 });
             }
