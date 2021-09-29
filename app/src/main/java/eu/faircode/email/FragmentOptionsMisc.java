@@ -70,6 +70,7 @@ import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -146,6 +147,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvStorageUsage;
     private TextView tvSuffixes;
     private TextView tvFingerprint;
+    private TextView tvCursorWindow;
     private Button btnGC;
     private Button btnCharsets;
     private Button btnCiphers;
@@ -266,6 +268,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvStorageUsage = view.findViewById(R.id.tvStorageUsage);
         tvSuffixes = view.findViewById(R.id.tvSuffixes);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
+        tvCursorWindow = view.findViewById(R.id.tvCursorWindow);
         btnGC = view.findViewById(R.id.btnGC);
         btnCharsets = view.findViewById(R.id.btnCharsets);
         btnCiphers = view.findViewById(R.id.btnCiphers);
@@ -1171,6 +1174,17 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 Helper.humanReadableByteCount(mi.totalMem)));
 
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
+
+        int cursorWindowSize = -1;
+        try {
+            Field fCursorWindowSize = io.requery.android.database.CursorWindow.class.getDeclaredField("sDefaultCursorWindowSize");
+            fCursorWindowSize.setAccessible(true);
+            cursorWindowSize = fCursorWindowSize.getInt(null);
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+        tvCursorWindow.setText(getString(R.string.title_advanced_cursor_window,
+                Helper.humanReadableByteCount(cursorWindowSize, false)));
 
         cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }
