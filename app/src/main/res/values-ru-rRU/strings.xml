@@ -372,6 +372,7 @@
     <string name="title_advanced_nav_hide_title">Скрыть панель меню навигации?</string>
     <string name="title_advanced_nav_hide_message">Снова включить панель можно в разделе настроек \"Отображение\"</string>
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
+    <string name="title_advanced_nav_unseen_drafts">Показывать количество непрочитанных черновиков в меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля (только для светлых тем)</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
     <string name="title_advanced_autoclose_unread">Закрывать диалоги при пометке сообщений как непрочитанные</string>
+    <string name="title_advanced_collapse_marked">Сворачивать сообщения, которые вручную помечены как прочитанные или непрочитанные</string>
     <string name="title_advanced_undo">Время ожидания отмены</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>

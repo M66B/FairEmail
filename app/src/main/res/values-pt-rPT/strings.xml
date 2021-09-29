@@ -394,6 +394,7 @@
     <string name="title_advanced_collapse_multiple">Esconder mensagens numa conversa com múltiplas mensagens ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
+    <string name="title_advanced_collapse_marked">Recolher mensagens que estão marcadas, manualmente, como lidas ou não lidas</string>
     <string name="title_advanced_quick_filter">Mostrar ícones de filtro rápido não-intrusivos</string>
     <string name="title_advanced_quick_scroll">Mostrar ícones não-intrusivos de navegação rápida</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao mover mensagens</string>

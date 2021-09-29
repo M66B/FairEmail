@@ -352,6 +352,7 @@
     <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation?</string>
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
+    <string name="title_advanced_nav_unseen_drafts">Afficher le nombre de brouillons non lus dans le menu de navigation</string>
     <string name="title_advanced_startup">Afficher sur l’écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
     <string name="title_advanced_cards_beige">Afficher un arrière-plan beige lors de l\'utilisation du style carte (thèmes clairs seulement)</string>

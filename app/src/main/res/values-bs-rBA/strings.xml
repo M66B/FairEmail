@@ -362,6 +362,7 @@
     <string name="title_advanced_nav_hide_title">Sakriti opcije navigacijskog menija?</string>
     <string name="title_advanced_nav_hide_message">Možete ponovo omogućiti opcije na postavkama ekrana</string>
     <string name="title_advanced_nav_message_count">Prikaži broj lokalno spašenih poruka u navigacijskom meniju</string>
+    <string name="title_advanced_nav_unseen_drafts">Prikaži broj nepročitanih nacrta u navigacijskom meniju</string>
     <string name="title_advanced_startup">Prikaži na početnom ekranu</string>
     <string name="title_advanced_cards">Koristi kartični stil umjesto tabelarnog</string>
     <string name="title_advanced_cards_beige">Koristi bež pozadinu kada se koristi kartični stil (samo kod svijetlih tema)</string>
@@ -457,6 +458,7 @@
     <string name="title_advanced_autoclose">Automatski zatvori konverzacije</string>
     <string name="title_advanced_onclose">Pri zatvaranju konverzacija</string>
     <string name="title_advanced_autoclose_unread">Zatvori konverzacije markiranjem poruka kao \'nepročitane\'</string>
+    <string name="title_advanced_collapse_marked">Suzi poruke, koje se ručno označavaju kao pročitane ili nepročitane</string>
     <string name="title_advanced_undo">Vrati vrijeme isteka</string>
     <string name="title_advanced_quick_filter">Prikaži nenametljive ikonice za brzo filtriranje</string>
     <string name="title_advanced_quick_scroll">Prikaži nenametljive ikonice za brzo pomicanje gore/dolje</string>
@@ -779,6 +781,7 @@
     <string name="title_insert_contact">Dodaj kontakt</string>
     <string name="title_edit_contact">Uredi kontakt</string>
     <string name="title_import_contacts">Uvezi vCards-e</string>
+    <string name="title_export_contacts">Izvezi vCards-e</string>
     <string name="title_create_sub_folder">Kreiraj podfolder</string>
     <string name="title_empty_trash_ask">Želite trajno izbrisati sve poruke u otpadu?</string>
     <string name="title_empty_spam_ask">Želite trajno izbrisati sve spam poruke?</string>

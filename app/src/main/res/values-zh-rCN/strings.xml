@@ -342,6 +342,7 @@
     <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
     <string name="title_advanced_nav_hide_message">您可以在显示设置中再次启用选项</string>
     <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储消息的数量</string>
+    <string name="title_advanced_nav_unseen_drafts">在导航菜单中显示未读草稿的数量</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
@@ -437,6 +438,7 @@
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
     <string name="title_advanced_autoclose_unread">将消息标记为已读时关闭会话</string>
+    <string name="title_advanced_collapse_marked">自动折叠手动标记为已读或未读的邮件</string>
     <string name="title_advanced_undo">撤回超时</string>
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
     <string name="title_advanced_quick_scroll">显示不显眼的快速上/下滚动图标</string>
@@ -760,6 +762,7 @@
     <string name="title_insert_contact">添加联系人</string>
     <string name="title_edit_contact">编辑联系人</string>
     <string name="title_import_contacts">从 vCard 文件导入</string>
+    <string name="title_export_contacts">导出为 vCard 文件</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有回收站的邮件？</string>
     <string name="title_empty_spam_ask">是否永久删除所有的垃圾邮件？</string>

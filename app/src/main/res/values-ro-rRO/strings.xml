@@ -362,6 +362,7 @@
     <string name="title_advanced_nav_hide_title">Ascundeți opțiunile din meniul de navigare?</string>
     <string name="title_advanced_nav_hide_message">Puteți activa din nou opțiunile în setările de afișare</string>
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
+    <string name="title_advanced_nav_unseen_drafts">Afișarea numărului de ciorne necitite în meniul de navigare</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
     <string name="title_advanced_cards_beige">Utilizați un fundal bej atunci când folosiți stilul de card (numai pentru teme luminoase)</string>
@@ -457,6 +458,7 @@
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
     <string name="title_advanced_autoclose_unread">Închideți conversațiile la marcarea mesajelor ca necitite</string>
+    <string name="title_advanced_collapse_marked">Reducerea mesajelor care sunt marcate manual ca fiind citite sau necitite</string>
     <string name="title_advanced_undo">Expirare anulare</string>
     <string name="title_advanced_quick_filter">Arată iconițele de filtrare rapidă</string>
     <string name="title_advanced_quick_scroll">Arată iconițele de derulare sus/jos rapidă</string>
@@ -780,6 +782,7 @@
     <string name="title_insert_contact">Adaugă contact</string>
     <string name="title_edit_contact">Editare contact</string>
     <string name="title_import_contacts">Importă vCards</string>
+    <string name="title_export_contacts">Exportați vCards</string>
     <string name="title_create_sub_folder">Creează sub-dosar</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_empty_spam_ask">Se șterg permanent toate mesajele spam?</string>

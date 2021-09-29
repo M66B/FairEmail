@@ -352,6 +352,7 @@
     <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
     <string name="title_advanced_nav_hide_message">Μπορείτε να ενεργοποιήσετε ξανά τις επιλογές στις ρυθμίσεις εμφάνισης</string>
     <string name="title_advanced_nav_message_count">Να εμφανίζεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
+    <string name="title_advanced_nav_unseen_drafts">Να εμφανίζεται ο αριθμός των μη αναγνωσμένων προσχεδίων στο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
     <string name="title_advanced_cards_beige">Μπεζ φόντο κατά τη χρήση του στιλ κάρτας (ανοιχτόχρωμα θέματα μόνο)</string>
