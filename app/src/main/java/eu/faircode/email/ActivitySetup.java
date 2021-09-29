@@ -736,9 +736,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         cout.flush();
                         raw.write(cipher.doFinal());
                     }
-
-                    Log.i("Exported data");
                 }
+
+                Log.i("Exported data");
 
                 return null;
             }
