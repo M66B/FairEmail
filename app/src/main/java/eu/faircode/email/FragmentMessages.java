@@ -2351,6 +2351,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private TupleMessageEx getMessage(int pos) {
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                return null;
+
             if (selectionTracker != null && selectionTracker.hasSelection())
                 return null;
 
