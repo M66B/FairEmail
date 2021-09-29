@@ -6,6 +6,10 @@ Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des qu
 
 Si vous avez une question, veuillez d'abord consulter la Foire aux questions (FAQ) ci-dessous. [ Tout en bas ](#user-content-get-support), vous pourrez trouver comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
 
+**🚩 Si vous rencontrez des problèmes d'authentification Outlook/Hotmail/Live/MSN, veuillez mettre à jour vers la dernière version de l'application. Appuyez sur la notification d'erreur et appuyez sur le bouton pour modifier le mot de passe du compte.**
+
+Microsoft est "*[complètement conscient](https://answers.microsoft.com/en-us/outlook_com/forum/all/hotmail-account-not-downloading-email-as-of-sep-24/783b3b24-a305-41ef-af02-121a8eb15bd4)*" du problème.
+
 ## Sommaire
 
 * [Autorisation des comptes](#user-content-authorizing-accounts)
