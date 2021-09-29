@@ -789,6 +789,8 @@
     <string name="title_delete_channel">Удалить канал уведомлений</string>
     <string name="title_insert_contact">Добавить контакт</string>
     <string name="title_edit_contact">Изменить контакт</string>
+    <string name="title_import_contacts">Импорт vCard</string>
+    <string name="title_export_contacts">Экспорт vCard</string>
     <string name="title_create_sub_folder">Создать вложенную папку</string>
     <string name="title_empty_trash_ask">Удалить все сообщения в корзине навсегда?</string>
     <string name="title_empty_spam_ask">Удалить все сообщения в папке \"Спам\" навсегда?</string>

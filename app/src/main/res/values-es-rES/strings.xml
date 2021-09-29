@@ -769,6 +769,7 @@
     <string name="title_delete_channel">Eliminar canal de notificación</string>
     <string name="title_insert_contact">Agregar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
+    <string name="title_import_contacts">Importar vCards</string>
     <string name="title_create_sub_folder">Crear subcarpeta</string>
     <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
     <string name="title_empty_spam_ask">¿Eliminar todos los mensajes de spam permanentemente?</string>

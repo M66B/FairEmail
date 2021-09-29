@@ -352,6 +352,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_nav_hide_title">Verberg navigatiemenu opties?</string>
     <string name="title_advanced_nav_hide_message">U kunt de opties opnieuw inschakelen in de weergave-instellingen</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
+    <string name="title_advanced_nav_unseen_drafts">Aantal ongelezen concepten in het navigatiemenu tonen</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
@@ -447,6 +448,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoclose_unread">Sluit gesprekken bij het markeren van berichten als ongelezen</string>
+    <string name="title_advanced_collapse_marked">Berichten samenvouwen die handmatig als gelezen of ongelezen worden gemarkeerd</string>
     <string name="title_advanced_undo">Herstel time-out</string>
     <string name="title_advanced_quick_filter">Toon niet-opdringerige snelle filterpictogrammen</string>
     <string name="title_advanced_quick_scroll">Toon niet-opdringerige snelle scroll omhoog/omlaag pictogrammen</string>
@@ -769,6 +771,8 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>
     <string name="title_insert_contact">Contact toevoegen</string>
     <string name="title_edit_contact">Contact bewerken</string>
+    <string name="title_import_contacts">Importeer vCards</string>
+    <string name="title_export_contacts">Exporteer vCards</string>
     <string name="title_create_sub_folder">Maak submap</string>
     <string name="title_empty_trash_ask">Alle berichten in de prullenbak definitief verwijderen?</string>
     <string name="title_empty_spam_ask">Alle spam berichten definitief verwijderen?</string>

@@ -917,17 +917,17 @@ El error *... Demasiados intentos de autenticación incorrectos ...* probablemen
 
 El mensaje *... +OK ...* probablemente significa que un puerto POP3 (normalmente el número de puerto 995) está siendo usado para una cuenta IMAP (generalmente el puerto número 993).
 
-Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
+Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parametro a HELO no conforma a la sintaxis de RFC ...* puede ser solucionado cambiando la configuracion avanada de identidad *Usa la IP local en vez de el nombre de el host*.
 
-The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+El error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
-The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
-The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+El error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
-The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+El error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
-The error *... Software causó fin de conexión ...* significa que el servidor de correo o algo entre FairEmail y el servidor de correo terminó activamente una conexión existente. Esto puede suceder, por ejemplo, cuando la conectividad se perdió abruptamente. Un ejemplo típico es activar el modo avión.
+El error *... Software causó fin de conexión ...* significa que el servidor de correo o algo entre FairEmail y el servidor de correo terminó activamente una conexión existente. Esto puede suceder, por ejemplo, cuando la conectividad se perdió abruptamente. Un ejemplo típico es activar el modo avión.
 
 Los errores *... BYE Cerrando sesión ...*, *... Conexión rechazada...* significa que el servidor de correo electrónico o algo entre el servidor de correo y la aplicación, como un cortafuegos, rechazó activamente la conexión existente.
 
@@ -938,13 +938,13 @@ Los errores *... Error de lectura ...*, *... Error de escritura ...*, *... Tiemp
 <a name="connectiondropped"></a>
 El error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+El error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
+El error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
 
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
@@ -1000,13 +1000,13 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+El error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+El error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+El error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
@@ -2476,7 +2476,7 @@ If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you m
 <a name="faq127"></a>
 **(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
 
-The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+El error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
 
 <br />
 
@@ -2503,7 +2503,7 @@ A series of lines with orangish or red texts with technical information means th
 
 The warning *No server found at ...* means that there was no email server registered at the indicated domain name. Replying to the message might not be possible and might result in an error. This could indicate a falsified email address and/or spam.
 
-The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software. FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
+El error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software. FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
 
 The error *...SendFailedException...* means that there was a problem while sending a message. The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
 

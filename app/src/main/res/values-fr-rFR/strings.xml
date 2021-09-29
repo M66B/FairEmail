@@ -447,6 +447,7 @@
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_autoclose_unread">Fermer les conversations lors du marquage des messages comme non lus</string>
+    <string name="title_advanced_collapse_marked">Replier les messages marqués manuellement comme lus ou non lus</string>
     <string name="title_advanced_undo">Délai d\'expiration de l\'annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
@@ -769,6 +770,8 @@
     <string name="title_delete_channel">Supprimer un canal de notification</string>
     <string name="title_insert_contact">Ajouter un contact</string>
     <string name="title_edit_contact">Modifier un contact</string>
+    <string name="title_import_contacts">Importer des vCards</string>
+    <string name="title_export_contacts">Exporter des vCards</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
     <string name="title_empty_spam_ask">Supprimer définitivement tous les messages indésirables ?</string>

@@ -1034,7 +1034,7 @@ Les causes possibles sont:
 Tout d'abord, essayez d'attendre un peu de temps pour voir si le problème se résout par lui-même, sinon:
 
 * basculez vers la vérification périodique des messages dans les paramètres de réception, ce qui entraînera l'ouverture des dossiers un à la fois
-* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
+* ou définissez certains dossiers à interroger au lieu de les synchroniser (appuyez longuement sur le dossier dans la liste des dossiers, modifiez les propriétés)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 

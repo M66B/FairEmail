@@ -779,6 +779,7 @@
     <string name="title_delete_channel">Șterge canal de notificare</string>
     <string name="title_insert_contact">Adaugă contact</string>
     <string name="title_edit_contact">Editare contact</string>
+    <string name="title_import_contacts">Importă vCards</string>
     <string name="title_create_sub_folder">Creează sub-dosar</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_empty_spam_ask">Se șterg permanent toate mesajele spam?</string>

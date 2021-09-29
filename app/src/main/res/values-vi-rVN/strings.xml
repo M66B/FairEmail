@@ -174,6 +174,8 @@
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_doze_device">Điều này có thể là bắt buộc đối với thiết bị này</string>
+    <string name="title_setup_doze_12">Thông báo đẩy bị tắt</string>
+    <string name="title_setup_alarm_12">Ứng dụng không hoạt động</string>
     <string name="title_setup_inexact">Các báo thức &amp; lời nhắc đang tắt</string>
     <string name="title_setup_background">Hạn chế trong nền đang bật</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
@@ -185,6 +187,7 @@
     <string name="title_setup_still">Vẫn cần làm</string>
     <string name="title_setup_error">Lỗi</string>
     <string name="title_setup_configuring">Đang thiết lập tài khoản &#8230;</string>
+    <string name="title_setup_app_password">Bạn có thể cần phải sử dụng mật khẩu ứng dụng</string>
     <string name="title_setup_close">Đóng cài đặt</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
@@ -231,6 +234,7 @@
     <string name="title_setup_theme_system">Theo hệ thống</string>
     <string name="title_setup_theme_black_background">Nền đen</string>
     <string name="title_setup_theme_html_light">Nền sáng cho mục hiển thị thư gốc</string>
+    <string name="title_setup_theme_composer_light">Nền sáng cho trình chỉnh sửa thư</string>
     <string name="title_setup_theme_system_hint">Cái này sẽ tự động chuyển sang chủ đề sáng/tối ở chế độ ngày/đêm, nếu được hỗ trợ bởi Android</string>
     <string name="title_setup_theme_more_colors">Tôi muốn nhiều màu sắc hơn</string>
     <string name="title_setup_advanced">Nâng cao</string>
@@ -754,6 +758,7 @@
     <string name="title_delete_channel">Xoá kênh thông báo</string>
     <string name="title_insert_contact">Thêm liên hệ</string>
     <string name="title_edit_contact">Chỉnh sửa liên hệ</string>
+    <string name="title_import_contacts">Nhập tệp vCard</string>
     <string name="title_create_sub_folder">Tạo thư mục con</string>
     <string name="title_empty_trash_ask">Xoá tất cả thư trong thùng rác vĩnh viễn?</string>
     <string name="title_empty_spam_ask">Xoá tất cả thư rác vĩnh viễn?</string>

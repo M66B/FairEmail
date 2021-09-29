@@ -768,6 +768,7 @@
     <string name="title_delete_channel">Bildiriş kanalını sil</string>
     <string name="title_insert_contact">Əlaqə əlavə et</string>
     <string name="title_edit_contact">Əlaqəyə düzəliş et</string>
+    <string name="title_import_contacts"> vCard-ları idxal et</string>
     <string name="title_create_sub_folder">Alt qovluq yarat</string>
     <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
     <string name="title_empty_spam_ask">Bütün spam mesajları birdəfəlik silinsin?</string>

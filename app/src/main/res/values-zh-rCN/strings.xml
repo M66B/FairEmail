@@ -759,6 +759,7 @@
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_insert_contact">添加联系人</string>
     <string name="title_edit_contact">编辑联系人</string>
+    <string name="title_import_contacts">从 vCard 文件导入</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有回收站的邮件？</string>
     <string name="title_empty_spam_ask">是否永久删除所有的垃圾邮件？</string>

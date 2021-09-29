@@ -245,7 +245,7 @@
     <string name="title_setup_theme_system">wie System</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_html_light">Heller Hintergrund für die Ansicht der Originalnachricht</string>
-    <string name="title_setup_theme_composer_light">Heller Hintergrund für das Nachrichtenfenster</string>
+    <string name="title_setup_theme_composer_light">Heller Hintergrund für das Verfassenfenster</string>
     <string name="title_setup_theme_system_hint">Dadurch wird automatisch auf ein helles/dunkles Design im Tag-/Nachtmodus umgeschaltet, wenn es von Android unterstützt wird</string>
     <string name="title_setup_theme_more_colors">Ich möchte mehr Farben</string>
     <string name="title_setup_advanced">Erweitert</string>
@@ -770,6 +770,8 @@
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>
     <string name="title_insert_contact">Kontakt hinzufügen</string>
     <string name="title_edit_contact">Kontakt bearbeiten</string>
+    <string name="title_import_contacts">vCards importieren</string>
+    <string name="title_export_contacts">vCards exportieren</string>
     <string name="title_create_sub_folder">Unterordner erstellen</string>
     <string name="title_empty_trash_ask">Alle Nachrichten im Papierkorb endgültig löschen?</string>
     <string name="title_empty_spam_ask">Alle Spam-Nachrichten endgültig löschen?</string>

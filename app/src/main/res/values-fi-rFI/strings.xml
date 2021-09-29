@@ -184,6 +184,8 @@
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
     <string name="title_setup_doze_device">Tämä todennäköisesti tarvitaan tälle laitteelle</string>
+    <string name="title_setup_doze_12">Push-viestit eivät ole käytössä</string>
+    <string name="title_setup_alarm_12">Sovellus ei toimi</string>
     <string name="title_setup_inexact">Hälytykset &amp; muistutukset on pois käytöstä</string>
     <string name="title_setup_background">Taustarajoitukset ovat käytössä</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
@@ -195,6 +197,7 @@
     <string name="title_setup_still">Vielä tehtävänä</string>
     <string name="title_setup_error">Virhe</string>
     <string name="title_setup_configuring">Määritetään tiliä &#8230;</string>
+    <string name="title_setup_app_password">Saatat joutua käyttämään sovelluksen salasanaa</string>
     <string name="title_setup_close">Sulje asetukset</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
@@ -241,6 +244,7 @@
     <string name="title_setup_theme_system">Noudata järjestelmän teemaa</string>
     <string name="title_setup_theme_black_background">Musta tausta</string>
     <string name="title_setup_theme_html_light">Vaalea tausta alkuperäisen viestin näkymään</string>
+    <string name="title_setup_theme_composer_light">Vaalea tausta viestiä muokatessa</string>
     <string name="title_setup_theme_system_hint">Järjestelmän teeman noudattaminen vaihtaa automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee tätä</string>
     <string name="title_setup_theme_more_colors">Haluan lisää värejä</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
@@ -764,6 +768,7 @@
     <string name="title_delete_channel">Poista ilmoituskanava</string>
     <string name="title_insert_contact">Lisää yhteystieto</string>
     <string name="title_edit_contact">Muokkaa yhteystietoa</string>
+    <string name="title_import_contacts">Tuo vCard-yhteystietoja</string>
     <string name="title_create_sub_folder">Luo alikansio</string>
     <string name="title_empty_trash_ask">Poistetaanko kaikki roskakoriin siirretyt viestit pysyvästi?</string>
     <string name="title_empty_spam_ask">Poistetaanko kaikki roskapostit pysyvästi?</string>

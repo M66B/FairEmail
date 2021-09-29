@@ -789,6 +789,7 @@
     <string name="title_delete_channel">Видалити канал сповіщень</string>
     <string name="title_insert_contact">Додати контакт</string>
     <string name="title_edit_contact">Редагувати контакт</string>
+    <string name="title_import_contacts">Імпорт vCards</string>
     <string name="title_create_sub_folder">Створити підтеку</string>
     <string name="title_empty_trash_ask">Видалити всі видалені повідомлення остаточно?</string>
     <string name="title_empty_spam_ask">Видалити всі спам-повідомлення?</string>

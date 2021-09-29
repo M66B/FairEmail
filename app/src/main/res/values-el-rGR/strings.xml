@@ -767,6 +767,7 @@
     <string name="title_delete_channel">Διαγραφή καναλιού ειδοποιήσεων</string>
     <string name="title_insert_contact">Προσθήκη επαφής</string>
     <string name="title_edit_contact">Επεξεργασία επαφής</string>
+    <string name="title_import_contacts">Εισαγωγή vCard</string>
     <string name="title_create_sub_folder">Δημιουργία υποφακέλου</string>
     <string name="title_empty_trash_ask">Οριστική διαγραφή όλων των απορριμμάτων;</string>
     <string name="title_empty_spam_ask">Οριστική διαγραφή όλων των Ανεπιθύμητων;</string>

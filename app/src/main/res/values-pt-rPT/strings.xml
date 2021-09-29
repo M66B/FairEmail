@@ -484,6 +484,7 @@
     <string name="title_no_password">Palavra-passe ausente</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
+    <string name="title_import_contacts">Importar vCards</string>
     <string name="title_sort_unread_atop">Ordenar as não lidas no topo</string>
     <string name="title_search_folder">Pesquisar pasta</string>
     <string name="title_apply_to_all">Aplicar a tudo</string>
