@@ -4,10 +4,13 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
-### Next version
+### 1.1740
 
-* Added importing of vCards into local contact database
+* Added importing/exporting of vCards for local contact database
+* Added option to show number of unread drafts in the navigation menu
+* Added option to disable collapsing on manually marking read/unread
 * Reduced memory usage
+* Small improvements and minor bug fixes
 
 ### 1.1739
 
