@@ -1455,6 +1455,54 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ServiceUI.sync(this, null);
         }
 
+        Uri data = intent.getData();
+        if (data != null &&
+                "message".equals(data.getScheme()) &&
+                BuildConfig.APPLICATION_ID.equals(data.getHost())) {
+            Bundle args = new Bundle();
+            args.putParcelable("data", data);
+
+            new SimpleTask<EntityMessage>() {
+                @Override
+                protected EntityMessage onExecute(Context context, Bundle args) {
+                    Uri data = args.getParcelable("data");
+                    String path = data.getPath();
+                    if (path == null)
+                        return null;
+                    String[] parts = path.split("/");
+                    if (parts.length < 1)
+                        return null;
+                    long id = Long.parseLong(parts[1]);
+
+                    DB db = DB.getInstance(context);
+                    return db.message().getMessage(id);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityMessage message) {
+                    if (message == null)
+                        return;
+
+                    Intent thread = new Intent();
+                    thread.setAction("thread:" + message.id);
+                    thread.putExtra("account", message.account);
+                    thread.putExtra("folder", message.folder);
+                    thread.putExtra("thread", message.thread);
+                    thread.putExtra("filter_archive", true);
+                    thread.putExtra("pinned", true);
+                    thread.putExtra("msgid", message.msgid);
+                    onViewThread(intent);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                }
+            }.execute(this, args, "message:linked");
+
+            return;
+        }
+
         String action = intent.getAction();
         if (action != null) {
             if (action.startsWith("unified")) {
