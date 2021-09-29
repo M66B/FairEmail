@@ -502,9 +502,11 @@ public class EntityRule {
 
     private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) {
         DB db = DB.getInstance(context);
+        String to = jargs.optString("to");
         boolean attachments = jargs.optBoolean("attachments");
 
-        if (message.auto_submitted != null && message.auto_submitted) {
+        if (TextUtils.isEmpty(to) &&
+                message.auto_submitted != null && message.auto_submitted) {
             EntityLog.log(context, EntityLog.Type.Rules, message,
                     "Auto submitted rule=" + name);
             return false;
