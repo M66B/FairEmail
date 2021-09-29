@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
@@ -41,6 +42,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private Fragment parentFragment;
@@ -66,6 +68,9 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private List<EntityLog> selected = new ArrayList<>();
 
     private DateFormat TF;
+
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(1, "contacts");
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTime;
@@ -154,44 +159,58 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         this.message = message;
         this.types = types;
 
-        List<EntityLog> items = new ArrayList<>();
-        for (EntityLog log : all)
-            if (account == null && folder == null && message == null) {
-                if (types.contains(log.type))
-                    items.add(log);
-            } else {
-                if ((account == null || account.equals(log.account)) &&
-                        (folder == null || folder.equals(log.folder)) &&
-                        (message == null || message.equals(log.message)))
-                    items.add(log);
-            }
-
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
-
-        this.selected = items;
-
-        diff.dispatchUpdatesTo(new ListUpdateCallback() {
+        new SimpleTask<List<EntityLog>>() {
             @Override
-            public void onInserted(int position, int count) {
-                Log.d("Inserted @" + position + " #" + count);
+            protected List<EntityLog> onExecute(Context context, Bundle args) throws Throwable {
+                List<EntityLog> items = new ArrayList<>();
+                for (EntityLog log : logs)
+                    if (account == null && folder == null && message == null) {
+                        if (types.contains(log.type))
+                            items.add(log);
+                    } else {
+                        if ((account == null || account.equals(log.account)) &&
+                                (folder == null || folder.equals(log.folder)) &&
+                                (message == null || message.equals(log.message)))
+                            items.add(log);
+                    }
+                return items;
             }
 
             @Override
-            public void onRemoved(int position, int count) {
-                Log.d("Removed @" + position + " #" + count);
+            protected void onExecuted(Bundle args, List<EntityLog> items) {
+                DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
+
+                selected = items;
+
+                diff.dispatchUpdatesTo(new ListUpdateCallback() {
+                    @Override
+                    public void onInserted(int position, int count) {
+                        Log.d("Inserted @" + position + " #" + count);
+                    }
+
+                    @Override
+                    public void onRemoved(int position, int count) {
+                        Log.d("Removed @" + position + " #" + count);
+                    }
+
+                    @Override
+                    public void onMoved(int fromPosition, int toPosition) {
+                        Log.d("Moved " + fromPosition + ">" + toPosition);
+                    }
+
+                    @Override
+                    public void onChanged(int position, int count, Object payload) {
+                        Log.d("Changed @" + position + " #" + count);
+                    }
+                });
+                diff.dispatchUpdatesTo(AdapterLog.this);
             }
 
             @Override
-            public void onMoved(int fromPosition, int toPosition) {
-                Log.d("Moved " + fromPosition + ">" + toPosition);
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
             }
-
-            @Override
-            public void onChanged(int position, int count, Object payload) {
-                Log.d("Changed @" + position + " #" + count);
-            }
-        });
-        diff.dispatchUpdatesTo(this);
+        }.setExecutor(executor).execute(context, owner, new Bundle(), "logs:filter");
     }
 
     public void setTypes(@NonNull List<EntityLog.Type> types) {
