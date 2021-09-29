@@ -766,24 +766,19 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         @Override
         public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
             log(fm, f, "onFragmentDestroyed");
-            getMainHandler().post(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        for (Field field : f.getClass().getDeclaredFields()) {
-                            Class<?> type = field.getType();
-                            if (View.class.isAssignableFrom(type) ||
-                                    RecyclerView.Adapter.class.isAssignableFrom(type)) {
-                                Log.i("Clearing " + f.getClass().getSimpleName() + ":" + field.getName());
-                                field.setAccessible(true);
-                                field.set(f, null);
-                            }
-                        }
-                    } catch (Throwable ex) {
-                        Log.w(ex);
+            try {
+                for (Field field : f.getClass().getDeclaredFields()) {
+                    Class<?> type = field.getType();
+                    if (View.class.isAssignableFrom(type) ||
+                            RecyclerView.Adapter.class.isAssignableFrom(type)) {
+                        Log.i("Clearing " + f.getClass().getSimpleName() + ":" + field.getName());
+                        field.setAccessible(true);
+                        field.set(f, null);
                     }
                 }
-            });
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
         }
 
         @Override
