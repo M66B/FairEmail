@@ -286,6 +286,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication_indicator;
 
     private boolean autoclose_unseen;
+    private boolean collapse_marked;
 
     private boolean language_detection;
     private List<String> languages;
@@ -4989,10 +4990,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
-                    if (!message.ui_seen &&
-                            (autoclose_unseen || getItemCount() == 1))
+
+                    if (!message.ui_seen && autoclose_unseen)
                         properties.finish();
-                    else
+                    else if (collapse_marked)
                         properties.setExpanded(message, false, true);
                 }
 
@@ -5923,6 +5924,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.authentication_indicator = prefs.getBoolean("authentication_indicator", false);
         this.language_detection = prefs.getBoolean("language_detection", false);
         this.autoclose_unseen = prefs.getBoolean("autoclose_unseen", false);
+        this.collapse_marked = prefs.getBoolean("collapse_marked", true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             languages = new ArrayList<>();

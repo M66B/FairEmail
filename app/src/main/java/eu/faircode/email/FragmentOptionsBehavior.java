@@ -84,6 +84,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private TextView tvOnClose;
     private Spinner spOnClose;
     private SwitchCompat swAutoCloseUnseen;
+    private SwitchCompat swCollapseMarked;
     private Spinner spUndoTimeout;
     private SwitchCompat swCollapseMultiple;
     private SwitchCompat swAutoRead;
@@ -101,7 +102,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "pull", "autoscroll", "quick_filter", "quick_scroll", "swipe_sensitivity",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
-            "autoclose", "onclose", "autoclose_unseen",
+            "autoclose", "onclose", "autoclose_unseen", "collapse_marked",
             "undo_timeout",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance"
     };
@@ -144,6 +145,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         tvOnClose = view.findViewById(R.id.tvOnClose);
         spOnClose = view.findViewById(R.id.spOnClose);
         swAutoCloseUnseen = view.findViewById(R.id.swAutoCloseUnseen);
+        swCollapseMarked = view.findViewById(R.id.swCollapseMarked);
         spUndoTimeout = view.findViewById(R.id.spUndoTimeout);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
@@ -396,6 +398,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swCollapseMarked.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("collapse_marked", checked).apply();
+            }
+        });
+
         spUndoTimeout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -535,6 +544,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         spOnClose.setEnabled(!swAutoClose.isChecked());
 
         swAutoCloseUnseen.setChecked(prefs.getBoolean("autoclose_unseen", false));
+        swCollapseMarked.setChecked(prefs.getBoolean("collapse_marked", true));
 
         int undo_timeout = prefs.getInt("undo_timeout", 5000);
         int[] undoValues = getResources().getIntArray(R.array.undoValues);
