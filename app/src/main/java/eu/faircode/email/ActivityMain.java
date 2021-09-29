@@ -51,6 +51,61 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             return;
         }
 
+        Intent intent = getIntent();
+        Uri data = (intent == null ? null : intent.getData());
+        if (data != null &&
+                "message".equals(data.getScheme()) &&
+                BuildConfig.APPLICATION_ID.equals(data.getHost())) {
+            super.onCreate(savedInstanceState);
+
+            Bundle args = new Bundle();
+            args.putParcelable("data", data);
+
+            new SimpleTask<EntityMessage>() {
+                @Override
+                protected EntityMessage onExecute(Context context, Bundle args) {
+                    Uri data = args.getParcelable("data");
+                    String path = data.getPath();
+                    if (path == null)
+                        return null;
+                    String[] parts = path.split("/");
+                    if (parts.length < 1)
+                        return null;
+                    long id = Long.parseLong(parts[1]);
+
+                    DB db = DB.getInstance(context);
+                    return db.message().getMessage(id);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityMessage message) {
+                    finish();
+
+                    if (message == null)
+                        return;
+
+                    Intent thread = new Intent(ActivityMain.this, ActivityView.class);
+                    thread.setAction("thread:" + message.id);
+                    thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    thread.putExtra("account", message.account);
+                    thread.putExtra("folder", message.folder);
+                    thread.putExtra("thread", message.thread);
+                    thread.putExtra("filter_archive", true);
+                    thread.putExtra("pinned", true);
+                    thread.putExtra("msgid", message.msgid);
+
+                    startActivity(thread);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    // Ignored
+                }
+            }.execute(this, args, "message:linked");
+
+            return;
+        }
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean eula = prefs.getBoolean("eula", false);
         boolean sync_on_launch = prefs.getBoolean("sync_on_launch", false);

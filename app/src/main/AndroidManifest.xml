@@ -144,6 +144,16 @@
                 <action android:name="${applicationId}.REFRESH" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="message" />
+                <data android:host="${applicationId}" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -187,19 +197,9 @@
 
         <activity
             android:name=".ActivityView"
-            android:exported="true"
+            android:exported="false"
             android:launchMode="singleTask"
-            android:parentActivityName=".ActivityMain">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="message" />
-                <data android:host="${applicationId}" />
-            </intent-filter>
-        </activity>
+            android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivitySearch"
