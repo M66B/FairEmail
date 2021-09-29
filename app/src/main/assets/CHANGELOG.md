@@ -4,6 +4,12 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1741
+
+* Fixed empty account/identity list crash
+* Updated AndroidX
+* Updated translations
+
 ### 1.1740
 
 * Added importing/exporting of vCards for local contact database
