@@ -345,6 +345,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swNavUnseenDrafts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_nav_unseen_drafts"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swNavMessageCount"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNavBarColorize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -352,7 +363,7 @@
                     android:text="@string/title_advanced_navbar_colorize"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNavMessageCount"
+                    app:layout_constraintTop_toBottomOf="@id/swNavUnseenDrafts"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

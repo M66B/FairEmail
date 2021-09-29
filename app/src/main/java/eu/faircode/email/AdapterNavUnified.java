@@ -50,6 +50,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private LayoutInflater inflater;
 
     private boolean nav_count;
+    private boolean nav_unseen_drafts;
     private int colorUnread;
     private int textColorSecondary;
 
@@ -104,8 +105,8 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                 ivItem.clearColorFilter();
 
             long count;
-            if (EntityFolder.DRAFTS.equals(folder.type) ||
-                    EntityFolder.OUTBOX.equals(folder.type))
+            if (EntityFolder.OUTBOX.equals(folder.type) ||
+                    (!nav_unseen_drafts && EntityFolder.DRAFTS.equals(folder.type)))
                 count = folder.messages;
             else
                 count = folder.unseen;
@@ -156,6 +157,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.nav_count = prefs.getBoolean("nav_count", false);
+        this.nav_unseen_drafts = prefs.getBoolean("nav_unseen_drafts", false);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));

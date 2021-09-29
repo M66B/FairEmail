@@ -421,6 +421,7 @@
     <string name="title_advanced_nav_hide_title">Hide navigation menu options?</string>
     <string name="title_advanced_nav_hide_message">You can enable the options again in the display settings</string>
     <string name="title_advanced_nav_message_count">Show number of locally stored messages in the navigation menu</string>
+    <string name="title_advanced_nav_unseen_drafts">Show number of unread drafts in the navigation menu</string>
     <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_cards">Use card style instead of tabular style</string>
     <string name="title_advanced_cards_beige">Use beige background when using card style (light themes only)</string>
