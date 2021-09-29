@@ -47,6 +47,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,6 +55,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +67,9 @@ import javax.mail.internet.InternetAddress;
 
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
+import ezvcard.VCardVersion;
 import ezvcard.io.text.VCardReader;
+import ezvcard.io.text.VCardWriter;
 import ezvcard.property.Email;
 import ezvcard.property.FormattedName;
 
@@ -81,6 +85,7 @@ public class FragmentContacts extends FragmentBase {
 
     private static final int REQUEST_ACCOUNT = 1;
     private static final int REQUEST_IMPORT = 2;
+    private static final int REQUEST_EXPORT = 3;
 
     @Override
     @Nullable
@@ -199,7 +204,10 @@ public class FragmentContacts extends FragmentBase {
             onMenuJunk(item.isChecked());
             return true;
         } else if (itemId == R.id.menu_import) {
-            onMenuImport();
+            onMenuVcard(false);
+            return true;
+        } else if (itemId == R.id.menu_export) {
+            onMenuVcard(true);
             return true;
         } else if (itemId == R.id.menu_delete) {
             onMenuDelete();
@@ -219,9 +227,12 @@ public class FragmentContacts extends FragmentBase {
                 : new ArrayList<>());
     }
 
-    private void onMenuImport() {
+    private void onMenuVcard(boolean export) {
+        Bundle args = new Bundle();
+        args.putBoolean("export", export);
+
         FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
-        fragment.setArguments(new Bundle());
+        fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_ACCOUNT);
         fragment.show(getParentFragmentManager(), "messages:accounts");
     }
@@ -244,6 +255,10 @@ public class FragmentContacts extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         handleImport(data);
                     break;
+                case REQUEST_EXPORT:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleExport(data);
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -252,17 +267,27 @@ public class FragmentContacts extends FragmentBase {
 
     private void onAccountSelected(Bundle args) {
         account = args.getLong("account");
+        boolean export = args.getBoolean("export");
 
         final Context context = getContext();
         PackageManager pm = context.getPackageManager();
 
-        Intent open = new Intent(Intent.ACTION_GET_CONTENT);
-        open.addCategory(Intent.CATEGORY_OPENABLE);
-        open.setType("*/*");
-        if (open.resolveActivity(pm) == null)  // system whitelisted
-            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(context, open), REQUEST_IMPORT);
+        if (export) {
+            Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("*/*");
+            intent.putExtra(Intent.EXTRA_TITLE, "fairemail.vcf");
+            Helper.openAdvanced(intent);
+            startActivityForResult(Helper.getChooser(context, intent), REQUEST_EXPORT);
+        } else {
+            Intent open = new Intent(Intent.ACTION_GET_CONTENT);
+            open.addCategory(Intent.CATEGORY_OPENABLE);
+            open.setType("*/*");
+            if (open.resolveActivity(pm) == null)  // system whitelisted
+                ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+            else
+                startActivityForResult(Helper.getChooser(context, open), REQUEST_IMPORT);
+        }
     }
 
     private void handleImport(Intent data) {
@@ -293,8 +318,6 @@ public class FragmentContacts extends FragmentBase {
                 }
 
                 long now = new Date().getTime();
-                DB db = DB.getInstance(context);
-                List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
 
                 Log.i("Reading URI=" + uri);
                 ContentResolver resolver = context.getContentResolver();
@@ -340,6 +363,70 @@ public class FragmentContacts extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "setup:import");
+    }
+
+    private void handleExport(Intent data) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", data.getData());
+        args.putLong("account", account);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                if (uri == null)
+                    throw new FileNotFoundException();
+
+                String password = args.getString("password");
+                EntityLog.log(context, "Exporting " + uri);
+
+                if (!"content".equals(uri.getScheme())) {
+                    Log.w("Export uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                List<VCard> vcards = new ArrayList<>();
+
+                DB db = DB.getInstance(context);
+                List<EntityContact> contacts = db.contact().getContacts(account);
+                for (EntityContact contact : contacts)
+                    if (contact.type == EntityContact.TYPE_TO ||
+                            contact.type == EntityContact.TYPE_FROM) {
+                        VCard vcard = new VCard();
+                        vcard.addEmail(contact.email);
+                        if (!TextUtils.isEmpty(contact.name))
+                            vcard.setFormattedName(contact.name);
+                        vcards.add(vcard);
+                    }
+
+                ContentResolver resolver = context.getContentResolver();
+                try (OutputStream os = resolver.openOutputStream(uri)) {
+                    VCardWriter writer = new VCardWriter(os, VCardVersion.V3_0);
+                    for (VCard vcard : vcards)
+                        writer.write(vcard);
+                }
+
+                Log.i("Exported data");
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "");
     }
 
     public static class FragmentDelete extends FragmentDialogBase {
