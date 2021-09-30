@@ -790,7 +790,7 @@ public class Helper {
     }
 
     static void viewFAQ(Context context, int question) {
-        viewFAQ(context, question, false);
+        viewFAQ(context, question, true /* Google translate */);
     }
 
     static void viewFAQ(Context context, int question, boolean english) {
