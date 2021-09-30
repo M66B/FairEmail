@@ -2031,14 +2031,24 @@ class Core {
         List<Pair<Folder, Folder>> ifolders = new ArrayList<>();
         List<String> subscription = new ArrayList<>();
 
-        Folder[] personal;
+        List<Folder> personal = new ArrayList<>();
         try {
-            personal = istore.getPersonalNamespaces();
-            if (personal.length == 0)
-                throw new MessagingException("Empty personal namespaces");
+            Folder[] pnamespaces = istore.getPersonalNamespaces();
+
+            boolean root = false;
+            Folder d = istore.getDefaultFolder();
+            if (pnamespaces != null) {
+                personal.addAll(Arrays.asList(pnamespaces));
+                for (Folder p : pnamespaces)
+                    if (d.getFullName().equals(p.getFullName())) {
+                        root = true;
+                        break;
+                    }
+            }
+            if (!root)
+                personal.add(d);
         } catch (MessagingException ex) {
             Log.e(ex);
-            personal = new Folder[]{istore.getDefaultFolder()};
         }
 
         for (Folder namespace : personal) {
