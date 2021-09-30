@@ -68,7 +68,7 @@ public class TwoStateOwner implements LifecycleOwner {
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                Log.i(this + " parent destroyed");
+                Log.i(TwoStateOwner.this + " parent destroyed");
                 owned = false;
                 destroy();
                 owner.getLifecycle().removeObserver(this);
@@ -83,7 +83,7 @@ public class TwoStateOwner implements LifecycleOwner {
             registry.addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
                 public void onAny() {
-                    Log.i(this + " " + registry);
+                    Log.i(TwoStateOwner.this + " " + registry);
                     changed = new Date().getTime();
                 }
             });
@@ -93,7 +93,7 @@ public class TwoStateOwner implements LifecycleOwner {
                 list.add(this);
             }
         } else
-            Log.e(this + " not owned");
+            Log.e(TwoStateOwner.this + " not owned");
     }
 
     void start() {
