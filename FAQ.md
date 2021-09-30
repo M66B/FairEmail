@@ -3777,6 +3777,7 @@ This is problematic because a message can be snoozed only after moving the messa
 
 To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing.
 Unfortunately, it is not possible to hide messages on the email server too.
+Deleting messages from the server and restoring them later could result in losing messages when the device breaks.
 
 <br />
 
