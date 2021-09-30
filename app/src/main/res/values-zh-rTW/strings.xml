@@ -755,6 +755,7 @@
     <string name="title_delete_channel">刪除通知頻道</string>
     <string name="title_insert_contact">新增聯絡人</string>
     <string name="title_edit_contact">編輯聯絡人</string>
+    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">匯入 vCard</string>
     <string name="title_create_sub_folder">建立子資料夾</string>
     <string name="title_empty_trash_ask">您要永久刪除所有被丟垃圾桶的訊息嗎？</string>
     <string name="title_empty_spam_ask">您要永久刪除所有的垃圾郵件訊息嗎？</string>
