@@ -349,6 +349,7 @@
     <string name="title_advanced_nav_hide_title">Dölj alternativ för navigeringsmenyn?</string>
     <string name="title_advanced_nav_hide_message">Du kan aktivera alternativen igen i visningsinställningarna</string>
     <string name="title_advanced_nav_message_count">Visa antalet lokalt lagrade meddelanden i navigeringsmenyn</string>
+    <string name="title_advanced_nav_unseen_drafts" comment="title_advanced_nav_unseen_drafts&#10;A draft can be read/unread like any other message. Normally the number of drafts regardless the read/unread status is shown in the navigation menu, but some applications require to show unread drafts only. Some apps store templates in the draft folder for example. This options allows to cover this use case.">Visa antal olästa utkast i navigeringsmenyn</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
     <string name="title_advanced_cards_beige">Använd beige bakgrund när du använder kortstil (endast ljusa teman)</string>
@@ -444,6 +445,7 @@
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
     <string name="title_advanced_autoclose_unread">Stäng konversationer när meddelanden markeras som olästa</string>
+    <string name="title_advanced_collapse_marked">Kollapsa meddelanden som manuellt markeras som lästa eller olästa</string>
     <string name="title_advanced_undo">Ångra timeout</string>
     <string name="title_advanced_quick_filter">Visa icke-påträngande snabbfilter-ikoner</string>
     <string name="title_advanced_quick_scroll">Visa icke-påträngande snabba scrolla upp/ner ikoner</string>
@@ -766,8 +768,8 @@
     <string name="title_delete_channel">Ta bort aviseringskanal</string>
     <string name="title_insert_contact">Lägg till kontakt</string>
     <string name="title_edit_contact">Redigera kontakt</string>
-    <string name="title_import_contacts">Importera vCards</string>
-    <string name="title_export_contacts">Exportera vCard</string>
+    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Importera vCards</string>
+    <string name="title_export_contacts" comment="title_export_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Exportera vCard</string>
     <string name="title_create_sub_folder">Skapa undermapp</string>
     <string name="title_empty_trash_ask">Ta bort alla meddelanden i papperskorgen permanent?</string>
     <string name="title_empty_spam_ask">Ta bort all skräppost permanent?</string>

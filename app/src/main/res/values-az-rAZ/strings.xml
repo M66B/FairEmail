@@ -352,6 +352,7 @@
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
     <string name="title_advanced_nav_hide_message">Görüntü tənzimləmələrində bu seçimi təkrar fəallaşdıra bilərsiniz</string>
     <string name="title_advanced_nav_message_count">Naviqasiya menyusunda yerli yaddaşda saxlanılmış mesaj sayını göstər</string>
+    <string name="title_advanced_nav_unseen_drafts" comment="title_advanced_nav_unseen_drafts&#10;A draft can be read/unread like any other message. Normally the number of drafts regardless the read/unread status is shown in the navigation menu, but some applications require to show unread drafts only. Some apps store templates in the draft folder for example. This options allows to cover this use case.">Naviqasiya menyusunda oxunmamış qaralamaların sayını göstər</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_cards">Cədvəl stili əvəzinə kart stilini istifadə et</string>
     <string name="title_advanced_cards_beige">Kart stilini istifadə edəndə bej arxaplan istifadə et (yalnız açıq temalar)</string>
@@ -768,7 +769,7 @@
     <string name="title_delete_channel">Bildiriş kanalını sil</string>
     <string name="title_insert_contact">Əlaqə əlavə et</string>
     <string name="title_edit_contact">Əlaqəyə düzəliş et</string>
-    <string name="title_import_contacts"> vCard-ları idxal et</string>
+    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item"> vCard-ları idxal et</string>
     <string name="title_create_sub_folder">Alt qovluq yarat</string>
     <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
     <string name="title_empty_spam_ask">Bütün spam mesajları birdəfəlik silinsin?</string>

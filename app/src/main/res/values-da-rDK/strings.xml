@@ -349,6 +349,7 @@
     <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
     <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktivere via skærmindstillingerne</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
+    <string name="title_advanced_nav_unseen_drafts" comment="title_advanced_nav_unseen_drafts&#10;A draft can be read/unread like any other message. Normally the number of drafts regardless the read/unread status is shown in the navigation menu, but some applications require to show unread drafts only. Some apps store templates in the draft folder for example. This options allows to cover this use case.">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_cards_beige">Brug beige baggrund ifm. kortstil (kun lyse temaer)</string>
@@ -443,6 +444,7 @@
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
     <string name="title_advanced_autoclose_unread">Luk konversationer, når beskeder markeres som ulæste</string>
+    <string name="title_advanced_collapse_marked">Sammenfold beskeder, som manuelt markeres som læste/ulæste</string>
     <string name="title_advanced_undo">Fortryd timeout</string>
     <string name="title_advanced_quick_filter">Vis ikke-påtrængende hurtige filterikoner</string>
     <string name="title_advanced_quick_scroll">Vis ikke-påtrængende hurtige rul op/ned ikoner</string>
@@ -761,6 +763,8 @@
     <string name="title_delete_channel">Slet notifikationskanal</string>
     <string name="title_insert_contact">Tilføj Kontakt</string>
     <string name="title_edit_contact">Redigér Kontakt</string>
+    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Importere vCard</string>
+    <string name="title_export_contacts" comment="title_export_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Eksportere vCard</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
     <string name="title_empty_trash_ask">Slet permanent alt indhold i papirkurven?</string>
     <string name="title_empty_spam_ask">Slet permanent alle spambeskeder?</string>

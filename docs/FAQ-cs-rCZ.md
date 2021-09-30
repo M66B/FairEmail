@@ -4,7 +4,7 @@
 
 Máte-li dotaz, nejprve se prosím podívejte na následující často kladené dotazy (FAQ). Jak pokládat další otázky, žádat o funkce a hlásit chyby naleznete [v dolní části](#user-content-get-support).
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Pokud máte dotaz, podívejte se nejprve na často kladené otázky (FAQ) níže. [V dolní části najdete](#user-content-get-support), jak můžete klást další otázky, požadovat funkce a hlásit chyby.
 
 ## Obsah
 
@@ -69,10 +69,10 @@ Související dotazy:
 * ~~[Chyba v Androidu 5.1 a 6](https://issuetracker.google.com/issues/37054851) způsobuje, že aplikace mohou někdy zobrazovat špatný formát času. Přepnutí nastavení Androidu *Použít 24hod. formát* může dočasně problém vyřešit. Bylo přidáno provizorní řešení.~~
 * ~~[Chyba v Google Disku](https://issuetracker.google.com/issues/126362828) způsobí, že soubory exportované do Google Disku jsou prázdné. Google toto opravil.~~
 * ~~[Chyba v AndroidX](https://issuetracker.google.com/issues/78495471) působí občasné pády FairEmailu při dlouhém podržení nebo tažení. Google toto opravil.~~
-* ~~[Chyba v AndroidX ROOM](https://issuetracker.google.com/issues/138441698) někdy způsobí pád s "*... Exception while computing database live data ... Couldn't read row ...*". Bylo přidáno provizorní řešení.~~
-* [Chyba v Androidu](https://issuetracker.google.com/issues/119872129) způsobí pád FairEmailu s "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* [Chyba v Androidu](https://issuetracker.google.com/issues/62427912) někdy způsobí pád s "*... ActivityRecord not found for ...*" after updating FairEmail. Přeinstalování ([zdroj](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) může problém vyřešit.
-* [Chyba v Androidu](https://issuetracker.google.com/issues/37018931) někdy způsobí pád s "*... InputChannel is not initialized ...* on some devices.
+* ~~[Chyba v AndroidX ROOM](https://issuetracker.google.com/issues/138441698) někdy způsobí pád s "*... Výjimka při výpočtu živých dat databáze ... Nelze přečíst řádek ... * ". Bylo přidáno provizorní řešení.~~
+* [Chyba v Androidu](https://issuetracker.google.com/issues/119872129) způsobí pád FairEmailu s "*... Na některých zařízeních zobrazeno chybné oznámení ... * po aktualizaci FairEmail a klepnutí na něj.
+* [Chyba v Androidu](https://issuetracker.google.com/issues/62427912) někdy způsobí pád s "*... ActivityRecord nebyl nalezen pro ...*" po aktualizaci FairEmail. Přeinstalování ([zdroj](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) může problém vyřešit.
+* [Chyba v Androidu](https://issuetracker.google.com/issues/37018931) někdy způsobí pád s "*... InputChannel není inicializován ...* na některých zařízeních.
 * ~~[Chyba v LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) někdy způsobí pád s *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Chyba v Nova Launcher na Android 5.x způsobí pád FairEmailu s *java.lang.StackOverflowError* má-li Nova Launcher přístup ke službě usnadnění.
 * ~~Dialog výběru složky někdy nezobrazí žádné složky z dosud neznámých důvodů. Toto se zdá být opraveno. ~~
@@ -80,7 +80,7 @@ Související dotazy:
 * ~~Šifrování s YubiKey vyústí v nekonečnou smyčku. Toto je zdá se způsobeno [chybou v OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Posun na interně odkazovanou pozici v původních zprávách nefunguje. Toto nelze opravit, protože zobrazení původní zprávy je uvnitř posuvného náhledu.
 * Náhled textu zprávy se na Samsung hodinkách někdy (nikdy) nezobrazí, protože [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) se zdá být ignorován. Správné zobrazování náhledu zpráv je ověřeno s nositelnými zařízeními Pebble 2, Fitbit Charge 3, Mi band 3, a Xiaomi Amazfit BIP. Viz také [tento nejčastější dotaz](#user-content-faq126).
-* [Chyba v Androidu 6.0](https://issuetracker.google.com/issues/37068143) způsobuje pád s *... Invalid offset: ... Valid range is ...* při výběru textu a následném stisku mimo vybraný text. Tato chyba byla opravena v Androidu 6.0.1.
+* [Chyba v Androidu 6.0](https://issuetracker.google.com/issues/37068143) způsobuje pád s *... Neplatný posun: ... Valid range is ...* při výběru textu a následném stisku mimo vybraný text. Tato chyba byla opravena v Androidu 6.0.1.
 * Interní (kotevní) odkazy nebudou fungovat, protože původní zprávy jsou zobrazeny ve vloženém WebView, v posouvajícím se zobrazení (seznam konverzací). Jedná se o omezení Androidu, které nelze opravit či obejít.
 * Detekce jazyka [přestala fungovat](https://issuetracker.google.com/issues/173337263) na zařízeních Pixel s (aktualizovaným?) Android 11
 * [Chyba v OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) způsobuje neplatné PGP podpisy při použití hardwarového tokenu.
@@ -156,9 +156,9 @@ Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze za
 * [(28) Jak mohu spravovat oznámení ve stavové liště?](#user-content-faq28)
 * [(29) Jak získám oznámení pro nové zprávy z ostatních složek?](#user-content-faq29)
 * [(30) Jak mohu použít poskytnuté rychlé nastavení?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
+* [(31) Jak mohu použít poskytované zkratky?](#user-content-faq31)
 * [(32) Jak ověřím, že čtení e-mailu je skutečně bezpečné?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
+* [(33) Proč upravované adresy odesílatele nefungují?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
 * [(35) Proč bych měl být opatrný při prohlížení obrázků, příloh, původních zpráv a otevírání odkazů?](#user-content-faq35)
 * [(36) Jak jsou soubory nastavení šifrovány?](#user-content-faq36)
