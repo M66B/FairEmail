@@ -143,6 +143,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 ivType.setContentDescription(null);
             }
 
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                ivType.setTooltipText(ivType.getContentDescription());
+
             if (contact.avatar == null || !contacts)
                 ivAvatar.setImageDrawable(null);
             else {
