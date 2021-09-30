@@ -1415,7 +1415,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver<Long>() {
                 @Override
                 public void onSelectionChanged() {
-                    if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         return;
 
                     FragmentActivity activity = getActivity();
@@ -1427,7 +1427,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 public void onItemStateChanged(@NonNull Long key, boolean selected) {
-                    if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         return;
 
                     int pos = adapter.getPositionForKey(key);
@@ -1473,6 +1473,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                             @Override
                             public boolean isInAbsoluteEnd() {
+                                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                    return false;
+
                                 PagedList<TupleMessageEx> list = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList();
                                 if (list == null)
                                     return false;
@@ -5271,9 +5274,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Context context = getContext();
         if (context == null)
             return;
-        if (getView() == null)
-            return;
-        if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
