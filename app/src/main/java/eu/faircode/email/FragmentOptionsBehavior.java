@@ -338,7 +338,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("expand_all", checked).apply();
                 swExpandOne.setEnabled(!checked);
-                swCollapseMultiple.setEnabled(!swExpandOne.isChecked() || swExpandAll.isChecked());
             }
         });
 
@@ -346,7 +345,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("expand_one", checked).apply();
-                swCollapseMultiple.setEnabled(!swExpandOne.isChecked() || swExpandAll.isChecked());
             }
         });
 
@@ -528,7 +526,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swExpandOne.setChecked(prefs.getBoolean("expand_one", true));
         swExpandOne.setEnabled(!swExpandAll.isChecked());
         swCollapseMultiple.setChecked(prefs.getBoolean("collapse_multiple", true));
-        swCollapseMultiple.setEnabled(!swExpandOne.isChecked() || swExpandAll.isChecked());
 
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
 
