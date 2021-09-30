@@ -2336,15 +2336,30 @@ public class FragmentCompose extends FragmentBase {
             }
         }
 
-        if (uri == null) {
-            ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            if (cbm != null && cbm.hasPrimaryClip()) {
-                String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-                uri = Uri.parse(link);
-                if (uri.getScheme() == null)
-                    uri = null;
+        if (uri == null)
+            try {
+                ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                if (cbm != null && cbm.hasPrimaryClip()) {
+                    String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+                    uri = Uri.parse(link);
+                    if (uri.getScheme() == null)
+                        uri = null;
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+                /*
+                    java.lang.SecurityException: Permission Denial: opening provider org.chromium.chrome.browser.util.ChromeFileProvider from ProcessRecord{43c6094 11175:eu.faircode.email/u0a73} (pid=11175, uid=10073) that is not exported from uid 10080
+                      at android.os.Parcel.readException(Parcel.java:1692)
+                      at android.os.Parcel.readException(Parcel.java:1645)
+                      at android.app.ActivityManagerProxy.getContentProvider(ActivityManagerNative.java:4214)
+                      at android.app.ActivityThread.acquireProvider(ActivityThread.java:5584)
+                      at android.app.ContextImpl$ApplicationContentResolver.acquireUnstableProvider(ContextImpl.java:2239)
+                      at android.content.ContentResolver.acquireUnstableProvider(ContentResolver.java:1520)
+                      at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1133)
+                      at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1093)
+                      at android.content.ClipData$Item.coerceToText(ClipData.java:340)
+                 */
             }
-        }
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
