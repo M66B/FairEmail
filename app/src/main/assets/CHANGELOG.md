@@ -4,6 +4,12 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1742
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1741
 
 * Fixed empty account/identity list crash
