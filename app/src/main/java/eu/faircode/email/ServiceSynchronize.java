@@ -2577,44 +2577,65 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
 
         private void post(Bundle command, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
-            if (!running) {
-                Log.i("### not running");
-                return;
+            try {
+                if (!running) {
+                    Log.i("### not running");
+                    return;
+                }
+
+                if (networkState == null)
+                    networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
+
+                if (accountStates == null) {
+                    EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling, "### no accounts");
+                    lastCommand = command;
+                    return;
+                }
+
+                lastCommand = null;
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                boolean enabled = prefs.getBoolean("enabled", true);
+                int pollInterval = getPollInterval(ServiceSynchronize.this);
+
+                long[] schedule = getSchedule(ServiceSynchronize.this);
+                long now = new Date().getTime();
+                boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+
+                if (command == null) {
+                    command = new Bundle();
+                    command.putString("name", "eval");
+                }
+
+                List<TupleAccountNetworkState> result = new ArrayList<>();
+                for (TupleAccountState accountState : accountStates)
+                    result.add(new TupleAccountNetworkState(
+                            enabled && (pollInterval == 0 || accountState.isExempted(ServiceSynchronize.this)) && scheduled,
+                            command,
+                            networkState,
+                            accountState));
+
+                postValue(result);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Context.getPackageName()' on a null object reference
+                            at androidx.preference.PreferenceManager.getDefaultSharedPreferencesName(PreferenceManager:124)
+                            at androidx.preference.PreferenceManager.getDefaultSharedPreferences(PreferenceManager:119)
+                            at eu.faircode.email.ServiceSynchronize$MediatorState.post(ServiceSynchronize:2596)
+                            at eu.faircode.email.ServiceSynchronize$MediatorState.post(ServiceSynchronize:2569)
+                            at eu.faircode.email.ServiceSynchronize$MediatorState.access$400(ServiceSynchronize:2546)
+                            at eu.faircode.email.ServiceSynchronize$3.onChanged(ServiceSynchronize:219)
+                            at eu.faircode.email.ServiceSynchronize$3.onChanged(ServiceSynchronize:216)
+                            at androidx.lifecycle.MediatorLiveData$Source.onChanged(MediatorLiveData:152)
+                            at androidx.lifecycle.LiveData.considerNotify(LiveData:133)
+                            at androidx.lifecycle.LiveData.dispatchingValue(LiveData:151)
+                            at androidx.lifecycle.LiveData.setValue(LiveData:309)
+                            at androidx.lifecycle.MutableLiveData.setValue(MutableLiveData:50)
+                            at androidx.lifecycle.LiveData$1.run(LiveData:93)
+                            at android.os.Handler.handleCallback(Handler.java:761)
+                 */
             }
-
-            if (networkState == null)
-                networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-
-            if (accountStates == null) {
-                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling, "### no accounts");
-                lastCommand = command;
-                return;
-            }
-
-            lastCommand = null;
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = getPollInterval(ServiceSynchronize.this);
-
-            long[] schedule = getSchedule(ServiceSynchronize.this);
-            long now = new Date().getTime();
-            boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
-
-            if (command == null) {
-                command = new Bundle();
-                command.putString("name", "eval");
-            }
-
-            List<TupleAccountNetworkState> result = new ArrayList<>();
-            for (TupleAccountState accountState : accountStates)
-                result.add(new TupleAccountNetworkState(
-                        enabled && (pollInterval == 0 || accountState.isExempted(ServiceSynchronize.this)) && scheduled,
-                        command,
-                        networkState,
-                        accountState));
-
-            postValue(result);
         }
     }
 
