@@ -222,6 +222,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("envoyé", new TypeScore(EntityFolder.SENT, 100));
         put("Отправленные", new TypeScore(EntityFolder.SENT, 100));
         put("Inviata", new TypeScore(EntityFolder.SENT, 100));
+        put("Outbox", new TypeScore(EntityFolder.SENT, 50));
     }};
 
     static final int DEFAULT_SYNC = 7; // days
