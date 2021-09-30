@@ -2130,6 +2130,7 @@ class Core {
                 String[] attrs = ((IMAPFolder) ifolder.second).getAttributes();
                 String type = EntityFolder.getType(attrs, fullName, false);
                 if (type != null &&
+                        !EntityFolder.INBOX.equals(type) &&
                         !EntityFolder.USER.equals(type) &&
                         !EntityFolder.SYSTEM.equals(type)) {
                     for (EntityFolder folder : new ArrayList<>(local.values()))
@@ -2146,19 +2147,18 @@ class Core {
                             db.folder().setFolderName(folder.id, fullName);
                         }
 
-                    // Reselect Gmail archive folder
-                    if (EntityFolder.ARCHIVE.equals(type) && account.isGmail()) {
-                        boolean gmail_archive_fixed = prefs.getBoolean("gmail_archive_fixed", false);
-                        if (!gmail_archive_fixed) {
-                            prefs.edit().putBoolean("gmail_archive_fixed", true).apply();
-                            EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
-                            if (archive == null) {
-                                archive = db.folder().getFolderByName(account.id, fullName);
-                                if (archive != null) {
-                                    Log.e("Reselecting Gmail archive=" + fullName);
-                                    archive.type = EntityFolder.ARCHIVE;
-                                    db.folder().setFolderType(archive.id, archive.type);
-                                }
+                    // Reselect system folders once
+                    String key = "reselected." + account.id + "." + type;
+                    boolean reselected = prefs.getBoolean(key, false);
+                    if (!reselected) {
+                        prefs.edit().putBoolean(key, true).apply();
+                        EntityFolder folder = db.folder().getFolderByType(account.id, type);
+                        if (folder == null) {
+                            folder = db.folder().getFolderByName(account.id, fullName);
+                            if (folder != null) {
+                                Log.e("Reselecting " + account.name + " " + type + "=" + fullName);
+                                folder.type = type;
+                                db.folder().setFolderType(folder.id, folder.type);
                             }
                         }
                     }
