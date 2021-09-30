@@ -2156,7 +2156,7 @@ class Core {
                         if (folder == null) {
                             folder = db.folder().getFolderByName(account.id, fullName);
                             if (folder != null) {
-                                Log.e("Reselecting " + account.name + " " + type + "=" + fullName);
+                                Log.e("Reselecting " + account.host + " " + type + "=" + fullName);
                                 folder.type = type;
                                 db.folder().setFolderType(folder.id, folder.type);
                             }
