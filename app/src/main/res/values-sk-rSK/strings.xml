@@ -372,7 +372,7 @@
     <string name="title_advanced_nav_hide_title">Skryť možnosti navigačnej ponuky?</string>
     <string name="title_advanced_nav_hide_message">Možnosti môžete opäť povoliť v nastaveniach zobrazenia</string>
     <string name="title_advanced_nav_message_count">Zobraziť počet lokálne uložených správ v navigačnej ponuke</string>
-    <string name="title_advanced_nav_unseen_drafts" comment="title_advanced_nav_unseen_drafts&#10;A draft can be read/unread like any other message. Normally the number of drafts regardless the read/unread status is shown in the navigation menu, but some applications require to show unread drafts only. Some apps store templates in the draft folder for example. This options allows to cover this use case.">Zobrazovať počet neprečítaných konceptov v navigačnej ponuke</string>
+    <string name="title_advanced_nav_unseen_drafts">Zobrazovať počet neprečítaných konceptov v navigačnej ponuke</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>
     <string name="title_advanced_cards_beige">Béžové pozadie pri štýle na kartách (len svetlý vzhľad)</string>
@@ -791,8 +791,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_delete_channel">Vymazať kanál upozornení</string>
     <string name="title_insert_contact">Pridať kontakt</string>
     <string name="title_edit_contact">Upraviť kontakt</string>
-    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Importovať vizitky vCard</string>
-    <string name="title_export_contacts" comment="title_export_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Exportovať vizitky vCard</string>
+    <string name="title_import_contacts">Importovať vizitky vCard</string>
+    <string name="title_export_contacts">Exportovať vizitky vCard</string>
     <string name="title_create_sub_folder">Vytvoriť podpriečinok</string>
     <string name="title_empty_trash_ask">Natrvalo odstrániť všetky správy z koša?</string>
     <string name="title_empty_spam_ask">Natrvalo odstrániť všetky správy v spame?</string>
@@ -1151,8 +1151,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_hint">        Prvotné vyhľadávanie prebieha priamo na zariadení.
         Ak chcete prehľadať aj server, klepnite na tlačidlo hľadať znovu.
     </string>
-    <string name="title_search_index_hint">        Vyhľadávanie použitím indexu je veľmi rýchle, ale nájde len celé slová.
-        Možnosti nižšie vám umožnia pokračovať v hľadaní na servery.
+    <string name="title_search_index_hint">        Prehľadávanie indexu je veľmi rýchle, ale je obmedzené na hľadanie celých slov vo všetkých častiach správy.
+        Možnosti nižšie umožňujú pokračovať v hľadaní na servery.
     </string>
     <string name="title_search_text_hint">Vyhľadávanie v tele správy nemusí na všetkých serveroch fungovať správne, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_text_unsupported">\'%s\' znamená, že server nepodporuje hľadanie v texte správ</string>

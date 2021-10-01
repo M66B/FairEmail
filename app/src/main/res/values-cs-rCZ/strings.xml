@@ -372,7 +372,7 @@
     <string name="title_advanced_nav_hide_title">Skrýt možnosti navigačního menu?</string>
     <string name="title_advanced_nav_hide_message">Možnosti můžete znovu povolit v nastavení displeje</string>
     <string name="title_advanced_nav_message_count">Zobrazit počet místně uložených zpráv v navigačním menu</string>
-    <string name="title_advanced_nav_unseen_drafts" comment="title_advanced_nav_unseen_drafts&#10;A draft can be read/unread like any other message. Normally the number of drafts regardless the read/unread status is shown in the navigation menu, but some applications require to show unread drafts only. Some apps store templates in the draft folder for example. This options allows to cover this use case.">Zobrazit počet nepřečtených konceptů v navigačním menu</string>
+    <string name="title_advanced_nav_unseen_drafts">Zobrazit počet nepřečtených konceptů v navigačním menu</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>
@@ -791,8 +791,8 @@
     <string name="title_delete_channel">Smazat kanál oznámení</string>
     <string name="title_insert_contact">Přidat kontakt</string>
     <string name="title_edit_contact">Upravit kontakt</string>
-    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Importovat vCard</string>
-    <string name="title_export_contacts" comment="title_export_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Exportovat vCard</string>
+    <string name="title_import_contacts">Importovat vCard</string>
+    <string name="title_export_contacts">Exportovat vCard</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
     <string name="title_empty_trash_ask">Trvale smazat všechny zprávy v koši?</string>
     <string name="title_empty_spam_ask">Trvale smazat všechny nevyžádané zprávy?</string>
@@ -1154,9 +1154,6 @@
     <string name="title_search_for_hint">Zadejte text</string>
     <string name="title_search_hint">Hledání se zpočátku zaměří na zprávy uložené ve vašem zařízení.
         Pro hledání i na serveru, stiskněte tlačítko „Hledat znovu“.
-    </string>
-    <string name="title_search_index_hint">        Hledání přes vyhledávací index je rychlé, ale najde pouze celá slova.
-        Volby níže jsou pro pokračování v hledání na e-mailovém serveru.
     </string>
     <string name="title_search_text_hint">Hledání textu ve zprávách, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_text_unsupported">\'%s\' znamená, že mailový server nepodporuje vyhledávání v textech zpráv</string>

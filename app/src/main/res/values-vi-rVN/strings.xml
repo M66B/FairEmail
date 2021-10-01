@@ -1121,9 +1121,6 @@
     <string name="title_search_hint">Ban đầu, việc tìm kiếm được thực hiện trên thiết bị.
         Để cũng tìm kiếm máy chủ, nhấn nút \'tìm kiếm lại\'.
     </string>
-    <string name="title_search_index_hint">        Việc tìm kiếm qua mục lục tìm kiếm là nhanh, nhưng chỉ tìm kiếm các từ toàn bộ.
-        Các tuỳ chọn ở dưới là để tiếp tục tìm kiếm máy chủ email.
-    </string>
     <string name="title_search_text_hint">Việc tìm kiếm văn bản trong thư khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_text_unsupported">\'%s\' có nghĩa là máy chủ mail không hỗ trợ tìm kiếm trong văn bản thư</string>
     <string name="title_search_size_hint">Việc tìm kiếm thư theo kích cỡ khi có nhiều thư có thể không được trên một số máy chủ</string>

@@ -1097,9 +1097,6 @@
     <string name="title_search_hint">        Inicialmente, a pesquisa é efetuada no dispositivo.
         Para pesquisar também no servidor, toque no botão \"pesquisar novamente\".
     </string>
-    <string name="title_search_index_hint">        A pesquisa pelo índice de pesquisa é rápida, mas apenas encontra palavras inteiras.
-        As opções abaixo são para continuar a pesquisa no servidor de e-mail.
-    </string>
     <string name="title_search_text_hint">Pesquisar por textos em mensagens, quando há um grande número delas, pode não funcionar em alguns servidores</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa em textos de mensagens</string>
     <string name="title_search_size_hint">Pesquisar por mensagens pelo tamanho, quando há um grande número delas, pode não funcionar em alguns servidores</string>

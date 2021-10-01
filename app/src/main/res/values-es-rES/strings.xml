@@ -352,7 +352,7 @@
     <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
     <string name="title_advanced_nav_hide_message">Puede activar las opciones de nuevo en la configuración de visualización</string>
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
-    <string name="title_advanced_nav_unseen_drafts" comment="title_advanced_nav_unseen_drafts&#10;A draft can be read/unread like any other message. Normally the number of drafts regardless the read/unread status is shown in the navigation menu, but some applications require to show unread drafts only. Some apps store templates in the draft folder for example. This options allows to cover this use case.">Mostrar número de borradores sin leer en el menú de navegación</string>
+    <string name="title_advanced_nav_unseen_drafts">Mostrar número de borradores sin leer en el menú de navegación</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
     <string name="title_advanced_cards_beige">Usar fondo beige al utilizar el estilo de la tarjeta (solo temas claros)</string>
@@ -771,8 +771,8 @@
     <string name="title_delete_channel">Eliminar canal de notificación</string>
     <string name="title_insert_contact">Agregar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
-    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Importar vCards</string>
-    <string name="title_export_contacts" comment="title_export_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">Exportar vCards</string>
+    <string name="title_import_contacts">Importar vCards</string>
+    <string name="title_export_contacts">Exportar vCards</string>
     <string name="title_create_sub_folder">Crear subcarpeta</string>
     <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
     <string name="title_empty_spam_ask">¿Eliminar todos los mensajes de spam permanentemente?</string>
@@ -1134,9 +1134,6 @@
     <string name="title_search_for_hint">Ingrese texto</string>
     <string name="title_search_hint">        Inicialmente, la búsqueda se realiza en el dispositivo.
         Para buscar también en el servidor, pulse el botón \'Buscar de nuevo\'.
-    </string>
-    <string name="title_search_index_hint">        Buscar a través del índice de búsqueda es rápido, pero sólo encuentra palabras enteras.
-        Las opciones a continuación son continuar buscando en el servidor de correo electrónico.
     </string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_text_unsupported">\'%s\' significa que el servidor de correo no soporta la búsqueda en texto de mensajes</string>

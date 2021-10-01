@@ -186,6 +186,7 @@
     <string name="title_setup_still">仍待處理</string>
     <string name="title_setup_error">錯誤</string>
     <string name="title_setup_configuring">正在配置帳戶 &#8230;</string>
+    <string name="title_setup_app_password">您可能需要使用應用程式密碼</string>
     <string name="title_setup_close">關閉設定介面</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
@@ -232,6 +233,7 @@
     <string name="title_setup_theme_system">跟隨系統</string>
     <string name="title_setup_theme_black_background">純黑背景</string>
     <string name="title_setup_theme_html_light">用於原始訊息視圖的亮色背景</string>
+    <string name="title_setup_theme_composer_light">訊息編輯工具使用亮色背景</string>
     <string name="title_setup_theme_system_hint">若 Android 支援時將會依據日/夜模式切換亮/暗主題</string>
     <string name="title_setup_theme_more_colors">我想要更多顏色</string>
     <string name="title_setup_advanced">進階</string>
@@ -339,6 +341,7 @@
     <string name="title_advanced_nav_hide_title">要隱藏導航功能表選項嗎？</string>
     <string name="title_advanced_nav_hide_message">您可以在顯示設定中再次啟用此選項</string>
     <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
+    <string name="title_advanced_nav_unseen_drafts">在導航功能表中顯示未讀取草稿的數量</string>
     <string name="title_advanced_startup">顯示於開始螢幕</string>
     <string name="title_advanced_cards">使用卡片式樣替代表狀式樣</string>
     <string name="title_advanced_cards_beige">使用卡片式樣時采用米黃色背景 (僅亮色主題)</string>
@@ -434,6 +437,7 @@
     <string name="title_advanced_autoclose">自動關閉會話</string>
     <string name="title_advanced_onclose">當關閉一個會話時</string>
     <string name="title_advanced_autoclose_unread">在標示訊息為未讀取後關閉會話</string>
+    <string name="title_advanced_collapse_marked">摺疊經手動標示為已讀取或未讀取的訊息</string>
     <string name="title_advanced_undo">“撤銷”操作可執行時限</string>
     <string name="title_advanced_quick_filter">顯示存在感稀薄的快速篩選圖示</string>
     <string name="title_advanced_quick_scroll">顯示無存在感的快速向上/下滾動圖示</string>
@@ -755,7 +759,8 @@
     <string name="title_delete_channel">刪除通知頻道</string>
     <string name="title_insert_contact">新增聯絡人</string>
     <string name="title_edit_contact">編輯聯絡人</string>
-    <string name="title_import_contacts" comment="title_import_contacts&#10;https://en.wikipedia.org/wiki/VCard&#10;Title of menu item">匯入 vCard</string>
+    <string name="title_import_contacts">匯入 vCard</string>
+    <string name="title_export_contacts">匯出 vCard</string>
     <string name="title_create_sub_folder">建立子資料夾</string>
     <string name="title_empty_trash_ask">您要永久刪除所有被丟垃圾桶的訊息嗎？</string>
     <string name="title_empty_spam_ask">您要永久刪除所有的垃圾郵件訊息嗎？</string>
@@ -1117,9 +1122,6 @@
     <string name="title_search_for_hint">輸入文字</string>
     <string name="title_search_hint">        初次進行的搜尋，會執行於裝置之上。
         如要接著搜尋伺服器，請輕觸‘再次搜尋’按鈕。
-    </string>
-    <string name="title_search_index_hint">        通過搜尋索引搜尋的速度很快，但僅能找到完整的單詞。
-        下面的選項用於繼續搜尋電子郵件伺服器。
     </string>
     <string name="title_search_text_hint">當有大量訊息時，搜尋訊息內文字功能在一些伺服器上可能不工作</string>
     <string name="title_search_text_unsupported">\'%s\' 表示郵件伺服器不支援在訊息本文中搜尋</string>

@@ -373,6 +373,7 @@
     <string name="title_advanced_nav_hide_title">Приховати параметри меню навігації?</string>
     <string name="title_advanced_nav_hide_message">Ви можете знову включити опції в налаштуваннях екрану</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
+    <string name="title_advanced_nav_unseen_drafts">Відображати кількість непрочитаних чернеток у меню навігації</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
     <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання стилю карт (тільки для світлої теми)</string>
@@ -468,6 +469,7 @@
     <string name="title_advanced_autoclose">Автоматично закривати розмови</string>
     <string name="title_advanced_onclose">При закритті розмови</string>
     <string name="title_advanced_autoclose_unread">Закрити бесіди для повідомлень котрі позначенні як непрочитані</string>
+    <string name="title_advanced_collapse_marked">Згорнути повідомлення, які вручну позначені як прочитані або непрочитані</string>
     <string name="title_advanced_undo">Час для відміни дії</string>
     <string name="title_advanced_quick_filter">Показувати ненав\'язливі піктограми швидкого фільтру</string>
     <string name="title_advanced_quick_scroll">Показати не нав\'язливі піктограми швидкого прокручування вгору/вниз</string>
@@ -1151,9 +1153,6 @@
     <string name="title_search_for_hint">Введіть текст</string>
     <string name="title_search_hint">        Спочатку пошук виконується на пристрої.
         Для також для пошуку на сервері, натисніть кнопку \'пошук знову\'.
-    </string>
-    <string name="title_search_index_hint">Індексований пошук швидкий, але тільки за пошуком цілого слова.
-        Параметри нижче повинні продовжувати пошук з поштового сервера.
     </string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_text_unsupported">\'%s\' означає, що поштовий сервер не підтримує пошук в повідомленнях</string>

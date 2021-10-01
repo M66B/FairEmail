@@ -1131,9 +1131,6 @@
     <string name="title_search_hint">        Aluksi haku suoritetaan laitteessa.
         Myös palvelimelta hakeaksesi näpäytä \'hae uudelleen\'-painiketta.
     </string>
-    <string name="title_search_index_hint">        Hakuindeksin käyttö tekee hausta nopean, mutta löytää vain kokonaiset sanat.
-        Alla olevat valinnat ovat sähköpostipalvelimelta hakemista varten.
-    </string>
     <string name="title_search_text_hint">Tekstin haku viesteistä ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>
     <string name="title_search_text_unsupported">\'%s\' tarkoittaa, että sähköpostipalvelin ei tue viestien teksteistä hakua</string>
     <string name="title_search_size_hint">Viestien haku koon perusteella ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>

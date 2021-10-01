@@ -1127,9 +1127,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_hint">        Başlangıçta, arama cihazda gerçekleştirilir.
         Sunucuyu da aramak için \'Tekrar Ara\' düğmesine dokunun.
     </string>
-    <string name="title_search_index_hint">        Arama dizini aracılığıyla arama yapmak hızlıdır, ancak sadece tüm kelimeleri bulur.
-        Aşağıdaki seçenekler e-posta sunucusunu aramaya devam etmektir.
-    </string>
     <string name="title_search_text_hint">Mesajlarda metin arama, çok sayıda mesaj varken, bazı sunucularda çalışmayabilir</string>
     <string name="title_search_text_unsupported">\'%s\', posta sunucusunun mesaj metinlerinde aramayı desteklemediği anlamına gelir</string>
     <string name="title_search_size_hint">Boyutlara göre mesaj aramak, çok sayıda mesaj olduğunda, bazı sunucularda çalışmayabilir</string>

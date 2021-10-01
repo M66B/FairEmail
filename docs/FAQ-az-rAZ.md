@@ -2198,29 +2198,29 @@ A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https:
 <br />
 
 <a name="faq100"></a>
-**(100) How can I synchronize Gmail categories?**
+**(100) Gmail kateqoriyalarını necə eyniləşdirə bilərəm?**
 
-You can synchronize Gmail categories by creating filters to label categorized messages:
+Kateqoriyalara ayrılmış mesajları etiketləmək üçün filtrlər yaradaraq Gmail kateqoriyalarını eyniləşdirə bilərsiniz:
 
-* Create a new filter via Gmail > Settings (wheel) > Filters and Blocked Addresses > Create a new filter
-* Enter a category search (see below) in the *Has the words* field and click *Create filter*
-* Check *Apply the label* and select a label and click *Create filter*
+* Gmail > Tənzimləmələr (çarx) > Filtrlər və əngəllənən ünvanlar > "Yeni bir filtr yarat" seçimi ilə yeni bir filtr yaradın
+* *"Sözləri var"* sahəsinə bir kateqoriya axtarışı daxil edin (aşağı baxın) və *"Filtr yarat"a* klikləyin
+* *"Etiketi tətbiq et"i* işarələyin və bir etiket seçin və *"Filtr yarat"a* klikləyin
 
-Possible categories:
+Mümkün kateqoriyalar:
 
 
 
 ```
-category:social
-category:updates
-category:forums
-category:promotions
+kateqoriya:sosial
+kateqoriya:yeniləmələr
+kateqoriya:forumlar
+kateqoriya:promolar
 ```
 
 
-Unfortunately, this is not possible for snoozed messages folder.
+Təəssüf ki, ertələnmiş mesaj qovluğu üçün bu mümkün deyil.
 
-You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again and you can long press the folders to enable synchronization.
+FairEmail-in, qovluq siyahısını təkrar eyniləşdirməsinə icazə vermək üçün birləşmiş gələn qutusunun üç nöqtə menyusundakı *"Məcburi eyniləşdirmə"ni* istifadə edə bilərsiniz və eyniləşdirməni fəallaşdırmaq üçün qovluqlara uzun basa bilərsiniz.
 
 <br />
 

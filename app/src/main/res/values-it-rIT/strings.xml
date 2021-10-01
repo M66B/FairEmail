@@ -1131,9 +1131,6 @@
     <string name="title_search_hint">        Inizialmente, la ricerca è eseguita sul dispositivo.
         Per cercare anche nel server, tocca il pulsante \'cerca di nuovo\'.
     </string>
-    <string name="title_search_index_hint">        La ricerca tramite indice di ricerca è veloce, ma trova solo parole intere.
-        Le opzioni seguenti servono a continuare la ricerca nel server email.
-    </string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_text_unsupported">\'%s\' significa che il server email non supporta la ricerca nei testi dei messaggi</string>
     <string name="title_search_size_hint">La ricerca dei messaggi per dimensione, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>

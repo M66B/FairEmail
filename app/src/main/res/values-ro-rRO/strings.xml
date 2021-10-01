@@ -1145,8 +1145,8 @@
     <string name="title_search_hint">        Inițial, căutarea se efectuează pe dispozitiv.
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
-    <string name="title_search_index_hint">        Căutarea pe indexul de căutare este rapidă, dar găsește doar cuvinte întregi.
-        Opțiunile de mai jos sunt pentru continuarea căutării pe serverul de e-mail.
+    <string name="title_search_index_hint">        Căutarea prin intermediul indexului de căutare este rapidă, dar găsește numai cuvinte întregi în toate părțile mesajului.
+        Opțiunile de mai jos sunt pentru a continua căutarea în serverul de e-mail.
     </string>
     <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_text_unsupported">\'%s\' înseamnă că serverul de e-mail nu acceptă căutarea în textele mesajelor</string>

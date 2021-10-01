@@ -1056,19 +1056,19 @@ Parcourir les messages sur le serveur récupérera les messages du serveur de me
 <a name="faq25"></a>
 **(25) Pourquoi ne puis-je pas sélectionner/ouvrir/sauvegarder une image, une pièce jointe ou un fichier ?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Lorsqu'un élément de menu pour sélectionner/ouvrir/sauvegarder un fichier est désactivé (grisé) ou lorsque vous recevez le message *Storage access framework non disponible*, le [Storage access framework](https://developer.android.com/guide/topics/providers/document-provider) (la structure d'accès au stockage), un composant Android standard, n'est probablement pas présent. Cela peut être dû au fait que votre ROM personnalisée ne l'inclut pas ou qu'elle a été activement supprimée (dégonflée).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail ne demande pas d'autorisations de stockage, donc ce framework est requis pour sélectionner des fichiers et des dossiers. Aucune application, sauf peut-être les gestionnaires de fichiers fonctionnant sous Android 4.4 KitKat ou une version ultérieure, ne devrait demander des autorisations de stockage car cela permettrait d'accéder à *tous* les fichiers.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+Le Storage access framework est fourni par le paquet *com.android.documentsui* qui est visible comme une application *Fichiers* sur certaines versions d'Android (notamment OxygenOS).
 
-You can enable the storage access framework (again) with this adb command:
+Vous pouvez (ré)activer le Storage access framework avec cette commande adb :
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Ou bien, vous devriez être en mesure d'activer à nouveau l'application *Fichiers* en utilisant l'application Paramètres d'Android.
 
 <br />
 
@@ -1124,9 +1124,9 @@ Consultez [cette FAQ](#user-content-faq21) si votre appareil a un voyant de noti
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+(29) Comment puis-je recevoir des notifications de nouveaux messages pour d'autres dossiers ?
 
-Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
+Appuyez longuement sur un dossier, sélectionnez *Modifier les propriétés*, et activez soit *Afficher dans la boîte de réception unifiée* soit *Notifier les nouveaux messages* (disponible sur Android 7 Nougat et versions suivantes seulement) puis appuyez sur *Enregistrer*.
 
 <br />
 

@@ -1134,8 +1134,8 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_search_for_hint">Voer tekst in</string>
     <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.
 Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
-    <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.
- De onderstaande opties zijn om door te gaan met zoeken op de e-mailserver.</string>
+    <string name="title_search_index_hint">Zoeken via de zoekindex is snel, maar vindt alleen hele woorden in alle berichtdelen.
+         De onderstaande opties zijn om door te gaan met zoeken op de e-mailserver.    </string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
     <string name="title_search_text_unsupported">\'%s\' betekent dat de mailserver het zoeken in berichtteksten niet ondersteunt</string>
     <string name="title_search_size_hint">Zoeken naar berichten op grootte werkt mogelijk niet op sommige servers als er een groot aantal berichten is</string>

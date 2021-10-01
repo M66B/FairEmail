@@ -1144,9 +1144,6 @@
     <string name="title_search_hint">        U početku, pretraga se izvršava na uređaju.
         Da bi pretraživali i server, dodirnite dugme \'traži ponovo\'.
     </string>
-    <string name="title_search_index_hint">        Pretraživanje putem indeksa pretrage je brzo, ali pronalazi samo cijele riječi.
-        Opcije ispod su namijenjene za nastavak pretraživanja e-mail servera.
-    </string>
     <string name="title_search_text_hint">Pretraživanje teksta u porukama, kada postoji veliki broj poruka, možda neće raditi na nekim serverima</string>
     <string name="title_search_text_unsupported">\'%s\' znači da mail server ne podržava šretraživanje teksta u porukama</string>
     <string name="title_search_size_hint">Pretraživanje poruka po veličini, kada postoji veliki broj poruka, možda neće raditi na nekim serverima</string>
