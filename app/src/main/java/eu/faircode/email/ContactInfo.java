@@ -113,7 +113,6 @@ public class ContactInfo {
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final int FAVICON_READ_BYTES = 4096;
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
-    private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
 
     // https://css-tricks.com/prefetching-preloading-prebrowsing/
