@@ -512,7 +512,7 @@ class Core {
                             db.endTransaction();
                         }
 
-                        if (similar.size() > 0) {
+                        if (similar.size() > 0 && op.tries < TOTAL_RETRY_MAX) {
                             // Retry individually
                             group = false;
                             // Finally will reset state
