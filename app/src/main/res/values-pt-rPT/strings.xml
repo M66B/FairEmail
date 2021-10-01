@@ -522,6 +522,9 @@
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
     <string name="title_search">Pesquisar</string>
+    <string name="title_search_index_hint">        A procura pelo índice de pesquisa é rápida, mas só encontra palavras inteiras em todas as partes da mensagem.
+        As opções abaixo são para continuar a procurar no servidor de e-mail.
+    </string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
     <string name="title_search_more">Mais opções</string>
     <string name="title_filter_seen">Lida</string>

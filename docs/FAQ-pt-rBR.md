@@ -531,7 +531,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Por que as mensagens enviadas não estão aparecendo (diretamente) na pasta enviados?**
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
@@ -544,43 +544,43 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Posso usar uma conta do Microsoft Exchange?**
 
-The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
+O protocolo de serviços web do Microsoft Exchange [está sendo gradualmente descontinuado](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). Por consequencia, faz pouco sentido acrescentar mais este protocolo.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Você pode usar uma conta do Microsoft Exchange se ela for acessível via IMAP, o que normalmente é o caso. Clique [aqui](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) para mais informações.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Note que a descrição do FairEmail começa com a observação que protocolos não-padrão, como Microsoft Exchange Web Services e Microsoft ActiveSync, não são suportados.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Consulte [aqui](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) para obter a documentação da Microsoft sobre como configurar um cliente de e-mail. Há também uma seção sobre os erros de conexão mais comuns e soluções.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Algumas versões antigas de servidores do Exchange têm um problema que faz com as mensagens apareçam vazias e com anexos corrompidos. Por favor, veja [esse FAQ](#user-content-faq110) para obter uma solução alternativa.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Consulte [este FAQ](#user-content-faq133) sobre o suporte ao ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Por favor, veja [esse FAQ](#user-content-faq111) sobre o suporte ao OAuth.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) O que são identidades / como eu adiciono um alias?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+As identidades representam os endereços de e-mail *dos quais* você está enviando através de um servidor de e-mail (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Alguns provedores permitam que você possua múltiplos apelidos (aliases). Você pode configurá-los definindo o campo do endereço de e-mail de uma identidade adicional como o endereço do alias e definindo o campo do nome de usuário como seu e-mail principal.
 
-Note that you can copy an identity by long pressing it.
+Observe que você pode copiar uma identidade ao tocar e segurar sobre ela.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Como alternativa, você pode ativar *Permitir a edição do endereço do remetente* nas configurações avançadas de uma identidade existente para editar o nome de usuário ao escrever uma nova mensagem, se seu provedor permitir isso.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+O FairEmail irá automaticamente atualizar as senhas de identidades relacionadas quando você atualizar a senha de uma conta associada ou uma identidade relacionada.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Veja [esse FAQ](#user-content-faq33) sobre como editar o nome de usuário de endereços de e-mail.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) O que 'UIDPLUS não suportado' significa?~~**
 
 ~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
@@ -1231,50 +1231,50 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Como os arquivos de configuração são criptografados?**
 
-Short version: AES 256 bit
+Versão curta: AES 256 bits
 
-Long version:
+Versão longa:
 
-* The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
-* The cipher is *AES/CBC/PKCS5Padding*
+* A chave de 256 bits é gerada com *PBKDF2WithHmacSHA1* usando um salto aleatório de 128 bits e 65536 iterações
+* A cifra é *AES/CBC/PKCS5Padding*
 
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Como as senhas são armazenadas?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+Todas as versões do Android compatíveis [criptografam todos os dados do usuário](https://source.android.com/security/encryption), então todos os dados, incluindo nomes de usuário, senhas, mensagens, etc, são armazenados criptografados.
 
-If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+Se o dispositivo estiver protegido com um PIN, padrão ou senha, você poderá tornar a conta e a senha visíveis. Se isto é um problema porque você está compartilhando o dispositivo com outras pessoas, considere usar [perfis de usuário](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) Como posso reduzir o uso de bateria do FairEmail?**
 
-Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
+As versões mais recentes do Android relatam por padrão o uso *do app* como uma porcentagem na tela de configurações de bateria do Android. **Por mais confuso que pareça, O uso do *app* não é o mesmo do *consumo de bateria* e nem mesmo está diretamente relacionado ao uso da bateria!** O uso do aplicativo (enquanto estiver em uso) poderá ser muito alto porque o FairEmail está usando um serviço em primeiro plano que é considerado como uso constante do aplicativo pelo Android. No entanto, isto não significa que o FairEmail está constantemente usando a bateria. O uso real da bateria pode ser visto navegando até esta tela:
 
-*Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
+*Configurações do Android*, *Bateria*, menu de três pontos *Uso da bateria*, menu de três pontos *Mostrar uso total do dispositivo*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
+Como regra geral, o uso de bateria deve estar abaixo ou, em qualquer caso, não ser muito maior do que *Rede Mobile standby*. Se esse não for o caso, ative a *Otimização automática* nas configurações de recepção. Se isso não ajudar, [peça ajuda ao suporte](https://contact.faircode.eu/?product=fairemailsupport).
 
-It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
+É inevitável que a sincronização de mensagens use a bateria porque requer acesso à rede e acesso ao banco de dados de mensagens.
 
-If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
+Se você estiver comparando o uso de bateria do FairEmail com outro cliente de e-mail, certifique-se de que o outro cliente de e-mail está configurado de forma semelhante. Por exemplo, comparar sempre sincronização (mensagens push) e (infrequentes) a verificação periódica de novas mensagens não é uma comparação justa.
 
-Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes. In these cases you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
+Reconectar a um servidor de e-mail usará mais bateria, por isso uma conexão instável com a internet resultará em uso extra da bateria. Além disso, alguns servidores de e-mail finalizam prematuramente as conexões ociosas, enquanto [o padrão](https://tools.ietf.org/html/rfc2177) diz que uma conexão ociosa deve ser mantida aberta por 29 minutos. Nestes casos, você pode querer sincronizar periodicamente, por exemplo, a cada hora, em vez de continuamente. Observe que a requisitar novas mensagens frequentemente (mais do que cada 30-60 minutos) usará provavelmente mais energia da bateria do que sempre porque conectar ao servidor e comparar as mensagens locais e remotas são operações caras.
 
-[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 3) to keep connections to email servers open. In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
+[Em alguns dispositivos](https://dontkillmyapp.com/) é necessário *desativar* otimizações de bateria (passo de configuração 3) para manter conexões com servidores de e-mail abertos. Na verdade, deixar as otimizações de bateria habilitadas pode resultar no uso extra de bateria para todos os dispositivos, mesmo que isso pareça contraditório!
 
-Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
+A maior parte do uso da bateria, não considerando visualizar mensagens, é devido à sincronização (recebimento e envio) das mensagens. Então, para reduzir o uso de bateria, defina o número de dias para sincronizar a mensagem para um valor menor. especialmente se houver muitas mensagens recentes em uma pasta. Pressione e segure o nome de uma pasta na lista de pastas e selecione *Editar propriedades* para acessar essa configuração.
 
-If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
+Se você tiver pelo menos uma vez por dia a conexão com a internet, basta sincronizar as mensagens apenas por um dia.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages, but leave the number of days to keep messages. After decreasing the number of days to keep messages, you might want to run the cleanup in the miscellaneous settings to remove old files.
+Observe que você pode definir o número de dias para *manter* mensagens para um número maior do que *sincronizar as mensagens*. Por exemplo, você poderia inicialmente sincronizar mensagens por um grande número de dias e depois de concluído reduzir o número de dias para sincronizar mensagens, mas deixe o número de dias para manter mensagens. Após diminuir o número de dias para manter as mensagens, você pode querer executar a limpeza nas configurações para remover arquivos antigos.
 
-In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
+Nas configurações de recebimento, você pode habilitar para sempre sincronizar mensagens favoritas, que permite a você manter mensagens mais antigas ao sincronizar mensagens por um número limitado de dias.
 
 Disabling the folder option *Automatically download message texts and attachments* will result in less network traffic and thus less battery usage. You could disable this option for example for the sent folder and the archive.
 

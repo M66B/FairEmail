@@ -316,7 +316,7 @@
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
     <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
-    <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος σε έναν φάκελο χρήστη, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
+    <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος εντός ενός φακέλου χρήστη, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>
@@ -813,7 +813,7 @@
     <string name="title_keep_days_remark">Τα παλιά μηνύματα θα διαγράφονται από τη συσκευή, αλλά θα παραμένουν στο διακομιστή</string>
     <string name="title_keep_all">Διατήρηση όλων των μηνυμάτων</string>
     <string name="title_poll_system">Καθόρισε φακέλους συστήματος να ελέγχουν περιοδικά για νέα μηνύματα</string>
-    <string name="title_poll_user">Καθόρισε φακέλους συστήματος να ελέγχουν περιοδικά για νέα μηνύματα</string>
+    <string name="title_poll_user">Ορισμός φακέλων χρήστη στους οποίους θα γίνεται περιοδικός έλεγχος για νέα μηνύματα</string>
     <string name="title_auto_trash">Αυτόματη μεταφορά παλαιών μηνυμάτων στα απορρίμματα</string>
     <string name="title_auto_delete">Αυτόματη οριστική διαγραφή παλαιών μηνυμάτων</string>
     <string name="title_auto_delete_hint">Παλαιά μηνύματα είναι τα μηνύματα που δεν διατηρούνται πλέον στη συσκευή</string>
