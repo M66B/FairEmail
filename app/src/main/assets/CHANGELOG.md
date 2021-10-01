@@ -4,6 +4,10 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1745
+
+* Auto delete stale grouped operations
+
 ### 1.1744
 
 * Small improvements and minor bug fixes
