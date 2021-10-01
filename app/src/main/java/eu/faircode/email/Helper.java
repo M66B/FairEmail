@@ -26,6 +26,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
+import android.app.UiModeManager;
 import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -1039,6 +1040,17 @@ public class Helper {
 
     static boolean isDozeRequired() {
         return (Build.VERSION.SDK_INT > Build.VERSION_CODES.R && false);
+    }
+
+    static boolean inCar(Context context) {
+        try {
+            UiModeManager uimm =
+                    (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+            return (uimm.getCurrentModeType() == Configuration.UI_MODE_TYPE_CAR);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
     }
 
     static void reportNoViewer(Context context, Uri uri) {

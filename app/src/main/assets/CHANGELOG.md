@@ -4,6 +4,10 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### Next version
+
+* Improved Android Auto support
+
 ### 1.1746
 
 * Enabled Android auto support (see the FAQ for details)
