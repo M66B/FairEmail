@@ -5304,6 +5304,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void updateDebugInfo() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         Runtime rt = Runtime.getRuntime();
         long hused = rt.totalMemory() - rt.freeMemory();
         long hmax = rt.maxMemory();
