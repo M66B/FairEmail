@@ -1253,7 +1253,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         intent.putExtra("type", "alert");
         intent.putExtra("title", title);
         intent.putExtra("message", message);
+        intent.putExtra("provider", account.provider);
         intent.putExtra("account", account.id);
+        intent.putExtra("protocol", account.protocol);
+        intent.putExtra("auth_type", account.auth_type);
         intent.putExtra("faq", 23);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent piAlert = PendingIntentCompat.getActivity(
