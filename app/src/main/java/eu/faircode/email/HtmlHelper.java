@@ -105,6 +105,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.net.URI;
 import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.util.ArrayList;
@@ -1246,11 +1247,23 @@ public class HtmlHelper {
     }
 
     static void removeRelativeLinks(Document document) {
-        for (Element a : document.select("a"))
-            if (a.attr("href").trim().startsWith("#")) {
+        Elements b = document.select("base");
+        String base = (b.size() > 0 ? b.get(0).attr("href") : null);
+        for (Element a : document.select("a")) {
+            String href = a.attr("href");
+            if (href.trim().startsWith("#")) {
                 a.tagName("span");
                 a.removeAttr("href");
-            }
+            } else if (!TextUtils.isEmpty(base))
+                try {
+                    // https://developer.android.com/reference/java/net/URI
+                    URI u = URI.create(base);
+                    URI r = u.resolve(href);
+                    a.attr("href", r.toString());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+        }
     }
 
     static void autoLink(Document document) {
