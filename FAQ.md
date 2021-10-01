@@ -11,10 +11,6 @@ If you have a question, please check the following frequently asked questions fi
 [At the bottom](#user-content-get-support),
 you can find out how to ask other questions, request features, and report bugs.
 
-**🚩 If you have Outlook/Hotmail/Live/MSN authentication problems, please update to the latest version of the app. Tap on the error notification, and tap on the button to edit the account password.**
-
-Microsoft is "*[completely aware](https://answers.microsoft.com/en-us/outlook_com/forum/all/hotmail-account-not-downloading-email-as-of-sep-24/783b3b24-a305-41ef-af02-121a8eb15bd4)*" of the issue.
-
 ## Index
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
@@ -990,7 +986,7 @@ The easiest way is to use the menu item *Fetch more messages* in the three-dots 
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq14)
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Other provider*.
+An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Office 365*.
 
 To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
