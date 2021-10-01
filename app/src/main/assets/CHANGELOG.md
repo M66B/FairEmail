@@ -4,6 +4,11 @@
 
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
+### 1.1744
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1743
 
 * Fixed listing personal root namespace
