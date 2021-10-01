@@ -2,6 +2,12 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
+
+### 1.1746
+
+* Enabled Android auto support (see the FAQ for details)
+
 ### [Zanabazar](https://en.wikipedia.org/wiki/Zanabazar_junior)
 
 ### 1.1745

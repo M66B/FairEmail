@@ -4077,8 +4077,7 @@ The *Solarized* theme is described in [this article](https://en.wikipedia.org/wi
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq165)
 
-Yes, Android Auto is supported, but only with the GitHub version,
-please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Yes, Android Auto is supported, for the Play store release from version 1.1746.
 
 For notification (messaging) support you'll need to enable the following notification options:
 
