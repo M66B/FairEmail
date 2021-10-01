@@ -4901,8 +4901,7 @@ class Core {
                 }
             }
 
-            if (notify_reply_direct &&
-                    message.content &&
+            if (message.content &&
                     message.identity != null &&
                     message.from != null && message.from.length > 0 &&
                     db.folder().getOutbox() != null) {
@@ -4922,9 +4921,11 @@ class Core {
                         .setLabel(context.getString(R.string.title_advanced_notify_action_reply));
                 actionReply.addRemoteInput(input.build())
                         .setAllowGeneratedReplies(false);
-                mbuilder.addAction(actionReply.build());
-
-                wactions.add(actionReply.build());
+                if (notify_reply_direct) {
+                    mbuilder.addAction(actionReply.build());
+                    wactions.add(actionReply.build());
+                } else
+                    mbuilder.addInvisibleAction(actionReply.build());
             }
 
             if (notify_flag) {
@@ -4945,7 +4946,7 @@ class Core {
                 wactions.add(actionFlag.build());
             }
 
-            if (notify_seen) {
+            if (true) {
                 Intent seen = new Intent(context, ServiceUI.class)
                         .setAction("seen:" + message.id)
                         .putExtra("group", group);
@@ -4958,9 +4959,11 @@ class Core {
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MARK_AS_READ)
                         .setShowsUserInterface(false)
                         .setAllowGeneratedReplies(false);
-                mbuilder.addAction(actionSeen.build());
-
-                wactions.add(actionSeen.build());
+                if (notify_seen) {
+                    mbuilder.addAction(actionSeen.build());
+                    wactions.add(actionSeen.build());
+                } else
+                    mbuilder.addInvisibleAction(actionSeen.build());
             }
 
             if (notify_hide) {
