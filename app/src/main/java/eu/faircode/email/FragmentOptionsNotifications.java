@@ -98,6 +98,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swWearablePreview;
     private ImageButton ibWearable;
     private SwitchCompat swMessagingStyle;
+    private ImageButton ibCar;
     private SwitchCompat swBiometricsNotify;
     private SwitchCompat swAlertOnce;
     private TextView tvNoGrouping;
@@ -176,6 +177,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swWearablePreview = view.findViewById(R.id.swWearablePreview);
         ibWearable = view.findViewById(R.id.ibWearable);
         swMessagingStyle = view.findViewById(R.id.swMessagingStyle);
+        ibCar = view.findViewById(R.id.ibCar);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
         tvNoGrouping = view.findViewById(R.id.tvNoGrouping);
@@ -493,6 +495,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("notify_messaging", checked).apply();
+            }
+        });
+
+        ibCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 165);
             }
         });
 

@@ -742,6 +742,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swMessagingStyle" />
 
+                <ImageButton
+                    android:id="@+id/ibCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMessagingStyle"
+                    app:srcCompat="@drawable/twotone_directions_car_filled_24" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swBiometricsNotify"
                     android:layout_width="0dp"
@@ -751,7 +761,7 @@
                     android:text="@string/title_advanced_biometrics_notify"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMessagingStyle"
+                    app:layout_constraintTop_toBottomOf="@id/ibCar"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
