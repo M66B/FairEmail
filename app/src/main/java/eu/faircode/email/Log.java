@@ -25,7 +25,6 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.UiModeManager;
 import android.app.usage.UsageStatsManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -1761,17 +1760,6 @@ public class Log {
                 .append(Integer.toHexString(uiMode))
                 .append(" night=").append(Helper.isNight(context))
                 .append("\r\n");
-
-        int mode;
-        try {
-            UiModeManager uimm =
-                    (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
-            mode = uimm.getCurrentModeType();
-        } catch (Throwable ex) {
-            mode = -1;
-            Log.w(ex);
-        }
-        sb.append(String.format("In car=%b mode=%d\r\n", Helper.inCar(context), mode));
 
         sb.append("ExactAlarms")
                 .append(" can=")

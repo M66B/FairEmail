@@ -4520,9 +4520,6 @@ class Core {
         String sound = prefs.getString("sound", null);
         boolean alert_once = prefs.getBoolean("alert_once", true);
 
-        if (Helper.inCar(context))
-            notify_messaging = true;
-
         // Get contact info
         Map<Long, Address[]> messageFrom = new HashMap<>();
         Map<Long, ContactInfo[]> messageInfo = new HashMap<>();
