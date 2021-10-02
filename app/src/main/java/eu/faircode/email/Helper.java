@@ -864,6 +864,7 @@ public class Helper {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String language = prefs.getString("language", null);
+            boolean reporting = prefs.getBoolean("crash_reports", false);
             String uuid = prefs.getString("uuid", null);
             Locale slocale = Resources.getSystem().getConfiguration().locale;
 
@@ -873,7 +874,7 @@ public class Helper {
             html += "Locale: " + Html.escapeHtml(slocale.toString()) + "<br>";
             if (language != null)
                 html += "Language: " + Html.escapeHtml(language) + "<br>";
-            if (uuid != null)
+            if (reporting && uuid != null)
                 html += "UUID: " + Html.escapeHtml(uuid) + "<br>";
             html += "</p>";
 
