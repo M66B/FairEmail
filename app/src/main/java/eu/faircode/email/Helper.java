@@ -26,6 +26,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
+import android.app.UiModeManager;
 import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -1039,6 +1040,37 @@ public class Helper {
 
     static boolean isDozeRequired() {
         return (Build.VERSION.SDK_INT > Build.VERSION_CODES.R && false);
+    }
+
+    static String getUiModeType(Context context) {
+        try {
+            UiModeManager uimm =
+                    (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+            int uiModeType = uimm.getCurrentModeType();
+            switch (uiModeType) {
+                case Configuration.UI_MODE_TYPE_UNDEFINED:
+                    return "undefined";
+                case Configuration.UI_MODE_TYPE_NORMAL:
+                    return "normal";
+                case Configuration.UI_MODE_TYPE_DESK:
+                    return "desk";
+                case Configuration.UI_MODE_TYPE_CAR:
+                    return "car";
+                case Configuration.UI_MODE_TYPE_TELEVISION:
+                    return "television";
+                case Configuration.UI_MODE_TYPE_APPLIANCE:
+                    return "applicance";
+                case Configuration.UI_MODE_TYPE_WATCH:
+                    return "watch";
+                case Configuration.UI_MODE_TYPE_VR_HEADSET:
+                    return "vr headset";
+                default:
+                    return Integer.toString(uiModeType);
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return null;
+        }
     }
 
     static void reportNoViewer(Context context, Uri uri) {

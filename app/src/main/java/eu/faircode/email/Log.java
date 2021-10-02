@@ -1761,6 +1761,8 @@ public class Log {
                 .append(" night=").append(Helper.isNight(context))
                 .append("\r\n");
 
+        sb.append(String.format("UI type: %s\r\n", Helper.getUiModeType(context)));
+
         sb.append("ExactAlarms")
                 .append(" can=")
                 .append(AlarmManagerCompatEx.canScheduleExactAlarms(context))
