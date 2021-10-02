@@ -4,9 +4,11 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
-### Next version
+### 1.1747
 
-* Improved Android Auto support
+* Disabled Android Auto support for the Play store version because Google does not allow it
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1746
 
