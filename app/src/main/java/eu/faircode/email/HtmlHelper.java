@@ -1247,22 +1247,24 @@ public class HtmlHelper {
     }
 
     static void removeRelativeLinks(Document document) {
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
         Elements b = document.select("base");
         String base = (b.size() > 0 ? b.get(0).attr("href") : null);
         for (Element a : document.select("a")) {
             String href = a.attr("href");
-            if (href.trim().startsWith("#")) {
-                a.tagName("span");
-                a.removeAttr("href");
-            } else if (!TextUtils.isEmpty(base))
+            if (!TextUtils.isEmpty(base))
                 try {
                     // https://developer.android.com/reference/java/net/URI
-                    URI u = URI.create(base);
-                    URI r = u.resolve(href);
-                    a.attr("href", r.toString());
+                    href = URI.create(base).resolve(href).toString();
+                    a.attr("href", href);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
+
+            if (href.trim().startsWith("#")) {
+                a.tagName("span");
+                a.removeAttr("href");
+            }
         }
     }
 
