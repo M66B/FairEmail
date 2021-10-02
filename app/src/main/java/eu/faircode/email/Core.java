@@ -2120,6 +2120,11 @@ class Core {
                 " subscriptions=" + subscription.size() +
                 " fetched in " + duration + " ms");
 
+        if (ifolders.size() == 0) {
+            Log.e(account.host + " no folders listed");
+            return;
+        }
+
         // Check if system folders were renamed
         try {
             for (Pair<Folder, Folder> ifolder : ifolders) {
