@@ -871,6 +871,8 @@ public class Helper {
             String html = "<br><br>";
 
             html += "<p style=\"font-size:small;\">";
+            html += "Android: " + Build.VERSION.RELEASE + " (SDK " + Build.VERSION.SDK_INT + ")<br>";
+            html += "Device: " + Build.MANUFACTURER + " " + Build.DEVICE + "<br>";
             html += "Locale: " + Html.escapeHtml(slocale.toString()) + "<br>";
             if (language != null)
                 html += "Language: " + Html.escapeHtml(language) + "<br>";
