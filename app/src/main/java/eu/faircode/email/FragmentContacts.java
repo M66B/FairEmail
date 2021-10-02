@@ -86,6 +86,7 @@ public class FragmentContacts extends FragmentBase {
     private static final int REQUEST_ACCOUNT = 1;
     private static final int REQUEST_IMPORT = 2;
     private static final int REQUEST_EXPORT = 3;
+    static final int REQUEST_NAME = 4;
 
     @Override
     @Nullable
@@ -259,6 +260,10 @@ public class FragmentContacts extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         handleExport(data);
                     break;
+                case REQUEST_NAME:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditName(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -427,6 +432,29 @@ public class FragmentContacts extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "");
+    }
+
+    private void onEditName(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                String name = args.getString("name");
+
+                if (TextUtils.isEmpty(name))
+                    name = null;
+
+                DB db = DB.getInstance(context);
+                db.contact().setContactName(id, name);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "edit:name");
     }
 
     public static class FragmentDelete extends FragmentDialogBase {
