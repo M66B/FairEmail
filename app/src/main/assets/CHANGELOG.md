@@ -6,9 +6,11 @@
 
 ### 1.1747
 
-* Disabled Android Auto support for the Play store version because Google does not allow it
+* Disabled Android Auto support for the Play store version (*)
 * Small improvements and minor bug fixes
 * Updated translations
+
+(*) Google does not allow email apps with Android Auto support, see the FAQ.
 
 ### 1.1746
 
