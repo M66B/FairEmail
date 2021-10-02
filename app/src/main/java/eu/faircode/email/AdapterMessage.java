@@ -3856,24 +3856,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (folder == null)
                         return null;
 
+                    boolean ingoing = false;
                     boolean outgoing = EntityFolder.isOutgoing(folder.type);
 
                     if (message.identity != null) {
-                        if (message.from != null && message.from.length > 0) {
-                            EntityIdentity identity = db.identity().getIdentity(message.identity);
-                            if (identity == null)
-                                return null;
+                        EntityIdentity identity = db.identity().getIdentity(message.identity);
+                        if (identity == null)
+                            return null;
 
+                        if (message.to != null)
+                            for (Address recipient : message.to)
+                                if (identity.similarAddress(recipient)) {
+                                    ingoing = true;
+                                    break;
+                                }
+
+                        if (message.from != null)
                             for (Address sender : message.from)
                                 if (identity.similarAddress(sender)) {
                                     outgoing = true;
                                     break;
                                 }
-                        }
                     }
 
-                    if (outgoing && message.reply != null &&
-                            MessageHelper.equal(message.from, message.to))
+                    if (outgoing && ingoing && message.reply != null)
                         return message.reply;
 
                     return (outgoing ? message.to : message.from);
