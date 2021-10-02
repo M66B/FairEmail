@@ -208,9 +208,16 @@ public class Bimi {
                             throw new IllegalArgumentException("Invalid certificate type");
 
                         // Check subject
+                        boolean found = false;
                         List<String> names = EntityCertificate.getDnsNames(cert);
-                        if (!names.contains(domain))
-                            throw new IllegalArgumentException("Invalid certificate domain" +
+                        for (String name : names)
+                            if (domain.endsWith(name.toLowerCase(Locale.ROOT))) {
+                                found = true;
+                                break;
+                            }
+                        if (!found)
+                            throw new IllegalArgumentException("Invalid certificate" +
+                                    " domain=" + domain +
                                     " names=" + TextUtils.join(", ", names));
 
                         // https://datatracker.ietf.org/doc/html/rfc3709#page-6
@@ -306,6 +313,13 @@ public class Bimi {
                         String txt = "_dmarc." + domain;
                         Log.i("BIMI fetch TXT " + txt);
                         DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
+                        if (records.length == 0) {
+                            String parent = UriHelper.getParentDomain(context, domain);
+                            if (!domain.equals(parent)) {
+                                txt = "_dmarc." + parent;
+                                records = DnsHelper.lookup(context, txt, "txt");
+                            }
+                        }
                         if (records.length == 0)
                             throw new IllegalArgumentException("DMARC missing");
                         Log.i("BIMI got TXT " + records[0].name);
