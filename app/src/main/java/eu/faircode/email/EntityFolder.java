@@ -187,11 +187,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     private static Map<String, TypeScore> GUESS_FOLDER_TYPE = new HashMap<String, TypeScore>() {{
         // Contains:
-        put("all", new TypeScore(EntityFolder.ARCHIVE, 100));
+        put("all", new TypeScore(EntityFolder.ARCHIVE, 50));
+        put("Tous", new TypeScore(EntityFolder.ARCHIVE, 50));
         put("Archiv", new TypeScore(EntityFolder.ARCHIVE, 100)); // German
         put("archive", new TypeScore(EntityFolder.ARCHIVE, 100));
         put("archief", new TypeScore(EntityFolder.ARCHIVE, 100)); // Dutch
         put("Архив", new TypeScore(EntityFolder.ARCHIVE, 100));
+        put("Wszystkie", new TypeScore(EntityFolder.ARCHIVE, 100)); // Polish
 
         put("draft", new TypeScore(EntityFolder.DRAFTS, 100));
         put("concept", new TypeScore(EntityFolder.DRAFTS, 100));
@@ -206,8 +208,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("Papierkorb", new TypeScore(EntityFolder.TRASH, 100));
         put("corbeille", new TypeScore(EntityFolder.TRASH, 100));
         put("Корзина", new TypeScore(EntityFolder.TRASH, 100));
+        put("Удаленные", new TypeScore(EntityFolder.TRASH, 50));
         put("Eliminata", new TypeScore(EntityFolder.TRASH, 100));
         put("Kosz", new TypeScore(EntityFolder.TRASH, 100)); // Polish
+        put("supprimé", new TypeScore(EntityFolder.TRASH, 100));
 
         put("junk", new TypeScore(EntityFolder.JUNK, 100));
         put("spam", new TypeScore(EntityFolder.JUNK, 100));
@@ -216,6 +220,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("Спам", new TypeScore(EntityFolder.JUNK, 100));
         put("Cestino", new TypeScore(EntityFolder.JUNK, 100));
         put("Indesiderata", new TypeScore(EntityFolder.JUNK, 100));
+        put("indésirable", new TypeScore(EntityFolder.JUNK, 100));
 
         put("sent", new TypeScore(EntityFolder.SENT, 100));
         put("Gesendet", new TypeScore(EntityFolder.SENT, 100));
