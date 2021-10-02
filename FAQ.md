@@ -4073,12 +4073,19 @@ The *Solarized* theme is described in [this article](https://en.wikipedia.org/wi
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq165)
 
-Yes, Android Auto is supported, for the Play store release from version 1.1746.
+Yes, Android Auto is supported, but only with the GitHub version of the app
+because Google rejected the application of FairEmail for this reason:
+
+*App category not permitted -
+At this time, we are only accepting apps within the Media, short form Messaging,
+or categories supported by the Android for Cars App Library.*
+
+**Use of this feature with the Github version is expressly at your own risk!**
 
 For notification (messaging) support you'll need to enable the following notification options:
 
 * *Use Android 'messaging style' notification format*
-* Notification actions: *Direct reply* and (mark as) *Read*
+* Notification actions: *Direct reply* and (mark as) *Read* (this might be optional now, but this is untested)
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
