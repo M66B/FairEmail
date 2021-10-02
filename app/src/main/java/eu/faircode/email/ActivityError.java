@@ -66,7 +66,7 @@ public class ActivityError extends ActivityBase {
 
         boolean outlook = (auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH &&
                 ("office365".equals(provider) || "outlook".equals(provider)));
-        btnPassword.setVisibility(outlook ? View.VISIBLE : View.GONE);
+        btnPassword.setVisibility(outlook && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         btnPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
