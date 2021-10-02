@@ -2,7 +2,7 @@
 
 # Υποστήριξη του FairEmail
 
-Use translation. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Αν έχετε κάποια απορία, παρακαλώ ελέγξτε πρώτα τις παρακάτω συχνές ερωτήσεις. [Στο κάτω μέρος](#user-content-get-support), μπορείτε να μάθετε πώς να κάνετε άλλες ερωτήσεις, να ζητήσετε νέες λειτουργίες και να αναφέρετε σφάλματα.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -11,14 +11,14 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Εξουσιοδότηση λογαριασμών](#user-content-authorizing-accounts)
 * [Πώς γίνεται...;](#user-content-howto)
 * [Γνωστά προβλήματα](#user-content-known-problems)
-* [Μελλοντικές δυνατότητες](#user-content-planned-features)
-* [Δυνατότητες που ζητούνται συχνά](#user-content-frequently-requested-features)
+* [Μελλοντικές λειτουργίες](#user-content-planned-features)
+* [Λειτουργίες υψηλής ζήτησης](#user-content-frequently-requested-features)
 * [Συχνές ερωτήσεις](#user-content-frequently-asked-questions)
-* [Υποστήριξη](#user-content-get-support)
+* [Λήψη υποστήριξης](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Εξουσιοδότηση Λογαριασμών</h2>
+<h2><a name="authorizing-accounts"></a>Εξουσιοδότηση λογαριασμών</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Στις περισσότερες περιπτώσεις, ο βοηθός γρήγορης ρύθμισης θα μπορέσει να εντοπίσει αυτόματα τις σωστές παραμέτρους.
 
 If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
@@ -28,19 +28,19 @@ In some cases, you'll need to enable external access to your account and/or to u
 
 For authorizing:
 
-* Gmail / G Suite, δείτε [ ερώτηση 6](#user-content-faq6)
-* Outlook / Live / Hotmail, δείτε [ ερώτηση 14](#user-content-faq14)
-* Office 365, δείτε [ερώτηση 14](#user-content-faq156)
-* Microsoft Exchange, δείτε [ερώτηση 8](#user-content-faq8)
-* Yahoo, AOL και Sky, δείτε [ερώτηση 88](#user-content-faq88)
-* Apple iCloud, δείτε [ερώτηση 148](#user-content-faq148)
-* Free.fr, δείτε [ερώτηση 157](#user-content-faq157)
+* Gmail/G Suite, δείτε την [ ερώτηση 6](#user-content-faq6)
+* Outlook/Live/Hotmail, δείτε την [ ερώτηση 14](#user-content-faq14)
+* Office 365, δείτε την [ερώτηση 14](#user-content-faq156)
+* Microsoft Exchange, δείτε την [ερώτηση 8](#user-content-faq8)
+* Yahoo, AOL και Sky, δείτε την [ερώτηση 88](#user-content-faq88)
+* Apple iCloud, δείτε την [ερώτηση 148](#user-content-faq148)
+* Free.fr, δείτε την [ερώτηση 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Παρακαλώ δείτε [εδώ](#user-content-faq22) για κοινά μηνύματα σφαλμάτων και λύσεις.
 
-Related questions:
+Σχετικές ερωτήσεις:
 
-* [Υποστήριξη OAuth;](#user-content-faq111)
+* [Υποστηρίζεται το OAuth;](#user-content-faq111)
 * [Γιατί δεν υποστηρίζεται το ActiveSync;](#user-content-faq133)
 
 <a name="howto">
@@ -64,7 +64,7 @@ Related questions:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Γνωστά προβλήματα</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -75,17 +75,17 @@ Related questions:
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. Αυτό φαίνεται να είναι διορθωμένο.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
+* ~~The folder selector sometimes shows no folders for yet unknown reasons. Αυτό φαίνεται να έχει διορθωθεί.~~
+* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. Προστέθηκε μια προσωρινή λύση.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
+* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. Δείτε επίσης [αυτήν τη συχνή ερώτηση](#user-content-faq126).
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Αυτό το σφάλμα έχει διορθωθεί στο Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-<h2><a name="planned-features"></a>Planned features</h2>
+<h2><a name="planned-features"></a>Μελλοντικές λειτουργίες</h2>
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -109,22 +109,22 @@ Related questions:
 * ~~Display GIFs~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
+* ~~Αποστολή ως συνημμένο~~
 * ~~Widget for selected account~~
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Υποστήριξη S/MIME~~
+* ~~Αναζήτηση ρυθμίσεων~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
-<h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
+<h2><a name="frequently-requested-features"></a>Λειτουργίες υψηλής ζήτησης</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-<h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
+<h2><a name="frequently-asked-questions"></a>Συχνές ερωτήσεις</h2>
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -135,10 +135,10 @@ The design is based on many discussions and if you like you can discuss about it
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
+* [~~(11) Γιατί δεν υποστηρίζεται το POP;~~](#user-content-faq11)
+* [~~(10) Τι σημαίνει το 'Δεν υποστηρίζεται το UIDPLUS';~~](#user-content-faq10)
+* [(12) Πώς λειτουργεί η κρυπτογράφηση/αποκρυπτογράφηση;](#user-content-faq12)
+* [(13) Πώς λειτουργεί η αναζήτηση σε συσκευή/διακομιστή;](#user-content-faq13)
 * [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
@@ -234,7 +234,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
+* [(111) Υποστηρίζεται το OAuth;](#user-content-faq111)
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
@@ -278,23 +278,23 @@ The design is based on many discussions and if you like you can discuss about it
 * [(152) How can I insert a contact group?](#user-content-faq152)
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
+* [(155) Τι είναι το αρχείο winmail.dat;](#user-content-faq155)
 * [(156) How can I set up an Office 365 account?](#user-content-faq156)
 * [(157) How can I set up an Free.fr account?](#user-content-faq157)
 * [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 * [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(162) Υποστηρίζεται το IMAP NOTIFY;](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(165) Υποστηρίζεται το Android Auto;](#user-content-faq165)
+* [(166) Μπορώ να αναβάλω ένα μήνυμα από πολλαπλές συσκευές;](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Έχω κι άλλη απορία.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Ποιες άδειες απαιτούνται και γιατί;**
 
 The following Android permissions are needed:
 
@@ -366,27 +366,27 @@ If you came here by clicking on the notification, you should know that the next 
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
+* *add*: προσθήκη μηνύματος σε απομακρυσμένο φάκελο
+* *move*: μετακίνηση μηνύματος σε άλλο απομακρυσμένο φάκελο
+* *copy*: αντιγραφή μηνύματος σε άλλο απομακρυσμένο φάκελο
 * *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
+* *delete*: διαγραφή μηνύματος από απομακρυσμένο φάκελο
 * *seen*: mark message as read/unread in remote folder
 * *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
+* *flag*: προσθήκη/αφαίρεση αστεριού σε απομακρυσμένο φάκελο
 * *keyword*: add/remove IMAP flag in remote folder
 * *label*: set/reset Gmail label in remote folder
 * *headers*: download message headers
 * *raw*: download raw message
 * *body*: download message text
-* *attachment*: download attachment
+* *attachment*: λήψη συνημμένου αρχείου
 * *sync*: synchronize local and remote messages
-* *subscribe*: subscribe to remote folder
-* *purge*: delete all messages from remote folder
-* *send*: send message
-* *exists*: check if message exists
+* *subscribe*: συνδρομή σε απομακρυσμένο φάκελο
+* *purge*: διαγραφή όλων των μηνυμάτων από απομακρυσμένο φάκελο
+* *send*: αποστολή μηνύματος
+* *exists*: έλεγχος για ύπαρξη μηνύματος
 * *rule*: execute rule on body text
-* *expunge*: permanently delete messages
+* *expunge*: οριστική διαγραφή μηνυμάτων
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -429,15 +429,15 @@ You can fix the first problem by downloading and installing the root certificate
 
 The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
 
-You can pin the certificate too, see above.
+Μπορείτε να καρφιτσώσετε και το πιστοποιητικό, δείτε παραπάνω.
 
 <br />
 
-*Empty password*
+*Κενός κωδικός πρόσβασης*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
-*Plain text connection*
+*Σύνδεση απλού κειμένου*
 
 Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
 
@@ -480,13 +480,13 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Πώς μπορώ να συνδεθώ στο Gmail/G Suite;**
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
-**Important**: sometimes Google issues this alert:
+**Σημαντικό**: μερικές φορές, η Google εμφανίζει την εξής ειδοποίηση:
 
 *[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
@@ -522,7 +522,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*General*
+*Γενικά*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -587,7 +587,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Γιατί δεν υποστηρίζεται το POP;~~**
 
 ~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
@@ -608,19 +608,19 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*General*
+*Γενικά*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
-Encryption in short:
+Κρυπτογράφηση (εν συντομία):
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* Τα **εξερχόμενα** μηνύματα κρυπτογραφούνται με το **δημόσιο κλειδί** του παραλήπτη
+* Τα **εισερχόμενα** μηνύματα αποκρυπτογραφούνται με το **ιδιωτικό κλειδί** του παραλήπτη
 
-Signing in short:
+Υπογραφή (εν συντομία):
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* Τα **εξερχόμενα** μηνύματα υπογράφονται με το **ιδιωτικό κλειδί** του αποστολέα
+* Τα **εισερχόμενα** μηνύματα επαληθεύονται με το **δημόσιο κλειδί** του αποστολέα
 
 To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
 
@@ -664,7 +664,7 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
-Common errors:
+Συχνά σφάλματα:
 
 * *No key*: there is no PGP key available for one of the listed email addresses
 * *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
@@ -690,7 +690,7 @@ Public keys are stored by FairEmail and can be imported when verifying a signatu
 
 FairEmail verifies both the signature and the complete certificate chain.
 
-Common errors:
+Συχνά σφάλματα:
 
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
@@ -750,7 +750,7 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. Για παράδειγμα:
 
 `
 raw:larger:10M`
@@ -767,13 +767,13 @@ In the *miscellaneous settings* you can enable *Build search index* to significa
 From version 1.1315 it is possible to use search expressions like this:
 
 ```
-apple +banana -cherry ?nuts
+μήλο +μπανάνα -κεράσι ?καρύδια
 ```
 
 This will result in searching like this:
 
 ```
-("apple" AND "banana" AND NOT "cherry") OR "nuts"
+("μήλο" ΚΑΙ "μπανάνα" ΚΑΙ ΟΧΙ "κεράσι") Ή "καρύδια"
 ```
 
 Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
@@ -811,7 +811,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Γιατί δεν συγχρονίζονται τα μηνύματα;**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -836,11 +836,11 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Γιατί δεν λειτουργεί ο χειροκίνητος συγχρονισμός;~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
-~~See the previous question for more information.~~
+~~Δείτε την προηγούμενη ερώτηση για περισσότερες πληροφορίες.~~
 
 <br />
 
@@ -852,7 +852,7 @@ The preview of the message text cannot be shown if the message body has not been
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Γιατί είναι τόσο ακριβές οι λειτουργίες της έκδοσης Pro;**
 
 First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
 
@@ -864,10 +864,10 @@ Please see the Play store description of the app or [see here](https://email.fai
 
 The right question is "*why are there so many taxes and fees?*":
 
-* VAT: 25 % (depending on your country)
-* Google fee: 30 %
-* Income tax: 50 %
-* <sub>Paypal fee: 5-10 % depending on the country/amount</sub>
+* ΦΠΑ: 25% (ανάλογα τη χώρα σας)
+* Τέλος Google: 30%
+* Φόρος εισοδήματος: 50%
+* <sub>Τέλος Paypal: 5-10%, ανάλογα με τη χώρα/ποσό</sub>
 
 So, what is left for the developer is just a fraction of what you pay.
 
@@ -878,12 +878,12 @@ I have been working on FairEmail almost every day for more than two years, so I 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Μπορώ να ζητήσω επιστροφή χρημάτων;**
 
 If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Πώς ενεργοποιώ το φωτισμό ειδοποίησης;**
 
 Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
@@ -906,7 +906,7 @@ FairEmail will automatically try to connect again after a delay. This delay will
 
 There are general errors and errors specific to Gmail accounts (see below).
 
-**General errors**
+**Γενικά σφάλματα**
 
 <a name="authfailed"></a>
 The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
@@ -954,7 +954,7 @@ Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
-Possible causes are:
+Πιθανές αιτίες:
 
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
@@ -968,7 +968,7 @@ Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you c
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
-**Send errors**
+**Σφάλματα αποστολής**
 
 SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
@@ -994,7 +994,7 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 <br />
 
-**Gmail errors**
+**Σφάλματα Gmail**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
@@ -1010,14 +1010,14 @@ The error *... Authentication failed ... Invalid credentials ...* could be cause
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+Αν έχετε αμφιβολίες, μπορείτε να ζητήσετε [υποστήριξη](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
 **(23) Why do I get alert ... ?**
 
-*General*
+*Γενικά*
 
 Alerts are warning messages sent by email servers.
 
@@ -1025,7 +1025,7 @@ Alerts are warning messages sent by email servers.
 
 This alert will be sent when there are too many folder connections for the same email account at the same time.
 
-Possible causes are:
+Πιθανές αιτίες:
 
 * There are multiple email clients connected to the same account
 * The same email client is connected multiple times to the same account
@@ -1084,17 +1084,17 @@ If you would like your name or alias to be included in the list of contributors 
 <a name="faq27"></a>
 **(27) How can I distinguish between embedded and external images?**
 
-External image:
+Εξωτερική εικόνα:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Εξωτερική εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Ενσωματωμένη εικόνα:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Ενσωματωμένη εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Χαλασμένη εικόνα:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Χαλασμένη εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1107,7 +1107,7 @@ In the notification settings you'll find a button *Manage notifications* to dire
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
-FairEmail has the following notification channels:
+Το FairEmail διαθέτει τα εξής κανάλια ειδοποίησης:
 
 * Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
 * Send: used for the notification of the send service
@@ -1133,12 +1133,12 @@ Just long press a folder, select *Edit properties*, and enable either *Show in u
 <a name="faq30"></a>
 **(30) How can I use the provided quick settings?**
 
-There are quick settings (settings tiles) available to:
+Διατίθενται γρήγορες ρυθμίσεις (πλακίδια ρυθμίσεων) για:
 
-* globally enable/disable synchronization
-* show the number of new messages and marking them as seen (not read)
+* καθολική ενεργοποίηση/απενεργοποίηση συγχρονισμού
+* εμφάνιση του αριθμού των νέων μηνυμάτων και επισήμανσή τους ως προβεβλημένων (όχι αναγνωσμένων)
 
-Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Οι γρήγορες ρυθμίσεις απαιτούν Android 7.0 Nougat ή νεότερο. Η χρήση των πλακιδίων ρυθμίσεων εξηγείται [εδώ](https://support.google.com/android/answer/9083864).
 
 <br />
 
@@ -1147,7 +1147,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 
 There are shortcuts available to compose a new message to a favorite contact.
 
-Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+Οι συντομεύσεις απαιτούν Android 7.1 Nougat ή νεότερο. Η χρήση των συντομεύσεων εξηγείται [εδώ](https://support.google.com/android/answer/2781850).
 
 It is also possible to create shortcuts to folders by long pressing a folder in the folder list of an account and selecting *Add shortcut*.
 
@@ -1168,8 +1168,8 @@ Most providers accept validated addresses only when sending messages to prevent 
 For example Google modifies the message headers like this for *unverified* addresses:
 
 ```
-From: Somebody <somebody@example.org>
-X-Google-Original-From: Somebody <somebody+extra@example.org>
+Από: Κάποιος <somebody@example.org>
+X-Google-Original-From: Κάποιος <somebody+extra@example.org>
 ```
 
 This means that the edited sender address was automatically replaced by a verified address before sending the message.
@@ -1179,7 +1179,7 @@ Note that this is independent of receiving messages.
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Πώς αντιστοιχίζονται οι ταυτότητες;**
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
@@ -1201,9 +1201,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identity: abc@example.com; regex: **(?i)abc**
-* Identity: xyz@example.com; regex: **(?i)xyz**
-* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Ταυτότητα: abc@example.com; regex: **(?i)abc**
+* Ταυτότητα: xyz@example.com; regex: **(?i)xyz**
+* Ταυτότητα: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the folder and account color. Setting identity colors is a pro feature.
 
@@ -1231,11 +1231,11 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Πώς κρυπτογραφούνται τα αρχεία ρυθμίσεων;**
 
-Short version: AES 256 bit
+Σύντομη απάντηση: AES 256 bit
 
-Long version:
+Λεπτομερής απάντηση:
 
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
@@ -1243,7 +1243,7 @@ Long version:
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Πώς αποθηκεύονται οι κωδικοί πρόσβασης;**
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
@@ -1290,12 +1290,12 @@ Some providers send every two minutes something like '*Still here*' resulting in
 
 If you got the message *This provider does not support push messages* while configuring an account, consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
-If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
+Αν η συσκευή σας διαθέτει οθόνη [AMOLED](https://en.wikipedia.org/wiki/AMOLED), μπορείτε να εξοικονομήσετε μπαταρία κατά την προβολή μηνυμάτων με το μαύρο θέμα.
 
 If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
 
 * Says '*Still here*' within 3 minutes
-* The email server does not support push messages
+* Ο διακομιστής ηλεκτρονικού ταχυδρομείου δεν υποστηρίζει μηνύματα push
 * The keep-alive interval is lower than 12 minutes
 
 In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
@@ -1303,7 +1303,7 @@ In addition, the trash and spam folders will be automatically set to checking fo
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the data usage of FairEmail?**
+**(40) Πώς μπορώ να μειώσω τη χρήση δεδομένων του FairEmail;**
 
 You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
@@ -1316,7 +1316,7 @@ To reduce data usage, you could change these advanced receive settings:
 * Check if old messages were removed from the server: disable
 * Synchronize (shared) folder list: disable
 
-By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
+By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. Μπορείτε να το αλλάξετε αυτό στις ρυθμίσεις σύνδεσης.
 
 <br />
 
@@ -1350,7 +1350,7 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 
 If the provider is used by more than a few people, yes, with pleasure.
 
-The following information is needed:
+Χρειάζονται οι παρακάτω πληροφορίες:
 
 ```
 <provider
@@ -1445,7 +1445,7 @@ You can synchronize more or even all messages by long pressing a folder (inbox) 
 <br />
 
 <a name="faq51"></a>
-**(51) How are folders sorted?**
+**(51) Πώς ταξινομούνται οι φάκελοι;**
 
 Folders are first sorted on account order (by default on account name) and within an account with special, system folders on top, followed by folders set to synchronize. Within each category the folders are sorted on (display) name. You can set the display name by long pressing a folder in the folder list and selecting *Edit properties*.
 
@@ -1458,7 +1458,7 @@ The navigation (hamburger) menu item *Order folders* in the settings can be used
 
 There is no reliable way to know if an account connection was terminated gracefully or forcefully. Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems like [too many simultaneous connections](#user-content-faq23) or even the account being blocked. To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
 
-You can long press *Settings* in the navigation menu to reconnect immediately.
+Μπορείτε να πατήσετε παρατεταμένα το *Ρυθμίσεις* στο μενού πλοήγησης για άμεση επανασύνδεση.
 
 <br />
 
@@ -1496,16 +1496,16 @@ You can use multiple select for this. Long press the first message, don't lift y
 <br />
 
 <a name="faq56"></a>
-**(56) Can you add support for JMAP?**
+**(56) Μπορείτε να προσθέσετε υποστήριξη για το JMAP;**
 
-There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so it is not worth a lot of effort to add support for this to FairEmail.
+Δεν υπάρχει σχεδόν κανένας πάροχος που να προσφέρει το πρωτόκολλο [JMAP](https://jmap.io/), οπότε δεν αξίζει τον κόπο η προσθήκη υποστήριξης στο FairEmail.
 
 <br />
 
 <a name="faq57"></a>
-**(57) Can I use HTML in signatures?**
+**(57) Μπορώ να χρησιμοποιήσω HTML στις υπογραφές;**
 
-Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML). In the signature editor you can switch to HTML mode via the three-dots menu.
+Ναι, μπορείτε να χρησιμοποιήσετε [HTML](https://el.wikipedia.org/wiki/HTML). In the signature editor you can switch to HTML mode via the three-dots menu.
 
 Note that if you switch back to the text editor that not all HTML might be rendered as-is because the Android text editor is not able to render all HTML. Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
 
@@ -1528,13 +1528,13 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Εξωτερική εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
-Message bodies and attachments are not downloaded by default.
+Τα σώματα και τα συνημμένα μηνυμάτων δεν λαμβάνονται από προεπιλογή.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Εξωτερική εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
-Message bodies and attachments are downloaded by default.
+Τα σώματα και τα συνημμένα μηνυμάτων λαμβάνονται από προεπιλογή.
 
 <br />
 
@@ -1546,7 +1546,7 @@ For security reasons the files with the original message texts are not accessibl
 <br />
 
 <a name="faq60"></a>
-**(60) Did you know ... ?**
+**(60) Γνωρίζατε ότι...;**
 
 * Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
@@ -1564,10 +1564,10 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
-* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (έκδοση 1.1368+)
 * Did you know that you can long press the send action to show the send dialog, even if it was disabled?
 * Did you know that you can long press the full screen icon to show the original message text only?
-* Did you know that you can long press the answer button to reply to the sender? (since version 1.1562)
+* Did you know that you can long press the answer button to reply to the sender? (από την έκδοση 1.1562)
 
 <br />
 
@@ -1585,14 +1585,14 @@ Pending [operations](#user-content-faq3) are shown in the operations view access
 <br />
 
 <a name="faq62"></a>
-**(62) Which authentication methods are supported?**
+**(62) Ποιες μέθοδοι ταυτοποίησης υποστηρίζονται;**
 
 The following authentication methods are supported and used in this order:
 
 * CRAM-MD5
 * LOGIN
 * PLAIN
-* NTLM (untested)
+* NTLM (μη δοκιμασμένο)
 * XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
@@ -1619,7 +1619,7 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 
 ~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~ ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~ ~~You can select the folder to move to in the account settings.~~
 
-~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
+~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. Δείτε επίσης [αυτήν την ερώτηση](#user-content-faq55).~~
 
 ~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~ ~~Note that there is an advanced option to mark messages automatically read on moving,~~ ~~which is in most cases a perfect replacement for the sequence mark read and move to some folder.~~ ~~You can also mark messages read from new message notifications.~~
 
@@ -1677,12 +1677,12 @@ The message list is automatically scrolled up when navigating from a new message
 <br />
 
 <a name="faq70"></a>
-**(70) When will messages be auto expanded?**
+**(70) Πότε θα αναπτύσσονται αυτόματα τα μηνύματα;**
 
 When navigation to a conversation one message will be expanded if:
 
-* There is just one message in the conversation
-* There is exactly one unread message in the conversation
+* Υπάρχει μόνο ένα μήνυμα στη συνομιλία
+* Υπάρχει ακριβώς ένα μη αναγνωσμένο μήνυμα στη συνομιλία
 * There is exactly one starred (favorite) message in the conversation (from version 1.1508)
 
 There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
@@ -1704,22 +1704,22 @@ You'll need to give a rule a name and you'll need to define the order in which a
 
 You can disable a rule and you can stop processing other rules after a rule has been executed.
 
-The following rule conditions are available:
+Διατίθενται οι παρακάτω συνθήκες κανόνων:
 
-* Sender contains or sender is contact
-* Recipient contains
-* Subject contains
-* Has attachments (optional of specific type)
-* Header contains
-* Absolute time (received) between (since version 1.1540)
-* Relative time (received) between
+* Ο αποστολέας περιέχει ή είναι επαφή
+* Ο παραλήπτης περιέχει
+* Το θέμα περιέχει
+* Έχει συνημμένα (προαιρετικά, ειδικού τύπου)
+* Η κεφαλίδα περιέχει
+* Απόλυτος χρόνος (παραλαβής) μεταξύ (από την έκδοση 1.1540)
+* Σχετικός χρόνος (παραλαβής) μεταξύ
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like *@example.org*
 
 Note that email addresses are formatted like this:
 
 `
-"Somebody" <somebody@example.org>`
+"Κάποιος" <somebody@example.org>`
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
@@ -1735,19 +1735,19 @@ Note that [dot all mode](https://developer.android.com/reference/java/util/regex
 You can select one of these actions to apply to matching messages:
 
 * No action (useful for *not*)
-* Mark as read
-* Mark as unread
-* Hide
-* Suppress notification
-* Snooze
-* Add star
-* Set importance (local priority)
-* Add keyword
-* Move
+* Επισήμανση ως αναγνωσμένο
+* Επισήμανση ως μη αναγνωσμένο
+* Απόκρυψη
+* Καταστολή ειδοποιήσεων
+* Αναβολή
+* Προσθήκη αστεριού
+* Ορισμένη σημασία (τοπική προτεραιότητα)
+* Προσθήκη λέξης-κλειδιού
+* Μετακίνηση
 * Copy (Gmail: label)
 * Answer/forward (with template)
-* Text-to-speech (sender and subject)
-* Automation (Tasker, etc)
+* Κείμενο σε ομιλία (αποστολέας και θέμα)
+* Αυτοματισμός (Tasker κ.λπ.)
 
 An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
 
@@ -1766,7 +1766,7 @@ In the three-dots *more* message menu there is an item to create a rule for a re
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
-Using rules is a pro feature.
+Η χρήση κανόνων είναι λειτουργία της έκδοσης Pro.
 
 <br />
 
@@ -1791,16 +1791,16 @@ Batch moving messages across accounts is efficient if both the source folder and
 <br />
 
 <a name="faq74"></a>
-**(74) Why do I see duplicate messages?**
+**(74) Γιατί βλέπω διπλότυπα μηνύματα;**
 
 Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. Αυτό σημαίνει ότι τα μηνύματα με πολλαπλές ετικέτες θα εμφανίζονται πολλαπλές φορές.
 
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) Μπορείτε να δημιουργήσετε μια έκδοση για iOS, Windows, Linux κ.λπ.;**
 
 A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
 
@@ -1845,7 +1845,7 @@ For more complex schemes you could set one or more accounts to manual synchroniz
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-For a specific account:
+Για έναν συγκεκριμένο λογαριασμό:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
@@ -1873,7 +1873,7 @@ To set the poll interval:
 (adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
 ```
 
-Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+Όπου το *nnn* είναι κάποιο από τα: 0, 15, 30, 60, 120, 240, 480, 1440. Η τιμή 0 σημαίνει μηνύματα push.
 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
@@ -1890,7 +1890,7 @@ To enable/disable an account with the name *Gmail*:
 Extras: account:Gmail
 ```
 
-Account names are case sensitive.
+Τα ονόματα λογαριασμών κάνουν διάκριση κεφαλαίων - πεζών.
 
 Scheduling is a pro feature.
 
@@ -1934,7 +1934,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Εξωτερική εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -1974,7 +1974,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 ~~The advanced option *extra privacy features* enables:~~
 
 * ~~Looking up the owner of the IP address of a link~~
-* ~~Detection and removal of [tracking images](#user-content-faq82)~~
+* ~~Εντοπισμός και αφαίρεση [εικόνων καταγραφής](#user-content-faq82)~~
 
 <br />
 
@@ -1996,8 +1996,8 @@ The preferred way to set up a Yahoo account is by using the quick setup wizard, 
 
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
-* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [για το Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [για το AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
@@ -2037,7 +2037,7 @@ Note that original messages are shown exactly as they are, which means also that
 
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~Δείτε [αυτήν τη συχνή ερώτηση](#user-content-faq39) σχετικά με τη βελτιστοποίηση της χρήσης μπαταρίας.~~
 
 <br />
 
@@ -2048,7 +2048,7 @@ Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainK
 
 Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
-Recent versions of FairEmail can filter spam to a certain extend using a message classifier. Please see [this FAQ](#user-content-faq163) for more information about this.
+Recent versions of FairEmail can filter spam to a certain extend using a message classifier. Παρακαλώ δείτε [αυτήν τη συχνή ερώτηση](#user-content-faq163) για περισσότερες πληροφορίες σχετικά με αυτό.
 
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 
@@ -2112,9 +2112,9 @@ The IMAP settings are part of the (custom) account settings and the SMTP setting
 About each four hours FairEmail runs a cleanup job that:
 
 * Removes old message texts
-* Removes old attachment files
-* Removes old image files
-* Removes old local contacts
+* Αφαιρεί παλιά συνημμένα αρχεία
+* Αφαιρεί παλιά αρχεία εικόνων
+* Αφαιρεί παλιές τοπικές επαφές
 * Removes old log entries
 
 Note that the cleanup job will only run when the synchronize service is active.
@@ -2171,11 +2171,11 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Πώς μπορώ να ενεργοποιήσω την αυτόματη περιστροφή εικόνων;**
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
 
-Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
+Σημειώστε ότι μόνο οι εικόνες [JPEG](https://en.wikipedia.org/wiki/JPEG) και [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) μπορούν να περιέχουν πληροφορίες Exif.
 
 <br />
 
@@ -2186,7 +2186,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 * Error reporting is optional and opt-in
 * Error reporting can be enabled/disabled in the settings, section miscellaneous
 * Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
-* Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
+* Το Bugsnag για Android είναι [ανοικτού κώδικα](https://github.com/bugsnag/bugsnag-android)
 * See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
 * See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
 * Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
@@ -2225,7 +2225,7 @@ FairEmail does send a new message count intent as well:
 eu.faircode.email.NEW_MESSAGE_COUNT
 ```
 
-The number of new, unread messages will be in an integer "*count*" parameter.
+Ο αριθμός των νέων, μη αναγνωσμένων μηνυμάτων θα είναι σε μια ακέραια παράμετρο "*count*".
 
 <br />
 
@@ -2275,7 +2275,7 @@ Disabling *Partial fetch* will result in more memory usage.
 <br />
 
 <a name="faq111"></a>
-**(111) Is OAuth supported?**
+**(111) Υποστηρίζεται το OAuth;**
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
@@ -2303,7 +2303,7 @@ If your device has a biometric sensor, for example a fingerprint sensor, you can
 
 Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
 
-Biometric authentication is a pro feature.
+Η βιομετρική ταυτοποίηση είναι λειτουργία της έκδοσης Pro.
 
 <br />
 
@@ -2353,7 +2353,7 @@ Google manages all purchases, so as a developer I have little control over purch
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
-Note that:
+Σημειώστε ότι:
 
 * If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Purchases are stored in the Google cloud and cannot get lost
@@ -2433,9 +2433,9 @@ The message *Message too large or too complex to display* will be shown if there
 <br />
 
 <a name="faq125"></a>
-**(125) What are the current experimental features?**
+**(125) Ποιες είναι οι τρέχουσες πειραματικές λειτουργίες;**
 
-*Message classification (version 1.1438+)*
+*Ταξινόμηση μηνυμάτων (έκδοση 1.1438+)*
 
 Please see [this FAQ](#user-content-faq163) for details.
 
@@ -2456,10 +2456,10 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 <a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 
-FairEmail fetches a message in two steps:
+Το FairEmail παραλαμβάνει ένα μήνυμα σε δύο βήματα:
 
-1. Fetch message headers
-1. Fetch message text and attachments
+1. Λήψη κεφαλίδων μηνύματος
+1. Λήψη κειμένου και συνημμένων μηνύματος
 
 Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
 
@@ -2476,7 +2476,7 @@ If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you m
 <a name="faq127"></a>
 **(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
 
-The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+Το σφάλμα *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
 
 <br />
 
@@ -2488,7 +2488,7 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) Υποστηρίζονται τα ProtonMail και Tutanota;**
 
 ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
 
@@ -2518,7 +2518,7 @@ Please see [here](#user-content-faq22) for other error messages in the outbox.
 
 If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
 
-This behavior seems quite natural to me, also because it is similar to turning pages.
+Αυτή η συμπεριφορά μού φαίνεται αρκετά φυσική, επειδή μοιάζει με το γύρισμα σελίδων.
 
 Anyway, there is a behavior setting to reverse the swipe direction.
 
@@ -2577,9 +2577,9 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Settings > Manual setup > Accounts > tap account
-* Identity: Settings > Manual setup > Identities > tap identity
-* Folder: Long press the folder in the folder list > Edit properties
+* Λογαριασμός: Ρυθμίσεις > Χειροκίνητη ρύθμιση > Λογαριασμοί > πατήστε τον λογαριασμό
+* Ταυτότητα: Ρυθμίσεις > Χειροκίνητη ρύθμιση > Ταυτότητες > πατήστε την ταυτότητα
+* Φάκελος: Πατήστε παρατεταμένα τον φάκελο στη λίστα φακέλων > Επεξεργασία ιδιοτήτων
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
 
@@ -2595,13 +2595,13 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact/tasks/notes management?**
 
-Calendar, contact, task and note management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+Calendar, contact, task and note management can better be done by a separate, specialized app. Σημειώστε ότι το FairEmail είναι μια εξειδικευμένη εφαρμογή email και όχι σουίτα γραφείου.
 
 Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 
-Most providers support exporting your contacts. Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
+Οι περισσότεροι πάροχοι υποστηρίζουν την εξαγωγή επαφών. Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
 
 Note that FairEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
 
@@ -2633,7 +2633,7 @@ When using a shared mailbox, you'll likely want to enable the option *Synchroniz
 <br />
 
 <a name="faq140"></a>
-**(140) Why does the message text contain strange characters?**
+**(140) Γιατί το κείμενο του μηνύματος περιέχει παράξενους χαρακτήρες;**
 
 Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Other than that there is no way to reliably determine the correct character encoding automatically, so this cannot be fixed by FairEmail. The right action is to complain to the sender.
 
@@ -2648,16 +2648,16 @@ You can fix this problem by manually selecting the drafts folder in the account 
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
-Quick link for Gmail (will work on a desktop computer only): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Γρήγορος σύνδεσμος για Gmail (λειτουργεί μόνο σε υπολογιστή): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
 <a name="faq142"></a>
 **(142) How can I store sent messages in the inbox?**
 
-Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
+Γενικά, δεν προτείνεται η αποθήκευση απεσταλμένων μηνυμάτων στα εισερχόμενα, καθώς η αναίρεση αυτής της ενέργειας είναι δύσκολη και ενδέχεται να προκύψουν ζητήματα συμβατότητας με άλλα προγράμματα email.
 
-That said, FairEmail is able to properly handle sent messages in the inbox. FairEmail will mark outgoing messages with a sent messages icon for example.
+Παρ' όλα αυτά, το FairEmail μπορεί να χειριστεί κανονικά τα απεσταλμένα μηνύματα στα εισερχόμενα. Για παράδειγμα, το FairEmail θα επισημάνει τα εξερχόμενα μηνύματα με ένα εικονίδιο απεσταλμένων μηνυμάτων.
 
 The best solution would be to enable showing the sent folder in the unified inbox by long pressing the sent folder in the folder list and enabling *Show in unified inbox*. This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
 
@@ -2668,13 +2668,13 @@ If this is not an option, you can [create a rule](#user-content-faq71) to automa
 <a name="faq143"></a>
 **~~(143) Can you add a trash folder for POP3 accounts?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
+Το [POP3](https://el.wikipedia.org/wiki/Post_Office_Protocol) είναι ένα πολύ περιορισμένο πρωτόκολλο. Βασικά, επιτρέπει μόνο τη λήψη και τη διαγραφή μηνυμάτων από τα εισερχόμενα. Δεν είναι καν δυνατή η επισήμανση τους ως αναγνωσμένων.
 
 Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
 
 Note that you can hide messages and search for hidden messages, which is similar to a local trash folder, without suggesting that trashed messages can be restored, while this is actually not possible.
 
-Version 1.1082 added a local trash folder. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
+Η έκδοση 1.1082 πρόσθεσε έναν τοπικό φάκελο απορριμμάτων. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
 
 <br />
 
@@ -2683,30 +2683,30 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Εξωτερική εικόνα](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
 For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
 
-Voice notes will automatically be attached.
+Οι φωνητικές σημειώσεις θα επισυναφθούν αυτόματα.
 
 <br />
 
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-Account:
+Λογαριασμός:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-Folder:
+Φάκελος:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Sender:
+Αποστολέας:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2746,14 +2746,14 @@ Note that you'll need to uninstall the F-Droid build first before you can instal
 
 Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+Παρακαλώ [δείτε εδώ](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) για όλες τις επιλογές λήψης.
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 <br />
 
 <a name="faq148"></a>
-**(148) How can I use an Apple iCloud account?**
+**(148) Πώς μπορώ να χρησιμοποιήσω έναν λογαριασμό Apple iCloud;**
 
 There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
@@ -2810,7 +2810,7 @@ You can define contact groups with the Android contacts app, please see [here](h
 <br />
 
 <a name="faq153"></a>
-**(153) Why does permanently deleting Gmail message not work?**
+**(153) Γιατί δεν λειτουργεί η οριστική διαγραφή μηνυμάτων Gmail;**
 
 You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
 
@@ -2827,7 +2827,7 @@ Another oddity is that a star (favorite message) set via the web interface canno
 STORE <message number> -FLAGS (\Flagged)
 ```
 
-On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.
+Από την άλλη πλευρά, ένα αστέρι που ορίζεται μέσω IMAP εμφανίζεται στο διαδικτυακό περιβάλλον και μπορεί να αφαιρεθεί μέσω IMAP.
 
 <br />
 
@@ -2839,11 +2839,11 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 <br />
 
 <a name="faq155"></a>
-**(155) What is a winmail.dat file?**
+**(155) Τι είναι ένα αρχείο winmail.dat;**
 
 A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
-You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+Μπορείτε να βρείτε περισσότερες πληροφορίες σχετικά με αυτό το αρχείο [εδώ](https://support.mozilla.org/el/kb/what-winmaildat-attachment).
 
 You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
@@ -2861,7 +2861,7 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Πώς μπορώ να ρυθμίσω έναν λογαριασμό Free.fr;**
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
@@ -2920,29 +2920,29 @@ From version 1.1485 it is possible to temporarily enable debug mode in the misce
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Μπορείτε να προσθέσετε τη δυνατότητα αλλαγής του κύριου χρώματος και του χρώματος έμφασης;***
 
 If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 
 <br />
 
 <a name="faq162"></a>
-**(162) Is IMAP NOTIFY supported?***
+**(162) Υποστηρίζεται το IMAP NOTIFY;***
 
-Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+Ναι, το [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) υποστηρίζεται από την έκδοση 1.1413.
 
 IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
 
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**Σημαντικό**: οι περισσότεροι διακομιστές email δεν το υποστηρίζουν αυτό! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
 
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) Τι είναι η ταξινόμηση μηνυμάτων;**
 
-*This is an experimental feature!*
+*Πρόκειται για μια πειραματική λειτουργία!*
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
@@ -2963,9 +2963,9 @@ The message classifier calculates the probability a message belongs in a folder 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 15 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
 
-Both conditions must be satisfied before a message will be moved.
+Θα πρέπει να πληρούνται και οι δύο προϋποθέσεις πριν να μετακινηθεί ένα μήνυμα.
 
-Considering the default option values:
+Λαμβάνοντας υπόψη τις τιμές της προεπιλεγμένης επιλογής:
 
 * Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
 * Apples 10 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 15 %
@@ -2975,7 +2975,7 @@ Classification is optimized to use as little resources as possible, but will ine
 
 You can delete all classification data by turning classification in the miscellaneous settings three times off.
 
-[Filter rules](#user-content-faq71) will be executed before classification.
+Οι [κανόνες φίλτρων](#user-content-faq71) θα εκτελεστούν πριν από την ταξινόμηση.
 
 Message classification is a pro feature, except for the spam folder.
 
@@ -2990,14 +2990,14 @@ Since for each theme there needs to be a light, dark and black variant, it is no
 
 Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+Τα χρώματα των θεμάτων βασίζονται στον χρωματικό κύκλο του [Γιοχάνες Ίττεν](https://el.wikipedia.org/wiki/%CE%93%CE%B9%CE%BF%CF%87%CE%AC%CE%BD%CE%B5%CF%82_%CE%8A%CF%84%CF%84%CE%B5%CE%BD).
 
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) Υποστηρίζεται το Android Auto;**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Ναι, το Android Auto υποστηρίζεται, αλλά μόνο με την έκδοση του GitHub. Παρακαλώ [δείτε εδώ](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) τον λόγο.
 
 For notification (messaging) support you'll need to enable the following notification options:
 
@@ -3006,12 +3006,12 @@ For notification (messaging) support you'll need to enable the following notific
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+Ο οδηγός προγραμματιστών βρίσκεται [εδώ](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) Μπορώ να αναβάλω ένα μήνυμα από πολλαπλές συσκευές;**
 
 First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
@@ -3019,26 +3019,26 @@ Some email providers, like Gmail, move snoozed messages to a special folder. Unf
 
 Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Δυστυχώς, δεν είναι δυνατή η απόκρυψη μηνυμάτων και στον διακομιστή email.
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<h2><a name="get-support"></a>Λήψη υποστήριξης</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+Το FairEmail υποστηρίζεται μόνο σε συσκευές με Android και ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. Αυτό σημαίνει επίσης ότι δεν υποστηρίζεται η υποβάθμιση.
 
-There is no support on things that are not directly related to FairEmail.
+Δεν παρέχεται υποστήριξη για πράγματα που δεν σχετίζονται άμεσα με το FairEmail.
 
-There is no support on building and developing things by yourself.
+Δεν παρέχεται υποστήριξη για πράγματα που αναπτύσσετε μόνοι σας.
 
-Requested features should:
+Οι ζητούμενες λειτουργίες:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* πρέπει να είναι χρήσιμες για τους περισσότερους χρήστες
+* δεν πρέπει να περιπλέκουν τη χρήση του FairEmail
+* πρέπει να ταιριάζουν με τη φιλοσοφία του FairEmail (έμφαση στο απόρρητο και την ασφάλεια)
+* πρέπει να συμμορφώνονται με κοινά πρότυπα (IMAP, SMTP κ.λπ.)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
@@ -3048,4 +3048,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Πνευματικά δικαιώματα &copy; 2018-2021 Marcel Bokhorst.

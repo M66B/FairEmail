@@ -64,7 +64,7 @@
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_domain">封鎖寄件者網域</string>
     <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
-        使用篩選器規則封鎖寄件者網域是一項專業功能。
+        使用篩選器規則封鎖寄件者網域則是一項專業功能。
     </string>
     <string name="title_junk_filter">使用本地垃圾郵件篩選器</string>
     <string name="title_junk_filter_hint">這可能會增大電池的用量，並導致訊息被錯誤地標記為垃圾郵件</string>
@@ -232,8 +232,8 @@
     <string name="title_setup_theme_dark">暗色主題</string>
     <string name="title_setup_theme_system">跟隨系統</string>
     <string name="title_setup_theme_black_background">純黑背景</string>
-    <string name="title_setup_theme_html_light">用於原始訊息視圖的亮色背景</string>
-    <string name="title_setup_theme_composer_light">訊息編輯工具使用亮色背景</string>
+    <string name="title_setup_theme_html_light">原始訊息視圖套用亮色背景</string>
+    <string name="title_setup_theme_composer_light">訊息編輯工具套用亮色背景</string>
     <string name="title_setup_theme_system_hint">若 Android 支援時將會依據日/夜模式切換亮/暗主題</string>
     <string name="title_setup_theme_more_colors">我想要更多顏色</string>
     <string name="title_setup_advanced">進階</string>
@@ -1122,6 +1122,9 @@
     <string name="title_search_for_hint">輸入文字</string>
     <string name="title_search_hint">        初次進行的搜尋，會執行於裝置之上。
         如要接著搜尋伺服器，請輕觸‘再次搜尋’按鈕。
+    </string>
+    <string name="title_search_index_hint">        透過搜尋索引搜尋的速度很快，但僅能於所有本地訊息中查找完整的單詞。
+        以下選項可繼續用於郵件伺服器上的搜尋。
     </string>
     <string name="title_search_text_hint">當有大量訊息時，搜尋訊息內文字功能在一些伺服器上可能不工作</string>
     <string name="title_search_text_unsupported">\'%s\' 表示郵件伺服器不支援在訊息本文中搜尋</string>

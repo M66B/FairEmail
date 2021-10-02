@@ -1126,6 +1126,9 @@
     <string name="title_search_hint">        Indledningsvis udføres søgningen på enheden.
          For også at søge på serveren, så tryk på knappen \'søg igen\'.
     </string>
+    <string name="title_search_index_hint">        Søgning via søgeindekset er hurtig, men finder kun hele ord i alle beskeddele.
+         Indstillingerne nedenfor er til at fortsætte søgningen på e-mailserveren.
+    </string>
     <string name="title_search_text_hint">Søgning efter tekst i beskeder, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
     <string name="title_search_text_unsupported">\'%s\' betyder, at e-mailserveren ikke understøtter søgning i beskedtekster</string>
     <string name="title_search_size_hint">Søgning efter beskeder efter størrelse, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>

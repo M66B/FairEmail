@@ -352,6 +352,7 @@
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
     <string name="title_advanced_nav_hide_message">Puoi abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
+    <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze non lette nel menu di navigazione</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
     <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>
@@ -447,6 +448,7 @@
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
     <string name="title_advanced_autoclose_unread">Chiudi le conversazioni contrassegnando i messaggi come non letti</string>
+    <string name="title_advanced_collapse_marked">Comprimi i messaggi che sono segnati manualmente come letti o non letti</string>
     <string name="title_advanced_undo">Annulla timeout</string>
     <string name="title_advanced_quick_filter">Mostra icone rapide del filtro non vistose</string>
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido in su/giù non vistose</string>
@@ -769,6 +771,8 @@
     <string name="title_delete_channel">Elimina il canale di notifica</string>
     <string name="title_insert_contact">Aggiungi contatto</string>
     <string name="title_edit_contact">Modifica contatto</string>
+    <string name="title_import_contacts">Importa vCard</string>
+    <string name="title_export_contacts">Esporta vCard</string>
     <string name="title_create_sub_folder">Crea sottocartella</string>
     <string name="title_empty_trash_ask">Eliminare permanentemente tutti i messaggi cestinati?</string>
     <string name="title_empty_spam_ask">Eliminare permanentemente tutti i messaggi di spam?</string>
@@ -1130,6 +1134,9 @@
     <string name="title_search_for_hint">Inserisci testo</string>
     <string name="title_search_hint">        Inizialmente, la ricerca è eseguita sul dispositivo.
         Per cercare anche nel server, tocca il pulsante \'cerca di nuovo\'.
+    </string>
+    <string name="title_search_index_hint">La ricerca tramite l\'indice di ricerca è veloce, ma trova solo parole intere in tutte le parti del messaggio.
+Le opzioni sottostanti sono per continuare la ricerca nel server di posta elettronica.
     </string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_text_unsupported">\'%s\' significa che il server email non supporta la ricerca nei testi dei messaggi</string>
