@@ -2031,25 +2031,24 @@ class Core {
         List<Pair<Folder, Folder>> ifolders = new ArrayList<>();
         List<String> subscription = new ArrayList<>();
 
+        boolean root = false;
         List<Folder> personal = new ArrayList<>();
         try {
             Folder[] pnamespaces = istore.getPersonalNamespaces();
-
-            boolean root = false;
-            Folder d = istore.getDefaultFolder();
             if (pnamespaces != null) {
                 personal.addAll(Arrays.asList(pnamespaces));
                 for (Folder p : pnamespaces)
-                    if (d.getFullName().equals(p.getFullName())) {
+                    if (defaultFolder.getFullName().equals(p.getFullName())) {
                         root = true;
                         break;
                     }
             }
-            if (!root)
-                personal.add(d);
         } catch (MessagingException ex) {
             Log.e(ex);
         }
+
+        if (!root)
+            personal.add(defaultFolder);
 
         for (Folder namespace : personal) {
             EntityLog.log(context, "Personal namespace=" + namespace.getFullName());
