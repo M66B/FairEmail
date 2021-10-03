@@ -2122,11 +2122,8 @@ class Core {
 
         if (ifolders.size() == 0) {
             List<String> ns = new ArrayList<>();
-            if (personal == null)
-                ns.add("<null>");
-            else
-                for (Folder f : personal)
-                    ns.add(f.getFullName());
+            for (Folder namespace : personal)
+                ns.add("'" + namespace.getFullName() + "'");
             Log.e(account.host + " no folders listed" +
                     " namespaces=" + TextUtils.join(",", ns));
             return;
