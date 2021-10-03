@@ -119,6 +119,7 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_DELETE_FOLDER = 3;
     static final int REQUEST_EXECUTE_RULES = 4;
     static final int REQUEST_EXPORT_MESSAGES = 5;
+    static final int REQUEST_EDIT_ACCOUNT_NAME = 6;
 
     private static final long EXPORT_PROGRESS_INTERVAL = 5000L; // milliseconds
 
@@ -571,6 +572,7 @@ public class FragmentFolders extends FragmentBase {
         menu.findItem(R.id.menu_subscribed_only).setVisible(subscriptions);
         menu.findItem(R.id.menu_sort_unread_atop).setChecked(sort_unread_atop);
         menu.findItem(R.id.menu_apply_all).setVisible(account >= 0 && imap);
+        menu.findItem(R.id.menu_edit_account_name).setVisible(account >= 0);
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -607,6 +609,9 @@ public class FragmentFolders extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_apply_all) {
             onMenuApplyToAll();
+            return true;
+        } else if (itemId == R.id.menu_edit_account_name) {
+            onMenuEditAccount();
             return true;
         } else if (itemId == R.id.menu_force_sync) {
             onMenuForceSync();
@@ -719,6 +724,38 @@ public class FragmentFolders extends FragmentBase {
         fragment.show(getParentFragmentManager(), "folders:apply");
     }
 
+    private void onMenuEditAccount() {
+        Bundle args = new Bundle();
+        args.putLong("id", account);
+
+        new SimpleTask<EntityAccount>() {
+            @Override
+            protected EntityAccount onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                DB db = DB.getInstance(context);
+                return db.account().getAccount(id);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityAccount account) {
+                if (account == null)
+                    return;
+
+                args.putString("name", account.name);
+
+                FragmentDialogEditName fragment = new FragmentDialogEditName();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentFolders.this, REQUEST_EDIT_ACCOUNT_NAME);
+                fragment.show(getParentFragmentManager(), "account:name");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "account:name");
+    }
+
     private void onMenuForceSync() {
         refresh(true);
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
@@ -749,6 +786,10 @@ public class FragmentFolders extends FragmentBase {
                 case REQUEST_EXPORT_MESSAGES:
                     if (resultCode == RESULT_OK && data != null)
                         onExportMessages(data.getData());
+                    break;
+                case REQUEST_EDIT_ACCOUNT_NAME:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditAccountName(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -1128,6 +1169,29 @@ public class FragmentFolders extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folder:export");
+    }
+
+    private void onEditAccountName(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                String name = args.getString("name");
+
+                if (TextUtils.isEmpty(name))
+                    return null;
+
+                DB db = DB.getInstance(context);
+                db.account().setAccountName(id, name);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "edit:name");
     }
 
     public static class FragmentDialogApply extends FragmentDialogBase {

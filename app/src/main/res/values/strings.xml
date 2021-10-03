@@ -936,6 +936,7 @@
     <string name="title_sort_unread_atop">Sort unread on top</string>
     <string name="title_search_folder">Search for folder</string>
     <string name="title_apply_to_all">Apply to all</string>
+    <string name="title_edit_account_name">Edit account name</string>
     <string name="title_hide_folder">Hide folder</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_navigation_folder">Show in navigation menu</string>

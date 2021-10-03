@@ -197,6 +197,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET state = :state WHERE id = :id AND NOT (state IS :state)")
     int setAccountState(long id, String state);
 
+    @Query("UPDATE account SET name = :name WHERE id = :id AND NOT (name IS :name)")
+    int setAccountName(long id, String name);
+
     @Query("UPDATE account SET password = :password WHERE id = :id AND NOT (password IS :password)")
     int setAccountPassword(long id, String password);
 

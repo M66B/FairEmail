@@ -70,6 +70,12 @@
         </item>
 
         <item
+            android:id="@+id/menu_edit_account_name"
+            android:title="@string/title_edit_account_name">
+            <menu />
+        </item>
+
+        <item
             android:id="@+id/menu_force_sync"
             android:title="@string/title_force_sync"
             app:showAsAction="never" />
