@@ -4,6 +4,10 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### 1.1750
+
+* Auto reselect system folders
+
 ### 1.1749
 
 * Fixed handling namespace errors
