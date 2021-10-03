@@ -4,6 +4,10 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### 1.1751
+
+* Fixed updating system folder properties
+
 ### 1.1750
 
 * Auto reselect system folders
