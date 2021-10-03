@@ -2158,7 +2158,7 @@ class Core {
                             }
 
                     // Reselect system folders once
-                    String key = "reselected." + type + "." + account.id;
+                    String key = "updated." + account.id + "." + type;
                     boolean reselected = prefs.getBoolean(key, false);
                     if (!reselected) {
                         prefs.edit().putBoolean(key, true).apply();
@@ -2166,10 +2166,11 @@ class Core {
                         if (folder == null) {
                             folder = db.folder().getFolderByName(account.id, fullName);
                             if (folder != null) {
-                                Log.e("Reselected " + account.host + " " + type + "=" + fullName);
+                                Log.e("Updated " + account.host + " " + type + "=" + fullName);
                                 folder.type = type;
                                 folder.setProperties();
-                                db.folder().setFolderType(folder.id, folder.type);
+                                folder.setSpecials(account);
+                                db.folder().updateFolder(folder);
                             }
                         }
                     }

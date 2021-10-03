@@ -24,6 +24,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -384,6 +385,9 @@ public interface DaoFolder {
             " WHERE id = :id" +
             " AND NOT (auto_classify_source IS :source AND auto_classify_target IS :target)")
     int setFolderAutoClassify(long id, boolean source, boolean target);
+
+    @Update
+    int updateFolder(EntityFolder folder);
 
     @Query("DELETE FROM folder WHERE id = :id")
     void deleteFolder(long id);
