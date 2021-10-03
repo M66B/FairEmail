@@ -2138,25 +2138,27 @@ class Core {
                 String[] attrs = ((IMAPFolder) ifolder.second).getAttributes();
                 String type = EntityFolder.getType(attrs, fullName, false);
                 if (type != null &&
-                        !EntityFolder.INBOX.equals(type) &&
                         !EntityFolder.USER.equals(type) &&
                         !EntityFolder.SYSTEM.equals(type)) {
-                    for (EntityFolder folder : new ArrayList<>(local.values()))
-                        if (type.equals(folder.type) &&
-                                !fullName.equals(folder.name) &&
-                                !local.containsKey(fullName) &&
-                                !istore.getFolder(folder.name).exists()) {
-                            Log.e(account.host +
-                                    " renaming " + type + " folder" +
-                                    " from " + folder.name + " to " + fullName);
-                            local.remove(folder.name);
-                            local.put(fullName, folder);
-                            folder.name = fullName;
-                            db.folder().setFolderName(folder.id, fullName);
-                        }
+
+                    // Rename system folders
+                    if (!EntityFolder.INBOX.equals(type))
+                        for (EntityFolder folder : new ArrayList<>(local.values()))
+                            if (type.equals(folder.type) &&
+                                    !fullName.equals(folder.name) &&
+                                    !local.containsKey(fullName) &&
+                                    !istore.getFolder(folder.name).exists()) {
+                                Log.e(account.host +
+                                        " renaming " + type + " folder" +
+                                        " from " + folder.name + " to " + fullName);
+                                local.remove(folder.name);
+                                local.put(fullName, folder);
+                                folder.name = fullName;
+                                db.folder().setFolderName(folder.id, fullName);
+                            }
 
                     // Reselect system folders once
-                    String key = "reselected." + account.id + "." + type;
+                    String key = "reselected." + type + "." + account.id;
                     boolean reselected = prefs.getBoolean(key, false);
                     if (!reselected) {
                         prefs.edit().putBoolean(key, true).apply();
@@ -2164,8 +2166,9 @@ class Core {
                         if (folder == null) {
                             folder = db.folder().getFolderByName(account.id, fullName);
                             if (folder != null) {
-                                Log.e("Reselecting " + account.host + " " + type + "=" + fullName);
+                                Log.e("Reselected " + account.host + " " + type + "=" + fullName);
                                 folder.type = type;
+                                folder.setProperties();
                                 db.folder().setFolderType(folder.id, folder.type);
                             }
                         }
