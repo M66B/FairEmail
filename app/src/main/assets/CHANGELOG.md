@@ -4,6 +4,10 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### 1.1749
+
+* Fixed handling namespace errors
+
 ### 1.1748
 
 * Small improvements and minor bug fixes
