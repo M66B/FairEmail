@@ -80,6 +80,7 @@ public class FragmentPop extends FragmentBase {
     private TextView tvPasswordStorage;
 
     private EditText etName;
+    private EditText etCategory;
     private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
@@ -143,6 +144,7 @@ public class FragmentPop extends FragmentBase {
         tvPasswordStorage = view.findViewById(R.id.tvPasswordStorage);
 
         etName = view.findViewById(R.id.etName);
+        etCategory = view.findViewById(R.id.etCategory);
         btnColor = view.findViewById(R.id.btnColor);
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
@@ -306,6 +308,7 @@ public class FragmentPop extends FragmentBase {
         args.putString("password", tilPassword.getEditText().getText().toString());
 
         args.putString("name", etName.getText().toString());
+        args.putString("category", etCategory.getText().toString());
         args.putInt("color", btnColor.getColor());
 
         args.putBoolean("synchronize", cbSynchronize.isChecked());
@@ -355,6 +358,7 @@ public class FragmentPop extends FragmentBase {
                 String password = args.getString("password");
 
                 String name = args.getString("name");
+                String category = args.getString("category");
                 Integer color = args.getInt("color");
 
                 boolean synchronize = args.getBoolean("synchronize");
@@ -393,6 +397,8 @@ public class FragmentPop extends FragmentBase {
 
                 if (TextUtils.isEmpty(name))
                     name = user;
+                if (TextUtils.isEmpty(category))
+                    category = null;
                 if (color == Color.TRANSPARENT || !pro)
                     color = null;
                 if (!pro)
@@ -420,6 +426,8 @@ public class FragmentPop extends FragmentBase {
                     if (!Objects.equals(account.password, password))
                         return true;
                     if (!Objects.equals(account.name, name))
+                        return true;
+                    if (!Objects.equals(account.category, category))
                         return true;
                     if (!Objects.equals(account.color, color))
                         return true;
@@ -505,6 +513,7 @@ public class FragmentPop extends FragmentBase {
                     account.password = password;
 
                     account.name = name;
+                    account.category = category;
                     account.color = color;
 
                     account.synchronize = synchronize;
@@ -728,6 +737,7 @@ public class FragmentPop extends FragmentBase {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
+                    etCategory.setText(account == null ? null : account.category);
                     btnColor.setColor(account == null ? null : account.color);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);

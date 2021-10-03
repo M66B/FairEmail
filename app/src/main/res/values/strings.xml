@@ -784,6 +784,7 @@
     <string name="title_recommended">Recommended</string>
     <string name="title_account_linked">Linked account</string>
     <string name="title_account_name">Account name</string>
+    <string name="title_account_category">Category</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
     <string name="title_account_interval_hint">Frequency of refreshing the connection for push messages or frequency of checking for new messages</string>
     <string name="title_account_partial_fetch_hint">Disable this only in case of empty messages or corrupt attachments</string>

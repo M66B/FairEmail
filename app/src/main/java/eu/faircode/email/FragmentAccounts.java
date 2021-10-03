@@ -19,12 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -33,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -54,6 +59,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
@@ -137,6 +143,72 @@ public class FragmentAccounts extends FragmentBase {
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvAccount.addItemDecoration(itemDecorator);
         }
+
+        DividerItemDecoration dateDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+            @Override
+            public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                int count = parent.getChildCount();
+                for (int i = 0; i < count; i++) {
+                    View view = parent.getChildAt(i);
+                    int pos = parent.getChildAdapterPosition(view);
+
+                    View header = getView(view, parent, pos);
+                    if (header != null) {
+                        canvas.save();
+                        canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
+                        header.draw(canvas);
+                        canvas.restore();
+                    }
+                }
+            }
+
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int pos = parent.getChildAdapterPosition(view);
+                View header = getView(view, parent, pos);
+                if (header == null)
+                    outRect.setEmpty();
+                else
+                    outRect.top = header.getMeasuredHeight();
+            }
+
+            private View getView(View view, RecyclerView parent, int pos) {
+                if (pos == NO_POSITION)
+                    return null;
+
+                TupleAccountEx prev = adapter.getItemAtPosition(pos - 1);
+                TupleAccountEx account = adapter.getItemAtPosition(pos);
+                if (pos > 0 && prev == null)
+                    return null;
+                if (account == null)
+                    return null;
+
+                if (pos > 0) {
+                    if (Objects.equals(prev.category, account.category))
+                        return null;
+                } else {
+                    if (account.category == null)
+                        return null;
+                }
+
+                View header = inflater.inflate(R.layout.item_message_date, parent, false);
+                TextView tvDate = header.findViewById(R.id.tvDate);
+
+                if (cards) {
+                    View vSeparatorDate = header.findViewById(R.id.vSeparatorDate);
+                    vSeparatorDate.setVisibility(View.GONE);
+                }
+
+                tvDate.setText(account.category);
+
+                header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
+                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+
+                return header;
+            }
+        };
+        rvAccount.addItemDecoration(dateDecorator);
 
         adapter = new AdapterAccount(this, settings);
         rvAccount.setAdapter(adapter);

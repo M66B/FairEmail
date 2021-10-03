@@ -393,6 +393,26 @@
             app:layout_constraintTop_toBottomOf="@id/tvNameRemark" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_account_category"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName" />
+
+        <eu.faircode.email.EditTextPlain
+            android:id="@+id/etCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_optional"
+            android:inputType="textCapSentences|textAutoCorrect"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCategory" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -400,7 +420,7 @@
             android:text="@string/title_color"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etName" />
+            app:layout_constraintTop_toBottomOf="@id/etCategory" />
 
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"
@@ -1018,7 +1038,7 @@
                 tvUser,etUser,tvPassword,tilPassword,tvCaseSensitive,tvAppPassword,tvPasswordStorage,
                 btnCertificate,tvCertificate,
                 tvRealm,etRealm,
-                tvName,tvNameRemark,etName,
+                tvName,tvNameRemark,etName,etCategory,
                 tvColor,btnColor,tvColorHint,tvColorPro" />
 
         <androidx.constraintlayout.widget.Group

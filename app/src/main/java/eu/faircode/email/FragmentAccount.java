@@ -103,6 +103,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etRealm;
 
     private EditText etName;
+    private EditText etCategory;
     private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
@@ -209,6 +210,7 @@ public class FragmentAccount extends FragmentBase {
         etRealm = view.findViewById(R.id.etRealm);
 
         etName = view.findViewById(R.id.etName);
+        etCategory = view.findViewById(R.id.etCategory);
         btnColor = view.findViewById(R.id.btnColor);
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
@@ -859,6 +861,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
 
         args.putString("name", etName.getText().toString());
+        args.putString("category", etCategory.getText().toString());
         args.putInt("color", btnColor.getColor());
 
         args.putBoolean("synchronize", cbSynchronize.isChecked());
@@ -922,6 +925,7 @@ public class FragmentAccount extends FragmentBase {
                 String fingerprint = args.getString("fingerprint");
 
                 String name = args.getString("name");
+                String category = args.getString("category");
                 Integer color = args.getInt("color");
 
                 boolean synchronize = args.getBoolean("synchronize");
@@ -967,6 +971,8 @@ public class FragmentAccount extends FragmentBase {
                     realm = null;
                 if (TextUtils.isEmpty(name))
                     name = user;
+                if (TextUtils.isEmpty(category))
+                    category = null;
                 if (color == Color.TRANSPARENT || !pro)
                     color = null;
                 if (!pro)
@@ -1002,6 +1008,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.fingerprint, fingerprint))
                         return true;
                     if (!Objects.equals(account.name, name))
+                        return true;
+                    if (!Objects.equals(account.category, category))
                         return true;
                     if (!Objects.equals(account.color, color))
                         return true;
@@ -1141,6 +1149,7 @@ public class FragmentAccount extends FragmentBase {
                     account.fingerprint = fingerprint;
 
                     account.name = name;
+                    account.category = category;
                     account.color = color;
 
                     account.synchronize = synchronize;
@@ -1491,6 +1500,7 @@ public class FragmentAccount extends FragmentBase {
                     }
 
                     etName.setText(account == null ? null : account.name);
+                    etCategory.setText(account == null ? null : account.category);
                     btnColor.setColor(account == null ? null : account.color);
 
                     boolean pro = ActivityBilling.isPro(getContext());

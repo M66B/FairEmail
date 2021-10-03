@@ -648,6 +648,13 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         return items.get(position).id;
     }
 
+    public TupleAccountEx getItemAtPosition(int pos) {
+        if (pos >= 0 && pos < items.size())
+            return items.get(pos);
+        else
+            return null;
+    }
+
     @Override
     public int getItemCount() {
         return items.size();
