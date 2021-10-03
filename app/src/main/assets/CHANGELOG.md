@@ -4,6 +4,11 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### 1.1748
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1747
 
 * Disabled Android Auto support for the Play store version (*)
