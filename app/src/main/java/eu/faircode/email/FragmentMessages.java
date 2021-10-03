@@ -1730,6 +1730,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 values.get(name).remove(id);
 
             if ("selected".equals(name) && enabled) {
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
                 final List<Integer> changed = new ArrayList<>();
 
                 int pos = adapter.getPositionForKey(id);
