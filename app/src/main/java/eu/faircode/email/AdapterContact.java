@@ -313,8 +313,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
                     FragmentDialogEditName fragment = new FragmentDialogEditName();
                     fragment.setArguments(args);
-                    fragment.setTargetFragment(parentFragment, FragmentContacts.REQUEST_NAME);
-                    fragment.show(parentFragment.getParentFragmentManager(), "contact:edit");
+                    fragment.setTargetFragment(parentFragment, FragmentContacts.REQUEST_EDIT_NAME);
+                    fragment.show(parentFragment.getParentFragmentManager(), "contact:name");
                 }
 
                 private void onActionDelete() {
