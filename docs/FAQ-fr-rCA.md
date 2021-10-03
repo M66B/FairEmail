@@ -1131,57 +1131,57 @@ Appuyez longuement sur un dossier, sélectionnez *Modifier les propriétés*, et
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) Comment puis-je utiliser les paramètres rapides fournis ?**
 
-There are quick settings (settings tiles) available to:
+Il y a des paramètres rapides (tuiles de paramètres) disponibles à :
 
-* globally enable/disable synchronization
-* show the number of new messages and marking them as seen (not read)
+* activer/désactiver globalement la synchronisation
+* afficher le nombre de nouveaux messages et les marquer comme vus (non lu)
 
-Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Les paramètres rapides nécessitent Android 7.0 Nougat ou supérieur. L'utilisation des tuiles de paramètres est expliquée [ici](https://support.google.com/android/answer/9083864).
 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) Comment puis-je utiliser les raccourcis fournis ?**
 
-There are shortcuts available to compose a new message to a favorite contact.
+Il y a des raccourcis disponibles pour écrire un nouveau message à un contact favori.
 
-Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+Les raccourcis requièrent Android 7.1 Nougat ou supérieur. L'utilisation des raccourcis est expliquée [ici](https://support.google.com/android/answer/2781850).
 
-It is also possible to create shortcuts to folders by long pressing a folder in the folder list of an account and selecting *Add shortcut*.
+Il est également possible de créer des raccourcis vers des dossiers en appuyant longuement sur un dossier dans la liste des dossiers d'un compte et en sélectionnant *Ajouter un raccourci*.
 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) Comment puis-je vérifier si la lecture des e-mails est vraiment sécurisée ?**
 
-You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+Vous pouvez utiliser le [Testeur de confidentialité des courriels](https://www.emailprivacytester.com/) pour cela.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) Pourquoi les adresses de l'expéditeur modifiées ne fonctionnent pas ?**
 
-Most providers accept validated addresses only when sending messages to prevent spam.
+La plupart des fournisseurs n'acceptent les adresses validées que lors de l'envoi de messages pour éviter les spams.
 
-For example Google modifies the message headers like this for *unverified* addresses:
+Par exemple, Google modifie les en-têtes de message comme celui-ci pour les adresses *non vérifiées*:
 
 ```
-From: Somebody <somebody@example.org>
-X-Google-Original-From: Somebody <somebody+extra@example.org>
+De: Quelqu'un <somebody@example.org>
+X-Google-Original-From: Quelqu'un <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a verified address before sending the message.
+Cela signifie que l'adresse de l'expéditeur modifiée a été automatiquement remplacée par une adresse vérifiée avant d'envoyer le message.
 
-Note that this is independent of receiving messages.
+Notez que cela est indépendant de la réception de messages.
 
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Comment les identités sont-elles correspondantes ?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
+Les identités sont comme attendues assorties par compte. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 

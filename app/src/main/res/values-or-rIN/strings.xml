@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_search">FairEmail ସନ୍ଧାନ</string>
+    <string name="app_changelog">ପରିବର୍ତ୍ତନ ଲଗ୍</string>
+    <string name="app_welcome">FairEmail ହେଉଛି ଏକ ଖୋଲା ଉତ୍ସ ଇମେଲ୍ ଆପ୍ ଯାହାକି ଗୋପନୀୟତା ଏବଂ ସୁରକ୍ଷା ଉପରେ ଧ୍ୟାନ ଦେଇଥାଏ। ଏହି କାରଣରୁ କିଛି ବୈଶିଷ୍ଟ୍ୟ ଆପଣ ଅଭ୍ୟସ୍ତ ଠାରୁ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିପାରେ।</string>
+    <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
+    <string name="channel_send">ପଠାନ୍ତୁ</string>
+    <string name="channel_notification">ଇମେଲ୍</string>
+    <string name="channel_progress">ପ୍ରଗତି</string>
+    <string name="shortcut_setup">ସେଟିଂସମୂହ</string>
+    <string name="menu_setup">ସେଟିଂସମୂହ</string>
+    <string name="menu_faq">ସମର୍ଥନ</string>
+    <string name="menu_translate">ଅନୁବାଦ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
+    <string name="menu_issue">ସମସ୍ୟା ରିପୋର୍ଟ କରନ୍ତୁ</string>
+    <string name="menu_privacy">ଗୋପନୀୟତା</string>
+    <string name="menu_about">ବିଷୟରେ</string>
+    <string name="menu_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
+    <string name="menu_rate">ଏହି ଆପକୁ ମୂଲ୍ୟାଙ୍କନ କରନ୍ତୁ</string>
+    <string name="title_welcome">ସ୍ୱାଗତ</string>
+    <string name="title_contributors">ଯୋଗଦାନକାରୀ</string>
+    <string name="title_agree">ମୁଁ ସହମତ</string>
+    <string name="title_disagree">ମୁଁ ସହମତ ନୁହେଁ</string>
+    <string name="title_version">ସଂସ୍କରଣ %1$s</string>
+    <string name="title_privacy_policy">ଗୋପନୀୟତା ନୀତି</string>
+    <string name="title_list_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
+    <string name="title_list_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_edit_account">ଆକାଉଣ୍ଟ୍ ସମ୍ପାଦନା</string>
+    <string name="title_edit_identity">ପରିଚୟ ସମ୍ପାଦନା</string>
+    <string name="title_edit_folder">ଫୋଲ୍ଡର୍ ସମ୍ପାଦନା</string>
+    <string name="title_setup">ସେଟିଂସମୂହ</string>
+    <string name="title_setup_help">ସହାୟତା</string>
+    <string name="title_setup_quick">ଦ୍ରୁତ ସେଟଅପ୍</string>
+    <string name="title_setup_wizard">ଓ୍ୱିଜାର୍ଡ</string>
+    <string name="title_setup_wizard_new">ମୋର ଏକ ନୂତନ ଇମେଲ୍ ଠିକଣା ଦରକାର</string>
+    <string name="title_setup_manual">ହସ୍ତକୃତ ସେଟଅପ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ବିକଳ୍ପ ସମୂହ</string>
+    <string name="title_setup_classic">ସର୍ବତ୍କୃଷ୍ଟ ବିନ୍ୟାସ</string>
+    <string name="title_setup_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
+    <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_setup_manage">ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="title_setup_error">ତ୍ରୁଟି</string>
+    <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
+    <string name="title_setup_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
+    <string name="title_setup_password_different">ପାସ୍ଓ୍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
+    <string name="title_setup_password_invalid">ପାସ୍ଓ୍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
+    <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_setup_exported">ସେଟିଂସ୍ ରପ୍ତାନି ହୋଇଛି</string>
+    <string name="title_setup_imported">ସେଟିଂସ୍ ଆମଦାନୀ ହୋଇଛି</string>
+    <string name="title_setup_import_invalid">ଅବୈଧ ସେଟିଂସ୍ ଫାଇଲ୍</string>
+    <string name="title_setup_authentication">ପ୍ରାମାଣିକିକରଣ</string>
+    <string name="title_setup_biometrics">ବାୟୋମେଟ୍ରିକ୍ ପ୍ରାମାଣିକରଣ</string>
+    <string name="title_setup_biometrics_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_setup_biometrics_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_setup_biometrics_unlock">ଅନଲକ୍ କରନ୍ତୁ</string>
+    <string name="title_setup_theme">ଥିମ୍ ଚୟନ କରନ୍ତୁ</string>
+    <string name="title_setup_theme_blue_orange">ନୀଳ/କମଳା</string>
+    <string name="title_setup_theme_yellow_purple">ହଳଦିଆ/ବାଇଗଣୀ</string>
+    <string name="title_setup_theme_red_green">ନାଲି/ସବୁଜ</string>
+    <string name="title_setup_theme_grey">ଧୂସର</string>
+    <string name="title_setup_theme_black">କଳା</string>
+    <string name="title_setup_theme_black_and_white">କଳା ଓ ଧଳା</string>
+    <string name="title_setup_theme_reverse">ରଙ୍ଗ ଗୁଡ଼ିକ ଅଦଳବଦଳ କରନ୍ତୁ</string>
+    <string name="title_setup_theme_light">ହାଲୁକା</string>
+    <string name="title_setup_theme_dark">ଗାଢ଼</string>
+    <string name="title_setup_theme_system">ସିଷ୍ଟମକୁ ଅନୁସରଣ କରନ୍ତୁ</string>
+    <string name="title_setup_theme_black_background">କଳା ପୃଷ୍ଠପଟ</string>
+    <string name="title_setup_theme_html_light">ମୂଳ ବାର୍ତ୍ତା ଦର୍ଶନ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
+    <string name="title_setup_theme_composer_light">ବାର୍ତ୍ତା ସମ୍ପାଦକ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
+    <string name="title_setup_theme_system_hint">ଆଣ୍ଡ୍ରଏଡ୍ ଦ୍ୱାରା ସମର୍ଥିତ ହେଲେ ଏହା ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଦିନ/ରାତ୍ରି ମୋଡ୍ ରେ ଏକ ହାଲୁକା/ଗାଢ଼ ଥିମ୍ କୁ ବଦଳିଯିବ</string>
+    <string name="title_setup_theme_more_colors">ମୁଁ ଅଧିକ ରଙ୍ଗ ଚାହୁଁଛି</string>
+    <string name="title_setup_advanced">ବିକଶିତ</string>
+    <string name="title_setup_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_advanced_section_main">ମୁଖ୍ୟ</string>
+    <string name="title_advanced_section_synchronize">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
+    <string name="title_advanced_section_send">ପଠାନ୍ତୁ</string>
+    <string name="title_advanced_section_connection">ସଂଯୋଜନା</string>
+    <string name="title_advanced_section_display">ପ୍ରଦର୍ଶନ</string>
+    <string name="title_advanced_section_behavior">ଆଚରଣ</string>
+    <string name="title_advanced_section_privacy">ଗୋପନୀୟତା</string>
+    <string name="title_advanced_section_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_advanced_section_notifications">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
+    <string name="title_advanced_section_misc">ବିବିଧ</string>
+    <string name="title_advanced_advanced">ବିକଶିତ</string>
+    <string name="title_advanced_quick_sync">ଦ୍ରୁତ ସିଙ୍କ୍</string>
+    <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
+    <string name="title_advanced_caption_general">ସାଧାରଣ</string>
+    <string name="title_advanced_highlight_color">ରଙ୍ଗ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
+    <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_text_color">ପାଠ୍ୟ ରଙ୍ଗ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_text_font">ଫଣ୍ଟ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
+    <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
+    <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
+    <!-- Thunderbird -->
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+</resources>
