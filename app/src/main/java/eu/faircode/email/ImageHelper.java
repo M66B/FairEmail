@@ -136,6 +136,7 @@ class ImageHelper {
         int bg = Color.HSVToColor(new float[]{h, s / 100f, v / 100f});
 
         Paint paint = new Paint();
+        paint.setAntiAlias(true);
         paint.setColor(bg);
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
@@ -191,6 +192,7 @@ class ImageHelper {
         canvas.drawColor(bg);
 
         Paint paint = new Paint();
+        paint.setAntiAlias(true);
         paint.setColor(lum < t ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
         try {
