@@ -6225,6 +6225,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("accountName changed", next.id);
                 }
+                if (!Objects.equals(prev.accountCategory, next.accountCategory)) {
+                    same = false;
+                    log("accountCategory changed", next.id);
+                }
                 if (!Objects.equals(prev.accountColor, next.accountColor)) {
                     same = false;
                     log("accountColor changed", next.id);
