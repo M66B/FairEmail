@@ -191,15 +191,17 @@ public class FragmentAccounts extends FragmentBase {
                         return null;
                 }
 
-                View header = inflater.inflate(R.layout.item_category, parent, false);
+                View header = inflater.inflate(R.layout.item_group, parent, false);
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
+                TextView tvDate = header.findViewById(R.id.tvDate);
 
                 if (cards) {
-                    View vSeparatorCategory = header.findViewById(R.id.vSeparatorCategory);
-                    vSeparatorCategory.setVisibility(View.GONE);
+                    View vSeparator = header.findViewById(R.id.vSeparator);
+                    vSeparator.setVisibility(View.GONE);
                 }
 
                 tvCategory.setText(account.category);
+                tvDate.setVisibility(View.GONE);
 
                 header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
                         View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));

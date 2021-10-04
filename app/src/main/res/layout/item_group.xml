@@ -11,17 +11,29 @@
         android:gravity="center_horizontal"
         android:padding="6dp"
         android:text="Category"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="6dp"
+        android:text="Today"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
     <View
-        android:id="@+id/vSeparatorCategory"
+        android:id="@+id/vSeparator"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCategory" />
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -202,7 +202,16 @@ public class FragmentFolders extends FragmentBase {
         rvFolder.setLayoutManager(llm);
 
         if (!cards) {
-            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    View clItem = view.findViewById(R.id.clItem);
+                    if (clItem == null || clItem.getVisibility() == View.GONE)
+                        outRect.setEmpty();
+                    else
+                        super.getItemOffsets(outRect, view, parent, state);
+                }
+            };
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvFolder.addItemDecoration(itemDecorator);
         }
@@ -255,15 +264,17 @@ public class FragmentFolders extends FragmentBase {
                             return null;
                     }
 
-                    View header = inflater.inflate(R.layout.item_category, parent, false);
+                    View header = inflater.inflate(R.layout.item_group, parent, false);
                     TextView tvCategory = header.findViewById(R.id.tvCategory);
+                    TextView tvDate = header.findViewById(R.id.tvDate);
 
                     if (cards) {
-                        View vSeparatorCategory = header.findViewById(R.id.vSeparatorCategory);
-                        vSeparatorCategory.setVisibility(View.GONE);
+                        View vSeparator = header.findViewById(R.id.vSeparator);
+                        vSeparator.setVisibility(View.GONE);
                     }
 
                     tvCategory.setText(account.accountCategory);
+                    tvDate.setVisibility(View.GONE);
 
                     header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
                             View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));

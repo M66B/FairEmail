@@ -136,8 +136,8 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHintSelect" />
 
             <include
-                android:id="@+id/inDate"
-                layout="@layout/item_message_date"
+                android:id="@+id/inGroup"
+                layout="@layout/item_group"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +182,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inDate" />
+                app:layout_constraintTop_toBottomOf="@id/inGroup" />
 
             <View
                 android:id="@+id/vwAnchor"
