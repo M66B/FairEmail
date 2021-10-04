@@ -4,6 +4,11 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### 1.1753
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1752
 
 * Added account categories [1]
