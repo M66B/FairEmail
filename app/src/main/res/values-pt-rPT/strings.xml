@@ -489,6 +489,7 @@
     <string name="title_sort_unread_atop">Ordenar as não lidas no topo</string>
     <string name="title_search_folder">Pesquisar pasta</string>
     <string name="title_apply_to_all">Aplicar a tudo</string>
+    <string name="title_edit_account_name">Editar nome da conta</string>
     <string name="title_months_all">Todos</string>
     <string name="title_folder_all">Arquivar</string>
     <string name="title_folder_trash">Lixo</string>

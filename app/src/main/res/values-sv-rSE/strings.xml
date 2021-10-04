@@ -656,6 +656,7 @@
     <string name="title_recommended">Rekommenderat</string>
     <string name="title_account_linked">Länkade kontot</string>
     <string name="title_account_name">Kontonamn</string>
+    <string name="title_account_category">Kategori</string>
     <string name="title_account_name_hint">Används för att differentiera mappar</string>
     <string name="title_account_interval_hint">Frekvens för att uppdatera anslutningen för pushmeddelanden eller frekvens för att söka efter nya meddelanden</string>
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
@@ -796,6 +797,7 @@
     <string name="title_sort_unread_atop">Sortera olästa högst upp</string>
     <string name="title_search_folder">Sök efter mapp</string>
     <string name="title_apply_to_all">Tillämpa för alla</string>
+    <string name="title_edit_account_name">Redigera kontonamn</string>
     <string name="title_hide_folder">Dölj mapp</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>

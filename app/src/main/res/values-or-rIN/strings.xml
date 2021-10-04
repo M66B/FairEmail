@@ -119,6 +119,8 @@
     <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_months_all">ସମସ୍ତ</string>
     <string name="title_copy_btn">କପି କରନ୍ତୁ</string>
+    <string name="title_ask_help">FairEmail କୁ ଉନ୍ନତ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
+    <string name="title_need_help">ମତେ ସାହାଯ୍ୟ ଦରକାର</string>
     <string name="title_send">ପଠାନ୍ତୁ</string>
     <string name="title_send_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
     <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
@@ -133,6 +135,7 @@
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
