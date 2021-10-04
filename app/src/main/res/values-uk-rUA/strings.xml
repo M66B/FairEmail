@@ -679,6 +679,7 @@
     <string name="title_recommended">Рекомендовано</string>
     <string name="title_account_linked">Пов\'язані облікові записи</string>
     <string name="title_account_name">Назва облікового запису</string>
+    <string name="title_account_category">Категорія</string>
     <string name="title_account_name_hint">Використовується для диференціювання тек</string>
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
@@ -792,6 +793,7 @@
     <string name="title_insert_contact">Додати контакт</string>
     <string name="title_edit_contact">Редагувати контакт</string>
     <string name="title_import_contacts">Імпорт vCards</string>
+    <string name="title_export_contacts">Експорт vCards</string>
     <string name="title_create_sub_folder">Створити підтеку</string>
     <string name="title_empty_trash_ask">Видалити всі видалені повідомлення остаточно?</string>
     <string name="title_empty_spam_ask">Видалити всі спам-повідомлення?</string>
@@ -818,6 +820,7 @@
     <string name="title_sort_unread_atop">Сортувати, непрочитані зверху</string>
     <string name="title_search_folder">Знайти теку</string>
     <string name="title_apply_to_all">Застосувати до всіх</string>
+    <string name="title_edit_account_name">Редагувати ім\'я облікового запису</string>
     <string name="title_hide_folder">Сховати теку</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
@@ -1153,6 +1156,9 @@
     <string name="title_search_for_hint">Введіть текст</string>
     <string name="title_search_hint">        Спочатку пошук виконується на пристрої.
         Для також для пошуку на сервері, натисніть кнопку \'пошук знову\'.
+    </string>
+    <string name="title_search_index_hint">Індексований пошук швидкий, але тільки за пошуком цілого слова у всіх частинах повідомлення.
+        Параметри нижче повинні продовжувати пошук з поштового сервера.
     </string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_text_unsupported">\'%s\' означає, що поштовий сервер не підтримує пошук в повідомленнях</string>

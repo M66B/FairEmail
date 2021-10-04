@@ -809,6 +809,7 @@
     <string name="title_sort_unread_atop">Sortează necitite în partea de sus</string>
     <string name="title_search_folder">Căutare folder</string>
     <string name="title_apply_to_all">Aplică la toate</string>
+    <string name="title_edit_account_name">Editează numele contului</string>
     <string name="title_hide_folder">Ascunde dosar</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>

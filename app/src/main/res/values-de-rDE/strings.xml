@@ -660,6 +660,7 @@
     <string name="title_recommended">Empfohlen</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
     <string name="title_account_name">Kontobezeichnung</string>
+    <string name="title_account_category">Kategorie</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
     <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
@@ -800,6 +801,7 @@
     <string name="title_sort_unread_atop">Ungelesene oben einreihen</string>
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
+    <string name="title_edit_account_name">Kontoname ändern</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>

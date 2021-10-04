@@ -659,6 +659,7 @@
     <string name="title_recommended">Recommandé</string>
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>
+    <string name="title_account_category">Catégorie</string>
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages poussés ou fréquence de vérification des nouveaux messages</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement en cas de messages vides ou de pièces jointes corrompues</string>
@@ -799,6 +800,7 @@
     <string name="title_sort_unread_atop">Dossiers avec messages non-lus en haut</string>
     <string name="title_search_folder">Rechercher un dossier</string>
     <string name="title_apply_to_all">Appliquer à tous</string>
+    <string name="title_edit_account_name">Modifier le nom du compte</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>

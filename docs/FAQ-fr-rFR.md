@@ -147,7 +147,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(19) Pourquoi les fonctionnalités pro sont-elles si chères ?](#user-content-faq19)
 * [(20) Puis-je obtenir un remboursement ?](#user-content-faq20)
 * [(21) Comment activer le voyant de notification ?](#user-content-faq21)
-* [(22) Qu'est-ce que l'erreur de compte/dossier ... signifie ?](#user-content-faq22)
+* [(22) Que signifie l'erreur de compte/dossier ... ?](#user-content-faq22)
 * [(23) Pourquoi est-ce que je reçois une alerte ? ?](#user-content-faq23)
 * [(24) Qu'est-ce que parcourir les messages sur le serveur ?](#user-content-faq24)
 * [(25) Pourquoi ne puis-je pas sélectionner/ouvrir/enregistrer une image, une pièce jointe ou un fichier ?](#user-content-faq25)
@@ -898,7 +898,7 @@ Définir une couleur de lumière avant Android 8 n'est pas pris en charge et n'e
 <br />
 
 <a name="faq22"></a>
-**(22) Qu'est-ce que l'erreur de compte/dossier ... signifie ?**
+**(22) Que signifie l'erreur de compte/dossier ... ?**
 
 FairEmail ne masque pas les erreurs comme les applications similaires le font souvent, il est donc plus facile de diagnostiquer les problèmes.
 
@@ -1181,17 +1181,17 @@ Notez que cela est indépendant de la réception de messages.
 <a name="faq34"></a>
 **(34) Comment les identités sont-elles correspondantes ?**
 
-Les identités sont comme attendues assorties par compte. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
+Les identités sont comme attendues assorties par compte. Pour les messages entrants, les adresses *à*, *cc*, *cci*, *de* et *(X-)livrés/enveloppe/original-to* seront vérifiées (dans cet ordre) et pour les messages sortants (brouillons, boîte d'envoi et envoyés) seulement les adresses *de* seront vérifiées. Les adresses identiques ont la priorité sur les adresses partiellement correspondantes, à l'exception des adresses *delivered-to*.
 
-The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
+L'adresse correspondante sera affichée comme *via* dans la section des adresses des messages reçus (entre l'en-tête du message et le corps du message).
 
-Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
+Notez que les identités doivent être activées pour pouvoir être associées et que les identités des autres comptes ne seront pas prises en compte.
 
-Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
+La correspondance ne sera effectuée qu'une fois à la réception d'un message, de sorte que la modification de la configuration ne changera pas les messages existants. Vous pouvez effacer les messages locaux en appuyant longuement sur un dossier dans la liste des dossiers et en synchronisant les messages à nouveau.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
+Il est possible de configurer un [regex](https://en.wikipedia.org/wiki/Regular_expression) (NdT : une expression régulière) dans les paramètres d'identité pour faire correspondre **le nom d'utilisateur** d'une adresse e-mail (la partie avant le signe @).
 
-Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
+Notez que le nom de domaine (la partie après le signe @) doit toujours être identique au nom de domaine de l'identité.
 
 If you like to match a catch-all email address, this regex is mostly okay:
 
@@ -1201,11 +1201,11 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identity: abc@example.com; regex: **(?i)abc**
-* Identity: xyz@example.com; regex: **(?i)xyz**
-* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identité : abc@exemple.com; regex: **(?i)abc**
+* Identité : xyz@exemple.com; regex: **(?i)xyz**
+* Identité : contact@exemple.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matched identities can be used to color code messages. The identity color takes precedence over the folder and account color. Setting identity colors is a pro feature.
+Les identités correspondantes peuvent être utilisées pour attribuer des couleurs aux messages. Les couleurs d’identité ont la priorité sur les couleurs de dossiers et de comptes. Définir les couleurs d'identité est une fonctionnalité pro.
 
 <br />
 

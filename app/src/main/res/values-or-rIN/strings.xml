@@ -3,10 +3,20 @@
     <string name="app_search">FairEmail ସନ୍ଧାନ</string>
     <string name="app_changelog">ପରିବର୍ତ୍ତନ ଲଗ୍</string>
     <string name="app_welcome">FairEmail ହେଉଛି ଏକ ଖୋଲା ଉତ୍ସ ଇମେଲ୍ ଆପ୍ ଯାହାକି ଗୋପନୀୟତା ଏବଂ ସୁରକ୍ଷା ଉପରେ ଧ୍ୟାନ ଦେଇଥାଏ। ଏହି କାରଣରୁ କିଛି ବୈଶିଷ୍ଟ୍ୟ ଆପଣ ଅଭ୍ୟସ୍ତ ଠାରୁ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିପାରେ।</string>
+    <string name="app_updated">ଗତ ଅପଡେଟ୍: %1$s</string>
     <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="channel_send">ପଠାନ୍ତୁ</string>
     <string name="channel_notification">ଇମେଲ୍</string>
     <string name="channel_progress">ପ୍ରଗତି</string>
+    <plurals name="page_message">
+        <item quantity="one">ବାର୍ତ୍ତା</item>
+        <item quantity="other">ବାର୍ତ୍ତାଗୁଡ଼ିକ</item>
+    </plurals>
+    <string name="page_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
+    <string name="page_compose">ରଚନା କରନ୍ତୁ</string>
+    <string name="tile_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
+    <string name="shortcut_refresh">ସତେଜ କରନ୍ତୁ</string>
+    <string name="shortcut_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="shortcut_setup">ସେଟିଂସମୂହ</string>
     <string name="menu_setup">ସେଟିଂସମୂହ</string>
     <string name="menu_faq">ସମର୍ଥନ</string>
@@ -36,12 +46,16 @@
     <string name="title_setup_classic">ସର୍ବତ୍କୃଷ୍ଟ ବିନ୍ୟାସ</string>
     <string name="title_setup_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
     <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_setup_oauth_update">ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟକୁ ପୁନଃ ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
+    <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
     <string name="title_setup_manage">ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
     <string name="title_setup_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
+    <string name="title_setup_password_repeat">ପାସ୍ଓ୍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
+    <string name="title_setup_password_missing">ପାସ୍ଓ୍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_setup_password_different">ପାସ୍ଓ୍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
     <string name="title_setup_password_invalid">ପାସ୍ଓ୍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
     <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
@@ -93,8 +107,38 @@
     <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
+    <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
+    <string name="title_advanced_updates">GitHub ଅପଡେଟସ୍ ପାଇଁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="title_advanced_check_weekly">ଦୈନିକ ବଦଳରେ ସାପ୍ତାହିକ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="title_advanced_changelog">ଅପଡେଟ୍ ପରେ ପରିବର୍ତ୍ତନ ଲଗ୍ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
+    <string name="title_account_category">ବର୍ଗ</string>
+    <string name="title_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
+    <string name="title_no_password">ପାସ୍ଓ୍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
+    <string name="title_months_all">ସମସ୍ତ</string>
+    <string name="title_copy_btn">କପି କରନ୍ତୁ</string>
+    <string name="title_send">ପଠାନ୍ତୁ</string>
+    <string name="title_send_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_language_all">ସମସ୍ତ</string>
+    <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
+    <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
+    <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
+    <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ</string>
+    <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
+    <string name="title_widget_account_all">ସମସ୍ତ</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>ଆକାଉଣ୍ଟଗୁଡ଼ିକ</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

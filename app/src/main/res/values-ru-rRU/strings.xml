@@ -679,6 +679,7 @@
     <string name="title_recommended">Рекомендуется</string>
     <string name="title_account_linked">Связанная учётная запись</string>
     <string name="title_account_name">Название учётной записи</string>
+    <string name="title_account_category">Категория</string>
     <string name="title_account_name_hint">Используется для разграничения папок</string>
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
@@ -819,6 +820,7 @@
     <string name="title_sort_unread_atop">Непрочитанные вверху</string>
     <string name="title_search_folder">Поиск в названии папки</string>
     <string name="title_apply_to_all">Применить ко всем</string>
+    <string name="title_edit_account_name">Изменить название учётной записи</string>
     <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_unified_folder">Показывать в единой папке \"Входящие\"</string>
     <string name="title_navigation_folder">Показывать в меню навигации</string>

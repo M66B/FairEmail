@@ -2013,15 +2013,15 @@ By default only names and addresses to whom you send messages to will be recorde
 <br />
 
 <a name="faq85"></a>
-**(85) Why is an identity not available?**
+**(85) Niyə heç bir kimlik mövcud deyil?**
 
-An identity is available for sending a new message or replying or forwarding an existing message only if:
+Yalnız aşağıdakı hallarda bir kimlik, yeni bir mesaj göndərmək və ya mesajı cavablandırmaq və ya mövcud bir mesajı yönləndirmək üçün əlçatan olur:
 
-* the identity is set to synchronize (send messages)
-* the associated account is set to synchronize (receive messages)
-* the associated account has a drafts folder
+* kimlik, eyniləşdiriləcək formada tənzimləndi (mesajları göndərilməsi)
+* əlaqəli hesab, eyniləşdiriləcək formada tənzimləndi (mesajların alınması)
+* əlaqəli hesabın bir qaralamalar qovluğu var
 
-FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
+FairEmail, cavablandırılan/yönləndirilən mesajın *ünvanına* görə ən yaxşı kimliyi seçməyə çalışacaq.
 
 <br />
 

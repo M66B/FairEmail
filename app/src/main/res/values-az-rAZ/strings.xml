@@ -658,6 +658,7 @@
     <string name="title_recommended">Tövsiyə edilən</string>
     <string name="title_account_linked">Birləşdirilmiş hesablar</string>
     <string name="title_account_name">Hesab adı</string>
+    <string name="title_account_category">Kateqoriya</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
     <string name="title_account_interval_hint">Ani mesajlar üçün bağlantını təzələmə tezliyi və ya yeni mesajların yoxlanış tezliyi</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnız boş mesajlar və ya zədəli qoşmalar olduğu halda sıradan çıxardın</string>
@@ -798,6 +799,7 @@
     <string name="title_sort_unread_atop">Oxunulmayanları üstdə sırala</string>
     <string name="title_search_folder">Qovluq axtar</string>
     <string name="title_apply_to_all">Hamısına tətbiq et</string>
+    <string name="title_edit_account_name">Hesab adına düzəliş et</string>
     <string name="title_hide_folder">Qovluğu gizlət</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_navigation_folder">Naviqasiya menyusunda göstər</string>

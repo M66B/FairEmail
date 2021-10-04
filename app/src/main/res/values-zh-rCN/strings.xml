@@ -649,6 +649,7 @@
     <string name="title_recommended">推荐</string>
     <string name="title_account_linked">已绑定的账户</string>
     <string name="title_account_name">账户名</string>
+    <string name="title_account_category">类别</string>
     <string name="title_account_name_hint">用于区分文件夹</string>
     <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
@@ -789,6 +790,7 @@
     <string name="title_sort_unread_atop">将含未读邮件的文件夹排在最前面</string>
     <string name="title_search_folder">搜索文件夹</string>
     <string name="title_apply_to_all">应用到全部</string>
+    <string name="title_edit_account_name">编辑帐户名称</string>
     <string name="title_hide_folder">隐藏文件夹</string>
     <string name="title_unified_folder">在聚合收件箱中显示</string>
     <string name="title_navigation_folder">在导航菜单中显示</string>

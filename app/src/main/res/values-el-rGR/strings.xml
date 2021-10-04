@@ -657,6 +657,7 @@
     <string name="title_recommended">Προτείνεται</string>
     <string name="title_account_linked">Συνδεδεμένος λογαριασμός</string>
     <string name="title_account_name">Όνομα λογαριασμού</string>
+    <string name="title_account_category">Κατηγορία</string>
     <string name="title_account_name_hint">Χρησιμοποιείται για τη διαφοροποίηση φακέλων</string>
     <string name="title_account_interval_hint">Συχνότητα ανανέωσης της σύνδεσης για μηνύματα ώθησης (push) ή συχνότητα ελέγχου για νέα μηνύματα</string>
     <string name="title_account_partial_fetch_hint">Απενεργοποιήστε το μόνο σε περιπτώσεις κενών μηνυμάτων ή χαλασμένων συνημμένων</string>
@@ -797,6 +798,7 @@
     <string name="title_sort_unread_atop">Ταξινόμηση των μη αναγνωσμένων στην κορυφή</string>
     <string name="title_search_folder">Αναζήτηση φακέλου</string>
     <string name="title_apply_to_all">Εφαρμογή σε όλα</string>
+    <string name="title_edit_account_name">Επεξεργασία ονόματος λογαριασμού</string>
     <string name="title_hide_folder">Απόκρυψη φακέλου</string>
     <string name="title_unified_folder">Προβολή στα ενοποιημένα εισερχόμενα</string>
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>

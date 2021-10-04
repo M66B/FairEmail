@@ -433,7 +433,7 @@ You can pin the certificate too, see above.
 
 <br />
 
-*Empty password*
+*ଖାଲି ପାସ୍ଓ୍ୱାର୍ଡ଼*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
@@ -498,9 +498,9 @@ Note that an app specific password is required when two factor authentication is
 
 <br />
 
-*App specific password*
+*ଆପ୍ ନିର୍ଦ୍ଦିଷ୍ଟ ପାସ୍ଓ୍ୱାର୍ଡ଼*
 
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+ଏକ ଆପ୍ ନିର୍ଦ୍ଦିଷ୍ଟ ପାସ୍ଓ୍ୱାର୍ଡ଼ କିପରି ସୃଷ୍ଟି କରିବେ ସେ ବିଷୟରେ [ଏଠାରେ](https://support.google.com/accounts/answer/185833) ଦେଖନ୍ତୁ।
 
 <br />
 
@@ -508,7 +508,7 @@ See [here](https://support.google.com/accounts/answer/185833) about how to gener
 
 **Important**: using this method is not recommended because it is less reliable.
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+**ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ**: ଏକ ଉପଭୋକ୍ତାନାମ/ପାସ୍ଓ୍ୱାର୍ଡ଼ ସହ ଅଧିକୃତ Gsuite ଆକାଉଣ୍ଟଗୁଡ଼ିକ [ନିକଟ ଭବିଷ୍ୟତରେ](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) କାର୍ଯ୍ୟ କରିବା ବନ୍ଦ କରିବ।
 
 See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
 
@@ -711,7 +711,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. ଯଦି ଆପଣ ଏକ S/MIME Actalis ସାର୍ଟିଫିକେଟ୍ ଅନୁରୋଧ କରିବାକୁ ଚାହୁଁଛନ୍ତି ତେବେ ଦୟାକରି [ପ୍ରଥମେ ଏହାକୁ ପଢ଼ିବା](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219)କୁ ନିଶ୍ଚିତ ହୁଅନ୍ତୁ। If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -787,7 +787,7 @@ Searching on the device is a free feature, using the search index and searching 
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. ବିବରଣୀ ପାଇଁ [ଏଠାରେ](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) ଦେଖନ୍ତୁ।
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
@@ -909,7 +909,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 **General errors**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* ସମ୍ଭବତଃ ଏହାର ଅର୍ଥ ହେଉଛି ଆପଣଙ୍କ ଉପଭୋକ୍ତା ନାମ କିମ୍ୱା ପାସୱାର୍ଡ୍ ଭୁଲ୍ ଥିଲା। Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
@@ -2149,10 +2149,10 @@ You can synchronize Gmail categories by creating filters to label categorized me
 Possible categories:
 
 ```
-category:social
-category:updates
-category:forums
-category:promotions
+ବର୍ଗ:ସାମାଜିକ
+ବର୍ଗ:ଅପଡେଟସ୍
+ବର୍ଗ:ଫୋରମ୍
+ବର୍ଗ:ପଦୋନ୍ନତି
 ```
 
 Unfortunately, this is not possible for snoozed messages folder.
@@ -2355,7 +2355,7 @@ You can also try to clear the cache of the Play store app via the Android apps s
 
 Note that:
 
-* If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
+* ଯଦି ଆପଣ *ITEM_ALREADY_OWNED* ପାଆନ୍ତି, Play Store ଆପ୍ ବୋଧହୁଏ ଅପଡେଟ୍ ହେବା ଆବଶ୍ୟକ, ଦୟାକରି [ଏଠାରେ ଦେଖନ୍ତୁ](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
@@ -2738,13 +2738,13 @@ You likely came here because you are using a third party build of FairEmail.
 
 There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
 
-F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
+F-Droid ଅନିୟମିତ ଭାବରେ ନିର୍ମାଣ ହୁଏ, ଯାହା ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ଅପଡେଟ୍ ଥିବା ବେଳେ ସମସ୍ୟାଜନକ ହୋଇପାରେ। Therefore you are advised to switch to the GitHub release.
 
 The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 
-Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
+ଧ୍ୟାନ ଦିଅନ୍ତୁ ଯେ GitHub ସଂସ୍କରଣ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଅପଡେଟସ୍ ପାଇଁ ଯାଞ୍ଚ କରିବ। When desired, this can be turned off in the miscellaneous settings.
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
