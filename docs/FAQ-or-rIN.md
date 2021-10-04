@@ -151,7 +151,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(23) Why do I get alert .. ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
+* [(୨୬) ମୁଁ ନିଜ ଭାଷାରେ FairEmail ଅନୁବାଦ କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବି କି?](#user-content-faq26)
 * [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
 * [(28) How can I manage status bar notifications?](#user-content-faq28)
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
@@ -240,7 +240,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
+* [(୧୧୭) ଆପଣ ମୋତେ ମୋର କ୍ରୟ ପୁନରୁଦ୍ଧାର କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବେ କି?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
 * [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
 * [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
@@ -973,8 +973,8 @@ If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network),
 SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
 * The attachment size limit for Gmail [is 25 MB](https://support.google.com/mail/answer/6584)
-* The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
-* The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
+* Outlook ଏବଂ Office 365 ପାଇଁ ସଂଲଗ୍ନ ଆକାର ସୀମା [ହେଉଛି 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
+* Yahoo ପାଇଁ ସଂଲଗ୍ନ ଆକାର ସୀମା [ହେଉଛି 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntax error - line too long* is often caused by using a long Autocrypt header
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
@@ -1073,7 +1073,7 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(୨୬) ମୁଁ ନିଜ ଭାଷାରେ FairEmail ଅନୁବାଦ କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବି କି?**
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
@@ -1258,7 +1258,7 @@ Recent Android versions by default report *app usage* as a percentage in the And
 
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. ଯଦି ଏହା ସାହାଯ୍ୟ କରେ ନାହିଁ, ଦୟାକରି [ସମର୍ଥନ ମାଗନ୍ତୁ](https://contact.faircode.eu/?product=fairemailsupport)।
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
@@ -2338,7 +2338,7 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 <a name="faq38"></a>
 <a name="faq117"></a>
-**(117) Can you help me restore my purchase?**
+**(୧୧୭) ଆପଣ ମୋତେ ମୋର କ୍ରୟ ପୁନରୁଦ୍ଧାର କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବେ କି?**
 
 First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
 
@@ -2997,7 +2997,7 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <a name="faq165"></a>
 **(165) Is Android Auto supported?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+ହଁ, Android Auto ସମର୍ଥିତ, କିନ୍ତୁ କେବଳ GitHub ସଂସ୍କରଣ ସହିତ, ଦୟାକରି କାହିଁକି [ଏଠାରେ ଦେଖନ୍ତୁ](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249)।
 
 For notification (messaging) support you'll need to enable the following notification options:
 

@@ -1,4 +1,4 @@
-# Setup help
+# ସେଟଅପ୍ ସହାୟତା
 
 Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
 
@@ -38,4 +38,4 @@ On recent Android versions, Android will put apps to sleep when the screen is of
 
 ## Questions or problems
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+ଯଦି ଆପଣଙ୍କର ଏକ ପ୍ରଶ୍ନ କିମ୍ୱା ସମସ୍ୟା ଅଛି, ଦୟାକରି ସହାୟତା ପାଇଁ [ଏଠାରେ ଦେଖନ୍ତୁ](https://github.com/M66B/FairEmail/blob/master/FAQ.md)।
