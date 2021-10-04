@@ -31,7 +31,7 @@ import java.util.Objects;
         value = TupleAccountView.query
 )
 public class TupleAccountView {
-    static final String query = "SELECT id, pop, name, color, synchronize, notify, leave_deleted, auto_seen, created FROM account";
+    static final String query = "SELECT id, pop, name, category, color, synchronize, notify, leave_deleted, auto_seen, created FROM account";
 
     @NonNull
     public Long id;
@@ -39,6 +39,7 @@ public class TupleAccountView {
     @ColumnInfo(name = "pop")
     public Integer protocol;
     public String name;
+    public String category;
     public Integer color;
     @NonNull
     public Boolean synchronize;

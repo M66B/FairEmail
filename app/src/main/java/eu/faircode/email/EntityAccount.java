@@ -32,6 +32,7 @@ import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import org.json.JSONException;
@@ -47,6 +48,8 @@ import java.util.UUID;
 @Entity(
         tableName = EntityAccount.TABLE_NAME,
         indices = {
+                @Index(value = {"synchronize"}),
+                @Index(value = {"category"})
         }
 )
 public class EntityAccount extends EntityOrder implements Serializable {
