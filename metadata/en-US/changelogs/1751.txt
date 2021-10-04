@@ -7,6 +7,8 @@
 ### Next version
 
 * Added account categories
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1751
 
