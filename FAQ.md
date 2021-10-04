@@ -949,7 +949,8 @@ to check if the searched text is contained in the file, which is a relatively ex
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device,
 but be aware that this will increase battery and storage space usage.
-The search index is based on words, so searching for partial text is not possible.
+The search index is based on words in all message parts,
+so searching for partial text and searching in specific messages parts (from, subject, text, etc) is not possible.
 Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange.
 Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange.
 Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana).
