@@ -393,6 +393,7 @@ public class Log {
             String no_internet = context.getString(R.string.title_no_internet);
 
             String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            config.addMetadata("extra", "revision", BuildConfig.REVISION);
             config.addMetadata("extra", "installer", installer == null ? "-" : installer);
             config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
             config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
