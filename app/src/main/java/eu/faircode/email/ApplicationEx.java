@@ -561,7 +561,8 @@ public class ApplicationEx extends Application
                                 if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
                                     folder.type = EntityFolder.INBOX;
 
-                                if (!EntityFolder.USER.equals(folder.type) &&
+                                if (!folder.local &&
+                                        !EntityFolder.USER.equals(folder.type) &&
                                         !EntityFolder.SYSTEM.equals(folder.type)) {
                                     EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
                                     folder.setProperties();

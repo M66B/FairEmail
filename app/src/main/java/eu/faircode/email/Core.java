@@ -2165,7 +2165,7 @@ class Core {
                         EntityFolder folder = db.folder().getFolderByType(account.id, type);
                         if (folder == null) {
                             folder = db.folder().getFolderByName(account.id, fullName);
-                            if (folder != null) {
+                            if (folder != null && !folder.local) {
                                 Log.e("Updated " + account.host + " " + type + "=" + fullName);
                                 folder.type = type;
                                 folder.setProperties();
@@ -2830,6 +2830,12 @@ class Core {
                     " quick=" + sync_quick_imap + " force=" + force +
                     " sync unseen=" + sync_unseen + " flagged=" + sync_flagged +
                     " delete unseen=" + delete_unseen + " kept=" + sync_kept);
+
+            if (folder.local) {
+                folder.synchronize = false;
+                db.folder().setFolderSynchronize(folder.id, folder.synchronize);
+                return;
+            }
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
