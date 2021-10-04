@@ -144,7 +144,7 @@ public class FragmentAccounts extends FragmentBase {
             rvAccount.addItemDecoration(itemDecorator);
         }
 
-        DividerItemDecoration dateDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+        DividerItemDecoration categoryDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
             @Override
             public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                 int count = parent.getChildCount();
@@ -191,15 +191,15 @@ public class FragmentAccounts extends FragmentBase {
                         return null;
                 }
 
-                View header = inflater.inflate(R.layout.item_message_date, parent, false);
-                TextView tvDate = header.findViewById(R.id.tvDate);
+                View header = inflater.inflate(R.layout.item_category, parent, false);
+                TextView tvCategory = header.findViewById(R.id.tvCategory);
 
                 if (cards) {
-                    View vSeparatorDate = header.findViewById(R.id.vSeparatorDate);
-                    vSeparatorDate.setVisibility(View.GONE);
+                    View vSeparatorCategory = header.findViewById(R.id.vSeparatorCategory);
+                    vSeparatorCategory.setVisibility(View.GONE);
                 }
 
-                tvDate.setText(account.category);
+                tvCategory.setText(account.category);
 
                 header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
                         View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
@@ -208,7 +208,7 @@ public class FragmentAccounts extends FragmentBase {
                 return header;
             }
         };
-        rvAccount.addItemDecoration(dateDecorator);
+        rvAccount.addItemDecoration(categoryDecorator);
 
         adapter = new AdapterAccount(this, settings);
         rvAccount.setAdapter(adapter);

@@ -41,6 +41,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     public Integer accountProtocol;
     public Integer accountOrder;
     public String accountName;
+    public String accountCategory;
     public Integer accountColor;
     public String accountState;
     public int rules;
@@ -70,6 +71,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     Objects.equals(this.accountProtocol, other.accountProtocol) &&
                     Objects.equals(this.accountOrder, other.accountOrder) &&
                     Objects.equals(this.accountName, other.accountName) &&
+                    Objects.equals(this.accountCategory, other.accountCategory) &&
                     Objects.equals(this.accountColor, other.accountColor) &&
                     Objects.equals(this.accountState, other.accountState) &&
                     this.rules == other.rules &&
@@ -116,6 +118,12 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
             public int compare(Object o1, Object o2) {
                 TupleFolderEx f1 = (TupleFolderEx) o1;
                 TupleFolderEx f2 = (TupleFolderEx) o2;
+
+                int c = collator.compare(
+                        f1.accountCategory == null ? "" : f1.accountCategory,
+                        f2.accountCategory == null ? "" : f2.accountCategory);
+                if (c != 0)
+                    return c;
 
                 // Outbox
                 if (f1.accountName == null && f2.accountName == null)

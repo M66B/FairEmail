@@ -1449,6 +1449,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         return selected.get(position).id;
     }
 
+    public TupleFolderEx getItemAtPosition(int pos) {
+        if (pos >= 0 && pos < selected.size())
+            return selected.get(pos);
+        else
+            return null;
+    }
+
     @Override
     public int getItemCount() {
         return selected.size();

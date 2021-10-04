@@ -4,6 +4,10 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
+### Next version
+
+* Added account categories
+
 ### 1.1751
 
 * Fixed updating system folder properties

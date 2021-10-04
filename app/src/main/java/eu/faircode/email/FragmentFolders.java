@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.ContentResolver;
@@ -28,6 +30,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -44,6 +47,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -79,6 +83,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -197,17 +202,77 @@ public class FragmentFolders extends FragmentBase {
         rvFolder.setLayoutManager(llm);
 
         if (!cards) {
-            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
-                @Override
-                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                    if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
-                        outRect.setEmpty();
-                    else
-                        super.getItemOffsets(outRect, view, parent, state);
-                }
-            };
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvFolder.addItemDecoration(itemDecorator);
+        }
+
+        if (unified) {
+            DividerItemDecoration categoryDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+                @Override
+                public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                    int count = parent.getChildCount();
+                    for (int i = 0; i < count; i++) {
+                        View view = parent.getChildAt(i);
+                        int pos = parent.getChildAdapterPosition(view);
+
+                        View header = getView(view, parent, pos);
+                        if (header != null) {
+                            canvas.save();
+                            canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
+                            header.draw(canvas);
+                            canvas.restore();
+                        }
+                    }
+                }
+
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    int pos = parent.getChildAdapterPosition(view);
+                    View header = getView(view, parent, pos);
+                    if (header == null)
+                        outRect.setEmpty();
+                    else
+                        outRect.top = header.getMeasuredHeight();
+                }
+
+                private View getView(View view, RecyclerView parent, int pos) {
+                    if (pos == NO_POSITION)
+                        return null;
+
+                    TupleFolderEx prev = adapter.getItemAtPosition(pos - 1);
+                    TupleFolderEx account = adapter.getItemAtPosition(pos);
+                    if (pos > 0 && prev == null)
+                        return null;
+                    if (account == null)
+                        return null;
+
+                    if (pos > 0) {
+                        if (Objects.equals(prev.accountCategory, account.accountCategory))
+                            return null;
+                    } else {
+                        if (account.accountCategory == null)
+                            return null;
+                    }
+
+                    View header = inflater.inflate(R.layout.item_category, parent, false);
+                    TextView tvCategory = header.findViewById(R.id.tvCategory);
+
+                    if (cards) {
+                        View vSeparatorCategory = header.findViewById(R.id.vSeparatorCategory);
+                        vSeparatorCategory.setVisibility(View.GONE);
+                    }
+
+                    tvCategory.setText(account.accountCategory);
+
+                    header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
+                            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                    header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+
+                    return header;
+                }
+            };
+            rvFolder.addItemDecoration(categoryDecorator);
         }
 
         adapter = new AdapterFolder(this, account, unified, primary, compact, show_hidden, show_flagged, null);
