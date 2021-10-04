@@ -4,11 +4,13 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
-### Next version
+### 1.1752
 
-* Added account categories
+* Added account categories [1]
 * Small improvements and minor bug fixes
 * Updated translations
+
+[1] accounts, unified folders and messages in the unified inbox will be grouped by category.
 
 ### 1.1751
 
@@ -29,11 +31,11 @@
 
 ### 1.1747
 
-* Disabled Android Auto support for the Play store version (*)
+* Disabled Android Auto support for the Play store version [1]
 * Small improvements and minor bug fixes
 * Updated translations
 
-(*) Google does not allow email apps with Android Auto support, see the FAQ.
+[1] Google does not allow email apps with Android Auto support, see the FAQ.
 
 ### 1.1746
 
