@@ -223,6 +223,16 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        try {
+            return super.onKeyUp(keyCode, event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return true;
+        }
+    }
+
+    @Override
     public boolean performClick() {
         try {
             return super.performClick();

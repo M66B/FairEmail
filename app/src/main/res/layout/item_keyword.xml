@@ -38,10 +38,11 @@
             app:layout_constraintTop_toTopOf="@+id/btnColor"
             app:srcCompat="@drawable/twotone_edit_24" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etKeyword"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:imeOptions="actionDone"
             android:inputType="text"
             android:text="Title"
             app:layout_constraintBottom_toBottomOf="@+id/btnColor"

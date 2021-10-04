@@ -81,7 +81,7 @@
             android:layout_marginTop="12dp"
             android:autofillHints="name"
             android:hint="@string/title_identity_name"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             android:inputType="textPersonName|textCapWords"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
