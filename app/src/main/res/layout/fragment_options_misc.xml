@@ -610,6 +610,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <Button
+                    android:id="@+id/btnRepair"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_bug_report_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_repair"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvRoomQueryThreads"
                     android:layout_width="0dp"
@@ -620,7 +632,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug" />
+                    app:layout_constraintTop_toBottomOf="@id/btnRepair" />
 
                 <SeekBar
                     android:id="@+id/sbRoomQueryThreads"
