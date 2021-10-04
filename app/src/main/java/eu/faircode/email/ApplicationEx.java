@@ -44,6 +44,7 @@ import androidx.work.WorkManager;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -521,7 +522,8 @@ public class ApplicationEx extends Application
         } else if (version < 1721) {
             if (!prefs.contains("discard_delete"))
                 editor.putBoolean("discard_delete", false);
-        }
+        } else if (version < 1753)
+            repairFolders(context);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
@@ -531,6 +533,49 @@ public class ApplicationEx extends Application
         editor.putInt("version", BuildConfig.VERSION_CODE);
 
         editor.apply();
+    }
+
+    static void repairFolders(Context context) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Log.i("Repair folders");
+                    DB db = DB.getInstance(context);
+
+                    List<EntityAccount> accounts = db.account().getAccounts();
+                    if (accounts == null)
+                        return;
+
+                    for (EntityAccount account : accounts) {
+                        if (account.protocol != EntityAccount.TYPE_IMAP)
+                            continue;
+
+                        EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                        if (inbox == null || !inbox.synchronize) {
+                            List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
+                            if (folders == null)
+                                continue;
+
+                            for (EntityFolder folder : folders) {
+                                if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
+                                    folder.type = EntityFolder.INBOX;
+
+                                if (!EntityFolder.USER.equals(folder.type) &&
+                                        !EntityFolder.SYSTEM.equals(folder.type)) {
+                                    EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
+                                    folder.setProperties();
+                                    folder.setSpecials(account);
+                                    db.folder().updateFolder(folder);
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        }).start();
     }
 
     private final ActivityLifecycleCallbacks lifecycleCallbacks = new ActivityLifecycleCallbacks() {
