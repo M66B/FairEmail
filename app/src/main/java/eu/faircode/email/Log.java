@@ -1938,6 +1938,7 @@ public class Log {
                     " enabled=" + enabled +
                     " interval=" + pollInterval +
                     "\r\nmetered=" + metered +
+                    " VPN=" + ConnectionHelper.vpnActive(context) +
                     " optimizing=" + (ignoring == null ? null : !ignoring) +
                     " auto_optimize=" + auto_optimize +
                     "\r\n\r\n");
