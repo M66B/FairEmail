@@ -686,10 +686,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }, new Runnable() {
             @Override
             public void run() {
-                if (BuildConfig.DEBUG) {
-                    ContactInfo.clearCache(ActivityView.this, true);
-                    ToastEx.makeText(ActivityView.this, R.string.title_completed, Toast.LENGTH_LONG).show();
-                }
+                if (BuildConfig.DEBUG)
+                    try {
+                        DnsBlockList.clearCache();
+                        ContactInfo.clearCache(ActivityView.this, true);
+                        ToastEx.makeText(ActivityView.this, R.string.title_completed, Toast.LENGTH_LONG).show();
+                    } catch (Throwable ex) {
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                    }
             }
         }));
 
