@@ -4,7 +4,7 @@
 
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
-### 1.1753
+### 1.1754
 
 * Small improvements and minor bug fixes
 * Updated translations

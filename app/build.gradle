@@ -3,7 +3,7 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 1753 }
+def getVersionCode = { -> return 1754 }
 def getRevision = { -> "a" }
 def getReleaseName = { -> return "Adratiklit" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
