@@ -763,8 +763,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 tvCategory.setVisibility(ch ? View.VISIBLE : View.GONE);
                 tvDate.setVisibility(dh ? View.VISIBLE : View.GONE);
 
-                if (ch)
+                if (ch) {
                     tvCategory.setText(message.accountCategory);
+                    if (date_bold)
+                        tvCategory.setTypeface(Typeface.DEFAULT_BOLD);
+                }
 
                 if (dh) {
                     tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.getTextSize(parent.getContext(), adapter.getZoom()));
