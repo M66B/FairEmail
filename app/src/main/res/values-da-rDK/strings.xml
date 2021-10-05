@@ -651,6 +651,7 @@
     <string name="title_recommended">Anbefalet</string>
     <string name="title_account_linked">Forbundet konto</string>
     <string name="title_account_name">Kontonavn</string>
+    <string name="title_account_category">Kategori</string>
     <string name="title_account_name_hint">Benyttes til mappedifferentiering</string>
     <string name="title_account_interval_hint">Opfriskningsfrekvensen af forbindelsen til push-beskeder eller frekvensen for tjek af nye beskeder</string>
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
@@ -791,6 +792,7 @@
     <string name="title_sort_unread_atop">Sortér ulæst øverst</string>
     <string name="title_search_folder">Søg efter mappe</string>
     <string name="title_apply_to_all">Anvend på alle</string>
+    <string name="title_edit_account_name">Redigér kontonavn</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i samlet indbakke</string>
     <string name="title_navigation_folder">Vis i navigationsmenu</string>

@@ -647,6 +647,7 @@
     <string name="title_recommended">建議的</string>
     <string name="title_account_linked">連結的帳戶</string>
     <string name="title_account_name">帳戶名</string>
+    <string name="title_account_category">分類</string>
     <string name="title_account_name_hint">用以區分不同帳戶的資料夾</string>
     <string name="title_account_interval_hint">推送訊息用連線的刷新頻率，或新訊息的檢查頻率</string>
     <string name="title_account_partial_fetch_hint">應僅在出現訊息為空或附件損壞的情況時才停用此選項</string>
@@ -787,6 +788,7 @@
     <string name="title_sort_unread_atop">置頂含未讀訊息資料夾</string>
     <string name="title_search_folder">搜尋資料夾</string>
     <string name="title_apply_to_all">套用至全部</string>
+    <string name="title_edit_account_name">編輯帳戶名</string>
     <string name="title_hide_folder">隱藏資料夾</string>
     <string name="title_unified_folder">顯示於全域收件匣中</string>
     <string name="title_navigation_folder">顯示於導航功能表中</string>
