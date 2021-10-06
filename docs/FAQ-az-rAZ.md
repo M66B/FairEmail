@@ -1985,30 +1985,30 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq82"></a>
-**(82) What is a tracking image?**
+**(82) İzləmə təsviri nədir?**
 
-Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
+İzləmə təsvirinin tam olaraq nə olduğunu öyrənmək üçün zəhmət olmasa [bura](https://en.wikipedia.org/wiki/Web_beacon) baxın. Qısaca, bir mesajı açmısınızsa, izləmə təsvirləri izləməyə başlayır.
 
-FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+FairEmail əksər hallarda izləmə təsvirlərini avtomatik olaraq tanıyır və onları bu nişanla əvəz edir:
 
 ![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+İzləmə təsvirlərinin avtomatik tanınması, gizlilik tənzimləmələrində sıradan çıxarıla bilər.
 
 <br />
 
 <a name="faq84"></a>
-**(84) What are local contacts for?**
+**(84) Yerli əlaqələr nə üçündür?**
 
-Local contact information is based on names and addresses found in incoming and outgoing messages.
+Yerli əlaqə məlumatları, gələn və gedən mesajlardan tapılan ad və ünvanlara əsaslanır.
 
-The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
+FairEmail-ə heç bir əlaqə icazəsi verilməyəndə yerli əlaqələr anbarının əsas istifadəsi avto-tamamlama təklif edir.
 
-Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people. This is also why the number of times contacted and the last time contacted is being recorded and why you can make a contact a favorite or exclude it from favorites by long pressing it.
+Başqa bir istifadəsi isə tez-tez əlaqə saxlanılan şəxslərə cəld bir mesaj göndərmək üçün ən son Android versiyalarında [qısayollar](#user-content-faq31) yaratmaqdır. Həmçinin bu, bir şəxs ilə neçə dəfə və ən son nə vaxt əlaqə saxlanıldığı kimi məlumatları qeyd edir və buna görə də həmin əlaqəni uzun basaraq sevimlilərə əlavə edə və ya sevimlilərdən çıxarda bilərsiniz.
 
-The list of contacts is sorted on number of times contacted and the last time contacted.
+Əlaqələr siyahısı, əlaqə saxlanılma sayına və son dəfə əlaqə saxlanılmaya görə sıralanır.
 
-By default only names and addresses to whom you send messages to will be recorded. You can change this in the send settings.
+İlkin olaraq yalnız mesaj göndərdiyiniz adlar və ünvanlar qeyd ediləcək. Bunu göndərmə tənzimləmələrindən dəyişdirə bilərsiniz.
 
 <br />
 

@@ -1485,6 +1485,7 @@
         Per mantenere e supportare FairEmail a lungo termine, alcune funzionalità convenzionali e avanzate non sono gratuite.
         FairEmail mostra un piccolo messaggio per ricordartene, che sarà rimosso se acquisti le funzionalità pro.
     </string>
+    <string name="title_pro_whichever">Qualunque siano le caratteristiche scelte come funzioni pro, c\'è sempre qualcuno che si lamenta che una funzione dovrebbe essere gratuita. Per favore, non essere quella persona.</string>
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">Acquistare le funzionalità pro ti consentirà di usare tutte le funzionalità pro correnti e future, aiuterà a mantenere e supportare quest\'app.</string>
     <string name="title_pro_price">Perché le funzionalità pro sono così costose?</string>

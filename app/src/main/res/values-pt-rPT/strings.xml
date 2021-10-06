@@ -560,6 +560,7 @@
     <string name="title_snooze_now">Adiar</string>
     <string name="title_pro_feature">Esta é uma funcionalidade da versão pro</string>
     <string name="title_pro_purchase">Comprar</string>
+    <string name="title_pro_whichever">Quaisquer que sejam os recursos escolhidos como recursos profissionais, há sempre alguém que reclama que um recurso deve ser gratuito. Por favor, não seja essa pessoa.</string>
     <string name="title_pro_restore">Como posso restaurar uma compra (em outro dispositivo) ?</string>
     <string name="title_log_clear">Limpar</string>
     <string name="title_debug_info_remark">Por favor descreva o problema e indique quando ocorreu:</string>

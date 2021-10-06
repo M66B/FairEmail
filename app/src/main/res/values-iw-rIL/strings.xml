@@ -7,6 +7,7 @@
     <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
     <string name="channel_service">קבל</string>
     <string name="channel_send">שלח</string>
+    <string name="channel_notification">מייל</string>
     <string name="channel_update">עדכונים</string>
     <string name="channel_warning">אזהרות</string>
     <string name="channel_error">שגיאות</string>

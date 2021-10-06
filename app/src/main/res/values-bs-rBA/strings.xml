@@ -1494,6 +1494,7 @@
         Za održavanje i dugoročnu podršku FairEmail-a, neke pogodnosti i napredne funkcionalnosti nisu besplatne.
         FairEmail prikazuje kratku poruku kako bi Vas podsjetio na ovo, a ista se može ukloniti kupovinom pro verzije.
     </string>
+    <string name="title_pro_whichever">Koje god funkcionalnosti bile izabrane za pro verziju, uvijek će neko prigovarati da određena funkcionalnost treba biti besplatna. Molimo da ne budete takva osoba.</string>
     <string name="title_pro_hide">Sakrij kratku poruku %1$d sedmice/a</string>
     <string name="title_pro_hint">Kupovinom pro funkcionalnosti omogućava Vam korištenje svih trenutnih ali i budućih pro funkcionalnosti, te omogućava dalje održavanje i podršku ove aplikacije.</string>
     <string name="title_pro_price">Zašto su pro funkcionalnosti tako skupe?</string>

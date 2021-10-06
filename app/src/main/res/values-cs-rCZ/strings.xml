@@ -679,6 +679,7 @@
     <string name="title_recommended">Doporučeno</string>
     <string name="title_account_linked">Připojený účet</string>
     <string name="title_account_name">Název účtu</string>
+    <string name="title_account_category">Kategorie</string>
     <string name="title_account_name_hint">Použito k odlišení složek</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžité zprávy nebo četnost kontroly nových zpráv</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
@@ -819,6 +820,7 @@
     <string name="title_sort_unread_atop">Seřadit nepřečtené nahoře</string>
     <string name="title_search_folder">Hledat složku</string>
     <string name="title_apply_to_all">Použít na vše</string>
+    <string name="title_edit_account_name">Upravit název účtu</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>
@@ -1503,6 +1505,7 @@
         Pro učinění FairEmailu dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně přístupné.
         Jako připomínku téhož zobrazuje FairEmail stručnou zprávu, jež bude odstraněna, zakoupíte-li si funkce Pro.
     </string>
+    <string name="title_pro_whichever">Ať jsou jakékoliv funkce vybrány jako Pro funkce, vždy si někdo stěžuje, že by funkce měla být zdarma. Neberte si to prosím osobně.</string>
     <string name="title_pro_hide">Skrýt stručnou zprávu po dobu %1$d týdnů</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Proč jsou Pro funkce tak drahé?</string>

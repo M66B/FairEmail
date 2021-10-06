@@ -1494,6 +1494,7 @@
         Pentru a menține și sprijini FairEmail pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
         FairEmail afișează un mic mesaj pentru a vă reaminti acest lucru, care va fi eliminat dacă achiziționați funcțiile Pro.
     </string>
+    <string name="title_pro_whichever">Oricare ar fi caracteristicile alese ca funcții pro, există întotdeauna cineva care se plânge că o caracteristică ar trebui să fie gratuită. Vă rugăm să nu fiți acea persoană.</string>
     <string name="title_pro_hide">Ascunde micul mesaj timp de %1$d săptămâni</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">De ce sunt caracteristicile Pro sunt atât de scumpe?</string>

@@ -342,6 +342,7 @@
     <string name="title_advanced_nav_hide_title">ナビゲーションメニューのオプションを非表示にしますか？</string>
     <string name="title_advanced_nav_hide_message">表示設定でもう一度オプションを有効にすることができます</string>
     <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示する</string>
+    <string name="title_advanced_nav_unseen_drafts">未読の下書きの数をナビゲーションメニューに表示する</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
     <string name="title_advanced_cards_beige">カードスタイルを使用するときはベージュの背景を使用します（ライトテーマのみ）</string>
@@ -437,6 +438,7 @@
     <string name="title_advanced_autoclose">会話を自動的に閉じます</string>
     <string name="title_advanced_onclose">会話を閉じる時</string>
     <string name="title_advanced_autoclose_unread">未読としてマークした時に会話を閉じる</string>
+    <string name="title_advanced_collapse_marked">手動で既読または未読としてマークされたメッセージを折りたたむ</string>
     <string name="title_advanced_undo">Undoのタイムアウト</string>
     <string name="title_advanced_quick_filter">目立たないクイックフィルターアイコンを表示</string>
     <string name="title_advanced_quick_scroll">目立たないクイックスクロールアップ/ダウンアイコンを表示</string>
@@ -645,6 +647,7 @@
     <string name="title_recommended">おすすめ</string>
     <string name="title_account_linked">リンクされたアカウント</string>
     <string name="title_account_name">アカウント名</string>
+    <string name="title_account_category">カテゴリ</string>
     <string name="title_account_name_hint">フォルダを区別する為に使用</string>
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度又は新しいメッセージを確認する頻度</string>
     <string name="title_account_partial_fetch_hint">空のメッセージ又は破損した添付ファイルの場合にのみ無効</string>
@@ -757,6 +760,8 @@
     <string name="title_delete_channel">通知チャンネルを削除</string>
     <string name="title_insert_contact">連絡先に追加</string>
     <string name="title_edit_contact">連絡先を編集</string>
+    <string name="title_import_contacts">Vcardをインポートする</string>
+    <string name="title_export_contacts">vCardをエクスポート</string>
     <string name="title_create_sub_folder">サブフォルダーを作成</string>
     <string name="title_empty_trash_ask">ゴミ箱に移動したメッセージを全て削除しますか？</string>
     <string name="title_empty_spam_ask">全ての迷惑メールを削除しますか？</string>
@@ -783,6 +788,7 @@
     <string name="title_sort_unread_atop">未読を先頭に並び替える</string>
     <string name="title_search_folder">フォルダを検索</string>
     <string name="title_apply_to_all">すべてに適用</string>
+    <string name="title_edit_account_name">アカウント名を編集</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
@@ -1118,6 +1124,9 @@
     <string name="title_search_for_hint">テキストを入力</string>
     <string name="title_search_hint">        はじめに、お使いのデバイスに保存されているメッセージを検索します。
         サーバーも検索するには「もう一度検索」ボタンをタップします
+    </string>
+    <string name="title_search_index_hint">        検索インデックスを介した検索は高速ですが、単語全体しか検索されません。
+        以下のオプションはメールサーバーの検索を続行します。
     </string>
     <string name="title_search_text_hint">メッセージ内のテキストを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります。</string>
     <string name="title_search_text_unsupported">\'%s\' は、メールサーバーがメッセージテキスト内の検索をサポートしていないことを意味します</string>
@@ -1464,6 +1473,7 @@
          FairEmailを長期的に維持およびサポートするために、いくつかの便利で高度な機能を無料で使用することはできません。
          FairEmailは、これを思い出させる小さなメッセージを表示します。これは、プロ機能を購入すると削除されます。
     </string>
+    <string name="title_pro_whichever">いずれの機能がプロの機能に選ばれても、機能が無料であるべきであると文句を言う人が必ずいます。そのような人にならないでください。</string>
     <string name="title_pro_hide">メッセージを%1$d 週間非表示にする</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price">なぜプロ機能はそんなに高価なのですか？</string>

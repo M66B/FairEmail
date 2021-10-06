@@ -1,6 +1,6 @@
 <a name="top"></a>
 
-# FairEmail support
+# FairEmail ସମର୍ଥନ
 
 If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
@@ -522,7 +522,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*General*
+*ସାଧାରଣ*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<h2><a name="get-support"></a>ସମର୍ଥନ ପାଆନ୍ତୁ</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
@@ -3048,4 +3048,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+ସତ୍ବାଧିକାର &copy; 2018-2021 Marcel Bokhorst।

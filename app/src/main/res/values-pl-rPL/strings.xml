@@ -679,6 +679,7 @@
     <string name="title_recommended">Zalecane</string>
     <string name="title_account_linked">Połączone konto</string>
     <string name="title_account_name">Nazwa konta</string>
+    <string name="title_account_category">Kategoria</string>
     <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
@@ -819,6 +820,7 @@
     <string name="title_sort_unread_atop">Sortuj nieprzeczytane na górze</string>
     <string name="title_search_folder">Szukaj folderu</string>
     <string name="title_apply_to_all">Zastosuj dla wszystkich</string>
+    <string name="title_edit_account_name">Edytuj nazwę konta</string>
     <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
@@ -1154,6 +1156,9 @@
     <string name="title_search_for_hint">Wprowadź tekst</string>
     <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
         Aby wyszukać również na serwerze, dotknij przycisku \'Szukaj ponownie\'.
+    </string>
+    <string name="title_search_index_hint">        Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa we wszystkich częściach wiadomości.
+        Poniższe opcje umożliwiają dalsze wyszukiwanie serwera e-mail.
     </string>
     <string name="title_search_text_hint">Wyszukiwanie tekstu w wiadomościach może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_text_unsupported">\'%s\' oznacza, że serwer pocztowy nie obsługuje wyszukiwania w tekstach wiadomości</string>
@@ -1499,6 +1504,7 @@
         FairEmail poważnie traktuje Twoją prywatność i nie wyświetla reklam oraz nie wykorzystuje śledzenia ani analiz do zarabiania pieniędzy.
         Aby utrzymać i wspierać FairEmail na dłuższą metę, niektóre udogodnienia i zaawansowane funkcje nie są bezpłatne.
         FairEmail wyświetla małą wiadomość przypominającą o tym, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
+    <string name="title_pro_whichever">Bez względu na to, jakie funkcje są wybierane jako Pro, zawsze jest ktoś, kto narzeka, że dana funkcja powinna być darmowa. Proszę nie bądź tą osobą.</string>
     <string name="title_pro_hide">Ukryj małą wiadomość na %1$d tygodnie</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Dlaczego funkcje pro są tak drogie?</string>

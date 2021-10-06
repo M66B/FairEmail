@@ -1485,6 +1485,7 @@
         Pour maintenir et rendre FairEmail durable à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites.
         FairEmail affiche une bannière pour vous le rappeler, laquelle sera retirée si vous achetez les fonctionnalités Pro.
     </string>
+    <string name="title_pro_whichever">Quelles que soient les fonctionnalités choisies en tant que fonctionnalités Pro, il y a toujours quelqu\'un qui se plaint qu\'une fonctionnalité devrait être gratuite. Ne soyez pas cette personne-là.</string>
     <string name="title_pro_hide">Masquer la bannière pendant %1$d semaines</string>
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de soutenir cette application.</string>
     <string name="title_pro_price">Pourquoi les fonctionnalités Pro sont-elles si chères ?</string>

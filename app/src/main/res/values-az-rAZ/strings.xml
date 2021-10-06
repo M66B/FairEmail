@@ -1484,6 +1484,7 @@
         \"FairEmail\"i uzun müddət qorumaq və dəstəkləmək üçün bəzi rahatlığa yönələn və qabaqcıl özəlliklərdən istifadə ödənişsiz deyil.
         FairEmail bunu xatırlatmaq üçün kiçik bir mesaj göstərir və Pro özəllikləri satın alsanız bu mesaj görünməyəcək.
     </string>
+    <string name="title_pro_whichever">Hansı özəlliyin pro özəllik kimi seçilməsindən asılı olmayaraq, hər zaman həmin özəlliyin ödənişsiz olması üçün şikayət edən biriləri olur. Xahiş edirəm elələri kimi olmayın.</string>
     <string name="title_pro_hide">Kiçik mesajı %1$d həftəlik gizlət</string>
     <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
     <string name="title_pro_price">Pro xüsusiyyətlər niyə bu qədər bahalıdır?</string>

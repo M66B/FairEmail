@@ -679,6 +679,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_recommended">Odporúčané</string>
     <string name="title_account_linked">Prepojený účet</string>
     <string name="title_account_name">Názov účtu</string>
+    <string name="title_account_category">Kategória</string>
     <string name="title_account_name_hint">Použije sa na odlíšenie priečinkov</string>
     <string name="title_account_interval_hint">Frekvencia obnovenia spojenia pre oznámenia push alebo frekvencia kontroly nových správ</string>
     <string name="title_account_partial_fetch_hint">Vypnite len pre prázdne správy alebo správy s poškodenými prílohami</string>
@@ -819,6 +820,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_unread_atop">Zotriediť s neprečítanými správami na vrchu</string>
     <string name="title_search_folder">Hľadať priečinok</string>
     <string name="title_apply_to_all">Použiť pre všetky</string>
+    <string name="title_edit_account_name">Upraviť názov účtu</string>
     <string name="title_hide_folder">Skryť priečinok</string>
     <string name="title_unified_folder">Zobraziť v spoločnej doručenej pošte</string>
     <string name="title_navigation_folder">Zobrazovať v navigačnom menu</string>
@@ -1499,6 +1501,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         S cieľom pre FairEmail zabezpečiť ďalší vývoj a dlhodobú podporu, niektoré unikátne a rozšírené vlastnosti nie sú zdarma.
         FairEmail toto pripomína zobrazovaním stručnej správy, ktorá zmizne, keď zaplatíte za pro vlastnosti.
     </string>
+    <string name="title_pro_whichever">Nech sú akékoľvek vlastnosti dostupné len v Pro verzii, vždy sa nájdu ľudia, ktorí budú niektoré z nich požadovať zdarma. Prosím, nebuďte aj vy týmito ľuďmi.</string>
     <string name="title_pro_hide">Skryť túto správu na %1$d týždne</string>
     <string name="title_pro_hint">Zaplatením za pro vlastnosti získate všetky terajšie aj budúce pro vlastnosti a prispejete na vývoj a podporu FairEmail.</string>
     <string name="title_pro_price">Prečo sú pro vlastnosti také drahé?</string>

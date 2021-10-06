@@ -1482,6 +1482,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
          FairEmail neemt uw privacy serieus en toont geen advertenties en gebruikt geen tracking of analyse om geld te verdienen.
          Om FairEmail op de lange termijn te onderhouden en te ondersteunen, zijn sommige gemaks- en geavanceerde functies niet gratis te gebruiken.
          FairEmail toont een klein bericht om u hieraan te herinneren, dat wordt verwijderd als u de pro-functies koopt.</string>
+    <string name="title_pro_whichever">Welke functies ook gekozen worden als pro functies, er is altijd wel iemand die klaagt dat een functie gratis zou moeten zijn. Wees alsjeblieft niet die persoon.</string>
     <string name="title_pro_hide">Verberg het kleine bericht voor %1$d weken</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
     <string name="title_pro_price">Waarom zijn de pro functies zo duur?</string>

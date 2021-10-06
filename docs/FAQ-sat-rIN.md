@@ -1,20 +1,20 @@
 <a name="top"></a>
 
-# FairEmail support
+# ᱯᱷᱮᱭᱟᱨ ᱤᱢᱮᱞ ᱛᱮ ᱥᱟᱯᱚᱴ
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+ᱡᱩᱫᱤ ᱟᱢ ᱴᱷᱮᱱ ᱠᱩᱠᱞᱤ ᱢᱮᱱᱟᱜᱼᱟ, ᱮᱱᱠᱷᱟᱱ ᱯᱩᱭᱞᱩ ᱜᱤᱲᱜᱮ ᱧᱮᱞ ᱢᱮ ᱠᱩᱠᱞᱤᱡ ᱠᱟᱱ ᱠᱩᱠᱞᱤ ᱠᱚ ᱾ [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
-## Index
+## ᱥᱩᱪᱤ
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
 * [How to ...?](#user-content-howto)
-* [Known problems](#user-content-known-problems)
-* [Planned features](#user-content-planned-features)
+* [ᱮᱴᱠᱮᱴᱚᱬᱮ ᱠᱚ ᱵᱟᱰᱟᱭ ᱢᱮ](#user-content-known-problems)
+* [ᱯᱞᱟᱱ ᱟᱠᱟᱱ ᱯᱷᱤᱪᱚᱨ ᱠᱚ](#user-content-planned-features)
 * [Frequently requested features](#user-content-frequently-requested-features)
 * [Frequently Asked Questions](#user-content-frequently-asked-questions)
-* [Get support](#user-content-get-support)
+* [ᱥᱟᱯᱚᱴ ᱧᱟᱢ ᱢᱮ](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
 
@@ -28,13 +28,13 @@ In some cases, you'll need to enable external access to your account and/or to u
 
 For authorizing:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, ᱧᱮᱞ ᱢᱮ [ᱠᱩᱠᱞᱤ 6](#user-content-faq6)
+* Outlook / Live / Hotmail, ᱧᱮᱞ ᱢᱮ [ᱠᱩᱠᱞᱤ 14](#user-content-faq14)
+* Office 365, ᱧᱮᱞ ᱢᱮ [ᱠᱩᱠᱞᱤ 14](#user-content-faq156)
+* Microsoft Exchange, ᱧᱮᱞ ᱢᱮ [ᱠᱩᱠᱞᱤ 8](#user-content-faq8)
+* Yahoo, AOL and Sky, ᱧᱮᱞ ᱢᱮ [ᱠᱩᱠᱞᱤ 88](#user-content-faq88)
+* Apple iCloud, ᱧᱮᱞ ᱢᱮ [ᱧᱮᱞ ᱢᱮ 148](#user-content-faq148)
+* Free.fr, ᱧᱮᱞ ᱢᱮ [ᱠᱩᱠᱞᱤ 157](#user-content-faq157)
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
@@ -47,7 +47,7 @@ Related questions:
 
 ## How to ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* ᱮᱠᱟᱣᱸᱴ ᱧᱩᱛᱩᱢ ᱵᱚᱫᱚᱞ ᱢᱮ: ᱥᱮᱴᱤᱝ ᱠᱚ, ᱴᱟᱯ ᱢᱟᱱᱩᱣᱟᱞ ᱥᱮᱴᱚᱯ, ᱴᱟᱯ ᱮᱠᱟᱣᱸᱴ ᱠᱚ, ᱴᱟᱯ ᱮᱠᱟᱣᱸᱴ
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
 * Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.

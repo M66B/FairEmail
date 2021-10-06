@@ -1484,6 +1484,7 @@ FairEmail nimmt Ihre Privatsphäre ernst, zeigt keine Werbung an und verwendet k
 Um FairEmail auf lange Sicht zu erhalten und zu unterstützen, sind einige Komfort- und erweiterte Funktionen nicht kostenlos nutzbar.
 Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwindet beim Kauf der Pro-Funktionen.
     </string>
+    <string name="title_pro_whichever">Welche Funktionen auch immer als Pro-Funktionen ausgewählt werden, es gibt immer jemanden, der sich beschwert, dass eine Funktion frei sein sollte. Bitte seien Sie nicht diese Person.</string>
     <string name="title_pro_hide">Kleinen Hinweis für %1$d Wochen ausblenden</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Warum sind die Pro-Funktionen so teuer?</string>

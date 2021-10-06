@@ -110,7 +110,7 @@
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
     <string name="title_setup_quick">快速设置</string>
-    <string name="title_setup_intro">设置一个帐户只需三步，之后您就可以发送和接收电子邮件了</string>
+    <string name="title_setup_intro">设置一个账户只需三步，之后您就可以发送和接收电子邮件了</string>
     <string name="title_setup_simple">无需更改任何其他选项</string>
     <string name="title_setup_issue">FairEmail 是为了帮助您保护隐私而开发的，毫不夸张地说，我在它身上花了数千小时。如果有任何问题，请在留下差评前先联系我获取支持。我很乐意帮忙！</string>
     <string name="title_setup_analytics">FairEmail 不会显示广告，也不会跟踪或分析您的行为。Bugsnag 用于错误报告，默认情况下是禁用的。</string>
@@ -122,18 +122,18 @@
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_quick_certificates">服务器证书</string>
     <string name="title_setup_wizard">向导</string>
-    <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
+    <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个账户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
     <string name="title_setup_manual">手动设置和更多账户选项</string>
     <string name="title_setup_classic">经典配置</string>
     <string name="title_setup_documentation">请查看您的电子邮件提供商的文档以获取正确的电子邮件服务器配置</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
-    <string name="title_setup_account_identity_hint">你可以在帐户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
-    <string name="title_setup_accounts">帐户</string>
+    <string name="title_setup_account_identity_hint">你可以在账户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
+    <string name="title_setup_accounts">账户</string>
     <string name="title_setup_identities">身份</string>
     <string name="title_setup_other">其他提供商</string>
-    <string name="title_setup_pop3">POP3 帐户</string>
+    <string name="title_setup_pop3">POP3 账户</string>
     <string name="title_setup_oauth_permission">电子邮件服务提供商仅允许官方应用程序版本使用OAuth</string>
     <string name="title_setup_gmail_support">授权 Google 账户仅在官方版本下有效，因为 Android 会检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
@@ -142,8 +142,8 @@
     <string name="title_setup_gmail_password">我想通过密码来授权一个账户</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
-    <string name="title_setup_oauth_update">再次授权现有帐户</string>
-    <string name="title_setup_oauth_updated">帐户授权已更新</string>
+    <string name="title_setup_oauth_update">再次授权现有账户</string>
+    <string name="title_setup_oauth_updated">账户授权已更新</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
@@ -153,7 +153,7 @@
     <string name="title_setup_app_password_hint">此供应商需要应用密码而不是帐户密码，请查看供应商的说明</string>
     <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
-    <string name="title_setup_quick_success">帐户已成功添加</string>
+    <string name="title_setup_quick_success">账户已成功添加</string>
     <string name="title_setup_quick_no_sent">没有选择发件箱文件夹。发送的消息可能不会存储。</string>
     <string name="title_setup_quick_configure">编辑名称、颜色、滑动动动作等</string>
     <string name="title_setup_manage">管理</string>
@@ -205,7 +205,7 @@
     <string name="title_setup_password_missing">密码缺失</string>
     <string name="title_setup_password_different">密码不匹配</string>
     <string name="title_setup_password_invalid">密码无效</string>
-    <string name="title_setup_import_accounts">导入帐户和身份</string>
+    <string name="title_setup_import_accounts">导入账户和身份</string>
     <string name="title_setup_import_rules">导入过滤规则</string>
     <string name="title_setup_import_contacts">导入本地联系人</string>
     <string name="title_setup_import_answers">导入回复模板</string>
@@ -594,7 +594,7 @@
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
-    <string name="title_advanced_autoseen_hint">在每个帐户的高级帐户设置中可以禁用展开消息时自动将其标记为已读</string>
+    <string name="title_advanced_autoseen_hint">在每个账户的高级账户设置中可以禁用展开消息时自动将其标记为已读</string>
     <string name="title_advanced_autoclose_hint">所有邮件已存档、发送或删除时自动关闭邮件会话</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
@@ -610,7 +610,7 @@
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用 “监视” 通知</string>
-    <string name="title_advanced_notify_separate_hint">如何配置帐户、文件夹和发送者的通知？</string>
+    <string name="title_advanced_notify_separate_hint">如何配置账户、文件夹和发送者的通知？</string>
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
     <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示直到消息文本下载完成</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
@@ -710,8 +710,8 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_default_composable">默认电子邮件地址由主帐户的主身份确定</string>
-    <string name="title_no_composable">发送邮件需要配置一个身份，并在帐户设置中选择一个草稿文件夹</string>
+    <string name="title_default_composable">默认电子邮件地址由主账户的主身份确定</string>
+    <string name="title_no_composable">发送邮件需要配置一个身份，并在帐账户设置中选择一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
@@ -790,7 +790,7 @@
     <string name="title_sort_unread_atop">将含未读邮件的文件夹排在最前面</string>
     <string name="title_search_folder">搜索文件夹</string>
     <string name="title_apply_to_all">应用到全部</string>
-    <string name="title_edit_account_name">编辑帐户名称</string>
+    <string name="title_edit_account_name">编辑账户名称</string>
     <string name="title_hide_folder">隐藏文件夹</string>
     <string name="title_unified_folder">在聚合收件箱中显示</string>
     <string name="title_navigation_folder">在导航菜单中显示</string>
@@ -1473,6 +1473,7 @@
         FairEmail 非常重视您的隐私，不会显示广告，更不会偷偷使用跟踪或分析来牟利。
         为了长期维护和支持 FairEmail，一些便利及高级功能需要付费使用。
         FairEmail 会显示一条小消息来提醒您这一点，该消息将在您购买了专业版功能后被移除。</string>
+    <string name="title_pro_whichever">无论选择将哪些功能作为专业功能，总会有人抱怨某个功能应该免费。请谅解也不要成为那样的人。</string>
     <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">为什么专业功能如此昂贵？</string>
