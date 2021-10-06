@@ -544,11 +544,17 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
                 @Override
                 public void onBound(IOpenPgpService2 service) {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
                     tvOpenPgpStatus.setText("Connected to " + pkg);
                 }
 
                 @Override
                 public void onError(Exception ex) {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
                     if ("bindService() returned false!".equals(ex.getMessage()))
                         tvOpenPgpStatus.setText("Not connected");
                     else {
