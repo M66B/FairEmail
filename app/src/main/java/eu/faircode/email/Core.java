@@ -3979,10 +3979,13 @@ class Core {
                     db.message().setMessageSeen(similar.id, message.seen);
                     db.message().setMessageUiSeen(similar.id, message.seen);
                 }
+
                 if (similar.answered != message.answered) {
                     Log.i(folder.name + " Synchronize similar id=" + similar.id + " answered=" + message.answered);
                     db.message().setMessageAnswered(similar.id, message.answered);
+                    db.message().setMessageUiAnswered(similar.id, message.answered);
                 }
+
                 if (similar.flagged != flagged) {
                     Log.i(folder.name + " Synchronize similar id=" + similar.id + " flagged=" + message.flagged);
                     db.message().setMessageFlagged(similar.id, message.flagged);
