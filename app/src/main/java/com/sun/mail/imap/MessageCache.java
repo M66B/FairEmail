@@ -130,6 +130,16 @@ public class MessageCache {
 	return msg;
     }
 
+    public int getCount() {
+		int count = 0;
+		for (int i = 0; i < size; i++) {
+			IMAPMessage msg = messages[i];
+			if (msg == null || !msg.isExpunged())
+				count++;
+		}
+		return count;
+	}
+
     /**
      * Get the message object for the indicated sequence number.
      * If the message object hasn't been created, create it.

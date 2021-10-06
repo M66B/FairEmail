@@ -1663,21 +1663,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		synchronized (messageCacheLock) {
 			if (messageCache == null)
 				return -1;
-
-			try {
-				int count = 0;
-				int size = messageCache.size();
-				for (int i = 1; i <= size; i++) {
-					Message message = messageCache.getMessage(i);
-					if (message != null && !message.isExpunged())
-						count++;
-				}
-
-				return count;
-			} catch (Throwable ex) {
-				eu.faircode.email.Log.e(ex);
-				return -1;
-			}
+			return messageCache.getCount();
 		}
 	}
 
