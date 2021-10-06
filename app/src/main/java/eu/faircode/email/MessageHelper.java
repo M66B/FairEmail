@@ -2786,6 +2786,8 @@ public class MessageHelper {
                     } else if ("signed-data".equalsIgnoreCase(smimeType)) {
                         getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                         return parts;
+                    } else if ("signed-receipt".equalsIgnoreCase(smimeType)) {
+                        // https://datatracker.ietf.org/doc/html/rfc2634#section-2
                     } else {
                         if (TextUtils.isEmpty(smimeType)) {
                             String name = ct.getParameter("name");
