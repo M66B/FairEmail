@@ -141,6 +141,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAuthNtlm;
     private SwitchCompat swAuthSasl;
     private SwitchCompat swExactAlarms;
+    private SwitchCompat swDupMsgId;
     private SwitchCompat swTestIab;
     private TextView tvProcessors;
     private TextView tvMemoryClass;
@@ -170,7 +171,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "protocol", "debug", "log_level",
             "use_modseq", "perform_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl",
-            "exact_alarms", "test_iab"
+            "exact_alarms", "dup_msgids", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -263,6 +264,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthNtlm = view.findViewById(R.id.swAuthNtlm);
         swAuthSasl = view.findViewById(R.id.swAuthSasl);
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
+        swDupMsgId = view.findViewById(R.id.swDupMsgId);
         swTestIab = view.findViewById(R.id.swTestIab);
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
@@ -739,6 +741,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("exact_alarms", checked).apply();
+            }
+        });
+
+        swDupMsgId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("dup_msgids", checked).apply();
             }
         });
 
@@ -1223,6 +1232,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthNtlm.setChecked(prefs.getBoolean("auth_ntlm", true));
         swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
+        swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
         swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));

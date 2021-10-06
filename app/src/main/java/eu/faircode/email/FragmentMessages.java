@@ -5352,17 +5352,33 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         }
 
+        final Context context = getContext();
+        if (context == null)
+            return true;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean expand_first = prefs.getBoolean("expand_first", true);
+        boolean expand_all = prefs.getBoolean("expand_all", false);
+        long download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+        boolean dup_msgids = prefs.getBoolean("dup_msgids", false);
+
         // Mark duplicates
         Map<String, List<TupleMessageEx>> duplicates = new HashMap<>();
-        for (TupleMessageEx message : messages)
-            if (message != null &&
-                    !TextUtils.isEmpty(message.hash)) {
-                if (!duplicates.containsKey(message.hash))
-                    duplicates.put(message.hash, new ArrayList<>());
-                duplicates.get(message.hash).add(message);
-            }
-        for (String hash : duplicates.keySet()) {
-            List<TupleMessageEx> dups = duplicates.get(hash);
+        for (TupleMessageEx message : messages) {
+            if (message == null)
+                continue;
+
+            String key = (dup_msgids ? message.msgid : message.hash);
+            if (TextUtils.isEmpty(key))
+                continue;
+
+            if (!duplicates.containsKey(key))
+                duplicates.put(key, new ArrayList<>());
+            duplicates.get(key).add(message);
+        }
+
+        for (String key : duplicates.keySet()) {
+            List<TupleMessageEx> dups = duplicates.get(key);
             int base = 0;
             for (int i = 0; i < dups.size(); i++)
                 if (dups.get(i).folder == folder) {
@@ -5376,16 +5392,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         if (autoExpanded) {
             autoExpanded = false;
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean expand_first = prefs.getBoolean("expand_first", true);
-            boolean expand_all = prefs.getBoolean("expand_all", false);
-            long download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
-
             if (download == 0)
                 download = Long.MAX_VALUE;
 
-            boolean unmetered = ConnectionHelper.getNetworkState(getContext()).isUnmetered();
+            boolean unmetered = ConnectionHelper.getNetworkState(context).isUnmetered();
 
             int count = 0;
             int unseen = 0;
