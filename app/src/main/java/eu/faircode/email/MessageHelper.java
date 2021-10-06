@@ -704,15 +704,16 @@ public class MessageHelper {
             if (auto_link)
                 HtmlHelper.autoLink(document);
 
-            for (Element child : document.body().children())
-                if (!TextUtils.isEmpty(child.text()) &&
-                        TextUtils.isEmpty(child.attr("fairemail"))) {
-                    String old = child.attr("style");
-                    String style = HtmlHelper.mergeStyles(
-                            "font-family:" + compose_font, old);
-                    if (!old.equals(style))
-                        child.attr("style", style);
-                }
+            if (!TextUtils.isEmpty(compose_font))
+                for (Element child : document.body().children())
+                    if (!TextUtils.isEmpty(child.text()) &&
+                            TextUtils.isEmpty(child.attr("fairemail"))) {
+                        String old = child.attr("style");
+                        String style = HtmlHelper.mergeStyles(
+                                "font-family:" + compose_font, old);
+                        if (!old.equals(style))
+                            child.attr("style", style);
+                    }
 
             document.select("div[fairemail=signature]").removeAttr("fairemail");
             document.select("div[fairemail=reference]").removeAttr("fairemail");

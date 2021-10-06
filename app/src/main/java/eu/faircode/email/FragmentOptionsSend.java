@@ -158,6 +158,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         String[] fontNameValues = getResources().getStringArray(R.array.fontNameValues);
 
         List<CharSequence> fn = new ArrayList<>();
+        fn.add("-");
         for (int i = 0; i < fontNameNames.length; i++) {
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(fontNameNames[i]);
             ssb.setSpan(new TypefaceSpan(fontNameValues[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -291,7 +292,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String value = fontNameValues[position];
+                String value = (position == 0 ? "" : fontNameValues[position - 1]);
                 boolean monospaced = prefs.getBoolean("monospaced", false);
                 if (value.equals(monospaced ? "monospace" : "sans-serif"))
                     prefs.edit().remove("compose_font").apply();
@@ -555,7 +556,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         String[] fontNameValues = getResources().getStringArray(R.array.fontNameValues);
         for (int pos = 0; pos < fontNameValues.length; pos++)
             if (fontNameValues[pos].equals(compose_font)) {
-                spComposeFont.setSelection(pos);
+                spComposeFont.setSelection(pos + 1);
                 break;
             }
 
