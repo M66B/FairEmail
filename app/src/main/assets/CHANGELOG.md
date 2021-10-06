@@ -2,6 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Banji](https://en.wikipedia.org/wiki/Banji)
+
+### 1.1755
+
+* Added no font option for outgoing messages (send settings)
+* Reduced memory usage
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### [Adratiklit](https://en.wikipedia.org/wiki/Adratiklit)
 
 ### 1.1754
