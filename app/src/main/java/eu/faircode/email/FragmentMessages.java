@@ -5356,10 +5356,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Map<String, List<TupleMessageEx>> duplicates = new HashMap<>();
         for (TupleMessageEx message : messages)
             if (message != null &&
-                    !TextUtils.isEmpty(message.msgid)) {
-                if (!duplicates.containsKey(message.msgid))
-                    duplicates.put(message.msgid, new ArrayList<>());
-                duplicates.get(message.msgid).add(message);
+                    !TextUtils.isEmpty(message.hash)) {
+                if (!duplicates.containsKey(message.hash))
+                    duplicates.put(message.hash, new ArrayList<>());
+                duplicates.get(message.hash).add(message);
             }
         for (String hash : duplicates.keySet()) {
             List<TupleMessageEx> dups = duplicates.get(hash);
