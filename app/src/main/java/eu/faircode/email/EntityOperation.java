@@ -116,7 +116,7 @@ public class EntityOperation {
                 boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
                 for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid))
-                    if (message.ui_seen != seen || message.ui_ignored != ignore) {
+                    if (similar.ui_seen != seen || similar.ui_ignored != ignore) {
                         db.message().setMessageUiSeen(similar.id, seen);
                         db.message().setMessageUiIgnored(similar.id, ignore);
                         queue(context, similar.account, similar.folder, similar.id, name, jargs);
@@ -127,7 +127,7 @@ public class EntityOperation {
                 boolean flagged = jargs.getBoolean(0);
                 Integer color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
                 for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid))
-                    if (message.ui_flagged != flagged || !Objects.equals(message.color, color)) {
+                    if (similar.ui_flagged != flagged || !Objects.equals(similar.color, color)) {
                         db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
                         queue(context, similar.account, similar.folder, similar.id, name, jargs);
                     }
