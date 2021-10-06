@@ -5702,14 +5702,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     if (account.protocol != EntityAccount.TYPE_IMAP) {
-                        if (!message.ui_seen && account.auto_seen)
+                        if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     } else {
-                        if (!folder.read_only && account.auto_seen) {
-                            int ops = db.operation().getOperationCount(message.folder, message.id, EntityOperation.SEEN);
-                            if (!message.seen || ops > 0)
-                                EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                        }
+                        if (account.auto_seen && !folder.read_only)
+                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
 
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
