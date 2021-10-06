@@ -1986,9 +1986,10 @@ public class Log {
                     for (TupleFolderEx folder : folders)
                         if (folder.synchronize)
                             size += write(os, "- " + folder.name + " " + folder.type +
+                                    (folder.unified ? " unified" : "") +
+                                    (folder.notify ? " notify" : "") +
                                     " poll=" + folder.poll + "/" + folder.poll_factor +
                                     " days=" + folder.sync_days + "/" + folder.keep_days +
-                                    " notify=" + folder.notify +
                                     " msgs=" + folder.content + "/" + folder.messages +
                                     " " + folder.state +
                                     (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
