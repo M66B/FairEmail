@@ -100,8 +100,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
      *
      * Could this somehow be included in the InternetHeaders object ??
      */
-    private Hashtable<String, String> loadedHeaders
-	    = new Hashtable<>(1);
+    private Hashtable<String, String> loadedHeaders;
 
     // This is our Envelope
     static final String EnvelopeCmd = "ENVELOPE INTERNALDATE RFC822.SIZE";
@@ -1168,7 +1167,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
      */
     public synchronized void invalidateHeaders() {
 	headersLoaded = false;
-	loadedHeaders.clear();
+	loadedHeaders = null;
 	headers = null;
 	envelope = null;
 	bs = null;
@@ -1676,6 +1675,8 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
     private boolean isHeaderLoaded(String name) {
 	if (headersLoaded) // All headers for this message have been loaded
 	    return true;
+	if (loadedHeaders == null)
+	    return false;
 	
 	return loadedHeaders.containsKey(name.toUpperCase(Locale.ENGLISH));
     }
@@ -1684,6 +1685,8 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
      * Mark that the given headers have been loaded from the server.
      */
     private void setHeaderLoaded(String name) {
+	if (loadedHeaders == null)
+	    loadedHeaders = new Hashtable<>(1);
 	loadedHeaders.put(name.toUpperCase(Locale.ENGLISH), name);
     }
 
@@ -1756,7 +1759,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
                 envelope.cc == null &&
                 envelope.inReplyTo == null &&
                 envelope.messageId == null &&
-                headersLoaded && loadedHeaders.size() == 0) {
+                headersLoaded && (loadedHeaders == null || loadedHeaders.size() == 0)) {
 			eu.faircode.email.Log.w("Expunged workaround host=" + ((IMAPStore) folder.getStore()).host);
 			return true;
 		}
