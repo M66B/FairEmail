@@ -529,6 +529,7 @@ public class FragmentGmail extends FragmentBase {
                     } else {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "Gmail update account=" + update.name);
+                        db.account().setAccountSynchronize(update.id, true);
                         db.account().setAccountPassword(update.id, password);
                         db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type);
                     }

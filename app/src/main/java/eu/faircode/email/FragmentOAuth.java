@@ -858,6 +858,7 @@ public class FragmentOAuth extends FragmentBase {
                     } else {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "OAuth update account=" + update.name);
+                        db.account().setAccountSynchronize(update.id, true);
                         db.account().setAccountPassword(update.id, state);
                         db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type);
                     }
