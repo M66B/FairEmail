@@ -1262,6 +1262,12 @@ public class HtmlHelper {
         String base = (b.size() > 0 ? b.get(0).attr("href") : null);
         for (Element a : document.select("a")) {
             String href = a.attr("href");
+
+            if (href.contains(" ")) {
+                href = href.replace(" ", "%20");
+                a.attr("href", href);
+            }
+
             if (!TextUtils.isEmpty(base))
                 try {
                     // https://developer.android.com/reference/java/net/URI
