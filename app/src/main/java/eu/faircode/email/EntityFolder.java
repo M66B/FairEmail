@@ -215,6 +215,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         put("junk", new TypeScore(EntityFolder.JUNK, 100));
         put("spam", new TypeScore(EntityFolder.JUNK, 100));
+        put("bulk", new TypeScore(EntityFolder.JUNK, 100));
         put("pourriel", new TypeScore(EntityFolder.JUNK, 100));
         put("quarantaine", new TypeScore(EntityFolder.JUNK, 50));
         put("Спам", new TypeScore(EntityFolder.JUNK, 100));
