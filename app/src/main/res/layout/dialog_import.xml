@@ -59,24 +59,14 @@
             android:id="@+id/tvImportHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="6dp"
             android:text="@string/title_setup_import_do"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
+
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbAccounts" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvImportGmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_setup_import_gmail"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImportHint" />
 
         <CheckBox
             android:id="@+id/cbRules"
@@ -87,7 +77,7 @@
             android:checked="true"
             android:text="@string/title_setup_import_contacts"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImportGmail" />
+            app:layout_constraintTop_toBottomOf="@id/tvImportHint" />
 
         <CheckBox
             android:id="@+id/cbContacts"

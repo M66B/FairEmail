@@ -42,6 +42,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -782,6 +783,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Log.w(ex);
             }
 
+        final int colorWarning = Helper.resolveColor(this, R.attr.colorWarning);
+
         View dview = LayoutInflater.from(this).inflate(R.layout.dialog_import_progress, null);
         TextView tvLog = dview.findViewById(R.id.tvLog);
         tvLog.setText(null);
@@ -935,6 +938,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 SpannableStringBuilder ssb = new SpannableStringBuilder();
                                 ssb.append(context.getString(R.string.title_importing_wizard));
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                                ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
                                 postProgress(ssb);
                                 EntityLog.log(context, "Run wizard account=" + account.name +
                                         "id=" + account.id);
@@ -1224,27 +1228,27 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 ServiceSynchronize.eval(context, "import");
                 Log.i("Imported data");
 
-                postProgress(context.getString(R.string.title_setup_imported), null);
+                SpannableStringBuilder ssb = new SpannableStringBuilder();
+                ssb.append(context.getString(R.string.title_setup_imported));
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                postProgress(ssb, null);
                 return null;
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex.getCause() instanceof BadPaddingException) {
-                    onProgress(getString(R.string.title_setup_password_invalid), null);
-                    onProgress("\n" + ex.toString(), null);
-                } else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException) {
-                    onProgress(getString(R.string.title_setup_import_invalid), null);
-                    onProgress("\n" + ex.toString(), null);
-                } else if (ex instanceof IllegalArgumentException ||
-                        ex instanceof IOException ||
-                        ex instanceof JSONException ||
-                        ex instanceof SecurityException) {
-                    onProgress(ex.toString(), null);
-                } else {
-                    dialog.dismiss();
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                SpannableStringBuilder ssb = new SpannableStringBuilder();
+                if (ex.getCause() instanceof BadPaddingException)
+                    ssb.append(getString(R.string.title_setup_password_invalid));
+                else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)
+                    ssb.append(getString(R.string.title_setup_import_invalid));
+                if (ssb.length() > 0) {
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                    ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
+                    ssb.append("\n\n");
                 }
+                ssb.append(ex.toString());
+                onProgress(ssb, null);
             }
         }.execute(this, args, "setup:import");
     }
