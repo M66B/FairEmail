@@ -1340,4 +1340,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Alice.de"
+        domain="alice\\.de,alice-dsl\\.de,alice-dsl\\.net"
+        link="https://maildienste.de/alice/">
+        <imap
+            host="imap.alice-dsl.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.alice-dsl.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
