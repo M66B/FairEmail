@@ -4,6 +4,13 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1756
+
+* Added settings import result dialog
+* Added send progress bar in sending notification
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1755
 
 * Added no font option for outgoing messages (send settings)
