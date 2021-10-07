@@ -1300,6 +1300,16 @@ public class SMTPTransport extends Transport {
 	try {
 	    mailFrom();
 	    rcptTo();
+	    eu.faircode.email.ObjectHolder<Integer> total = new eu.faircode.email.ObjectHolder<>();
+	    total.value = 0;
+	    this.message.writeTo(new OutputStream(){
+			@Override
+			public void write(int b) throws IOException {
+				total.value++;
+			}
+		});
+	    IProgress progress = (IProgress) session.getProperties()
+			.get("mail." + name + ".progress");
 	    if (chunkSize > 0 && supportsExtension("CHUNKING")) {
 		/*
 		 * Use BDAT to send the data in chunks.
@@ -1310,12 +1320,34 @@ public class SMTPTransport extends Transport {
 		 * from the message content, and b) the message content is
 		 * encoded before we even know that we can use BDAT.
 		 */
-		this.message.writeTo(bdat(), ignoreList);
+		this.message.writeTo(new FilterOutputStream(bdat()) {
+			private int size = 0;
+
+			@Override
+			public void write(int b) throws IOException {
+				super.write(b);
+				size++;
+				if (progress != null && (size % 1024) == 0)
+					progress.report(size, total.value);
+			}
+		}, ignoreList);
 		finishBdat();
 	    } else {
-		this.message.writeTo(data(), ignoreList);
+		this.message.writeTo(new FilterOutputStream(data()) {
+			private int size = 0;
+
+			@Override
+			public void write(int b) throws IOException {
+				super.write(b);
+				size++;
+				if (progress != null && (size % 1024) == 0)
+					progress.report(size, total.value);
+			}
+		}, ignoreList);
 		finishData();
 	    }
+	    if (progress != null)
+			progress.finished();
 	    if (sendPartiallyFailed) {
 		// throw the exception,
 		// fire TransportEvent.MESSAGE_PARTIALLY_DELIVERED event
@@ -1376,6 +1408,12 @@ public class SMTPTransport extends Transport {
 	}
 	sendMessageEnd();
     }
+
+    public interface IProgress {
+		void report(int size, int total);
+
+		void finished();
+	}
 
     /**
      * The send failed, fix the address arrays to report the failure correctly.

@@ -26,7 +26,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.security.KeyChain;
@@ -299,6 +298,10 @@ public class EmailService implements AutoCloseable {
     // https://tools.ietf.org/html/rfc3461
     void setDsnNotify(String what) {
         properties.put("mail." + protocol + ".dsn.notify", what);
+    }
+
+    void setProgress(SMTPTransport.IProgress listener) {
+        properties.put("mail." + protocol + ".progress", listener);
     }
 
     void setListener(StoreListener listener) {
