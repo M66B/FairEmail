@@ -41,7 +41,7 @@
         <item quantity="other">%1$d 个待执行的操作</item>
     </plurals>
     <plurals name="title_notification_unseen">
-        <item quantity="other">%1$d条新消息</item>
+        <item quantity="other">%1$d 条新消息</item>
     </plurals>
     <plurals name="title_notification_unsent">
         <item quantity="other">%1$d 封待发送邮件</item>
@@ -56,9 +56,9 @@
         <item quantity="other">永久删除 %1$d 则邮件？</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="other">将这%1$d则邮件标为垃圾邮件？</item>
+        <item quantity="other">将这 %1$d 则邮件标为垃圾邮件？</item>
     </plurals>
-    <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
+    <string name="title_ask_spam_who">将来自 %1$s 的邮件标为垃圾邮件？</string>
     <string name="title_junk_hint">您的电子邮件提供商负责过滤垃圾邮件。电子邮件应用程序没有可靠地执行此操作所需的所有数据。</string>
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
@@ -213,6 +213,10 @@
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_import_invalid">无效的设置文件</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">账户 %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">身份 %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">已跳过：已存在</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">运行向导以再次进行身份验证</string>
     <string name="title_setup_reorder_accounts">账户顺序</string>
     <string name="title_setup_reorder_folders">文件夹顺序</string>
     <string name="title_reset_order">重置顺序</string>

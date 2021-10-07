@@ -221,6 +221,10 @@
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
     <string name="title_setup_import_invalid">Ogiltig inställningsfil</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Konto %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identitet %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Hoppat över: finns redan</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Använd guiden för att autentisera igen</string>
     <string name="title_setup_reorder_accounts">Ordna konton</string>
     <string name="title_setup_reorder_folders">Ordna mappar</string>
     <string name="title_reset_order">Återställ ordning</string>

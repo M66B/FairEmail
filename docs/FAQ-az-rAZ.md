@@ -1969,18 +1969,18 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq80"></a>
-**~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE' ?~~**
+**~~(80) "BODYSTRUCTURE yüklənilə bilmir" xətasını necə düzəldə bilərəm?~~**
 
-~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~ ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
+~~*"BODYSTRUCTURE yüklənilə bilmir"* xəta mesajının səbəbi, e-poçt serverindəki xətalardır.~~ ~~Daha çox məlumat üçün [bura](https://javaee.github.io/javamail/FAQ#imapserverbug) baxın.~~
 
-~~FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.~~
+~~Onsuz da FairEmail, bu xətaları aradan qaldırmağa çalışır, ancaq bu nəticə verməsə, dəstək üçün e-poçt təchizatçınıza müraciət etməli olacaqsınız.~~
 
 <br />
 
 <a name="faq81"></a>
-**~~(81) Can you make the background of the original message dark in the dark theme?~~**
+**~~(81) Tünd temada orijinal mesajın arxaplanını da tünd edə bilərsiniz?~~**
 
-~~The original message is shown as the sender has sent it, including all colors.~~ ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
+~~Orijinal mesaj, bütün rənglər daxil olmaqla göndərənin göndərdiyi kimi görünür.~~ ~~Arxaplan rənginin dəyişdirilməsi həm orijinal görünüşü orijinallıqdan çıxarır, həm də mesajları, oxuna bilməyən hala çevirir.~~
 
 <br />
 

@@ -223,6 +223,10 @@
     <string name="title_setup_exported">Paramètres exportés</string>
     <string name="title_setup_imported">Paramètres importés</string>
     <string name="title_setup_import_invalid">Fichier de paramètres non valide</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Compte %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identité %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Ignoré : existe déjà</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Exécutez l\'assistant pour vous authentifier à nouveau</string>
     <string name="title_setup_reorder_accounts">Réordonner les comptes</string>
     <string name="title_setup_reorder_folders">Réordonner les dossiers</string>
     <string name="title_reset_order">Réinitialiser l’ordre</string>

@@ -199,6 +199,10 @@
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
     <string name="title_setup_import_invalid">Ficheiro de configurações inválido</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Conta %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identidade %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Ignorado: já existe</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Execute o assistente para autenticar novamente</string>
     <string name="title_setup_reorder_accounts">Ordenar contas</string>
     <string name="title_setup_reorder_folders">Ordenar pastas</string>
     <string name="title_reset_order">Reverter ordem</string>

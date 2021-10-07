@@ -222,6 +222,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_import_invalid">Ongeldig instellingenbestand</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Account %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identiteit %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Overgeslagen: bestaat al</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Voer de wizard uit om opnieuw te verifiëren</string>
     <string name="title_setup_reorder_accounts">Volgorde accounts</string>
     <string name="title_setup_reorder_folders">Volgorde mappen</string>
     <string name="title_reset_order">Reset volgorde</string>

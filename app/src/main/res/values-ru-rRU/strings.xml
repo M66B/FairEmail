@@ -243,6 +243,10 @@
     <string name="title_setup_exported">Настройки экспортированы</string>
     <string name="title_setup_imported">Настройки импортированы</string>
     <string name="title_setup_import_invalid">Неправильный файл настроек</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Учётная запись %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Идентификатор %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Пропущено: уже существует</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Запустить мастер для повторной аутентификации</string>
     <string name="title_setup_reorder_accounts">Упорядочить уч. записи</string>
     <string name="title_setup_reorder_folders">Упорядочить папки</string>
     <string name="title_reset_order">Изменить порядок</string>
@@ -1505,7 +1509,7 @@
         Чтобы сделать проект FairEmail устойчивым в долгосрочной перспективе, некоторые удобства и расширенные функции являются платными.
         FairEmail показывает небольшое сообщение, чтобы напоминать вам об этом. Оно будет удалено, если вы приобретёте функционал Pro.
     </string>
-    <string name="title_pro_whichever">Какие бы функции ни были выбраны в качестве профессиональных, всегда найдётся кто-нибудь, кто будет жаловаться, что функция должна быть бесплатной. Пожалуйста, не будь таким человеком.</string>
+    <string name="title_pro_whichever">Какие бы функции ни были выбраны в качестве профессиональных, всегда найдётся кто-нибудь, кто будет жаловаться, что функция должна быть бесплатной. Пожалуйста, не будьте таким человеком.</string>
     <string name="title_pro_hide">Скрыть маленькое сообщение на %1$d недели</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Почему функции Pro так дороги?</string>

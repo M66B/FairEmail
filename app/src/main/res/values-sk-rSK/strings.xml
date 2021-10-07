@@ -243,6 +243,10 @@
     <string name="title_setup_exported">Nastavenia boli exportované</string>
     <string name="title_setup_imported">Nastavenia boli importované</string>
     <string name="title_setup_import_invalid">Chybný súbor nastavení</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Účet %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Totožnosť %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Preskočené: už existuje</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Spustite sprievodcu a prihláste sa znovu</string>
     <string name="title_setup_reorder_accounts">Usporiadať účty</string>
     <string name="title_setup_reorder_folders">Usporiadať priečinky</string>
     <string name="title_reset_order">Obnoviť poradie</string>

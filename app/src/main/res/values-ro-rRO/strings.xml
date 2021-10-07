@@ -233,6 +233,10 @@
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_import_invalid">Fișier de setări invalid</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Cont %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identitate %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Sărit: există deja</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Rulați expertul pentru a vă autentifica din nou</string>
     <string name="title_setup_reorder_accounts">Ordine conturi</string>
     <string name="title_setup_reorder_folders">Ordine dosare</string>
     <string name="title_reset_order">Resetare ordine</string>
@@ -669,6 +673,7 @@
     <string name="title_recommended">Recomandat</string>
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
+    <string name="title_account_category">Categorie</string>
     <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
     <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>

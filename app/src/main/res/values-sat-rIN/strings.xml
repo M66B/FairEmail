@@ -55,6 +55,11 @@
     <string name="title_notification_sending">ᱢᱮᱥᱮᱡᱽ ᱠᱩᱞᱚᱜ ᱠᱟᱱᱟ</string>
     <string name="title_notification_waiting">ᱫᱩᱞᱟ.ᱲ ᱡᱚᱲᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱛᱟᱹᱝᱜᱤᱭ ᱢᱮ</string>
     <string name="title_notification_alert">ᱥᱚᱨᱵᱷᱚᱨ ᱟᱞᱚᱨᱴ: \'%1$s\'</string>
+    <string name="menu_setup">ᱥᱮᱴᱤᱝ</string>
+    <string name="title_list_accounts">ᱮᱠᱟᱣᱸᱴ</string>
+    <string name="title_list_identities">ᱩᱯᱨᱩᱢ</string>
+    <string name="title_setup">ᱥᱮᱴᱤᱝ</string>
+    <string name="title_setup_quick">ᱩᱥᱟᱹᱨᱟ ᱥᱮᱴᱚᱯ</string>
     <string name="title_setup_quick_accounts">ᱮᱠᱟᱣᱸᱴ ᱠᱚ ᱥᱮᱞᱮᱫᱽ ᱢᱮ ᱟᱨᱵᱟᱝ ᱵᱚᱫᱚᱞ ᱢᱮ </string>
     <string name="title_setup_quick_patience">ᱫᱟᱭᱟᱠᱟᱛᱮ ᱫᱷᱮᱨᱮᱡ ᱫᱚᱦᱚᱭ ᱢᱮ &#8230;</string>
     <string name="title_setup_quick_certificates">ᱥᱚᱨᱵᱷᱚᱨ ᱥᱟᱹᱴᱤᱯᱤᱠᱮᱴ</string>
@@ -106,6 +111,8 @@
     <string name="title_setup_theme_black_background">ᱦᱮᱸᱫᱮ ᱵᱮᱠᱜᱟᱨᱩᱸᱰ</string>
     <string name="title_setup_theme_html_light">ᱯᱷᱮᱰᱟᱛ ᱢᱮᱥᱮᱡᱽ ᱧᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱦᱟᱹᱞᱠᱟᱹ ᱵᱮᱜᱽᱨᱟᱩᱸᱰ </string>
     <string name="title_setup_theme_more_colors">ᱤᱧ ᱵᱟᱹᱲᱛᱤ ᱨᱚᱝᱤᱧ ᱠᱷᱚᱡᱚᱜ ᱠᱟᱱᱟ</string>
+    <string name="title_advanced_section_synchronize">ᱫᱟᱨᱟᱢ ᱢᱮ</string>
+    <string name="title_advanced_section_send">ᱠᱩᱞ ᱢᱮ</string>
     <string name="title_advanced_sync_folders">ᱥᱤᱝᱠᱨᱳᱱᱟᱤᱡᱽ ᱯᱷᱚᱞᱰᱟᱨ ᱞᱤᱥᱴ</string>
     <string name="title_advanced_sync_shared_folders">ᱥᱤᱝᱠᱨᱳᱱᱟᱤᱡᱽ ᱠᱩᱞᱟᱠᱟᱱ ᱯᱷᱚᱞᱰᱟᱨ ᱞᱤᱥᱴ ᱠᱚ</string>
     <string name="title_advanced_suggest_names">ᱧᱩᱛᱩᱢ ᱟᱨ ᱤᱢᱮᱞ ᱮᱰᱨᱮᱥ ᱵᱮᱵᱷᱟᱨ ᱢᱮ </string>
@@ -114,7 +121,29 @@
     <string name="title_advanced_signature_new">ᱱᱟᱣᱟ ᱢᱮᱥᱮᱡᱽ ᱠᱚ ᱞᱟᱹᱜᱤᱫ ᱥᱤᱜᱽᱱᱮᱪᱚᱨ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
     <string name="title_advanced_signature_reply">ᱛᱮᱞᱟ ᱨᱩᱣᱟᱹᱲ ᱡᱷᱚᱜ ᱥᱤᱜᱽᱱᱮᱪᱚᱨ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
     <string name="title_advanced_auto_link">ᱟᱡᱛᱮ ᱞᱤᱝᱠ ᱥᱤᱨᱡᱟᱹᱣᱜᱼᱟ</string>
+    <string name="title_advanced_caption_conversation">ᱨᱚᱯᱚᱲ</string>
+    <string name="title_advanced_caption_message">ᱢᱮᱥᱮᱡᱽ</string>
+    <string name="title_password">ᱯᱟᱥᱣᱟᱰ</string>
+    <string name="title_no_password">ᱯᱟᱥᱣᱟᱰ ᱟᱫ</string>
+    <string name="title_synchronize_enabled">ᱥᱤᱝᱠᱨᱳᱱᱟᱤᱡᱽ</string>
+    <string name="title_raw_send_message">ᱢᱮᱥᱮᱡᱽ</string>
+    <string name="title_raw_send_thread">ᱨᱚᱯᱚᱲ</string>
+    <string name="title_compose">ᱠᱚᱢᱯᱚᱡᱽ</string>
+    <string name="title_send">ᱠᱩᱞ ᱢᱮ</string>
+    <string name="title_legend_section_synchronize">ᱥᱤᱝᱠᱨᱳᱱᱟᱤᱡᱽ</string>
+    <string name="title_legend_section_folders">ᱯᱷᱚᱞᱰᱟᱨ ᱠᱚ</string>
+    <string name="title_legend_section_messages">ᱢᱮᱥᱮᱡᱽ</string>
+    <string name="title_legend_section_compose">ᱠᱚᱢᱯᱚᱡᱽ</string>
+    <string name="title_legend_thread">ᱨᱚᱯᱚᱲ</string>
+    <string name="title_legend_c">ᱠᱚᱢᱯᱚᱡᱽ</string>
+    <string name="title_log_clear">ᱯᱷᱟᱨᱪᱟᱭ ᱢᱮ</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>ᱮᱠᱟᱣᱸᱴ</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

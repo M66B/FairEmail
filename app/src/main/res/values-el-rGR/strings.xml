@@ -223,6 +223,10 @@
     <string name="title_setup_exported">Επιτυχής εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_imported">Επιτυχής εισαγωγή ρυθμίσεων</string>
     <string name="title_setup_import_invalid">Λάθος αρχείο ρυθμίσεων</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Λογαριασμός %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Ταυτότητα %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Παραλείφθηκε: υπάρχει ήδη</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Εκτέλεση οδηγού για εκ νέου ταυτοποίηση</string>
     <string name="title_setup_reorder_accounts">Ταξινόμηση λογαριασμών</string>
     <string name="title_setup_reorder_folders">Ταξινόμηση φακέλων</string>
     <string name="title_reset_order">Επαναφορά ταξινόμησης</string>
