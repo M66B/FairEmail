@@ -298,6 +298,26 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     protected abstract T onExecute(Context context, Bundle args) throws Throwable;
 
+    protected void postProgress(CharSequence status) {
+        postProgress(status, null);
+    }
+
+    protected void postProgress(CharSequence status, Bundle data) {
+        ApplicationEx.getMainHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    onProgress(status, data);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+    }
+
+    protected void onProgress(CharSequence status, Bundle data) {
+    }
+
     protected void onExecuted(Bundle args, T data) {
     }
 
