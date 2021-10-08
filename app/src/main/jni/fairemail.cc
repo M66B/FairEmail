@@ -86,7 +86,7 @@ Java_eu_faircode_email_TextHelper_jni_1detect_1language(JNIEnv *env, jclass claz
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_eu_faircode_email_EmailService_jni_1socket_1keep_1alive(
+Java_eu_faircode_email_ConnectionHelper_jni_1socket_1keep_1alive(
         JNIEnv *env, jclass clazz,
         jint fd, jint seconds) {
     // https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#setsockopt

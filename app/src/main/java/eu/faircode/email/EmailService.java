@@ -149,12 +149,6 @@ public class EmailService implements AutoCloseable {
     // TLS_FALLBACK_SCSV https://tools.ietf.org/html/rfc7507
     // TLS_EMPTY_RENEGOTIATION_INFO_SCSV https://tools.ietf.org/html/rfc5746
 
-    static {
-        System.loadLibrary("fairemail");
-    }
-
-    private static native int jni_socket_keep_alive(int fd, int seconds);
-
     private EmailService() {
         // Prevent instantiation
     }
@@ -1068,7 +1062,7 @@ public class EmailService implements AutoCloseable {
                 Log.i("Enabling TCP keep alive");
 
                 int fd = ParcelFileDescriptor.fromSocket(socket).getFd();
-                int errno = jni_socket_keep_alive(fd, TCP_KEEP_ALIVE_INTERVAL);
+                int errno = ConnectionHelper.jni_socket_keep_alive(fd, TCP_KEEP_ALIVE_INTERVAL);
                 if (errno == 0)
                     Log.i("Enabled TCP keep alive");
                 else
