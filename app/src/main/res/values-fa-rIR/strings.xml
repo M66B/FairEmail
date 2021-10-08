@@ -1053,6 +1053,7 @@
     <string name="title_accessibility_to">گیرنده</string>
     <string-array name="pollIntervalNames">
         <item>همیشه</item>
+        <item>Every 5 minutes</item>
         <item>هر ۱۵ دقیقه</item>
         <item>هر ۳۰ دقیقه</item>
         <item>هر ساعت</item>

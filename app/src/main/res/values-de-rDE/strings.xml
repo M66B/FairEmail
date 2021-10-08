@@ -206,10 +206,6 @@
     </string>
     <string name="title_setup_export_do">Die Exportdatei enthält alle Einstellungen und Daten, aber keine Nachrichten und keine in Signaturen eingebettete Grafiken.</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
-    <string name="title_setup_import_gmail">        Seit Android 8.0 (Oreo) können Gmail-Konten nicht mehr importiert werden,
-        da jedes Konto ausgewählt werden muss, um Zugriff auf das Konto zu gewähren.
-        Sie können jedoch Gmail-Konten ganz einfach mit dem Schnelleinrichtungsassistenten neu konfigurieren.
-    </string>
     <string name="title_setup_password">Passwort</string>
     <string name="title_setup_password_chars">Passwort enthält Steuer- oder Leerzeichen</string>
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
@@ -224,10 +220,10 @@
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
     <string name="title_setup_import_invalid">Ungültige Einstellungsdatei</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Konto %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identität %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Übersprungen: bereits vorhanden</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Assistent zur erneuten Authentifizierung ausführen</string>
+    <string name="title_importing_account">Konto %1$s</string>
+    <string name="title_importing_identity">Identität %1$s</string>
+    <string name="title_importing_exists">Übersprungen: bereits vorhanden</string>
+    <string name="title_importing_wizard">Assistent zur erneuten Authentifizierung ausführen</string>
     <string name="title_setup_reorder_accounts">Konten sortieren</string>
     <string name="title_setup_reorder_folders">Ordner sortieren</string>
     <string name="title_reset_order">Standard-Reihenfolge</string>
@@ -1570,9 +1566,10 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_accessibility_to">Empfänger</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
+        <item>Alle 5 Minuten</item>
         <item>Alle 15 Minuten</item>
         <item>Alle 30 Minuten</item>
-        <item>Jede Stunde</item>
+        <item>Stündlich</item>
         <item>Alle 2 Stunden</item>
         <item>Alle 4 Stunden</item>
         <item>Alle 8 Stunden</item>

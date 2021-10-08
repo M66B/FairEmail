@@ -1016,6 +1016,7 @@
     <string name="title_accessibility_to">Primatelj</string>
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
+        <item>Svakih 5 minuta</item>
         <item>Svakih 15 minuta</item>
         <item>Svakih 30 minuta</item>
         <item>Svaki sat</item>

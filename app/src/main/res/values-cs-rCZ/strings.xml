@@ -226,9 +226,6 @@
     </string>
     <string name="title_setup_export_do">Exportovaný soubor bude obsahovat všechna nastavení a data, ale žádné zprávy a obrázky, uvedené v podpisech</string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
-    <string name="title_setup_import_gmail">        Od Androidu 8 - Oreo, již nelze importovat Gmail účty, protože každý účet musí být vybrán zvlášť, aby k němu byla udělena přístupová práva.
-        Gmail účty můžete snadno konfigurovat pomocí průvodce rychlým nastavením.
-    </string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
@@ -1589,6 +1586,7 @@
     <string name="title_accessibility_to">Příjemce</string>
     <string-array name="pollIntervalNames">
         <item>Neustále</item>
+        <item>Každých 5 minut</item>
         <item>Každých 15 minut</item>
         <item>Každých 30 minut</item>
         <item>Každou hodinu</item>

@@ -63,10 +63,10 @@
     <string name="title_setup_exported">ସେଟିଂସ୍ ରପ୍ତାନି ହୋଇଛି</string>
     <string name="title_setup_imported">ସେଟିଂସ୍ ଆମଦାନୀ ହୋଇଛି</string>
     <string name="title_setup_import_invalid">ଅବୈଧ ସେଟିଂସ୍ ଫାଇଲ୍</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">ଆକାଉଣ୍ଟ୍ %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">ପରିଚୟ %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">ସ୍କିପ୍ କରାଗଲା: ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">ପୁନର୍ବାର ପ୍ରାମାଣିକିକରଣ ପାଇଁ ୱିଜାର୍ଡ ଚଲାନ୍ତୁ</string>
+    <string name="title_importing_account">ଆକାଉଣ୍ଟ୍ %1$s</string>
+    <string name="title_importing_identity">ପରିଚୟ %1$s</string>
+    <string name="title_importing_exists">ସ୍କିପ୍ କରାଗଲା: ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି</string>
+    <string name="title_importing_wizard">ପୁନର୍ବାର ପ୍ରାମାଣିକିକରଣ ପାଇଁ ୱିଜାର୍ଡ ଚଲାନ୍ତୁ</string>
     <string name="title_setup_authentication">ପ୍ରାମାଣିକିକରଣ</string>
     <string name="title_setup_biometrics">ବାୟୋମେଟ୍ରିକ୍ ପ୍ରାମାଣିକରଣ</string>
     <string name="title_setup_biometrics_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
@@ -136,6 +136,7 @@
     <string name="title_send">ପଠାନ୍ତୁ</string>
     <string name="title_send_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
     <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_language_all">ସମସ୍ତ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_legend_section_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>

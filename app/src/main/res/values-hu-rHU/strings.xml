@@ -1360,6 +1360,7 @@
     <string name="title_accessibility_to">Címzett</string>
     <string-array name="pollIntervalNames">
         <item>Mindig</item>
+        <item>Minden 5 percenként</item>
         <item>Minden 15 percenként</item>
         <item>30 percenként</item>
         <item>Óránként</item>

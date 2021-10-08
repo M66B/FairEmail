@@ -475,6 +475,7 @@
     <string name="title_accessibility_from">المُرسِل</string>
     <string-array name="pollIntervalNames">
         <item>دائماً</item>
+        <item>كل 5 دقيقة</item>
         <item>كل 15 دقيقة</item>
         <item>كل 30 دقيقة</item>
         <item>كل ساعة</item>

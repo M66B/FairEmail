@@ -1072,6 +1072,7 @@
     <string name="title_accessibility_to">Prejemnik</string>
     <string-array name="pollIntervalNames">
         <item>Vedno</item>
+        <item>Vsakih 5 minut</item>
         <item>Vsakih 15 minut</item>
         <item>Vsakih 30 minut</item>
         <item>Vsako uro</item>

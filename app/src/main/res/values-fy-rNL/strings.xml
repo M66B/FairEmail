@@ -1418,6 +1418,7 @@
     <string name="title_accessibility_to">Ûntfanger</string>
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
+        <item>Elke 5 minuten</item>
         <item>Elke 15 minuten</item>
         <item>Elke 30 minuten</item>
         <item>Elk oere</item>

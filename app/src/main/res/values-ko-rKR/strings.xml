@@ -757,6 +757,7 @@
     <string name="title_accessibility_to">수신</string>
     <string-array name="pollIntervalNames">
         <item>항상</item>
+        <item>매 5분</item>
         <item>매 15분</item>
         <item>매 30분</item>
         <item>매시간</item>

@@ -226,9 +226,6 @@
     </string>
     <string name="title_setup_export_do">Экспортируемый файл будет содержать все настройки и данные, но не сообщения и изображения из подписей</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
-    <string name="title_setup_import_gmail">        Начиная с Android 8. Oreo, аккаунты Gmail больше не могут быть импортированы, так как необходимо непосредственно указывать каждый аккаунт, которому предоставляется доступ к учётной записи.
-        Вы можете легко перенастроить учётные записи Gmail с помощью мастера быстрой настройки.
-    </string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль содержит управляющие символы или пробелы</string>
     <string name="title_setup_password_repeat">Подтвердить пароль</string>
@@ -243,10 +240,10 @@
     <string name="title_setup_exported">Настройки экспортированы</string>
     <string name="title_setup_imported">Настройки импортированы</string>
     <string name="title_setup_import_invalid">Неправильный файл настроек</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Учётная запись %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Идентификатор %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Пропущено: уже существует</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Запустить мастер для повторной аутентификации</string>
+    <string name="title_importing_account">Учётная запись %1$s</string>
+    <string name="title_importing_identity">Идентификатор %1$s</string>
+    <string name="title_importing_exists">Пропущено: уже существует</string>
+    <string name="title_importing_wizard">Запустить мастер для повторной аутентификации</string>
     <string name="title_setup_reorder_accounts">Упорядочить уч. записи</string>
     <string name="title_setup_reorder_folders">Упорядочить папки</string>
     <string name="title_reset_order">Изменить порядок</string>
@@ -1593,6 +1590,7 @@
     <string name="title_accessibility_to">Получатель</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
+        <item>Каждые 5 минут</item>
         <item>Каждые 15 минут</item>
         <item>Каждые 30 минут</item>
         <item>Каждый час</item>

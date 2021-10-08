@@ -226,9 +226,6 @@
     </string>
     <string name="title_setup_export_do">Plik będzie zawierał wszystkie ustawienia i dane, bez żadnych komunikatów i obrazów w odniesieniu do podpisów</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
-    <string name="title_setup_import_gmail">        Od Androida 8. Oreo, konta Gmail nie mogą być już zaimportowane, ponieważ każde konto musi być wybrane w celu udzielenia dostępu do konta.
-        Możesz z łatwością skonfigurować konta Gmail z szybkim kreatorem konfiguracji.
-    </string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_chars">Hasło zawiera znaki kontrolne lub znaki spacji</string>
     <string name="title_setup_password_repeat">Powtórz hasło</string>
@@ -1588,6 +1585,7 @@
     <string name="title_accessibility_to">Adresat</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
+        <item>Co 5 minut</item>
         <item>Co 15 minut</item>
         <item>Co 30 minut</item>
         <item>Co godzinę</item>

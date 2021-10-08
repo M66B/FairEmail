@@ -196,9 +196,6 @@
     </string>
     <string name="title_setup_export_do">导出文件将包含所有的设置和数据，但是不含邮件，也不含签名中引用的图像</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
-    <string name="title_setup_import_gmail">        从 Android 8.0 Oreo 起，Gmail 帐户不能再被导入，因为必须选择每个帐户才能授予该帐户的访问权限。
-        您可以轻松地通过快速设置向导重新配置 Gmail 帐户。
-    </string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
     <string name="title_setup_password_repeat">再次输入密码</string>
@@ -213,10 +210,10 @@
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_import_invalid">无效的设置文件</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">账户 %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">身份 %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">已跳过：已存在</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">运行向导以再次进行身份验证</string>
+    <string name="title_importing_account">账户 %1$s</string>
+    <string name="title_importing_identity">身份 %1$s</string>
+    <string name="title_importing_exists">已跳过：已存在</string>
+    <string name="title_importing_wizard">运行向导以再次进行身份验证</string>
     <string name="title_setup_reorder_accounts">账户顺序</string>
     <string name="title_setup_reorder_folders">文件夹顺序</string>
     <string name="title_reset_order">重置顺序</string>
@@ -1558,6 +1555,7 @@
     <string name="title_accessibility_to">收件人</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
+        <item>每5分钟</item>
         <item>每15分钟</item>
         <item>每30分钟</item>
         <item>每小时</item>

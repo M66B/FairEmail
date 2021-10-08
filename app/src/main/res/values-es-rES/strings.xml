@@ -206,9 +206,6 @@
     </string>
     <string name="title_setup_export_do">El archivo de exportación contendrá todos los ajustes y datos, pero no hay mensajes ni imágenes referenciadas en las firmas</string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
-    <string name="title_setup_import_gmail">        Desde Android 8.0 Oreo, las cuentas de Gmail no pueden ser importadas, ya que cada cuenta debe ser seleccionada para conceder acceso a la cuenta.
-        Puede reconfigurar fácilmente las cuentas de Gmail con el asistente de configuración rápida.
-    </string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
@@ -1566,6 +1563,7 @@
     <string name="title_accessibility_to">Destinatario</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
+        <item>Cada 5 minutos</item>
         <item>Cada 15 minutos</item>
         <item>Cada 30 minutos</item>
         <item>Cada hora</item>

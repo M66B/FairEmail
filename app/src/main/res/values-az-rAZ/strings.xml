@@ -206,9 +206,6 @@
     </string>
     <string name="title_setup_export_do">İxrac faylı, bütün tənzimləmələr və verilənləri ehtiva edəcək, ancaq imzalarda istinad edilən mesaj və təsvirləri ehtiva etməyəcək</string>
     <string name="title_setup_import_do">İdxal edilən hesablar, mövcud hesabların üzərinə yazılmadan əlavə ediləcək</string>
-    <string name="title_setup_import_gmail">        Android 8.0 Oreo-dan etibarən, hesaba müraciətə icazə vermək üçün hər bir hesabın seçilməsi tələb olunduğuna görə Gmail hesabları artıq idxal edilə bilməz.
-        Cəld quraşdırma sehrbazı ilə Gmail hesablarını asanlıqla təkrar konfiqurasiya edə bilərsiniz.
-    </string>
     <string name="title_setup_password">Şifrə</string>
     <string name="title_setup_password_chars">Şifrələr, nəzarət və ya boşluq simvollarını ehtiva edir</string>
     <string name="title_setup_password_repeat">Şifrəni təkrarla</string>
@@ -223,10 +220,10 @@
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
     <string name="title_setup_import_invalid">Etibarsız tənzimləmələr faylı</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Hesab %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Kimlik %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Ötürüldü: artıq mövcuddur</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Yenidən kimlik təsdiqləməsi etmək üçün sehrbazı işə salın</string>
+    <string name="title_importing_account">Hesab %1$s</string>
+    <string name="title_importing_identity">Kimlik %1$s</string>
+    <string name="title_importing_exists">Ötürüldü: artıq mövcuddur</string>
+    <string name="title_importing_wizard">Yenidən kimlik təsdiqləməsi etmək üçün sehrbazı işə salın</string>
     <string name="title_setup_reorder_accounts">Hesabları sırala</string>
     <string name="title_setup_reorder_folders">Qovluqları sırala</string>
     <string name="title_reset_order">Sıralamanı sıfırla</string>
@@ -1570,6 +1567,7 @@
     <string name="title_accessibility_to">Alan</string>
     <string-array name="pollIntervalNames">
         <item>Həmişə</item>
+        <item>Hər 5 dəqiqədə</item>
         <item>Hər 15 dəqiqədə</item>
         <item>Hər 30 dəqiqədə</item>
         <item>Hər saat</item>

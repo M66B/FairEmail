@@ -204,9 +204,6 @@
     <string name="title_setup_export_remark">Eftersom konfigurationsfilen innehåller alla inställningar och all kontoinformation så krypteras den med ett lösenord. Lösenordet behövs för att importera konfigurationsfilen igen, så glöm inte bort det!    </string>
     <string name="title_setup_export_do">Exportfilen kommer att innehålla alla inställningar och data, men inga meddelanden och inga bilder från signaturer</string>
     <string name="title_setup_import_do">Importerade konton kommer att läggas till utan att skriva över några befintliga</string>
-    <string name="title_setup_import_gmail">        Sedan Android 8. Oreo kan inte Gmail-konton längre importeras, eftersom varje konto måste väljas för att ge åtkomst till kontot.
-        Du kan enkelt konfigurera Gmail-konton med snabbinstallationsguiden.
-    </string>
     <string name="title_setup_password">Lösenord</string>
     <string name="title_setup_password_chars">Lösenordet innehåller CTRL- eller blanksteg</string>
     <string name="title_setup_password_repeat">Upprepa lösenord</string>
@@ -221,10 +218,10 @@
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
     <string name="title_setup_import_invalid">Ogiltig inställningsfil</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Konto %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identitet %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Hoppat över: finns redan</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Använd guiden för att autentisera igen</string>
+    <string name="title_importing_account">Konto %1$s</string>
+    <string name="title_importing_identity">Identitet %1$s</string>
+    <string name="title_importing_exists">Hoppat över: finns redan</string>
+    <string name="title_importing_wizard">Använd guiden för att autentisera igen</string>
     <string name="title_setup_reorder_accounts">Ordna konton</string>
     <string name="title_setup_reorder_folders">Ordna mappar</string>
     <string name="title_reset_order">Återställ ordning</string>
@@ -1568,6 +1565,7 @@
     <string name="title_accessibility_to">Mottagare</string>
     <string-array name="pollIntervalNames">
         <item>Kontinuerligt</item>
+        <item>Varje 5 minuter</item>
         <item>Varje 15 minuter</item>
         <item>Varje 30 minuter</item>
         <item>Varje timme</item>

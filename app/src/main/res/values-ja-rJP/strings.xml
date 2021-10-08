@@ -196,9 +196,6 @@
     </string>
     <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
-    <string name="title_setup_import_gmail">        Android 8.0 Oreo以降、アカウントへのアクセスを許可するには各アカウントを選択する必要があるため、Gmailアカウントをインポートできなくなりました。
-        クイックセットアップウィザードを使用して、Gmailアカウントを簡単に再構成できます。
-    </string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字又は空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードの再入力</string>
@@ -213,10 +210,10 @@
     <string name="title_setup_exported">エクスポートされた設定</string>
     <string name="title_setup_imported">インポートされた設定</string>
     <string name="title_setup_import_invalid">無効な設定ファイル</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">アカウント %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">ID %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">スキップされました: 既に存在しています</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">ウィザードを実行してもう一度認証する</string>
+    <string name="title_importing_account">アカウント %1$s</string>
+    <string name="title_importing_identity">ID %1$s</string>
+    <string name="title_importing_exists">スキップされました: 既に存在しています</string>
+    <string name="title_importing_wizard">ウィザードを実行してもう一度認証する</string>
     <string name="title_setup_reorder_accounts">アカウントの並び替え</string>
     <string name="title_setup_reorder_folders">フォルダーの並び替え</string>
     <string name="title_reset_order">並び替えのリセット</string>
@@ -1558,6 +1555,7 @@
     <string name="title_accessibility_to">受信者</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
+        <item>5分毎</item>
         <item>15分毎</item>
         <item>30分毎</item>
         <item>1時間毎</item>

@@ -206,9 +206,6 @@
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
-    <string name="title_setup_import_gmail">        Depuis Android 8.0 Oreo, les comptes Gmail ne peuvent plus être importés car chaque compte doit être sélectionné pour donner accès au compte.
-        Vous pouvez facilement reconfigurer les comptes Gmail avec l\'assistant d\'installation rapide.
-    </string>
     <string name="title_setup_password">Mot de passe</string>
     <string name="title_setup_password_chars">Le mot de passe contient des caractères de contrôle ou des espaces</string>
     <string name="title_setup_password_repeat">Confirmer le mot de passe</string>
@@ -223,10 +220,10 @@
     <string name="title_setup_exported">Paramètres exportés</string>
     <string name="title_setup_imported">Paramètres importés</string>
     <string name="title_setup_import_invalid">Fichier de paramètres invalide</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Compte %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identité %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Ignoré : existe déjà</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Exécutez l\'assistant pour vous authentifier à nouveau</string>
+    <string name="title_importing_account">Compte %1$s</string>
+    <string name="title_importing_identity">Identité %1$s</string>
+    <string name="title_importing_exists">Ignoré : existe déjà</string>
+    <string name="title_importing_wizard">Exécutez l\'assistant pour vous authentifier à nouveau</string>
     <string name="title_setup_reorder_accounts">Réordonner les comptes</string>
     <string name="title_setup_reorder_folders">Réordonner les dossiers</string>
     <string name="title_reset_order">Réinitialiser l’ordre</string>
@@ -1571,6 +1568,7 @@
     <string name="title_accessibility_to">Destinataire</string>
     <string-array name="pollIntervalNames">
         <item>En continu</item>
+        <item>Toutes les 5 minutes</item>
         <item>Toutes les 15 minutes</item>
         <item>Toutes les 30 minutes</item>
         <item>Toutes les heures</item>

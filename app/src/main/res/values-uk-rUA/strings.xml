@@ -227,9 +227,6 @@
     </string>
     <string name="title_setup_export_do">Файл експорту буде містити всі налаштування і дані, але ніяких повідомлень і зображень, на які посилаються в підписах</string>
     <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
-    <string name="title_setup_import_gmail">      Починаючи з Android 8 (Oreo), облікові записи Gmail більше не можна імпортувати, тому що кожен обліковий запис повинен бути обраний для надання доступу до облікового запису.
-        Можна легко переналаштувати обліковий запис Gmail за допомогою майстра швидкого налаштування.
-    </string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
     <string name="title_setup_password_repeat">Повторіть пароль</string>
@@ -1589,6 +1586,7 @@
     <string name="title_accessibility_to">Одержувач</string>
     <string-array name="pollIntervalNames">
         <item>Завжди</item>
+        <item>Кожні 5 хвилин</item>
         <item>Кожні 15 хвилин</item>
         <item>Кожні 30 хвилин</item>
         <item>Кожну годину</item>

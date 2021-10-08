@@ -204,9 +204,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string>
     <string name="title_setup_export_do">Dışa aktarma dosyası tüm ayarları ve verileri içerecek, ancak imzalarda atıfta bulunulan hiçbir mesaj ve resim olmayacak</string>
     <string name="title_setup_import_do">İçe aktarılan hesaplar varolan hesapların üzerine yazılmadan eklenecek</string>
-    <string name="title_setup_import_gmail">        Android 8.0 Oreo\'dan bu yana, hesaba erişim izni vermek için her hesabın seçilmesi gerektiğinden Gmail hesapları artık içe aktarılamaz.
-        Hızlı kurulum sihirbazı ile Gmail hesaplarını kolayca yeniden yapılandırabilirsiniz.
-    </string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_chars">Parola, kontrol veya boşluk karakterleri içeriyor</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
@@ -1553,11 +1550,12 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_accessibility_to">Alıcı</string>
     <string-array name="pollIntervalNames">
         <item>Her Zaman</item>
+        <item>Her 5 dakikada</item>
         <item>Her 15 dakikada</item>
         <item>Her 30 dakikada</item>
         <item>Her Saat</item>
         <item>2 saatte bir</item>
-        <item>4 saatte bir</item>
+        <item>Her 4 saatte bir</item>
         <item>8 saatte bir</item>
         <item>Her gün</item>
     </string-array>

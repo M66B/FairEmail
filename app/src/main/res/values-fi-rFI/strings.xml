@@ -206,9 +206,6 @@
     </string>
     <string name="title_setup_export_do">Viety tiedosto sisältää kaikki asetukset ja tiedot, mutta ei viestejä eikä kuvia, joihin viitataan allekirjoituksissa</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
-    <string name="title_setup_import_gmail">        Androidista 8.0 Oreosta alkaen Gmail-tilejä ei voi enää tuoda, koska jokainen tili on valittava erikseen pääsyn sallimiseksi.
-        Voit helposti määrittää Gmail-tilejä uudelleen käyttämällä pika-asetusvelhoa.
-    </string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
     <string name="title_setup_password_repeat">Toista salasana</string>
@@ -1557,6 +1554,7 @@
     <string name="title_accessibility_to">Vastaanottaja</string>
     <string-array name="pollIntervalNames">
         <item>Jatkuvasti</item>
+        <item>5 minuutin välein</item>
         <item>15 minuutin välein</item>
         <item>30 minuutin välein</item>
         <item>Joka tunti</item>

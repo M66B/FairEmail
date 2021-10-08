@@ -195,9 +195,6 @@
     </string>
     <string name="title_setup_export_do">匯出的檔案包含所有設定和數據，但不包含簽名檔所引用的訊息和圖片</string>
     <string name="title_setup_import_do">匯入的帳戶不會覆蓋任何現有帳戶</string>
-    <string name="title_setup_import_gmail">        自 Android 8.0 Oreo 起，Gmail 帳戶不再能被匯入，因為每個帳戶必須被選取以授予對此帳戶的存取權限。
-        您可以使用快速設置精靈輕鬆地重新設置 Gmail 帳戶。
-    </string>
     <string name="title_setup_password">密碼</string>
     <string name="title_setup_password_chars">密碼包含控制或空白字元</string>
     <string name="title_setup_password_repeat">重複輸入密碼</string>
@@ -1553,6 +1550,7 @@
     <string name="title_accessibility_to">接收者</string>
     <string-array name="pollIntervalNames">
         <item>時時</item>
+        <item>每 5 分鐘</item>
         <item>每 15 分鐘</item>
         <item>每 30 分鐘</item>
         <item>每 1 小時</item>

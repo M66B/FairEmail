@@ -1207,6 +1207,7 @@
     <string name="title_accessibility_to">Получател</string>
     <string-array name="pollIntervalNames">
         <item>Винаги</item>
+        <item>На всеки 5 минути</item>
         <item>На всеки 15 минути</item>
         <item>На всеки 30 минути</item>
         <item>На всеки час</item>

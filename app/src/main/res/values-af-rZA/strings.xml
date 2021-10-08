@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_disagree">I disagree</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Rekening %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identiteit %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Oorgeslaan: bestaan alreeds</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Hardloop die towenaar om weer te outentiek</string>
+    <string name="title_importing_account">Rekening %1$s</string>
+    <string name="title_importing_identity">Identiteit %1$s</string>
+    <string name="title_importing_exists">Oorgeslaan: bestaan alreeds</string>
+    <string name="title_importing_wizard">Hardloop die towenaar om weer te outentiek</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

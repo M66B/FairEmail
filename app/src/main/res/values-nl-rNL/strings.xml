@@ -205,9 +205,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string>
     <string name="title_setup_export_do">Het exportbestand zal alle instellingen en gegevens bevatten, maar geen berichten en geen afbeeldingen waarnaar verwezen wordt in handtekeningen</string>
     <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
-    <string name="title_setup_import_gmail">        Sinds Android 8. Oreo, kunnen Gmail accounts niet meer worden geïmporteerd, omdat elk account moet worden geselecteerd om toegang tot het account te verlenen.
-        U kunt Gmail-accounts eenvoudig opnieuw configureren met de snelle configuratie wizard.
-    </string>
     <string name="title_setup_password">Wachtwoord</string>
     <string name="title_setup_password_chars">Wachtwoord bevat controle of witruimte tekens</string>
     <string name="title_setup_password_repeat">Herhaal wachtwoord</string>
@@ -222,10 +219,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_import_invalid">Ongeldig instellingenbestand</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Account %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identiteit %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Overgeslagen: bestaat al</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Voer de wizard uit om opnieuw te verifiëren</string>
+    <string name="title_importing_account">Account %1$s</string>
+    <string name="title_importing_identity">Identiteit %1$s</string>
+    <string name="title_importing_exists">Overgeslagen: bestaat al</string>
+    <string name="title_importing_wizard">Voer de wizard uit om opnieuw te verifiëren</string>
     <string name="title_setup_reorder_accounts">Volgorde accounts</string>
     <string name="title_setup_reorder_folders">Volgorde mappen</string>
     <string name="title_reset_order">Reset volgorde</string>
@@ -560,6 +557,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_manual_hint">Als het ontvangen van berichten is uitgeschakeld, is het nog steeds mogelijk om handmatig berichten te ontvangen door de berichtenlijst omlaag te trekken</string>
+    <string name="title_advanced_poll_battery">Dit kan een hoog batterijgebruik veroorzaken!</string>
     <string name="title_advanced_poll_hint">Periodiek controleren op nieuwe berichten zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is die kan resulteren in extra batterijgebruik, vooral als er veel berichten zijn. Altijd ontvangen zal dit voorkomen door continu veranderingen te volgen.</string>
     <string name="title_advanced_optimize_hint">Dit kan de synchronisatie-frequentie wijzigen om op batterijgebruik te besparen, afhankelijk van de mogelijkheden en het gedrag van de e-mailservers</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
@@ -1568,6 +1566,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_accessibility_to">Ontvanger</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
+        <item>Elke 5 minuten</item>
         <item>Elke 15 minuten</item>
         <item>Elke 30 minuten</item>
         <item>Elk uur</item>

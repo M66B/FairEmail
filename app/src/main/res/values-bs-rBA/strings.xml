@@ -216,9 +216,6 @@
     </string>
     <string name="title_setup_export_do">Izvozna datoteka sadržavat će sve postavke i podatke, ali ne i poruke ni slike koje su referencirane u potpisima</string>
     <string name="title_setup_import_do">Uvezeni računi bit će dodani bez prepisivanja preko postojećih računa</string>
-    <string name="title_setup_import_gmail">        Od verzije 8.0 Android Oreo, Gmail računi se ne mogu više uvesti, jer se za svaki račun mora posebno odobriti pristup računu.
-        Možete jednostavno podesiti Gmail račune uz pomoć brzog čarobnjaka za postavljanje.
-    </string>
     <string name="title_setup_password">Lozinka</string>
     <string name="title_setup_password_chars">Lozinka sadrži znakove ili prazna polja</string>
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
@@ -233,10 +230,10 @@
     <string name="title_setup_exported">Postavke izvezene</string>
     <string name="title_setup_imported">Postavke uvezene</string>
     <string name="title_setup_import_invalid">Nevažeća datoteka postavki</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Račun %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identitet %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Preskočeno: već postoji</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Pokrenite čarobnjak za ponovnu provjeru autentičnosti</string>
+    <string name="title_importing_account">Račun %1$s</string>
+    <string name="title_importing_identity">Identitet %1$s</string>
+    <string name="title_importing_exists">Preskočeno: već postoji</string>
+    <string name="title_importing_wizard">Pokrenite čarobnjak za ponovnu provjeru autentičnosti</string>
     <string name="title_setup_reorder_accounts">Redoslijed računa</string>
     <string name="title_setup_reorder_folders">Redoslijed foldera</string>
     <string name="title_reset_order">Resetuj redoslijed</string>
@@ -1581,6 +1578,7 @@
     <string name="title_accessibility_to">Primalac</string>
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
+        <item>Svakih 5 minuta</item>
         <item>Svakih 15 minuta</item>
         <item>Svakih 30 minuta</item>
         <item>Svakog sata</item>

@@ -1452,6 +1452,7 @@
     <string name="title_accessibility_to">Destinatario</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
+        <item>Cada 5 minutos</item>
         <item>Cada 15 minutos</item>
         <item>Cada 30 minutos</item>
         <item>Cada hora</item>

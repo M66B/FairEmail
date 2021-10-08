@@ -216,9 +216,6 @@
     </string>
     <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu și mesajele și nici imaginile la care se face referire în semnături</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
-    <string name="title_setup_import_gmail">        Începând cu Android 8.0 Oreo, conturile Gmail nu mai pot fi importate, deoarece fiecare cont trebuie să fie selectat pentru a acorda acces la contul respectiv.
-        Puteți reconfigura cu ușurință conturile Gmail cu ajutorul asistentului de configurare rapidă.
-    </string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
@@ -233,10 +230,10 @@
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_import_invalid">Fișier de setări invalid</string>
-    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Cont %1$s</string>
-    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identitate %1$s</string>
-    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Sărit: există deja</string>
-    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Rulați expertul pentru a vă autentifica din nou</string>
+    <string name="title_importing_account">Cont %1$s</string>
+    <string name="title_importing_identity">Identitate %1$s</string>
+    <string name="title_importing_exists">Sărit: există deja</string>
+    <string name="title_importing_wizard">Rulați expertul pentru a vă autentifica din nou</string>
     <string name="title_setup_reorder_accounts">Ordine conturi</string>
     <string name="title_setup_reorder_folders">Ordine dosare</string>
     <string name="title_reset_order">Resetare ordine</string>
@@ -1582,6 +1579,7 @@
     <string name="title_accessibility_to">Destinatar</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
+        <item>La fiecare 5 minute</item>
         <item>La fiecare 15 minute</item>
         <item>La fiecare 30 de minute</item>
         <item>La fiecare oră</item>

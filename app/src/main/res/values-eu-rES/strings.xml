@@ -1171,6 +1171,7 @@
     <string name="title_accessibility_to">Hartzailea</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
+        <item>5 minuturik behin</item>
         <item>15 minuturik behin</item>
         <item>30 minuturik behin</item>
         <item>Orduero</item>
