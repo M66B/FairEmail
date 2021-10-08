@@ -233,6 +233,10 @@
     <string name="title_setup_exported">Postavke izvezene</string>
     <string name="title_setup_imported">Postavke uvezene</string>
     <string name="title_setup_import_invalid">Nevažeća datoteka postavki</string>
+    <string name="title_importing_account" comment="title_importing_account&#10;Import status message">Račun %1$s</string>
+    <string name="title_importing_identity" comment="title_importing_identity&#10;Import status message">Identitet %1$s</string>
+    <string name="title_importing_exists" comment="title_importing_exists&#10;Import status message">Preskočeno: već postoji</string>
+    <string name="title_importing_wizard" comment="title_importing_wizard&#10;Import status message&#10;">Pokrenite čarobnjak za ponovnu provjeru autentičnosti</string>
     <string name="title_setup_reorder_accounts">Redoslijed računa</string>
     <string name="title_setup_reorder_folders">Redoslijed foldera</string>
     <string name="title_reset_order">Resetuj redoslijed</string>

@@ -1954,17 +1954,17 @@ Scheduling is a pro feature.
 <br />
 
 <a name="faq79"></a>
-**(79) How do I use synchronize on demand (manual)?**
+**(79) İstədiyim eyniləşdirməni necə istifadə edə bilərəm (əllə)?**
 
-Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time. If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
+Normalda FairEmail, mesajları real vaxt kəsiyində almaq üçün mümkün olanda konfiqurasiya edilmiş e-poçt serverləri ilə bağlantı qurur. Bunu, məsələn narahat edilmək və ya batereya istifadəsinə qənaət etmək istəmirsinizsə, sadəcə alma tənzimləmələrindən almanı (qəbulu) sıradan çıxardın. Bu, avto-eyniləşdirmə ilə məşğul olan arxaplan xidmətini dayandıracaq və əlaqəli status sətri bildirişini siləcək.
 
-You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
+Yalnız müəyyən hesabları əllə eyniləşdirmək istəyirsinizsə, qabaqcıl hesab tənzimləmələrində *"Əllə eyniləşdirmə"ni* fəallaşdıra bilərsiniz.
 
-You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
+Mesaj siyahısını təzələmək üçün siyahını aşağı çəkə və ya mesajları əllə eyniləşdirmək üçün *"İndi eyniləşdir"* qovluq menyusunu istifadə edə bilərsiniz.
 
-If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
+Bir hesabın bəzi və ya bütün qovluqlarını eyniləşdirmək istəyirsinizsə, sadəcə (hesab üçün yox) qovluqlar üçün eyniləşdirməni sıradan çıxardın.
 
-You'll likely want to disabled [browse on server](#user-content-faq24) too.
+Böyük ehtimalla ["serverdə hərəkət"i](#user-content-faq24) də sıradan çıxartmaq istəyəcəksiniz.
 
 <br />
 
