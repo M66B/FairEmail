@@ -165,6 +165,20 @@
                     app:layout_constraintTop_toBottomOf="@id/tvOptimizeHint" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvPollBattery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_poll_battery"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPollHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -175,7 +189,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
+                    app:layout_constraintTop_toBottomOf="@id/tvPollBattery" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvExempted"

@@ -672,6 +672,7 @@
     <string name="title_advanced_files" translatable="false">Files &gt;%1$s</string>
 
     <string name="title_advanced_manual_hint">If receiving messages is disabled, it is still possible to manually receive messages by pulling down the message list</string>
+    <string name="title_advanced_poll_battery">This can cause high battery usage!</string>
     <string name="title_advanced_poll_hint">Periodically checking for new messages will compare local and remote messages every time, which is an expensive operation that may result in extra battery usage, especially if there are a lot of messages. Always receive will prevent this by continuously following changes.</string>
     <string name="title_advanced_optimize_hint">This might change the sync frequency to save battery usage depending on the capabilities and behavior of the email servers</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
@@ -1780,6 +1781,7 @@
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
+        <item>Every 5 minutes</item>
         <item>Every 15 minutes</item>
         <item>Every 30 minutes</item>
         <item>Every hour</item>
@@ -1791,6 +1793,7 @@
 
     <integer-array name="pollIntervalValues" translatable="false">
         <item>0</item>
+        <item>5</item>
         <item>15</item>
         <item>30</item>
         <item>60</item>

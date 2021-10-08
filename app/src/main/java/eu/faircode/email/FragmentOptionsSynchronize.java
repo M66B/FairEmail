@@ -65,6 +65,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swOptimize;
     private ImageButton ibOptimizeInfo;
     private Spinner spPollInterval;
+    private TextView tvPollBattery;
     private RecyclerView rvExempted;
     private SwitchCompat swSchedule;
     private TextView tvSchedulePro;
@@ -120,6 +121,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swOptimize = view.findViewById(R.id.swOptimize);
         ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
         spPollInterval = view.findViewById(R.id.spPollInterval);
+        tvPollBattery = view.findViewById(R.id.tvPollBattery);
 
         swSchedule = view.findViewById(R.id.swSchedule);
         rvExempted = view.findViewById(R.id.rvExempted);
@@ -197,6 +199,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 if (value != current) {
                     adapterView.setTag(value);
                     prefs.edit().putInt("poll_interval", value).apply();
+                    tvPollBattery.setVisibility(value < 15 ? View.VISIBLE : View.GONE);
                     grpExempted.setVisibility(value == 0 ? View.GONE : View.VISIBLE);
                 }
             }
@@ -458,6 +461,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 break;
             }
 
+        tvPollBattery.setVisibility(pollInterval < 15 ? View.VISIBLE : View.GONE);
         grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
 
         swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
