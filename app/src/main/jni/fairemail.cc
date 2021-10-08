@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <sys/socket.h>
 #include <netinet/tcp.h>
+#include <sys/ioctl.h>
 
 #include "compact_enc_det/compact_enc_det.h"
 #include "cld_3/src/nnet_language_identifier.h"
@@ -139,4 +140,16 @@ Java_eu_faircode_email_ConnectionHelper_jni_1socket_1keep_1alive(
         log_android(ANDROID_LOG_DEBUG, "Check SO_KEEPALIVE=%d", optval);
 
     return res;
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_eu_faircode_email_ConnectionHelper_jni_1socket_1get_1send_1buffer(
+        JNIEnv *env, jclass clazz,
+        jint fd) {
+    int queued = 0;
+    int res = ioctl(fd, TIOCOUTQ, &queued);
+    if (res != 0)
+        log_android(ANDROID_LOG_DEBUG, "ioctl(TIOCOUTQ) res=%d queued=%d", res, queued);
+    return (res == 0 ? queued : 0);
 }

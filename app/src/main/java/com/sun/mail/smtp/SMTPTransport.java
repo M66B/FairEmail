@@ -16,6 +16,7 @@
 
 package com.sun.mail.smtp;
 
+import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 
 import java.io.*;
@@ -1300,6 +1301,7 @@ public class SMTPTransport extends Transport {
 	try {
 	    mailFrom();
 	    rcptTo();
+
 	    eu.faircode.email.ObjectHolder<Integer> total = new eu.faircode.email.ObjectHolder<>();
 	    total.value = 0;
 	    this.message.writeTo(new OutputStream(){
@@ -1308,10 +1310,37 @@ public class SMTPTransport extends Transport {
 				total.value++;
 			}
 		});
+
+	    Integer _fd = null;
+	    try {
+			_fd = ParcelFileDescriptor.fromSocket(serverSocket).getFd();
+		} catch (Throwable ex) {
+			eu.faircode.email.Log.w(ex);
+		}
+	    final Integer fd = _fd;
+
 	    TraceOutputStream.IReport reporter =
 			(TraceOutputStream.IReport) session.getProperties()
 				.get("mail." + name + ".reporter");
-	    traceOutput.setReporter(total.value, reporter);
+	    traceOutput.setReporter(total.value, new TraceOutputStream.IReport() {
+			@Override
+			public void report(int pos, int total) {
+				if (reporter == null)
+					return;
+
+				int q = 0;
+				if (fd != null)
+					q = eu.faircode.email.ConnectionHelper.jni_socket_get_send_buffer(fd);
+				if (q > pos)
+					q = pos;
+
+				int sent = pos - q;
+				if (sent > total)
+					sent = total;
+
+				reporter.report(sent, total);
+			}
+		});
 	    if (chunkSize > 0 && supportsExtension("CHUNKING")) {
 		/*
 		 * Use BDAT to send the data in chunks.

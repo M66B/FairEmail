@@ -89,6 +89,8 @@ public class ConnectionHelper {
 
     public static native int jni_socket_keep_alive(int fd, int seconds);
 
+    public static native int jni_socket_get_send_buffer(int fd);
+
     static class NetworkState {
         private Boolean connected = null;
         private Boolean suitable = null;
