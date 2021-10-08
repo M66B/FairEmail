@@ -406,14 +406,10 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     };
 
     private void showConnectionType() {
-        final Context context = getContext();
-        if (context == null) {
-            tvNetworkMetered.setVisibility(View.GONE);
-            tvNetworkRoaming.setVisibility(View.GONE);
-            cardDebug.setVisibility(View.GONE);
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
-        }
 
+        final Context context = getContext();
         final ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(context);
 
         final StringBuilder sb = new StringBuilder();
