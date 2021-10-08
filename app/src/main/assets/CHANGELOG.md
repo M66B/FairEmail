@@ -4,6 +4,12 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1757
+
+* Improved send progress calculation
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1756
 
 * Added settings import result dialog
