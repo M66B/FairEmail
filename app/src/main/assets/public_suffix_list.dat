@@ -7125,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-10-01T15:13:10Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-10-07T15:11:34Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9896,9 +9896,6 @@ suzuki
 // swatch : 2015-01-08 The Swatch Group Ltd
 swatch
 
-// swiftcover : 2015-07-23 Swiftcover Insurance Services Limited
-swiftcover
-
 // swiss : 2014-10-16 Swiss Confederation
 swiss
 
@@ -10328,7 +10325,7 @@ xin
 // xn--45q11c : 2013-11-21 Zodiac Gemini Ltd
 八卦
 
-// xn--4gbrim : 2013-10-04 Fans TLD Limited
+// xn--4gbrim : 2013-10-04 Helium TLDs Ltd
 موقع
 
 // xn--55qw42g : 2013-11-08 China Organizational Name Administration Center
@@ -12516,6 +12513,7 @@ linkyard-cloud.ch
 members.linode.com
 *.nodebalancer.linode.com
 *.linodeobjects.com
+ip.linodeusercontent.com
 
 // LiquidNet Ltd : http://www.liquidnetlimited.com/
 // Submitted by Victor Velchev <admin@liquidnetlimited.com>
@@ -13506,6 +13504,10 @@ reservd.dev.thingdust.io
 reservd.disrec.thingdust.io
 reservd.testing.thingdust.io
 
+// ticket i/O GmbH : https://ticket.io
+// Submitted by Christian Franke <it@ticket.io>
+tickets.io
+
 // Tlon.io : https://tlon.io
 // Submitted by Mark Staarink <mark@tlon.io>
 arvo.network
@@ -13590,6 +13592,10 @@ inc.hk
 // Submitted by Stefan Schwarz <sysadm@united-gameserver.de>
 virtualuser.de
 virtual-user.de
+
+// Upli : https://upli.io
+// Submitted by Lenny Bakkalian <lenny.bakkalian@gmail.com>
+upli.io
 
 // urown.net : https://urown.net
 // Submitted by Hostmaster <hostmaster@urown.net>
