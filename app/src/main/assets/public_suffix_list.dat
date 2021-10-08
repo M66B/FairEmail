@@ -7125,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-10-07T15:11:34Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-10-08T15:12:46Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9448,9 +9448,6 @@ quebec
 
 // quest : 2015-03-26 XYZ.COM LLC
 quest
-
-// qvc : 2015-07-30 QVC, Inc.
-qvc
 
 // racing : 2014-12-04 Premier Registry Limited
 racing
