@@ -43,6 +43,7 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.smtp.SMTPSendFailedException;
 import com.sun.mail.smtp.SMTPTransport;
+import com.sun.mail.util.TraceOutputStream;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -684,13 +685,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             String via = "via " + ident.host + "/" + ident.user +
                     " to " + (to == null ? null : TextUtils.join(", ", to));
 
-            iservice.setProgress(new SMTPTransport.IProgress() {
+            iservice.setReporter(new TraceOutputStream.IReport() {
                 private int progress = -1;
                 private long last = SystemClock.elapsedRealtime();
 
                 @Override
-                public void report(int size, int total) {
-                    int p = (total == 0 ? 0 : 100 * size / total);
+                public void report(int pos, int total) {
+                    int p = (total == 0 ? 0 : 100 * pos / total);
                     if (p > progress) {
                         progress = p;
                         long now = SystemClock.elapsedRealtime();
@@ -700,11 +701,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService().build());
                         }
                     }
-                }
-
-                @Override
-                public void finished() {
-                    lastProgress = -1;
                 }
             });
 

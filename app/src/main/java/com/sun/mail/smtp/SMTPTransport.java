@@ -1308,8 +1308,10 @@ public class SMTPTransport extends Transport {
 				total.value++;
 			}
 		});
-	    IProgress progress = (IProgress) session.getProperties()
-			.get("mail." + name + ".progress");
+	    TraceOutputStream.IReport reporter =
+			(TraceOutputStream.IReport) session.getProperties()
+				.get("mail." + name + ".reporter");
+	    traceOutput.setReporter(total.value, reporter);
 	    if (chunkSize > 0 && supportsExtension("CHUNKING")) {
 		/*
 		 * Use BDAT to send the data in chunks.
@@ -1320,34 +1322,12 @@ public class SMTPTransport extends Transport {
 		 * from the message content, and b) the message content is
 		 * encoded before we even know that we can use BDAT.
 		 */
-		this.message.writeTo(new FilterOutputStream(bdat()) {
-			private int size = 0;
-
-			@Override
-			public void write(int b) throws IOException {
-				super.write(b);
-				size++;
-				if (progress != null && (size % 1024) == 0)
-					progress.report(size, total.value);
-			}
-		}, ignoreList);
+		this.message.writeTo(bdat(), ignoreList);
 		finishBdat();
 	    } else {
-		this.message.writeTo(new FilterOutputStream(data()) {
-			private int size = 0;
-
-			@Override
-			public void write(int b) throws IOException {
-				super.write(b);
-				size++;
-				if (progress != null && (size % 1024) == 0)
-					progress.report(size, total.value);
-			}
-		}, ignoreList);
+		this.message.writeTo(data(), ignoreList);
 		finishData();
 	    }
-	    if (progress != null)
-			progress.finished();
 	    if (sendPartiallyFailed) {
 		// throw the exception,
 		// fire TransportEvent.MESSAGE_PARTIALLY_DELIVERED event
@@ -1408,12 +1388,6 @@ public class SMTPTransport extends Transport {
 	}
 	sendMessageEnd();
     }
-
-    public interface IProgress {
-		void report(int size, int total);
-
-		void finished();
-	}
 
     /**
      * The send failed, fix the address arrays to report the failure correctly.

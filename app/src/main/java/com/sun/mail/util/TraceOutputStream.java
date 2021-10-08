@@ -33,7 +33,12 @@ public class TraceOutputStream extends FilterOutputStream {
     private boolean quote = false;
     private OutputStream traceOut;
 
-    /**
+	private int pos = 0;
+	private int last = 0;
+	private int total = 0;
+	private IReport reporter = null;
+
+	/**
      * Creates an output stream filter built on top of the specified
      * underlying output stream.
      *
@@ -92,6 +97,8 @@ public class TraceOutputStream extends FilterOutputStream {
 		traceOut.write(b);
 	}
 	out.write(b);
+	pos++;
+	report();
     }
 	    
     /**
@@ -114,6 +121,8 @@ public class TraceOutputStream extends FilterOutputStream {
 		traceOut.write(b, off, len);
 	}
 	out.write(b, off, len);
+	pos += len;
+	report();
     }
 
     /**
@@ -143,4 +152,22 @@ public class TraceOutputStream extends FilterOutputStream {
 	    traceOut.write(b);
 	}
     }
+
+	void report() {
+		if (reporter != null && pos - last > 1024) {
+			last = pos;
+			reporter.report(pos, total);
+		}
+	}
+
+	public void setReporter(int total, IReport reporter) {
+		this.pos = 0;
+		this.last = 0;
+		this.total = total;
+		this.reporter = reporter;
+	}
+
+	public interface IReport {
+		void report(int pos, int total);
+	}
 }

@@ -42,6 +42,7 @@ import com.sun.mail.pop3.POP3Store;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
+import com.sun.mail.util.TraceOutputStream;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -300,8 +301,8 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".dsn.notify", what);
     }
 
-    void setProgress(SMTPTransport.IProgress listener) {
-        properties.put("mail." + protocol + ".progress", listener);
+    void setReporter(TraceOutputStream.IReport reporter) {
+        properties.put("mail." + protocol + ".reporter", reporter);
     }
 
     void setListener(StoreListener listener) {
