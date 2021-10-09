@@ -1762,7 +1762,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vSeparator.setVisibility(View.VISIBLE);
             ibFull.setEnabled(false);
             ibFull.setVisibility(View.VISIBLE);
-            ibImages.setVisibility(View.GONE);
+            ibImages.setVisibility(View.INVISIBLE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
@@ -2673,7 +2673,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean always_images = prefs.getBoolean("html_always_images", false);
 
                     // Show images
-                    ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.GONE);
+                    ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.INVISIBLE);
 
                     // Show encrypt actions
                     ibVerify.setVisibility(false ||

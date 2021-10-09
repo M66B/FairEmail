@@ -55,7 +55,7 @@
             app:flow_horizontalGap="3dp"
             app:flow_horizontalStyle="packed"
             app:flow_wrapMode="chain"
-            app:layout_constraintEnd_toStartOf="@+id/ibVerify"
+            app:layout_constraintEnd_toStartOf="@+id/ibImages"
             app:layout_constraintStart_toEndOf="@id/ibTools"
             app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
@@ -364,9 +364,8 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_verify"
             app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator"
-            app:srcCompat="@drawable/twotone_gesture_24"
-            app:tint="?attr/colorAccent" />
+            app:layout_constraintTop_toBottomOf="@+id/ibFull"
+            app:srcCompat="@drawable/twotone_gesture_24" />
 
         <ImageButton
             android:id="@+id/ibDecrypt"
@@ -378,10 +377,9 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_decrypt"
-            app:layout_constraintEnd_toStartOf="@+id/ibImages"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator"
-            app:srcCompat="@drawable/twotone_lock_open_24"
-            app:tint="?attr/colorAccent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibFull"
+            app:srcCompat="@drawable/twotone_lock_open_24" />
 
         <ImageButton
             android:id="@+id/ibImages"
