@@ -4,6 +4,12 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### Next version
+
+* Added multiple select spam / block sender
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1757
 
 * Improved send progress calculation
