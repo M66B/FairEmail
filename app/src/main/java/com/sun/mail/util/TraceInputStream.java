@@ -33,6 +33,8 @@ public class TraceInputStream extends FilterInputStream {
     private boolean quote = false;
     private OutputStream traceOut;
 
+	private long pos = 0;
+
     /**
      * Creates an input stream filter built on top of the specified
      * input stream.
@@ -82,6 +84,7 @@ public class TraceInputStream extends FilterInputStream {
     @Override
     public int read() throws IOException {
 	int b = in.read();
+	pos++;
 	if (trace && b != -1) {
 	    if (quote)
 		writeByte(b);
@@ -100,6 +103,7 @@ public class TraceInputStream extends FilterInputStream {
     @Override
     public int read(byte b[], int off, int len) throws IOException {
 	int count = in.read(b, off, len);
+	pos += count;
 	if (trace && count != -1) {
 	    if (quote) {
 		for (int i = 0; i < count; i++)
@@ -137,4 +141,8 @@ public class TraceInputStream extends FilterInputStream {
 	    traceOut.write(b);
 	}
     }
+
+	public long getReceived() {
+		return pos;
+	}
 }

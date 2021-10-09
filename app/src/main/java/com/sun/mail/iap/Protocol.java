@@ -635,6 +635,9 @@ public class Protocol {
 		// ignore it
 	    }
 	    socket = null;
+		if (traceInput != null && traceOutput != null)
+			eu.faircode.email.TrafficStatsHelper.report(host, "IMAP",
+					traceOutput.getSent(), traceInput.getReceived());
 	}
     }
 

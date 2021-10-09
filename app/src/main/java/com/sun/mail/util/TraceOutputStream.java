@@ -33,7 +33,8 @@ public class TraceOutputStream extends FilterOutputStream {
     private boolean quote = false;
     private OutputStream traceOut;
 
-	private int pos = 0;
+	private long pos = 0;
+	private long base = 0;
 	private int last = 0;
 	private int total = 0;
 	private IReport reporter = null;
@@ -153,15 +154,20 @@ public class TraceOutputStream extends FilterOutputStream {
 	}
     }
 
+	public long getSent() {
+		return pos;
+	}
+
 	void report() {
-		if (reporter != null && pos - last > 1024) {
-			last = pos;
-			reporter.report(pos, total);
+		int p = (int) (pos - base);
+		if (reporter != null && p - last > 1024) {
+			last = p;
+			reporter.report(p, total);
 		}
 	}
 
 	public void setReporter(int total, IReport reporter) {
-		this.pos = 0;
+		this.base = pos;
 		this.last = 0;
 		this.total = total;
 		this.reporter = reporter;

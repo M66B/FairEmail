@@ -806,6 +806,9 @@ class Protocol {
 	try {
 	    if (socket != null)
 		socket.close();
+		if (traceInput != null && traceOutput != null)
+			eu.faircode.email.TrafficStatsHelper.report(host, "POP3",
+					traceOutput.getSent(), traceInput.getReceived());
 	} catch (IOException ex) {
 	    // ignore it
 	} finally {

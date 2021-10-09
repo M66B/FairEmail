@@ -190,6 +190,7 @@ public class ApplicationEx extends Application
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
 
+        TrafficStatsHelper.init(this);
         EncryptionHelper.init(this);
         MessageHelper.setSystemProperties(this);
 
