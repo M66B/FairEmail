@@ -48,13 +48,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
+import java.util.List;
+
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnManage;
+    private ImageButton ibClear;
     private Button btnManageDefault;
     private ImageView ivChannelDefault;
     private Button btnManageService;
@@ -134,6 +138,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         // Get controls
 
         btnManage = view.findViewById(R.id.btnManage);
+        ibClear = view.findViewById(R.id.ibClear);
         btnManageDefault = view.findViewById(R.id.btnManageDefault);
         ivChannelDefault = view.findViewById(R.id.ivChannelDefault);
         btnManageService = view.findViewById(R.id.btnManageService);
@@ -192,6 +197,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean debug = prefs.getBoolean("debug", false);
 
         final Intent manage = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
                 .putExtra("app_package", getContext().getPackageName())
@@ -203,6 +209,43 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onClick(View view) {
                 startActivity(manage);
+            }
+        });
+
+        ibClear.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                (BuildConfig.DEBUG || debug) ? View.VISIBLE : View.GONE);
+        ibClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        DB db = DB.getInstance(context);
+
+                        List<EntityAccount> accounts = db.account().getAccounts();
+                        if (accounts == null)
+                            return null;
+
+                        for (EntityAccount account : accounts)
+                            if (account.notify) {
+                                EntityLog.log(context, account.name + " disabling notify");
+                                db.account().setAccountNotify(account.id, false);
+                            }
+
+                        return null;
+                    }
+
+                    @Override
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    protected void onExecuted(Bundle args, Void data) {
+                        NotificationHelper.clear(getContext());
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsNotifications.this, new Bundle(), "notification:clear");
             }
         });
 

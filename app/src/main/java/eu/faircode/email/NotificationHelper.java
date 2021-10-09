@@ -36,12 +36,27 @@ import androidx.annotation.RequiresApi;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 class NotificationHelper {
     static final int NOTIFICATION_SYNCHRONIZE = 100;
     static final int NOTIFICATION_SEND = 200;
     static final int NOTIFICATION_EXTERNAL = 300;
     static final int NOTIFICATION_UPDATE = 400;
     static final int NOTIFICATION_TAGGED = 500;
+
+    private static final List<String> PERSISTENT_IDS = Collections.unmodifiableList(Arrays.asList(
+            "service",
+            "send",
+            "notification",
+            "progress",
+            "update",
+            "warning",
+            "error",
+            "alerts"
+    ));
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     static void createNotificationChannels(Context context) {
@@ -132,6 +147,18 @@ class NotificationHelper {
                 "contacts",
                 context.getString(R.string.channel_group_contacts));
         nm.createNotificationChannelGroup(group);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static void clear(Context context) {
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        for (NotificationChannel channel : nm.getNotificationChannels()) {
+            String id = channel.getId();
+            if (!PERSISTENT_IDS.contains(id)) {
+                EntityLog.log(context, "Deleting channel=" + id);
+                nm.deleteNotificationChannel(id);
+            }
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
