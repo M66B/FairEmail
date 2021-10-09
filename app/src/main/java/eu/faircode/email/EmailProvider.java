@@ -85,11 +85,12 @@ public class EmailProvider implements Parcelable {
     public Server smtp = new Server();
     public OAuth oauth;
     public UserType user = UserType.EMAIL;
+    public String username;
     public StringBuilder documentation; // html
 
     enum Discover {ALL, IMAP, SMTP}
 
-    enum UserType {LOCAL, EMAIL}
+    enum UserType {LOCAL, EMAIL, VALUE}
 
     private static final int SCAN_TIMEOUT = 5 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
@@ -182,6 +183,12 @@ public class EmailProvider implements Parcelable {
                             provider.user = UserType.LOCAL;
                         else if ("email".equals(user))
                             provider.user = UserType.EMAIL;
+                        else {
+                            if (!TextUtils.isEmpty(user)) {
+                                provider.user = UserType.VALUE;
+                                provider.username = user;
+                            }
+                        }
                     } else if ("imap".equals(name)) {
                         provider.imap.score = 100;
                         provider.imap.host = xml.getAttributeValue(null, "host");
@@ -585,8 +592,12 @@ public class EmailProvider implements Parcelable {
                                 provider.user = UserType.EMAIL;
                             else if ("%EMAILLOCALPART%".equals(username))
                                 provider.user = UserType.LOCAL;
-                            else
-                                Log.w("Unknown username type=" + username);
+                            else {
+                                if (!TextUtils.isEmpty(username)) {
+                                    provider.user = UserType.VALUE;
+                                    provider.username = username;
+                                }
+                            }
                         }
                         continue;
 

@@ -54,6 +54,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.net.UnknownHostException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -296,8 +297,15 @@ public class FragmentQuickSetup extends FragmentBase {
                         if (fail == null)
                             args.putParcelable("provider", provider);
 
-                        String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
-                        Log.i("User type=" + provider.user + " name=" + user);
+                        List<String> users;
+                        if (provider.user == EmailProvider.UserType.LOCAL)
+                            users = Arrays.asList(username, email);
+                        else if (provider.user == EmailProvider.UserType.VALUE)
+                            users = Arrays.asList(provider.username, email, username);
+                        else
+                            users = Arrays.asList(email, username);
+                        Log.i("User type=" + provider.user +
+                                " users=" + TextUtils.join(", ", users));
 
                         List<EntityFolder> folders;
                         String imap_fingerprint = null;
@@ -305,55 +313,43 @@ public class FragmentQuickSetup extends FragmentBase {
                         X509Certificate imap_certificate = null;
                         X509Certificate smtp_certificate = null;
 
+                        String user = null;
                         String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
                         int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
                         try (EmailService iservice = new EmailService(
                                 context, aprotocol, null, aencryption, false, EmailService.PURPOSE_CHECK, true)) {
-                            try {
-                                iservice.connect(
-                                        provider.imap.host, provider.imap.port,
-                                        AUTH_TYPE_PASSWORD, null,
-                                        user, password,
-                                        null, null);
-                            } catch (EmailService.UntrustedException ex) {
-                                imap_certificate = ex.getCertificate();
-                                imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
-                                iservice.connect(
-                                        provider.imap.host, provider.imap.port,
-                                        AUTH_TYPE_PASSWORD, null,
-                                        user, password,
-                                        null, imap_fingerprint);
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                                // Why not AuthenticationFailedException?
-                                // Some providers terminate the connection with an invalid username
-                                if (user.equals(username))
-                                    throw ex;
-                                else
-                                    try {
-                                        user = username;
-                                        Log.i("Retry with user=" + user);
-                                        iservice.connect(
-                                                provider.imap.host, provider.imap.port,
-                                                AUTH_TYPE_PASSWORD, null,
-                                                user, password,
-                                                null, null);
-                                    } catch (EmailService.UntrustedException ex1) {
-                                        imap_certificate = ex1.getCertificate();
-                                        imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
-                                        iservice.connect(
-                                                provider.imap.host, provider.imap.port,
-                                                AUTH_TYPE_PASSWORD, null,
-                                                user, password,
-                                                null, imap_fingerprint);
-                                    } catch (Throwable ex1) {
-                                        Log.w(ex1);
-                                        if (!(ex instanceof AuthenticationFailedException) &&
-                                                ex1 instanceof AuthenticationFailedException)
-                                            throw ex1;
-                                        else
-                                            throw ex;
+                            List<Throwable> exceptions = new ArrayList<>();
+                            for (int i = 0; i < users.size(); i++) {
+                                user = users.get(i);
+                                Log.i("Trying with user=" + user);
+                                try {
+                                    iservice.connect(
+                                            provider.imap.host, provider.imap.port,
+                                            AUTH_TYPE_PASSWORD, null,
+                                            user, password,
+                                            null, null);
+                                    break;
+                                } catch (EmailService.UntrustedException ex) {
+                                    imap_certificate = ex.getCertificate();
+                                    imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
+                                    iservice.connect(
+                                            provider.imap.host, provider.imap.port,
+                                            AUTH_TYPE_PASSWORD, null,
+                                            user, password,
+                                            null, imap_fingerprint);
+                                    break;
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                    // Why not AuthenticationFailedException?
+                                    // Some providers terminate the connection with an invalid username
+                                    exceptions.add(ex);
+                                    if (i + 1 == users.size()) {
+                                        for (Throwable e : exceptions)
+                                            if (e instanceof AuthenticationFailedException)
+                                                throw ex;
+                                        throw exceptions.get(0);
                                     }
+                                }
                             }
 
                             folders = iservice.getFolders();
