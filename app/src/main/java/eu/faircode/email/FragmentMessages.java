@@ -3249,16 +3249,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onActionRaw();
                             return true;
                         } else if (itemId == R.string.title_folder_inbox) {
-                            onActionMoveSelection(EntityFolder.INBOX);
+                            onActionMoveSelection(EntityFolder.INBOX, false);
                             return true;
                         } else if (itemId == R.string.title_archive) {
-                            onActionMoveSelection(EntityFolder.ARCHIVE);
+                            onActionMoveSelection(EntityFolder.ARCHIVE, false);
                             return true;
                         } else if (itemId == R.string.title_spam) {
                             onActionJunkSelection();
                             return true;
                         } else if (itemId == R.string.title_trash) {
-                            onActionMoveSelection(EntityFolder.TRASH);
+                            onActionMoveSelection(EntityFolder.TRASH, false);
                             return true;
                         } else if (itemId == R.string.title_delete_permanently) {
                             onActionDeleteSelection(
@@ -3634,21 +3634,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionJunkSelection() {
-        int count = selectionTracker.getSelection().size();
-
         Bundle aargs = new Bundle();
-        aargs.putString("question", getResources()
-                .getQuantityString(R.plurals.title_ask_spam, count, count));
+        aargs.putInt("count", selectionTracker.getSelection().size());
 
-        FragmentDialogAsk ask = new FragmentDialogAsk();
+        FragmentDialogAskSpam ask = new FragmentDialogAskSpam();
         ask.setArguments(aargs);
         ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_JUNK);
         ask.show(getParentFragmentManager(), "messages:junk");
     }
 
-    private void onActionMoveSelection(final String type) {
+    private void onActionMoveSelection(final String type, boolean block) {
         Bundle args = new Bundle();
         args.putString("type", type);
+        args.putBoolean("block", block);
         args.putLongArray("ids", getSelection());
 
         new SimpleTask<ArrayList<MessageTarget>>() {
@@ -3683,7 +3681,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
 
-                            result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
+                            result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder)
+                                    .setBlock(block));
                         }
                     }
 
@@ -5503,7 +5502,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         for (MessageTarget target : targets)
                             if (message.id.equals(target.id)) {
                                 Log.i("Eval thread target id=" + target.id);
-                                if (!target.isAccross()) {
+                                if (!target.isAcross()) {
                                     found = true;
                                     if (target.targetFolder.id == folder)
                                         count++;
@@ -5517,7 +5516,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 for (MessageTarget target : mt)
-                    if (!target.isAccross() && target.targetFolder.id == folder &&
+                    if (!target.isAcross() && target.targetFolder.id == folder &&
                             (removed == null || !removed.contains(target.id)))
                         count++;
 
@@ -5922,6 +5921,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             EntityOperation.queue(context, message, EntityOperation.COPY, target.targetFolder.id);
                         else
                             EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
+
+                        if (target.block &&
+                                EntityFolder.JUNK.equals(target.targetFolder.type))
+                            EntityContact.update(context,
+                                    message.account, message.from,
+                                    EntityContact.TYPE_JUNK, message.received);
                     }
 
                     db.setTransactionSuccessful();
@@ -6087,7 +6092,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static String getNames(ArrayList<MessageTarget> result, boolean dest) {
         boolean across = false;
         for (MessageTarget target : result)
-            if (target.isAccross())
+            if (target.isAcross())
                 across = true;
 
         Map<String, Integer> nameCount = new HashMap<>();
@@ -6663,7 +6668,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_MESSAGES_JUNK:
                     if (resultCode == RESULT_OK)
-                        onActionMoveSelection(EntityFolder.JUNK);
+                        onActionMoveSelection(EntityFolder.JUNK,
+                                data.getBundleExtra("args").getBoolean("block"));
                     break;
                 case REQUEST_ASKED_MOVE:
                     if (resultCode == RESULT_OK && data != null)
@@ -8044,7 +8050,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {
         boolean across = false;
         for (MessageTarget target : result)
-            if (target.isAccross()) {
+            if (target.isAcross()) {
                 across = true;
                 break;
             }
@@ -8715,6 +8721,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Account targetAccount;
         Folder targetFolder;
         boolean copy;
+        boolean block;
 
         MessageTarget(Context context, EntityMessage message,
                       EntityAccount sourceAccount, EntityFolder sourceFolder,
@@ -8731,7 +8738,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return this;
         }
 
-        boolean isAccross() {
+        MessageTarget setBlock(boolean block) {
+            this.block = block;
+            return this;
+        }
+
+        boolean isAcross() {
             return (sourceAccount.id != targetAccount.id);
         }
 
@@ -8742,6 +8754,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             targetAccount = (Account) in.readSerializable();
             targetFolder = (Folder) in.readSerializable();
             copy = (in.readInt() != 0);
+            block = (in.readInt() != 0);
         }
 
         @Override
@@ -8752,6 +8765,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             dest.writeSerializable(targetAccount);
             dest.writeSerializable(targetFolder);
             dest.writeInt(copy ? 1 : 0);
+            dest.writeInt(block ? 1 : 0);
         }
 
         @Override
@@ -8795,6 +8809,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 this.display = folder.getDisplayName(context);
                 this.color = folder.color;
             }
+        }
+    }
+
+    public static class FragmentDialogAskSpam extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Bundle args = getArguments();
+            int count = args.getInt("count");
+
+            String text = getResources().getQuantityString(R.plurals.title_ask_spam, count, count);
+
+            final Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_spam, null);
+            TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            CheckBox cbBlockSender = dview.findViewById(R.id.cbBlockSender);
+
+            tvMessage.setText(text);
+            cbBlockSender.setChecked(true);
+
+            return new AlertDialog.Builder(context)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getArguments().putBoolean("block", cbBlockSender.isChecked());
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
         }
     }
 
