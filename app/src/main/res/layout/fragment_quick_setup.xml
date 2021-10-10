@@ -233,14 +233,35 @@
             app:layout_constraintTop_toBottomOf="@id/tvInstructions" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvImapTitle"
+            android:id="@+id/tvUserTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/title_setup_quick_imap"
+            android:text="@string/title_user"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnSupport" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUserTitle" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvImapTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_quick_imap"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvImap"
@@ -359,6 +380,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
+            tvUserTitle,tvUser,
             tvImapTitle,tvImap,
             tvSmtpTitle,tvSmtp" />
 
