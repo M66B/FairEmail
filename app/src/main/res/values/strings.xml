@@ -304,7 +304,12 @@
 
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Restore defaults</string>
+
     <string name="title_setup_reset_questions">Reset questions</string>
+    <string name="title_setup_reset_general">General questions</string>
+    <string name="title_setup_reset_full">Show original messages</string>
+    <string name="title_setup_reset_images">Show images</string>
+    <string name="title_setup_reset_links">Confirm links</string>
 
     <string name="title_advanced_hint_title">More advanced options</string>
     <string name="title_advanced_hint_message">

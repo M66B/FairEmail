@@ -50,6 +50,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -1044,21 +1045,33 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private void onResetQuestions() {
         final Context context = getContext();
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_reset_questions, null);
+        final CheckBox cbGeneral = dview.findViewById(R.id.cbGeneral);
+        final CheckBox cbFull = dview.findViewById(R.id.cbFull);
+        final CheckBox cbImages = dview.findViewById(R.id.cbImages);
+        final CheckBox cbLinks = dview.findViewById(R.id.cbLinks);
+
         new AlertDialog.Builder(context)
-                .setTitle(R.string.title_setup_reset_questions)
+                .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         SharedPreferences.Editor editor = prefs.edit();
-                        for (String option : RESET_QUESTIONS)
-                            editor.remove(option);
+
+                        if (cbGeneral.isChecked())
+                            for (String option : RESET_QUESTIONS)
+                                editor.remove(option);
+
                         for (String key : prefs.getAll().keySet())
-                            if (key.startsWith("translated_") ||
-                                    key.endsWith(".show_full") ||
-                                    key.endsWith(".show_images") ||
-                                    key.endsWith(".confirm_link"))
+                            if ((key.startsWith("translated_") && cbGeneral.isChecked()) ||
+                                    (key.endsWith(".show_full") && cbFull.isChecked()) ||
+                                    (key.endsWith(".show_images") && cbImages.isChecked()) ||
+                                    (key.endsWith(".confirm_link") && cbLinks.isChecked())) {
+                                Log.i("Removing option=" + key);
                                 editor.remove(key);
+                            }
+
                         editor.apply();
 
                         ToastEx.makeText(context, R.string.title_setup_done, Toast.LENGTH_LONG).show();

@@ -420,7 +420,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_close_24"
+                    android:drawableEnd="@drawable/twotone_restart_alt_24"
                     android:drawablePadding="6dp"
                     android:text="@string/title_setup_reset_questions"
                     app:layout_constraintStart_toStartOf="parent"
