@@ -484,6 +484,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             db.endTransaction();
                         }
 
+                        fail = null;
                         break;
                     } catch (Throwable ex) {
                         Log.w(ex);
