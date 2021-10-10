@@ -4,7 +4,7 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
-### Next version
+### 1.1759
 
 * Added multiple select spam / block sender
 * Added conditional searching via search index
