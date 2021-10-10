@@ -99,7 +99,7 @@ All pro features are convenience or advanced features.
 * Add message to calendar
 * Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
 * Automatic message classification ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163))
-* Search indexing, search on server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
+* Search indexing ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
 * S/MIME sign/encrypt ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq12))
 * Biometric/PIN authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
 * Message list widget

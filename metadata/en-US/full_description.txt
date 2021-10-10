@@ -82,7 +82,7 @@ All pro features are convenience or advanced features.
 * Add message to calendar
 * Filter rules
 * Automatic message classification
-* Search indexing, search on server
+* Search indexing
 * S/MIME sign/encrypt
 * Biometric/PIN authentication
 * Message list widget

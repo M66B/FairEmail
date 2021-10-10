@@ -8655,11 +8655,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long account, long folder, boolean server, BoundaryCallbackMessages.SearchCriteria criteria) {
-        if (server && !ActivityBilling.isPro(context)) {
-            context.startActivity(new Intent(context, ActivityBilling.class));
-            return;
-        }
-
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
