@@ -625,6 +625,62 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        btnRepair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<Void>() {
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        DB db = DB.getInstance(context);
+
+                        List<EntityAccount> accounts = db.account().getAccounts();
+                        if (accounts == null)
+                            return null;
+
+                        for (EntityAccount account : accounts) {
+                            if (account.protocol != EntityAccount.TYPE_IMAP)
+                                continue;
+
+                            List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
+                            if (folders == null)
+                                continue;
+
+                            EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                            for (EntityFolder folder : folders) {
+                                if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
+                                    folder.type = EntityFolder.INBOX;
+
+                                if (!EntityFolder.USER.equals(folder.type) &&
+                                        !EntityFolder.SYSTEM.equals(folder.type)) {
+                                    EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
+                                    folder.setProperties();
+                                    folder.setSpecials(account);
+                                    db.folder().updateFolder(folder);
+                                }
+                            }
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        ServiceSynchronize.reload(v.getContext(), null, true, "repair");
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsMisc.this, new Bundle(), "repair");
+            }
+        });
+
         swAutostart.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton v, boolean checked) {
@@ -1176,62 +1232,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
-
-        btnRepair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new SimpleTask<Void>() {
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        DB db = DB.getInstance(context);
-
-                        List<EntityAccount> accounts = db.account().getAccounts();
-                        if (accounts == null)
-                            return null;
-
-                        for (EntityAccount account : accounts) {
-                            if (account.protocol != EntityAccount.TYPE_IMAP)
-                                continue;
-
-                            List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
-                            if (folders == null)
-                                continue;
-
-                            EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
-                            for (EntityFolder folder : folders) {
-                                if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
-                                    folder.type = EntityFolder.INBOX;
-
-                                if (!EntityFolder.USER.equals(folder.type) &&
-                                        !EntityFolder.SYSTEM.equals(folder.type)) {
-                                    EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
-                                    folder.setProperties();
-                                    folder.setSpecials(account);
-                                    db.folder().updateFolder(folder);
-                                }
-                            }
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        ServiceSynchronize.reload(v.getContext(), null, true, "repair");
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentOptionsMisc.this, new Bundle(), "repair");
-            }
-        });
 
         swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
 
