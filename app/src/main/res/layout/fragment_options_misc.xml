@@ -622,6 +622,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAutostart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_autostart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnRepair"
+                    app:switchPadding="12dp" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvRoomQueryThreads"
                     android:layout_width="0dp"
@@ -632,7 +644,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnRepair" />
+                    app:layout_constraintTop_toBottomOf="@id/swAutostart" />
 
                 <SeekBar
                     android:id="@+id/sbRoomQueryThreads"

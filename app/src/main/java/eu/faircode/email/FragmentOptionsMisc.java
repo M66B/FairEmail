@@ -127,6 +127,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDebug;
 
     private Button btnRepair;
+    private SwitchCompat swAutostart;
     private TextView tvRoomQueryThreads;
     private SeekBar sbRoomQueryThreads;
     private ImageButton ibRoom;
@@ -250,6 +251,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug = view.findViewById(R.id.swDebug);
 
         btnRepair = view.findViewById(R.id.btnRepair);
+        swAutostart = view.findViewById(R.id.swAutostart);
         tvRoomQueryThreads = view.findViewById(R.id.tvRoomQueryThreads);
         sbRoomQueryThreads = view.findViewById(R.id.sbRoomQueryThreads);
         ibRoom = view.findViewById(R.id.ibRoom);
@@ -620,6 +622,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             view.scrollTo(0, swDebug.getTop());
                         }
                     });
+            }
+        });
+
+        swAutostart.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                Helper.enableComponent(v.getContext(), ReceiverAutoStart.class, checked);
             }
         });
 
@@ -1223,6 +1232,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 }.execute(FragmentOptionsMisc.this, new Bundle(), "repair");
             }
         });
+
+        swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
 
         int query_threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
         tvRoomQueryThreads.setText(getString(R.string.title_advanced_room_query_threads, NF.format(query_threads)));
