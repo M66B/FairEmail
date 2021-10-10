@@ -58,6 +58,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 
+import javax.mail.Address;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -269,6 +270,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         int found = 0;
+        String query = (criteria.query == null ? null : criteria.query.toLowerCase());
 
         if (criteria.fts && criteria.query != null) {
             if (state.ids == null) {
@@ -286,6 +288,99 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 for (; state.index < state.ids.size() && found < pageSize && !state.destroyed; state.index++) {
                     long id = state.ids.get(state.index);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        continue;
+
+                    if (criteria.with_unseen) {
+                        if (message.ui_seen)
+                            continue;
+                    }
+
+                    if (criteria.with_flagged) {
+                        if (!message.ui_flagged)
+                            continue;
+                    }
+
+                    if (criteria.with_hidden) {
+                        if (message.ui_snoozed == null)
+                            continue;
+                    }
+
+                    if (criteria.with_encrypted) {
+                        if (message.encrypt == null ||
+                                EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
+                            continue;
+                    }
+
+                    boolean matched = false;
+
+                    if (criteria.in_senders) {
+                        if (contains(message.from, query))
+                            matched = true;
+                    }
+
+                    if (criteria.in_recipients) {
+                        if (contains(message.to, query) ||
+                                contains(message.cc, query) ||
+                                contains(message.bcc, query))
+                            matched = true;
+                    }
+
+                    if (criteria.in_subject) {
+                        if (message.subject != null &&
+                                message.subject.toLowerCase().contains(query))
+                            matched = true;
+                    }
+
+                    if (criteria.in_keywords) {
+                        if (message.keywords != null)
+                            for (String keyword : message.keywords)
+                                if (keyword.toLowerCase().contains(query)) {
+                                    matched = true;
+                                    break;
+                                }
+                    }
+
+                    if (criteria.in_notes) {
+                        if (message.notes != null &&
+                                message.notes.toLowerCase().contains(query))
+                            matched = true;
+                    }
+
+                    if (!matched && criteria.in_message)
+                        try {
+                            File file = EntityMessage.getFile(context, id);
+                            if (file.exists()) {
+                                String html = Helper.readText(file);
+                                if (html.toLowerCase().contains(query)) {
+                                    String text = HtmlHelper.getFullText(html);
+                                    if (text != null &&
+                                            text.toLowerCase().contains(query))
+                                        matched = true;
+                                }
+                            }
+                        } catch (IOException ex) {
+                            Log.e(ex);
+                        }
+
+                    if (!criteria.in_trash || !criteria.in_junk) {
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            continue;
+                        if (!criteria.in_trash) {
+                            if (EntityFolder.TRASH.equals(folder.type))
+                                continue;
+                        }
+                        if (!criteria.in_junk) {
+                            if (EntityFolder.JUNK.equals(folder.type))
+                                continue;
+                        }
+                    }
+
+                    if (!matched)
+                        continue;
+
                     found += db.message().setMessageFound(id);
                     Log.i("Boundary matched=" + id + " found=" + found);
                 }
@@ -335,8 +430,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
             if (state.matches.size() == 0)
                 break;
-
-            String query = (criteria.query == null ? null : criteria.query.toLowerCase());
 
             for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
                 state.index = i + 1;
@@ -658,6 +751,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             imessages[i] = state.ifolder.getMessage(msgnums.get(i));
 
         return imessages;
+    }
+
+    private static boolean contains(Address[] addresses, String text) {
+        if (addresses == null)
+            return false;
+        for (Address address : addresses)
+            if (address.toString().toLowerCase().contains(text))
+                return true;
+        return false;
     }
 
     State getState() {

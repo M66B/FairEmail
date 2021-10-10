@@ -253,18 +253,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_fts", isChecked).apply();
-                cbSenders.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbRecipients.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbSubject.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbKeywords.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbMessage.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbNotes.setEnabled(!isChecked);
                 cbHeaders.setEnabled(!isChecked);
                 cbHtml.setEnabled(!isChecked);
-                cbUnseen.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbFlagged.setAlpha(isChecked ? Helper.LOW_LIGHT : 1.0f);
-                cbHidden.setEnabled(!isChecked);
-                cbEncrypted.setEnabled(!isChecked);
                 cbAttachments.setEnabled(!isChecked);
                 spMessageSize.setEnabled(!isChecked);
             }

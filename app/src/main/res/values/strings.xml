@@ -1307,10 +1307,7 @@
         Initially, the search is performed on the device.
         To search the server too, tap the \'search again\' button.
     </string>
-    <string name="title_search_index_hint">
-        Searching via the search index is fast, but only finds whole words in all message parts.
-        The options below are to continue searching the email server.
-    </string>
+    <string name="title_search_index_hint">Searching via the search index is fast, but only finds whole words.</string>
     <string name="title_search_text_hint">Searching for text in messages, when there are a large number of messages, might not work on some servers</string>
     <string name="title_search_text_unsupported">\'%s\' means that the mail server doesn\'t support searching in message texts</string>
     <string name="title_search_size_hint">Searching for messages by size, when there are a large number of messages, might not work on some servers</string>

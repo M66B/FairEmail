@@ -7,6 +7,7 @@
 ### Next version
 
 * Added multiple select spam / block sender
+* Added conditional searching via search index
 * Small improvements and minor bug fixes
 * Updated translations
 
