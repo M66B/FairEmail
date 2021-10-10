@@ -138,6 +138,17 @@
     <string name="title_legend_c">ᱠᱚᱢᱯᱚᱡᱽ</string>
     <string name="title_log_clear">ᱯᱷᱟᱨᱪᱟᱭ ᱢᱮ</string>
     <!-- Thunderbird -->
+    <string-array name="pollIntervalNames">
+        <item>Always</item>
+        <item>Every 5 minutes</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
+        <item>ᱫᱤᱱ ᱜᱮ</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

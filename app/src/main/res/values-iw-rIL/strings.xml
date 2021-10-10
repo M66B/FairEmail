@@ -5,9 +5,12 @@
     <string name="app_welcome">תוכנת fairmail בנויה על קוד פתוח ונותנת חשיבות רבה לפרטיות ואבטחת המשתמש. מתוך כך, יתכן ומספר מאפיינים של התוכנה יעבדו באופן שונה מהמקובל.</string>
     <string name="app_crash">אפליקצית fairmail אינה נתמכת במכשיר זה בגלל בעיות במערכת ההפעלה של אנדרואיד הגורמת לאפליקציה לקרוס</string>
     <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
-    <string name="channel_service">קבל</string>
-    <string name="channel_send">שלח</string>
-    <string name="channel_notification">מייל</string>
+    <string name="app_cake">לא נותר די שטח אחסון</string>
+    <string name="app_updated">עדכון אחרון: %1$s</string>
+    <string name="channel_service">קבלה</string>
+    <string name="channel_send">שליחה</string>
+    <string name="channel_notification">דוא״ל</string>
+    <string name="channel_progress">התקדמות</string>
     <string name="channel_update">עדכונים</string>
     <string name="channel_warning">אזהרות</string>
     <string name="channel_error">שגיאות</string>
@@ -283,6 +286,7 @@
     <string name="title_image_dialog">הצג אפשרויות תמונה </string>
     <string name="title_signature_subject">נושא</string>
     <string name="title_search">חפש</string>
+    <string name="title_search_index_hint">חיפוש דרך מפתח החיפוש הוא מהיר, אך מוצא מילים שלמות בלבד.</string>
     <string name="title_sort_on_priority">עדיפות</string>
     <string name="title_sort_on_subject">נושא</string>
     <string name="title_sort_on_size">גודל</string>

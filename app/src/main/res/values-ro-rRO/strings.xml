@@ -262,6 +262,10 @@
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Întrebări generale</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Afișați mesajele originale</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Afișare imagini</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Confirmați link-urile</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
@@ -567,6 +571,7 @@
     <string name="title_advanced_log_info">Jurnal depanare</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_manual_hint">Dacă primirea mesajelor este dezactivată, încă este posibilă primirea manuală a mesajelor glisând în jos lista de mesaje</string>
+    <string name="title_advanced_poll_battery">Acest lucru poate cauza o utilizare ridicată a bateriei!</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje. Modul de sincronizare permanent evită aceasta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_optimize_hint">Acest lucru ar putea schimba frecvența de sincronizare pentru a economisi consumul bateriei în funcție de capacitățile și comportamentul serverelor de e-mail</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
@@ -1148,9 +1153,7 @@
     <string name="title_search_hint">        Inițial, căutarea se efectuează pe dispozitiv.
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
-    <string name="title_search_index_hint">        Căutarea prin intermediul indexului de căutare este rapidă, dar găsește numai cuvinte întregi în toate părțile mesajului.
-        Opțiunile de mai jos sunt pentru a continua căutarea în serverul de e-mail.
-    </string>
+    <string name="title_search_index_hint">Căutarea prin intermediul indexului de căutare este rapidă, dar găsește doar cuvinte întregi.</string>
     <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_text_unsupported">\'%s\' înseamnă că serverul de e-mail nu acceptă căutarea în textele mesajelor</string>
     <string name="title_search_size_hint">Căutarea mesajelor după mărime, când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>

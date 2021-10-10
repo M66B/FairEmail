@@ -475,6 +475,7 @@
     <string name="title_advanced_app">Definições da aplicação</string>
     <string name="title_advanced_more">Mais opções</string>
     <string name="title_advanced_debug">Modo de Depuração</string>
+    <string name="title_advanced_poll_battery">Isto pode causar elevado uso de bateria!</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
@@ -527,9 +528,6 @@
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
     <string name="title_search">Pesquisar</string>
-    <string name="title_search_index_hint">        A procura pelo índice de pesquisa é rápida, mas só encontra palavras inteiras em todas as partes da mensagem.
-        As opções abaixo são para continuar a procurar no servidor de e-mail.
-    </string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
     <string name="title_search_more">Mais opções</string>
     <string name="title_filter_seen">Lida</string>
@@ -575,6 +573,17 @@
     <string name="title_accessibility_seen">Lida</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">Pendente</string>
+    <string-array name="pollIntervalNames">
+        <item>Always</item>
+        <item>A cada 5 minutos</item>
+        <item>A cada 15 minutos</item>
+        <item>A cada 30 minutos</item>
+        <item>A cada hora</item>
+        <item>A cada 2 horas</item>
+        <item>A cada 4 horas</item>
+        <item>A cada 8 horas</item>
+        <item>Todos os dias</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

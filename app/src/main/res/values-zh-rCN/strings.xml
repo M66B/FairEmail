@@ -242,6 +242,10 @@
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_reset_questions">重置询问</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">常规问题</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">显示原始邮件</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">显示图片</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">确认链接</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项
         所有选项默认均使用可更改的常用标准值
@@ -547,6 +551,7 @@
     <string name="title_advanced_log_info">调试日志</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_manual_hint">如果禁用了接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
+    <string name="title_advanced_poll_battery">这可能会导致高耗电量！</string>
     <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息与远程消息，这是项耗时的操作，可能消耗更多电量，尤其是消息非常多时。始终接收将通过持续跟踪变化来防止这种情况。</string>
     <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
@@ -1127,9 +1132,7 @@
     <string name="title_search_hint">        最初，搜索在设备上执行。
         要搜索服务器，点击“再次搜索”按钮。
     </string>
-    <string name="title_search_index_hint">        通过索引来搜索确实很快，但只能在所有邮件部分中找到整个单词
-        下面的选项是继续搜索电子邮件服务器
-    </string>
+    <string name="title_search_index_hint">通过搜索索引确实很快，但只能找到整个单词</string>
     <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上正常运作</string>
     <string name="title_search_text_unsupported">\'%s\' 表示邮件服务器不支持在邮件文本中搜索</string>
     <string name="title_search_size_hint">消息数量很多时，通过大小搜索消息可能在某些服务器上无法正常运作</string>
@@ -1555,9 +1558,9 @@
     <string name="title_accessibility_to">收件人</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
-        <item>每5分钟</item>
-        <item>每15分钟</item>
-        <item>每30分钟</item>
+        <item>每 5 分钟</item>
+        <item>每 15 分钟</item>
+        <item>每 30 分钟</item>
         <item>每小时</item>
         <item>每两小时</item>
         <item>每四小时</item>

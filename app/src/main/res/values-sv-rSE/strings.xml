@@ -250,6 +250,7 @@
     <string name="title_setup_options">Alternativ</string>
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Visa bilder</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
         Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
@@ -1134,9 +1135,6 @@
     <string name="title_search_for_hint">Ange text</string>
     <string name="title_search_hint">        Till en början görs sökningen på enheten.
         Tryck på knappen \"Sök igen\" för att söka på servern.
-    </string>
-    <string name="title_search_index_hint">        Sökning via sökindex är snabb, men hittar bara hela ord i alla meddelandedelar.
-        Alternativen nedan är att fortsätta söka på e-postservern.
     </string>
     <string name="title_search_text_hint">Sökning efter text i meddelanden, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
     <string name="title_search_text_unsupported">\'%s\' betyder att e-postservern inte stöder sökning i meddelandetexter</string>

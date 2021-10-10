@@ -272,6 +272,7 @@
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Zobraziť obrázky</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
     <string name="title_advanced_hint_message">        Vstupujete do veľmi pokročilých možností.
         Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné meniť, jedine že uprednostňujete iné nastavenie.
@@ -576,6 +577,7 @@
     <string name="title_advanced_log_info">Zaznamenávanie ladiacich informácií</string>
     <string name="title_advanced_debug">Ladiaci režim</string>
     <string name="title_advanced_manual_hint">Ak je prijímanie správ zakázané, správy je možné prijať ručne stiahnutím zoznamu správ</string>
+    <string name="title_advanced_poll_battery">Môže spôsobiť vysoké využitie batérie!</string>
     <string name="title_advanced_poll_hint">Pravidelné kontrolovanie nových správ každú chvíľu porovnáva správy v zariadení so správami na servery, čo je náročná operácia a dôsledkom môže byť rýchlejšie vybíjanie batérie, hlavne ak máte v doručenej pošte veľa správ. 
 Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_optimize_hint">Nastaví frekvenciu synchronizácie s cieľom ušetriť energiu pri napájaní z batérie podľa vlastností a správania poštového servera</string>
@@ -1153,9 +1155,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_for_hint">Zadajte text</string>
     <string name="title_search_hint">        Prvotné vyhľadávanie prebieha priamo na zariadení.
         Ak chcete prehľadať aj server, klepnite na tlačidlo hľadať znovu.
-    </string>
-    <string name="title_search_index_hint">        Prehľadávanie indexu je veľmi rýchle, ale je obmedzené na hľadanie celých slov vo všetkých častiach správy.
-        Možnosti nižšie umožňujú pokračovať v hľadaní na servery.
     </string>
     <string name="title_search_text_hint">Vyhľadávanie v tele správy nemusí na všetkých serveroch fungovať správne, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_text_unsupported">\'%s\' znamená, že server nepodporuje hľadanie v texte správ</string>

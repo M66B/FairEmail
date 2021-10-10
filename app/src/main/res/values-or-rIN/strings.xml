@@ -18,10 +18,19 @@
     <string name="shortcut_refresh">ସତେଜ କରନ୍ତୁ</string>
     <string name="shortcut_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="shortcut_setup">ସେଟିଂସମୂହ</string>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$dଟିଏ ନୂଆ</item>
+        <item quantity="other">%1$dଟି ନୂଆ</item>
+    </plurals>
+    <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
+    <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
+    <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
+    <string name="title_factor_minutes">%1$d ମିନିଟ୍</string>
     <string name="menu_setup">ସେଟିଂସମୂହ</string>
     <string name="menu_faq">ସମର୍ଥନ</string>
     <string name="menu_translate">ଅନୁବାଦ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
     <string name="menu_issue">ସମସ୍ୟା ରିପୋର୍ଟ କରନ୍ତୁ</string>
+    <string name="menu_attribution">କୃତଜ୍ଞତା</string>
     <string name="menu_privacy">ଗୋପନୀୟତା</string>
     <string name="menu_about">ବିଷୟରେ</string>
     <string name="menu_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
@@ -40,16 +49,25 @@
     <string name="title_setup">ସେଟିଂସମୂହ</string>
     <string name="title_setup_help">ସହାୟତା</string>
     <string name="title_setup_quick">ଦ୍ରୁତ ସେଟଅପ୍</string>
+    <string name="title_setup_quick_support">କିଛି ପ୍ରଦାନକାରୀ ଏକ ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ିବା କଷ୍ଟକର କରନ୍ତି। ଦୟାକରି ଏଥିପାଇଁ FairEmail କୁ ଦୋଷ ଦିଅନ୍ତୁ ନାହିଁ, କିନ୍ତୁ ଏହା ବଦଳରେ ସମର୍ଥନ ମାଗନ୍ତୁ।</string>
     <string name="title_setup_wizard">ଓ୍ୱିଜାର୍ଡ</string>
     <string name="title_setup_wizard_new">ମୋର ଏକ ନୂତନ ଇମେଲ୍ ଠିକଣା ଦରକାର</string>
     <string name="title_setup_manual">ହସ୍ତକୃତ ସେଟଅପ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ବିକଳ୍ପ ସମୂହ</string>
     <string name="title_setup_classic">ସର୍ବତ୍କୃଷ୍ଟ ବିନ୍ୟାସ</string>
+    <string name="title_setup_account_remark">ଇମେଲ୍ ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
+    <string name="title_setup_identity_remark">ଇମେଲ୍ ପଠାନ୍ତୁ</string>
     <string name="title_setup_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
     <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
+    <string name="title_setup_other">ଅନ୍ୟ ପ୍ରଦାନକାରୀ</string>
     <string name="title_setup_pop3">POP3 ଆକାଉଣ୍ଟ୍</string>
     <string name="title_setup_oauth_update">ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟକୁ ପୁନଃ ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
+    <string name="title_setup_oauth_authorize">ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
+    <string name="title_setup_select_account">ଆକାଉଣ୍ଟ୍ ବାଛନ୍ତୁ</string>
+    <string name="title_setup_instructions">ସେଟଅପ୍ ନିର୍ଦ୍ଦେଶାବଳୀ</string>
+    <string name="title_setup_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_setup_manage">ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="title_setup_identity_what">ଏକ ପରିଚୟ କ’ଣ?</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
@@ -90,6 +108,10 @@
     <string name="title_setup_theme_more_colors">ମୁଁ ଅଧିକ ରଙ୍ଗ ଚାହୁଁଛି</string>
     <string name="title_setup_advanced">ବିକଶିତ</string>
     <string name="title_setup_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">ସାଧାରଣ ପ୍ରଶ୍ନ</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">ମୂଳ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="title_advanced_section_main">ମୁଖ୍ୟ</string>
     <string name="title_advanced_section_synchronize">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="title_advanced_section_send">ପଠାନ୍ତୁ</string>
@@ -106,57 +128,218 @@
     <string name="title_advanced_caption_general">ସାଧାରଣ</string>
     <string name="title_advanced_caption_conversation">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_advanced_caption_message">ବାର୍ତ୍ତା</string>
+    <string name="title_advanced_portrait">ପୋଟ୍ରେଟ୍ ମୋଡ୍</string>
+    <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
     <string name="title_advanced_highlight_color">ରଙ୍ଗ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_color">ପାଠ୍ୟ ରଙ୍ଗ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_font">ଫଣ୍ଟ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
+    <string name="title_advanced_authentication_indicator">ପ୍ରାମାଣିକରଣ ସ୍ଥିତି ସୂଚକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_advanced_authentication_none">ପ୍ରାମାଣିକରଣ ନାହିଁ</string>
+    <string name="title_advanced_authentication_some">ଆଂଶିକ ପ୍ରାମାଣିକରଣ</string>
+    <string name="title_advanced_authentication_all">ସମ୍ପୂର୍ଣ୍ଣ ପ୍ରାମାଣିକରଣ</string>
+    <string name="title_advanced_sync_on_launch">ଆରମ୍ଭରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
+    <string name="title_advanced_undo">ପୂର୍ବବତ୍ ସମୟ ଶେଷ</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
+    <string name="title_advanced_notify_action_trash">ଆବର୍ଜନା</string>
+    <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
+    <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
+    <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
+    <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>
+    <string name="title_advanced_language">ଭାଷା</string>
+    <string name="title_advanced_language_system">ସିଷ୍ଟମ୍</string>
+    <string name="title_advanced_deepl">DeepL ଏକୀକରଣ</string>
     <string name="title_advanced_updates">GitHub ଅପଡେଟସ୍ ପାଇଁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="title_advanced_check_weekly">ଦୈନିକ ବଦଳରେ ସାପ୍ତାହିକ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="title_advanced_changelog">ଅପଡେଟ୍ ପରେ ପରିବର୍ତ୍ତନ ଲଗ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="title_advanced_crash_reports">ତ୍ରୁଟି ରିପୋର୍ଟ ପଠାନ୍ତୁ</string>
     <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
+    <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
+    <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
+    <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
+    <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
+    <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
+    <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
+    <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
+    <string name="title_optional">ବୈକଳ୍ପିକ</string>
+    <string name="title_recommended">ସୁପାରିଶ କରାଯାଇଛି</string>
+    <string name="title_account_linked">ଲିଙ୍କ୍ ହୋଇଥିବା ଆକାଉଣ୍ଟ୍</string>
     <string name="title_account_name">ଆକାଉଣ୍ଟ୍ ନାମ</string>
     <string name="title_account_category">ବର୍ଗ</string>
+    <string name="title_account_name_hint">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଭିନ୍ନ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ</string>
+    <string name="title_color">ରଙ୍ଗ</string>
+    <string name="title_background">ପୃଷ୍ଠପଟ</string>
+    <string name="title_transparent">ପାରଦର୍ଶୀ</string>
+    <string name="title_account_left">ବାମକୁ ସ୍ୱାଇପ୍</string>
+    <string name="title_account_right">ଡାହାଣକୁ ସ୍ୱାଇପ୍</string>
+    <string name="title_domain">ଡୋମେନ୍ ନାମ</string>
+    <string name="title_provider">ପ୍ରଦାନକାରୀ</string>
+    <string name="title_custom">କଷ୍ଟମ୍</string>
+    <string name="title_host">ହୋଷ୍ଟ ନାମ</string>
     <string name="title_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_encryption_none">କିଛି ନୁହେଁ</string>
+    <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
+    <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
     <string name="title_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
+    <string name="title_primary">ପ୍ରାଥମିକ</string>
+    <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
+    <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
+    <string name="title_check">ଯାଞ୍ଚ କର</string>
+    <string name="title_no_name">ନାମ ନିଖୋଜ</string>
+    <string name="title_no_email">ଇମେଲ୍ ଠିକଣା ନିଖୋଜ</string>
+    <string name="title_email_invalid">ଇମେଲ୍ ଠିକଣା ଅବୈଧ: \'%1$s\'</string>
+    <string name="title_address_duplicate">ଠିକଣା \'%1$s\' ନକଲ</string>
+    <string name="title_address_parse_error">ଠିକଣା \'%1$s\' ଅବୈଧ: %2$s</string>
+    <string name="title_no_account">ଆକାଉଣ୍ଟ୍ ନିଖୋଜ</string>
+    <string name="title_no_host">ହୋଷ୍ଟ ନାମ ନିଖୋଜ</string>
+    <string name="title_no_user">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
     <string name="title_no_password">ପାସ୍ଓ୍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
+    <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
+    <string name="title_review">ସମୀକ୍ଷା କର</string>
     <string name="title_synchronize_enabled">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
+    <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
+    <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
+    <string name="title_import_contacts">vCards ଆମଦାନୀ କରନ୍ତୁ</string>
+    <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
+    <string name="title_display_name">ଦେଖାଇବା ନାମ</string>
     <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
+    <string name="title_hide_folder">ଫୋଲ୍ଡର୍ ଲୁଚାନ୍ତୁ</string>
+    <string name="title_months">ମାସ</string>
     <string name="title_months_all">ସମସ୍ତ</string>
+    <string name="title_folder_trash">ଆବର୍ଜନା ପାତ୍ର</string>
+    <string name="title_folder_system">ସିଷ୍ଟମ୍</string>
+    <string name="title_hide">ଲୁଚାଅ</string>
+    <string name="title_unhide">ଦେଖାଅ</string>
+    <string name="title_force_light">ହାଲୁକା ଥିମ୍ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
+    <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
+    <string name="title_more">ଅଧିକ</string>
+    <string name="title_less">କମ୍</string>
+    <string name="title_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_copy_btn">କପି କରନ୍ତୁ</string>
+    <string name="title_no_undo">ମୁଁ ବୁଝିପାରୁଛି ଏହାକୁ ପୂର୍ବବତ୍ କରାଯାଇପାରିବ ନାହିଁ</string>
+    <string name="title_receipt_subject">ପଠନ ରସିଦ: %1$s</string>
+    <string name="title_no_viewer_name">ବିଷୟବସ୍ତୁ ନାମ</string>
+    <string name="title_no_viewer_type">ବିଷୟବସ୍ତୁ ପ୍ରକାର</string>
+    <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
+    <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
+    <string name="title_show_full">ପୂର୍ଣ୍ଣ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
     <string name="title_ask_help">FairEmail କୁ ଉନ୍ନତ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
     <string name="title_need_help">ମତେ ସାହାଯ୍ୟ ଦରକାର</string>
     <string name="title_compose">ରଚନା କରନ୍ତୁ</string>
+    <string name="title_from">ପ୍ରେରକ:</string>
+    <string name="title_to">ପ୍ରାପ୍ତକର୍ତ୍ତା:</string>
+    <string name="title_size">ଆକାର:</string>
+    <string name="title_language">ଭାଷା:</string>
+    <string name="title_subject">ବିଷୟ:</string>
+    <string name="title_attachment">ସଂଲଗ୍ନକରଣ:</string>
     <string name="title_send">ପଠାନ୍ତୁ</string>
     <string name="title_send_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_send_priority">ପ୍ରାଥମିକତା</string>
+    <string name="title_style">ଶୈଳୀ</string>
+    <string name="title_style_size">ଆକାର</string>
+    <string name="title_style_align_start">ଆରମ୍ଭ</string>
+    <string name="title_style_align_center">କେନ୍ଦ୍ର</string>
+    <string name="title_style_align_end">ଶେଷ</string>
+    <string name="title_style_font">ଫଣ୍ଟ</string>
+    <string name="title_style_font_default">ଡିଫଲ୍ଟ</string>
+    <string name="title_style_indentation">ଇଣ୍ଡେଣ୍ଟେସନ୍</string>
+    <string name="title_style_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_add_image">ପ୍ରତିଛବି ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="title_add_image_inline">ସନ୍ନିବେଶ କର</string>
+    <string name="title_add_image_attach">ସଂଲଗ୍ନ କର</string>
+    <string name="title_attachment_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_translate">ଅନୁବାଦ କର</string>
+    <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
+    <string name="title_search_index_hint">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ମାଧ୍ୟମରେ ଖୋଜିବା ଦ୍ରୁତ ଅଟେ, କିନ୍ତୁ ଏହା ଦ୍ୱାରା କେବଳ ପୂର୍ଣ୍ଣ ଶବ୍ଦ ମିଳିଥାଏ।</string>
+    <string name="title_search_more">ଅଧିକ ବିକଳ୍ପ</string>
+    <string name="title_search_use_index">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ବ୍ୟବହାର କରିବା</string>
+    <string name="title_search_in_trash">ଆବର୍ଜନା ପାତ୍ରରେ</string>
+    <string name="title_search_flag_attachments">ସଂଲଗ୍ନକରଣ</string>
+    <string name="title_search_flag_invite">ଆମନ୍ତ୍ରଣ</string>
+    <string name="title_search_flag_size">ଆକାର &gt; %1$s</string>
+    <string name="title_sort_on_time">ସମୟ</string>
+    <string name="title_sort_on_priority">ପ୍ରାଥମିକତା</string>
+    <string name="title_sort_on_sender">ପ୍ରେରକ</string>
+    <string name="title_sort_on_subject">ବିଷୟ</string>
+    <string name="title_sort_on_size">ଆକାର</string>
+    <string name="title_sort_on_attachments">ସଂଲଗ୍ନକରଣ</string>
+    <string name="title_zoom">ପାଠ୍ୟ ଆକାର</string>
+    <string name="title_select_language">ଭାଷା ଚୟନ କରନ୍ତୁ</string>
+    <string name="title_select_all">ସମସ୍ତ ଚୟନ କରନ୍ତୁ</string>
     <string name="title_language_all">ସମସ୍ତ</string>
+    <string name="title_previous">ପୂର୍ବବର୍ତ୍ତୀ</string>
+    <string name="title_next">ପରବର୍ତ୍ତୀ</string>
+    <string name="title_edit_signature_image">ପ୍ରତିଛବି ସନ୍ନିବେଶ କର</string>
+    <string name="title_answer_caption">ଟେମ୍ପଲେଟ୍ ସମ୍ପାଦନା</string>
+    <string name="title_answer_name">ଟେମ୍ପଲେଟ୍ ନାମ</string>
+    <string name="title_answer_standard">ଡିଫଲ୍ଟ</string>
+    <string name="title_answer_placeholder_name">ପ୍ରେରକଙ୍କ ସମ୍ପୂର୍ଣ୍ଣ ନାମ</string>
+    <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
+    <string name="title_answer_placeholder_firstname">ପ୍ରେରକଙ୍କ ପ୍ରଥମ ନାମ</string>
+    <string name="title_answer_placeholder_lastname">ପ୍ରେରକଙ୍କ ଶେଷ ନାମ</string>
+    <string name="title_rule_hide">ଲୁଚାଅ</string>
+    <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
+    <string name="title_rule_regex">RegEx</string>
+    <string name="title_rule_identity">ପରିଚୟ</string>
+    <string name="title_rule_identity_missing">ପରିଚୟ ନିଖୋଜ</string>
+    <string name="title_rule_check">ଯାଞ୍ଚ କର</string>
+    <string name="title_rule_tts_from">ପ୍ରେରକ</string>
+    <string name="title_rule_tts_subject">ବିଷୟ</string>
     <string name="title_legend_section_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_legend_section_messages">ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
     <string name="title_legend_section_compose">ରଚନା କରନ୍ତୁ</string>
+    <string name="title_legend_trash">ଆବର୍ଜନା ପାତ୍ର</string>
+    <string name="title_legend_primary">ପ୍ରାଥମିକ</string>
     <string name="title_legend_thread">ବାର୍ତ୍ତାଳାପ</string>
+    <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
     <string name="title_legend_c">ରଚନା କରନ୍ତୁ</string>
+    <string name="title_legend_n">ପରବର୍ତ୍ତୀ</string>
+    <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
+    <string name="title_undo">ପୂର୍ବବତ୍</string>
+    <string name="title_redo">ପୁନଃକରଣ</string>
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ</string>
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
     <string name="title_pro_whichever">ଯେକୌଣସି ବୈଶିଷ୍ଟ୍ୟ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଭାବରେ ମନୋନୀତ ହେଲେ, ସର୍ବଦା ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଥାଆନ୍ତି ଯିଏ ଅଭିଯୋଗ କରନ୍ତି ଯେ ଏକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା ହେବା ଉଚିତ୍। ଦୟାକରି ଆପଣ ସେହି ବ୍ୟକ୍ତି ହୁଅନ୍ତୁ ନାହିଁ।</string>
+    <string name="title_log_clear">ଖାଲି କରନ୍ତୁ</string>
+    <string name="title_power_menu_off">ବନ୍ଦ</string>
     <string name="title_widget_account">ଆକାଉଣ୍ଟ୍</string>
     <string name="title_widget_account_all">ସମସ୍ତ</string>
+    <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
     <!-- Thunderbird -->
     <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
+    <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>
+    <string name="title_accessibility_from">ପ୍ରେରକ</string>
+    <string-array name="pollIntervalNames">
+        <item>Always</item>
+        <item>ପ୍ରତି ୫ ମିନିଟରେ</item>
+        <item>ପ୍ରତି ୧୫ ମିନିଟରେ</item>
+        <item>ପ୍ରତି ୩୦ ମିନିଟରେ</item>
+        <item>ପ୍ରତି ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତି ୨ ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତି ୪ ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତି ୮ ଘଣ୍ଟାରେ</item>
+        <item>ପ୍ରତିଦିନ</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
@@ -165,6 +348,26 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="fontSizeNames">
+        <item>ଡିଫଲ୍ଟ</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>କିଛି ନୁହେଁ</item>
+        <item>PGP sign-only</item>
+        <item>PGP sign+encrypt</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>ବନ୍ଦ</item>
+        <item>୨.୫ ସେକେଣ୍ଡ</item>
+        <item>୫ ସେକେଣ୍ଡ</item>
+        <item>୭.୫ ସେକେଣ୍ଡ</item>
+        <item>୧୦ ସେକେଣ୍ଡ</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->

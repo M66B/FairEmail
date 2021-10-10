@@ -183,6 +183,7 @@
     <string name="title_setup_options">Opcije</string>
     <string name="title_setup_defaults">Vrati zadano</string>
     <string name="title_setup_reset_questions">Poništite pitanja</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Prikaži slike</string>
     <string name="title_advanced_hint_title">Naprednije opcije</string>
     <string name="title_advanced_section_synchronize">Primanje</string>
     <string name="title_advanced_section_send">Pošalji</string>

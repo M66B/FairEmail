@@ -242,6 +242,7 @@
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">画像を表示</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
     <string name="title_advanced_hint_message">        高度なオプションに移動しています。
         全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
@@ -545,6 +546,7 @@
     <string name="title_advanced_log_info">デバッグログ</string>
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます。</string>
+    <string name="title_advanced_poll_battery">これは高いバッテリー使用率を引き起こす可能性があります！</string>
     <string name="title_advanced_poll_hint">新しいメッセージを定期的にチェックすると、ローカルメッセージとリモートメッセージが毎回比較されます。これはコストのかかる操作であり、特にメッセージが多い場合は、バッテリーの使用量が増える可能性があります。 常に受信することで、変更を継続的に追跡してこれを防ぎます。</string>
     <string name="title_advanced_optimize_hint">これは、バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
     <string name="title_advanced_schedule_hint">時間をタップして時間を設定</string>
@@ -1125,9 +1127,6 @@
     <string name="title_search_for_hint">テキストを入力</string>
     <string name="title_search_hint">        はじめに、お使いのデバイスに保存されているメッセージを検索します。
         サーバーも検索するには「もう一度検索」ボタンをタップします
-    </string>
-    <string name="title_search_index_hint">        検索インデックスを介した検索は高速ですが、単語全体しか検索されません。
-        以下のオプションはメールサーバーの検索を続行します。
     </string>
     <string name="title_search_text_hint">メッセージ内のテキストを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります。</string>
     <string name="title_search_text_unsupported">\'%s\' は、メールサーバーがメッセージテキスト内の検索をサポートしていないことを意味します</string>

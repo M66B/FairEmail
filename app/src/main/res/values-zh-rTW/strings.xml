@@ -237,6 +237,7 @@
     <string name="title_setup_options">選項</string>
     <string name="title_setup_defaults">恢復預設</string>
     <string name="title_setup_reset_questions">重置提示</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">顯示圖片</string>
     <string name="title_advanced_hint_title">更高階的選項</string>
     <string name="title_advanced_hint_message">        您正在訪問更高階的選項。
         所有選項都有常用的標準值，除非您有不同的偏好，否則您不需要變更這些選項。
@@ -1121,9 +1122,6 @@
     <string name="title_search_for_hint">輸入文字</string>
     <string name="title_search_hint">        初次進行的搜尋，會執行於裝置之上。
         如要接著搜尋伺服器，請輕觸‘再次搜尋’按鈕。
-    </string>
-    <string name="title_search_index_hint">        透過搜尋索引搜尋的速度很快，但僅能於所有本地訊息中查找完整的單詞。
-        以下選項可繼續用於郵件伺服器上的搜尋。
     </string>
     <string name="title_search_text_hint">當有大量訊息時，搜尋訊息內文字功能在一些伺服器上可能不工作</string>
     <string name="title_search_text_unsupported">\'%s\' 表示郵件伺服器不支援在訊息本文中搜尋</string>

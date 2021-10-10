@@ -252,6 +252,7 @@
     <string name="title_setup_options">Seçimlər</string>
     <string name="title_setup_defaults">İlkin vəziyyətinə qaytar</string>
     <string name="title_setup_reset_questions">Sualları sıfırla</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Təsvirləri göstər</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -556,6 +557,7 @@
     <string name="title_advanced_log_info">Sazlama jurnalı</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_manual_hint">Əgər mesaj qəbulu sıradan çıxarılsa, mesaj siyahısını aşağı çəkərək mesaj qəbulunu manual şəkildə təmin edə bilərsiniz</string>
+    <string name="title_advanced_poll_battery">Bu, yüksək batereya istifadəsinə səbəb ola bilər!</string>
     <string name="title_advanced_poll_hint">Yeni mesajların vaxtaşırı yoxlanılması, hər dəfəsində yerli və uzaq mesajları müqayisə edəcək; bu, xüsusilə də həddən çox mesaj olanda əlavə batareya istifadəsinə səbəb olacaq bahalı bir əməliyyatdır. \"Həmişə al\", dəyişiklikləri davamlı izləyərək bunun qarşısını alacaq.</string>
     <string name="title_advanced_optimize_hint">Bu, e-poçt serverlərinin imkan və davranışlarından asılı olaraq batareya istifadəsinə qənaət etmək üçün eyniləşdirmə tezliyini dəyişdirə bilər</string>
     <string name="title_advanced_schedule_hint">Bir vaxt təyin etmək üçün vaxta toxun</string>
@@ -1136,9 +1138,6 @@
     <string name="title_search_for_hint">Mətn daxil et</string>
     <string name="title_search_hint">        İlk olaraq, axtarış cihazda həyata keçirilir.
         Serverdə də axtarış etmək üçün \"yenidən axtar\" düyməsinə toxunun.
-    </string>
-    <string name="title_search_index_hint">        Axtarış indeksi ilə axtarış etmək sürətlidir, ancaq yalnız bütün mesaj hissələrindəki bütün sözləri tapır.
-        Aşağıdakı seçimlər, e-poçt serverini axtarmağa davam edir.
     </string>
     <string name="title_search_text_hint">Həddindən çox mesaj olanda, mesajlarda mətn axtarışı bəzi serverlərdə işləməyə bilər</string>
     <string name="title_search_text_unsupported">\'%s\', poçt serverinin mesaj mətnlərində axtarışı dəstəkləmədiyi mənasını verir</string>

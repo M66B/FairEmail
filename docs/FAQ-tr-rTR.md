@@ -475,82 +475,82 @@ Ayarların görüntüleme bölümünde örneğin etkinleştirebilir veya devre d
 * *konuşma eylem çubuğu*: alt gezinme çubuğunu devre dışı bırakmak için
 * *vurgu rengi*: okunmamış mesajları gönderen için bir renk seçmek
 * *kişi fotoğraflarını göster*: kişi fotoğraflarını gizlemek için
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *adları ve e-posta adreslerini göster*: adları veya adları ve e-posta adreslerini göstermek için
+* *konuyu italik göster*: mesaj konusunu normal metin olarak göstermek için
+* *yıldızları göster*: yıldızları gizlemek için (favoriler)
+* *mesaj önizlemesini göster*: mesaj metninin 1-4 satırını göstermek için
+* *varsayılan olarak adres ayrıntılarını göster*: varsayılan olarak adresler bölümünü genişletmek için
+* *bilinen kişiler için orijinal mesajı otomatik olarak göster*: cihazınızdaki kişiler için orijinal mesajları otomatik olarak göstermek için lütfen [bu SSS](#user-content-faq35)'i okuyun
+* *Bilinen kişiler için resimleri otomatik olarak göster*: Cihazınızdaki kişilerin resimlerini otomatik olarak göstermek için lütfen [bu SSS](#user-content-faq35)'i okuyun
 
 Mesajların yalnızca mesaj metni indirildiğinde önizlenebileceğini unutmayın. Daha büyük mesaj metinleri, ölçülü (genellikle mobil) ağlarda varsayılan olarak indirilmez. Bunu bağlantı ayarlarından değiştirebilirsiniz.
 
 Bazı insanlar soruyor:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to move the star to the left, but it is much easier to operate the star on the right side
+* konuyu kalın göstermek için, ancak kalın okunmamış mesajları vurgulamak için zaten kullanılıyor
+* yıldızı sola hareket ettirmek, ancak yıldızı sağ tarafta çalıştırmak çok daha kolay
 
 <br />
 
 <a name="faq6"></a>
 **(6) Gmail / G Suite'e nasıl giriş yapabilirim?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+FairEmail'in Play Store veya GitHub sürümünü kullanıyorsanız, bir Gmail hesabını ve kimliğini kolayca kurmak için hızlı kurulum sihirbazını kullanabilirsiniz. Gmail hızlı kurulum sihirbazı, F-Droid derlemesi gibi üçüncü taraf derlemeleri için kullanılamaz çünkü Google, yalnızca resmi yapılar için OAuth kullanımını onayladı.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Cihazdaki bir Google hesabını kullanmak istemiyorsanız veya kullanamıyorsanız, örneğin en son Huawei cihazlarında, "Daha az güvenli uygulamalar" için erişimi etkinleştirebilir ve hesap şifrenizi kullanabilirsiniz (önerilmez) veya iki faktörlü kimlik doğrulamayı etkinleştirin ve uygulamaya özel bir şifre kullanın. Bir parola kullanmak için hızlı kurulum sihirbazı yerine manuel kurulum yoluyla bir hesap ve kimlik oluşturmanız gerekir.
 
 **Önemli**: bazen Google şu uyarıyı verir:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Lütfen web tarayıcınız üzerinden giriş yapın: https://support.google.com/mail/accounts/answer/78754 (Hata)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Bu Google güvenlik kontrolü, *daha az güvenli uygulamalar* etkinken daha sık, uygulama şifresi ile daha az ve bir cihaz hesabı (OAuth) kullanılırken zor tetiklenir.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Lütfen neden yalnızca cihazdaki hesapların kullanılabileceğini öğrenmek için [bu SSS](#user-content-faq111)'e bakın.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+İki faktörlü kimlik doğrulama etkinleştirildiğinde uygulamaya özel bir parolanın gerekli olduğunu unutmayın.
 
 <br />
 
-*Enable "Less secure apps"*
+*Uygulamaya özel şifre*
 
-**Important**: using this method is not recommended because it is less reliable.
+Uygulamaya özel bir şifrenin nasıl oluşturulacağı hakkında [buraya](https://support.google.com/accounts/answer/185833) bakın.
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+<br />
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+*"Daha az güvenli uygulamaları" etkinleştir*
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+**önemli**: daha az güvenilir olduğu için bu yöntemin kullanılması önerilmez.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+**önemli**: Bir kullanıcı adı/şifre ile yetkilendirilen Gsuite hesapları [yakın gelecekte](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) çalışmayı durduracaktır.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+"Daha az güvenli uygulamaların" nasıl etkinleştirileceği hakkında [buraya](https://support.google.com/accounts/answer/6010255) bakın veya [ayar dizinine](https://www.google.com/settings/security/lesssecureapps) gidin.
 
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Birden fazla Gmail hesabı kullanıyorsanız, doğru hesapların "daha az güvenli uygulamalar" ayarını değiştirdiğinizden emin olun.
+
+Ayarı uygulamak için geri okunu kullanarak "daha az güvenli uygulamalar" ayarları ekranından çıkmanız gerektiğini unutmayın.
+
+Bu yöntemi kullanıyorsanız, Gmail hesabınız için [güçlü bir şifre](https://en.wikipedia.org/wiki/Password_strength) kullanmalısınız, ki bu yine de iyi bir fikirdir. [standart](https://tools.ietf.org/html/rfc3501) IMAP protokolünün kendi içinde kullanılmasının daha az güvenli olmadığını unutmayın.
+
+"Daha az güvenli uygulamalar" etkinleştirilmediğinde, hesaplar için *Kimlik doğrulama başarısız - geçersiz kimlik bilgileri* (IMAP) ve kimlikler (SMTP) için *Kullanıcı adı ve Şifre kabul edilmiyor* hatasını alırsınız.
 
 <br />
 
 *Genel*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+"*Lütfen web tarayıcınız aracılığıyla giriş yapın*" uyarısını alabilirsiniz. Bu, Google sizi internete bağlayan ağın (bu bir VPN olabilir) güvenli olmadığını düşündüğünde olur. Bu, Gmail hızlı kurulum sihirbazı veya uygulamaya özel bir şifre kullanılarak önlenebilir.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Google'ın talimatları için [buraya](https://support.google.com/mail/answer/7126229) ve sorun giderme için [buraya](https://support.google.com/mail/accounts/answer/78754) bakın.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Gönderilen mesajlar neden gönderilenler klasöründe (doğrudan) görünmüyor?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Gönderilen mesajlar normalde, sağlayıcınız gönderilen mesajları gönderilenler klasörüne ekler eklemez giden kutusundan gönderilenler klasörüne taşınır. Bu, hesap ayarlarında bir gönderilen klasörün seçilmesini ve gönderilen klasörün senkronize olacak şekilde ayarlanmasını gerektirir.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Bazı sağlayıcılar gönderilen mesajları takip etmez veya kullanılan SMTP sunucusu sağlayıcıyla ilgili olmayabilir. Bu durumlarda FairEmail, bir mesaj gönderildikten sonra, gönderilen klasörünü senkronize ederken gönderilen mesajları otomatik olarak gönderilen klasörüne ekleyecektir. Bunun ekstra internet trafiğine yol açacağını unutmayın.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Bu olmazsa, sağlayıcınız gönderilen mesajları takip etmeyebilir veya sağlayıcıyla ilgili olmayan bir SMTP sunucusu kullanıyor olabilirsiniz.~~ ~~Bu durumlarda, FairEmail'in bir mesaj gönderdikten hemen sonra gönderilen mesajları gönderilmiş klasöre eklemesine izin vermek için *Gönderilmiş mesajları sakla* gelişmiş kimlik ayarını etkinleştirebilirsiniz.~~ ~~Sağlayıcınız gönderilen mesajları da gönderilenler klasörüne eklerse, bu ayarın etkinleştirilmesinin yinelenen mesajlarla sonuçlanabileceğini unutmayın.~~ ~~Ayrıca bu ayarın etkinleştirilmesinin, özellikle büyük ekleri olan iletiler gönderirken fazladan veri kullanımına neden olacağına dikkat edin.~~
 
 ~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
 
@@ -625,12 +625,12 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
-Encryption in short:
+Kısaca şifreleme:
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **Giden** iletiler, alıcının **genel anahtarı** ile şifrelenir
+* **Gelen** iletilerin şifresi, alıcının **özel anahtarı** ile çözülür
 
-Signing in short:
+Kısaca imzalama:
 
 * **Outgoing** messages are signed with the **private key** of the sender
 * **Incoming** messages are verified with the **public key** of the sender
@@ -649,9 +649,9 @@ The to be encrypted message text/attachments and the decrypted message text/atta
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Önce [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/)'i kurmanız ve yapılandırmanız gerekecektir. FairEmail, OpenKeychain sürüm 5.4 ile test edilmiştir. Daha sonraki sürümler büyük olasılıkla uyumlu olacaktır, ancak önceki sürümler olmayabilir.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**önemli**: OpenKeychain uygulamasının, çağıran uygulama (FairEmail) henüz yetkilendirilmediğinde ve mevcut bir ortak anahtar aldığında (sessizce) çöktüğü bilinmektedir. Bilinmeyen bir ortak anahtara sahip bir gönderene imzalı/şifreli bir mesaj göndermeye çalışarak bu sorunu çözebilirsiniz.
 
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
 
@@ -677,7 +677,7 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
-Common errors:
+Genel hatalar:
 
 * *No key*: there is no PGP key available for one of the listed email addresses
 * *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
@@ -685,7 +685,7 @@ Common errors:
 
 <br />
 
-*S/MIME*
+*S/MIME (Secure/Multipurpose Internet Mail Extensions, Güvenli/Çok Amaçlı İnternet Posta Uzantıları) *
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
 

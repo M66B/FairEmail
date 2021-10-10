@@ -150,6 +150,7 @@
     <string name="title_setup_options">Опције</string>
     <string name="title_setup_defaults">Врати на подразумевано</string>
     <string name="title_setup_reset_questions">Ресетуј питања</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Прикажи слике</string>
     <string name="title_advanced_hint_title">Више напредних опција</string>
     <string name="title_advanced_section_synchronize">Примање</string>
     <string name="title_advanced_section_send">Слање</string>

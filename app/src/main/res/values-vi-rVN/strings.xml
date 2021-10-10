@@ -210,6 +210,10 @@
     <string name="title_setup_exported">Đã xuất cài đặt</string>
     <string name="title_setup_imported">Đã nhập cài đặt</string>
     <string name="title_setup_import_invalid">Tệp cài đặt không hợp lệ</string>
+    <string name="title_importing_account">Tài khoản %1$s</string>
+    <string name="title_importing_identity">Danh tính %1$s</string>
+    <string name="title_importing_exists">Đã bỏ qua: đã tồn tại</string>
+    <string name="title_importing_wizard">Chạy trình hướng dẫn để xác thực lại</string>
     <string name="title_setup_reorder_accounts">Sắp xếp tài khoản</string>
     <string name="title_setup_reorder_folders">Sắp xếp thư mục</string>
     <string name="title_reset_order">Đặt lại thứ tự</string>
@@ -238,6 +242,7 @@
     <string name="title_setup_options">Tuỳ chọn</string>
     <string name="title_setup_defaults">Khôi phục mặc định</string>
     <string name="title_setup_reset_questions">Đặt lại các câu hỏi</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Hiện hình ảnh</string>
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.
         Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
@@ -339,6 +344,7 @@
     <string name="title_advanced_nav_hide_title">Ẩn các tùy chọn menu điều hướng?</string>
     <string name="title_advanced_nav_hide_message">Bạn có thể bật lại các tùy chọn trong cài đặt hiển thị</string>
     <string name="title_advanced_nav_message_count">Hiện số thư được lưu trữ cục bộ trong menu điều hướng</string>
+    <string name="title_advanced_nav_unseen_drafts">Hiện số thư nháp chưa đọc trong menu điều hướng</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi dùng kiểu thẻ (chỉ chủ đề sáng)</string>
@@ -434,6 +440,7 @@
     <string name="title_advanced_autoclose">Tự động đóng các cuộc hội thoại</string>
     <string name="title_advanced_onclose">Khi đóng cuộc hội thoại</string>
     <string name="title_advanced_autoclose_unread">Đóng cuộc hội thoại khi đánh dấu thư là chưa đọc</string>
+    <string name="title_advanced_collapse_marked">Thu gọn các thư được đánh dấu là đã đọc hoặc chưa đọc theo cách thủ công</string>
     <string name="title_advanced_undo">Thời gian chờ hoàn tác</string>
     <string name="title_advanced_quick_filter">Hiện biểu tượng bộ lọc nhanh không gây phiền</string>
     <string name="title_advanced_quick_scroll">Hiện biểu tượng cuộn lên/xuống nhanh không gây phiền</string>
@@ -540,6 +547,7 @@
     <string name="title_advanced_log_info">Nhật ký gỡ lỗi</string>
     <string name="title_advanced_debug">Chế độ gỡ lỗi</string>
     <string name="title_advanced_manual_hint">Nếu việc nhận thư bị tắt thì vẫn có thể nhận thư thủ công bằng cách kéo danh sách thư xuống</string>
+    <string name="title_advanced_poll_battery">Việc này có thể gây ra hao nhiều pin!</string>
     <string name="title_advanced_poll_hint">Việc kiểm tra thư mới định kỳ sẽ so sánh thư cục bộ và thư trên mạng mỗi lần kiểm tra, nó là một hoạt động tốn kém có thể dẫn đến sử dụng thêm pin, đặc biệt là nếu có nhiều thư. Luôn nhận sẽ ngăn chặn điều này bằng cách liên tục theo dõi các thay đổi.</string>
     <string name="title_advanced_optimize_hint">Điều này có thể thay đổi tần số đồng bộ hoá để tiết kiệm pin tuỳ thuộc vào khả năng và hành vi của các máy chủ email</string>
     <string name="title_advanced_schedule_hint">Nhấn vào thời gian để đặt thời gian</string>
@@ -643,6 +651,7 @@
     <string name="title_recommended">Được đề nghị</string>
     <string name="title_account_linked">Tài khoản liên kết</string>
     <string name="title_account_name">Tên tài khoản</string>
+    <string name="title_account_category">Thể loại</string>
     <string name="title_account_name_hint">Được sử dụng để phân biệt các thư mục</string>
     <string name="title_account_interval_hint">Tần số làm mới kết nối để nhận thông báo đẩy hoặc tần số kiểm tra thư mới</string>
     <string name="title_account_partial_fetch_hint">Chỉ tắt cái này trong trường hợp có thư trống hoặc tệp đính kèm bị hỏng</string>
@@ -756,6 +765,7 @@
     <string name="title_insert_contact">Thêm liên hệ</string>
     <string name="title_edit_contact">Chỉnh sửa liên hệ</string>
     <string name="title_import_contacts">Nhập tệp vCard</string>
+    <string name="title_export_contacts">Xuất vCard</string>
     <string name="title_create_sub_folder">Tạo thư mục con</string>
     <string name="title_empty_trash_ask">Xoá tất cả thư trong thùng rác vĩnh viễn?</string>
     <string name="title_empty_spam_ask">Xoá tất cả thư rác vĩnh viễn?</string>
@@ -782,6 +792,7 @@
     <string name="title_sort_unread_atop">Sắp xếp chưa đọc ở đầu</string>
     <string name="title_search_folder">Tìm kiếm thư mục</string>
     <string name="title_apply_to_all">Áp dụng cho tất cả</string>
+    <string name="title_edit_account_name">Sửa tên tài khoản</string>
     <string name="title_hide_folder">Ẩn thư mục</string>
     <string name="title_unified_folder">Hiện trong hộp thư đến hợp nhất</string>
     <string name="title_navigation_folder">Hiện trong menu điều hướng</string>
@@ -1463,6 +1474,7 @@
         Để duy trì và hỗ trợ FairEmail trong dài hạn, một số tính năng tiện nghi và nâng cao không miễn phí để sử dụng.
         FairEmail hiện một thông báo nhỏ để nhắc lại bạn về điều này, nó sẽ được xoá nếu bạn mua các tính năng pro.
     </string>
+    <string name="title_pro_whichever">Dù có tính năng nào được chọn là tính năng pro đi chăng nữa, thì cũng luôn có ai đó phàn nàn là một tính năng nên là miễn phí. Xin đừng là người đó.</string>
     <string name="title_pro_hide">Ẩn thông báo nhỏ trong %1$d tuần</string>
     <string name="title_pro_hint">Việc mua các tính năng pro sẽ cho phép bạn sử dụng các tính năng pro hiện tại và tương lai và sẽ giữ cho ứng dụng này được duy trì và hỗ trợ.</string>
     <string name="title_pro_price">Tại sao các tính năng pro lại đắt thế?</string>

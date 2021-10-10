@@ -78,12 +78,12 @@ Câu hỏi liên quan:
 * ~~Trình chọn thư mục đôi khi không hiện thư mục nào vì lý do chưa xác định. Lỗi này có vẻ đã được sửa.~~
 * ~~Một [lỗi ở AndroidX](https://issuetracker.google.com/issues/64729576) khiến việc cuộn nhanh khó khăn. Một giải pháp đã được thêm.~~
 * ~~Việc mã hoá bằng YubiKey dẫn đến một vòng lặp vô tận. Điều này có vẻ bị gây ra bởi một [lỗi ở OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Chức năng nhảy tới đoạn tin nhắn gốc không thể hoạt động. Chức năng này không thể sửa vì tin nhắn gốc được lưu đang được hiển thị ở khung.
+* Bản xem trước của tin nhắn không hiện thị ở đồng hồ Samsung bởi vì [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) bị bỏ qua. Hiện bản xem trước tin nhắn hiện thị chính xác ở thiết bị Pebble 2, Fitbit Charge 3, Mi band 3, và Xiaomi Amazfit BIP. Xem thêm vấn đề ở [FAQ này](#user-content-faq126).
+* [Một lỗi ở Android 6.0](https://issuetracker.google.com/issues/37068143) khiến ứng dụng bị crash với lỗi * Invalid offset: ... Valid range is ...* khi phần chữ được chọn và nhấp vào vùng ngoài của vùng được chọn. Lỗi này đã được sửa trong Android 6.0.1.
+* Liên kết (phần neo) nội bộ sẽ không hoạt động bởi vì tin nhắn gốc được hiển thị ở phần nhúng WebView ở trong khung cuộn. Đây là hạn chế của Android nên không thể khắc phục hay sửa chữa.
 * Dò tìm ngôn ngữ [không hoạt động nữa](https://issuetracker.google.com/issues/173337263) trên các thiết bị Pixel với (được nâng cấp lên?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* [Một lỗi của OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) gây ra lỗi chữ ký PGP không hợp lệ khi dùng thiết bị ký.
 
 <h2><a name="planned-features"></a>Các tính năng được lên kế hoạch</h2>
 
@@ -92,8 +92,8 @@ Câu hỏi liên quan:
 * ~~Sao chép thư~~
 * ~~Sao có màu~~
 * ~~Cài đặt thông báo cho từng thư mục~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
+* ~~Chọn ảnh làm chữ ký~~ (tính năng nay sẽ không được thêm bởi vì ảnh sẽ không được hiển thị hoặc bị chặn với các dịch vụ email khác như Gmail, Outlook app,...)
+* ~~Hiển thị tin nhắn theo bộ lọc~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Tìm kiếm thư có/không có tệp đính kèm~~ (tính năng này không thể được thêm vì IMAP không hỗ trợ tìm kiếm tệp đính kèm)
 * ~~Tìm kiếm một thư mục~~ (việc lọc một danh sách thư mục có tính cấp bậc có rất nhiều vấn đề)

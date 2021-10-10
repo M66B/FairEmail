@@ -5,7 +5,19 @@
     <string name="title_importing_identity">Identiteit %1$s</string>
     <string name="title_importing_exists">Oorgeslaan: bestaan alreeds</string>
     <string name="title_importing_wizard">Hardloop die towenaar om weer te outentiek</string>
+    <string name="title_advanced_poll_battery">Hierdie kan verhoogte battery gebruik veroorsaak!</string>
     <!-- Thunderbird -->
+    <string-array name="pollIntervalNames">
+        <item>Always</item>
+        <item>Elke 5 minute</item>
+        <item>Elke 15 minute</item>
+        <item>Elke 30 minute</item>
+        <item>Elke uur</item>
+        <item>Elke 2 ure</item>
+        <item>Elke 4 ure</item>
+        <item>Elke 8 ure</item>
+        <item>Elke dag</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

@@ -196,6 +196,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_still">Hala yapılacaklar var</string>
     <string name="title_setup_error">Hata</string>
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
+    <string name="title_setup_app_password">Bir uygulama şifresi kullanmanız gerekebilir</string>
     <string name="title_setup_close">Ayarları kapat</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
@@ -218,6 +219,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_import_invalid">Geçersiz ayarlar dosyası</string>
+    <string name="title_importing_account">%1$s hesabı</string>
+    <string name="title_importing_identity">Kimlik %1$s</string>
+    <string name="title_importing_exists">Atlandı: zaten var</string>
+    <string name="title_importing_wizard">Yeniden kimlik doğrulaması yapmak için sihirbazı çalıştırın</string>
     <string name="title_setup_reorder_accounts">Hesapları sırala</string>
     <string name="title_setup_reorder_folders">Klasörleri sırala</string>
     <string name="title_reset_order">Düzeni sıfırla</string>
@@ -239,12 +244,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_theme_system">Sistem ile aynı</string>
     <string name="title_setup_theme_black_background">Siyah arka plan</string>
     <string name="title_setup_theme_html_light">Orijinal mesaj görünümü için açık renkli arka plan</string>
+    <string name="title_setup_theme_composer_light">Mesaj düzenleyici için açık renkli arka plan</string>
     <string name="title_setup_theme_system_hint">Eğer Android tarafından destekleniyorsa, sistem temasını izleme, gündüz/gece otomatik olarak açık/koyu olarak değişecektir</string>
     <string name="title_setup_theme_more_colors">Daha fazla renk istiyorum</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_reset_questions">Soruları sıfırla</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Resimleri göster</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
         Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
@@ -346,6 +353,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_hide_title">Gezinme menüsü seçenekleri gizlensin mi?</string>
     <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
+    <string name="title_advanced_nav_unseen_drafts">Gezinme menüsünde okunmamış taslak sayısını göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
@@ -441,6 +449,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
     <string name="title_advanced_autoclose_unread">İletileri okunmadı olarak işaretlemeyle ilgili görüşmeleri kapatın</string>
+    <string name="title_advanced_collapse_marked">Okundu veya okunmadı olarak manuel olarak işaretlenen iletileri daralt</string>
     <string name="title_advanced_undo">Zaman aşımını geri al</string>
     <string name="title_advanced_quick_filter">Rahatsız edici olmayan hızlı filtre simgelerini göster</string>
     <string name="title_advanced_quick_scroll">Rahatsız edici olmayan hızlı yukarı/aşağı kaydırma simgelerini göster</string>
@@ -548,6 +557,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_log_info">Hata ayıklama günlüğü</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_manual_hint">İletileri alma devre dışı olsa bile, ileti listesini aşağı çekerek iletileri manuel olarak almaya devam edebilirsiniz</string>
+    <string name="title_advanced_poll_battery">Bu, yüksek pil kullanımına neden olabilir!</string>
     <string name="title_advanced_poll_hint">Yeni mesajların periyodik olarak kontrol edilmesi, her seferinde yerel ve uzak mesajları karşılaştıracaktır; bu, özellikle çok fazla mesaj varsa ekstra pil kullanımına neden olabilecek pahalı bir işlemdir. Her zaman al, değişiklikleri sürekli takip ederek bunu önleyecektir.</string>
     <string name="title_advanced_optimize_hint">Bu, e-posta sunucularının özelliklerine ve davranışına bağlı olarak pil kullanımından tasarruf etmek için senkronizasyon sıklığını değiştirebilir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
@@ -651,6 +661,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_recommended">Önerilen</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
+    <string name="title_account_category">Kategori</string>
     <string name="title_account_name_hint">Klasörleri ayırt etmek için kullanılır</string>
     <string name="title_account_interval_hint">Anlık mesajlar için bağlantı yenileme frekansı ya da yeni mesajlar için kontrol etme frekansı</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
@@ -763,6 +774,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_delete_channel">Bildirim kanalını sil</string>
     <string name="title_insert_contact">Kişi ekle</string>
     <string name="title_edit_contact">Kişiyi düzenle</string>
+    <string name="title_import_contacts">vCard\'ları içe aktar</string>
+    <string name="title_export_contacts">vCard\'ları dışa aktar</string>
     <string name="title_create_sub_folder">Alt dizin oluştur</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_empty_spam_ask">Tüm spam mesajları kalıcı olarak silinsin mi?</string>
@@ -789,6 +802,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_sort_unread_atop">Okunmamışları üstte sırala</string>
     <string name="title_search_folder">Klasörleri ara</string>
     <string name="title_apply_to_all">Tümüne uygula</string>
+    <string name="title_edit_account_name">Hesap adını düzenle</string>
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
@@ -1469,6 +1483,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Fairemail\'i uzun vadede korumak ve desteklemek için, bazı kolaylıklar ve gelişmiş özellikler kullanmakta ücretsizdir.
         FairEmail, Pro özelliklerini satın alırsanız, bunu hatırlatmak için küçük bir mesajı gösterir.
     </string>
+    <string name="title_pro_whichever">Hangi özellikler profesyonel özellikler olarak seçilirse seçilsin, her zaman bir özelliğin ücretsiz olması gerektiğinden şikayet eden birileri vardır. Lütfen o kişi olmayın.</string>
     <string name="title_pro_hide">%1$d hafta küçük mesajı gizle</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
     <string name="title_pro_price">Pro sürümleri neden bu kadar pahalı?</string>

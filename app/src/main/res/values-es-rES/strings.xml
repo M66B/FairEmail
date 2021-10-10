@@ -248,6 +248,7 @@
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
     <string name="title_setup_reset_questions">Restablecer preguntas</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Mostrar imágenes</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
         Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
@@ -1133,9 +1134,6 @@
     <string name="title_search_for_hint">Ingrese texto</string>
     <string name="title_search_hint">        Inicialmente, la búsqueda se realiza en el dispositivo.
         Para buscar también en el servidor, pulse el botón \'Buscar de nuevo\'.
-    </string>
-    <string name="title_search_index_hint">        La búsqueda a través del índice de búsqueda es rápida, pero sólo encuentra palabras enteras en todas las partes de los mensajes.
-        Las opciones a continuación son para continuar buscando en el servidor de correo.
     </string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_text_unsupported">\'%s\' significa que el servidor de correo no soporta la búsqueda en texto de mensajes</string>

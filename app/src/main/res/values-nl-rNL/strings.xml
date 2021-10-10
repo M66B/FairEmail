@@ -251,6 +251,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_reset_questions">Vragen resetten</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Algemene vragen</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Toon originele berichten</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Toon afbeeldingen</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Bevestig koppelingen</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
         Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
@@ -1138,8 +1142,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_search_for_hint">Voer tekst in</string>
     <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.
 Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
-    <string name="title_search_index_hint">Zoeken via de zoekindex is snel, maar vindt alleen hele woorden in alle berichtdelen.
-         De onderstaande opties zijn om door te gaan met zoeken op de e-mailserver.    </string>
+    <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.</string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
     <string name="title_search_text_unsupported">\'%s\' betekent dat de mailserver het zoeken in berichtteksten niet ondersteunt</string>
     <string name="title_search_size_hint">Zoeken naar berichten op grootte werkt mogelijk niet op sommige servers als er een groot aantal berichten is</string>

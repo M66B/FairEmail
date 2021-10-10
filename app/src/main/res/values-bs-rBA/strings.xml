@@ -262,6 +262,10 @@
     <string name="title_setup_options">Opcije</string>
     <string name="title_setup_defaults">Vrati zadane postavke</string>
     <string name="title_setup_reset_questions">Poništi pitanja</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Opća pitanja</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Prikaži izvorne poruke</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Prikaži slike</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Potvrdi linkove</string>
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
@@ -566,6 +570,7 @@
     <string name="title_advanced_log_info">Bilježenje otklanjanja grešaka</string>
     <string name="title_advanced_debug">Način otklanjanja grešaka</string>
     <string name="title_advanced_manual_hint">Ako je prijem poruka isključen, još uvijek je moguće ručno primati poruke putem povlačenja na spisku poruka</string>
+    <string name="title_advanced_poll_battery">Ovo može povećati potrošnju baterije!</string>
     <string name="title_advanced_poll_hint">Povremeno provjeravanje novih poruka će uporediti lokalne i udaljene poruke svaki put, što je zahtjevna radnja, koja može uticati na povećanu potrošnju baterije, posebno ukoliko ima mnogo poruka. Stalni prijem će spriječiti ovo tako što će se stalno pratiti promjene.</string>
     <string name="title_advanced_optimize_hint">Ovo može promijeniti učestalost sinhronizacija kako bi se smanjila potrošnja baterije, u zavisnosti od mogućnosti i ponašanja e-mail servera</string>
     <string name="title_advanced_schedule_hint">Dodirnite za postavljanje vremena</string>
@@ -1147,9 +1152,7 @@
     <string name="title_search_hint">        U početku, pretraga se izvršava na uređaju.
         Da bi pretraživali i server, dodirnite dugme \'traži ponovo\'.
     </string>
-    <string name="title_search_index_hint">        Pretraživanje putem indeksa je brzo, ali pronalazi samo cijele riječi u svim dijelovima poruka.
-        Opcije ispod su namijenjene za nastavak pretraživanja e-mail servera.
-    </string>
+    <string name="title_search_index_hint">Traženje putem indeksa pretraživanja je brzo, ali pronalazi samo cijele riječi.</string>
     <string name="title_search_text_hint">Pretraživanje teksta u porukama, kada postoji veliki broj poruka, možda neće raditi na nekim serverima</string>
     <string name="title_search_text_unsupported">\'%s\' znači da mail server ne podržava šretraživanje teksta u porukama</string>
     <string name="title_search_size_hint">Pretraživanje poruka po veličini, kada postoji veliki broj poruka, možda neće raditi na nekim serverima</string>

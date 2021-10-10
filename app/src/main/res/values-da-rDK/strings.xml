@@ -251,6 +251,7 @@
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
     <string name="title_setup_reset_questions">Nulstil spørgsmål</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Vis billeder</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
@@ -552,6 +553,7 @@
     <string name="title_advanced_log_info">Fejllogning</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_manual_hint">Er beskedmodtagelse er deaktiveret, er det stadig muligt at modtage beskeder ved at trække beskedlisten ned</string>
+    <string name="title_advanced_poll_battery">Dette kan forårsage højt strømforbrug!</string>
     <string name="title_advanced_poll_hint">Periodisk tjek for nye beskeder sammenligner lokal- og fjernbeskeder hver gang, hvilket er en kostbar handling, der kan resultere i ekstra batteriforbrug, især hvis der er mange beskeder. Modtag altid vilforhindre dette ved løbende at følge ændringer.</string>
     <string name="title_advanced_optimize_hint">Dette kan ændre synkfrekvensen for at spare strøm afhængigt af e-mailserverens funktioner og adfærd</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
@@ -1128,9 +1130,6 @@
     <string name="title_search_for_hint">Angiv tekst</string>
     <string name="title_search_hint">        Indledningsvis udføres søgningen på enheden.
          For også at søge på serveren, så tryk på knappen \'søg igen\'.
-    </string>
-    <string name="title_search_index_hint">        Søgning via søgeindekset er hurtig, men finder kun hele ord i alle beskeddele.
-         Indstillingerne nedenfor er til at fortsætte søgningen på e-mailserveren.
     </string>
     <string name="title_search_text_hint">Søgning efter tekst i beskeder, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
     <string name="title_search_text_unsupported">\'%s\' betyder, at e-mailserveren ikke understøtter søgning i beskedtekster</string>

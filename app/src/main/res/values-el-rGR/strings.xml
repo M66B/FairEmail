@@ -252,6 +252,10 @@
     <string name="title_setup_options">Επιλογές</string>
     <string name="title_setup_defaults">Επαναφορά προεπιλογών</string>
     <string name="title_setup_reset_questions">Επαναφορά ερωτήσεων</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Γενικές ερωτήσεις</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Προβολή αρχικών μηνυμάτων</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Προβολή εικόνων</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Επιβεβαίωση συνδέσμων</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
         Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
@@ -555,6 +559,7 @@
     <string name="title_advanced_log_info">Καταγραφές αποσφαλμάτωσης</string>
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_manual_hint">Αν η λήψη μηνυμάτων είναι απενεργοποιημένη, μπορεί ακόμη να γίνει χειροκίνητη λήψη, σύροντας προς τα κάτω τη λίστα μηνυμάτων</string>
+    <string name="title_advanced_poll_battery">Αυτό μπορεί να προκαλέσει υψηλή χρήση μπαταρίας!</string>
     <string name="title_advanced_poll_hint">Ο περιοδικός έλεγχος για νέα μηνύματα συγκρίνει τοπικά και απομακρυσμένα μηνύματα κάθε φορά, το οποίο είναι μια κοστοβόρα διεργασία και μπορεί να οδηγήσει σε πρόσθετη κατανάλωση μπαταρίας, ιδίως αν υπάρχουν πολλά μηνύματα. Αυτό αποτρέπεται χάρη στην επιλογή \"Πάντα λήψη\", η οποία διαρκώς παρακολουθεί μόνον τις εκάστοτε αλλαγές.</string>
     <string name="title_advanced_optimize_hint">Ενδέχεται να αλλάξει τη συχνότητα συγχρονισμού για εξοικονόμηση μπαταρίας ανάλογα με τις δυνατότητες και τη συμπεριφορά των διακομιστών ηλ. ταχυδρομείου</string>
     <string name="title_advanced_schedule_hint">Πατήστε πάνω σε μια ώρα για ορισμό χρονικής περιόδου</string>
@@ -1136,9 +1141,7 @@
     <string name="title_search_hint">        Αρχικά, η αναζήτηση εκτελείται στα αποθηκευμένα στη συσκευή μηνύματα.
         Για αναζήτηση και στον διακομιστή, πατήστε το κουμπί \"αναζήτηση ξανά\".
     </string>
-    <string name="title_search_index_hint">        Η αναζήτηση μέσω του ευρετηρίου αναζήτησης είναι γρήγορη, αλλά εντοπίζει μόνον ολόκληρες λέξεις μέσα σε όλα τα τμήματα ενός μηνύματος.
-        Οι παρακάτω επιλογές επιτρέπουν περαιτέρω αναζήτηση στον διακομιστή ηλ. ταχυδρομείου.
-    </string>
+    <string name="title_search_index_hint">Η αναζήτηση μέσω του ευρετηρίου αναζήτησης είναι γρήγορη, αλλά βρίσκει μόνο ολόκληρες λέξεις.</string>
     <string name="title_search_text_hint">Η αναζήτηση κειμένου μέσα σε μηνύματα μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>
     <string name="title_search_text_unsupported">%s σημαίνει ότι ο διακομιστής αλληλογραφίας δεν υποστηρίζει αναζήτηση σε κείμενα μηνυμάτων</string>
     <string name="title_search_size_hint">Η αναζήτηση μηνυμάτων με βάση το μέγεθος μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>

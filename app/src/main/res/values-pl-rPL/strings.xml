@@ -240,6 +240,10 @@
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
     <string name="title_setup_import_invalid">Nieprawidłowy plik ustawień</string>
+    <string name="title_importing_account">Konto %1$s</string>
+    <string name="title_importing_identity">Tożsamość %1$s</string>
+    <string name="title_importing_exists">Pominięto: już istnieje</string>
+    <string name="title_importing_wizard">Uruchom kreator, aby ponownie uwierzytelnić</string>
     <string name="title_setup_reorder_accounts">Uporządkuj konta</string>
     <string name="title_setup_reorder_folders">Uporządkuj foldery</string>
     <string name="title_reset_order">Zresetuj kolejność</string>
@@ -268,6 +272,7 @@
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Pokaż obrazy</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
          Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
@@ -573,6 +578,7 @@
     <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_manual_hint">Gdy synchronizacja jest wyłączona, nadal można odbierać wiadomości ręcznie, przeciągając listę wiadomości</string>
+    <string name="title_advanced_poll_battery">Może to spowodować wysokie zużycie baterii!</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_optimize_hint">Może to zmienić częstotliwość synchronizacji, aby zaoszczędzić zużycie baterii w zależności od możliwości i zachowania serwerów e-mail</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
@@ -1153,9 +1159,6 @@
     <string name="title_search_for_hint">Wprowadź tekst</string>
     <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
         Aby wyszukać również na serwerze, dotknij przycisku \'Szukaj ponownie\'.
-    </string>
-    <string name="title_search_index_hint">        Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa we wszystkich częściach wiadomości.
-        Poniższe opcje umożliwiają dalsze wyszukiwanie serwera e-mail.
     </string>
     <string name="title_search_text_hint">Wyszukiwanie tekstu w wiadomościach może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_text_unsupported">\'%s\' oznacza, że serwer pocztowy nie obsługuje wyszukiwania w tekstach wiadomości</string>

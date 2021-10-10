@@ -252,6 +252,10 @@
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_setup_reset_questions">Réinitialiser les questions</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Questions générales</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Afficher les messages originaux</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Afficher les images</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Confirmer les liens</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
@@ -557,6 +561,7 @@
     <string name="title_advanced_log_info">Journal de débogage</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
+    <string name="title_advanced_poll_battery">Ceci peut entraîner une utilisation élevée de la batterie !</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la batterie en fonction des capacités et du comportement des serveurs de messagerie</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
@@ -1138,9 +1143,7 @@
     <string name="title_search_hint">        La recherche affichera initialement les messages stockés sur votre appareil.
         Pour rechercher également sur le serveur, appuyez sur le bouton « Rechercher de nouveau ».
     </string>
-    <string name="title_search_index_hint">        La recherche via l\'index de recherche est rapide mais ne trouve que des mots entiers dans toutes les parties d\'un message.
-        Les options ci-dessous permettent de continuer à rechercher sur le serveur de messagerie.
-    </string>
+    <string name="title_search_index_hint">La recherche via l’index de recherche est rapide mais elle ne trouve que des mots entiers.</string>
     <string name="title_search_text_hint">La recherche de texte dans les messages peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
     <string name="title_search_text_unsupported">\'%s\' signifie que le serveur de messagerie ne prend pas en charge la recherche dans les textes des messages</string>
     <string name="title_search_size_hint">La recherche de messages par taille peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>

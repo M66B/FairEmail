@@ -1850,15 +1850,15 @@ The folder menu *Clear local messages* removes messages from the device which ar
 <br />
 
 <a name="faq77"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Niyə mesajlar bəzən kiçik bir gecikmə ilə göstərilir?**
 
-Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+Cihazınızın sürətindən asılı olaraq (prosessor sürəti və bəlkə də həddən çox yaddaş sürəti) mesajlar, kiçik bir gecikmə ilə görüntülənə bilər. FairEmail, çox sayda mesajı, yaddaşı çox istifadə etmədən dinamik olaraq emal etmək üçün dizayn edilib. Bu o deməkdir ki, mesajlar, verilənlər bazasından oxunmalıdır və hər ikisi də kiçik gecikmələrə səbəb ola bildiyi üçün verilənlər bazası dəyişikliklər üçün izlənməlidir.
 
-Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Danışıq mövzularının görüntülənməsi üçün mesajların qruplaşdırılması və əvvəlki/sonrakı mesajların aşkarlanması kimi bəzi əlverişli özəlliklər, bir az vaxt aparır. Bu arada yeni bir mesaj gəlmiş ola biləcəyi üçün, *növbəti mesaj* olmadığını unutmayın.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+FairEmail-in sürətini oxşar tətbiqlərlə müqayisə edərkən, bu, müqayisənin bir hissəsi olmalıdır. Daha çox yaddaş istifadə edərək mümkün olub sadəcə mesajlarıın xətti bir siyahısını görüntüləyən oxşar və sürətli bir tətbiq yazmaq asandır, ancaq mənbə istifadəsini düzgün idarə etmək və danışıq mövzularının yaradılması kimi daha qabaqcıl özəllikləri təklif etmək heç də asan deyil.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
+FairEmail, [Android arxitektura komponentləri](https://developer.android.com/topic/libraries/architecture/) kimi ən son texnologiyaya əsaslanır, ona görə də performans təkmilləşdirmələri üçün az yer var.
 
 <br />
 

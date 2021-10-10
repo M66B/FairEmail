@@ -6,7 +6,7 @@ If you have a question, please check the following frequently asked questions fi
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
-## Index
+## ଅନୁକ୍ରମଣିକା
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
 * [How to ...?](#user-content-howto)
@@ -762,7 +762,7 @@ Searching through a large number of messages on the device is not very fast beca
 
 This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+ଡିଭାଇସରେ ସନ୍ଧାନର ବେଗ ଯଥେଷ୍ଟ ବୃଦ୍ଧି କରିବାକୁ ଆପଣ *ବିବିଧ ସେଟିଂସ*ରେ *ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା* ସକ୍ଷମ କରିପାରିବେ, କିନ୍ତୁ ସଚେତନ ରୁହନ୍ତୁ ଯେ ଏହା ବ୍ୟାଟେରୀ ଏବଂ ଷ୍ଟୋରେଜ୍ ସ୍ପେସ୍ ବ୍ୟବହାର ବୃଦ୍ଧି କରିବ। ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ଶବ୍ଦ ଉପରେ ଆଧାରିତ, ତେଣୁ ଆଂଶିକ ପାଠ୍ୟ ଖୋଜିବା ସମ୍ଭବ ନୁହେଁ। Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ବ୍ୟବହାର କରିବା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ।
 
 From version 1.1315 it is possible to use search expressions like this:
 
@@ -2867,7 +2867,7 @@ Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
 **SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+[ଏଠାରେ](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) ବିସ୍ତୃତ ଗାଇଡ୍ ଦେଖନ୍ତୁ।
 
 <br />
 

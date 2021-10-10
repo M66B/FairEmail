@@ -64,13 +64,13 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * システムフォルダーを変更する：設定 > 手動のセットアップをタップする > アカウントをタップする > 下にアカウントをタップする
 * エクスポートやインポート設定：設定 > ナビゲーションの左手メニュー
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>既知の問題</h2>
 
 * ~~[Android 5.1 と 6 のバグ](https://issuetracker.google.com/issues/37054851) により、アプリに間違った時刻フォーマットが表示されることがあります。  *「24時間表示」* に設定を切り替えると、問題が一時的に解決する可能性があります。 回避策が追加されました。~~
 * ~~ [ Googleドライブのバグ](https://issuetracker.google.com/issues/126362828)により、Googleドライブにエクスポートされたファイルが空になります。 Google が修正しました。~~
 * ~~ [ AndroidXのバグ](https://issuetracker.google.com/issues/78495471)により、FairEmailが長押しまたはスワイプするとクラッシュすることがあります。 Google が修正しました。~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
+* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... 行 ...* を読み取ることができませんでした。 回避策が追加されました。~~　
+* [Androidのバグ](https://issuetracker.google.com/issues/119872129) で FairEmail がクラッシュする "*... FairEmail を更新し、通知をタップすると、一部のデバイスに ...*" が不正な通知を送信しました。
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~

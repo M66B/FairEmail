@@ -268,6 +268,7 @@
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
     <string name="title_setup_reset_questions">Obnovit otázky</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Zobrazit obrázky</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
         Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
@@ -1153,9 +1154,6 @@
     <string name="title_search_for_hint">Zadejte text</string>
     <string name="title_search_hint">Hledání se zpočátku zaměří na zprávy uložené ve vašem zařízení.
         Pro hledání i na serveru, stiskněte tlačítko „Hledat znovu“.
-    </string>
-    <string name="title_search_index_hint">        Vyhledávání pomocí vyhledávacího indexu je rychlé, ale hledá pouze celá slova ve všech částech zprávy.
-        Níže jsou uvedeny možnosti, jak pokračovat ve hledání e-mailového serveru.
     </string>
     <string name="title_search_text_hint">Hledání textu ve zprávách, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_text_unsupported">\'%s\' znamená, že mailový server nepodporuje vyhledávání v textech zpráv</string>

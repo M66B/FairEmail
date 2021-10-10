@@ -269,6 +269,7 @@
     <string name="title_setup_options">Параметри</string>
     <string name="title_setup_defaults">Відновити типові</string>
     <string name="title_setup_reset_questions">Дозволити знову показувати питання</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Показати зображення</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.
         Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
@@ -573,6 +574,7 @@
     <string name="title_advanced_log_info">Журнал налагодження</string>
     <string name="title_advanced_debug">Режим зневадження</string>
     <string name="title_advanced_manual_hint">Якщо отримання повідомлень вимкнено, то можливо отримувати повідомлення вручну, шляхом відтягуваня списку повідомлень донизу</string>
+    <string name="title_advanced_poll_battery">Це може призвести до високого використання заряду акумулятора!</string>
     <string name="title_advanced_poll_hint">Періодичнна перевірка на нові повідомлення щоразу порівнювнює локальні і віддалені повідомлення, є навантаженою операцією, що може призвести до додаткового розряджання батареї, особливо якщо є багато повідомлень. Режим \'завжди отримувати\' буде перешкоджати наступними перевіркам локального та відаленного змісту.</string>
     <string name="title_advanced_optimize_hint">Це може змінити частоту синхронізації для економії заряду акумулятора в залежності від можливостей і поведінки серверів електронної пошти</string>
     <string name="title_advanced_schedule_hint">Натисни на час, щоб встановити час</string>
@@ -1154,9 +1156,7 @@
     <string name="title_search_hint">        Спочатку пошук виконується на пристрої.
         Для також для пошуку на сервері, натисніть кнопку \'пошук знову\'.
     </string>
-    <string name="title_search_index_hint">Індексований пошук швидкий, але тільки за пошуком цілого слова у всіх частинах повідомлення.
-        Параметри нижче повинні продовжувати пошук з поштового сервера.
-    </string>
+    <string name="title_search_index_hint">Пошук за допомогою індексу пошуку швидкий, але знайде лише цілі слова.</string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_text_unsupported">\'%s\' означає, що поштовий сервер не підтримує пошук в повідомленнях</string>
     <string name="title_search_size_hint">Пошук повідомлень за розміром, при великій кількості повідомлень, може не працювати на деяких серверах</string>

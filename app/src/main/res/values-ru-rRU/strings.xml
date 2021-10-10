@@ -272,6 +272,10 @@
     <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Общие вопросы</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Показывать исходные сообщения</string>
+    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Показать изображения</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Подтверждать ссылки</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
@@ -423,7 +427,7 @@
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
-    <string name="title_advanced_overview_mode">Изменять масштаб оригинальных сообщений к размеру экрана</string>
+    <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">По умолчанию использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>
@@ -577,6 +581,7 @@
     <string name="title_advanced_log_info">Журнал отладки</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_manual_hint">Если получение сообщений отключено, его можно выполнить вручную, потянув вниз список сообщений</string>
+    <string name="title_advanced_poll_battery">Может приводить к высокому энергопотреблению!</string>
     <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
     <string name="title_advanced_optimize_hint">Может изменять частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
@@ -968,7 +973,7 @@
     <string name="title_no_internet">Нет или нет подходящего интернет-подключения</string>
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
-    <string name="title_no_format">Оригинальное сообщение будет включено</string>
+    <string name="title_no_format">Исходное сообщение будет включено</string>
     <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
     <string name="title_too_large">Сообщение слишком большое для полного переформатирования</string>
     <string name="title_truncated">Сообщение слишком велико для полного отображения</string>
@@ -989,7 +994,7 @@
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>
-    <string name="title_ask_show_html_images">Всегда показывать изображения при показе оригинальных сообщений</string>
+    <string name="title_ask_show_html_images">Всегда показывать изображения при показе исходных сообщений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
@@ -1158,9 +1163,7 @@
     <string name="title_search_hint">        Поиск изначально ищет сообщения, хранящиеся на вашем устройстве.
         Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
     </string>
-    <string name="title_search_index_hint">        Поиск по индексу быстрый, но находит только целые слова во всех частях сообщения.
-        Параметры ниже для продолжения поиска по серверу электронной почты.
-    </string>
+    <string name="title_search_index_hint">Индексированный поиск быстрый, но находит только целые слова.</string>
     <string name="title_search_text_hint">Поиск содержащих определённый текст сообщений при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_text_unsupported">\"%s\" означает, что почтовый сервер не поддерживает поиск в текстах сообщений</string>
     <string name="title_search_size_hint">Поиск сообщений по размеру при большом их количестве может не работать на некоторых серверах</string>
@@ -1369,7 +1372,7 @@
     <string name="title_legend_view">Просмотр содержимого</string>
     <string name="title_legend_hide">Скрыть содержимое</string>
     <string name="title_legend_download">Загрузить содержимое</string>
-    <string name="title_legend_original">Просмотр оригинального сообщения</string>
+    <string name="title_legend_original">Просмотр исходного сообщения</string>
     <string name="title_legend_reformatted">Просмотр отформатированного сообщения</string>
     <string name="title_legend_external_image">Внешнее изображение</string>
     <string name="title_legend_embedded_image">Встроенное изображение</string>
@@ -1397,7 +1400,7 @@
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>
     <string name="title_legend_hide_images">Скрыть изображения</string>
-    <string name="title_legend_show_full">Показать оригинальное сообщение</string>
+    <string name="title_legend_show_full">Показать исходное сообщение</string>
     <string name="title_legend_show_reformatted">Показать переформатированное сообщение</string>
     <string name="title_legend_edit">Редактировать</string>
     <string name="title_legend_default_color">Цвет по умолчанию</string>
