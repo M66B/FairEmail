@@ -168,9 +168,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "deepl_enabled", "watchdog", "updates", "weekly", "show_changelog",
-            "experiments", "wal", "checkpoints", "query_threads", "sqlite_cache", "crash_reports", "cleanup_attachments",
+            "language", "deepl_enabled", "watchdog",
+            "updates", "weekly", "show_changelog",
+            "experiments", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
+            "query_threads", "wal", "checkpoints", "sqlite_cache",
             "use_modseq", "perform_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl",
             "exact_alarms", "dup_msgids", "test_iab"
