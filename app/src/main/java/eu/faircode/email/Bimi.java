@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
 
@@ -122,6 +123,12 @@ public class Bimi {
                     if (TextUtils.isEmpty(l))
                         continue;
 
+                    Uri ul = Uri.parse(l);
+                    if (!"https".equals(ul.getScheme())) {
+                        Log.e("BIMI insecure img=" + l);
+                        continue;
+                    }
+
                     URL url = new URL(l);
                     Log.i("BIMI favicon " + url);
 
@@ -151,6 +158,12 @@ public class Bimi {
                     String a = values.get(tag);
                     if (TextUtils.isEmpty(a))
                         continue;
+
+                    Uri ua = Uri.parse(a);
+                    if (!"https".equals(ua.getScheme())) {
+                        Log.e("BIMI insecure pem=" + a);
+                        continue;
+                    }
 
                     try {
                         URL url = new URL(a);
