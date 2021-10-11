@@ -618,10 +618,16 @@ class Core {
                                 db.operation().deleteOperation(op.id);
 
                                 // Cleanup messages
-                                if (message != null &&
-                                        MessageHelper.isRemoved(ex) &&
-                                        !EntityOperation.SEEN.equals(op.name))
-                                    db.message().deleteMessage(message.id);
+                                if (MessageHelper.isRemoved(ex)) {
+                                    if (message != null &&
+                                            !EntityOperation.SEEN.equals(op.name))
+                                        db.message().deleteMessage(message.id);
+
+                                    if (EntityOperation.FETCH.equals(op.name)) {
+                                        long uid = jargs.getLong(0);
+                                        db.message().deleteMessage(folder.id, uid);
+                                    }
+                                }
 
                                 db.setTransactionSuccessful();
                             } finally {
