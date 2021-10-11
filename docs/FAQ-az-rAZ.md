@@ -1836,16 +1836,16 @@ Gmail allows one message to have multiple labels, which are presented to FairEma
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) iOS, Windows, Linux və s. versiyasını hazırlaya bilərsiniz?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+Müəyyən bir platformda tətbiqi uğurlu şəkildə tərtib etmək üçün kifayət qədər bilik və təcrübə lazımdır, buna görə də tətbiqləri yalnız Android üçün tərtib edirəm.
 
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) "Yerli mesajları təmizlə" nə edir?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+*"Yerli mesajları təmizlə"* qovluq menyusu, serverdə saxlanılan mesajları da cihazdan silir. Serverdən gələn mesajları silmir. Bu, məsələn yaddaş istifadəsinə qənaət etmək üçün qovluq tənzimləmələrini mesaj məzmununu (mətn və qoşmalar) endirməyəcək formada tənzimlədikdən sonra faydalı ola bilər.
 
 <br />
 

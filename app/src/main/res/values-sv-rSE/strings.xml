@@ -555,6 +555,7 @@
     <string name="title_advanced_log_info">Debug Logging</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_manual_hint">Om mottagande av meddelanden är inaktiverat är det fortfarande möjligt att manuellt ta emot meddelanden genom att dra ner meddelandelistan</string>
+    <string name="title_advanced_poll_battery">Detta kan orsaka hög batterianvändning!</string>
     <string name="title_advanced_poll_hint">Genom att regelbundet kontrollera efter nya meddelanden kommer att jämföra lokala- och fjärrmeddelanden varje gång, detta är en drastisk åtgärd som kan leda till extra batterianvändning, särskilt om det finns många meddelanden. Genom att alltid ta emot kommer att förhindra detta genom att kontinuerligt följa förändringar.</string>
     <string name="title_advanced_optimize_hint">Detta kan ändra synkroniseringsfrekvensen för att spara på batteriet, beroende på e-postservrarnas funktioner och beteende</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
@@ -1563,9 +1564,9 @@
     <string name="title_accessibility_to">Mottagare</string>
     <string-array name="pollIntervalNames">
         <item>Kontinuerligt</item>
-        <item>Varje 5 minuter</item>
-        <item>Varje 15 minuter</item>
-        <item>Varje 30 minuter</item>
+        <item>Var 5:e minut</item>
+        <item>Var 15:e minut</item>
+        <item>Var 30:e minut</item>
         <item>Varje timme</item>
         <item>Varannan timme</item>
         <item>Var 4:e timme</item>
