@@ -422,6 +422,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         }
 
                         if (check) {
+                            args.putString("user", user);
                             args.putSerializable("imap_certificate", imap_certificate);
                             args.putSerializable("smtp_certificate", smtp_certificate);
                             return provider;
@@ -643,7 +644,7 @@ public class FragmentQuickSetup extends FragmentBase {
         boolean smtpMatches = (provider != null &&
                 EntityCertificate.matches(provider.imap.host, smtpNames));
 
-        tvUser.setText(provider == null ? null : provider.username);
+        tvUser.setText(args.getString("user"));
         tvImap.setText(provider == null ? null : provider.imap.toString());
         tvSmtp.setText(provider == null ? null : provider.smtp.toString());
         grpSetup.setVisibility(provider == null ? View.GONE : View.VISIBLE);
