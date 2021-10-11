@@ -283,6 +283,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         " ids=" + state.ids.size());
             }
 
+            List<Long> excluded = Helper.fromLongArray(exclude);
+
             try {
                 db.beginTransaction();
 
@@ -313,27 +315,30 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             continue;
                     }
 
+                    if (excluded.contains(message.folder))
+                        continue;
+
                     boolean matched = false;
 
-                    if (criteria.in_senders) {
+                    if (!matched && criteria.in_senders) {
                         if (contains(message.from, query))
                             matched = true;
                     }
 
-                    if (criteria.in_recipients) {
+                    if (!matched && criteria.in_recipients) {
                         if (contains(message.to, query) ||
                                 contains(message.cc, query) ||
                                 contains(message.bcc, query))
                             matched = true;
                     }
 
-                    if (criteria.in_subject) {
+                    if (!matched && criteria.in_subject) {
                         if (message.subject != null &&
                                 message.subject.toLowerCase().contains(query))
                             matched = true;
                     }
 
-                    if (criteria.in_keywords) {
+                    if (!matched && criteria.in_keywords) {
                         if (message.keywords != null)
                             for (String keyword : message.keywords)
                                 if (keyword.toLowerCase().contains(query)) {
@@ -342,7 +347,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 }
                     }
 
-                    if (criteria.in_notes) {
+                    if (!matched && criteria.in_notes) {
                         if (message.notes != null &&
                                 message.notes.toLowerCase().contains(query))
                             matched = true;
@@ -363,20 +368,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         } catch (IOException ex) {
                             Log.e(ex);
                         }
-
-                    if (!criteria.in_trash || !criteria.in_junk) {
-                        EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (folder == null)
-                            continue;
-                        if (!criteria.in_trash) {
-                            if (EntityFolder.TRASH.equals(folder.type))
-                                continue;
-                        }
-                        if (!criteria.in_junk) {
-                            if (EntityFolder.JUNK.equals(folder.type))
-                                continue;
-                        }
-                    }
 
                     if (!matched)
                         continue;
