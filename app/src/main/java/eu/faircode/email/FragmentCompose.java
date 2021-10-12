@@ -758,6 +758,7 @@ public class FragmentCompose extends FragmentBase {
                 Object tag = cbSignature.getTag();
                 if (tag == null || !tag.equals(checked)) {
                     cbSignature.setTag(checked);
+                    tvSignature.setAlpha(checked ? 1.0f : Helper.LOW_LIGHT);
                     if (tag != null)
                         onAction(R.id.action_save, "signature");
                 }
