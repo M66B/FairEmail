@@ -8003,7 +8003,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 EntityContact.TYPE_JUNK, message.received);
 
                     if (block_domain) {
-                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_domain, whitelist);
+                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_domain);
                         if (rule != null) {
                             if (message.folder.equals(junk.id)) {
                                 EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);

@@ -25,6 +25,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -48,6 +50,10 @@ import androidx.preference.PreferenceManager;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Locale;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 public class FragmentDialogJunk extends FragmentDialogBase {
     @NonNull
@@ -263,6 +269,35 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                         .show();
             }
         });
+
+        try {
+            boolean common = false;
+            Address[] froms = InternetAddress.parseHeader(from, false);
+            String email = (froms.length == 0 ? null : ((InternetAddress) froms[0]).getAddress());
+            int at = (email == null ? -1 : email.indexOf('@'));
+            String domain = (at > 0 ? email.substring(at + 1).toLowerCase(Locale.ROOT) : null);
+
+            if (domain != null) {
+                List<String> domains = EmailProvider.getDomainNames(context);
+                for (String d : domains)
+                    if (domain.matches(d)) {
+                        common = true;
+                        break;
+                    }
+            }
+
+            if (common) {
+                int dp6 = Helper.dp2pixels(context, 6);
+                int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+                cbBlockDomain.setTextColor(colorWarning);
+                cbBlockDomain.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.twotone_warning_24, 0);
+                cbBlockDomain.setCompoundDrawablePadding(dp6);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    cbBlockDomain.setCompoundDrawableTintList(ColorStateList.valueOf(colorWarning));
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         // Initialize
         tvMessage.setText(inJunk

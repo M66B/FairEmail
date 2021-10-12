@@ -858,7 +858,7 @@ public class EntityRule {
         return cal;
     }
 
-    static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain, List<String> whitelist) throws JSONException {
+    static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain) throws JSONException {
         if (message.from == null || message.from.length == 0)
             return null;
 
@@ -873,17 +873,8 @@ public class EntityRule {
         if (block_domain) {
             int at = sender.indexOf('@');
             if (at > 0) {
-                boolean whitelisted = false;
-                String domain = UriHelper.getParentDomain(context, sender.substring(at + 1));
-                for (String d : whitelist)
-                    if (domain.matches(d)) {
-                        whitelisted = true;
-                        break;
-                    }
-                if (!whitelisted) {
-                    regex = true;
-                    sender = ".*@.*" + domain + ".*";
-                }
+                regex = true;
+                sender = ".*@.*" + sender.substring(at + 1) + ".*";
             }
         }
 

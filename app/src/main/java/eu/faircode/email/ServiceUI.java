@@ -252,7 +252,6 @@ public class ServiceUI extends IntentService {
     private void onJunk(long id) throws JSONException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean block_sender = prefs.getBoolean("notify_block_sender", false);
-        List<String> whitelist = EmailProvider.getDomainNames(this);
 
         DB db = DB.getInstance(this);
         try {
@@ -269,7 +268,7 @@ public class ServiceUI extends IntentService {
             EntityOperation.queue(this, message, EntityOperation.MOVE, junk.id);
 
             if (block_sender) {
-                EntityRule rule = EntityRule.blockSender(this, message, junk, false, whitelist);
+                EntityRule rule = EntityRule.blockSender(this, message, junk, false);
                 if (rule != null)
                     rule.id = db.rule().insertRule(rule);
             }
