@@ -1632,43 +1632,30 @@ public class Helper {
     }
 
     static void copy(File src, File dst) throws IOException {
-        try (InputStream in = new FileInputStream(src)) {
-            try (FileOutputStream out = new FileOutputStream(dst)) {
-                copy(in, out);
+        try (InputStream is = new FileInputStream(src)) {
+            try (FileOutputStream os = new FileOutputStream(dst)) {
+                copy(is, os);
             }
         }
     }
 
-    static void copy(InputStream in, OutputStream out) throws IOException {
+    static long copy(InputStream is, OutputStream os) throws IOException {
+        long size = 0;
         byte[] buf = new byte[BUFFER_SIZE];
         int len;
-        while ((len = in.read(buf)) > 0)
-            out.write(buf, 0, len);
+        while ((len = is.read(buf)) > 0) {
+            size += len;
+            os.write(buf, 0, len);
+        }
+        return size;
     }
 
     static long copy(Context context, Uri uri, File file) throws IOException {
-        long size = 0;
-        InputStream is = null;
-        OutputStream os = null;
-        try {
-            is = context.getContentResolver().openInputStream(uri);
-            os = new FileOutputStream(file);
-
-            byte[] buffer = new byte[Helper.BUFFER_SIZE];
-            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                size += len;
-                os.write(buffer, 0, len);
-            }
-        } finally {
-            try {
-                if (is != null)
-                    is.close();
-            } finally {
-                if (os != null)
-                    os.close();
+        try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+            try (OutputStream os = new FileOutputStream(file)) {
+                return copy(is, os);
             }
         }
-        return size;
     }
 
     static long getAvailableStorageSpace() {
