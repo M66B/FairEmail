@@ -64,7 +64,7 @@
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_domain">封鎖寄件者網域</string>
     <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
-        使用篩選器規則封鎖寄件者網域則是一項專業功能。
+        使用篩選器規則封鎖寄件者網域則是一項專業版功能。
     </string>
     <string name="title_junk_filter">使用本地垃圾郵件篩選器</string>
     <string name="title_junk_filter_hint">這可能會增大電池的用量，並導致訊息被錯誤地標記為垃圾郵件</string>
@@ -209,9 +209,13 @@
     <string name="title_setup_exported">設定已匯出</string>
     <string name="title_setup_imported">設定已匯入</string>
     <string name="title_setup_import_invalid">無效的設定檔</string>
-    <string name="title_setup_reorder_accounts">排序帳戶</string>
-    <string name="title_setup_reorder_folders">排序資料夾</string>
-    <string name="title_reset_order">重置排序</string>
+    <string name="title_importing_account">帳戶 %1$s</string>
+    <string name="title_importing_identity">身分 %1$s</string>
+    <string name="title_importing_exists">跳過： 已存在</string>
+    <string name="title_importing_wizard">運行精靈以重新驗證</string>
+    <string name="title_setup_reorder_accounts">更改帳戶順序</string>
+    <string name="title_setup_reorder_folders">更改資料夾順序</string>
+    <string name="title_reset_order">重設順序</string>
     <string name="title_setup_authentication">驗證</string>
     <string name="title_setup_biometrics">生物特徵辨識驗證</string>
     <string name="title_setup_biometrics_enable">啟用</string>
@@ -236,13 +240,16 @@
     <string name="title_setup_advanced">進階</string>
     <string name="title_setup_options">選項</string>
     <string name="title_setup_defaults">恢復預設</string>
-    <string name="title_setup_reset_questions">重置提示</string>
+    <string name="title_setup_reset_questions">重設問題提示</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">一般問題提示</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">顯示原始訊息</string>
     <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">顯示圖片</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">確認連結</string>
     <string name="title_advanced_hint_title">更高階的選項</string>
     <string name="title_advanced_hint_message">        您正在訪問更高階的選項。
         所有選項都有常用的標準值，除非您有不同的偏好，否則您不需要變更這些選項。
     </string>
-    <string name="title_advanced_hint_setup">您可通過輕觸主設定螢幕上的精靈按鈕來設置帳戶。</string>
+    <string name="title_advanced_hint_setup">您可透過輕觸主設定螢幕上的精靈按鈕來設置帳戶。</string>
     <string name="title_advanced_section_main">主設定</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">傳送</string>
@@ -542,6 +549,7 @@
     <string name="title_advanced_log_info">除錯資訊記錄</string>
     <string name="title_advanced_debug">除錯模式</string>
     <string name="title_advanced_manual_hint">如果停用訊息接收功能，訊息仍可透過於訊息清單中執行下拉操作手動接收</string>
+    <string name="title_advanced_poll_battery">這可能會導致高額電量耗用！</string>
     <string name="title_advanced_poll_hint">定期檢查新訊息的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。時時接收會通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">依據郵件伺服器的能力和行為，可能會改變同步頻率以節省電池用量</string>
     <string name="title_advanced_schedule_hint">請輕觸位列在上的時間項來設定執行時間</string>
@@ -1123,6 +1131,7 @@
     <string name="title_search_hint">        初次進行的搜尋，會執行於裝置之上。
         如要接著搜尋伺服器，請輕觸‘再次搜尋’按鈕。
     </string>
+    <string name="title_search_index_hint">通過搜尋索引進行搜尋的速度很快，但只會尋找完整的單詞.</string>
     <string name="title_search_text_hint">當有大量訊息時，搜尋訊息內文字功能在一些伺服器上可能不工作</string>
     <string name="title_search_text_unsupported">\'%s\' 表示郵件伺服器不支援在訊息本文中搜尋</string>
     <string name="title_search_size_hint">當有大量訊息時，按大小搜尋訊息功能在一些伺服器上可能不工作</string>
@@ -1458,7 +1467,7 @@
     <string name="title_icalendar_decline">拒絕</string>
     <string name="title_icalendar_maybe">也許</string>
     <string name="title_icalendar_calendar">日曆</string>
-    <string name="title_pro_feature">這是專業版中的功能</string>
+    <string name="title_pro_feature">這是專業版功能</string>
     <string name="title_pro_list">專業版功能清單</string>
     <string name="title_pro_purchase">購買</string>
     <string name="title_pro_one_time">%1$s (一次購買)</string>
@@ -1468,6 +1477,7 @@
         為了提供 FairEmail 的長期維護和支援，一些便利和高級功能不提供免費使用。
         為助您瞭解以上資訊，FairEmail 會顯示一則簡短的信息。一旦您購買專業版功能，即會令其關閉。
     </string>
+    <string name="title_pro_whichever">無論選擇將哪個功能納入專業版，都會有人抱怨說該功能應該免費，請不要做那樣的人。</string>
     <string name="title_pro_hide">將這一信息隱藏 %1$d 週</string>
     <string name="title_pro_hint">購買完整專業版功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
     <string name="title_pro_price">為什麼專業版功能如此昂貴？</string>

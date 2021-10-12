@@ -919,13 +919,13 @@ El mensaje *... +OK ...* probablemente significa que un puerto POP3 (normalmente
 
 Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parametro a HELO no conforma a la sintaxis de RFC ...* puede ser solucionado cambiando la configuracion avanada de identidad *Usa la IP local en vez de el nombre de el host*.
 
-El error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+El error *... No se pudo conectar con el host ... * lo que significa que no hubo respuesta del servidor de correo electrónico en un tiempo razonable (20 segundos por defecto). Esto indica, en la mayoría de las veces, problemas de conectividad a Internet, posiblemente causados por una VPN o por una aplicación de cortafuegos. Puede intentar aumentar el tiempo de espera de la conexión en la configuración de conexión de FairEmail, para cuando el servidor de correo electrónico sea muy lento.
 
-El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+El error *... Conexión rechazada ... * significa que el servidor de correo o algo entre el servidor de correo electrónico y la aplicación, como un firewall, rechazó activamente la conexión.
 
-El error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+El error *... Red inaccesible ... * lo que significa que no se pudo acceder al servidor de correo electrónico a través de la conexión a Internet actual, por ejemplo, porque el tráfico de Internet está restringido únicamente al tráfico local.
 
-El error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+El error *... El host no está resuelto ... *, * ... No se puede resolver el host ... * o * ... No hay dirección asociada con el nombre de host ... * significa que la dirección del servidor de correo electrónico no se pudo convertir en una dirección IP. Esto puede ser causado por una VPN, bloqueo de anuncios o un servidor [ DNS ](https://en.wikipedia.org/wiki/Domain_Name_System) inaccesible o que no funciona correctamente (local).
 
 El error *... Software causó fin de conexión ...* significa que el servidor de correo o algo entre FairEmail y el servidor de correo terminó activamente una conexión existente. Esto puede suceder, por ejemplo, cuando la conectividad se perdió abruptamente. Un ejemplo típico es activar el modo avión.
 
@@ -936,7 +936,7 @@ El error *... Conexión cerrada por el par ...* podría ser causada por un servi
 Los errores *... Error de lectura ...*, *... Error de escritura ...*, *... Tiempo de lectura agotado ...*, *... Conexión rota...* significa que el servidor de correo electrónico ya no responde o que la conexión a internet es mala.
 
 <a name="connectiondropped"></a>
-El error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
+El error *... ¿Conexión abandonada por el servidor? ... * significa que el servidor de correo electrónico interrumpió inesperadamente la conexión. Esto a veces sucede cuando hubo demasiadas conexiones en un período de tiempo demasiado corto o cuando se utilizó una contraseña incorrecta demasiadas veces. En este caso, asegúrese de que su contraseña sea correcta y desactive la recepción en la configuración de recepción durante unos 30 minutos y vuelva a intentar. Si es necesario, consulte [esta sección de Preguntas Frecuentes](#user-content-faq23) sobre cómo reducir el número de conexiones.
 
 El error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 

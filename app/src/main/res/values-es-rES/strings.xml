@@ -220,6 +220,10 @@
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_import_invalid">Archivo de configuración inválido</string>
+    <string name="title_importing_account">Cuenta %1$s</string>
+    <string name="title_importing_identity">Identidad %1$s</string>
+    <string name="title_importing_exists">Omitido: ya existe</string>
+    <string name="title_importing_wizard">Ejecute el asistente para autenticarse nuevamente</string>
     <string name="title_setup_reorder_accounts">Ordenar cuentas</string>
     <string name="title_setup_reorder_folders">Ordenar carpetas</string>
     <string name="title_reset_order">Restablecer orden</string>
@@ -248,7 +252,10 @@
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
     <string name="title_setup_reset_questions">Restablecer preguntas</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Preguntas generales</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Mostrar el mensaje original</string>
     <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Mostrar imágenes</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Confirmar enlaces</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
         Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
@@ -554,6 +561,7 @@
     <string name="title_advanced_log_info">Registro de depuración</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_manual_hint">Si la recepción de mensajes está desactivada, todavía es posible recibir mensajes manualmente tirando hacia abajo en la lista de mensajes</string>
+    <string name="title_advanced_poll_battery">¡Esto puede causar un alto consumo de batería!</string>
     <string name="title_advanced_poll_hint">Comprobar periódicamente si hay nuevos mensajes comparará los mensajes locales y remotos cada vez, lo que es una operación costosa que puede resultar en un uso adicional de la batería, especialmente si hay muchos mensajes. Siempre recibir evitará esto siguiendo continuamente los cambios.</string>
     <string name="title_advanced_optimize_hint">Esto podría cambiar la frecuencia de sincronización para ahorrar batería dependiendo de las capacidades y el comportamiento de los servidores de correo electrónico</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
@@ -1135,6 +1143,7 @@
     <string name="title_search_hint">        Inicialmente, la búsqueda se realiza en el dispositivo.
         Para buscar también en el servidor, pulse el botón \'Buscar de nuevo\'.
     </string>
+    <string name="title_search_index_hint">Buscar a través del índice de búsqueda es rápido, pero sólo encontrará palabras completas.</string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_text_unsupported">\'%s\' significa que el servidor de correo no soporta la búsqueda en texto de mensajes</string>
     <string name="title_search_size_hint">Buscar mensajes por tamaño puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
@@ -1480,6 +1489,7 @@
         Para mantener y sostener FairEmail a largo plazo, algunas características avanzadas y convenientes no son gratuitas.
         FairEmail muestra un pequeño mensaje para recordarle esto, que se eliminará si adquiere las características Pro.
     </string>
+    <string name="title_pro_whichever">Independientemente de las funciones que sean elegidas como funciones pro, siempre hay alguien que se queja de que una función debería ser gratuita. Por favor, no seas esa persona.</string>
     <string name="title_pro_hide">Ocultar mensaje pequeño durante %1$d semanas</string>
     <string name="title_pro_hint">La compra de características Pro le permitirá usar todas las características Pro actuales y futuras, y ayudará al mantenimiento y desarrollo de esta aplicación</string>
     <string name="title_pro_price">¿Por qué las características pro son tan caras?</string>

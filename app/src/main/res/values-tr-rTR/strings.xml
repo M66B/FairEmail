@@ -251,7 +251,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_reset_questions">Soruları sıfırla</string>
+    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Genel Sorular</string>
+    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Orijinal mesajları göster</string>
     <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Resimleri göster</string>
+    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Bağlantıları onaylayın</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
         Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
@@ -1138,6 +1141,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_hint">        Başlangıçta, arama cihazda gerçekleştirilir.
         Sunucuyu da aramak için \'Tekrar Ara\' düğmesine dokunun.
     </string>
+    <string name="title_search_index_hint">Arama dizini aracılığıyla arama yapmak hızlıdır, ancak yalnızca tam sözcükleri bulur.</string>
     <string name="title_search_text_hint">Mesajlarda metin arama, çok sayıda mesaj varken, bazı sunucularda çalışmayabilir</string>
     <string name="title_search_text_unsupported">\'%s\', posta sunucusunun mesaj metinlerinde aramayı desteklemediği anlamına gelir</string>
     <string name="title_search_size_hint">Boyutlara göre mesaj aramak, çok sayıda mesaj olduğunda, bazı sunucularda çalışmayabilir</string>

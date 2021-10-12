@@ -1818,20 +1818,20 @@ There can be just one primary account and there can be just one primary identity
 <br />
 
 <a name="faq73"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Mesajları hesablar arasında daşımaq güvənli/səmərəlidir?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+Xam, orijinal mesajlar endirilib daşınacağı və mənbə mesajlar, yalnız hədəf mesajlar əlavə ediləndən sonra silinəcəyi üçün mesajların hesablar arasında daşınması güvənlidir.
 
-Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
+Həm mənbə qovluq, həm də hədəf qovluq eyniləşdirilmək üzrə tənzimlənibsə, mesajların hesablar arasında toplu daşınması səmərəlidir, əks halda FairEmail-in, hər mesaj üçün qovluq(lar)la bağlantı qurması lazımdır.
 
 <br />
 
 <a name="faq74"></a>
-**(74) Why do I see duplicate messages?**
+**(74) Niyə təkrarlanan mesajları görürəm?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+Bəzi təchizatçılar, xüsusilə də Gmail, tullantı qovluğundakı mesajlar istisna olmaqla, bütün qovluqlardakı bütün mesajları arxiv qovluğunda da (bütün mesajlar) siyahılayır. FairEmail, bu mesajların eyni mesaj olduğunu göstərmək üçün bütün mesajları narahat etməyən versiyada göstərir.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+Gmail, bir mesajın bir neçə etiketə sahib olmasına icazə verir, həmin etiketlər də FairEmail-ə qovluqlar olaraq təqdim edilir. Bu o deməkdir ki, bir neçə etiketə sahib mesajlar, bir neçə dəfə göstəriləcək.
 
 <br />
 
