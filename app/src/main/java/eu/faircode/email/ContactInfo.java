@@ -481,7 +481,9 @@ public class ContactInfo {
                                 ex instanceof CertificateException ||
                                 ex instanceof CertPathValidatorException ||
                                 ex.getCause() instanceof CertPathValidatorException ||
-                                ex.getCause() instanceof CertificateException)
+                                ex.getCause() instanceof CertificateException ||
+                                (ex instanceof SSLException &&
+                                        "Unable to parse TLS packet header".equals(ex.getMessage())))
                             Log.i(ex);
                         else
                             Log.e(ex);
