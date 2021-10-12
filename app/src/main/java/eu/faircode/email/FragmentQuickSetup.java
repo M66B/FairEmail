@@ -621,10 +621,10 @@ public class FragmentQuickSetup extends FragmentBase {
     }
 
     private void showResult(EmailProvider provider, Bundle args) {
-        X509Certificate imap_certificate =
-                (X509Certificate) args.getSerializable("imap_certificate");
-        X509Certificate smtp_certificate =
-                (X509Certificate) args.getSerializable("smtp_certificate");
+        X509Certificate imap_certificate = (args == null ? null
+                : (X509Certificate) args.getSerializable("imap_certificate"));
+        X509Certificate smtp_certificate = (args == null ? null
+                : (X509Certificate) args.getSerializable("smtp_certificate"));
 
         List<String> imapNames = new ArrayList<>();
         if (imap_certificate != null)
@@ -644,7 +644,7 @@ public class FragmentQuickSetup extends FragmentBase {
         boolean smtpMatches = (provider != null &&
                 EntityCertificate.matches(provider.imap.host, smtpNames));
 
-        tvUser.setText(args.getString("user"));
+        tvUser.setText((args == null ? null : args.getString("user")));
         tvImap.setText(provider == null ? null : provider.imap.toString());
         tvSmtp.setText(provider == null ? null : provider.smtp.toString());
         grpSetup.setVisibility(provider == null ? View.GONE : View.VISIBLE);
