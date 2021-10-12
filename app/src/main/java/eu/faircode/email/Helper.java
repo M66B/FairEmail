@@ -47,7 +47,6 @@ import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.FileUtils;
 import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
@@ -1633,30 +1632,43 @@ public class Helper {
     }
 
     static void copy(File src, File dst) throws IOException {
-        try (InputStream is = new FileInputStream(src)) {
-            try (OutputStream os = new FileOutputStream(dst)) {
-                copy(is, os);
+        try (InputStream in = new FileInputStream(src)) {
+            try (FileOutputStream out = new FileOutputStream(dst)) {
+                copy(in, out);
             }
         }
+    }
+
+    static void copy(InputStream in, OutputStream out) throws IOException {
+        byte[] buf = new byte[BUFFER_SIZE];
+        int len;
+        while ((len = in.read(buf)) > 0)
+            out.write(buf, 0, len);
     }
 
     static long copy(Context context, Uri uri, File file) throws IOException {
-        try (InputStream is = context.getContentResolver().openInputStream(uri)) {
-            try (OutputStream os = new FileOutputStream(file)) {
-                copy(is, os);
+        long size = 0;
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = context.getContentResolver().openInputStream(uri);
+            os = new FileOutputStream(file);
+
+            byte[] buffer = new byte[Helper.BUFFER_SIZE];
+            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                size += len;
+                os.write(buffer, 0, len);
+            }
+        } finally {
+            try {
+                if (is != null)
+                    is.close();
+            } finally {
+                if (os != null)
+                    os.close();
             }
         }
-        return file.length();
-    }
-
-    static void copy(InputStream is, OutputStream os) throws IOException {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-            byte[] buf = new byte[BUFFER_SIZE];
-            int len;
-            while ((len = is.read(buf)) > 0)
-                os.write(buf, 0, len);
-        } else
-            FileUtils.copy(is, os);
+        return size;
     }
 
     static long getAvailableStorageSpace() {
