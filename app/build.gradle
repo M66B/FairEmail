@@ -3,7 +3,7 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 1761 }
+def getVersionCode = { -> return 1762 }
 def getRevision = { -> "a" }
 def getReleaseName = { -> return "Banji" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
@@ -322,7 +322,7 @@ dependencies {
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
-    def bugsnag_version = "5.12.0"
+    def bugsnag_version = "5.14.0"
     def biweekly_version = "0.6.6"
     def vcard_version = "0.11.3"
     def relinker_version = "1.4.3"
