@@ -146,6 +146,7 @@
             </intent-filter>
 
             <intent-filter>
+                <!-- legacy -->
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -153,6 +154,16 @@
 
                 <data android:scheme="message" />
                 <data android:host="${applicationId}" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="message" />
+                <data android:host="email.faircode.eu" />
             </intent-filter>
         </activity>
 

@@ -27,6 +27,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -55,7 +56,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         Uri data = (intent == null ? null : intent.getData());
         if (data != null &&
                 "message".equals(data.getScheme()) &&
-                BuildConfig.APPLICATION_ID.equals(data.getHost())) {
+                ("email.faircode.eu".equals(data.getHost()) ||
+                        BuildConfig.APPLICATION_ID.equals(data.getHost()))) {
             super.onCreate(savedInstanceState);
 
             Bundle args = new Bundle();
@@ -65,13 +67,19 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 protected EntityMessage onExecute(Context context, Bundle args) {
                     Uri data = args.getParcelable("data");
-                    String path = data.getPath();
-                    if (path == null)
-                        return null;
-                    String[] parts = path.split("/");
-                    if (parts.length < 1)
-                        return null;
-                    long id = Long.parseLong(parts[1]);
+                    long id;
+                    String f = data.getFragment();
+                    if ("email.faircode.eu".equals(data.getHost()))
+                        id = Long.parseLong(data.getFragment());
+                    else {
+                        String path = data.getPath();
+                        if (path == null)
+                            return null;
+                        String[] parts = path.split("/");
+                        if (parts.length < 1)
+                            return null;
+                        id = Long.parseLong(parts[1]);
+                    }
 
                     DB db = DB.getInstance(context);
                     return db.message().getMessage(id);
