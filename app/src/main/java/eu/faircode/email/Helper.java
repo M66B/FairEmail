@@ -1633,8 +1633,16 @@ public class Helper {
 
     static void copy(File src, File dst) throws IOException {
         try (InputStream is = new FileInputStream(src)) {
-            try (FileOutputStream os = new FileOutputStream(dst)) {
+            try (OutputStream os = new FileOutputStream(dst)) {
                 copy(is, os);
+            }
+        }
+    }
+
+    static long copy(Context context, Uri uri, File file) throws IOException {
+        try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+            try (OutputStream os = new FileOutputStream(file)) {
+                return copy(is, os);
             }
         }
     }
@@ -1648,14 +1656,6 @@ public class Helper {
             os.write(buf, 0, len);
         }
         return size;
-    }
-
-    static long copy(Context context, Uri uri, File file) throws IOException {
-        try (InputStream is = context.getContentResolver().openInputStream(uri)) {
-            try (OutputStream os = new FileOutputStream(file)) {
-                return copy(is, os);
-            }
-        }
     }
 
     static long getAvailableStorageSpace() {
