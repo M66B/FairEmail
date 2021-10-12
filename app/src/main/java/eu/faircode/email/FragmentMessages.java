@@ -324,7 +324,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private boolean accessibility;
 
-    private long primary;
+    private long primary = -1;
     private boolean connected;
     private boolean reset = false;
     private boolean initialized = false;
@@ -4546,7 +4546,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         } else if (itemId == R.id.menu_delete_search) {
             onMenuDeleteSearch();
             return true;
-        } else if (itemId == R.id.menu_folders) {// Obsolete
+        } else if (itemId == R.id.menu_folders) { // Obsolete
             onMenuFolders(primary);
             return true;
         } else if (itemId == R.id.menu_empty_trash) {
