@@ -4263,46 +4263,54 @@ public class FragmentCompose extends FragmentBase {
                                 break;
                             }
 
-                    Address[] refto = (ref == null ? null
-                            : ref.replySelf(data.identities, ref.account) ? ref.from : ref.to);
-                    if (refto != null && refto.length > 0) {
-                        if (selected == null)
-                            for (Address sender : refto)
-                                for (EntityIdentity identity : data.identities)
-                                    if (identity.account.equals(aid) &&
-                                            identity.sameAddress(sender)) {
-                                        selected = identity;
-                                        EntityLog.log(context, "Selected same account/identity");
-                                        break;
-                                    }
+                    if (ref != null) {
+                        Address[] refto;
+                        boolean self = ref.replySelf(data.identities, ref.account);
+                        if (ref.to == null || ref.to.length == 0 || self)
+                            refto = ref.from;
+                        else
+                            refto = ref.to;
+                        Log.i("Ref self=" + self +
+                                " to=" + MessageHelper.formatAddresses(refto));
+                        if (refto != null && refto.length > 0) {
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.account.equals(aid) &&
+                                                identity.sameAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected same account/identity");
+                                            break;
+                                        }
 
-                        if (selected == null)
-                            for (Address sender : refto)
-                                for (EntityIdentity identity : data.identities)
-                                    if (identity.account.equals(aid) &&
-                                            identity.similarAddress(sender)) {
-                                        selected = identity;
-                                        EntityLog.log(context, "Selected similar account/identity");
-                                        break;
-                                    }
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.account.equals(aid) &&
+                                                identity.similarAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected similar account/identity");
+                                            break;
+                                        }
 
-                        if (selected == null)
-                            for (Address sender : refto)
-                                for (EntityIdentity identity : data.identities)
-                                    if (identity.sameAddress(sender)) {
-                                        selected = identity;
-                                        EntityLog.log(context, "Selected same */identity");
-                                        break;
-                                    }
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.sameAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected same */identity");
+                                            break;
+                                        }
 
-                        if (selected == null)
-                            for (Address sender : refto)
-                                for (EntityIdentity identity : data.identities)
-                                    if (identity.similarAddress(sender)) {
-                                        selected = identity;
-                                        EntityLog.log(context, "Selected similer */identity");
-                                        break;
-                                    }
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.similarAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected similer */identity");
+                                            break;
+                                        }
+                        }
                     }
 
                     if (selected == null)
