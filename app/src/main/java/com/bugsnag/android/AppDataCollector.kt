@@ -104,7 +104,7 @@ internal class AppDataCollector(
             return null
         }
 
-        val nowMs = System.currentTimeMillis()
+        val nowMs = SystemClock.elapsedRealtime()
         var durationMs: Long = 0
 
         val sessionStartTimeMs: Long = sessionTracker.lastEnteredForegroundMs

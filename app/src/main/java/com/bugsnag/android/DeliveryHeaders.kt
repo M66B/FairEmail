@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.DateUtils
 import java.io.OutputStream
 import java.security.DigestOutputStream
 import java.security.MessageDigest

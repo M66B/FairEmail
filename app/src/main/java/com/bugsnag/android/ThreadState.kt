@@ -67,7 +67,7 @@ internal class ThreadState @Suppress("LongParameterList") @JvmOverloads construc
                 if (trace != null) {
                     val stacktrace = Stacktrace(trace, projectPackages, logger)
                     val errorThread = thread.id == currentThreadId
-                    Thread(thread.id, thread.name, ThreadType.ANDROID, errorThread, stacktrace, logger)
+                    Thread(thread.id, thread.name, ThreadType.ANDROID, errorThread, Thread.State.forThread(thread), stacktrace, logger)
                 } else {
                     null
                 }

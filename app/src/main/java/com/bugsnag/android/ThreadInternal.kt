@@ -7,6 +7,7 @@ class ThreadInternal internal constructor(
     var name: String,
     var type: ThreadType,
     val isErrorReportingThread: Boolean,
+    var state: Thread.State,
     stacktrace: Stacktrace
 ) : JsonStream.Streamable {
 
@@ -18,6 +19,7 @@ class ThreadInternal internal constructor(
         writer.name("id").value(id)
         writer.name("name").value(name)
         writer.name("type").value(type.desc)
+        writer.name("state").value(state.descriptor)
 
         writer.name("stacktrace")
         writer.beginArray()

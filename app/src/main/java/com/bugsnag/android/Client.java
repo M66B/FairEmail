@@ -79,7 +79,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
     final ClientObservable clientObservable;
     PluginClient pluginClient;
 
-    final Notifier notifier = new Notifier();
+    final Notifier notifier;
 
     @Nullable
     final LastRunInfo lastRunInfo;
@@ -116,6 +116,8 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
     public Client(@NonNull Context androidContext, @NonNull final Configuration configuration) {
         ContextModule contextModule = new ContextModule(androidContext);
         appContext = contextModule.getCtx();
+
+        notifier = configuration.getNotifier();
 
         connectivity = new ConnectivityCompat(appContext, new Function2<Boolean, String, Unit>() {
             @Override
@@ -233,7 +235,8 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
             DeliveryDelegate deliveryDelegate,
             LastRunInfoStore lastRunInfoStore,
             LaunchCrashTracker launchCrashTracker,
-            ExceptionHandler exceptionHandler
+            ExceptionHandler exceptionHandler,
+            Notifier notifier
     ) {
         this.immutableConfig = immutableConfig;
         this.metadataState = metadataState;
@@ -255,6 +258,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         this.launchCrashTracker = launchCrashTracker;
         this.lastRunInfo = null;
         this.exceptionHandler = exceptionHandler;
+        this.notifier = notifier;
     }
 
     void registerLifecycleCallbacks() {

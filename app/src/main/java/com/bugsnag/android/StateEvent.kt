@@ -9,7 +9,8 @@ sealed class StateEvent { // JvmField allows direct field access optimizations
         @JvmField val buildUuid: String?,
         @JvmField val releaseStage: String?,
         @JvmField val lastRunInfoPath: String,
-        @JvmField val consecutiveLaunchCrashes: Int
+        @JvmField val consecutiveLaunchCrashes: Int,
+        @JvmField val sendThreads: ThreadSendPolicy
     ) : StateEvent()
 
     object DeliverPending : StateEvent()

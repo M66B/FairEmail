@@ -513,7 +513,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
      * Sets the maximum number of breadcrumbs which will be stored. Once the threshold is reached,
      * the oldest breadcrumbs will be deleted.
      *
-     * By default, 25 breadcrumbs are stored: this can be amended up to a maximum of 100.
+     * By default, 50 breadcrumbs are stored: this can be amended up to a maximum of 100.
      */
     public int getMaxBreadcrumbs() {
         return impl.getMaxBreadcrumbs();
@@ -523,7 +523,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
      * Sets the maximum number of breadcrumbs which will be stored. Once the threshold is reached,
      * the oldest breadcrumbs will be deleted.
      *
-     * By default, 25 breadcrumbs are stored: this can be amended up to a maximum of 100.
+     * By default, 50 breadcrumbs are stored: this can be amended up to a maximum of 100.
      */
     public void setMaxBreadcrumbs(int maxBreadcrumbs) {
         if (maxBreadcrumbs >= MIN_BREADCRUMBS && maxBreadcrumbs <= MAX_BREADCRUMBS) {
@@ -980,5 +980,9 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
 
     Set<Plugin> getPlugins() {
         return impl.getPlugins();
+    }
+
+    Notifier getNotifier() {
+        return impl.getNotifier();
     }
 }

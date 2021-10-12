@@ -1,6 +1,7 @@
 package com.bugsnag.android;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,9 +20,10 @@ public class Thread implements JsonStream.Streamable {
             @NonNull String name,
             @NonNull ThreadType type,
             boolean errorReportingThread,
+            @NonNull Thread.State state,
             @NonNull Stacktrace stacktrace,
             @NonNull Logger logger) {
-        this.impl = new ThreadInternal(id, name, type, errorReportingThread, stacktrace);
+        this.impl = new ThreadInternal(id, name, type, errorReportingThread, state, stacktrace);
         this.logger = logger;
     }
 
@@ -82,6 +84,25 @@ public class Thread implements JsonStream.Streamable {
     }
 
     /**
+     * Sets the state of thread (from {@link java.lang.Thread})
+     */
+    public void setState(@NonNull Thread.State threadState) {
+        if (threadState != null) {
+            impl.setState(threadState);
+        } else {
+            logNull("state");
+        }
+    }
+
+    /**
+     * Gets the state of the thread (from {@link java.lang.Thread})
+     */
+    @NonNull
+    public Thread.State getState() {
+        return impl.getState();
+    }
+
+    /**
      * Gets whether the thread was the thread that caused the event
      */
     public boolean getErrorReportingThread() {
@@ -110,5 +131,80 @@ public class Thread implements JsonStream.Streamable {
     @Override
     public void toStream(@NonNull JsonStream stream) throws IOException {
         impl.toStream(stream);
+    }
+
+    /**
+     * The state of a reported {@link Thread}. These states correspond directly to
+     * {@link java.lang.Thread.State}, except for {@code UNKNOWN} which indicates that
+     * a state could not be captured or mapped.
+     */
+    public enum State {
+        NEW("NEW"),
+        BLOCKED("BLOCKED"),
+        RUNNABLE("RUNNABLE"),
+        TERMINATED("TERMINATED"),
+        TIMED_WAITING("TIMED_WAITING"),
+        WAITING("WAITING"),
+        UNKNOWN("UNKNOWN");
+
+        private final String descriptor;
+
+        State(String descriptor) {
+            this.descriptor = descriptor;
+        }
+
+        @NonNull
+        public String getDescriptor() {
+            return descriptor;
+        }
+
+        @NonNull
+        public static State forThread(@NonNull java.lang.Thread thread) {
+            java.lang.Thread.State state = thread.getState();
+            return getState(state);
+        }
+
+        /**
+         * Lookup the {@code State} for a given {@link #getDescriptor() descriptor} code. Unlike
+         * {@link #valueOf(String) valueOf}, this method will return {@link #UNKNOWN} is no
+         * matching {@code State} constant can be found.
+         *
+         * @param descriptor a consistent descriptor of the state constant to lookup
+         * @return the requested {@link State} or {@link #UNKNOWN}
+         */
+        @NonNull
+        public static State byDescriptor(@Nullable String descriptor) {
+            if (descriptor == null) {
+                return UNKNOWN;
+            }
+
+            for (State state : values()) {
+                if (state.getDescriptor().equals(descriptor)) {
+                    return state;
+                }
+            }
+
+            return UNKNOWN;
+        }
+
+        @NonNull
+        private static State getState(java.lang.Thread.State state) {
+            switch (state) {
+                case NEW:
+                    return NEW;
+                case BLOCKED:
+                    return BLOCKED;
+                case RUNNABLE:
+                    return RUNNABLE;
+                case TERMINATED:
+                    return TERMINATED;
+                case TIMED_WAITING:
+                    return TIMED_WAITING;
+                case WAITING:
+                    return WAITING;
+                default:
+                    return UNKNOWN;
+            }
+        }
     }
 }

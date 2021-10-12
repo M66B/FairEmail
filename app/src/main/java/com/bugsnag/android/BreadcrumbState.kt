@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.DateUtils
 import java.io.IOException
 import java.util.concurrent.atomic.AtomicInteger
 

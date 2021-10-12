@@ -49,6 +49,8 @@ internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware
     var projectPackages: Set<String> = emptySet()
     var persistenceDirectory: File? = null
 
+    val notifier: Notifier = Notifier()
+
     protected val plugins = HashSet<Plugin>()
 
     override fun addOnError(onError: OnErrorCallback) = callbackState.addOnError(onError)
@@ -79,7 +81,7 @@ internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware
     }
 
     companion object {
-        private const val DEFAULT_MAX_BREADCRUMBS = 25
+        private const val DEFAULT_MAX_BREADCRUMBS = 50
         private const val DEFAULT_MAX_PERSISTED_SESSIONS = 128
         private const val DEFAULT_MAX_PERSISTED_EVENTS = 32
         private const val DEFAULT_LAUNCH_CRASH_THRESHOLD_MS: Long = 5000

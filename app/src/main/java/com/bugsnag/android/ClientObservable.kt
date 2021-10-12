@@ -21,7 +21,8 @@ internal class ClientObservable : BaseObservable() {
                 conf.buildUuid,
                 conf.releaseStage,
                 lastRunInfoPath,
-                consecutiveLaunchCrashes
+                consecutiveLaunchCrashes,
+                conf.sendThreads
             )
         }
     }

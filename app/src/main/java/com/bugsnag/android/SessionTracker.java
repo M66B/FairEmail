@@ -1,6 +1,9 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.DateUtils;
 import com.bugsnag.android.internal.ImmutableConfig;
+
+import android.os.SystemClock;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -319,11 +322,11 @@ class SessionTracker extends BaseObservable {
     }
 
     void onActivityStarted(String activityName) {
-        updateForegroundTracker(activityName, true, System.currentTimeMillis());
+        updateForegroundTracker(activityName, true, SystemClock.elapsedRealtime());
     }
 
     void onActivityStopped(String activityName) {
-        updateForegroundTracker(activityName, false, System.currentTimeMillis());
+        updateForegroundTracker(activityName, false, SystemClock.elapsedRealtime());
     }
 
     /**
@@ -349,7 +352,7 @@ class SessionTracker extends BaseObservable {
 
                 if (noActivityRunningForMs >= timeoutMs
                         && configuration.getAutoTrackSessions()) {
-                    startNewSession(new Date(nowMs), client.getUser(), true);
+                    startNewSession(new Date(), client.getUser(), true);
                 }
             }
             foregroundActivities.add(activityName);
