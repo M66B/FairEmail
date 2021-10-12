@@ -874,23 +874,23 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        String action = (intent == null ? null : intent.getAction());
-        String reason = (intent == null ? null : intent.getStringExtra("reason"));
-        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
-                "### Service command " + intent +
-                        " action=" + action + " reason=" + reason);
-        Log.logExtras(intent);
+        try {
+            String action = (intent == null ? null : intent.getAction());
+            String reason = (intent == null ? null : intent.getStringExtra("reason"));
+            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
+                    "### Service command " + intent +
+                            " action=" + action + " reason=" + reason);
+            Log.logExtras(intent);
 
-        super.onStartCommand(intent, flags, startId);
+            super.onStartCommand(intent, flags, startId);
 
-        if (isBackgroundService(this))
-            stopForeground(true);
-        else
-            startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                    getNotificationService(null, null).build());
+            if (isBackgroundService(this))
+                stopForeground(true);
+            else
+                startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                        getNotificationService(null, null).build());
 
-        if (action != null)
-            try {
+            if (action != null) {
                 switch (action.split(":")[0]) {
                     case "enable":
                         onEnable(intent);
@@ -936,9 +936,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     default:
                         Log.w("Unknown action: " + action);
                 }
-            } catch (Throwable ex) {
-                Log.e(ex);
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                at android.app.ApplicationPackageManager.getUserIfProfile(ApplicationPackageManager.java:2190)
+                at android.app.ApplicationPackageManager.getUserBadgeForDensity(ApplicationPackageManager.java:1006)
+                at android.app.Notification$Builder.getProfileBadgeDrawable(Notification.java:2890)
+                at android.app.Notification$Builder.hasThreeLines(Notification.java:3105)
+                at android.app.Notification$Builder.build(Notification.java:3659)
+                at androidx.core.app.NotificationCompatBuilder.buildInternal(NotificationCompatBuilder:426)
+                at androidx.core.app.NotificationCompatBuilder.build(NotificationCompatBuilder:318)
+                at androidx.core.app.NotificationCompat$Builder.build(NotificationCompat:2346)
+                at eu.faircode.email.ServiceSynchronize.onStartCommand(ServiceSynchronize:890)
+             */
+        }
 
         return START_STICKY;
     }
