@@ -786,5 +786,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivBrokenImage"
             app:layout_constraintTop_toTopOf="@id/ivBrokenImage" />
+
+        <ImageView
+            android:id="@+id/ivDeletePermanent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_delete_permanently"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBrokenImage"
+            app:srcCompat="@drawable/twotone_delete_forever_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDeletePermanent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_delete_permanently"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivDeletePermanent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivDeletePermanent"
+            app:layout_constraintTop_toTopOf="@id/ivDeletePermanent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
