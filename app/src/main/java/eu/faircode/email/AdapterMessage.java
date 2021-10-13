@@ -446,6 +446,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibInbox;
         private ImageButton ibMore;
         private ImageButton ibTools;
+        private View vwEmpty;
         private TextView tvReformatted;
         private TextView tvSignedData;
 
@@ -822,6 +823,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInbox = vsBody.findViewById(R.id.ibInbox);
             ibMore = vsBody.findViewById(R.id.ibMore);
             ibTools = vsBody.findViewById(R.id.ibTools);
+            vwEmpty = vsBody.findViewById(R.id.vwEmpty);
             tvReformatted = vsBody.findViewById(R.id.tvReformatted);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
@@ -1556,6 +1558,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInbox.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
+            vwEmpty.setVisibility(View.GONE);
             tvReformatted.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
@@ -1791,6 +1794,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInbox.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
+            vwEmpty.setVisibility(View.GONE);
             tvReformatted.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
@@ -2016,6 +2020,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                         ibTools.setTooltipText(ibTools.getContentDescription());
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
+                    vwEmpty.setVisibility(View.VISIBLE);
 
                     ibTrashBottom.setVisibility(button_extra && button_trash && trash ? View.VISIBLE : View.GONE);
                     ibArchiveBottom.setVisibility(button_extra && button_archive && archive ? View.VISIBLE : View.GONE);
