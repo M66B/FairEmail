@@ -2675,18 +2675,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Show images
                     ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.INVISIBLE);
 
-                    // Show encrypt actions
-                    ibVerify.setVisibility(false ||
-                            EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
-                            EntityMessage.SMIME_SIGNONLY.equals(message.encrypt)
-                            ? View.VISIBLE : View.GONE);
-                    ibDecrypt.setImageResource(false ||
-                            (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
-                                    !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
+                    boolean verifyable = (EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
+                            EntityMessage.SMIME_SIGNONLY.equals(message.encrypt));
+
+                    boolean unlocked = (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                            !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
                             (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
-                                    !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
-                            ? R.drawable.twotone_lock_24 : R.drawable.twotone_lock_open_24
-                    );
+                                    !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
+
+                    // Show encrypt actions
+                    ibVerify.setVisibility(verifyable ? View.VISIBLE : View.GONE);
+                    ibDecrypt.setImageResource(unlocked
+                            ? R.drawable.twotone_lock_24 : R.drawable.twotone_lock_open_24);
+                    ibDecrypt.setImageTintList(ColorStateList.valueOf(unlocked
+                            ? colorControlNormal : colorAccent));
                     ibDecrypt.setVisibility(!EntityFolder.OUTBOX.equals(message.folderType) &&
                             (args.getBoolean("inline_encrypted") ||
                                     EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
