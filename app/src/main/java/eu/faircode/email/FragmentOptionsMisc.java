@@ -633,6 +633,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 new SimpleTask<Void>() {
                     @Override
                     protected void onPostExecute(Bundle args) {
+                        prefs.edit().remove("debug").apply();
                         ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                     }
 
@@ -710,6 +711,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                prefs.edit().remove("debug").commit();
                 ApplicationEx.restart(v.getContext());
             }
         });
@@ -748,6 +750,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibSqliteCache.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                prefs.edit().remove("debug").commit();
                 ApplicationEx.restart(v.getContext());
             }
         });
