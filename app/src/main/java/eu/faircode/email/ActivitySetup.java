@@ -1679,7 +1679,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             String password1 = etPassword1.getEditText().getText().toString();
                             String password2 = etPassword2.getEditText().getText().toString();
 
-                            if (TextUtils.isEmpty(password1) && !BuildConfig.DEBUG)
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean debug = prefs.getBoolean("debug", false);
+
+                            if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG))
                                 ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
                             else {
                                 if (password1.equals(password2)) {
@@ -1739,7 +1742,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         public void onClick(DialogInterface dialog, int which) {
                             String password1 = etPassword1.getEditText().getText().toString();
 
-                            if (TextUtils.isEmpty(password1) && !BuildConfig.DEBUG)
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean debug = prefs.getBoolean("debug", false);
+
+                            if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG))
                                 ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
                             else {
                                 ActivitySetup activity = (ActivitySetup) getActivity();
