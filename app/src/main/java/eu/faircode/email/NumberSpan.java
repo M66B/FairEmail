@@ -45,7 +45,8 @@ public class NumberSpan extends BulletSpan {
 
     private static final List<String> SUPPORTED_TYPES = Collections.unmodifiableList(Arrays.asList(
             "lower-alpha", "lower-latin",
-            "upper-alpha", "upper-latin"
+            "upper-alpha", "upper-latin",
+            "lower-roman", "upper-roman"
     ));
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
@@ -76,19 +77,27 @@ public class NumberSpan extends BulletSpan {
 
         if (TextUtils.isEmpty(type))
             number = index + ".";
-        else
+        else {
             switch (type) {
                 case "lower-alpha":
                 case "lower-latin":
-                    number = ((char) ((int) 'a' + index)) + ".";
+                    number = Character.toString((char) ((int) 'a' + index));
                     break;
                 case "upper-alpha":
                 case "upper-latin":
-                    number = ((char) ((int) 'A' + index)) + ".";
+                    number = Character.toString((char) ((int) 'A' + index));
+                    break;
+                case "lower-roman":
+                    number = Helper.toRoman(index).toLowerCase(Locale.ROOT);
+                    break;
+                case "upper-roman":
+                    number = Helper.toRoman(index);
                     break;
                 default:
-                    number = index + ".";
+                    number = Integer.toString(index);
             }
+            number += '.';
+        }
 
         numberWidth = Math.round(tp.measureText(number));
         margin = numberWidth + gapWidth;

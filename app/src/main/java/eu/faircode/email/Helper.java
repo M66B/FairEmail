@@ -174,6 +174,11 @@ public class Helper {
     // https://developer.android.com/distribute/marketing-tools/linking-to-google-play#PerformingSearch
     private static final String PLAY_STORE_SEARCH = "https://play.google.com/store/search";
 
+    private static final String[] ROMAN_1000 = {"", "M", "MM", "MMM"};
+    private static final String[] ROMAN_100 = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+    private static final String[] ROMAN_10 = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+    private static final String[] ROMAN_1 = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+
     static final Pattern EMAIL_ADDRESS
             = Pattern.compile(
             "[\\S]{1,256}" +
@@ -1524,6 +1529,15 @@ public class Helper {
         } catch (NumberFormatException ignored) {
             return null;
         }
+    }
+
+    public static String toRoman(int value) {
+        if (value < 0 || value >= 4000)
+            return Integer.toString(value);
+        return ROMAN_1000[value / 1000] +
+                ROMAN_100[(value % 1000) / 100] +
+                ROMAN_10[(value % 100) / 10] +
+                ROMAN_1[value % 10];
     }
 
     // Files
