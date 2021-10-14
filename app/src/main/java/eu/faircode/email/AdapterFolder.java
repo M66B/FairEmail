@@ -212,13 +212,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
+            boolean disabled = isDisabled(folder);
+
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
-            view.setAlpha(
-                    folder.hide ||
-                            !folder.selectable ||
-                            (folder.read_only && listener != null) ||
-                            disabledIds.contains(folder.id)
-                            ? Helper.LOW_LIGHT : 1.0f);
+            view.setEnabled(!disabled);
+            view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -411,25 +409,26 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 } else if (id == R.id.ibSync) {
                     onLastSync(folder);
                 } else {
-                    if (listener == null) {
-                        if (!folder.selectable)
-                            return;
+                    if (isDisabled(folder))
+                        return;
 
+                    if (listener == null) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                         .putExtra("account", folder.account)
                                         .putExtra("folder", folder.id)
                                         .putExtra("type", folder.type));
-                    } else {
-                        if (folder.read_only)
-                            return;
-                        if (disabledIds.contains(folder.id))
-                            return;
+                    } else
                         listener.onFolderSelected(folder);
-                    }
                 }
             }
+        }
+
+        private boolean isDisabled(EntityFolder folder) {
+            return (!folder.selectable ||
+                    (folder.read_only && listener != null) ||
+                    disabledIds.contains(folder.id));
         }
 
         private void onCollapse(TupleFolderEx folder, int pos) {
