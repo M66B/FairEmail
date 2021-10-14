@@ -4,6 +4,13 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### Next version
+
+* Report new messages in same thread when composing a new message
+* Use account categories for identities
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1763
 
 * Small improvements and minor bug fixes
