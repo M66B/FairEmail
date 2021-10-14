@@ -4698,7 +4698,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null ||
                     (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
 
-            popupMenu.getMenu().findItem(R.id.menu_share_as_html).setVisible(message.content && BuildConfig.DEBUG);
+            popupMenu.getMenu().findItem(R.id.menu_share_as_html).setVisible(message.content &&
+                    (debug || BuildConfig.DEBUG));
 
             boolean canRaw = (message.uid != null ||
                     (EntityFolder.INBOX.equals(message.folderType) &&
