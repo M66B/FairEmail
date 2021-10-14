@@ -6473,7 +6473,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (rv != null)
             savedState = rv.getLayoutManager().onSaveInstanceState();
 
-        differ.submitList(list);
+        differ.submitList(list, new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (rv != null)
+                        rv.invalidateItemDecorations();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     PagedList<TupleMessageEx> getCurrentList() {
