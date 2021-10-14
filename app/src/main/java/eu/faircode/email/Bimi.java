@@ -123,28 +123,30 @@ public class Bimi {
                     if (TextUtils.isEmpty(l))
                         continue;
 
-                    Uri ul = Uri.parse(l);
-                    if (!"https".equals(ul.getScheme())) {
-                        Log.e("BIMI insecure img=" + l);
-                        continue;
-                    }
-
-                    URL url = new URL(l);
-                    Log.i("BIMI favicon " + url);
-
-                    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-                    connection.setRequestMethod("GET");
-                    connection.setReadTimeout(READ_TIMEOUT);
-                    connection.setConnectTimeout(CONNECT_TIMEOUT);
-                    connection.setInstanceFollowRedirects(true);
-                    connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
-                    connection.connect();
-
                     try {
-                        bitmap = ImageHelper.renderSvg(connection.getInputStream(),
-                                Color.WHITE, scaleToPixels);
-                    } finally {
-                        connection.disconnect();
+                        Uri ul = Uri.parse(l);
+                        if ("https".equals(ul.getScheme()))
+                            throw new MalformedURLException(l);
+
+                        URL url = new URL(l);
+                        Log.i("BIMI favicon " + url);
+
+                        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                        connection.setRequestMethod("GET");
+                        connection.setReadTimeout(READ_TIMEOUT);
+                        connection.setConnectTimeout(CONNECT_TIMEOUT);
+                        connection.setInstanceFollowRedirects(true);
+                        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                        connection.connect();
+
+                        try {
+                            bitmap = ImageHelper.renderSvg(connection.getInputStream(),
+                                    Color.WHITE, scaleToPixels);
+                        } finally {
+                            connection.disconnect();
+                        }
+                    } catch (MalformedURLException ex) {
+                        Log.i(ex);
                     }
 
                     break;
@@ -159,13 +161,11 @@ public class Bimi {
                     if (TextUtils.isEmpty(a))
                         continue;
 
-                    Uri ua = Uri.parse(a);
-                    if (!"https".equals(ua.getScheme())) {
-                        Log.e("BIMI insecure pem=" + a);
-                        continue;
-                    }
-
                     try {
+                        Uri ua = Uri.parse(a);
+                        if (!"https".equals(ua.getScheme()))
+                            throw new MalformedURLException(a);
+
                         URL url = new URL(a);
                         Log.i("BIMI PEM " + url);
 
