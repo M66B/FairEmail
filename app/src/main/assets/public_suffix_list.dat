@@ -842,7 +842,13 @@ gov.cu
 inf.cu
 
 // cv : https://en.wikipedia.org/wiki/.cv
+// cv : http://www.dns.cv/tldcv_portal/do?com=DS;5446457100;111;+PAGE(4000018)+K-CAT-CODIGO(RDOM)+RCNT(100); <- registration rules
 cv
+com.cv
+edu.cv
+int.cv
+nome.cv
+org.cv
 
 // cw : http://www.una.cw/cw_registry/
 // Confirmed by registry <registry@una.net> 2013-03-26
@@ -1179,6 +1185,7 @@ org.gu
 web.gu
 
 // gw : https://en.wikipedia.org/wiki/.gw
+// gw : https://nic.gw/regras/
 gw
 
 // gy : https://en.wikipedia.org/wiki/.gy
@@ -5853,7 +5860,7 @@ com.ps
 org.ps
 net.ps
 
-// pt : http://online.dns.pt/dns/start_dns
+// pt : https://www.dns.pt/en/domain/pt-terms-and-conditions-registration-rules/
 pt
 net.pt
 gov.pt
@@ -13742,7 +13749,7 @@ wpenginepowered.com
 js.wpenginepowered.com
 
 // Wix.com, Inc. : https://www.wix.com
-// Submitted by Shahar Talmi <shahart@wix.com>
+// Submitted by Shahar Talmi <shahar@wix.com>
 wixsite.com
 editorx.io
 
