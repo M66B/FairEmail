@@ -2916,8 +2916,9 @@ public class HtmlHelper {
                                 if (level > 0)
                                     level--;
 
-                                if (list == null || ("ul".equals(list.tagName()) &&
-                                        !(ltype != null && ltype.startsWith("decimal")))) {
+                                if (list == null ||
+                                        ("ul".equals(list.tagName()) &&
+                                                !NumberSpan.isSupportedType(ltype))) {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
                                     Object ul;
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
@@ -2940,7 +2941,7 @@ public class HtmlHelper {
                                         }
                                     }
 
-                                    setSpan(ssb, new NumberSpan(bulletIndent, bulletGap, colorAccent, textSize, level, index), start, ssb.length());
+                                    setSpan(ssb, new NumberSpan(bulletIndent, bulletGap, colorAccent, textSize, level, index, ltype), start, ssb.length());
                                 }
 
                                 break;

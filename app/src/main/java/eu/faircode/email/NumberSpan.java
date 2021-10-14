@@ -25,7 +25,13 @@ import android.graphics.Typeface;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.style.BulletSpan;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 public class NumberSpan extends BulletSpan {
     private int indentWidth;
@@ -37,7 +43,27 @@ public class NumberSpan extends BulletSpan {
     private int numberWidth;
     private int margin;
 
+    private static final List<String> SUPPORTED_TYPES = Collections.unmodifiableList(Arrays.asList(
+            "lower-alpha", "lower-latin",
+            "upper-alpha", "upper-latin"
+    ));
+
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+    static boolean isSupportedType(String type) {
+        if (TextUtils.isEmpty(type))
+            return false;
+        if (type.startsWith("decimal"))
+            return true;
+        if (SUPPORTED_TYPES.contains(type))
+            return true;
+        return false;
+    }
+
     public NumberSpan(int indentWidth, int gapWidth, int color, float textSize, int level, int index) {
+        this(indentWidth, gapWidth, color, textSize, level, index, null);
+    }
+
+    public NumberSpan(int indentWidth, int gapWidth, int color, float textSize, int level, int index, String type) {
         tp = new TextPaint();
         tp.setStyle(Paint.Style.FILL);
         tp.setColor(color);
@@ -48,7 +74,22 @@ public class NumberSpan extends BulletSpan {
         this.level = level;
         this.index = index;
 
-        number = index + ".";
+        if (TextUtils.isEmpty(type))
+            number = index + ".";
+        else
+            switch (type) {
+                case "lower-alpha":
+                case "lower-latin":
+                    number = ((char) ((int) 'a' + index)) + ".";
+                    break;
+                case "upper-alpha":
+                case "upper-latin":
+                    number = ((char) ((int) 'A' + index)) + ".";
+                    break;
+                default:
+                    number = index + ".";
+            }
+
         numberWidth = Math.round(tp.measureText(number));
         margin = numberWidth + gapWidth;
     }

@@ -6,6 +6,7 @@
 
 ### Next version
 
+* Added support for alphabetical lists (view only)
 * Report new messages in same thread when composing a new message
 * Use account categories for identities
 * Small improvements and minor bug fixes
