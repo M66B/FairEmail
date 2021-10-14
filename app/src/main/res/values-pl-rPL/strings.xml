@@ -876,8 +876,6 @@
     <string name="title_duplicate_in">Duplikat wiadomości w %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
-    <string name="title_subject_reply_alt">Odp: %1$s</string>
-    <string name="title_subject_forward_alt">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
     <string name="title_unseen">Oznacz jako nieprzeczytane</string>
     <string name="title_toggle_seen">Przeczytane/nieprzeczytane</string>

@@ -938,23 +938,23 @@ Los errores *... Error de lectura ...*, *... Error de escritura ...*, *... Tiemp
 <a name="connectiondropped"></a>
 El error *... ¿Conexión abandonada por el servidor? ... * significa que el servidor de correo electrónico interrumpió inesperadamente la conexión. Esto a veces sucede cuando hubo demasiadas conexiones en un período de tiempo demasiado corto o cuando se utilizó una contraseña incorrecta demasiadas veces. En este caso, asegúrese de que su contraseña sea correcta y desactive la recepción en la configuración de recepción durante unos 30 minutos y vuelva a intentar. Si es necesario, consulte [esta sección de Preguntas Frecuentes](#user-content-faq23) sobre cómo reducir el número de conexiones.
 
-El error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+El error *... Fin inesperado de flujo de entrada zlib ...* significa que no todos los datos fueron recibidos, posiblemente debido a una conexión incorrecta o interrumpida.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+El error *... fallo de conexión ...* podría indicar [Demasiadas conexiones simultáneas](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+La advertencia *... Codificación no admitida ... * significa que el juego de caracteres del mensaje es desconocido o no es compatible. FairEmail asumirá ISO-8859-1 (Latin1), que en la mayoría de los casos resultará en mostrar el mensaje correctamente.
 
-El error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
+El error *... Acierto de límite de tasa de inicio de sesión ... * significa que hubo demasiados intentos de inicio de sesión con una contraseña incorrecta. Por favor vuelva a verificar su contraseña o autentique la cuenta nuevamente con el asistente de configuración rápida (solo OAuth).
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+Por favor [ vea aquí ](#user-content-faq4) para los errores *... No es de confianza ... no está en el certificado ... *, * ... Certificado de seguridad no válido (no se puede verificar la identidad del servidor) ...* o *... No se encontró el ancla de confianza para la ruta de certificación ... *
 
-Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
+Por favor, [vea aquí](#user-content-faq127) para el error *... Argumento(s) HELO sintácticamente inválidos ...*.
 
-Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+Por favor, [vea aquí](#user-content-faq41) para el error *... Ha fallado el apretón de manos ... *.
 
-See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+Consulte [ aquí ](https://linux.die.net/man/3/connect) para conocer el significado de códigos de error como EHOSTUNREACH y ETIMEDOUT.
 
-Possible causes are:
+Posibles causas son:
 
 * Un cortafuegos o router está bloqueando conexiones al servidor
 * El nombre de host o número de puerto no es válido
@@ -964,13 +964,13 @@ Possible causes are:
 * El servidor de correo electrónico se niega a aceptar un mensaje, por ejemplo porque es demasiado grande o contiene enlaces inaceptables
 * Hay demasiadas conexiones al servidor, vea también la siguiente pregunta
 
-Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
+Muchas redes Wi-Fi públicas bloquean el correo electrónico saliente para prevenir el spam. A veces, puede solucionar este problema utilizando otro puerto SMTP. Consulte la documentación del proveedor para ver los números de puerto utilizables.
 
-If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+Si está utilizando una [ VPN ](https://en.wikipedia.org/wiki/Virtual_private_network), el proveedor de VPN puede bloquear la conexión porque está intentando evitar el spam de forma demasiado agresiva. Tenga en cuenta que [Google Fi](https://fi.google.com/) también está usando una VPN.
 
-**Send errors**
+**Enviar errores**
 
-SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+Los servidores SMTP pueden rechazar los mensajes por [varias razones](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Los mensajes demasiado grandes y activar el filtro de correo no deseado de un servidor de correo electrónico son las razones más comunes.
 
 * El límite de tamaño del archivo adjunto para Gmail [es de 25 MB](https://support.google.com/mail/answer/6584)
 * El límite de tamaño de archivo adjunto para Outlook y Office 365 [es de 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -979,16 +979,16 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *501 Error de sintaxis - línea demasiado larga* es a menudo causada por el uso de un encabezado Autocrypt largo
 * *503 5.5.0 Destinatario ya especificado* significa principalmente que una dirección está siendo utilizada como dirección A y CC
 * *554 5.7.1 ... no se permite transmitir* significa que el servidor de correo electrónico no reconoce el nombre de usuario/dirección de correo electrónico. Por favor, compruebe el nombre de host y el nombre de usuario/dirección de correo electrónico en la configuración de identidad.
-* *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
-* *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgoing message as harmful.
-* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
-* *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: please [see here](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) or [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
-* *571 5.7.1 Relay access denied*: please double check the username and email address in the advanced identity settings (via the manual setup).
+* * 550 Mensaje de spam rechazado porque la IP aparece en ... * significa que el servidor de correo electrónico rechazó enviar un mensaje desde la dirección de red actual (pública) porque fue mal utilizado para enviar spam (esperemos) por otra persona anteriormente. Intente habilitar el modo de vuelo durante 10 minutos para adquirir una nueva dirección de red.
+* * 550 Lo sentimos, pero no podemos enviar su correo electrónico. O bien el tema, un enlace o un archivo adjunto contiene potencialmente spam, suplantación de identidad o malware. * significa que el proveedor de correo electrónico considera que un mensaje saliente es dañino.
+* * 571 5.7.1 El mensaje contiene spam o virus o el remitente está bloqueado ... * significa que el servidor de correo electrónico consideró un mensaje saliente como spam. Esto probablemente significa que los filtros de correo no deseado del servidor de correo electrónico son demasiado estrictos. Necesitará contactar al proveedor de correo electrónico para obtener ayuda al respecto.
+* * 451 4.7.0 Error temporal del servidor. Por favor, inténtelo de nuevo más tarde. PRX4 ...*: por favor [ver aquí](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) o [ver aquí](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* * 571 5.7.1 Acceso de retransmisión denegado *: compruebe el nombre de usuario y la dirección de correo electrónico en la configuración de identidad avanzada (a través de la configuración manual).
 
-If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+Si desea utilizar el servidor SMTP de Gmail para solucionar un filtro de spam saliente demasiado estricto o para mejorar la entrega de mensajes:
 
 * Verifique su dirección de correo electrónico [aquí](https://mail.google.com/mail/u/0/#settings/accounts) (necesitará utilizar un navegador de escritorio para esto)
-* Change the identity settings like this (Settings, tap Manual setup, tap Identities, tap identity):
+* Cambie la configuración de identidad de esta manera (Configuración, toque Configuración manual, toque Identidades, toque identidad):
 
 &emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 

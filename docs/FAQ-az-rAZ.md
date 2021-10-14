@@ -1697,112 +1697,112 @@ Third party apps do not have access to the Gmail snoozed messages folder.
 <br />
 
 <a name="faq68"></a>
-**~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~**
+**~~(68) Adobe Acrobat reader, PDF qoşmalarını niyə aça bilmir / Microsoft tətbiqləri qoşmalı sənədləri açmır?~~**
 
-~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~ ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~ ~~to have access to actively shared files only. This is for privacy and security reasons.~~
+~~Adobe Acrobat reader və Microsoft tətbiqləri, saxlanılmış bütün fayllara tam müraciəti gözləyərkən,~~ ~~Android KitKat (2013) versiyasından bəri tətbiqlərin yalnız aktiv olaraq paylaşılan fayllara müraciət etməsi üçün~~ ~~["Anbar Müraciət Framework"u](https://developer.android.com/guide/topics/providers/document-provider) istifadə etməsi lazımdır. Gizlilik və güvənlik səbəblərinə görə.~~
 
-~~You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader / Microsoft app,~~ ~~but you are advised to install an up-to-date and preferably open source PDF reader / document viewer,~~ ~~for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).~~
+~~Qoşmanı saxlayıb Adobe Acrobat reader / Microsoft tətbiqlərində açaraq bu problemi həll edə bilərsiniz,~~ ~~ancaq ən yeni və tərcih edilmiş açıq mənbəli PDF reader / sənəd görüntüləyici quraşdırmağınız məsləhət görülür,~~ ~~məsələn, [burada](https://github.com/offa/android-foss#-document--pdf-viewer) siyahılananlardan biri.~~
 
 <br />
 
 <a name="faq69"></a>
-**(69) Can you add auto scroll up on new message?**
+**(69) Yeni mesaja "avto-yuxarı sürüşdürmə" əlavə edə bilərsiniz?**
 
-The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh. Always automatically scrolling up on arrival of new messages would interfere with your own scrolling, but if you like you can enable this in the settings.
+Yeni bir mesaj bildirişində gəzinərkən və ya əllə bir təzələmədən sonra mesaj siyahısı avtomatik yuxarı sürüşdürülür. Yeni mesajlar gələndə, avto-yuxarı sürüşdürmə hər zaman özünüz tərəfindən icra edilən sürüşdürməyə əngəl olur, amma istəsəniz bunu tənzimləmələrdən fəallaşdıra bilərsiniz.
 
 <br />
 
 <a name="faq70"></a>
-**(70) When will messages be auto expanded?**
+**(70) Mesajlar nə vaxt avtomatik genişləndirilir?**
 
-When navigation to a conversation one message will be expanded if:
+Bir danışıqda gəzinərkən bir mesaj aşağıdakı hallarda genişləndirilir:
 
-* There is just one message in the conversation
-* There is exactly one unread message in the conversation
-* There is exactly one starred (favorite) message in the conversation (from version 1.1508)
+* Danışıqda sadəcə bir mesaj var
+* Danışıqda tam olaraq bir oxunmamış mesaj var
+* Danışıqda tam olaraq bir (sevimli) ulduzlanmış mesaj var (1.1508 versiyasından etibarən)
 
-There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
+Bir istisna var: mesaj, hələ endirilməyib və mesaj ölçülən (mobil verilənlər) bağlantıda avtomatik olaraq endirilməyəcək qədər böyükdür. "Bağlantı" tənzimləmələri vərəqində maksimum mesaj həcmini tənzimləyə və ya sıradan çıxarda bilərsiniz.
 
-Duplicate (archived) messages, trashed messages and draft messages are not counted.
+Təkrarlanan (arxivlənmiş) mesajlar, tullantı qovluğundakı mesajlar və qaralama mesajları sayılmır.
 
-Messages will automatically be marked read on expanding, unless this was disabled in the individual account settings.
+Fərdi hesab tənzimləmələrinda sıradan çıxarılmadığı müddətcə, mesajlar genişləndiriləndə avtomatik olaraq oxundu olaraq işarələnir.
 
 <br />
 
 <a name="faq71"></a>
-**(71) How do I use filter rules?**
+**(71) Filtr qaydalarını necə istifadə edə bilərəm?**
 
-You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
+Bir hesabın qovluq siyahısındakı bir qovluğa uzun basaraq filtr qaydalarına düzəliş edə bilərsiniz (naviqasiya/yan menyudakı hesab adına toxunun).
 
-New rules will be applied to new messages received in the folder, not to existing messages. You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
+Yeni qaydalar, mövcud mesajlara yox, qovluğa alınan yeni mesajlara tətbiq olunacaq. Qaydanı yoxlaya və qaydanı mövcud mesajlara tətbiq edə bilərsiniz, alternativ olaraq, qaydalar siyahısındakı qaydaya uzun basaraq *"İndi icra et"i* seçə bilərsiniz.
 
-You'll need to give a rule a name and you'll need to define the order in which a rule should be executed relative to other rules.
+Bir qaydaya ad verməli olacaqsınız və bir qaydanın digər əlaqəli qaydalara görə icra ediləcəyi sıranı təyin etməli olacaqsınız.
 
-You can disable a rule and you can stop processing other rules after a rule has been executed.
+Bir qaydanı sıradan çıxarda və bir qayda icra ediləndən sonra digər qaydaların emalını dayandıra bilərsiniz.
 
-The following rule conditions are available:
+Qayda şərtləri aşağıdakı kimidir:
 
-* Sender contains or sender is contact
-* Recipient contains
-* Subject contains
-* Has attachments (optional of specific type)
-* Header contains
-* Absolute time (received) between (since version 1.1540)
-* Relative time (received) between
+* Göndərən məzmunu və ya göndərən əlaqədir
+* Alıcı məzmunu
+* Mövzu məzmunu
+* Qoşmaları var (xüsusi növdə ixtiyari)
+* Başlıq məzmunu
+* Mütləq vaxt (alınan) arasında (1.1540 versiyasından bəri)
+* Əlaqəli vaxt (alınan) aralığı
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like *@example.org*
+Qayda əməliyyatının icra edilməsi üçün bir qaydanın bütün şərtləri doğru olmalıdır. Bütün şərtlər ixtiyaridir, ancaq bütün mesajların uyğunlaşmasının qarşısını almaq üçün ən azı bir şərt olmalıdır. Bütün göndərənləri və ya alıcıları uyğunlaşdırmaq istəyirsinizsə, sadəcə "@" simvolunu istifadə edə bilərsiniz, çünki bütün e-poçt ünvanları bu simvolu ehtiva edir. Bir domen adı ilə uyğunlaşdırmaq istəyirsinizsə, şərt olaraq *@nümunə.org* kimi bir şey istifadə edə bilərsiniz
 
-Note that email addresses are formatted like this:
+E-poçt ünvanlarının bu formatda olduğunu unutmayın:
 
 `
-"Somebody" <somebody@example.org>`
+"Kimsə" <somebody@example.org>`
 
-You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
+Bir *"və ya"* və ya bir *"deyil"* şərti üçün böyük ehtimal *"prosesi dayandır"* ilə bir neçə qaydanı istifadə edə bilərsiniz.
 
-Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+["Müntəzəm ifadələr](https://en.wikipedia.org/wiki/Regular_expression) istifadə etmədiyiniz müddətcə, uyğunlaşma, böyük-kiçik hərfə qarşı həssas deyil. Java müntəzəm ifadələrinin sənədləşdirməsi üçün zəhmət olmasa [bura](https://developer.android.com/reference/java/util/regex/Pattern) baxın. Bir normal ifadəni [burada](https://regexr.com/) test edə bilərsiniz.
 
-Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+Unutmayın, normal ifadə bir *"və ya"* operatorunu dəstəkləmir, ona görə də bir neçə göndərəni uyğunlaşdırmaq istəsəniz, bunu istifadə edə bilərsiniz:
 
 `
 .*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
-Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
+Unutmayın, [qatlanmamış başlıqları](https://tools.ietf.org/html/rfc2822#section-3.2.3) uyğunlaşdıra bilmək üçün [bütün nöqtə rejimi](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) fəaldır.
 
-You can select one of these actions to apply to matching messages:
+Uyğunlaşan mesajlara tətbiq etmək üçün bu əməliyyatlardan birini seçə bilərsiniz:
 
-* No action (useful for *not*)
-* Mark as read
-* Mark as unread
-* Hide
-* Suppress notification
-* Snooze
-* Add star
-* Set importance (local priority)
-* Add keyword
-* Move
-* Copy (Gmail: label)
-* Answer/forward (with template)
-* Text-to-speech (sender and subject)
-* Automation (Tasker, etc)
+* Əməliyyat yoxdur (*"deyil"* üçün faydalıdır)
+* Oxundu olaraq işarələ
+* Oxunmadı olaraq işarələ
+* Gizlət
+* Bildirişi gizlət
+* Ertələ
+* Ulduz əlavə et
+* Vacibliyi tənzimlə (yerli prioritet)
+* Açarsöz əlavə et
+* Daşı
+* Kopyala (Gmail: etiket)
+* Cavabla/yönləndir (şablonla)
+* Danışıq mətni (göndərən və mövzu)
+* Avtomatlaşdırma (Tasker, və s.)
 
-An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+Bir qayda şərtindəki bir səhv fəlakətə səbəb ola bilər, buna görə də, geri qaytarıla bilməyən əməliyyatlar dəstəklənmir.
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Qaydalar, birbaşa mesaj başlığı gətirildikdən sonra, ancaq mesaj mətni endirilməzdən əvvəl tətbiq edilir, buna görə də, mesaj mətninə şərtləri tətbiq etmək mümkün deyil. Unutmayın, böyük mesaj mətnləri, ölçülən bağlantılarda (mobil verilənlər) verilənlər istifadəsinə qənaət etmək üçün tələb ediləndə endirilir.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Bir mesajı yönləndirmək istəyirsinizsə, bunun əvəzinə daşıma əməliyyatını istifadə etməyi düşünün. Bu, yönləndirmədən daha çox güvənli hesab olunur, çünki yönləndirilən mesajlar spam olaraq nəzərə alına bilər.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Batereya və verilənlər istifadəsinə və anbar sahəsinə qənaət etmək üçün mesaj başlıqları, ilkin olaraq endirilmədiyinə və saxlanılmadığına görə hansı mesajların başlıq qayda şərti ilə uyğunlaşacağını əvvəlcədən izləmək mümkün deyil.
 
-Some common header conditions (regex):
+Bəzi ortaq başlıq şərtləri (normal ifadə):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
-* *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
+* *.&ast;Content-Type: çox hissəli/hesabat.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+Üç nöqtəli *"daha çox"* mesaj menyusunda, alınan bir mesaj üçün ən çox yayılmış şərtlərin doldurulduğu bir qayda yaratmaq üçün bir element var.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+POP3 protokolu, açar sözlərin tənzimlənməsini, mesajların daşınması və ya kopyalanmasını dəstəkləmir.
 
-Using rules is a pro feature.
+Qaydaları istifadə etmək, pro özəllikdir.
 
 <br />
 

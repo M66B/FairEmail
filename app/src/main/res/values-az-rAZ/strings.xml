@@ -855,8 +855,8 @@
     <string name="title_duplicate_in">%1$s qovluğunda mesajı kopyala</string>
     <string name="title_subject_reply">Cvb: %1$s</string>
     <string name="title_subject_forward">Ynlndr: %1$s</string>
-    <string name="title_subject_reply_alt">Cvb: %1$s</string>
-    <string name="title_subject_forward_alt">Ynlndr: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).&#10;This should be different from the main title, or not be translated.">Cvb: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).&#10;This should be different from the main title, or not be translated.">Ynlndr: %1$s</string>
     <string name="title_seen">Oxundu kimi işarələ</string>
     <string name="title_unseen">Oxunmadı kimi işarələ</string>
     <string name="title_toggle_seen">Oxumanı aç/bağla</string>
