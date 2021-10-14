@@ -470,11 +470,16 @@
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvCaptionDebug"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/twotone_warning_24"
+                    android:drawableEnd="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorError"
                     android:gravity="center"
                     android:text="@string/title_advanced_caption_debug"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
