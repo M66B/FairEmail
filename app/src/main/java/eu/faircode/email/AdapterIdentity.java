@@ -373,6 +373,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         Collections.sort(identities, new Comparator<TupleIdentityEx>() {
             @Override
             public int compare(TupleIdentityEx i1, TupleIdentityEx i2) {
+                int c = collator.compare(
+                        i1.accountCategory == null ? "" : i1.accountCategory,
+                        i2.accountCategory == null ? "" : i2.accountCategory);
+                if (c != 0)
+                    return c;
                 int n = collator.compare(i1.getDisplayName(), i2.getDisplayName());
                 if (n != 0)
                     return n;
@@ -448,6 +453,13 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     @Override
     public long getItemId(int position) {
         return items.get(position).id;
+    }
+
+    public TupleIdentityEx getItemAtPosition(int pos) {
+        if (pos >= 0 && pos < items.size())
+            return items.get(pos);
+        else
+            return null;
     }
 
     @Override

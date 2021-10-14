@@ -23,6 +23,7 @@ import java.util.Objects;
 
 public class TupleIdentityEx extends EntityIdentity {
     public String accountName;
+    public String accountCategory;
     public Long drafts;
 
     @Override
@@ -30,6 +31,7 @@ public class TupleIdentityEx extends EntityIdentity {
         if (obj instanceof TupleIdentityEx) {
             TupleIdentityEx other = (TupleIdentityEx) obj;
             return (super.equals(obj) &&
+                    Objects.equals(accountCategory, other.accountCategory) &&
                     Objects.equals(accountName, other.accountName) &&
                     Objects.equals(drafts, other.drafts));
         } else
