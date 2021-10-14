@@ -5197,6 +5197,52 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
             });
+
+            db.message().liveUnreadThread(data.draft.account, data.draft.thread).observe(getViewLifecycleOwner(), new Observer<List<EntityMessage>>() {
+                private int lastDiff = 0;
+                private List<EntityMessage> base = null;
+
+                @Override
+                public void onChanged(List<EntityMessage> messages) {
+                    if (messages == null)
+                        return;
+
+                    if (base == null) {
+                        base = messages;
+                        return;
+                    }
+
+                    int diff = (messages.size() - base.size());
+                    if (diff > lastDiff) {
+                        lastDiff = diff;
+                        String msg = getResources().getQuantityString(
+                                R.plurals.title_notification_unseen, diff, diff);
+
+                        Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
+                                .setGestureInsetBottomIgnored(true);
+                        snackbar.setAction(R.string.title_show, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                EntityMessage message = messages.get(0);
+                                boolean notify_remove = prefs.getBoolean("notify_remove", true);
+
+                                Intent thread = new Intent(v.getContext(), ActivityView.class);
+                                thread.setAction("thread:" + message.id);
+                                thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                thread.putExtra("account", message.account);
+                                thread.putExtra("folder", message.folder);
+                                thread.putExtra("thread", message.thread);
+                                thread.putExtra("filter_archive", true);
+                                thread.putExtra("ignore", notify_remove);
+
+                                v.getContext().startActivity(thread);
+                                getActivity().finish();
+                            }
+                        });
+                        snackbar.show();
+                    }
+                }
+            });
         }
 
         @Override
