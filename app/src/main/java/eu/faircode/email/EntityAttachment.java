@@ -194,7 +194,8 @@ public class EntityAttachment {
         if ("pdf".equals(extension))
             return "application/pdf";
 
-        if ("text/plain".equals(type) && "ics".equals(extension))
+        if ("text/plain".equals(type) &&
+                ("ics".equals(extension) || "vcs".equals(extension)))
             return "text/calendar";
 
         if ("text/plain".equals(type) && "ovpn".equals(extension))
