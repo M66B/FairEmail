@@ -277,7 +277,7 @@ public interface DaoMessage {
             " AND ui_hide")
     LiveData<List<Long>> liveHiddenThread(long account, String thread);
 
-    @Query("SELECT * FROM message" +
+    @Query("SELECT message.* FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
