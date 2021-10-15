@@ -281,6 +281,9 @@ public interface DaoMessage {
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
+            " AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
+            " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
+            " AND folder.type <> '" + EntityFolder.SENT + "'" +
             " AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
             " AND NOT ui_seen" +
             " AND NOT ui_hide")

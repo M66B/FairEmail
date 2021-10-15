@@ -3303,14 +3303,6 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq125)
 
-*Message classification (version 1.1438+)*
-
-Please see [this FAQ](#user-content-faq163) for details.
-
-Since this is an experimental feature, my advice is to start with just one folder.
-
-<br />
-
 *Send hard bounce (version 1.1477+)*
 
 Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
@@ -3322,9 +3314,14 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 <br />
 
-*Translate button (version 1.1600+)*
+*Report new messages when composing a message*
 
-Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
+A bottom notification will be shown if a new message arrives in the same conversation thread as a new message is being composed for.
+
+There will be a *show* button to show the conversation and from there you can tap on the draft message to continue editting.
+The notification can be swiped away.
+
+This requires grouping of messages into conversations to be enabled.
 
 <br />
 
