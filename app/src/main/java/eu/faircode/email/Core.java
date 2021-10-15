@@ -1835,6 +1835,8 @@ class Core {
             throw new IllegalArgumentException("Download of sub attachment");
         if (attachment.available)
             return;
+        if (message.uid == null)
+            throw new IllegalArgumentException("Attachment/message uid missing");
 
         // Get message
         Message imessage = ifolder.getMessageByUID(message.uid);
