@@ -150,6 +150,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvMemoryUsage;
     private TextView tvStorageUsage;
     private TextView tvSuffixes;
+    private TextView tvAndroidId;
     private TextView tvFingerprint;
     private TextView tvCursorWindow;
     private Button btnGC;
@@ -276,6 +277,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvMemoryUsage = view.findViewById(R.id.tvMemoryUsage);
         tvStorageUsage = view.findViewById(R.id.tvStorageUsage);
         tvSuffixes = view.findViewById(R.id.tvSuffixes);
+        tvAndroidId = view.findViewById(R.id.tvAndroidId);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
         tvCursorWindow = view.findViewById(R.id.tvCursorWindow);
         btnGC = view.findViewById(R.id.btnGC);
@@ -1269,6 +1271,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 class_mb + " MB",
                 class_large_mb + " MB",
                 Helper.humanReadableByteCount(mi.totalMem)));
+
+        String android_id;
+        try {
+            android_id = Settings.Secure.getString(
+                    getContext().getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+            if (android_id == null)
+                android_id = "<null>";
+        } catch (Throwable ex) {
+            Log.w(ex);
+            android_id = "?";
+        }
+        tvAndroidId.setText(getString(R.string.title_advanced_android_id, android_id));
 
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 

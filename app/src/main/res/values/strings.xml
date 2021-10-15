@@ -672,6 +672,7 @@
     <string name="title_advanced_storage_usage" translatable="false">Storage space: %1$s/%2$s App: %3$s</string>
     <string name="title_advanced_cursor_window" translatable="false">Cursor window size: %1$s</string>
     <string name="title_advanced_suffixes" translatable="false">Public suffix list: %1$d</string>
+    <string name="title_advanced_android_id" translatable="false">Android ID: %1$s</string>
     <string name="title_advanced_gc" translatable="false">GC</string>
     <string name="title_advanced_charsets" translatable="false">Charsets</string>
     <string name="title_advanced_ciphers" translatable="false">Ciphers</string>

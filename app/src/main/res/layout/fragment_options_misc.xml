@@ -913,6 +913,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvCursorWindow" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAndroidId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_android_id"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textIsSelectable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSuffixes" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvFingerprint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -922,7 +933,7 @@
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSuffixes" />
+                    app:layout_constraintTop_toBottomOf="@id/tvAndroidId" />
 
                 <Button
                     android:id="@+id/btnGC"
