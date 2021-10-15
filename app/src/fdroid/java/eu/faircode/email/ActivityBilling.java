@@ -169,6 +169,10 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
 
     private static String getChallenge(Context context) throws NoSuchAlgorithmException {
         String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        if (android_id == null) {
+            Log.e("Android ID empty");
+            android_id = Long.toHexString(System.currentTimeMillis() / (24 * 3600 * 1000L));
+        }
         return Helper.sha256(android_id);
     }
 
@@ -217,7 +221,7 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
                 if (ACTION_PURCHASE.equals(intent.getAction()))
                     onPurchase(intent);
                 else if (ACTION_PURCHASE_CONSUME.equals(intent.getAction()))
-                    ;//onPurchaseCheck(intent);
+                    ;//onPurchaseConsume(intent);
                 else if (ACTION_PURCHASE_ERROR.equals(intent.getAction()))
                     ;//onPurchaseError(intent);
             }
@@ -277,9 +281,13 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
 
     private void onPurchaseError(Intent intent) {
         String message = intent.getStringExtra("message");
+        boolean play = Helper.hasPlayStore(this);
         Uri uri = Helper.getSupportUri(this);
         if (!TextUtils.isEmpty(message))
-            uri = uri.buildUpon().appendQueryParameter("message", "IAB: " + message).build();
+            uri = uri
+                    .buildUpon()
+                    .appendQueryParameter("message", "IAB: " + message + " Play: " + play)
+                    .build();
         Helper.view(this, uri, true);
     }
 
@@ -550,8 +558,6 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
             message += " " + stage;
         }
 
-        if (BuildConfig.PLAY_STORE_RELEASE)
-            Log.e(message);
         EntityLog.log(this, message);
 
         if (result != null) {

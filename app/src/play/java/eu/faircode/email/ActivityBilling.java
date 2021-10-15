@@ -169,8 +169,10 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     private static String getChallenge(Context context) throws NoSuchAlgorithmException {
         String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        if (android_id == null)
-            android_id = Long.toHexString(System.currentTimeMillis() % (24 * 3600 * 1000L));
+        if (android_id == null) {
+            Log.e("Android ID empty");
+            android_id = Long.toHexString(System.currentTimeMillis() / (24 * 3600 * 1000L));
+        }
         return Helper.sha256(android_id);
     }
 
