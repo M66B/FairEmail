@@ -953,11 +953,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     @Override
                     protected List<File> onExecute(Context context, Bundle args) {
                         List<File> files = new ArrayList<>();
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                            files.addAll(getFiles(context.getFilesDir(), MIN_FILE_SIZE));
-                            files.addAll(getFiles(context.getCacheDir(), MIN_FILE_SIZE));
-                        } else
+                        files.addAll(getFiles(context.getFilesDir(), MIN_FILE_SIZE));
+                        files.addAll(getFiles(context.getCacheDir(), MIN_FILE_SIZE));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                             files.addAll(getFiles(context.getDataDir(), MIN_FILE_SIZE));
+
                         Collections.sort(files, new Comparator<File>() {
                             @Override
                             public int compare(File f1, File f2) {
@@ -969,13 +969,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
                     private List<File> getFiles(File dir, long minSize) {
                         List<File> files = new ArrayList<>();
-                        File[] listed = dir.listFiles();
-                        if (listed != null)
-                            for (File file : listed)
-                                if (file.isDirectory())
-                                    files.addAll(getFiles(file, minSize));
-                                else if (file.length() > minSize)
-                                    files.add(file);
+                        if (dir != null) {
+                            File[] listed = dir.listFiles();
+                            if (listed != null)
+                                for (File file : listed)
+                                    if (file.isDirectory())
+                                        files.addAll(getFiles(file, minSize));
+                                    else if (file.length() > minSize)
+                                        files.add(file);
+                        }
                         return files;
                     }
 
@@ -983,18 +985,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     protected void onExecuted(Bundle args, List<File> files) {
                         StringBuilder sb = new StringBuilder();
 
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                            sb.append("Data: ").append(getContext().getDataDir()).append("\r\n");
-                        sb.append("Files: ").append(getContext().getFilesDir()).append("\r\n");
-                        sb.append("Cache: ").append(getContext().getCacheDir()).append("\r\n");
+                        final Context context = getContext();
+                        File dataDir = (Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+                                ? null : context.getDataDir());
+                        File filesDir = context.getFilesDir();
+                        File cacheDir = context.getCacheDir();
+
+                        if (dataDir != null)
+                            sb.append("Data: ").append(dataDir).append("\r\n");
+                        if (filesDir != null)
+                            sb.append("Files: ").append(filesDir).append("\r\n");
+                        if (cacheDir != null)
+                            sb.append("Cache: ").append(cacheDir).append("\r\n");
+                        sb.append("\r\n");
 
                         for (File file : files)
-                            sb.append(file.getAbsolutePath())
+                            sb.append(Helper.humanReadableByteCount(file.length()))
                                     .append(' ')
-                                    .append(Helper.humanReadableByteCount(file.length()))
+                                    .append(file.getAbsolutePath())
                                     .append("\r\n");
 
-                        new AlertDialog.Builder(getContext())
+                        new AlertDialog.Builder(context)
                                 .setTitle(title)
                                 .setMessage(sb.toString())
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
