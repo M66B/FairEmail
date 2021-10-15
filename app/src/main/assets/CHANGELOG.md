@@ -4,7 +4,7 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
-### Next version
+### 1.1764
 
 * Added support for latin and roman numbered lists (view only)
 * Report new messages when composing a message [1]
