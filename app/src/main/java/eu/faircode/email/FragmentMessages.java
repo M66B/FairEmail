@@ -725,6 +725,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (pos == NO_POSITION)
                     return null;
 
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return null;
+
                 TupleMessageEx prev = adapter.getItemAtPosition(pos - 1);
                 TupleMessageEx message = adapter.getItemAtPosition(pos);
                 if (pos > 0 && prev == null)
