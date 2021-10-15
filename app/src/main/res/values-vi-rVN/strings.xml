@@ -242,10 +242,10 @@
     <string name="title_setup_options">Tuỳ chọn</string>
     <string name="title_setup_defaults">Khôi phục mặc định</string>
     <string name="title_setup_reset_questions">Đặt lại các câu hỏi</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Câu hỏi chung</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Hiện thư gốc</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Hiện hình ảnh</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Xác nhận liên kết</string>
+    <string name="title_setup_reset_general">Câu hỏi chung</string>
+    <string name="title_setup_reset_full">Hiện thư gốc</string>
+    <string name="title_setup_reset_images">Hiện hình ảnh</string>
+    <string name="title_setup_reset_links">Xác nhận liên kết</string>
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.
         Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
@@ -845,8 +845,8 @@
     <string name="title_duplicate_in">Nhân đôi thư trong %1$s</string>
     <string name="title_subject_reply">Trả lời: %1$s</string>
     <string name="title_subject_forward">Chuyển tiếp: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).&#10;This should be different from the main title, or not be translated.">Trả lời: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).&#10;This should be different from the main title, or not be translated.">Chuyển tiếp: %1$s</string>
+    <string name="title_subject_reply_alt">Trả lời: %1$s</string>
+    <string name="title_subject_forward_alt">Chuyển tiếp: %1$s</string>
     <string name="title_seen">Đánh dấu đã đọc</string>
     <string name="title_unseen">Đánh dấu chưa đọc</string>
     <string name="title_toggle_seen">Bật/tắt đã đọc</string>
@@ -1434,6 +1434,7 @@
     <string name="title_download">Tải xuống</string>
     <string name="title_report">Báo cáo</string>
     <string name="title_fix">Sửa</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Show</string>
     <string name="title_enable">Bật</string>
     <string name="title_enabled">Đã bật</string>
     <string name="title_disable">Tắt</string>

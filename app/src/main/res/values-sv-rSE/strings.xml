@@ -250,7 +250,7 @@
     <string name="title_setup_options">Alternativ</string>
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Visa bilder</string>
+    <string name="title_setup_reset_images">Visa bilder</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
         Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
@@ -1438,6 +1438,7 @@
     <string name="title_download">Ladda ned</string>
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Visa</string>
     <string name="title_enable">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
     <string name="title_disable">Inaktivera</string>

@@ -252,10 +252,10 @@
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_setup_reset_questions">Réinitialiser les questions</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Questions générales</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Afficher les messages originaux</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Afficher les images</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Confirmer les liens</string>
+    <string name="title_setup_reset_general">Questions générales</string>
+    <string name="title_setup_reset_full">Afficher les messages originaux</string>
+    <string name="title_setup_reset_images">Afficher les images</string>
+    <string name="title_setup_reset_links">Confirmer les liens</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
@@ -1445,6 +1445,7 @@
     <string name="title_download">Télécharger</string>
     <string name="title_report">Signaler</string>
     <string name="title_fix">Corriger</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Afficher</string>
     <string name="title_enable">Activer</string>
     <string name="title_enabled">Activé</string>
     <string name="title_disable">Désactiver</string>

@@ -166,7 +166,7 @@
     <string name="title_setup_options">Aukerak</string>
     <string name="title_setup_defaults">Berrezarri balio lehenetsiak</string>
     <string name="title_setup_reset_questions">Berrezarri galderak</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Erakutsi irudiak</string>
+    <string name="title_setup_reset_images">Erakutsi irudiak</string>
     <string name="title_advanced_hint_title">Aukera aurreratu gehiago</string>
     <string name="title_advanced_section_synchronize">Jaso</string>
     <string name="title_advanced_section_send">Bidali</string>
@@ -1062,6 +1062,7 @@
     <string name="title_download">Deskargatu</string>
     <string name="title_report">Txostena</string>
     <string name="title_fix">Konpondu</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Erakutsi</string>
     <string name="title_enable">Gaitu</string>
     <string name="title_enabled">Gaituta</string>
     <string name="title_disable">Desgaitu</string>

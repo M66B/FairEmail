@@ -252,10 +252,10 @@
     <string name="title_setup_options">Opzioni</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_reset_questions">Ripristina domande</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Domande generali</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Mostra i messaggi originali</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Mostra le immagini</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Confermare i link</string>
+    <string name="title_setup_reset_general">Domande generali</string>
+    <string name="title_setup_reset_full">Mostra i messaggi originali</string>
+    <string name="title_setup_reset_images">Mostra le immagini</string>
+    <string name="title_setup_reset_links">Confermare i link</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
     <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
         Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
@@ -309,7 +309,7 @@
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
-    <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima dell\'intestazione di risposta/inoltro</string>
+    <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima di un\'intestazione di risposta/inoltro</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposto/inoltro</string>
     <string name="title_advanced_write_above">Scrivi sopra al testo del mittente</string>
     <string name="title_advanced_write_below">Scrivi sotto il testo del mittente</string>
@@ -1445,6 +1445,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Segnala</string>
     <string name="title_fix">Correggi</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Mostra</string>
     <string name="title_enable">Abilita</string>
     <string name="title_enabled">Abilitato</string>
     <string name="title_disable">Disabilita</string>

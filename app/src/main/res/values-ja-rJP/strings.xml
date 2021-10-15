@@ -242,7 +242,7 @@
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">画像を表示</string>
+    <string name="title_setup_reset_images">画像を表示</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
     <string name="title_advanced_hint_message">        高度なオプションに移動しています。
         全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
@@ -1429,6 +1429,7 @@
     <string name="title_download">ダウンロード</string>
     <string name="title_report">報告する</string>
     <string name="title_fix">修正する</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">表示</string>
     <string name="title_enable">有効にする</string>
     <string name="title_enabled">有効化</string>
     <string name="title_disable">無効</string>

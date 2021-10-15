@@ -212,7 +212,7 @@
     <string name="title_setup_options">Opciók</string>
     <string name="title_setup_defaults">Alapértékek visszaállítása</string>
     <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Képek megjelenítése</string>
+    <string name="title_setup_reset_images">Képek megjelenítése</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.
         Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
@@ -1246,6 +1246,7 @@
     <string name="title_download">Letöltés</string>
     <string name="title_report">Jelentés</string>
     <string name="title_fix">Javítás</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Megjelenítés</string>
     <string name="title_enable">Bekapcsolás</string>
     <string name="title_enabled">Bekapcsolva</string>
     <string name="title_disable">Letiltás</string>

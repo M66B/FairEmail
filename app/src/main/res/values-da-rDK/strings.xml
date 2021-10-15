@@ -251,10 +251,10 @@
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
     <string name="title_setup_reset_questions">Nulstil spørgsmål</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Generelle spørgsmål</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Vis oprindelige beskeder</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Vis billeder</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Bekræft links</string>
+    <string name="title_setup_reset_general">Generelle spørgsmål</string>
+    <string name="title_setup_reset_full">Vis oprindelige beskeder</string>
+    <string name="title_setup_reset_images">Vis billeder</string>
+    <string name="title_setup_reset_links">Bekræft links</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
@@ -1435,6 +1435,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Vis</string>
     <string name="title_enable">Aktivér</string>
     <string name="title_enabled">Aktiveret</string>
     <string name="title_disable">Deaktivér</string>

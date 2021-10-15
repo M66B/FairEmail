@@ -2071,7 +2071,7 @@ If legitimate messages are failing authentication, you should notify the sender 
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. [ଏଠାରେ](https://developer.android.com/guide/topics/data/install-location) ମଧ୍ୟ ଦେଖନ୍ତୁ।
 
 Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
 

@@ -229,7 +229,7 @@
     <string name="title_setup_options">Opcións</string>
     <string name="title_setup_defaults">Restaurar valores predefinidos</string>
     <string name="title_setup_reset_questions">Reiniciar cuestións</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Amosar imaxes</string>
+    <string name="title_setup_reset_images">Amosar imaxes</string>
     <string name="title_advanced_hint_title">Máis opcións avanzadas</string>
     <string name="title_advanced_hint_message">        Vostede está navegando cara as opcións máis avanzadas.
         Todas as opcións teñen valores comúns, que non precisan ser cambiadas de non ser que  vostede teña una preferencia diferente.
@@ -1337,6 +1337,7 @@
     <string name="title_download">Descargar</string>
     <string name="title_report">Informar</string>
     <string name="title_fix">Reparar</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Amosar</string>
     <string name="title_enable">Activar</string>
     <string name="title_enabled">Activado</string>
     <string name="title_disable">Desactivar</string>

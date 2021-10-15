@@ -320,6 +320,7 @@
     <string name="title_add">הוסף</string>
     <string name="title_browse">פתיחה באמצעות</string>
     <string name="title_fix">תקן</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">הצגה</string>
     <string name="title_enabled">מופעל</string>
     <string name="title_reset">איתחול מחדש</string>
     <string name="title_snooze_now">נודניק</string>

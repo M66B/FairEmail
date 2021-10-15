@@ -50,6 +50,7 @@
     <string name="title_legend_thread">සංවාදය</string>
     <string name="title_legend_delete">මකන්න</string>
     <string name="title_add">එකතු කරන්න</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">පෙන්වන්න</string>
     <string name="title_enabled">සබල කර ඇත</string>
     <string name="title_reset">යලි පිහිටුවන්න</string>
     <string name="title_pro_purchase">මිලදී ගන්න</string>

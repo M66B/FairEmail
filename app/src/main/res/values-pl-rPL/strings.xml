@@ -272,10 +272,10 @@
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Pytania ogólne</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Pokaż oryginalne wiadomości</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Pokaż obrazy</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Potwierdź linki</string>
+    <string name="title_setup_reset_general">Pytania ogólne</string>
+    <string name="title_setup_reset_full">Pokaż oryginalne wiadomości</string>
+    <string name="title_setup_reset_images">Pokaż obrazy</string>
+    <string name="title_setup_reset_links">Potwierdź linki</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
          Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
@@ -876,6 +876,8 @@
     <string name="title_duplicate_in">Duplikat wiadomości w %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
+    <string name="title_subject_reply_alt">Odp: %1$s</string>
+    <string name="title_subject_forward_alt">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
     <string name="title_unseen">Oznacz jako nieprzeczytane</string>
     <string name="title_toggle_seen">Przeczytane/nieprzeczytane</string>
@@ -1463,6 +1465,7 @@
     <string name="title_download">Pobierz</string>
     <string name="title_report">Zgłoś błąd</string>
     <string name="title_fix">Popraw</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Pokaż</string>
     <string name="title_enable">Włącz</string>
     <string name="title_enabled">Włączone</string>
     <string name="title_disable">Wyłącz</string>

@@ -251,10 +251,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_reset_questions">Vragen resetten</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Algemene vragen</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Toon originele berichten</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Toon afbeeldingen</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Bevestig koppelingen</string>
+    <string name="title_setup_reset_general">Algemene vragen</string>
+    <string name="title_setup_reset_full">Toon originele berichten</string>
+    <string name="title_setup_reset_images">Toon afbeeldingen</string>
+    <string name="title_setup_reset_links">Bevestig koppelingen</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
         Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
@@ -1444,6 +1444,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_download">Downloaden</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Toon</string>
     <string name="title_enable">Inschakelen</string>
     <string name="title_enabled">Ingeschakeld</string>
     <string name="title_disable">Uitschakelen</string>

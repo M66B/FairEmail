@@ -262,10 +262,10 @@
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Întrebări generale</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Afișați mesajele originale</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Afișare imagini</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Confirmați link-urile</string>
+    <string name="title_setup_reset_general">Întrebări generale</string>
+    <string name="title_setup_reset_full">Afișați mesajele originale</string>
+    <string name="title_setup_reset_images">Afișare imagini</string>
+    <string name="title_setup_reset_links">Confirmați link-urile</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
@@ -1455,6 +1455,7 @@
     <string name="title_download">Descărcare</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Arată</string>
     <string name="title_enable">Activează</string>
     <string name="title_enabled">Activat</string>
     <string name="title_disable">Dezactivează</string>

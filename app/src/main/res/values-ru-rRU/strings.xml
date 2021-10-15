@@ -272,10 +272,10 @@
     <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Общие вопросы</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Показывать исходные сообщения</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Показать изображения</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Подтверждать ссылки</string>
+    <string name="title_setup_reset_general">Общие вопросы</string>
+    <string name="title_setup_reset_full">Показывать исходные сообщения</string>
+    <string name="title_setup_reset_images">Показать изображения</string>
+    <string name="title_setup_reset_links">Подтверждать ссылки</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
@@ -1465,6 +1465,7 @@
     <string name="title_download">Загрузить</string>
     <string name="title_report">Отчёт</string>
     <string name="title_fix">Исправить</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Показать</string>
     <string name="title_enable">Включить</string>
     <string name="title_enabled">Включено</string>
     <string name="title_disable">Отключить</string>

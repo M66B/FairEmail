@@ -262,10 +262,10 @@
     <string name="title_setup_options">Opcije</string>
     <string name="title_setup_defaults">Vrati zadane postavke</string>
     <string name="title_setup_reset_questions">Poništi pitanja</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Opća pitanja</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Prikaži izvorne poruke</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Prikaži slike</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Potvrdi linkove</string>
+    <string name="title_setup_reset_general">Opća pitanja</string>
+    <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
+    <string name="title_setup_reset_images">Prikaži slike</string>
+    <string name="title_setup_reset_links">Potvrdi linkove</string>
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
@@ -1454,6 +1454,7 @@
     <string name="title_download">Preuzmi</string>
     <string name="title_report">Prijavi</string>
     <string name="title_fix">Popravi</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Prikaži</string>
     <string name="title_enable">Uključi</string>
     <string name="title_enabled">Uključeno</string>
     <string name="title_disable">Isključi</string>

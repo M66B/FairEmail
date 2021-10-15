@@ -219,7 +219,7 @@
     <string name="title_setup_options">Opsjes</string>
     <string name="title_setup_defaults">Standert weromsette</string>
     <string name="title_setup_reset_questions">Fragen weromsette</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Sjoch ofbyldings</string>
+    <string name="title_setup_reset_images">Sjoch ofbyldings</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
     <string name="title_advanced_hint_message">        Do navigearst nei de mear avansearre opsjes.
         Alle opsjes hawwe faak standertwearden brûkt dy\'t feroare wurde kinne asto in oare foarkar hast.
@@ -1303,6 +1303,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Melde</string>
     <string name="title_fix">Meitsje</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Sjoch</string>
     <string name="title_enable">Ynskeakele</string>
     <string name="title_enabled">Ynskeakele</string>
     <string name="title_disable">Utskeakele</string>

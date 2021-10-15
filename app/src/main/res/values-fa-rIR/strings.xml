@@ -184,7 +184,7 @@
     <string name="title_setup_options">گزینه‌ها</string>
     <string name="title_setup_defaults">بازیابی پیش‌فرض‌ها</string>
     <string name="title_setup_reset_questions">بازنشانی پرسش‌ها</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">نمایش تصاویر</string>
+    <string name="title_setup_reset_images">نمایش تصاویر</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_section_synchronize">دریافت</string>
     <string name="title_advanced_section_send">ارسال</string>
@@ -951,6 +951,7 @@
     <string name="title_download">بارگیری</string>
     <string name="title_report">گزارش</string>
     <string name="title_fix">تعمیر</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">نمایش</string>
     <string name="title_enable">فعال‌سازی</string>
     <string name="title_enabled">فعال شده</string>
     <string name="title_disable">غیرفعال‌سازی</string>

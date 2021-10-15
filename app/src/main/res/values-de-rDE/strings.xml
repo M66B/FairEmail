@@ -252,10 +252,10 @@
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Allgemeine Fragen</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Originalnachrichten anzeigen</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Bilder anzeigen</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Links bestätigen</string>
+    <string name="title_setup_reset_general">Allgemeine Fragen</string>
+    <string name="title_setup_reset_full">Originalnachrichten anzeigen</string>
+    <string name="title_setup_reset_images">Bilder anzeigen</string>
+    <string name="title_setup_reset_links">Links bestätigen</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
     <string name="title_advanced_hint_message">        Sie wechseln zu den erweiterten Optionen.
         Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.
@@ -1445,6 +1445,7 @@
     <string name="title_download">Herunterladen</string>
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Anzeigen</string>
     <string name="title_enable">Aktivieren</string>
     <string name="title_enabled">Aktiviert</string>
     <string name="title_disable">Deaktivieren</string>

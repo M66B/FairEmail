@@ -241,6 +241,10 @@
     <string name="title_setup_exported">Налаштування експортовано</string>
     <string name="title_setup_imported">Налаштування імпортовано</string>
     <string name="title_setup_import_invalid">Хибний файл налаштувань</string>
+    <string name="title_importing_account">Обліковка %1$s</string>
+    <string name="title_importing_identity">Особисті дані %1$s</string>
+    <string name="title_importing_exists">Пропущено: вже існує</string>
+    <string name="title_importing_wizard">Запустити майстер для повторної перевірки автентичності</string>
     <string name="title_setup_reorder_accounts">Порядок обліковок</string>
     <string name="title_setup_reorder_folders">Порядок тек</string>
     <string name="title_reset_order">Скинути порядок</string>
@@ -269,7 +273,10 @@
     <string name="title_setup_options">Параметри</string>
     <string name="title_setup_defaults">Відновити типові</string>
     <string name="title_setup_reset_questions">Дозволити знову показувати питання</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Показати зображення</string>
+    <string name="title_setup_reset_general">Загальні запитання</string>
+    <string name="title_setup_reset_full">Показати оригінальні повідомлення</string>
+    <string name="title_setup_reset_images">Показати зображення</string>
+    <string name="title_setup_reset_links">Підтвердити посилання</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.
         Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
@@ -1458,6 +1465,7 @@
     <string name="title_download">Завантаження</string>
     <string name="title_report">Звіт</string>
     <string name="title_fix">Виправлення</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Показати</string>
     <string name="title_enable">Увімкнути</string>
     <string name="title_enabled">Увімкнено</string>
     <string name="title_disable">Вимкнути</string>

@@ -169,7 +169,7 @@
     <string name="title_setup_options">설정</string>
     <string name="title_setup_defaults">기본값 복원</string>
     <string name="title_setup_reset_questions">질문 초기화</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">사진 표시</string>
+    <string name="title_setup_reset_images">사진 표시</string>
     <string name="title_advanced_hint_title">고급 설정 더보기</string>
     <string name="title_advanced_section_main">메인</string>
     <string name="title_advanced_section_synchronize">수신</string>
@@ -673,6 +673,7 @@
     <string name="title_download">다운로드</string>
     <string name="title_report">신고</string>
     <string name="title_fix">수정</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">표시</string>
     <string name="title_enable">사용</string>
     <string name="title_enabled">켜짐</string>
     <string name="title_disable">사용 안 함</string>

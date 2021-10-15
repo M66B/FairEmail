@@ -83,7 +83,7 @@
     <string name="title_setup_import_invalid">ଅବୈଧ ସେଟିଂସ୍ ଫାଇଲ୍</string>
     <string name="title_importing_account">ଆକାଉଣ୍ଟ୍ %1$s</string>
     <string name="title_importing_identity">ପରିଚୟ %1$s</string>
-    <string name="title_importing_exists">ସ୍କିପ୍ କରାଗଲା: ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି</string>
+    <string name="title_importing_exists">ବାଦ୍ ଦିଆଗଲା: ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି</string>
     <string name="title_importing_wizard">ପୁନର୍ବାର ପ୍ରାମାଣିକିକରଣ ପାଇଁ ୱିଜାର୍ଡ ଚଲାନ୍ତୁ</string>
     <string name="title_setup_authentication">ପ୍ରାମାଣିକିକରଣ</string>
     <string name="title_setup_biometrics">ବାୟୋମେଟ୍ରିକ୍ ପ୍ରାମାଣିକରଣ</string>
@@ -108,10 +108,10 @@
     <string name="title_setup_theme_more_colors">ମୁଁ ଅଧିକ ରଙ୍ଗ ଚାହୁଁଛି</string>
     <string name="title_setup_advanced">ବିକଶିତ</string>
     <string name="title_setup_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">ସାଧାରଣ ପ୍ରଶ୍ନ</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">ମୂଳ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="title_setup_reset_general">ସାଧାରଣ ପ୍ରଶ୍ନ</string>
+    <string name="title_setup_reset_full">ମୂଳ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_reset_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_reset_links">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="title_advanced_section_main">ମୁଖ୍ୟ</string>
     <string name="title_advanced_section_synchronize">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="title_advanced_section_send">ପଠାନ୍ତୁ</string>
@@ -210,6 +210,7 @@
     <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
     <string name="title_display_name">ଦେଖାଇବା ନାମ</string>
+    <string name="title_search_folder">ଫୋଲ୍ଡର୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_hide_folder">ଫୋଲ୍ଡର୍ ଲୁଚାନ୍ତୁ</string>
     <string name="title_months">ମାସ</string>
@@ -218,6 +219,7 @@
     <string name="title_folder_system">ସିଷ୍ଟମ୍</string>
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
+    <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
     <string name="title_force_light">ହାଲୁକା ଥିମ୍ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
@@ -262,11 +264,21 @@
     <string name="title_translate">ଅନୁବାଦ କର</string>
     <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
+    <string name="title_search_for_hint">ପାଠ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ</string>
     <string name="title_search_index_hint">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ମାଧ୍ୟମରେ ଖୋଜିବା ଦ୍ରୁତ ଅଟେ, କିନ୍ତୁ ଏହା ଦ୍ୱାରା କେବଳ ପୂର୍ଣ୍ଣ ଶବ୍ଦ ମିଳିଥାଏ।</string>
     <string name="title_search_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_search_use_index">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ବ୍ୟବହାର କରିବା</string>
+    <string name="title_search_with_unseen">ପଢ଼ି ନାହାଁନ୍ତି</string>
+    <string name="title_search_with_flagged">ତାରାଙ୍କିତ</string>
+    <string name="title_search_with_hidden">ଲୁକ୍କାୟିତ (କେବଳ ଡିଭାଇସରେ)</string>
+    <string name="title_search_with_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା (କେବଳ ଡିଭାଇସରେ)</string>
     <string name="title_search_in_trash">ଆବର୍ଜନା ପାତ୍ରରେ</string>
+    <string name="title_search_flag_unseen">ଅପଠିତ</string>
+    <string name="title_search_flag_flagged">ତାରାଙ୍କିତ</string>
+    <string name="title_search_flag_hidden">ଲୁକ୍କାୟିତ</string>
+    <string name="title_search_flag_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା</string>
     <string name="title_search_flag_attachments">ସଂଲଗ୍ନକରଣ</string>
+    <string name="title_search_flag_notes">ନୋଟଗୁଡ଼ିକ</string>
     <string name="title_search_flag_invite">ଆମନ୍ତ୍ରଣ</string>
     <string name="title_search_flag_size">ଆକାର &gt; %1$s</string>
     <string name="title_sort_on_time">ସମୟ</string>
@@ -308,12 +320,14 @@
     <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_legend_show_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_legend_c">ରଚନା କରନ୍ତୁ</string>
     <string name="title_legend_n">ପରବର୍ତ୍ତୀ</string>
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">ଦେଖାଅ</string>
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
@@ -321,7 +335,10 @@
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
     <string name="title_pro_whichever">ଯେକୌଣସି ବୈଶିଷ୍ଟ୍ୟ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଭାବରେ ମନୋନୀତ ହେଲେ, ସର୍ବଦା ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଥାଆନ୍ତି ଯିଏ ଅଭିଯୋଗ କରନ୍ତି ଯେ ଏକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା ହେବା ଉଚିତ୍। ଦୟାକରି ଆପଣ ସେହି ବ୍ୟକ୍ତି ହୁଅନ୍ତୁ ନାହିଁ।</string>
     <string name="title_log_clear">ଖାଲି କରନ୍ତୁ</string>
+    <string name="title_power_menu_sync">ସିଙ୍କ୍ରୋନାଇଜେସନ୍</string>
+    <string name="title_power_menu_on">ଚାଲୁ</string>
     <string name="title_power_menu_off">ବନ୍ଦ</string>
+    <string name="title_power_menu_on_off">ଚାଲୁ/ବନ୍ଦ</string>
     <string name="title_widget_account">ଆକାଉଣ୍ଟ୍</string>
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>

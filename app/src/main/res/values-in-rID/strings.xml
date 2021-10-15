@@ -205,7 +205,7 @@
     <string name="title_setup_options">Opsi</string>
     <string name="title_setup_defaults">Kembalikan pengaturan standar</string>
     <string name="title_setup_reset_questions">Atur ulang pertanyaan</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Tampilkan gambar</string>
+    <string name="title_setup_reset_images">Tampilkan gambar</string>
     <string name="title_advanced_hint_title">Opsi lebih lanjut</string>
     <string name="title_advanced_hint_message">       Anda menavigasi ke opsi yang lebih canggih.
         Semua opsi umumnya menggunakan nilai standar, yang tidak perlu Anda ubah kecuali jika Anda memiliki preferensi yang berbeda.
@@ -1185,6 +1185,7 @@
     <string name="title_download">Unduh</string>
     <string name="title_report">Laporan</string>
     <string name="title_fix">Perbaiki</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Tampilkan</string>
     <string name="title_enable">Aktifkan</string>
     <string name="title_enabled">Diaktifkan</string>
     <string name="title_disable">Nonaktifkan</string>

@@ -990,19 +990,19 @@ Si desea utilizar el servidor SMTP de Gmail para solucionar un filtro de spam sa
 * Verifique su dirección de correo electrónico [aquí](https://mail.google.com/mail/u/0/#settings/accounts) (necesitará utilizar un navegador de escritorio para esto)
 * Cambie la configuración de identidad de esta manera (Configuración, toque Configuración manual, toque Identidades, toque identidad):
 
-&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+&emsp;&emsp;Nombre de usuario: *su dirección de Gmail*<br /> &emsp;&emsp;Contraseña: *[una contraseña de la aplicación](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Puerto: *465*<br /> &emsp;&emsp;Cifrado: *SSL/TLS*<br /> &emsp;&emsp;Dirección de respuesta: *su dirección de correo electrónico* (configuración de identidad avanzada)<br />
 
 <br />
 
-**Gmail errors**
+**Errores de Gmail**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+La autorización de la configuración de cuentas de Gmail con el asistente rápido debe actualizarse periódicamente a través del [ administrador de cuentas de Android ](https://developer.android.com/reference/android/accounts/AccountManager). Esto requiere permisos de contactos/cuenta y conectividad a Internet.
 
-In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
+En caso de errores es posible autorizar/restaurar una cuenta de Gmail de nuevo a través del asistente de configuración rápida de Gmail.
 
-El error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+El error *... La autenticación falló ... Cuenta no encontrada ...* significa que una cuenta de Gmail previamente autorizada fue eliminada del dispositivo.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Los errores *... La autenticación falló... Sin token ... * significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail.
 
 El error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 

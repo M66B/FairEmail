@@ -248,7 +248,7 @@
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
     <string name="title_setup_reset_questions">Nollaa kysymykset</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Näytä kuvat</string>
+    <string name="title_setup_reset_images">Näytä kuvat</string>
     <string name="title_advanced_hint_title">Edistyneemmät asetukset</string>
     <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
         Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
@@ -1430,6 +1430,7 @@
     <string name="title_download">Lataa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Näytä</string>
     <string name="title_enable">Ota käyttöön</string>
     <string name="title_enabled">Käytössä</string>
     <string name="title_disable">Poista käytöstä</string>

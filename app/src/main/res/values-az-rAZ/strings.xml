@@ -252,10 +252,10 @@
     <string name="title_setup_options">Seçimlər</string>
     <string name="title_setup_defaults">İlkin vəziyyətinə qaytar</string>
     <string name="title_setup_reset_questions">Sualları sıfırla</string>
-    <string name="title_setup_reset_general" comment="title_setup_reset_general&#10;Title for option to reset general questions&#10;">Ümumi suallar</string>
-    <string name="title_setup_reset_full" comment="title_setup_reset_full&#10;Title for option to reset questions about showing original messages&#10;">Orijinal mesajları göstər</string>
-    <string name="title_setup_reset_images" comment="title_setup_reset_images&#10;Title for option to reset questions about showing images">Təsvirləri göstər</string>
-    <string name="title_setup_reset_links" comment="title_setup_reset_links&#10;Title for option to reset questions about confirming links&#10;">Bağlantıları təsdiqlə</string>
+    <string name="title_setup_reset_general">Ümumi suallar</string>
+    <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
+    <string name="title_setup_reset_images">Təsvirləri göstər</string>
+    <string name="title_setup_reset_links">Bağlantıları təsdiqlə</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -855,8 +855,8 @@
     <string name="title_duplicate_in">%1$s qovluğunda mesajı kopyala</string>
     <string name="title_subject_reply">Cvb: %1$s</string>
     <string name="title_subject_forward">Ynlndr: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).&#10;This should be different from the main title, or not be translated.">Cvb: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).&#10;This should be different from the main title, or not be translated.">Ynlndr: %1$s</string>
+    <string name="title_subject_reply_alt">Cvb: %1$s</string>
+    <string name="title_subject_forward_alt">Ynlndr: %1$s</string>
     <string name="title_seen">Oxundu kimi işarələ</string>
     <string name="title_unseen">Oxunmadı kimi işarələ</string>
     <string name="title_toggle_seen">Oxumanı aç/bağla</string>
@@ -1444,6 +1444,7 @@
     <string name="title_download">Endir</string>
     <string name="title_report">Bildir</string>
     <string name="title_fix">Düzəlt</string>
+    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Göstər</string>
     <string name="title_enable">Fəaldır</string>
     <string name="title_enabled">Fəallaşdırıldı</string>
     <string name="title_disable">Sıradan çıxarılıb</string>
