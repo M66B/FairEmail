@@ -154,6 +154,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -5448,6 +5449,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     File file = EntityMessage.getFile(context, id);
                     Document d = JsoupEx.parse(file);
+
+                    List<CSSStyleSheet> sheets =
+                            HtmlHelper.parseStyles(d.head().select("style"));
+                    for (Element element : d.select("*")) {
+                        String computed = HtmlHelper.processStyles(
+                                element.tagName(),
+                                element.className(),
+                                element.attr("style"),
+                                sheets);
+                        if (!TextUtils.isEmpty(computed))
+                            element.attr("computed", computed);
+                    }
 
                     return d.html();
                 }
