@@ -432,6 +432,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         return;
 
                     new AlertDialog.Builder(view.getContext())
+                            .setIcon(R.drawable.twotone_help_24)
                             .setTitle(languages.get(position - 1).second)
                             .setMessage(R.string.title_advanced_english_hint)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -466,6 +467,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(view.getContext())
+                        .setIcon(R.drawable.twotone_help_24)
                         .setTitle(R.string.title_advanced_language_system)
                         .setMessage(R.string.title_advanced_english_hint)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -633,6 +635,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(view.getContext())
+                        .setIcon(R.drawable.twotone_bug_report_24)
                         .setTitle(R.string.title_advanced_repair)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override

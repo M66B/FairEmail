@@ -422,6 +422,7 @@ public class FragmentOptions extends FragmentBase {
 
     static void reset(Context context, String[] options, Runnable confirmed) {
         new AlertDialog.Builder(context)
+                .setIcon(R.drawable.twotone_help_24)
                 .setTitle(R.string.title_setup_defaults)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
