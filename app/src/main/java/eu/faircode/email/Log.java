@@ -1976,6 +1976,7 @@ public class Log {
                             " sync=" + account.synchronize +
                             " exempted=" + account.poll_exempted +
                             " poll=" + account.poll_interval +
+                            " ondemand=" + account.ondemand +
                             " messages=" + content + "/" + messages +
                             " " + account.state +
                             (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
