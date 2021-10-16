@@ -912,6 +912,9 @@ public class FragmentOAuth extends FragmentBase {
     private void showError(Throwable ex) {
         Log.e(ex);
 
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         if (ex instanceof IllegalArgumentException)
             tvError.setText(ex.getMessage());
         else
