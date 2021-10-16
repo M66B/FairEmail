@@ -10798,6 +10798,10 @@ tele.amune.org
 // Submitted by Apigee Security Team <security@apigee.com>
 apigee.io
 
+// Apphud : https://apphud.com
+// Submitted by Alexander Selivanov <alex@apphud.com>
+siiites.com
+
 // Appspace : https://www.appspace.com
 // Submitted by Appspace Security Team <security@appspace.com>
 appspacehosted.com
@@ -11671,10 +11675,6 @@ tuleap-partners.com
 // Submitted by <frc1533@ecgrobotics.org>
 onred.one
 staging.onred.one
-
-// One.com: https://www.one.com/
-// Submitted by Jacob Bunk Nielsen <jbn@one.com>
-service.one
 
 // EU.org https://eu.org/
 // Submitted by Pierre Beyssac <hostmaster@eu.org>
@@ -12919,6 +12919,10 @@ cloudycluster.net
 // Submitted by Vicary Archangel <vicary@omniwe.com>
 omniwe.site
 
+// One.com: https://www.one.com/
+// Submitted by Jacob Bunk Nielsen <jbn@one.com>
+service.one
+
 // One Fold Media : http://www.onefoldmedia.com/
 // Submitted by Eddie Jones <eddie@onefoldmedia.com>
 nid.io
@@ -13472,6 +13476,11 @@ tabitorder.co.il
 // TAIFUN Software AG : http://taifun-software.de
 // Submitted by Bjoern Henke <dev-server@taifun-software.de>
 taifun-dns.de
+
+// Tailscale Inc. : https://www.tailscale.com
+// Submitted by David Anderson <danderson@tailscale.com>
+beta.tailscale.net
+ts.net
 
 // TASK geographical domains (www.task.gda.pl/uslugi/dns)
 gda.pl
