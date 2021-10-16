@@ -576,7 +576,8 @@ public interface DaoMessage {
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
             " AND (:received IS NULL OR received >= :received)" +
-            " AND NOT uid IS NULL")
+            " AND NOT uid IS NULL" +
+            " ORDER BY uid")
     List<Long> getUids(long folder, Long received);
 
     @Query("SELECT * FROM message" +
