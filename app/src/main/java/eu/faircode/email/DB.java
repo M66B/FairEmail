@@ -121,7 +121,7 @@ public abstract class DB extends RoomDatabase {
     private static DB sInstance;
 
     static final int DEFAULT_QUERY_THREADS = 4; // AndroidX default thread count: 4
-    static final int DEFAULT_CACHE_SIZE = 5; // percentage
+    static final int DEFAULT_CACHE_SIZE = 7; // percentage of memory class
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
