@@ -434,6 +434,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                         sb.append(lp).append("\r\n\r\n");
                 }
 
+                sb.append("VPN=")
+                        .append(ConnectionHelper.vpnActive(context)).append("\r\n");
                 sb.append("Airplane mode=")
                         .append(ConnectionHelper.airplaneMode(context)).append("\r\n");
             } catch (Throwable ex) {
