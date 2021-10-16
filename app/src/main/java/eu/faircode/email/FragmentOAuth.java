@@ -473,6 +473,9 @@ public class FragmentOAuth extends FragmentBase {
     }
 
     private void onOAuthorized(String accessToken, String idToken, AuthState state) {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         Bundle args = new Bundle();
         args.putString("id", id);
         args.putString("name", name);
