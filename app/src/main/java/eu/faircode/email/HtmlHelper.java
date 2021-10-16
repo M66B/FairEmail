@@ -785,7 +785,7 @@ public class HtmlHelper {
                                     element.attr("x-inline", "true");
                             }
                             break;
-
+/*
                         case "height":
                         case "width":
                             //case "font-size":
@@ -800,7 +800,7 @@ public class HtmlHelper {
                                 }
                             }
                             break;
-
+*/
                         case "margin":
                         case "padding":
                         case "margin-top":
