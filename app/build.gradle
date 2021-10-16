@@ -333,6 +333,7 @@ dependencies {
     def appauth_version = "0.8.1"
     def jcharset_version = "2.1"
     def apache_poi = "3.17" // Do not update
+    def outlook_parser_version = "1.7.12"
     def reactivestreams_version = "1.0.3"
     def rxjava2_version = "2.2.21"
     def svg_version = "1.4"
@@ -519,7 +520,7 @@ dependencies {
     implementation "org.apache.poi:poi-scratchpad:$apache_poi"
 
     // https://github.com/bbottema/outlook-message-parser
-    implementation "org.simplejavamail:outlook-message-parser:1.7.12"
+    implementation "org.simplejavamail:outlook-message-parser:$outlook_parser_version"
 
     // https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams
     // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
