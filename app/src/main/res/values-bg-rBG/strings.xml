@@ -1092,7 +1092,7 @@
     <string name="title_download">Изтегляне</string>
     <string name="title_report">Отчет</string>
     <string name="title_fix">Поправка</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Показване</string>
+    <string name="title_show">Показване</string>
     <string name="title_enable">Активирай</string>
     <string name="title_enabled">Активирано</string>
     <string name="title_disable">Деактивирай</string>

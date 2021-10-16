@@ -1438,7 +1438,7 @@
     <string name="title_download">Ladda ned</string>
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Visa</string>
+    <string name="title_show">Visa</string>
     <string name="title_enable">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
     <string name="title_disable">Inaktivera</string>

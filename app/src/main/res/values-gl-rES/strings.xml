@@ -1337,7 +1337,7 @@
     <string name="title_download">Descargar</string>
     <string name="title_report">Informar</string>
     <string name="title_fix">Reparar</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Amosar</string>
+    <string name="title_show">Amosar</string>
     <string name="title_enable">Activar</string>
     <string name="title_enabled">Activado</string>
     <string name="title_disable">Desactivar</string>

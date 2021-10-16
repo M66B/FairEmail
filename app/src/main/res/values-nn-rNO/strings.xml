@@ -1162,7 +1162,7 @@
     <string name="title_download">Last ned</string>
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Vis</string>
+    <string name="title_show">Vis</string>
     <string name="title_enable">Aktiver</string>
     <string name="title_enabled">Aktivert</string>
     <string name="title_disable">Deaktiver</string>

@@ -1434,7 +1434,7 @@
     <string name="title_download">Tải xuống</string>
     <string name="title_report">Báo cáo</string>
     <string name="title_fix">Sửa</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Show</string>
+    <string name="title_show">Show</string>
     <string name="title_enable">Bật</string>
     <string name="title_enabled">Đã bật</string>
     <string name="title_disable">Tắt</string>

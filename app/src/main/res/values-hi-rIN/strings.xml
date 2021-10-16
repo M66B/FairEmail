@@ -81,7 +81,7 @@
     <string name="title_legend_c">लिखें</string>
     <string name="title_add">जोड़ें</string>
     <string name="title_fix">ठीक करें</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">दिखाएँ</string>
+    <string name="title_show">दिखाएँ</string>
     <string name="title_enabled">सक्षम</string>
     <string name="title_reset">रीसेट</string>
     <string name="title_pro_feature">यह एक प्रो फीचर है</string>

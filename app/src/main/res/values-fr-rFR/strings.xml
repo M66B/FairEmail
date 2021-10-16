@@ -510,6 +510,7 @@
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
     <string name="title_advanced_pin">Code PIN</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
+    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Verrouiller lorsque l\'écran s\'éteint</string>
     <string name="title_advanced_generic_user_agent">Utiliser l\'agent utilisateur générique du navigateur</string>
     <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
@@ -1445,7 +1446,7 @@
     <string name="title_download">Télécharger</string>
     <string name="title_report">Signaler</string>
     <string name="title_fix">Corriger</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Afficher</string>
+    <string name="title_show">Afficher</string>
     <string name="title_enable">Activer</string>
     <string name="title_enabled">Activé</string>
     <string name="title_disable">Désactiver</string>

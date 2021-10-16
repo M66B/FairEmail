@@ -836,7 +836,7 @@
     <string name="title_info">Инфо</string>
     <string name="title_report">Извештај</string>
     <string name="title_fix">Поправи</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Прикажи</string>
+    <string name="title_show">Прикажи</string>
     <string name="title_enable">Укључи</string>
     <string name="title_enabled">Укључено</string>
     <string name="title_disable">Искључи</string>

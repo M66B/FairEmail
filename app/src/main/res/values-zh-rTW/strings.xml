@@ -1433,7 +1433,7 @@
     <string name="title_download">下載</string>
     <string name="title_report">回報</string>
     <string name="title_fix">修復</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">顯示</string>
+    <string name="title_show">顯示</string>
     <string name="title_enable">啟用</string>
     <string name="title_enabled">啟用</string>
     <string name="title_disable">停用</string>

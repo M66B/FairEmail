@@ -1062,7 +1062,7 @@
     <string name="title_download">Deskargatu</string>
     <string name="title_report">Txostena</string>
     <string name="title_fix">Konpondu</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Erakutsi</string>
+    <string name="title_show">Erakutsi</string>
     <string name="title_enable">Gaitu</string>
     <string name="title_enabled">Gaituta</string>
     <string name="title_disable">Desgaitu</string>

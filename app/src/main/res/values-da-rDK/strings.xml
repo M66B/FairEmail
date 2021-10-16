@@ -1435,7 +1435,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Vis</string>
+    <string name="title_show">Vis</string>
     <string name="title_enable">Aktivér</string>
     <string name="title_enabled">Aktiveret</string>
     <string name="title_disable">Deaktivér</string>

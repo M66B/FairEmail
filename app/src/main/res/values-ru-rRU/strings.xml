@@ -530,6 +530,7 @@
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
+    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Отключить блокировку экпана</string>
     <string name="title_advanced_generic_user_agent">Использовать обычный пользовательский агент браузера</string>
     <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
@@ -598,7 +599,7 @@
     <string name="title_advanced_sync_delay_hint">Замедлится синхронизация сообщений</string>
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
-    <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
+    <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_all_hint">Если отключено, долгое нажатие на кнопку ответа приведёт к ответу отправителю</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
@@ -1465,7 +1466,7 @@
     <string name="title_download">Загрузить</string>
     <string name="title_report">Отчёт</string>
     <string name="title_fix">Исправить</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Показать</string>
+    <string name="title_show">Показать</string>
     <string name="title_enable">Включить</string>
     <string name="title_enabled">Включено</string>
     <string name="title_disable">Отключить</string>

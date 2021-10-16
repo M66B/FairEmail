@@ -673,7 +673,7 @@
     <string name="title_download">다운로드</string>
     <string name="title_report">신고</string>
     <string name="title_fix">수정</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">표시</string>
+    <string name="title_show">표시</string>
     <string name="title_enable">사용</string>
     <string name="title_enabled">켜짐</string>
     <string name="title_disable">사용 안 함</string>

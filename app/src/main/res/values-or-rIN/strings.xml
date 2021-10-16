@@ -3,6 +3,7 @@
     <string name="app_search">FairEmail ସନ୍ଧାନ</string>
     <string name="app_changelog">ପରିବର୍ତ୍ତନ ଲଗ୍</string>
     <string name="app_welcome">FairEmail ହେଉଛି ଏକ ଖୋଲା ଉତ୍ସ ଇମେଲ୍ ଆପ୍ ଯାହାକି ଗୋପନୀୟତା ଏବଂ ସୁରକ୍ଷା ଉପରେ ଧ୍ୟାନ ଦେଇଥାଏ। ଏହି କାରଣରୁ କିଛି ବୈଶିଷ୍ଟ୍ୟ ଆପଣ ଅଭ୍ୟସ୍ତ ଠାରୁ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିପାରେ।</string>
+    <string name="app_crash">ଏହି ଡିଭାଇସରେ FairEmail ସମର୍ଥିତ ନୁହେଁ କାରଣ ଆଣ୍ଡ୍ରଏଡରେ ଥିବା ବଗ୍ ଯୋଗୁ କ୍ରାସ୍ ହୋଇଥାଏ</string>
     <string name="app_updated">ଗତ ଅପଡେଟ୍: %1$s</string>
     <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="channel_send">ପଠାନ୍ତୁ</string>
@@ -124,12 +125,14 @@
     <string name="title_advanced_section_misc">ବିବିଧ</string>
     <string name="title_advanced_advanced">ବିକଶିତ</string>
     <string name="title_advanced_quick_sync">ଦ୍ରୁତ ସିଙ୍କ୍</string>
+    <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_caption_general">ସାଧାରଣ</string>
     <string name="title_advanced_caption_conversation">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_advanced_caption_message">ବାର୍ତ୍ତା</string>
     <string name="title_advanced_portrait">ପୋଟ୍ରେଟ୍ ମୋଡ୍</string>
     <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
+    <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ରଙ୍ଗ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_color">ପାଠ୍ୟ ରଙ୍ଗ ବ୍ୟବହାର କରନ୍ତୁ</string>
@@ -149,6 +152,7 @@
     <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>
@@ -187,6 +191,7 @@
     <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
     <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
     <string name="title_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
+    <string name="title_password_storage">ପାସ୍ଓ୍ୱାର୍ଡ଼ଗୁଡିକ କିପରି ଗଚ୍ଛିତ କରାଯାଏ?</string>
     <string name="title_primary">ପ୍ରାଥମିକ</string>
     <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
@@ -202,6 +207,7 @@
     <string name="title_no_password">ପାସ୍ଓ୍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
+    <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
     <string name="title_review">ସମୀକ୍ଷା କର</string>
     <string name="title_synchronize_enabled">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
@@ -282,6 +288,8 @@
     <string name="title_search_flag_invite">ଆମନ୍ତ୍ରଣ</string>
     <string name="title_search_flag_size">ଆକାର &gt; %1$s</string>
     <string name="title_sort_on_time">ସମୟ</string>
+    <string name="title_sort_on_unread">ପଢ଼ି ନାହାଁନ୍ତି</string>
+    <string name="title_sort_on_starred">ତାରାଙ୍କିତ</string>
     <string name="title_sort_on_priority">ପ୍ରାଥମିକତା</string>
     <string name="title_sort_on_sender">ପ୍ରେରକ</string>
     <string name="title_sort_on_subject">ବିଷୟ</string>
@@ -327,7 +335,7 @@
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">ଦେଖାଅ</string>
+    <string name="title_show">ଦେଖାଅ</string>
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
@@ -342,7 +350,9 @@
     <string name="title_widget_account">ଆକାଉଣ୍ଟ୍</string>
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
+    <string name="title_accessibility_unseen">ପଢ଼ି ନାହାଁନ୍ତି</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_accessibility_from">ପ୍ରେରକ</string>

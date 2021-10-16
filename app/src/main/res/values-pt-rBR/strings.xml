@@ -1394,7 +1394,7 @@
     <string name="title_download">Baixar</string>
     <string name="title_report">Reportar</string>
     <string name="title_fix">Corrigir</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Mostrar</string>
+    <string name="title_show">Mostrar</string>
     <string name="title_enable">Habilitar</string>
     <string name="title_enabled">Habilitado</string>
     <string name="title_disable">Desabilitar</string>

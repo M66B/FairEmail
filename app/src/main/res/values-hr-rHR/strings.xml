@@ -928,7 +928,7 @@
     <string name="title_info">Informacije</string>
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Prikaži</string>
+    <string name="title_show">Prikaži</string>
     <string name="title_enable">Omogući</string>
     <string name="title_enabled">Omogućeno</string>
     <string name="title_disable">Onemogući</string>

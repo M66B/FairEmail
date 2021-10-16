@@ -1185,7 +1185,7 @@
     <string name="title_download">Unduh</string>
     <string name="title_report">Laporan</string>
     <string name="title_fix">Perbaiki</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Tampilkan</string>
+    <string name="title_show">Tampilkan</string>
     <string name="title_enable">Aktifkan</string>
     <string name="title_enabled">Diaktifkan</string>
     <string name="title_disable">Nonaktifkan</string>

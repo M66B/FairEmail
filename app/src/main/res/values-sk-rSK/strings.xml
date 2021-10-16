@@ -1457,7 +1457,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_download">Prevziať</string>
     <string name="title_report">Ohlásiť</string>
     <string name="title_fix">Opraviť</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Zobraziť</string>
+    <string name="title_show">Zobraziť</string>
     <string name="title_enable">Zapnúť</string>
     <string name="title_enabled">Zapnuté</string>
     <string name="title_disable">Zakázať</string>

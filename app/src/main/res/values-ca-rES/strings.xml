@@ -1051,7 +1051,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_download">Descarrega</string>
     <string name="title_report">Informa</string>
     <string name="title_fix">Repara</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Mostra</string>
+    <string name="title_show">Mostra</string>
     <string name="title_enable">Habilita</string>
     <string name="title_enabled">Activat</string>
     <string name="title_disable">Deshabilita</string>

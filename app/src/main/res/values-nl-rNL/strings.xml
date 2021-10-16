@@ -510,6 +510,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
+    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Vergrendel als scherm uitgaat</string>
     <string name="title_advanced_generic_user_agent">Gebruik algemene browser user agent</string>
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
@@ -1444,7 +1445,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_download">Downloaden</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Toon</string>
+    <string name="title_show">Toon</string>
     <string name="title_enable">Inschakelen</string>
     <string name="title_enabled">Ingeschakeld</string>
     <string name="title_disable">Uitschakelen</string>

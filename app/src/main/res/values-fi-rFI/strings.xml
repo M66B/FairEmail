@@ -1430,7 +1430,7 @@
     <string name="title_download">Lataa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Näytä</string>
+    <string name="title_show">Näytä</string>
     <string name="title_enable">Ota käyttöön</string>
     <string name="title_enabled">Käytössä</string>
     <string name="title_disable">Poista käytöstä</string>

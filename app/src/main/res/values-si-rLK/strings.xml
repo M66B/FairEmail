@@ -24,6 +24,7 @@
     <string name="menu_about">පිලිබඳ</string>
     <string name="title_welcome">සාදරයෙන් පිළිගනිමු</string>
     <string name="title_agree">මම එකඟයි</string>
+    <string name="title_disagree">මම එකඟ නොවෙමි</string>
     <string name="title_version">අනුවාදය %1$s</string>
     <string name="title_privacy_policy">රහස්‍යතා ප්‍රතිපත්තිය</string>
     <string name="title_list_accounts">ගිණුම්</string>
@@ -42,15 +43,17 @@
     <string name="title_delete">මකන්න</string>
     <string name="title_copy_btn">පිටපත්</string>
     <string name="title_send">යවන්න</string>
+    <string name="title_attachment_audio">ශ්‍රව්‍ය පටිගතකරන්න</string>
     <string name="title_search">සොයන්න</string>
     <string name="title_language_all">සියල්ල</string>
     <string name="title_rule_enabled">සබල කර ඇත</string>
     <string name="title_legend_section_folders">බහාලුම්</string>
     <string name="title_legend_section_messages">පණිවිඩ</string>
     <string name="title_legend_thread">සංවාදය</string>
+    <string name="title_legend_audio">ශ්‍රව්‍ය පටිගතකරන්න</string>
     <string name="title_legend_delete">මකන්න</string>
     <string name="title_add">එකතු කරන්න</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">පෙන්වන්න</string>
+    <string name="title_show">පෙන්වන්න</string>
     <string name="title_enabled">සබල කර ඇත</string>
     <string name="title_reset">යලි පිහිටුවන්න</string>
     <string name="title_pro_purchase">මිලදී ගන්න</string>

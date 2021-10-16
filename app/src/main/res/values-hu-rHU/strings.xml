@@ -1246,7 +1246,7 @@
     <string name="title_download">Letöltés</string>
     <string name="title_report">Jelentés</string>
     <string name="title_fix">Javítás</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Megjelenítés</string>
+    <string name="title_show">Megjelenítés</string>
     <string name="title_enable">Bekapcsolás</string>
     <string name="title_enabled">Bekapcsolva</string>
     <string name="title_disable">Letiltás</string>

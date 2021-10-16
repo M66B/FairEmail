@@ -77,10 +77,10 @@
 * Помилка в Nova Launcher на Android 5.x викликає аварійне завершення роботи FairEmail з *java.lang.cravOverflowError*, коли Nova Launcher має доступ до служби додаткових можливостей.
 * Вибір папки інколи не показує папок з невідомих причин. Здається, це виправлено.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. Робота була додана
-* ~~Encryption with YubiKey results into an infinite loop. Здається, це спричинено [ помилка в OpenKeychain<](https://github.com/open-keychain/open-keychain/issues/2507)
+* ~~Encryption with YubiKey results into an infinite loop. Здається, це спричинено [ помилкою в OpenKeychain<](https://github.com/open-keychain/open-keychain/issues/2507)
 * Прокручуваня внутрішньо зв'язаного розташування в оригінальних повідомленнях не працює. Це не може бути виправленим, тому що вигляд оригінального повідомлення подається у вигляді прокручанння.
 * Попередній перегляд тексту повідомлення не (завжди) з'являється на годинниках Samsung, тому що [встановлено тільки місцево ](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) схоже, ігнорується. Попередній перегляд текстів повідомлення вважаються правильно відображуваними на Pebble 2, Fitbit Charge 3, Mi band 3, і Xiaomi Amazfit BIP носимих пристроях. Дивись також[ цю FAQ](#user-content-faq126).
-* [помилка в Android 6.0](https://issuetracker.google.com/issues/37068143) спричиняє поломку з*... Недійсне зрушення... Дійсний діапазон є*коли текст вибрано і натиснено за межі виділеного тексту. Цю помилку було виправлено в Andoid 6.0.1.
+* [Помилка в Android 6.0](https://issuetracker.google.com/issues/37068143) спричиняє поломку з*... Недійсне зрушення... Дійсний діапазон є *коли текст вибрано і натиснено за межі виділеного тексту. Цю помилку було виправлено в Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Мова виявлення [ більше не працює](https://issuetracker.google.com/issues/173337263) на пристроях Pixel з (покращених до?) Android 11
 * Помилка [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) викликає невірні PGP підписи при використанні апаратного токену.
@@ -160,7 +160,7 @@
 * [(32) Як я можу перевірити, чи є читання електронної пошти дійсно безпечне?](#user-content-faq32)
 * [Чому редаговані адреси відправника не працюють?](#user-content-faq33)
 * [Як співпадають особисті дані?](#user-content-faq34)
-* [Чому я повинен бути обережним з переглядом зображень, вкладень, оригінальних повідомлень, і відкритті посилань?](#user-content-faq35)
+* [Чому я повинен бути обережним з переглядом зображень, вкладень, оригінальних повідомлень, і відкриті посилань?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) Як зберігаються паролі?](#user-content-faq37)
 * [Як я можу зменшити використання батареї FairEmail?](#user-content-faq39)
@@ -196,7 +196,7 @@
 * [(69) Ви можете додати автоматичне прокручування у новому повідомленні?](#user-content-faq69)
 * [(70) Коли будуть розширюватися повідомлення?](#user-content-faq70)
 * [(71) Як я використовую правила фільтрів?](#user-content-faq71)
-* [(72) Які основні акаунти/особисті дан?](#user-content-faq72)
+* [(72) Які основні акаунти/особисті дані?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Чому я бачу повторювані повідомлення?](#user-content-faq74)
 * [(75) Ви можете створити iOS, Windows, Linux, тощо версію?](#user-content-faq75)
@@ -208,7 +208,7 @@
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
 * [(82) Що таке зображення для відстеження?](#user-content-faq82)
 * [Для чого місцеві контакти?](#user-content-faq84)
-* [Чому особисті дані не доступні?](#user-content-faq85)
+* [Чому особисті дані недоступні?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) Що означає "невірні дані"?](#user-content-faq87)
 * [(88) Як я можу використовувати Yahoo, AOL або Sky аккаунт?](#user-content-faq88)
@@ -240,10 +240,10 @@
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Ви можете додати списки адрес електронної пошти?](#user-content-faq115)
 * [~~(116) Як я можу показувати зображення в повідомленнях від довірених відправників за замовчуванням?~~](#user-content-faq116)
-* [Можеш домомогти мені відновити мою покупку?](#user-content-faq117)
+* [(117) Можеш допомогти мені відновити мою покупку?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
 * [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Чому нові сповіщення повідомленьне видаляються при відкритті програми?](#user-content-faq120)
+* [(120) Чому нові сповіщення повідомлень не видаляються при відкритті програми?](#user-content-faq120)
 * [(121) Як повідомлення згруповано в розмову?](#user-content-faq121)
 * [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
 * [(123) Що станеться, коли FairEmail не може підключитися до сервера електронної пошти?](#user-content-faq123)
@@ -384,7 +384,7 @@ The low priority status bar notification shows the number of pending operations,
 * *підписати*підписати до видаленої папки
 * *очистка*видалити всі повідомлення з видаленої папки
 * *надіслати*надіслати повідомлення
-* *існує*перевірити якщо повідомленя існує
+* *існує*перевірити якщо повідомлення існує
 * *правило*виконувати правило на основній частині тексту
 * *вилучити*остаточно видалити повідомлення
 
@@ -399,7 +399,7 @@ Operations are processed only when there is a connection to the email server or 
 <br />
 *... Неправильний сертифікат безпеки (неможливо перевірити особисті дані сервера) ...*
 
-Це може бути спричинено використанням неправильного ім'я хоста, тому спочатку провірте ім'я хоста в додаткових даних чи у налаштуваннях облікового запису (натисніть "налаштувати вручну). Будь ласка, перегляньте документацію поштового провайдера про правильне хост ім'я.
+Це може бути спричинено використанням неправильного ім'я хоста, тому спочатку перевірте ім'я хоста в додаткових даних чи у налаштуваннях облікового запису (натисніть "налаштувати вручну). Будь ласка, перегляньте документацію поштового провайдера про правильне хост ім'я.
 
 You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 

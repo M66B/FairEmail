@@ -1671,28 +1671,28 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) FairEmail, Google Play Ailə Kitabxanasında mövcuddur?**
 
-"*You can't share in-app purchases and free apps with your family members.*"
+"*Tətbiq daxili satın almaları və ödənişsiz tətbiqləri ailə üzvlərinizlə paylaşa bilməzsiniz.*"
 
-See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
+[Burada](https://support.google.com/googleone/answer/7007852), "*Məzmunun Ailə Kitabxanasına əlavə edilməsi üçün uyğun olub-olmamasına baxın*", "*Tətbiqlər & oyunlar*" bölməsinə baxın.
 
 <br />
 
 <a name="faq67"></a>
-**(67) How can I snooze conversations?**
+**(67) Danışıqları necə ertələyə bilərəm?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Bir neçə danışıq arasından birini seçin (bir neçəsini seçmək üçün uzun basın), üç nöqtə düyməsinə toxunun və *"Ertələ"ni* seçin. Alternativ olaraq, genişləndirilmiş mesaj görünüşündə mesajın üç nöqtəli "daha çox" menyusundakı *"Ertələ"ni* seçimini və ya altdakı hərəkət sətrindəki sürətləndirilmiş əməliyyatı istifadə edin. Danışıqların ertələnəcək vaxtını seçin və "Oldu"ya toxunaraq təsdiqləyin. Danışıqlar, seçilmiş vaxt ərzində gizlədiləcək və vaxt bitdikdən sonra təkrar görünəcək. Xatırladıcı olaraq yeni bir mesaj bildirişi alacaqsınız.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
+Mesajları [bir qayda](#user-content-faq71) ilə ertələmək mümkündür, bu, mesajların avto-ertələnməsinə icazə vermək üçün bir qovluğa daşımağa icazə verir.
 
-You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
+Açılan üç nöqtəli menyudakı *Filtrlə* > *Gizli* üzərindəki təsdiq işarəsini götürərək ertələnən mesajları göstərə bilərsiniz.
 
-You can tap on the small snooze icon to see until when a conversation is snoozed.
+Bir danışığın nə vaxt ertələndiyinə baxmaq üçün kiçik ertələmə nişanına toxuna bilərsiniz.
 
-By selecting a zero snooze duration you can cancel snoozing.
+Ertələməni ləğv etmək üçün ertələmə müddətini sıfır olaraq seçin.
 
-Third party apps do not have access to the Gmail snoozed messages folder.
+Üçüncü tərəf tətbiqlərin, Gmail ertələnmiş mesajlar qovluğuna müraciəti yoxdur.
 
 <br />
 

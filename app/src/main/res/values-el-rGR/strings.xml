@@ -1443,7 +1443,7 @@
     <string name="title_download">Κατέβασμα</string>
     <string name="title_report">Αποστολή αναφοράς</string>
     <string name="title_fix">Επιδιόρθωση</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Προβολή</string>
+    <string name="title_show">Προβολή</string>
     <string name="title_enable">Ενεργοποίηση</string>
     <string name="title_enabled">Ενεργοποιημένο</string>
     <string name="title_disable">Απενεργοποίηση</string>

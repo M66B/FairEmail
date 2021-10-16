@@ -1444,7 +1444,7 @@
     <string name="title_download">Endir</string>
     <string name="title_report">Bildir</string>
     <string name="title_fix">Düzəlt</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Göstər</string>
+    <string name="title_show">Göstər</string>
     <string name="title_enable">Fəaldır</string>
     <string name="title_enabled">Fəallaşdırıldı</string>
     <string name="title_disable">Sıradan çıxarılıb</string>

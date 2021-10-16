@@ -216,7 +216,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
+* [(୯୩) ଆପଣ ବାହ୍ୟ ଷ୍ଟୋରେଜ୍ ମିଡ଼ିଆ (sdcard)ରେ ସଂସ୍ଥାପନା ବା ଡାଟା ଷ୍ଟୋରେଜ୍ ଅନୁମତି ଦେଇପାରିବେ କି?](#user-content-faq93)
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
@@ -2073,7 +2073,7 @@ If legitimate messages are failing authentication, you should notify the sender 
 
 FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. [ଏଠାରେ](https://developer.android.com/guide/topics/data/install-location) ମଧ୍ୟ ଦେଖନ୍ତୁ।
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. ବିବରଣୀ ପାଇଁ [ଏଠାରେ](https://developer.android.com/training/data-storage) ଦେଖନ୍ତୁ।
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 

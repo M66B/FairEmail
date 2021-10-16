@@ -1434,7 +1434,7 @@
     <string name="title_download">下载</string>
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">显示</string>
+    <string name="title_show">显示</string>
     <string name="title_enable">启用</string>
     <string name="title_enabled">已启用</string>
     <string name="title_disable">禁用</string>

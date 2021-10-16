@@ -1455,7 +1455,7 @@
     <string name="title_download">Descărcare</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Arată</string>
+    <string name="title_show">Arată</string>
     <string name="title_enable">Activează</string>
     <string name="title_enabled">Activat</string>
     <string name="title_disable">Dezactivează</string>

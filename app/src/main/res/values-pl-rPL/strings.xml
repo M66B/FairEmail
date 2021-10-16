@@ -1465,7 +1465,7 @@
     <string name="title_download">Pobierz</string>
     <string name="title_report">Zgłoś błąd</string>
     <string name="title_fix">Popraw</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Pokaż</string>
+    <string name="title_show">Pokaż</string>
     <string name="title_enable">Włącz</string>
     <string name="title_enabled">Włączone</string>
     <string name="title_disable">Wyłącz</string>

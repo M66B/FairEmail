@@ -516,7 +516,7 @@
     <string name="title_info">معلومات</string>
     <string name="title_report">إبلاغ</string>
     <string name="title_fix">تصليح</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">إظهار</string>
+    <string name="title_show">إظهار</string>
     <string name="title_enable">تمكين</string>
     <string name="title_enabled">ممكن</string>
     <string name="title_disable">تعطيل</string>

@@ -1465,7 +1465,7 @@
     <string name="title_download">Завантаження</string>
     <string name="title_report">Звіт</string>
     <string name="title_fix">Виправлення</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Показати</string>
+    <string name="title_show">Показати</string>
     <string name="title_enable">Увімкнути</string>
     <string name="title_enabled">Увімкнено</string>
     <string name="title_disable">Вимкнути</string>

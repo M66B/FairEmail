@@ -1456,7 +1456,7 @@
     <string name="title_download">Stáhnout</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Ukázat</string>
+    <string name="title_show">Ukázat</string>
     <string name="title_enable">Zapnout</string>
     <string name="title_enabled">Zapnuto</string>
     <string name="title_disable">Zakázat</string>

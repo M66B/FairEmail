@@ -1443,7 +1443,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_download">İndir</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Göster</string>
+    <string name="title_show">Göster</string>
     <string name="title_enable">Etkin</string>
     <string name="title_enabled">Etkin</string>
     <string name="title_disable">Devredışı</string>

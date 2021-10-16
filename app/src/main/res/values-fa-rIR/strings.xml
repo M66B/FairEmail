@@ -951,7 +951,7 @@
     <string name="title_download">بارگیری</string>
     <string name="title_report">گزارش</string>
     <string name="title_fix">تعمیر</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">نمایش</string>
+    <string name="title_show">نمایش</string>
     <string name="title_enable">فعال‌سازی</string>
     <string name="title_enabled">فعال شده</string>
     <string name="title_disable">غیرفعال‌سازی</string>

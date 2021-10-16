@@ -1445,7 +1445,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Segnala</string>
     <string name="title_fix">Correggi</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">Mostra</string>
+    <string name="title_show">Mostra</string>
     <string name="title_enable">Abilita</string>
     <string name="title_enabled">Abilitato</string>
     <string name="title_disable">Disabilita</string>

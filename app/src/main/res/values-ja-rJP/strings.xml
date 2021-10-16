@@ -1429,7 +1429,7 @@
     <string name="title_download">ダウンロード</string>
     <string name="title_report">報告する</string>
     <string name="title_fix">修正する</string>
-    <string name="title_show" comment="title_show&#10;Title for actions to show something, like a message or conversation">表示</string>
+    <string name="title_show">表示</string>
     <string name="title_enable">有効にする</string>
     <string name="title_enabled">有効化</string>
     <string name="title_disable">無効</string>
