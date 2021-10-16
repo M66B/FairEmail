@@ -593,6 +593,7 @@
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
+    <string name="title_advanced_autolock">Lock on screen off</string>
     <string name="title_advanced_generic_user_agent">Use generic browser user agent</string>
     <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing (Android 8+)</string>
     <string name="title_advanced_disconnect_blacklist" translatable="false">Disconnect\'s tracker protection lists</string>

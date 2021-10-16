@@ -70,6 +70,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnPin;
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
+    private SwitchCompat swAutoLock;
     private SwitchCompat swClientId;
     private TextView tvClientId;
     private SwitchCompat swDisplayHidden;
@@ -93,7 +94,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "confirm_links", "check_links_dbl", "browse_links",
             "confirm_images", "html_always_images", "confirm_html",
             "disable_tracking", "hide_timezone",
-            "pin", "biometrics", "biometrics_timeout",
+            "pin", "biometrics", "biometrics_timeout", "autolock",
             "client_id", "display_hidden", "incognito_keyboard", "secure",
             "generic_ua", "safe_browsing",
             "disconnect_auto_update", "disconnect_links", "disconnect_images"
@@ -120,6 +121,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnPin = view.findViewById(R.id.btnPin);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        swAutoLock = view.findViewById(R.id.swAutoLock);
         swClientId = view.findViewById(R.id.swClientId);
         tvClientId = view.findViewById(R.id.tvClientId);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
@@ -252,6 +254,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
+            }
+        });
+
+        swAutoLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autolock", checked).apply();
             }
         });
 
@@ -444,6 +453,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 spBiometricsTimeout.setSelection(pos);
                 break;
             }
+
+        swAutoLock.setChecked(prefs.getBoolean("autolock", true));
 
         swClientId.setChecked(prefs.getBoolean("client_id", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));

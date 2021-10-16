@@ -281,7 +281,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean biometrics = prefs.getBoolean("biometrics", false);
             String pin = prefs.getString("pin", null);
-            if (biometrics || !TextUtils.isEmpty(pin)) {
+            boolean autolock = prefs.getBoolean("autolock", true);
+            if (autolock && (biometrics || !TextUtils.isEmpty(pin))) {
                 Helper.clearAuthentication(this);
                 finish();
             }

@@ -701,7 +701,10 @@ public class ApplicationEx extends Application
         public void onReceive(Context context, Intent intent) {
             Log.i("Received " + intent);
             Log.logExtras(intent);
-            Helper.clearAuthentication(ApplicationEx.this);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean autolock = prefs.getBoolean("autolock", true);
+            if (autolock)
+                Helper.clearAuthentication(ApplicationEx.this);
         }
     };
 
