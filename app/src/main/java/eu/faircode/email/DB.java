@@ -379,7 +379,6 @@ public abstract class DB extends RoomDatabase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int threads = prefs.getInt("query_threads", DEFAULT_QUERY_THREADS);
         boolean wal = prefs.getBoolean("wal", true);
-        int sqlite_cache = prefs.getInt("sqlite_cache", DEFAULT_CACHE_SIZE);
         Log.i("DB query threads=" + threads + " wal=" + wal);
         ExecutorService executorQuery = Helper.getBackgroundExecutor(threads, "query");
         ExecutorService executorTransaction = Helper.getBackgroundExecutor(0, "transaction");
@@ -397,6 +396,23 @@ public abstract class DB extends RoomDatabase {
                                 " version=" + db.getVersion() +
                                 " WAL=" + db.isWriteAheadLoggingEnabled());
 
+                        // https://www.sqlite.org/pragma.html#pragma_cache_size
+                        Integer cache_size = getCacheSizeKb(context);
+                        if (cache_size != null) {
+                            cache_size = -cache_size; // kibibytes
+                            Log.i("Set PRAGMA cache_size=" + cache_size);
+                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
+                                cursor.moveToNext(); // required
+                            }
+                        }
+
+                        // Prevent long running operations from getting an exclusive lock
+                        // https://www.sqlite.org/pragma.html#pragma_cache_spill
+                        Log.i("Set PRAGMA cache_spill=0");
+                        try (Cursor cursor = db.query("PRAGMA cache_spill=0;", null)) {
+                            cursor.moveToNext(); // required
+                        }
+
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : new String[]{
                                 "synchronous", "journal_mode",
@@ -408,37 +424,6 @@ public abstract class DB extends RoomDatabase {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
 
-                        try {
-                            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-                            int class_mb = am.getMemoryClass();
-                            int cache_size = sqlite_cache * class_mb * 1024 / 100;
-                            if (cache_size > 2000) {
-                                // https://www.sqlite.org/pragma.html#pragma_cache_size
-                                cache_size = -cache_size; // kibibytes
-
-                                Log.i("Set PRAGMA cache_size=" + cache_size);
-                                try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";", null)) {
-                                    cursor.moveToNext(); // required
-                                }
-
-                                try (Cursor cursor = db.query("PRAGMA cache_size;")) {
-                                    Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
-                                }
-                            }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-
-                        // Prevent long running operations from getting an exclusive lock
-                        Log.i("Set PRAGMA cache_spill=0");
-                        try (Cursor cursor = db.query("PRAGMA cache_spill=0;", null)) {
-                            cursor.moveToNext(); // required
-                        }
-
-                        try (Cursor cursor = db.query("PRAGMA cache_spill;")) {
-                            Log.i("Get PRAGMA cache_spill=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
-                        }
-
                         if (BuildConfig.DEBUG && false) {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
@@ -446,6 +431,22 @@ public abstract class DB extends RoomDatabase {
                         createTriggers(db);
                     }
                 });
+    }
+
+    static Integer getCacheSizeKb(Context context) {
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int sqlite_cache = prefs.getInt("sqlite_cache", DEFAULT_CACHE_SIZE);
+
+            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            int class_mb = am.getMemoryClass();
+            int cache_size = sqlite_cache * class_mb * 1024 / 100;
+
+            return (cache_size > 2000 ? cache_size : null);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
     }
 
     private static void createTriggers(@NonNull SupportSQLiteDatabase db) {

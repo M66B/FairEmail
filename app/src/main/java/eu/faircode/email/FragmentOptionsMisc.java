@@ -1261,7 +1261,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCheckpoints.setChecked(prefs.getBoolean("checkpoints", true));
 
         int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
-        int cache_size = sqlite_cache * class_mb * 1024 / 100;
+        Integer cache_size = DB.getCacheSizeKb(getContext());
+        if (cache_size == null)
+            cache_size = 2000;
         tvSqliteCache.setText(getString(R.string.title_advanced_sqlite_cache,
                 NF.format(sqlite_cache),
                 Helper.humanReadableByteCount(cache_size * 1024L)));
