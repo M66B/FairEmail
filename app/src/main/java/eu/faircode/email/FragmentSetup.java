@@ -55,6 +55,7 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -748,7 +749,7 @@ public class FragmentSetup extends FragmentBase {
             view.post(new Runnable() {
                 @Override
                 public void run() {
-                    tvNoInternet.setVisibility(View.GONE);
+                    updateInternet(true);
                 }
             });
         }
@@ -758,9 +759,15 @@ public class FragmentSetup extends FragmentBase {
             view.post(new Runnable() {
                 @Override
                 public void run() {
-                    tvNoInternet.setVisibility(View.VISIBLE);
+                    updateInternet(false);
                 }
             });
+        }
+
+        private void updateInternet(boolean available) {
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                return;
+            tvNoInternet.setVisibility(available ? View.GONE : View.VISIBLE);
         }
     };
 
