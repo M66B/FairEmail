@@ -6792,8 +6792,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 EntityMessage message = db.message().getMessage(id);
                 if (message == null)
                     throw new MessageRemovedException();
+
                 File file = message.getRawFile(context);
                 Log.i("Raw file=" + file);
+
+                if (!file.exists())
+                    db.message().setMessageRaw(message.id, false);
 
                 OutputStream os = null;
                 InputStream is = null;
