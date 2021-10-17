@@ -17,8 +17,10 @@
     <string name="channel_error">त्रुटियाँ</string>
     <string name="channel_alert">सर्वर सुचना</string>
     <string name="channel_group_contacts">Contact</string>
+    <string name="channel_service_description">खातों का तुल्यकालन और निगरानी</string>
     <string name="channel_send_description">बार्ता का भेजना</string>
     <string name="channel_notification_description">संदेश सूचनाएँ</string>
+    <string name="channel_progress_description">लंबे समय तक चलने वाली गतिविधियों की प्रगति सूचनाएं</string>
     <plurals name="page_conversation">
         <item quantity="one">वार्तालाप</item>
         <item quantity="other">वार्तालाप</item>
@@ -38,7 +40,36 @@
         <item quantity="one">%1$d नया संदेश</item>
         <item quantity="other">%1$d नया संदेशें</item>
     </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d संदेश भेजा जाना है</item>
+        <item quantity="other">%1$d संदेश भेजा जाना है</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">हंटाय %1$d संदेश स्थाई रूप से?</item>
+        <item quantity="other">हटाएं %1$d संदेश स्थाई रूप से?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">इलाज %1$d स्पैम के रूप में संदेश?</item>
+        <item quantity="other">इलाज %1$d स्पैम के रूप में संदेश?</item>
+    </plurals>
+    <string name="title_ask_spam_who">से संदेश का इलाज करें %1$s स्पैम के रूप में?</string>
+    <string name="title_junk_hint">आपका ईमेल प्रदाता स्पैम फ़िल्टर करने के लिए ज़िम्मेदार है |एक ईमेल ऐप के पास इसे मजबूती से करने के लिए आवश्यक सभी डेटा नहीं है |</string>
+    <string name="title_block">खंड %1$s</string>
+    <string name="title_block_sender">प्रेषक को निरुद्ध करें</string>
+    <string name="title_block_domain">प्रेषक डोमेन को ब्लॉक करें</string>
+    <string name="title_junk_filter">स्थानीय स्पैम फ़िल्टर का उपयोग करें</string>
+    <string name="title_junk_filter_hint">यह बैटरी के उपयोग को बड़ा सकता है और संदेशों को गलत तरीके से स्पैम के रूप मे चिन्हित कर सकता है</string>
+    <string name="title_junk_blocklist">स्पैम ब्लॉक सूचियों का उपयोग करें</string>
     <string name="title_junk_clear">खाली करें</string>
+    <string name="title_junk_clear_hint">यह सभी ब्लॉक प्रेषक नियमों को हटा देगा</string>
+    <string name="title_notification_sending">संदेश भेजना</string>
+    <string name="title_notification_waiting">उपयुक्त कनेक्शन प्रतीक्षा में</string>
+    <string name="title_notification_idle">बेकार</string>
+    <string name="title_notification_failed">\"%1$s\" अनुतीर्ण होना</string>
+    <string name="title_notification_alert">सर्वर अलर्ट: \"%1$s\"</string>
+    <string name="title_notification_sending_left">प्रयास शेष: %1$d</string>
+    <string name="title_notification_sending_retry">इंटरनेट कनेक्शन में परवर्तन या आउटबॉक्स पर नीचे खींचने पर भेजने का पुनः प्रयास किया जाएगा</string>
+    <string name="title_notification_sending_failed">को भेजा जा रहा है %1$s अनुत्तीर्ण होना</string>
     <string name="menu_setup">सेटिंग्स</string>
     <string name="menu_legend">किंवदंती</string>
     <string name="menu_faq">सहायता</string>

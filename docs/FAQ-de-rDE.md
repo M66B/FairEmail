@@ -2503,7 +2503,7 @@ Eine Reihe von Zeilen mit orangem oder rotem Text mit technischen Informationen 
 
 Die Warnung *Kein Server gefunden auf ...* bedeutet, dass bei dem angegebenen Domainnamen kein E-Mail-Server registriert wurde. Ein Antworten auf die Nachricht ist möglicherweise nicht möglich und kann zu einem Fehler führen. Dies könnte eine gefälschte E-Mail-Adresse und/oder Spam anzeigen.
 
-Der Fehler *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software. FairEmail wird dies in den meisten Fällen umgehen, so dass diese Nachricht meist als Warnung statt als Fehler angesehen werden kann.
+Der Fehler *... ParseException ...* bedeutet, dass es ein Problem mit einer empfangenen Nachricht gibt, wahrscheinlich durch einen Fehler in der Sendesoftware. FairEmail wird dies in den meisten Fällen umgehen, so dass diese Nachricht meist als Warnung statt als Fehler angesehen werden kann.
 
 Der Fehler *...SendFailedException...* bedeutet, dass beim Senden einer Nachricht ein Problem aufgetreten ist. Die Fehlermeldung wird fast immer einen Grund enthalten. Häufige Gründe dafür sind, dass die Nachricht zu groß war oder dass eine oder mehrere Empfängeradressen ungültig waren.
 
@@ -2623,37 +2623,37 @@ Der Fehler *Der Benutzer ist authentifiziert, aber nicht verbunden* kann auftret
 Der gemeinsam genutzte Postfach-Alias ist meistens die E-Mail-Adresse des gemeinsamen Kontos, etwa:
 
 ```
-you@example.com\shared@example.com
+jemand@beispiel.de\geteilt@beispiel.de
 ```
 
-Note that it should be a backslash and not a forward slash.
+Beachten Sie, dass es sich um einen Backslash und nicht um einen Forward-Schrägstrich handeln sollte.
 
-When using a shared mailbox, you'll likely want to enable the option *Synchronize shared folder lists* in the receive settings.
+Wenn Sie eine gemeinsame Mailbox verwenden, möchten Sie wahrscheinlich die Option *Gemeinsame Ordnerlisten synchronisieren* in den Empfangseinstellungen aktivieren.
 
 <br />
 
 <a name="faq140"></a>
-**(140) Why does the message text contain strange characters?**
+**(140) Warum enthält der Nachrichtentext seltsame Zeichen?**
 
-Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Other than that there is no way to reliably determine the correct character encoding automatically, so this cannot be fixed by FairEmail. The right action is to complain to the sender.
+Die Anzeige seltsamer Zeichen wird fast immer dadurch verursacht, dass keine oder eine ungültige Zeichenkodierung durch die Sende-Software angegeben wird. FairEmail geht von [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) aus, wenn kein Zeichensatz vorhanden ist oder wenn [US-ASCII](https://en.wikipedia.org/wiki/ASCII) angegeben wurde. Davon abgesehen ist es nicht möglich, automatisch und zuverlässig die korrekte Zeichenkodierung zu bestimmen; daher kann dieser Fehler nicht von FairEmail behoben werden. Eine machbare Maßnahme ist, sich beim Absender zu beschweren.
 
 <br />
 
 <a name="faq141"></a>
-**(141) How can I fix 'A drafts folder is required to send messages'?**
+**(141) Wie kann ich den Fehler 'Ein Entwürfe-Ordner wird benötigt, um Nachrichten zu senden' beheben?**
 
-To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
+Um Entwürfe zu speichern, wird ein Entwürfe-Ordner benötigt. In den meisten Fällen wählt FairEmail, wenn ein Konto hinzugefügt wird, basierend auf [den Attributen](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml), die der E-Mail-Server sendet, automatisch den Ordner für Entwürfe aus. Einige E-Mail-Server sind jedoch nicht richtig konfiguriert und senden diese Attribute nicht. In diesem Fall versucht FairEmail den Entwürfe-Ordner nach Namen zu identifizieren, dies könnte aber fehlschlagen, wenn der Entwürfe-Ordner einen ungewöhnlichen Namen hat oder überhaupt nicht vorhanden ist.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). Wenn überhaupt kein Ordner für Entwürfe existiert, können Sie einen hinzufügen, indem sie auf den '+'-Knopf in der Ordnerliste des jeweiligen Accounts tippen. (tippen sie auf den Namen des Kontos im Navigationsmenü)
 
-Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
+Einige Anbieter wie z. B. Gmail erlauben es, IMAP für einzelne Ordner zu aktivieren bzw. zu deaktivieren. Wenn also ein Ordner nicht sichtbar ist, müssen Sie unter Umständen IMAP für den Ordner aktivieren.
 
-Quick link for Gmail (will work on a desktop computer only): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Schnelllink für Gmail (funktioniert nur auf einem Desktop-Computer): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
 <a name="faq142"></a>
-**(142) How can I store sent messages in the inbox?**
+**(142) Wie kann ich gesendete Nachrichten im Posteingang speichern?**
 
 Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
 

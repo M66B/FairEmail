@@ -499,6 +499,7 @@
     <string name="title_advanced_secure">自最近應用程式螢幕中隱藏並阻止螢幕畫面擷取</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物特徵辨識驗證時限</string>
+    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">關閉螢幕後上鎖</string>
     <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
     <string name="title_advanced_disconnect_auto_update">每周自動更新清單一次</string>
     <string name="title_advanced_disconnect_links">使用追蹤保護清單來發出追蹤連結相關警告</string>

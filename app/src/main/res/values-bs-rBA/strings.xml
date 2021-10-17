@@ -520,6 +520,7 @@
     <string name="title_advanced_secure">Sakrij na ekranu nedavnih aplikacija i spriječi snimke ekrana</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vrijeme isteka za biometrijsku provjeru</string>
+    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Zaključavanje ekrana isključeno</string>
     <string name="title_advanced_generic_user_agent">Koristi user agent generičkog preglednika</string>
     <string name="title_advanced_disconnect_auto_update">Automatsko ažuriranje spiskova sedmično</string>
     <string name="title_advanced_disconnect_links">Koristi spiskove za upozorenja o linkovima koji mogu pratiti</string>
