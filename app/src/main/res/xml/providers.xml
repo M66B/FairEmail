@@ -1366,4 +1366,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Aruba.it"
+        link="https://guide.hosting.aruba.it/email/servizi-opzionali-email/email-imap.aspx">
+        <imap
+            host="imaps.aruba.it"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtps.aruba.it"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
