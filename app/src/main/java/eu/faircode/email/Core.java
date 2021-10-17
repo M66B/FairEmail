@@ -2896,7 +2896,7 @@ class Core {
                 try {
                     if (MessageHelper.hasCapability(ifolder, "CONDSTORE")) {
                         modseq = ifolder.getHighestModSeq();
-                        modified = (force || initialize != 0 ||
+                        modified = (force || initialize != 0 || modseq < 0 ||
                                 folder.modseq == null || !folder.modseq.equals(modseq));
                         EntityLog.log(context, folder.name + " modseq=" + modseq + "/" + folder.modseq + " modified=" + modified);
                     }
