@@ -57,7 +57,10 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.InflateException;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -1613,9 +1616,15 @@ public class Log {
             final Throwable ex = (Throwable) getArguments().getSerializable("ex");
             boolean report = getArguments().getBoolean("report", true);
 
+            final Context context = getContext();
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View dview = inflater.inflate(R.layout.dialog_unexpected, null);
+            TextView tvError = dview.findViewById(R.id.tvError);
+
+            tvError.setText(Log.formatThrowable(ex, false));
+
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
-                    .setTitle(R.string.title_unexpected_error)
-                    .setMessage(Log.formatThrowable(ex, false))
+                    .setView(dview)
                     .setPositiveButton(android.R.string.cancel, null);
 
             if (report)
