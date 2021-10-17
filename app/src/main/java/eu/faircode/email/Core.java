@@ -3121,6 +3121,9 @@ class Core {
 
                                 // https://datatracker.ietf.org/doc/html/rfc2683#section-3.2.1.5
                                 int chunk_size = prefs.getInt("chunk_size", DEFAULT_SYNC_CHUNCK_SIZE);
+                                if (chunk_size < 200 &&
+                                        (account.isGmail() || account.isOutlook()))
+                                    chunk_size = 200;
                                 List<List<Pair<Long, Long>>> chunks = Helper.chunkList(ranges, chunk_size);
 
                                 Log.i(folder.name + " executing uid fetch count=" + uids.size() +
