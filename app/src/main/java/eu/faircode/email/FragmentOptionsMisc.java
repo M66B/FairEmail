@@ -135,6 +135,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCheckpoints;
     private TextView tvSqliteCache;
     private SeekBar sbSqliteCache;
+    private TextView tvChunkSize;
+    private SeekBar sbChunkSize;
     private ImageButton ibSqliteCache;
     private SwitchCompat swModSeq;
     private SwitchCompat swExpunge;
@@ -174,7 +176,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "experiments", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
             "query_threads", "wal", "checkpoints", "sqlite_cache",
-            "use_modseq", "perform_expunge",
+            "chunk_size", "use_modseq", "perform_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl",
             "exact_alarms", "dup_msgids", "test_iab"
     };
@@ -263,6 +265,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvSqliteCache = view.findViewById(R.id.tvSqliteCache);
         sbSqliteCache = view.findViewById(R.id.sbSqliteCache);
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
+        tvChunkSize = view.findViewById(R.id.tvChunkSize);
+        sbChunkSize = view.findViewById(R.id.sbChunkSize);
         swModSeq = view.findViewById(R.id.swModSeq);
         swExpunge = view.findViewById(R.id.swExpunge);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
@@ -772,6 +776,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 prefs.edit().remove("debug").commit();
                 ApplicationEx.restart(v.getContext());
+            }
+        });
+
+        sbChunkSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress / 10;
+                if (progress < 1)
+                    progress = 1;
+                progress = progress * 10;
+                prefs.edit().putInt("chunk_size", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
             }
         });
 
@@ -1286,6 +1311,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 NF.format(sqlite_cache),
                 Helper.humanReadableByteCount(cache_size * 1024L)));
         sbSqliteCache.setProgress(sqlite_cache);
+
+        int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_SYNC_CHUNCK_SIZE);
+        tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));
+        sbChunkSize.setProgress(chunk_size);
 
         swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
