@@ -4,7 +4,12 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
-### Next version
+### 1.1766
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+### 1.1765
 
 * Added option to disable lock on screen off for biometric authentication
 * Small improvements and minor bug fixes
