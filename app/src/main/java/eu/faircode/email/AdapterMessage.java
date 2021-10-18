@@ -3220,6 +3220,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                   at biweekly.io.chain.ChainingTextWriter.go(SourceFile:1)
                                   at biweekly.ICalendar.write(SourceFile:2)
                              */
+                            if (!TextUtils.isEmpty(email))
+                                email = email.replaceAll("\\r?\\n", "");
                             if (!TextUtils.isEmpty(name))
                                 name = name.replaceAll("\\r?\\n", " ");
 
