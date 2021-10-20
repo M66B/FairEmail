@@ -1216,8 +1216,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
 
             MessageHelper.AddressFormat format = email_format;
-            if (junk)
-                format = MessageHelper.AddressFormat.NAME_EMAIL;
 
             if (show_recipients && recipients != null && recipients.length > 0) {
                 tvFrom.setText(context.getString(outgoing && viewType != ViewType.THREAD && compact
@@ -1908,7 +1906,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean hasInbox = false;
                     boolean hasArchive = false;
                     boolean hasTrash = false;
-                    boolean hasJunk = false;
                     if (data.folders != null)
                         for (EntityFolder folder : data.folders)
                             if (folder.selectable)
@@ -1918,8 +1915,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     hasArchive = true;
                                 else if (EntityFolder.TRASH.equals(folder.type))
                                     hasTrash = true;
-                                else if (EntityFolder.JUNK.equals(folder.type))
-                                    hasJunk = true;
 
                     boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                     boolean inSent = EntityFolder.SENT.equals(message.folderType);
@@ -2085,9 +2080,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindAddresses(TupleMessageEx message) {
             boolean show_addresses = properties.getValue("addresses", message.id);
-            boolean full = (show_addresses ||
-                    email_format == MessageHelper.AddressFormat.NAME_EMAIL ||
-                    EntityFolder.JUNK.equals(message.folderType));
+            boolean full = (show_addresses || email_format == MessageHelper.AddressFormat.NAME_EMAIL);
 
             int froms = (message.from == null ? 0 : message.from.length);
             int tos = (message.to == null ? 0 : message.to.length);
@@ -5773,12 +5766,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     result.add(context.getString(R.string.title_accessibility_attachment));
 
                 boolean outgoing = isOutgoing(message);
-                boolean junk = EntityFolder.JUNK.equals(message.folderType);
                 Address[] addresses = (EntityFolder.isOutgoing(message.folderType) &&
                         (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
                 MessageHelper.AddressFormat format = email_format;
-                if (junk)
-                    format = MessageHelper.AddressFormat.NAME_EMAIL;
                 String from = MessageHelper.formatAddresses(addresses, format, false);
 
                 // For a11y purpose subject is reported first when: user wishes so or this is a single outgoing message
@@ -5933,10 +5923,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             font_size_subject = Helper.getTextSize(context, fz_subject);
 
         this.subject_italic = prefs.getBoolean("subject_italic", true);
-        if (EntityFolder.JUNK.equals(type))
-            this.sender_ellipsize = "full";
-        else
-            this.sender_ellipsize = prefs.getString("sender_ellipsize", "end");
+        this.sender_ellipsize = prefs.getString("sender_ellipsize", "end");
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "full");
         this.keywords_header = prefs.getBoolean("keywords_header", false);
         this.labels_header = prefs.getBoolean("labels_header", true);
