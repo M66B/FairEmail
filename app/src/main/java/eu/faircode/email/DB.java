@@ -1205,7 +1205,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("DROP VIEW `folderview`");
+                        db.execSQL("DROP VIEW IF EXISTS `folderview`");
                     }
                 })
                 .addMigrations(new Migration(87, 88) {
@@ -2129,7 +2129,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("DROP VIEW `account_view`");
+                        db.execSQL("DROP VIEW IF EXISTS `account_view`");
                         db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " + TupleAccountView.query);
                     }
                 }).addMigrations(new Migration(207, 208) {
@@ -2182,7 +2182,7 @@ public abstract class DB extends RoomDatabase {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("CREATE INDEX `index_account_synchronize` ON `account` (`synchronize`)");
                         db.execSQL("CREATE INDEX `index_account_category` ON `account` (`category`)");
-                        db.execSQL("DROP VIEW `account_view`");
+                        db.execSQL("DROP VIEW IF EXISTS `account_view`");
                         db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " + TupleAccountView.query);
                     }
                 }).addMigrations(new Migration(998, 999) {
