@@ -332,6 +332,9 @@ public class FragmentGmail extends FragmentBase {
 
                                     Log.e(ex);
 
+                                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                        return;
+
                                     tvError.setText(Log.formatThrowable(ex, false));
                                     grpError.setVisibility(View.VISIBLE);
 
