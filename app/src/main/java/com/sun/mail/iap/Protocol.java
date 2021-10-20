@@ -116,7 +116,7 @@ public class Protocol {
 	    processGreeting(readResponse());
 
 	    timestamp = System.currentTimeMillis();
- 
+
 	    connected = true;	// must be last statement in constructor
 	} finally {
 	    /*
@@ -636,7 +636,7 @@ public class Protocol {
 	    }
 	    socket = null;
 		if (traceInput != null && traceOutput != null)
-			eu.faircode.email.TrafficStatsHelper.report(host, "IMAP",
+			eu.faircode.email.TrafficStatsHelper.report(host, prefix,
 					traceOutput.getSent(), traceInput.getReceived());
 	}
     }

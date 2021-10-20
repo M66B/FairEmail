@@ -28,8 +28,16 @@ public class TrafficStatsHelper {
         ctx = context;
     }
 
-    public static void report(String host, String protocol, long sent, long received) {
-        String msg = protocol + " " + host + " tx=" + sent + " rx=" + received;
+    public static void connect(String host, int port, String prefix) {
+        String msg = "Connected " + prefix + " " + host + ":" + port;
+        if (ctx == null)
+            Log.i(msg);
+        else
+            EntityLog.log(ctx, EntityLog.Type.Statistics, msg);
+    }
+
+    public static void report(String host, String prefix, long sent, long received) {
+        String msg = "Disconnected " + prefix + " " + host + " tx=" + sent + " rx=" + received;
         if (ctx == null)
             Log.i(msg);
         else

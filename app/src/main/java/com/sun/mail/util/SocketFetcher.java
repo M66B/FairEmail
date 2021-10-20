@@ -347,6 +347,7 @@ public class SocketFetcher {
 		socket.connect(new InetSocketAddress(iaddr, port), cto);
 	    else
 		socket.connect(new InetSocketAddress(iaddr, port));
+		eu.faircode.email.TrafficStatsHelper.connect(host, port, prefix);
 	    eu.faircode.email.Log.i("Socket connected" +
 				" local=" + socket.getLocalSocketAddress() +
 				" remote=" + socket.getRemoteSocketAddress());

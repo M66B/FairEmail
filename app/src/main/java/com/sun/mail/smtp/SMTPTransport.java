@@ -1473,7 +1473,7 @@ public class SMTPTransport extends Transport {
 	    serverInput = null;
 	    lineInputStream = null;
 		if (traceInput != null && traceOutput != null)
-			eu.faircode.email.TrafficStatsHelper.report(host, "SMTP",
+			eu.faircode.email.TrafficStatsHelper.report(host, name,
 					traceOutput.getSent(), traceInput.getReceived());
 	    if (super.isConnected())	// only notify if already connected
 		super.close();
