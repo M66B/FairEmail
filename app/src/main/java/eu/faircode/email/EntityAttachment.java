@@ -167,6 +167,9 @@ public class EntityAttachment {
         extension = extension.toLowerCase(Locale.ROOT);
 
         // Fix types
+        if ("csv".equals(extension))
+            return "text/csv";
+
         if ("dxf".equals(extension))
             return "application/dxf";
 
