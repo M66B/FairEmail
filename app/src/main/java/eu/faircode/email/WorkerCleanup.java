@@ -238,8 +238,11 @@ public class WorkerCleanup extends Worker {
                             long id = Long.parseLong(file.getName().split("\\.")[0]);
                             EntityMessage message = db.message().getMessage(id);
                             if (manual && cleanup_attachments && message != null) {
-                                message.raw = false;
-                                db.message().setMessageRaw(message.id, message.raw);
+                                EntityAccount account = db.account().getAccount(message.account);
+                                if (account != null && account.protocol == EntityAccount.TYPE_IMAP) {
+                                    message.raw = false;
+                                    db.message().setMessageRaw(message.id, message.raw);
+                                }
                             }
                             if (message == null || message.raw == null || !message.raw) {
                                 Log.i("Deleting " + file);
