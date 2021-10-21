@@ -120,15 +120,17 @@ public interface DaoAttachment {
             " SET available = 0" +
             " WHERE NOT (available IS 0)" +
             " AND EXISTS" +
-            "  (SELECT * FROM attachment a" +
+            "  (SELECT * FROM attachment AS a" +
             "   JOIN message ON message.id = a.message" +
             "   JOIN folder ON folder.id = message.folder" +
+            "   JOIN account ON account.id = message.account" +
             "   WHERE a.id = attachment.id" +
             "   AND a.available" +
             "   AND message.ui_seen" +
             "   AND NOT message.ui_flagged" +
             "   AND encryption IS NULL" +
-            "   AND message.received < :now - (folder.sync_days + 1) * 24 * 3600 * 1000)")
+            "   AND message.received < :now - (folder.sync_days + 1) * 24 * 3600 * 1000" +
+            "   AND account.pop = " + EntityAccount.TYPE_IMAP + ")")
     int purge(long now);
 
     @Insert
