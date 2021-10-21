@@ -93,6 +93,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swCheckBlocklist;
     private SwitchCompat swUseBlocklist;
     private RecyclerView rvBlocklist;
+    private AdapterBlocklist badapter;
 
     private Group grpExempted;
 
@@ -379,6 +380,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("check_blocklist", checked).apply();
                 swUseBlocklist.setEnabled(checked);
+                if (badapter != null)
+                    badapter.enabledChanged();
             }
         });
 
@@ -391,7 +394,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         rvBlocklist.setHasFixedSize(false);
         rvBlocklist.setLayoutManager(new LinearLayoutManager(getContext()));
-        AdapterBlocklist badapter = new AdapterBlocklist(getContext(), DnsBlockList.getListsAvailable());
+        badapter = new AdapterBlocklist(getContext(), DnsBlockList.getListsAvailable());
         rvBlocklist.setAdapter(badapter);
 
         // Initialize
@@ -679,6 +682,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         private Context context;
         private LayoutInflater inflater;
 
+        private boolean enabled;
         private List<DnsBlockList.BlockList> items;
 
         public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener {
@@ -700,6 +704,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             private void bindTo(DnsBlockList.BlockList blocklist) {
                 cbEnabled.setText(blocklist.name);
                 cbEnabled.setChecked(DnsBlockList.isEnabled(context, blocklist));
+                cbEnabled.setEnabled(enabled);
             }
 
             @Override
@@ -719,6 +724,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
             setHasStableIds(true);
             this.items = items;
+            enabledChanged();
+        }
+
+        void enabledChanged() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            this.enabled = prefs.getBoolean("check_blocklist", false);
+            notifyDataSetChanged();
         }
 
         @Override
