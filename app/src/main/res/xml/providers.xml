@@ -1378,4 +1378,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="StartMail"
+        appPassword="true"
+        domain="startmail\\.com"
+        link="https://support.startmail.com/hc/en-us/articles/360006596718-Server-addresses">
+        <imap
+            host="imap.startmail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.startmail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
