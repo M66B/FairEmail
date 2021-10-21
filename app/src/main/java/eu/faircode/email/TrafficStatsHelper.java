@@ -43,4 +43,11 @@ public class TrafficStatsHelper {
         else
             EntityLog.log(ctx, EntityLog.Type.Statistics, msg);
     }
+
+    public static void debug(String msg) {
+        if (ctx == null)
+            Log.e(msg);
+        else
+            EntityLog.log(ctx, EntityLog.Type.General, msg);
+    }
 }
