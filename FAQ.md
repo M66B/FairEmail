@@ -1001,10 +1001,12 @@ The easiest way is to use the menu item *Fetch more messages* in the three-dots 
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Office 365*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password.
+To use an Outlook, Live or Hotmail account with two factor authentication enabled, you might need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+
+Please see [this FAQ](#user-content-faq139) for possible causes of the error *... User is authenticated but not connected ...*.
 
 For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
