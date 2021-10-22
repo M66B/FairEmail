@@ -75,23 +75,8 @@ public class ResponseInputStream {
 	    boolean gotCRLF=false;
 
 	    // Read a CRLF terminated line from the InputStream
-		int wait = 1;
-	    while (!gotCRLF) {
-		b = bin.read();
-		if (b == -1) {
-			wait *= 10;
-			if (wait > 1000)
-				throw new IOException("Connection dropped by server?" ,
-						new Throwable(new String(buffer, 0, idx)));
-			else
-				try {
-					Thread.sleep(wait);
-					continue;
-				} catch (InterruptedException ex) {
-					eu.faircode.email.Log.w(ex);
-				}
-		} else
-			wait = 1;
+	    while (!gotCRLF &&
+		   ((b =  bin.read()) != -1)) {
 		if (b == '\n') {
 		    if ((idx > 0) && buffer[idx-1] == '\r')
 			gotCRLF = true;
@@ -105,6 +90,9 @@ public class ResponseInputStream {
 		}
 		buffer[idx++] = (byte)b;
 	    }
+
+	    if (b == -1)
+		throw new IOException("Connection dropped by server?");
 
 	    // Now lets check for literals : {<digits>}CRLF
 	    // Note: index needs to >= 5 for the above sequence to occur
@@ -143,23 +131,10 @@ public class ResponseInputStream {
 		 * so call repeatedly till we are done
 		 */
 		int actual;
-		wait = 1;
 		while (count > 0) {
 		    actual = bin.read(buffer, idx, count);
-			if (actual == -1) {
-				wait *= 10;
-				if (wait > 1000)
-					throw new IOException("Connection dropped by server?" ,
-							new Throwable(new String(buffer, 0, idx)));
-				else
-					try {
-						Thread.sleep(wait);
-						continue;
-					} catch (InterruptedException ex) {
-						eu.faircode.email.Log.w(ex);
-					}
-			} else
-				wait = 1;
+		    if (actual == -1)
+			throw new IOException("Connection dropped by server?");
 		    count -= actual;
 		    idx += actual;
 		}
