@@ -20,8 +20,6 @@ import java.io.*;
 import com.sun.mail.iap.ByteArray;
 import com.sun.mail.util.ASCIIUtility;
 
-import eu.faircode.email.TrafficStatsHelper;
-
 /**
  *
  * Inputstream that is used to read a Response.
@@ -92,10 +90,8 @@ public class ResponseInputStream {
 				} catch (InterruptedException ex) {
 					eu.faircode.email.Log.w(ex);
 				}
-		} else if (wait > 1) {
-			TrafficStatsHelper.debug("Data after=" + wait);
+		} else
 			wait = 1;
-		}
 		if (b == '\n') {
 		    if ((idx > 0) && buffer[idx-1] == '\r')
 			gotCRLF = true;
@@ -162,10 +158,8 @@ public class ResponseInputStream {
 					} catch (InterruptedException ex) {
 						eu.faircode.email.Log.w(ex);
 					}
-			} else if (wait > 1) {
-				TrafficStatsHelper.debug("Data after=" + wait);
+			} else
 				wait = 1;
-			}
 		    count -= actual;
 		    idx += actual;
 		}
