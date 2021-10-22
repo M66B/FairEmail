@@ -372,6 +372,11 @@ public class IMAPStore extends Store
 		logger.config("dedicate a store connection");
 
 	}
+	int getConnections() {
+		return authenticatedConnections.size() +
+				(folders == null ? 0 : folders.size()) +
+				(idleProtocol == null ? 0 : 1);
+	}
     }
  
     private final ConnectionPool pool;
@@ -665,7 +670,7 @@ public class IMAPStore extends Store
 		synchronized (pool) {
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			eu.faircode.email.Log.breadcrumb("protocolConnect", crumb);
 		}
@@ -698,6 +703,7 @@ public class IMAPStore extends Store
 
                 synchronized (pool) {
                     pool.authenticatedConnections.addElement(protocol);
+                    eu.faircode.email.Log.persist("protocolConnect " + host + ":" + port + " connections=" + pool.getConnections());
                 }
             }
 	} catch (IMAPReferralException ex) {
@@ -1059,6 +1065,7 @@ public class IMAPStore extends Store
                 // remove the available connection from the Authenticated queue
                 p = pool.authenticatedConnections.lastElement();
                 pool.authenticatedConnections.removeElement(p);
+                eu.faircode.email.Log.persist("getProtocol " + host + ":" + port + " connections=" + pool.getConnections());
 
 		// check if the connection is still live
 		long lastUsed = System.currentTimeMillis() - p.getTimestamp();
@@ -1126,6 +1133,7 @@ public class IMAPStore extends Store
                 if (pool.folders == null)
                     pool.folders = new Vector<>();
 		pool.folders.addElement(folder);
+		eu.faircode.email.Log.persist("getProtocol " + host + ":" + port + " connections=" + pool.getConnections());
 	    }
         }
 
@@ -1159,7 +1167,7 @@ public class IMAPStore extends Store
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
 			crumb.put("reason", reason);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			eu.faircode.email.Log.breadcrumb("getStoreProtocol", crumb);
 		}
@@ -1194,7 +1202,8 @@ public class IMAPStore extends Store
              
 	        p.addResponseHandler(this);
                 pool.authenticatedConnections.addElement(p);
- 
+                eu.faircode.email.Log.persist(host + ":" + port + " connections=" + pool.getConnections());
+
             } else {
                 // Always use the first element in the Authenticated queue.
 		if (pool.logger.isLoggable(Level.FINE))
@@ -1338,7 +1347,7 @@ public class IMAPStore extends Store
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
 			crumb.put("folder", folder.fullName);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			eu.faircode.email.Log.breadcrumb("releaseProtocol", crumb);
 		}
@@ -1350,6 +1359,7 @@ public class IMAPStore extends Store
                 if (!isConnectionPoolFull()) {
                     protocol.addResponseHandler(this);
                     pool.authenticatedConnections.addElement(protocol);
+                    eu.faircode.email.Log.persist("releaseProtocol " + host + ":" + port + " connections=" + pool.getConnections());
 
 		    if (logger.isLoggable(Level.FINE))
                         logger.fine(
@@ -1364,8 +1374,10 @@ public class IMAPStore extends Store
                 }
             }
 
-            if (pool.folders != null)
-                pool.folders.removeElement(folder);
+            if (pool.folders != null) {
+				pool.folders.removeElement(folder);
+				eu.faircode.email.Log.persist("getProtocol " + host + ":" + port + " connections=" + pool.getConnections());
+            }
 
             timeoutConnections();
         }
@@ -1378,7 +1390,7 @@ public class IMAPStore extends Store
 		synchronized (pool) {
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			eu.faircode.email.Log.breadcrumb("releaseStoreProtocol", crumb);
 		}
@@ -1428,7 +1440,7 @@ public class IMAPStore extends Store
 		synchronized (pool) {
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			eu.faircode.email.Log.breadcrumb("releaseFolderStoreProtocol", crumb);
 		}
@@ -1454,7 +1466,7 @@ public class IMAPStore extends Store
 		synchronized (pool) {
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			crumb.put("force", Boolean.toString(force));
 			eu.faircode.email.Log.breadcrumb("emptyConnectionPool", crumb);
@@ -1475,6 +1487,7 @@ public class IMAPStore extends Store
             }
 
             pool.authenticatedConnections.removeAllElements();
+            eu.faircode.email.Log.persist("emptyConnectionPool " + host + ":" + port + " connections=" + pool.getConnections());
         }
         
 	pool.logger.fine("removed all authenticated connections from pool");
@@ -1521,6 +1534,7 @@ public class IMAPStore extends Store
  
                         p.removeResponseHandler(this);
                         pool.authenticatedConnections.removeElementAt(index);
+                        eu.faircode.email.Log.persist("timeoutConnections " + host + ":" + port + " connections=" + pool.getConnections());
 
                         try {
                             p.logout();
@@ -1792,7 +1806,7 @@ public class IMAPStore extends Store
 		synchronized (pool) {
 			Map<String, String> crumb = new HashMap<>();
 			crumb.put("host", host);
-			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("connections", Integer.toString(pool.getConnections()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
 			crumb.put("force", Boolean.toString(force));
 			eu.faircode.email.Log.breadcrumb("closeAllFolders", crumb);
