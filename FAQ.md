@@ -2286,7 +2286,7 @@ You can check the rule and apply the rule to existing messages or, alternatively
 
 You'll need to give a rule a name and you'll need to define the order in which a rule should be executed relative to other rules.
 
-You can disable a rule and you can stop processing other rules after a rule has been executed.
+You can disable a rule and you can stop processing other rules after a rule has been executed, which can be used to create a *not* condition.
 
 The following rule conditions are available:
 
