@@ -138,6 +138,8 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import io.requery.android.database.CursorWindowAllocationException;
 
 public class Log {
+    private static Context ctx;
+
     private static int level = android.util.Log.INFO;
     private static final int MAX_CRASH_REPORTS = 5;
     private static final String TAG = "fairemail";
@@ -286,6 +288,13 @@ public class Log {
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
+    public static void persist(String message) {
+        if (ctx == null)
+            Log.e(message);
+        else
+            EntityLog.log(ctx, message);
+    }
+
     static void setCrashReporting(boolean enabled) {
         try {
             if (enabled)
@@ -319,6 +328,7 @@ public class Log {
     }
 
     static void setup(Context context) {
+        ctx = context;
         setLevel(context);
         setupBugsnag(context);
     }
