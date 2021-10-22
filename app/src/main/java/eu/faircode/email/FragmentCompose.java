@@ -2608,6 +2608,9 @@ public class FragmentCompose extends FragmentBase {
 
         Bundle args = new Bundle();
         args.putLong("id", working);
+        args.putString("to", etTo.getText().toString().trim());
+        args.putString("cc", etCc.getText().toString().trim());
+        args.putString("bcc", etBcc.getText().toString().trim());
         args.putInt("requestCode", requestCode);
         args.putParcelable("uri", uri);
 
@@ -2615,6 +2618,9 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
+                String to = args.getString("to");
+                String cc = args.getString("cc");
+                String bcc = args.getString("bcc");
                 int requestCode = args.getInt("requestCode");
                 Uri uri = args.getParcelable("uri");
 
@@ -2652,6 +2658,10 @@ public class FragmentCompose extends FragmentBase {
                                 draft = db.message().getMessage(id);
                                 if (draft == null)
                                     return null;
+
+                                draft.to = MessageHelper.parseAddresses(context, to);
+                                draft.cc = MessageHelper.parseAddresses(context, cc);
+                                draft.bcc = MessageHelper.parseAddresses(context, bcc);
 
                                 Address[] address = null;
                                 if (requestCode == REQUEST_CONTACT_TO)
@@ -3744,12 +3754,19 @@ public class FragmentCompose extends FragmentBase {
         if (args.getInt("target") > 0)
             grpAddresses.setVisibility(View.VISIBLE);
 
+        args.putString("to", etTo.getText().toString().trim());
+        args.putString("cc", etCc.getText().toString().trim());
+        args.putString("bcc", etBcc.getText().toString().trim());
+
         new SimpleTask<EntityMessage>() {
             @Override
             protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 int target = args.getInt("target");
                 long group = args.getLong("group");
+                String to = args.getString("to");
+                String cc = args.getString("cc");
+                String bcc = args.getString("bcc");
 
                 EntityLog.log(context, "Selected group=" + group);
 
@@ -3793,6 +3810,10 @@ public class FragmentCompose extends FragmentBase {
                     draft = db.message().getMessage(id);
                     if (draft == null)
                         return null;
+
+                    draft.to = MessageHelper.parseAddresses(context, to);
+                    draft.cc = MessageHelper.parseAddresses(context, cc);
+                    draft.bcc = MessageHelper.parseAddresses(context, bcc);
 
                     Address[] address = null;
                     if (target == 0)
