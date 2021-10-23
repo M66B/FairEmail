@@ -703,7 +703,6 @@ public class IMAPStore extends Store
 
                 synchronized (pool) {
                     pool.authenticatedConnections.addElement(protocol);
-                    eu.faircode.email.Log.persist("protocolConnect " + host + ":" + port + " connections=" + pool.getConnections());
                 }
             }
 	} catch (IMAPReferralException ex) {
@@ -1065,7 +1064,6 @@ public class IMAPStore extends Store
                 // remove the available connection from the Authenticated queue
                 p = pool.authenticatedConnections.lastElement();
                 pool.authenticatedConnections.removeElement(p);
-                eu.faircode.email.Log.persist("getProtocol " + host + ":" + port + " connections=" + pool.getConnections());
 
 		// check if the connection is still live
 		long lastUsed = System.currentTimeMillis() - p.getTimestamp();
@@ -1133,7 +1131,6 @@ public class IMAPStore extends Store
                 if (pool.folders == null)
                     pool.folders = new Vector<>();
 		pool.folders.addElement(folder);
-		eu.faircode.email.Log.persist("getProtocol " + host + ":" + port + " connections=" + pool.getConnections());
 	    }
         }
 
@@ -1202,7 +1199,6 @@ public class IMAPStore extends Store
              
 	        p.addResponseHandler(this);
                 pool.authenticatedConnections.addElement(p);
-                eu.faircode.email.Log.persist(host + ":" + port + " connections=" + pool.getConnections());
 
             } else {
                 // Always use the first element in the Authenticated queue.
@@ -1359,7 +1355,6 @@ public class IMAPStore extends Store
                 if (!isConnectionPoolFull()) {
                     protocol.addResponseHandler(this);
                     pool.authenticatedConnections.addElement(protocol);
-                    eu.faircode.email.Log.persist("releaseProtocol " + host + ":" + port + " connections=" + pool.getConnections());
 
 		    if (logger.isLoggable(Level.FINE))
                         logger.fine(
@@ -1374,10 +1369,8 @@ public class IMAPStore extends Store
                 }
             }
 
-            if (pool.folders != null) {
+            if (pool.folders != null)
 				pool.folders.removeElement(folder);
-				eu.faircode.email.Log.persist("getProtocol " + host + ":" + port + " connections=" + pool.getConnections());
-            }
 
             timeoutConnections();
         }
@@ -1487,7 +1480,6 @@ public class IMAPStore extends Store
             }
 
             pool.authenticatedConnections.removeAllElements();
-            eu.faircode.email.Log.persist("emptyConnectionPool " + host + ":" + port + " connections=" + pool.getConnections());
         }
         
 	pool.logger.fine("removed all authenticated connections from pool");
@@ -1534,7 +1526,6 @@ public class IMAPStore extends Store
  
                         p.removeResponseHandler(this);
                         pool.authenticatedConnections.removeElementAt(index);
-                        eu.faircode.email.Log.persist("timeoutConnections " + host + ":" + port + " connections=" + pool.getConnections());
 
                         try {
                             p.logout();
