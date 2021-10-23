@@ -213,6 +213,9 @@ public class EmailService implements AutoCloseable {
             properties.put("mail." + protocol + ".timeout", Integer.toString(timeout * factor));
         }
 
+        boolean idle_done = prefs.getBoolean("idle_done", true);
+        properties.put("mail.idledone", Boolean.toString(idle_done));
+
         if (debug && BuildConfig.DEBUG)
             properties.put("mail.debug.auth", "true");
 

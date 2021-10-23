@@ -144,6 +144,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAuthLogin;
     private SwitchCompat swAuthNtlm;
     private SwitchCompat swAuthSasl;
+    private SwitchCompat swIdleDone;
     private SwitchCompat swExactAlarms;
     private SwitchCompat swDupMsgId;
     private SwitchCompat swTestIab;
@@ -177,7 +178,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "protocol", "debug", "log_level",
             "query_threads", "wal", "checkpoints", "sqlite_cache",
             "chunk_size", "use_modseq", "perform_expunge",
-            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl",
+            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "idle_done",
             "exact_alarms", "dup_msgids", "test_iab"
     };
 
@@ -273,6 +274,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthLogin = view.findViewById(R.id.swAuthLogin);
         swAuthNtlm = view.findViewById(R.id.swAuthNtlm);
         swAuthSasl = view.findViewById(R.id.swAuthSasl);
+        swIdleDone = view.findViewById(R.id.swIdleDone);
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
         swTestIab = view.findViewById(R.id.swTestIab);
@@ -853,6 +855,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swIdleDone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("idle_done", checked).apply();
+            }
+        });
+
         swExactAlarms.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1322,6 +1331,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
         swAuthNtlm.setChecked(prefs.getBoolean("auth_ntlm", true));
         swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
+        swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
         swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
         swTestIab.setChecked(prefs.getBoolean("test_iab", false));

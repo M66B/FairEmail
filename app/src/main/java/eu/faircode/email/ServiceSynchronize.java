@@ -150,7 +150,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "download_headers", "download_eml",
             "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "ssl_harden", // force reconnect
             "experiments", "debug", "protocol", // force reconnect
-            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", // force reconnect
+            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "idle_done", // force reconnect
             "exact_alarms" // force schedule
     ));
 

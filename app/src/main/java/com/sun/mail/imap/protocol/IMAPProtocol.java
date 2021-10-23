@@ -60,6 +60,7 @@ public class IMAPProtocol extends Protocol {
     private boolean connected = false;	// did constructor succeed?
     private boolean rev1 = false;	// REV1 server ?
     private boolean referralException;	// throw exception for IMAP REFERRAL?
+    private boolean idledone;
     private boolean noauthdebug = true;	// hide auth info in debug output
     private boolean authenticated;	// authenticated?
     // WARNING: authenticated may be set to true in superclass
@@ -108,6 +109,8 @@ public class IMAPProtocol extends Protocol {
 
 	try {
 	    this.name = name;
+	    idledone = PropUtil.getBooleanProperty(props, "mail.idledone", true);
+	    eu.faircode.email.Log.i("idledone=" + idledone);
 	    noauthdebug =
 		!PropUtil.getBooleanProperty(props, "mail.debug.auth", false);
 
@@ -3217,7 +3220,7 @@ public class IMAPProtocol extends Protocol {
 	boolean done = false;		// done reading responses?
 	notifyResponseHandlers(responses);
 
-	if (r.isUnTagged() && r.isOK()) // Still here
+	if (idledone && r.isUnTagged() && r.isOK()) // Still here
 		idleAbort();
 
 	if (r.isBYE()) // shouldn't wait for command completion response

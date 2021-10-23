@@ -665,6 +665,7 @@
     <string name="title_advanced_auth_login" translatable="false">LOGIN</string>
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>
     <string name="title_advanced_auth_sasl" translatable="false">SASL</string>
+    <string name="title_advanced_idle_done" translatable="false">IDLE/DONE</string>
     <string name="title_advanced_exact_alarms" translatable="false">Use exact timers</string>
     <string name="title_advanced_dup_msgid" translatable="false">Duplicates by message ID</string>
     <string name="title_advanced_test_iab" translatable="false">Test IAB</string>
