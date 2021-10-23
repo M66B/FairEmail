@@ -293,7 +293,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         btnTheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FragmentDialogTheme().show(getParentFragmentManager(), "setup:theme");
+                Bundle args = new Bundle();
+                args.putBoolean("settings", true);
+                FragmentDialogTheme dialog = new FragmentDialogTheme();
+                dialog.setArguments(args);
+                dialog.show(getParentFragmentManager(), "setup:theme");
             }
         });
 

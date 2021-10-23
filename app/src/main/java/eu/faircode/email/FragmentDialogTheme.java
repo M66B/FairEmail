@@ -3,11 +3,13 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private SwitchCompat swBlack;
     private SwitchCompat swHtmlLight;
     private SwitchCompat swComposerLight;
+    private Button btnMore;
     private TextView tvMore;
 
     private void eval() {
@@ -56,6 +59,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        Bundle args = getArguments();
+        boolean settings = (args != null && args.getBoolean("settings"));
+
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = prefs.getString("theme", "blue_orange_system");
@@ -70,6 +76,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         swBlack = dview.findViewById(R.id.swBlack);
         swHtmlLight = dview.findViewById(R.id.swHtmlLight);
         swComposerLight = dview.findViewById(R.id.swComposerLight);
+        btnMore = dview.findViewById(R.id.btnMore);
         tvMore = dview.findViewById(R.id.tvMore);
 
         rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -188,6 +195,17 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 164);
+            }
+        });
+
+        btnMore.setVisibility(settings ? View.GONE : View.VISIBLE);
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("tab", "display"));
             }
         });
 
