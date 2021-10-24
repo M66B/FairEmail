@@ -20,11 +20,13 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -36,6 +38,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -199,20 +202,22 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
+            int order = 0;
             SpannableString ss = new SpannableString(identity.email);
             ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
+            popupMenu.getMenu().add(Menu.NONE, 0, order++, ss).setEnabled(false);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, order++, R.string.title_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, 2, R.string.title_primary)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(identity.primary);
 
             if (identity.sign_key != null || identity.sign_key_alias != null)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 3, R.string.title_reset_sign_key);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, order++, R.string.title_reset_sign_key);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -229,6 +234,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                         return true;
                     } else if (itemId == R.string.title_copy) {
                         onActionCopy();
+                        return true;
+                    } else if (itemId == R.string.title_delete) {
+                        onActionDelete();
                         return true;
                     }
                     return false;
@@ -335,6 +343,50 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             new Intent(ActivitySetup.ACTION_EDIT_IDENTITY)
                                     .putExtra("id", identity.id)
                                     .putExtra("copy", true));
+                }
+
+                private void onActionDelete() {
+                    new AlertDialog.Builder(view.getContext())
+                            .setIcon(R.drawable.twotone_warning_24)
+                            .setTitle(identity.email)
+                            .setMessage(R.string.title_identity_delete)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onDelete();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Do nothing
+                                }
+                            })
+                            .show();
+                }
+
+                private void onDelete() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.identity().deleteIdentity(id);
+
+                            Core.clearIdentities();
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "identity:delete");
                 }
             });
 

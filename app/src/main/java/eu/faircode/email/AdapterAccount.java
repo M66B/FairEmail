@@ -26,6 +26,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -51,6 +52,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
@@ -350,14 +352,15 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
+            int order = 0;
             SpannableString ss = new SpannableString(account.name);
             ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
+            popupMenu.getMenu().add(Menu.NONE, 0, order++, ss).setEnabled(false);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, order++, R.string.title_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, 2, R.string.title_primary)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
 
             if (account.notify &&
@@ -366,16 +369,19 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 NotificationChannel channel = nm.getNotificationChannel(channelId);
                 if (channel != null)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 3, R.string.title_edit_channel);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, order++, R.string.title_edit_channel);
             }
 
             if (account.protocol == EntityAccount.TYPE_IMAP && settings)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_log, 5, R.string.title_log);
+            if (settings)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
+
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_log, order++, R.string.title_log);
 
             if (debug)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 6, R.string.title_reset);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, order++, R.string.title_reset);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -392,6 +398,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         return true;
                     } else if (itemId == R.string.title_copy) {
                         onActionCopy();
+                        return true;
+                    } else if (itemId == R.string.title_delete) {
+                        onActionDelete();
                         return true;
                     } else if (itemId == R.string.title_log) {
                         onActionLog();
@@ -499,6 +508,26 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                     .putExtra("copy", true));
                 }
 
+                private void onActionDelete() {
+                    new AlertDialog.Builder(view.getContext())
+                            .setIcon(R.drawable.twotone_warning_24)
+                            .setTitle(account.name)
+                            .setMessage(R.string.title_account_delete)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onDelete();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Do nothing
+                                }
+                            })
+                            .show();
+                }
+
                 private void onActionLog() {
                     if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         parentFragment.getParentFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -539,6 +568,30 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "account:reset");
+                }
+
+                private void onDelete() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.account().setAccountTbd(id);
+
+                            ServiceSynchronize.eval(context, "delete account");
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "account:delete");
                 }
             });
 
