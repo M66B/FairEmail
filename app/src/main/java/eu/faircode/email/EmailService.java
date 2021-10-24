@@ -402,6 +402,9 @@ public class EmailService implements AutoCloseable {
         ServiceAuthenticator authenticator = new ServiceAuthenticator(context,
                 auth, provider, keep_alive, user, password, intf);
 
+        if ("imap.wp.pl".equals(host))
+            properties.put("mail.idledone", "true");
+
         try {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");

@@ -1392,4 +1392,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="wp.pl"
+        appPassword="true"
+        domain="wp\\.pl"
+        link="https://pomoc.wp.pl/jak-skonfigurowac-program-pocztowy">
+        <imap
+            host="imap.wp.pl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.wp.pl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
