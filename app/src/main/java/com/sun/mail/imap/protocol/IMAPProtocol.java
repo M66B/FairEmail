@@ -110,7 +110,7 @@ public class IMAPProtocol extends Protocol {
 	try {
 	    this.name = name;
 	    idledone = PropUtil.getBooleanProperty(props, "mail.idledone", true);
-	    eu.faircode.email.Log.i("idledone=" + idledone);
+	    eu.faircode.email.Log.i(host + ":" + port + " idledone=" + idledone);
 	    noauthdebug =
 		!PropUtil.getBooleanProperty(props, "mail.debug.auth", false);
 
