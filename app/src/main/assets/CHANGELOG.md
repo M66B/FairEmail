@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1766
 
 * Small improvements and minor bug fixes
