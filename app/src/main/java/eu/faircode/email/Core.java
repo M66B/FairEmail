@@ -763,7 +763,7 @@ class Core {
             }
 
             if (uid != null && purge) {
-                boolean purged = false;
+                List<Message> deleted = new ArrayList<>();
                 for (Message iexisting : imessages) {
                     long muid = ifolder.getUID(iexisting);
                     if (muid < 0)
@@ -772,21 +772,13 @@ class Core {
                         try {
                             Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
                             iexisting.setFlag(Flags.Flag.DELETED, true);
-                            purged = true;
+                            deleted.add(iexisting);
                         } catch (MessagingException ignored) {
                             Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
                         }
                 }
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                if (purged && perform_expunge)
-                    try {
-                        ifolder.expunge();
-                    } catch (MessagingException ex) {
-                        // NO EXPUNGE failed.
-                        Log.e(ex);
-                    }
+                expunge(context, ifolder, deleted);
             }
         }
 
@@ -989,11 +981,7 @@ class Core {
                     if (imessage == null)
                         throw new MessageRemovedException();
                     imessage.setFlag(Flags.Flag.DELETED, true);
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                    if (perform_expunge)
-                        ifolder.expunge();
+                    expunge(context, ifolder, Arrays.asList(imessage));
                 } catch (MessagingException ex) {
                     Log.w(ex);
                 }
@@ -1162,10 +1150,7 @@ class Core {
                             Message iprev = ifolder.getMessageByUID(Math.min(newuid, found));
                             if (iprev != null) {
                                 iprev.setFlag(Flags.Flag.DELETED, true);
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                                if (perform_expunge)
-                                    ifolder.expunge();
+                                expunge(context, ifolder, Arrays.asList(iprev));
                             }
                         } catch (MessagingException ex) {
                             Log.w(ex);
@@ -1369,11 +1354,7 @@ class Core {
             try {
                 for (Message imessage : map.keySet())
                     imessage.setFlag(Flags.Flag.DELETED, true);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                if (perform_expunge)
-                    ifolder.expunge();
+                expunge(context, ifolder, Arrays.asList(map.keySet().toArray(new Message[0])));
             } catch (MessageRemovedException ex) {
                 Log.w(ex);
             }
@@ -1589,8 +1570,9 @@ class Core {
         }
 
         try {
-            boolean deleted = false;
+            List<Message> deleted = new ArrayList<>();
 
+            boolean found = false;
             if (message.uid != null) {
                 Message iexisting = ifolder.getMessageByUID(message.uid);
                 if (iexisting == null)
@@ -1602,13 +1584,16 @@ class Core {
                             iexisting.setFlag(Flags.Flag.DELETED, true);
                         else
                             iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-                        deleted = true;
+
+                        found = true;
+                        if (perform_expunge || message.ui_deleted)
+                            deleted.add(iexisting);
                     } catch (MessageRemovedException ignored) {
                         Log.w(folder.name + " existing gone uid=" + message.uid);
                     }
             }
 
-            if (!deleted && !TextUtils.isEmpty(message.msgid))
+            if (!found && !TextUtils.isEmpty(message.msgid))
                 try {
                     Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
                     if (imessages == null)
@@ -1622,7 +1607,9 @@ class Core {
                                     iexisting.setFlag(Flags.Flag.DELETED, true);
                                 else
                                     iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-                                deleted = true;
+
+                                if (perform_expunge || message.ui_deleted)
+                                    deleted.add(iexisting);
                             } catch (MessageRemovedException ignored) {
                                 Log.w(folder.name + " existing gone uid=" + muid);
                             }
@@ -1632,11 +1619,10 @@ class Core {
                 }
 
             if (perform_expunge) {
-                if (deleted)
-                    ifolder.expunge(); // NO EXPUNGE failed.
-                db.message().deleteMessage(message.id);
+                if (expunge(context, ifolder, deleted))
+                    db.message().deleteMessage(message.id);
             } else {
-                if (deleted)
+                if (deleted.size() > 0)
                     db.message().setMessageDeleted(message.id, message.ui_deleted);
             }
 
@@ -2391,12 +2377,7 @@ class Core {
             } else
                 ifolder.setFlags(idelete.toArray(new Message[0]), new Flags(Flags.Flag.DELETED), true);
             Log.i(folder.name + " purge deleted");
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-            if (perform_expunge)
-                ifolder.expunge();
-            Log.i(folder.name + " purge expunged");
+            expunge(context, ifolder, idelete);
         } catch (Throwable ex) {
             Log.e(ex);
             throw ex;
@@ -3059,13 +3040,13 @@ class Core {
                         }
                     });
 
-                    int expunge = 0;
+                    List<Message> deleted = new ArrayList<>();
                     for (int i = 0; i < imessages.length; i++) {
                         state.ensureRunning("Sync/IMAP/delete");
 
                         try {
                             if (perform_expunge && imessages[i].isSet(Flags.Flag.DELETED))
-                                expunge++;
+                                deleted.add(imessages[i]);
                             else
                                 uids.remove(ifolder.getUID(imessages[i]));
                         } catch (MessageRemovedException ex) {
@@ -3079,13 +3060,7 @@ class Core {
                         }
                     }
 
-                    if (expunge > 0)
-                        try {
-                            Log.i(folder.name + " expunging=" + expunge);
-                            ifolder.expunge();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
+                    expunge(context, ifolder, deleted);
 
                     if (uids.size() > 0) {
                         // This is done outside of JavaMail to prevent changed notifications
@@ -3483,7 +3458,6 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean download_headers = prefs.getBoolean("download_headers", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
-        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean pro = ActivityBilling.isPro(context);
 
         long uid = ifolder.getUID(imessage);
@@ -3496,13 +3470,10 @@ class Core {
             Log.w(folder.name + " expunged uid=" + uid);
             throw new MessageRemovedException("Expunged");
         }
-        if (perform_expunge && imessage.isSet(Flags.Flag.DELETED)) {
+
+        if (imessage.isSet(Flags.Flag.DELETED)) {
             Log.w(folder.name + " deleted uid=" + uid);
-            try {
-                ifolder.expunge();
-            } catch (MessagingException ex) {
-                Log.w(ex);
-            }
+            expunge(context, ifolder, Arrays.asList(imessage));
             throw new MessageRemovedException("Deleted");
         }
 
@@ -4048,6 +4019,32 @@ class Core {
         }
 
         return message;
+    }
+
+    private static boolean expunge(Context context, IMAPFolder ifolder, List<Message> messages) {
+        if (messages.size() == 0)
+            return false;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+        if (!perform_expunge)
+            return false;
+
+        try {
+            boolean uidplus = MessageHelper.hasCapability(ifolder, "UIDPLUS");
+            String count = (uidplus ? messages.size() : "all") + "messages";
+            Log.i(ifolder.getName() + " expunging " + count);
+            if (uidplus)
+                ifolder.expunge(messages.toArray(new Message[0]));
+            else
+                ifolder.expunge();
+            Log.i(ifolder.getName() + " expunged " + count);
+            return true;
+        } catch (MessagingException ex) {
+            // NO EXPUNGE failed.
+            Log.w(ex);
+            return false;
+        }
     }
 
     private static EntityIdentity matchIdentity(Context context, EntityFolder folder, EntityMessage message) {
