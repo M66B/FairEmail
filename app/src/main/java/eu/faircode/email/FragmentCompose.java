@@ -5753,41 +5753,9 @@ public class FragmentCompose extends FragmentBase {
 
                             if (draft.ui_encrypt == null ||
                                     EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt)) {
-                                if (recipients.size() > 0) {
-                                    if (pgpService != null && pgpService.isBound()) {
-                                        String[] userIds = new String[recipients.size()];
-                                        for (int i = 0; i < recipients.size(); i++) {
-                                            InternetAddress recipient = (InternetAddress) recipients.get(i);
-                                            userIds[i] = recipient.getAddress();
-                                        }
-
-                                        Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
-                                        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, userIds);
-
-                                        try {
-                                            OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                                            Intent result = api.executeApi(intent, (InputStream) null, (OutputStream) null);
-                                            int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-                                            if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
-                                                long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
-                                                args.putBoolean("remind_pgp", keyIds.length > 0);
-                                            }
-                                        } catch (Throwable ex) {
-                                            Log.w(ex);
-                                        }
-                                    }
-
-                                    for (Address address : recipients) {
-                                        String email = ((InternetAddress) address).getAddress();
-                                        List<EntityCertificate> certs = db.certificate().getCertificateByEmail(email);
-                                        if (certs != null && certs.size() > 0) {
-                                            args.putBoolean("remind_smime", true);
-                                            break;
-                                        }
-                                    }
-                                }
+                                args.putBoolean("remind_pgp", hasPgpKey(context, recipients));
+                                args.putBoolean("remind_smime", hasSmimeKey(context, recipients));
                             }
-
 
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
@@ -6416,6 +6384,51 @@ public class FragmentCompose extends FragmentBase {
             pos += lines[i].length() + 1;
         }
         return -1;
+    }
+
+    private boolean hasPgpKey(Context context, List<Address> recipients) {
+        if (pgpService == null || !pgpService.isBound())
+            return false;
+        if (recipients == null || recipients.size() == 0)
+            return false;
+
+        String[] userIds = new String[recipients.size()];
+        for (int i = 0; i < recipients.size(); i++) {
+            InternetAddress recipient = (InternetAddress) recipients.get(i);
+            userIds[i] = recipient.getAddress();
+        }
+
+        Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
+        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, userIds);
+
+        try {
+            OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+            Intent result = api.executeApi(intent, (InputStream) null, (OutputStream) null);
+            int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+            if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
+                long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
+                return (keyIds.length > 0);
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return false;
+    }
+
+    private boolean hasSmimeKey(Context context, List<Address> recipients) {
+        if (recipients == null || recipients.size() == 0)
+            return false;
+
+        DB db = DB.getInstance(context);
+        for (Address address : recipients) {
+            String email = ((InternetAddress) address).getAddress();
+            List<EntityCertificate> certs = db.certificate().getCertificateByEmail(email);
+            if (certs != null && certs.size() > 0)
+                return true;
+        }
+
+        return false;
     }
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
