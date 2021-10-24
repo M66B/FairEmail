@@ -2126,7 +2126,7 @@ public class HtmlHelper {
         for (Element bq : d.select("blockquote"))
             bq.prependChild(new TextNode("> "));
 
-        return d.text();
+        return d.body().text();
     }
 
     static String getQuoteStyle(Element e) {
