@@ -316,6 +316,9 @@
         You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_hint_remark">
+        The options are categorized by tab, divided into sections, organized by appearance or use, and searchable.
+    </string>
     <string name="title_advanced_hint_setup">You can configure an account by tapping the wizard button on the main configuration screen.</string>
 
     <string name="title_advanced_section_main">Main</string>
