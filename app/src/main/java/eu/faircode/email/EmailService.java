@@ -403,7 +403,7 @@ public class EmailService implements AutoCloseable {
                 auth, provider, keep_alive, user, password, intf);
 
         if ("imap.wp.pl".equals(host))
-            properties.put("mail.idledone", "true");
+            properties.put("mail.idledone", "false");
 
         try {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
