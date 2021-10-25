@@ -2439,6 +2439,8 @@ class Core {
                 " connected=" + (ifolder != null));
 
         if (!EntityFolder.INBOX.equals(folder.type)) {
+            folder.synchronize = false;
+            db.folder().setFolderSynchronize(folder.id, folder.synchronize);
             db.folder().setFolderSyncState(folder.id, null);
             return;
         }
@@ -2851,6 +2853,7 @@ class Core {
             if (folder.local) {
                 folder.synchronize = false;
                 db.folder().setFolderSynchronize(folder.id, folder.synchronize);
+                db.folder().setFolderSyncState(folder.id, null);
                 return;
             }
 
