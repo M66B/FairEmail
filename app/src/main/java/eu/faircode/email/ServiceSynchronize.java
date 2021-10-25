@@ -80,6 +80,7 @@ import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
+import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Quota;
@@ -1607,21 +1608,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void messagesAdded(MessageCountEvent e) {
                                     try {
                                         wlMessage.acquire();
-                                        Log.i(folder.name + " messages added");
-
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (Message imessage : e.getMessages()) {
-                                                long uid = ifolder.getUID(imessage);
-                                                EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
+                                        fetch(folder, ifolder, e.getMessages(), false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1637,21 +1624,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void messagesRemoved(MessageCountEvent e) {
                                     try {
                                         wlMessage.acquire();
-                                        Log.i(folder.name + " messages removed");
-
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (Message imessage : e.getMessages()) {
-                                                long uid = ifolder.getUID(imessage);
-                                                EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid, true);
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
+                                        fetch(folder, ifolder, e.getMessages(), true, "removed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1672,11 +1645,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void messageChanged(MessageChangedEvent e) {
                                     try {
                                         wlMessage.acquire();
-                                        Log.i(folder.name + " message changed");
-
-                                        long uid = ifolder.getUID(e.getMessage());
-                                        EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
-
+                                        fetch(folder, ifolder, new Message[]{e.getMessage()}, false, "changed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -2366,6 +2335,33 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(this, EntityLog.Type.Account,
                     account.name + " stopped");
             wlAccount.release();
+        }
+    }
+
+    private void fetch(EntityFolder folder, IMAPFolder ifolder, Message[] messages, boolean deleted, String reason) throws MessagingException {
+        Log.i(folder.name + " " + messages.length + " messages " + reason);
+
+        List<Long> uids = new ArrayList<>();
+        for (Message imessage : messages)
+            try {
+                long uid = ifolder.getUID(imessage);
+                uids.add(uid);
+            } catch (MessageRemovedException ex) {
+                Log.w(ex);
+            }
+
+        Log.i(folder.name + " messages " + reason + " uids=" + TextUtils.join(",", uids));
+
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            for (long uid : uids)
+                EntityOperation.queue(this, folder, EntityOperation.FETCH, uid, deleted);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
         }
     }
 
