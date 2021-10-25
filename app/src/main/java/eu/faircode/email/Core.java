@@ -712,7 +712,7 @@ class Core {
 
         DB db = DB.getInstance(context);
 
-        Long uid = findUid(context, account, ifolder, message.msgid, false);
+        Long uid = findUid(context, account, ifolder, message.msgid);
         if (uid == null) {
             if (EntityOperation.MOVE.equals(op.name) &&
                     EntityFolder.DRAFTS.equals(folder.type))
@@ -734,7 +734,7 @@ class Core {
         message.uid = uid;
     }
 
-    private static Long findUid(Context context, EntityAccount account, IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException, IOException {
+    private static Long findUid(Context context, EntityAccount account, IMAPFolder ifolder, String msgid) throws MessagingException, IOException {
         String name = ifolder.getFullName();
         Log.i(name + " searching for msgid=" + msgid);
 
@@ -754,7 +754,7 @@ class Core {
         } else
             imessages = ifolder.search(new MessageIDTerm(msgid));
 
-        if (imessages != null) {
+        if (imessages != null)
             for (Message iexisting : imessages) {
                 long muid = ifolder.getUID(iexisting);
                 if (muid < 0)
@@ -764,26 +764,6 @@ class Core {
                 if (uid == null || muid > uid)
                     uid = muid;
             }
-
-            if (uid != null && purge) {
-                List<Message> deleted = new ArrayList<>();
-                for (Message iexisting : imessages) {
-                    long muid = ifolder.getUID(iexisting);
-                    if (muid < 0)
-                        continue;
-                    if (muid != uid)
-                        try {
-                            Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
-                            iexisting.setFlag(Flags.Flag.DELETED, true);
-                            deleted.add(iexisting);
-                        } catch (MessagingException ignored) {
-                            Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
-                        }
-                }
-
-                expunge(context, ifolder, deleted);
-            }
-        }
 
         Log.i(name + " got uid=" + uid + " for msgid=" + msgid);
         return uid;
@@ -1143,23 +1123,41 @@ class Core {
 
             // Some providers do not list the new message yet
             try {
-                Long found = findUid(context, account, ifolder, message.msgid, true);
-                if (found != null)
-                    if (newuid == null)
-                        newuid = found;
-                    else if (!newuid.equals(found)) {
-                        Log.w(folder.name + " Added=" + newuid + " found=" + found);
-                        try {
-                            Message iprev = ifolder.getMessageByUID(Math.min(newuid, found));
-                            if (iprev != null) {
-                                iprev.setFlag(Flags.Flag.DELETED, true);
-                                expunge(context, ifolder, Arrays.asList(iprev));
-                            }
-                        } catch (MessagingException ex) {
-                            Log.w(ex);
-                        }
-                        newuid = Math.max(newuid, found);
+                Log.i(folder.name + " searching for added msgid=" + message.id);
+                Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+                if (imessages != null) {
+                    Long found = null;
+
+                    for (Message iexisting : imessages) {
+                        long muid = ifolder.getUID(iexisting);
+                        if (muid < 0)
+                            continue;
+                        Log.i(folder.name + " found added uid=" + muid + " msgid=" + message.msgid);
+                        if (found == null || muid > found)
+                            found = muid;
                     }
+
+                    if (found != null) {
+                        if (newuid == null || found > newuid)
+                            newuid = found;
+
+                        List<Message> delete = new ArrayList<>();
+                        for (Message iexisting : imessages) {
+                            long muid = ifolder.getUID(iexisting);
+                            if (muid < 0)
+                                continue;
+                            if (muid < newuid)
+                                try {
+                                    iexisting.setFlag(Flags.Flag.DELETED, true);
+                                    delete.add(iexisting);
+                                } catch (MessagingException ex) {
+                                    Log.w(ex);
+                                }
+                        }
+
+                        expunge(context, ifolder, delete);
+                    }
+                }
             } catch (MessagingException ex) {
                 Log.w(ex);
             }
@@ -1178,7 +1176,7 @@ class Core {
             int count = 0;
             Long found = newuid;
             while (found == null && count++ < FIND_RETRY_COUNT) {
-                found = findUid(context, account, ifolder, message.msgid, false);
+                found = findUid(context, account, ifolder, message.msgid);
                 if (found == null)
                     try {
                         Thread.sleep(FIND_RETRY_DELAY);
@@ -1385,7 +1383,7 @@ class Core {
                         if (TextUtils.isEmpty(msgid))
                             throw new IllegalArgumentException("move: msgid missing");
 
-                        Long uid = findUid(context, account, itarget, msgid, false);
+                        Long uid = findUid(context, account, itarget, msgid);
                         if (uid == null)
                             throw new IllegalArgumentException("move: uid not found");
 
