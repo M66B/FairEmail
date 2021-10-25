@@ -412,7 +412,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.DELETE:
-                                    onDelete(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    onDelete(context, jargs, account, folder, message, (IMAPFolder) ifolder);
                                     break;
 
                                 case EntityOperation.HEADERS:
@@ -740,20 +740,7 @@ class Core {
 
         Long uid = null;
 
-        Message[] imessages;
-        // https://stackoverflow.com/questions/18891509/how-to-get-message-from-messageidterm-for-yahoo-imap-profile
-        if (account.isYahooJp()) {
-            Message[] itemps = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date()));
-            List<Message> tmp = new ArrayList<>();
-            for (Message itemp : itemps) {
-                MessageHelper helper = new MessageHelper((MimeMessage) itemp, context);
-                if (msgid.equals(helper.getMessageID()))
-                    tmp.add(itemp);
-            }
-            imessages = tmp.toArray(new Message[0]);
-        } else
-            imessages = ifolder.search(new MessageIDTerm(msgid));
-
+        Message[] imessages = findMsgId(context, account, ifolder, msgid);
         if (imessages != null)
             for (Message iexisting : imessages) {
                 long muid = ifolder.getUID(iexisting);
@@ -767,6 +754,21 @@ class Core {
 
         Log.i(name + " got uid=" + uid + " for msgid=" + msgid);
         return uid;
+    }
+
+    private static Message[] findMsgId(Context context, EntityAccount account, IMAPFolder ifolder, String msgid) throws MessagingException, IOException {
+        // https://stackoverflow.com/questions/18891509/how-to-get-message-from-messageidterm-for-yahoo-imap-profile
+        if (account.isYahooJp()) {
+            Message[] itemps = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date()));
+            List<Message> tmp = new ArrayList<>();
+            for (Message itemp : itemps) {
+                MessageHelper helper = new MessageHelper((MimeMessage) itemp, context);
+                if (msgid.equals(helper.getMessageID()))
+                    tmp.add(itemp);
+            }
+            return tmp.toArray(new Message[0]);
+        } else
+            return ifolder.search(new MessageIDTerm(msgid));
     }
 
     private static Message findMessage(Context context, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException {
@@ -1124,7 +1126,7 @@ class Core {
             // Some providers do not list the new message yet
             try {
                 Log.i(folder.name + " searching for added msgid=" + message.id);
-                Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+                Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
                 if (imessages != null) {
                     Long found = null;
 
@@ -1558,7 +1560,7 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
         // Delete message
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1597,7 +1599,7 @@ class Core {
             if (!TextUtils.isEmpty(message.msgid) &&
                     (!found || EntityFolder.DRAFTS.equals(folder.type)))
                 try {
-                    Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+                    Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
                     if (imessages == null)
                         Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
                     else
@@ -1605,6 +1607,7 @@ class Core {
                             long muid = ifolder.getUID(iexisting);
                             if (found && muid == message.uid)
                                 continue;
+
                             Log.i(folder.name + " deleting uid=" + muid);
                             try {
                                 if (perform_expunge)
