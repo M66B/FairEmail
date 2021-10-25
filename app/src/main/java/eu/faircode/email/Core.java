@@ -1594,7 +1594,8 @@ class Core {
                     }
             }
 
-            if (!found && !TextUtils.isEmpty(message.msgid))
+            if (!TextUtils.isEmpty(message.msgid) &&
+                    (!found || EntityFolder.DRAFTS.equals(folder.type)))
                 try {
                     Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
                     if (imessages == null)
@@ -1602,6 +1603,8 @@ class Core {
                     else
                         for (Message iexisting : imessages) {
                             long muid = ifolder.getUID(iexisting);
+                            if (found && muid == message.uid)
+                                continue;
                             Log.i(folder.name + " deleting uid=" + muid);
                             try {
                                 if (perform_expunge)
