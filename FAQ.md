@@ -449,8 +449,9 @@ See also [this FAQ](#user-content-faq16).
 *... Invalid security certificate (Can't verify identity of server) ...*<br />
 *... Chain validation failed ... timestamp check failed ... Certificate expired at ...*<br />
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup).
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap *Manual setup and account options*).
 Please see the documentation of the email provider about the right host name.
+Sometimes the right host name is in the error message.
 
 You should try to fix this by contacting your provider or by getting a valid security certificate
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
@@ -2376,7 +2377,12 @@ The primary account is used when the account is ambiguous, for example when star
 
 Similarly, the primary identity of an account is used when the identity is ambiguous.
 
+The default email address is the email address of the primary identity of the primary account.
+
 There can be just one primary account and there can be just one primary identity per account.
+
+You can set an account or an identity to be primary by long pressing it in the list of accounts or identities.
+You can go to the list of accounts via *Manual setup and account options* in the main setup screen.
 
 <br />
 
