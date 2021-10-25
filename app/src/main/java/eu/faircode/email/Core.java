@@ -1575,7 +1575,6 @@ class Core {
         try {
             List<Message> deleted = new ArrayList<>();
 
-            boolean found = false;
             if (message.uid != null) {
                 Message iexisting = ifolder.getMessageByUID(message.uid);
                 if (iexisting == null)
@@ -1587,15 +1586,13 @@ class Core {
                             iexisting.setFlag(Flags.Flag.DELETED, true);
                         else
                             iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-
-                        found = true;
-                        if (perform_expunge || message.ui_deleted)
-                            deleted.add(iexisting);
+                        deleted.add(iexisting);
                     } catch (MessageRemovedException ignored) {
                         Log.w(folder.name + " existing gone uid=" + message.uid);
                     }
             }
 
+            boolean found = (deleted.size() > 0);
             if (!TextUtils.isEmpty(message.msgid) &&
                     (!found || EntityFolder.DRAFTS.equals(folder.type)))
                 try {
@@ -1619,8 +1616,7 @@ class Core {
                                 else
                                     iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
 
-                                if (perform_expunge || message.ui_deleted)
-                                    deleted.add(iexisting);
+                                deleted.add(iexisting);
                             } catch (MessageRemovedException ignored) {
                                 Log.w(folder.name + " existing gone uid=" + muid);
                             }
