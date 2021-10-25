@@ -4038,13 +4038,23 @@ class Core {
 
         try {
             boolean uidplus = MessageHelper.hasCapability(ifolder, "UIDPLUS");
-            String count = (uidplus ? messages.size() : "all") + "messages";
-            Log.i(ifolder.getName() + " expunging " + count);
-            if (uidplus)
+            if (uidplus) {
+                List<Long> uids = new ArrayList<>();
+                for (Message m : messages)
+                    try {
+                        uids.add(ifolder.getUID(m));
+                    } catch (MessagingException ex) {
+                        uids.add(-1L);
+                    }
+                Log.i(ifolder.getName() + " expunging " + TextUtils.join(",", uids));
                 ifolder.expunge(messages.toArray(new Message[0]));
-            else
+                Log.i(ifolder.getName() + " expunged " + TextUtils.join(",", uids));
+            } else {
+                Log.i(ifolder.getName() + " expunging all");
                 ifolder.expunge();
-            Log.i(ifolder.getName() + " expunged " + count);
+                Log.i(ifolder.getName() + " expunged all");
+            }
+
             return true;
         } catch (MessagingException ex) {
             // NO EXPUNGE failed.
