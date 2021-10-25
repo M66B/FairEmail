@@ -1364,13 +1364,15 @@ class Core {
 
         // Delete source
         if (!copy && (draft || !canMove)) {
-            try {
-                for (Message imessage : map.keySet())
+            List<Message> deleted = new ArrayList<>();
+            for (Message imessage : map.keySet())
+                try {
                     imessage.setFlag(Flags.Flag.DELETED, true);
-                expunge(context, ifolder, Arrays.asList(map.keySet().toArray(new Message[0])));
-            } catch (MessageRemovedException ex) {
-                Log.w(ex);
-            }
+                    deleted.add(imessage);
+                } catch (MessageRemovedException ex) {
+                    Log.w(ex);
+                }
+            expunge(context, ifolder, deleted);
         } else {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
