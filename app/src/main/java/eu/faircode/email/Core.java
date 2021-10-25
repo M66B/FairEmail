@@ -137,7 +137,7 @@ import javax.mail.search.SentDateTerm;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 class Core {
-    static final int DEFAULT_SYNC_CHUNCK_SIZE = 100;
+    static final int DEFAULT_CHUNCK_SIZE = 100;
 
     private static final int MAX_NOTIFICATION_DISPLAY = 10; // per group
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
@@ -2394,8 +2394,14 @@ class Core {
             if (account.isYahooJp()) {
                 for (Message imessage : idelete)
                     imessage.setFlag(Flags.Flag.DELETED, true);
-            } else
-                ifolder.setFlags(idelete.toArray(new Message[0]), new Flags(Flags.Flag.DELETED), true);
+            } else {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNCK_SIZE);
+
+                Flags flags = new Flags(Flags.Flag.DELETED);
+                for (List<Message> list : Helper.chunkList(idelete, chunk_size))
+                    ifolder.setFlags(list.toArray(new Message[0]), flags, true);
+            }
             Log.i(folder.name + " purge deleted");
             expunge(context, ifolder, idelete);
         } catch (Throwable ex) {
@@ -3118,7 +3124,7 @@ class Core {
                                     ranges.add(new Pair<>(first, last < 0 ? first : last));
 
                                 // https://datatracker.ietf.org/doc/html/rfc2683#section-3.2.1.5
-                                int chunk_size = prefs.getInt("chunk_size", DEFAULT_SYNC_CHUNCK_SIZE);
+                                int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNCK_SIZE);
                                 if (chunk_size < 200 &&
                                         (account.isGmail() || account.isOutlook()))
                                     chunk_size = 200;

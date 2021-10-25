@@ -1332,7 +1332,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 Helper.humanReadableByteCount(cache_size * 1024L)));
         sbSqliteCache.setProgress(sqlite_cache);
 
-        int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_SYNC_CHUNCK_SIZE);
+        int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNCK_SIZE);
         tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));
         sbChunkSize.setProgress(chunk_size);
 
