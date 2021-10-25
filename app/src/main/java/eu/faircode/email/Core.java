@@ -742,17 +742,20 @@ class Core {
 
         Message[] imessages;
         // https://stackoverflow.com/questions/18891509/how-to-get-message-from-messageidterm-for-yahoo-imap-profile
-        if (account.isYahooJp())
-            imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date()));
-        else
+        if (account.isYahooJp()) {
+            Message[] itemps = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date()));
+            List<Message> tmp = new ArrayList<>();
+            for (Message itemp : itemps) {
+                MessageHelper helper = new MessageHelper((MimeMessage) itemp, context);
+                if (msgid.equals(helper.getMessageID()))
+                    tmp.add(itemp);
+            }
+            imessages = tmp.toArray(new Message[0]);
+        } else
             imessages = ifolder.search(new MessageIDTerm(msgid));
+
         if (imessages != null) {
             for (Message iexisting : imessages) {
-                if (account.isYahooJp()) {
-                    MessageHelper helper = new MessageHelper((MimeMessage) iexisting, context);
-                    if (!msgid.equals(helper.getMessageID()))
-                        continue;
-                }
                 long muid = ifolder.getUID(iexisting);
                 if (muid < 0)
                     continue;
