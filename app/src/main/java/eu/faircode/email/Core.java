@@ -4057,6 +4057,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean uid_expunge = prefs.getBoolean("uid_expunge", false);
+        int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNCK_SIZE);
 
         if (!perform_expunge)
             return false;
@@ -4086,7 +4087,8 @@ class Core {
                     @Override
                     public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
                         // https://datatracker.ietf.org/doc/html/rfc4315#section-2.1
-                        protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(uids)));
+                        for (List<Long> list : Helper.chunkList(uids, chunk_size))
+                            protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(list)));
                         return null;
                     }
                 });
