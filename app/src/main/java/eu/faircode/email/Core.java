@@ -1608,6 +1608,10 @@ class Core {
                             if (found && muid == message.uid)
                                 continue;
 
+                            MessageHelper helper = new MessageHelper((MimeMessage) iexisting, context);
+                            if (!message.msgid.equals(helper.getMessageID()))
+                                continue;
+
                             Log.i(folder.name + " deleting uid=" + muid);
                             try {
                                 if (perform_expunge)
