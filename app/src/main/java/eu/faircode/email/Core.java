@@ -1125,7 +1125,7 @@ class Core {
 
             // Some providers do not list the new message yet
             try {
-                Log.i(folder.name + " searching for added msgid=" + message.id);
+                Log.i(folder.name + " searching for added msgid=" + message.msgid);
                 Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
                 if (imessages != null) {
                     Long found = null;
