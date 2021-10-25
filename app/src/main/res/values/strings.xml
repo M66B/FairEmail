@@ -664,6 +664,7 @@
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
     <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
     <string name="title_advanced_expunge" translatable="false">AUTO EXPUNGE</string>
+    <string name="title_advanced_uid_expunge" translatable="false">UID EXPUNGE</string>
     <string name="title_advanced_auth_plain" translatable="false">PLAIN</string>
     <string name="title_advanced_auth_login" translatable="false">LOGIN</string>
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>

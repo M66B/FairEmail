@@ -68,6 +68,7 @@ import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
+import com.sun.mail.imap.protocol.UIDSet;
 import com.sun.mail.pop3.POP3Folder;
 import com.sun.mail.pop3.POP3Message;
 import com.sun.mail.pop3.POP3Store;
@@ -4037,21 +4038,40 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+        boolean uid_expunge = prefs.getBoolean("uid_expunge", false);
+
         if (!perform_expunge)
             return false;
 
         try {
-            boolean uidplus = MessageHelper.hasCapability(ifolder, "UIDPLUS");
-            if (uidplus) {
+            if (uid_expunge)
+                uid_expunge = MessageHelper.hasCapability(ifolder, "UIDPLUS");
+
+            if (uid_expunge) {
+                FetchProfile fp = new FetchProfile();
+                fp.add(UIDFolder.FetchProfileItem.UID);
+                ifolder.fetch(messages.toArray(new Message[0]), fp);
+
                 List<Long> uids = new ArrayList<>();
                 for (Message m : messages)
                     try {
-                        uids.add(ifolder.getUID(m));
-                    } catch (MessagingException ex) {
-                        uids.add(-1L);
+                        long uid = ifolder.getUID(m);
+                        if (uid < 0)
+                            continue;
+                        uids.add(uid);
+                    } catch (MessageRemovedException ex) {
+                        Log.w(ex);
                     }
+
                 Log.i(ifolder.getName() + " expunging " + TextUtils.join(",", uids));
-                ifolder.expunge(messages.toArray(new Message[0]));
+                ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                    @Override
+                    public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                        // https://datatracker.ietf.org/doc/html/rfc4315#section-2.1
+                        protocol.uidexpunge(UIDSet.createUIDSets(Helper.toLongArray(uids)));
+                        return null;
+                    }
+                });
                 Log.i(ifolder.getName() + " expunged " + TextUtils.join(",", uids));
             } else {
                 Log.i(ifolder.getName() + " expunging all");
