@@ -1858,6 +1858,8 @@ class Core {
     }
 
     private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
+        DB db = DB.getInstance(context);
+
         boolean retry = jargs.optBoolean(0);
 
         if (message.uid != null)
@@ -1908,12 +1910,15 @@ class Core {
                 msgid = message.msgid;
             }
             if (Objects.equals(message.msgid, msgid)) {
+                db.folder().setFolderAutoAdd(folder.id, false);
                 long uid = ifolder.getUID(imessages[0]);
                 EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
             } else {
+                db.folder().setFolderAutoAdd(folder.id, true);
                 EntityOperation.queue(context, message, EntityOperation.ADD);
             }
         } else {
+            db.folder().setFolderAutoAdd(folder.id, true);
             if (imessages != null && imessages.length > 1)
                 Log.e(folder.name + " EXISTS messages=" + imessages.length + " retry=" + retry);
             EntityLog.log(context, folder.name +
@@ -3553,7 +3558,8 @@ class Core {
                         dup.uid = uid;
                         dup.thread = thread;
 
-                        if (EntityFolder.SENT.equals(folder.type)) {
+                        if (EntityFolder.SENT.equals(folder.type) &&
+                                (folder.auto_add == null || !folder.auto_add)) {
                             Long sent = helper.getSent();
                             Long received = helper.getReceived();
                             if (sent != null)

@@ -102,6 +102,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Integer keep_days;
     @NonNull
     public Boolean auto_delete = false;
+    public Boolean auto_add; // sent messages
     public String display;
     public Integer color;
     @NonNull

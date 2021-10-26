@@ -356,6 +356,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET read_only = :read_only WHERE id = :id AND NOT (read_only IS :read_only)")
     int setFolderReadOnly(long id, boolean read_only);
 
+    @Query("UPDATE folder SET auto_add = :auto_add WHERE id = :id AND NOT (auto_add IS :auto_add)")
+    int setFolderAutoAdd(long id, Boolean auto_add);
+
     @Query("UPDATE folder SET tbc = NULL WHERE id = :id AND tbc IS NOT NULL")
     int resetFolderTbc(long id);
 

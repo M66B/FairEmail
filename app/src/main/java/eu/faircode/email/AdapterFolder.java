@@ -126,6 +126,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivSubscribed;
         private ImageView ivRule;
         private ImageView ivNotify;
+        private ImageView ivAutoAdd;
         private TextView tvName;
         private TextView tvMessages;
         private ImageView ivMessages;
@@ -164,6 +165,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivSubscribed = itemView.findViewById(R.id.ivSubscribed);
             ivRule = itemView.findViewById(R.id.ivRule);
             ivNotify = itemView.findViewById(R.id.ivNotify);
+            ivAutoAdd = itemView.findViewById(R.id.ivAutoAdd);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ivMessages = itemView.findViewById(R.id.ivMessages);
@@ -282,6 +284,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
                 ivRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
+                ivAutoAdd.setVisibility(BuildConfig.DEBUG &&
+                        EntityFolder.SENT.equals(folder.type) &&
+                        (folder.auto_add == null || folder.auto_add)
+                        ? View.VISIBLE : View.GONE);
             }
 
             int cunseen = (folder.collapsed ? folder.childs_unseen : 0);
