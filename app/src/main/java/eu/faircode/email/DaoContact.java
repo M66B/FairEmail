@@ -97,9 +97,13 @@ public interface DaoContact {
     @Query("DELETE FROM contact" +
             " WHERE last_contacted IS NOT NULL" +
             " AND last_contacted < :before" +
-            " AND state <> " + EntityContact.STATE_FAVORITE)
+            " AND state <> " + EntityContact.STATE_FAVORITE +
+            " AND (type = " + EntityContact.TYPE_TO +
+            " OR type = " + EntityContact.TYPE_FROM + ")")
     int deleteContacts(long before);
 
-    @Query("DELETE FROM contact")
+    @Query("DELETE FROM contact" +
+            " WHERE (type = " + EntityContact.TYPE_TO +
+            " OR type = " + EntityContact.TYPE_FROM + ")")
     int clearContacts();
 }
