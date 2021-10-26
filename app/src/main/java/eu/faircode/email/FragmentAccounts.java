@@ -333,7 +333,7 @@ public class FragmentAccounts extends FragmentBase {
                         grpReady.setVisibility(View.VISIBLE);
 
                         if (accounts.size() == 0) {
-                            fab.setCustomSize(Helper.dp2pixels(context, 3 * 56 / 2));
+                            fab.setCustomSize(Helper.dp2pixels(context, 2 * 56));
                             if (!animator.isStarted())
                                 animator.start();
                         } else {
