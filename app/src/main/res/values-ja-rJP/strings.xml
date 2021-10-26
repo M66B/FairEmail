@@ -242,7 +242,10 @@
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
+    <string name="title_setup_reset_general">よくある質問</string>
+    <string name="title_setup_reset_full">元のメッセージを表示</string>
     <string name="title_setup_reset_images">画像を表示</string>
+    <string name="title_setup_reset_links">リンクの確認</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
     <string name="title_advanced_hint_message">        高度なオプションに移動しています。
         全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
@@ -497,6 +500,7 @@
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
+    <string name="title_advanced_autolock">ロック画面 OFF</string>
     <string name="title_advanced_generic_user_agent">既定のブラウザのユーザーエージェントを使用する</string>
     <string name="title_advanced_disconnect_auto_update">リストを自動的に毎週更新</string>
     <string name="title_advanced_disconnect_links">リストを使用して追跡リンクについて警告する</string>
@@ -1128,6 +1132,7 @@
     <string name="title_search_hint">        はじめに、お使いのデバイスに保存されているメッセージを検索します。
         サーバーも検索するには「もう一度検索」ボタンをタップします
     </string>
+    <string name="title_search_index_hint">検索インデックスを介した検索は高速ですが単語全体しか検索されません。</string>
     <string name="title_search_text_hint">メッセージ内のテキストを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります。</string>
     <string name="title_search_text_unsupported">\'%s\' は、メールサーバーがメッセージテキスト内の検索をサポートしていないことを意味します</string>
     <string name="title_search_size_hint">サイズ別にメッセージを検索しています。メッセージが多い場合、一部のサーバーでは動作しない可能性があります。</string>

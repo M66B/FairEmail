@@ -79,7 +79,7 @@
     <string name="title_notification_sending_left">剩餘嘗試數: %1$d</string>
     <string name="title_notification_sending_retry">傳送操作將在互聯網連線變更或於寄件匣執行下拉操作後重試</string>
     <string name="title_notification_sending_failed">訊息未能成功傳送至 %1$s</string>
-    <string name="title_notification_redacted">已編輯： 生物特徵辨識或 PIN 碼驗證已啟用。</string>
+    <string name="title_notification_redacted">已隱去敏感內容： 生物特徵辨識或 PIN 碼驗證已啟用。</string>
     <string name="title_factor_minutes">%1$d 分鐘</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
@@ -482,7 +482,7 @@
     <string name="title_advanced_notify_subtext">帳戶或資料夾名稱顯示為從屬文字</string>
     <string name="title_advanced_wearable_preview">僅向穿戴式裝置傳送帶有訊息預覽的通知</string>
     <string name="title_advanced_notify_messaging">使用 Android ‘訊息式樣’通知格式</string>
-    <string name="title_advanced_biometrics_notify">在使用生物特徵辨識驗證時顯示通知內容</string>
+    <string name="title_advanced_biometrics_notify">採用生物特徵辨識驗證時顯示通知內容</string>
     <string name="title_advanced_light">使用通知指示燈</string>
     <string name="title_advanced_sound">選擇通知音效</string>
     <string name="title_advanced_notify_screen_on">為新訊息通知而暫時開啟螢幕</string>
@@ -499,7 +499,7 @@
     <string name="title_advanced_secure">自最近應用程式螢幕中隱藏並阻止螢幕畫面擷取</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物特徵辨識驗證時限</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">關閉螢幕後上鎖</string>
+    <string name="title_advanced_autolock">關閉螢幕後上鎖</string>
     <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
     <string name="title_advanced_disconnect_auto_update">每周自動更新清單一次</string>
     <string name="title_advanced_disconnect_links">使用追蹤保護清單來發出追蹤連結相關警告</string>

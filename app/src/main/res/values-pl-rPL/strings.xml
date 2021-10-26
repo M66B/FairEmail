@@ -280,6 +280,8 @@
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
          Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
+    <string name="title_advanced_hint_remark">Opcje są podzielone na kategorie według zakładek, podzielone na sekcje, uporządkowane według wyglądu lub użycia i można je przeszukiwać.
+    </string>
     <string name="title_advanced_hint_setup">Konto możesz skonfigurować, dotykając przycisku kreatora na głównym ekranie konfiguracji.</string>
     <string name="title_advanced_section_main">Główne</string>
     <string name="title_advanced_section_synchronize">Odbieranie</string>
@@ -530,6 +532,7 @@
     <string name="title_advanced_secure">Ukryj z ekranu ostatnich aplikacji i zapobiegaj wykonywaniu zrzutów ekranu</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
+    <string name="title_advanced_autolock">Zablokuj po wyłączeniu ekranu</string>
     <string name="title_advanced_generic_user_agent">Użyj agenta użytkownika ogólnego przeglądarki</string>
     <string name="title_advanced_disconnect_auto_update">Automatycznie aktualizuj listy co tydzień</string>
     <string name="title_advanced_disconnect_links">Użyj list do rozpoznawania linków śledzących</string>
@@ -787,6 +790,8 @@
     <string name="title_notify_batch_disable">Wyłącz powiadomienia o nowej wiadomości</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Usuń trwale</string>
+    <string name="title_expunge_remark">Spowoduje to trwałe usunięcie wszystkich wiadomości oznaczonych do usunięcia</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_empty_spam">Opróżnij Spam</string>
     <string name="title_edit_properties">Edytuj właściwości</string>

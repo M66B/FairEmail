@@ -510,6 +510,7 @@
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare gli screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout dell\'autenticazione biometrica</string>
+    <string name="title_advanced_autolock">Blocca a schermo spento</string>
     <string name="title_advanced_generic_user_agent">Usa l\'agente utente del browser generico</string>
     <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>

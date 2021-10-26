@@ -79,6 +79,7 @@
     <string name="title_disagree">मैं असहमत हूं</string>
     <string name="title_setup">सेटिंग्स</string>
     <string name="title_setup_help">सहायता</string>
+    <string name="title_setup_identity_remark">ईमेल भेजें</string>
     <string name="title_setup_export">सेटिंग्स निर्यात</string>
     <string name="title_setup_import">सेटिंग्स आयात करें</string>
     <string name="title_setup_options">विकल्प</string>

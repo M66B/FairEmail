@@ -18,9 +18,9 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 <h2><a name="authorizing-accounts"></a>Tilien valtuutus</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Useimmissa tapauksissa pika-asetusvelho pystyy automaattisesti tunnistamaan oikeat asetukset.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Jos pika-asetusvelho epäonnistuu, tili on määritettävä manuaalisesti (sähköpostin vastaanottamiseksi) ja identiteetti (sähköpostin lähettämiseksi). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
@@ -482,7 +482,7 @@ Some people ask:
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Jos käytät Play Kaupan tai GitHubin versiota FairEmailista, voit käyttää pika-asetusvelhoa, että saat määritettyä Gmail-tilin ja identiteetin helposti. Gmailin pika-asetusvelho ei ole käytettävissä kolmannen osapuolen koontiversioissa, kuten F-Droid-versiossa, koska Google on hyväksynyt OAuthin käytön vain virallisissa koontiversioissa.
 
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 

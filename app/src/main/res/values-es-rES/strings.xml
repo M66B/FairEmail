@@ -260,6 +260,8 @@
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
         Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
+    <string name="title_advanced_hint_remark">        Las opciones se clasifican en pestañas, divididas en secciones, organizadas por apariencia o uso y buscables.
+    </string>
     <string name="title_advanced_hint_setup">Puede configurar una cuenta tocando el botón del asistente en la pantalla de configuración principal.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
@@ -510,6 +512,7 @@
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
+    <string name="title_advanced_autolock">Bloquear al apagar pantalla</string>
     <string name="title_advanced_generic_user_agent">Usar agente de usuario de navegador genérico</string>
     <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
@@ -767,6 +770,8 @@
     <string name="title_notify_batch_disable">Desactivar notificaciones de mensajes nuevos</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Purgar</string>
+    <string name="title_expunge_remark">Esto eliminará permanentemente todos los mensajes marcados para su eliminación</string>
     <string name="title_empty_trash">Vaciar papelera</string>
     <string name="title_empty_spam">Vaciar spam</string>
     <string name="title_edit_properties">Editar propiedades</string>

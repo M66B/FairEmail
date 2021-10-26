@@ -9,14 +9,14 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 ## Index
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
-* [How to ...?](#user-content-howto)
-* [Known problems](#user-content-known-problems)
-* [Planned features](#user-content-planned-features)
-* [Frequently requested features](#user-content-frequently-requested-features)
-* [Frequently Asked Questions](#user-content-frequently-asked-questions)
-* [Get support](#user-content-get-support)
+* [איך…?](#user-content-howto)
+* [תקלות ידועות](#user-content-known-problems)
+* [יכולות מתוכננות](#user-content-planned-features)
+* [יכולות שהרבה מבקשים](#user-content-frequently-requested-features)
+* [שאלות נפוצות](#user-content-frequently-asked-questions)
+* [קבלת תמיכה](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
+<h2><a name="authorizing-accounts"></a>אימות חשבונות</h2>
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
@@ -41,11 +41,11 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 Related questions:
 
 * [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [למה אין תמיכה ב־ActiveSync?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## איך…?
 
 * Change the account name: Settings, tap Manual setup, tap Accounts, tap account
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
@@ -690,7 +690,7 @@ Public keys are stored by FairEmail and can be imported when verifying a signatu
 
 FairEmail verifies both the signature and the complete certificate chain.
 
-Common errors:
+שגיאות נפוצות:
 
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
@@ -938,13 +938,13 @@ The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*
 <a name="connectiondropped"></a>
 The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+השגיאה *… Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+האזהרה *… Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
+השגיאה *… Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
 
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
@@ -954,13 +954,13 @@ Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
-Possible causes are:
+הסיבות האפשריות הן:
 
-* A firewall or router is blocking connections to the server
-* The host name or port number is invalid
-* There are problems with the internet connection
-* There are problems with resolving domain names (Yandex: try to disable private DNS in the Android settings)
-* The email server is refusing to accept (external) connections
+* חומת אש או נתב חוסמים את החיבורים לשרת
+* שם המארח או מספר הפתחה שגויים
+* יש תקלות בחיבור לאינטרנט
+* יש תקלות בפתרון שמות תחום (Yandex: כדאי לנסות להשבית את ה־DNS הפרטי בהגדרות Android)
+* שרת הדוא״ל מסרב לקבל חיבורים (חיצוניים)
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
@@ -968,7 +968,7 @@ Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you c
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
-**Send errors**
+**שגיאות שליחה**
 
 SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
@@ -982,7 +982,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
 * *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgoing message as harmful.
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
-* *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: please [see here](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) or [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* *451 4.7.0 Temporary server error. נא לנסות שוב מאוחר יותר. PRX4 ...*: please [see here](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) or [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 * *571 5.7.1 Relay access denied*: please double check the username and email address in the advanced identity settings (via the manual setup).
 
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
@@ -994,15 +994,15 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 <br />
 
-**Gmail errors**
+**שגיאות Gmail**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+השגיאה *… האימות נכשל… Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+השגיאות *… האימות נכשל… No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
@@ -1075,7 +1075,7 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <a name="faq26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). רישום הוא בחינם.
 
 If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 
@@ -1084,17 +1084,17 @@ If you would like your name or alias to be included in the list of contributors 
 <a name="faq27"></a>
 **(27) How can I distinguish between embedded and external images?**
 
-External image:
+תמונה חיצונית:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![תמונה חיצונית](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+תמונה מוטמעת:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![תמונה מוטמעת](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+תמונה פגומה:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![תמונה פגומה](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1113,7 +1113,7 @@ FairEmail has the following notification channels:
 * Send: used for the notification of the send service
 * Notifications: used for new message notifications
 * Warning: used for warning notifications
-* Error: used for error notifications
+* שגיאה: משמשת להתראות על שגיאות
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
 

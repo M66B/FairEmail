@@ -152,7 +152,7 @@
     <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
     <string name="title_advanced_pin">PIN</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
+    <string name="title_advanced_autolock">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>

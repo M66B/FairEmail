@@ -1210,11 +1210,11 @@ Les identités correspondantes peuvent être utilisées pour attribuer des coule
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
+**(35) Pourquoi devrais-je faire attention à la visualisation des images, des pièces jointes, du message original et à l'ouverture des liens ?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
+Visualiser les images stockées à distance (voir aussi [cette FAQ](#user-content-faq27)) et ouvrir les liens pourrait non seulement indiquer à l'expéditeur que vous avez vu le message, mais dévoilera également votre adresse IP. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
-Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
+Ouvrir des pièces jointes ou afficher un message original peut charger du contenu distant et exécuter des scripts, qui pourraient non seulement causer des fuites d'informations sensibles sur la vie privée, mais peuvent aussi représenter un risque de sécurité.
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
@@ -1222,7 +1222,7 @@ FairEmail formats messages again causing messages to look different from the ori
 
 Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
 
-The Gmail app shows images by default by downloading the images through a Google proxy server. Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), this is even less secure because Google is involved too without providing much benefit.
+L'application Gmail affiche par défaut les images en les téléchargeant via un serveur proxy Google. Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), this is even less secure because Google is involved too without providing much benefit.
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
@@ -1307,7 +1307,7 @@ In addition, the trash and spam folders will be automatically set to checking fo
 
 You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
-It is inevitable that data will be used to synchronize messages.
+Il est inévitable que des données soient utilisées lors de la synchronisation des messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. Dans ce cas, c'est une bonne idée de réduire le nombre de jours pour synchroniser les messages au minimum (voir la question précédente) ou de passer à la synchronisation périodique des messages (paramètres de réception).
 

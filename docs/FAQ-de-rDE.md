@@ -2640,7 +2640,7 @@ Die Anzeige seltsamer Zeichen wird fast immer dadurch verursacht, dass keine ode
 <br />
 
 <a name="faq141"></a>
-**(141) Wie kann ich den Fehler 'Ein Entwürfe-Ordner wird benötigt, um Nachrichten zu senden' beheben?**
+**(141) Wie kann ich den Fehler »Ein Entwürfe-Ordner wird benötigt, um Nachrichten zu senden« beheben?**
 
 Um Entwürfe zu speichern, wird ein Entwürfe-Ordner benötigt. In den meisten Fällen wählt FairEmail, wenn ein Konto hinzugefügt wird, basierend auf [den Attributen](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml), die der E-Mail-Server sendet, automatisch den Ordner für Entwürfe aus. Einige E-Mail-Server sind jedoch nicht richtig konfiguriert und senden diese Attribute nicht. In diesem Fall versucht FairEmail den Entwürfe-Ordner nach Namen zu identifizieren, dies könnte aber fehlschlagen, wenn der Entwürfe-Ordner einen ungewöhnlichen Namen hat oder überhaupt nicht vorhanden ist.
 

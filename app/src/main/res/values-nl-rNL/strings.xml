@@ -259,6 +259,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
         Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
+    <string name="title_advanced_hint_remark">        De opties zijn gecategoriseerd op tabblad, verdeeld in secties, georganiseerd op uiterlijk of gebruik en doorzoekbaar.
+    </string>
     <string name="title_advanced_hint_setup">Je kunt een account configureren door op de wizard knop op het hoofdconfiguratiescherm te tikken.</string>
     <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
@@ -510,7 +512,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Vergrendel als scherm uitgaat</string>
+    <string name="title_advanced_autolock">Vergrendel als scherm uitgaat</string>
     <string name="title_advanced_generic_user_agent">Gebruik algemene browser user agent</string>
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
@@ -768,6 +770,8 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_notify_batch_disable">Schakel meldingen voor nieuwe berichten uit</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Uitwissen</string>
+    <string name="title_expunge_remark">Dit zal alle berichten die gemarkeerd zijn om te verwijderen permanent verwijderen</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_empty_spam">Spam map leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>

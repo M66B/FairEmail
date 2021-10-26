@@ -260,6 +260,8 @@
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
     </string>
+    <string name="title_advanced_hint_remark">        Seçimlər, vərəqlərə görə kateqoriyalandırılıb, bölmələrə ayrılıb, görünüş və ya istifadəyə görə sinifləndirilib və axtarıla biləndir.
+    </string>
     <string name="title_advanced_hint_setup">Əsas konfiqurasiya ekranındakı sehrbaz düyməsinə toxunaraq bir hesabı konfiqurasiya edə bilərsiniz.</string>
     <string name="title_advanced_section_main">Əsas</string>
     <string name="title_advanced_section_synchronize">Gələn</string>
@@ -510,6 +512,7 @@
     <string name="title_advanced_secure">Son tətbiqlər ekranından gizlət və ekran şəklinin çəkilməsini əngəllə</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometrik kimlik təsdiqləmə bitmə vaxtı</string>
+    <string name="title_advanced_autolock">Ekranı kilidləmə bağlıdır</string>
     <string name="title_advanced_generic_user_agent">Ümumi səyyah istifadəçi agentini istifadə et</string>
     <string name="title_advanced_disconnect_auto_update">Siyahıları həftəlik olaraq avto-yenilə</string>
     <string name="title_advanced_disconnect_links">İzləmə linkləri haqqında xəbərdarlıq etmək üçün siyahıları istifadə et</string>
@@ -766,6 +769,8 @@
     <string name="title_notify_batch_disable">Yeni mesaj bildirişlərini sıradan çıxart</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_delete_browsed">Nəzər yetirilmiş/axtarılmış mesajları sil</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Birdəfəlik sil</string>
+    <string name="title_expunge_remark">Bu, silinmək üçün işarələnmiş bütün mesajları birdəfəlik siləcək</string>
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_empty_spam">Spam qovluğunu boşalt</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>

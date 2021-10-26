@@ -1651,22 +1651,22 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 <br />
 
 <a name="faq64"></a>
-**~~(64) Can you add custom actions for swipe left/right?~~**
+**~~(64) Sola/sağa sürüşdürmə üçün özəl əməliyyatlar əlavə edə bilərsiniz?~~**
 
-~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~ ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~ ~~You can select the folder to move to in the account settings.~~
+~~Bir siyahı girişini sola və ya sağa sürüşdürərkən ediləcək ən təbii şey, girişi siyahıdan çıxartmaqdır.~~ ~~Bir e-poçt tətbiqi konteksindəki ən təbii əməliyyat, mesajı bir qovluqdan başqa bir qovluğa daşımaqdır.~~ ~~Hesab tənzimləmələrindən daşınacaq qovluğu seçə bilərsiniz.~~
 
-~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
+~~Oxunan mesajları işarələmə və mesajları ertələmə kimi digər əməliyyatlar, çoxlu seçim vasitəsilə edilə bilər.~~ ~~Çoxlu seçimi başlatmaq üçün bir mesaja uzun basa bilərsiniz. Həmçinin [bu suala](#user-content-faq55) baxın.~~
 
-~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~ ~~Note that there is an advanced option to mark messages automatically read on moving,~~ ~~which is in most cases a perfect replacement for the sequence mark read and move to some folder.~~ ~~You can also mark messages read from new message notifications.~~
+~~Bir mesajı oxundu və ya oxunmadı olaraq işarələmək üçün sola və sağa sürüşdürmə təbii deyil, çünki mesaj əvvəlcə yoxa çıxır və daha sonra fərqli formada geri gəlir.~~ ~~Hərəkətdə olarkən mesajları avto-oxunan olaraq işarələmək üçün qabaqcıl seçim olduğunu unutmayın,~~ ~~bu, əksər hallarda, ardıcıllıq işarəsinin oxunması və bəzi qovluğa daşınması üçün mükəmməl bir alternativdir.~~ ~~Yeni mesaj bildirişlərindən mesajları oxunan olaraq işarələyə bilərsiniz.~~
 
-~~If you want to read a message later, you can hide it until a specific time by using the *snooze* menu.~~
+~~Bir mesajı daha sonra oxumaq istəsəniz, *ertələ* menyusunu istifadə edərək müəyyən bir vaxta qədər gizlədə bilərsiniz.~~
 
 <br />
 
 <a name="faq65"></a>
-**(65) Why are some attachments shown dimmed?**
+**(65) Bəzi qoşmalar niyə qaralmış görünür?**
 
-Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically, but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40), FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
+Sətir içi (təsvir) qoşmalar qaralmış görünür. [Sətir içi qoşmalar](https://tools.ietf.org/html/rfc2183), əslində avtomatik olaraq endirilib göstərilməlidir, ancaq FairEmail, qoşmaları hər zaman avtomatik olaraq endirmir, həmçinin [bu TSS-ya](#user-content-faq40) baxa bilərsiniz, FairEmail, bütün qoşma növlərini göstərir. Sətir içi və normal qoşmaları ayırd etmək üçün sətir içi qoşmalar qaralmış göstərilir.
 
 <br />
 

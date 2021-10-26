@@ -16,6 +16,10 @@
     <string name="channel_error">שגיאות</string>
     <string name="channel_alert">התראות שרת</string>
     <string name="channel_group_contacts">אנשי קשר</string>
+    <string name="channel_service_description">סנכרון ומעקב אחר חשבונות</string>
+    <string name="channel_send_description">שליחת הודעות</string>
+    <string name="channel_notification_description">התראות על הודעות חדשות</string>
+    <string name="channel_progress_description">התראות התקדמות על פעילויות שאורכות זמן רב</string>
     <plurals name="page_conversation">
         <item quantity="one">דיון</item>
         <item quantity="two">דיונים</item>
@@ -65,6 +69,12 @@
         <item quantity="many">%1$d חדשות</item>
         <item quantity="other">%1$d חדשות</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">להעביר הודעה?</item>
+        <item quantity="two">להעביר %1$d הודעות?</item>
+        <item quantity="many">להעביר %1$d הודעות?</item>
+        <item quantity="other">להעביר %1$d הודעות?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">למחוק את ההודעה לצמיתות?</item>
         <item quantity="two">למחוק %1$d הודעות לצמיתות?</item>
@@ -78,10 +88,17 @@
         <item quantity="other">האם לסמן %1$d הודעות כדואר זבל?</item>
     </plurals>
     <string name="title_ask_spam_who">האם לסמן את ההודעה מ %1$s כדואר זבל?</string>
-    <string name="title_block">חסום את %1$s</string>
-    <string name="title_block_sender">חסום את השולח</string>
-    <string name="title_block_domain">חסום את תחום השולח</string>
-    <string name="title_junk_clear">נקה</string>
+    <string name="title_junk_hint">ספק הדוא״ל שלך אמון על סינון הספאם. ליישומון דוא״ל אין את כל הנתונים הנחוצים לעשות זאת בצורה מהימנה.</string>
+    <string name="title_block">חסימת %1$s</string>
+    <string name="title_block_sender">חסימת השולח</string>
+    <string name="title_block_domain">חסימת תחום השולח</string>
+    <string name="title_block_sender_hint">        חסימת מען היא תכונה חינמית.
+        חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
+    </string>
+    <string name="title_junk_filter">להשתמש במסנן ספאם מקומי</string>
+    <string name="title_junk_filter_hint">עשוי להגדיל את צריכת הסלוללה ולסמן הודעות כספאם בשוגג</string>
+    <string name="title_junk_blocklist">להשתמש ברשימות חסימת ספאם</string>
+    <string name="title_junk_clear">פינוי</string>
     <string name="title_notification_sending">הודעות נשלחות</string>
     <string name="title_notification_waiting">בהמתנה לחיבור מתאים</string>
     <string name="title_notification_idle">בהמתנה</string>
@@ -120,60 +137,118 @@
     <string name="title_setup">הגדרות</string>
     <string name="title_setup_help">עזרה</string>
     <string name="title_setup_quick">הגדרה מהירה</string>
+    <string name="title_setup_quick_accounts">הוספה או עריכה של חשבונות</string>
+    <string name="title_setup_quick_support">חלק מהספקים מקשים על הוספת חשבון. אין טעם להאשים את FailEmail בכך, אך בהחלט ניתן לבקש תמיכה.</string>
     <string name="title_setup_quick_hint">הגדרה מהירה מקבלת נתוני הגדרה  מ- autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">נא להתאזר בסבלנות &#8230;</string>
     <string name="title_setup_quick_imap">IMAP שרת לקבל מיילים</string>
     <string name="title_setup_quick_smtp">SMTP שרת למסור מיילים</string>
     <string name="title_setup_quick_certificates">אישורי שרת</string>
     <string name="title_setup_wizard">אשף</string>
+    <string name="title_setup_wizard_multiple">אפשר להשתמש באשף מספר פעמים כדי להגדיר מגוון חשבונות</string>
     <string name="title_setup_accounts">חשבונות</string>
     <string name="title_setup_identities">זהויות</string>
-    <string name="title_setup_other">ספקים אחרים</string>
+    <string name="title_setup_other">ספק אחר</string>
+    <string name="title_setup_pop3">חשבון POP3</string>
+    <string name="title_setup_oauth_permission">ספק הדוא״ל אישור OAuth לגרסאות רשמיות של היישומון</string>
+    <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה רשמית כיוון ש־Android בודק את חתימת היישומון</string>
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, למסור, ולמחוק המיילים שלך. Fairmail לעולם לא ימחוק בלי הסכמתך</string>
     <string name="title_setup_gmail_drafts">אם אי אפשר לגשת לטיוטות דרך IMAP, אפשר לתקן בהגדרות של Gmail label</string>
-    <string name="title_setup_oauth_rationale">להרשות גישה לחשבון  %1$s</string>
+    <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
     <string name="title_setup_oauth_authorize">להרשות</string>
-    <string name="title_setup_select_account">לבחור חשבון</string>
-    <string name="title_setup_instructions">להגדיר הוראות</string>
+    <string name="title_setup_select_account">בחירת חשבון</string>
+    <string name="title_setup_instructions">הנחיות הגדרה</string>
     <string name="title_setup_no_settings">אין הגדרת לדומיין \'%1$s\'</string>
     <string name="title_setup_no_auth_hint">נא לבדוק בחזרה הכתובת והסיסמא ולבדוק שהגישה החיצונית (IMAP/SMTP) מופעלת בחשבונך  </string>
+    <string name="title_setup_no_inbox">לא נמצא תיבת דואר נכנס</string>
+    <string name="title_setup_advanced_protection">רישום לתכנית ההגנה המתקדמת מונעת שימוש ביישומון דוא״ל מגורמי צד־שלישי. זאת הגבלה שנאכפת על ידי Google.</string>
+    <string name="title_setup_quick_success">חשבון נוסף בהצלחה</string>
+    <string name="title_setup_quick_no_sent">לא נבחרה תיקיית הודעות יוצאות. ההודעות היוצאות לא תישמרנה.</string>
+    <string name="title_setup_quick_configure">כדי לערוך שם, צבע, פעולות החלקה ועוד</string>
     <string name="title_setup_manage">ניהול</string>
     <string name="title_setup_grant">הענקה</string>
     <string name="title_setup_grant_again">הענקת ההרשאות הנחוצות</string>
+    <string name="title_setup_exchange_support">יש תמיכה ב־Microsoft Exchange?</string>
+    <string name="title_setup_identity_what">מה זאת זהות?</string>
+    <string name="title_setup_free">היישומון הזה חופשי לשימוש?</string>
     <string name="title_setup_permissions">הענקת הרשאות</string>
     <string name="title_setup_permissions_remark">כדי לגשת לנתונים של איש הקשר (רשות)</string>
-    <string name="title_setup_go">סע</string>
+    <string name="title_setup_permissions_explanation">נדרשות הרשאות לאנשי הקשר כדי לחפש פרטי אנשי קשר ולהציע אנשי קשר</string>
+    <string name="title_setup_permission_import_contacts">איך אפשר לייבא אנשי קשר?</string>
+    <string name="title_setup_doze">השבתת מיטובי סוללה</string>
+    <string name="title_setup_doze_remark">כדי לשלוח ולקבל הודעות בצורה מהימנה</string>
+    <string name="title_setup_doze_battery">שימוש גבוה בסוללה?</string>
+    <string name="title_setup_doze_stopped">הסנכרון נפסק?</string>
+    <string name="title_setup_doze_device">זה כנראה אילוץ של המכשיר הזה</string>
+    <string name="title_setup_doze_12">הודעות בדחיפה מושבתות</string>
+    <string name="title_setup_alarm_12">היישומון לא יעבוד</string>
+    <string name="title_setup_inexact">התראות ותזכורות מושבתות</string>
+    <string name="title_setup_background">הגבלות רקע פעילות</string>
+    <string name="title_setup_data">חיסכון בתעבורת נתונים פעיל</string>
+    <string name="title_setup_advanced_options">הצגת אפשרויות מתקדמות</string>
+    <string name="title_setup_inbox">מעבר אל תיבת הדואר הנכנס</string>
+    <string name="title_setup_go">ביצוע</string>
     <string name="title_setup_to_do">לבצע</string>
     <string name="title_setup_done">בוצע</string>
     <string name="title_setup_still">עדיין לא בוצע</string>
     <string name="title_setup_error">שגיאה</string>
+    <string name="title_setup_configuring">חשבון מוגדר &#8230;</string>
+    <string name="title_setup_app_password">יתכן שיהיה עליך להשתמש בסיסמה ליישומון</string>
+    <string name="title_setup_close">סגירת ההגדרות</string>
     <string name="title_setup_export">שמור ההגדרות (גיבוי)</string>
     <string name="title_setup_import">ייבוא הגדרות</string>
     <string name="title_setup_password">סיסמה</string>
     <string name="title_setup_password_missing">סיסמה חסרה</string>
+    <string name="title_setup_theme">נא לבחור ערכת עיצוב</string>
+    <string name="title_setup_theme_blue_orange">כחול/כתום</string>
+    <string name="title_setup_theme_yellow_purple">צהוב/סגול</string>
+    <string name="title_setup_theme_red_green">אדום/ירוק</string>
     <string name="title_setup_theme_grey">אפור</string>
     <string name="title_setup_theme_black">שחור</string>
+    <string name="title_setup_theme_black_and_white">שחור ולבן</string>
     <string name="title_setup_theme_reverse">היפוך צבעים</string>
+    <string name="title_setup_theme_light">בהיר</string>
     <string name="title_setup_theme_dark">כהה</string>
+    <string name="title_setup_theme_system">כמו המערכת</string>
     <string name="title_setup_theme_black_background">רקע שחור</string>
+    <string name="title_setup_theme_html_light">רקע בהיר לתצוגת ההודעה המקורית</string>
+    <string name="title_setup_theme_composer_light">רקע בהיר לעורך ההודעות</string>
+    <string name="title_setup_theme_more_colors">ארצה צבעים נוספים</string>
     <string name="title_setup_advanced">מתקדם</string>
     <string name="title_setup_options">אפשרויות</string>
+    <string name="title_setup_defaults">שחזור בררות מחדל</string>
+    <string name="title_setup_reset_questions">איפוס שאלות</string>
+    <string name="title_setup_reset_general">שאלות כלליות</string>
+    <string name="title_setup_reset_full">הצגת ההודעה המקורית</string>
+    <string name="title_setup_reset_images">הצגת תמונות</string>
+    <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
+    <string name="title_advanced_hint_remark">        האפשרויות מסודרות בקטגוריות לפי לשונית, בחלוקה לסעיפים ובסידור לפי הופעה או שימוש כולל אפשרות לחיפוש.
+    </string>
+    <string name="title_advanced_section_main">ראשי</string>
     <string name="title_advanced_section_synchronize">קבלה</string>
     <string name="title_advanced_section_send">שליחה</string>
     <string name="title_advanced_section_connection">חיבור</string>
+    <string name="title_advanced_section_display">תצוגה</string>
     <string name="title_advanced_section_behavior">התנהגות</string>
     <string name="title_advanced_section_privacy">פרטיות</string>
     <string name="title_advanced_section_encryption">הצפנה</string>
     <string name="title_advanced_section_notifications">התראות</string>
     <string name="title_advanced_section_misc">שונות</string>
     <string name="title_advanced_when">מתי</string>
+    <string name="title_advanced_schedule">לוח זמנים</string>
     <string name="title_advanced_advanced">מתקדם</string>
+    <string name="title_advanced_quick_sync">סנכרון מהיר</string>
     <string name="title_advanced_no_date">הודעות ללא תאריך</string>
     <string name="title_advanced_unseen">כל ההודעות שלא נקראו</string>
     <string name="title_advanced_flagged">כל ההודעות המסומנות</string>
     <string name="title_advanced_delete_unseen">מחיקת ההודעות הישנות</string>
     <string name="title_advanced_sync_folders">סנכרון רשימת התיקיות</string>
     <string name="title_advanced_subscriptions">ניהול מינוי על תיקיות</string>
+    <string name="title_advanced_send_reminders">הצגת תזכורות</string>
+    <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
+    <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
+    <string name="title_advanced_reply_all">לחיצה ארוכה על כפתור התשובה תענה לכולם</string>
     <string name="title_advanced_signature_location">מיקום החתימה</string>
     <string name="title_advanced_caption_general">כללי</string>
     <string name="title_advanced_caption_list">רשימה</string>
@@ -224,7 +299,7 @@
     <string name="title_aliases">כינויים</string>
     <string name="title_provider">ספק</string>
     <string name="title_encryption">הצפנה</string>
-    <string name="title_port">שם פתחה</string>
+    <string name="title_port">מספר פתחה</string>
     <string name="title_user">שם משתמש</string>
     <string name="title_password">סיסמה</string>
     <string name="title_password_storage">איך סיסמאות מאוחסנות?</string>
@@ -232,15 +307,17 @@
     <string name="title_email_invalid">הכתובת הדוא\"ל שגוייה :  \'%1$s\'</string>
     <string name="title_address_parse_error">הכתובת \'%1$s\'  שגוייה : %2$s</string>
     <string name="title_no_account">חסר חשבון</string>
-    <string name="title_no_password">סיסמא חסרה</string>
+    <string name="title_no_password">חסרה סיסמה</string>
     <string name="title_service_vpn">יתכן והסיבה לעניין היא רשת פרטית וירטואלית (vpn) אשר נמצאת בשימוש</string>
     <string name="title_service_port">יש לבדוק שוב את מספר הפורט (יציאה וירטואלית)</string>
     <string name="title_synchronize_enabled">סנכרון</string>
-    <string name="title_empty_trash">ריקון אשפה</string>
-    <string name="title_empty_spam">רוקן ספאם</string>
-    <string name="title_insert_contact">הוסף איש קשר</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">פינוי</string>
+    <string name="title_expunge_remark">פעולה זו תמחק לצמיתות את כל ההודעות שסומנו למחיקה</string>
+    <string name="title_empty_trash">פינוי אשפה</string>
+    <string name="title_empty_spam">פינוי ספאם</string>
+    <string name="title_insert_contact">הוספת איש קשר</string>
     <string name="title_months">חודשים</string>
-    <string name="title_months_all">הכל</string>
+    <string name="title_months_all">הכול</string>
     <string name="title_folder_unified">תיבת דואר נכנס מאוחדת</string>
     <string name="title_folder_outbox">דואר יוצא</string>
     <string name="title_folder_all">ארכיון</string>
@@ -249,53 +326,53 @@
     <string name="title_folder_junk">ספאם</string>
     <string name="title_folder_sent">נשלח</string>
     <string name="title_folder_system">מערכת</string>
-    <string name="title_folder_user">שם משתמש</string>
-    <string name="title_no_folders">ללא תיקיה</string>
+    <string name="title_folder_user">משתמש</string>
+    <string name="title_no_folders">אין תיקיות</string>
     <string name="title_no_messages">אין הודעות</string>
-    <string name="title_hide">הסתר</string>
-    <string name="title_unhide">הצג</string>
-    <string name="title_flag">הוסף כוכב</string>
-    <string name="title_unflag">הסר כוכב</string>
-    <string name="title_set_importance">הגדר חשיבות</string>
+    <string name="title_hide">הסתרה</string>
+    <string name="title_unhide">הצגה</string>
+    <string name="title_flag">הוספת כוכב</string>
+    <string name="title_unflag">הסרת כוכב</string>
+    <string name="title_set_importance">הגדרת חשיבות</string>
     <string name="title_importance_low">נמוכה</string>
     <string name="title_importance_normal">רגילה</string>
     <string name="title_importance_high">גבוהה</string>
     <string name="title_raw_send_message">הודעה</string>
-    <string name="title_raw_send_thread">דיונים</string>
+    <string name="title_raw_send_thread">דיון</string>
     <string name="title_trash">אשפה</string>
-    <string name="title_delete">מחק</string>
+    <string name="title_delete">מחיקה</string>
     <string name="title_spam">ספאם</string>
-    <string name="title_move">הזז</string>
+    <string name="title_move">העברה</string>
     <string name="title_copy_btn">העתקה</string>
     <string name="title_no_junk">לא ספאם</string>
-    <string name="title_move_to">עבור אל &#8230;</string>
-    <string name="title_move_to_folder">עבור אל &#8230;</string>
+    <string name="title_move_to">העברה אל &#8230;</string>
+    <string name="title_move_to_folder">העברה אל &#8230;</string>
     <string name="title_archive">ארכיון</string>
-    <string name="title_reply">השב</string>
-    <string name="title_reply_to_sender">השב למוסר</string>
-    <string name="title_reply_to_all">השב לכולם</string>
-    <string name="title_reply_list">השב לרשימה</string>
+    <string name="title_reply">תגובה</string>
+    <string name="title_reply_to_sender">להגיב למוען</string>
+    <string name="title_reply_to_all">להגיב לכולם</string>
+    <string name="title_reply_list">להגיב לרשימה</string>
     <string name="title_open_with">פתיחה באמצעות</string>
-    <string name="title_no_folder">התיק אינו קיים!</string>
-    <string name="title_show_full">הצג ההודעה השלמה</string>
+    <string name="title_no_folder">התיקייה אינה קיימת</string>
+    <string name="title_show_full">הצגת ההודעה המלאה</string>
     <string name="title_ask_save">לשמור את השינויים?</string>
-    <string name="title_compose">חבר הודעה</string>
-    <string name="title_submitter">נשלח מאת:</string>
-    <string name="title_delivered_to">נמסר ל:</string>
-    <string name="title_from">1546</string>
+    <string name="title_compose">כתיבת הודעה</string>
+    <string name="title_submitter">נשלח על ידי:</string>
+    <string name="title_delivered_to">נמסר אל:</string>
+    <string name="title_from">מאת:</string>
     <string name="title_to">אל:</string>
     <string name="title_sent">נשלח:</string>
-    <string name="title_received">התקבל: </string>
+    <string name="title_received">התקבל:</string>
     <string name="title_size">גודל:</string>
     <string name="title_language">שפה:</string>
     <string name="title_subject">נושא:</string>
-    <string name="title_body_hint">הודעתך</string>
-    <string name="title_discard">בטל</string>
-    <string name="title_save">שמור</string>
-    <string name="title_send">למסור</string>
-    <string name="title_send_now">שלח עכשיו</string>
-    <string name="title_send_via">למסור דרך</string>
-    <string name="title_send_at">למסור ל &#8230;</string>
+    <string name="title_body_hint">ההודעה שלך</string>
+    <string name="title_discard">השלכה</string>
+    <string name="title_save">שמירה</string>
+    <string name="title_send">לשלוח</string>
+    <string name="title_send_now">לשלוח כעת</string>
+    <string name="title_send_via">לשלוח דרך</string>
+    <string name="title_send_at">לשלוח ב־&#8230;</string>
     <string name="title_send_encryption">הצפנה</string>
     <string name="title_send_priority">עדיפות</string>
     <string name="title_style_bold">מודגש</string>
@@ -303,84 +380,273 @@
     <string name="title_style_underline">קו תחתון</string>
     <string name="title_style_size">גודל</string>
     <string name="title_style_list">רשימה</string>
-    <string name="title_style_link">הכנס קישור</string>
-    <string name="title_add_image">הוסף תמונה</string>
-    <string name="title_add_image_inline">הזן</string>
-    <string name="title_add_image_attach">צרף</string>
+    <string name="title_style_link">הוספת קישור</string>
+    <string name="title_add_image">הוספת תמונה</string>
+    <string name="title_add_image_inline">הוספה</string>
+    <string name="title_add_image_attach">צירוף</string>
     <string name="title_add_image_resize">שינוי גודל</string>
     <string name="title_add_image_select">בחירת קובץ</string>
-    <string name="title_add_attachment">צרף קובץ</string>
-    <string name="title_attachment_file">צרף קובץ</string>
+    <string name="title_add_attachment">צירוף קובץ</string>
+    <string name="title_attachment_file">צירוף קובץ</string>
     <string name="title_attachment_audio">הקלטת שמע</string>
-    <string name="title_send_dialog">הצג אפשרויות מסירה</string>
-    <string name="title_image_dialog">הצג אפשרויות תמונה </string>
+    <string name="title_send_dialog">הצגת אפשרויות שילוח</string>
+    <string name="title_image_dialog">הצגת אפשרויות תמונה</string>
     <string name="title_signature_subject">נושא</string>
-    <string name="title_search">חפש</string>
+    <string name="title_search">חיפוש</string>
     <string name="title_search_index_hint">חיפוש דרך מפתח החיפוש הוא מהיר, אך מוצא מילים שלמות בלבד.</string>
     <string name="title_sort_on_priority">עדיפות</string>
     <string name="title_sort_on_subject">נושא</string>
     <string name="title_sort_on_size">גודל</string>
     <string name="title_filter_seen">נקראה</string>
-    <string name="title_language_all">הכל</string>
-    <string name="title_rule_hide">הסתר</string>
+    <string name="title_language_all">הכול</string>
+    <string name="title_rule_hide">הסתרה</string>
     <string name="title_rule_snooze">נודניק</string>
-    <string name="title_rule_flag">הוסף כוכב</string>
-    <string name="title_rule_importance">הגדר חשיבות</string>
-    <string name="title_rule_move">הזז</string>
-    <string name="title_rule_enabled">מופעל</string>
+    <string name="title_rule_flag">הוספת כוכב</string>
+    <string name="title_rule_importance">הגדרת חשיבות</string>
+    <string name="title_rule_move">העברה</string>
+    <string name="title_rule_enabled">פעיל</string>
+    <string name="title_rule_regex">ביטוי רגולרי</string>
+    <string name="title_rule_and">וגם</string>
+    <string name="title_rule_action">פעולה</string>
+    <string name="title_rule_action_remark">פעולה זו תחול על הודעות חדשות שמגיעות לתיקייה %1$s</string>
+    <string name="title_rule_hours">שעות</string>
+    <string name="title_rule_schedule_end">מהסוף של תנאי הזמן</string>
+    <string name="title_rule_folder">תיקייה</string>
+    <string name="title_rule_thread">כל ההודעות באותו הדיון והתיקייה</string>
+    <string name="title_rule_identity">זהות</string>
+    <string name="title_rule_template">תבנית תגובה</string>
+    <string name="title_rule_forward_to">העברה אל</string>
+    <string name="title_rule_with_attachments">עם קבצים מצורפים</string>
+    <string name="title_rule_name_missing">שם הכלל חסר</string>
+    <string name="title_rule_condition_missing">תנאי חסר</string>
+    <string name="title_rule_folder_missing">תיקייה חסרה</string>
+    <string name="title_rule_identity_missing">זהות חסרה</string>
+    <string name="title_rule_answer_missing">תבנית חסרה</string>
+    <string name="title_rule_keyword_missing">מילת מפתח חסרה</string>
+    <string name="title_rule_applied">הודעות שיושפעו: %1$d</string>
+    <string name="title_rule_check">בדיקה</string>
+    <string name="title_rule_no_headers">אי אפשר לבדוק תנאי כותרות</string>
+    <string name="title_rule_matched">הודעות תואמות</string>
+    <string name="title_rule_no_matches">אין הודעות תואמות</string>
+    <string name="title_rule_tts_ok">ההגדרה הצליחה</string>
+    <string name="title_rule_tts_setup">בדיקת ההגדרות</string>
+    <string name="title_rule_tts_data">התקנת נתונים קוליים</string>
+    <string name="title_rule_tts_prefix">הודעה חדשה</string>
+    <string name="title_rule_tts_from">מאת</string>
     <string name="title_rule_tts_subject">נושא</string>
+    <string name="title_rule_tts_content">טקסט</string>
     <string name="title_legend_section_synchronize">סנכרון</string>
     <string name="title_legend_section_folders">תיקיות</string>
     <string name="title_legend_section_messages">הודעות</string>
     <string name="title_legend_section_compose">חבר הודעה</string>
+    <string name="title_legend_section_keyboard">מקלדת</string>
     <string name="title_legend_drafts">טיוטות</string>
     <string name="title_legend_sent">נשלח</string>
     <string name="title_legend_archive">ארכיון</string>
     <string name="title_legend_trash">אשפה</string>
     <string name="title_legend_junk">ספאם</string>
+    <string name="title_legend_primary">עיקרי</string>
     <string name="title_legend_thread">דיונים</string>
+    <string name="title_legend_view">הצגת תוכן</string>
+    <string name="title_legend_hide">הסתרת תוכן</string>
+    <string name="title_legend_download">הורדת תוכן</string>
+    <string name="title_legend_original">הצגת ההודעה המקורית</string>
+    <string name="title_legend_reformatted">הצגת ההודעה המעוצבת</string>
+    <string name="title_legend_external_image">ממלא מקום לתמונה חיצונית</string>
+    <string name="title_legend_embedded_image">ממלא מקום לתמונה מוטמעת</string>
+    <string name="title_legend_tracking_pixel">תמונת מעקב</string>
+    <string name="title_legend_broken_image">תמונה פגומה</string>
+    <string name="title_legend_pick">בחירת איש קשר</string>
     <string name="title_legend_link">הכנס קישור</string>
     <string name="title_legend_file">צרף קובץ</string>
+    <string name="title_legend_picture">הוספת תמונה</string>
     <string name="title_legend_audio">הקלטת שמע</string>
-    <string name="title_legend_save">שמור</string>
-    <string name="title_legend_delete">מחק</string>
-    <string name="title_legend_a">ארכיון</string>
-    <string name="title_legend_c">חבר הודעה</string>
-    <string name="title_legend_r">השב</string>
-    <string name="title_add">הוסף</string>
+    <string name="title_legend_save">שמירה</string>
+    <string name="title_legend_delete">מחיקה</string>
+    <string name="title_legend_a">לארכיון</string>
+    <string name="title_legend_c">כתיבת הודעה</string>
+    <string name="title_legend_r">תגובה</string>
+    <string name="title_yes">כן</string>
+    <string name="title_no">לא</string>
+    <string name="title_later">אחר כך</string>
+    <string name="title_undo">ביטול</string>
+    <string name="title_redo">ביצוע מחדש</string>
+    <string name="title_add">הוספה</string>
     <string name="title_browse">פתיחה באמצעות</string>
+    <string name="title_info">פרטים</string>
+    <string name="title_download">הורדה</string>
+    <string name="title_report">דוח</string>
     <string name="title_fix">תקן</string>
     <string name="title_show">הצגה</string>
+    <string name="title_enable">הפעלה</string>
     <string name="title_enabled">מופעל</string>
+    <string name="title_disable">השבתה</string>
+    <string name="title_1hour">שעה</string>
+    <string name="title_1day">יום</string>
+    <string name="title_1week">שבוע</string>
+    <string name="title_now">עכשיו</string>
+    <string name="title_after">אחרי %1$s</string>
     <string name="title_reset">איתחול מחדש</string>
+    <string name="title_hours">שעות</string>
+    <string name="title_minutes">דקות</string>
+    <string name="title_dismiss">התעלמות</string>
     <string name="title_snooze_now">נודניק</string>
+    <string name="title_loading">בטעינה &#8230;</string>
+    <string name="title_fetching_again">ההודעה נמשכת מהשרת שוב</string>
+    <string name="title_conversation_actions">פעולות</string>
     <string name="title_pro_feature">זוהי יכולת של גירסת ה-pro</string>
     <string name="title_pro_purchase">קנה</string>
     <string name="title_log_clear">נקה</string>
     <string name="title_debug_info_remark">אנא תאר את הבעיה תוך ציון הזמן שבה קרתה:</string>
+    <string name="title_power_menu_sync">סנכרון</string>
+    <string name="title_power_menu_on">פעיל</string>
+    <string name="title_power_menu_off">כבוי</string>
+    <string name="title_power_menu_on_off">פעיל/כבוי</string>
+    <string name="title_widget_account">חשבון</string>
     <string name="title_widget_account_all">הכל</string>
+    <string name="title_widget_folder">תיקייה</string>
+    <string name="title_widget_unseen">הודעות שלא נקראו בלבד</string>
+    <string name="title_widget_font_size">גודל טקסט</string>
+    <string name="title_widget_padding">גודל ריפוד</string>
+    <string name="title_widget_semi_transparent">רקע שקוף למחצה</string>
+    <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
+    <string name="title_widget_background">צבע הרקע</string>
+    <string name="title_accessibility_collapsed">מצומצם</string>
+    <string name="title_accessibility_expanded">מורחב</string>
     <string name="title_accessibility_seen">נקראה</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">חשוב</string>
+    <string name="title_keyword_label2">עבודה</string>
+    <string name="title_keyword_label3">אישי</string>
     <string name="title_keyword_label4">לבצע</string>
+    <string name="title_keyword_label5">מאוחר יותר</string>
+    <string name="title_accessibility_collapse">צמצום</string>
+    <string name="title_accessibility_expand">הרחבה</string>
+    <string name="title_accessibility_view_contact">הצגת פרטי קשר</string>
+    <string name="title_accessibility_show_authentication_result">הצגת תוצאת אימות</string>
+    <string name="title_accessibility_show_snooze_time">הצגת זמן נודניק</string>
+    <string name="title_accessibility_view_help">הצגת עזרה</string>
+    <string name="title_accessibility_edit">עריכה</string>
+    <string name="title_accessibility_show_addresses">הצגת כתובות</string>
+    <string name="title_accessibility_hide_addresses">הסתרת כתובות</string>
+    <string name="title_accessibility_attachment">קובץ מצורף</string>
+    <string name="title_accessibility_from">מוען</string>
+    <string name="title_accessibility_to">נמען</string>
+    <string-array name="pollIntervalNames">
+        <item>תמיד</item>
+        <item>כל 5 דקות</item>
+        <item>כל רבע שעה</item>
+        <item>כל חצי שעה</item>
+        <item>כל שעה</item>
+        <item>כל שעתיים</item>
+        <item>כל 4 שעות</item>
+        <item>כל 8 שעות</item>
+        <item>כל יום</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>לא</item>
+        <item>15 שניות</item>
+        <item>חצי דקה</item>
+        <item>דקה</item>
+        <item>2 דקות</item>
+        <item>5 דקות</item>
+        <item>10 דקות</item>
+    </string-array>
     <string-array name="startupNames">
         <item>תיבת דואר נכנס מאוחדת</item>
-        <item>Unified folders</item>
-        <item>Primary account folders</item>
+        <item>תיקיות מאוחדות</item>
+        <item>תיקיות החשבון העיקרי</item>
         <item>חשבונות</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 ק״ב</item>
+        <item>32 ק״ב</item>
+        <item>64 ק״ב</item>
+        <item>128 ק״ב</item>
+        <item>256 ק״ב</item>
+        <item>512 ק״ב</item>
+        <item>1 מ״ב</item>
+        <item>2 מ״ב</item>
+        <item>4 מ״ב</item>
+        <item>8 מ״ב</item>
+        <item>16 מ״ב</item>
+        <item>∞</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>לא לעשות כלום</item>
+        <item>מעבר לדיון הקודם</item>
+        <item>מעבר לדיון הבא</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>קטן</item>
+        <item>בינוני</item>
+        <item>גודל</item>
+        <item>גדול במיוחד</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>אל</item>
-        <item>Cc</item>
-        <item>Bcc</item>
+        <item>עותק</item>
+        <item>עותק סמוי</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>דקה</item>
+        <item>2 דקות</item>
+        <item>5 דקות</item>
+        <item>10 דקות</item>
+        <item>20 דקות</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>בהתחלה</item>
+        <item>באמצע</item>
+        <item>בסוף</item>
+        <item>להציג ללא חיתוכים</item>
     </string-array>
     <string-array name="priorityNames">
         <item>נמוכה</item>
         <item>רגילה</item>
         <item>גבוהה</item>
     </string-array>
+    <string-array name="fontSizeNames">
+        <item>ברירת מחדל</item>
+        <item>קטן</item>
+        <item>בינוני</item>
+        <item>גודל</item>
+    </string-array>
+    <string name="title_size_tiny">זעיר</string>
+    <string-array name="sizeNames">
+        <item>0 ב׳</item>
+        <item>256 ק״ב</item>
+        <item>512 ק״ב</item>
+        <item>1 מ״ב</item>
+        <item>2 מ״ב</item>
+        <item>5 מ״ב</item>
+        <item>10 מ״ב</item>
+        <item>20 מ״ב</item>
+        <item>50 מ״ב</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>כבוי</item>
+        <item>2.5 שנ׳</item>
+        <item>5 שנ׳</item>
+        <item>7.5 שנ׳</item>
+        <item>10 שנ׳</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>מחובר</item>
+        <item>מעוטר</item>
+        <item>נטול עיטורים</item>
+        <item>ברוחב מהיר</item>
+        <item>פנטזיה</item>
+        <item>OpenDyslexic</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>שם בלבד</item>
+        <item>דוא״ל בלבד</item>
+        <item>שם ודוא״ל</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->

@@ -1,12 +1,12 @@
-# Setup help
+# עזרה בהגדרות
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+הגדרת FairEmail היא די פשוטה. יהיה עליך להוסיף לפחות חשבון אחד כדי לקבל הודעות ולפחות זהות אחת כדי לשלוח הודעות. ההגדרה המהירה תוסיף חשבון וזהות בבת אחת עבור רוב הספקות הגדולות.
 
-## Requirements
+## דרישות
 
-An internet connection is required to set up accounts and identities.
+נדרש חיבור לאינטרנט כדי להקים חשבונות וזהויות.
 
-## Quick setup
+## הגדרה מהירה
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 

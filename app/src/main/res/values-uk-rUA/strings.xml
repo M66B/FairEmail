@@ -281,6 +281,8 @@
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.
         Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
+    <string name="title_advanced_hint_remark">        Параметри класифіковані вкладками, розділені на секції, організовані за зовнішній виглядом або за використанням, та доступні для пошуку.
+    </string>
     <string name="title_advanced_hint_setup">Ви можете налаштувати обліковий запис, натиснувши на кнопку майстра на головній сторінці конфігурації.</string>
     <string name="title_advanced_section_main">Головне</string>
     <string name="title_advanced_section_synchronize">Отримання</string>
@@ -531,7 +533,7 @@
     <string name="title_advanced_secure">Приховати з екрану останніх програм і не дозволяти робити знімки екрану</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Тайм-аут біометричної автентифікації</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Блокування при вимкненому екрані</string>
+    <string name="title_advanced_autolock">Блокування при вимкненому екрані</string>
     <string name="title_advanced_generic_user_agent">Використовувати User agent браузера</string>
     <string name="title_advanced_disconnect_auto_update">Автоматично оновлювати списки щотижня</string>
     <string name="title_advanced_disconnect_links">Використовуйте списки для попередження про посилання за якими можливе відслідковування</string>
@@ -788,6 +790,8 @@
     <string name="title_notify_batch_disable">Вимкнути сповіщення про нові повідомлення</string>
     <string name="title_delete_local">Видалити локальні повідомлення</string>
     <string name="title_delete_browsed">Видалити переглянуті/знайденні повідомлення</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Витерти</string>
+    <string name="title_expunge_remark">Це назавжди видалить усі повідомлення, позначені для видалення</string>
     <string name="title_empty_trash">Очистити кошик</string>
     <string name="title_empty_spam">Очистити спам</string>
     <string name="title_edit_properties">Редагувати властивості</string>

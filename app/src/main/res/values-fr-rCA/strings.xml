@@ -260,6 +260,8 @@
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
     </string>
+    <string name="title_advanced_hint_remark">        Les options sont rangées par catégories dans des onglets divisés en sections, elles sont organisées selon l\'apparence ou l\'usage et peuvent être recherchées.
+    </string>
     <string name="title_advanced_hint_setup">Vous pouvez configurer un compte en appuyant sur le bouton Assistant sur l\'écran principal de configuration.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Réception</string>
@@ -510,7 +512,7 @@
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
     <string name="title_advanced_pin">NIP</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Verrouiller lorsque l\'écran s\'éteint</string>
+    <string name="title_advanced_autolock">Verrouiller lorsque l\'écran s\'éteint</string>
     <string name="title_advanced_generic_user_agent">Utiliser l\'agent utilisateur générique du navigateur</string>
     <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
@@ -768,6 +770,8 @@
     <string name="title_notify_batch_disable">Désactiver les notifications de nouveau message</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Effacer</string>
+    <string name="title_expunge_remark">Ceci supprimera définitivement tous les messages marqués pour suppression</string>
     <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_empty_spam">Vider les indésirables</string>
     <string name="title_edit_properties">Modifier les propriétés</string>

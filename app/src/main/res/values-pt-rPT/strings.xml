@@ -235,6 +235,8 @@
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.
         Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
     </string>
+    <string name="title_advanced_hint_remark">        As opções são categorizadas por separador, divididas em secções, organizadas por aspeto ou uso, e pesquisáveis.
+    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Receber</string>
     <string name="title_advanced_section_send">Enviar</string>
@@ -443,6 +445,7 @@
     <string name="title_advanced_secure">Esconder do ecrã de aplicações recentes e impedir captura de ecrã</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo limite para autenticação biométrica</string>
+    <string name="title_advanced_autolock">Bloquear quando o ecrã se desligar</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -490,6 +493,8 @@
     <string name="title_no_password">Palavra-passe ausente</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Esponja</string>
+    <string name="title_expunge_remark">Isto irá apagar permanentemente todas as mensagens marcadas para exclusão</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_sort_unread_atop">Ordenar as não lidas no topo</string>
     <string name="title_search_folder">Pesquisar pasta</string>

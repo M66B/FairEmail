@@ -250,6 +250,8 @@
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项
         所有选项默认均使用可更改的常用标准值
     </string>
+    <string name="title_advanced_hint_remark">        各个选项按照标签页分类，标签页内又分为多个部分，按外观或用途进行整理，并且可搜索。
+    </string>
     <string name="title_advanced_hint_setup">您可以通过点击主配置屏幕上的向导按钮来配置一个帐户。</string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
@@ -500,7 +502,7 @@
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">屏幕关闭时锁定</string>
+    <string name="title_advanced_autolock">屏幕关闭时锁定</string>
     <string name="title_advanced_generic_user_agent">使用通用浏览器用户代理</string>
     <string name="title_advanced_disconnect_auto_update">每周自动更新列表</string>
     <string name="title_advanced_disconnect_links">使用列表警告跟踪链接</string>
@@ -758,6 +760,8 @@
     <string name="title_notify_batch_disable">禁用新消息通知</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Expunge</string>
+    <string name="title_expunge_remark">这将永久删除所有标记要删除的邮件</string>
     <string name="title_empty_trash">清空回收站</string>
     <string name="title_empty_spam">清空垃圾邮件</string>
     <string name="title_edit_properties">编辑属性</string>

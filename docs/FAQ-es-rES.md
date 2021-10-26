@@ -2,31 +2,31 @@
 
 # Soporte de FairEmail
 
-Si tienes alguna pregunta, por favor comprueba primero las preguntas frecuentes siguientes. [En la parte inferior](#user-content-get-support), puede averiguar cómo hacer otras preguntas, solicitar características, y reportar errores.
+Si tiene alguna pregunta, por favor compruebe primero las siguientes preguntas frecuentes. [En la parte inferior](#user-content-get-support), puede averiguar cómo hacer otras preguntas, solicitar características, y reportar errores.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
 * [Autorizando cuentas](#user-content-authorizing-accounts)
-* [¿Cómo...?](#user-content-howto)
+* [¿Cómo ...?](#user-content-howto)
 * [Problemas conocidos](#user-content-known-problems)
 * [Características planificadas](#user-content-planned-features)
 * [Características solicitadas con frecuencia](#user-content-frequently-requested-features)
 * [Preguntas frecuentes](#user-content-frequently-asked-questions)
 * [Obtener ayuda](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Autorizando cuentas</h2>
+<h2><a name="authorizing-accounts"></a>Añadir cuentas</h2>
 
 En la mayoría de los casos, el asistente de configuración rápida podrá identificar automáticamente la configuración correcta.
 
-Si el asistente de configuración rápida falla, necesitará configurar manualmente una cuenta (para recibir correo electrónico) y una identidad (para enviar correo electrónico). Para esto necesitarás las direcciones de los servidores IMAP y SMTP y números de puerto, ya sea SSL/TLS o STARTTLS deberían usarse y su nombre de usuario (generalmente, pero no siempre, su dirección de correo electrónico) y su contraseña.
+Si el asistente de configuración rápida falla, necesitará configurar manualmente una cuenta (para recibir correo electrónico) y una identidad (para enviar correo electrónico). Para esto necesitará las direcciones de los servidores IMAP y SMTP y números de puerto (tanto SSL/TLS como STARTTLS pueden usarse), su nombre de usuario (generalmente coincide con su dirección de correo electrónico, pero no siempre) y su contraseña.
 
 Buscar *IMAP* y el nombre del proveedor es generalmente suficiente para encontrar la documentación correcta.
 
-En algunos casos, necesitarás habilitar el acceso externo a tu cuenta y/o utilizar una contraseña especial (de aplicación), por ejemplo, cuando la autenticación de dos pasos esté habilitada.
+En algunos casos necesitará habilitar el acceso externo a su cuenta y/o utilizar una contraseña especial de aplicación, por ejemplo, cuando la autenticación de dos pasos esté habilitada.
 
-Para ayuda con autorización:
+Para ayuda con la autorización:
 
 * Gmail / G suite, ver [pregunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, ver [pregunta 14](#user-content-faq14)
@@ -36,7 +36,7 @@ Para ayuda con autorización:
 * Apple iCloud, ver [pregunta 148](#user-content-faq148)
 * Free.fr, ver [pregunta 157](#user-content-faq157)
 
-Por favor vea [aquí](#user-content-faq22) para mensajes de error y soluciones comunes.
+Por favor consulte [aquí](#user-content-faq22) para mensajes de error y soluciones comunes.
 
 Preguntas relacionadas:
 
@@ -47,24 +47,24 @@ Preguntas relacionadas:
 
 ## ¿Cómo ...?
 
-* Cambiar el nombre de la cuenta: Configuración, toque Configuración manual, toque Cuentas, toque la cuenta
-* Cambiar el objetivo del deslizamiento a la izquierda/derecha: Configuración, pestaña Comportamiento, Acciones de deslizamiento
-* Cambiar contraseña: Configuración, toque Configuración manual, toque Cuentas, toque cuenta, cambiar contraseña
-* Establecer una firma: Configuración, toque Configuración manual, toque Identidades, toque identidad, Editar firma.
+* Cambiar el nombre de la cuenta: Configuración, toque "Configuración manual", toque "Cuentas", toque la cuenta
+* Cambiar la acción al deslizar a la izquierda/derecha: Configuración, pestaña Comportamiento, "Acciones de deslizamiento"
+* Cambiar contraseña: Configuración, toque "Configuración manual", toque "Cuentas", toque la cuenta, "cambiar contraseña"
+* Establecer una firma: Configuración, toque "Configuración manual", toque "Identidades", toque la identidad, "Editar firma".
 * Añadir dirección CC y CCO: toque el icono de la persona al final del asunto
-* Ir al mensaje siguiente/anterior en archivar/eliminar: en la configuración de comportamiento desactive *Cerrar conversaciones automáticamente* y seleccione *Ir a la siguiente/anterior conversación* para *Al cerrar una conversación*
+* Ir al mensaje siguiente/anterior al archivar/eliminar: en la configuración de comportamiento desactive *Cerrar conversaciones automáticamente* y seleccione *Ir a la siguiente/anterior conversación* en el menú *Al cerrar una conversación*
 * Añadir una carpeta a la bandeja de entrada unificada: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en la bandeja de entrada unificada*
 * Añadir una carpeta al menú de navegación: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en el menú de navegación*
-* Cargar más mensajes: mantenga presionado una carpeta en la lista de carpetas, seleccione *Obtener más mensajes*
+* Cargar más mensajes: mantenga presionada una carpeta en la lista de carpetas y seleccione *Obtener más mensajes*
 * Eliminar un mensaje, omitiendo la papelera: mantenga presionado el icono de la papelera
-* Eliminar una cuenta/identidad: Configuración, toque Configuración Manual, toque Cuentas/Identidades, toque la cuenta/identidad, ícono Eliminar arriba a la derecha
-* Eliminar una carpeta: mantenga presionada la carpeta en la lista de carpetas, Editar propiedades, icono de papelera arriba a la derecha
+* Eliminar una cuenta/identidad: Configuración, toque "Configuración Manual", toque "Cuentas/Identidades", toque la cuenta/identidad, finalmente el ícono de eliminar arriba a la derecha
+* Eliminar una carpeta: mantenga presionada la carpeta en la lista de carpetas, "Editar propiedades", icono de eliminar arriba a la derecha
 * Deshacer enviar: Bandeja de salida, desliza el mensaje en la lista a la izquierda o derecha
 * Guardar mensajes enviados en la bandeja de entrada: por favor [vea estas Preguntas Frecuentes](#user-content-faq142)
-* Cambiar carpetas del sistema: Configuración, toque Configuración manual, toque Cuentas, toque cuenta, en la parte inferior
+* Cambiar carpetas del sistema: Configuración, toque "Configuración manual", toque "Cuentas", toque la cuenta en la parte inferior
 * Exportar/importar ajustes: Configuración, menú de navegación (izquierda)
 
-<h2><a name="known-problems"></a>Problema conocido</h2>
+<h2><a name="known-problems"></a>Problemas conocidos</h2>
 
 * ~~Un [error en Android 5.1 y 6](https://issuetracker.google.com/issues/37054851) hace que las aplicaciones muestren a veces un formato de hora incorrecto. Cambiar la configuración de Android *Usar formato de 24 horas* podría resolver temporalmente el problema. Una solución fue añadida.~~
 * ~~~Un [error en Google Drive](https://issuetracker.google.com/issues/126362828) hace que los archivos exportados a Google Drive estén vacíos. Google ha corregido esto.~~
@@ -1004,24 +1004,24 @@ El error *... La autenticación falló ... Cuenta no encontrada ...* significa q
 
 Los errores *... La autenticación falló... Sin token ... * significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail.
 
-El error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+El error *... Autenticación fallida... error de red...* significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail debido a problemas con la conexión a Internet
 
-El error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+El error *... Autenticación fallida... Credenciales inválidas ...* podría ser causado al cambiar la contraseña de la cuenta o al haber revocado los permisos de cuenta/contactos requeridos. En caso de que se haya cambiado la contraseña de la cuenta, deberá volver a autenticar la cuenta de Google en la configuración de la cuenta de Android. En caso de que los permisos hayan sido revocados, puede iniciar el asistente de configuración rápida de Gmail para conceder los permisos necesarios de nuevo (no necesita configurar la cuenta de nuevo).
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+El error *... Servicio deshabilitado ... * podría deberse a la inscripción en el [ Programa de protección avanzada ](https://landing.google.com/advancedprotection/): "* Para leer su correo electrónico, puede (debe) usar Gmail. No podrá usar su cuenta de Google con algunas (todas) las aplicaciones & que requieren acceso a datos confidenciales como sus correos electrónicos * ", ver [ aquí ](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+En caso de duda, puede solicitar [soporte](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+** (23) ¿Por qué recibo alerta ...? **
 
 *General*
 
-Alerts are warning messages sent by email servers.
+Las alertas son mensajes de advertencia enviados por los servidores de correo electrónico.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Demasiadas conexiones simultáneas* o *Número máximo de conexiones excedido*
 
 This alert will be sent when there are too many folder connections for the same email account at the same time.
 

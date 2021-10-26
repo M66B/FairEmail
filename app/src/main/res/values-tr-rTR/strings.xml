@@ -509,6 +509,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
+    <string name="title_advanced_autolock">Ekran kapandığında kilitle</string>
     <string name="title_advanced_generic_user_agent">Genel tarayıcı kullanıcı aracısını kullan</string>
     <string name="title_advanced_disconnect_auto_update">Listeleri haftalık olarak otomatik güncelle</string>
     <string name="title_advanced_disconnect_links">Takipçi içeren bağlantıları önden uyarabilmek için listeleri kullan</string>

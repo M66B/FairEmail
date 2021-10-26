@@ -270,6 +270,8 @@
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
+    <string name="title_advanced_hint_remark">        Opțiunile sunt clasificate pe file, împărțite în secțiuni, organizate în funcție de aspect sau utilizare și pot fi căutate.
+    </string>
     <string name="title_advanced_hint_setup">Puteți configura un cont apăsând pe butonul wizard din ecranul principal de configurare.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
@@ -520,7 +522,7 @@
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Blocare pe ecran oprit</string>
+    <string name="title_advanced_autolock">Blocare pe ecran oprit</string>
     <string name="title_advanced_generic_user_agent">Utilizați agentul utilizator generic al browserului</string>
     <string name="title_advanced_disconnect_auto_update">Actualizați automat listele săptămânal</string>
     <string name="title_advanced_disconnect_links">Folosește liste pentru a avertiza despre adrese de urmărire</string>
@@ -778,6 +780,8 @@
     <string name="title_notify_batch_disable">Dezactivarea notificărilor de mesaje noi</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Eliminați</string>
+    <string name="title_expunge_remark">Acest lucru va șterge definitiv toate mesajele marcate pentru ștergere</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_empty_spam">Golire spam</string>
     <string name="title_edit_properties">Editare proprietăți</string>

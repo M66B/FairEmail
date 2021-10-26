@@ -260,6 +260,8 @@
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
         Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
     </string>
+    <string name="title_advanced_hint_remark">        Οι επιλογές κατηγοριοποιούνται ανά καρτέλα, χωρίζονται σε τμήματα, οργανώνονται με κριτήριο την εμφάνιση ή τη χρήση, και υποστηρίζουν λειτουργία αναζήτησης.
+    </string>
     <string name="title_advanced_hint_setup">Μπορείτε να ρυθμίσετε έναν λογαριασμό πατώντας το κουμπί του Οδηγού στην κύρια οθόνη των ρυθμίσεων.</string>
     <string name="title_advanced_section_main">Κύριες</string>
     <string name="title_advanced_section_synchronize">Λήψη</string>
@@ -510,7 +512,7 @@
     <string name="title_advanced_secure">Απόκρυψη του FairEmail από τη λίστα των πρόσφατων εφαρμογών και παρεμπόδιση λήψης στιγμιοτύπου οθόνης</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Χρονικό περιθώριο για τη βιομετρική ταυτοποίηση</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Κλείδωμα όταν σβήνει η οθόνη</string>
+    <string name="title_advanced_autolock">Κλείδωμα όταν σβήνει η οθόνη</string>
     <string name="title_advanced_generic_user_agent">Χρήση του γενικού πράκτορα χρήστη του περιηγητή</string>
     <string name="title_advanced_disconnect_auto_update">Αυτόματη εβδομαδιαία ενημέρωση των λιστών</string>
     <string name="title_advanced_disconnect_links">Χρήση προειδοποιητικών λιστών για συνδέσμους ιχνηλάτησης</string>
@@ -766,6 +768,8 @@
     <string name="title_notify_batch_disable">Απενεργοποίηση ειδοποιήσεων για νέα μηνύματα</string>
     <string name="title_delete_local">Διαγραφή τοπικών μηνυμάτων</string>
     <string name="title_delete_browsed">Διαγραφή των φυλλομετρημένων/αναζητημένων μηνυμάτων</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Οριστική διαγραφή</string>
+    <string name="title_expunge_remark">Αυτό θα διαγράψει μόνιμα όλα τα μηνύματα που έχουν επισημανθεί για διαγραφή</string>
     <string name="title_empty_trash">Άδειασμα κάδου απορριμμάτων</string>
     <string name="title_empty_spam">Άδειασμα Ανεπιθύμητων</string>
     <string name="title_edit_properties">Επεξεργασία ιδιοτήτων</string>

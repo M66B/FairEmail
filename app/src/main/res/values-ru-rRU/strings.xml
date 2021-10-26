@@ -280,6 +280,8 @@
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
+    <string name="title_advanced_hint_remark">        Параметры сгруппированы по вкладкам, поделены на разделы, организованы по внешнему виду или использованию и доступны через поиск.
+    </string>
     <string name="title_advanced_hint_setup">Можно настроить учётную запись, нажав кнопку мастера на главном экране настроек.</string>
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
@@ -530,7 +532,7 @@
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Отключить блокировку экпана</string>
+    <string name="title_advanced_autolock">Отключить блокировку экпана</string>
     <string name="title_advanced_generic_user_agent">Использовать обычный пользовательский агент браузера</string>
     <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
@@ -788,6 +790,7 @@
     <string name="title_notify_batch_disable">Отключить уведомления о новых сообщениях</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
+    <string name="title_expunge_remark">Необратимое удаление всех сообщений, помеченных для удаления</string>
     <string name="title_empty_trash">Очистить корзину</string>
     <string name="title_empty_spam">Очистить \"Спам\"</string>
     <string name="title_edit_properties">Изменить свойства</string>

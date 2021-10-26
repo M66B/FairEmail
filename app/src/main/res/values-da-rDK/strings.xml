@@ -120,6 +120,7 @@
     <string name="title_setup">Indstillinger</string>
     <string name="title_setup_help">Hjælp</string>
     <string name="title_setup_quick">Hurtig opsætning</string>
+    <string name="title_setup_intro">Oprettelse af en konto består kun af tre trin, hvorefter du kan sende og modtage e-mails</string>
     <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
     <string name="title_setup_issue">FairEmail er udviklet for at hjælpe dig med at beskytte din fortrolighed og repræsenterer bogstaveligt talt tusindvis af arbejdstimer. Oplever du problemer, så kontakte mig først mhp. support, inden du giver en dårlig bedømmelse. Jeg vil med glæde hjælpe!</string>
     <string name="title_setup_analytics">FairEmail viser ikke annoncer eller sporer/analyserer brugeradfærd. Bugsnag bruges til fejlrapportering og er som standard deaktiveret.</string>
@@ -258,6 +259,8 @@
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
+    </string>
+    <string name="title_advanced_hint_remark">        Indstillingerne er kategoriseret efter fane, opdelt i afsnit, organiseret efter udseende/brug, og er søgbare.
     </string>
     <string name="title_advanced_hint_setup">En konto kan opsættes ved at trykke på guideknappen på hovedopsætningsskærmen.</string>
     <string name="title_advanced_section_synchronize">Modtag</string>
@@ -506,7 +509,7 @@
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
-    <string name="title_advanced_autolock" comment="title_advanced_autolock&#10;Title for option to disable automatically locking on screen off when biometric authentication is enabled">Lås ved skærmslukning</string>
+    <string name="title_advanced_autolock">Lås ved skærmslukning</string>
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
     <string name="title_advanced_disconnect_images">Benyt lister til at genkende sporingsbilleder</string>
@@ -760,6 +763,8 @@
     <string name="title_notify_batch_disable">Deaktivér ny besked notifikation</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
+    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Fjern permanent</string>
+    <string name="title_expunge_remark">Dette sletter permanent alle beskeder markeret for sletning</string>
     <string name="title_empty_trash">Tøm papirkurv</string>
     <string name="title_empty_spam">Tøm spam</string>
     <string name="title_edit_properties">Redigér egenskaber</string>
