@@ -521,11 +521,14 @@ public class ContactInfo {
         if (info.displayName == null)
             info.displayName = address.getPersonal();
 
-        if (!info.known && !TextUtils.isEmpty(info.email)) {
-            DB db = DB.getInstance(context);
-            EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_TO, info.email);
-            info.known = (contact != null);
-        }
+        if (!info.known && !TextUtils.isEmpty(info.email))
+            try {
+                DB db = DB.getInstance(context);
+                EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_TO, info.email);
+                info.known = (contact != null);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         synchronized (emailContactInfo) {
             emailContactInfo.put(key, info);
