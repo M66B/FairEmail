@@ -2877,6 +2877,11 @@ class Core {
             boolean use_modseq = prefs.getBoolean("use_modseq", true);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
 
+            if (account.isZoho()) {
+                sync_unseen = false;
+                sync_flagged = false;
+            }
+
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
                     " quick=" + sync_quick_imap + " force=" + force +
                     " sync unseen=" + sync_unseen + " flagged=" + sync_flagged +
