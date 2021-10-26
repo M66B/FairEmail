@@ -182,6 +182,9 @@ public class EntityAttachment {
         if ("docx".equals(extension))
             return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
+        if ("mid".equals(extension) || "midi".equals(extension))
+            return "audio/midi";
+
         if ("xls".equals(extension))
             return "application/vnd.ms-excel";
 
