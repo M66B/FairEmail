@@ -1672,7 +1672,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     flags_background && flagged && !expanded
                             ? ColorUtils.setAlphaComponent(color, 127) : Color.TRANSPARENT);
 
-            if (flags)
+            if (flags || message.ui_flagged)
                 ibFlagged.setVisibility(message.folderReadOnly ? View.INVISIBLE : View.VISIBLE);
             else
                 ibFlagged.setVisibility(View.GONE);
@@ -4650,6 +4650,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setIcon(message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
             popupMenu.getMenu().findItem(R.id.menu_flag_color)
+                    .setVisible(flags_background)
                     .setEnabled((message.uid != null && !message.folderReadOnly) ||
                             message.accountProtocol != EntityAccount.TYPE_IMAP);
 
