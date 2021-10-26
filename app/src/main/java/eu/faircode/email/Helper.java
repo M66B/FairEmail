@@ -68,6 +68,7 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.EditorInfo;
@@ -1256,8 +1257,13 @@ public class Helper {
         if (imm == null)
             return;
 
-        Log.i("showKeyboard view=" + view);
-        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+        view.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("showKeyboard view=" + view);
+                imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+            }
+        }, 250);
     }
 
     static void hideKeyboard(final View view) {
