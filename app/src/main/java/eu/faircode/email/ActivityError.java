@@ -35,21 +35,36 @@ public class ActivityError extends ActivityBase {
     static final int PI_ERROR = 1;
     static final int PI_ALERT = 2;
 
+    private TextView tvTitle;
+    private TextView tvMessage;
+    private Button btnPassword;
+    private ImageButton ibSetting;
+    private ImageButton ibInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().setSubtitle(getString(R.string.title_setup_error));
+        setContentView(R.layout.activity_error);
 
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_error, null);
-        setContentView(view);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvMessage = findViewById(R.id.tvMessage);
+        btnPassword = findViewById(R.id.btnPassword);
+        ibSetting = findViewById(R.id.ibSetting);
+        ibInfo = findViewById(R.id.ibInfo);
 
-        TextView tvTitle = view.findViewById(R.id.tvTitle);
-        TextView tvMessage = view.findViewById(R.id.tvMessage);
-        Button btnPassword = view.findViewById(R.id.btnPassword);
-        ImageButton ibSetting = view.findViewById(R.id.ibSetting);
-        ImageButton ibInfo = view.findViewById(R.id.ibInfo);
+        load();
+    }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        load();
+    }
+
+    private void load() {
         Intent intent = getIntent();
         String type = intent.getStringExtra("type");
         String title = intent.getStringExtra("title");
