@@ -285,9 +285,10 @@
     <string name="title_setup_theme_yellow_purple">Yellow/purple</string>
     <string name="title_setup_theme_red_green">Red/green</string>
     <string name="title_setup_theme_grey">Grey</string>
+    <string name="title_setup_theme_solarized" translatable="false">Solarized</string>
     <string name="title_setup_theme_black">Black</string>
     <string name="title_setup_theme_black_and_white">Black and white</string>
-    <string name="title_setup_theme_solarized" translatable="false">Solarized</string>
+    <string name="title_setup_theme_you" translatable="false">Material You</string>
 
     <string name="title_setup_theme_reverse">Swap colors</string>
     <string name="title_setup_theme_light">Light</string>
