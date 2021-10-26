@@ -101,6 +101,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         }
 
         Dialog dialog = new AlertDialog.Builder(context)
+                .setIcon(R.drawable.twotone_timelapse_24)
                 .setTitle(title)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

@@ -953,7 +953,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 private void onActionExpunge() {
                     new AlertDialog.Builder(view.getContext())
-                            .setIcon(R.drawable.twotone_help_24)
+                            .setIcon(R.drawable.twotone_warning_24)
                             .setTitle(R.string.title_expunge)
                             .setMessage(R.string.title_expunge_remark)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

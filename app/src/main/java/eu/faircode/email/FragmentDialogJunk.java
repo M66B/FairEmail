@@ -206,6 +206,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(v.getContext())
+                        .setIcon(R.drawable.twotone_warning_24)
                         .setTitle(R.string.title_junk_clear)
                         .setMessage(R.string.title_junk_clear_hint)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

@@ -7170,6 +7170,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             return new AlertDialog.Builder(getContext())
+                    .setIcon(R.drawable.twotone_label_important_24)
                     .setTitle(R.string.title_manage_keywords)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, null)
@@ -7274,6 +7275,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     checked[i] = true;
 
             return new AlertDialog.Builder(getContext())
+                    .setIcon(R.drawable.twotone_label_24)
                     .setTitle(R.string.title_manage_labels)
                     .setMultiChoiceItems(folders, checked, new DialogInterface.OnMultiChoiceClickListener() {
                         @Override

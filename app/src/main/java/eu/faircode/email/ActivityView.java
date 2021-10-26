@@ -1965,6 +1965,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             return new AlertDialog.Builder(getContext())
+                    .setIcon(R.drawable.twotone_help_24)
                     .setMessage(R.string.title_issue)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override

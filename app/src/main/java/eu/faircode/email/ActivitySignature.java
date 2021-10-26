@@ -154,6 +154,7 @@ public class ActivitySignature extends ActivityBase {
 
                 if (dirty)
                     new AlertDialog.Builder(ActivitySignature.this)
+                            .setIcon(R.drawable.twotone_save_alt_24)
                             .setTitle(R.string.title_ask_save)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override

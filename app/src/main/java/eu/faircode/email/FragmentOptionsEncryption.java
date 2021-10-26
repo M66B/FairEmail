@@ -362,6 +362,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
                     @Override
                     protected void onExecuted(Bundle args, List<String> issuers) {
                         new AlertDialog.Builder(getContext())
+                                .setIcon(R.drawable.twotone_info_24)
                                 .setTitle(R.string.title_advanced_ca)
                                 .setMessage(TextUtils.join("\r\n", issuers))
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

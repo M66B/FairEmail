@@ -571,6 +571,7 @@ public class ActivityEML extends ActivityBase {
                         adapter.add(account);
 
                 new AlertDialog.Builder(ActivityEML.this)
+                        .setIcon(R.drawable.twotone_save_alt_24)
                         .setTitle(R.string.title_save_eml)
                         .setAdapter(adapter, new DialogInterface.OnClickListener() {
                             @Override

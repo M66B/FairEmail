@@ -59,6 +59,7 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
         }.execute(this, new Bundle(), "messages:accounts");
 
         return new AlertDialog.Builder(getContext())
+                .setIcon(R.drawable.twotone_account_circle_24)
                 .setTitle(R.string.title_list_accounts)
                 .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     @Override

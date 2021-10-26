@@ -457,6 +457,7 @@ public class FragmentContacts extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             return new AlertDialog.Builder(getContext())
+                    .setIcon(R.drawable.twotone_warning_24)
                     .setMessage(getString(R.string.title_delete_contacts))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

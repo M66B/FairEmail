@@ -7631,6 +7631,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         }
 
                                         new AlertDialog.Builder(getContext())
+                                                .setIcon(R.drawable.twotone_info_24)
                                                 .setMessage(sb.toString())
                                                 .show();
                                     }

@@ -926,6 +926,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         for (String key : charsets.keySet())
                             sb.append(charsets.get(key).displayName()).append("\r\n");
                         new AlertDialog.Builder(getContext())
+                                .setIcon(R.drawable.twotone_info_24)
                                 .setTitle(R.string.title_advanced_charsets)
                                 .setMessage(sb.toString())
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -984,6 +985,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 }
 
                 new AlertDialog.Builder(getContext())
+                        .setIcon(R.drawable.twotone_info_24)
                         .setTitle(R.string.title_advanced_ciphers)
                         .setMessage(sb.toString())
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -1069,6 +1071,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     .append("\r\n");
 
                         new AlertDialog.Builder(context)
+                                .setIcon(R.drawable.twotone_info_24)
                                 .setTitle(title)
                                 .setMessage(sb.toString())
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

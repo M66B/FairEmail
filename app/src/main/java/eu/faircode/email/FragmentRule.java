@@ -1533,6 +1533,7 @@ public class FragmentRule extends FragmentBase {
             }.execute(this, args, "rule:check");
 
             return new AlertDialog.Builder(getContext())
+                    .setIcon(R.drawable.baseline_mail_outline_24)
                     .setTitle(R.string.title_rule_matched)
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null)

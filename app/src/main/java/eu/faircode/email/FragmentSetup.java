@@ -278,6 +278,7 @@ public class FragmentSetup extends FragmentBase {
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
                             else
                                 new AlertDialog.Builder(getContext())
+                                        .setIcon(R.drawable.twotone_info_24)
                                         .setTitle(item.getTitle())
                                         .setMessage(R.string.title_setup_gmail_support)
                                         .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
@@ -323,6 +324,7 @@ public class FragmentSetup extends FragmentBase {
                                 lbm.sendBroadcast(item.getIntent());
                             else
                                 new AlertDialog.Builder(getContext())
+                                        .setIcon(R.drawable.twotone_info_24)
                                         .setTitle(item.getTitle())
                                         .setMessage(R.string.title_setup_oauth_permission)
                                         .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
@@ -776,6 +778,7 @@ public class FragmentSetup extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             return new AlertDialog.Builder(getContext())
+                    .setIcon(R.drawable.twotone_info_24)
                     .setMessage(R.string.title_setup_doze_instructions)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

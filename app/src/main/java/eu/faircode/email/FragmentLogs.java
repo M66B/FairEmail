@@ -200,6 +200,7 @@ public class FragmentLogs extends FragmentBase {
         }
 
         new AlertDialog.Builder(getContext())
+                .setIcon(R.drawable.twotone_visibility_24)
                 .setTitle(R.string.title_unhide)
                 .setMultiChoiceItems(titles, states, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
