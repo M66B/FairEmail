@@ -27,6 +27,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private RadioGroup rgTheme;
     private SwitchCompat swReverse;
     private RadioButton rbThemeYou;
+    private TextView tvYou;
     private RadioGroup rgThemeOptions;
     private TextView tvSystem;
     private SwitchCompat swBlack;
@@ -75,6 +76,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_theme, null);
         rgTheme = dview.findViewById(R.id.rgTheme);
         rbThemeYou = dview.findViewById(R.id.rbThemeYou);
+        tvYou = dview.findViewById(R.id.tvYou);
         swReverse = dview.findViewById(R.id.swReverse);
         rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
         tvSystem = dview.findViewById(R.id.tvSystem);
@@ -91,7 +93,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             }
         });
 
-        rbThemeYou.setVisibility((Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE));
+        rbThemeYou.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
+        tvYou.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
 
         swReverse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

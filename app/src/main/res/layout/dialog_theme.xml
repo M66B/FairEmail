@@ -35,7 +35,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeBlueOrange"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_blue_orange"
@@ -43,7 +43,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeRedGreen"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_red_green"
@@ -51,7 +51,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeYellowPurple"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_yellow_purple"
@@ -59,7 +59,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeGrey"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_grey"
@@ -67,7 +67,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeSolarized"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_solarized"
@@ -75,7 +75,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeBlack"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_black"
@@ -83,7 +83,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeBlackAndWhite"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_black_and_white"
@@ -91,12 +91,23 @@
 
             <RadioButton
                 android:id="@+id/rbThemeYou"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_you"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_theme_you_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgTheme" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swReverse"
@@ -106,7 +117,7 @@
             android:text="@string/title_setup_theme_reverse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgTheme" />
+            app:layout_constraintTop_toBottomOf="@id/tvYou" />
 
         <RadioGroup
             android:id="@+id/rgThemeOptions"
@@ -120,7 +131,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeLight"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_light"
@@ -128,7 +139,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeDark"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_dark"
@@ -136,7 +147,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeSystem"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_system"
