@@ -2055,6 +2055,7 @@ public class Log {
                             jfolder.put("read_only", folder.read_only);
                             jfolder.put("selectable", folder.selectable);
                             jfolder.put("inferiors", folder.inferiors);
+                            jfolder.put("auto_add", folder.auto_add);
                             jfolder.put("error", folder.error);
                             if (folder.last_sync != null)
                                 jfolder.put("last_sync", new Date(folder.last_sync).toString());
