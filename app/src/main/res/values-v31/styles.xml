@@ -19,7 +19,7 @@
     <style name="AppThemeYouDark" parent="AppThemeBaseDark">
         <item name="colorPrimary">@android:color/system_accent1_500</item>
         <item name="colorPrimaryDark">@android:color/system_accent1_700</item>
-        <item name="colorAccent">@android:color/system_accent3_500</item>
+        <item name="colorAccent">@android:color/system_accent3_300</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent3_300</item>
 
