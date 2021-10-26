@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### Next version
+
+* Added Material You theme (Android 12)
+* Small improvements and minor bug fixes
+
 ### 1.1767 - 2021-10-26
 
 * Small improvements and minor bug fixes
