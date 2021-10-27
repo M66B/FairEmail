@@ -67,7 +67,7 @@
         <item name="android:textColorLink">@android:color/system_accent1_300</item>
     </style>
 
-    <style name="AppThemeYouReversedBlack" parent="AppThemeYouDark">
+    <style name="AppThemeYouReversedBlack" parent="AppThemeYouReversedDark">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
