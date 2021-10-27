@@ -147,6 +147,7 @@
             </intent-filter>
 
             <intent-filter>
+                <!-- legacy -->
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -154,6 +155,16 @@
 
                 <data android:scheme="message" />
                 <data android:host="${applicationId}" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="message" />
+                <data android:host="email.faircode.eu" />
             </intent-filter>
         </activity>
 
@@ -342,6 +353,24 @@
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask" />
 
+        <!-- https://developer.android.com/training/permissions/explaining-access -->
+        <activity
+            android:name=".ActivityRationale"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE"
+            android:theme="@style/Theme.AppCompat.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE_FOR_PERIOD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
             android:exported="true"
@@ -507,7 +536,8 @@
 
         <receiver
             android:name="com.amazon.device.iap.ResponseReceiver"
-            android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY">
+            android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.amazon.inapp.purchasing.NOTIFY" />
             </intent-filter>
