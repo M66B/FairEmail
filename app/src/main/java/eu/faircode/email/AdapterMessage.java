@@ -4167,7 +4167,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean current = properties.getValue(full ? "full" : "images", message.id);
             boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
             boolean confirm = prefs.getBoolean(full ? "confirm_html" : "confirm_images", true);
-            if (current || asked || !confirm) {
+            boolean ask = prefs.getBoolean(full ? "ask_html" : "ask_images", true);
+            if (current || asked || !confirm || !ask) {
                 if (current && message.from != null) {
                     SharedPreferences.Editor editor = prefs.edit();
                     for (Address sender : message.from) {
