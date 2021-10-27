@@ -3,8 +3,8 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 1767 }
-def getRevision = { -> "b" }
+def getVersionCode = { -> return 1768 }
+def getRevision = { -> "a" }
 def getReleaseName = { -> return "Banji" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
@@ -36,7 +36,7 @@ android {
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
 
-        //ndkVersion "21.0.6113669"
+        ndkVersion "21.4.7075529"
         ndk {
             // Bugsnag, sqlite
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
