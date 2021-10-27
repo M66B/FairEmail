@@ -825,7 +825,8 @@ Common errors:
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings.
+Private keys are stored by Android and can be imported via the Android advanced security settings
+(Encryption & credentials, Install a certificate, VPN & app user certificate).
 There is a shortcut (button) for this in the encryption settings for Android version 10 and before.
 Android will ask you to set a PIN, pattern, or password if you didn't before.
 If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
