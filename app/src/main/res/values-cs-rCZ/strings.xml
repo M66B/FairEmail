@@ -513,7 +513,7 @@
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
     <string name="title_advanced_check_links_dbl">Kontrolovat seznamy blokovaných domén na podezřelé odkazy</string>
     <string name="title_advanced_browse_links">Otevírání odkazů přenechat Androidu</string>
-    <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
+    <string name="title_advanced_ask_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
     <string name="title_advanced_tracking">Pokusit se rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_hide_timezone">Zprávy odesílat bez časového pásma</string>

@@ -26,6 +26,7 @@
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
     <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
     <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
+    <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
     <string name="title_factor_minutes">%1$d ମିନିଟ୍</string>
     <string name="menu_setup">ସେଟିଂସମୂହ</string>
     <string name="menu_faq">ସମର୍ଥନ</string>
@@ -50,7 +51,9 @@
     <string name="title_setup">ସେଟିଂସମୂହ</string>
     <string name="title_setup_help">ସହାୟତା</string>
     <string name="title_setup_quick">ଦ୍ରୁତ ସେଟଅପ୍</string>
+    <string name="title_setup_quick_accounts">ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ନ୍ତୁ ବା ବଦଳାନ୍ତୁ</string>
     <string name="title_setup_quick_support">କିଛି ପ୍ରଦାନକାରୀ ଏକ ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ିବା କଷ୍ଟକର କରନ୍ତି। ଦୟାକରି ଏଥିପାଇଁ FairEmail କୁ ଦୋଷ ଦିଅନ୍ତୁ ନାହିଁ, କିନ୍ତୁ ଏହା ବଦଳରେ ସମର୍ଥନ ମାଗନ୍ତୁ।</string>
+    <string name="title_setup_quick_patience">ଦୟାକରି ଧୈର୍ଯ୍ୟ ରଖନ୍ତୁ &#8230;</string>
     <string name="title_setup_wizard">ଓ୍ୱିଜାର୍ଡ</string>
     <string name="title_setup_wizard_new">ମୋର ଏକ ନୂତନ ଇମେଲ୍ ଠିକଣା ଦରକାର</string>
     <string name="title_setup_manual">ହସ୍ତକୃତ ସେଟଅପ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ବିକଳ୍ପ ସମୂହ</string>
@@ -67,9 +70,16 @@
     <string name="title_setup_select_account">ଆକାଉଣ୍ଟ୍ ବାଛନ୍ତୁ</string>
     <string name="title_setup_instructions">ସେଟଅପ୍ ନିର୍ଦ୍ଦେଶାବଳୀ</string>
     <string name="title_setup_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
+    <string name="title_setup_quick_configure">ନାମ, ରଙ୍ଗ, ସ୍ୱାଇପ୍ କ୍ରିୟା ଇତ୍ୟାଦି ସମ୍ପାଦନ କରିବାକୁ</string>
     <string name="title_setup_manage">ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_setup_identity_what">ଏକ ପରିଚୟ କ’ଣ?</string>
+    <string name="title_setup_doze_device">ଏହି ଡିଭାଇସ୍ ପାଇଁ ଏହା ବୋଧହୁଏ ଆବଶ୍ୟକୀୟ</string>
+    <string name="title_setup_alarm_12">ଆପ୍ କାମ କରିବ ନାହିଁ</string>
+    <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
+    <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
+    <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
+    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
@@ -105,6 +115,7 @@
     <string name="title_setup_theme_black_background">କଳା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_html_light">ମୂଳ ବାର୍ତ୍ତା ଦର୍ଶନ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_composer_light">ବାର୍ତ୍ତା ସମ୍ପାଦକ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
+    <string name="title_setup_theme_you_hint">Material You ରଙ୍ଗଗୁଡ଼ିକ ଆଣ୍ଡ୍ରଏଡ୍ ୱାଲପେପର୍ ଓ ଷ୍ଟାଇଲ୍ ସେଟିଂସରେ ବିନ୍ୟାସ କରାଯାଇପାରିବ</string>
     <string name="title_setup_theme_system_hint">ଆଣ୍ଡ୍ରଏଡ୍ ଦ୍ୱାରା ସମର୍ଥିତ ହେଲେ ଏହା ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଦିନ/ରାତ୍ରି ମୋଡ୍ ରେ ଏକ ହାଲୁକା/ଗାଢ଼ ଥିମ୍ କୁ ବଦଳିଯିବ</string>
     <string name="title_setup_theme_more_colors">ମୁଁ ଅଧିକ ରଙ୍ଗ ଚାହୁଁଛି</string>
     <string name="title_setup_advanced">ବିକଶିତ</string>
@@ -113,6 +124,9 @@
     <string name="title_setup_reset_full">ମୂଳ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_reset_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_reset_links">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="title_advanced_hint_title">ଅଧିକ ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_advanced_hint_remark">        ବିକଳ୍ପଗୁଡ଼ିକ ଟ୍ୟାବ୍ ଅନୁଯାୟୀ ବର୍ଗୀକୃତ, ବିଭାଗରେ ବିଭକ୍ତ, ରୂପ କିମ୍ୱା ବ୍ୟବହାର ଅନୁଯାୟୀ ସଂଗଠିତ ହୋଇଅଛି, ଏବଂ ସନ୍ଧାନଯୋଗ୍ୟ ଅଟେ।
+    </string>
     <string name="title_advanced_section_main">ମୁଖ୍ୟ</string>
     <string name="title_advanced_section_synchronize">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="title_advanced_section_send">ପଠାନ୍ତୁ</string>
@@ -123,6 +137,8 @@
     <string name="title_advanced_section_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
     <string name="title_advanced_section_notifications">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
     <string name="title_advanced_section_misc">ବିବିଧ</string>
+    <string name="title_advanced_when">କେବେ</string>
+    <string name="title_advanced_optimize">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_advanced">ବିକଶିତ</string>
     <string name="title_advanced_quick_sync">ଦ୍ରୁତ ସିଙ୍କ୍</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
@@ -151,6 +167,10 @@
     <string name="title_advanced_notify_action_trash">ଆବର୍ଜନା</string>
     <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
+    <string name="title_advanced_sound">ବିଜ୍ଞପ୍ତି ଧ୍ଵନି ବାଛନ୍ତୁ</string>
+    <string name="title_advanced_confirm_images">ଡିଫଲ୍ଟ ଭାବରେ କୌଣସି ପ୍ରତିଛବି ଦେଖାନ୍ତୁ ନାହିଁ</string>
+    <string name="title_advanced_ask_images">ପ୍ରତିଛବି ଦେଖାଇବା ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="title_advanced_ask_html">ମୂଳ ବାର୍ତ୍ତା ଦେଖାଇବା ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_autolock">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
@@ -166,6 +186,7 @@
     <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
     <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
+    <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
@@ -180,6 +201,7 @@
     <string name="title_color">ରଙ୍ଗ</string>
     <string name="title_background">ପୃଷ୍ଠପଟ</string>
     <string name="title_transparent">ପାରଦର୍ଶୀ</string>
+    <string name="title_account_ondemand">ହସ୍ତକୃତ ଭାବେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_account_left">ବାମକୁ ସ୍ୱାଇପ୍</string>
     <string name="title_account_right">ଡାହାଣକୁ ସ୍ୱାଇପ୍</string>
     <string name="title_domain">ଡୋମେନ୍ ନାମ</string>
@@ -209,7 +231,12 @@
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
     <string name="title_review">ସମୀକ୍ଷା କର</string>
+    <string name="title_synchronize_now">ବର୍ତ୍ତମାନ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_synchronize_enabled">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
+    <string name="title_synchronize_batch_enable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_synchronize_batch_disable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_expunge">କାଢ଼ିଦିଅନ୍ତୁ</string>
+    <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସ୍ଥାୟୀ ଭାବେ ବିଲୋପ କରିବ</string>
     <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
     <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
     <string name="title_import_contacts">vCards ଆମଦାନୀ କରନ୍ତୁ</string>
@@ -268,6 +295,7 @@
     <string name="title_attachment_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
+    <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_search_for_hint">ପାଠ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ</string>
@@ -298,6 +326,7 @@
     <string name="title_zoom">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_select_language">ଭାଷା ଚୟନ କରନ୍ତୁ</string>
     <string name="title_select_all">ସମସ୍ତ ଚୟନ କରନ୍ତୁ</string>
+    <string name="title_force_sync">ସିଙ୍କ୍ କରିବାକୁ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_language_all">ସମସ୍ତ</string>
     <string name="title_previous">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_next">ପରବର୍ତ୍ତୀ</string>
@@ -322,6 +351,8 @@
     <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_legend_section_messages">ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
     <string name="title_legend_section_compose">ରଚନା କରନ୍ତୁ</string>
+    <string name="title_legend_synchronize_on">ସିଙ୍କ୍ରୋନାଇଜ୍ ଚାଲୁ</string>
+    <string name="title_legend_synchronize_off">ସିଙ୍କ୍ରୋନାଇଜ୍ ବନ୍ଦ</string>
     <string name="title_legend_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_legend_primary">ପ୍ରାଥମିକ</string>
     <string name="title_legend_thread">ବାର୍ତ୍ତାଳାପ</string>
@@ -335,6 +366,7 @@
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
+    <string name="title_info">ସୂଚନା</string>
     <string name="title_show">ଦେଖାଅ</string>
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
@@ -343,6 +375,7 @@
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
     <string name="title_pro_whichever">ଯେକୌଣସି ବୈଶିଷ୍ଟ୍ୟ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଭାବରେ ମନୋନୀତ ହେଲେ, ସର୍ବଦା ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଥାଆନ୍ତି ଯିଏ ଅଭିଯୋଗ କରନ୍ତି ଯେ ଏକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା ହେବା ଉଚିତ୍। ଦୟାକରି ଆପଣ ସେହି ବ୍ୟକ୍ତି ହୁଅନ୍ତୁ ନାହିଁ।</string>
     <string name="title_log_clear">ଖାଲି କରନ୍ତୁ</string>
+    <string name="title_widget_title_sync">ସିଙ୍କ୍ ଚାଲୁ/ବନ୍ଦ</string>
     <string name="title_power_menu_sync">ସିଙ୍କ୍ରୋନାଇଜେସନ୍</string>
     <string name="title_power_menu_on">ଚାଲୁ</string>
     <string name="title_power_menu_off">ବନ୍ଦ</string>

@@ -236,6 +236,7 @@
     <string name="title_setup_theme_black_background">ブラック背景</string>
     <string name="title_setup_theme_html_light">元のメッセージを表示するときは背景色を明るくする</string>
     <string name="title_setup_theme_composer_light">メッセージエディタの背景色を明るくする</string>
+    <string name="title_setup_theme_you_hint"> マテリアルカラーはAndroidの壁紙 &amp; スタイル設定で設定できます</string>
     <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
     <string name="title_setup_theme_more_colors">もっと色が欲しい場合</string>
     <string name="title_setup_advanced">詳細</string>
@@ -249,6 +250,8 @@
     <string name="title_advanced_hint_title">高度なオプション</string>
     <string name="title_advanced_hint_message">        高度なオプションに移動しています。
         全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
+    </string>
+    <string name="title_advanced_hint_remark">        オプションは、タブごとに分類され、セクションに分けられ、外観や用途ごとに整理され、検索も可能です。
     </string>
     <string name="title_advanced_hint_setup">メイン設定画面のウィザードボタンをタップしてアカウントを設定できます。</string>
     <string name="title_advanced_section_main">メイン</string>
@@ -490,8 +493,10 @@
     <string name="title_advanced_confirm_links">リンクを開く事を確認</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認する</string>
     <string name="title_advanced_browse_links">Androidへのリンクを開いて下さい</string>
-    <string name="title_advanced_confirm_images">画像表示を確認</string>
+    <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
+    <string name="title_advanced_ask_images">画像表示を確認</string>
     <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
+    <string name="title_advanced_ask_html">元のメッセージの表示を確認する</string>
     <string name="title_advanced_tracking">トラッキング画像の認識と無効化を試みます</string>
     <string name="title_advanced_hide_timezone">タイムゾーンデータ無しでメッセージを送信</string>
     <string name="title_advanced_client_id">アプリ名とバージョンをメールサーバーに送信</string>
@@ -756,6 +761,8 @@
     <string name="title_notify_batch_disable">新しいメッセージの通知を無効にする</string>
     <string name="title_delete_local">ローカルのメッセージを削除</string>
     <string name="title_delete_browsed">閲覧/検索したメッセージを削除</string>
+    <string name="title_expunge">消去</string>
+    <string name="title_expunge_remark">これにより、削除マークのついたすべてのメッセージが永久に削除されます</string>
     <string name="title_empty_trash">ゴミ箱を空にする</string>
     <string name="title_empty_spam">迷惑メールを空にする</string>
     <string name="title_edit_properties">プロパティを編集</string>

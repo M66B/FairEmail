@@ -246,6 +246,7 @@
     <string name="title_setup_theme_black_background">Μαύρο φόντο</string>
     <string name="title_setup_theme_html_light">Φωτεινό φόντο για την προβολή του αρχικού μηνύματος</string>
     <string name="title_setup_theme_composer_light">Φωτεινό φόντο κατά τη σύνταξη μηνυμάτων</string>
+    <string name="title_setup_theme_you_hint">Τα χρώματα \"Material You\" μπορούν να ρυθμιστούν στις ρυθμίσεις του Android: \"Ταπετσαρίες &amp; στιλ\"</string>
     <string name="title_setup_theme_system_hint">Με την επιλογή αυτή θα εναλλάσσονται αυτόματα το φωτεινό και σκοτεινό θέμα ανάλογα με τη λειτουργία ημέρας/νύχτας, εφόσον η δυνατότητα αυτή υποστηρίζεται από το Andoid</string>
     <string name="title_setup_theme_more_colors">Θέλω περισσότερα χρώματα</string>
     <string name="title_setup_advanced">Για προχωρημένους</string>
@@ -502,8 +503,10 @@
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
     <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
     <string name="title_advanced_browse_links">Ανάθεση του ανοίγματος των συνδέσμων στο Android</string>
-    <string name="title_advanced_confirm_images">Επιβεβαίωση προβολής των εικόνων</string>
+    <string name="title_advanced_confirm_images">Να μην προβάλλεται καμία εικόνα από προεπιλογή</string>
+    <string name="title_advanced_ask_images">Επιβεβαίωση προβολής των εικόνων</string>
     <string name="title_advanced_confirm_html">Προβολή αναμορφοποιημένων μηνυμάτων από προεπιλογή</string>
+    <string name="title_advanced_ask_html">Επιβεβαίωση προβολής αρχικών μηνυμάτων</string>
     <string name="title_advanced_tracking">Να γίνεται απόπειρα αναγνώρισης και απενεργοποίησης εικόνων ιχνηλάτησης</string>
     <string name="title_advanced_hide_timezone">Αποστολή μηνυμάτων χωρίς πληροφορίες για τη ζώνη ώρας</string>
     <string name="title_advanced_client_id">Αποστολή ονόματος και έκδοσης εφαρμογής στον διακομιστή ηλ. ταχυδρομείου</string>
@@ -768,7 +771,7 @@
     <string name="title_notify_batch_disable">Απενεργοποίηση ειδοποιήσεων για νέα μηνύματα</string>
     <string name="title_delete_local">Διαγραφή τοπικών μηνυμάτων</string>
     <string name="title_delete_browsed">Διαγραφή των φυλλομετρημένων/αναζητημένων μηνυμάτων</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Οριστική διαγραφή</string>
+    <string name="title_expunge">Οριστική διαγραφή</string>
     <string name="title_expunge_remark">Αυτό θα διαγράψει μόνιμα όλα τα μηνύματα που έχουν επισημανθεί για διαγραφή</string>
     <string name="title_empty_trash">Άδειασμα κάδου απορριμμάτων</string>
     <string name="title_empty_spam">Άδειασμα Ανεπιθύμητων</string>

@@ -266,6 +266,7 @@
     <string name="title_setup_theme_black_background">Чёрный фон</string>
     <string name="title_setup_theme_html_light">Светлый фон для просмотра исходного сообщения</string>
     <string name="title_setup_theme_composer_light">Светлый фон для редактора сообщений</string>
+    <string name="title_setup_theme_you_hint">Цвета \"Material You\" настраиваются в разделе настроек обоев и стиля Android</string>
     <string name="title_setup_theme_system_hint">Системная тема автоматически переключится на светлую или тёмную в зависимости от времени суток, если поддерживается Android</string>
     <string name="title_setup_theme_more_colors">Я хочу больше цветов</string>
     <string name="title_setup_advanced">Дополнительные настройки</string>
@@ -522,8 +523,10 @@
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>
-    <string name="title_advanced_confirm_images">Подтверждать показ изображений</string>
+    <string name="title_advanced_confirm_images">Не показывать изображения по умолчанию</string>
+    <string name="title_advanced_ask_images">Подтверждать показ изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
+    <string name="title_advanced_ask_html">Подтверждать отображение оригинальных сообщений</string>
     <string name="title_advanced_tracking">Пытаться распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_hide_timezone">Отправлять сообщения без данных часового пояса</string>
     <string name="title_advanced_client_id">Отправлять название и версию приложения на сервер электронной почты</string>

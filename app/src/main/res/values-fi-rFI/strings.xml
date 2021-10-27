@@ -500,7 +500,7 @@
     <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
     <string name="title_advanced_check_links_dbl">Tarkista linkkien verkkotunnukset epäilyttävien linkkien varalta käyttämällä estolistaa</string>
     <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>
-    <string name="title_advanced_confirm_images">Vahvista kuvien näyttäminen</string>
+    <string name="title_advanced_ask_images">Vahvista kuvien näyttäminen</string>
     <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
     <string name="title_advanced_tracking">Yritä tunnistaa ja poistaa käytöstä seurantakuvat</string>
     <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>

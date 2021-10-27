@@ -368,7 +368,6 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
-    <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %%</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_text_color">Usar cores de texto</string>
@@ -438,7 +437,7 @@
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_confirm_links">Confirmar abertura de links</string>
     <string name="title_advanced_browse_links">Delegar abertura de links para o Android</string>
-    <string name="title_advanced_confirm_images">Confirmar a exibição de imagens</string>
+    <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>
     <string name="title_advanced_confirm_html">Mostrar mensagens reformatadas por padrão</string>
     <string name="title_advanced_hide_timezone">Enviar mensagens sem dados de fuso horário</string>
     <string name="title_advanced_display_hidden">Mostrar texto oculto de mensagens</string>
@@ -493,7 +492,7 @@
     <string name="title_no_password">Palavra-passe ausente</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Esponja</string>
+    <string name="title_expunge">Esponja</string>
     <string name="title_expunge_remark">Isto irá apagar permanentemente todas as mensagens marcadas para exclusão</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_sort_unread_atop">Ordenar as não lidas no topo</string>

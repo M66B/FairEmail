@@ -246,6 +246,7 @@
     <string name="title_setup_theme_black_background">Fondo negro</string>
     <string name="title_setup_theme_html_light">Fondo claro para la vista original del mensaje</string>
     <string name="title_setup_theme_composer_light">Fondo claro para el editor de mensajes</string>
+    <string name="title_setup_theme_you_hint">Los colores de Material You se pueden configurar en el fondo de pantalla de Android &amp; configuración de estilo</string>
     <string name="title_setup_theme_system_hint">Igual que el tema del sistema cambiará automáticamente a luz/oscuro en el día y la noche, si es compatible con Android</string>
     <string name="title_setup_theme_more_colors">Quiero más colores</string>
     <string name="title_setup_advanced">Avanzado</string>
@@ -502,8 +503,10 @@
     <string name="title_advanced_confirm_links">Confirmar abrir enlaces</string>
     <string name="title_advanced_check_links_dbl">Comprobar listas de bloqueo de dominio para enlaces sospechosos</string>
     <string name="title_advanced_browse_links">Delegar apertura de enlaces a Android</string>
-    <string name="title_advanced_confirm_images">Confirmar mostrar imágenes</string>
+    <string name="title_advanced_confirm_images">No mostrar imágenes por defecto</string>
+    <string name="title_advanced_ask_images">Confirmar mostrar imágenes</string>
     <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
+    <string name="title_advanced_ask_html">Confirmar mostrar mensajes originales</string>
     <string name="title_advanced_tracking">Intentar reconocer y deshabilitar imágenes de rastreo</string>
     <string name="title_advanced_hide_timezone">Enviar mensajes sin datos de zona horaria</string>
     <string name="title_advanced_client_id">Enviar nombre y versión de la aplicación al servidor de correo electrónico</string>
@@ -770,7 +773,7 @@
     <string name="title_notify_batch_disable">Desactivar notificaciones de mensajes nuevos</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Purgar</string>
+    <string name="title_expunge">Purgar</string>
     <string name="title_expunge_remark">Esto eliminará permanentemente todos los mensajes marcados para su eliminación</string>
     <string name="title_empty_trash">Vaciar papelera</string>
     <string name="title_empty_spam">Vaciar spam</string>

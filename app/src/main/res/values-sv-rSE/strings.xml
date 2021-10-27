@@ -494,7 +494,7 @@
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
     <string name="title_advanced_check_links_dbl">Kontrollera domänblockeringslistor för misstänkta länkar</string>
     <string name="title_advanced_browse_links">Låt Android öppna länkar</string>
-    <string name="title_advanced_confirm_images">Bekräfta visning av bilder</string>
+    <string name="title_advanced_ask_images">Bekräfta visning av bilder</string>
     <string name="title_advanced_confirm_html">Visa omformaterade meddelanden som standard</string>
     <string name="title_advanced_tracking">Försök att känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_hide_timezone">Skicka meddelanden utan tidszon</string>

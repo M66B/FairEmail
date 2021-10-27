@@ -123,6 +123,9 @@
     <string name="title_advanced_auto_link">ᱟᱡᱛᱮ ᱞᱤᱝᱠ ᱥᱤᱨᱡᱟᱹᱣᱜᱼᱟ</string>
     <string name="title_advanced_caption_conversation">ᱨᱚᱯᱚᱲ</string>
     <string name="title_advanced_caption_message">ᱢᱮᱥᱮᱡᱽ</string>
+    <string name="title_advanced_confirm_images">ᱰᱤᱯᱷᱚᱞᱴ ᱞᱮᱠᱟᱛᱮ ᱪᱮᱫᱦᱚᱸ ᱪᱤᱛᱟᱹᱨ ᱟᱞᱚᱢ ᱫᱮᱠᱷᱟᱣᱟ</string>
+    <string name="title_advanced_ask_images">ᱪᱤᱛᱟᱹᱨ ᱫᱮᱠᱷᱟᱣ ᱴᱷᱟᱹᱣᱠᱟᱹᱭ ᱢᱮ</string>
+    <string name="title_advanced_ask_html">ᱚᱞᱥᱚᱞ ᱢᱮᱥᱮᱡᱽ ᱫᱮᱠᱷᱟᱣ ᱴᱷᱟᱹᱣᱠᱟᱹᱭ ᱢᱮ</string>
     <string name="title_password">ᱯᱟᱥᱣᱟᱰ</string>
     <string name="title_no_password">ᱯᱟᱥᱣᱟᱰ ᱟᱫ</string>
     <string name="title_synchronize_enabled">ᱥᱤᱝᱠᱨᱳᱱᱟᱤᱡᱽ</string>

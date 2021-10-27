@@ -1,14 +1,14 @@
 <a name="top"></a>
 
-# FairEmail support
+# תמיכה ב־FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+אם יש לך שאלה, נא לעיין בשאלות הנפוצות תחילה. [בתחתית](#user-content-get-support), אפשר למצוא איך לשאול שאלות אחרות, לבקש יכולות ולדווח על תקלות.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
-## Index
+## מפתח העניינים
 
-* [Authorizing accounts](#user-content-authorizing-accounts)
+* [אימות חשבונות](#user-content-authorizing-accounts)
 * [איך…?](#user-content-howto)
 * [תקלות ידועות](#user-content-known-problems)
 * [יכולות מתוכננות](#user-content-planned-features)
@@ -18,7 +18,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 <h2><a name="authorizing-accounts"></a>אימות חשבונות</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+ברוב המקרים, אשף ההגדרה המהיר יוכל לזהות את ההגדרות הנכונות אוטומטית.
 
 If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
@@ -26,21 +26,21 @@ Searching for *IMAP* and the name of the provider is mostly sufficient to find t
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-For authorizing:
+לאימות:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, ניתן לפנות אל [שאלה 6](#user-content-faq6)
+* Outlook / Live / Hotmail, ניתן לפנות אל [שאלה 14](#user-content-faq14)
+* Office 365, ניתן לפנות אל [שאלה 14](#user-content-faq156)
+* Microsoft Exchange, ניתן לפנות אל [שאלה 8](#user-content-faq8)
+* Yahoo,‏ AOL ו־Sky, ניתן לפנות אל [שאלה 88](#user-content-faq88)
+* Apple iCloud, ניתן לפנות אל [שאלה 148](#user-content-faq148)
+* Free.fr, ניתן לפנות אל [שאלה 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+[כאן](#user-content-faq22) ניתן למצוא הודעות שגיאה ופתרונות נפוצים.
 
-Related questions:
+שאלות קשורות:
 
-* [Is OAuth supported?](#user-content-faq111)
+* [יש תמיכה ב־OAuth?](#user-content-faq111)
 * [למה אין תמיכה ב־ActiveSync?](#user-content-faq133)
 
 <a name="howto">
@@ -85,12 +85,12 @@ Related questions:
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-<h2><a name="planned-features"></a>Planned features</h2>
+<h2><a name="planned-features"></a>יכולות מתוכננות</h2>
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
+* ~~סנכרון לפי דרישה (ידני)~~
+* ~~הצפנה חצי אוטומטית~~
+* ~~העתקת הודעה~~
+* ~~כוכבים צבעוניים~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
@@ -120,11 +120,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-<h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
+<h2><a name="frequently-requested-features"></a>יכולות שהרבה מבקשים</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-<h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
+<h2><a name="frequently-asked-questions"></a>שאלות נפוצות</h2>
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)

@@ -448,7 +448,7 @@
     <string name="title_advanced_notify_screen_on">Acender brevemente a pantalla coas notificacións de nova mensaxe</string>
     <string name="title_advanced_confirm_links">Confirmar a apertura de ligazóns</string>
     <string name="title_advanced_browse_links">Delegar a apertura de ligazóns a Android</string>
-    <string name="title_advanced_confirm_images">Confirmar a mostra de imaxes</string>
+    <string name="title_advanced_ask_images">Confirmar a mostra de imaxes</string>
     <string name="title_advanced_confirm_html">Mostrar por defecto as mensaxes reformatadas</string>
     <string name="title_advanced_tracking">Intentar recoñecer e desactivar as imaxes de rastrexo</string>
     <string name="title_advanced_hide_timezone">Enviar mensaxes sen a información de fuso horario</string>

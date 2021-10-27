@@ -499,7 +499,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
     <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
     <string name="title_advanced_browse_links">Android\'i bağlantıları açması için görevlendir</string>
-    <string name="title_advanced_confirm_images">Görüntüleri göstermeyi onayla</string>
+    <string name="title_advanced_ask_images">Görüntüleri göstermeyi onayla</string>
     <string name="title_advanced_confirm_html">Yeniden formatlanmış mesajları varsayılan olarak göster</string>
     <string name="title_advanced_tracking">Takip resimlerini tanımaya ve devre dışı bırakmaya çalışın</string>
     <string name="title_advanced_hide_timezone">İletileri saat dilimi verisi olmadan gönder</string>

@@ -367,7 +367,7 @@
     <string name="title_advanced_sound">Velg varslingslyd</string>
     <string name="title_advanced_confirm_links">Bekreft åpningen av lenker</string>
     <string name="title_advanced_browse_links">Deleger lenker til Android</string>
-    <string name="title_advanced_confirm_images">Bekreft visningen av bilder</string>
+    <string name="title_advanced_ask_images">Bekreft visningen av bilder</string>
     <string name="title_advanced_confirm_html">Vis standardformaterte meldinger</string>
     <string name="title_advanced_tracking">Forsøk på å gjenkjenne og deaktivere sporingsbilder</string>
     <string name="title_advanced_hide_timezone">Send meldinger uten tidssonedata</string>

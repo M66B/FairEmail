@@ -2644,7 +2644,7 @@ Die Anzeige seltsamer Zeichen wird fast immer dadurch verursacht, dass keine ode
 
 Um Entwürfe zu speichern, wird ein Entwürfe-Ordner benötigt. In den meisten Fällen wählt FairEmail, wenn ein Konto hinzugefügt wird, basierend auf [den Attributen](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml), die der E-Mail-Server sendet, automatisch den Ordner für Entwürfe aus. Einige E-Mail-Server sind jedoch nicht richtig konfiguriert und senden diese Attribute nicht. In diesem Fall versucht FairEmail den Entwürfe-Ordner nach Namen zu identifizieren, dies könnte aber fehlschlagen, wenn der Entwürfe-Ordner einen ungewöhnlichen Namen hat oder überhaupt nicht vorhanden ist.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). Wenn überhaupt kein Ordner für Entwürfe existiert, können Sie einen hinzufügen, indem sie auf den '+'-Knopf in der Ordnerliste des jeweiligen Accounts tippen. (tippen sie auf den Namen des Kontos im Navigationsmenü)
+Sie können dieses Problem beheben, indem Sie den Entwürfe-Ordner in den Kontoeinstellungen manuell auswählen (Einstellungen, Tippen Sie auf Manuelle Einrichtung, tippen Sie auf Konten, tippen Sie unten auf Konto). Wenn überhaupt kein Ordner für Entwürfe existiert, können Sie einen hinzufügen, indem sie auf den '+'-Knopf in der Ordnerliste des jeweiligen Accounts tippen. (tippen sie auf den Namen des Kontos im Navigationsmenü)
 
 Einige Anbieter wie z. B. Gmail erlauben es, IMAP für einzelne Ordner zu aktivieren bzw. zu deaktivieren. Wenn also ein Ordner nicht sichtbar ist, müssen Sie unter Umständen IMAP für den Ordner aktivieren.
 
@@ -2655,31 +2655,31 @@ Schnelllink für Gmail (funktioniert nur auf einem Desktop-Computer): [https://m
 <a name="faq142"></a>
 **(142) Wie kann ich gesendete Nachrichten im Posteingang speichern?**
 
-Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
+Es ist generell keine gute Idee, gesendete Nachrichten im Posteingang zu speichern, da dies schwer rückgängig zu machen ist und mit anderen E-Mail-Clients nicht kompatibel sein könnte.
 
-That said, FairEmail is able to properly handle sent messages in the inbox. FairEmail will mark outgoing messages with a sent messages icon for example.
+FairEmail ist jedoch in der Lage, gesendete Nachrichten im Posteingang korrekt zu behandeln. FairEmail markiert ausgehende Nachrichten mit einem Symbol für gesendete Nachrichten.
 
-The best solution would be to enable showing the sent folder in the unified inbox by long pressing the sent folder in the folder list and enabling *Show in unified inbox*. This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
+Die beste Lösung wäre, die Anzeige des gesendeten Ordners im Sammeleingang durch langes Drücken des Gesendet-Ordners in der Ordnerliste und *Sammeleingang anzeigen* zu aktivieren. Auf diese Weise können alle Nachrichten dort bleiben, wo sie hingehören, während sie sowohl eingehende als auch ausgehende Nachrichten an einem Ort sehen können.
 
-If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox or set a default CC/BCC address in the advanced identity settings to send yourself a copy.
+Wenn das keine Option ist, können Sie [eine Regel erstellen](#user-content-faq71), um gesendete Nachrichten automatusch in den Posteingang zu verschieben. Alternativ gibt es auch die Möglichkeit, eine Standard CC/BCC-Adresse in den erweiterten Identitätseinstellungen festzulegen, um Ihnen selbst eine Kopie zu senden.
 
 <br />
 
 <a name="faq143"></a>
-**~~(143) Can you add a trash folder for POP3 accounts?~~**
+**~~(143) Kannst du einen Papierkorb für POP3-Konten hinzufügen?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) ist ein sehr begrenztes Protokoll. Grundsätzlich können nur Nachrichten aus dem Posteingang heruntergeladen und gelöscht werden. Es ist nicht einmal möglich, eine Nachricht gelesen zu markieren.
 
-Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
+Da POP3 den Zugriff auf den Papierkorb überhaupt nicht zulässt, gibt es keine Möglichkeit, gelöschte Nachrichten wiederherzustellen.
 
-Note that you can hide messages and search for hidden messages, which is similar to a local trash folder, without suggesting that trashed messages can be restored, while this is actually not possible.
+Beachten Sie, dass Sie Nachrichten verstecken und nach versteckten Nachrichten suchen können, was einem lokalen Papierkorb ähnelt, ohne zu suggerieren, dass gelöschte Nachrichten wiederhergestellt werden können, obwohl dies eigentlich nicht möglich ist.
 
-Version 1.1082 added a local trash folder. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
+In Version 1.1082 wurde ein lokaler Papierkorb hinzugefügt. Beachten Sie, dass das Löschen einer Nachricht diese dauerhaft vom Server entfernt wird, und dass gelöschte Nachrichten nicht mehr auf den Server zurückgesetzt werden können.
 
 <br />
 
 <a name="faq144"></a>
-**(144) How can I record voice notes?**
+**(144) Wie kann ich Sprachnachrichten aufnehmen?**
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 

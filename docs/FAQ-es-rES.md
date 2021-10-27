@@ -1023,17 +1023,17 @@ Las alertas son mensajes de advertencia enviados por los servidores de correo el
 
 *Demasiadas conexiones simultáneas* o *Número máximo de conexiones excedido*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Esta alerta se enviará cuando haya demasiadas conexiones de carpetas para la misma cuenta de correo electrónico al mismo tiempo.
 
-Possible causes are:
+Las causas posibles son:
 
 * Hay múltiples clientes de correo conectados a una misma cuenta
 * El mismo cliente de correo está conectado múltiple veces a una misma cuenta
-* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
+* Las conexiones anteriores fueron terminadas abruptamente, por ejemplo, al perder abruptamente la conectividad a Internet
 
-First try to wait some time to see if the problem resolves itself, else:
+Primero trate de esperar algún tiempo para ver si el problema se resuelve por sí mismo, de lo contrario:
 
-* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* cambie a la verificación periódica de mensajes en la configuración de recepción, lo que resultará en la apertura de carpetas una a la vez
 * o configure algunas carpetas para sondear en lugar de sincronizar (mantenga presionada una carpeta de la lista de carpetas, editar propiedades)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.

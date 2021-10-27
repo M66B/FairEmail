@@ -313,7 +313,7 @@
     <string name="title_advanced_sound">Izberi zvok obvestila</string>
     <string name="title_advanced_confirm_links">Potrdi odpiranje povezav</string>
     <string name="title_advanced_browse_links">Za odpiranje povezav pooblasti Android</string>
-    <string name="title_advanced_confirm_images">Potrdi prikaz slik</string>
+    <string name="title_advanced_ask_images">Potrdi prikaz slik</string>
     <string name="title_advanced_confirm_html">Privzeto prikaži preoblikovana sporočila</string>
     <string name="title_advanced_hide_timezone">Pošiljaj sporočila brez podatkov o časovnem pasu</string>
     <string name="title_advanced_display_hidden">Prikaži skrita besedila v sporočilu</string>

@@ -522,7 +522,7 @@
     <string name="title_advanced_confirm_links">Potwierdź otwieranie linków</string>
     <string name="title_advanced_check_links_dbl">Sprawdź listy blokowanych domen pod kątem podejrzanych linków</string>
     <string name="title_advanced_browse_links">Deleguj otwieranie linków do Androida</string>
-    <string name="title_advanced_confirm_images">Potwierdź wyświetlanie obrazów</string>
+    <string name="title_advanced_ask_images">Potwierdź wyświetlanie obrazów</string>
     <string name="title_advanced_confirm_html">Domyślnie pokaż ponownie sformatowane wiadomości</string>
     <string name="title_advanced_tracking">Spróbuj rozpoznać i wyłączyć obrazki śledzące</string>
     <string name="title_advanced_hide_timezone">Wysyłanie wiadomości bez informacji o strefie czasowej</string>
@@ -790,7 +790,7 @@
     <string name="title_notify_batch_disable">Wyłącz powiadomienia o nowej wiadomości</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Usuń trwale</string>
+    <string name="title_expunge">Usuń trwale</string>
     <string name="title_expunge_remark">Spowoduje to trwałe usunięcie wszystkich wiadomości oznaczonych do usunięcia</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_empty_spam">Opróżnij Spam</string>

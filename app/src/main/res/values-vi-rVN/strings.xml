@@ -236,6 +236,7 @@
     <string name="title_setup_theme_black_background">Nền đen</string>
     <string name="title_setup_theme_html_light">Nền sáng cho mục hiển thị thư gốc</string>
     <string name="title_setup_theme_composer_light">Nền sáng cho trình chỉnh sửa thư</string>
+    <string name="title_setup_theme_you_hint">Màu Material You có thể được thiết lập trong cài đặt Hình nền &amp; phong cách của Android</string>
     <string name="title_setup_theme_system_hint">Cái này sẽ tự động chuyển sang chủ đề sáng/tối ở chế độ ngày/đêm, nếu được hỗ trợ bởi Android</string>
     <string name="title_setup_theme_more_colors">Tôi muốn nhiều màu sắc hơn</string>
     <string name="title_setup_advanced">Nâng cao</string>
@@ -249,6 +250,8 @@
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.
         Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
+    </string>
+    <string name="title_advanced_hint_remark">        Các tuỳ chọn được phân loại theo tab, được chia thành các khu vực, được sắp xếp theo ngoại hình hoặc sử dụng, và có thể tìm kiếm được.
     </string>
     <string name="title_advanced_hint_setup">Bạn có thể thiết lập một tài khoản bằng cách nhấn nút trình hướng dẫn trên màn hình thiết lập chính.</string>
     <string name="title_advanced_section_main">Chính</string>
@@ -490,8 +493,10 @@
     <string name="title_advanced_confirm_links">Xác nhận mở các liên kết</string>
     <string name="title_advanced_check_links_dbl">Kiểm tra các danh sách chặn miền để tìm liên kết đáng nghi</string>
     <string name="title_advanced_browse_links">Giao việc mở các liên kết cho Android</string>
-    <string name="title_advanced_confirm_images">Xác nhận hiện các hình ảnh</string>
+    <string name="title_advanced_confirm_images">Không hiện hình ảnh theo mặc định</string>
+    <string name="title_advanced_ask_images">Xác nhận hiện các hình ảnh</string>
     <string name="title_advanced_confirm_html">Hiện các thư được định dạng lại theo mặc định</string>
+    <string name="title_advanced_ask_html">Xác nhận hiện thư gốc</string>
     <string name="title_advanced_tracking">Thử nhận ra và vô hiệu hoá hình ảnh theo dõi</string>
     <string name="title_advanced_hide_timezone">Gửi thư không có dữ liệu múi giờ</string>
     <string name="title_advanced_client_id">Gửi tên và phiên bản ứng dụng đến máy chủ email</string>
@@ -500,6 +505,7 @@
     <string name="title_advanced_secure">Ẩn khỏi màn hình đa nhiệm và ngăn chặn chụp màn hình</string>
     <string name="title_advanced_pin">Mã PIN</string>
     <string name="title_advanced_biometrics_timeout">Thời gian chờ xác thực sinh trắc học</string>
+    <string name="title_advanced_autolock">Khoá khi màn hình tắt</string>
     <string name="title_advanced_generic_user_agent">Sử dụng tác nhân người dùng trình duyệt chung chung</string>
     <string name="title_advanced_disconnect_auto_update">Tự động cập nhật các danh sách hàng tuần</string>
     <string name="title_advanced_disconnect_links">Sử dụng các danh sách để cảnh báo về các liên kết theo dõi</string>
@@ -756,6 +762,8 @@
     <string name="title_notify_batch_disable">Tắt thông báo thư mới</string>
     <string name="title_delete_local">Xóa các thư cục bộ</string>
     <string name="title_delete_browsed">Xoá các thư đã duyệt/đã tìm kiếm</string>
+    <string name="title_expunge">Expunge</string>
+    <string name="title_expunge_remark">Việc này sẽ xoá vĩnh viễn tất cả thư được đánh dấu để xoá</string>
     <string name="title_empty_trash">Dọn sạch thùng rác</string>
     <string name="title_empty_spam">Dọn sạch thư rác</string>
     <string name="title_edit_properties">Chỉnh sửa thuộc tính</string>

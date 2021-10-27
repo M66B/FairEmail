@@ -266,16 +266,22 @@
     <string name="title_setup_theme_black_background">Čierne pozadie</string>
     <string name="title_setup_theme_html_light">Svetlé pozadie v pôvodnom zobrazení správy</string>
     <string name="title_setup_theme_composer_light">Svetlé pozadie editora správ</string>
+    <string name="title_setup_theme_you_hint">Farby Material You si môžete zmeniť cez aplikáciu Nastavenia Android v časti Tapety a štýl</string>
     <string name="title_setup_theme_system_hint">Táto možnosť automaticky prepne na svetlý alebo tmavý motív podľa toho, či je zariadenie v dennom alebo nočnom režime, ak sú podporované systémom</string>
     <string name="title_setup_theme_more_colors">Chcem viac farieb</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
+    <string name="title_setup_reset_general">Všeobecné otázky</string>
+    <string name="title_setup_reset_full">Zobrazovať pôvodné správy</string>
     <string name="title_setup_reset_images">Zobraziť obrázky</string>
+    <string name="title_setup_reset_links">Potvrdzovať odkazy</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
     <string name="title_advanced_hint_message">        Vstupujete do veľmi pokročilých možností.
         Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné meniť, jedine že uprednostňujete iné nastavenie.
+    </string>
+    <string name="title_advanced_hint_remark">        Možnosti sú rozmiestnené do kariet, rozdelené do častí podľa použitia alebo vzhľadu, a je možné ich vyhľadávať.
     </string>
     <string name="title_advanced_hint_setup">Účet si nastavíte klepnutím na tlačidlo sprievodca na hlavnej obrazovky v okne nastavenia.</string>
     <string name="title_advanced_section_main">Hlavné</string>
@@ -517,8 +523,9 @@
     <string name="title_advanced_confirm_links">Potvrdzovať otváranie odkazov</string>
     <string name="title_advanced_check_links_dbl">Kontrolovať odkazy na podozrivé domény zo zoznamu blokovaných</string>
     <string name="title_advanced_browse_links">Prenechať otváranie odkazov Androidu</string>
-    <string name="title_advanced_confirm_images">Potvrdzovať zobrazenie obrázkov</string>
+    <string name="title_advanced_ask_images">Potvrdzovať zobrazenie obrázkov</string>
     <string name="title_advanced_confirm_html">Predvolene zobraziť preformátované správy</string>
+    <string name="title_advanced_ask_html">Potvrdzovať pôvodné zobrazenie</string>
     <string name="title_advanced_tracking">Pokúsiť sa rozpoznať a zakázať sledovacie obrázky</string>
     <string name="title_advanced_hide_timezone">Posielať správy bez informácií o časovom pásme</string>
     <string name="title_advanced_client_id">Odosielať meno aplikácie a číslo verzie na poštový server</string>
@@ -527,6 +534,7 @@
     <string name="title_advanced_secure">Skryť FairEmail z obrazovky posledných aplikácií a zabrániť získavaniu screenshotov</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Časový limit pre biometrické overenie</string>
+    <string name="title_advanced_autolock">Uzamknúť pri vypnutí obrazovky</string>
     <string name="title_advanced_generic_user_agent">Použiť všeobecnú hodnotu user agent (ako vebový prehliadač)</string>
     <string name="title_advanced_disconnect_auto_update">Automaticky aktualizovať zoznamy raz týždenne</string>
     <string name="title_advanced_disconnect_links">Použiť zoznamy pre varovanie pred sledujúcimi odkazmi</string>
@@ -784,6 +792,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_notify_batch_disable">Zakázať upozornenia na nové správy</string>
     <string name="title_delete_local">Vymazať lokálne správy</string>
     <string name="title_delete_browsed">Vymazať prehliadané lokálne správy</string>
+    <string name="title_expunge">Vyčistiť</string>
+    <string name="title_expunge_remark">Toto natrvalo odstráni všetky správy označené na odstránenie</string>
     <string name="title_empty_trash">Prázdny kôš</string>
     <string name="title_empty_spam">Prázdny spam</string>
     <string name="title_edit_properties">Upraviť vlastnosti</string>
@@ -1156,6 +1166,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_hint">        Prvotné vyhľadávanie prebieha priamo na zariadení.
         Ak chcete prehľadať aj server, klepnite na tlačidlo hľadať znovu.
     </string>
+    <string name="title_search_index_hint">Prehľadávanie indexu je veľmi rýchle ale umožňuje hľadať len celé slová.</string>
     <string name="title_search_text_hint">Vyhľadávanie v tele správy nemusí na všetkých serveroch fungovať správne, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_text_unsupported">\'%s\' znamená, že server nepodporuje hľadanie v texte správ</string>
     <string name="title_search_size_hint">Hľadanie správ podľa veľkosti nemusí správne fungovať na niektorých serveroch, hlavne ak je na servery uložených veľa správ</string>

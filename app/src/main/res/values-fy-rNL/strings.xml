@@ -424,7 +424,7 @@
     <string name="title_advanced_sound">Selektearje meldingslûd</string>
     <string name="title_advanced_confirm_links">Befestigings foar iepenjen befestigje</string>
     <string name="title_advanced_browse_links">Delegear iepeningskeppelings nei Android</string>
-    <string name="title_advanced_confirm_images">Befêstigje werjaan fan ôfbyldings</string>
+    <string name="title_advanced_ask_images">Befêstigje werjaan fan ôfbyldings</string>
     <string name="title_advanced_confirm_html">Standert opnij opmakke berjochten sjen</string>
     <string name="title_advanced_tracking">Besykjen om trackingôfbyldings te herkennen en te útskeakeljen</string>
     <string name="title_advanced_hide_timezone">Berjochten ferstjoere sûnder tiidsône-gegevens</string>

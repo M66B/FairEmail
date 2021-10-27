@@ -502,7 +502,7 @@
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
     <string name="title_advanced_browse_links">Android-ə bağlantıları açma səlahiyyəti ver</string>
-    <string name="title_advanced_confirm_images">Təsvirlərin göstərilməsini təsdiqlə</string>
+    <string name="title_advanced_ask_images">Təsvirlərin göstərilməsini təsdiqlə</string>
     <string name="title_advanced_confirm_html">İlkin olaraq yenidən format edilmiş mesajları göstər</string>
     <string name="title_advanced_tracking">İzləmə təsvirlərini tanımağa və sıradan çıxartmağa cəhd edin</string>
     <string name="title_advanced_hide_timezone">Vaxt qurşağı verilənləri olmadan mesajları göndər</string>
@@ -769,7 +769,7 @@
     <string name="title_notify_batch_disable">Yeni mesaj bildirişlərini sıradan çıxart</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_delete_browsed">Nəzər yetirilmiş/axtarılmış mesajları sil</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Birdəfəlik sil</string>
+    <string name="title_expunge">Birdəfəlik sil</string>
     <string name="title_expunge_remark">Bu, silinmək üçün işarələnmiş bütün mesajları birdəfəlik siləcək</string>
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_empty_spam">Spam qovluğunu boşalt</string>

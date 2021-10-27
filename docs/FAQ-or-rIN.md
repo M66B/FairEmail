@@ -556,7 +556,7 @@ Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-set
 
 Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+ActiveSync ସମର୍ଥନ ବିଷୟରେ ଦୟାକରି [ଏହି FAQ](#user-content-faq133) ଦେଖନ୍ତୁ।
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 

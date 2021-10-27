@@ -245,6 +245,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_theme_black_background">Zwarte achtergrond</string>
     <string name="title_setup_theme_html_light">Lichte achtergrond voor oorspronkelijke berichtweergave</string>
     <string name="title_setup_theme_composer_light">Lichte achtergrond voor berichteditor</string>
+    <string name="title_setup_theme_you_hint">De Material You kleuren kunnen worden geconfigureerd in de Android achtergrond en stijl instellingen</string>
     <string name="title_setup_theme_system_hint">Systeemthema volgen zal automatisch overschakelen naar lichte/donker bij dag/nacht, indien ondersteund door Android</string>
     <string name="title_setup_theme_more_colors">Ik wil meer kleuren</string>
     <string name="title_setup_advanced">Geavanceerd</string>
@@ -502,8 +503,10 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
     <string name="title_advanced_browse_links">Het openen van links overdragen aan Android</string>
-    <string name="title_advanced_confirm_images">Bevestig het tonen van afbeeldingen</string>
+    <string name="title_advanced_confirm_images">Toon standaard geen afbeeldingen</string>
+    <string name="title_advanced_ask_images">Bevestig het tonen van afbeeldingen</string>
     <string name="title_advanced_confirm_html">Toon standaard opnieuw opgemaakte berichten</string>
+    <string name="title_advanced_ask_html">Bevestig het tonen van originele berichten</string>
     <string name="title_advanced_tracking">Probeer om tracking afbeeldingen te herkennen en uit te schakelen</string>
     <string name="title_advanced_hide_timezone">Berichten verzenden zonder tijdzone data</string>
     <string name="title_advanced_client_id">App-naam en -versie verzenden naar mailserver</string>
@@ -770,7 +773,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_notify_batch_disable">Schakel meldingen voor nieuwe berichten uit</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Uitwissen</string>
+    <string name="title_expunge">Uitwissen</string>
     <string name="title_expunge_remark">Dit zal alle berichten die gemarkeerd zijn om te verwijderen permanent verwijderen</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_empty_spam">Spam map leegmaken</string>

@@ -246,6 +246,7 @@
     <string name="title_setup_theme_black_background">Sort baggrund</string>
     <string name="title_setup_theme_html_light">Lys baggrund til oprindelig beskedvisning</string>
     <string name="title_setup_theme_composer_light">Lys baggrund til beskedredigering</string>
+    <string name="title_setup_theme_you_hint">Material You-farverne kan opsættes i Android Tapet og stil indstillinger</string>
     <string name="title_setup_theme_system_hint">Følg system skifter automatisk til lyst/mørkt dag/nat, hvis understøttet af Android</string>
     <string name="title_setup_theme_more_colors">Flere farver ænskes</string>
     <string name="title_setup_advanced">Avanceret</string>
@@ -499,8 +500,10 @@
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
     <string name="title_advanced_browse_links">Delegér åbningslinks til Android</string>
-    <string name="title_advanced_confirm_images">Bekræft visning af billeder</string>
+    <string name="title_advanced_confirm_images">Som standard Ingen billedvisning</string>
+    <string name="title_advanced_ask_images">Bekræft visning af billeder</string>
     <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
+    <string name="title_advanced_ask_html">Bekræft visning af originale beskeder</string>
     <string name="title_advanced_tracking">Forsøg på at genkend og deaktivere sporingsbilleder</string>
     <string name="title_advanced_hide_timezone">Send beskeder uden tidszonedata</string>
     <string name="title_advanced_client_id">Send app-navn og -version til e-mailserver</string>
@@ -763,7 +766,7 @@
     <string name="title_notify_batch_disable">Deaktivér ny besked notifikation</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Fjern permanent</string>
+    <string name="title_expunge">Fjern permanent</string>
     <string name="title_expunge_remark">Dette sletter permanent alle beskeder markeret for sletning</string>
     <string name="title_empty_trash">Tøm papirkurv</string>
     <string name="title_empty_spam">Tøm spam</string>

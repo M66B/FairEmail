@@ -348,7 +348,7 @@
     <string name="title_advanced_sound">Избери звук за известяване</string>
     <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
     <string name="title_advanced_browse_links">Изпращане на отварящите връзки към Android</string>
-    <string name="title_advanced_confirm_images">Потвърдете показването на изображения</string>
+    <string name="title_advanced_ask_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
     <string name="title_advanced_hide_timezone">Изпращане на съобщения без данни за часовата зона</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>

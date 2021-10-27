@@ -236,6 +236,7 @@
     <string name="title_setup_theme_black_background">黑色背景</string>
     <string name="title_setup_theme_html_light">原始消息视图使用浅色背景</string>
     <string name="title_setup_theme_composer_light">邮件编辑窗使用浅色背景</string>
+    <string name="title_setup_theme_you_hint">可以在系统设置“壁纸和样式”中配置 Material You 颜色</string>
     <string name="title_setup_theme_system_hint">如果安卓系统支持，跟随系统主题将在白天/夜间自动切换到亮/暗色主题</string>
     <string name="title_setup_theme_more_colors">我想要更多颜色</string>
     <string name="title_setup_advanced">高级选项</string>
@@ -492,8 +493,10 @@
     <string name="title_advanced_confirm_links">确认打开链接</string>
     <string name="title_advanced_check_links_dbl">使用域名拦截列表检查可疑链接</string>
     <string name="title_advanced_browse_links">授权打开到 Android的链接</string>
-    <string name="title_advanced_confirm_images">确认显示图像</string>
+    <string name="title_advanced_confirm_images">默认不显示图片</string>
+    <string name="title_advanced_ask_images">确认显示图片</string>
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
+    <string name="title_advanced_ask_html">确认显示原始邮件</string>
     <string name="title_advanced_tracking">尝试识别和禁用跟踪图像</string>
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_client_id">将应用名称和版本发送到电子邮件服务器</string>
@@ -760,7 +763,7 @@
     <string name="title_notify_batch_disable">禁用新消息通知</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Expunge</string>
+    <string name="title_expunge">Expunge</string>
     <string name="title_expunge_remark">这将永久删除所有标记要删除的邮件</string>
     <string name="title_empty_trash">清空回收站</string>
     <string name="title_empty_spam">清空垃圾邮件</string>

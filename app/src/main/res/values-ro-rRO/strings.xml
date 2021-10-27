@@ -256,6 +256,7 @@
     <string name="title_setup_theme_black_background">Fundal negru</string>
     <string name="title_setup_theme_html_light">Fond deschis pentru vizualizarea mesajului original</string>
     <string name="title_setup_theme_composer_light">Fundal luminos pentru editorul de mesaje</string>
+    <string name="title_setup_theme_you_hint">Culorile Material You pot fi configurate în Android Wallpaper &amp; setările de stil</string>
     <string name="title_setup_theme_system_hint">Dacă este suportată de Android, setare sistem, va schimba automat la deschis/întunecat în timpul zilei/nopții</string>
     <string name="title_setup_theme_more_colors">Vreau mai multe culori</string>
     <string name="title_setup_advanced">Setări avansate</string>
@@ -512,8 +513,10 @@
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
     <string name="title_advanced_browse_links">Delegarea deschiderii de adrese către Android</string>
-    <string name="title_advanced_confirm_images">Confirmă afișarea imaginilor</string>
+    <string name="title_advanced_confirm_images">Nu afișați nicio imagine în mod implicit</string>
+    <string name="title_advanced_ask_images">Confirmă afișarea imaginilor</string>
     <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
+    <string name="title_advanced_ask_html">Confirmarea afișării mesajelor originale</string>
     <string name="title_advanced_tracking">Încearcă să detectezi și dezactivezi în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_hide_timezone">Trimite mesajele fără date despre fusul orar</string>
     <string name="title_advanced_client_id">Trimite numele aplicației și versiunea la serverul de e-mail</string>
@@ -780,7 +783,7 @@
     <string name="title_notify_batch_disable">Dezactivarea notificărilor de mesaje noi</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Eliminați</string>
+    <string name="title_expunge">Eliminați</string>
     <string name="title_expunge_remark">Acest lucru va șterge definitiv toate mesajele marcate pentru ștergere</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_empty_spam">Golire spam</string>

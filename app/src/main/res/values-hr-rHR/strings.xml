@@ -311,7 +311,7 @@
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_confirm_links">Potvrdi početne veze</string>
-    <string name="title_advanced_confirm_images">Potvrdi prikazivanje slika</string>
+    <string name="title_advanced_ask_images">Potvrdi prikazivanje slika</string>
     <string name="title_advanced_confirm_html">Po zadanom pokaži preoblikovane poruke</string>
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
     <string name="title_advanced_secure">Sakrij sa zaslona nedavnih aplikacija i spriječi snimanje zaslona</string>

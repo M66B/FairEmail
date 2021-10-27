@@ -410,7 +410,7 @@
     <string name="title_advanced_sound">Válasszon értesítő hangot</string>
     <string name="title_advanced_confirm_links">Linkek megnyitásának megerősítésehez kötése</string>
     <string name="title_advanced_browse_links">A linkeket a rendzser kezelje</string>
-    <string name="title_advanced_confirm_images">Képek megjelenítésének megerősítéshez kötése</string>
+    <string name="title_advanced_ask_images">Képek megjelenítésének megerősítéshez kötése</string>
     <string name="title_advanced_confirm_html">Üzenetek alapértelmezett újraformázása</string>
     <string name="title_advanced_tracking">Próbálja meg felismerni és letiltani a követő képeket</string>
     <string name="title_advanced_hide_timezone">Üzenetek küldése időzóna adat nélkül</string>

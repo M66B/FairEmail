@@ -246,6 +246,7 @@
     <string name="title_setup_theme_black_background">Sfondo nero</string>
     <string name="title_setup_theme_html_light">Sfondo chiaro per la visualizzazione del messaggio originale</string>
     <string name="title_setup_theme_composer_light">Sfondo chiaro per l\'editor dei messaggi</string>
+    <string name="title_setup_theme_you_hint">I colori Material You possono essere configurati nelle impostazioni Android Sfondo &amp; stile</string>
     <string name="title_setup_theme_system_hint">Questo cambierà automaticamente il tema chiaro/scuro in modalità diurna/notturna, se supportato da Android</string>
     <string name="title_setup_theme_more_colors">Voglio altri colori</string>
     <string name="title_setup_advanced">Avanzate</string>
@@ -260,6 +261,7 @@
     <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
         Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
     </string>
+    <string name="title_advanced_hint_remark">Le opzioni sono categorizzate per scheda, divise in sezioni, organizzate per aspetto o uso, e ricercabili.    </string>
     <string name="title_advanced_hint_setup">Puoi configurare un profilo toccando il pulsante di procedura guidata sulla schermata di configurazione principale.</string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
@@ -500,8 +502,10 @@
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
     <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
     <string name="title_advanced_browse_links">Delega l\'apertura dei link ad Android</string>
-    <string name="title_advanced_confirm_images">Conferma la visualizzazione dei messaggi</string>
+    <string name="title_advanced_confirm_images">Non mostrare immagini per impostazione predefinita</string>
+    <string name="title_advanced_ask_images">Conferma la visualizzazione dei messaggi</string>
     <string name="title_advanced_confirm_html">Mostra di default i messaggi riformattati</string>
+    <string name="title_advanced_ask_html">Conferma la visualizzazione dei messaggi originali</string>
     <string name="title_advanced_tracking">Tenta di riconoscere e disabilitare le immagini di monitoraggio</string>
     <string name="title_advanced_hide_timezone">Invia i messaggi senza fuso orario</string>
     <string name="title_advanced_client_id">Invia nome e versione dell\'app al server email</string>
@@ -768,6 +772,8 @@
     <string name="title_notify_batch_disable">Disabilita le notifiche dei nuovi messaggi</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_delete_browsed">Elimina i messaggi sfogliati/cercati</string>
+    <string name="title_expunge">Espellere</string>
+    <string name="title_expunge_remark">Questo cancellerà permanentemente tutti i messaggi segnati per l\'eliminazione</string>
     <string name="title_empty_trash">Svuota il cestino</string>
     <string name="title_empty_spam">Svuota lo spam</string>
     <string name="title_edit_properties">Modifica le proprietà</string>

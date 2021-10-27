@@ -267,6 +267,7 @@
     <string name="title_setup_theme_black_background">Чорний фон</string>
     <string name="title_setup_theme_html_light">Світлий фон для оригінального перегляду повідомлень</string>
     <string name="title_setup_theme_composer_light">Світлий фон для редактора повідомлень</string>
+    <string name="title_setup_theme_you_hint">Колір \"Material You\", який ви можете налаштувати в налаштуваннях Android : Фоновий малюнок та теми пристрою</string>
     <string name="title_setup_theme_system_hint">Автоматичне перемкнення на світлу або темну тему вдень або вночі, якщо це підтримується в Android</string>
     <string name="title_setup_theme_more_colors">Я хочу більше кольорів</string>
     <string name="title_setup_advanced">Додатково</string>
@@ -523,7 +524,7 @@
     <string name="title_advanced_confirm_links">Підтвердити відкриття посилань</string>
     <string name="title_advanced_check_links_dbl">Перевіряти списки заблокованих доменів за сумнівними посиланнями</string>
     <string name="title_advanced_browse_links">Делегувати відкриття посилань до Android</string>
-    <string name="title_advanced_confirm_images">Підтвердити показ зображень</string>
+    <string name="title_advanced_ask_images">Підтвердити показ зображень</string>
     <string name="title_advanced_confirm_html">Показати відформатовані повідомлення за замовчуванням</string>
     <string name="title_advanced_tracking">Автоматично розпізнавати та вимикати зображення які використовуються для відстеження</string>
     <string name="title_advanced_hide_timezone">Надсилати повідомлення без даних часового поясу</string>
@@ -790,7 +791,7 @@
     <string name="title_notify_batch_disable">Вимкнути сповіщення про нові повідомлення</string>
     <string name="title_delete_local">Видалити локальні повідомлення</string>
     <string name="title_delete_browsed">Видалити переглянуті/знайденні повідомлення</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Витерти</string>
+    <string name="title_expunge">Витерти</string>
     <string name="title_expunge_remark">Це назавжди видалить усі повідомлення, позначені для видалення</string>
     <string name="title_empty_trash">Очистити кошик</string>
     <string name="title_empty_spam">Очистити спам</string>

@@ -246,6 +246,7 @@
     <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_html_light">Arrière-plan clair pour l\'affichage du message original</string>
     <string name="title_setup_theme_composer_light">Arrière-plan clair pour l\'éditeur de message</string>
+    <string name="title_setup_theme_you_hint">Les couleurs Material You peuvent être configurées dans les paramètres Android Fond d\'écran &amp; style</string>
     <string name="title_setup_theme_system_hint">Suivre le thème du système basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_theme_more_colors">Je veux plus de couleurs</string>
     <string name="title_setup_advanced">Avancé</string>
@@ -502,8 +503,10 @@
     <string name="title_advanced_confirm_links">Confirmer l’ouverture des liens</string>
     <string name="title_advanced_check_links_dbl">Vérifier les listes de blocage de domaine pour les liens suspects</string>
     <string name="title_advanced_browse_links">Déléguer l\'ouverture des liens à Android</string>
-    <string name="title_advanced_confirm_images">Confirmer l’affichage des images</string>
+    <string name="title_advanced_confirm_images">N\'afficher aucune image par défaut</string>
+    <string name="title_advanced_ask_images">Confirmer l’affichage des images</string>
     <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
+    <string name="title_advanced_ask_html">Confirmer l\'affichage des messages originaux</string>
     <string name="title_advanced_tracking">Tenter de reconnaître et de désactiver les images de pistage</string>
     <string name="title_advanced_hide_timezone">Envoyer les messages sans les données de fuseau horaire</string>
     <string name="title_advanced_client_id">Envoyer le nom et la version de l\'application au serveur de messagerie</string>
@@ -770,7 +773,7 @@
     <string name="title_notify_batch_disable">Désactiver les notifications de nouveau message</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
-    <string name="title_expunge" comment="title_expunge&#10;&#10;This is not the same as just delete:&#10;&#10;The EXPUNGE command permanently removes all messages that have the \Deleted flag set from the currently selected mailbox.&#10;https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.3&#10;&#10;This will permanently delete all messages marked for deletion&#10;&#10;">Effacer</string>
+    <string name="title_expunge">Effacer</string>
     <string name="title_expunge_remark">Ceci supprimera définitivement tous les messages marqués pour suppression</string>
     <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_empty_spam">Vider les indésirables</string>
@@ -1026,7 +1029,7 @@
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer avec</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
-    <string name="title_send_auto_archive">Archiver un message avec réponse</string>
+    <string name="title_send_auto_archive">Archiver le message répondu</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>

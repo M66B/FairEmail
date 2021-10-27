@@ -256,6 +256,7 @@
     <string name="title_setup_theme_black_background">Crna pozadina</string>
     <string name="title_setup_theme_html_light">Svijetla pozadina za pregled izvorne poruke</string>
     <string name="title_setup_theme_composer_light">Svijetla pozadina u uređivaču poruka</string>
+    <string name="title_setup_theme_you_hint">Boje \'Material You\' mogu se podesiti u postavkama za stilove Android &amp; pozadina</string>
     <string name="title_setup_theme_system_hint">Ovo će automatski zamijeniti svijetlu/tamnu temu u odnosu na dan/noć, ukoliko je opcija podržana na Androidu</string>
     <string name="title_setup_theme_more_colors">Želim više boja</string>
     <string name="title_setup_advanced">Napredno</string>
@@ -269,6 +270,8 @@
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
+    </string>
+    <string name="title_advanced_hint_remark">        Opcije su kategorisane prema kartici (tabu), podijeljene u odjeljke, organizovane prema izgledu ili upotrebi i mogu se pretraživati.
     </string>
     <string name="title_advanced_hint_setup">Možete podesiti račun dodirom na dugme \'čarobnjak\' na početnom ekranu postavki.</string>
     <string name="title_advanced_section_main">Početni ekran</string>
@@ -510,8 +513,10 @@
     <string name="title_advanced_confirm_links">Potvrdi linkove na otvaranju</string>
     <string name="title_advanced_check_links_dbl">Provjeri spisak blokiranja domena za sumnjive linkove</string>
     <string name="title_advanced_browse_links">Prepusti Androidu linkove na otvaranju</string>
-    <string name="title_advanced_confirm_images">Potvrdi prikazivanje slika</string>
+    <string name="title_advanced_confirm_images">Ne prikazuj slike po zadanom</string>
+    <string name="title_advanced_ask_images">Potvrdi prikazivanje slika</string>
     <string name="title_advanced_confirm_html">Po zadanom prikaži preformatirane poruke</string>
+    <string name="title_advanced_ask_html">Potvrdi prikaz izvornih poruka</string>
     <string name="title_advanced_tracking">Pokušaj prepoznati i isključiti slike koje mogu pratiti</string>
     <string name="title_advanced_hide_timezone">Pošalji poruke bez informacija o vremenskoj zoni</string>
     <string name="title_advanced_client_id">Pošalji naziv i verziju aplikacije e-mail serveru</string>
@@ -777,6 +782,8 @@
     <string name="title_notify_batch_disable">Isključi obavještenja za nove poruke</string>
     <string name="title_delete_local">Izbriši lokalne poruke</string>
     <string name="title_delete_browsed">Izbrisane pretraživane poruke</string>
+    <string name="title_expunge">Trajno uklanjanje</string>
+    <string name="title_expunge_remark">Ovo će trajno ukloniti sve poruke označene za brisanje</string>
     <string name="title_empty_trash">Isprazni otpad</string>
     <string name="title_empty_spam">Isprazni spam</string>
     <string name="title_edit_properties">Uredi svojstva</string>
