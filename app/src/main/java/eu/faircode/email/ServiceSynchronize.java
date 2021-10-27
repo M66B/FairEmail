@@ -1614,7 +1614,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(ServiceSynchronize.this,
                                                 folder.name + " added " + Log.formatThrowable(ex, false));
-                                        state.error(ex);
+                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1630,7 +1630,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(ServiceSynchronize.this,
                                                 folder.name + " removed " + Log.formatThrowable(ex, false));
-                                        state.error(ex);
+                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1651,7 +1651,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(ServiceSynchronize.this,
                                                 folder.name + " changed " + Log.formatThrowable(ex, false));
-                                        state.error(ex);
+                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
                                         wlMessage.release();
                                     }
