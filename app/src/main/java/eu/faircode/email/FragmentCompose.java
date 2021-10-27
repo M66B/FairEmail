@@ -6610,16 +6610,28 @@ public class FragmentCompose extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final long working = getArguments().getLong("working");
-            int focussed = getArguments().getInt("focussed");
+            final Bundle args = getArguments();
+            final long working = args.getLong("working");
+            int focussed = args.getInt("focussed");
 
             final Context context = getContext();
+            final PackageManager pm = context.getPackageManager();
+            final ContentResolver resolver = context.getContentResolver();
 
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_contact_group, null);
+            final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
+            final Button btnManage = dview.findViewById(R.id.btnManage);
 
-            String[] projection = new String[]{
+            ibInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(v.getContext(), Uri.parse(Helper.URI_SUPPORT_CONTACT_GROUP), true);
+                }
+            });
+
+            final String[] projection = new String[]{
                     ContactsContract.Groups._ID,
                     ContactsContract.Groups.TITLE,
                     ContactsContract.Groups.SUMMARY_COUNT,
@@ -6629,7 +6641,7 @@ public class FragmentCompose extends FragmentBase {
 
             Cursor groups;
             try {
-                groups = context.getContentResolver().query(
+                groups = resolver.query(
                         ContactsContract.Groups.CONTENT_SUMMARY_URI,
                         projection,
                         // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +

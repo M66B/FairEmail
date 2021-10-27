@@ -71,8 +71,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FragmentDialogOpenLink extends FragmentDialogBase {
-    private static final String URI_RESET_OPEN = "https://support.google.com/pixelphone/answer/6271667";
-
     private ImageButton ibMore;
     private TextView tvMore;
     private Button btnOwner;
@@ -383,8 +381,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvReset.setPaintFlags(tvReset.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvReset.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.view(view.getContext(), Uri.parse(URI_RESET_OPEN), true);
+            public void onClick(View c) {
+                Helper.view(c.getContext(), Uri.parse(Helper.URI_SUPPORT_RESET_OPEN), true);
             }
         });
 
