@@ -182,9 +182,6 @@ public class EntityAttachment {
         if ("docx".equals(extension))
             return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
-        if ("mid".equals(extension) || "midi".equals(extension))
-            return "audio/midi";
-
         if ("xls".equals(extension))
             return "application/vnd.ms-excel";
 
@@ -206,6 +203,9 @@ public class EntityAttachment {
 
         if ("text/plain".equals(type) && "ovpn".equals(extension))
             return "application/x-openvpn-profile";
+
+        if ("audio/mid".equals(type))
+            return "audio/midi";
 
         // https://www.rfc-editor.org/rfc/rfc3555.txt
         if ("video/jpeg".equals(type))
