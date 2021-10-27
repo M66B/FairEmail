@@ -100,11 +100,13 @@ public class EntityContact implements Serializable {
             @NonNull EntityAccount account,
             @NonNull EntityFolder folder,
             @NonNull EntityMessage message) {
-        int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
-        if (days == Integer.MAX_VALUE)
-            days = EntityFolder.DEFAULT_KEEP;
-        if (message.received < account.created - days * 24 * 3600 * 1000L)
-            return;
+        if (account.protocol == EntityAccount.TYPE_IMAP) {
+            int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
+            if (days == Integer.MAX_VALUE)
+                days = EntityFolder.DEFAULT_KEEP;
+            if (message.received < account.created - days * 24 * 3600 * 1000L)
+                return;
+        }
 
         if (EntityFolder.DRAFTS.equals(folder.type) ||
                 EntityFolder.ARCHIVE.equals(folder.type) ||

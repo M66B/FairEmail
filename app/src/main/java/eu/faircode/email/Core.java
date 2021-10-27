@@ -340,8 +340,11 @@ class Core {
 
                                 case EntityOperation.ANSWERED:
                                 case EntityOperation.ADD:
-                                case EntityOperation.EXISTS:
                                     // Do nothing
+                                    break;
+
+                                case EntityOperation.EXISTS:
+                                    onExists(context, jargs, account, folder, message);
                                     break;
 
                                 case EntityOperation.MOVE:
@@ -1855,6 +1858,11 @@ class Core {
 
         if (attachment.size != null)
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
+    }
+
+    private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message) {
+        // POP3
+        EntityContact.received(context, account, folder, message);
     }
 
     private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
