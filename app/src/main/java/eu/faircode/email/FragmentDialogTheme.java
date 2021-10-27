@@ -48,7 +48,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 checkedId == R.id.rbThemeYellowPurple);
         int optionId = rgThemeOptions.getCheckedRadioButtonId();
 
-        swReverse.setEnabled(colored && !grey && !solarized && !you);
+        swReverse.setEnabled(colored && !grey && !solarized);
 
         rgThemeOptions.setEnabled(colored);
         for (int i = 0; i < rgThemeOptions.getChildCount(); i++)
@@ -126,7 +126,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         });
 
         boolean reversed =
-                (theme.startsWith("orange_blue") ||
+                (theme.contains("reversed") ||
+                        theme.startsWith("orange_blue") ||
                         theme.startsWith("purple_yellow") ||
                         theme.startsWith("green_red"));
         boolean dark = theme.endsWith("dark");
@@ -211,6 +212,11 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             case "you_black":
             case "you_system":
             case "you_system_black":
+            case "you_reversed_light":
+            case "you_reversed_dark":
+            case "you_reversed_black":
+            case "you_reversed_system":
+            case "you_reversed_system_black":
                 rgTheme.check(R.id.rbThemeYou);
                 break;
         }
@@ -299,11 +305,13 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                             editor.putString("theme", "black_and_white").apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeYou) {
                             if (system)
-                                editor.putString("theme", "you_system" +
-                                        (black ? "_black" : "")).apply();
+                                editor.putString("theme",
+                                        (reverse ? "you_reversed_system" : "you_system") +
+                                                (black ? "_black" : "")).apply();
                             else
-                                editor.putString("theme", "you" +
-                                        (black ? "_black" : dark ? "_dark" : "_light")).apply();
+                                editor.putString("theme",
+                                        (reverse ? "you_reversed" : "you") +
+                                                (black ? "_black" : dark ? "_dark" : "_light")).apply();
                         }
 
                         editor.putBoolean("default_light", swHtmlLight.isChecked());
@@ -505,6 +513,22 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             case "you_system_black":
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                     return (night ? R.style.AppThemeYouBlack : R.style.AppThemeYouLight);
+
+            case "you_reversed_light":
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    return R.style.AppThemeYouReversedLight;
+            case "you_reversed_dark":
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    return (light ? R.style.AppThemeYouReversedLight : R.style.AppThemeYouReversedDark);
+            case "you_reversed_black":
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    return (light ? R.style.AppThemeYouReversedLight : R.style.AppThemeYouReversedBlack);
+            case "you_reversed_system":
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    return (night ? R.style.AppThemeYouReversedDark : R.style.AppThemeYouReversedLight);
+            case "you_reversed_system_black":
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                    return (night ? R.style.AppThemeYouReversedBlack : R.style.AppThemeYouReversedLight);
 
             default:
                 Log.e("Unknown theme=" + theme);
