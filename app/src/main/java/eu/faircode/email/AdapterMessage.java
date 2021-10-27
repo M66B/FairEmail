@@ -4190,11 +4190,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View dview = LayoutInflater.from(context).inflate(
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            CheckBox cbNotAgainSender = dview.findViewById(R.id.cbNotAgainSender);
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             if (message.from == null || message.from.length == 0) {
-                cbNotAgain.setVisibility(View.GONE);
+                cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
             } else {
                 List<String> froms = new ArrayList<>();
@@ -4206,17 +4207,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String domain = (at < 0 ? from : from.substring(at));
                     domains.add(domain);
                 }
-                cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again,
+                cbNotAgainSender.setText(context.getString(R.string.title_no_ask_for_again,
                         TextUtils.join(", ", froms)));
                 cbNotAgainDomain.setText(context.getString(R.string.title_no_ask_for_again,
                         TextUtils.join(", ", domains)));
             }
 
             cbNotAgainDomain.setEnabled(false);
-            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            cbNotAgainSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     cbNotAgainDomain.setEnabled(isChecked);
+                }
+            });
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    cbNotAgainSender.setEnabled(!isChecked);
+                    cbNotAgainDomain.setEnabled(!isChecked && cbNotAgainSender.isChecked());
                 }
             });
 
@@ -4270,10 +4279,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     int at = from.indexOf('@');
                                     String domain = (at < 0 ? from : from.substring(at));
                                     editor.putBoolean(from + (full ? ".show_full" : ".show_images"),
-                                            cbNotAgain.isChecked());
+                                            cbNotAgainSender.isChecked());
                                     editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
-                                            cbNotAgain.isChecked() && cbNotAgainDomain.isChecked());
+                                            cbNotAgainSender.isChecked() && cbNotAgainDomain.isChecked());
                                 }
+                            editor.putBoolean(full ? "ask_html" : "ask_images", !cbNotAgain.isChecked());
                             editor.apply();
 
                             onShowConfirmed(message, full, true);
