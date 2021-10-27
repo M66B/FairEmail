@@ -632,7 +632,6 @@ public class FragmentBase extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void handle(RecoverableSecurityException ex) {
         new AlertDialog.Builder(getContext())
-                .setIcon(R.drawable.twotone_help_24)
                 .setMessage(ex.getMessage())
                 .setPositiveButton(ex.getUserAction().getTitle(), new DialogInterface.OnClickListener() {
                     @Override
