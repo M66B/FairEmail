@@ -1132,10 +1132,24 @@ class Core {
 
             // Some providers do not list the new message yet
             try {
+                List<Message> delete = new ArrayList<>();
+
+                if (message.uid != null)
+                    try {
+                        Message iprev = ifolder.getMessageByUID(message.uid);
+                        if (iprev != null) {
+                            Log.i(folder.name + " found prev uid=" + message.uid + " msgid=" + message.msgid);
+                            iprev.setFlag(Flags.Flag.DELETED, true);
+                            delete.add(iprev);
+                        }
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+
                 Log.i(folder.name + " searching for added msgid=" + message.msgid);
                 Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
                 if (imessages != null) {
-                    Long found = null;
+                    Long found = newuid;
 
                     for (Message iexisting : imessages)
                         try {
@@ -1153,13 +1167,13 @@ class Core {
                         if (newuid == null || found > newuid)
                             newuid = found;
 
-                        List<Message> delete = new ArrayList<>();
                         for (Message iexisting : imessages)
                             try {
                                 long muid = ifolder.getUID(iexisting);
                                 if (muid < 0)
                                     continue;
-                                if (muid < newuid)
+                                if (muid < newuid &&
+                                        (message.uid == null || message.uid != muid))
                                     try {
                                         iexisting.setFlag(Flags.Flag.DELETED, true);
                                         delete.add(iexisting);
@@ -1169,10 +1183,11 @@ class Core {
                             } catch (MessageRemovedException ex) {
                                 Log.w(ex);
                             }
-
-                        expunge(context, ifolder, delete);
                     }
                 }
+
+                expunge(context, ifolder, delete);
+
             } catch (MessagingException ex) {
                 Log.w(ex);
             }
