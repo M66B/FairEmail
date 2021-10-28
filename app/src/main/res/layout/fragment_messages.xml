@@ -412,7 +412,7 @@
         android:contentDescription="@string/title_more"
         android:tooltipText="@string/title_more"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/twotone_more_vert_24"
+        app:srcCompat="@drawable/twotone_list_24"
         app:tint="?attr/colorFabForeground" />
 
     <eu.faircode.email.FixedTextView
