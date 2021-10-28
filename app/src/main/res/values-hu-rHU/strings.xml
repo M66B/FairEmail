@@ -803,7 +803,6 @@
     <string name="title_no_search">Nem elérhető a szerveren keresés ezen a fiókon</string>
     <string name="title_too_large">Az üzenet túl nagy a teljes újraformázáshoz</string>
     <string name="title_truncated">Az üzenet túl nagy a teljes megjelnítéshez</string>
-    <string name="title_insufficient_memory">Az üzenet túl nagy az elérhető memóriába való betöltéshez</string>
     <string name="title_show_full">Teljes szöveg megjelnítése</string>
     <string name="title_unused_inline">Nem használt beágyazott képek küldéskor törölve lesznek</string>
     <string name="title_accross_remark">A különböző fiókok között átmozgatott üzenetek újra letöltsére kerülnek, amely további adatforgalmat eredményez</string>

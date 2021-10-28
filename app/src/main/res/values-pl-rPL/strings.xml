@@ -982,7 +982,6 @@
     <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
     <string name="title_too_large">Wiadomość jest zbyt duża, aby całkowicie sformatować</string>
     <string name="title_truncated">Wiadomość jest za duża, aby wyświetlić ją w całości</string>
-    <string name="title_insufficient_memory">Wiadomość zbyt duża, aby zmieścić się w dostępnej pamięci</string>
     <string name="title_show_full">Pokaż pełną wiadomość</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>

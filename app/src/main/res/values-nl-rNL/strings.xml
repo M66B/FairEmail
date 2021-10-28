@@ -517,6 +517,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
     <string name="title_advanced_autolock">Vergrendel als scherm uitgaat</string>
     <string name="title_advanced_generic_user_agent">Gebruik algemene browser user agent</string>
+    <string name="title_advanced_load_emoji">Laad bijgewerkte Emoji van Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
     <string name="title_advanced_disconnect_images">Gebruik lijsten om tracking afbeeldingen te herkennen</string>
@@ -965,7 +966,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_no_search">Zoeken op server is niet beschikbaar voor dit account</string>
     <string name="title_too_large">Bericht te groot om volledig opnieuw op te maken</string>
     <string name="title_truncated">Bericht is te groot om volledig weer te geven</string>
-    <string name="title_insufficient_memory">Bericht te groot om in het beschikbare geheugen te passen</string>
+    <string name="title_insufficient_memory">Bericht te groot voor het beschikbare geheugen (%1$d)</string>
     <string name="title_show_full">Toon volledig bericht</string>
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>

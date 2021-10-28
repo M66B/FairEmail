@@ -975,7 +975,6 @@
     <string name="title_no_search">Căutarea pe server nu este disponibilă pentru acest cont</string>
     <string name="title_too_large">Mesaj prea mare pentru a fi complet reformatat</string>
     <string name="title_truncated">Mesaj prea mare pentru a-l putea afișa complet</string>
-    <string name="title_insufficient_memory">Mesaj prea mare pentru a-l putea încărca în memoria disponibilă</string>
     <string name="title_show_full">Arată mesajul întreg</string>
     <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>

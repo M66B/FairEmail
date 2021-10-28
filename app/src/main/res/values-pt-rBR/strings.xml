@@ -910,7 +910,6 @@
     <string name="title_no_search">Pesquisa no servidor não está disponível para esta conta</string>
     <string name="title_too_large">Mensagem muito grande para reformar completamente</string>
     <string name="title_truncated">Mensagem muito grande para exibir completamente</string>
-    <string name="title_insufficient_memory">Mensagem muito grande para caber na memória disponível</string>
     <string name="title_show_full">Mostrar mensagem completa</string>
     <string name="title_unused_inline">Imagens embutidas não utilizadas serão removidas ao enviar</string>
     <string name="title_accross_remark">Mensagens movidas entre contas serão baixadas novamente, resultando em uso extra de dados</string>

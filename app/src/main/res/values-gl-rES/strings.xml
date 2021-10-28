@@ -874,7 +874,6 @@
     <string name="title_no_search">A procura no servidor non está dispoñible nesta conta</string>
     <string name="title_too_large">A mensaxe é moi grande para podela reformatar</string>
     <string name="title_truncated">A mensaxe é moi grande para podela visualizar completamente</string>
-    <string name="title_insufficient_memory">A mensaxe é moi grande para coller na memoria dispoñible</string>
     <string name="title_show_full">Mostrar a mensaxe completa</string>
     <string name="title_unused_inline">As imaxes en liña que non se usen serán eliminadas ao enviar</string>
     <string name="title_accross_remark">As mensaxes movidas entre contas serán baixadas de novo, resultado en máis gasto de datos</string>

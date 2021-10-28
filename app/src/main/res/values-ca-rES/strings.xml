@@ -669,7 +669,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_no_search">Cercar al servidor no està disponible per aquest compte</string>
     <string name="title_too_large">Missatge massa gran per reformatejar-lo completament</string>
     <string name="title_truncated">Missatge massa gran per mostrar-lo completament</string>
-    <string name="title_insufficient_memory">Missatge massa gran per adaptar-se a la memòria disponible</string>
     <string name="title_show_full">Mostrar missatge complert</string>
     <string name="title_unused_inline">Les imatges en línia no utilitzades seran esborrades al enviar</string>
     <string name="title_accross_remark">Els missatges transmesos pels comptes es descarregaran de nou i es produirà un ús addicional de dades</string>

@@ -957,7 +957,6 @@
     <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
     <string name="title_too_large">Viesti liian suuri uudelleenmuotoiltavaksi kokonaisuudessaan</string>
     <string name="title_truncated">Viesti liian suuri näytettäväksi kokonaisuudessaan</string>
-    <string name="title_insufficient_memory">Viesti liian iso mahtuakseen käytettävissä olevaan muistiin</string>
     <string name="title_show_full">Näytä koko viesti</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>

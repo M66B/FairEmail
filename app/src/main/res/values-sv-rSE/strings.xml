@@ -952,7 +952,6 @@
     <string name="title_no_search">Sök på servern är inte tillgänglig för detta konto</string>
     <string name="title_too_large">Meddelandet är för stort för att omformatera</string>
     <string name="title_truncated">Meddelandet är för stort för att visas helt</string>
-    <string name="title_insufficient_memory">Meddelandet är för stort för att passa in i det tillgängliga minnet</string>
     <string name="title_show_full">Visa hela meddelandet</string>
     <string name="title_unused_inline">Infogade bilder som är oanvända kommer att tas bort vid sändning</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>

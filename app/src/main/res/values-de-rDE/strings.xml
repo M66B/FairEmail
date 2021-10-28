@@ -246,7 +246,7 @@
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_html_light">Heller Hintergrund für die Ansicht der Originalnachricht</string>
     <string name="title_setup_theme_composer_light">Heller Hintergrund für das Verfassenfenster</string>
-    <string name="title_setup_theme_you_hint">Die „Material You”-Farben können in den Android-Einstellungen „Hintergründe und Stil” festgelegt werden.</string>
+    <string name="title_setup_theme_you_hint">Die Material-You-Farben können in den Android-Einstellungen „Hintergründe und Stil” festgelegt werden.</string>
     <string name="title_setup_theme_system_hint">Dadurch wird automatisch auf ein helles/dunkles Design im Tag-/Nachtmodus umgeschaltet, wenn es von Android unterstützt wird</string>
     <string name="title_setup_theme_more_colors">Ich möchte mehr Farben</string>
     <string name="title_setup_advanced">Erweitert</string>
@@ -964,7 +964,6 @@
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
     <string name="title_too_large">Nachricht zu groß, um sie vollständig umformatieren zu können</string>
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
-    <string name="title_insufficient_memory">Nachricht zu groß für den verfügbaren Arbeitsspeicher</string>
     <string name="title_show_full">Vollständige Nachricht anzeigen</string>
     <string name="title_unused_inline">Ungenutzte Inline-Bilder werden beim Senden entfernt</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>

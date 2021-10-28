@@ -961,7 +961,6 @@
     <string name="title_no_search">Bu hesab üçün serverdə axtarış edilə bilmir</string>
     <string name="title_too_large">Mesaj, tamamilə yenidən formatlanmayacaq qədər böyükdür</string>
     <string name="title_truncated">Mesaj, tamamilə görüntülənməyəcək qədər böyükdür</string>
-    <string name="title_insufficient_memory">Mesaj, mövcud yaddaşa sığmayacaq qədər böyükdür</string>
     <string name="title_show_full">Tam mesajı göstər</string>
     <string name="title_unused_inline">İstifadə edilməyən sətiriçi təsvirlər göndəriləndə çıxarılacaq</string>
     <string name="title_accross_remark">Hesablar arasında köçürülən mesajlar yenidən endiriləcək və bu da əlavə verilənlər istifadəsi ilə nəticələnəcək</string>

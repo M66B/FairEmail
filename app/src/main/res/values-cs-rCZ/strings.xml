@@ -969,7 +969,6 @@
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
     <string name="title_too_large">Zpráva je příliš velká pro úplné přeformátování</string>
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>
-    <string name="title_insufficient_memory">Zpráva je příliš velká, nevejde se do dostupné paměti</string>
     <string name="title_show_full">Zobrazit celou zprávu</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>

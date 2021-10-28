@@ -965,7 +965,6 @@
     <string name="title_no_search">La recherche sur le serveur n’est pas disponible pour ce compte</string>
     <string name="title_too_large">Message trop volumineux pour être complètement reformaté</string>
     <string name="title_truncated">Message trop volumineux pour être affiché complètement</string>
-    <string name="title_insufficient_memory">Message trop volumineux pour tenir dans la mémoire disponible</string>
     <string name="title_show_full">Afficher le message complet</string>
     <string name="title_unused_inline">Les images incluses non utilisées seront supprimées lors de l’envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>

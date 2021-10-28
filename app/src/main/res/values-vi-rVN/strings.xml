@@ -954,7 +954,6 @@
     <string name="title_no_search">Tìm kiếm trên máy chủ không có sẵn cho tài khoản này</string>
     <string name="title_too_large">Thư quá lớn để định dạng lại hoàn toàn</string>
     <string name="title_truncated">Thư quá lớn để hiển thị hoàn toàn</string>
-    <string name="title_insufficient_memory">Thư quá lớn để đưa vừa vào bộ nhớ có sẵn</string>
     <string name="title_show_full">Hiện thư đầy đủ</string>
     <string name="title_unused_inline">Các hình ảnh tích hợp không được sử dụng sẽ bị xoá khi gửi</string>
     <string name="title_accross_remark">Thư được di chuyển qua các tài khoản sẽ được tải xuống lại dẫn đến sử dụng thêm dữ liệu</string>

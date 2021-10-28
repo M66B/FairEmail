@@ -957,7 +957,6 @@
     <string name="title_no_search">Søg på server er utilgængelig for denne konto</string>
     <string name="title_too_large">Besked for stor til fuldstændig omformatering</string>
     <string name="title_truncated">Besked for stor til fuldstændig visning</string>
-    <string name="title_insufficient_memory">Beksked for stor til at være i hukommelsen</string>
     <string name="title_show_full">Vis fuld besked</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>

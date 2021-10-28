@@ -950,7 +950,6 @@
     <string name="title_no_search">於伺服器搜尋功能不可用於此帳戶</string>
     <string name="title_too_large">訊息太大，無法完整重排</string>
     <string name="title_truncated">訊息太大，無法完整顯示</string>
-    <string name="title_insufficient_memory">訊息太大，可用記憶體已無法承載</string>
     <string name="title_show_full">顯示完整訊息</string>
     <string name="title_unused_inline">未使用的行內圖片將會在傳送時被移除</string>
     <string name="title_accross_remark">跨帳戶移動的訊息會再次被下載，從而產生額外的數據用量</string>

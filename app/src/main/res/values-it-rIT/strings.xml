@@ -964,7 +964,6 @@
     <string name="title_no_search">La ricerca sul server non è disponibile per questo profilo</string>
     <string name="title_too_large">Messaggio troppo grande da riformattare completamente</string>
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
-    <string name="title_insufficient_memory">Messaggio troppo grande per la memoria disponibile</string>
     <string name="title_show_full">Mostra messaggio completo</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate saranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra profili saranno riscaricati, risultando in un uso extra dei dati</string>

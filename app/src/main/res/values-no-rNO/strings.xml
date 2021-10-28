@@ -733,7 +733,6 @@
     <string name="title_no_search">Søk på tjeneren er ikke tilgjengelig for denne kontoen</string>
     <string name="title_too_large">Melding for stor til å omformatere fullstendig</string>
     <string name="title_truncated">Meldingen er for stor til å vises fullstendig</string>
-    <string name="title_insufficient_memory">Meldingen er for stor til å passe inn i det tilgjengelige minnet</string>
     <string name="title_show_full">Vis full melding</string>
     <string name="title_unused_inline">Ubrukte inline bilder blir fjernet ved sending</string>
     <string name="title_accross_remark">Meldinger som er flyttet over kontoer, lastes ned igjen, noe som resulterer i ekstra databruk</string>

@@ -981,7 +981,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_search">Hľadanie na servery nie je dostupné pre tento účet</string>
     <string name="title_too_large">Správa je príliš veľká na úplné preformátovanie</string>
     <string name="title_truncated">Správa je príliš veľká na úplné zobrazenie</string>
-    <string name="title_insufficient_memory">Správa je príliš veľká, aby sa vošla do dostupnej pamäte</string>
     <string name="title_show_full">Zobraziť celú správu</string>
     <string name="title_unused_inline">Nepoužité vnorené obrázky budú odstránené pri odoslaní</string>
     <string name="title_accross_remark">Správy premiestnené medzi účtami budú prevzaté znovu, s využitím ďalšieho prenosu údajov</string>
