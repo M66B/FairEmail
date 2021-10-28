@@ -129,7 +129,7 @@ public class MessageHelper {
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
 
     private static final int MAX_HEADER_LENGTH = 998;
-    private static final int MAX_MESSAGE_SIZE = 20 * 1024 * 1024; // bytes
+    private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
@@ -2008,6 +2008,8 @@ public class MessageHelper {
             parts.addAll(extra);
             for (PartHolder h : parts) {
                 int size = h.part.getSize();
+                if (size > 100 * 1024 * 1024)
+                    Log.e("Unreasonable message size=" + size);
                 if (size > MAX_MESSAGE_SIZE && size != Integer.MAX_VALUE) {
                     warnings.add(context.getString(R.string.title_insufficient_memory, size));
                     return null;
