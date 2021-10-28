@@ -4,6 +4,14 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1769 - 2021-10-28
+
+* Fixed drafts not being removed
+* Added Emoji font loading (privacy settings)
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.1768 - 2021-10-27
 
 * Added Material You theme (Android 12)
