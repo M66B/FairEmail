@@ -1406,4 +1406,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="1blu"
+        link="https://faq.1blu.de/content/467/882/de/e_mail_einrichtung-_-wie-lauten-die-einstellungen-fuer-mein-e_mail_system.html">
+        <imap
+            host="imap.1blu.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.1blu.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
