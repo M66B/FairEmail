@@ -1653,6 +1653,14 @@ public class Helper {
         }
     }
 
+    static byte[] readBytes(InputStream is) throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream(Math.max(BUFFER_SIZE, is.available()));
+        byte[] buffer = new byte[BUFFER_SIZE];
+        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+            os.write(buffer, 0, len);
+        return os.toByteArray();
+    }
+
     static void copy(File src, File dst) throws IOException {
         try (InputStream is = new FileInputStream(src)) {
             try (OutputStream os = new FileOutputStream(dst)) {

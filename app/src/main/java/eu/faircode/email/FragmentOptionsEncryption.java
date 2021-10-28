@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +28,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -48,6 +51,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -62,6 +66,8 @@ import org.openintents.openpgp.IOpenPgpService2;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
@@ -102,6 +108,8 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
     private OpenPgpServiceConnection pgpService;
     private List<String> openPgpProvider = new ArrayList<>();
+
+    static final int REQUEST_IMPORT_CERTIFICATE = 1;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "sign_default", "encrypt_default", "auto_decrypt", "auto_undecrypt",
@@ -314,11 +322,18 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
         final Intent importKey = KeyChain.createInstallIntent();
         btnImportKey.setEnabled(importKey.resolveActivity(pm) != null); // system whitelisted
-        btnImportKey.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.R ? View.VISIBLE : View.GONE);
         btnImportKey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(importKey);
+                Context context = v.getContext();
+                PackageManager pm = context.getPackageManager();
+                Intent open = new Intent(Intent.ACTION_GET_CONTENT);
+                open.addCategory(Intent.CATEGORY_OPENABLE);
+                open.setType("*/*");
+                if (open.resolveActivity(pm) == null)  // system whitelisted
+                    ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+                else
+                    startActivityForResult(Helper.getChooser(context, open), REQUEST_IMPORT_CERTIFICATE);
             }
         });
 
@@ -470,6 +485,61 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         pgpService = null;
 
         super.onDestroyView();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_IMPORT_CERTIFICATE:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleImportCertificate(data);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void handleImportCertificate(Intent data) {
+        Uri uri = data.getData();
+        if (uri != null) {
+            Bundle args = new Bundle();
+            args.putParcelable("uri", uri);
+
+            new SimpleTask<byte[]>() {
+                @Override
+                protected byte[] onExecute(Context context, Bundle args) throws Throwable {
+                    Uri uri = args.getParcelable("uri");
+                    Log.i("Import certificate uri=" + uri);
+
+                    if (uri == null)
+                        throw new FileNotFoundException();
+
+                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        return Helper.readBytes(is);
+                    }
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, byte[] data) {
+                    Intent intent = KeyChain.createInstallIntent();
+                    intent.putExtra(KeyChain.EXTRA_PKCS12, data);
+                    startActivity(intent);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    boolean expected =
+                            (ex instanceof IllegalArgumentException ||
+                                    ex instanceof FileNotFoundException ||
+                                    ex instanceof SecurityException);
+                    Log.unexpectedError(getParentFragmentManager(), ex, !expected);
+                }
+            }.execute(this, args, "setup:cert");
+        }
     }
 
     @Override
