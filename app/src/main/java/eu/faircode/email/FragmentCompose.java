@@ -1371,8 +1371,14 @@ public class FragmentCompose extends FragmentBase {
         state = State.NONE;
 
         Runnable load = new Runnable() {
+            private boolean once = false;
+
             @Override
             public void run() {
+                if (once)
+                    return;
+                once = true;
+
                 try {
                     if (savedInstanceState == null) {
                         if (working < 0) {
@@ -1445,7 +1451,8 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            public void onError(Exception e) {
+            public void onError(Exception ex) {
+                Log.i(ex.getMessage());
                 load.run();
             }
         });
