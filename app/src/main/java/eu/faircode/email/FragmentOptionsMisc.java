@@ -78,6 +78,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.SortedMap;
@@ -809,7 +810,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("protocol", checked).apply();
-                if (!checked)
+                if (checked)
+                    prefs.edit().putLong("protocol_since", new Date().getTime()).apply();
+                else
                     EntityLog.clear(compoundButton.getContext());
             }
         });

@@ -65,6 +65,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -129,6 +130,7 @@ public class EmailService implements AutoCloseable {
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
     private final static int POOL_SIZE = 1; // connections
     private final static int POOL_TIMEOUT = 60 * 1000; // milliseconds, default 45 sec
+    private final static long PROTOCOL_LOG_DURATION = 12 * 3600 * 1000L;
 
     private final static int MAX_IPV4 = 2;
     private final static int MAX_IPV6 = 1;
@@ -166,7 +168,13 @@ public class EmailService implements AutoCloseable {
 
         properties = MessageHelper.getSessionProperties();
 
+        long now = new Date().getTime();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        long protocol_since = prefs.getLong("protocol_since", 0);
+        if (protocol_since == 0)
+            prefs.edit().putLong("protocol_since", now).apply();
+        else if (protocol_since + PROTOCOL_LOG_DURATION < now)
+            prefs.edit().putBoolean("protocol", false).apply();
         this.log = prefs.getBoolean("protocol", false);
         this.harden = prefs.getBoolean("ssl_harden", false);
 
