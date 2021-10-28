@@ -2007,8 +2007,9 @@ public class MessageHelper {
             parts.addAll(text);
             parts.addAll(extra);
             for (PartHolder h : parts) {
-                if (h.part.getSize() > MAX_MESSAGE_SIZE) {
-                    warnings.add(context.getString(R.string.title_insufficient_memory));
+                int size = h.part.getSize();
+                if (size > MAX_MESSAGE_SIZE && size != Integer.MAX_VALUE) {
+                    warnings.add(context.getString(R.string.title_insufficient_memory, size));
                     return null;
                 }
 
