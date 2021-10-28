@@ -517,6 +517,7 @@
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_autolock">Sperren bei ausgeschaltetem Bildschirm</string>
     <string name="title_advanced_generic_user_agent">Allgemeine Browser-Kennung verwenden</string>
+    <string name="title_advanced_load_emoji">Aktualisierte Emoji von Google Play-Diensten laden</string>
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
@@ -964,6 +965,7 @@
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
     <string name="title_too_large">Nachricht zu groß, um sie vollständig umformatieren zu können</string>
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
+    <string name="title_insufficient_memory">Nachricht zu groß für den verfügbaren Speicher (%1$d)</string>
     <string name="title_show_full">Vollständige Nachricht anzeigen</string>
     <string name="title_unused_inline">Ungenutzte Inline-Bilder werden beim Senden entfernt</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>

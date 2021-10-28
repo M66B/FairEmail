@@ -266,6 +266,7 @@
     <string name="title_setup_theme_black_background">Czarne tło</string>
     <string name="title_setup_theme_html_light">Jasne tło dla oryginalnego widoku wiadomości</string>
     <string name="title_setup_theme_composer_light">Jasne tło dla edytora wiadomości</string>
+    <string name="title_setup_theme_you_hint">Kolory Material You mogą być skonfigurowane w ustawieniach Tapeta i styl</string>
     <string name="title_setup_theme_system_hint">Zgodnie z motywem systemu automatycznie przełączy się na jasny/ciemny w dzień/noc, jeśli jest wspierane przez Androida</string>
     <string name="title_setup_theme_more_colors">Chcę więcej kolorów</string>
     <string name="title_setup_advanced">Zaawansowane</string>
@@ -522,8 +523,10 @@
     <string name="title_advanced_confirm_links">Potwierdź otwieranie linków</string>
     <string name="title_advanced_check_links_dbl">Sprawdź listy blokowanych domen pod kątem podejrzanych linków</string>
     <string name="title_advanced_browse_links">Deleguj otwieranie linków do Androida</string>
+    <string name="title_advanced_confirm_images">Domyślnie nie pokazuj obrazów</string>
     <string name="title_advanced_ask_images">Potwierdź wyświetlanie obrazów</string>
     <string name="title_advanced_confirm_html">Domyślnie pokaż ponownie sformatowane wiadomości</string>
+    <string name="title_advanced_ask_html">Potwierdź wyświetlanie oryginalnych wiadomości</string>
     <string name="title_advanced_tracking">Spróbuj rozpoznać i wyłączyć obrazki śledzące</string>
     <string name="title_advanced_hide_timezone">Wysyłanie wiadomości bez informacji o strefie czasowej</string>
     <string name="title_advanced_client_id">Wyślij nazwę i wersję aplikacji na serwer e-mail</string>
@@ -534,6 +537,7 @@
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_autolock">Zablokuj po wyłączeniu ekranu</string>
     <string name="title_advanced_generic_user_agent">Użyj agenta użytkownika ogólnego przeglądarki</string>
+    <string name="title_advanced_load_emoji">Załaduj zaktualizowane emotikony z Usług Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Automatycznie aktualizuj listy co tydzień</string>
     <string name="title_advanced_disconnect_links">Użyj list do rozpoznawania linków śledzących</string>
     <string name="title_advanced_disconnect_images">Użyj list do rozpoznawania obrazów śledzących</string>
@@ -982,6 +986,7 @@
     <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
     <string name="title_too_large">Wiadomość jest zbyt duża, aby całkowicie sformatować</string>
     <string name="title_truncated">Wiadomość jest za duża, aby wyświetlić ją w całości</string>
+    <string name="title_insufficient_memory">Wiadomość jest zbyt duża dla dostępnej pamięci (%1$d)</string>
     <string name="title_show_full">Pokaż pełną wiadomość</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>

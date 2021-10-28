@@ -513,6 +513,7 @@
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_autolock">Lås ved skærmslukning</string>
+    <string name="title_advanced_load_emoji">Indlæs opdaterede Emoji fra Google Play-tjenester</string>
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
     <string name="title_advanced_disconnect_images">Benyt lister til at genkende sporingsbilleder</string>
@@ -957,6 +958,7 @@
     <string name="title_no_search">Søg på server er utilgængelig for denne konto</string>
     <string name="title_too_large">Besked for stor til fuldstændig omformatering</string>
     <string name="title_truncated">Besked for stor til fuldstændig visning</string>
+    <string name="title_insufficient_memory">Besked for stor ift. tilgængelige hukommelse (%1$d)</string>
     <string name="title_show_full">Vis fuld besked</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>

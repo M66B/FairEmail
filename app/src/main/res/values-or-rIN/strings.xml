@@ -173,6 +173,7 @@
     <string name="title_advanced_ask_html">ମୂଳ ବାର୍ତ୍ତା ଦେଖାଇବା ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_autolock">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
+    <string name="title_advanced_load_emoji">Google Play Servicesରୁ ଅପଡେଟ୍ ହୋଇଥିବା Emoji ଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>

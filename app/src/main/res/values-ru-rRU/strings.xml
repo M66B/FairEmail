@@ -537,6 +537,7 @@
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
     <string name="title_advanced_autolock">Отключить блокировку экпана</string>
     <string name="title_advanced_generic_user_agent">Использовать обычный пользовательский агент браузера</string>
+    <string name="title_advanced_load_emoji">Загружать обновлённые эмодзи из Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
     <string name="title_advanced_disconnect_images">Использовать списки для распознавания отслеживающих изображений</string>
@@ -984,6 +985,7 @@
     <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
     <string name="title_too_large">Сообщение слишком большое для полного переформатирования</string>
     <string name="title_truncated">Сообщение слишком велико для полного отображения</string>
+    <string name="title_insufficient_memory">Сообщение слишком большое для доступной памяти (%1$d)</string>
     <string name="title_show_full">Показать сообщение полностью</string>
     <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>

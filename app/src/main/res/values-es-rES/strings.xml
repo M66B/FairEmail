@@ -517,6 +517,7 @@
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_autolock">Bloquear al apagar pantalla</string>
     <string name="title_advanced_generic_user_agent">Usar agente de usuario de navegador genérico</string>
+    <string name="title_advanced_load_emoji">Cargar Emoji actualizado desde los Servicios de Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconocer imágenes de rastreo</string>
@@ -965,6 +966,7 @@
     <string name="title_no_search">La búsqueda en el servidor no está disponible para esta cuenta</string>
     <string name="title_too_large">Mensaje demasiado grande para reformatear completamente</string>
     <string name="title_truncated">Mensaje demasiado grande para mostrarlo por completo</string>
+    <string name="title_insufficient_memory">Mensaje demasiado grande para la memoria disponible (%1$d)</string>
     <string name="title_show_full">Mostrar mensaje completo</string>
     <string name="title_unused_inline">Las imágenes embebidas no usadas serán eliminadas al enviar</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>

@@ -516,6 +516,7 @@
     <string name="title_advanced_biometrics_timeout">Timeout dell\'autenticazione biometrica</string>
     <string name="title_advanced_autolock">Blocca a schermo spento</string>
     <string name="title_advanced_generic_user_agent">Usa l\'agente utente del browser generico</string>
+    <string name="title_advanced_load_emoji">Carica le Emoji aggiornate da Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
@@ -964,6 +965,7 @@
     <string name="title_no_search">La ricerca sul server non è disponibile per questo profilo</string>
     <string name="title_too_large">Messaggio troppo grande da riformattare completamente</string>
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
+    <string name="title_insufficient_memory">Messaggio troppo grande per la memoria disponibile (%1$d)</string>
     <string name="title_show_full">Mostra messaggio completo</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate saranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra profili saranno riscaricati, risultando in un uso extra dei dati</string>

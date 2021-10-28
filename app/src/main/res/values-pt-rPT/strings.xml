@@ -445,6 +445,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo limite para autenticação biométrica</string>
     <string name="title_advanced_autolock">Bloquear quando o ecrã se desligar</string>
+    <string name="title_advanced_load_emoji">Carregar emoji atualizado do Google Play Services</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -521,6 +522,7 @@
     <string name="title_reply">Responder</string>
     <string name="title_no_viewer_name">Nome do conteúdo</string>
     <string name="title_no_viewer_type">Tipo de conteúdo</string>
+    <string name="title_insufficient_memory">Mensagem muito grande para a memória disponível (%1$d)</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_compose">Compor</string>
     <string name="title_language">Idioma:</string>
