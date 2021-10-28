@@ -489,6 +489,29 @@
                     app:layout_constraintTop_toBottomOf="@id/tvSafeBrowsingHint"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swLoadEmoji"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_load_emoji"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibSafeBrowsing"
+                    app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLoadEmojiHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_english_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swLoadEmoji" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvDisconnectBlacklist"
                     android:layout_width="0dp"
@@ -501,7 +524,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibSafeBrowsing" />
+                    app:layout_constraintTop_toBottomOf="@id/tvLoadEmojiHint" />
 
                 <ImageButton
                     android:id="@+id/ibDisconnectBlacklist"

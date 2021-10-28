@@ -39,6 +39,9 @@ import android.webkit.CookieManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.emoji2.text.DefaultEmojiCompatConfig;
+import androidx.emoji2.text.EmojiCompat;
+import androidx.emoji2.text.FontRequestEmojiCompatConfig;
 import androidx.preference.PreferenceManager;
 import androidx.work.WorkManager;
 
@@ -147,6 +150,7 @@ public class ApplicationEx extends Application
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
+        final boolean load_emoji = prefs.getBoolean("load_emoji", BuildConfig.PLAY_STORE_RELEASE);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
 
@@ -189,6 +193,18 @@ public class ApplicationEx extends Application
 
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
+
+        Log.i("Load emoji=" + load_emoji);
+        if (!load_emoji)
+            try {
+                FontRequestEmojiCompatConfig crying = DefaultEmojiCompatConfig.create(this);
+                if (crying != null) {
+                    crying.setMetadataLoadStrategy(EmojiCompat.LOAD_STRATEGY_MANUAL);
+                    EmojiCompat.init(crying);
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         EncryptionHelper.init(this);
         MessageHelper.setSystemProperties(this);
@@ -244,6 +260,7 @@ public class ApplicationEx extends Application
                 ServiceSynchronize.scheduleWatchdog(this);
                 break;
             case "secure": // privacy
+            case "load_emoji": // privacy
             case "shortcuts": // misc
             case "language": // misc
             case "wal": // misc

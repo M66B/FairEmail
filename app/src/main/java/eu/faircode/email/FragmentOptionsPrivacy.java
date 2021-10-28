@@ -83,6 +83,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private TextView tvGenericUserAgent;
     private SwitchCompat swSafeBrowsing;
     private ImageButton ibSafeBrowsing;
+    private SwitchCompat swLoadEmoji;
     private ImageButton ibDisconnectBlacklist;
     private Button btnDisconnectBlacklist;
     private TextView tvDisconnectBlacklistTime;
@@ -98,7 +99,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout", "autolock",
             "client_id", "display_hidden", "incognito_keyboard", "secure",
-            "generic_ua", "safe_browsing",
+            "generic_ua", "safe_browsing", "load_emoji",
             "disconnect_auto_update", "disconnect_links", "disconnect_images"
     };
 
@@ -136,6 +137,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         tvGenericUserAgent = view.findViewById(R.id.tvGenericUserAgent);
         swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
         ibSafeBrowsing = view.findViewById(R.id.ibSafeBrowsing);
+        swLoadEmoji = view.findViewById(R.id.swLoadEmoji);
         ibDisconnectBlacklist = view.findViewById(R.id.ibDisconnectBlacklist);
         btnDisconnectBlacklist = view.findViewById(R.id.btnDisconnectBlacklist);
         tvDisconnectBlacklistTime = view.findViewById(R.id.tvDisconnectBlacklistTime);
@@ -344,6 +346,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         grpSafeBrowsing.setEnabled(WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE));
 
+        swLoadEmoji.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("load_emoji", checked).commit(); // apply won't work here
+            }
+        });
+
         ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -488,6 +497,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext()));
         swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", true));
         swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
+        swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", BuildConfig.PLAY_STORE_RELEASE));
 
         long time = prefs.getLong("disconnect_last", -1);
         DateFormat DF = SimpleDateFormat.getDateTimeInstance();
