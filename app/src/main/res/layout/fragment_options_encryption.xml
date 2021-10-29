@@ -355,6 +355,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnManageCertificates" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvImportKeyHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="*.p12, *.pfx"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
+
                 <Button
                     android:id="@+id/btnManageKeys"
                     style="?android:attr/buttonStyleSmall"
@@ -365,7 +377,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_manage_keys"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
+                    app:layout_constraintTop_toBottomOf="@id/tvImportKeyHint" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvManageKeysHint"

@@ -325,6 +325,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         btnImportKey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // https://pki-tutorial.readthedocs.io/en/latest/mime.html
                 Context context = v.getContext();
                 PackageManager pm = context.getPackageManager();
                 Intent open = new Intent(Intent.ACTION_GET_CONTENT);
