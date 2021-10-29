@@ -37,11 +37,20 @@ import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+
+import javax.net.SocketFactory;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 public class ConnectionHelper {
     static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
@@ -471,5 +480,30 @@ public class ConnectionHelper {
     static boolean airplaneMode(Context context) {
         return Settings.Global.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+    }
+
+    static List<String> getCommonNames(Context context, String domain, int port, int timeout) throws IOException {
+        List<String> result = new ArrayList<>();
+        InetSocketAddress address = new InetSocketAddress(domain, port);
+        SocketFactory factory = SSLSocketFactory.getDefault();
+        try (SSLSocket sslSocket = (SSLSocket) factory.createSocket()) {
+            EntityLog.log(context, "Connecting to " + address);
+            sslSocket.connect(address, timeout);
+            EntityLog.log(context, "Connected " + address);
+
+            sslSocket.setSoTimeout(timeout);
+            sslSocket.startHandshake();
+
+            Certificate[] certs = sslSocket.getSession().getPeerCertificates();
+            for (Certificate cert : certs)
+                if (cert instanceof X509Certificate) {
+                    try {
+                        result.addAll(EntityCertificate.getDnsNames((X509Certificate) cert));
+                    } catch (CertificateParsingException ex) {
+                        Log.w(ex);
+                    }
+                }
+        }
+        return result;
     }
 }

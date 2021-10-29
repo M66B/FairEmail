@@ -282,6 +282,34 @@ public class EmailProvider implements Parcelable {
                 new ArrayList<>(_fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover));
 
         try {
+            InetAddress iaddr = InetAddress.getByName(domain.toLowerCase(Locale.ROOT));
+            List<String> commonNames =
+                    ConnectionHelper.getCommonNames(context, domain.toLowerCase(Locale.ROOT), 443, SCAN_TIMEOUT);
+            EntityLog.log(context, "Website common names=" + TextUtils.join(",", commonNames));
+            for (String commonName : commonNames) {
+                String altName = commonName;
+                if (altName.startsWith("*.")) {
+                    altName = altName.substring(2);
+                    if (commonNames.contains(altName))
+                        continue;
+                }
+
+                if (!altName.equalsIgnoreCase(domain))
+                    try {
+                        InetAddress ialt = InetAddress.getByName(altName);
+                        if (!ialt.equals(iaddr)) {
+                            EntityLog.log(context, "Using website common name=" + altName);
+                            candidates.addAll(_fromDomain(context, altName.toLowerCase(Locale.ROOT), email, discover));
+                        }
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        try {
             DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
 
             for (DnsHelper.DnsRecord record : records)
