@@ -128,7 +128,7 @@ public class EmailProvider implements Parcelable {
 
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
-            if (provider.domain != null)
+            if (provider.enabled && provider.domain != null)
                 for (String domain : provider.domain)
                     if (!result.contains(domain))
                         result.add(domain);
@@ -270,7 +270,7 @@ public class EmailProvider implements Parcelable {
 
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
-            if (provider.domain != null)
+            if (provider.enabled && provider.domain != null)
                 for (String d : provider.domain)
                     if (domain.toLowerCase(Locale.ROOT).matches(d)) {
                         EntityLog.log(context, "Provider from domain=" + domain + " (" + d + ")");
@@ -281,47 +281,64 @@ public class EmailProvider implements Parcelable {
         List<EmailProvider> candidates =
                 new ArrayList<>(_fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover));
 
-        try {
-            InetAddress iaddr = InetAddress.getByName(domain.toLowerCase(Locale.ROOT));
-            List<String> commonNames =
-                    ConnectionHelper.getCommonNames(context, domain.toLowerCase(Locale.ROOT), 443, SCAN_TIMEOUT);
-            EntityLog.log(context, "Website common names=" + TextUtils.join(",", commonNames));
-            for (String commonName : commonNames) {
-                String altName = commonName;
-                if (altName.startsWith("*.")) {
-                    altName = altName.substring(2);
-                    if (commonNames.contains(altName))
-                        continue;
-                }
-
-                if (!altName.equalsIgnoreCase(domain))
-                    try {
-                        InetAddress ialt = InetAddress.getByName(altName);
-                        if (!ialt.equals(iaddr)) {
-                            EntityLog.log(context, "Using website common name=" + altName);
-                            candidates.addAll(_fromDomain(context, altName.toLowerCase(Locale.ROOT), email, discover));
-                        }
-                    } catch (Throwable ex) {
-                        Log.w(ex);
+        if (false) // Unsafe: the password could be sent to an unrelated email server
+            try {
+                InetAddress iaddr = InetAddress.getByName(domain.toLowerCase(Locale.ROOT));
+                List<String> commonNames =
+                        ConnectionHelper.getCommonNames(context, domain.toLowerCase(Locale.ROOT), 443, SCAN_TIMEOUT);
+                EntityLog.log(context, "Website common names=" + TextUtils.join(",", commonNames));
+                for (String commonName : commonNames) {
+                    String altName = commonName;
+                    if (altName.startsWith("*.")) {
+                        altName = altName.substring(2);
+                        if (commonNames.contains(altName))
+                            continue;
                     }
+
+                    if (!altName.equalsIgnoreCase(domain))
+                        try {
+                            InetAddress ialt = InetAddress.getByName(altName);
+                            if (!ialt.equals(iaddr)) {
+                                EntityLog.log(context, "Using website common name=" + altName);
+                                candidates.addAll(_fromDomain(context, altName.toLowerCase(Locale.ROOT), email, discover));
+                            }
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
             }
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
 
         try {
-            DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "mx");
+            List<DnsHelper.DnsRecord> records = new ArrayList<>();
+            try {
+                DnsHelper.DnsRecord[] mx = DnsHelper.lookup(context, domain, "mx");
+                if (mx.length > 0)
+                    records.add(mx[0]);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+
+            try {
+                // Primary DNS server
+                DnsHelper.DnsRecord[] soa = DnsHelper.lookup(context, domain, "soa");
+                if (soa.length > 0)
+                    records.add(soa[0]);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
             for (DnsHelper.DnsRecord record : records)
                 if (!TextUtils.isEmpty(record.name)) {
                     String target = record.name.toLowerCase(Locale.ROOT);
-                    EntityLog.log(context, "MX target=" + target);
+                    EntityLog.log(context, "MX/SOA target=" + target);
 
                     for (EmailProvider provider : providers) {
-                        if (provider.mx != null)
+                        if (provider.enabled && provider.mx != null)
                             for (String mx : provider.mx)
                                 if (target.matches(mx)) {
-                                    EntityLog.log(context, "From MX domain=" + domain);
+                                    EntityLog.log(context, "From MX/SOA domain=" + domain);
                                     candidates.add(provider);
                                     break;
                                 }
@@ -329,7 +346,7 @@ public class EmailProvider implements Parcelable {
                         String mxparent = UriHelper.getParentDomain(context, target);
                         String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
                         if (mxparent.equalsIgnoreCase(pdomain)) {
-                            EntityLog.log(context, "From MX host=" + provider.imap.host);
+                            EntityLog.log(context, "From MX/SOA host=" + provider.imap.host);
                             candidates.add(provider);
                             break;
                         }
@@ -385,7 +402,8 @@ public class EmailProvider implements Parcelable {
             // - ISPDB is not always correct
             // - documentation links
             for (EmailProvider provider : providers)
-                if (provider.imap.host.equals(candidate.imap.host) ||
+                if (provider.enabled &&
+                        provider.imap.host.equals(candidate.imap.host) ||
                         provider.smtp.host.equals(candidate.smtp.host)) {
                     EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
                     if (!BuildConfig.DEBUG)
@@ -941,7 +959,7 @@ public class EmailProvider implements Parcelable {
         public boolean starttls;
 
         // Scores:
-        //   0 from MX record
+        //   0 from MX/SOA record
         //  10 from port scan
         //     +2 trusted host
         //     +1 trusted DNS name

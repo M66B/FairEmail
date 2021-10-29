@@ -33,6 +33,7 @@ import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Message;
 import org.xbill.DNS.Record;
+import org.xbill.DNS.SOARecord;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TXTRecord;
@@ -108,6 +109,9 @@ public class DnsHelper {
         switch (type) {
             case "mx":
                 rtype = Type.MX;
+                break;
+            case "soa":
+                rtype = Type.SOA;
                 break;
             case "srv":
                 rtype = Type.SRV;
@@ -213,6 +217,9 @@ public class DnsHelper {
                     if (record instanceof MXRecord) {
                         MXRecord mx = (MXRecord) record;
                         result.add(new DnsRecord(mx.getTarget().toString(true)));
+                    } else if (record instanceof SOARecord) {
+                        SOARecord soa = (SOARecord) record;
+                        result.add(new DnsRecord(soa.getHost().toString(true)));
                     } else if (record instanceof SRVRecord) {
                         SRVRecord srv = (SRVRecord) record;
                         result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
