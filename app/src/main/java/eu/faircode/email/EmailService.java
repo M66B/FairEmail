@@ -1054,11 +1054,15 @@ public class EmailService implements AutoCloseable {
         int timeout = socket.getSoTimeout();
         boolean keepAlive = socket.getKeepAlive();
         int linger = socket.getSoLinger();
+        boolean reuse = socket.getReuseAddress();
+        boolean delay = socket.getTcpNoDelay();
 
         Log.i("Socket type=" + socket.getClass().getName() +
                 " timeout=" + timeout +
                 " keep-alive=" + keepAlive +
-                " linger=" + linger);
+                " linger=" + linger +
+                " reuse=" + reuse +
+                " delay=" + delay);
 
         if (keepAlive) {
             Log.e("Socket keep-alive=" + keepAlive);
