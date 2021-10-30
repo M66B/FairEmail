@@ -1600,6 +1600,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setEnabled(
                 state == State.LOADED && hasPermission(Manifest.permission.READ_CONTACTS));
+        menu.findItem(R.id.menu_manage_local_contacts).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
@@ -1696,6 +1697,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_contact_group) {
             onMenuContactGroup();
+            return true;
+        } else if (itemId == R.id.menu_manage_local_contacts) {
+            onMenuManageLocalContacts();
             return true;
         } else if (itemId == R.id.menu_answer_insert) {
             onMenuAnswerInsert();
@@ -1866,6 +1870,12 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuContactGroup() {
         onMenuContactGroup(view.findFocus());
+    }
+
+    private void onMenuManageLocalContacts() {
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
+        fragmentTransaction.commit();
     }
 
     private void onMenuContactGroup(View v) {

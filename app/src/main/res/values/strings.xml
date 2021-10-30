@@ -1248,6 +1248,7 @@
     <string name="title_send_dialog">Show send options</string>
     <string name="title_image_dialog">Show image options</string>
     <string name="title_media_toolbar">Media toolbar</string>
+    <string name="title_manage_local_contacts">Manage local contacts</string>
     <string name="title_insert_contact_group">Insert contact group</string>
     <string name="title_insert_template">Insert template</string>
     <string name="title_create_template">Create template</string>

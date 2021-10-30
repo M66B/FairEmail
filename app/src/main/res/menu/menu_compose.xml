@@ -70,6 +70,12 @@
         </item>
 
         <item
+            android:id="@+id/menu_manage_local_contacts"
+            android:icon="@drawable/twotone_import_contacts_24"
+            android:title="@string/title_manage_local_contacts"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_answer_insert"
             android:icon="@drawable/twotone_text_snippet_24"
             android:title="@string/title_insert_template"
