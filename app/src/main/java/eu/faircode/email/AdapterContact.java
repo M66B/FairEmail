@@ -179,6 +179,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             TupleContactEx contact = selected.get(pos);
             if (contact.state == EntityContact.STATE_DEFAULT)
                 contact.state = EntityContact.STATE_FAVORITE;
+            else if (contact.state == EntityContact.STATE_FAVORITE)
+                contact.state = EntityContact.STATE_IGNORE;
             else
                 contact.state = EntityContact.STATE_DEFAULT;
 
