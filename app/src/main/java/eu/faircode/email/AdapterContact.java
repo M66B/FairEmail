@@ -229,18 +229,20 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
+            int order = 0;
             SpannableString ss = new SpannableString(contact.email);
             ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
+            popupMenu.getMenu().add(Menu.NONE, 0, order++, ss).setEnabled(false);
 
             if (contact.state != EntityContact.STATE_IGNORE)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, 1, R.string.title_advanced_never_favorite);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 2, R.string.title_share); // should be system whitelisted
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, order++, R.string.title_advanced_never_favorite);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_share, order++, R.string.title_share); // should be system whitelisted
             if (Shortcuts.can(context))
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, 3, R.string.title_pin);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_edit_name, 4, R.string.title_advanced_edit_name);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 5, R.string.title_delete);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, order++, R.string.title_pin);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_edit_name, order++, R.string.title_advanced_edit_name);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_search, order++, R.string.title_search);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -257,6 +259,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                         return true;
                     } else if (itemId == R.string.title_advanced_edit_name) {
                         onActionEdit();
+                        return true;
+                    } else if (itemId == R.string.title_search) {
+                        onActionSearch();
                         return true;
                     } else if (itemId == R.string.title_delete) {
                         onActionDelete();
@@ -315,6 +320,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     fragment.setArguments(args);
                     fragment.setTargetFragment(parentFragment, FragmentContacts.REQUEST_EDIT_NAME);
                     fragment.show(parentFragment.getParentFragmentManager(), "contact:name");
+                }
+
+                private void onActionSearch() {
+                    Intent search = new Intent(context, ActivitySearch.class);
+                    search.putExtra(Intent.EXTRA_PROCESS_TEXT, contact.email);
+                    context.startActivity(search);
                 }
 
                 private void onActionDelete() {
