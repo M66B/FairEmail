@@ -52,7 +52,8 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_identity, null);
+        final Context context = getContext();
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_identity, null);
         final Spinner spIdentity = dview.findViewById(R.id.spIdentity);
         final TextView tvPrimaryHint = dview.findViewById(R.id.tvPrimaryHint);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
@@ -61,16 +62,16 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
         final Group grpNoIdentities = dview.findViewById(R.id.grpNoIdentities);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean identities_primary_hint = prefs.getBoolean("identities_primary_hint", false);
 
         spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 Object tag = spIdentity.getTag();
                 if (tag != null && !tag.equals(position)) {
                     TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getAdapter().getItem(position);
-                    startActivity(new Intent(getContext(), ActivityCompose.class)
+                    startActivity(new Intent(v.getContext(), ActivityCompose.class)
                             .putExtra("action", "new")
                             .putExtra("account", identity.account)
                             .putExtra("identity", identity.id)
@@ -140,7 +141,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 if (identities == null)
                     identities = new ArrayList<>();
 
-                AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), identities);
+                AdapterIdentitySelect iadapter = new AdapterIdentitySelect(context, identities);
                 spIdentity.setAdapter(iadapter);
 
                 Integer selected = null;
@@ -181,14 +182,14 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             }
         }.execute(this, new Bundle(), "identity:select");
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getSelectedItem();
                         if (identity != null)
-                            startActivity(new Intent(getContext(), ActivityCompose.class)
+                            startActivity(new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "new")
                                     .putExtra("account", identity.account)
                                     .putExtra("identity", identity.id)
