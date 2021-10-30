@@ -85,7 +85,6 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             }
         });
 
-        tvPrimaryHint.setVisibility(identities_primary_hint ? View.GONE : View.VISIBLE);
         tvPrimaryHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,12 +107,14 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("manual", true));
                 getActivity().finish();
                 dismiss();
             }
         });
 
+        tvPrimaryHint.setVisibility(View.GONE);
         grpIdentities.setVisibility(View.GONE);
         grpNoIdentities.setVisibility(View.GONE);
 
@@ -164,6 +165,12 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                     spIdentity.setSelection(selected);
                 }
 
+                if (identities.size() == 0) {
+                    AlertDialog dialog = ((AlertDialog) getDialog());
+                    if (dialog != null)
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                }
+                tvPrimaryHint.setVisibility(identities_primary_hint || identities.size() == 0 ? View.GONE : View.VISIBLE);
                 grpIdentities.setVisibility(identities.size() > 0 ? View.VISIBLE : View.GONE);
                 grpNoIdentities.setVisibility(identities.size() > 0 ? View.GONE : View.VISIBLE);
             }
