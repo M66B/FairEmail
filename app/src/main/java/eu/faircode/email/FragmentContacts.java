@@ -84,6 +84,14 @@ public class FragmentContacts extends FragmentBase {
     static final int REQUEST_EDIT_NAME = 4;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        this.junk = (args != null && args.getBoolean("junk"));
+    }
+
+    @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_contacts);

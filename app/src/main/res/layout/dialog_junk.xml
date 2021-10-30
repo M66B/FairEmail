@@ -206,6 +206,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBlocklistHint" />
 
+        <ImageButton
+            android:id="@+id/ibRules"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_edit_rules"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_edit_rules"
+            app:layout_constraintBottom_toBottomOf="@id/btnClear"
+            app:layout_constraintEnd_toStartOf="@+id/ibManage"
+            app:layout_constraintTop_toTopOf="@id/btnClear"
+            app:srcCompat="@drawable/twotone_filter_alt_24" />
+
+        <ImageButton
+            android:id="@+id/ibManage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_setup_manage"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_setup_manage"
+            app:layout_constraintBottom_toBottomOf="@id/btnClear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnClear"
+            app:srcCompat="@drawable/twotone_settings_24" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvClearHint"
             android:layout_width="0dp"
@@ -234,6 +262,6 @@
             app:constraint_referenced_ids="
             cbJunkFilter,tvJunkFilterHint,ibInfoFilter,
             cbBlocklist,tvBlocklist,tvBlocklistHint,ibInfoBlocklist,
-            btnClear,tvClearHint" />
+            btnClear,ibRules,ibManage,tvClearHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

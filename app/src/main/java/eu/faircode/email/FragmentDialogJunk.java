@@ -82,6 +82,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final TextView tvBlocklist = view.findViewById(R.id.tvBlocklist);
         final ImageButton ibInfoBlocklist = view.findViewById(R.id.ibInfoBlocklist);
         final Button btnClear = view.findViewById(R.id.btnClear);
+        final ImageButton ibRules = view.findViewById(R.id.ibRules);
+        final ImageButton ibManage = view.findViewById(R.id.ibManage);
         final Group grpInJunk = view.findViewById(R.id.grpInJunk);
         final Group grpMore = view.findViewById(R.id.grpMore);
 
@@ -268,6 +270,38 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                             }
                         })
                         .show();
+            }
+        });
+
+        ibRules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_EDIT_RULES)
+                                .putExtra("account", account)
+                                .putExtra("protocol", protocol)
+                                .putExtra("folder", folder)
+                                .putExtra("type", type));
+
+                dismiss();
+            }
+        });
+
+        ibManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("junk", true);
+
+                FragmentContacts fragment = new FragmentContacts();
+                fragment.setArguments(args);
+
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("contacts");
+                fragmentTransaction.commit();
+
+                dismiss();
             }
         });
 
