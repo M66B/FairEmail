@@ -73,6 +73,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
     private SwitchCompat swAutoLock;
+    private SwitchCompat swAutoLockNav;
+    private TextView tvAutoLockNavHint;
     private SwitchCompat swClientId;
     private TextView tvClientId;
     private SwitchCompat swDisplayHidden;
@@ -97,7 +99,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "confirm_links", "check_links_dbl", "browse_links",
             "confirm_images", "ask_images", "html_always_images", "confirm_html", "ask_html",
             "disable_tracking", "hide_timezone",
-            "pin", "biometrics", "biometrics_timeout", "autolock",
+            "pin", "biometrics", "biometrics_timeout", "autolock", "autolock_nav",
             "client_id", "display_hidden", "incognito_keyboard", "secure",
             "generic_ua", "safe_browsing", "load_emoji",
             "disconnect_auto_update", "disconnect_links", "disconnect_images"
@@ -127,6 +129,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         swAutoLock = view.findViewById(R.id.swAutoLock);
+        swAutoLockNav = view.findViewById(R.id.swAutoLockNav);
+        tvAutoLockNavHint = view.findViewById(R.id.tvAutoLockNavHint);
         swClientId = view.findViewById(R.id.swClientId);
         tvClientId = view.findViewById(R.id.tvClientId);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
@@ -285,6 +289,15 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 prefs.edit().putBoolean("autolock", checked).apply();
             }
         });
+
+        swAutoLockNav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autolock_nav", checked).apply();
+            }
+        });
+
+        tvAutoLockNavHint.setText(getString(R.string.title_advanced_display_autolock_nav_hint, Helper.AUTOLOCK_GRACE));
 
         swClientId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -488,6 +501,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
 
         swAutoLock.setChecked(prefs.getBoolean("autolock", true));
+        swAutoLockNav.setChecked(prefs.getBoolean("autolock_nav", false));
 
         swClientId.setChecked(prefs.getBoolean("client_id", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));

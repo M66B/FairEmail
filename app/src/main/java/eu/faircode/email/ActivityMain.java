@@ -231,7 +231,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 }
             };
 
-            if (Helper.shouldAuthenticate(this))
+            if (Helper.shouldAuthenticate(this, false))
                 Helper.authenticate(ActivityMain.this, ActivityMain.this, null,
                         new Runnable() {
                             @Override

@@ -244,7 +244,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         visible = false;
 
-        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this))
+        if (!this.getClass().equals(ActivityMain.class) &&
+                Helper.shouldAuthenticate(this, true))
             finishAndRemoveTask();
     }
 
@@ -258,7 +259,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void onUserInteraction() {
         Log.d("User interaction");
 
-        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
+        if (!this.getClass().equals(ActivityMain.class) &&
+                Helper.shouldAuthenticate(this, false)) {
             finishAndRemoveTask();
             Intent main = new Intent(this, ActivityMain.class);
             main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -365,7 +367,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     private void checkAuthentication() {
-        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
+        if (!this.getClass().equals(ActivityMain.class) &&
+                Helper.shouldAuthenticate(this, false)) {
             Intent intent = getIntent();
             finishAndRemoveTask();
             processStreams(intent);

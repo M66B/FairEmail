@@ -158,6 +158,7 @@ public class Helper {
     static final int BUFFER_SIZE = 8192; // Same as in Files class
     static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
     static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
+    static final int AUTOLOCK_GRACE = 7; // seconds
 
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
@@ -1866,7 +1867,7 @@ public class Helper {
         }
     }
 
-    static boolean shouldAuthenticate(Context context) {
+    static boolean shouldAuthenticate(Context context, boolean pausing) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
@@ -1875,12 +1876,17 @@ public class Helper {
             long now = new Date().getTime();
             long last_authentication = prefs.getLong("last_authentication", 0);
             long biometrics_timeout = prefs.getInt("biometrics_timeout", 2) * 60 * 1000L;
+            boolean autolock_nav = prefs.getBoolean("autolock_nav", false);
             Log.i("Authentication valid until=" + new Date(last_authentication + biometrics_timeout));
 
             if (last_authentication + biometrics_timeout < now)
                 return true;
 
-            prefs.edit().putLong("last_authentication", now).apply();
+            if (autolock_nav && pausing)
+                last_authentication = now - biometrics_timeout + AUTOLOCK_GRACE * 1000L;
+            else
+                last_authentication = now;
+            prefs.edit().putLong("last_authentication", last_authentication).apply();
         }
 
         return false;
@@ -2005,7 +2011,7 @@ public class Helper {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
                             Log.i("Authenticate PIN dismissed");
-                            if (shouldAuthenticate(activity)) // Some Android versions call dismiss on OK
+                            if (shouldAuthenticate(activity, false)) // Some Android versions call dismiss on OK
                                 ApplicationEx.getMainHandler().post(cancelled);
                         }
                     })
