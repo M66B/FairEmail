@@ -371,6 +371,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 Helper.shouldAuthenticate(this, false)) {
             Intent intent = getIntent();
             finishAndRemoveTask();
+            finishAffinity();
             processStreams(intent);
             Intent main = new Intent(this, ActivityMain.class)
                     .putExtra("intent", intent);
