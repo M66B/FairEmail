@@ -94,7 +94,7 @@ public class FragmentContacts extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.menu_contacts);
+        setSubtitle(junk ? R.string.title_block_sender : R.string.menu_contacts);
         setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
@@ -226,6 +226,7 @@ public class FragmentContacts extends FragmentBase {
 
     private void onMenuJunk(boolean junk) {
         this.junk = junk;
+        setSubtitle(junk ? R.string.title_block_sender : R.string.menu_contacts);
         adapter.filter(junk
                 ? Arrays.asList(EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK)
                 : new ArrayList<>());
