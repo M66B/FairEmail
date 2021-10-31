@@ -1035,6 +1035,8 @@ public class FragmentAccount extends FragmentBase {
                         return true;
                     if (!Objects.equals(account.use_received, use_received))
                         return true;
+                    if (account.error != null && account.synchronize)
+                        return true;
 
                     EntityFolder edrafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
                     if (!Objects.equals(edrafts == null ? null : edrafts.id, drafts == null ? null : drafts.id))

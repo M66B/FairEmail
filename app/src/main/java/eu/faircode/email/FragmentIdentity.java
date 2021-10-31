@@ -899,6 +899,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (user_max_size != null && !Objects.equals(identity.max_size, user_max_size))
                         return true;
+                    if (identity.error != null && identity.synchronize)
+                        return true;
 
                     return false;
                 }
