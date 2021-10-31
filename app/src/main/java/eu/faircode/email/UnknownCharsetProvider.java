@@ -65,6 +65,10 @@ public class UnknownCharsetProvider extends CharsetProvider {
             if (name.contains("UTF8") || name.contains("UTF-8")) // //TRANSLIT
                 return StandardCharsets.UTF_8;
 
+            // https://charset-normalizer.readthedocs.io/en/latest/support.html
+            if (name.contains("GB2312"))
+                name = "GB2312";
+
             if (TextUtils.isEmpty(name) ||
                     name.contains("ASCII") ||
                     //name.startsWith("ISO8859") ||
