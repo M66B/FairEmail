@@ -310,6 +310,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             if ("accounts".equals(target) && id > 0)
                 onEditAccount(intent);
+            else if ("identities".equals(target) && id > 0)
+                onEditIdentity(intent);
             else {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 if ("accounts".equals(target))

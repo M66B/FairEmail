@@ -355,6 +355,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNotes;
         private TextView tvError;
         private ImageButton ibHelp;
+        private ImageButton ibSettings;
 
         private View vsBody;
 
@@ -660,6 +661,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
             ibHelp = itemView.findViewById(R.id.ibHelp);
+            ibSettings = itemView.findViewById(R.id.ibSettings);
 
             if (tvFrom != null) {
                 if (compact) {
@@ -893,6 +895,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setOnLongClickListener(this);
             }
             ibHelp.setOnClickListener(this);
+            ibSettings.setOnClickListener(this);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(this);
@@ -989,6 +992,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setOnLongClickListener(null);
             }
             ibHelp.setOnClickListener(null);
+            ibSettings.setOnClickListener(null);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(null);
@@ -1378,6 +1382,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setText(error);
                 tvError.setVisibility(error == null ? View.GONE : View.VISIBLE);
                 ibHelp.setVisibility(error == null ? View.GONE : View.VISIBLE);
+                ibSettings.setVisibility(
+                        error != null && EntityFolder.OUTBOX.equals(message.folderType)
+                                ? View.VISIBLE : View.GONE);
             }
 
             // Contact info
@@ -3349,6 +3356,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onToggleFlag(message);
             else if (view.getId() == R.id.ibHelp)
                 onHelp(message);
+            else if (view.getId() == R.id.ibSettings)
+                onSettings(message);
             else if (view.getId() == R.id.ibReceipt)
                 onReceipt(message);
             else if (view.getId() == R.id.ibSearchContact)
@@ -3829,6 +3838,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onHelp(TupleMessageEx message) {
             Helper.viewFAQ(context, 130);
+        }
+
+        private void onSettings(TupleMessageEx message) {
+            context.startActivity(new Intent(context, ActivitySetup.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    .putExtra("target", "identities")
+                    .putExtra("id", message.identity));
         }
 
         private void onReceipt(TupleMessageEx message) {

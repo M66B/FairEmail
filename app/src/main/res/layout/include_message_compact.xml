@@ -409,6 +409,18 @@
         app:srcCompat="@drawable/twotone_info_24"
         app:tint="?attr/colorWarning" />
 
+    <ImageButton
+        android:id="@+id/ibSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+        app:layout_constraintTop_toBottomOf="@id/ibHelp"
+        app:srcCompat="@drawable/twotone_settings_24"
+        app:tint="?attr/colorWarning" />
+
     <View
         android:id="@+id/paddingEnd"
         android:layout_width="6dp"
@@ -425,5 +437,5 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError" />
+        app:layout_constraintTop_toBottomOf="@id/ibSettings" />
 </androidx.constraintlayout.widget.ConstraintLayout>
