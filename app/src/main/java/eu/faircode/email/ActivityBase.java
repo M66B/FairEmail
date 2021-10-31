@@ -29,6 +29,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -124,19 +125,29 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         int colorPrimaryDark = Helper.resolveColor(this, R.attr.colorPrimaryDark);
         int colorActionForeground = Helper.resolveColor(this, R.attr.colorActionForeground);
 
-        Drawable d = getDrawable(R.drawable.baseline_mail_24);
-        Bitmap bm = Bitmap.createBitmap(
-                d.getIntrinsicWidth(),
-                d.getIntrinsicHeight(),
-                Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bm);
-        d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        d.setTint(colorActionForeground);
-        d.draw(canvas);
+        try {
+            Drawable d = getDrawable(R.drawable.baseline_mail_24);
+            Bitmap bm = Bitmap.createBitmap(
+                    d.getIntrinsicWidth(),
+                    d.getIntrinsicHeight(),
+                    Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bm);
+            d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            d.setTint(colorActionForeground);
+            d.draw(canvas);
 
-        ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(
-                null, bm, ColorUtils.setAlphaComponent(colorPrimaryDark, 255));
-        setTaskDescription(td);
+            int colorPrimary = colorPrimaryDark;
+            if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
+                Log.e("Task color primary=" + Integer.toHexString(colorPrimary));
+                colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
+            }
+
+            ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(
+                    null, bm, colorPrimary);
+            setTaskDescription(td);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
         if (navbar_colorize) {
