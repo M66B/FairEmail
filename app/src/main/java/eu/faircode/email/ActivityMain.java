@@ -42,8 +42,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportFragmentManager().addOnBackStackChangedListener(this);
-
         if (!Helper.isSupportedDevice() && Helper.isPlayStoreInstall()) {
             setTheme(R.style.AppThemeBlueOrangeLight);
             super.onCreate(savedInstanceState);
@@ -304,6 +302,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             setContentView(R.layout.activity_main);
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportFragmentManager().addOnBackStackChangedListener(this);
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentEula()).addToBackStack("eula");
