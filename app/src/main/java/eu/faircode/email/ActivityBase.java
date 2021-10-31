@@ -49,6 +49,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.ColorUtils;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -133,7 +134,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         d.setTint(colorActionForeground);
         d.draw(canvas);
 
-        ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(null, bm, colorPrimaryDark);
+        ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(
+                null, bm, ColorUtils.setAlphaComponent(colorPrimaryDark, 255));
         setTaskDescription(td);
 
         boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
