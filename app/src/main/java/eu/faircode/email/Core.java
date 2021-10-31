@@ -541,7 +541,8 @@ class Core {
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
                                 (EntityOperation.ADD.equals(op.name) &&
                                         EntityFolder.DRAFTS.equals(folder.type)) ||
-                                (EntityOperation.SYNC.equals(op.name) &&
+                                (op.tries >= LOCAL_RETRY_MAX &&
+                                        EntityOperation.SYNC.equals(op.name) &&
                                         account.protocol == EntityAccount.TYPE_POP)) {
                             // com.sun.mail.iap.BadCommandException: BAD [TOOBIG] Message too large
                             // com.sun.mail.iap.CommandFailedException: NO [CANNOT] Cannot APPEND to a SPAM folder
