@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -53,7 +54,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.lifecycle.Lifecycle;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.viewpager.widget.ViewPager;
 
@@ -176,12 +176,28 @@ public class FragmentOptions extends FragmentBase {
             @Override
             public void onPageSelected(int position) {
                 if (position > 0) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    final Context context = getContext();
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean setup_advanced = prefs.getBoolean("setup_advanced", false);
                     if (!setup_advanced) {
-                        prefs.edit().putBoolean("setup_advanced", true).apply();
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_ADVANCED));
+                        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_advanced, null);
+                        new AlertDialog.Builder(context)
+                                .setView(dview)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        prefs.edit().putBoolean("setup_advanced", true).apply();
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                    @Override
+                                    public void onDismiss(DialogInterface dialog) {
+                                        if (!prefs.getBoolean("setup_advanced", false))
+                                            pager.setCurrentItem(0);
+                                    }
+                                })
+                                .show();
                     }
                 }
             }
@@ -205,7 +221,6 @@ public class FragmentOptions extends FragmentBase {
                     return true;
                 } else
                     return false;
-
             }
         });
 
