@@ -1802,7 +1802,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         }
 
                                         final EntityFolder folder = found;
-                                        Log.i(folder.name + " queuing operations=" + added.size() +
+                                        Log.i(account.name + "/" + folder.name + " queuing operations=" + added.size() +
                                                 " init=" + folder.initialize + " poll=" + folder.poll);
 
                                         // Partition operations by priority
@@ -1840,7 +1840,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             int ops;
                                             synchronized (partitions) {
                                                 ops = partitions.get(key).size();
-                                                Log.i(folder.name +
+                                                Log.i(account.name + "/" + folder.name +
                                                         " queuing partition=" + key +
                                                         " operations=" + ops);
                                             }
@@ -1868,7 +1868,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             partitions.remove(key);
                                                         }
 
-                                                        Log.i(folder.name +
+                                                        Log.i(account.name + "/" + folder.name +
                                                                 " executing partition=" + key +
                                                                 " serial=" + serial +
                                                                 " operations=" + partition.size());
@@ -1888,7 +1888,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         final boolean shouldClose = (ifolder == null && canOpen);
 
                                                         try {
-                                                            Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
+                                                            Log.i(account.name + "/" + folder.name + " run " + (shouldClose ? "offline" : "online"));
 
                                                             if (shouldClose) {
                                                                 // Prevent unnecessary folder connections
