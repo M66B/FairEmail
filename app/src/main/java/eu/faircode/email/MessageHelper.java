@@ -2748,7 +2748,7 @@ public class MessageHelper {
                                 return parts;
                             } else {
                                 StringBuilder sb = new StringBuilder();
-                                sb.append(ct);
+                                sb.append(ct).append(" parts=").append(multipart.getCount()).append("/2");
                                 for (int i = 0; i < multipart.getCount(); i++)
                                     sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                                 Log.e(sb.toString());
@@ -2770,7 +2770,7 @@ public class MessageHelper {
                                 return parts;
                             } else {
                                 StringBuilder sb = new StringBuilder();
-                                sb.append(ct);
+                                sb.append(ct).append(" parts=").append(multipart.getCount()).append("/2");
                                 for (int i = 0; i < multipart.getCount(); i++)
                                     sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                                 Log.e(sb.toString());
@@ -2802,7 +2802,9 @@ public class MessageHelper {
                                 return parts;
                             }
                         }
-                        Log.e(ct.toString());
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("Unexpected smime-type=").append(ct);
+                        Log.e(sb.toString());
                     }
                 }
             } catch (ParseException ex) {
