@@ -867,7 +867,7 @@
     </string>
     <string name="title_need_help">Ik haw help nedich</string>
     <string name="title_ask_once">Dit berjocht sil mar ien kear ferskine, útsein as jo \'Letter\' selektearje</string>
-    <string name="title_third_party">Jo brûke in ferzje fan in tredde partij</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Jo brûke in ferzje fan in tredde partij</string>
     <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil downloade %1$s</string>
     <string name="title_download_message">Ynladen &#8230;</string>
     <string name="title_reformatted">        Dit is de werfoarme berjochtenwerjefte.

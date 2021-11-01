@@ -694,7 +694,7 @@
     <string name="title_reporting_why">Докладе с грешки ще помогне да се подобри FairEmail</string>
     <string name="title_ask_review">Моля, прегледайте FairEmail</string>
     <string name="title_need_help">Нуждая се от помощ</string>
-    <string name="title_third_party">Използвате версия на трета страна</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Използвате версия на трета страна</string>
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
     <string name="title_download_message">Изтегляне &#8230;</string>
     <string name="title_compose">Ново съобщение</string>

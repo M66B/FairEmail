@@ -516,6 +516,7 @@
     <string name="title_advanced_pin">NIP</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
     <string name="title_advanced_autolock">Verrouiller lorsque l\'écran s\'éteint</string>
+    <string name="title_advanced_autolock_nav">Verrouiller en quittant l\'application</string>
     <string name="title_advanced_generic_user_agent">Utiliser l\'agent utilisateur générique du navigateur</string>
     <string name="title_advanced_load_emoji">Charger les émojis mis à jour depuis les Services Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
@@ -626,6 +627,7 @@
     <string name="title_advanced_display_harmful_hint">Désactiver cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut engendrer des problèmes d’affichage et de dédoublement du texte</string>
     <string name="title_advanced_display_pin_hint">Le code NIP a la priorité sur l’authentification biométrique</string>
+    <string name="title_advanced_display_autolock_nav_hint">Il y aura un délai de grâce de %1$d secondes</string>
     <string name="title_advanced_safe_browsing_hint">Le serveur Google a connaissance des adresses qui sont recherchées</string>
     <string name="title_advanced_badge_hint">Disponible uniquement sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
@@ -996,7 +998,7 @@
     </string>
     <string name="title_need_help">J\'ai besoin d\'aide</string>
     <string name="title_ask_once">Ce message n\'apparaîtra qu\'une seule fois, sauf si vous sélectionnez « Plus tard »</string>
-    <string name="title_third_party">Vous utilisez une version tierce</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Vous utilisez une version tierce</string>
     <string name="title_expand_warning">Développer ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
     <string name="title_reformatted">        Ceci est la vue de message reformaté.
@@ -1075,6 +1077,7 @@
     <string name="title_send_dialog">Afficher les options d’envoi</string>
     <string name="title_image_dialog">Afficher les options d’image</string>
     <string name="title_media_toolbar">Barre d’outils média</string>
+    <string name="title_manage_local_contacts">Gérer les contacts locaux</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_create_template">Créer un modèle</string>

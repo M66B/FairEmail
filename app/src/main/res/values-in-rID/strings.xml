@@ -853,7 +853,7 @@
     </string>
     <string name="title_need_help">Saya butuh bantuan</string>
     <string name="title_ask_once">Pesan ini hanya akan muncul sekali, kecuali Anda memilih \'Nanti\'</string>
-    <string name="title_third_party">Anda menggunakan versi pihak ketiga</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Anda menggunakan versi pihak ketiga</string>
     <string name="title_expand_warning">Memperluas pesan ini akan mengunduh %1$s</string>
     <string name="title_download_message">Mengunduh &#8230;</string>
     <string name="title_compose">Menyusun</string>

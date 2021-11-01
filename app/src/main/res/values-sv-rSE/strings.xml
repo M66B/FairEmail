@@ -244,6 +244,7 @@
     <string name="title_setup_theme_black_background">Svart bakgrund</string>
     <string name="title_setup_theme_html_light">Ljus bakgrund för den ursprungliga meddelandevyn</string>
     <string name="title_setup_theme_composer_light">Ljus bakgrund för meddelanderedigerare</string>
+    <string name="title_setup_theme_you_hint">Material You färger kan konfigureras i Android Wallpaper &amp; stil inställningar</string>
     <string name="title_setup_theme_system_hint">Systemtema kommer automatiskt att växla till ljus/mörk på dagen/natt, om det stöds av Android</string>
     <string name="title_setup_theme_more_colors">Jag vill ha fler färger</string>
     <string name="title_setup_advanced">Avancerat</string>
@@ -254,6 +255,8 @@
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
         Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
+    <string name="title_advanced_hint_remark">        Alternativen kategoriseras efter flik, indelade i sektioner, organiserade efter utseende eller användning och sökbara.
+    </string>
     <string name="title_advanced_hint_setup">Du kan konfigurera ett konto genom att trycka på guide-knappen på huvudkonfigurationsskärmen.</string>
     <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Ta emot</string>
@@ -494,8 +497,10 @@
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
     <string name="title_advanced_check_links_dbl">Kontrollera domänblockeringslistor för misstänkta länkar</string>
     <string name="title_advanced_browse_links">Låt Android öppna länkar</string>
+    <string name="title_advanced_confirm_images">Visa inga bilder som standard</string>
     <string name="title_advanced_ask_images">Bekräfta visning av bilder</string>
     <string name="title_advanced_confirm_html">Visa omformaterade meddelanden som standard</string>
+    <string name="title_advanced_ask_html">Bekräfta att originalmeddelanden visas</string>
     <string name="title_advanced_tracking">Försök att känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_hide_timezone">Skicka meddelanden utan tidszon</string>
     <string name="title_advanced_client_id">Skicka appnamn och version till e-postserver</string>
@@ -506,6 +511,7 @@
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
     <string name="title_advanced_autolock">Lås när skärmen stängs av</string>
     <string name="title_advanced_generic_user_agent">Använd generisk webbläsare användaragent</string>
+    <string name="title_advanced_load_emoji">Ladda uppdaterade emoji från Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Uppdatera listor automatiskt varje vecka</string>
     <string name="title_advanced_disconnect_links">Använd listor för att varna för spårningslänkar</string>
     <string name="title_advanced_disconnect_images">Använd listor för att känna igen spårningsbilder</string>
@@ -762,6 +768,8 @@
     <string name="title_notify_batch_disable">Inaktivera aviseringar för nya meddelanden</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
+    <string name="title_expunge">Radera permanent</string>
+    <string name="title_expunge_remark">Detta raderar (permanent) alla meddelanden märkta för radering</string>
     <string name="title_empty_trash">Töm papperskorg</string>
     <string name="title_empty_spam">Töm skräppost</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
@@ -952,6 +960,7 @@
     <string name="title_no_search">Sök på servern är inte tillgänglig för detta konto</string>
     <string name="title_too_large">Meddelandet är för stort för att omformatera</string>
     <string name="title_truncated">Meddelandet är för stort för att visas helt</string>
+    <string name="title_insufficient_memory">Meddelande för stort för tillgängligt minne (%1$d)</string>
     <string name="title_show_full">Visa hela meddelandet</string>
     <string name="title_unused_inline">Infogade bilder som är oanvända kommer att tas bort vid sändning</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
@@ -981,7 +990,7 @@
     </string>
     <string name="title_need_help">Jag behöver hjälp</string>
     <string name="title_ask_once">Detta meddelande kommer bara att visas en gång, om du inte väljer \'Senare\'</string>
-    <string name="title_third_party">Du använder en version av en tredje part</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Du använder en version av en tredje part</string>
     <string name="title_expand_warning">Utvidgningen av detta meddelande kommer att ladda ned %1$s</string>
     <string name="title_download_message">Hämtar &#8230;</string>
     <string name="title_reformatted">        Detta är den omformaterade meddelandevyn.

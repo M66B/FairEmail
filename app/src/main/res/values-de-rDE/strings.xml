@@ -516,8 +516,9 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_autolock">Sperren bei ausgeschaltetem Bildschirm</string>
+    <string name="title_advanced_autolock_nav">Beim Verlassen der App sperren</string>
     <string name="title_advanced_generic_user_agent">Allgemeine Browser-Kennung verwenden</string>
-    <string name="title_advanced_load_emoji">Aktualisierte Emoji von Google Play-Diensten laden</string>
+    <string name="title_advanced_load_emoji">Aktualisierte Emoji von Google-Play-Diensten laden</string>
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
@@ -626,6 +627,7 @@
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
+    <string name="title_advanced_display_autolock_nav_hint">Es wird eine Wartezeit von %1$d Sekunden geben</string>
     <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
@@ -995,7 +997,7 @@
     </string>
     <string name="title_need_help">Ich benötige Hilfe</string>
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen „Später”</string>
-    <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
     <string name="title_reformatted">        Dies ist die neu formatierte Nachrichtenansicht.
@@ -1074,6 +1076,7 @@
     <string name="title_send_dialog">Sendeoptionen anzeigen</string>
     <string name="title_image_dialog">Grafikoptionen anzeigen</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
+    <string name="title_manage_local_contacts">Lokale Kontakte verwalten</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_create_template">Vorlage erstellen</string>

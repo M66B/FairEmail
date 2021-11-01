@@ -516,6 +516,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
     <string name="title_advanced_autolock">Vergrendel als scherm uitgaat</string>
+    <string name="title_advanced_autolock_nav">Vergrendel bij het verlaten van de app</string>
     <string name="title_advanced_generic_user_agent">Gebruik algemene browser user agent</string>
     <string name="title_advanced_load_emoji">Laad bijgewerkte Emoji van Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
@@ -626,6 +627,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_display_harmful_hint">Het uitschakelen van deze optie kan schadelijk zijn voor uw privacy</string>
     <string name="title_advanced_display_hidden_hint">Dit kan leiden tot vreemd uitziende en dubbele teksten</string>
     <string name="title_advanced_display_pin_hint">Een PIN code gaat voor biometrische authenticatie</string>
+    <string name="title_advanced_display_autolock_nav_hint">Er zal een vrijwaringstijd van %1$d seconden zijn</string>
     <string name="title_advanced_safe_browsing_hint">De Google-server weet welke adressen worden opgezocht</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
@@ -996,7 +998,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     </string>
     <string name="title_need_help">Ik heb hulp nodig</string>
     <string name="title_ask_once">Dit bericht zal slechts één keer verschijnen, tenzij je \'Later\' selecteert</string>
-    <string name="title_third_party">U gebruikt een versie van een derde partij</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.
@@ -1075,6 +1077,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_send_dialog">Toon verzendopties</string>
     <string name="title_image_dialog">Toon afbeeldingsopties</string>
     <string name="title_media_toolbar">Media werkbalk</string>
+    <string name="title_manage_local_contacts">Beheer lokale contacten</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
     <string name="title_create_template">Maak sjabloon</string>

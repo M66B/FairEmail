@@ -673,7 +673,7 @@
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
-    <string name="title_third_party">Hirugarren baten bertsioa erabiltzen ari zara</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Hirugarren baten bertsioa erabiltzen ari zara</string>
     <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>
     <string name="title_compose">Idatzi</string>

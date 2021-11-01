@@ -79,15 +79,15 @@
     <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
-    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
+    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
-    <string name="title_setup_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
-    <string name="title_setup_password_repeat">ପାସ୍ଓ୍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
-    <string name="title_setup_password_missing">ପାସ୍ଓ୍ୱାର୍ଡ଼ ନିଖୋଜ</string>
-    <string name="title_setup_password_different">ପାସ୍ଓ୍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
-    <string name="title_setup_password_invalid">ପାସ୍ଓ୍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
+    <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
+    <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
+    <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_setup_password_different">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
+    <string name="title_setup_password_invalid">ପାସ୍‍ୱାର୍ଡ଼ ଅବୈଧ ଅଟେ</string>
     <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="title_setup_exported">ସେଟିଂସ୍ ରପ୍ତାନି ହୋଇଛି</string>
     <string name="title_setup_imported">ସେଟିଂସ୍ ଆମଦାନୀ ହୋଇଛି</string>
@@ -173,6 +173,7 @@
     <string name="title_advanced_ask_html">ମୂଳ ବାର୍ତ୍ତା ଦେଖାଇବା ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_autolock">ସ୍କ୍ରିନ୍ ଅଫ୍ ହେଲେ ଲକ୍ ପକାଇବା</string>
+    <string name="title_advanced_autolock_nav">ଆପ୍ ଛାଡ଼ିବା ମାତ୍ରେ ଲକ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_load_emoji">Google Play Servicesରୁ ଅପଡେଟ୍ ହୋଇଥିବା Emoji ଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରନ୍ତୁ</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
     <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
+    <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
@@ -213,8 +215,8 @@
     <string name="title_encryption_none">କିଛି ନୁହେଁ</string>
     <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
     <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
-    <string name="title_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
-    <string name="title_password_storage">ପାସ୍ଓ୍ୱାର୍ଡ଼ଗୁଡିକ କିପରି ଗଚ୍ଛିତ କରାଯାଏ?</string>
+    <string name="title_password">ପାସ୍‍ୱାର୍ଡ଼</string>
+    <string name="title_password_storage">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡିକ କିପରି ଗଚ୍ଛିତ କରାଯାଏ?</string>
     <string name="title_primary">ପ୍ରାଥମିକ</string>
     <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
@@ -227,7 +229,7 @@
     <string name="title_no_account">ଆକାଉଣ୍ଟ୍ ନିଖୋଜ</string>
     <string name="title_no_host">ହୋଷ୍ଟ ନାମ ନିଖୋଜ</string>
     <string name="title_no_user">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
-    <string name="title_no_password">ପାସ୍ଓ୍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_no_password">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
@@ -268,6 +270,7 @@
     <string name="title_no_viewer_type">ବିଷୟବସ୍ତୁ ପ୍ରକାର</string>
     <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
     <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
+    <string name="title_insufficient_memory">ଉପଲବ୍ଧ ମେମୋରୀ ଅପେକ୍ଷା ବାର୍ତ୍ତା ଅଧିକ ବଡ଼ ଅଟେ (%1$d)</string>
     <string name="title_show_full">ପୂର୍ଣ୍ଣ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
     <string name="title_ask_help">FairEmail କୁ ଉନ୍ନତ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
     <string name="title_need_help">ମତେ ସାହାଯ୍ୟ ଦରକାର</string>
@@ -293,8 +296,13 @@
     <string name="title_add_image">ପ୍ରତିଛବି ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_add_image_inline">ସନ୍ନିବେଶ କର</string>
     <string name="title_add_image_attach">ସଂଲଗ୍ନ କର</string>
+    <string name="title_add_image_resize">ଆକାର ବଦଳାନ୍ତୁ</string>
+    <string name="title_add_image_privacy">ଗୋପନୀୟତା-ସମ୍ବେଦନଶୀଳ ତଥ୍ୟ ଅପସାରଣ କରନ୍ତୁ</string>
+    <string name="title_add_image_select">ଫାଇଲ୍ ବାଛନ୍ତୁ</string>
     <string name="title_attachment_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_attachment_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
+    <string name="title_show_addresses">CC/BCC ଦେଖାଅ</string>
+    <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_signature_subject">ବିଷୟ</string>
@@ -430,6 +438,11 @@
         <item>୧୦ ସେକେଣ୍ଡ</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>କେବଳ ନାମ</item>
+        <item>କେବଳ ଇମେଲ୍</item>
+        <item>ନାମ ଏବଂ ଇମେଲ୍</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->

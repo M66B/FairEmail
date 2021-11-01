@@ -614,7 +614,7 @@
     <string name="title_ask_review_rationale">        Koristite FairEmail već neko vrijeme.
         Cijenili bi kada bi ocijenili FairEmail u Trgovini Play.
     </string>
-    <string name="title_third_party">Koristite verziju neke treće strane</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Koristite verziju neke treće strane</string>
     <string name="title_expand_warning">Proširivanjem ove poruke preuzet će se %1$s</string>
     <string name="title_download_message">Preuzima se &#8230;</string>
     <string name="title_compose">Sastavi</string>

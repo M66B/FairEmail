@@ -998,7 +998,7 @@
     </string>
     <string name="title_need_help">Potřebuji pomoc</string>
     <string name="title_ask_once">Tato zpráva se zobrazí pouze jednou, nezvolíte-li „Později“</string>
-    <string name="title_third_party">Používáte verzi třetí strany</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_reformatted">        Toto je přeformátované zobrazení zprávy.

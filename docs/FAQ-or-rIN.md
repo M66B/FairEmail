@@ -433,7 +433,7 @@ You can pin the certificate too, see above.
 
 <br />
 
-*ଖାଲି ପାସ୍ଓ୍ୱାର୍ଡ଼*
+*ଖାଲି ପାସ୍‍ୱାର୍ଡ଼*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
@@ -498,9 +498,9 @@ Note that an app specific password is required when two factor authentication is
 
 <br />
 
-*ଆପ୍ ନିର୍ଦ୍ଦିଷ୍ଟ ପାସ୍ଓ୍ୱାର୍ଡ଼*
+*ଆପ୍ ନିର୍ଦ୍ଦିଷ୍ଟ ପାସ୍‍ୱାର୍ଡ଼*
 
-ଏକ ଆପ୍ ନିର୍ଦ୍ଦିଷ୍ଟ ପାସ୍ଓ୍ୱାର୍ଡ଼ କିପରି ସୃଷ୍ଟି କରିବେ ସେ ବିଷୟରେ [ଏଠାରେ](https://support.google.com/accounts/answer/185833) ଦେଖନ୍ତୁ।
+ଏକ ଆପ୍ ନିର୍ଦ୍ଦିଷ୍ଟ ପାସ୍‍ୱାର୍ଡ଼ କିପରି ସୃଷ୍ଟି କରିବେ ସେ ବିଷୟରେ [ଏଠାରେ](https://support.google.com/accounts/answer/185833) ଦେଖନ୍ତୁ।
 
 <br />
 
@@ -508,7 +508,7 @@ Note that an app specific password is required when two factor authentication is
 
 **Important**: using this method is not recommended because it is less reliable.
 
-**ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ**: ଏକ ଉପଭୋକ୍ତାନାମ/ପାସ୍ଓ୍ୱାର୍ଡ଼ ସହ ଅଧିକୃତ Gsuite ଆକାଉଣ୍ଟଗୁଡ଼ିକ [ନିକଟ ଭବିଷ୍ୟତରେ](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) କାର୍ଯ୍ୟ କରିବା ବନ୍ଦ କରିବ।
+**ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ**: ଏକ ଉପଭୋକ୍ତାନାମ/ପାସ୍‍ୱାର୍ଡ଼ ସହ ଅଧିକୃତ Gsuite ଆକାଉଣ୍ଟଗୁଡ଼ିକ [ନିକଟ ଭବିଷ୍ୟତରେ](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) କାର୍ଯ୍ୟ କରିବା ବନ୍ଦ କରିବ।
 
 See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
 
@@ -909,7 +909,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 **General errors**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* ସମ୍ଭବତଃ ଏହାର ଅର୍ଥ ହେଉଛି ଆପଣଙ୍କ ଉପଭୋକ୍ତା ନାମ କିମ୍ୱା ପାସୱାର୍ଡ୍ ଭୁଲ୍ ଥିଲା। Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* ସମ୍ଭବତଃ ଏହାର ଅର୍ଥ ହେଉଛି ଆପଣଙ୍କ ଉପଭୋକ୍ତା ନାମ କିମ୍ୱା ପାସ୍‍ୱାର୍ଡ଼ ଭୁଲ୍ ଥିଲା। Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 

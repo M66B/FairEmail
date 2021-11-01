@@ -536,6 +536,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_autolock">Zablokuj po wyłączeniu ekranu</string>
+    <string name="title_advanced_autolock_nav">Zablokuj po opuszczeniu aplikacji</string>
     <string name="title_advanced_generic_user_agent">Użyj agenta użytkownika ogólnego przeglądarki</string>
     <string name="title_advanced_load_emoji">Załaduj zaktualizowane emotikony z Usług Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Automatycznie aktualizuj listy co tydzień</string>
@@ -1016,7 +1017,7 @@
     </string>
     <string name="title_need_help">Potrzebuję pomocy</string>
     <string name="title_ask_once">Ta wiadomość pojawi się tylko raz, chyba że wybierzesz \'Później\'</string>
-    <string name="title_third_party">Używasz wersji od innych firm</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
     <string name="title_reformatted">        To jest sformatowany widok wiadomości.

@@ -983,7 +983,7 @@
     </string>
     <string name="title_need_help">Tôi cần trợ giúp</string>
     <string name="title_ask_once">Thông báo này sẽ chỉ hiện một lần, trừ khi bạn chọn \'Để sau\'</string>
-    <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>
     <string name="title_download_message">Đang tải xuống &#8230;</string>
     <string name="title_reformatted">        Đây là thư đã định dạng lại.

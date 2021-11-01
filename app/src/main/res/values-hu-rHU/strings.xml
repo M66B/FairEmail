@@ -830,7 +830,7 @@
        Megtisztelő lenne, ha értékeled az alkalmazást a Play Áruházban.
     </string>
     <string name="title_ask_once">Ez az üzenez csak egyszer fog megjelenni, kivéve ha a \'Later\'-t választod</string>
-    <string name="title_third_party">Egy harmadik fél verzióját használod</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Egy harmadik fél verzióját használod</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
     <string name="title_compose">Levélírás</string>

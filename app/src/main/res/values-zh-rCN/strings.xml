@@ -506,7 +506,9 @@
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
     <string name="title_advanced_autolock">屏幕关闭时锁定</string>
+    <string name="title_advanced_autolock_nav">离开应用后锁定</string>
     <string name="title_advanced_generic_user_agent">使用通用浏览器用户代理</string>
+    <string name="title_advanced_load_emoji">从 Google Play 服务加载更新的 Emoji</string>
     <string name="title_advanced_disconnect_auto_update">每周自动更新列表</string>
     <string name="title_advanced_disconnect_links">使用列表警告跟踪链接</string>
     <string name="title_advanced_disconnect_images">使用列表来识别跟踪图像</string>
@@ -615,6 +617,7 @@
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
+    <string name="title_advanced_display_autolock_nav_hint">将会有 %1$d 秒的宽限时间</string>
     <string name="title_advanced_safe_browsing_hint">Google 服务器知道被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
@@ -954,6 +957,7 @@
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
     <string name="title_too_large">消息内容太多，不能完全重新格式化</string>
     <string name="title_truncated">消息内容太多，无法完全显示</string>
+    <string name="title_insufficient_memory">邮件过大，内存不足（可用内存为 %1$d）</string>
     <string name="title_show_full">显示完整消息</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
@@ -983,7 +987,7 @@
     </string>
     <string name="title_need_help">寻求帮助</string>
     <string name="title_ask_once">此消息将只会显示一次，除非您选择\"稍后再说\"</string>
-    <string name="title_third_party">您使用的是第三方版本</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_reformatted">        这是重构格式后的消息视图
@@ -1062,6 +1066,7 @@
     <string name="title_send_dialog">显示发送选项</string>
     <string name="title_image_dialog">显示图像选项</string>
     <string name="title_media_toolbar">媒体工具栏</string>
+    <string name="title_manage_local_contacts">管理本地联系人</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_create_template">创建模板</string>

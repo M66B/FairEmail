@@ -513,6 +513,7 @@
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_autolock">Lås ved skærmslukning</string>
+    <string name="title_advanced_autolock_nav">Lås, når app forlades</string>
     <string name="title_advanced_load_emoji">Indlæs opdaterede Emoji fra Google Play-tjenester</string>
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
@@ -620,6 +621,7 @@
     <string name="title_advanced_display_harmful_hint">Deaktivering af denne indstilling kan være skadelig for din datafortrolighed</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i underligt udseende/dobbelte tekster</string>
     <string name="title_advanced_display_pin_hint">PIN-kode har forrang frem for biometrisk godkendelse</string>
+    <string name="title_advanced_display_autolock_nav_hint">Respitperioden udgør %1$d sek</string>
     <string name="title_advanced_safe_browsing_hint">Google-serveren ved, hvilke adresser, som bliver slået op</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>
@@ -988,7 +990,7 @@
     </string>
     <string name="title_need_help">Jeg behøver hjælp</string>
     <string name="title_ask_once">Denne besked vises kun én gang, med mindre duvælger \'Senere\'</string>
-    <string name="title_third_party">Du benytter en tredjepartsversion</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
     <string name="title_reformatted">        Dette er den reformaterede beskedvisning.
@@ -1067,6 +1069,7 @@
     <string name="title_send_dialog">Vis Send-muligheder</string>
     <string name="title_image_dialog">Vis Billed-muligheder</string>
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
+    <string name="title_manage_local_contacts">Håndtér lokale kontakter</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
     <string name="title_create_template">Opret skabelon</string>

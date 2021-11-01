@@ -1036,29 +1036,29 @@ Primero trate de esperar algún tiempo para ver si el problema se resuelve por s
 * cambie a la verificación periódica de mensajes en la configuración de recepción, lo que resultará en la apertura de carpetas una a la vez
 * o configure algunas carpetas para sondear en lugar de sincronizar (mantenga presionada una carpeta de la lista de carpetas, editar propiedades)
 
-An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
+Una forma sencilla de configurar la comprobación periódica de mensajes para todas las carpetas excepto la bandeja de entrada es usar * Aplicar a todo ... * en el menú de tres puntos de la lista de carpetas y marcar las dos casillas de verificación avanzadas inferiores.
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*. See [here](https://support.google.com/mail/answer/7126229) for details.
+El número máximo de conexiones de carpetas simultáneas para Gmail es 15, para que pueda sincronizar como máximo 15 carpetas simultáneamente en *todos* sus dispositivos al mismo tiempo. Por esta razón, las carpetas de *usuario* de Gmail están configuradas para sondear por defecto en lugar de sincronizar siempre. Cuando sea necesario o deseado, puede cambiar esto manteniendo presionada una carpeta en la lista de carpetas y seleccionando *Editar propiedades*. Vea [aquí](https://support.google.com/mail/answer/7126229) para más detalles.
 
-When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
+Al usar un servidor Dovecot, puede que quiera cambiar la configuración [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
-Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+Tenga en cuenta que el servidor de correo tardará un tiempo en descubrir conexiones incorrectas, por ejemplo debido a que se sale del rango de una red, lo que significa que efectivamente solo la mitad de las conexiones de carpetas están disponibles. Para Gmail esto sería sólo 7 conexiones.
 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) ¿Qué es explorar los mensajes en el servidor?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+Explorar mensajes en el servidor obtendrá los mensajes del servidor de correo en tiempo real cuando llegue al final de la lista de mensajes sincronizados, incluso cuando la carpeta está configurada para no sincronizar. Puede desactivar esta función en la configuración avanzada de la cuenta.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) ¿Por qué no puedo seleccionar/abrir/guardar una imagen, adjunto o archivo?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Cuando un elemento de menú para seleccionar/abrir/guardar un archivo está deshabilitado (atenuado) o cuando recibe el mensaje *El framework de acceso al almacenamiento no está disponible*, el [framework de acceso al almacenamiento](https://developer.android.com/guide/topics/providers/document-provider), un componente estándar de Android, probablemente no esté presente. Esto puede deberse a que su ROM personalizada no la incluye o porque fue removida activamente (debloated).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail no solicita permisos de almacenamiento, por lo que este framework es necesario para seleccionar archivos y carpetas. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
 The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
 

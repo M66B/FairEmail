@@ -524,8 +524,10 @@
     <string name="title_advanced_confirm_links">Підтвердити відкриття посилань</string>
     <string name="title_advanced_check_links_dbl">Перевіряти списки заблокованих доменів за сумнівними посиланнями</string>
     <string name="title_advanced_browse_links">Делегувати відкриття посилань до Android</string>
+    <string name="title_advanced_confirm_images">Не показувати зображення за замовчуванням</string>
     <string name="title_advanced_ask_images">Підтвердити показ зображень</string>
     <string name="title_advanced_confirm_html">Показати відформатовані повідомлення за замовчуванням</string>
+    <string name="title_advanced_ask_html">Підтвердіть відображення оригінальних повідомлень</string>
     <string name="title_advanced_tracking">Автоматично розпізнавати та вимикати зображення які використовуються для відстеження</string>
     <string name="title_advanced_hide_timezone">Надсилати повідомлення без даних часового поясу</string>
     <string name="title_advanced_client_id">Надсилати назву і версію застосунку до поштового серверу</string>
@@ -535,7 +537,9 @@
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Тайм-аут біометричної автентифікації</string>
     <string name="title_advanced_autolock">Блокування при вимкненому екрані</string>
+    <string name="title_advanced_autolock_nav">Блокувати при виході з програми</string>
     <string name="title_advanced_generic_user_agent">Використовувати User agent браузера</string>
+    <string name="title_advanced_load_emoji">Завантаження оновлених емодзі з служб Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Автоматично оновлювати списки щотижня</string>
     <string name="title_advanced_disconnect_links">Використовуйте списки для попередження про посилання за якими можливе відслідковування</string>
     <string name="title_advanced_disconnect_images">Використовувати списки для розпізнавання зображень за якими можливе відстеження</string>
@@ -983,6 +987,7 @@
     <string name="title_no_search">Пошук на сервері недоступний для цього облікового запису</string>
     <string name="title_too_large">Лист завеликий для повного переформатування</string>
     <string name="title_truncated">Лист завеликий для показу</string>
+    <string name="title_insufficient_memory">Повідомлення занадто велике для доступної пам\'яті (%1$d)</string>
     <string name="title_show_full">Показати повне повідомлення</string>
     <string name="title_unused_inline">Невикористані вбудовані зображення будуть видалені при надсиланні</string>
     <string name="title_accross_remark">Повідомлення, які переміщуються через облікові записи, будуть завантажені знову, в результаті буде додаткове використання даних</string>
@@ -1012,7 +1017,7 @@
     </string>
     <string name="title_need_help">Мені потрібна допомога</string>
     <string name="title_ask_once">Це повідомлення з\'явиться лише один раз, якщо ви не виберете \"Пізніше\"</string>
-    <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення може завантажити %1$s</string>
     <string name="title_download_message">Завантаження &#8230;</string>
     <string name="title_reformatted">        Це вид переформатованого повідомлення.
@@ -1091,6 +1096,7 @@
     <string name="title_send_dialog">Показати параметри надсилання</string>
     <string name="title_image_dialog">Показати параметри зображення</string>
     <string name="title_media_toolbar">Панель інструментів мультимедіа</string>
+    <string name="title_manage_local_contacts">Керування локальними контактами</string>
     <string name="title_insert_contact_group">Вставити групу контактів</string>
     <string name="title_insert_template">Вставити шаблон</string>
     <string name="title_create_template">Створити шаблон</string>

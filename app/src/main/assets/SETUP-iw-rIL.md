@@ -8,34 +8,34 @@
 
 ## הגדרה מהירה
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+עליך פשוט לבחור את הספק המתאים או *ספק אחר* ולמלא את השם, כתובת הדוא״ל ואת הסיסמה שלך ולגעת ב*בדיקה*.
 
-This will work for most email providers.
+אמור לעבוד מול רוב ספקי הדוא״ל.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+אם ההגדרה המהירה לא עובדת, יהיה עליך להגדיר חשבון וזהות ידנית, הנחיות נוספות מופיעות להלן.
 
-## Set up account - to receive email
+## הגדרת חשבון - לקבלת דוא״ל
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+כדי להוסיף חשבון, יש לגעת ב*הגדרות ידניות ואפשרויות נוספות*, לאחר מכן לגעת ב*חשבונות* ולגעת בכפתור ‚פלוס’ בתחתית ולבחור ב־IMAP (או POP3). יש לבחור בספק מהרשימה, להקליד את שם המשתמש, שהוא בדרך כלל כתובת הדוא״ל שלך ואת הסיסמה שלך. יש לגעת ב*בדיקה* כדי לאפשר ל־FairEmail להתחבר לשרת הדוא״ן ולמשוך את רשימת תיקיות המערכת. לאחר סקירת מבחר תיקיית המערכת ניתן להוסיף את החשבון בנגיעה ב*שמירה*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+אם הספק שלך לא מופיע ברשימת הספקים, ישנם אלפי ספקים, ניתן לבחור ב*התאמה אישית*. יש למלא את שם התחום, למשל *gmail.com* ולגעת ב*קבלת הגדרות*. אם הספק שלך תומך ב[גילוי אוטומטי](https://tools.ietf.org/html/rfc6186), FairEmail ימלא את שם המארח ואת מספר הפתחה, אם לא, כדאי לפנות אל הנחיות ההתקנה של הספק שלך לאיתור שם מארח ה־IMAP, מספר הפתחה ופרוטוקול ההצפנה הנכונים (SSL/TLS או STARTTLS). [כאן](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) ניתן לגשת למידע נוסף.
 
-## Set up identity - to send email
+## הגדרת זהות - כדי לשלוח דוא״ל
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+בדומה, כדי להוסיף זהות, יש לגעת ב*הגדרות ידניות ואפשרויות נוספות*, לאחר מכן לגעת ב*זהויות* ובכפתור ‚פלוס’ שבתחתית. יש למלא את השם המועדף עליך לכתובת מאת של ההודעות שנשלחות ממך ולבחור חשבון מקושר. נגיעה ב*שמירה* תוסיף את הזהות.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+אם החשבון הוגדר ידנית, יתכן שיהיה עליך להגדיר גם את הזהות ידנית. יש למלא את שם התחום, למשל *gmail.com* ולגעת ב*קבלת הגדרות*. אם הספק שלך תומך ב[גילוי אוטומטי](https://tools.ietf.org/html/rfc6186), FairEmail ימלא את שם המארח ואת מספר הפתחה, אם לא, כדאי לפנות אל הנחיות ההתקנה של הספק שלך לאיתור שם מארח ה־SMTP, מספר הפתחה ופרוטוקול ההצפנה הנכונים (SSL/TLS או STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+ה[שו״ת הבא](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) מסביר על השימוש בכינויים.
 
-## Grant permissions - to access contact information
+## הענקת הרשאות - כדי לגשת לפרטי אנשי הקשר
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+כדי לחפש כתובות דוא״ל, להציג תמונות של אנשי קשר וכו׳, עליך להעניק ל־FairEmail הרשאות לקרוא את פרטי אנשי הקשר. עליך פשוט לגעת ב*הענקה* ולבחור ב*לאפשר*.
 
-## Setup battery optimizations - to continuously receive emails
+## הגדרת מיטובי סוללה - כדי להמשיך לקבל דוא״ל באופן רציף
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+בגרסאות עדכניות של Android, מרדים Android יישומונים כשהמסך כבוי למשך זמן מה כדי להפחית את צריכת הסוללה. כדי לקבל הודעות חדשות ללא השהיה, עליך להשהות את מיטובי הסוללה עבור FairEmail. יש לגעת ב*ניהול* ולעקוב אחר ההנחיות.
 
-## Questions or problems
+## שאלות או טענות
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+אם יש לך שאלות או טענות, [כאן](https://github.com/M66B/FairEmail/blob/master/FAQ.md) ניתן לקבל עזרה.

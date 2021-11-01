@@ -979,7 +979,7 @@
     </string>
     <string name="title_need_help">我需要幫助</string>
     <string name="title_ask_once">該信息只會出現一次，除非您選擇‘以後’</string>
-    <string name="title_third_party">您正在使用第三方版本</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">您正在使用第三方版本</string>
     <string name="title_expand_warning">展開此訊息將會下載 %1$s</string>
     <string name="title_download_message">正在下載 &#8230;</string>
     <string name="title_reformatted">        這是經過重排的訊息視圖。

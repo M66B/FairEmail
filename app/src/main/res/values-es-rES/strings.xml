@@ -516,6 +516,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_autolock">Bloquear al apagar pantalla</string>
+    <string name="title_advanced_autolock_nav">Bloquear al salir de la aplicación</string>
     <string name="title_advanced_generic_user_agent">Usar agente de usuario de navegador genérico</string>
     <string name="title_advanced_load_emoji">Cargar Emoji actualizado desde los Servicios de Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
@@ -626,6 +627,7 @@
     <string name="title_advanced_display_harmful_hint">Desactivar esta opción podría ser perjudicial para su privacidad</string>
     <string name="title_advanced_display_hidden_hint">Esto puede resultar en textos dobles o de apariencia extraña</string>
     <string name="title_advanced_display_pin_hint">Un PIN tiene prioridad sobre la autenticación biométrica</string>
+    <string name="title_advanced_display_autolock_nav_hint">Habrá un tiempo de gracia de %1$d segundos</string>
     <string name="title_advanced_safe_browsing_hint">El servidor de Google sabe qué direcciones se están buscando</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
@@ -996,7 +998,7 @@
     </string>
     <string name="title_need_help">Necesito ayuda</string>
     <string name="title_ask_once">Este mensaje sólo aparecerá una vez, a menos que seleccione \'Más tarde\'</string>
-    <string name="title_third_party">Está usando una versión de un tercero</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_reformatted">        Esta es la vista de mensaje reformateada.
@@ -1075,6 +1077,7 @@
     <string name="title_send_dialog">Mostrar opciones de envío</string>
     <string name="title_image_dialog">Mostrar opciones de imagen</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
+    <string name="title_manage_local_contacts">Administrar contactos locales</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
     <string name="title_create_template">Crear plantilla</string>

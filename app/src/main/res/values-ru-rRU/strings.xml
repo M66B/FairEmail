@@ -275,7 +275,7 @@
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
     <string name="title_setup_reset_general">Общие вопросы</string>
     <string name="title_setup_reset_full">Показывать исходные сообщения</string>
-    <string name="title_setup_reset_images">Показать изображения</string>
+    <string name="title_setup_reset_images">Показывать изображения</string>
     <string name="title_setup_reset_links">Подтверждать ссылки</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
@@ -524,7 +524,7 @@
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>
     <string name="title_advanced_confirm_images">Не показывать изображения по умолчанию</string>
-    <string name="title_advanced_ask_images">Подтверждать показ изображений</string>
+    <string name="title_advanced_ask_images">Подтверждать отображение изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
     <string name="title_advanced_ask_html">Подтверждать отображение оригинальных сообщений</string>
     <string name="title_advanced_tracking">Пытаться распознавать и отключать отслеживающие изображения</string>
@@ -536,6 +536,7 @@
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
     <string name="title_advanced_autolock">Отключить блокировку экпана</string>
+    <string name="title_advanced_autolock_nav">Блокировка при выходе из приложения</string>
     <string name="title_advanced_generic_user_agent">Использовать обычный пользовательский агент браузера</string>
     <string name="title_advanced_load_emoji">Загружать обновлённые эмодзи из Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
@@ -646,6 +647,7 @@
     <string name="title_advanced_display_harmful_hint">Отключение этой функции может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
+    <string name="title_advanced_display_autolock_nav_hint">Время задержки до выполнения %1$d сек.</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса запрашиваются</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
@@ -794,6 +796,7 @@
     <string name="title_notify_batch_disable">Отключить уведомления о новых сообщениях</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
+    <string name="title_expunge">Уничтожить</string>
     <string name="title_expunge_remark">Необратимое удаление всех сообщений, помеченных для удаления</string>
     <string name="title_empty_trash">Очистить корзину</string>
     <string name="title_empty_spam">Очистить \"Спам\"</string>
@@ -1015,7 +1018,7 @@
     </string>
     <string name="title_need_help">Нужна помощь</string>
     <string name="title_ask_once">Это сообщение будет показано только один раз, если вы не выберите \"Позже\"</string>
-    <string name="title_third_party">Вы используете стороннюю версию</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
     <string name="title_reformatted">        Это переформатированное сообщение.
@@ -1094,6 +1097,7 @@
     <string name="title_send_dialog">Параметры отправки</string>
     <string name="title_image_dialog">Параметры изображения</string>
     <string name="title_media_toolbar">Панель медиа</string>
+    <string name="title_manage_local_contacts">Управление локальными контактами</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_create_template">Создать шаблон</string>

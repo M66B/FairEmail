@@ -526,7 +526,9 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_autolock">Blocare pe ecran oprit</string>
+    <string name="title_advanced_autolock_nav">Blocare la părăsirea aplicației</string>
     <string name="title_advanced_generic_user_agent">Utilizați agentul utilizator generic al browserului</string>
+    <string name="title_advanced_load_emoji">Încărcați Emoji actualizate din Serviciile Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Actualizați automat listele săptămânal</string>
     <string name="title_advanced_disconnect_links">Folosește liste pentru a avertiza despre adrese de urmărire</string>
     <string name="title_advanced_disconnect_images">Folosește listele pentru a recunoaște imaginile de urmărire</string>
@@ -635,6 +637,7 @@
     <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
+    <string name="title_advanced_display_autolock_nav_hint">Va exista un timp de grație de %1$d secunde</string>
     <string name="title_advanced_safe_browsing_hint">Serverul Google știe ce adrese sunt căutate</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
@@ -975,6 +978,7 @@
     <string name="title_no_search">Căutarea pe server nu este disponibilă pentru acest cont</string>
     <string name="title_too_large">Mesaj prea mare pentru a fi complet reformatat</string>
     <string name="title_truncated">Mesaj prea mare pentru a-l putea afișa complet</string>
+    <string name="title_insufficient_memory">Mesaj prea mare pentru memoria disponibilă (%1$d)</string>
     <string name="title_show_full">Arată mesajul întreg</string>
     <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
@@ -1004,7 +1008,7 @@
     </string>
     <string name="title_need_help">Am nevoie de ajutor</string>
     <string name="title_ask_once">Acest mesaj va apărea o singură dată, decât dacă nu selectați \'Mai târziu\'</string>
-    <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
+    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
     <string name="title_reformatted">        Aceasta este vizualizarea mesajelor reformatate.
@@ -1083,6 +1087,7 @@
     <string name="title_send_dialog">Afișare opțiuni de trimitere</string>
     <string name="title_image_dialog">Afișare opțiuni imagine</string>
     <string name="title_media_toolbar">Bară atașare</string>
+    <string name="title_manage_local_contacts">Gestionați contactele locale</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
     <string name="title_create_template">Creează șablon</string>
