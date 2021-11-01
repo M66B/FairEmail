@@ -138,7 +138,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
             int colorPrimary = colorPrimaryDark;
             if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
-                Log.e("Task color primary=" + Integer.toHexString(colorPrimary));
+                Log.w("Task color primary=" + Integer.toHexString(colorPrimary));
                 colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
             }
 
