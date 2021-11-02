@@ -4490,7 +4490,12 @@ class Core {
                 }
             }
 
-            if (!(message.ui_seen || message.ui_ignored || message.ui_hide)) {
+            if (message.ui_seen || message.ui_ignored || message.ui_hide)
+                Log.i("Notify id=" + message.id +
+                        " seen=" + message.ui_seen +
+                        " ignored=" + message.ui_ignored +
+                        " hide=" + message.ui_hide);
+            else {
                 Integer current = newMessages.get(group);
                 newMessages.put(group, current == null ? 1 : current + 1);
 
