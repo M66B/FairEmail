@@ -881,10 +881,10 @@ public class FragmentCompose extends FragmentBase {
                     onActionRecordAudio();
                     return true;
                 } else if (action == R.id.menu_take_photo) {
-                    onActionImage(true, false);
+                    onActionImage(true);
                     return true;
                 } else if (action == R.id.menu_image) {
-                    onActionImage(false, false);
+                    onActionImage(false);
                     return true;
                 } else if (action == R.id.menu_attachment) {
                     onActionAttachment();
@@ -1657,14 +1657,6 @@ public class FragmentCompose extends FragmentBase {
         else
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_send);
 
-        media_bar.findViewById(R.id.menu_image).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                onActionImage(false, true);
-                return true;
-            }
-        });
-
         bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -2323,10 +2315,10 @@ public class FragmentCompose extends FragmentBase {
             }
     }
 
-    private void onActionImage(boolean photo, boolean force) {
+    private void onActionImage(boolean photo) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
-        if (image_dialog || force) {
+        if (image_dialog) {
             Helper.hideKeyboard(view);
 
             Bundle args = new Bundle();
