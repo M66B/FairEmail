@@ -34,6 +34,7 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailMessage;
 import com.sun.mail.iap.ProtocolException;
+import com.sun.mail.imap.IMAPBodyPart;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.protocol.IMAPProtocol;
@@ -2966,9 +2967,15 @@ public class MessageHelper {
                     apart.encrypt = encrypt;
                     apart.part = part;
 
-                    String[] cid = null;
+                    String cid = null;
                     try {
-                        cid = apart.part.getHeader("Content-ID");
+                        if (apart.part instanceof IMAPBodyPart)
+                            cid = ((IMAPBodyPart) apart.part).getContentID();
+                        if (TextUtils.isEmpty(cid)) {
+                            String[] cids = apart.part.getHeader("Content-ID");
+                            if (cids != null && cids.length > 0)
+                                cid = MimeUtility.unfold(cids[0]);
+                        }
                     } catch (MessagingException ex) {
                         Log.w(ex);
                         if (!"Failed to fetch headers".equals(ex.getMessage()))
@@ -2980,7 +2987,7 @@ public class MessageHelper {
                     apart.attachment.name = apart.filename;
                     apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);
                     apart.attachment.size = (long) apart.part.getSize();
-                    apart.attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
+                    apart.attachment.cid = cid;
                     apart.attachment.encryption = apart.encrypt;
 
                     if ("text/calendar".equalsIgnoreCase(apart.attachment.type) &&
