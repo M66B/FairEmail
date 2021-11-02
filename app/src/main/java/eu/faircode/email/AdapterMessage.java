@@ -2764,7 +2764,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @RequiresApi(api = Build.VERSION_CODES.Q)
                 private ConversationActions getConversationActions(TupleMessageEx message, Document document, Context context) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean conversation_actions = prefs.getBoolean("conversation_actions", true);
+                    boolean conversation_actions = prefs.getBoolean("conversation_actions", false);
                     boolean conversation_actions_replies = prefs.getBoolean("conversation_actions_replies", true);
                     if (!conversation_actions)
                         return null;

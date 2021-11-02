@@ -541,6 +541,10 @@ public class ApplicationEx extends Application
                 editor.putBoolean("discard_delete", false);
         } else if (version < 1753)
             repairFolders(context);
+        else if (version < 1771) {
+            if (!prefs.contains("conversation_actions"))
+                editor.putBoolean("conversation_actions", false);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

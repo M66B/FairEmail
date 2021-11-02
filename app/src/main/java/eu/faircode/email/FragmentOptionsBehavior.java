@@ -495,7 +495,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
         swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
-        swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
+        swConversationActions.setChecked(prefs.getBoolean("conversation_actions", false));
         swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
         swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
         swLanguageDetection.setChecked(prefs.getBoolean("language_detection", false));
