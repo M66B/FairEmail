@@ -506,6 +506,7 @@ public interface DaoMessage {
             "  OR message.received > account.created" +
             "  OR message.sent > account.created" +
             "  OR message.ui_unsnoozed)" +
+            " AND (uid IS NOT NULL OR account.pop <> " + EntityAccount.TYPE_IMAP + ")" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND (message.notifying <> 0 OR NOT (message.ui_seen OR message.ui_ignored OR message.ui_hide))" +
             " ORDER BY message.received DESC")
