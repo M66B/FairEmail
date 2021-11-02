@@ -419,7 +419,8 @@ public abstract class DB extends RoomDatabase {
                                 "wal_checkpoint", "wal_autocheckpoint",
                                 "page_count", "page_size", "max_page_count", "freelist_count",
                                 "cache_size", "cache_spill",
-                                "soft_heap_limit", "hard_heap_limit", "mmap_size"})
+                                "soft_heap_limit", "hard_heap_limit", "mmap_size",
+                                "foreign_keys"})
                             try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
