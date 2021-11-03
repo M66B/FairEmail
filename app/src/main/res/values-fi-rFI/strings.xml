@@ -774,6 +774,8 @@
     <string name="title_notify_batch_disable">Poista käytöstä ilmoitukset uusista viesteistä</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
+    <string name="title_expunge">Pyyhi poistetut</string>
+    <string name="title_expunge_remark">Tämä poistaa pysyvästi kaikki poistettaviksi merkityt viestit</string>
     <string name="title_empty_trash">Tyhjennä roskakori</string>
     <string name="title_empty_spam">Tyhjennä roskapostit</string>
     <string name="title_edit_properties">Muokkaa ominaisuuksia</string>
@@ -964,6 +966,7 @@
     <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
     <string name="title_too_large">Viesti liian suuri uudelleenmuotoiltavaksi kokonaisuudessaan</string>
     <string name="title_truncated">Viesti liian suuri näytettäväksi kokonaisuudessaan</string>
+    <string name="title_insufficient_memory">Viesti on liian suuri mahtuakseen käytettävissä olevaan muistiin (%1$d)</string>
     <string name="title_show_full">Näytä koko viesti</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
@@ -1072,6 +1075,7 @@
     <string name="title_send_dialog">Näytä lähetysasetukset</string>
     <string name="title_image_dialog">Näytä kuva-asetukset</string>
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
+    <string name="title_manage_local_contacts">Hallinnoi paikallisia yhteystietoja</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
     <string name="title_create_template">Luo viestipohja</string>

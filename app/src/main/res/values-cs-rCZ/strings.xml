@@ -240,6 +240,10 @@
     <string name="title_setup_exported">Nastavení exportována</string>
     <string name="title_setup_imported">Nastavení importována</string>
     <string name="title_setup_import_invalid">Neplatný soubor s nastavením</string>
+    <string name="title_importing_account">Účet %1$s</string>
+    <string name="title_importing_identity">Identita %1$s</string>
+    <string name="title_importing_exists">Přeskočeno: již existuje</string>
+    <string name="title_importing_wizard">Spusťte průvodce pro opětovné ověření</string>
     <string name="title_setup_reorder_accounts">Pořadí účtů</string>
     <string name="title_setup_reorder_folders">Pořadí složek</string>
     <string name="title_reset_order">Obnovit pořadí</string>
@@ -262,16 +266,22 @@
     <string name="title_setup_theme_black_background">Černé pozadí</string>
     <string name="title_setup_theme_html_light">Světlé pozadí pro původní zobrazení zprávy</string>
     <string name="title_setup_theme_composer_light">Světlé pozadí pro editor zpráv</string>
+    <string name="title_setup_theme_you_hint">Barvy \"Material You\" můžete nastavit v nastavení tapet a motivů Android</string>
     <string name="title_setup_theme_system_hint">Podporuje-li to Android, motiv „podle systému“ se ve dne/noci automaticky přepne na světlé/tmavé zobrazení</string>
     <string name="title_setup_theme_more_colors">Chci více barev</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
     <string name="title_setup_reset_questions">Obnovit otázky</string>
+    <string name="title_setup_reset_general">Obecné otázky</string>
+    <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
     <string name="title_setup_reset_images">Zobrazit obrázky</string>
+    <string name="title_setup_reset_links">Potvrdit odkazy</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
         Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
+    </string>
+    <string name="title_advanced_hint_remark">        Možnosti jsou rozděleny podle karty, rozděleny do sekcí, uspořádány podle vzhledu nebo použití a vyhledávatelné.
     </string>
     <string name="title_advanced_hint_setup">Účet můžete nakonfigurovat klepnutím na tlačítko průvodce na hlavní obrazovce nastavení.</string>
     <string name="title_advanced_section_main">Hlavní</string>
@@ -513,8 +523,10 @@
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
     <string name="title_advanced_check_links_dbl">Kontrolovat seznamy blokovaných domén na podezřelé odkazy</string>
     <string name="title_advanced_browse_links">Otevírání odkazů přenechat Androidu</string>
+    <string name="title_advanced_confirm_images">Ve výchozím nastavení nezobrazovat žádné obrázky</string>
     <string name="title_advanced_ask_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
+    <string name="title_advanced_ask_html">Potvrdit zobrazení původních zpráv</string>
     <string name="title_advanced_tracking">Pokusit se rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_hide_timezone">Zprávy odesílat bez časového pásma</string>
     <string name="title_advanced_client_id">Odesílat e-mailovému serveru název a verzi aplikace</string>
@@ -523,7 +535,10 @@
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
+    <string name="title_advanced_autolock">Uzamknout při zhasnutí displeje</string>
+    <string name="title_advanced_autolock_nav">Uzamknout při opuštění aplikace</string>
     <string name="title_advanced_generic_user_agent">Použít generického uživatelského agenta prohlížeče</string>
+    <string name="title_advanced_load_emoji">Načíst aktualizovaný Emoji ze služeb Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Automaticky týdně aktualizovat seznamy</string>
     <string name="title_advanced_disconnect_links">Použít seznamy k upozornění na sledovací odkazy</string>
     <string name="title_advanced_disconnect_images">Použít seznamy k rozpoznání sledovacích obrázků</string>
@@ -574,6 +589,7 @@
     <string name="title_advanced_log_info">Protokolování při ladění</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_manual_hint">Je-li příjem zpráv zakázán, stále je možno zprávy přijímat ručně tažením dolů v seznamu zpráv</string>
+    <string name="title_advanced_poll_battery">To může způsobit vysoké využití baterie!</string>
     <string name="title_advanced_poll_hint">Pravidelná kontrola nových zpráv pokaždé porovnává místní a vzdálené zprávy, což je zdlouhavá operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv. Neustálý příjem tomuto předchází průběžným sledováním změn.</string>
     <string name="title_advanced_optimize_hint">Může změnit synchronizační interval pro úsporu spotřeby baterie, v závislosti na možnostech a chování e-mailových serverů</string>
     <string name="title_advanced_schedule_hint">Pro změnu času se jej dotkněte</string>
@@ -631,6 +647,7 @@
     <string name="title_advanced_display_harmful_hint">Zákazem této volby můžete uškodit svému soukromí</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
     <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
+    <string name="title_advanced_display_autolock_nav_hint">Doba odkladu bude %1$d vteřin</string>
     <string name="title_advanced_safe_browsing_hint">Google server ví, které adresy jsou vyhledávány</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
@@ -779,6 +796,8 @@
     <string name="title_notify_batch_disable">Zakázat upozornění na nové zprávy</string>
     <string name="title_delete_local">Smazat lokální zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>
+    <string name="title_expunge">Trvale smazat</string>
+    <string name="title_expunge_remark">Tímto trvale smažete všechny zprávy označené pro smazání</string>
     <string name="title_empty_trash">Vysypat koš</string>
     <string name="title_empty_spam">Vysypat nevyžádané</string>
     <string name="title_edit_properties">Upravit vlastnosti</string>
@@ -969,6 +988,7 @@
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
     <string name="title_too_large">Zpráva je příliš velká pro úplné přeformátování</string>
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>
+    <string name="title_insufficient_memory">Zpráva je příliš velká na dostupnou paměť (%1$d)</string>
     <string name="title_show_full">Zobrazit celou zprávu</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
@@ -1077,12 +1097,13 @@
     <string name="title_send_dialog">Zobrazit možnosti odeslání</string>
     <string name="title_image_dialog">Zobrazit možnosti obrázku</string>
     <string name="title_media_toolbar">Panel médií</string>
+    <string name="title_manage_local_contacts">Správa místních kontaktů</string>
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_insert_template">Vložit šablonu</string>
     <string name="title_create_template">Vytvořit šablonu</string>
     <string name="title_translate">Přeložit</string>
     <string name="title_translate_configure">Nastavit &#8230;</string>
-    <string name="title_translate_key">Zadejte klíč</string>
+    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Zadejte klíč</string>
     <string name="title_translating">Překládání &#8230;</string>
     <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
     <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>
@@ -1154,6 +1175,7 @@
     <string name="title_search_hint">Hledání se zpočátku zaměří na zprávy uložené ve vašem zařízení.
         Pro hledání i na serveru, stiskněte tlačítko „Hledat znovu“.
     </string>
+    <string name="title_search_index_hint">Vyhledávání přes vyhledávací index je rychlé, ale najde pouze celá slova.</string>
     <string name="title_search_text_hint">Hledání textu ve zprávách, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_text_unsupported">\'%s\' znamená, že mailový server nepodporuje vyhledávání v textech zpráv</string>
     <string name="title_search_size_hint">Vyhledávání zpráv podle velikosti, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>

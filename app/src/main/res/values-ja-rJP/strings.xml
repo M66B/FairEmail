@@ -1065,12 +1065,13 @@
     <string name="title_send_dialog">オプションを表示</string>
     <string name="title_image_dialog">画像オプションを表示</string>
     <string name="title_media_toolbar">メディアツールバー</string>
+    <string name="title_manage_local_contacts">ローカルの連絡先を管理</string>
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
     <string name="title_insert_template">テンプレートを挿入</string>
     <string name="title_create_template">テンプレートを作成</string>
     <string name="title_translate">翻訳する</string>
     <string name="title_translate_configure">設定 &#8230;</string>
-    <string name="title_translate_key">キーを入力</string>
+    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">キーを入力</string>
     <string name="title_translating">翻訳中 &#8230;</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
     <string name="title_translate_usage">使用方法: %1$s / %2$s (%3$d %%)</string>
