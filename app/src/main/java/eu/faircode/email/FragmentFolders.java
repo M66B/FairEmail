@@ -724,7 +724,7 @@ public class FragmentFolders extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compact_folders", compact).apply();
 
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         adapter.setCompact(compact);
         rvFolder.post(new Runnable() {
             @Override
@@ -744,7 +744,7 @@ public class FragmentFolders extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("hidden_folders", show_hidden).apply();
 
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
     }
 
@@ -754,7 +754,7 @@ public class FragmentFolders extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("flagged_folders", show_flagged).apply();
 
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         adapter.setShowFlagged(show_flagged);
         rvFolder.post(new Runnable() {
             @Override
@@ -772,7 +772,7 @@ public class FragmentFolders extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean subscribed_only = !prefs.getBoolean("subscribed_only", false);
         prefs.edit().putBoolean("subscribed_only", subscribed_only).apply();
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         adapter.setSubscribedOnly(subscribed_only);
     }
 
@@ -780,7 +780,7 @@ public class FragmentFolders extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean sort_unread_atop = !prefs.getBoolean("sort_unread_atop", false);
         prefs.edit().putBoolean("sort_unread_atop", sort_unread_atop).apply();
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         adapter.setSortUnreadAtop(sort_unread_atop);
     }
 

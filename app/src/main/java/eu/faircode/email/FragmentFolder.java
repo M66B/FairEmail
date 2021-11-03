@@ -352,7 +352,7 @@ public class FragmentFolder extends FragmentBase {
                 tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
 
                 deletable = (folder != null && EntityFolder.USER.equals(folder.type));
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
             }
 
             @Override
@@ -465,7 +465,7 @@ public class FragmentFolder extends FragmentBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
             }
@@ -473,7 +473,7 @@ public class FragmentFolder extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 saving = false;
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
                 pbSave.setVisibility(View.GONE);
             }

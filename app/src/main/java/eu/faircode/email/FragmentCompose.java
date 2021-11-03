@@ -589,7 +589,7 @@ public class FragmentCompose extends FragmentBase {
                                 media_bar.inflateMenu(styling
                                         ? R.menu.action_compose_style_alt
                                         : R.menu.action_compose_media);
-                                getActivity().invalidateOptionsMenu();
+                                invalidateOptionsMenu();
                             }
                         }
                     }, 20);
@@ -959,7 +959,7 @@ public class FragmentCompose extends FragmentBase {
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         Helper.setViewsEnabled(view, false);
 
         final DB db = DB.getInstance(getContext());
@@ -1762,7 +1762,7 @@ public class FragmentCompose extends FragmentBase {
                 encrypt = EntityMessage.ENCRYPT_NONE;
         }
 
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
 
         Bundle args = new Bundle();
         args.putLong("id", working);
@@ -1846,7 +1846,7 @@ public class FragmentCompose extends FragmentBase {
         media_bar.inflateMenu(R.menu.action_compose_media);
         media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
         style_bar.setVisibility(View.GONE);
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
     }
 
     private void onMenuCompact() {
@@ -5072,7 +5072,7 @@ public class FragmentCompose extends FragmentBase {
 
             working = data.draft.id;
             encrypt = data.draft.ui_encrypt;
-            getActivity().invalidateOptionsMenu();
+            invalidateOptionsMenu();
 
             subject = data.draft.subject;
             saved = args.getBoolean("saved");
@@ -5228,7 +5228,7 @@ public class FragmentCompose extends FragmentBase {
                         finish();
                     else {
                         encrypt = draft.ui_encrypt;
-                        getActivity().invalidateOptionsMenu();
+                        invalidateOptionsMenu();
 
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE) {
@@ -6178,7 +6178,7 @@ public class FragmentCompose extends FragmentBase {
     private void setBusy(boolean busy) {
         state = (busy ? State.LOADING : State.LOADED);
         Helper.setViewsEnabled(view, !busy);
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
     }
 
     private static void addSignature(Context context, Document document, EntityMessage draft, EntityIdentity identity) {
@@ -6238,7 +6238,7 @@ public class FragmentCompose extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
             }
 
             @Override

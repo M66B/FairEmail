@@ -332,7 +332,7 @@ public class FragmentPop extends FragmentBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
                 grpError.setVisibility(View.GONE);
@@ -341,7 +341,7 @@ public class FragmentPop extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 saving = false;
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
                 pbSave.setVisibility(View.GONE);
             }

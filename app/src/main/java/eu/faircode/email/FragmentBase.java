@@ -105,6 +105,12 @@ public class FragmentBase extends Fragment {
         updateSubtitle();
     }
 
+    void invalidateOptionsMenu() {
+        FragmentActivity activity = getActivity();
+        if (activity != null)
+            activity.invalidateOptionsMenu();
+    }
+
     void scrollTo(int resid, int offset) {
         scrollToResid = resid;
         scrollToOffset = offset;

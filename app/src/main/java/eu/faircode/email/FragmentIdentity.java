@@ -682,7 +682,7 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 saving = true;
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
                 grpError.setVisibility(View.GONE);
@@ -694,7 +694,7 @@ public class FragmentIdentity extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 saving = false;
-                getActivity().invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);

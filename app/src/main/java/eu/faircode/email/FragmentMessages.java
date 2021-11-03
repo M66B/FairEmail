@@ -4003,7 +4003,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (FragmentMessages.this.primary != primary || FragmentMessages.this.connected != connected) {
                     FragmentMessages.this.primary = primary;
                     FragmentMessages.this.connected = connected;
-                    getActivity().invalidateOptionsMenu();
+                    invalidateOptionsMenu();
                 }
             }
         });
@@ -4752,14 +4752,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         prefs.edit().putBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", ascending).apply();
         adapter.setAscending(ascending);
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         loadMessages(true);
     }
 
     private void onMenuFilter(String name, boolean filter) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean(name, filter).apply();
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         if (selectionTracker != null)
             selectionTracker.clearSelection();
         loadMessages(true);
@@ -4861,7 +4861,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMenuFilterDuplicates(boolean filter) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("filter_duplicates", filter).apply();
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
         adapter.setFilterDuplicates(filter);
     }
 
@@ -4886,7 +4886,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
         clearMeasurements();
-        getActivity().invalidateOptionsMenu();
+        invalidateOptionsMenu();
     }
 
     private void onMenuTheme() {
