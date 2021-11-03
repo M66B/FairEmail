@@ -5790,6 +5790,21 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.bcc != null)
                                 recipients.addAll(Arrays.asList(draft.bcc));
 
+                            boolean noreply = false;
+                            for (Address recipient : recipients) {
+                                String email = ((InternetAddress) recipient).getAddress();
+                                String username = UriHelper.getEmailUser(email);
+                                if (!TextUtils.isEmpty(username)) {
+                                    username = username.toLowerCase(Locale.ROOT);
+                                    if (username.contains("noreply") ||
+                                            username.contains("no-reply")) {
+                                        noreply = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            args.putBoolean("remind_noreply", noreply);
+
                             if (identity != null && !TextUtils.isEmpty(identity.internal)) {
                                 boolean external = false;
                                 String[] internals = identity.internal.split(",");
@@ -6082,6 +6097,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_smime = args.getBoolean("remind_smime", false);
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
+                boolean remind_noreply = args.getBoolean("remind_noreply", false);
                 boolean remind_external = args.getBoolean("remind_external", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
@@ -6093,7 +6109,8 @@ public class FragmentCompose extends FragmentBase {
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
                         sent_missing || address_error != null || mx_error != null ||
-                        remind_dsn || remind_size || remind_pgp || remind_smime || remind_to || remind_external ||
+                        remind_dsn || remind_size || remind_pgp || remind_smime ||
+                        remind_to || remind_noreply || remind_external ||
                         recipients > RECIPIENTS_WARNING ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
@@ -6855,6 +6872,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_smime = args.getBoolean("remind_smime", false);
             final boolean remind_to = args.getBoolean("remind_to", false);
             final boolean remind_extra = args.getBoolean("remind_extra", false);
+            final boolean remind_noreply = args.getBoolean("remind_noreply", false);
             final boolean remind_external = args.getBoolean("remind_external", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
@@ -6885,6 +6903,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSmime = dview.findViewById(R.id.tvRemindSmime);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
+            final TextView tvRemindNoReply = dview.findViewById(R.id.tvRemindNoReply);
             final TextView tvRemindExternal = dview.findViewById(R.id.tvRemindExternal);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
@@ -6935,6 +6954,7 @@ public class FragmentCompose extends FragmentBase {
 
             tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
+            tvRemindNoReply.setVisibility(remind_noreply ? View.VISIBLE : View.GONE);
             tvRemindExternal.setVisibility(remind_external ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
