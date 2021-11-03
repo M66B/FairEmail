@@ -589,6 +589,7 @@ public class FragmentCompose extends FragmentBase {
                                 media_bar.inflateMenu(styling
                                         ? R.menu.action_compose_style_alt
                                         : R.menu.action_compose_media);
+                                getActivity().invalidateOptionsMenu();
                             }
                         }
                     }, 20);
@@ -881,10 +882,10 @@ public class FragmentCompose extends FragmentBase {
                     onActionRecordAudio();
                     return true;
                 } else if (action == R.id.menu_take_photo) {
-                    onActionImage(true);
+                    onActionImage(true, false);
                     return true;
                 } else if (action == R.id.menu_image) {
-                    onActionImage(false);
+                    onActionImage(false, false);
                     return true;
                 } else if (action == R.id.menu_attachment) {
                     onActionAttachment();
@@ -1648,6 +1649,16 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
+        View image = media_bar.findViewById(R.id.menu_image);
+        if (image != null)
+            image.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    onActionImage(false, true);
+                    return true;
+                }
+            });
+
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(encrypt))
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_sign);
@@ -1835,6 +1846,7 @@ public class FragmentCompose extends FragmentBase {
         media_bar.inflateMenu(R.menu.action_compose_media);
         media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
         style_bar.setVisibility(View.GONE);
+        getActivity().invalidateOptionsMenu();
     }
 
     private void onMenuCompact() {
@@ -2315,10 +2327,10 @@ public class FragmentCompose extends FragmentBase {
             }
     }
 
-    private void onActionImage(boolean photo) {
+    private void onActionImage(boolean photo, boolean force) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
-        if (image_dialog) {
+        if (image_dialog || force) {
             Helper.hideKeyboard(view);
 
             Bundle args = new Bundle();
