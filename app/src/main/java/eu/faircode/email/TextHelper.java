@@ -44,9 +44,10 @@ import java.util.Locale;
 import java.util.Set;
 
 public class TextHelper {
-    private static final int MAX_SAMPLE_SIZE = 8192;
-    private static final float MIN_PROBABILITY = 0.80f;
+    private static final int MAX_DETECT_SAMPLE_SIZE = 8192;
+    private static final float MIN_DETECT_PROBABILITY = 0.80f;
     private static final String TRANSLITERATOR = "Any-Latin; Latin-ASCII";
+    private static final int MAX_CONVERSATION_SAMPLE_SIZE = 8192;
 
     static {
         System.loadLibrary("fairemail");
@@ -63,11 +64,11 @@ public class TextHelper {
 
         byte[] octets = text.getBytes();
         byte[] sample;
-        if (octets.length < MAX_SAMPLE_SIZE)
+        if (octets.length < MAX_DETECT_SAMPLE_SIZE)
             sample = octets;
         else {
-            sample = new byte[MAX_SAMPLE_SIZE];
-            System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
+            sample = new byte[MAX_DETECT_SAMPLE_SIZE];
+            System.arraycopy(octets, 0, sample, 0, MAX_DETECT_SAMPLE_SIZE);
         }
 
         long start = new Date().getTime();
@@ -76,7 +77,7 @@ public class TextHelper {
         long elapse = new Date().getTime() - start;
         Log.i("cld3 language=" + result + " elapse=" + elapse);
 
-        if (result.probability < MIN_PROBABILITY)
+        if (result.probability < MIN_DETECT_PROBABILITY)
             return null;
 
         try {
@@ -139,10 +140,14 @@ public class TextHelper {
                 .atZone(ZoneId.systemDefault());
         List<ConversationActions.Message> input = new ArrayList<>();
         for (String text : texts)
-            input.add(new ConversationActions.Message.Builder(author)
-                    .setReferenceTime(dt)
-                    .setText(text)
-                    .build());
+            if (!TextUtils.isEmpty(text)) {
+                if (text.length() > MAX_CONVERSATION_SAMPLE_SIZE)
+                    text = text.substring(0, MAX_CONVERSATION_SAMPLE_SIZE);
+                input.add(new ConversationActions.Message.Builder(author)
+                        .setReferenceTime(dt)
+                        .setText(text)
+                        .build());
+            }
 
         Set<String> excluded = new HashSet<>(Arrays.asList(
                 ConversationAction.TYPE_OPEN_URL,
