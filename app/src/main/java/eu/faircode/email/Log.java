@@ -412,6 +412,8 @@ public class Log {
             config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
             config.addMetadata("extra", "memory_class", am.getMemoryClass());
             config.addMetadata("extra", "memory_class_large", am.getLargeMemoryClass());
+            config.addMetadata("extra", "build_host", Build.HOST);
+            config.addMetadata("extra", "build_time", new Date(Build.TIME));
 
             config.addOnSession(new OnSessionCallback() {
                 @Override
@@ -1710,6 +1712,7 @@ public class Log {
         sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
         sb.append(String.format("Device: %s\r\n", Build.DEVICE));
         sb.append(String.format("Host: %s\r\n", Build.HOST));
+        sb.append(String.format("Time: %s\r\n", new Date(Build.TIME).toString()));
         sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
         sb.append(String.format("Id: %s\r\n", Build.ID));
         sb.append("\r\n");
