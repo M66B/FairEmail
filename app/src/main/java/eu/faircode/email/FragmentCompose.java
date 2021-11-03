@@ -1460,20 +1460,6 @@ public class FragmentCompose extends FragmentBase {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Bundle args = new Bundle();
-                args.putBoolean("force_dialog", true);
-                onAction(R.id.action_check, args, "force");
-                return true;
-            }
-        });
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
 
@@ -1670,6 +1656,16 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_encrypt);
         else
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_send);
+
+        bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("force_dialog", true);
+                onAction(R.id.action_check, args, "force");
+                return true;
+            }
+        });
     }
 
     @Override
