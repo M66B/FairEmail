@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1771 - 2021-11-03
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1770 - 2021-11-01
 
 * Added option to lock app (biometric/PIN) on leaving app
