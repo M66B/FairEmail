@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fadeScrollbars="false"
+    android:padding="24dp"
+    android:scrollbarStyle="outsideOverlay">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/twotone_palette_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_setup_theme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/rgTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption">
+
+            <RadioButton
+                android:id="@+id/rbThemeBlueOrange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_blue_orange"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeRedGreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_red_green"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeYellowPurple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_yellow_purple"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeGrey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_grey"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeSolarized"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_solarized"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeBlackAndWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_black_and_white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeYou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_you"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </RadioGroup>
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableEnd="@drawable/twotone_settings_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_setup_theme_you_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgTheme" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou200_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/system_accent1_200"
+            android:gravity="center"
+            android:text="1/200"
+            android:textColor="@android:color/system_neutral1_800"
+            app:layout_constraintEnd_toStartOf="@+id/tvYou200_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvYou" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou200_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/system_accent2_200"
+            android:gravity="center"
+            android:text="2/200"
+            android:textColor="@android:color/system_neutral1_800"
+            app:layout_constraintEnd_toStartOf="@+id/tvYou200_3"
+            app:layout_constraintStart_toEndOf="@+id/tvYou200_1"
+            app:layout_constraintTop_toBottomOf="@id/tvYou" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou200_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/system_accent3_200"
+            android:gravity="center"
+            android:text="3/200"
+            android:textColor="@android:color/system_neutral2_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvYou200_2"
+            app:layout_constraintTop_toBottomOf="@id/tvYou" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou500_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/system_accent1_500"
+            android:gravity="center"
+            android:text="1/500"
+            android:textColor="@android:color/system_neutral1_100"
+            app:layout_constraintEnd_toStartOf="@+id/tvYou500_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvYou200_1" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou500_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/system_accent2_500"
+            android:gravity="center"
+            android:text="2/500"
+            android:textColor="@android:color/system_neutral1_100"
+            app:layout_constraintEnd_toStartOf="@+id/tvYou500_3"
+            app:layout_constraintStart_toEndOf="@+id/tvYou500_1"
+            app:layout_constraintTop_toBottomOf="@id/tvYou200_1" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou500_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/system_accent3_500"
+            android:gravity="center"
+            android:text="3/500"
+            android:textColor="@android:color/system_neutral2_100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvYou500_2"
+            app:layout_constraintTop_toBottomOf="@id/tvYou200_1" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou800_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/system_accent1_800"
+            android:gravity="center"
+            android:text="1/800"
+            android:textColor="@android:color/system_neutral1_200"
+            app:layout_constraintEnd_toStartOf="@+id/tvYou800_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvYou500_1" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou800_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/system_accent2_800"
+            android:gravity="center"
+            android:text="2/800"
+            android:textColor="@android:color/system_neutral1_200"
+            app:layout_constraintEnd_toStartOf="@+id/tvYou800_3"
+            app:layout_constraintStart_toEndOf="@+id/tvYou800_1"
+            app:layout_constraintTop_toBottomOf="@id/tvYou500_1" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvYou800_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/system_accent3_800"
+            android:gravity="center"
+            android:text="3/800"
+            android:textColor="@android:color/system_neutral2_200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvYou800_2"
+            app:layout_constraintTop_toBottomOf="@id/tvYou500_1" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swReverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_theme_reverse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvYou800_1" />
+
+        <RadioGroup
+            android:id="@+id/rgThemeOptions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swReverse">
+
+            <RadioButton
+                android:id="@+id/rbThemeLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_light"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_dark"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeSystem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_system"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </RadioGroup>
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSystem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_theme_system_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgThemeOptions" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_theme_black_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSystem" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swHtmlLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_theme_html_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swBlack" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swComposerLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_theme_composer_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swHtmlLight" />
+
+        <Button
+            android:id="@+id/btnMore"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_more_horiz_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_advanced_more"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swComposerLight" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_theme_more_colors"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnMore" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ScrollViewEx>
