@@ -13,7 +13,7 @@ Jika Anda memiliki pertanyaan, silakan periksa Pertanyaan yang Sering Diajukan (
 * [Permasalahan diketahui](#user-content-known-problems)
 * [Perencanaan fitur](#user-content-planned-features)
 * [Fitur yang selalu diminta](#user-content-frequently-requested-features)
-* [Pertanyaan yang Sering Diajukan Faq](#user-content-frequently-asked-questions)
+* [Pertanyaan yang Sering Diajukan](#user-content-frequently-asked-questions)
 * [Ambil bantuan](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Memberi izin akun</h2>
@@ -80,7 +80,7 @@ Pertanyaan-pertanyaan Terkait:
 * ~~Enkripsi menggunakan YubiKey mengakibaykan putaran yang terus menerus. Hal ini disebabkan karena sebuah [bug di OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Menggulir ke lokasi yang ditautkan secara internal dalam pesan asli tidak berfungsi. Ini tidak dapat diperbaiki karena tampilan pesan asli mengandung tampilan bergulir.
 * Tampilan teks pesan tidak (selalu) terlihat pada jam Samsung karena [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) sepertinya dihindari. Tampilan teks pesan diketahui dapat ditampilkan dengan benar pada perangkat wearable Pebble 2, Fitbit Charge 3, Mi band 3, dan Xiaomi Amazfit BIP. Lihat juga [FAQ ini](#user-content-faq126).
-* [Bug idi Android 6.0](https://issuetracker.google.com/issues/37068143) menyebabkan crash dengan *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Bug ini telah diperbaiki dalam Android 6.0.1.
+* [Bug di Android 6.0](https://issuetracker.google.com/issues/37068143) menyebabkan crash dengan *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Bug ini telah diperbaiki dalam Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). Hal ini merupakan limitasi Android yang tidak dapat diperbaiki atau di buat bekerja.
 * Pendeteksi bahasa [ tidak dapat berfungsi ](https://issuetracker.google.com/issues/173337263) pada perangkat Pixel dengan (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.

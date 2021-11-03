@@ -5,7 +5,7 @@
     <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que estás acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens são reformatadas por defeito para remover elementos inseguros e melhorar a legibilidade, e a abertura de links precisa de ser confirmada para segurança. Ambos podem ser desativados caso pretendam.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque erros no Android causam falhas</string>
-    <string name="app_exit"> Clique novamente em \'voltar\' para sair</string>
+    <string name="app_exit">Vá \'voltar\' novamente para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="channel_service">Receber</string>
@@ -175,13 +175,18 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para aceder a informações de contato (opcional)</string>
     <string name="title_setup_permissions_explanation">As permissões de contato são necessárias para procurar informações de contato e sugerir contatos</string>
+    <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Para enviar e receber e-mail corretamente</string>
+    <string name="title_setup_doze_explanation">As otimizações da bateria devem ser desativadas para assegurar o envio e a recepção de mensagens confiáveis em segundo plano</string>
+    <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, desligar as otimizações de bateria para esta aplicação resultará em menos utilização de bateria</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo do Android altere \"Não otimizado\" para \"Todos os aplicativos\", selecione esta app e selecione \"Não otimizar\"</string>
     <string name="title_setup_doze_battery">Utilização elevada de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
+    <string name="title_setup_doze_device">Isto é provavelmente necessário para este dispositivo</string>
     <string name="title_setup_doze_12">Mensagens push desativadas</string>
     <string name="title_setup_alarm_12">O app não funcionará</string>
+    <string name="title_setup_inexact">Alarmes &amp; lembretes são desativados</string>
     <string name="title_setup_background">Restrições de segundo plano habilitadas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
     <string name="title_setup_advanced_options">Mostrar opções avançadas</string>
@@ -193,8 +198,12 @@
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
     <string name="title_setup_app_password">Talvez seja necessário usar uma senha da app</string>
+    <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
+    <string name="title_setup_export_remark">Como o ficheiro das definições contém todas as configurações e informações das contas, é encriptado com uma palavra-passe.
+Esta palavra-passe é necessária para importar novamente as definições, por isso, não a esqueça!    </string>
+    <string name="title_setup_export_do">O ficheiro de exportação conterá todas as configurações e dados, mas nenhuma mensagem ou imagem referenciada nas assinaturas</string>
     <string name="title_setup_import_do">Contas importadas serão adicionadas sem sobrescrever as já existentes</string>
     <string name="title_setup_password">Palavra-passe</string>
     <string name="title_setup_password_chars">A senha contém caractéres de controle ou espaços em branco</string>
@@ -202,6 +211,11 @@
     <string name="title_setup_password_missing">Palavra-passe ausente</string>
     <string name="title_setup_password_different">As palavras-passe não correspondem</string>
     <string name="title_setup_password_invalid">Palavra-passe inválida</string>
+    <string name="title_setup_import_accounts">Importar contas e identidades</string>
+    <string name="title_setup_import_rules">Importar regras de filtragem</string>
+    <string name="title_setup_import_contacts">Importar contactos locais</string>
+    <string name="title_setup_import_answers">Importar predefiniçãoes de respostas</string>
+    <string name="title_setup_import_settings">Opções de importação</string>
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
     <string name="title_setup_import_invalid">Ficheiro de configurações inválido</string>
@@ -231,12 +245,14 @@
     <string name="title_setup_theme_black_background">Fundo preto</string>
     <string name="title_setup_theme_html_light">Fundo claro para visualização da mensagem original</string>
     <string name="title_setup_theme_composer_light">Fundo claro para editor de mensagens</string>
+    <string name="title_setup_theme_you_hint">As cores do Material You podem ser configuradas no papel de parede Android &amp; configurações de estilo</string>
     <string name="title_setup_theme_system_hint">Isto mudará automaticamente para um tema claro/escuro no modo dia/noite, se suportado pelo Android</string>
     <string name="title_setup_theme_more_colors">Quero mais cores</string>
     <string name="title_setup_advanced">Avançado</string>
     <string name="title_setup_options">Opções</string>
     <string name="title_setup_defaults">Repor predefinições</string>
     <string name="title_setup_reset_questions">Repor perguntas</string>
+    <string name="title_setup_reset_general">Perguntas gerais</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.
         Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.

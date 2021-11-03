@@ -246,6 +246,7 @@
     <string name="title_setup_theme_black_background">Musta tausta</string>
     <string name="title_setup_theme_html_light">Vaalea tausta alkuperäisen viestin näkymään</string>
     <string name="title_setup_theme_composer_light">Vaalea tausta viestiä muokatessa</string>
+    <string name="title_setup_theme_you_hint">Material You -värit voidaan konfiguroida Androidin taustakuva &amp; tyyli -asetuksissa</string>
     <string name="title_setup_theme_system_hint">Järjestelmän teeman noudattaminen vaihtaa automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee tätä</string>
     <string name="title_setup_theme_more_colors">Haluan lisää värejä</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
@@ -259,6 +260,8 @@
     <string name="title_advanced_hint_title">Edistyneemmät asetukset</string>
     <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
         Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
+    </string>
+    <string name="title_advanced_hint_remark">        Asetukset on luokiteltu välilehdille, jaettu osiin, järjestetty ulkoasun tai käytön mukaan, ja ne ovat haettavissa.
     </string>
     <string name="title_advanced_hint_setup">Voit määrittää tilin napauttamalla asetusvelho-nappia pääasiallisissa asetuksissa.</string>
     <string name="title_advanced_section_main">Pääasiallinen</string>
@@ -500,8 +503,10 @@
     <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
     <string name="title_advanced_check_links_dbl">Tarkista linkkien verkkotunnukset epäilyttävien linkkien varalta käyttämällä estolistaa</string>
     <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>
+    <string name="title_advanced_confirm_images">Älä näytä kuvia oletuksena</string>
     <string name="title_advanced_ask_images">Vahvista kuvien näyttäminen</string>
     <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
+    <string name="title_advanced_ask_html">Vahvista alkuperäisten viestien näyttäminen</string>
     <string name="title_advanced_tracking">Yritä tunnistaa ja poistaa käytöstä seurantakuvat</string>
     <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>
     <string name="title_advanced_client_id">Lähetä sovelluksen nimi ja versio sähköpostipalvelimelle</string>
@@ -511,7 +516,9 @@
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_autolock">Lukitse, kun näyttö sammutetaan</string>
+    <string name="title_advanced_autolock_nav">Lukitse, kun poistutaan sovelluksesta</string>
     <string name="title_advanced_generic_user_agent">Käytä geneeristä selaimen käyttäjäagenttia</string>
+    <string name="title_advanced_load_emoji">Lataa päivitetty Emoji Google Play Palveluista</string>
     <string name="title_advanced_disconnect_auto_update">Päivitä listat viikoittain</string>
     <string name="title_advanced_disconnect_links">Käytä listoja seurantalinkeistä varoittamiseksi</string>
     <string name="title_advanced_disconnect_images">Käytä listoja seurantakuvien tunnistamiseksi</string>
@@ -1070,7 +1077,7 @@
     <string name="title_create_template">Luo viestipohja</string>
     <string name="title_translate">Käännä</string>
     <string name="title_translate_configure">Määritä &#8230;</string>
-    <string name="title_translate_key">Syötä avain</string>
+    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Syötä avain</string>
     <string name="title_translating">Käännetään &#8230;</string>
     <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>

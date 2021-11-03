@@ -526,6 +526,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vrijeme isteka za biometrijsku provjeru</string>
     <string name="title_advanced_autolock">Zaključavanje ekrana isključeno</string>
+    <string name="title_advanced_autolock_nav">Zaključaj pri napuštanju aplikacije</string>
     <string name="title_advanced_generic_user_agent">Koristi user agent generičkog preglednika</string>
     <string name="title_advanced_load_emoji">Učitaj ažurirane emotikone sa Google Play servisa</string>
     <string name="title_advanced_disconnect_auto_update">Automatsko ažuriranje spiskova sedmično</string>
@@ -635,6 +636,7 @@
     <string name="title_advanced_display_harmful_hint">Isključivanje ove opcije može biti štetno po vašu privatnost</string>
     <string name="title_advanced_display_hidden_hint">Ovo može rezultirati u čudnom izgledu i duplim tekstovima</string>
     <string name="title_advanced_display_pin_hint">PIN ima prednost naspram biometrijske provjere</string>
+    <string name="title_advanced_display_autolock_nav_hint">Bit će dodatno vrijeme od %1$d sekunde/i</string>
     <string name="title_advanced_safe_browsing_hint">Google-ov server zna koje adrese se pregledaju</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim launcher-ima</string>
     <string name="title_advanced_notify_action_hint">Bit će prikazane najviše tri radnje</string>
@@ -1084,12 +1086,13 @@
     <string name="title_send_dialog">Prikaži opcije za slanje</string>
     <string name="title_image_dialog">Prikaži opcije za slike</string>
     <string name="title_media_toolbar">Medijska alatna traka</string>
+    <string name="title_manage_local_contacts">Upravljaj lokalnim kontaktima</string>
     <string name="title_insert_contact_group">Ubaci grupu kontakata</string>
     <string name="title_insert_template">Ubaci prijedložak</string>
     <string name="title_create_template">Napravi prijedložak</string>
     <string name="title_translate">Prevedi</string>
     <string name="title_translate_configure">Podesi &#8230;</string>
-    <string name="title_translate_key">Unesite ključ</string>
+    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Unesite ključ</string>
     <string name="title_translating">Prevođenje &#8230;</string>
     <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
     <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>

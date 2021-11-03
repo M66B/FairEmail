@@ -523,6 +523,7 @@
     <string name="title_advanced_confirm_links">Potvrdzovať otváranie odkazov</string>
     <string name="title_advanced_check_links_dbl">Kontrolovať odkazy na podozrivé domény zo zoznamu blokovaných</string>
     <string name="title_advanced_browse_links">Prenechať otváranie odkazov Androidu</string>
+    <string name="title_advanced_confirm_images">Predvolene nezobrazovať obrázky</string>
     <string name="title_advanced_ask_images">Potvrdzovať zobrazenie obrázkov</string>
     <string name="title_advanced_confirm_html">Predvolene zobraziť preformátované správy</string>
     <string name="title_advanced_ask_html">Potvrdzovať pôvodné zobrazenie</string>
@@ -535,7 +536,9 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Časový limit pre biometrické overenie</string>
     <string name="title_advanced_autolock">Uzamknúť pri vypnutí obrazovky</string>
+    <string name="title_advanced_autolock_nav">Uzamknúť po opustení aplikácie</string>
     <string name="title_advanced_generic_user_agent">Použiť všeobecnú hodnotu user agent (ako vebový prehliadač)</string>
+    <string name="title_advanced_load_emoji">Načítať aktualizované Emoji zo služieb Google Play</string>
     <string name="title_advanced_disconnect_auto_update">Automaticky aktualizovať zoznamy raz týždenne</string>
     <string name="title_advanced_disconnect_links">Použiť zoznamy pre varovanie pred sledujúcimi odkazmi</string>
     <string name="title_advanced_disconnect_images">Použiť zoznamy pre rozpoznanie sledovacích obrázkov</string>
@@ -644,6 +647,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_display_harmful_hint">Vypnutie tejto možnosti môže narušiť Vaše súkromie</string>
     <string name="title_advanced_display_hidden_hint">Môže spôsobiť podivný vzhľad a duplikované texty</string>
     <string name="title_advanced_display_pin_hint">PIN má prednosť pred biometrickou autentifikáciou</string>
+    <string name="title_advanced_display_autolock_nav_hint">Použije sa tolerancia %1$d sekúnd</string>
     <string name="title_advanced_safe_browsing_hint">Informácia o vyhľadávaných adresách je uložená na serveroch spoločnosti Google</string>
     <string name="title_advanced_badge_hint">Dostupné len na podporovaných launcheroch</string>
     <string name="title_advanced_notify_action_hint">Budú zobrazené najviac tri činnosti</string>
@@ -981,6 +985,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_search">Hľadanie na servery nie je dostupné pre tento účet</string>
     <string name="title_too_large">Správa je príliš veľká na úplné preformátovanie</string>
     <string name="title_truncated">Správa je príliš veľká na úplné zobrazenie</string>
+    <string name="title_insufficient_memory">Správa je príliš veľká; Dostupná pamäť (%1$d)</string>
     <string name="title_show_full">Zobraziť celú správu</string>
     <string name="title_unused_inline">Nepoužité vnorené obrázky budú odstránené pri odoslaní</string>
     <string name="title_accross_remark">Správy premiestnené medzi účtami budú prevzaté znovu, s využitím ďalšieho prenosu údajov</string>
@@ -1089,12 +1094,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_send_dialog">Zobraziť možnosti odoslania</string>
     <string name="title_image_dialog">Zobraziť možnosti obrázka</string>
     <string name="title_media_toolbar">Lišta médií</string>
+    <string name="title_manage_local_contacts">Spravovať lokálne kontakty</string>
     <string name="title_insert_contact_group">Vložiť skupinu kontaktov</string>
     <string name="title_insert_template">Vložiť šablónu</string>
     <string name="title_create_template">Vytvoriť šablónu</string>
     <string name="title_translate">Preložiť</string>
     <string name="title_translate_configure">Nastaviť &#8230;</string>
-    <string name="title_translate_key">Zadajte kľúč</string>
+    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Zadajte kľúč</string>
     <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_small">Zdrojový text malým písmom</string>
     <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>
