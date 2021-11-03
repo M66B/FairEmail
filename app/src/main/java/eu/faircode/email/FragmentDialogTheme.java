@@ -531,7 +531,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                     return (night ? R.style.AppThemeYouReversedBlack : R.style.AppThemeYouReversedLight);
 
             default:
-                Log.e("Unknown theme=" + theme);
+                if (!theme.startsWith("you_"))
+                    Log.e("Unknown theme=" + theme);
                 return R.style.AppThemeBlueOrangeLight;
         }
     }
