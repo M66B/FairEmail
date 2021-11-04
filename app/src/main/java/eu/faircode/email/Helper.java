@@ -963,6 +963,10 @@ public class Helper {
         return true;
     }
 
+    static boolean isGoogle() {
+        return "Google".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
     static boolean isSamsung() {
         return "Samsung".equalsIgnoreCase(Build.MANUFACTURER);
     }
