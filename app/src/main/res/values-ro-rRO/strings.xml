@@ -1008,7 +1008,7 @@
     </string>
     <string name="title_need_help">Am nevoie de ajutor</string>
     <string name="title_ask_once">Acest mesaj va apărea o singură dată, decât dacă nu selectați \'Mai târziu\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Folosiți o versiune a unei terțe părți</string>
+    <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
     <string name="title_reformatted">        Aceasta este vizualizarea mesajelor reformatate.

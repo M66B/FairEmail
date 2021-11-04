@@ -304,6 +304,7 @@
     <string name="title_show_addresses">CC/BCC ଦେଖାଅ</string>
     <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">ଏକ \'ଉତ୍ତର-ଦିଅନି\' ଠିକଣାକୁ ପଠାଉଛି</string>
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
@@ -365,6 +366,7 @@
     <string name="title_legend_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_legend_primary">ପ୍ରାଥମିକ</string>
     <string name="title_legend_thread">ବାର୍ତ୍ତାଳାପ</string>
+    <string name="title_legend_cc">CC/BCC ଦେଖାଅ</string>
     <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>

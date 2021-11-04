@@ -1017,7 +1017,7 @@
     </string>
     <string name="title_need_help">Мені потрібна допомога</string>
     <string name="title_ask_once">Це повідомлення з\'явиться лише один раз, якщо ви не виберете \"Пізніше\"</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Ви використовуєте версію програми від сторонніх розробників</string>
+    <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення може завантажити %1$s</string>
     <string name="title_download_message">Завантаження &#8230;</string>
     <string name="title_reformatted">        Це вид переформатованого повідомлення.

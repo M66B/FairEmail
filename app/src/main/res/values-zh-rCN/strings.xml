@@ -987,7 +987,7 @@
     </string>
     <string name="title_need_help">寻求帮助</string>
     <string name="title_ask_once">此消息将只会显示一次，除非您选择\"稍后再说\"</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">您使用的是第三方版本</string>
+    <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_reformatted">        这是重构格式后的消息视图
@@ -1096,6 +1096,7 @@
     <string name="title_smime_reminder">S/MIME 密钥可用</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_extra_missing">缺少用户名</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">正在向“无回复”地址发送邮件</string>
     <string name="title_external_reminder">发送到外部地址</string>
     <string name="title_subject_reminder">主题为空</string>
     <string name="title_text_reminder">消息为空</string>

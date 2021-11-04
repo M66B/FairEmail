@@ -996,7 +996,7 @@
     </string>
     <string name="title_need_help">Χρειάζομαι βοήθεια</string>
     <string name="title_ask_once">Το μήνυμα αυτό θα εμφανιστεί μόνο μια φορά, εκτός αν επιλέξετε \"Αργότερα\"</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
+    <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
     <string name="title_reformatted">        Αυτή είναι η προβολή επαναμορφοποιημένου μηνύματος.
@@ -1105,6 +1105,7 @@
     <string name="title_smime_reminder">Κλειδιά S/MIME διαθέσιμα</string>
     <string name="title_to_missing">Λείπει παραλήπτης</string>
     <string name="title_extra_missing">Λείπει όνομα χρήστη</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Αποστολή σε μία \"Μην απαντάτε σε αυτό το μήνυμα\" διεύθυνση</string>
     <string name="title_external_reminder">Αποστολή προς μία εξωτερική διεύθυνση</string>
     <string name="title_subject_reminder">Το θέμα είναι κενό</string>
     <string name="title_text_reminder">Το μήνυμα είναι κενό</string>

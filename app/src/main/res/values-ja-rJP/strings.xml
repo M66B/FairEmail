@@ -986,7 +986,7 @@
     </string>
     <string name="title_need_help">支援が必要です</string>
     <string name="title_ask_once">「後ほど」を選択しない限り、このメッセージは一度しか表示されません。</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">サードパーティバージョンを使用しています</string>
+    <string name="title_third_party">サードパーティバージョンを使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
     <string name="title_reformatted">        これは、再フォーマットされたメッセージ表示です。
@@ -1071,7 +1071,7 @@
     <string name="title_create_template">テンプレートを作成</string>
     <string name="title_translate">翻訳する</string>
     <string name="title_translate_configure">設定 &#8230;</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">キーを入力</string>
+    <string name="title_translate_key">キーを入力</string>
     <string name="title_translating">翻訳中 &#8230;</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
     <string name="title_translate_usage">使用方法: %1$s / %2$s (%3$d %%)</string>

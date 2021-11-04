@@ -990,7 +990,7 @@
     </string>
     <string name="title_need_help">Mənə kömək lazımdır</string>
     <string name="title_ask_once">\"Daha sonra\"nı seçmədiyiniz müddətcə bu mesaj yalnız bir dəfə görünəcək</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Üçüncü tərəf bir versiya istifadə edirsiniz</string>
+    <string name="title_third_party">Üçüncü tərəf bir versiya istifadə edirsiniz</string>
     <string name="title_expand_warning">Bu mesajı genişləndirsəniz, %1$s endiriləcək</string>
     <string name="title_download_message">Endirilir &#8230;</string>
     <string name="title_reformatted">        Bu, yenidən format edilmiş mesaj görünüşüdür.

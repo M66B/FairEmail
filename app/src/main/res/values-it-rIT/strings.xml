@@ -998,7 +998,7 @@
     </string>
     <string name="title_need_help">Ho bisogno d\'aiuto</string>
     <string name="title_ask_once">Questo messaggio comparirà solo una volta, a meno che tu non selezioni \'Più tardi\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Stai usando una versione di terze parti</string>
+    <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandere questo messaggio scaricherà %1$s</string>
     <string name="title_download_message">Scaricando&#8230;</string>
     <string name="title_reformatted">        Questa è la visualizzazione del messaggio riformattato.
@@ -1083,7 +1083,7 @@
     <string name="title_create_template">Crea modello</string>
     <string name="title_translate">Traduci</string>
     <string name="title_translate_configure">Configura &#8230;</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Inserisci tasto</string>
+    <string name="title_translate_key">Inserisci tasto</string>
     <string name="title_translating">Traducendo&#8230;</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
@@ -1107,6 +1107,7 @@
     <string name="title_smime_reminder">Chiavi S/MIME disponibili</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_extra_missing">Nome utente mancante</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Inviando un indirizzo \'no-reply\'</string>
     <string name="title_external_reminder">Inviando a un indirizzo esterno</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Messaggio vuoto</string>

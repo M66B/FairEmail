@@ -1018,7 +1018,7 @@
     </string>
     <string name="title_need_help">Potřebuji pomoc</string>
     <string name="title_ask_once">Tato zpráva se zobrazí pouze jednou, nezvolíte-li „Později“</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Používáte verzi třetí strany</string>
+    <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_reformatted">        Toto je přeformátované zobrazení zprávy.
@@ -1103,7 +1103,7 @@
     <string name="title_create_template">Vytvořit šablonu</string>
     <string name="title_translate">Přeložit</string>
     <string name="title_translate_configure">Nastavit &#8230;</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Zadejte klíč</string>
+    <string name="title_translate_key">Zadejte klíč</string>
     <string name="title_translating">Překládání &#8230;</string>
     <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
     <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>

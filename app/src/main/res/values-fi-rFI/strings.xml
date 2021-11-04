@@ -996,7 +996,7 @@
     </string>
     <string name="title_need_help">Tarvitsen apua</string>
     <string name="title_ask_once">Tämä viesti näytetään vain kerran, jos et valitse \'Myöhemmin\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Käytät kolmannen osapuolen versiota</string>
+    <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_reformatted">Tämä on uudelleenmuotoillun viestin näkymä.
@@ -1081,7 +1081,7 @@
     <string name="title_create_template">Luo viestipohja</string>
     <string name="title_translate">Käännä</string>
     <string name="title_translate_configure">Määritä &#8230;</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Syötä avain</string>
+    <string name="title_translate_key">Syötä avain</string>
     <string name="title_translating">Käännetään &#8230;</string>
     <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>

@@ -1007,7 +1007,7 @@
     </string>
     <string name="title_need_help">Trebam pomoć</string>
     <string name="title_ask_once">Ova poruka će se pojaviti jedanput, osim ako izaberete \'Kasnije\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Koristiti verziju trežih strana</string>
+    <string name="title_third_party">Koristiti verziju trežih strana</string>
     <string name="title_expand_warning">Širenjem ove poruke će se preuzeti %1$s</string>
     <string name="title_download_message">Preuzimanje &#8230;</string>
     <string name="title_reformatted">        Ovo je prikaz preformatirane poruke.
@@ -1092,7 +1092,7 @@
     <string name="title_create_template">Napravi prijedložak</string>
     <string name="title_translate">Prevedi</string>
     <string name="title_translate_configure">Podesi &#8230;</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Unesite ključ</string>
+    <string name="title_translate_key">Unesite ključ</string>
     <string name="title_translating">Prevođenje &#8230;</string>
     <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
     <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>
@@ -1116,6 +1116,7 @@
     <string name="title_smime_reminder">Dostupni S/MIME ključevi</string>
     <string name="title_to_missing">Nedostaje primalac</string>
     <string name="title_extra_missing">Nedostaje korisničko ime</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Slanje na adresu \'ne-odgovarati\'</string>
     <string name="title_external_reminder">Slanje na vanjsku adresu</string>
     <string name="title_subject_reminder">Predmet je prazan</string>
     <string name="title_text_reminder">Poruka je prazna</string>

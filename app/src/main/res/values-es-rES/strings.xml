@@ -998,7 +998,7 @@
     </string>
     <string name="title_need_help">Necesito ayuda</string>
     <string name="title_ask_once">Este mensaje sólo aparecerá una vez, a menos que seleccione \'Más tarde\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Está usando una versión de un tercero</string>
+    <string name="title_third_party">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_reformatted">        Esta es la vista de mensaje reformateada.

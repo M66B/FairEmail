@@ -994,7 +994,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string>
     <string name="title_need_help">Yardıma ihtiyacım var</string>
     <string name="title_ask_once">Daha sonra\'yı seçmezseniz bu mesaj sadece bir kere görünecek</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Üçüncü parti bir sürüm kullanıyorsunuz</string>
+    <string name="title_third_party">Üçüncü parti bir sürüm kullanıyorsunuz</string>
     <string name="title_expand_warning">Bu mesajı genişletmek %1$s indirecektir</string>
     <string name="title_download_message">İndiriliyor &#8230;</string>
     <string name="title_reformatted">        Bu, yeniden biçimlendirilmiş ileti görünümüdür.

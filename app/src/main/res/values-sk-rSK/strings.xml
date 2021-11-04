@@ -1015,7 +1015,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     </string>
     <string name="title_need_help">Potrebujem pomoc</string>
     <string name="title_ask_once">Táto správa sa zobrazí len raz, jedine, že zvolíte \'Neskôr\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Používate verziu tretej strany</string>
+    <string name="title_third_party">Používate verziu tretej strany</string>
     <string name="title_expand_warning">Rozbalením tejto správy prevezmete %1$s</string>
     <string name="title_download_message">Preberanie &#8230;</string>
     <string name="title_reformatted">        Toto je preformátované zobrazenie správ.
@@ -1100,7 +1100,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_create_template">Vytvoriť šablónu</string>
     <string name="title_translate">Preložiť</string>
     <string name="title_translate_configure">Nastaviť &#8230;</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Zadajte kľúč</string>
+    <string name="title_translate_key">Zadajte kľúč</string>
     <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_small">Zdrojový text malým písmom</string>
     <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>

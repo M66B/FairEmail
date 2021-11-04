@@ -1095,6 +1095,7 @@
     <string name="title_legend_trash">אשפה</string>
     <string name="title_legend_junk">ספאם</string>
     <string name="title_legend_primary">עיקרי</string>
+    <string name="title_legend_notify">להודיע כשמתקבלות הודעות חדשות</string>
     <string name="title_legend_thread">דיון</string>
     <string name="title_legend_draft">יש טיוטה</string>
     <string name="title_legend_priority">יש עדיפות גבוהה</string>

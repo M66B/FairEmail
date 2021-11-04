@@ -998,7 +998,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     </string>
     <string name="title_need_help">Ik heb hulp nodig</string>
     <string name="title_ask_once">Dit bericht zal slechts één keer verschijnen, tenzij je \'Later\' selecteert</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">U gebruikt een versie van een derde partij</string>
+    <string name="title_third_party">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.
@@ -1107,6 +1107,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_smime_reminder">S/MIME-sleutels beschikbaar</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_extra_missing">Gebruikersnaam ontbreekt</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Verzenden naar een \'no-reply\' adres</string>
     <string name="title_external_reminder">Verzending naar een extern adres</string>
     <string name="title_subject_reminder">Onderwerp is leeg</string>
     <string name="title_text_reminder">Bericht is leeg</string>

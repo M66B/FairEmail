@@ -990,7 +990,7 @@
     </string>
     <string name="title_need_help">Jag behöver hjälp</string>
     <string name="title_ask_once">Detta meddelande kommer bara att visas en gång, om du inte väljer \'Senare\'</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Du använder en version av en tredje part</string>
+    <string name="title_third_party">Du använder en version av en tredje part</string>
     <string name="title_expand_warning">Utvidgningen av detta meddelande kommer att ladda ned %1$s</string>
     <string name="title_download_message">Hämtar &#8230;</string>
     <string name="title_reformatted">        Detta är den omformaterade meddelandevyn.

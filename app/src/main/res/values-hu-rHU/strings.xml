@@ -860,7 +860,7 @@
     </string>
     <string name="title_need_help">Segítségre van szükségem</string>
     <string name="title_ask_once">Ez az üzenez csak egyszer fog megjelenni, kivéve ha a \'Later\'-t választod</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Egy harmadik fél verzióját használod</string>
+    <string name="title_third_party">Egy harmadik fél verzióját használod</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
     <string name="title_compose">Levélírás</string>
@@ -935,7 +935,7 @@
     <string name="title_insert_template">Sablon beillesztése</string>
     <string name="title_create_template">Sablon létrehozása</string>
     <string name="title_translate">Fordítás</string>
-    <string name="title_translate_key" comment="title_translate_key&#10;Key as in password (access key), not a (virtual) key">Enter billentyű</string>
+    <string name="title_translate_key">Enter billentyű</string>
     <string name="title_translating">Fordítás &#8230;</string>
     <string name="title_edit_plain_text">Szerkesztés egyszerű szövegként</string>
     <string name="title_edit_formatted_text">Szerkesztés újraformázott szövegként</string>

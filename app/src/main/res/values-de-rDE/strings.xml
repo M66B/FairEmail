@@ -997,7 +997,7 @@
     </string>
     <string name="title_need_help">Ich benötige Hilfe</string>
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen „Später”</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">Sie verwenden eine Version eines Drittanbieters</string>
+    <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
     <string name="title_reformatted">        Dies ist die neu formatierte Nachrichtenansicht.
@@ -1106,6 +1106,7 @@
     <string name="title_smime_reminder">S/MIME-Schlüssel verfügbar</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_extra_missing">Benutzername fehlt</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Wird an eine „Nicht antworten”-E-Mail-Adresse gesendet</string>
     <string name="title_external_reminder">Senden an eine externe Adresse</string>
     <string name="title_subject_reminder">Betreff ist leer</string>
     <string name="title_text_reminder">Nachricht ist leer</string>

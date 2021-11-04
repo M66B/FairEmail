@@ -602,7 +602,7 @@
     <string name="title_ask_help">به بهبود FairEmail کمک کنید</string>
     <string name="title_ask_reporting">ارسال گزارش‌های خطا؟</string>
     <string name="title_ask_review">لطفا به FairEmail امتیاز بدهید</string>
-    <string name="title_third_party" comment="title_third_party&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147">شما در حال استفاده از نسخه شخص ثالث هستید</string>
+    <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
     <string name="title_expand_warning">گسترش این پیام باعث بارگیری %1$s خواهد شد</string>
     <string name="title_download_message">درحال بارگیری &#8230;</string>
     <string name="title_compose">ایجاد پیام</string>
