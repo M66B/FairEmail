@@ -103,6 +103,7 @@ class Shortcuts {
 
                         EntityLog.log(context, "Shortcut email=" + email);
                         ShortcutInfoCompat.Builder builder = getShortcut(context, email, name, avatar);
+                        builder.setLongLived(true);
                         builder.setRank(shortcuts.size() + 1);
                         shortcuts.add(builder.build());
                     }
@@ -264,6 +265,7 @@ class Shortcuts {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             Person.Builder person = new Person.Builder()
                     .setIcon(icon)
+                    .setKey(email)
                     .setName(name == null ? email : name)
                     .setImportant(true);
             if (avatar != null)
