@@ -3175,6 +3175,23 @@ public class MessageHelper {
         return addresses;
     }
 
+    static InternetAddress[] dedup(InternetAddress[] addresses) {
+        if (addresses == null)
+            return null;
+
+        List<String> emails = new ArrayList<>();
+        List<Address> result = new ArrayList<>();
+        for (InternetAddress address : addresses) {
+            String email = address.getAddress();
+            if (!emails.contains(email)) {
+                emails.add(email);
+                result.add(address);
+            }
+        }
+
+        return result.toArray(new InternetAddress[0]);
+    }
+
     static boolean isRemoved(Throwable ex) {
         while (ex != null) {
             if (ex instanceof MessageRemovedException ||

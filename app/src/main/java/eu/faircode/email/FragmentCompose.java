@@ -5506,9 +5506,9 @@ public class FragmentCompose extends FragmentBase {
 
                     // Get data
                     InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())});
-                    InternetAddress[] ato = MessageHelper.parseAddresses(context, to);
-                    InternetAddress[] acc = MessageHelper.parseAddresses(context, cc);
-                    InternetAddress[] abcc = MessageHelper.parseAddresses(context, bcc);
+                    InternetAddress[] ato = MessageHelper.dedup(MessageHelper.parseAddresses(context, to));
+                    InternetAddress[] acc = MessageHelper.dedup(MessageHelper.parseAddresses(context, cc));
+                    InternetAddress[] abcc = MessageHelper.dedup(MessageHelper.parseAddresses(context, bcc));
 
                     // Safe guard
                     if (action == R.id.action_send) {
