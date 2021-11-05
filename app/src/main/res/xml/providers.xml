@@ -1418,4 +1418,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="NETIM"
+        link="https://support.netim.com/en/wiki/Setup_your_messaging_software">
+        <imap
+            host="mail1.netim.hosting"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail1.netim.hosting"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
