@@ -5309,14 +5309,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
+        boolean outbox = EntityFolder.OUTBOX.equals(type);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean filter_seen = prefs.getBoolean(getFilter("seen", type), false);
         boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
         boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
-        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
-                (language_detection && !TextUtils.isEmpty(filter_language)));
+        boolean filter_active = ((filter_seen && !outbox) ||
+                (filter_unflagged && !outbox) ||
+                (filter_unknown && !EntityFolder.isOutgoing(type)) ||
+                (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
         boolean none = (items == 0 && !loading && tasks == 0 && initialized);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
