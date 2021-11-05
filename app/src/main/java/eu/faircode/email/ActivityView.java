@@ -1207,6 +1207,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (first)
             new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
         else if (show_changelog) {
+            // checkFirst: onCreate
+            // checkIntent: onResume
+            Intent intent = getIntent();
+            String action = (intent == null ? null : intent.getAction());
+            if (action != null &&
+                    (action.startsWith("thread") || action.equals("widget")))
+                return;
+
             String last = prefs.getString("changelog", null);
             if (!Objects.equals(version, last) || BuildConfig.DEBUG) {
                 Bundle args = new Bundle();
