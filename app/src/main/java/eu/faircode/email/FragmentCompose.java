@@ -1452,6 +1452,7 @@ public class FragmentCompose extends FragmentBase {
         pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
             @Override
             public void onBound(IOpenPgpService2 service) {
+                Log.i("Bound to " + pkg);
                 load.run();
             }
 
@@ -1462,6 +1463,9 @@ public class FragmentCompose extends FragmentBase {
             }
         });
         pgpService.bindToService();
+
+        // Fall-safe
+        getMainHandler().postDelayed(load, 250);
     }
 
     @Override
