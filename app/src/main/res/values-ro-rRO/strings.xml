@@ -1117,6 +1117,7 @@
     <string name="title_smime_reminder">Chei S/MIME disponibile</string>
     <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_extra_missing">Lipsește numele de utilizator</string>
+    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Trimiterea la o adresă \'no reply\'</string>
     <string name="title_external_reminder">Trimiterea la o adresă externă</string>
     <string name="title_subject_reminder">Subiectul este gol</string>
     <string name="title_text_reminder">Mesajul este gol</string>

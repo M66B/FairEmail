@@ -5,8 +5,11 @@
     <string name="app_welcome">FairEmail kode irekiko email aplikazio bat da, pribatutasuna eta segurtasuna aintzat dituena. Horregatik ezaugarri batzuk ohi ez bezala funtzionatu dezakete.</string>
     <string name="app_crash">FairEmail-ek ez du gailu honentzako euskarririk Android akatsek kraskatzea eragiten dutelako</string>
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
+    <string name="app_updated">Azken eguneratzea: %1$s</string>
     <string name="channel_service">Jaso</string>
     <string name="channel_send">Bidali</string>
+    <string name="channel_notification">E-mail</string>
+    <string name="channel_progress">Aurrerapena</string>
     <string name="channel_update">Eguneraketak</string>
     <string name="channel_warning">Abisuak</string>
     <string name="channel_error">Erroreak</string>
@@ -61,6 +64,9 @@
     <string name="title_block">Blokeatu %1$s</string>
     <string name="title_block_sender">Blokeatu igorlea</string>
     <string name="title_block_domain">Blokeatu bidaltzailearen domeinua</string>
+    <string name="title_block_sender_hint">        Igorle bat blokeatzea doako ezaugarri bat da.
+        Igorleen domeinu bat blokeatzeko iragazki arauak behar dira, eta hori ordainpeko ezaugarri bat da.
+    </string>
     <string name="title_junk_clear">Garbitu</string>
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
@@ -99,6 +105,9 @@
     <string name="title_setup_quick_imap">IMAP zerbitzaria mezuak jasotzeko</string>
     <string name="title_setup_quick_smtp">SMTP zerbitzaria mezuak igortzeko</string>
     <string name="title_setup_wizard">Morroia</string>
+    <string name="title_setup_classic">Konfigurazio klasikoa</string>
+    <string name="title_setup_account_remark">Jaso e-maila</string>
+    <string name="title_setup_identity_remark">Bidali e-maila</string>
     <string name="title_setup_accounts">Kontuak</string>
     <string name="title_setup_identities">Identitateak</string>
     <string name="title_setup_other">Beste hornitzaile bat</string>
@@ -118,17 +127,22 @@
     <string name="title_setup_manage">Kudeatu</string>
     <string name="title_setup_grant">Eman</string>
     <string name="title_setup_grant_again">Eman eskatzen dituen baimenak</string>
+    <string name="title_setup_identity_what">Zer da identitate bat?</string>
+    <string name="title_setup_free">Aplikazio hau doan erabili daiteke?</string>
     <string name="title_setup_permissions">Eman baimenak</string>
     <string name="title_setup_permissions_remark">Kontaktuen informazioa atzitzeko (aukerakoa)</string>
     <string name="title_setup_doze_battery">Bateria-erabilera handia?</string>
     <string name="title_setup_doze_stopped">Sinkronizazioa gelditu da?</string>
     <string name="title_setup_data">Datuen aurreztailea gaituta dago</string>
     <string name="title_setup_advanced_options">Erakutsi aukera aurreratuak</string>
+    <string name="title_setup_inbox">Joan sarrera-ontzira</string>
     <string name="title_setup_go">Goazen</string>
     <string name="title_setup_to_do">Egiteke</string>
     <string name="title_setup_done">Eginda</string>
     <string name="title_setup_still">Oraindik egiteko</string>
     <string name="title_setup_error">Akatsa</string>
+    <string name="title_setup_configuring">Kontua konfiguratzen &#8230;</string>
+    <string name="title_setup_close">Itxi ezarpenak</string>
     <string name="title_setup_export">Esportatu ezarpenak</string>
     <string name="title_setup_import">Inportatu ezarpenak</string>
     <string name="title_setup_import_do">Inportatutako kontuak daudenak gainidatzi gabe gehituko dira</string>
@@ -141,6 +155,8 @@
     <string name="title_setup_exported">Ezarpenak esportatuta</string>
     <string name="title_setup_imported">Ezarpenak inportatuta</string>
     <string name="title_setup_import_invalid">Ezarpen fitxategi baliogabea</string>
+    <string name="title_importing_account">Kontua: %1$s</string>
+    <string name="title_importing_identity">Identitatea: %1$s</string>
     <string name="title_setup_reorder_accounts">Ordenatu kontuak</string>
     <string name="title_setup_reorder_folders">Ordenatu karpetak</string>
     <string name="title_reset_order">Berrezarri ordena</string>
@@ -201,6 +217,7 @@
     <string name="title_advanced_suggest_frequently">Ordenatu iradokitako helbideak erabilera maiztasunaren arabera</string>
     <string name="title_advanced_send_reminders">Erakutsi oroigarriak</string>
     <string name="title_advanced_send_delayed">Atzeratu mezuen bidalketa</string>
+    <string name="title_advanced_compose_font">Letra mota lehenetsia</string>
     <string name="title_advanced_prefix_once">Jarri aurrizkia mintzagaiari behin bakarrik erantzun edo birbidaltzean</string>
     <string name="title_advanced_extended_reply">Erabili erantzun/birbidali goiburu hedatua</string>
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>
@@ -228,6 +245,9 @@
     <string name="title_advanced_caption_message">Mezua</string>
     <string name="title_advanced_caption_message_header">Mezuaren goiburua</string>
     <string name="title_advanced_caption_message_body">Mezuaren gorputza</string>
+    <string name="title_advanced_landscape">Modu horizontala</string>
+    <string name="title_advanced_two_row">Erabili bi lerro</string>
+    <string name="title_advanced_two_col">Erabili bi zutabe</string>
     <string name="title_advanced_startup">Erakutsi hasiera pantailan</string>
     <string name="title_advanced_cards">Erabili txartela estiloa tabulazio estiloaren ordez</string>
     <string name="title_advanced_date_header">Taldekatu dataren arabera</string>
@@ -238,6 +258,8 @@
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_gravatars">Erakutsi gravatarrak</string>
+    <string name="title_advanced_bimi_unverified">Egiaztatu gabeko igorlea</string>
+    <string name="title_advanced_bimi_verified">Egiaztatutako igorlea</string>
     <string name="title_advanced_generated_icons">Erakutsi sortutako ikonoak</string>
     <string name="title_advanced_identicons">Erakutsi identikonoak</string>
     <string name="title_advanced_circular">Erakutsi ikono borobilak</string>
@@ -862,6 +884,7 @@
     <string name="title_answer_favorite">Gogokoa</string>
     <string name="title_answer_hide">Ezkutatu menuetan</string>
     <string name="title_answer_text">Txantiloi-testua</string>
+    <string name="title_answer_placeholder_name">Igorlearen izen osoa</string>
     <string name="title_rule_noop">Ekintzarik ez</string>
     <string name="title_rule_seen">Markatu irakurria</string>
     <string name="title_rule_unseen">Markatu irakurri gabeko gisa</string>

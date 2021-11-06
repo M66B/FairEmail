@@ -238,6 +238,8 @@
     <string name="title_setup_options">Opções</string>
     <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_reset_questions">Redefinir perguntas</string>
+    <string name="title_setup_reset_general">Dúvidas gerais</string>
+    <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_setup_reset_images">Mostrar Imagens</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.
@@ -369,6 +371,7 @@
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_highlight_subject">Destacar assunto</string>
     <string name="title_advanced_font_size_subject">Tamanho do texto do assunto</string>
+    <string name="title_advanced_compact_mode_remark">Apenas modo compacto</string>
     <string name="title_advanced_highlight_color">Cor de destaque</string>
     <string name="title_advanced_keywords">Mostrar palavras-chave no cabeçalho da mensagem</string>
     <string name="title_advanced_labels">Mostrar rótulos do Gmail no cabeçalho da mensagem</string>
@@ -630,6 +633,7 @@
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta vinculada</string>
     <string name="title_account_name">Nome da conta</string>
+    <string name="title_account_category">Categoria</string>
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
     <string name="title_account_interval_hint">Frequência de atualizar a conexão para mensagens push ou frequência de verificação de novas mensagens</string>
     <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
@@ -765,6 +769,7 @@
     <string name="title_show_folders">Mostrar pastas ocultas</string>
     <string name="title_show_flagged">Exibir contagem de mensagens favoritas</string>
     <string name="title_subscribed_only">Somente inscritos</string>
+    <string name="title_edit_account_name">Editar nome da conta</string>
     <string name="title_hide_folder">Ocultar pasta</string>
     <string name="title_unified_folder">Mostrar na caixa de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
@@ -835,6 +840,7 @@
     <string name="title_editasnew">Editar como novo</string>
     <string name="title_edit_notes">Editar notas locais</string>
     <string name="title_create_rule">Criar regra &#8230;</string>
+    <string name="title_force_light">Forçar tema claro</string>
     <string name="title_share">Compartilhar</string>
     <string name="title_event">Adicionar ao calendário</string>
     <string name="title_pin">Adicionar atalho</string>
