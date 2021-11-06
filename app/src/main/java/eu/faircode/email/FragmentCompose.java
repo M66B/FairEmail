@@ -299,6 +299,8 @@ public class FragmentCompose extends FragmentBase {
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
 
+    private static final long MAX_PGP_BIND_DELAY = 250; // milliseconds
+
     private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
     // http://regex.info/blog/lightroom-goodies/jpeg-quality
@@ -1465,7 +1467,7 @@ public class FragmentCompose extends FragmentBase {
         pgpService.bindToService();
 
         // Fall-safe
-        getMainHandler().postDelayed(load, 250);
+        getMainHandler().postDelayed(load, MAX_PGP_BIND_DELAY);
     }
 
     @Override
