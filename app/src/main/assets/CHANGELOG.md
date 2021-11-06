@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1773 - 2021-11-06
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1772 - 2021-11-04
 
 * Added check for sending to no-reply addresses
