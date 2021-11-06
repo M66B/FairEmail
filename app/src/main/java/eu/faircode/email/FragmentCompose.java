@@ -1466,7 +1466,7 @@ public class FragmentCompose extends FragmentBase {
         });
         pgpService.bindToService();
 
-        // Fall-safe
+        // Fail-safe
         getMainHandler().postDelayed(load, MAX_PGP_BIND_DELAY);
     }
 
