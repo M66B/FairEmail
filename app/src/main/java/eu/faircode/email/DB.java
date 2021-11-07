@@ -416,7 +416,7 @@ public abstract class DB extends RoomDatabase {
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : new String[]{
                                 "synchronous", "journal_mode",
-                                "wal_checkpoint", "wal_autocheckpoint",
+                                "wal_checkpoint", "wal_autocheckpoint", "journal_size_limit",
                                 "page_count", "page_size", "max_page_count", "freelist_count",
                                 "cache_size", "cache_spill",
                                 "soft_heap_limit", "hard_heap_limit", "mmap_size",
