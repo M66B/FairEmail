@@ -36,6 +36,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.text.style.SuggestionSpan;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -93,8 +94,13 @@ public class FragmentAnswer extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean monospaced = prefs.getBoolean("monospaced", false);
+        String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        boolean compact = prefs.getBoolean("compose_compact", false);
+        int zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
+        int message_zoom = prefs.getInt("message_zoom", 100);
 
         setSubtitle(R.string.title_answer_caption);
         setHasOptionsMenu(true);
@@ -117,7 +123,11 @@ public class FragmentAnswer extends FragmentBase {
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
 
-        etText.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        etText.setTypeface(StyleHelper.getTypeface(compose_font, context));
+
+        float textSize = Helper.getTextSize(context, zoom);
+        if (textSize != 0)
+            etText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * message_zoom / 100f);
 
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
@@ -152,7 +162,7 @@ public class FragmentAnswer extends FragmentBase {
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, true);
+        FragmentDialogTheme.setBackground(context, view, true);
 
         cbExternal.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
