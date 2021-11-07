@@ -131,6 +131,11 @@
             app:showAsAction="ifRoom" />
 
         <item
+            android:id="@+id/menu_padding"
+            android:title="@string/title_padding"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_compact"
             android:checkable="true"
             android:title="@string/title_compact"

@@ -6543,6 +6543,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         return this.zoom;
     }
 
+    void setPadding(int padding) {
+        if (rv != null) {
+            rv.getRecycledViewPool().clear();
+            rv.getLayoutManager().removeAllViews();
+        }
+        properties.refresh();
+    }
+
     void setSort(String sort) {
         if (!sort.equals(this.sort)) {
             this.sort = sort;

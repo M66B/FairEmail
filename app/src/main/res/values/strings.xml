@@ -1391,6 +1391,7 @@
 
     <string name="title_compact">Compact view</string>
     <string name="title_zoom">Text size</string>
+    <string name="title_padding">Padding size</string>
     <string name="title_select_language">Select language</string>
     <string name="title_select_all">Select all</string>
     <string name="title_select_found">Select found</string>

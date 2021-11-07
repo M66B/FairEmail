@@ -33,6 +33,7 @@ import androidx.preference.PreferenceManager;
 public class ViewCardOptional extends CardView {
     private boolean cards;
     private boolean compact;
+    private int padding;
     private int margin;
     private int ident;
     private Integer color = null;
@@ -56,8 +57,9 @@ public class ViewCardOptional extends CardView {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         cards = prefs.getBoolean("cards", true);
         compact = prefs.getBoolean("compact", false);
+        padding = prefs.getInt("view_padding", compact ? 0 : 1);
 
-        margin = Helper.dp2pixels(context, compact ? 3 : 6);
+        margin = Helper.dp2pixels(context, (padding + 1) * 3);
 
         setRadius(cards ? margin : 0);
         setCardElevation(0);

@@ -4517,6 +4517,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
+        menu.findItem(R.id.menu_padding).setVisible(cards);
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
         menu.findItem(R.id.menu_select_all).setVisible(folder);
@@ -4622,6 +4623,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_zoom) {
             onMenuZoom();
+            return true;
+        } else if (itemId == R.id.menu_padding) {
+            onMenuPadding();
             return true;
         } else if (itemId == R.id.menu_compact) {
             onMenuCompact();
@@ -4875,16 +4879,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         adapter.setZoom(zoom);
     }
 
+    private void onMenuPadding() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int padding = prefs.getInt("view_padding", compact ? 0 : 1);
+        padding = ++padding % 3;
+        prefs.edit().putInt("view_padding", padding).apply();
+        clearMeasurements();
+        adapter.setPadding(padding);
+    }
+
     private void onMenuCompact() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = !prefs.getBoolean("compact", false);
         prefs.edit().putBoolean("compact", compact).apply();
 
         int zoom = (compact ? 0 : 1);
-        prefs.edit().putInt("view_zoom", zoom).apply();
+        int padding = (compact ? 0 : 1);
+        prefs.edit()
+                .putInt("view_zoom", zoom)
+                .putInt("view_padding", padding)
+                .apply();
 
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
+        adapter.setPadding(padding);
         clearMeasurements();
         invalidateOptionsMenu();
     }
