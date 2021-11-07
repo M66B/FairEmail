@@ -140,6 +140,7 @@ public class HtmlHelper {
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
     private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
     private static final float MIN_LUMINANCE = 0.7f;
+    private static final float MIN_LUMINANCE_DARK = 0.1f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
@@ -645,10 +646,10 @@ public class HtmlHelper {
 
                                 if (bg == null) {
                                     // Special case:
-                                    //   external draft / dark background / dark font
+                                    //   external draft / dark background / very dark/light font
                                     if (color != null && !view && dark) {
                                         double lum = ColorUtils.calculateLuminance(color);
-                                        if (lum < 0.1)
+                                        if (lum < MIN_LUMINANCE_DARK || lum > 1 - MIN_LUMINANCE_DARK)
                                             color = null;
                                     }
 
