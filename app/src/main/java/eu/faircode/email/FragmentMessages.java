@@ -4426,6 +4426,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
         boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+        int padding = prefs.getInt("view_padding", compact ? 0 : 1);
         boolean quick_filter = prefs.getBoolean("quick_filter", false);
 
         boolean drafts = EntityFolder.DRAFTS.equals(type);
@@ -4516,7 +4518,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_language).setVisible(language_detection && folder);
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
 
+        SpannableStringBuilder ssbZoom = new SpannableStringBuilder(getString(R.string.title_zoom));
+        if (zoom == 0)
+            ssbZoom.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssbZoom.length(), 0);
+        else if (zoom == 2)
+            ssbZoom.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, ssbZoom.length(), 0);
+
+        SpannableStringBuilder ssbPadding = new SpannableStringBuilder(getString(R.string.title_padding));
+        if (padding == 0)
+            ssbPadding.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssbPadding.length(), 0);
+        else if (padding == 2)
+            ssbPadding.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, ssbPadding.length(), 0);
+
         menu.findItem(R.id.menu_compact).setChecked(compact);
+        menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
+        menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
         menu.findItem(R.id.menu_padding).setVisible(cards);
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
@@ -4877,6 +4893,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         prefs.edit().putInt("view_zoom", zoom).apply();
         clearMeasurements();
         adapter.setZoom(zoom);
+        invalidateOptionsMenu();
     }
 
     private void onMenuPadding() {
@@ -4887,6 +4904,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         prefs.edit().putInt("view_padding", padding).apply();
         clearMeasurements();
         adapter.setPadding(padding);
+        invalidateOptionsMenu();
     }
 
     private void onMenuCompact() {
