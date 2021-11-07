@@ -4,6 +4,12 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### Next version
+
+* Added option to configure card padding (three dots overflow menu)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1773 - 2021-11-06
 
 * Small improvements and minor bug fixes
