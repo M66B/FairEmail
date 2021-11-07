@@ -1672,33 +1672,25 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
-        if (EntityFolder.INBOX.equals(folder.type)) {
-            if (account.leave_deleted) {
-                // Remove message/attachments files on cleanup
-                db.message().resetMessageContent(message.id);
-                db.attachment().resetAvailable(message.id);
-            } else {
-                Message imessage = findMessage(context, folder, message, istore, ifolder);
-                if (imessage != null) {
-                    Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
-                    imessage.setFlag(Flags.Flag.DELETED, true);
+        // Delete from server
+        if (EntityFolder.INBOX.equals(folder.type) && !account.leave_deleted) {
+            Message imessage = findMessage(context, folder, message, istore, ifolder);
+            if (imessage != null) {
+                Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
+                imessage.setFlag(Flags.Flag.DELETED, true);
 
-                    try {
-                        Log.i(folder.name + " POP expunge");
-                        ifolder.close(true);
-                        ifolder.open(Folder.READ_WRITE);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                        state.error(new FolderClosedException(ifolder, "POP", new Exception(ex)));
-                    }
+                try {
+                    Log.i(folder.name + " POP expunge");
+                    ifolder.close(true);
+                    ifolder.open(Folder.READ_WRITE);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    state.error(new FolderClosedException(ifolder, "POP", new Exception(ex)));
                 }
             }
+        }
 
-            // Synchronize will delete messages when needed
-            db.message().setMessageUiHide(message.id, true);
-        } else
-            db.message().deleteMessage(message.id);
-
+        // Move to trash folder
         if (!EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.TRASH.equals(folder.type)) {
             EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
@@ -1734,7 +1726,22 @@ class Core {
             }
 
             EntityAttachment.copy(context, id, message.id);
+
+            message.id = id;
         }
+
+        // Delete from device
+        if (EntityFolder.INBOX.equals(folder.type)) {
+            if (account.leave_deleted) {
+                // Remove message/attachments files on cleanup
+                db.message().resetMessageContent(message.id);
+                db.attachment().resetAvailable(message.id);
+            }
+
+            // Synchronize will delete messages when needed
+            db.message().setMessageUiHide(message.id, true);
+        } else
+            db.message().deleteMessage(message.id);
     }
 
     private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
