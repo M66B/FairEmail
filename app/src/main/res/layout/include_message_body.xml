@@ -118,6 +118,7 @@
         android:id="@+id/ibTrashBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:alpha="0.4"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_trash"
         android:padding="6dp"
@@ -125,13 +126,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/twotone_delete_24"
-        app:tint="?attr/colorSeparator" />
+        app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibArchiveBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="3dp"
+        android:alpha="0.4"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_archive"
         android:padding="6dp"
@@ -139,13 +141,14 @@
         app:layout_constraintStart_toEndOf="@id/ibTrashBottom"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/twotone_archive_24"
-        app:tint="?attr/colorSeparator" />
+        app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibMoveBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="3dp"
+        android:alpha="0.4"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_move"
         android:padding="6dp"
@@ -153,12 +156,13 @@
         app:layout_constraintStart_toEndOf="@id/ibArchiveBottom"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/twotone_drive_file_move_24"
-        app:tint="?attr/colorSeparator" />
+        app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibSeenBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:alpha="0.4"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_toggle_seen"
         android:padding="6dp"
@@ -167,7 +171,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/twotone_mail_24"
-        app:tint="?attr/colorSeparator" />
+        app:tint="?attr/colorAccent" />
 
     <include
         android:id="@+id/InAction"
