@@ -1820,12 +1820,13 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void setZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int message_zoom = prefs.getInt("message_zoom", 100);
-        float textSize = Helper.getTextSize(getContext(), zoom);
+        float textSize = Helper.getTextSize(context, zoom);
         if (textSize != 0) {
             etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * message_zoom / 100f);
-            tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * message_zoom / 100f);
         }
     }
 
