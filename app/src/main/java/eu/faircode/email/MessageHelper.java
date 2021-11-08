@@ -3162,6 +3162,20 @@ public class MessageHelper {
         if (TextUtils.isEmpty(text))
             return null;
 
+        int skip = 0;
+        StringBuilder sb = new StringBuilder();
+        int len = text.length();
+        for (int i = 0; i < len; i++) {
+            char kar = text.charAt(i);
+            if (kar == '(')
+                skip++;
+            else if (kar == ')')
+                skip--;
+            else if (skip == 0)
+                sb.append(kar);
+        }
+        text = sb.toString();
+
         InternetAddress[] addresses = InternetAddress.parseHeader(text, false);
         if (addresses.length == 0)
             return null;
