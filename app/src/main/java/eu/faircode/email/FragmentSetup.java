@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -228,22 +229,27 @@ public class FragmentSetup extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), btnQuick);
                 Menu menu = popupMenu.getMenu();
 
+                Resources res = context.getResources();
+                String pkg = context.getPackageName();
+
                 int order = 1;
                 String gmail = getString(R.string.title_setup_oauth, getString(R.string.title_setup_gmail));
-                menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
+                MenuItem item = menu.add(Menu.FIRST, R.string.title_setup_gmail, order++, gmail);
+                int resid = res.getIdentifier("provider_gmail", "drawable", pkg);
+                if (resid != 0)
+                    item.setIcon(resid);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.oauth != null &&
                             (provider.oauth.enabled || BuildConfig.DEBUG)) {
-                        MenuItem item = menu
+                        item = menu
                                 .add(Menu.FIRST, -1, order++, getString(R.string.title_setup_oauth, provider.description))
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
                                         .putExtra("name", provider.description)
                                         .putExtra("privacy", provider.oauth.privacy)
                                         .putExtra("askAccount", provider.oauth.askAccount));
-                        int resid = context.getResources()
-                                .getIdentifier("provider_" + provider.id, "drawable", context.getPackageName());
+                        resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
                         if (resid != 0)
                             item.setIcon(resid);
                     }
