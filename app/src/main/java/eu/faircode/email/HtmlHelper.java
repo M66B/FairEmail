@@ -644,15 +644,16 @@ public class HtmlHelper {
                                             e = e.parent();
                                 }
 
-                                if (bg == null) {
+                                if (!view && dark &&
+                                        color != null && (bg == null || bg == Color.TRANSPARENT)) {
                                     // Special case:
                                     //   external draft / dark background / very dark/light font
-                                    if (color != null && !view && dark) {
-                                        double lum = ColorUtils.calculateLuminance(color);
-                                        if (lum < MIN_LUMINANCE_DARK || lum > 1 - MIN_LUMINANCE_DARK)
-                                            color = null;
-                                    }
+                                    double lum = ColorUtils.calculateLuminance(color);
+                                    if (lum < MIN_LUMINANCE_DARK || lum > 1 - MIN_LUMINANCE_DARK)
+                                        color = null;
+                                }
 
+                                if (bg == null) {
                                     if (color != null && view)
                                         color = adjustColor(dark, textColorPrimary, color);
                                 } else if (bg == Color.TRANSPARENT) {
