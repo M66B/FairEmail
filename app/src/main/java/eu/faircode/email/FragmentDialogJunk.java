@@ -305,12 +305,13 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         });
 
+        String domain = null;
         try {
             boolean common = false;
             Address[] froms = MessageHelper.parseAddresses(context, from);
             String email = (froms.length == 0 ? null : ((InternetAddress) froms[0]).getAddress());
             int at = (email == null ? -1 : email.indexOf('@'));
-            String domain = (at > 0 ? email.substring(at + 1).toLowerCase(Locale.ROOT) : null);
+            domain = (at > 0 ? email.substring(at + 1).toLowerCase(Locale.ROOT) : null);
 
             if (domain != null) {
                 List<String> domains = EmailProvider.getDomainNames(context);
@@ -341,6 +342,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         cbBlockSender.setEnabled(canBlock);
         cbBlockDomain.setEnabled(false);
         cbBlockSender.setChecked(canBlock);
+        cbBlockDomain.setText(getString(R.string.title_block_sender_domain, domain));
+        cbBlockDomain.setVisibility(domain == null ? View.GONE : View.VISIBLE);
         ibMore.setImageLevel(1);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));
