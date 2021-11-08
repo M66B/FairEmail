@@ -69,8 +69,8 @@ import java.util.List;
 import java.util.Map;
 
 public class FragmentBase extends Fragment {
-    private String title = null;
-    private String subtitle = " ";
+    private CharSequence title = null;
+    private CharSequence subtitle = " ";
     private boolean finish = false;
     private boolean finished = false;
     private String requestKey = null;
@@ -91,7 +91,7 @@ public class FragmentBase extends Fragment {
         setTitle(getString(resid));
     }
 
-    protected void setTitle(String title) {
+    protected void setTitle(CharSequence title) {
         this.title = title;
         updateSubtitle();
     }
@@ -100,7 +100,7 @@ public class FragmentBase extends Fragment {
         setSubtitle(getString(resid));
     }
 
-    protected void setSubtitle(String subtitle) {
+    protected void setSubtitle(CharSequence subtitle) {
         this.subtitle = subtitle;
         updateSubtitle();
     }
@@ -199,7 +199,8 @@ public class FragmentBase extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         Log.d("Save instance " + this);
         int before = Helper.getSize(outState);
-        outState.putString("fair:subtitle", subtitle);
+        outState.putCharSequence("fair:title", title);
+        outState.putCharSequence("fair:subtitle", subtitle);
         outState.putString("fair:requestKey", requestKey);
         super.onSaveInstanceState(outState);
         int after = Helper.getSize(outState);
@@ -236,7 +237,8 @@ public class FragmentBase extends Fragment {
             if (args == null)
                 setArguments(new Bundle());
         } else {
-            subtitle = savedInstanceState.getString("fair:subtitle");
+            title = savedInstanceState.getCharSequence("fair:title");
+            subtitle = savedInstanceState.getCharSequence("fair:subtitle");
             requestKey = savedInstanceState.getString("fair:requestKey");
         }
 
