@@ -307,7 +307,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
 
         try {
             boolean common = false;
-            Address[] froms = InternetAddress.parseHeader(from, false);
+            Address[] froms = MessageHelper.parseAddresses(context, from);
             String email = (froms.length == 0 ? null : ((InternetAddress) froms[0]).getAddress());
             int at = (email == null ? -1 : email.indexOf('@'));
             String domain = (at > 0 ? email.substring(at + 1).toLowerCase(Locale.ROOT) : null);
