@@ -443,6 +443,18 @@
                     app:layout_constraintTop_toBottomOf="@id/swExpandFirst"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvExpandAllHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:text="@string/title_advanced_expandall_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swExpandAll" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swExpandOne"
                     android:layout_width="0dp"
@@ -452,7 +464,7 @@
                     android:text="@string/title_advanced_expand_one"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swExpandAll"
+                    app:layout_constraintTop_toBottomOf="@id/tvExpandAllHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
