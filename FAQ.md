@@ -3088,6 +3088,8 @@ The OAuth [jump page](https://oauth.faircode.eu/) exists
 for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations)
 are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
+OAuth is not supported for third party builds like the F-Droid build, please [see here](#user-content-faq147) about why not.
+
 <br />
 
 <a name="faq112"></a>
@@ -3740,7 +3742,8 @@ Therefore you are advised to switch to the GitHub release.
 
 OAuth access is available only for Play Store and Github releases
 because email providers permitted the use of OAuth for these releases only.
-The responsible for a release, for the F-Droid build this is F-Droid, needs to ask for OAuth permissions.
+The responsible for a release, for the F-Droid build this is the F-Droid organization, needs to ask for OAuth permissions,
+which mostly involves signing a contract with binding terms and conditions.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release
 because Android refuses to install the same app with a different signature for security reasons.
@@ -3748,7 +3751,8 @@ because Android refuses to install the same app with a different signature for s
 Note that the GitHub version will automatically check for updates.
 When desired, this can be turned off in the miscellaneous settings.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download option
+and [see here](#user-content-faq173) for the differences between the different release types.
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
