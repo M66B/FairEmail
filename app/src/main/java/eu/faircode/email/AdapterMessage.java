@@ -2023,12 +2023,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
                     vwEmpty.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(button_extra && button_trash && trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(button_extra && button_archive && archive ? View.VISIBLE : View.GONE);
-                    ibMoveBottom.setVisibility(button_extra && button_move && move ? View.VISIBLE : View.GONE);
-
                     if (bind)
                         bindBody(message, scroll);
+                    else
+                        bindExtras(message);
                 }
 
                 @Override
@@ -2296,13 +2294,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.endSearch();
             clearActions();
 
-            ibSeenBottom.setImageResource(message.ui_seen
-                    ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
-            ibSeenBottom.setVisibility(!(message.folderReadOnly || message.uid == null) ||
-                    message.accountProtocol == EntityAccount.TYPE_POP
-                    ? View.VISIBLE : View.GONE);
-
             if (!message.content) {
+                bindExtras(message);
                 if (scroll)
                     properties.scrollTo(getAdapterPosition(), 0);
                 return;
@@ -2712,6 +2705,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 try {
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                                         bindConversationActions(message, args.getParcelable("actions"));
+                                    bindExtras(message);
 
                                     cowner.start(); // Show attachments
                                 } catch (Throwable ex) {
@@ -2733,6 +2727,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                                         bindConversationActions(message, args.getParcelable("actions"));
+                                    bindExtras(message);
 
                                     cowner.start(); // Show attachments
                                 } catch (Throwable ex) {
@@ -2868,6 +2863,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
                 grpAction.setVisibility(has ? View.VISIBLE : View.GONE);
             }
+        }
+
+        private void bindExtras(TupleMessageEx message) {
+            ibTrashBottom.setVisibility(ibTrash.getVisibility());
+            ibArchiveBottom.setVisibility(ibArchive.getVisibility());
+            ibMoveBottom.setVisibility(ibMove.getVisibility());
+
+            ibSeenBottom.setImageResource(message.ui_seen
+                    ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
+            ibSeenBottom.setVisibility(!(message.folderReadOnly || message.uid == null) ||
+                    message.accountProtocol == EntityAccount.TYPE_POP
+                    ? View.VISIBLE : View.GONE);
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments, boolean bind_extras) {
