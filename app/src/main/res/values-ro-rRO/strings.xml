@@ -154,8 +154,6 @@
     <string name="title_setup_identities">Identități</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_pop3">Cont POP3</string>
-    <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth numai pentru versiunile oficiale ale aplicației</string>
-    <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
@@ -1117,7 +1115,7 @@
     <string name="title_smime_reminder">Chei S/MIME disponibile</string>
     <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_extra_missing">Lipsește numele de utilizator</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Trimiterea la o adresă \'no reply\'</string>
+    <string name="title_noreply_reminder">Trimiterea la o adresă \'no reply\'</string>
     <string name="title_external_reminder">Trimiterea la o adresă externă</string>
     <string name="title_subject_reminder">Subiectul este gol</string>
     <string name="title_text_reminder">Mesajul este gol</string>
@@ -1219,6 +1217,7 @@
     <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
+    <string name="title_padding">Mărime spațiu liber</string>
     <string name="title_select_language">Selectare limbă</string>
     <string name="title_select_all">Selectează tot</string>
     <string name="title_select_found">Selectare găsite</string>

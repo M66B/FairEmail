@@ -144,8 +144,6 @@
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_pop3">Cuenta POP3</string>
-    <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para versiones oficiales de la aplicación</string>
-    <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
@@ -1107,7 +1105,7 @@
     <string name="title_smime_reminder">Claves S/MIME disponibles</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_extra_missing">Falta el nombre de usuario</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Enviando a una dirección \'no responder\'</string>
+    <string name="title_noreply_reminder">Enviando a una dirección \'no responder\'</string>
     <string name="title_external_reminder">Enviando a una dirección externa</string>
     <string name="title_subject_reminder">El asunto está vacío</string>
     <string name="title_text_reminder">El mensaje está vacío</string>
@@ -1209,6 +1207,7 @@
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
+    <string name="title_padding">Tamaño de margen interno</string>
     <string name="title_select_language">Seleccionar idioma</string>
     <string name="title_select_all">Seleccionar todo</string>
     <string name="title_select_found">Seleccionar lo encontrado</string>

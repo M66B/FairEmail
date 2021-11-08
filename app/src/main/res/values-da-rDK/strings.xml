@@ -144,8 +144,6 @@
     <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_pop3">POP3 konto</string>
-    <string name="title_setup_oauth_permission">E-mailudbyderen har alene godkendt OAuth for officielle app-versioner</string>
-    <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_drafts">Er kladdermappen ikke er tilgængelig med IMAP, kan dette rettes i Gmail-etiketindstillingerne</string>
@@ -1099,7 +1097,7 @@
     <string name="title_smime_reminder">S/MIME-nøgler tilgængelige</string>
     <string name="title_to_missing">Modtager mangler</string>
     <string name="title_extra_missing">Brugernavn mangler</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Sender til en \'ikke-svar\' adresse</string>
+    <string name="title_noreply_reminder">Sender til en \'ikke-svar\' adresse</string>
     <string name="title_external_reminder">Sender til et eksternt domæne</string>
     <string name="title_subject_reminder">Emne er tomt</string>
     <string name="title_text_reminder">Besked er tom</string>
@@ -1201,6 +1199,7 @@
     <string name="title_filter_duplicates">Dubletter</string>
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
+    <string name="title_padding">Fyldstørrelse</string>
     <string name="title_select_language">Vælg sprog</string>
     <string name="title_select_all">Markér alle</string>
     <string name="title_select_found">Markér fundne</string>

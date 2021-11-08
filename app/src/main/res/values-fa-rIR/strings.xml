@@ -121,7 +121,6 @@
     <string name="title_setup_accounts">حساب‌ها</string>
     <string name="title_setup_identities">هویت‌ها</string>
     <string name="title_setup_other">فراهم کننده دیگر</string>
-    <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های رسمی مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
     <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
     <string name="title_setup_gmail_drafts">اگر پوشه پیش‌نویس‌ها به‌وسیله IMAP قابل دسترسی نیست، می‌توان آن را در تنظیمات برچسب‌های جیمیل درست کرد</string>
@@ -758,6 +757,7 @@
     <string name="title_filter_duplicates">پیام‌های تکراری</string>
     <string name="title_compact">نمایش فشرده</string>
     <string name="title_zoom">اندازه متن</string>
+    <string name="title_padding">اندازه لایه‌گذاری</string>
     <string name="title_select_language">انتخاب زبان</string>
     <string name="title_select_all">انتخاب همه</string>
     <string name="title_select_found">انتخاب یافته‌ها</string>

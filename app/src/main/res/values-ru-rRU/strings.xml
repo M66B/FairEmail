@@ -164,8 +164,6 @@
     <string name="title_setup_identities">Идентификаторы</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_pop3">Учётная запись POP3</string>
-    <string name="title_setup_oauth_permission">Поставщик электронной почты одобрил OAuth только для официальных версий приложения</string>
-    <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
@@ -1127,7 +1125,7 @@
     <string name="title_smime_reminder">Доступные ключи S/MIME</string>
     <string name="title_to_missing">Отсутствует получатель</string>
     <string name="title_extra_missing">Отсутствует имя пользователя</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Отправка на адрес \"no-reply\"</string>
+    <string name="title_noreply_reminder">Отправка на адрес \"no-reply\"</string>
     <string name="title_external_reminder">Отправка на внешний адрес</string>
     <string name="title_subject_reminder">Тема пустая</string>
     <string name="title_text_reminder">Сообщение пустое</string>
@@ -1229,6 +1227,7 @@
     <string name="title_filter_duplicates">Дубликаты</string>
     <string name="title_compact">Компактный вид</string>
     <string name="title_zoom">Размер текста</string>
+    <string name="title_padding">Размер отступа</string>
     <string name="title_select_language">Выбрать язык</string>
     <string name="title_select_all">Выбрать все</string>
     <string name="title_select_found">Выбрать найденное</string>

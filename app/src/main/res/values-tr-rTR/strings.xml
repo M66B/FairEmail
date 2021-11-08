@@ -143,8 +143,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_identities">Kimlikler</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
-    <string name="title_setup_oauth_permission">E-posta sağlayıcısı OAuth\'u yalnızca resmi uygulama sürümleri için onayladı</string>
-    <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek sadece resmi versiyonlarda çalışacaktır çünkü Android uygulama imzasını kontrol etmektedir</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
@@ -1203,6 +1201,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_filter_duplicates">Çift kopyalar</string>
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
+    <string name="title_padding">Boşluk boyutu</string>
     <string name="title_select_language">Dil seçiniz</string>
     <string name="title_select_all">Hepsini seç</string>
     <string name="title_select_found">Bulunanları seç</string>

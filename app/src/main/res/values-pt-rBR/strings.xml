@@ -139,8 +139,6 @@
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
-    <string name="title_setup_oauth_permission">Este provedor de email só aprovou OAuth nos seus aplicativos oficiais</string>
-    <string name="title_setup_gmail_support">Autorizar contas do Google funcionará apenas em versões oficiais porque o Android verifica a assinatura do aplicativo</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
@@ -1152,6 +1150,7 @@
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Visualização compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
+    <string name="title_padding">Tamanho do preenchimento</string>
     <string name="title_select_language">Selecionar idioma</string>
     <string name="title_select_all">Selecionar todos</string>
     <string name="title_select_found">Selecionar encontrados</string>

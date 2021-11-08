@@ -134,8 +134,6 @@
     <string name="title_setup_identities">ID</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_pop3">POP3 アカウント</string>
-    <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
-    <string name="title_setup_gmail_support">Androidがアプリの署名をチェックする為、Googleアカウントの承認は公式バージョンでのみ機能します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を与えて下さい</string>
     <string name="title_setup_gmail_permissions">Googleは全てのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmailは明示的な同意なしにメッセージを削除する事は有りません</string>
     <string name="title_setup_gmail_drafts">IMAPで下書きフォルダにアクセス出来ない場合、Gmailラベル設定で修正出来ます</string>
@@ -1196,6 +1194,7 @@
     <string name="title_filter_duplicates">重複</string>
     <string name="title_compact">簡易表示</string>
     <string name="title_zoom">テキストサイズ</string>
+    <string name="title_padding">余白のサイズ</string>
     <string name="title_select_language">言語を選択</string>
     <string name="title_select_all">すべて選択</string>
     <string name="title_select_found">見つかったものを選択</string>

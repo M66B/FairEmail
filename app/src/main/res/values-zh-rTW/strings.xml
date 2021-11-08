@@ -134,8 +134,6 @@
     <string name="title_setup_identities">身分</string>
     <string name="title_setup_other">其他電子郵件供應商</string>
     <string name="title_setup_pop3">POP3 帳戶</string>
-    <string name="title_setup_oauth_permission">電子郵件供應商僅批准 FairEmail 的 GitHub 和 Google Play Store 發布版本使用 OAuth</string>
-    <string name="title_setup_gmail_support">授權使用 Google 帳戶功能僅工作在 FairEmail 的 GitHub 和 Play Store 發布版本中，因為 Android 會檢查程式簽名</string>
     <string name="title_setup_gmail_rationale">請授予權限以選擇帳戶並讀取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 會請求權限以讀取、撰寫、傳送及永久刪除您的電子郵件。FairEmail 永遠不會在您未予明確同意的前提下刪除您的訊息。</string>
     <string name="title_setup_gmail_drafts">如遇草稿資料夾無法透過 IMAP 存取的情況，可於 Gmail 標籤設定中獲得修復</string>
@@ -1188,6 +1186,7 @@
     <string name="title_filter_duplicates">重複</string>
     <string name="title_compact">緊湊型視圖</string>
     <string name="title_zoom">文字大小</string>
+    <string name="title_padding">填充大小</string>
     <string name="title_select_language">選擇語言</string>
     <string name="title_select_all">全選</string>
     <string name="title_select_found">選取已尋獲的</string>

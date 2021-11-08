@@ -136,8 +136,6 @@
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
-    <string name="title_setup_oauth_permission">O provedor de correo so permite OAuth para as aplicacións de versións oficiais</string>
-    <string name="title_setup_gmail_support">Autorizar contas de Google só funcionará nas versións oficiais desta aplicación porque Android verifica a súa sinatura dixital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar unha conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permisos para ler, redactar, enviar e borrar permanentemente todo o seu correo. FairEmail nunca eliminará as súas mensaxes sen o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se o cartafol de borradores non é accesible por IMAP, isto pódese solucionar na configuración de etiquetas de Gmail</string>
@@ -1099,6 +1097,7 @@
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño do texto</string>
+    <string name="title_padding">Tamaño de sangría</string>
     <string name="title_select_language">Seleccione idioma</string>
     <string name="title_select_all">Seleccionar todo</string>
     <string name="title_select_found">Seleccionar atopados</string>

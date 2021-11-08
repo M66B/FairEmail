@@ -144,8 +144,6 @@
     <string name="title_setup_identities">Identitäten</string>
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_pop3">POP3-Konto</string>
-    <string name="title_setup_oauth_permission">Der E-Mail-Anbieter hat OAuth nur für offizielle App-Versionen zugelassen</string>
-    <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner über IMAP nicht zugänglich ist, kann dies in den Gmail Label-Einstellungen korrigiert werden</string>
@@ -1106,7 +1104,7 @@
     <string name="title_smime_reminder">S/MIME-Schlüssel verfügbar</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_extra_missing">Benutzername fehlt</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Wird an nicht-antworten-Adresse gesendet</string>
+    <string name="title_noreply_reminder">Wird an eine Nicht-antworten-E-Mail-Adresse gesendet</string>
     <string name="title_external_reminder">Senden an eine externe Adresse</string>
     <string name="title_subject_reminder">Betreff ist leer</string>
     <string name="title_text_reminder">Nachricht ist leer</string>
@@ -1209,6 +1207,7 @@
     <string name="title_filter_duplicates">Doppelte</string>
     <string name="title_compact">Kompaktansicht</string>
     <string name="title_zoom">Schriftgröße</string>
+    <string name="title_padding">Größe des Textabstand</string>
     <string name="title_select_language">Sprache wählen</string>
     <string name="title_select_all">Alle auswählen</string>
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>

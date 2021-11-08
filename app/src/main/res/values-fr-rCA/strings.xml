@@ -144,8 +144,8 @@
     <string name="title_setup_identities">Identités</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_pop3">Compte POP3</string>
-    <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions officielles de l\'application</string>
-    <string name="title_setup_gmail_support">L’autorisation des comptes Google fonctionnera uniquement dans les versions officielles parce qu’Android vérifie la signature de l’application</string>
+    <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
+    <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation de lire, rédiger, envoyer et supprimer définitivement tous vos courriels. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
     <string name="title_setup_gmail_drafts">Si le dossier brouillons n’est pas accessible par IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
@@ -1107,7 +1107,7 @@
     <string name="title_smime_reminder">Clés S/MIME disponibles</string>
     <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_extra_missing">Nom d’utilisateur manquant</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Envoi à une adresse « Ne pas répondre »</string>
+    <string name="title_noreply_reminder">Envoi à une adresse « Ne pas répondre »</string>
     <string name="title_external_reminder">Envoi en cours vers une adresse externe</string>
     <string name="title_subject_reminder">L’objet est vide</string>
     <string name="title_text_reminder">Le message est vide</string>
@@ -1209,6 +1209,7 @@
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
+    <string name="title_padding">Taille de l\'espacement des messages</string>
     <string name="title_select_language">Sélectionner la langue</string>
     <string name="title_select_all">Tout sélectionner</string>
     <string name="title_select_found">Sélectionner les messages trouvés</string>

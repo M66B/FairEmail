@@ -144,8 +144,6 @@
     <string name="title_setup_identities">Identità</string>
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_pop3">Profilo POP3</string>
-    <string name="title_setup_oauth_permission">Il provider email ha approvato OAuth solo per le versioni ufficiali dell\'app</string>
-    <string name="title_setup_gmail_support">Autorizzare i profili di Google funzionerà solo nelle versioni ufficiali perché Android verifica la firma dell\'app</string>
     <string name="title_setup_gmail_rationale">Sei pregato di garantire i permessi per selezionare un profilo e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
     <string name="title_setup_gmail_drafts">Se la cartella delle bozze non è accessibile da IMAP, questo è risolvibile nelle impostazioni dell\'etichetta di Gmail</string>
@@ -1107,7 +1105,7 @@
     <string name="title_smime_reminder">Chiavi S/MIME disponibili</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_extra_missing">Nome utente mancante</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Inviando un indirizzo \'no-reply\'</string>
+    <string name="title_noreply_reminder">Inviando un indirizzo \'no-reply\'</string>
     <string name="title_external_reminder">Inviando a un indirizzo esterno</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Messaggio vuoto</string>
@@ -1209,6 +1207,7 @@
     <string name="title_filter_duplicates">Duplicati</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
+    <string name="title_padding">Dimensione del rientro</string>
     <string name="title_select_language">Seleziona lingua</string>
     <string name="title_select_all">Seleziona tutto</string>
     <string name="title_select_found">Seleziona trovati</string>

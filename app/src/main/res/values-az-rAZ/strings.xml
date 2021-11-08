@@ -144,8 +144,6 @@
     <string name="title_setup_identities">Kimliklər</string>
     <string name="title_setup_other">Digər təchizatçı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
-    <string name="title_setup_oauth_permission">E-poçt təchizatçısı \"OAuth\"u yalnız rəsmi tətbiq versiyaları üçün təsdiqlədi</string>
-    <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız rəsmi versiyalarda işləyəcək</string>
     <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
     <string name="title_setup_gmail_drafts">Əgər qaralamalar qovluğu IMAP üçün əlçatmazdırsa, bunu Gmail etiket tənzimləmələrində düzəltmək mümkündür</string>
@@ -1199,6 +1197,7 @@
     <string name="title_filter_duplicates">Dublikatlar</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
+    <string name="title_padding">Boşluğun ölçüsü</string>
     <string name="title_select_language">Dil seçin</string>
     <string name="title_select_all">Hamısını seçin</string>
     <string name="title_select_found">Tapılanı seçin</string>

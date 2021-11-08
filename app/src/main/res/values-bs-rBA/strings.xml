@@ -154,8 +154,6 @@
     <string name="title_setup_identities">Identiteti</string>
     <string name="title_setup_other">Drugi provajder</string>
     <string name="title_setup_pop3">POP3 račun</string>
-    <string name="title_setup_oauth_permission">E-mail provajder je odobrio OAuth provjeru samo za zvanične verzije aplikacije</string>
-    <string name="title_setup_gmail_support">Autorizacija Google-ovih računa radi samo u zvaničnim verzijama jer Android sistem provjerava potpise aplikacije</string>
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_drafts">Ukoliko folder \'nacrti\' nije dostupan putem IMAP-a, onda se to može popraviti u postavkama Gmail oznaka (etiketa)</string>
@@ -1116,7 +1114,7 @@
     <string name="title_smime_reminder">Dostupni S/MIME ključevi</string>
     <string name="title_to_missing">Nedostaje primalac</string>
     <string name="title_extra_missing">Nedostaje korisničko ime</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">Slanje na adresu \'ne-odgovarati\'</string>
+    <string name="title_noreply_reminder">Slanje na adresu \'ne-odgovarati\'</string>
     <string name="title_external_reminder">Slanje na vanjsku adresu</string>
     <string name="title_subject_reminder">Predmet je prazan</string>
     <string name="title_text_reminder">Poruka je prazna</string>
@@ -1218,6 +1216,7 @@
     <string name="title_filter_duplicates">Duplikati</string>
     <string name="title_compact">Kompaktni izgled</string>
     <string name="title_zoom">Veličina teksta</string>
+    <string name="title_padding">Veličina razmaka</string>
     <string name="title_select_language">Izaberite jezik</string>
     <string name="title_select_all">Označi sve</string>
     <string name="title_select_found">Označi pronađene</string>

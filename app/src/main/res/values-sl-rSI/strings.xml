@@ -117,7 +117,6 @@
     <string name="title_setup_accounts">Računi</string>
     <string name="title_setup_identities">Identitete</string>
     <string name="title_setup_other">Drug ponudnik</string>
-    <string name="title_setup_gmail_support">Overjanje računov Google bo delovalo samo v uradnih različicah, ker Android preveri podpis programa.</string>
     <string name="title_setup_gmail_rationale">Odobrite dovoljenja za izbiro računa in branje vašega imena.</string>
     <string name="title_setup_gmail_permissions">Google vas bo vprašal za dovoljenje za branje, sestavljanje, pošiljanje in trajno brisanje vaše e-pošte.  FairEmail brez vašega izrecnega dovoljenja ne bo nikoli izbrisal sporočil.</string>
     <string name="title_setup_gmail_drafts">Če IMAP nima dostopa do mape z osnutki, lahko to popravite v Gmailovih nastavitvah oznak.</string>

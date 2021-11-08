@@ -165,8 +165,6 @@
     <string name="title_setup_identities">Особисті дані</string>
     <string name="title_setup_other">Інші постачальники</string>
     <string name="title_setup_pop3">Обліковий запис POP3</string>
-    <string name="title_setup_oauth_permission">Постачальник електронної пошти затвердив OAuth лише для офіційних версій додатків</string>
-    <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме лише в офіційних версіях, тому що Android перевіряє підпис додатку</string>
     <string name="title_setup_gmail_rationale">Будь ласка, надайте дозвіл для вибору облікового запису та читання вашого імені</string>
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання і остаточне видаляння всієї Вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
     <string name="title_setup_gmail_drafts">Якщо тека чернеток недоступна для IMAP, то її можна виправити в налаштуваннях Gmail</string>
@@ -647,6 +645,7 @@
     <string name="title_advanced_display_harmful_hint">Вимкнення цієї опції може зашкодити вашій конфіденційності</string>
     <string name="title_advanced_display_hidden_hint">Це може призвести до дивного вигляду та подвійних текстів</string>
     <string name="title_advanced_display_pin_hint">PIN-код має пріоритет над біометричною аутентифікацією</string>
+    <string name="title_advanced_display_autolock_nav_hint">Затримка до виконання на %1$d секунд</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знає, на які адреси звертаються</string>
     <string name="title_advanced_badge_hint">Доступно лише для підтримуваних лаунчерів</string>
     <string name="title_advanced_notify_action_hint">Не більше трьох дій буде показано</string>
@@ -1126,6 +1125,7 @@
     <string name="title_smime_reminder">Доступні S/MIME ключі</string>
     <string name="title_to_missing">Відсутній отримувач</string>
     <string name="title_extra_missing">Не вказано ім\'я користувача</string>
+    <string name="title_noreply_reminder">Надсилання на адресу \'no-reply\'</string>
     <string name="title_external_reminder">Надсилання на зовнішню адресу</string>
     <string name="title_subject_reminder">Тема не вказана</string>
     <string name="title_text_reminder">Порожнє повідомлення</string>
@@ -1227,6 +1227,7 @@
     <string name="title_filter_duplicates">Дублікати</string>
     <string name="title_compact">Компактний вигляд</string>
     <string name="title_zoom">Розмір тексту</string>
+    <string name="title_padding">Розмір відступів</string>
     <string name="title_select_language">Вибрати мову</string>
     <string name="title_select_all">Виділити все</string>
     <string name="title_select_found">Вибрати знайдене</string>

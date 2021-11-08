@@ -111,7 +111,6 @@
     <string name="title_setup_accounts">Kontuak</string>
     <string name="title_setup_identities">Identitateak</string>
     <string name="title_setup_other">Beste hornitzaile bat</string>
-    <string name="title_setup_gmail_support">Google kontuak autorizatzea bertsio ofizialetan besterik ez dabil Androidek aplikazioaren sinadura egiaztatzen duelako</string>
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
     <string name="title_setup_gmail_permissions">Google-k zure posta elektronikoa irakurri, konposatu, bidali eta ezabatzeko baimenak eskatuko ditu. FairEmail-ek ez ditu zure mezuak ezabatuko baimen espliziturik gabe.</string>
     <string name="title_setup_gmail_drafts">Zirriborroen karpeta IMAP bidez eskuragarri ez badago, Gmailen etiketen ezarpenetan konpondu daiteke</string>
@@ -865,6 +864,7 @@
     <string name="title_filter_duplicates">Bikoiztutakoak</string>
     <string name="title_compact">Ikuspegi trinkoa</string>
     <string name="title_zoom">Letra tamaina</string>
+    <string name="title_padding">Betegarriaren tamaina</string>
     <string name="title_select_language">Hautatu hizkuntza</string>
     <string name="title_select_all">Hautatu denak</string>
     <string name="title_select_found">Hautatu aurkitutakoak</string>

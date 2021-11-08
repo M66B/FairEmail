@@ -164,8 +164,6 @@
     <string name="title_setup_identities">Identity</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_pop3">POP3 účet</string>
-    <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
-    <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
@@ -1228,6 +1226,7 @@
     <string name="title_filter_duplicates">Duplikáty</string>
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
+    <string name="title_padding">Velikost odsazení položek</string>
     <string name="title_select_language">Vybrat jazyk</string>
     <string name="title_select_all">Vybrat vše</string>
     <string name="title_select_found">Vybrat nalezené</string>

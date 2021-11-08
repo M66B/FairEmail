@@ -118,7 +118,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_identities">Identitats</string>
     <string name="title_setup_other">Altres proveïdors</string>
     <string name="title_setup_pop3">Compte POP3</string>
-    <string name="title_setup_gmail_support">Com que Android comprova les firmes dels aplicatius, es podran autoritzar comptes de Google des des les versions oficials</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
     <string name="title_setup_gmail_permissions">Google sol·licitarà permisos per llegir, compondre, enviar i suprimir tot el vostre correu electrònic. FairEmail mai suprimirà els vostres missatges sense el vostre consentiment explícit.</string>
     <string name="title_setup_gmail_drafts">Si IMAP no pot accedir a la carpeta d\'esborranys, es pot solucionar a la configuració de l\'etiqueta de Gmail</string>
@@ -847,6 +846,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_filter_duplicates">Duplicades</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Mida del text</string>
+    <string name="title_padding">Separació del text</string>
     <string name="title_select_language">Selecciona idioma</string>
     <string name="title_select_all">Selecciona-ho tot</string>
     <string name="title_select_found">Seleccionar el trobat</string>

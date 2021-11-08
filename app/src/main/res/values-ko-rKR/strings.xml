@@ -523,6 +523,7 @@
     <string name="title_filter_duplicates">중복</string>
     <string name="title_compact">간략히 보기</string>
     <string name="title_zoom">글씨 크기</string>
+    <string name="title_padding">여백 크기</string>
     <string name="title_select_language">언어 선택</string>
     <string name="title_select_all">모두 선택</string>
     <string name="title_select_found">결과 모두 선택</string>

@@ -164,8 +164,6 @@
     <string name="title_setup_identities">זהויות</string>
     <string name="title_setup_other">ספק אחר</string>
     <string name="title_setup_pop3">חשבון POP3</string>
-    <string name="title_setup_oauth_permission">ספק הדוא״ל אישור OAuth לגרסאות רשמיות של היישומון</string>
-    <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה רשמית כיוון ש־Android בודק את חתימת היישומון</string>
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא את שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
     <string name="title_setup_gmail_drafts">אם אי אפשר לגשת לתיקיית טיוטות דרך IMAP, אפשר לתקן את זה דרך הגדרות התוויות של Gmail</string>
@@ -220,7 +218,13 @@
     <string name="title_setup_close">סגירת ההגדרות</string>
     <string name="title_setup_export">ייצוא ההגדרות</string>
     <string name="title_setup_import">ייבוא הגדרות</string>
+    <string name="title_setup_export_remark">        מאחר שקובץ ההגדרות מכיל את כל ההגדרות ופרטי החשבונות, הוא מוצפן בסיסמה.
+        בסיסמה יש להשתמש כדי לייבא את ההגדרות שוב, עדיף לא לשכוח אותה!
+    </string>
+    <string name="title_setup_export_do">הקובץ המיוצא יכיל את כל ההגדרות והנתונים אך לא הודעות ולא תמונות שיש אליהן הפניה בחתימות</string>
+    <string name="title_setup_import_do">חשבונות מיובאים יתווספו מבלי לדרוס חשבונות קיימים</string>
     <string name="title_setup_password">סיסמה</string>
+    <string name="title_setup_password_chars">הסיסמה מכילה תווי בקרה או רווחים</string>
     <string name="title_setup_password_repeat">חזרה על הסיסמה</string>
     <string name="title_setup_password_missing">סיסמה חסרה</string>
     <string name="title_setup_password_different">הסיסמאות אינן תואמות</string>
@@ -271,6 +275,7 @@
     <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
     <string name="title_advanced_hint_remark">        האפשרויות מסודרות בקטגוריות לפי לשונית, בחלוקה לסעיפים ובסידור לפי הופעה או שימוש כולל אפשרות לחיפוש.
     </string>
+    <string name="title_advanced_hint_setup">ניתן להגדיר חשבון בנגיעה בכפתור האשף במסך ההגדרות הראשי.</string>
     <string name="title_advanced_section_main">ראשי</string>
     <string name="title_advanced_section_synchronize">קבלה</string>
     <string name="title_advanced_section_send">שליחה</string>
@@ -298,6 +303,7 @@
     <string name="title_advanced_sync_shared_folders">סנכרון רשימות תיקיות משותפות</string>
     <string name="title_advanced_subscriptions">ניהול מינוי על תיקיות</string>
     <string name="title_advanced_check_authentication">בדיקת אימות ההודעה</string>
+    <string name="title_advanced_check_reply_domain">לבדוק את כתובת המענה בעת סנכרון הודעות</string>
     <string name="title_advanced_keyboard">הצגת מקלדת כברירת מחדל</string>
     <string name="title_advanced_keyboard_no_fullscreen">מניעת מקלדת במסך מלא</string>
     <string name="title_advanced_suggest_names">שמות משתמשים וכתובות דוא״ל</string>
@@ -782,6 +788,7 @@
     <string name="title_move_to">העברה אל&#8230;</string>
     <string name="title_move_to_folder">העברה אל&#8230;</string>
     <string name="title_move_to_account">העברה אל %1$s&#8230;</string>
+    <string name="title_report_spam">התנהגות כספאם</string>
     <string name="title_delete_permanently">מחיקה לצמיתות</string>
     <string name="title_no_undo">ברור לי שאין אפשרות לשחזר</string>
     <string name="title_snooze">השהייה&#8230;</string>
@@ -936,7 +943,7 @@
     <string name="title_smime_reminder">מפתחות S/MIME זמינים</string>
     <string name="title_to_missing">נמען חסר</string>
     <string name="title_extra_missing">שם המשתמש חסר</string>
-    <string name="title_noreply_reminder" comment="title_noreply_reminder&#10;&#10;'no-reply' should be translated!">שליחה לכתובת שאינה למענה</string>
+    <string name="title_noreply_reminder">שליחה לכתובת שאינה למענה</string>
     <string name="title_external_reminder">שליחה לכתובת חיצונית</string>
     <string name="title_subject_reminder">הנושא ריק</string>
     <string name="title_text_reminder">ההודעה ריקה</string>
@@ -1030,6 +1037,7 @@
     <string name="title_filter_duplicates">כפילויות</string>
     <string name="title_compact">תצוגה מצומצמת</string>
     <string name="title_zoom">גודל טקסט</string>
+    <string name="title_padding">גודל ריפוד</string>
     <string name="title_select_language">בחירת שפה</string>
     <string name="title_select_all">לבחור הכול</string>
     <string name="title_select_found">לבחור את מה שנמצא</string>

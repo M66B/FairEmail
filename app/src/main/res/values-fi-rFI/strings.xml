@@ -144,8 +144,6 @@
     <string name="title_setup_identities">Identiteetit</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_pop3">POP3-tili</string>
-    <string name="title_setup_oauth_permission">Sähköpostipalveluntarjoaja on hyväksynyt OAuthin vain virallisille sovellusversioille</string>
-    <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
@@ -1206,6 +1204,7 @@
     <string name="title_filter_duplicates">Kaksoiskappaleet</string>
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
+    <string name="title_padding">Tyhjän tilan koko</string>
     <string name="title_select_language">Valitse kieli</string>
     <string name="title_select_all">Valitse kaikki</string>
     <string name="title_select_found">Valitse löytyneet</string>
