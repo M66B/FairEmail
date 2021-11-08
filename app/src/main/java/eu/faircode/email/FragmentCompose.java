@@ -329,7 +329,7 @@ public class FragmentCompose extends FragmentBase {
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
     private static final List<String> DO_NOT_REPLY = Collections.unmodifiableList(Arrays.asList(
-            "noreply", "no-reply", "do-not-reply"
+            "noreply", "no.reply", "no-reply", "do-not-reply"
     ));
 
     @Override
