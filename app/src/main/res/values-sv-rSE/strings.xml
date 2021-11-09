@@ -72,7 +72,6 @@
     <string name="title_junk_hint">Din e-postleverantör ansvarar för att filtrera skräppost. En e-postapp har inte all data som behövs för att göra detta på ett tillförlitligt sätt.</string>
     <string name="title_block">Blockera %1$s</string>
     <string name="title_block_sender">Blockera avsändare</string>
-    <string name="title_block_domain">Blockera avsändardomän</string>
     <string name="title_block_sender_hint">        Att blockera en avsändare är en gratisfunktion.
         Att blockera en avsändardomän använder filterregler, vilket är en pro-funktion.
     </string>
@@ -144,6 +143,8 @@
     <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_other">Annan leverantör</string>
     <string name="title_setup_pop3">POP3-konto</string>
+    <string name="title_setup_oauth_permission">E-postleverantören har godkänt OAuth endast för Play Store- och GitHub-versionen</string>
+    <string name="title_setup_gmail_support">Auktorisera Google-konton kommer endast att fungera i Play Store- och GitHub-versionen eftersom Android kontrollerar den digitala app-signaturen</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
     <string name="title_setup_gmail_drafts">Om mappen för utkast inte är åtkomlig för IMAP kan detta lösas under inställningarna för Gmail-etiketten</string>
@@ -508,6 +509,7 @@
     <string name="title_advanced_pin">PIN-kod</string>
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
     <string name="title_advanced_autolock">Lås när skärmen stängs av</string>
+    <string name="title_advanced_autolock_nav">Lås när appen lämnas</string>
     <string name="title_advanced_generic_user_agent">Använd generisk webbläsare användaragent</string>
     <string name="title_advanced_load_emoji">Ladda uppdaterade emoji från Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Uppdatera listor automatiskt varje vecka</string>
@@ -1067,6 +1069,7 @@
     <string name="title_send_dialog">Visa alternativ för skicka</string>
     <string name="title_image_dialog">Visa bildalternativ</string>
     <string name="title_media_toolbar">Verktygsfält för media</string>
+    <string name="title_manage_local_contacts">Hantera lokala kontakter</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
     <string name="title_create_template">Skapa mall</string>
@@ -1096,6 +1099,7 @@
     <string name="title_smime_reminder">S/MIME-nycklar tillgängliga</string>
     <string name="title_to_missing">Mottagare saknas</string>
     <string name="title_extra_missing">Användarnamn saknas</string>
+    <string name="title_noreply_reminder">Skickar till en \"no-reply\" adress</string>
     <string name="title_external_reminder">Skickar till en extern adress</string>
     <string name="title_subject_reminder">Ämnet är tomt</string>
     <string name="title_text_reminder">Meddelandet är tomt</string>

@@ -48,7 +48,6 @@
     <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك مسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل موثوق.</string>
     <string name="title_block">حظر %1$s</string>
     <string name="title_block_sender">حظر المرسل</string>
-    <string name="title_block_domain">حظر نطاق المرسل</string>
     <string name="title_junk_filter">استخدام فلتر البريد المزعج محليا</string>
     <string name="title_junk_clear">محو</string>
     <string name="title_notification_sending">جارٍ إرسال الرسالة</string>

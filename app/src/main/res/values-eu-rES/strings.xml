@@ -63,7 +63,6 @@
     <string name="title_ask_spam_who">Jo %1$s erabiltzailearen mezua spamtzat?</string>
     <string name="title_block">Blokeatu %1$s</string>
     <string name="title_block_sender">Blokeatu igorlea</string>
-    <string name="title_block_domain">Blokeatu bidaltzailearen domeinua</string>
     <string name="title_block_sender_hint">        Igorle bat blokeatzea doako ezaugarri bat da.
         Igorleen domeinu bat blokeatzeko iragazki arauak behar dira, eta hori ordainpeko ezaugarri bat da.
     </string>

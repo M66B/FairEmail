@@ -59,7 +59,6 @@
     <string name="title_junk_hint">வேண்டாதவற்றை வடிகட்டுவது உங்கள் மின்னஞ்சல் வழங்குநரின் பொறுப்பு. இதை நம்பத்தகுந்த முறையில் செயலாற்ற தரவுகள் இம்மின்னஞ்சல் செயலியில் இல்லை.</string>
     <string name="title_block">%1$s-ஐ தடுக்கவும்</string>
     <string name="title_block_sender">அனுப்புனரை தடுக்கவும்</string>
-    <string name="title_block_domain">அனுப்புநர் களத்தைத் தடுக்கவும்</string>
     <string name="title_junk_clear">அகற்று</string>
     <string name="title_notification_sending">செய்திகள் அனுப்பப்படுகின்றது</string>
     <string name="title_notification_waiting">தகுந்த இணைப்பிற்காகக் காத்திருக்கிறது</string>

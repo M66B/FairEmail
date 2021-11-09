@@ -112,7 +112,6 @@
     <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك هو المسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل يُعتمد عليه.</string>
     <string name="title_block">حظر %1$s</string>
     <string name="title_block_sender">حظر المرسل</string>
-    <string name="title_block_domain">حظر نطاق المرسل</string>
     <string name="title_junk_filter">استخدام عامل تصفية البريد المزعج المحلي</string>
     <string name="title_junk_filter_hint">هذا يمكن أن يزيد من استخدام البطارية ويضع علامة على الرسائل ما يجعلها كغير مرغوب فيها</string>
     <string name="title_junk_blocklist">استخدام قوائم حظر البريد المزعج</string>

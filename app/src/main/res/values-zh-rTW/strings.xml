@@ -62,7 +62,6 @@
     <string name="title_junk_hint">您的電子郵件供應商負責篩選垃圾郵件。電子郵件程式並不擁有所有用於可靠地處理此操作的數據。</string>
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
-    <string name="title_block_domain">封鎖寄件者網域</string>
     <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
         使用篩選器規則封鎖寄件者網域則是一項專業版功能。
     </string>

@@ -24,6 +24,7 @@
         <item quantity="other">%1$dଟି ନୂଆ</item>
     </plurals>
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
+    <string name="title_block_sender_domain">\'%1$s\' ଡୋମେନଟିକୁ ଅବରୋଧ କରନ୍ତୁ</string>
     <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
     <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
     <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
@@ -64,6 +65,8 @@
     <string name="title_setup_identities">ପରିଚୟଗୁଡ଼ିକ</string>
     <string name="title_setup_other">ଅନ୍ୟ ପ୍ରଦାନକାରୀ</string>
     <string name="title_setup_pop3">POP3 ଆକାଉଣ୍ଟ୍</string>
+    <string name="title_setup_oauth_permission">ଇମେଲ୍ ପ୍ରଦାନକାରୀ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣ ପାଇଁ OAuth ଅନୁମୋଦନ କରିଛନ୍ତି</string>
+    <string name="title_setup_gmail_support">Google ଆକାଉଣ୍ଟଗୁଡ଼ିକର ପ୍ରାଧିକରଣ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣରେ କାମ କରିବ କାରଣ ଆଣ୍ଡ୍ରଏଡ୍ ଡିଜିଟାଲ୍ ଆପ୍ ସ୍ବାକ୍ଷର ଯାଞ୍ଚ କରେ</string>
     <string name="title_setup_oauth_update">ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟକୁ ପୁନଃ ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
     <string name="title_setup_oauth_authorize">ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
@@ -181,6 +184,7 @@
     <string name="title_advanced_language">ଭାଷା</string>
     <string name="title_advanced_language_system">ସିଷ୍ଟମ୍</string>
     <string name="title_advanced_deepl">DeepL ଏକୀକରଣ</string>
+    <string name="title_advanced_sdcard">ମୁଁ ଏକ SDcard ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁଛି</string>
     <string name="title_advanced_updates">GitHub ଅପଡେଟସ୍ ପାଇଁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="title_advanced_check_weekly">ଦୈନିକ ବଦଳରେ ସାପ୍ତାହିକ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="title_advanced_changelog">ଅପଡେଟ୍ ପରେ ପରିବର୍ତ୍ତନ ଲଗ୍ ଦେଖାନ୍ତୁ</string>
@@ -334,6 +338,7 @@
     <string name="title_sort_on_size">ଆକାର</string>
     <string name="title_sort_on_attachments">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_zoom">ପାଠ୍ୟ ଆକାର</string>
+    <string name="title_padding">ପ୍ୟାଡିଂ ଆକାର</string>
     <string name="title_select_language">ଭାଷା ଚୟନ କରନ୍ତୁ</string>
     <string name="title_select_all">ସମସ୍ତ ଚୟନ କରନ୍ତୁ</string>
     <string name="title_force_sync">ସିଙ୍କ୍ କରିବାକୁ ବାଧ୍ୟ କରନ୍ତୁ</string>
@@ -394,6 +399,7 @@
     <string name="title_widget_account">ଆକାଉଣ୍ଟ୍</string>
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
+    <string name="title_widget_padding">ପ୍ୟାଡିଂ ଆକାର</string>
     <string name="title_accessibility_unseen">ପଢ଼ି ନାହାଁନ୍ତି</string>
     <!-- Thunderbird -->
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>

@@ -68,7 +68,6 @@
     <string name="title_junk_hint">Din e-postleverandør er ansvarlig for filtrering av nettsøppel. En e-postapp har ikke alle dataene som trengs for å gjøre dette pålitelig.</string>
     <string name="title_block">Blokkere %1$s</string>
     <string name="title_block_sender">Blokker avsender</string>
-    <string name="title_block_domain">Blokker avsenderdomenet</string>
     <string name="title_junk_clear">Tøm</string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_waiting">Venter på passende tilkobling</string>

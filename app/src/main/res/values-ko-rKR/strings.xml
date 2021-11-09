@@ -62,7 +62,6 @@
     <string name="title_junk_hint">이메일 공급자는 스팸 필터링을 담당합니다. 이메일 앱에는 이를 안정적으로 수행하는데 필요한 모든 데이터가 없습니다. </string>
     <string name="title_block">%1$s 차단</string>
     <string name="title_block_sender">발송자 차단</string>
-    <string name="title_block_domain">발송자 도메인 차단</string>
     <string name="title_junk_filter">로컬 스팸 필터 사용</string>
     <string name="title_junk_filter_hint">배터리 사용량이 증가할 수 있으며 스팸 메일로 잘못 인식할 수도 있습니다.</string>
     <string name="title_junk_blocklist">스팸 차단 목록 사용</string>
@@ -114,6 +113,8 @@
     <string name="title_setup_identities">ID</string>
     <string name="title_setup_other">기타 제공업체</string>
     <string name="title_setup_pop3">POP3 계정</string>
+    <string name="title_setup_oauth_permission">이메일 공급자가 Play 스토어 및 Github 버전의 OAuth만 승인했습니다</string>
+    <string name="title_setup_gmail_support">Android에서는 디지털 앱 서명을 확인하므로 Google 계정 인증은 Play 스토어 및 Github 버전에서만 동작합니다</string>
     <string name="title_setup_oauth_updated">계정 인증이 갱신되었습니다</string>
     <string name="title_setup_oauth_authorize">인증</string>
     <string name="title_setup_select_account">계정 선택</string>

@@ -72,7 +72,6 @@
     <string name="title_junk_hint">Spamların filtrlənməsinə görə e-poçt təchizatçınız məsuliyyət daşıyır. Bir e-poçt tətbiqi, bunu təhlükəsiz olaraq etmək üçün lazım olan bütün verilənlərə sahib deyil.</string>
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
-    <string name="title_block_domain">Göndərən domenini əngəllə</string>
     <string name="title_block_sender_hint">        Göndərəni əngəlləmə ödənişsiz bir özəllikdir.
         Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
     </string>
@@ -144,6 +143,8 @@
     <string name="title_setup_identities">Kimliklər</string>
     <string name="title_setup_other">Digər təchizatçı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
+    <string name="title_setup_oauth_permission">E-poçt təchizatçısı \"OAuth\"u yalnız Play Store və GitHub versiyaları üçün təsdiqlədi</string>
+    <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız Play Store və GitHub versiyalarında işləyəcək</string>
     <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
     <string name="title_setup_gmail_drafts">Əgər qaralamalar qovluğu IMAP üçün əlçatmazdırsa, bunu Gmail etiket tənzimləmələrində düzəltmək mümkündür</string>
@@ -244,6 +245,7 @@
     <string name="title_setup_theme_black_background">Qara arxaplan</string>
     <string name="title_setup_theme_html_light">Orijinal mesaj görünüşü üçün açıq arxaplan</string>
     <string name="title_setup_theme_composer_light">Mesaj redaktoru üçün açıq arxaplan</string>
+    <string name="title_setup_theme_you_hint">Material rəngləri, Android divar kağızı &amp; stil tənzimləmələrində konfiqurasiya edilə bilər</string>
     <string name="title_setup_theme_system_hint">Bu, Android tərəfindən dəstəklənirsə, gündüz/gecə rejimində temanı avtomatik olaraq açıq/tünd olaraq dəyişdirəcək</string>
     <string name="title_setup_theme_more_colors">Daha çox rəng istəyirəm</string>
     <string name="title_setup_advanced">Qabaqcıl</string>
@@ -500,8 +502,10 @@
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
     <string name="title_advanced_browse_links">Android-ə bağlantıları açma səlahiyyəti ver</string>
+    <string name="title_advanced_confirm_images">İlkin olaraq təsvirləri göstərmə</string>
     <string name="title_advanced_ask_images">Təsvirlərin göstərilməsini təsdiqlə</string>
     <string name="title_advanced_confirm_html">İlkin olaraq yenidən format edilmiş mesajları göstər</string>
+    <string name="title_advanced_ask_html">Orijinal mesajların göstərilməsini təsdiqlə</string>
     <string name="title_advanced_tracking">İzləmə təsvirlərini tanımağa və sıradan çıxartmağa cəhd edin</string>
     <string name="title_advanced_hide_timezone">Vaxt qurşağı verilənləri olmadan mesajları göndər</string>
     <string name="title_advanced_client_id">Tətbiq adını və versiyasını e-poçt serverinə göndər</string>
@@ -511,7 +515,9 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometrik kimlik təsdiqləmə bitmə vaxtı</string>
     <string name="title_advanced_autolock">Ekranı kilidləmə bağlıdır</string>
+    <string name="title_advanced_autolock_nav">Tətbiqdən çıxarkən kilidlə</string>
     <string name="title_advanced_generic_user_agent">Ümumi səyyah istifadəçi agentini istifadə et</string>
+    <string name="title_advanced_load_emoji">Google Play Xidmətlərindən yenilənmiş İfadəni yükləyin</string>
     <string name="title_advanced_disconnect_auto_update">Siyahıları həftəlik olaraq avto-yenilə</string>
     <string name="title_advanced_disconnect_links">İzləmə linkləri haqqında xəbərdarlıq etmək üçün siyahıları istifadə et</string>
     <string name="title_advanced_disconnect_images">İzləmə təsvirlərini tanımaq üçün siyahıları istifadə et</string>
@@ -547,6 +553,7 @@
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_deepl">DeepL inteqrasiyası</string>
+    <string name="title_advanced_sdcard">SD kart istifadə etmək istəyirəm</string>
     <string name="title_advanced_watchdog">Mütəmadi olaraq \"FairEmail\"in aktivliyini yoxla</string>
     <string name="title_advanced_updates">GitHub yeniləmələrini yoxla</string>
     <string name="title_advanced_check_weekly">Gündəlik əvəzinə həftəlik yoxla</string>
@@ -619,6 +626,7 @@
     <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, gizliliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
     <string name="title_advanced_display_pin_hint">PIN, biometrik kimlik təsdiqləməsindən əvvəl gəlir</string>
+    <string name="title_advanced_display_autolock_nav_hint">%1$d saniyəlik əlavə bir müddət olacaq</string>
     <string name="title_advanced_safe_browsing_hint">Google serveri, hansı ünvanların axtarıldığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnız dəstəklənən başladıcılarda əlçatandır</string>
     <string name="title_advanced_notify_action_hint">Ən çox üç əməliyyat göstəriləcək</string>
@@ -959,6 +967,7 @@
     <string name="title_no_search">Bu hesab üçün serverdə axtarış edilə bilmir</string>
     <string name="title_too_large">Mesaj, tamamilə yenidən formatlanmayacaq qədər böyükdür</string>
     <string name="title_truncated">Mesaj, tamamilə görüntülənməyəcək qədər böyükdür</string>
+    <string name="title_insufficient_memory">Əlçatan yaddaş üçün mesaj çox böyükdür (%1$d)</string>
     <string name="title_show_full">Tam mesajı göstər</string>
     <string name="title_unused_inline">İstifadə edilməyən sətiriçi təsvirlər göndəriləndə çıxarılacaq</string>
     <string name="title_accross_remark">Hesablar arasında köçürülən mesajlar yenidən endiriləcək və bu da əlavə verilənlər istifadəsi ilə nəticələnəcək</string>
@@ -1067,6 +1076,7 @@
     <string name="title_send_dialog">Göndəriş seçimlərini göstər</string>
     <string name="title_image_dialog">Təsvir seçimlərini göstər</string>
     <string name="title_media_toolbar">Media alət sətri</string>
+    <string name="title_manage_local_contacts">Yerli əlaqələri idarə et</string>
     <string name="title_insert_contact_group">Əlaqə qrupuna daxil et</string>
     <string name="title_insert_template">Şablon əlavə et</string>
     <string name="title_create_template">Şablon yarat</string>
@@ -1096,6 +1106,7 @@
     <string name="title_smime_reminder">S/MIME açarları mövcuddur</string>
     <string name="title_to_missing">Alıcı əskikdir</string>
     <string name="title_extra_missing">İstifadəçi adı əskikdir</string>
+    <string name="title_noreply_reminder">\"Cavab verilməyən\" bir ünvana göndərilir</string>
     <string name="title_external_reminder">Xarici bir ünvana göndərilir</string>
     <string name="title_subject_reminder">Mövzu boşdur</string>
     <string name="title_text_reminder">Mesaj boşdur</string>
@@ -1197,7 +1208,7 @@
     <string name="title_filter_duplicates">Dublikatlar</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
-    <string name="title_padding">Boşluğun ölçüsü</string>
+    <string name="title_padding">Doldurma ölçüsü</string>
     <string name="title_select_language">Dil seçin</string>
     <string name="title_select_all">Hamısını seçin</string>
     <string name="title_select_found">Tapılanı seçin</string>

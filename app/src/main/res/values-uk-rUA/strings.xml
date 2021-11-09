@@ -92,7 +92,6 @@
     <string name="title_junk_hint">Ваш провайдер електронної пошти відповідальний за фільтрацію спаму. У поштовому додатку немає усіх даних, що потрібні для визначення листа як спам чи не спам.</string>
     <string name="title_block">Заблокувати %1$s</string>
     <string name="title_block_sender">Блокувати відправника</string>
-    <string name="title_block_domain">Блокувати домен відправника</string>
     <string name="title_block_sender_hint">        Блокування відправника - безкоштовна функція.
         Блокування домену відправника використовує правила фільтрів, які є функцією професійної версії.
     </string>
@@ -165,6 +164,8 @@
     <string name="title_setup_identities">Особисті дані</string>
     <string name="title_setup_other">Інші постачальники</string>
     <string name="title_setup_pop3">Обліковий запис POP3</string>
+    <string name="title_setup_oauth_permission">Постачальник електронної пошти схвалив OAuth тільки для версій з Play Store та GitHub</string>
+    <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме тільки в версії з Play Store та GitHub, тому що Android перевіряє підпис цифрового додатку</string>
     <string name="title_setup_gmail_rationale">Будь ласка, надайте дозвіл для вибору облікового запису та читання вашого імені</string>
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання і остаточне видаляння всієї Вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
     <string name="title_setup_gmail_drafts">Якщо тека чернеток недоступна для IMAP, то її можна виправити в налаштуваннях Gmail</string>
@@ -636,6 +637,7 @@
     <string name="title_advanced_parse_classes_hint">Можливо, це буде більш точно відображати повідомлення, але, можливо, з затримкою</string>
     <string name="title_advanced_language_detection_hint">Підтримка виявлення мови залежить від виробника пристрою</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
+    <string name="title_advanced_expandall_hint">Кнопка відповіді не відображатиметься, коли буде розгорнуто кілька повідомлень, тому що не зрозуміло, до котрого з них вона має бути застосовна</string>
     <string name="title_advanced_autoseen_hint">Автоматичне маркування повідомлень прочитаними при розкриванні, може бути відключено в розширених налаштуваннях кожного з облікових записів</string>
     <string name="title_advanced_autoclose_hint">Автоматично закривати розмови коли всі повідомлення архівовані, надіслані або видалені</string>
     <string name="title_advanced_sender_hint">Більшість провайдерів не дозволяють змінювати адреси відправника</string>

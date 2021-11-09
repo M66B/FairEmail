@@ -92,7 +92,7 @@
     <string name="title_junk_hint">Twój dostawca poczty e-mail jest odpowiedzialny za filtrowanie spamu. Aplikacja poczty e-mail nie ma wszystkich danych, aby wykonać to skutecznie.</string>
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
-    <string name="title_block_domain">Blokuj domenę nadawcy</string>
+    <string name="title_block_sender_domain">Blokuj domenę \'%1$s\'</string>
     <string name="title_block_sender_hint">        Blokowanie nadawcy jest darmową funkcją.
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
@@ -164,6 +164,8 @@
     <string name="title_setup_identities">Tożsamości</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_pop3">Konto POP3</string>
+    <string name="title_setup_oauth_permission">Dostawca poczty e-mail zatwierdził OAuth tylko dla wersji Sklep Play i GitHub</string>
+    <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w wersji Sklep Play i GitHub, ponieważ Android sprawdza podpis aplikacji cyfrowej</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
@@ -572,6 +574,7 @@
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_deepl">Integracja z DeepL</string>
+    <string name="title_advanced_sdcard">Chcę użyć karty SD</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
     <string name="title_advanced_check_weekly">Sprawdzaj co tydzień zamiast codziennie</string>
@@ -636,6 +639,7 @@
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
     <string name="title_advanced_language_detection_hint">Obsługa wykrywania języków zależy od producenta urządzenia</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
+    <string name="title_advanced_expandall_hint">Przycisk odpowiedzi nie będzie wyświetlany, gdy zostanie rozwinięte wiele wiadomości, ponieważ nie jest jasne, do której wiadomości odnosi się przycisk</string>
     <string name="title_advanced_autoseen_hint">Automatycznie oznaczanie wiadomości jako przeczytane po rozwinięciu może być wyłączone w zaawansowanych ustawieniach konta dla każdego konta</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie zezwala na modyfikowane adresy nadawcy</string>
@@ -645,6 +649,7 @@
     <string name="title_advanced_display_harmful_hint">Wyłączenie tej opcji może być szkodliwe dla prywatności</string>
     <string name="title_advanced_display_hidden_hint">Może to powodować dziwne i podwójne teksty</string>
     <string name="title_advanced_display_pin_hint">PIN ma pierwszeństwo przed uwierzytelnianiem biometrycznym</string>
+    <string name="title_advanced_display_autolock_nav_hint">Czas karencji wynosi %1$d sekund</string>
     <string name="title_advanced_safe_browsing_hint">Serwer Google wie, które adresy są wyszukiwane</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
@@ -1094,6 +1099,7 @@
     <string name="title_send_dialog">Pokaż opcje wysyłania</string>
     <string name="title_image_dialog">Pokaż opcje obrazu</string>
     <string name="title_media_toolbar">Pasek mediów</string>
+    <string name="title_manage_local_contacts">Zarządzaj kontaktami lokalnymi</string>
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
     <string name="title_create_template">Utwórz szablon</string>
@@ -1123,6 +1129,7 @@
     <string name="title_smime_reminder">Dostępne klucze S/MIME</string>
     <string name="title_to_missing">Brak adresata</string>
     <string name="title_extra_missing">Brak nazwy użytkownika</string>
+    <string name="title_noreply_reminder">Wysyłanie na adres \"nie odpowiadaj\"</string>
     <string name="title_external_reminder">Wysyłanie na zewnętrzny adres</string>
     <string name="title_subject_reminder">Temat jest pusty</string>
     <string name="title_text_reminder">Wiadomość jest pusta</string>

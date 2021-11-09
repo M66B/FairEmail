@@ -72,7 +72,6 @@
     <string name="title_junk_hint">O seu provedor de email é o responsable de filtrar o spam. Unha aplicación de email non ten todos os datos para facelo de modo fiable.</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
-    <string name="title_block_domain">Bloquear o dominio do remitente</string>
     <string name="title_junk_filter">Usar o filtro local de correo non desexado</string>
     <string name="title_junk_filter_hint">Isto pode aumentar o uso da batería e clasificar algunhas mensaxes incorrectamente como correo non desexado</string>
     <string name="title_junk_blocklist">Usar listas de spam</string>

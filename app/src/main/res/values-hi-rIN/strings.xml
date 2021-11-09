@@ -56,7 +56,6 @@
     <string name="title_junk_hint">आपका ईमेल प्रदाता स्पैम फ़िल्टर करने के लिए ज़िम्मेदार है |एक ईमेल ऐप के पास इसे मजबूती से करने के लिए आवश्यक सभी डेटा नहीं है |</string>
     <string name="title_block">खंड %1$s</string>
     <string name="title_block_sender">प्रेषक को निरुद्ध करें</string>
-    <string name="title_block_domain">प्रेषक डोमेन को ब्लॉक करें</string>
     <string name="title_junk_filter">स्थानीय स्पैम फ़िल्टर का उपयोग करें</string>
     <string name="title_junk_filter_hint">यह बैटरी के उपयोग को बड़ा सकता है और संदेशों को गलत तरीके से स्पैम के रूप मे चिन्हित कर सकता है</string>
     <string name="title_junk_blocklist">स्पैम ब्लॉक सूचियों का उपयोग करें</string>

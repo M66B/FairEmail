@@ -92,7 +92,6 @@
     <string name="title_junk_hint">Váš emailový poskytovateľ je zodpovedný za filtrovanie spamu a nežiadúcich správ. Emailová aplikácia nemá dosť informácií, aby mohla spoľahlivo vykonávať túto činnosť sama.</string>
     <string name="title_block">Zablokovať %1$s</string>
     <string name="title_block_sender">Zablokovať odosielateľa</string>
-    <string name="title_block_domain">Zablokovať doménu odosielateľa</string>
     <string name="title_block_sender_hint">        Blokovanie odosielateľa je bezplatná funkcia.
         Na blokovanie domény odosielateľa sa používajú pravidlá filtrovania, čo je Pro funkcia.
     </string>

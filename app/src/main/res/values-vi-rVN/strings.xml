@@ -62,7 +62,6 @@
     <string name="title_junk_hint">Nhà cung cấp email của bạn có trách nhiệm lọc thư rác. Một ứng dụng email không có tất cả dữ liệu cần thiết để làm việc này một cách đáng tin cậy.</string>
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
-    <string name="title_block_domain">Chặn miền người gửi</string>
     <string name="title_block_sender_hint">        Chặn người gửi là tính năng miễn phí.
         Chặn miền người gửi có sử dụng quy tắc lọc, đó là tính năng pro.
     </string>

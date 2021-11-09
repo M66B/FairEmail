@@ -62,7 +62,6 @@
     <string name="title_junk_hint">Penyedia email Anda bertanggung jawab untuk memfilter spam. Aplikasi email tidak memiliki semua data yang diperlukan untuk melakukan ini dengan handal.</string>
     <string name="title_block">Blokir %1$s</string>
     <string name="title_block_sender">Blokir Pengirim</string>
-    <string name="title_block_domain">Blokir Domain Pengirim</string>
     <string name="title_junk_filter">Pakai penyaring spam lokal</string>
     <string name="title_junk_filter_hint">Ini dapat meningkatkan penggunaan baterai dan salah menandai pesan sebagai spam</string>
     <string name="title_junk_clear">Bersihkan</string>

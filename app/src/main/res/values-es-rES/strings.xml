@@ -72,7 +72,7 @@
     <string name="title_junk_hint">Su proveedor de correo es responsable del filtrado de spam. Una aplicación de correo electrónico no tiene todos los datos necesarios para hacer esto de forma confiable.</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
-    <string name="title_block_domain">Bloquear dominio del remitente</string>
+    <string name="title_block_sender_domain">Bloquear dominio \'%1$s\'</string>
     <string name="title_block_sender_hint">        Bloquear un remitente es una característica gratuita.
         Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
     </string>
@@ -144,6 +144,8 @@
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_pop3">Cuenta POP3</string>
+    <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para las versiones de Play Store y GitHub</string>
+    <string name="title_setup_gmail_support">Autorizar cuentas de Google sólo funcionará en las versiones de Play Store y GitHub porque Android comprueba la firma digital de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
@@ -552,6 +554,7 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_deepl">Integración con DeepL</string>
+    <string name="title_advanced_sdcard">Quiero usar una tarjeta SD</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
     <string name="title_advanced_check_weekly">Comprobar semanalmente en lugar de diariamente</string>
@@ -616,6 +619,7 @@
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
     <string name="title_advanced_language_detection_hint">El soporte de detección de idiomas depende del fabricante del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
+    <string name="title_advanced_expandall_hint">El botón de respuesta no se mostrará cuando se expandan varios mensajes porque no está claro a qué mensaje aplica el botón</string>
     <string name="title_advanced_autoseen_hint">Marcar automáticamente los mensajes como leídos al expandir puede desactivarse en la configuración avanzada de cada cuenta</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>

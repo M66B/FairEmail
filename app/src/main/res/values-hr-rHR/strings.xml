@@ -73,7 +73,6 @@
     <string name="title_junk_hint">Tvoj pružatelj usluge je odgovoran za filtriranje spam poruka. Email klijent nema dovoljno podataka da radi ispravno.</string>
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljatelja</string>
-    <string name="title_block_domain">Blokiraj domenu pošiljatelja</string>
     <string name="title_junk_filter">Koristi lokalni filter za neželjenu poštu</string>
     <string name="title_junk_clear">Očisti</string>
     <string name="title_notification_sending">Poruka se šalje</string>

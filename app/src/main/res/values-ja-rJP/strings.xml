@@ -62,7 +62,6 @@
     <string name="title_junk_hint">迷惑メールの振り分けはメールプロバイダが行うものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
     <string name="title_block">ブロック %1$s</string>
     <string name="title_block_sender">送信者をブロック</string>
-    <string name="title_block_domain">送信者ドメインをブロック</string>
     <string name="title_block_sender_hint">        送信者のブロックは無料の機能です。
         送信者のドメインをブロックするにはフィルタルールを使用します。これはPro版の機能です。
     </string>

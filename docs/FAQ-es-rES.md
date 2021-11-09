@@ -1058,56 +1058,56 @@ Explorar mensajes en el servidor obtendrá los mensajes del servidor de correo e
 
 Cuando un elemento de menú para seleccionar/abrir/guardar un archivo está deshabilitado (atenuado) o cuando recibe el mensaje *El framework de acceso al almacenamiento no está disponible*, el [framework de acceso al almacenamiento](https://developer.android.com/guide/topics/providers/document-provider), un componente estándar de Android, probablemente no esté presente. Esto puede deberse a que su ROM personalizada no la incluye o porque fue removida activamente (debloated).
 
-FairEmail no solicita permisos de almacenamiento, por lo que este framework es necesario para seleccionar archivos y carpetas. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail no solicita permisos de almacenamiento, por lo que este framework es necesario para seleccionar archivos y carpetas. Ninguna aplicación, excepto tal vez gestores de archivos, dirigidos a Android 4.4 KitKat o posterior debería pedir permisos de almacenamiento porque permitiría el acceso a *todos los* archivos.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+El marco de acceso al almacenamiento lo proporciona el paquete * com.android.documentsui *, que es visible como la aplicación * Archivos * en algunas versiones de Android (notable OxygenOS).
 
-You can enable the storage access framework (again) with this adb command:
+Puede habilitar el marco de acceso al almacenamiento (nuevamente) con este comando adb:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Alternativamente, puede habilitar la aplicación *Archivos* de nuevo usando la configuración de aplicaiones de Android.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) ¿Puedo ayudar a traducir FairEmail en mi propio idioma?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Sí, puede traducir los textos de FairEmail a su propio idioma [en Crowdin](https://crowdin.com/project/open-source-email). El registro es gratuito.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Si desea que su nombre o alias sea incluido en la lista de colaboradores en *Acerca de* la aplicación, por favor [póngase en contacto conmigo](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+** (27) ¿Cómo puedo distinguir entre imágenes integradas y externas? **
 
-External image:
+Imagen externa:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Imagen externa](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Imagen incluida:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Imagen incluida](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Imagen rota:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Imagen rota](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Tenga en cuenta que la descarga de imágenes externas desde un servidor remoto puede ser usada para registrar que sí vio un mensaje, lo que probablemente no quiera si el mensaje es spam o malicioso.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) ¿Cómo puedo administrar las notificaciones de la barra de estado?**
 
-In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+En la configuración encontrarás un botón *Administrar notificaciones* para navegar directamente a la configuración de notificaciones de Android para FairEmail.
 
-On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
+En Android 8.0 Oreo y posteriores puede administrar las propiedades de los canales de notificación individuales, por ejemplo para establecer un sonido de notificación específico o para mostrar notificaciones en la pantalla de bloqueo.
 
-FairEmail has the following notification channels:
+FairEmail tiene los siguientes canales de notificación:
 
 * Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
 * Send: used for the notification of the send service

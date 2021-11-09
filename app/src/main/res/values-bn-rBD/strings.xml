@@ -57,7 +57,6 @@
     <string name="title_junk_hint">স্প্যাম ফিল্টার করার জন্য আপনার ইমেইল সরবরাহকারী দায়ী। একটি ইমেইল অ্যাপের কাছে এটি নির্ভরযোগ্যভাবে করার জন্য সমস্ত তথ্য থাকে না।</string>
     <string name="title_block">%1$s ব্লক করুন</string>
     <string name="title_block_sender">ব্লক প্রেরক</string>
-    <string name="title_block_domain">প্রেরক ডোমেন ব্লক করুন</string>
     <string name="title_junk_clear">মুছে ফেলুন</string>
     <string name="title_notification_sending">বার্তাসমূহ প্রেরণ হচ্ছে</string>
     <string name="title_notification_waiting">উপযুক্ত সংযোগের জন্য অপেক্ষা করা হচ্ছে</string>

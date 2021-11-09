@@ -72,7 +72,6 @@
     <string name="title_junk_hint">İstenmeyen (spam) e-postaların filtrelenmesinden servis sağlayıcınız sorumludur. Bir e-posta istemcisi bu işlemi gerçekleştirebilecek veriye sahip değildir.</string>
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
-    <string name="title_block_domain">Gönderenin alan adını engelle</string>
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_junk_filter">Yerel spam filtreleri</string>

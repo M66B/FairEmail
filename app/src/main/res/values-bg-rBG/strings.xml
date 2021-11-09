@@ -61,7 +61,6 @@
     <string name="title_ask_spam_who">Третирай съобщението от %1$s като спам?</string>
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
-    <string name="title_block_domain">Блокиране на домейна на подателя</string>
     <string name="title_junk_clear">Изчистване</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_waiting">Изчаква се подходяща връзка</string>

@@ -68,7 +68,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_junk_hint">El seu proveïdor de correu electrònic és el responsable de filtrar el correu brossa. Una aplicació de correu electrònic no té totes les dades necessàries per fer això de manera confiable.</string>
     <string name="title_block">Bloqueja %1$s</string>
     <string name="title_block_sender">Bloqueja remitent</string>
-    <string name="title_block_domain">Bloquejar el domini complet del remitent</string>
     <string name="title_junk_filter">Utilitza el filtre local d\'SPAM</string>
     <string name="title_junk_clear">Elimina</string>
     <string name="title_notification_sending">Enviant missatge</string>

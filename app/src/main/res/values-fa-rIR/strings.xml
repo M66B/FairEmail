@@ -74,7 +74,6 @@
     <string name="title_junk_hint">فراهم‌کننده شما مسئول پالایش هرزنامه است. برنامه ایمیل داده لازم برای قابل اطمینان بودن این کار را ندارد.</string>
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
-    <string name="title_block_domain">مسدود کردن دامنه فرستنده</string>
     <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.
         مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>

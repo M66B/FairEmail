@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit oletusarvoisesti uudelleenmuotoillaan turvattomien elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen on vahvistettava turvallisuuden vuoksi. Molemmat ominaisuudet voidaan haluttaessa poistaa käytöstä.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
-    <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
+    <string name="app_exit">Poistu menemällä \'takaisin\' uudelleen</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="app_updated">Päivitetty viimeksi: %1$s</string>
     <string name="channel_service">Vastaanottaminen</string>
@@ -72,7 +72,7 @@
     <string name="title_junk_hint">Palveluntarjoaja vastaa roskapostin suodatuksesta. Sähköpostisovelluksella ei ole kaikkea tarvittavaa dataa luotettavaan suodatukseen.</string>
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
-    <string name="title_block_domain">Estä lähettäjän verkkotunnus</string>
+    <string name="title_block_sender_domain">Estä verkkotunnus \'%1$s\'</string>
     <string name="title_block_sender_hint">        Lähettäjän esto on ilmainen ominaisuus.
         Lähettäjän verkkotunnuksen esto käyttää suodatussääntöjä ja on pro-ominaisuus.
     </string>
@@ -144,6 +144,8 @@
     <string name="title_setup_identities">Identiteetit</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_pop3">POP3-tili</string>
+    <string name="title_setup_oauth_permission">Sähköpostipalveluntarjoaja on hyväksynyt OAuthin vain Play Kaupan ja GitHubin versioille</string>
+    <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain Play Kaupan ja GitHubin versioissa, koska Android tarkistaa sovelluksen digitaalisen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
@@ -221,7 +223,7 @@
     <string name="title_importing_account">Tili %1$s</string>
     <string name="title_importing_identity">Identiteetti %1$s</string>
     <string name="title_importing_exists">Ohitettu: on jo olemassa</string>
-    <string name="title_importing_wizard">Suorita asetusvelho tunnistautuaksesi uudelleen</string>
+    <string name="title_importing_wizard">Tunnistaudu uudelleen suorittamalla asetusvelho</string>
     <string name="title_setup_reorder_accounts">Tilien järjestäminen</string>
     <string name="title_setup_reorder_folders">Kansioiden järjestäminen</string>
     <string name="title_reset_order">Palauta alkuperäinen järjestys</string>
@@ -262,7 +264,7 @@
     <string name="title_advanced_hint_remark">        Asetukset on luokiteltu välilehdille, jaettu osiin, järjestetty ulkoasun tai käytön mukaan, ja ne ovat haettavissa.
     </string>
     <string name="title_advanced_hint_setup">Voit määrittää tilin napauttamalla asetusvelho-nappia pääasiallisissa asetuksissa.</string>
-    <string name="title_advanced_section_main">Pääasiallinen</string>
+    <string name="title_advanced_section_main">Ensisijainen</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>
     <string name="title_advanced_section_connection">Yhteys</string>
@@ -306,7 +308,7 @@
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_attach_new">Lisää jaetut tiedostot uuteen luonnokseen</string>
-    <string name="title_advanced_reply_all">Paina vastauspainiketta pitkään vastataksesi kaikille</string>
+    <string name="title_advanced_reply_all">Vastaa kaikille painamalla vastauspainiketta pitkään</string>
     <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
@@ -438,14 +440,14 @@
     <string name="title_advanced_conversation_actions">Ehdota toimintoja (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Ehdota vastaustekstejä (Android 10+)</string>
     <string name="title_advanced_language_detection">Tunnista viestin tekstin kieli</string>
-    <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
+    <string name="title_advanced_pull_refresh">Päivitä vetämällä alas</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
-    <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
-    <string name="title_advanced_volumenav">Äänenvoimakkuus suuremmalle/pienemmälle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
+    <string name="title_advanced_swipenav">Siirry seuraavaan/edelliseen keskusteluun pyyhkäisemällä vasemmalle/oikealle</string>
+    <string name="title_advanced_volumenav">Siirry seuraavaan/edelliseen keskusteluun äänenvoimakkuuspainikkeilla</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
-    <string name="title_advanced_swipe_close">Pyyhkäise alas sulkeaksesi keskustelun</string>
-    <string name="title_advanced_swipe_move">Pyyhkäise ylös siirtääksesi keskustelun</string>
+    <string name="title_advanced_swipe_close">Sulje keskustelu pyyhkäisemällä alas</string>
+    <string name="title_advanced_swipe_move">Siirrä keskustelu pyyhkäisemällä ylös</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_first">Laajenna ensimmäinen viesti automaattisesti, kun keskustelu on luettu</string>
     <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
@@ -499,7 +501,7 @@
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_notify_screen_on">Laita näyttö hetkeksi päälle uusia ilmoituksia varten</string>
     <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
-    <string name="title_advanced_check_links_dbl">Tarkista linkkien verkkotunnukset epäilyttävien linkkien varalta käyttämällä estolistaa</string>
+    <string name="title_advanced_check_links_dbl">Tarkista, ovatko linkkien verkkotunnukset epäilyttävien verkkotunnusten listalla</string>
     <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>
     <string name="title_advanced_confirm_images">Älä näytä kuvia oletuksena</string>
     <string name="title_advanced_ask_images">Vahvista kuvien näyttäminen</string>
@@ -508,7 +510,7 @@
     <string name="title_advanced_tracking">Yritä tunnistaa ja poistaa käytöstä seurantakuvat</string>
     <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>
     <string name="title_advanced_client_id">Lähetä sovelluksen nimi ja versio sähköpostipalvelimelle</string>
-    <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
+    <string name="title_advanced_display_hidden">Näytä viestien tekstit, jotka on piilotettu</string>
     <string name="title_advanced_incognito_keyboard">Käytä näppäimistön yksityisyystilaa (Android 8+)</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
@@ -518,8 +520,8 @@
     <string name="title_advanced_generic_user_agent">Käytä geneeristä selaimen käyttäjäagenttia</string>
     <string name="title_advanced_load_emoji">Lataa päivitetty Emoji Google Play Palveluista</string>
     <string name="title_advanced_disconnect_auto_update">Päivitä listat viikoittain</string>
-    <string name="title_advanced_disconnect_links">Käytä listoja seurantalinkeistä varoittamiseksi</string>
-    <string name="title_advanced_disconnect_images">Käytä listoja seurantakuvien tunnistamiseksi</string>
+    <string name="title_advanced_disconnect_links">Varoita seurantalinkeistä käyttämällä listoja</string>
+    <string name="title_advanced_disconnect_images">Tunnista seurantakuvat käyttämällä listoja</string>
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
@@ -551,6 +553,7 @@
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
     <string name="title_advanced_deepl">DeepL-integraatio</string>
+    <string name="title_advanced_sdcard">Haluan käyttää SD-korttia</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
     <string name="title_advanced_check_weekly">Tarkista viikoittain päivittäisen sijaan</string>
@@ -569,7 +572,7 @@
     <string name="title_advanced_poll_battery">Tämä voi lisätä akun käyttöä!</string>
     <string name="title_advanced_poll_hint">Väliajoin uusien viestien tarkistus vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun viestejä on paljon. Jatkuva vastaanotto välttää tämän seuraamalla jatkuvasti muutoksia.</string>
     <string name="title_advanced_optimize_hint">Tämä saattaa muuttaa synkronoinnin aikaväliä akun säästämiseksi riippuen sähköpostipalvelinten ominaisuuksista ja käyttäytymisestä</string>
-    <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
+    <string name="title_advanced_schedule_hint">Aseta aika napauttamalla</string>
     <string name="title_advanced_quick_sync_hint">Tämä vähentää datankäyttöä, mutta uusia viestejä saattaa jäädä huomaamatta, jos sähköpostipalvelin ei noudata standardeja</string>
     <string name="title_advanced_no_date_hint">Jotkin palveluntarjoajat tallentavat viestien virheelliset tai tulevaisuudessa olevat päivämäärät puuttuvina</string>
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
@@ -598,7 +601,7 @@
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
-    <string name="title_advanced_startup_hint">Paina pitkään mitä tahansa kansiota kansiolistauksessa lisätäksesi tai poistaaksesi sen yhdistettyjen kansioiden listasta</string>
+    <string name="title_advanced_startup_hint">Lisää tai poista kansio yhdistettyjen kansioiden listalta painamalla sitä pitkään kansiolistauksessa</string>
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
     <string name="title_advanced_split_hint">Tämä jakaa näytön osiin</string>
@@ -615,20 +618,22 @@
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_language_detection_hint">Kielen tunnistuksen tuki riippuu laitteen valmistajasta</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
+    <string name="title_advanced_expandall_hint">Vastauspainiketta ei näytetä, kun useita viestejä on laajennettuna, koska on epäselvää, mihin viestiin halutaan vastata</string>
     <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien edistyneissä asetuksissa</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_bcc_hint">Osoitetta ei näytetä, mutta se lisätään lähetettäessä</string>
     <string name="title_advanced_internal_hint">Toiseen verkkotunnukseen lähetettäessä tulee varoitus</string>
     <string name="title_advanced_e2e_encryption">Päästä päähän -salauksen asetukset</string>
-    <string name="title_advanced_display_harmful_hint">Tämän valinnan pois kytkeminen voi olla haitallista yksityisyydellesi</string>
-    <string name="title_advanced_display_hidden_hint">Tämä voi näyttää omituiselta ja näyttää tekstejä kahteen kertaan</string>
+    <string name="title_advanced_display_harmful_hint">Tämän käytöstä poistaminen voi olla haitallista yksityisyydellesi</string>
+    <string name="title_advanced_display_hidden_hint">Saattaa näyttää omituiselta ja tekstejä voi näkyä kahteen kertaan</string>
     <string name="title_advanced_display_pin_hint">PIN on ensisijainen ennen biometristä tunnistautumista</string>
+    <string name="title_advanced_display_autolock_nav_hint">Käytössä on %1$d sekunnin viive</string>
     <string name="title_advanced_safe_browsing_hint">Google-palvelin tietää, mitä osoitteita haetaan</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
-    <string name="title_advanced_notify_manage_hint">Napauta kanavan nimeä asettaaksesi sen ominaisuudet</string>
+    <string name="title_advanced_notify_manage_hint">Aseta kanavan ominaisuudet napauttamalla sen nimeä</string>
     <string name="title_advanced_notify_manage_default_hint">Oletusäänten jne. asettamiseksi</string>
     <string name="title_advanced_notify_manage_service_hint">Seurantailmoituksen käytöstä poistamiseksi</string>
     <string name="title_advanced_notify_separate_hint">Miten voin määrittää ilmoitukset tileille, kansioille ja lähettäjille?</string>
@@ -981,7 +986,7 @@
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_html_remark">Alkuperäisen viestin näyttäminen tummalla taustalla ei ole mahdollista, koska tummat tekstit ja kuvat eivät erotu</string>
-    <string name="title_ask_show_html_images">Näytä aina kuvat alkuperäisiä viestejä näytettäessä</string>
+    <string name="title_ask_show_html_images">Näytä kuvat aina, kun näytetään alkuperäisiä viestejä</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit? Viestit säilyvät palvelimella.</string>
@@ -998,7 +1003,7 @@
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_reformatted">Tämä on uudelleenmuotoillun viestin näkymä.
-        Voit napauttaa &#x26F6; nähdäksesi alkuperäisen viestin ja piilottaaksesi tämän ohjeen.
+        Näet alkuperäisen viestin napauttamalla &#x26F6;.
         Viestien uudelleenmuotoilu kestää hetken riippuen viestin koosta ja laitteesi nopeudesta.
     </string>
     <string name="title_compose">Kirjoita viesti</string>
@@ -1020,7 +1025,7 @@
     <string name="title_subject">Aihe:</string>
     <string name="title_attachment">Liite:</string>
     <string name="title_body_hint">Viestisi</string>
-    <string name="title_body_hint_style">Voit valita tekstin muotoillaksesi sen</string>
+    <string name="title_body_hint_style">Voit muotoilla tekstiä valitsemalla sen</string>
     <string name="title_discard">Hylkää</string>
     <string name="title_save">Tallenna</string>
     <string name="title_send">Lähetä</string>
@@ -1103,6 +1108,7 @@
     <string name="title_smime_reminder">S/MIME-avaimet saatavilla</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
     <string name="title_extra_missing">Käyttäjätunnus puuttuu</string>
+    <string name="title_noreply_reminder">Lähetetään \'älä vastaa\'-osoitteeseen</string>
     <string name="title_external_reminder">Lähetetään ulkoiseen osoitteeseen</string>
     <string name="title_subject_reminder">Aihe puuttuu</string>
     <string name="title_text_reminder">Viesti on tyhjä</string>
@@ -1149,7 +1155,7 @@
     <string name="title_search">Hae</string>
     <string name="title_search_for_hint">Syötä teksti</string>
     <string name="title_search_hint">        Aluksi haku suoritetaan laitteessa.
-        Myös palvelimelta hakeaksesi näpäytä \'hae uudelleen\'-painiketta.
+        Näpäytä \'hae uudelleen\'-painiketta, jos haluat hakea myös palvelimelta.
     </string>
     <string name="title_search_index_hint">Hakuindeksin kautta etsiminen on nopeaa, mutta löytää vain kokonaisia sanoja.</string>
     <string name="title_search_text_hint">Tekstin haku viesteistä ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>
@@ -1411,21 +1417,21 @@
     <string name="title_legend_r">Vastaa</string>
     <string name="title_legend_s">Valitse/poista valinta</string>
     <string name="title_legend_t">Kohdista tekstiin</string>
-    <string name="title_hint_folder_actions">Paina pitkään kansiota päästäksesi toimintoihin, kuten kansion lisäämiseen navigointivalikkoon</string>
+    <string name="title_hint_folder_actions">Painamalla pitkään kansiota pääset toimintoihin, kuten kansion lisäämiseen navigointivalikkoon</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
-    <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>
-    <string name="title_hint_message_actions">Pyyhkäise vasemmalle siirtääksesi roskakoriin; Pyyhkäise oikealle arkistoidaksesi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
-    <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan; Paina ja vieritä ylös tai alas valitaksesi lisää viestejä</string>
+    <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, käytä tukivalikkoa</string>
+    <string name="title_hint_message_actions">Pyyhkäisy vasemmalle siirtää roskakoriin; Pyyhkäisy oikealle arkistoi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
+    <string name="title_hint_message_selection">Aloita useamman viestin valinta painamalla viestiä pitkään; Valitse useampi pitkään painamalla ja pyyhkäisemällä ylös tai alas</string>
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_sync_note">Oletuksena kaikkia viestejä ei ladata tallennustilan ja akun käytön sekä tiedonsiirron rajoittamiseksi. Voit muuttaa tätä painamalla kansiota pitkään kansioluettelossa ja valitsemalla \'Synkronoi lisää\'.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
-    <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näpäytä koko näytön kuvaketta viestin tekstin yläpuolella nähdäksesi alkuperäisen viestin.</string>
+    <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näet alkuperäisen viestin näpäyttämällä koko näytön kuvaketta viestin tekstin yläpuolella.</string>
     <string name="title_hint_design">Ulkoasu on tarkoituksella tehty sellaiseksi, ettei se vie huomiota, mutta on hyvin toiminnallinen. Ulkoasun muokkaamiseen on paljon asetuksia, mutta on mahdotonta tehdä kaikki onnelliseksi samaan aikaan.</string>
     <string name="title_hint_junk">Roskapostin suodatus pitäisi tehdä sähköpostipalvelimella, eikä sitä voi tehdä luotettavasti akkukäyttöisellä laitteella, jolla on rajalliset ominaisuudet.</string>
     <string name="title_hint_junk_learn">Siirtämällä viestejä roskapostikansioon ja sieltä pois, sähköpostipalvelin \"oppii\" mitä roskaposti on</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
-    <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
+    <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Näet koko sisällön tallentamalla raakaviestin toimintopalkin tallennuskuvakkeesta.</string>
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_image_link">Kuvalinkki</string>
     <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>
@@ -1509,7 +1515,7 @@
     <string name="title_pro_activated">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_valid">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_invalid">Virheellinen vastaus</string>
-    <string name="title_pro_support">FairEmail tarvitsee apuasi. Napauta ostaaksesi pro-ominaisuudet, jotta projekti jatkuu ja saat poistettua tämän viestin.</string>
+    <string name="title_pro_support">FairEmail tarvitsee apuasi. Napauta ja osta pro-ominaisuudet, jotta projekti jatkuu ja saat poistettua tämän viestin.</string>
     <string name="title_boundary_error">Virhe ladattaessa viestejä sähköpostipalvelimelta</string>
     <string name="title_boundary_retry">Yritä uudelleen</string>
     <string name="title_unexpected_error">Odottamaton virhe</string>
