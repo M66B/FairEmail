@@ -4519,16 +4519,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
 
         SpannableStringBuilder ssbZoom = new SpannableStringBuilder(getString(R.string.title_zoom));
-        if (zoom == 0)
-            ssbZoom.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssbZoom.length(), 0);
-        else if (zoom == 2)
-            ssbZoom.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, ssbZoom.length(), 0);
+        ssbZoom.append(' ');
+        for (int i = 0; i <= zoom; i++)
+            ssbZoom.append('+');
 
         SpannableStringBuilder ssbPadding = new SpannableStringBuilder(getString(R.string.title_padding));
-        if (padding == 0)
-            ssbPadding.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssbPadding.length(), 0);
-        else if (padding == 2)
-            ssbPadding.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, ssbPadding.length(), 0);
+        ssbPadding.append(' ');
+        for (int i = 0; i <= padding; i++)
+            ssbPadding.append('+');
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
