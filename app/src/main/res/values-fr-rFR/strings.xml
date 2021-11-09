@@ -1211,7 +1211,7 @@
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
-    <string name="title_padding">Taille de l\'espacement des messages</string>
+    <string name="title_padding">Espacement des messages</string>
     <string name="title_select_language">Sélectionner la langue</string>
     <string name="title_select_all">Tout sélectionner</string>
     <string name="title_select_found">Sélectionner tous les messages trouvés</string>
@@ -1546,7 +1546,7 @@
     <string name="title_widget_unseen">Messages non lus seulement</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
     <string name="title_widget_font_size">Taille de police</string>
-    <string name="title_widget_padding">Taille de l\'espacement des messages</string>
+    <string name="title_widget_padding">Espacement des messages</string>
     <string name="title_widget_semi_transparent">Arrière-plan semi-transparent</string>
     <string name="title_widget_refresh">Afficher le bouton d\'actualisation des messages</string>
     <string name="title_widget_compose">Afficher le bouton Rédiger un nouveau message</string>
