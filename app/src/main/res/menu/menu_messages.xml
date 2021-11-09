@@ -23,19 +23,20 @@
     <item
         android:id="@+id/menu_folders"
         android:actionLayout="@layout/action_button"
+        android:icon="@drawable/twotone_folder_special_24"
         android:title="@string/title_folder_primary"
         app:showAsAction="always" />
 
     <group android:id="@+id/group_purge">
         <item
             android:id="@+id/menu_empty_trash"
-            android:icon="@drawable/twotone_delete_24"
+            android:icon="@drawable/twotone_delete_forever_24"
             android:title="@string/title_empty_trash"
             app:showAsAction="ifRoom" />
 
         <item
             android:id="@+id/menu_empty_spam"
-            android:icon="@drawable/twotone_delete_24"
+            android:icon="@drawable/twotone_delete_forever_24"
             android:title="@string/title_empty_spam"
             app:showAsAction="ifRoom" />
     </group>
@@ -132,17 +133,20 @@
 
         <item
             android:id="@+id/menu_padding"
+            android:icon="@drawable/twotone_fullscreen_24"
             android:title="@string/title_padding"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_compact"
             android:checkable="true"
+            android:icon="@drawable/outline_unfold_less_24"
             android:title="@string/title_compact"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_theme"
+            android:icon="@drawable/twotone_palette_24"
             android:title="@string/title_setup_theme"
             app:showAsAction="never">
             <menu />
@@ -152,21 +156,25 @@
     <group android:id="@+id/group_operations">
         <item
             android:id="@+id/menu_select_all"
+            android:icon="@drawable/twotone_checklist_24"
             android:title="@string/title_select_all"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_select_found"
+            android:icon="@drawable/twotone_checklist_24"
             android:title="@string/title_select_found"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_mark_all_read"
+            android:icon="@drawable/twotone_drafts_24"
             android:title="@string/title_mark_all_read"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_view_thread"
+            android:icon="@drawable/twotone_message_24"
             android:title="@string/title_view_thread"
             app:showAsAction="never" />
     </group>
@@ -174,6 +182,7 @@
     <group android:id="@+id/group_special">
         <item
             android:id="@+id/menu_sync_more"
+            android:icon="@drawable/twotone_save_alt_24"
             android:title="@string/title_synchronize_more"
             app:showAsAction="never">
             <menu />
@@ -181,16 +190,19 @@
 
         <item
             android:id="@+id/menu_force_sync"
+            android:icon="@drawable/twotone_sync_24"
             android:title="@string/title_force_sync"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_force_send"
+            android:icon="@drawable/twotone_send_24"
             android:title="@string/title_force_send"
             app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_edit_properties"
+            android:icon="@drawable/twotone_edit_24"
             android:title="@string/title_edit_properties"
             app:showAsAction="never">
             <menu />
