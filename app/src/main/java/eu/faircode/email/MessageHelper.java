@@ -145,6 +145,13 @@ public class MessageHelper {
             StandardCharsets.UTF_16LE
     ));
 
+    private static final List<String> DO_NOT_REPLY = Collections.unmodifiableList(Arrays.asList(
+            "noreply",
+            "no.reply",
+            "no-reply",
+            "do-not-reply"
+    ));
+
     static final String FLAG_FORWARDED = "$Forwarded";
     static final String FLAG_JUNK = "$Junk";
     static final String FLAG_NOT_JUNK = "$NotJunk";
@@ -3213,6 +3220,29 @@ public class MessageHelper {
                 return true;
             ex = ex.getCause();
         }
+        return false;
+    }
+
+    static boolean isNoReply(Address address) {
+        if (address instanceof InternetAddress) {
+            String email = ((InternetAddress) address).getAddress();
+            String username = UriHelper.getEmailUser(email);
+            String domain = UriHelper.getEmailDomain(email);
+
+            if (!TextUtils.isEmpty(username)) {
+                username = username.toLowerCase(Locale.ROOT);
+                for (String value : DO_NOT_REPLY)
+                    if (username.contains(value))
+                        return true;
+            }
+            if (!TextUtils.isEmpty(domain)) {
+                domain = domain.toLowerCase(Locale.ROOT);
+                for (String value : DO_NOT_REPLY)
+                    if (domain.startsWith(value))
+                        return true;
+            }
+        }
+
         return false;
     }
 

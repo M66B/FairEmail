@@ -328,10 +328,6 @@ public class FragmentCompose extends FragmentBase {
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
-    private static final List<String> DO_NOT_REPLY = Collections.unmodifiableList(Arrays.asList(
-            "noreply", "no.reply", "no-reply", "do-not-reply"
-    ));
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -5811,18 +5807,11 @@ public class FragmentCompose extends FragmentBase {
                                 recipients.addAll(Arrays.asList(draft.bcc));
 
                             boolean noreply = false;
-                            for (Address recipient : recipients) {
-                                String email = ((InternetAddress) recipient).getAddress();
-                                String username = UriHelper.getEmailUser(email);
-                                if (!TextUtils.isEmpty(username)) {
-                                    username = username.toLowerCase(Locale.ROOT);
-                                    for (String value : DO_NOT_REPLY)
-                                        if (username.contains(value)) {
-                                            noreply = true;
-                                            break;
-                                        }
+                            for (Address recipient : recipients)
+                                if (MessageHelper.isNoReply(recipient)) {
+                                    noreply = true;
+                                    break;
                                 }
-                            }
                             args.putBoolean("remind_noreply", noreply);
 
                             if (identity != null && !TextUtils.isEmpty(identity.internal)) {
