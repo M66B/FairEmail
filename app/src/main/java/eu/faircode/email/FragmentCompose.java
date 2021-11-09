@@ -1540,9 +1540,10 @@ public class FragmentCompose extends FragmentBase {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_compose, menu);
 
-        PopupMenuLifecycle.insertIcons(getContext(), menu);
+        final Context context = getContext();
+        PopupMenuLifecycle.insertIcons(context, menu);
 
-        LayoutInflater infl = LayoutInflater.from(getContext());
+        LayoutInflater infl = LayoutInflater.from(context);
 
         View v = infl.inflate(R.layout.action_button_text, null);
         v.setId(View.generateViewId());
@@ -1560,7 +1561,8 @@ public class FragmentCompose extends FragmentBase {
                 ib.getLocationOnScreen(pos);
                 int dp24 = Helper.dp2pixels(v.getContext(), 24);
 
-                Toast toast = ToastEx.makeTextBw(getContext(), getString(R.string.title_encrypt), Toast.LENGTH_LONG);
+                Toast toast = ToastEx.makeTextBw(v.getContext(),
+                        getString(R.string.title_encrypt), Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1] + dp24);
                 toast.show();
                 return true;
