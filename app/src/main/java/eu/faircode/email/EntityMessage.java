@@ -160,6 +160,7 @@ public class EntityMessage implements Serializable {
     public String unsubscribe;
     public String autocrypt;
     public String headers;
+    public String infrastructure;
     public Boolean raw;
     public String subject;
     public Long size;
@@ -546,6 +547,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.unsubscribe, other.unsubscribe) &&
                     Objects.equals(this.autocrypt, other.autocrypt) &&
                     Objects.equals(this.headers, other.headers) &&
+                    Objects.equals(this.infrastructure, other.infrastructure) &&
                     Objects.equals(this.raw, other.raw) &&
                     Objects.equals(this.subject, other.subject) &&
                     Objects.equals(this.size, other.size) &&

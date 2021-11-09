@@ -2725,6 +2725,7 @@ class Core {
                         message.list_post = helper.getListPost();
                         message.unsubscribe = helper.getListUnsubscribe();
                         message.headers = helper.getHeaders();
+                        message.infrastructure = helper.getInfrastructure();
                         message.subject = helper.getSubject();
                         message.size = parts.getBodySize();
                         message.total = helper.getSize();
@@ -3686,6 +3687,7 @@ class Core {
             message.autocrypt = helper.getAutocrypt();
             if (download_headers)
                 message.headers = helper.getHeaders();
+            message.infrastructure = helper.getInfrastructure();
             message.subject = helper.getSubject();
             message.size = parts.getBodySize();
             message.total = helper.getSize();

@@ -285,6 +285,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean collapse_quotes;
     private boolean authentication;
     private boolean authentication_indicator;
+    private boolean infra;
 
     private boolean autoclose_unseen;
     private boolean collapse_marked;
@@ -456,6 +457,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetBody;
         private ImageButton ibDownloading;
         private Group grpDownloading;
+        private ImageView ivInfrastructure;
         private ImageButton ibTrashBottom;
         private ImageButton ibArchiveBottom;
         private ImageButton ibMoveBottom;
@@ -834,6 +836,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
+            ivInfrastructure = vsBody.findViewById(R.id.ivInfrastructure);
             ibTrashBottom = vsBody.findViewById(R.id.ibTrashBottom);
             ibArchiveBottom = vsBody.findViewById(R.id.ibArchiveBottom);
             ibMoveBottom = vsBody.findViewById(R.id.ibMoveBottom);
@@ -1575,6 +1578,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(View.GONE);
             grpAction.setVisibility(View.GONE);
             clearActions();
+            ivInfrastructure.setVisibility(View.GONE);
             ibTrashBottom.setVisibility(View.GONE);
             ibArchiveBottom.setVisibility(View.GONE);
             ibMoveBottom.setVisibility(View.GONE);
@@ -1828,6 +1832,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAction.setVisibility(View.GONE);
             clearActions();
+            ivInfrastructure.setVisibility(View.GONE);
             ibTrashBottom.setVisibility(View.GONE);
             ibArchiveBottom.setVisibility(View.GONE);
             ibMoveBottom.setVisibility(View.GONE);
@@ -2866,6 +2871,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindExtras(TupleMessageEx message) {
+            int resid = 0;
+            if (infra && message.infrastructure != null) {
+                String resname = "infra_" + message.infrastructure;
+                resid = context.getResources()
+                        .getIdentifier(resname, "drawable", context.getPackageName());
+            }
+            if (resid != 0)
+                ivInfrastructure.setImageResource(resid);
+            ivInfrastructure.setVisibility(resid != 0 ? View.VISIBLE : View.GONE);
+
             ibTrashBottom.setVisibility(ibTrash.getVisibility());
             ibArchiveBottom.setVisibility(ibArchive.getVisibility());
             ibMoveBottom.setVisibility(ibMove.getVisibility());
@@ -5976,6 +5991,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
         this.authentication_indicator = prefs.getBoolean("authentication_indicator", false);
+        this.infra = prefs.getBoolean("infra", false);
         this.language_detection = prefs.getBoolean("language_detection", false);
         this.autoclose_unseen = prefs.getBoolean("autoclose_unseen", false);
         this.collapse_marked = prefs.getBoolean("collapse_marked", true);
@@ -6112,6 +6128,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.headers, next.headers)) {
                     same = false;
                     log("headers changed", next.id);
+                }
+                if (!Objects.equals(prev.infrastructure, next.infrastructure)) {
+                    same = false;
+                    log("infrastructure changed", next.id);
                 }
                 if (!Objects.equals(prev.raw, next.raw)) {
                     same = false;

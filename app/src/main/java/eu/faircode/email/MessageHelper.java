@@ -1659,6 +1659,20 @@ public class MessageHelper {
         return sb.toString();
     }
 
+    String getInfrastructure() throws MessagingException {
+        ensureHeaders();
+
+        String awsses = imessage.getHeader("X-SES-Outgoing", null);
+        if (!TextUtils.isEmpty(awsses))
+            return "awsses";
+
+        String sendgrid = imessage.getHeader("X-SG-EID", null);
+        if (!TextUtils.isEmpty(sendgrid))
+            return "sendgrid";
+
+        return null;
+    }
+
     String getHash() throws MessagingException {
         try {
             return Helper.sha1(getHeaders().getBytes());
