@@ -4444,13 +4444,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
                 (language_detection && !TextUtils.isEmpty(filter_language)));
+        int filterColor = Helper.resolveColor(context, R.attr.colorAccent);
+        float filterLighten = 0.7f - (float) ColorUtils.calculateLuminance(filterColor);
+        if (filterLighten > 0)
+            filterColor = ColorUtils.blendARGB(filterColor, Color.WHITE, filterLighten);
         MenuItem menuFilter = menu.findItem(R.id.menu_filter);
         menuFilter.setShowAsAction(folder && filter_active
                 ? MenuItem.SHOW_AS_ACTION_ALWAYS
                 : MenuItem.SHOW_AS_ACTION_NEVER);
-        MenuItemCompat.setIconTintList(menuFilter,
-                folder && filter_active ?
-                        ColorStateList.valueOf(Helper.resolveColor(context, R.attr.colorAccent)) : null);
+        MenuItemCompat.setIconTintList(menuFilter, folder && filter_active
+                ? ColorStateList.valueOf(filterColor) : null);
         menuFilter.setIcon(folder && filter_active ? R.drawable.twotone_filter_alt_24 : R.drawable.twotone_filter_list_24);
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
