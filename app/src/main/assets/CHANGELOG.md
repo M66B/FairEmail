@@ -4,9 +4,13 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
-### 1.1775 - 2021-11-09
+### Next version
 
 * Added message menu icons
+* Small improvements and minor bug fixes
+
+### 1.1775 - 2021-11-09
+
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
