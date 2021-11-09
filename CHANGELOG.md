@@ -6,6 +6,7 @@
 
 ### 1.1775 - 2021-11-09
 
+* Added message menu icons
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
