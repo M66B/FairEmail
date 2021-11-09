@@ -115,7 +115,7 @@ public class PopupMenuLifecycle extends PopupMenu {
         }
     }
 
-    private static void insertIcon(Context context, MenuItem menuItem) {
+    static void insertIcon(Context context, MenuItem menuItem) {
         Drawable icon = menuItem.getIcon();
 
         if (icon == null)
