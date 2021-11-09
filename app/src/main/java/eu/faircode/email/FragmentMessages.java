@@ -4384,7 +4384,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_messages, menu);
 
-        LayoutInflater infl = LayoutInflater.from(getContext());
+        final Context context = getContext();
+        PopupMenuLifecycle.insertIcons(context, menu);
+
+        LayoutInflater infl = LayoutInflater.from(context);
         ImageButton ib = (ImageButton) infl.inflate(R.layout.action_button, null);
         ib.setId(View.generateViewId());
         ib.setImageResource(R.drawable.twotone_folder_24);
@@ -4414,7 +4417,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String sort = prefs.getString("sort", "time");
         boolean ascending = prefs.getBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
@@ -4446,7 +4450,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 : MenuItem.SHOW_AS_ACTION_NEVER);
         MenuItemCompat.setIconTintList(menuFilter,
                 folder && filter_active ?
-                        ColorStateList.valueOf(Helper.resolveColor(getContext(), R.attr.colorAccent)) : null);
+                        ColorStateList.valueOf(Helper.resolveColor(context, R.attr.colorAccent)) : null);
         menuFilter.setIcon(folder && filter_active ? R.drawable.twotone_filter_alt_24 : R.drawable.twotone_filter_list_24);
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
@@ -4553,6 +4557,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
         ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
         ibSnoozed.setVisibility(quick_filter && folder && !drafts ? View.VISIBLE : View.GONE);
+
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom));
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding));
 
         super.onPrepareOptionsMenu(menu);
     }
