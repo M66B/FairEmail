@@ -1692,6 +1692,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(salesforce))
             return "salesforce";
 
+        String mailjet = imessage.getHeader("X-MJ-Mid", null);
+        if (!TextUtils.isEmpty(mailjet))
+            return "mailjet";
+
         return null;
     }
 
