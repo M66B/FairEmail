@@ -1696,6 +1696,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(mailjet))
             return "mailjet";
 
+        String sendinblue = imessage.getHeader("X-sib-id", null);
+        if (!TextUtils.isEmpty(sendinblue))
+            return "sendinblue";
+
         return null;
     }
 
