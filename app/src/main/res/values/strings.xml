@@ -1806,6 +1806,16 @@
     <string name="title_accessibility_from">Sender</string>
     <string name="title_accessibility_to">Recipient</string>
 
+    <string name="infra_awsses" translatable="false">Amazon SES</string>
+    <string name="infra_mailchimp" translatable="false">Mailchimp</string>
+    <string name="infra_mailgun" translatable="false">Mailgun</string>
+    <string name="infra_mailjet" translatable="false">Mailjet</string>
+    <string name="infra_mandrill" translatable="false">Mandrill</string>
+    <string name="infra_postmark" translatable="false">Postmark</string>
+    <string name="infra_salesforce" translatable="false">Salesforce</string>
+    <string name="infra_sendgrid" translatable="false">SendGrid</string>
+    <string name="infra_sendinblue" translatable="false">Sendinblue</string>
+
     <string-array name="pollIntervalNames">
         <item>Always</item>
         <item>Every 5 minutes</item>

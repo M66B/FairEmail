@@ -457,7 +457,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetBody;
         private ImageButton ibDownloading;
         private Group grpDownloading;
-        private ImageView ivInfrastructure;
+        private ImageButton ibInfrastructure;
         private ImageButton ibTrashBottom;
         private ImageButton ibArchiveBottom;
         private ImageButton ibMoveBottom;
@@ -836,7 +836,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
-            ivInfrastructure = vsBody.findViewById(R.id.ivInfrastructure);
+            ibInfrastructure = vsBody.findViewById(R.id.ibInfrastructure);
             ibTrashBottom = vsBody.findViewById(R.id.ibTrashBottom);
             ibArchiveBottom = vsBody.findViewById(R.id.ibArchiveBottom);
             ibMoveBottom = vsBody.findViewById(R.id.ibMoveBottom);
@@ -951,6 +951,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTools.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
+                ibInfrastructure.setOnClickListener(this);
                 ibTrashBottom.setOnClickListener(this);
                 ibTrashBottom.setOnLongClickListener(this);
                 ibArchiveBottom.setOnClickListener(this);
@@ -1048,6 +1049,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTools.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
+                ibInfrastructure.setOnClickListener(null);
                 ibTrashBottom.setOnClickListener(null);
                 ibTrashBottom.setOnLongClickListener(null);
                 ibArchiveBottom.setOnClickListener(null);
@@ -1578,7 +1580,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(View.GONE);
             grpAction.setVisibility(View.GONE);
             clearActions();
-            ivInfrastructure.setVisibility(View.GONE);
+            ibInfrastructure.setVisibility(View.GONE);
             ibTrashBottom.setVisibility(View.GONE);
             ibArchiveBottom.setVisibility(View.GONE);
             ibMoveBottom.setVisibility(View.GONE);
@@ -1834,7 +1836,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAction.setVisibility(View.GONE);
             clearActions();
-            ivInfrastructure.setVisibility(View.GONE);
+            ibInfrastructure.setVisibility(View.GONE);
             ibTrashBottom.setVisibility(View.GONE);
             ibArchiveBottom.setVisibility(View.GONE);
             ibMoveBottom.setVisibility(View.GONE);
@@ -2880,8 +2882,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .getIdentifier(resname, "drawable", context.getPackageName());
             }
             if (resid != 0)
-                ivInfrastructure.setImageResource(resid);
-            ivInfrastructure.setVisibility(resid != 0 ? View.VISIBLE : View.GONE);
+                ibInfrastructure.setImageResource(resid);
+            ibInfrastructure.setVisibility(resid != 0 ? View.VISIBLE : View.GONE);
 
             ibTrashBottom.setVisibility(ibTrash.getVisibility());
             ibArchiveBottom.setVisibility(ibArchive.getVisibility());
@@ -3474,6 +3476,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionJunk(message);
                 } else if (id == R.id.ibInbox) {
                     onActionInbox(message);
+                } else if (id == R.id.ibInfrastructure) {
+                    onActionShowInfra(message);
                 } else if (id == R.id.ibMore) {
                     onActionMore(message);
                 } else if (id == R.id.ibTools) {
@@ -4861,6 +4865,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
             popupMenu.show();
+        }
+
+        private void onActionShowInfra(TupleMessageEx message) {
+            String resname = "infra_" + message.infrastructure;
+            int resid = context.getResources()
+                    .getIdentifier(resname, "string", context.getPackageName());
+            String infra = (resid < 0 ? message.infrastructure : context.getString(resid));
+            ToastEx.makeText(context, infra, Toast.LENGTH_LONG).show();
         }
 
         private boolean onOpenLink(Uri uri, String title, boolean always_confirm) {
