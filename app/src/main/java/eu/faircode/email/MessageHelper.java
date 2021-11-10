@@ -1712,6 +1712,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(elastic))
             return "elastic";
 
+        String zeptomail = imessage.getHeader("X-JID", null); // TM-MAIL-JID
+        if (!TextUtils.isEmpty(zeptomail))
+            return "zeptomail";
+
         return null;
     }
 

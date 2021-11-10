@@ -1818,6 +1818,7 @@
     <string name="infra_sendgrid" translatable="false">SendGrid</string>
     <string name="infra_sendinblue" translatable="false">Sendinblue</string>
     <string name="infra_sparkpost" translatable="false">Sparkpost</string>
+    <string name="infra_zeptomail" translatable="false">Zeptomail/Zoho</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
