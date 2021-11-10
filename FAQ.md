@@ -2363,6 +2363,23 @@ Some common header conditions (regex):
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
+You can match IMAP flags (keywords) via a header condition too (from version 1.1777), like this:
+
+```
+$<keyword>$
+```
+
+You can use these special values too, representing common system flags:
+
+```
+$$seen$
+$$answered$
+$$flagged$
+$$deleted$
+```
+
+Note that *regex* should be disable and that there should be no white space.
+
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.

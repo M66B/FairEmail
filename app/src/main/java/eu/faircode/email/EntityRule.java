@@ -239,25 +239,46 @@ public class EntityRule {
                 String value = jheader.getString("value");
                 boolean regex = jheader.getBoolean("regex");
 
-                boolean matches = false;
-                Enumeration<Header> headers;
-                if (imessage != null)
-                    headers = imessage.getAllHeaders();
-                else if (message.headers != null) {
-                    ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
-                    headers = new InternetHeaders(bis).getAllHeaders();
-                } else
-                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
-                while (headers.hasMoreElements()) {
-                    Header header = headers.nextElement();
-                    String formatted = header.getName() + ": " + header.getValue();
-                    if (matches(context, message, value, formatted, regex)) {
-                        matches = true;
-                        break;
+                if (!regex &&
+                        value != null &&
+                        value.startsWith("$") &&
+                        value.endsWith("$")) {
+                    String keyword = value.substring(1, value.length() - 1);
+
+                    List<String> keywords = new ArrayList<>();
+                    if (message.ui_seen)
+                        keywords.add("$seen");
+                    if (message.ui_answered)
+                        keywords.add("$answered");
+                    if (message.ui_flagged)
+                        keywords.add("$flagged");
+                    if (message.ui_deleted)
+                        keywords.add("$deleted");
+                    keywords.addAll(Arrays.asList(message.keywords));
+
+                    if (!keywords.contains(keyword))
+                        return false;
+                } else {
+                    boolean matches = false;
+                    Enumeration<Header> headers;
+                    if (imessage != null)
+                        headers = imessage.getAllHeaders();
+                    else if (message.headers != null) {
+                        ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
+                        headers = new InternetHeaders(bis).getAllHeaders();
+                    } else
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+                    while (headers.hasMoreElements()) {
+                        Header header = headers.nextElement();
+                        String formatted = header.getName() + ": " + header.getValue();
+                        if (matches(context, message, value, formatted, regex)) {
+                            matches = true;
+                            break;
+                        }
                     }
+                    if (!matches)
+                        return false;
                 }
-                if (!matches)
-                    return false;
             }
 
             // Date
