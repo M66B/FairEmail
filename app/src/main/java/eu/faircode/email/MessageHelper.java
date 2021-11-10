@@ -149,6 +149,8 @@ public class MessageHelper {
             "noreply",
             "no.reply",
             "no-reply",
+            "donotreply",
+            "do.not.reply",
             "do-not-reply"
     ));
 
