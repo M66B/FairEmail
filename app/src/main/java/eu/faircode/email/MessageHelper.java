@@ -1684,6 +1684,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(mailchimp))
             return "mailchimp";
 
+        String postmark = imessage.getHeader("X-PM-Message-Id", null);
+        if (!TextUtils.isEmpty(postmark))
+            return "postmark";
+
         return null;
     }
 
