@@ -72,6 +72,7 @@
     <string name="title_junk_hint">İstenmeyen (spam) e-postaların filtrelenmesinden servis sağlayıcınız sorumludur. Bir e-posta istemcisi bu işlemi gerçekleştirebilecek veriye sahip değildir.</string>
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
+    <string name="title_block_sender_domain">\'%1$s\' alan adını engelle</string>
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
@@ -142,6 +143,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_identities">Kimlikler</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
+    <string name="title_setup_oauth_permission">E-posta sağlayıcısı, yalnızca Play Store ve GitHub sürümü için OAuth\'u onayladı</string>
+    <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek Android dijital uygulama imzasını kontrol ettiğinden, yalnızca Play Store ve GitHub sürümünde çalışır</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
@@ -512,6 +515,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
     <string name="title_advanced_autolock">Ekran kapandığında kilitle</string>
+    <string name="title_advanced_autolock_nav">Uygulamadan çıkarken kilitle</string>
     <string name="title_advanced_generic_user_agent">Genel tarayıcı kullanıcı aracısını kullan</string>
     <string name="title_advanced_load_emoji">Google Play Hizmetlerinden güncellenmiş Emojiyi yükleyin</string>
     <string name="title_advanced_disconnect_auto_update">Listeleri haftalık olarak otomatik güncelle</string>
@@ -549,6 +553,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_deepl">DeepL entegrasyonu</string>
+    <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
     <string name="title_advanced_check_weekly">Günlük yerine haftalık kontrol edin</string>
@@ -613,6 +618,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha doğru bir şekilde gösterecektir, ancak muhtemelen bir gecikme ile</string>
     <string name="title_advanced_language_detection_hint">Dil algılama desteği, cihaz üreticisine bağlıdır</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
+    <string name="title_advanced_expandall_hint">Düğmenin hangi mesaja uygulanacağı belirsiz olduğundan, birden fazla mesaj genişletildiğinde cevap düğmesi gösterilmeyecektir</string>
     <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
@@ -622,6 +628,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
     <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
+    <string name="title_advanced_display_autolock_nav_hint">%1$d saniyelik bir ek süre olacak</string>
     <string name="title_advanced_safe_browsing_hint">Google sunucusu hangi adreslerin arandığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
@@ -1070,6 +1077,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_send_dialog">Gönderme seçeneklerini göster</string>
     <string name="title_image_dialog">Görsel seçeneklerini göster</string>
     <string name="title_media_toolbar">Medya araç çubuğu</string>
+    <string name="title_manage_local_contacts">Yerel kişileri yönet</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
     <string name="title_create_template">Şablon oluştur</string>
@@ -1099,6 +1107,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_smime_reminder">S/MIME anahtarları mevcut</string>
     <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_extra_missing">Kullanıcı adı eksik</string>
+    <string name="title_noreply_reminder">\'Yanıtsız\' bir adrese gönderiliyor</string>
     <string name="title_external_reminder">Harici adrese gönder</string>
     <string name="title_subject_reminder">Konu boş</string>
     <string name="title_text_reminder">İleti boş</string>

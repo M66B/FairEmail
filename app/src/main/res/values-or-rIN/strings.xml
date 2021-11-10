@@ -192,6 +192,7 @@
     <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
     <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
+    <string name="title_advanced_expandall_hint">ଏକାଧିକ ବାର୍ତ୍ତା ସମ୍ପ୍ରସାରଣ ହୋଇଥିବା ବେଳେ ଉତ୍ତର ବଟନ୍ ଦେଖାଯିବ ନାହିଁ କାରଣ ବଟନ୍ କେଉଁ ବାର୍ତ୍ତା ପାଇଁ ପ୍ରଯୁଜ୍ୟ ତାହା ଅସ୍ପଷ୍ଟ ଅଟେ</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
@@ -257,6 +258,7 @@
     <string name="title_months_all">ସମସ୍ତ</string>
     <string name="title_folder_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_folder_system">ସିଷ୍ଟମ୍</string>
+    <string name="title_filters_active">ଗୋଟିଏ କିମ୍ବା ଅଧିକ ଶୋଧକ ସକ୍ରିୟ</string>
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
@@ -316,7 +318,7 @@
     <string name="title_search_index_hint">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ମାଧ୍ୟମରେ ଖୋଜିବା ଦ୍ରୁତ ଅଟେ, କିନ୍ତୁ ଏହା ଦ୍ୱାରା କେବଳ ପୂର୍ଣ୍ଣ ଶବ୍ଦ ମିଳିଥାଏ।</string>
     <string name="title_search_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_search_use_index">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ବ୍ୟବହାର କରିବା</string>
-    <string name="title_search_with_unseen">ପଢ଼ି ନାହାଁନ୍ତି</string>
+    <string name="title_search_with_unseen">ଅପଠିତ</string>
     <string name="title_search_with_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_search_with_hidden">ଲୁକ୍କାୟିତ (କେବଳ ଡିଭାଇସରେ)</string>
     <string name="title_search_with_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା (କେବଳ ଡିଭାଇସରେ)</string>
@@ -330,7 +332,7 @@
     <string name="title_search_flag_invite">ଆମନ୍ତ୍ରଣ</string>
     <string name="title_search_flag_size">ଆକାର &gt; %1$s</string>
     <string name="title_sort_on_time">ସମୟ</string>
-    <string name="title_sort_on_unread">ପଢ଼ି ନାହାଁନ୍ତି</string>
+    <string name="title_sort_on_unread">ପଢ଼ି ନାହାଁନ୍ତି</string>
     <string name="title_sort_on_starred">ତାରାଙ୍କିତ</string>
     <string name="title_sort_on_priority">ପ୍ରାଥମିକତା</string>
     <string name="title_sort_on_sender">ପ୍ରେରକ</string>
@@ -362,6 +364,7 @@
     <string name="title_rule_check">ଯାଞ୍ଚ କର</string>
     <string name="title_rule_tts_from">ପ୍ରେରକ</string>
     <string name="title_rule_tts_subject">ବିଷୟ</string>
+    <string name="title_rule_tts_content">ପାଠ୍ୟ</string>
     <string name="title_legend_section_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_legend_section_messages">ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
@@ -400,10 +403,12 @@
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_widget_padding">ପ୍ୟାଡିଂ ଆକାର</string>
-    <string name="title_accessibility_unseen">ପଢ଼ି ନାହାଁନ୍ତି</string>
+    <string name="title_accessibility_seen">ପଠିତ</string>
+    <string name="title_accessibility_unseen">ଅପଠିତ</string>
     <!-- Thunderbird -->
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
+    <string name="title_accessibility_edit">ସମ୍ପାଦନ</string>
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_accessibility_from">ପ୍ରେରକ</string>
     <string-array name="pollIntervalNames">
