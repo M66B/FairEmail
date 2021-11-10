@@ -1676,6 +1676,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(mailgun))
             return "mailgun";
 
+        String mandrill = imessage.getHeader("X-Mandrill-User", null);
+        if (!TextUtils.isEmpty(mandrill))
+            return "mandrill";
+
         return null;
     }
 
