@@ -1704,6 +1704,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(sparkpost))
             return "sparkpost";
 
+        String netcore = imessage.getHeader("X-FNCID", null);
+        if (!TextUtils.isEmpty(netcore))
+            return "netcore";
+
         return null;
     }
 
