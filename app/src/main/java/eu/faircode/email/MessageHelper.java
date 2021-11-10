@@ -1700,6 +1700,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(sendinblue))
             return "sendinblue";
 
+        String sparkpost = imessage.getHeader("X-MSFBL", null);
+        if (!TextUtils.isEmpty(sparkpost))
+            return "sparkpost";
+
         return null;
     }
 
