@@ -1708,6 +1708,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(netcore))
             return "netcore";
 
+        String elastic = imessage.getHeader("X-Msg-EID", null);
+        if (!TextUtils.isEmpty(elastic))
+            return "elastic";
+
         return null;
     }
 
