@@ -1813,6 +1813,7 @@
     <string name="infra_mailjet" translatable="false">Mailjet</string>
     <string name="infra_mandrill" translatable="false">Mandrill</string>
     <string name="infra_netcore" translatable="false">Pepipost/netcore</string>
+    <string name="infra_phpmailer" translatable="false">PHPMailer</string>
     <string name="infra_postmark" translatable="false">Postmark</string>
     <string name="infra_salesforce" translatable="false">Salesforce</string>
     <string name="infra_sendgrid" translatable="false">SendGrid</string>

@@ -1716,6 +1716,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(zeptomail))
             return "zeptomail";
 
+        String xmailer = imessage.getHeader("X-Mailer", null);
+        if (!TextUtils.isEmpty(xmailer) && xmailer.contains("PHPMailer"))
+            return "phpmailer";
+
         return null;
     }
 
