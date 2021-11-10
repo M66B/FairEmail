@@ -293,7 +293,7 @@
         name="gmx.com"
         domain="gmx\\.com,gmx\\.us"
         keepalive="12"
-        link="https://support.gmx.com/pop-imap/imap/index.html#breadcrumb_help_pop-imap_imap_server">
+        link="https://support.gmx.com/pop-imap/toggle.html">
         <imap
             host="imap.gmx.com"
             port="993"
@@ -325,7 +325,7 @@
         name="gmx.de"
         domain="gmx\\.de,gmx\\.net,mein\\.gmx,gmx\\.at,gmx\\.ch,mail\\.gmx,email\\.gmx,gmx\\.eu,gmx\\.org,gmx\\.info,gmx\\.biz"
         keepalive="12"
-        link="https://hilfe.gmx.net/pop-imap/imap/imap-serverdaten.html#indexlink_help_pop-imap_imap">
+        link="https://hilfe.gmx.net/pop-imap/einschalten.html">
         <imap
             host="imap.gmx.net"
             port="993"
