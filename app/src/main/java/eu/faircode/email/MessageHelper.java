@@ -1688,6 +1688,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(postmark))
             return "postmark";
 
+        String salesforce = imessage.getHeader("X-SFDC-User", null);
+        if (!TextUtils.isEmpty(salesforce))
+            return "salesforce";
+
         return null;
     }
 
