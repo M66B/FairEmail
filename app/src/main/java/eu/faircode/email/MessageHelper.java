@@ -1680,6 +1680,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(mandrill))
             return "mandrill";
 
+        String mailchimp = imessage.getHeader("X-MC-User", null);
+        if (!TextUtils.isEmpty(mailchimp))
+            return "mailchimp";
+
         return null;
     }
 
