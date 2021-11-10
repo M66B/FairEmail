@@ -1672,6 +1672,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(sendgrid))
             return "sendgrid";
 
+        String mailgun = imessage.getHeader("X-Mailgun-Sid", null);
+        if (!TextUtils.isEmpty(mailgun))
+            return "mailgun";
+
         return null;
     }
 
