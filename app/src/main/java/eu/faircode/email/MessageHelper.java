@@ -1720,6 +1720,14 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(xmailer) && xmailer.contains("PHPMailer"))
             return "phpmailer";
 
+        String gmail = imessage.getHeader("X-Gm-Message-State", null);
+        if (!TextUtils.isEmpty(gmail))
+            return "gmail";
+
+        String outlook = imessage.getHeader("x-ms-publictraffictype", null);
+        if (!TextUtils.isEmpty(outlook))
+            return "outlook";
+
         return null;
     }
 

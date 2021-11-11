@@ -1821,6 +1821,9 @@
     <string name="infra_sparkpost" translatable="false">Sparkpost</string>
     <string name="infra_zeptomail" translatable="false">Zeptomail/Zoho</string>
 
+    <string name="infra_gmail" translatable="false">Gmail</string>
+    <string name="infra_outlook" translatable="false">Outlook/Office 365</string>
+
     <string-array name="pollIntervalNames">
         <item>Always</item>
         <item>Every 5 minutes</item>
