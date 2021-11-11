@@ -784,7 +784,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         @Override
         public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
             log(fm, f, "onFragmentDestroyed");
-            if (BuildConfig.PLAY_STORE_RELEASE && false)
+            if (BuildConfig.PLAY_STORE_RELEASE)
                 return;
             try {
                 for (Field field : f.getClass().getDeclaredFields()) {
