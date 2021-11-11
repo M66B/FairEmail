@@ -1823,6 +1823,7 @@
 
     <string name="infra_gmail" translatable="false">Gmail</string>
     <string name="infra_outlook" translatable="false">Outlook/Office 365</string>
+    <string name="infra_yahoo" translatable="false">Yahoo!</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>

@@ -1728,6 +1728,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(outlook))
             return "outlook";
 
+        String yahoo = imessage.getHeader("X-Sonic-MF", null);
+        if (!TextUtils.isEmpty(yahoo))
+            return "yahoo";
+
         return null;
     }
 
