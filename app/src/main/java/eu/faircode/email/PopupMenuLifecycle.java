@@ -136,7 +136,7 @@ public class PopupMenuLifecycle extends PopupMenu {
         ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
         ssb.setSpan(imageSpan, 0, 1, 0);
         menuItem.setTitle(ssb);
-        //menuItem.setIcon(null);
+        menuItem.setIcon(null);
         menuItem.setTitleCondensed("");
     }
 }

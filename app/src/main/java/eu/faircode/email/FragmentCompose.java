@@ -1618,7 +1618,9 @@ public class FragmentCompose extends FragmentBase {
         ssbZoom.append(' ');
         for (int i = 0; i <= zoom; i++)
             ssbZoom.append('+');
-        menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
+        menu.findItem(R.id.menu_zoom)
+                .setTitle(ssbZoom)
+                .setIcon(R.drawable.twotone_format_size_24);
         PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom));
 
         int colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);

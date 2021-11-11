@@ -4536,9 +4536,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             ssbPadding.append('+');
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
-        menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
-        menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
+
+        menu.findItem(R.id.menu_zoom)
+                .setTitle(ssbZoom)
+                .setIcon(R.drawable.twotone_format_size_24);
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom));
+
+        menu.findItem(R.id.menu_padding)
+                .setTitle(ssbPadding)
+                .setIcon(R.drawable.twotone_fullscreen_24);
         menu.findItem(R.id.menu_padding).setVisible(cards);
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding));
+
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
         menu.findItem(R.id.menu_select_all).setVisible(folder);
@@ -4560,9 +4569,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
         ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
         ibSnoozed.setVisibility(quick_filter && folder && !drafts ? View.VISIBLE : View.GONE);
-
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom));
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding));
 
         super.onPrepareOptionsMenu(menu);
     }
