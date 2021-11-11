@@ -72,6 +72,7 @@
     <string name="title_junk_hint">Spamların filtrlənməsinə görə e-poçt təchizatçınız məsuliyyət daşıyır. Bir e-poçt tətbiqi, bunu təhlükəsiz olaraq etmək üçün lazım olan bütün verilənlərə sahib deyil.</string>
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
+    <string name="title_block_sender_domain">\"%1$s\" domenini əngəllə</string>
     <string name="title_block_sender_hint">        Göndərəni əngəlləmə ödənişsiz bir özəllikdir.
         Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
     </string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>
     <string name="title_advanced_language_detection_hint">Dil aşkarlama dəstəyi, cihaz istehsalçısından asılıdır</string>
     <string name="title_advanced_autoexpand_hint">Bir danışıqda sadəcə bir mesaj və ya sadəcə bir oxunmamış mesaj olanda mesajı avtomatik aç</string>
+    <string name="title_advanced_expandall_hint">Düymənin hansı mesaja tətbiq ediləcəyi qeyri-müəyyən olduğuna görə, bir neçə mesaj genişləndiriləndə cavab düyməsi göstərilməyəcək</string>
     <string name="title_advanced_autoseen_hint">Genişləndirəndə mesajları avtomatik olaraq oxundu kimi işarələmə, hər hesabın qabaqcıl hesab tənzimləmələrində sıradan çıxarıla bilər</string>
     <string name="title_advanced_autoclose_hint">Bütün mesajlar arxivlənəndə, göndəriləndə və tulantı qovluğuna atılanda danışıqları avtomatik olaraq bağla</string>
     <string name="title_advanced_sender_hint">Əksər təchizatçı göndərən ünvanını dəyişdirməyə icazə vermir</string>
