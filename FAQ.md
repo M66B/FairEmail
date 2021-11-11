@@ -2718,8 +2718,9 @@ Y1 OK CAPABILITY completed
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq89)
 
 By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days.
-If you want/need to send plain text messages only, you can enable this in the advanced identity options.
-You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+If you want/need to send plain text only messages, you can enable this in the send options.
+You can enable/disable sending plain text only messages in the send dialog on a case by case basis as well.
+If you disabled the send dialog, you can long press the *Send* button to show it again.
 
 <br />
 
@@ -4103,6 +4104,8 @@ it is not feasible to add for each color combination (literally millions) a pred
 
 Moreover, a theme is more than just a few colors.
 For example themes with a yellow accent color use a darker link color for enough contrast.
+
+The Material You theme, a more dynamic theme introduced in Android 12, is supported.
 
 The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
