@@ -189,7 +189,7 @@ public class FragmentOptions extends FragmentBase {
                                         prefs.edit().putBoolean("setup_advanced", true).apply();
                                     }
                                 })
-                                .setNegativeButton(android.R.string.cancel, null)
+                                .setNegativeButton(R.string.title_go_back, null)
                                 .setOnDismissListener(new DialogInterface.OnDismissListener() {
                                     @Override
                                     public void onDismiss(DialogInterface dialog) {
