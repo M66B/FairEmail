@@ -254,6 +254,8 @@ public class EntityRule {
                         keywords.add("$flagged");
                     if (message.ui_deleted)
                         keywords.add("$deleted");
+                    if (message.infrastructure != null)
+                        keywords.add('@' + message.infrastructure);
                     keywords.addAll(Arrays.asList(message.keywords));
 
                     if (!keywords.contains(keyword))
