@@ -4105,7 +4105,7 @@ it is not feasible to add for each color combination (literally millions) a pred
 Moreover, a theme is more than just a few colors.
 For example themes with a yellow accent color use a darker link color for enough contrast.
 
-The Material You theme, a more dynamic theme introduced in Android 12, is supported.
+The [Material You](https://material.io/blog/announcing-material-you) theme, a more dynamic theme introduced in Android 12, is supported.
 
 The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
