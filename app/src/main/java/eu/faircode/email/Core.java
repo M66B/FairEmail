@@ -3246,8 +3246,10 @@ class Core {
                                         for (Response response : responses)
                                             if (response.isBYE())
                                                 return new MessagingException("UID FETCH", new IOException(response.toString()));
-                                            else if (response.isNO() || response.isBAD())
-                                                return new MessagingException(response.toString());
+                                            else if (response.isNO())
+                                                return new CommandFailedException(response);
+                                            else if (response.isBAD())
+                                                return new BadCommandException(response);
                                         return new MessagingException("UID FETCH failed");
                                     }
                                 }
