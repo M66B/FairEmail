@@ -59,7 +59,7 @@ public class PopupMenuLifecycle extends PopupMenu {
     }
 
     public void insertIcons(Context context) {
-        insertIcons(new ContextThemeWrapper(context, R.style.popupMenuStyle), getMenu());
+        insertIcons(new ContextThemeWrapper(context, R.style.popupMenuStyle), getMenu(), false);
     }
 
     @Override
@@ -95,18 +95,18 @@ public class PopupMenuLifecycle extends PopupMenu {
         });
     }
 
-    static void insertIcons(Context context, Menu menu) {
+    static void insertIcons(Context context, Menu menu, boolean submenu) {
         for (int i = 0; i < menu.size(); i++) {
             MenuItem item = menu.getItem(i);
             CharSequence title = item.getTitle();
-            insertIcon(context, item);
+            insertIcon(context, item, submenu);
             if (item.hasSubMenu()) {
                 SubMenu sub = item.getSubMenu();
                 boolean has = false;
                 for (int j = 0; j < sub.size(); j++)
                     if (sub.getItem(j).getIcon() != null) {
                         has = true;
-                        insertIcons(context, sub);
+                        insertIcons(context, sub, true);
                         break;
                     }
                 if (has)
@@ -115,7 +115,7 @@ public class PopupMenuLifecycle extends PopupMenu {
         }
     }
 
-    static void insertIcon(Context context, MenuItem menuItem) {
+    static void insertIcon(Context context, MenuItem menuItem, boolean submenu) {
         Drawable icon = menuItem.getIcon();
 
         if (icon == null)
@@ -136,7 +136,8 @@ public class PopupMenuLifecycle extends PopupMenu {
         ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
         ssb.setSpan(imageSpan, 0, 1, 0);
         menuItem.setTitle(ssb);
-        menuItem.setIcon(null);
+        if (submenu)
+            menuItem.setIcon(null);
         menuItem.setTitleCondensed("");
     }
 }

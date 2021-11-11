@@ -1537,7 +1537,7 @@ public class FragmentCompose extends FragmentBase {
         inflater.inflate(R.menu.menu_compose, menu);
 
         final Context context = getContext();
-        PopupMenuLifecycle.insertIcons(context, menu);
+        PopupMenuLifecycle.insertIcons(context, menu, false);
 
         LayoutInflater infl = LayoutInflater.from(context);
 
@@ -1618,10 +1618,8 @@ public class FragmentCompose extends FragmentBase {
         ssbZoom.append(' ');
         for (int i = 0; i <= zoom; i++)
             ssbZoom.append('+');
-        menu.findItem(R.id.menu_zoom)
-                .setTitle(ssbZoom)
-                .setIcon(R.drawable.twotone_format_size_24);
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom));
+        menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
 
         int colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
         int colorActionForeground = Helper.resolveColor(context, R.attr.colorActionForeground);

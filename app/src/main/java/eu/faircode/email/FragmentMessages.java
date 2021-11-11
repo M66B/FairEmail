@@ -4385,7 +4385,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         inflater.inflate(R.menu.menu_messages, menu);
 
         final Context context = getContext();
-        PopupMenuLifecycle.insertIcons(context, menu);
+        PopupMenuLifecycle.insertIcons(context, menu, false);
 
         LayoutInflater infl = LayoutInflater.from(context);
         ImageButton ib = (ImageButton) infl.inflate(R.layout.action_button, null);
@@ -4537,16 +4537,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
-        menu.findItem(R.id.menu_zoom)
-                .setTitle(ssbZoom)
-                .setIcon(R.drawable.twotone_format_size_24);
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom));
+        menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
 
-        menu.findItem(R.id.menu_padding)
-                .setTitle(ssbPadding)
-                .setIcon(R.drawable.twotone_fullscreen_24);
+        menu.findItem(R.id.menu_padding).setTitle(ssbPadding);
         menu.findItem(R.id.menu_padding).setVisible(cards);
-        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding));
+        PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_padding), false);
 
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
