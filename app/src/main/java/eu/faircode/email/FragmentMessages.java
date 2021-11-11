@@ -843,10 +843,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean ascending = prefs.getBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
+        boolean filter_trash = prefs.getBoolean("filter_trash", false);
+
+        if (viewType != AdapterMessage.ViewType.THREAD)
+            filter_trash = false;
 
         adapter = new AdapterMessage(
                 this, type, found, viewType,
-                compact, zoom, sort, ascending, filter_duplicates,
+                compact, zoom, sort, ascending,
+                filter_duplicates, filter_trash,
                 iProperties);
         if (viewType == AdapterMessage.ViewType.THREAD)
             adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.PREVENT);
@@ -4427,6 +4432,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
         boolean filter_snoozed = prefs.getBoolean(getFilter("snoozed", type), true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
+        boolean filter_trash = prefs.getBoolean("filter_trash", false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
         boolean compact = prefs.getBoolean("compact", false);
@@ -4517,6 +4523,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_unknown).setVisible(folder && !drafts && !sent);
         menu.findItem(R.id.menu_filter_snoozed).setVisible(folder && !drafts);
         menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_trash).setVisible(viewType == AdapterMessage.ViewType.THREAD);
 
         menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
         menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
@@ -4524,6 +4531,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
         menu.findItem(R.id.menu_filter_language).setVisible(language_detection && folder);
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
+        menu.findItem(R.id.menu_filter_trash).setChecked(filter_trash);
 
         SpannableStringBuilder ssbZoom = new SpannableStringBuilder(getString(R.string.title_zoom));
         ssbZoom.append(' ');
@@ -4646,6 +4654,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_filter_duplicates) {
             onMenuFilterDuplicates(!item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_trash) {
+            onMenuFilterTrash(!item.isChecked());
             return true;
         } else if (itemId == R.id.menu_zoom) {
             onMenuZoom();
@@ -4893,6 +4904,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         prefs.edit().putBoolean("filter_duplicates", filter).apply();
         invalidateOptionsMenu();
         adapter.setFilterDuplicates(filter);
+    }
+
+    private void onMenuFilterTrash(boolean filter) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("filter_trash", filter).apply();
+        invalidateOptionsMenu();
+        adapter.setFilterTrash(filter);
     }
 
     private void onMenuZoom() {

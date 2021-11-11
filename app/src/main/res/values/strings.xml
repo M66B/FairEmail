@@ -1016,6 +1016,7 @@
     <string name="title_no_messages">No messages</string>
     <string name="title_filters_active">One or more filters active</string>
     <string name="title_duplicate_in">Duplicate message in %1$s</string>
+    <string name="title_trashed_from">Trashed message from %1$s</string>
 
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
@@ -1391,6 +1392,7 @@
     <string name="title_filter_unknown">Unknown senders</string>
     <string name="title_filter_hidden">Hidden</string>
     <string name="title_filter_duplicates">Duplicates</string>
+    <string name="title_filter_trash">Trashed</string>
 
     <string name="title_compact">Compact view</string>
     <string name="title_zoom">Text size</string>

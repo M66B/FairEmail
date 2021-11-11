@@ -209,6 +209,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String sort;
     private boolean ascending;
     private boolean filter_duplicates;
+    private boolean filter_trash;
     private IProperties properties;
 
     private Context context;
@@ -5894,7 +5895,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     AdapterMessage(Fragment parentFragment,
                    String type, boolean found, ViewType viewType,
-                   boolean compact, int zoom, String sort, boolean ascending, boolean filter_duplicates,
+                   boolean compact, int zoom, String sort, boolean ascending,
+                   boolean filter_duplicates, boolean filter_trash,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
         this.type = type;
@@ -5905,6 +5907,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.sort = sort;
         this.ascending = ascending;
         this.filter_duplicates = filter_duplicates;
+        this.filter_trash = filter_trash;
         this.properties = properties;
 
         this.context = parentFragment.getContext();
@@ -6619,6 +6622,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
+    void setFilterTrash(boolean filter_trash) {
+        if (this.filter_trash != filter_trash) {
+            this.filter_trash = filter_trash;
+            properties.refresh();
+        }
+    }
+
     void checkInternet() {
         ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
         if (this.suitable != state.isSuitable() || this.unmetered != state.isUnmetered()) {
@@ -6649,6 +6659,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return R.layout.item_message_placeholder;
 
         if (filter_duplicates && message.duplicate)
+            return R.layout.item_message_duplicate;
+
+        if (filter_trash && differ.getItemCount() > 1 &&
+                EntityFolder.TRASH.equals(message.folderType))
             return R.layout.item_message_duplicate;
 
         return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
@@ -6696,11 +6710,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             holder.itemView.setLayoutParams(lparam);
         }
 
-        if (filter_duplicates && message.duplicate) {
+        if ((filter_duplicates && message.duplicate) ||
+                (filter_trash && differ.getItemCount() > 1 &&
+                        EntityFolder.TRASH.equals(message.folderType))) {
             holder.card.setCardBackgroundColor(message.folderColor == null
                     ? Color.TRANSPARENT
                     : ColorUtils.setAlphaComponent(message.folderColor, 128));
-            holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
+            if (filter_duplicates && message.duplicate)
+                holder.tvFolder.setText(context.getString(R.string.title_duplicate_in,
+                        message.getFolderName(context)));
+            else
+                holder.tvFolder.setText(context.getString(R.string.title_trashed_from,
+                        MessageHelper.formatAddresses(message.from, false, false)));
             holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : colorRead);
             holder.tvFolder.setAlpha(Helper.LOW_LIGHT);

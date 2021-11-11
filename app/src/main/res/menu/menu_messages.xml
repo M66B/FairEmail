@@ -120,6 +120,11 @@
                     android:id="@+id/menu_filter_duplicates"
                     android:checkable="true"
                     android:title="@string/title_filter_duplicates" />
+
+                <item
+                    android:id="@+id/menu_filter_trash"
+                    android:checkable="true"
+                    android:title="@string/title_filter_trash" />
             </menu>
         </item>
     </group>
