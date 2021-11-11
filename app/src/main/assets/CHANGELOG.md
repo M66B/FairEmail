@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1777 - 2021-11-11
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1776 - 2021-11-10
 
 * Added message menu icons
