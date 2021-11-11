@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1778 - 2021-11-11
+
+* Fixed duplicate submenu icons
+* Small improvements and minor bug fixes
+
 ### 1.1777 - 2021-11-11
 
 * Small improvements and minor bug fixes
