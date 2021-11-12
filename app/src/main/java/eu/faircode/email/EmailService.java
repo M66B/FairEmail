@@ -500,9 +500,22 @@ public class EmailService implements AutoCloseable {
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
-            main = InetAddress.getByName(host);
-
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            String key = "dns." + host;
+            try {
+                main = InetAddress.getByName(host);
+                prefs.edit().putString(key, main.getHostAddress()).apply();
+            } catch (UnknownHostException ex) {
+                String last = prefs.getString(key, null);
+                if (TextUtils.isEmpty(last))
+                    throw new MessagingException(ex.getMessage(), ex);
+                else {
+                    Log.w("Using " + key + "=" + last);
+                    main = InetAddress.getByName(last);
+                }
+            }
+
             boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
             if (prefer_ip4 &&
                     main instanceof Inet6Address)
