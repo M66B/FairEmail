@@ -899,6 +899,198 @@
                     app:layout_constraintTop_toBottomOf="@id/swExactAlarms"
                     app:switchPadding="12dp" />
 
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flowInfra"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    app:constraint_referenced_ids="
+                        infra_awsses,infra_elastic,infra_gmail,infra_icloud,
+                        infra_mailchimp,infra_mailgun,infra_mailjet,infra_mandrill,
+                        infra_netcore,infra_outlook,infra_phpmailer,infra_postmark,
+                        infra_salesforce,infra_sendgrid,infra_sendinblue,infra_sparkpost,
+                        infra_yahoo,infra_zeptomail,infra_zoho"
+                    app:flow_horizontalBias="0"
+                    app:flow_horizontalGap="6dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_verticalGap="6dp"
+                    app:flow_wrapMode="chain"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swInfra" />
+
+                <ImageView
+                    android:id="@+id/infra_awsses"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_awsses"
+                    android:tooltipText="@string/infra_awsses"
+                    app:srcCompat="@drawable/infra_awsses"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_elastic"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_elastic"
+                    android:tooltipText="@string/infra_elastic"
+                    app:srcCompat="@drawable/infra_elastic"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_gmail"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_gmail"
+                    android:tooltipText="@string/infra_gmail"
+                    app:srcCompat="@drawable/infra_gmail"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_icloud"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_icloud"
+                    android:tooltipText="@string/infra_icloud"
+                    app:srcCompat="@drawable/infra_icloud"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_mailchimp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_mailchimp"
+                    android:tooltipText="@string/infra_mailchimp"
+                    app:srcCompat="@drawable/infra_mailchimp"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_mailgun"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_mailgun"
+                    android:tooltipText="@string/infra_mailgun"
+                    app:srcCompat="@drawable/infra_mailgun"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_mailjet"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_mailjet"
+                    android:tooltipText="@string/infra_mailjet"
+                    app:srcCompat="@drawable/infra_mailjet"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_mandrill"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_mandrill"
+                    android:tooltipText="@string/infra_mandrill"
+                    app:srcCompat="@drawable/infra_mandrill"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_netcore"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_netcore"
+                    android:tooltipText="@string/infra_netcore"
+                    app:srcCompat="@drawable/infra_netcore"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_outlook"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_outlook"
+                    android:tooltipText="@string/infra_outlook"
+                    app:srcCompat="@drawable/infra_outlook"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_phpmailer"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_phpmailer"
+                    android:tooltipText="@string/infra_phpmailer"
+                    app:srcCompat="@drawable/infra_phpmailer"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_postmark"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_postmark"
+                    android:tooltipText="@string/infra_postmark"
+                    app:srcCompat="@drawable/infra_postmark"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_salesforce"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_salesforce"
+                    android:tooltipText="@string/infra_salesforce"
+                    app:srcCompat="@drawable/infra_salesforce"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_sendgrid"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_salesforce"
+                    android:tooltipText="@string/infra_sendgrid"
+                    app:srcCompat="@drawable/infra_sendgrid"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_sendinblue"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_sendinblue"
+                    android:tooltipText="@string/infra_sendinblue"
+                    app:srcCompat="@drawable/infra_sendinblue"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_sparkpost"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_sparkpost"
+                    android:tooltipText="@string/infra_sparkpost"
+                    app:srcCompat="@drawable/infra_sparkpost"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_yahoo"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_yahoo"
+                    android:tooltipText="@string/infra_yahoo"
+                    app:srcCompat="@drawable/infra_yahoo"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_zeptomail"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_zeptomail"
+                    android:tooltipText="@string/infra_zeptomail"
+                    app:srcCompat="@drawable/infra_zeptomail"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/infra_zoho"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/infra_zoho"
+                    android:tooltipText="@string/infra_zoho"
+                    app:srcCompat="@drawable/infra_zoho"
+                    tools:ignore="MissingConstraints" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDupMsgId"
                     android:layout_width="0dp"
@@ -907,7 +1099,7 @@
                     android:text="@string/title_advanced_dup_msgid"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swInfra"
+                    app:layout_constraintTop_toBottomOf="@id/flowInfra"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
