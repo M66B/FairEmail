@@ -69,6 +69,9 @@ public class TupleMessageEx extends EntityMessage {
     boolean duplicate;
 
     @Ignore
+    public Integer[] label_colors;
+
+    @Ignore
     public Integer[] keyword_colors;
     @Ignore
     public String[] keyword_titles;
@@ -77,6 +80,22 @@ public class TupleMessageEx extends EntityMessage {
         return (folderDisplay == null
                 ? EntityFolder.localizeName(context, folderName)
                 : folderDisplay);
+    }
+
+    void resolveLabelColors(Context context) {
+        List<Integer> color = new ArrayList<>();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (this.labels != null)
+            for (int i = 0; i < this.labels.length; i++) {
+                String key = "label.color." + this.labels[i];
+                if (prefs.contains(key))
+                    color.add(prefs.getInt(key, Color.GRAY));
+                else
+                    color.add(null);
+            }
+
+        this.label_colors = color.toArray(new Integer[0]);
     }
 
     void resolveKeywordColors(Context context) {

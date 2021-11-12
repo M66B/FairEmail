@@ -1978,7 +1978,7 @@ class Core {
         boolean drafts = false;
         Map<String, EntityFolder> local = new HashMap<>();
         List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
-        for (EntityFolder folder : folders)
+        for (EntityFolder folder : folders) {
             if (folder.tbc != null) {
                 try {
                     Log.i(folder.name + " creating");
@@ -2053,6 +2053,13 @@ class Core {
                         sync_folders = true;
                 }
             }
+
+            String key = "label.color." + folder.name;
+            if (folder.color == null)
+                prefs.edit().remove(key).apply();
+            else
+                prefs.edit().putInt(key, folder.color).apply();
+        }
         Log.i("Local folder count=" + local.size() + " drafts=" + drafts);
 
         if (!drafts) {

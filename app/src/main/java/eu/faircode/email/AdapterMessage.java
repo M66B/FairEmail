@@ -1306,10 +1306,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvFolder.setVisibility(compact && viewType != ViewType.THREAD ? View.GONE : View.VISIBLE);
 
-            tvLabels.setText(message.labels == null ? null : TextUtils.join(", ", message.labels));
-            tvLabels.setVisibility(
-                    labels_header && message.labels != null && message.labels.length > 0
-                            ? View.VISIBLE : View.GONE);
+            Spanned labels = getLabels(message);
+            tvLabels.setText(labels);
+            tvLabels.setVisibility(labels == null ? View.GONE : View.VISIBLE);
 
             boolean selected = properties.getValue("selected", message.id);
             if (viewType == ViewType.THREAD || (!threading && !selected)) {
@@ -5631,6 +5630,33 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragmentTransaction.commit();
         }
 
+        private Spanned getLabels(TupleMessageEx message) {
+            if (!labels_header)
+                return null;
+            if (message.labels == null || message.labels.length == 0)
+                return null;
+
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+            for (int i = 0; i < message.labels.length; i++) {
+                if (ssb.length() > 0)
+                    ssb.append(' ');
+
+                String label = message.labels[i];
+                ssb.append(label);
+
+                if (message.label_colors == null)
+                    continue;
+                if (i >= message.label_colors.length)
+                    continue;
+
+                int len = ssb.length();
+                ssb.setSpan(new ForegroundColorSpan(message.label_colors[i]),
+                        len - label.length(), len, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+            return ssb;
+        }
+
         private SpannableStringBuilder getKeywords(TupleMessageEx message) {
             SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
@@ -6552,6 +6578,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message != null) {
                 keyPosition.put(message.id, i);
                 positionKey.put(i, message.id);
+                message.resolveLabelColors(context);
                 message.resolveKeywordColors(context);
             }
         }
@@ -6708,6 +6735,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         keyPosition.put(message.id, position);
         positionKey.put(position, message.id);
 
+        message.resolveLabelColors(context);
         message.resolveKeywordColors(context);
 
         if (viewType == ViewType.THREAD && cards && threading && indentation) {
