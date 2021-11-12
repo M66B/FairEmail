@@ -1256,8 +1256,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubject.invalidate();
 
             if (keywords_header) {
-                SpannableStringBuilder keywords = getKeywords(message);
-                tvKeywords.setVisibility(keywords.length() > 0 ? View.VISIBLE : View.GONE);
+                Spanned keywords = getKeywords(message);
+                tvKeywords.setVisibility(keywords == null ? View.GONE : View.VISIBLE);
                 tvKeywords.setText(keywords);
             } else
                 tvKeywords.setVisibility(View.GONE);
@@ -2211,8 +2211,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvKeywordsEx.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
                 tvKeywordsEx.setText(TextUtils.join(" ", message.keywords));
             } else {
-                SpannableStringBuilder keywords = getKeywords(message);
-                tvKeywordsEx.setVisibility(show_addresses && keywords.length() > 0 ? View.VISIBLE : View.GONE);
+                Spanned keywords = getKeywords(message);
+                tvKeywordsEx.setVisibility(!show_addresses || keywords == null ? View.GONE : View.VISIBLE);
                 tvKeywordsEx.setText(keywords);
             }
         }
@@ -5657,7 +5657,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return ssb;
         }
 
-        private SpannableStringBuilder getKeywords(TupleMessageEx message) {
+        private Spanned getKeywords(TupleMessageEx message) {
+            if (message.keywords == null || message.keywords.length == 0)
+                return null;
+
             SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
             if (message.keyword_titles == null || message.keyword_colors == null) {
