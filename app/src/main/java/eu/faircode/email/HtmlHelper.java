@@ -36,6 +36,7 @@ import android.os.Build;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
@@ -2398,6 +2399,56 @@ public class HtmlHelper {
         }
 
         return ssb;
+    }
+
+    static Document highlightSearched(Context context, Document document, String searched) {
+        String find = searched.toLowerCase();
+        int color = Helper.resolveColor(context, R.attr.colorHighlight);
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            @Override
+            public void head(Node node, int depth) {
+                if (node instanceof TextNode) {
+                    TextNode tnode = (TextNode) node;
+                    String text = tnode.getWholeText();
+
+                    int start = text.toLowerCase().indexOf(find);
+                    if (start < 0)
+                        return;
+
+                    int prev = 0;
+                    Element holder = document.createElement("span");
+
+                    while (start >= 0) {
+                        if (start > prev)
+                            holder.appendText(text.substring(prev, start));
+
+                        Element span = document.createElement("span");
+                        span.attr("style", mergeStyles(
+                                span.attr("style"),
+                                "font-size:larger; background-color:" + encodeWebColor(color)
+                        ));
+                        span.text(text.substring(start, start + find.length()));
+                        holder.appendChild(span);
+
+                        prev = start + find.length();
+                        start = text.toLowerCase().indexOf(find, prev);
+                    }
+
+                    if (prev < text.length())
+                        holder.appendText(text.substring(prev));
+
+                    tnode.before(holder);
+                    tnode.text("");
+                }
+            }
+
+            @Override
+            public void tail(Node node, int depth) {
+            }
+        }, document);
+
+        return document;
     }
 
     static void cleanup(Document d) {

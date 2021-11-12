@@ -1866,6 +1866,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         args.putInt("lpos", intent.getIntExtra("lpos", -1));
         args.putBoolean("filter_archive", intent.getBooleanExtra("filter_archive", true));
         args.putBoolean("found", found);
+        args.putString("searched", intent.getStringExtra("searched"));
         args.putBoolean("pinned", intent.getBooleanExtra("pinned", false));
         args.putString("msgid", intent.getStringExtra("msgid"));
 

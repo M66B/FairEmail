@@ -203,6 +203,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Fragment parentFragment;
     private String type;
     private boolean found;
+    private String searched;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
@@ -2540,6 +2541,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     HtmlHelper.cleanup(document);
                     HtmlHelper.removeRelativeLinks(document);
 
+                    if (!TextUtils.isEmpty(searched))
+                        HtmlHelper.highlightSearched(context, document, searched);
+
                     // Check for inline encryption
                     boolean iencrypted = HtmlHelper.contains(document, new String[]{
                             Helper.PGP_BEGIN_MESSAGE,
@@ -3529,7 +3533,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", message.id)
                             .putExtra("lpos", getAdapterPosition())
                             .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
-                            .putExtra("found", viewType == ViewType.SEARCH);
+                            .putExtra("found", viewType == ViewType.SEARCH)
+                            .putExtra("searched", searched);
 
                     boolean doubletap = prefs.getBoolean("doubletap", true);
 
@@ -5894,13 +5899,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Fragment parentFragment,
-                   String type, boolean found, ViewType viewType,
+                   String type, boolean found, String searched, ViewType viewType,
                    boolean compact, int zoom, String sort, boolean ascending,
                    boolean filter_duplicates, boolean filter_trash,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
         this.type = type;
         this.found = found;
+        this.searched = searched;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;
