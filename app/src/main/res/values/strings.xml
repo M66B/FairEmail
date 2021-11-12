@@ -1827,6 +1827,7 @@
     <string name="infra_sparkpost" translatable="false">Sparkpost</string>
     <string name="infra_yahoo" translatable="false">Yahoo!</string>
     <string name="infra_zeptomail" translatable="false">Zeptomail/Zoho</string>
+    <string name="infra_zoho" translatable="false">Zoho</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>

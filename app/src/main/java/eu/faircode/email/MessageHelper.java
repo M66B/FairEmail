@@ -1716,10 +1716,6 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(zeptomail))
             return "zeptomail";
 
-        String xmailer = imessage.getHeader("X-Mailer", null);
-        if (!TextUtils.isEmpty(xmailer) && xmailer.contains("PHPMailer"))
-            return "phpmailer";
-
         String gmail = imessage.getHeader("X-Gm-Message-State", null);
         if (!TextUtils.isEmpty(gmail))
             return "gmail";
@@ -1733,8 +1729,22 @@ public class MessageHelper {
             return "yahoo";
 
         String icloud = imessage.getHeader("X-Proofpoint-Spam-Details", null);
-        if (!TextUtils.isEmpty(icloud)) // X-Mailer: iPhone Mail ...
+        if (!TextUtils.isEmpty(icloud))
             return "icloud";
+
+        String zoho = imessage.getHeader("X-ZohoMailClient", null);
+        if (!TextUtils.isEmpty(zoho))
+            return "zoho";
+
+        String xmailer = imessage.getHeader("X-Mailer", null);
+        if (!TextUtils.isEmpty(xmailer)) {
+            if (xmailer.contains("iPhone Mail"))
+                return "icloud";
+            if (xmailer.contains("PHPMailer"))
+                return "phpmailer";
+            if (xmailer.contains("Zoho Mail"))
+                return "zoho";
+        }
 
         return null;
     }
