@@ -560,9 +560,10 @@ class Core {
                             // Fetch: NO The specified message set is invalid.
                             // Fetch: NO [SERVERBUG] SELECT Server error - Please try again later
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
-                            // Fetch: NO Invalid message number (took 123 ms)
+                            // Fetch: NO Invalid message number (took nnn ms)
                             // Fetch: BAD Internal Server Error
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n .nnn secs).
+                            // Fetch: NO FETCH sequence parse error in: nnn
                             // Fetch UID: NO Some messages could not be FETCHed (Failure)
                             // Fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
                             // Fetch UID: NO Server Unavailable. 15
