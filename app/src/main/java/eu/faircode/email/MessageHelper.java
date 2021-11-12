@@ -1732,6 +1732,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(yahoo))
             return "yahoo";
 
+        String icloud = imessage.getHeader("X-Proofpoint-Spam-Details", null);
+        if (!TextUtils.isEmpty(icloud)) // X-Mailer: iPhone Mail ...
+            return "icloud";
+
         return null;
     }
 
