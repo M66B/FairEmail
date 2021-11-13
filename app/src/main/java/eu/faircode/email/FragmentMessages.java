@@ -1810,7 +1810,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void setExpanded(TupleMessageEx message, boolean value, boolean scroll) {
             // Prevent flicker
-            if (value && message.accountAutoSeen && !message.folderReadOnly) {
+            if (value && message.accountAutoSeen) {
                 message.unseen = 0;
                 message.ui_seen = true;
                 message.visible_unseen = 0;
@@ -5795,7 +5795,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     } else {
-                        if (account.auto_seen && !folder.read_only)
+                        if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
 
                         if (!message.content)

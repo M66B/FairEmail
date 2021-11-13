@@ -1690,10 +1690,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     flags_background && flagged && !expanded
                             ? ColorUtils.setAlphaComponent(color, 127) : Color.TRANSPARENT);
 
-            if (flags || message.ui_flagged)
-                ibFlagged.setVisibility(message.folderReadOnly ? View.INVISIBLE : View.VISIBLE);
-            else
-                ibFlagged.setVisibility(View.GONE);
+            ibFlagged.setVisibility(flags || message.ui_flagged ? View.VISIBLE : View.GONE);
         }
 
         private void bindContactInfo(TupleMessageEx message, ContactInfo[] info, Address[] addresses) {
@@ -1951,7 +1948,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean keywords = (!message.folderReadOnly && message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
-                    boolean seen = (!(message.folderReadOnly || message.uid == null) ||
+                    boolean seen = (message.uid != null ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
 
                     int froms = (message.from == null ? 0 : message.from.length);
@@ -2897,7 +2894,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSeenBottom.setImageResource(message.ui_seen
                     ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
-            ibSeenBottom.setVisibility(!(message.folderReadOnly || message.uid == null) ||
+            ibSeenBottom.setVisibility(message.uid != null ||
                     message.accountProtocol == EntityAccount.TYPE_POP
                     ? View.VISIBLE : View.GONE);
         }
@@ -3540,7 +3537,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean doubletap = prefs.getBoolean("doubletap", true);
 
                     if (!doubletap ||
-                            message.folderReadOnly ||
                             (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP) ||
                             EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
@@ -3613,7 +3609,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @Override
         public boolean onLongClick(View view) {
             final TupleMessageEx message = getMessage();
-            if (message == null || message.folderReadOnly)
+            if (message == null)
                 return false;
 
             int id = view.getId();
@@ -3634,12 +3630,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onActionOpenFull(message);
                 return true;
             } else if (id == R.id.ibMove) {
+                if (message.folderReadOnly)
+                    return false;
                 onActionMoveAccount(message, ibMove);
                 return true;
             } else if (id == R.id.ibMoveBottom) {
+                if (message.folderReadOnly)
+                    return false;
                 onActionMoveAccount(message, ibMoveBottom);
                 return true;
             } else if (id == R.id.ibTrash || id == R.id.ibTrashBottom) {
+                if (message.folderReadOnly)
+                    return false;
                 if (EntityFolder.OUTBOX.equals(message.folderType))
                     return false;
                 onActionTrash(message, true);
@@ -4704,7 +4706,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_unseen)
                     .setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen)
                     .setIcon(message.ui_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24)
-                    .setEnabled((message.uid != null && !message.folderReadOnly) ||
+                    .setEnabled(message.uid != null ||
                             message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_hide)
@@ -4713,7 +4715,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_flag_color)
                     .setVisible(flags_background)
-                    .setEnabled((message.uid != null && !message.folderReadOnly) ||
+                    .setEnabled(message.uid != null ||
                             message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             int i = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);

@@ -815,6 +815,9 @@ class Core {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
 
+        if (folder.read_only)
+            return;
+
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
             db.message().setMessageSeen(message.id, false);
             db.message().setMessageUiSeen(message.id, false);
@@ -845,6 +848,9 @@ class Core {
     private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         // Star/unstar message
         DB db = DB.getInstance(context);
+
+        if (folder.read_only)
+            return;
 
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
             db.message().setMessageFlagged(message.id, false);
@@ -905,6 +911,7 @@ class Core {
     private static void onKeyword(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Set/reset user flag
         // https://tools.ietf.org/html/rfc3501#section-2.3.2
+
         String keyword = jargs.getString(0);
         boolean set = jargs.getBoolean(1);
 
@@ -3941,7 +3948,7 @@ class Core {
                 }
             }
 
-            if ((!message.seen.equals(seen) || !message.ui_seen.equals(seen)) &&
+            if ((!message.seen.equals(seen) || (!folder.read_only && !message.ui_seen.equals(seen))) &&
                     db.operation().getOperationCount(folder.id, message.id, EntityOperation.SEEN) == 0) {
                 update = true;
                 message.seen = seen;
@@ -3961,7 +3968,7 @@ class Core {
                 syncSimilar = true;
             }
 
-            if ((!message.flagged.equals(flagged) || !message.ui_flagged.equals(flagged)) &&
+            if ((!message.flagged.equals(flagged) || (!folder.read_only && !message.ui_flagged.equals(flagged))) &&
                     db.operation().getOperationCount(folder.id, message.id, EntityOperation.FLAG) == 0) {
                 update = true;
                 message.flagged = flagged;

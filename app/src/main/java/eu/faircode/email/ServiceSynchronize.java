@@ -1550,12 +1550,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (BuildConfig.DEBUG && "Postausgang".equals(folder.name))
                                     throw new ReadOnlyFolderException(ifolder);
                                 ifolder.open(Folder.READ_WRITE);
-                                db.folder().setFolderReadOnly(folder.id, ifolder.getUIDNotSticky());
+                                folder.read_only = ifolder.getUIDNotSticky();
+                                db.folder().setFolderReadOnly(folder.id, folder.read_only);
                             } catch (ReadOnlyFolderException ex) {
                                 Log.w(folder.name + " read only");
                                 try {
                                     ifolder.open(Folder.READ_ONLY);
-                                    db.folder().setFolderReadOnly(folder.id, true);
+                                    folder.read_only = true;
+                                    db.folder().setFolderReadOnly(folder.id, folder.read_only);
                                 } catch (Throwable ex1) {
                                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex1));
                                     throw ex1;
@@ -1909,12 +1911,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                                 try {
                                                                     ifolder.open(Folder.READ_WRITE);
-                                                                    if (ifolder instanceof IMAPFolder)
-                                                                        db.folder().setFolderReadOnly(folder.id, ((IMAPFolder) ifolder).getUIDNotSticky());
+                                                                    if (ifolder instanceof IMAPFolder) {
+                                                                        folder.read_only = ((IMAPFolder) ifolder).getUIDNotSticky();
+                                                                        db.folder().setFolderReadOnly(folder.id, folder.read_only);
+                                                                    }
                                                                 } catch (ReadOnlyFolderException ex) {
                                                                     Log.w(folder.name + " read only");
                                                                     ifolder.open(Folder.READ_ONLY);
-                                                                    db.folder().setFolderReadOnly(folder.id, true);
+                                                                    folder.read_only = true;
+                                                                    db.folder().setFolderReadOnly(folder.id, folder.read_only);
                                                                 }
 
                                                                 db.folder().setFolderState(folder.id, "connected");
