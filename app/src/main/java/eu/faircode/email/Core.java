@@ -921,14 +921,9 @@ class Core {
         if (message.uid == null)
             throw new IllegalArgumentException("keyword/uid");
 
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
-            if (MessageHelper.FLAG_FORWARDED.equals(keyword) && false) {
-                JSONArray janswered = new JSONArray();
-                janswered.put(true);
-                onAnswered(context, janswered, folder, message, ifolder);
-            }
+        if (folder.read_only ||
+                !ifolder.getPermanentFlags().contains(Flags.Flag.USER))
             return;
-        }
 
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
@@ -3995,6 +3990,7 @@ class Core {
             }
 
             if (!Helper.equal(message.keywords, keywords) &&
+                    !folder.read_only &&
                     ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
                 update = true;
                 message.keywords = keywords;

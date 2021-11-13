@@ -1945,7 +1945,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean trash = (move || outbox || debug ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk));
-                    boolean keywords = (!message.folderReadOnly && message.uid != null &&
+                    boolean keywords = (message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (message.uid != null ||
@@ -4738,7 +4738,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(!message.folderReadOnly);
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords)
-                    .setEnabled(message.uid != null && !message.folderReadOnly)
+                    .setEnabled(message.uid != null)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content && !full);
