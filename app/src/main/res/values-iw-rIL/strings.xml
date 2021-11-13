@@ -265,6 +265,7 @@
     <string name="title_setup_theme_black_background">רקע שחור</string>
     <string name="title_setup_theme_html_light">רקע בהיר לתצוגת ההודעה המקורית</string>
     <string name="title_setup_theme_composer_light">רקע בהיר לעורך ההודעות</string>
+    <string name="title_setup_theme_you_hint">את צבעי Material You אפשר להגדיר בהגדרות הטפט והסגנון של Android</string>
     <string name="title_setup_theme_system_hint">יחליף אוטומטית לערכת עיצוב בהירה/כהה במצב יום/לילה, אם יש תמיכה ב־Android</string>
     <string name="title_setup_theme_more_colors">ארצה צבעים נוספים</string>
     <string name="title_setup_advanced">מתקדם</string>
@@ -326,7 +327,9 @@
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
     <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
     <string name="title_advanced_reply_all">לחיצה ארוכה על כפתור התשובה תענה לכולם</string>
+    <string name="title_advanced_send_pending">הצגת סמלי שליחה מושהית שאינם בולטים</string>
     <string name="title_advanced_compose_font">גופן ברירת המחדל</string>
+    <string name="title_advanced_prefix_once">ליצור קידומת לנושא רק פעם אחת במענה או העברה</string>
     <string name="title_advanced_separate_reply">הוספת קו אופקי לפני כותרת תגובה/העברה</string>
     <string name="title_advanced_extended_reply">להשתמש בכותרת תגובה/העברה נרחבת</string>
     <string name="title_advanced_write_above">לכתוב מעל לטקסט המוען</string>
@@ -338,6 +341,7 @@
     <string name="title_advanced_signature_new">להשתמש בחתימה להודעות חדשות</string>
     <string name="title_advanced_signature_reply">להשתמש בחתימה לתגובות</string>
     <string name="title_advanced_signature_forward">להשתמש בחתימה להעברות</string>
+    <string name="title_advanced_discard_delete">השלכת טיוטה מוחקת אותה לצמיתות</string>
     <string name="title_advanced_reply_move">בעת מענה להודעה בתיקיית משתמש, המענה יישמר באותה התיקייה</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
     <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כבררת מחדל</string>
@@ -470,11 +474,13 @@
     <string name="title_advanced_autoclose_unread">לסגור דיונים עם סימון הודעות כנקראו</string>
     <string name="title_advanced_collapse_marked">צמצום הודעות שסומנו ידנית כנקראו או לא נקראו</string>
     <string name="title_advanced_undo">תום זמן לביטול</string>
+    <string name="title_advanced_quick_filter">הצגת סמלי מסננים מהירים שאינם בולטים</string>
+    <string name="title_advanced_quick_scroll">הצגת סמלי גלילה מהירה מעלה/מטה שאינם בולטים</string>
     <string name="title_advanced_autoread">לסמן הודעות כנקראו אוטומטית בהעברתן</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
+    <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
-    <string name="title_advanced_default_snooze">זמן השהיה כבררת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
     <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
     <string name="title_advanced_notifications_service">ערוץ קבלה</string>
@@ -598,9 +604,11 @@
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_metered_hint">חיבורים מוגבלים הם בדרך כלל חיבורים סלולריים או רשת אלחוטית בתשלום</string>
     <string name="title_advanced_metered_warning">השבתת אפשרות זאת תשבית קבלת ושליחת הודעות בחיבורי נתונים סלולריים</string>
+    <string name="title_advanced_rlah_hint">להניח שאין נדידה בתוך אירופה</string>
     <string name="title_advanced_usage_hint">יגדיל את צריכת הסוללה, הנתונים ואת נפח האחסון</string>
     <string name="title_advanced_tcp_keep_alive_hint">הפעלה יכולה לגרום לבעיות תקשורת בחלק מהמכשירים</string>
     <string name="title_advanced_validate_hint">יכול לגרום לכך שהודעות לא תסתנכרנה, למשל בעת שימוש ב־VPN, אך גם במקרים אחרים</string>
+    <string name="title_advanced_timeout_hint">תום זמן קריאה/כתיבה יוגדר להיות כפול מהזמן המוקצב לחיבור. ערכים גבוהים יותר יובילו לצריכה גבוהה יותר של סוללה.</string>
     <string name="title_advanced_ssl_harden_hint">הפעלת האפשרות הזאת תשבית פרוטוקולים וצפנים חלשים של SSL, מה שיכול לגרום לתקלות בחיבור</string>
     <string name="title_advanced_roaming_hint">כותרות ההודעות תמיד תימשכנה בזמן נדידה. אפשר להשתמש בהגדרות הנדידה של המכשיר כדי להשבית את האינטרנט בזמן נדידה.</string>
     <string name="title_advanced_browse_hint">למשוך עוד הודעות בעת גלילה למטה</string>
@@ -657,11 +665,15 @@
     <string name="title_advanced_cleanup_hint">פעולה זו תמחק את כל הקבצים הזמניים</string>
     <string name="title_advanced_edit_name">עריכת שם</string>
     <string name="title_advanced_swipe_actions">הגדרת פעולות החלקה</string>
+    <string name="title_advanced_swipe_actions_hint">יגדיר את פעולות החלקה שמאלה וימינה לכל חשבונות ה־IMAP</string>
     <string name="title_advanced_swipe_sensitivity">רגישות החלקה שמאלה/ימינה</string>
     <string name="title_select">בחירה &#8230;</string>
     <string name="title_identity_name">שמך</string>
     <string name="title_identity_email">כתובת הדוא״ל שלך</string>
+    <string name="title_identity_color_hint">צבעי הזהויות קודמים בעדיפות על צבעי תיקיות וחשבונות</string>
     <string name="title_advanced_sender">לאפשר את עריכת כתובת המוען</string>
+    <string name="title_advanced_sender_name">להשתמש בשם כאשר כתובת המוען נערכה</string>
+    <string name="title_advanced_sender_regex">ביטוי רגולרי ללכידת שם המשתמש של כתובות דוא״ל נכנסות</string>
     <string name="title_identity_reply_to">כתובת למענה</string>
     <string name="title_identity_internal">שמות תחום פנימיים (עם פסיקים מפרידים)</string>
     <string name="title_identity_unicode">להשתמש בתעבורת יוניקוד</string>
@@ -684,11 +696,13 @@
     <string name="title_account_notify">הפרדת התראות</string>
     <string name="title_account_left">החלקה שמאלה</string>
     <string name="title_account_right">החלקה ימינה</string>
+    <string name="title_account_move">העברה כבררת מחדל אל</string>
     <string name="title_account_gmail">לסנכרון אמין של חשבון Gmail, עדיף להשתמש באשף ההגדרה המהיר ל־Gmail ככל שניתן</string>
     <string name="title_domain">שם תחום</string>
     <string name="title_autoconfig">קבלת הגדרות</string>
     <string name="title_aliases">כינויים</string>
     <string name="title_provider">ספק</string>
+    <string name="title_custom">משלך</string>
     <string name="title_host">שם מארח</string>
     <string name="title_encryption">הצפנה</string>
     <string name="title_encryption_none">אין</string>
@@ -764,6 +778,7 @@
     <string name="title_synchronize_now">לסנכרן עכשיו</string>
     <string name="title_synchronize_subfolders">תת־תיקיות</string>
     <string name="title_synchronize_more">משיכת הודעות נוספות</string>
+    <string name="title_synchronize_more_hint">יגרום להורדה בודדת של הודעות ישנות יותר, כדי לא להגדיל את צריכת הסוללה בשימוש יומיומי</string>
     <string name="title_synchronize_enabled">סנכרון</string>
     <string name="title_synchronize_batch_enable">הפעלת סנכרון</string>
     <string name="title_synchronize_batch_disable">השבתת סנכרון</string>
@@ -832,6 +847,10 @@
     <string name="title_auto_trash">להעביר הודעות ישנות לאשפה אוטומטית</string>
     <string name="title_auto_delete">למחוק הודעות ישנות לצמיתות אוטומטית</string>
     <string name="title_auto_delete_hint">הודעות ישנות הן הודעות שלא נשמרות עוד על המכשיר</string>
+    <string name="title_auto_delete_archive_hint">מחיקה מתיקיית הארכיון לא תמיד מורשית בשרת הדוא״ל</string>
+    <string name="title_inbox_root_hint">        חלק מהספקים דורשים יצירה של תיקיות חדשות תחת הדואר הנכנס.
+        במקרה שכזה, יש ללחוץ ארוכות על תיקיית הדואר הנכנס ברשימת התיקיות ולבחור באפשרות ‚יצירת תת־תיקייה’.
+    </string>
     <string name="title_folder_name_missing">שם התיקייה חסר</string>
     <string name="title_folder_exists">התיקייה %1$s קיימת</string>
     <string name="title_folder_delete">למחוק את התיקייה הזאת ואת כל ההודעות שהיא מכילה?</string>
@@ -855,6 +874,7 @@
     <string name="title_no_messages">אין הודעות</string>
     <string name="title_filters_active">מסנן אחד או יותר פעילים</string>
     <string name="title_duplicate_in">הודעות כפולות בתוך %1$s</string>
+    <string name="title_trashed_from">הודעה באשפה מאת %1$s</string>
     <string name="title_subject_reply">מענה: %1$s</string>
     <string name="title_subject_forward">העברה: %1$s</string>
     <string name="title_subject_reply_alt">מענה: %1$s</string>
@@ -1193,6 +1213,7 @@
     <string name="title_filter_unknown">מוענים בלתי ידועים</string>
     <string name="title_filter_hidden">מוסתר</string>
     <string name="title_filter_duplicates">כפילויות</string>
+    <string name="title_filter_trash">באשפה</string>
     <string name="title_compact">תצוגה מצומצמת</string>
     <string name="title_zoom">גודל טקסט</string>
     <string name="title_padding">גודל ריפוד</string>
@@ -1227,6 +1248,7 @@
     <string name="title_rule_seen">סימון כנקרא</string>
     <string name="title_rule_unseen">סימון כלא נקרא</string>
     <string name="title_rule_hide">הסתרה</string>
+    <string name="title_rule_ignore">השתקת התראה</string>
     <string name="title_rule_snooze">השהיה</string>
     <string name="title_rule_flag">הוספת כוכב</string>
     <string name="title_rule_importance">הגדרת חשיבות</string>
@@ -1397,12 +1419,14 @@
     <string name="title_legend_r">מענה</string>
     <string name="title_legend_s">בחירה/ביטול</string>
     <string name="title_legend_t">התמקדות על טקסט</string>
+    <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>
     <string name="title_hint_important">חשוב</string>
     <string name="title_hint_sync">משיכת הודעות עשויה לארוך זמן מה כתלות במהירות הספק, חיבור האינטרנט, המכשיר ומספר ההודעות. היישומון עשוי להגיב בכבדות בזמן משיכת ההודעות.</string>
+    <string name="title_hint_sync_note">כבררת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚סנכרון עוד’.</string>
     <string name="title_hint_reformat">כבררת מחדל, FairEmail מעצבת מחדש הודעות למטרות פרטיות ואבטחה. כדי לצפות בהודעה המקורית, יש לגעת בסמל ‚מסך מלא’ מעל לטקסט ההודעה.</string>
     <string name="title_hint_design">העיצוב אינו מפריע אלא מאפשר יעילות גבוהה באופן מכוון. יש מגוון אפשרויות להתאים את המראה, אך לדאבוננו לא ניתן לדאוג לרווחתם של כולם בו־זמנית.</string>
     <string name="title_hint_junk">סינון הספאם צריך להתבצע מצד שרת הדוא״ל ולא ניתן לבצע אותו על מכשיר שמופעל על סוללה עם יכולות מוגבלות.</string>
@@ -1465,6 +1489,7 @@
     <string name="title_snooze_now">השהיה</string>
     <string name="title_loading">בטעינה &#8230;</string>
     <string name="title_fetching_again">ההודעה נמשכת מהשרת שוב</string>
+    <string name="title_go_back">חזרה</string>
     <string name="title_conversation_actions">פעולות</string>
     <string name="title_conversation_action_reply">להגיב עם: ‚%1$s’</string>
     <string name="title_conversation_action_copy">העתקה: ‚%1$s’</string>

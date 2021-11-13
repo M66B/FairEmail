@@ -392,7 +392,6 @@
     <string name="title_advanced_autounstar">Csillagok automatikus eltávolítása az üzenetek áthelyezésekor</string>
     <string name="title_advanced_auto_important">Automatikusan csináljon csillagozott üzeneteket fontossá</string>
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
-    <string name="title_advanced_default_snooze">Szundi alapértelmezett időtartama</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>
     <string name="title_advanced_notifications_default">Alapértelmezett csatorna</string>
     <string name="title_advanced_notifications_service">Értesítési szolgáltatás</string>

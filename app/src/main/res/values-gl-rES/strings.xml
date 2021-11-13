@@ -408,7 +408,6 @@
     <string name="title_advanced_autounstar">Quitar as estrelas automaticamente das mensaxes ao movelas</string>
     <string name="title_advanced_auto_important">Marcar como importantes as mensaxes con estrela</string>
     <string name="title_advanced_reset_importance">Reiniciar a importancia ao mover as mensaxes</string>
-    <string name="title_advanced_default_snooze">Tempo predeterminado do adiamento</string>
     <string name="title_advanced_notifications">Xestionar notificacións</string>
     <string name="title_advanced_notifications_default">Canal por omisión</string>
     <string name="title_advanced_notifications_service">Canal de recepción</string>

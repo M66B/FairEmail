@@ -290,7 +290,6 @@
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
-    <string name="title_advanced_default_snooze">زمان پیش‌فرض چرت زدن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
     <string name="title_advanced_notifications_service">دریافت کانال</string>

@@ -465,7 +465,7 @@
     <string name="title_advanced_autounstar">Αυτόματη αφαίρεση των αστεριών από τα μηνύματα κατά τη μετακίνησή τους</string>
     <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_reset_importance">Επαναφορά του βαθμού σημαντικότητας κατά τη μετακίνηση των μηνυμάτων</string>
-    <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής</string>
+    <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
     <string name="title_advanced_notifications_service">Κανάλι λήψης</string>
@@ -822,7 +822,7 @@
     <string name="title_unified_folder">Προβολή στα ενοποιημένα εισερχόμενα</string>
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
     <string name="title_synchronize_folder">Συγχρονισμός (λήψη μηνυμάτων)</string>
-    <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχής συγχρονισμός</string>
+    <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχή συγχρονισμό</string>
     <string name="title_poll_folder_remark">Οι περισσότεροι διακομιστές ηλ. ταχυδρομείου επιτρέπουν μηνύματα ώθησης (push) μόνον για έναν πολύ μικρό αριθμό φακέλων!</string>
     <string name="title_download_folder">Αυτόματο κατέβασμα των κειμένων των μηνυμάτων και των συνημμένων</string>
     <string name="title_notify_folder">Να ειδοποιούμαι για νέα μηνύματα</string>
@@ -865,6 +865,7 @@
     <string name="title_no_messages">Κανένα μήνυμα</string>
     <string name="title_filters_active">Ένα ή περισσότερα φίλτρα ενεργά</string>
     <string name="title_duplicate_in">Διπλότυπο μήνυμα σε %1$s</string>
+    <string name="title_trashed_from">Διαγραμμένο μήνυμα από %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Απ: %1$s</string>
@@ -1207,6 +1208,7 @@
     <string name="title_filter_unknown">Άγνωστοι αποστολείς</string>
     <string name="title_filter_hidden">Κρυφά</string>
     <string name="title_filter_duplicates">Διπλότυπα</string>
+    <string name="title_filter_trash">Διαγράφηκε</string>
     <string name="title_compact">Συνεπτυγμένη προβολή</string>
     <string name="title_zoom">Μέγεθος κειμένου</string>
     <string name="title_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
@@ -1487,6 +1489,7 @@
     <string name="title_snooze_now">Αναβολή</string>
     <string name="title_loading">Φόρτωση &#8230;</string>
     <string name="title_fetching_again">Λήψη του μηνύματος ξανά από το διακομιστή</string>
+    <string name="title_go_back">Μετάβαση πίσω</string>
     <string name="title_conversation_actions">Ενέργειες</string>
     <string name="title_conversation_action_reply">Απάντηση με: %1$s</string>
     <string name="title_conversation_action_copy">Αντιγραφή: %1$s</string>

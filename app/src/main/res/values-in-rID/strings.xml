@@ -369,7 +369,6 @@
     <string name="title_advanced_autounstar">Secara otomatis menghapus bintang saat memindahkan pesan</string>
     <string name="title_advanced_auto_important">Secara otomatis pesan berbintang menjadi pesan penting</string>
     <string name="title_advanced_reset_importance">Atur ulang \'label penting\' saat pesan di pindah</string>
-    <string name="title_advanced_default_snooze">Standar waktu penundaan</string>
     <string name="title_advanced_notifications">Kelola pemberitahuan</string>
     <string name="title_advanced_notifications_default">Standar Pemberitahuan</string>
     <string name="title_advanced_notifications_service">Terima saluran</string>

@@ -435,7 +435,6 @@
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao movê-las</string>
     <string name="title_advanced_auto_important">Torne as mensagens com estrela automaticamente importantes</string>
     <string name="title_advanced_reset_importance">Redefinir importância de mensagens em movimento</string>
-    <string name="title_advanced_default_snooze">Tempo padrão de soneca</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Receber canal</string>

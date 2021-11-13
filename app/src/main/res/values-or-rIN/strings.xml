@@ -4,6 +4,7 @@
     <string name="app_changelog">ପରିବର୍ତ୍ତନ ଲଗ୍</string>
     <string name="app_welcome">FairEmail ହେଉଛି ଏକ ଖୋଲା ଉତ୍ସ ଇମେଲ୍ ଆପ୍ ଯାହାକି ଗୋପନୀୟତା ଏବଂ ସୁରକ୍ଷା ଉପରେ ଧ୍ୟାନ ଦେଇଥାଏ। ଏହି କାରଣରୁ କିଛି ବୈଶିଷ୍ଟ୍ୟ ଆପଣ ଅଭ୍ୟସ୍ତ ଠାରୁ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିପାରେ।</string>
     <string name="app_crash">ଏହି ଡିଭାଇସରେ FairEmail ସମର୍ଥିତ ନୁହେଁ କାରଣ ଆଣ୍ଡ୍ରଏଡରେ ଥିବା ବଗ୍ ଯୋଗୁ କ୍ରାସ୍ ହୋଇଥାଏ</string>
+    <string name="app_exit">ପ୍ରସ୍ଥାନ କରିବା ପାଇଁ ପୁଣି \'ବ୍ୟାକ୍\' ଯାଆନ୍ତୁ</string>
     <string name="app_updated">ଗତ ଅପଡେଟ୍: %1$s</string>
     <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="channel_send">ପଠାନ୍ତୁ</string>
@@ -166,10 +167,13 @@
     <string name="title_advanced_sync_on_launch">ଆରମ୍ଭରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
     <string name="title_advanced_undo">ପୂର୍ବବତ୍ ସମୟ ଶେଷ</string>
+    <string name="title_advanced_default_snooze">ଡିଫଲ୍ଟ ସ୍ନୁଜ୍/ବିଳମ୍ବ ସମୟ</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
     <string name="title_advanced_notify_action_trash">ଆବର୍ଜନା</string>
     <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
+    <string name="title_advanced_notify_action_seen">ପଠିତ</string>
     <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
+    <string name="title_advanced_notify_action_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_advanced_sound">ବିଜ୍ଞପ୍ତି ଧ୍ଵନି ବାଛନ୍ତୁ</string>
     <string name="title_advanced_confirm_images">ଡିଫଲ୍ଟ ଭାବରେ କୌଣସି ପ୍ରତିଛବି ଦେଖାନ୍ତୁ ନାହିଁ</string>
     <string name="title_advanced_ask_images">ପ୍ରତିଛବି ଦେଖାଇବା ନିଶ୍ଚିତ କରନ୍ତୁ</string>
@@ -244,11 +248,13 @@
     <string name="title_synchronize_batch_enable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_synchronize_batch_disable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_expunge">କାଢ଼ିଦିଅନ୍ତୁ</string>
-    <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସ୍ଥାୟୀ ଭାବେ ବିଲୋପ କରିବ</string>
+    <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବ</string>
     <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
     <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
     <string name="title_import_contacts">vCards ଆମଦାନୀ କରନ୍ତୁ</string>
     <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="title_empty_trash_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
+    <string name="title_empty_trash_all_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ଆକାଉଣ୍ଟର ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
     <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
     <string name="title_display_name">ଦେଖାଇବା ନାମ</string>
     <string name="title_search_folder">ଫୋଲ୍ଡର୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
@@ -259,6 +265,7 @@
     <string name="title_folder_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_folder_system">ସିଷ୍ଟମ୍</string>
     <string name="title_filters_active">ଗୋଟିଏ କିମ୍ବା ଅଧିକ ଶୋଧକ ସକ୍ରିୟ</string>
+    <string name="title_trashed_from">%1$sଙ୍କ ଠାରୁ ଆସିଥିବା ଆବର୍ଜନାରେ ଥିବା ବାର୍ତ୍ତା</string>
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
@@ -339,6 +346,8 @@
     <string name="title_sort_on_subject">ବିଷୟ</string>
     <string name="title_sort_on_size">ଆକାର</string>
     <string name="title_sort_on_attachments">ସଂଲଗ୍ନକରଣ</string>
+    <string name="title_filter_seen">ପଠିତ</string>
+    <string name="title_filter_trash">ଆବର୍ଜନାରେ</string>
     <string name="title_zoom">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_padding">ପ୍ୟାଡିଂ ଆକାର</string>
     <string name="title_select_language">ଭାଷା ଚୟନ କରନ୍ତୁ</string>
@@ -379,6 +388,7 @@
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
     <string name="title_legend_show_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_legend_edit">ସମ୍ପାଦନ</string>
     <string name="title_legend_c">ରଚନା କରନ୍ତୁ</string>
     <string name="title_legend_n">ପରବର୍ତ୍ତୀ</string>
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
@@ -390,6 +400,7 @@
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_go_back">ପଛକୁ ଯାଅ</string>
     <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ</string>
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
     <string name="title_pro_whichever">ଯେକୌଣସି ବୈଶିଷ୍ଟ୍ୟ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଭାବରେ ମନୋନୀତ ହେଲେ, ସର୍ବଦା ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଥାଆନ୍ତି ଯିଏ ଅଭିଯୋଗ କରନ୍ତି ଯେ ଏକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା ହେବା ଉଚିତ୍। ଦୟାକରି ଆପଣ ସେହି ବ୍ୟକ୍ତି ହୁଅନ୍ତୁ ନାହିଁ।</string>

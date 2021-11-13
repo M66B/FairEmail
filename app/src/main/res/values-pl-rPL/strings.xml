@@ -485,7 +485,6 @@
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
-    <string name="title_advanced_default_snooze">Domyślny czas odłożenia</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>
     <string name="title_advanced_notifications_service">Kanał odbioru</string>
@@ -887,6 +886,7 @@
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_filters_active">Jeden lub więcej filtrów jest aktywnych</string>
     <string name="title_duplicate_in">Duplikat wiadomości w %1$s</string>
+    <string name="title_trashed_from">Wiadomość usunięta od %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_subject_reply_alt">Odp: %1$s</string>
@@ -1229,6 +1229,7 @@
     <string name="title_filter_unknown">Nieznani nadawcy</string>
     <string name="title_filter_hidden">Ukryta</string>
     <string name="title_filter_duplicates">Duplikaty</string>
+    <string name="title_filter_trash">Usunięte</string>
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_padding">Rozmiar wypełnienia</string>
@@ -1509,6 +1510,7 @@
     <string name="title_snooze_now">Odłóż</string>
     <string name="title_loading">Ładowanie &#8230;</string>
     <string name="title_fetching_again">Ponowne pobieranie wiadomości z serwera</string>
+    <string name="title_go_back">Powrót</string>
     <string name="title_conversation_actions">Akcje</string>
     <string name="title_conversation_action_reply">Odpowiedz z \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiuj: \'%1$s\'</string>

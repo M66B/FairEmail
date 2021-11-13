@@ -283,7 +283,6 @@
     <string name="title_advanced_autounstar">Automatsko uklanjanje zvijezda iz poruka prema pokretu</string>
     <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Povrati važnost pri pokretu poruke</string>
-    <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
     <string name="title_advanced_notifications">Upravljaj obavijestima</string>
     <string name="title_advanced_notifications_default">Zadani kanal</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>

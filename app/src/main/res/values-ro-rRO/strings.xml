@@ -475,7 +475,7 @@
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
-    <string name="title_advanced_default_snooze">Timpul implicit de amânare</string>
+    <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
     <string name="title_advanced_notifications_default">Canal implicit</string>
     <string name="title_advanced_notifications_service">Canal primire</string>
@@ -877,6 +877,7 @@
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_filters_active">Unul sau mai multe filtre active</string>
     <string name="title_duplicate_in">Mesaj duplicat în %1$s</string>
+    <string name="title_trashed_from">Mesaj aruncat de la %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_subject_reply_alt">Răsp: %1$s</string>
@@ -1219,6 +1220,7 @@
     <string name="title_filter_unknown">Expeditori necunoscuți</string>
     <string name="title_filter_hidden">Ascuns</string>
     <string name="title_filter_duplicates">Duplicate</string>
+    <string name="title_filter_trash">A fost aruncat la gunoi</string>
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_padding">Mărime spațiu liber</string>
@@ -1499,6 +1501,7 @@
     <string name="title_snooze_now">Amână</string>
     <string name="title_loading">Se încarcă &#8230;</string>
     <string name="title_fetching_again">Se descarcă iar mesajele de pe server</string>
+    <string name="title_go_back">Înapoi</string>
     <string name="title_conversation_actions">Acțiuni</string>
     <string name="title_conversation_action_reply">Răspunde cu: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiază: \'%1$s\'</string>

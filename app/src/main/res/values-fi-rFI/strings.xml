@@ -465,7 +465,6 @@
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
-    <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
     <string name="title_advanced_notifications_service">Vastaanottokanava</string>

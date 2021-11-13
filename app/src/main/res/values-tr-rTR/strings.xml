@@ -464,7 +464,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
-    <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
     <string name="title_advanced_notifications_service">Kanalı al</string>

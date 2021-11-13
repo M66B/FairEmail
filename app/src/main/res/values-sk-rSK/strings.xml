@@ -92,6 +92,7 @@
     <string name="title_junk_hint">Váš emailový poskytovateľ je zodpovedný za filtrovanie spamu a nežiadúcich správ. Emailová aplikácia nemá dosť informácií, aby mohla spoľahlivo vykonávať túto činnosť sama.</string>
     <string name="title_block">Zablokovať %1$s</string>
     <string name="title_block_sender">Zablokovať odosielateľa</string>
+    <string name="title_block_sender_domain">Blokovať doménu \'%1$s\'</string>
     <string name="title_block_sender_hint">        Blokovanie odosielateľa je bezplatná funkcia.
         Na blokovanie domény odosielateľa sa používajú pravidlá filtrovania, čo je Pro funkcia.
     </string>
@@ -163,6 +164,8 @@
     <string name="title_setup_identities">Totožnosti</string>
     <string name="title_setup_other">Iný poskytovateľ</string>
     <string name="title_setup_pop3">POP3 účet</string>
+    <string name="title_setup_oauth_permission">Poskytovateľ schválil použitie oauth len pre verzie z obchodu Play a Github</string>
+    <string name="title_setup_gmail_support">Autorizácia účtov Google funguje len vo verziách z obchodu Play a Github, pretože systém Android kontroluje podpis aplikácií</string>
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
     <string name="title_setup_gmail_permissions">Google sa opýta na povolenia pre čítanie, písanie, odosielanie a trvalé vymazanie všetkých vašich e-mailov. FairEmail nikdy nevymaže vaše správy bez vášho vysloveného súhlasu.</string>
     <string name="title_setup_gmail_drafts">Ak nie je priečinok s konceptami dostupný cez protokol IMAP, môžete to vyriešiť v nastaveniach štítkov Gmail</string>
@@ -482,7 +485,6 @@
     <string name="title_advanced_autounstar">Automaticky odstrániť hviezdičku po presunutí správ</string>
     <string name="title_advanced_auto_important">Automaticky nastaviť vysokú prioritu pre správy s hviezdičkou</string>
     <string name="title_advanced_reset_importance">Zrušiť nastavenie priority po presunutí správ</string>
-    <string name="title_advanced_default_snooze">Predvolený čas pre odloženie správ</string>
     <string name="title_advanced_notifications">Spravovať upozornenia</string>
     <string name="title_advanced_notifications_default">Predvolený kanál</string>
     <string name="title_advanced_notifications_service">Kanál prijímania správ</string>
@@ -571,6 +573,7 @@
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_deepl">Integrácia DeepL</string>
+    <string name="title_advanced_sdcard">Chcem použiť pamäťovú kartu sdcard</string>
     <string name="title_advanced_watchdog">Pravidelne kontrolovať, či je FairEmail stále aktívny</string>
     <string name="title_advanced_updates">Kontrolovať aktualizácie na GitHub</string>
     <string name="title_advanced_check_weekly">Skontrolovať každý týždeň, nie každý deň</string>
@@ -635,6 +638,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_parse_classes_hint">Zobrazí správy s vyššou presnosťou, no s určitým oneskorením</string>
     <string name="title_advanced_language_detection_hint">Podpora detekcie jazyka závisí od výrobcu zariadenia</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otvoriť správu ak konverzácia obsahuje len jednu</string>
+    <string name="title_advanced_expandall_hint">Tlačidlo odpovedať nebude zobrazené, keď je rozbalených viac správ, pretože nie je jasné, na ktorú správu chcete odpovedať</string>
     <string name="title_advanced_autoseen_hint">Automatické označovanie správ ako prečítaných po rozbalení môžete zakázať cez pokročilé nastavenia každého účtu zvlášť</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavrieť konverzáciu ak sú všetky správy archivované, odoslané či presunuté do koša</string>
     <string name="title_advanced_sender_hint">Väčšina poskytovateľov neumožňuje modifikovať adresu odosielateľa</string>
@@ -880,6 +884,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_messages">Žiadne správy</string>
     <string name="title_filters_active">Jeden alebo viac filtrov aktívnych</string>
     <string name="title_duplicate_in">Duplicitná správa v priečinku %1$s</string>
+    <string name="title_trashed_from">Správa od %1$s presunutá do koša</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1121,6 +1126,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_smime_reminder">K dispozícii sú kľúče S/MIME</string>
     <string name="title_to_missing">Chýbajúci adresát</string>
     <string name="title_extra_missing">Chýba meno používateľa</string>
+    <string name="title_noreply_reminder">Odpovedáte na adresu typu \'no-reply\'</string>
     <string name="title_external_reminder">Posielanie na externú adresu</string>
     <string name="title_subject_reminder">Predmet je prázdny</string>
     <string name="title_text_reminder">Telo správy je prázdne</string>
@@ -1219,6 +1225,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_filter_unknown">Neznámy odosielatelia</string>
     <string name="title_filter_hidden">Skryté</string>
     <string name="title_filter_duplicates">Duplicity</string>
+    <string name="title_filter_trash">Premiestnené do koša</string>
     <string name="title_compact">Kompaktné zobrazenie</string>
     <string name="title_zoom">Veľkosť textu</string>
     <string name="title_padding">Veľkosť odsadenia</string>
@@ -1499,6 +1506,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_snooze_now">Odložiť</string>
     <string name="title_loading">Načítavanie &#8230;</string>
     <string name="title_fetching_again">Opätovné získavanie správy zo servera</string>
+    <string name="title_go_back">Prejsť späť</string>
     <string name="title_conversation_actions">Akcie</string>
     <string name="title_conversation_action_reply">Odpovedať s: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopírovať: \'%1$s\'</string>

@@ -485,7 +485,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
-    <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
+    <string name="title_advanced_default_snooze">Время повтора/задержки по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
     <string name="title_advanced_notifications_service">Канал получения</string>
@@ -887,6 +887,7 @@
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_filters_active">Один или несколько фильтров активны</string>
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
+    <string name="title_trashed_from">Мусорное сообщение от %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1229,6 +1230,7 @@
     <string name="title_filter_unknown">Неизвестные отправители</string>
     <string name="title_filter_hidden">Скрытые</string>
     <string name="title_filter_duplicates">Дубликаты</string>
+    <string name="title_filter_trash">Мусор</string>
     <string name="title_compact">Компактный вид</string>
     <string name="title_zoom">Размер текста</string>
     <string name="title_padding">Размер отступа</string>
@@ -1509,6 +1511,7 @@
     <string name="title_snooze_now">Отложить</string>
     <string name="title_loading">Загрузка&#8230;</string>
     <string name="title_fetching_again">Заново загружаем сообщения с сервера</string>
+    <string name="title_go_back">Назад</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Ответить на: \"%1$s\"</string>
     <string name="title_conversation_action_copy">Копировать: \"%1$s\"</string>

@@ -1212,7 +1212,7 @@ Les identités correspondantes peuvent être utilisées pour attribuer des coule
 <a name="faq35"></a>
 **(35) Pourquoi devrais-je faire attention à la visualisation des images, des pièces jointes, du message original et à l'ouverture des liens ?**
 
-Visualiser les images stockées à distance (voir aussi [cette FAQ](#user-content-faq27)) et ouvrir les liens pourrait non seulement indiquer à l'expéditeur que vous avez vu le message, mais dévoilera également votre adresse IP. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
+Visualiser les images stockées à distance (voir aussi [cette FAQ](#user-content-faq27)) et ouvrir les liens pourrait non seulement indiquer à l'expéditeur que vous avez vu le message, mais dévoilera également votre adresse IP. Voir aussi cette question : [Pourquoi un lien depuis un courrier électronique est-il plus dangereux qu'un lien d'une recherche sur le web ?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
 Ouvrir des pièces jointes ou afficher un message original peut charger du contenu distant et exécuter des scripts, qui pourraient non seulement causer des fuites d'informations sensibles sur la vie privée, mais peuvent aussi représenter un risque de sécurité.
 
@@ -1243,16 +1243,16 @@ Long version:
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Comment les mots de passe sont-ils stockés ?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+Toutes les versions Android supportées [chiffrent toutes les données utilisateur](https://source.android.com/security/encryption), donc toutes les données, y compris les noms d'utilisateurs, mots de passe, messages, etc. sont stockées chiffrées.
 
-If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+Si l'appareil est sécurisé à l'aide d'un code PIN, d'un schéma ou d'un mot de passe, vous pouvez rendre visible le compte et les mots de passe d'identité. Si c'est un problème parce que vous partagez l'appareil avec d'autres personnes, envisagez d'utiliser des [profils d'utilisateurs](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) Comment puis-je réduire l'utilisation de la batterie par FairEmail ?**
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
 
@@ -1278,11 +1278,11 @@ Dans les paramètres de réception, vous pouvez activer la synchronisation syst�
 
 La désactivation de l'option de dossier *Téléchargement automatique des textes et des pièces jointes des messages*. Entraînera une diminution du trafic réseau et donc de l'utilisation de la batterie. Vous pouvez désactiver cette option, par exemple pour le dossier envoyé et l'archive.
 
-Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night. In the settings you can select a schedule for message synchronization (this is a pro feature).
+La synchronisation des messages pendant la nuit n'est généralement pas utile, vous pouvez donc économiser sur l'utilisation de la batterie en ne synchronisant pas la nuit. In the settings you can select a schedule for message synchronization (this is a pro feature).
 
-FairEmail will by default synchronize the folder list on each connection. Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
+FairEmail synchronisera par défaut la liste des dossiers à chaque connexion. Comme les dossiers ne sont pas créés, renommés ou supprimés très souvent, vous pouvez économiser une certaine consommation de données et de batterie en désactivant ceci dans les paramètres de réception.
 
-FairEmail will by default check if old messages were deleted from the server on each connection. If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
+FairEmail vérifiera par défaut si les anciens messages ont été supprimés du serveur à chaque connexion. Si cela ne vous dérange pas que les anciens messages qui ont été supprimés du serveur soient toujours visibles dans FairEmail, vous pouvez économiser une certaine consommation de données et de batterie en désactivant ceci dans les paramètres de réception.
 
 Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 3 to reliably keep connections alive.
 
@@ -1303,20 +1303,20 @@ In addition, the trash and spam folders will be automatically set to checking fo
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the data usage of FairEmail?**
+**(40) Comment puis-je réduire l'utilisation des données par FairEmail ?**
 
-You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+Vous pouvez réduire l'utilisation des données de la même manière que pour la réduction de l'utilisation de la batterie, voir la question précédente pour des suggestions.
 
 Il est inévitable que des données soient utilisées lors de la synchronisation des messages.
 
-If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. Dans ce cas, c'est une bonne idée de réduire le nombre de jours pour synchroniser les messages au minimum (voir la question précédente) ou de passer à la synchronisation périodique des messages (paramètres de réception).
+Si la connexion au serveur de messagerie est perdue, FairEmail synchronisera à nouveau les messages pour s'assurer qu'aucun n'a été manqué. Si la connexion est instable, cela peut entraîner une utilisation supplémentaire des données. Dans ce cas, c'est une bonne idée de réduire le nombre de jours pour synchroniser les messages au minimum (voir la question précédente) ou de passer à la synchronisation périodique des messages (paramètres de réception).
 
-To reduce data usage, you could change these advanced receive settings:
+Pour réduire l'utilisation des données, vous pouvez modifier ces paramètres avancés de réception :
 
-* Check if old messages were removed from the server: disable
-* Synchronize (shared) folder list: disable
+* Vérifier si les anciens messages ont été supprimés du serveur: désactiver
+* Synchroniser la liste des dossiers (partagés) : désactiver
 
-By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
+Par défaut, FairEmail ne télécharge pas les textes et les pièces jointes de plus de 256 KiB des messages lorsqu'il y a une connexion Internet limitée (mobile ou Wi-Fi payant). Vous pouvez changer ceci dans les paramètres de connexion.
 
 <br />
 

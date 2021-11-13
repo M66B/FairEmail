@@ -459,7 +459,6 @@
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
-    <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Mottagningskanal</string>
@@ -860,6 +859,7 @@
     <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_filters_active">Ett eller flera filter är aktiva</string>
     <string name="title_duplicate_in">Duplicerade meddelande i %1$s</string>
+    <string name="title_trashed_from">Kastat meddelande från %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
     <string name="title_subject_reply_alt">Sv: %1$s</string>
@@ -1201,6 +1201,7 @@
     <string name="title_filter_unknown">Okända avsändare</string>
     <string name="title_filter_hidden">Dold</string>
     <string name="title_filter_duplicates">Dubbletter</string>
+    <string name="title_filter_trash">Kastade</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
     <string name="title_padding">Utfyllnadsstorlek</string>
@@ -1481,6 +1482,7 @@
     <string name="title_snooze_now">Slumra</string>
     <string name="title_loading">Läser in &#8230;</string>
     <string name="title_fetching_again">Hämtar meddelande igen från servern</string>
+    <string name="title_go_back">Gå tillbaka</string>
     <string name="title_conversation_actions">Åtgärder</string>
     <string name="title_conversation_action_reply">Svara med: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiera: \'%1$s\'</string>

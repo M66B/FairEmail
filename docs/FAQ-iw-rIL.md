@@ -64,7 +64,7 @@ In some cases, you'll need to enable external access to your account and/or to u
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>תקלה ידועה</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~

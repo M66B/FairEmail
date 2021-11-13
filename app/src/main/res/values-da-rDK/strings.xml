@@ -462,7 +462,7 @@
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
-    <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
+    <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Modtagekanal</string>
@@ -859,6 +859,7 @@
     <string name="title_no_messages">Ingen beskeder</string>
     <string name="title_filters_active">Ét eller flere filtre er aktive</string>
     <string name="title_duplicate_in">Dubletbeskeder i %1$s</string>
+    <string name="title_trashed_from">Slettede beskeder fra %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vs: %1$s</string>
     <string name="title_subject_reply_alt">Sv: %1$s</string>
@@ -1201,6 +1202,7 @@
     <string name="title_filter_unknown">Ukendte afsendere</string>
     <string name="title_filter_hidden">Skjult</string>
     <string name="title_filter_duplicates">Dubletter</string>
+    <string name="title_filter_trash">Slettet</string>
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_padding">Fyldstørrelse</string>
@@ -1480,6 +1482,7 @@
     <string name="title_snooze_now">Udsæt</string>
     <string name="title_loading">Indlæser &#8230;</string>
     <string name="title_fetching_again">Henter beskeder igen fra server</string>
+    <string name="title_go_back">Gå tilbage</string>
     <string name="title_conversation_actions">Handlinger</string>
     <string name="title_conversation_action_reply">Svar med: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiér: \'%1$s\'</string>

@@ -450,7 +450,6 @@
     <string name="title_advanced_autounstar">移動訊息時自動移除其中包含的星號</string>
     <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_reset_importance">移動訊息時重設重要性</string>
-    <string name="title_advanced_default_snooze">預設延後時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
     <string name="title_advanced_notifications_service">接收頻道</string>

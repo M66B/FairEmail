@@ -465,7 +465,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_auto_important">Automatisch berichten met een ster belangrijk maken</string>
     <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
-    <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
+    <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
     <string name="title_advanced_notifications_service">Ontvangstkanaal</string>
@@ -867,6 +867,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_filters_active">Eén of meer filters actief</string>
     <string name="title_duplicate_in">Dubbel bericht in %1$s</string>
+    <string name="title_trashed_from">Verwijderd bericht van %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1208,6 +1209,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_filter_unknown">Onbekende afzenders</string>
     <string name="title_filter_hidden">Verborgen</string>
     <string name="title_filter_duplicates">Duplicaten</string>
+    <string name="title_filter_trash">Verwijderde</string>
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_padding">Opvul grootte</string>
@@ -1488,6 +1490,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_snooze_now">Sluimeren</string>
     <string name="title_loading">Laden &#8230;</string>
     <string name="title_fetching_again">Bericht opnieuw van de server ophalen</string>
+    <string name="title_go_back">Ga terug</string>
     <string name="title_conversation_actions">Acties</string>
     <string name="title_conversation_action_reply">Antwoord met: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopieer: \'%1$s\'</string>

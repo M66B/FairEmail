@@ -329,7 +329,6 @@
     <string name="title_advanced_autounstar">Fjern stjernen automatisk fra meldinger som blir flyttet</string>
     <string name="title_advanced_auto_important">Gjør stjernemerkede meldinger automatisk viktige</string>
     <string name="title_advanced_reset_importance">Tilbakestill viktigheten for å flytte meldinger</string>
-    <string name="title_advanced_default_snooze">Standard slumretid</string>
     <string name="title_advanced_notifications">Administrer varsler</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Motta kanal</string>

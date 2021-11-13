@@ -465,7 +465,7 @@
     <string name="title_advanced_autounstar">Retirer automatiquement l’étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_reset_importance">Réinitialiser l’importance lors du déplacement des messages</string>
-    <string name="title_advanced_default_snooze">Délai de report par défaut</string>
+    <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
     <string name="title_advanced_notifications_service">Canal « Réception »</string>
@@ -867,6 +867,7 @@
     <string name="title_no_messages">Aucun message</string>
     <string name="title_filters_active">Un ou plusieurs filtres actifs</string>
     <string name="title_duplicate_in">Message en double dans %1$s</string>
+    <string name="title_trashed_from">Message de %1$s supprimé</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1209,6 +1210,7 @@
     <string name="title_filter_unknown">Expéditeurs inconnus</string>
     <string name="title_filter_hidden">Masqués</string>
     <string name="title_filter_duplicates">Doublons</string>
+    <string name="title_filter_trash">Supprimé</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_padding">Espacement des messages</string>
@@ -1489,6 +1491,7 @@
     <string name="title_snooze_now">Reporter</string>
     <string name="title_loading">Chargement&#8230;</string>
     <string name="title_fetching_again">Nouvelle récupération du message depuis le serveur</string>
+    <string name="title_go_back">Retour</string>
     <string name="title_conversation_actions">Actions</string>
     <string name="title_conversation_action_reply">Répondre avec : \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copier : \'%1$s\'</string>

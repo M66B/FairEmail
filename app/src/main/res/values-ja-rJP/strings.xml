@@ -452,7 +452,6 @@
     <string name="title_advanced_autounstar">移動するメッセージのスターを取り消します</string>
     <string name="title_advanced_auto_important">スター付きメッセージを自動的に重要にする</string>
     <string name="title_advanced_reset_importance">移動メッセージの重要度をリセット</string>
-    <string name="title_advanced_default_snooze">デフォルトのスヌーズ時間</string>
     <string name="title_advanced_notifications">通知の管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
     <string name="title_advanced_notifications_service">通知チャンネル</string>

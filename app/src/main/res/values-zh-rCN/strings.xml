@@ -455,7 +455,7 @@
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
-    <string name="title_advanced_default_snooze">默认打盹时间</string>
+    <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">接收频道</string>
@@ -856,6 +856,7 @@
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">一个或多个过滤器已启用</string>
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
+    <string name="title_trashed_from">来自 %1$s 的已回收消息</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1198,6 +1199,7 @@
     <string name="title_filter_unknown">未知发件人</string>
     <string name="title_filter_hidden">隐藏</string>
     <string name="title_filter_duplicates">重复项</string>
+    <string name="title_filter_trash">已回收</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
     <string name="title_padding">内边距尺寸</string>
@@ -1478,6 +1480,7 @@
     <string name="title_snooze_now">打盹</string>
     <string name="title_loading">&#8230;加载中</string>
     <string name="title_fetching_again">再次从服务器获取消息</string>
+    <string name="title_go_back">返回</string>
     <string name="title_conversation_actions">操作</string>
     <string name="title_conversation_action_reply">回复：\'%1$s\'</string>
     <string name="title_conversation_action_copy">复制: \'%1$s\'</string>

@@ -475,7 +475,6 @@
     <string name="title_advanced_autounstar">Automatski ukloni zvjezdicu s poruka pri premještanju istih</string>
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
-    <string name="title_advanced_default_snooze">Zadano vrijeme odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
     <string name="title_advanced_notifications_default">Zadani kanal</string>
     <string name="title_advanced_notifications_service">Prijemni kanal</string>
@@ -876,6 +875,7 @@
     <string name="title_no_messages">Nema poruka</string>
     <string name="title_filters_active">Jedan ili više filtera je aktivno</string>
     <string name="title_duplicate_in">Dupliciraj poruku u %1$s</string>
+    <string name="title_trashed_from">Izbrisana poruka od %1$s</string>
     <string name="title_subject_reply">Odg: %1$s</string>
     <string name="title_subject_forward">Pro: %1$s</string>
     <string name="title_subject_reply_alt">Odg: %1$s</string>
@@ -1218,6 +1218,7 @@
     <string name="title_filter_unknown">Nepoznati pošiljaoci</string>
     <string name="title_filter_hidden">Skrivenom</string>
     <string name="title_filter_duplicates">Duplikati</string>
+    <string name="title_filter_trash">Otpad</string>
     <string name="title_compact">Kompaktni izgled</string>
     <string name="title_zoom">Veličina teksta</string>
     <string name="title_padding">Veličina razmaka</string>
@@ -1498,6 +1499,7 @@
     <string name="title_snooze_now">Odgodi</string>
     <string name="title_loading">Učitavanje &#8230;</string>
     <string name="title_fetching_again">Ponovno dohvatanje poruka sa servera</string>
+    <string name="title_go_back">Idi nazad</string>
     <string name="title_conversation_actions">Radnje</string>
     <string name="title_conversation_action_reply">Odgovori koristeći: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiraj: \'%1$s\'</string>

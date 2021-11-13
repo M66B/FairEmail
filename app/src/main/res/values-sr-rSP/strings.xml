@@ -232,7 +232,6 @@
     <string name="title_advanced_onclose">На затварање разговора</string>
     <string name="title_advanced_autoread">Аутоматски означи поруке као прочитане кад се померају</string>
     <string name="title_advanced_autounstar">Аутоматски уклони звездице са порука кад се померају</string>
-    <string name="title_advanced_default_snooze">Подразумевано време одлагања</string>
     <string name="title_advanced_notifications">Управљај обавештењима</string>
     <string name="title_advanced_notifications_default">Подразумевани канал</string>
     <string name="title_advanced_badge">Прикажи иконицу са бројем нових порука на покретачу</string>

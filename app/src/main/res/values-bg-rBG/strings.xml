@@ -316,7 +316,6 @@
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
-    <string name="title_advanced_default_snooze">Време за отлагане по подразбиране</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>
     <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>

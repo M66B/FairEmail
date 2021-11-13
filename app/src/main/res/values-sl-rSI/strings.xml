@@ -284,7 +284,6 @@
     <string name="title_advanced_autounstar">Ob premikanju sporočil samodejno odstrani zvezdice</string>
     <string name="title_advanced_auto_important">Samodejno naredi sporočila, označena z zvezdico, pomembna</string>
     <string name="title_advanced_reset_importance">Ponastavi pomembnost ob premikanju sporočil</string>
-    <string name="title_advanced_default_snooze">Privzeti čas dremeža</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
     <string name="title_advanced_notifications_default">Privzeti kanal</string>
     <string name="title_advanced_badge">Ikono zaganjalnika prikaži s številom novih sporočil</string>

@@ -319,7 +319,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
     <string name="title_advanced_auto_important">Posar estrella automàticament als missatges importants</string>
     <string name="title_advanced_reset_importance">Restablir la importància per moure missatges</string>
-    <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
     <string name="title_advanced_notifications">Gestiona les notificacions</string>
     <string name="title_advanced_notifications_default">Canal per defecte</string>
     <string name="title_advanced_notifications_background">Utilitzeu el servei en segon pla per sincronitzar els missatges</string>

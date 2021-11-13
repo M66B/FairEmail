@@ -465,7 +465,6 @@
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
-    <string name="title_advanced_default_snooze">Tiempo de posponer por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
     <string name="title_advanced_notifications_service">Canal de recepción</string>
@@ -867,6 +866,7 @@
     <string name="title_no_messages">Sin mensajes</string>
     <string name="title_filters_active">Uno o más filtros activos</string>
     <string name="title_duplicate_in">Mensaje duplicado en %1$s</string>
+    <string name="title_trashed_from">Mensaje en Papelera de %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1209,6 +1209,7 @@
     <string name="title_filter_unknown">Remitentes desconocidos</string>
     <string name="title_filter_hidden">Oculto</string>
     <string name="title_filter_duplicates">Duplicados</string>
+    <string name="title_filter_trash">En Papelera</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_padding">Tamaño de margen interno</string>
@@ -1489,6 +1490,7 @@
     <string name="title_snooze_now">Posponer</string>
     <string name="title_loading">Cargando &#8230;</string>
     <string name="title_fetching_again">Obteniendo mensaje nuevamente del servidor</string>
+    <string name="title_go_back">Atrás</string>
     <string name="title_conversation_actions">Acciones</string>
     <string name="title_conversation_action_reply">Responder con: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>

@@ -440,7 +440,6 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao mover mensagens</string>
     <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
-    <string name="title_advanced_default_snooze">Tempo para adiamento predefinido</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
@@ -588,6 +587,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_thread">Conversa</string>
     <string name="title_legend_audio">Gravar áudio</string>
+    <string name="title_legend_show_images">Mostrar imagens</string>
     <string name="title_legend_hide_images">Ocultar imagens</string>
     <string name="title_legend_show_reformatted">Mostrar mensagem reformatada</string>
     <string name="title_legend_delete">Eliminar</string>

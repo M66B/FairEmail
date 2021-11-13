@@ -310,7 +310,6 @@
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
     <string name="title_advanced_auto_important">Bihurtu izardun mezuak garrantzitsu automatikoki</string>
     <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
-    <string name="title_advanced_default_snooze">Lehenetsitako atzeratze denbora</string>
     <string name="title_advanced_notifications">Kudeatu jakinarazpenak</string>
     <string name="title_advanced_notifications_default">Kanal lehenetsia</string>
     <string name="title_advanced_notifications_background">Erabili bigarren planoko zerbitzua mezuak sinkrinizatzeko</string>
