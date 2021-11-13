@@ -4221,6 +4221,8 @@ class Core {
             EntityAccount account, EntityFolder folder, EntityMessage message,
             List<EntityRule> rules) {
 
+        if (account.protocol == EntityAccount.TYPE_IMAP && folder.read_only)
+            return;
         if (!ActivityBilling.isPro(context))
             return;
 
