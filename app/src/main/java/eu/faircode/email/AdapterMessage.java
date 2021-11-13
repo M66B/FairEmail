@@ -5648,6 +5648,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     continue;
                 if (i >= message.label_colors.length)
                     continue;
+                if (message.label_colors[i] == null)
+                    continue;
 
                 int len = ssb.length();
                 ssb.setSpan(new ForegroundColorSpan(message.label_colors[i]),
@@ -5662,27 +5664,31 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return null;
 
             SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-
-            if (message.keyword_titles == null || message.keyword_colors == null) {
-                ssb.append("Keywords missing!");
-                return ssb;
-            }
-
             for (int i = 0; i < message.keywords.length; i++) {
-                if (MessageHelper.showKeyword(message.keywords[i])) {
+                String keyword = message.keywords[i];
+                if (MessageHelper.showKeyword(keyword)) {
                     if (ssb.length() > 0)
                         ssb.append(' ');
 
-                    String keyword = message.keyword_titles[i];
+                    if (message.keyword_titles != null &&
+                            i < message.keyword_titles.length &&
+                            message.keyword_titles[i] != null)
+                        keyword = message.keyword_titles[i];
+
                     ssb.append(keyword);
 
-                    if (message.keyword_colors[i] != null) {
-                        int len = ssb.length();
-                        ssb.setSpan(
-                                new ForegroundColorSpan(message.keyword_colors[i]),
-                                len - keyword.length(), len,
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    }
+                    if (message.keyword_colors == null)
+                        continue;
+                    if (i >= message.keyword_colors.length)
+                        continue;
+                    if (message.keyword_colors[i] == null)
+                        continue;
+
+                    int len = ssb.length();
+                    ssb.setSpan(
+                            new ForegroundColorSpan(message.keyword_colors[i]),
+                            len - keyword.length(), len,
+                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
             }
             return ssb;
