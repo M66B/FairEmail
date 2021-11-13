@@ -4,6 +4,14 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1779 - 2021-11-13
+
+* Added using folder colors for Gmail labels
+* Added highlighting of searched text in messages
+* Added filter for trashed messages in conversations
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1778 - 2021-11-11
 
 * Fixed duplicate submenu icons
