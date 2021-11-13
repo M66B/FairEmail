@@ -2542,7 +2542,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     HtmlHelper.cleanup(document);
                     HtmlHelper.removeRelativeLinks(document);
 
-                    if (!TextUtils.isEmpty(searched))
+                    if (message.ui_found && found && !TextUtils.isEmpty(searched))
                         HtmlHelper.highlightSearched(context, document, searched);
 
                     // Check for inline encryption
