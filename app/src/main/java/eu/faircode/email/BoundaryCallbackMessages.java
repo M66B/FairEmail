@@ -497,10 +497,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 state.ifolder = (IMAPFolder) state.iservice.getStore().getFolder(browsable.name);
                 try {
                     state.ifolder.open(Folder.READ_WRITE);
-                    db.folder().setFolderReadOnly(browsable.id, state.ifolder.getUIDNotSticky());
+                    browsable.read_only = state.ifolder.getUIDNotSticky();
+                    db.folder().setFolderReadOnly(browsable.id, browsable.read_only);
                 } catch (ReadOnlyFolderException ex) {
                     state.ifolder.open(Folder.READ_ONLY);
-                    db.folder().setFolderReadOnly(browsable.id, true);
+                    browsable.read_only = true;
+                    db.folder().setFolderReadOnly(browsable.id, browsable.read_only);
                 }
 
                 db.folder().setFolderError(browsable.id, null);
