@@ -205,6 +205,10 @@ public class EntityOperation {
                         EntityFolder.TRASH.equals(target.type))
                     autoread = true;
 
+                if (EntityFolder.JUNK.equals(source.type) &&
+                        EntityFolder.INBOX.equals(target.type))
+                    autoread = false;
+
                 jargs.put(1, autoread);
                 jargs.put(3, autounflag);
 
