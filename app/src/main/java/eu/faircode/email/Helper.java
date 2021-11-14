@@ -517,9 +517,13 @@ public class Helper {
         }
     }
 
-    static boolean isOpenKeychainInstalled(Context context) {
+    static String getOpenKeychainPackage(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+        return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+    }
+
+    static boolean isOpenKeychainInstalled(Context context) {
+        String provider = getOpenKeychainPackage(context);
 
         PackageManager pm = context.getPackageManager();
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
@@ -831,11 +835,6 @@ public class Helper {
             view(context, Uri.parse(base + "#top"), "text/html", false, false);
         else
             view(context, Uri.parse(base + "#user-content-faq" + question), "text/html", false, false);
-    }
-
-    static String getOpenKeychainPackage(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
     }
 
     static Uri getPrivacyUri(Context context) {

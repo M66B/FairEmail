@@ -47,6 +47,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -6903,6 +6904,8 @@ public class FragmentCompose extends FragmentBase {
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
+            final String pkgOpenKeyChain = Helper.getOpenKeychainPackage(context);
+
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_send, null);
             final Button btnFixSent = dview.findViewById(R.id.btnFixSent);
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
@@ -6926,6 +6929,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvPlainHint = dview.findViewById(R.id.tvPlainHint);
             final CheckBox cbReceipt = dview.findViewById(R.id.cbReceipt);
             final TextView tvReceiptHint = dview.findViewById(R.id.tvReceiptHint);
+            final TextView tvEncrypt = dview.findViewById(R.id.tvEncrypt);
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
             final ImageButton ibEncryption = dview.findViewById(R.id.ibEncryption);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
@@ -7066,6 +7070,18 @@ public class FragmentCompose extends FragmentBase {
                     }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:receipt");
                 }
             });
+
+            if (Helper.isOpenKeychainInstalled(context)) {
+                tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                tvEncrypt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String pkg = Helper.getOpenKeychainPackage(v.getContext());
+                        PackageManager pm = v.getContext().getPackageManager();
+                        v.getContext().startActivity(pm.getLaunchIntentForPackage(pkg));
+                    }
+                });
+            }
 
             spEncrypt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
