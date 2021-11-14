@@ -320,25 +320,16 @@ public class EmailProvider implements Parcelable {
                 Log.w(ex);
             }
 
-            try {
-                // Primary DNS server
-                DnsHelper.DnsRecord[] soa = DnsHelper.lookup(context, domain, "soa");
-                if (soa.length > 0)
-                    records.add(soa[0]);
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-
             for (DnsHelper.DnsRecord record : records)
                 if (!TextUtils.isEmpty(record.name)) {
                     String target = record.name.toLowerCase(Locale.ROOT);
-                    EntityLog.log(context, "MX/SOA target=" + target);
+                    EntityLog.log(context, "MX target=" + target);
 
                     for (EmailProvider provider : providers) {
                         if (provider.enabled && provider.mx != null)
                             for (String mx : provider.mx)
                                 if (target.matches(mx)) {
-                                    EntityLog.log(context, "From MX/SOA domain=" + domain);
+                                    EntityLog.log(context, "From MX domain=" + domain);
                                     candidates.add(provider);
                                     break;
                                 }
@@ -346,7 +337,7 @@ public class EmailProvider implements Parcelable {
                         String mxparent = UriHelper.getParentDomain(context, target);
                         String pdomain = UriHelper.getParentDomain(context, provider.imap.host);
                         if (mxparent.equalsIgnoreCase(pdomain)) {
-                            EntityLog.log(context, "From MX/SOA host=" + provider.imap.host);
+                            EntityLog.log(context, "From MX host=" + provider.imap.host);
                             candidates.add(provider);
                             break;
                         }
@@ -959,7 +950,7 @@ public class EmailProvider implements Parcelable {
         public boolean starttls;
 
         // Scores:
-        //   0 from MX/SOA record
+        //   0 from MX record
         //  10 from port scan
         //     +2 trusted host
         //     +1 trusted DNS name
