@@ -5693,7 +5693,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
             }
-            return ssb;
+
+            return (ssb.length() == 0 ? null : ssb);
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
