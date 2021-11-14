@@ -4,6 +4,11 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### next version
+
+* Improved handling of read-only folders
+* Small improvements and minor bug fixes
+
 ### 1.1779 - 2021-11-13
 
 * Added using folder colors for Gmail labels
