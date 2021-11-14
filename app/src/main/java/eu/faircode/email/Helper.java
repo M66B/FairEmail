@@ -529,6 +529,16 @@ public class Helper {
         return (ris != null && ris.size() > 0);
     }
 
+    static boolean isInstalled(Context context, String pkg) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            pm.getPackageInfo(pkg, 0);
+            return true;
+        } catch (Throwable ex) {
+            return false;
+        }
+    }
+
     static boolean isComponentEnabled(Context context, Class<?> clazz) {
         PackageManager pm = context.getPackageManager();
         int state = pm.getComponentEnabledSetting(new ComponentName(context, clazz));

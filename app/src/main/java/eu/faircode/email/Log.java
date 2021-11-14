@@ -1959,9 +1959,10 @@ public class Log {
 
             size += write(os, "accounts=" + accounts.size() +
                     " enabled=" + enabled +
-                    " interval=" + pollInterval +
-                    "\r\nmetered=" + metered +
+                    " interval=" + pollInterval + "\r\n" +
+                    " metered=" + metered +
                     " VPN=" + ConnectionHelper.vpnActive(context) +
+                    " NetGuard=" + Helper.isInstalled(context, "eu.faircode.netguard") + "\r\n" +
                     " optimizing=" + (ignoring == null ? null : !ignoring) +
                     " auto_optimize=" + auto_optimize +
                     "\r\n\r\n");
