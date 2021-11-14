@@ -885,6 +885,9 @@ class Core {
         // Mark message (un)answered
         DB db = DB.getInstance(context);
 
+        if (folder.read_only)
+            return;
+
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
             db.message().setMessageAnswered(message.id, false);
             db.message().setMessageUiAnswered(message.id, false);
@@ -3943,7 +3946,8 @@ class Core {
                 }
             }
 
-            if ((!message.seen.equals(seen) || (!folder.read_only && !message.ui_seen.equals(seen))) &&
+            if ((!message.seen.equals(seen) ||
+                    (!folder.read_only && !message.ui_seen.equals(seen))) &&
                     db.operation().getOperationCount(folder.id, message.id, EntityOperation.SEEN) == 0) {
                 update = true;
                 message.seen = seen;
@@ -3954,7 +3958,8 @@ class Core {
                 syncSimilar = true;
             }
 
-            if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered)) &&
+            if ((!message.answered.equals(answered) ||
+                    (!folder.read_only && !message.ui_answered.equals(message.answered))) &&
                     db.operation().getOperationCount(folder.id, message.id, EntityOperation.ANSWERED) == 0) {
                 update = true;
                 message.answered = answered;
@@ -3963,7 +3968,8 @@ class Core {
                 syncSimilar = true;
             }
 
-            if ((!message.flagged.equals(flagged) || (!folder.read_only && !message.ui_flagged.equals(flagged))) &&
+            if ((!message.flagged.equals(flagged) ||
+                    (!folder.read_only && !message.ui_flagged.equals(flagged))) &&
                     db.operation().getOperationCount(folder.id, message.id, EntityOperation.FLAG) == 0) {
                 update = true;
                 message.flagged = flagged;
