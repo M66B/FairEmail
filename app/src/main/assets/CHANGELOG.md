@@ -6,6 +6,7 @@
 
 ### next version
 
+* Fixed empty lines in message headers
 * Improved handling of read-only folders
 * Small improvements and minor bug fixes
 
