@@ -4,11 +4,12 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
-### next version
+### 1.1780 - 2021-11-15
 
 * Fixed empty lines in message headers
 * Improved handling of read-only folders
 * Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1779 - 2021-11-13
 
