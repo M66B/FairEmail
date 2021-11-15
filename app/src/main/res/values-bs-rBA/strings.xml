@@ -475,6 +475,7 @@
     <string name="title_advanced_autounstar">Automatski ukloni zvjezdicu s poruka pri premještanju istih</string>
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
+    <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
     <string name="title_advanced_notifications_default">Zadani kanal</string>
     <string name="title_advanced_notifications_service">Prijemni kanal</string>

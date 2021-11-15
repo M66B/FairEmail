@@ -465,6 +465,7 @@
     <string name="title_advanced_autounstar">Mesajları köçürəndə ulduzları mesajlardan avtomatik çıxart</string>
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_reset_importance">Mesajları köçürəndə vacibliyi sıfırla</string>
+    <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
     <string name="title_advanced_notifications_default">İlkin kanal</string>
     <string name="title_advanced_notifications_service">Kanal al</string>
@@ -865,6 +866,7 @@
     <string name="title_no_messages">Mesaj yoxdur</string>
     <string name="title_filters_active">Bir və ya daha çox filtr aktivdir</string>
     <string name="title_duplicate_in">%1$s qovluğunda mesajı kopyala</string>
+    <string name="title_trashed_from">%1$s tərəfindən tullantı qovluğuna atılan mesaj</string>
     <string name="title_subject_reply">Cvb: %1$s</string>
     <string name="title_subject_forward">Ynlndr: %1$s</string>
     <string name="title_subject_reply_alt">Cvb: %1$s</string>
@@ -1207,6 +1209,7 @@
     <string name="title_filter_unknown">Bilinməyən göndərənlər</string>
     <string name="title_filter_hidden">Gizli</string>
     <string name="title_filter_duplicates">Dublikatlar</string>
+    <string name="title_filter_trash">Tullantı</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
     <string name="title_padding">Doldurma ölçüsü</string>
@@ -1487,6 +1490,7 @@
     <string name="title_snooze_now">Ertələ</string>
     <string name="title_loading">Yüklənir &#8230;</string>
     <string name="title_fetching_again">Mesaj serverdən təkrar alınır</string>
+    <string name="title_go_back">Geri qayıt</string>
     <string name="title_conversation_actions">Əməliyyatlar</string>
     <string name="title_conversation_action_reply">\'%1$s\' ilə cavabla</string>
     <string name="title_conversation_action_copy">Kopyala: \'%1$s\'</string>

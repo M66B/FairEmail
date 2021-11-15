@@ -481,6 +481,7 @@
     <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
+    <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
     <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
     <string name="title_advanced_notifications_service">ערוץ קבלה</string>
