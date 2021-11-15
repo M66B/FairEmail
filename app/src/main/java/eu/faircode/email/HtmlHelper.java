@@ -142,7 +142,7 @@ public class HtmlHelper {
     private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
     private static final float MIN_LUMINANCE = 0.7f;
     private static final float MIN_LUMINANCE_DARK = 0.1f;
-    private static final int TAB_SIZE = 2;
+    private static final int TAB_SIZE = 4;
     private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
     private static final int MAX_FORMAT_TEXT_SIZE = 200 * 1024; // characters
