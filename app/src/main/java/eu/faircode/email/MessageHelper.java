@@ -635,17 +635,26 @@ public class MessageHelper {
             plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             report.addBodyPart(plainPart);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean client_id = prefs.getBoolean("client_id", true);
+
             String from = null;
             if (message.from != null && message.from.length > 0)
                 from = ((InternetAddress) message.from[0]).getAddress();
 
             StringBuilder sb = new StringBuilder();
-            sb.append("Reporting-UA: ")
-                    .append(BuildConfig.APPLICATION_ID).append("; ")
-                    .append(context.getString(R.string.app_name)).append(' ')
-                    .append(BuildConfig.VERSION_NAME).append("\r\n");
+
+            sb.append("Reporting-UA: ");
+            if (client_id)
+                sb.append(BuildConfig.APPLICATION_ID).append("; ")
+                        .append(context.getString(R.string.app_name)).append(' ')
+                        .append(BuildConfig.VERSION_NAME).append("\r\n");
+            else
+                sb.append("example.com").append("\r\n");
+
             if (from != null)
                 sb.append("Original-Recipient: rfc822;").append(from).append("\r\n");
+
             sb.append("Disposition: manual-action/MDN-sent-manually; displayed").append("\r\n");
 
             BodyPart dnsPart = new MimeBodyPart();
