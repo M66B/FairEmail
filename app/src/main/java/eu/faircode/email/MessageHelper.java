@@ -297,6 +297,9 @@ public class MessageHelper {
                 }
             }
 
+            if (EntityMessage.DSN_HARD_BOUNCE.equals(message.dsn))
+                name = null;
+
             imessage.setFrom(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
         }
 
