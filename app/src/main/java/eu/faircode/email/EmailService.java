@@ -30,6 +30,7 @@ import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.security.KeyChain;
 import android.system.ErrnoException;
+import android.system.OsConstants;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.net.ConnectException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -535,6 +537,52 @@ public class EmailService implements AutoCloseable {
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
+            /*
+                com.sun.mail.util.MailConnectException: Couldn't connect to host, port: 74.125.140.108, 993; timeout 20000;
+                  nested exception is:
+                    java.net.ConnectException: failed to connect to imap.gmail.com/74.125.140.108 (port 993) from /:: (port 0) after 20000ms: connect failed: EACCES (Permission denied)
+                    at com.sun.mail.imap.IMAPStore.protocolConnect(SourceFile:38)
+                    at com.sun.mail.gimap.GmailStore.protocolConnect(SourceFile:1)
+                    at javax.mail.Service.connect(SourceFile:31)
+                    at eu.faircode.email.EmailService._connect(SourceFile:29)
+                    at eu.faircode.email.EmailService.connect(SourceFile:117)
+                    at eu.faircode.email.EmailService.connect(SourceFile:38)
+                    at eu.faircode.email.EmailService.connect(SourceFile:4)
+                    at eu.faircode.email.ServiceSynchronize.monitorAccount(SourceFile:38)
+                    at eu.faircode.email.ServiceSynchronize.access$1000(SourceFile:1)
+                    at eu.faircode.email.ServiceSynchronize$4$2.run(SourceFile:1)
+                    at java.lang.Thread.run(Thread.java:923)
+                Caused by: java.net.ConnectException: failed to connect to imap.gmail.com/74.125.140.108 (port 993) from /:: (port 0) after 20000ms: connect failed: EACCES (Permission denied)
+                    at libcore.io.IoBridge.connect(IoBridge.java:142)
+                    at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:142)
+                    at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:390)
+                    at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:230)
+                    at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:212)
+                    at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+                    at java.net.Socket.connect(Socket.java:621)
+                    at com.sun.mail.util.WriteTimeoutSocket.connect(SourceFile:2)
+                    at com.sun.mail.util.SocketFetcher.createSocket(SourceFile:52)
+                    at com.sun.mail.util.SocketFetcher.getSocket(SourceFile:27)
+                    at com.sun.mail.iap.Protocol.<init>(SourceFile:10)
+                    at com.sun.mail.imap.protocol.IMAPProtocol.<init>(SourceFile:1)
+                    at com.sun.mail.gimap.protocol.GmailProtocol.<init>(SourceFile:1)
+                    at com.sun.mail.gimap.GmailStore.newIMAPProtocol(SourceFile:2)
+                    at com.sun.mail.imap.IMAPStore.protocolConnect(SourceFile:17)
+                    ... 10 more
+                Caused by: android.system.ErrnoException: connect failed: EACCES (Permission denied)
+                    at libcore.io.Linux.connect(Native Method)
+                    at libcore.io.ForwardingOs.connect(ForwardingOs.java:94)
+                    at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:138)
+                    at libcore.io.ForwardingOs.connect(ForwardingOs.java:94)
+                    at libcore.io.IoBridge.connectErrno(IoBridge.java:173)
+                    at libcore.io.IoBridge.connect(IoBridge.java:134)
+             */
+            if (ex instanceof MailConnectException &&
+                    ex.getCause() instanceof ConnectException &&
+                    ex.getCause().getCause() instanceof ErrnoException &&
+                    ((ErrnoException) ex.getCause().getCause()).errno == OsConstants.EACCES)
+                throw new SecurityException("Please check 'Restrict data usage' in the Android app settings", ex);
+
             boolean ioError = false;
             Throwable ce = ex;
             while (ce != null) {
