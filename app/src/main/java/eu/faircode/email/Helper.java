@@ -1418,16 +1418,14 @@ public class Helper {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Locale l = Locale.getDefault();
-            if (!l.getLanguage().equals(language))
-                locales.add(l);
+            locales.add(l);
             if (!"en".equals(language) && !"en".equals(l.getLanguage()))
                 locales.add(new Locale("en"));
         } else {
             LocaleList ll = context.getResources().getConfiguration().getLocales();
             for (int i = 0; i < ll.size(); i++) {
                 Locale l = ll.get(i);
-                if (!l.getLanguage().equals(language))
-                    locales.add(l);
+                locales.add(l);
             }
         }
 
@@ -1437,7 +1435,8 @@ public class Helper {
             configuration.setLocale(locale);
             Resources res = context.createConfigurationContext(configuration).getResources();
             String text = res.getString(resid, formatArgs);
-            result.add(text);
+            if (!result.contains(text))
+                result.add(text);
         }
 
         return result.toArray(new String[0]);
