@@ -1748,6 +1748,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(zoho))
             return "zoho";
 
+        String icontact = imessage.getHeader("X-SFMC-Stack", null);
+        if (!TextUtils.isEmpty(icontact))
+            return "icontact";
+
         String xmailer = imessage.getHeader("X-Mailer", null);
         if (!TextUtils.isEmpty(xmailer)) {
             if (xmailer.contains("iPhone Mail"))
