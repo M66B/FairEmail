@@ -1251,10 +1251,39 @@ public class MessageHelper {
         // https://tools.ietf.org/html/rfc3834
         String header = imessage.getHeader("Auto-Submitted", null);
         if (header == null) {
+            // https://www.arp242.net/autoreply.html
             // https://github.com/jpmckinney/multi_mail/wiki/Detecting-autoresponders
+
+            // Microsoft
+            header = imessage.getHeader("X-Auto-Response-Suppress", null);
+            if ("DR".equalsIgnoreCase(header)) // Suppress delivery reports
+                return true;
+            if ("AutoReply".equalsIgnoreCase(header)) // Suppress autoreply messages other than OOF notifications
+                return true;
+            if ("All".equalsIgnoreCase(header))
+                return true;
+
+            // Google
+            header = imessage.getHeader("Feedback-ID", null);
+            if (header != null)
+                return true;
+
             header = imessage.getHeader("Precedence", null);
             if ("bulk".equalsIgnoreCase(header)) // Used by Amazon
                 return true;
+            if ("auto_reply".equalsIgnoreCase(header))
+                return true;
+            if ("list".equalsIgnoreCase(header))
+                return true;
+
+            // Lists
+            header = imessage.getHeader("List-Id", null);
+            if (header != null)
+                return true;
+            header = imessage.getHeader("List-Unsubscribe", null);
+            if (header != null)
+                return true;
+
             return null;
         }
 
