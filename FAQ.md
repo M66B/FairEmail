@@ -3009,6 +3009,9 @@ This feature depends on support of your launcher.
 FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
 If it doesn't work, this cannot be fixed by changes in FairEmail.
 
+If you are using Nova launcher and you want to show the number of notifications in the launcher icon (maximum 10), you'll need to enable
+*Notification access* in the Android *Special app access* settings for Nova launcher on recent Android versions.
+
 Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2),
 despite FairEmail explicitly requesting not to show a *badge* for this notification.
 This could be caused by a bug in the launcher app or in your Android version.
