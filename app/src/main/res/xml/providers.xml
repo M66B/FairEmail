@@ -1430,4 +1430,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Solcon"
+        link="https://www.solcon.nl/zakelijk/klantenservice/e-mail/wat-zijn-de-e-mail-instellingen-voor-solcon/">
+        <imap
+            host="mail.solcon.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.solcon.nl"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
