@@ -369,6 +369,9 @@ public class ViewModelMessages extends ViewModel {
                                     return getPair(plist, ds, count, i + j);
                         }
 
+                        Log.i("Observe previous/next message not found" +
+                                "lpos=" + lpos + " count=" + count + " " + model.args);
+
                         return null;
                     }
 
