@@ -225,7 +225,7 @@
         name="free.fr"
         appPassword="true"
         documentation="SMTP est désactivé par défaut, veuillez &lt;a href=&quot;http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr&quot;&gt;voir ici&lt;/a&gt; pour un guide détaillé."
-        domain="free\\.fr"
+        domain="free\\.fr,libertysurf\\.fr"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq157">
         <imap
             host="imap.free.fr"
