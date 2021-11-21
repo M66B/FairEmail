@@ -2123,9 +2123,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return 0;
 
-            boolean expanded = iProperties.getValue("expanded", message.id);
-
-            if (experiments && expanded)
+            if (experiments &&
+                    iProperties.getValue("expanded", message.id))
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 
             if (EntityFolder.OUTBOX.equals(message.folderType))
@@ -2200,10 +2199,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return;
 
-            boolean expanded = iProperties.getValue("expanded", message.id);
-
             TupleAccountSwipes swipes;
-            if (experiments && expanded) {
+            if (experiments &&
+                    iProperties.getValue("expanded", message.id)) {
                 swipes = new TupleAccountSwipes();
                 swipes.swipe_right = EntityMessage.SWIPE_ACTION_REPLY;
                 swipes.right_type = null;
@@ -2341,9 +2339,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
             }
 
-            boolean expanded = iProperties.getValue("expanded", message.id);
-
-            if (experiments && expanded) {
+            if (experiments &&
+                    iProperties.getValue("expanded", message.id)) {
                 adapter.notifyItemChanged(pos);
                 onMenuReply(message, "reply", null);
                 return;
@@ -2430,9 +2427,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return null;
 
-            boolean expanded = iProperties.getValue("expanded", message.id);
-
-            if (!experiments && expanded)
+            if (!experiments &&
+                    iProperties.getValue("expanded", message.id))
                 return null;
 
             return message;
