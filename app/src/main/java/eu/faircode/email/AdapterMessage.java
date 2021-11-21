@@ -1990,7 +1990,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_headers = prefs.getBoolean("button_headers", false);
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
-                    boolean button_extra = prefs.getBoolean("button_extra", false);
                     boolean experiments = prefs.getBoolean("experiments", false);
 
                     ibHide.setImageResource(message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
