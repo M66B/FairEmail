@@ -370,7 +370,7 @@ public class ViewModelMessages extends ViewModel {
                         }
 
                         Log.i("Observe previous/next message not found" +
-                                "lpos=" + lpos + " count=" + count + " " + model.args);
+                                " lpos=" + lpos + " count=" + count + " " + model.args);
 
                         return null;
                     }
