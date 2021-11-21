@@ -5297,9 +5297,8 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            boolean experiments = prefs.getBoolean("experiments", false);
             boolean threading = prefs.getBoolean("threading", true);
-            if (experiments && threading)
+            if (threading)
                 db.message().liveUnreadThread(data.draft.account, data.draft.thread).observe(getViewLifecycleOwner(), new Observer<List<EntityMessage>>() {
                     private int lastDiff = 0;
                     private List<EntityMessage> base = null;
