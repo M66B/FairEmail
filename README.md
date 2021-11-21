@@ -11,9 +11,9 @@
 
 # FairEmail
 
-![GitHub](https://img.shields.io/github/license/M66B/FairEmail.svg)
-![GitHub release](https://img.shields.io/github/release/M66B/FairEmail.svg)
-![GitHub commits since tagged version](https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg)
+[![GitHub](https://img.shields.io/github/license/M66B/FairEmail.svg)](https://github.com/M66B/FairEmail/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/M66B/FairEmail.svg)](https://github.com/M66B/FairEmail/releases/latest)
+[![GitHub commits since tagged version](https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg?logo=github)](https://github.com/M66B/FairEmail/commits/)
 
 *Fully featured, open source, privacy oriented email app for Android*
 
