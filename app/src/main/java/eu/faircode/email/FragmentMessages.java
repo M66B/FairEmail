@@ -675,7 +675,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         TextView tvFixedDate = inGroup.findViewById(R.id.tvDate);
         View vFixedSeparator = inGroup.findViewById(R.id.vSeparator);
 
-        String sort = prefs.getString("sort", "time");
+        String sort = prefs.getString(getSort(getContext(), viewType, type), "time");
         inGroup.setVisibility(date_fixed && "time".equals(sort) ? View.INVISIBLE : View.GONE);
         tvFixedCategory.setVisibility(View.GONE);
         if (cards)
@@ -844,8 +844,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        boolean ascending = prefs.getBoolean(
-                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
+        boolean ascending = prefs.getBoolean(getSortOrder(getContext(), viewType, type), false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean filter_trash = prefs.getBoolean("filter_trash", false);
 
@@ -922,8 +921,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ibSeen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String name = getFilter("seen", type);
+            public void onClick(View v) {
+                String name = getFilter(v.getContext(), "seen", viewType, type);
                 boolean filter = prefs.getBoolean(name, true);
                 onMenuFilter(name, !filter);
             }
@@ -931,8 +930,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ibUnflagged.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String name = getFilter("unflagged", type);
+            public void onClick(View v) {
+                String name = getFilter(v.getContext(), "unflagged", viewType, type);
                 boolean filter = prefs.getBoolean(name, true);
                 onMenuFilter(name, !filter);
             }
@@ -940,8 +939,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ibSnoozed.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String name = getFilter("snoozed", type);
+            public void onClick(View v) {
+                String name = getFilter(v.getContext(), "snoozed", viewType, type);
                 boolean filter = prefs.getBoolean(name, true);
                 onMenuFilter(name, !filter);
             }
@@ -4428,13 +4427,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onPrepareOptionsMenu(Menu menu) {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String sort = prefs.getString("sort", "time");
-        boolean ascending = prefs.getBoolean(
-                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
-        boolean filter_seen = prefs.getBoolean(getFilter("seen", type), false);
-        boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
-        boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
-        boolean filter_snoozed = prefs.getBoolean(getFilter("snoozed", type), true);
+        String sort = prefs.getString(getSort(context, viewType, type), "time");
+        boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), false);
+        boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
+        boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
+        boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
+        boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean filter_trash = prefs.getBoolean("filter_trash", false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
@@ -4642,16 +4640,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             onMenuAscending(!item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_seen) {
-            onMenuFilter(getFilter("seen", type), !item.isChecked());
+            onMenuFilter(getFilter(getContext(), "seen", viewType, type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_unflagged) {
-            onMenuFilter(getFilter("unflagged", type), !item.isChecked());
+            onMenuFilter(getFilter(getContext(), "unflagged", viewType, type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_unknown) {
-            onMenuFilter(getFilter("unknown", type), !item.isChecked());
+            onMenuFilter(getFilter(getContext(), "unknown", viewType, type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_snoozed) {
-            onMenuFilter(getFilter("snoozed", type), !item.isChecked());
+            onMenuFilter(getFilter(getContext(), "snoozed", viewType, type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_language) {
             onMenuFilterLanguage();
@@ -4786,16 +4784,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuSort(String sort) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putString("sort", sort).apply();
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putString(getSort(context, viewType, type), sort).apply();
         adapter.setSort(sort);
         loadMessages(true);
     }
 
     private void onMenuAscending(boolean ascending) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean(
-                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", ascending).apply();
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean(getSortOrder(context, viewType, type), ascending).apply();
         adapter.setAscending(ascending);
         invalidateOptionsMenu();
         loadMessages(true);
@@ -5027,9 +5026,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long folder = args.getLong("folder");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
-                boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
-                boolean filter_snoozed = prefs.getBoolean(getFilter("snoozed", type), true);
+                boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
+                boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
+                boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
                 boolean language_detection = prefs.getBoolean("language_detection", false);
                 String filter_language = prefs.getString("filter_language", null);
 
@@ -5381,9 +5380,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean outbox = EntityFolder.OUTBOX.equals(type);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean filter_seen = prefs.getBoolean(getFilter("seen", type), false);
-        boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
-        boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
+        boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
+        boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
+        boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
         boolean filter_active = ((filter_seen && !outbox) ||
@@ -6210,7 +6209,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         return sb.toString();
     }
 
-    static String getFilter(String name, String type) {
+    static String getSort(Context context, AdapterMessage.ViewType viewType, String type) {
+        return "sort";
+    }
+
+    static String getSortOrder(Context context, AdapterMessage.ViewType viewType, String type) {
+        return (viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list");
+    }
+
+    static String getFilter(Context context, String name, AdapterMessage.ViewType viewType, String type) {
         return "filter_" + (EntityFolder.isOutgoing(type) ? "out_" : "") + name;
     }
 

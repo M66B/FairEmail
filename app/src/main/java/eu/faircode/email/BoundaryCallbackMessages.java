@@ -86,6 +86,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private Context context;
+    private AdapterMessage.ViewType viewType;
     private Long account;
     private Long folder;
     private boolean server;
@@ -108,8 +109,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         void onException(@NonNull Throwable ex);
     }
 
-    BoundaryCallbackMessages(Context context, long account, long folder, boolean server, SearchCriteria criteria, int pageSize) {
+    BoundaryCallbackMessages(
+            Context context,
+            AdapterMessage.ViewType viewType, long account, long folder,
+            boolean server, SearchCriteria criteria,
+            int pageSize) {
         this.context = context.getApplicationContext();
+        this.viewType = viewType;
         this.account = (account < 0 ? null : account);
         this.folder = (folder < 0 ? null : folder);
         this.server = server;
@@ -511,8 +517,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 db.folder().setFolderTotal(browsable.id, count < 0 ? null : count);
 
                 if (criteria == null) {
-                    boolean filter_seen = prefs.getBoolean(FragmentMessages.getFilter("seen", browsable.type), false);
-                    boolean filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter("unflagged", browsable.type), false);
+                    boolean filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, browsable.type), false);
+                    boolean filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter(context, "unflagged", viewType, browsable.type), false);
                     EntityLog.log(context, "Boundary filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
 
                     List<SearchTerm> and = new ArrayList<>();

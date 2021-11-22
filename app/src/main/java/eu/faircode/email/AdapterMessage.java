@@ -6506,9 +6506,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             String type = args.getString("type");
 
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean filter_seen = prefs.getBoolean(FragmentMessages.getFilter("seen", type), false);
-                            boolean filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter("unflagged", type), false);
-                            boolean filter_snoozed = prefs.getBoolean(FragmentMessages.getFilter("snoozed", type), true);
+                            boolean filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, type), false);
+                            boolean filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter(context, "unflagged", viewType, type), false);
+                            boolean filter_snoozed = prefs.getBoolean(FragmentMessages.getFilter(context, "snoozed", viewType, type), true);
 
                             List<Long> removed = new ArrayList<>();
 
