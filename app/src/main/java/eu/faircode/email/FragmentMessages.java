@@ -6248,7 +6248,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     static String getSort(Context context, AdapterMessage.ViewType viewType, String type) {
-        return "sort";
+        if (viewType == AdapterMessage.ViewType.UNIFIED)
+            return "sort_unified";
+        else
+            return "sort";
     }
 
     static String getSortOrder(Context context, AdapterMessage.ViewType viewType, String type) {

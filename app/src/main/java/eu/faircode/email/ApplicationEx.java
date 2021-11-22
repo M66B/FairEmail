@@ -544,6 +544,10 @@ public class ApplicationEx extends Application
         else if (version < 1772)
             editor.remove("conversation_actions");
         else if (version < 1781) {
+            if (prefs.contains("sort")) {
+                String sort = prefs.getString("sort", "time");
+                editor.putString("sort_unified", sort);
+            }
             if (prefs.contains("ascending_list")) {
                 boolean ascending = prefs.getBoolean("ascending_list", false);
                 editor.putBoolean("ascending_unified", ascending);
