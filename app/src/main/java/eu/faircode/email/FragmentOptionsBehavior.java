@@ -92,6 +92,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
+    private SwitchCompat swSwipeReply;
 
     final static int MAX_SWIPE_SENSITIVITY = 10;
     final static int DEFAULT_SWIPE_SENSITIVITY = 7;
@@ -104,7 +105,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "autoclose_unseen", "collapse_marked",
             "undo_timeout",
-            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance"
+            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance",
+            "swipe_reply"
     };
 
     @Override
@@ -152,6 +154,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
+        swSwipeReply = view.findViewById(R.id.swSwipeReply);
 
         setOptions();
 
@@ -452,6 +455,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swSwipeReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("swipe_reply", checked).apply();
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
@@ -556,6 +566,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
+        swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
     }
 
     public static class FragmentDialogSwipes extends FragmentDialogBase {

@@ -317,7 +317,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private String onclose;
     private boolean quick_scroll;
     private boolean addresses;
-    private boolean experiments;
+    private boolean swipe_reply;
 
     private int colorPrimary;
     private int colorAccent;
@@ -445,7 +445,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         onclose = (autoclose ? null : prefs.getString("onclose", null));
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
-        experiments = prefs.getBoolean("experiments", false);
+        swipe_reply = prefs.getBoolean("swipe_reply", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
@@ -2116,7 +2116,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             boolean expanded = iProperties.getValue("expanded", message.id);
 
-            if (expanded && experiments)
+            if (expanded && swipe_reply)
                 return makeMovementFlags(0, ItemTouchHelper.RIGHT);
 
             if (EntityFolder.OUTBOX.equals(message.folderType))
@@ -2194,7 +2194,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             boolean expanded = iProperties.getValue("expanded", message.id);
 
             TupleAccountSwipes swipes;
-            if (expanded && experiments) {
+            if (expanded && swipe_reply) {
                 swipes = new TupleAccountSwipes();
                 swipes.swipe_right = EntityMessage.SWIPE_ACTION_REPLY;
                 swipes.right_type = null;
@@ -2241,7 +2241,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int margin = Helper.dp2pixels(context, 12);
             int size = Helper.dp2pixels(context, 24);
 
-            if (expanded && experiments) {
+            if (expanded && swipe_reply) {
                 Rect r1 = new Rect();
                 holder.itemView.getGlobalVisibleRect(r1);
                 Rect r2 = new Rect();
@@ -2343,7 +2343,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             boolean expanded = iProperties.getValue("expanded", message.id);
 
-            if (expanded && experiments) {
+            if (expanded && swipe_reply) {
                 adapter.notifyItemChanged(pos);
                 onMenuReply(message, "reply", null);
                 return;
@@ -2432,7 +2432,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             boolean expanded = iProperties.getValue("expanded", message.id);
 
-            if (expanded && !experiments)
+            if (expanded && !swipe_reply)
                 return null;
 
             return message;

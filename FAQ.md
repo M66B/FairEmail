@@ -3354,12 +3354,6 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 <br />
 
-*Swip right to reply*
-
-Swiping an expanded message in a conversation thread to the right will reply to the sender of the message.
-
-<br />
-
 <a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 
