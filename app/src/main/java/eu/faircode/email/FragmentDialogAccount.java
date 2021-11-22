@@ -24,7 +24,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -40,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
 public class FragmentDialogAccount extends FragmentDialogBase {
     @NonNull
@@ -59,6 +62,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         final TextView tvLeft = dview.findViewById(R.id.tvLeft);
         final TextView tvRight = dview.findViewById(R.id.tvRight);
         final Button btnAccount = dview.findViewById(R.id.btnAccount);
+        final Button btnGmail = dview.findViewById(R.id.btnGmail);
 
         final Drawable check = context.getDrawable(R.drawable.twotone_check_24);
         final Drawable close = context.getDrawable(R.drawable.twotone_close_24);
@@ -78,6 +82,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         tvRight.setText(null);
 
         tvSentWarning.setVisibility(View.GONE);
+        btnGmail.setVisibility(View.GONE);
 
         Bundle args = getArguments();
         final long account = args.getLong("account");
@@ -94,12 +99,26 @@ public class FragmentDialogAccount extends FragmentDialogBase {
             }
         });
 
+        Intent gmail = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        gmail.setData(Uri.parse("package:com.google.android.gm"));
+        boolean hasGmail = (gmail.resolveActivity(context.getPackageManager()) != null);
+
+        btnGmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(gmail);
+            }
+        });
+
         DB db = DB.getInstance(context);
 
         db.account().liveAccount(account).observe(this, new Observer<EntityAccount>() {
             @Override
             public void onChanged(EntityAccount account) {
                 tvName.setText(account.name);
+                btnGmail.setVisibility(
+                        hasGmail && account.auth_type == AUTH_TYPE_GMAIL
+                                ? View.VISIBLE : View.GONE);
             }
         });
 
