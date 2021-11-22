@@ -367,6 +367,9 @@ public class ViewModelMessages extends ViewModel {
                             for (int j = 0; j < messages.size(); j++)
                                 if (messages.get(j).id == id)
                                     return getPair(plist, ds, count, i + j);
+
+                            if (lpos < 0 && i == 500 && count > 1000)
+                                i = count - 500;
                         }
 
                         Log.i("Observe previous/next message not found" +
