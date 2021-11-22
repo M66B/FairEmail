@@ -3354,14 +3354,9 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 <br />
 
-*Report new messages when composing a message*
+*Swip right to reply*
 
-A bottom notification will be shown if a new message arrives in the same conversation thread as a new message is being composed for.
-
-There will be a *show* button to show the conversation and from there you can tap on the draft message to continue editting.
-The notification can be swiped away.
-
-This requires grouping of messages into conversations to be enabled.
+Swiping an expanded message in a conversation thread to the right will reply to the sender of the message.
 
 <br />
 

@@ -113,6 +113,7 @@ public class EntityMessage implements Serializable {
     static final Long SWIPE_ACTION_FLAG = -6L;
     static final Long SWIPE_ACTION_DELETE = -7L;
     static final Long SWIPE_ACTION_JUNK = -8L;
+    static final Long SWIPE_ACTION_REPLY = -9L;
 
     @PrimaryKey(autoGenerate = true)
     public Long id;

@@ -317,6 +317,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private String onclose;
     private boolean quick_scroll;
     private boolean addresses;
+    private boolean experiments;
 
     private int colorPrimary;
     private int colorAccent;
@@ -444,6 +445,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         onclose = (autoclose ? null : prefs.getString("onclose", null));
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
+        experiments = prefs.getBoolean("experiments", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
@@ -2112,6 +2114,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return 0;
 
+            boolean expanded = iProperties.getValue("expanded", message.id);
+
+            if (expanded && experiments)
+                return makeMovementFlags(0, ItemTouchHelper.RIGHT);
+
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 
@@ -2184,8 +2191,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return;
 
+            boolean expanded = iProperties.getValue("expanded", message.id);
+
             TupleAccountSwipes swipes;
-            if (EntityFolder.OUTBOX.equals(message.folderType)) {
+            if (expanded && experiments) {
+                swipes = new TupleAccountSwipes();
+                swipes.swipe_right = EntityMessage.SWIPE_ACTION_REPLY;
+                swipes.right_type = null;
+                swipes.swipe_left = null;
+                swipes.left_type = null;
+            } else if (EntityFolder.OUTBOX.equals(message.folderType)) {
                 swipes = new TupleAccountSwipes();
                 swipes.swipe_right = 0L;
                 swipes.right_type = EntityFolder.DRAFTS;
@@ -2226,6 +2241,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int margin = Helper.dp2pixels(context, 12);
             int size = Helper.dp2pixels(context, 24);
 
+            if (expanded && experiments) {
+                Rect r1 = new Rect();
+                holder.itemView.getGlobalVisibleRect(r1);
+                Rect r2 = new Rect();
+                recyclerView.getGlobalVisibleRect(r2);
+                rect.top = Math.max(rect.top, r1.top - r2.top);
+                rect.bottom = Math.min(rect.bottom, r1.bottom - r2.top);
+            }
+
             int icon;
             if (EntityMessage.SWIPE_ACTION_ASK.equals(action))
                 icon = R.drawable.twotone_help_24;
@@ -2247,6 +2271,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
                 icon = R.drawable.twotone_delete_forever_24;
+            else if (EntityMessage.SWIPE_ACTION_REPLY.equals(action))
+                icon = R.drawable.twotone_reply_24;
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
 
@@ -2312,6 +2338,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             TupleMessageEx message = getMessage(pos);
             if (message == null) {
                 adapter.notifyDataSetChanged();
+                return;
+            }
+
+            boolean expanded = iProperties.getValue("expanded", message.id);
+
+            if (expanded && experiments) {
+                adapter.notifyItemChanged(pos);
+                onMenuReply(message, "reply", null);
                 return;
             }
 
@@ -2396,7 +2430,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return null;
 
-            if (iProperties.getValue("expanded", message.id))
+            boolean expanded = iProperties.getValue("expanded", message.id);
+
+            if (expanded && !experiments)
                 return null;
 
             return message;
