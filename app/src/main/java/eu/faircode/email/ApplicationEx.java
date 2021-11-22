@@ -543,6 +543,12 @@ public class ApplicationEx extends Application
             repairFolders(context);
         else if (version < 1772)
             editor.remove("conversation_actions");
+        else if (version < 1781) {
+            if (prefs.contains("ascending_list")) {
+                boolean ascending = prefs.getBoolean("ascending_list", false);
+                editor.putBoolean("ascending_unified", ascending);
+            }
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
