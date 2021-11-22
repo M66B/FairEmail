@@ -76,6 +76,7 @@ public class ViewModelMessages extends ViewModel {
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int SEARCH_PAGE_SIZE = 10;
     private static final int MAX_CACHED_ITEMS = LOCAL_PAGE_SIZE * 50;
+    private static final int CHUNK_SIZE = 100;
 
     Model getModel(
             final Context context, final LifecycleOwner owner,
@@ -360,16 +361,16 @@ public class ViewModelMessages extends ViewModel {
                                     return getPair(plist, ds, count, from + j);
                         }
 
-                        for (int i = 0; i < count; i += 100) {
+                        for (int i = 0; i < count; i += CHUNK_SIZE) {
                             Log.i("Observe previous/next load" +
                                     " range=" + i + "/#" + count);
-                            List<TupleMessageEx> messages = ds.loadRange(i, Math.min(100, count - i));
+                            List<TupleMessageEx> messages = ds.loadRange(i, Math.min(CHUNK_SIZE, count - i));
                             for (int j = 0; j < messages.size(); j++)
                                 if (messages.get(j).id == id)
                                     return getPair(plist, ds, count, i + j);
 
-                            if (lpos < 0 && i == 500 && count > 1000)
-                                i = count - 500;
+                            if (lpos < 0 && i == CHUNK_SIZE * 2 && count > CHUNK_SIZE * 4)
+                                i = count - CHUNK_SIZE * 2;
                         }
 
                         Log.i("Observe previous/next message not found" +
