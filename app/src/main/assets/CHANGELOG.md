@@ -4,6 +4,14 @@
 
 ### [Banji](https://en.wikipedia.org/wiki/Banji)
 
+### 1.1781 - 2021-11-23
+
+* Added behavior option to enable swipe right to reply
+* Added separate sort order setting for unified folders
+* Updated AndroidX
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1780 - 2021-11-15
 
 * Fixed empty lines in message headers
