@@ -1810,6 +1810,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public void setExpanded(TupleMessageEx message, boolean value, boolean scroll) {
+            // Prevent flicker
+            if (value && message.accountAutoSeen) {
+                message.unseen = 0;
+                message.ui_seen = true;
+                message.visible_unseen = 0;
+                message.ui_unsnoozed = false;
+            }
+
             setValue("expanded", message.id, value);
             if (scroll)
                 setValue("scroll", message.id, true);
@@ -5592,16 +5600,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             !EntityFolder.DRAFTS.equals(message.folderType) &&
                             !EntityFolder.TRASH.equals(message.folderType))
                         iProperties.setExpanded(message, true, false);
-
-            // Prevent flicker
-            for (TupleMessageEx message : messages)
-                if (message != null && message.accountAutoSeen &&
-                        iProperties.getValue("expanded", message.id)) {
-                    message.unseen = 0;
-                    message.ui_seen = true;
-                    message.visible_unseen = 0;
-                    message.ui_unsnoozed = false;
-                }
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
                 List<MessageTarget> mt = new ArrayList<>();
