@@ -640,8 +640,8 @@ public class FragmentFolders extends FragmentBase {
         boolean sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
 
         menu.findItem(R.id.menu_unified).setVisible(account < 0 || primary);
-        menu.findItem(R.id.menu_theme).setVisible(account < 0 || primary);
         menu.findItem(R.id.menu_compact).setChecked(compact);
+        menu.findItem(R.id.menu_theme).setVisible(account < 0 || primary);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
         menu.findItem(R.id.menu_show_flagged).setChecked(show_flagged);
         menu.findItem(R.id.menu_subscribed_only).setChecked(subscribed_only);
@@ -662,11 +662,11 @@ public class FragmentFolders extends FragmentBase {
         } else if (itemId == R.id.menu_unified) {
             onMenuUnified();
             return true;
-        } else if (itemId == R.id.menu_theme) {
-            onMenuTheme();
-            return true;
         } else if (itemId == R.id.menu_compact) {
             onMenuCompact();
+            return true;
+        } else if (itemId == R.id.menu_theme) {
+            onMenuTheme();
             return true;
         } else if (itemId == R.id.menu_show_hidden) {
             onMenuShowHidden();
@@ -714,10 +714,6 @@ public class FragmentFolders extends FragmentBase {
         fragmentTransaction.commit();
     }
 
-    private void onMenuTheme() {
-        new FragmentDialogTheme().show(getParentFragmentManager(), "messages:theme");
-    }
-
     private void onMenuCompact() {
         compact = !compact;
 
@@ -736,6 +732,10 @@ public class FragmentFolders extends FragmentBase {
                 }
             }
         });
+    }
+
+    private void onMenuTheme() {
+        new FragmentDialogTheme().show(getParentFragmentManager(), "messages:theme");
     }
 
     private void onMenuShowHidden() {

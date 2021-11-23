@@ -16,17 +16,17 @@
 
     <group android:id="@+id/group_appearance">
         <item
+            android:id="@+id/menu_compact"
+            android:checkable="true"
+            android:title="@string/title_compact"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_theme"
             android:title="@string/title_setup_theme"
             app:showAsAction="never">
             <menu />
         </item>
-
-        <item
-            android:id="@+id/menu_compact"
-            android:checkable="true"
-            android:title="@string/title_compact"
-            app:showAsAction="never" />
     </group>
 
     <group android:id="@+id/group_options">
