@@ -17,9 +17,14 @@
     <string name="page_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="page_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="tile_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
+    <string name="tile_unseen">ନୂଆ ବାର୍ତ୍ତା</string>
     <string name="shortcut_refresh">ସତେଜ କରନ୍ତୁ</string>
     <string name="shortcut_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="shortcut_setup">ସେଟିଂସମୂହ</string>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$dଟିଏ ନୂଆ ବାର୍ତ୍ତା</item>
+        <item quantity="other">%1$dଟି ନୂଆ ବାର୍ତ୍ତା</item>
+    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$dଟିଏ ନୂଆ</item>
         <item quantity="other">%1$dଟି ନୂଆ</item>
@@ -50,6 +55,7 @@
     <string name="title_edit_account">ଆକାଉଣ୍ଟ୍ ସମ୍ପାଦନା</string>
     <string name="title_edit_identity">ପରିଚୟ ସମ୍ପାଦନା</string>
     <string name="title_edit_folder">ଫୋଲ୍ଡର୍ ସମ୍ପାଦନା</string>
+    <string name="title_disable_gmail">Gmail ଆପ୍ ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_setup">ସେଟିଂସମୂହ</string>
     <string name="title_setup_help">ସହାୟତା</string>
     <string name="title_setup_quick">ଦ୍ରୁତ ସେଟଅପ୍</string>
@@ -167,10 +173,12 @@
     <string name="title_advanced_sync_on_launch">ଆରମ୍ଭରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
     <string name="title_advanced_undo">ପୂର୍ବବତ୍ ସମୟ ଶେଷ</string>
+    <string name="title_advanced_swipe_reply">ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପାଇଁ ସମ୍ପ୍ରସାରିତ ବାର୍ତ୍ତାଗୁଡ଼ିକ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_default_snooze">ଡିଫଲ୍ଟ ସ୍ନୁଜ୍/ବିଳମ୍ବ ସମୟ</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>
     <string name="title_advanced_notify_action_trash">ଆବର୍ଜନା</string>
     <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
+    <string name="title_advanced_notify_action_reply">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_advanced_notify_action_seen">ପଠିତ</string>
     <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
     <string name="title_advanced_notify_action_snooze">ସ୍ନୁଜ୍</string>
@@ -204,6 +212,7 @@
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
+    <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାବେ ବିତରଣ/ପଠନ ରସିଦ ଅନୁରୋଧ କରନ୍ତୁ</string>
     <string name="title_optional">ବୈକଳ୍ପିକ</string>
     <string name="title_recommended">ସୁପାରିଶ କରାଯାଇଛି</string>
     <string name="title_account_linked">ଲିଙ୍କ୍ ହୋଇଥିବା ଆକାଉଣ୍ଟ୍</string>
@@ -278,7 +287,14 @@
     <string name="title_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_copy_btn">କପି କରନ୍ତୁ</string>
     <string name="title_no_undo">ମୁଁ ବୁଝିପାରୁଛି ଏହାକୁ ପୂର୍ବବତ୍ କରାଯାଇପାରିବ ନାହିଁ</string>
+    <string name="title_reply">ପ୍ରତ୍ୟୁତ୍ତର</string>
+    <string name="title_reply_to_sender">ପ୍ରେରକଙ୍କୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
+    <string name="title_reply_to_all">ସମସ୍ତଙ୍କୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
+    <string name="title_reply_list">ତାଲିକାକୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
+    <string name="title_reply_receipt">ପଠନ ରସିଦ ପଠାନ୍ତୁ</string>
+    <string name="title_reply_template">ଟେମ୍ପଲେଟ୍ ସହ ପ୍ରତ୍ୟୁତ୍ତର ଦେବା</string>
     <string name="title_receipt_subject">ପଠନ ରସିଦ: %1$s</string>
+    <string name="title_receipt_text">ଏହି ପଠନ ରସିଦ କେବଳ ସ୍ୱୀକାର କରେ ଯେ ବାର୍ତ୍ତା ପ୍ରଦର୍ଶିତ ହେଲା। କୌଣସି ଗ୍ୟାରେଣ୍ଟି ନାହିଁ ଯେ ପ୍ରାପ୍ତେସୁ ବାର୍ତ୍ତା ବିଷୟବସ୍ତୁ ପଢ଼ିଛନ୍ତି।</string>
     <string name="title_no_viewer_name">ବିଷୟବସ୍ତୁ ନାମ</string>
     <string name="title_no_viewer_type">ବିଷୟବସ୍ତୁ ପ୍ରକାର</string>
     <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
@@ -290,6 +306,7 @@
     <string name="title_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="title_from">ପ୍ରେରକ:</string>
     <string name="title_to">ପ୍ରାପ୍ତକର୍ତ୍ତା:</string>
+    <string name="title_date">ତାରିଖ:</string>
     <string name="title_size">ଆକାର:</string>
     <string name="title_language">ଭାଷା:</string>
     <string name="title_subject">ବିଷୟ:</string>
@@ -317,6 +334,7 @@
     <string name="title_show_addresses">CC/BCC ଦେଖାଅ</string>
     <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
+    <string name="title_send_receipt_remark">ଅଧିକାଂଶ ପ୍ରଦାନକାରୀ ଏବଂ ଇମେଲ୍ ଗ୍ରାହକମାନେ ରସିଦ ଅନୁରୋଧକୁ ଅଣଦେଖା କରନ୍ତି</string>
     <string name="title_noreply_reminder">ଏକ \'ଉତ୍ତର-ଦିଅନି\' ଠିକଣାକୁ ପଠାଉଛି</string>
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_signature_subject">ବିଷୟ</string>
@@ -358,17 +376,21 @@
     <string name="title_next">ପରବର୍ତ୍ତୀ</string>
     <string name="title_edit_signature_image">ପ୍ରତିଛବି ସନ୍ନିବେଶ କର</string>
     <string name="title_answer_caption">ଟେମ୍ପଲେଟ୍ ସମ୍ପାଦନା</string>
+    <string name="title_answer_reply">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
     <string name="title_answer_name">ଟେମ୍ପଲେଟ୍ ନାମ</string>
     <string name="title_answer_standard">ଡିଫଲ୍ଟ</string>
+    <string name="title_answer_receipt">ପଠନ ରସିଦ ଭାବରେ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_answer_placeholder_name">ପ୍ରେରକଙ୍କ ସମ୍ପୂର୍ଣ୍ଣ ନାମ</string>
     <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_answer_placeholder_firstname">ପ୍ରେରକଙ୍କ ପ୍ରଥମ ନାମ</string>
     <string name="title_answer_placeholder_lastname">ପ୍ରେରକଙ୍କ ଶେଷ ନାମ</string>
     <string name="title_rule_hide">ଲୁଚାଅ</string>
+    <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_regex">RegEx</string>
     <string name="title_rule_identity">ପରିଚୟ</string>
+    <string name="title_rule_template">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
     <string name="title_rule_identity_missing">ପରିଚୟ ନିଖୋଜ</string>
     <string name="title_rule_check">ଯାଞ୍ଚ କର</string>
     <string name="title_rule_tts_from">ପ୍ରେରକ</string>
@@ -392,6 +414,7 @@
     <string name="title_legend_c">ରଚନା କରନ୍ତୁ</string>
     <string name="title_legend_n">ପରବର୍ତ୍ତୀ</string>
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
+    <string name="title_legend_r">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
@@ -400,6 +423,7 @@
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_snooze_now">ସ୍ନୁଜ୍</string>
     <string name="title_go_back">ପଛକୁ ଯାଅ</string>
     <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ</string>
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
@@ -414,6 +438,7 @@
     <string name="title_widget_account_all">ସମସ୍ତ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_widget_padding">ପ୍ୟାଡିଂ ଆକାର</string>
+    <string name="title_widget_background">ପୃଷ୍ଠପଟ ରଙ୍ଗ</string>
     <string name="title_accessibility_seen">ପଠିତ</string>
     <string name="title_accessibility_unseen">ଅପଠିତ</string>
     <!-- Thunderbird -->
@@ -446,6 +471,11 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>କେବଳ ପଠନ ରସିଦ</item>
+        <item>Delivery receipt only</item>
+        <item>ପଠନ+ବିତରଣ ରସିଦ</item>
     </string-array>
     <string-array name="encryptNames">
         <item>କିଛି ନୁହେଁ</item>

@@ -2681,66 +2681,66 @@ In Version 1.1082 wurde ein lokaler Papierkorb hinzugefügt. Beachten Sie, dass 
 <a name="faq144"></a>
 **(144) Wie kann ich Sprachnachrichten aufnehmen?**
 
-To record voice notes you can press this icon in the bottom action bar of the message composer:
+Um Sprachnotizen aufzuzeichnen, können Sie dieses Symbol in der unteren Aktionsleiste des Nachricht-Verfassen-Fensters drücken:
 
 ![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
-This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
+Dies erfordert die Installation einer kompatiblen Audio-Recorder-App. Genauer muss [diese gemeinsame Absicht](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) unterstützt werden.
 
-For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
+Zum Beispiel ist [dieser Audio-Recorder](https://f-droid.org/app/com.github.axet.audiorecorder) kompatibel.
 
-Voice notes will automatically be attached.
+Sprachnotizen werden automatisch angehängt.
 
 <br />
 
 <a name="faq145"></a>
-**(145) How can I set a notification sound for an account, folder or sender?**
+**(145) Wie kann ich einen Benachrichtigungston für ein Konto, einen Ordner oder einen Absender festlegen?**
 
-Account:
+Konto:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
-* Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
+* *Benachrichtigungen separieren* in den erweiterten Kontoeinstellungen aktivieren (Einstellungen, manuelle Einstellungen antippen, Konten tippen, Konto tippen, Erweitert tippen)
+* Tippen Sie lange auf das Konto in der Account-Liste (Einstellungen, manuelle Einrichtung, Tippen Sie auf Accounts) und *Benachrichtigungskanal bearbeiten* wählen, um den Benachrichtigungston zu ändern
 
-Folder:
+Ordner:
 
-* Long press the folder in the folder list and select *Create notification channel*
-* Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
+* Lange den Ordner in der Ordnerliste drücken und *Benachrichtigungskanal erstellen* auswählen
+* Halten Sie den Ordner in der Ordnerliste gedrückt und wählen Sie *Benachrichtigungskanal bearbeiten* um den Benachrichtigungston zu ändern
 
-Sender:
+Absender:
 
-* Open a message from the sender and expand it
-* Expand the addresses section by tapping on the down arrow
-* Tap on the bell icon to create or edit a notification channel and to change the notification sound
+* Eine Nachricht vom Absender öffnen und erweitern
+* Erweitern Sie den Adressbereich durch Tippen auf den Pfeil nach unten
+* Tippe auf das Glockensymbol, um einen Benachrichtigungskanal zu erstellen oder zu bearbeiten sowie den Benachrichtigungston zu ändern
 
-The order of precendence is: sender sound, folder sound, account sound and default sound.
+Die Reihenfolge ist: Absenderton, Ordnerton, Kontoton und Standardton.
 
-Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
+Um eine Benachrichtigungssound spezifisch für einen Account, einen Ordner oder einen Absender einzustellen, was eine Pro-Funktion ist, wird Android 8 Oreo benötigt.
 
 <br />
 
 <a name="faq146"></a>
-**(146) How can I fix incorrect message times?**
+**(146) Wie kann ich falsche Nachrichtenzeiten beheben?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
+Da Sende-Datum und -Zeit optional sind und vom Absender manipuliert werden kann, verwendet FairEmail standardmäßig das/die vom Server empfangene Datum/Zeit.
 
-Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
+Manchmal ist das empfangene Datum/Uhrzeit des Servers falsch, hauptsächlich weil Nachrichten fälschlicherweise von einem anderen Server importiert wurden, aber manchmal auch aufgrund eines Fehlers im E-Mail-Server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
+In diesen seltenen Fällen ist es möglich, dass FairEmail entweder die Zeit vom *Datums-* Header (Sendezeit) oder die Zeit vom *Empfangen-* Header als Workaround nutzt. Dies kann in den erweiterten Accounteinstellungen geändert werden: Einstellungen > Manueller Setup > Accounts > Account wählen > Erweitert
 
-This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
+Dies verändert aber nicht die Zeit von bereits synchronisierten Nachrichten. Um dies zu beheben, halten sie den/die Ordner in der Ordnerliste gedrückt und wählen sie *Delete local messages* und *Jetzt synchronisieren* aus.
 
 <br />
 
 <a name="faq147"></a>
-**(147) What should I know about third party versions?**
+**(147) Was sollte ich über Drittanbieter-Versionen wissen?**
 
-You likely came here because you are using a third party build of FairEmail.
+Sie sind wahrscheinlich hierher gekommen, weil Sie eine externe Version von FairEmail verwenden.
 
-There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+Es gibt **nur Support** für die letzte PlayStore-Version, den letzten GitHub-Release und den F-Droid Build, aber **nur wenn** die Versionsnummer des F-Droid-Builds mit der des neuesten GitHub-Releases übereinstimmt.
 
-F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
+F-Droid erzeugt Builds unregelmäßig, was problematisch sein kann, wenn es ein wichtiges Update gibt. Daher wird empfohlen, zum GitHub Release zu wechseln.
 
-The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+Die F-Droid-Version ist aus dem gleichen Quellcode gebaut, aber anders signiert. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Gmail, da Google nur eine Signatur erlaubt (und zulässt). For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 

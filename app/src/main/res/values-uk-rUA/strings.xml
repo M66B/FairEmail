@@ -137,6 +137,7 @@
     <string name="title_edit_account">Редагувати обліковий запис</string>
     <string name="title_edit_identity">Редагувати особу</string>
     <string name="title_edit_folder">Редагувати теку</string>
+    <string name="title_disable_gmail">Вимкнути додаток Gmail</string>
     <string name="title_setup">Налаштування</string>
     <string name="title_setup_help">Довідка</string>
     <string name="title_setup_quick">Швидке налаштування</string>
@@ -485,6 +486,7 @@
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
+    <string name="title_advanced_swipe_reply">Проведіть по розкритому повідомленню праворуч для відповіді</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>

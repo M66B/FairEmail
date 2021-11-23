@@ -2395,7 +2395,7 @@ On Android 7 Nougat and later new message notifications will be [grouped](https:
 <br />
 
 <a name="faq121"></a>
-**(121) How are messages grouped into a conversation?**
+**(121) Πώς ομαδοποιούνται τα μηνύματα σε συζήτηση;**
 
 By default FairEmail groups messages in conversations. This can be turned of in the display settings.
 
@@ -2437,7 +2437,7 @@ The message *Message too large or too complex to display* will be shown if there
 
 *Ταξινόμηση μηνυμάτων (έκδοση 1.1438+)*
 
-Please see [this FAQ](#user-content-faq163) for details.
+Παρακαλώ δείτε [αυτήν τη συχνή ερώτηση](#user-content-faq163) για λεπτομέρειες.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 

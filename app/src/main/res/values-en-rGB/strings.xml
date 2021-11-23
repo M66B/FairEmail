@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="page_compose">Compose</string>
     <string name="tile_synchronize">Synchronise</string>
     <string name="shortcut_compose">Compose</string>
@@ -8,12 +9,25 @@
     <string name="menu_faq">Support</string>
     <string name="title_setup">Settings</string>
     <string name="title_setup_quick">Quick setup</string>
+    <string name="title_setup_gmail_password">I want to authorise an account with a password</string>
+    <string name="title_setup_oauth_update">Authorise existing account again</string>
+    <string name="title_setup_oauth_authorize">Authorise</string>
+    <string name="title_setup_doze">Disable battery optimisations</string>
+    <string name="title_setup_doze_explanation">Battery optimisations should be disabled for the app to ensure reliable sending and receiving of messages in the background</string>
+    <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimisations for this app will result in less battery usage</string>
+    <string name="title_setup_doze_instructions">In the next Android dialog change \"Not optimised\" to \"All apps\", select this app and select \"Don\'t optimise\"</string>
     <string name="title_setup_theme_reverse">Reverse colours</string>
+    <string name="title_advanced_hint_remark">        The options are categorised by tab, divided into sections, organised by appearance or use, and searchable.
+    </string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_notifications">Notifications</string>
+    <string name="title_advanced_optimize">Automatically optimise</string>
     <string name="title_advanced_sync_folders">Synchronise folder list</string>
+    <string name="title_advanced_sync_shared_folders">Synchronise shared folder lists</string>
+    <string name="title_advanced_check_reply_domain">Check reply address on synchronising messages</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronising messages</string>
+    <string name="title_advanced_remove_signatures">Remove recognised signatures</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
     <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_color_stripe">Show colour stripe</string>
@@ -21,9 +35,13 @@
     <string name="title_advanced_text_color">Use text colours</string>
     <string name="title_advanced_actionbar_color">Use account colour as background colour for conversation action bar</string>
     <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>
+    <string name="title_advanced_sync_on_launch">Synchronise on start</string>
     <string name="title_advanced_notify_action_trash">Delete</string>
+    <string name="title_advanced_tracking">Attempt to recognise and disable tracking images</string>
+    <string name="title_advanced_disconnect_images">Use lists to recognise tracking images</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronising none or all messages</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronising messages</string>
+    <string name="title_advanced_validate_hint">This can result in not synchronising messages, for example when using a VPN, but also in other situations</string>
     <string name="title_advanced_highlight_hint">The accent colour of the theme will be used for highlighting</string>
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or deleted</string>
     <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronised</string>
@@ -32,7 +50,10 @@
     <string name="title_account_ondemand">Synchronise manually</string>
     <string name="title_account_gmail">For reliable synchronisation of a Gmail account, the Gmail quick setup wizard should be used whenever possible</string>
     <string name="title_no_sync">Synchronisation errors since %1$s</string>
+    <string name="title_synchronize_now">Synchronise now</string>
     <string name="title_synchronize_enabled">Synchronise</string>
+    <string name="title_synchronize_batch_enable">Enable synchronisation</string>
+    <string name="title_synchronize_batch_disable">Disable synchronisation</string>
     <string name="title_empty_trash">Empty bin</string>
     <string name="title_empty_trash_ask">Delete all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Delete all deleted messages of all accounts permanently?</string>
@@ -46,14 +67,17 @@
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
     <string name="title_trash">Delete</string>
+    <string name="title_ask_show_image_hint">Images recognised as tracking images will not be shown</string>
     <string name="title_compose">Compose</string>
     <string name="title_send">Send</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_section_folders">Folders</string>
     <string name="title_legend_section_messages">Messages</string>
     <string name="title_legend_section_compose">Compose</string>
+    <string name="title_legend_oauth">OAuth authorisation</string>
     <string name="title_legend_synchronize_on">Synchronise on</string>
     <string name="title_legend_synchronize_off">Synchronise off</string>
+    <string name="title_legend_synchronize_poll">Synchronise periodically</string>
     <string name="title_legend_synchronizing">Synchronising</string>
     <string name="title_legend_trash">Bin</string>
     <string name="title_legend_sync_keep">Number of days to synchronise / to keep messages</string>

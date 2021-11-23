@@ -464,6 +464,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
+    <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
+    <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
     <string name="title_advanced_notifications_service">Kanalı al</string>
@@ -864,6 +866,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_no_messages">İleti yok</string>
     <string name="title_filters_active">Bir ya da daha fazla filtre aktif</string>
     <string name="title_duplicate_in">Mesajı %1$s klasörüne kopyala</string>
+    <string name="title_trashed_from">%1$s tarafından çöpe atılan mesaj</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_subject_reply_alt">Ynt: %1$s</string>
@@ -1206,6 +1209,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_filter_unknown">Bilinmeyen gönderenler</string>
     <string name="title_filter_hidden">Gizli</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
+    <string name="title_filter_trash">Çöp</string>
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
     <string name="title_padding">Boşluk boyutu</string>
@@ -1486,6 +1490,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_snooze_now">Ertele</string>
     <string name="title_loading">Yükleniyor &#8230;</string>
     <string name="title_fetching_again">Mesaj sunucudan tekrar alınıyor</string>
+    <string name="title_go_back">Geri dön</string>
     <string name="title_conversation_actions">Eylemler</string>
     <string name="title_conversation_action_reply">\'%1$s\' ile yanıtla</string>
     <string name="title_conversation_action_copy">Kopyala: \'%1$s\'</string>

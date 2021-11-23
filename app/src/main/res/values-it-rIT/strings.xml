@@ -465,6 +465,7 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
+    <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>

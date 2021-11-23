@@ -137,6 +137,7 @@
     <string name="title_edit_account">Изменить учётную запись</string>
     <string name="title_edit_identity">Изменить идентификатор</string>
     <string name="title_edit_folder">Редактировать папку</string>
+    <string name="title_disable_gmail">Отключить приложение Gmail</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
     <string name="title_setup_quick">Быстрая настройка</string>
@@ -485,6 +486,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
+    <string name="title_advanced_swipe_reply">Жест вправо на раскрытом сообщении для ответа</string>
     <string name="title_advanced_default_snooze">Время повтора/задержки по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>

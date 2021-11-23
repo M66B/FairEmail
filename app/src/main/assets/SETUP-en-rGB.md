@@ -32,9 +32,9 @@ See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about 
 
 If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
 
-## Setup battery optimizations - to continuously receive emails
+## Setup battery optimisations - to continuously receive emails
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimisations for FairEmail. Tap *Manage* and follow the instructions.
 
 ## Questions or problems
 

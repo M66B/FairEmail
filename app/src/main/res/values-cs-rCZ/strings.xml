@@ -92,6 +92,7 @@
     <string name="title_junk_hint">Za filtrování nevyžádané pošty je zodpovědný poskytovatel e-mailu. E-mailové aplikace nemají k dispozici všechna data, aby to mohly provádět spolehlivě.</string>
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
+    <string name="title_block_sender_domain">Blokovat doménu \'%1$s\'</string>
     <string name="title_block_sender_hint">        Blokování odesílatele je volná funkce.
         Blokování domény odesílatele používá pravidla filtru, což je Pro funkce.
     </string>
@@ -163,6 +164,8 @@
     <string name="title_setup_identities">Identity</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_pop3">POP3 účet</string>
+    <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro Google Play a GitHub verzi</string>
+    <string name="title_setup_gmail_support">Autorizace účtů Google bude fungovat pouze v Google Play a GitHub verzi, protože Android kontroluje digitální podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
@@ -482,6 +485,7 @@
     <string name="title_advanced_autounstar">Při přesunu odebrat zprávám hvězdičku automaticky</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
+    <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
     <string name="title_advanced_notifications_service">Kanál „příjem“</string>
@@ -570,6 +574,7 @@
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_deepl">DeepL integrace</string>
+    <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>
     <string name="title_advanced_check_weekly">Kontrolovat týdně, místo denně</string>
@@ -634,6 +639,7 @@
     <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
     <string name="title_advanced_language_detection_hint">Podpora detekce jazyka je závislá na výrobci zařízení</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
+    <string name="title_advanced_expandall_hint">Tlačítko odpovědi nebude zobrazeno, pokud je rozbaleno více zpráv, protože není jasné na které zprávy se toto tlačítko vztahuje</string>
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v pokročilém nastavení jednotlivých účtů</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavírat konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
@@ -881,6 +887,7 @@
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_filters_active">Jeden nebo více filtrů aktivních</string>
     <string name="title_duplicate_in">Duplikát zprávy v %1$s</string>
+    <string name="title_trashed_from">Zpráva v koši od %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1123,6 +1130,7 @@
     <string name="title_smime_reminder">S/MIME klíče k dispozici</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_extra_missing">Chybí uživatelské jméno</string>
+    <string name="title_noreply_reminder">Odesílání na adresu \"neodpovídat\"</string>
     <string name="title_external_reminder">Odesílání na externí adresu</string>
     <string name="title_subject_reminder">Chybí předmět</string>
     <string name="title_text_reminder">Zpráva je prázdná</string>
@@ -1222,6 +1230,7 @@
     <string name="title_filter_unknown">Neznámí odesílatelé</string>
     <string name="title_filter_hidden">Skryto</string>
     <string name="title_filter_duplicates">Duplikáty</string>
+    <string name="title_filter_trash">V koši</string>
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
     <string name="title_padding">Velikost odsazení položek</string>
@@ -1502,6 +1511,7 @@
     <string name="title_snooze_now">Odložit</string>
     <string name="title_loading">Načítání &#8230;</string>
     <string name="title_fetching_again">Opětovné získávání zprávy ze serveru</string>
+    <string name="title_go_back">Vrátit se zpět</string>
     <string name="title_conversation_actions">Akce</string>
     <string name="title_conversation_action_reply">Odpovědět s: „%1$s“</string>
     <string name="title_conversation_action_copy">Kopírovat: „%1$s“</string>
