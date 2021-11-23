@@ -2,7 +2,7 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Banji](https://en.wikipedia.org/wiki/Banji)
+### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
 ### 1.1781 - 2021-11-23
 
@@ -11,6 +11,8 @@
 * Updated AndroidX
 * Small improvements and minor bug fixes
 * Updated translations
+
+### [Banji](https://en.wikipedia.org/wiki/Banji)
 
 ### 1.1780 - 2021-11-15
 
