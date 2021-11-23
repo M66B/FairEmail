@@ -117,6 +117,7 @@
     <string name="title_edit_account">Editar cuenta</string>
     <string name="title_edit_identity">Editar identidad</string>
     <string name="title_edit_folder">Editar carpeta</string>
+    <string name="title_disable_gmail">Desactivar aplicación de Gmail</string>
     <string name="title_setup">Ajustes</string>
     <string name="title_setup_help">Ayuda</string>
     <string name="title_setup_quick">Configuración rápida</string>
@@ -465,6 +466,7 @@
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
+    <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
