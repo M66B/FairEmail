@@ -3028,6 +3028,8 @@ class Core {
 
                 SearchTerm searchTerm = dateTerm;
                 Flags flags = ifolder.getPermanentFlags();
+                if (!account.use_date && account.isOutlook())
+                    searchTerm = new OrTerm(searchTerm, new SentDateTerm(ComparisonTerm.GE, new Date(sync_time)));
                 if (sync_nodate)
                     searchTerm = new OrTerm(searchTerm, new ReceivedDateTerm(ComparisonTerm.LT, new Date(365 * 24 * 3600 * 1000L)));
                 if (sync_unseen && flags.contains(Flags.Flag.SEEN))
