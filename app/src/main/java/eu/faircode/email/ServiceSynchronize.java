@@ -151,7 +151,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "download_headers", "download_eml",
             "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "ssl_harden", // force reconnect
             "experiments", "debug", "protocol", // force reconnect
-            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "idle_done", // force reconnect
+            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "empty_pool", "idle_done", // force reconnect
             "exact_alarms" // force schedule
     ));
 
@@ -1339,6 +1339,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 boolean subscriptions = prefs.getBoolean("subscriptions", false);
+                boolean empty_pool = prefs.getBoolean("empty_pool", true);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
                 final EmailService iservice = new EmailService(
@@ -1785,7 +1786,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     }
                                     handling = all;
 
-                                    if (istore instanceof IMAPStore) {
+                                    if (empty_pool && istore instanceof IMAPStore) {
                                         getMainHandler().removeCallbacks(purge);
                                         if (handling.size() == 0)
                                             getMainHandler().postDelayed(purge, PURGE_DELAY);
