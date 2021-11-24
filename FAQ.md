@@ -1276,6 +1276,7 @@ Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes).
 Too large messages and triggering the spam filter of an email server are the most common reasons.
 
+* The error *... Socket is closed ...* might be caused by sending a too large message / attachments
 * The attachment size limit for Gmail [is 25 MB](https://support.google.com/mail/answer/6584)
 * The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
 * The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
