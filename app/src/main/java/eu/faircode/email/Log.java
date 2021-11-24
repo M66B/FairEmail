@@ -1447,6 +1447,10 @@ public class Log {
                     ex.getCause() instanceof SocketException)
                 return null;
 
+            if (ex instanceof ProtocolException &&
+                    ex.getCause() instanceof InterruptedException)
+                return null; // Interrupted waitIfIdle
+
             if (ex instanceof MessagingException &&
                     ("Not connected".equals(ex.getMessage()) || // POP3
                             "connection failure".equals(ex.getMessage()) ||
