@@ -435,6 +435,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibSearch;
         private ImageButton ibTranslate;
         private ImageButton ibForceLight;
+        private ImageButton ibImportance;
         private ImageButton ibHide;
         private ImageButton ibSeen;
         private ImageButton ibAnswer;
@@ -814,6 +815,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearch = vsBody.findViewById(R.id.ibSearch);
             ibTranslate = vsBody.findViewById(R.id.ibTranslate);
             ibForceLight = vsBody.findViewById(R.id.ibForceLight);
+            ibImportance = vsBody.findViewById(R.id.ibImportance);
             ibHide = vsBody.findViewById(R.id.ibHide);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
@@ -934,6 +936,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTranslate.setOnClickListener(this);
                 ibTranslate.setOnLongClickListener(this);
                 ibForceLight.setOnClickListener(this);
+                ibImportance.setOnClickListener(this);
                 ibHide.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
@@ -1032,6 +1035,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTranslate.setOnClickListener(null);
                 ibTranslate.setOnLongClickListener(null);
                 ibForceLight.setOnClickListener(null);
+                ibImportance.setOnClickListener(null);
                 ibHide.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
@@ -1556,6 +1560,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearch.setVisibility(View.GONE);
             ibTranslate.setVisibility(View.GONE);
             ibForceLight.setVisibility(View.GONE);
+            ibImportance.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1792,6 +1797,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearch.setVisibility(View.GONE);
             ibTranslate.setVisibility(View.GONE);
             ibForceLight.setVisibility(View.GONE);
+            ibImportance.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1979,6 +1985,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_notes = prefs.getBoolean("button_notes", false);
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_hide = prefs.getBoolean("button_hide", false);
+                    boolean button_importance = prefs.getBoolean("button_importance", false);
                     boolean button_translate = prefs.getBoolean("button_translate", true);
                     boolean button_force_light = prefs.getBoolean("button_force_light", false);
                     boolean button_search = prefs.getBoolean("button_search", false);
@@ -1992,6 +1999,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_rule = prefs.getBoolean("button_rule", false);
                     boolean swipe_reply = prefs.getBoolean("swipe_reply", false);
 
+                    int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 1) % 3);
+
+                    ibImportance.setImageLevel(importance);
                     ibHide.setImageResource(message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
                     ibSeen.setImageResource(message.ui_seen ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
                     ibTrash.setTag(delete);
@@ -2012,6 +2022,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setImageLevel(force_light ? 1 : 0);
+                    ibImportance.setVisibility(tools && button_importance && !outbox ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) || !threading || swipe_reply ? View.GONE : View.VISIBLE);
@@ -3491,6 +3502,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onMenuUnseen(message);
                 } else if (id == R.id.ibHide) {
                     onMenuHide(message);
+                } else if (id == R.id.ibImportance) {
+                    int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 1) % 3);
+                    onMenuSetImportance(message, importance);
                 } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe || id == R.id.ibCalendar) {
                     onActionCalendar(message, view.getId(), false);
                 } else {
@@ -7597,6 +7611,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_buttons, null);
             final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
             final CheckBox cbHide = dview.findViewById(R.id.cbHide);
+            final CheckBox cbImportance = dview.findViewById(R.id.cbImportance);
             final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
             final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
@@ -7621,6 +7636,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             cbSeen.setChecked(prefs.getBoolean("button_seen", false));
             cbHide.setChecked(prefs.getBoolean("button_hide", false));
+            cbImportance.setChecked(prefs.getBoolean("button_importance", false));
             cbJunk.setChecked(prefs.getBoolean("button_junk", true));
             cbTrash.setChecked(prefs.getBoolean("button_trash", true));
             cbArchive.setChecked(prefs.getBoolean("button_archive", true));
@@ -7648,6 +7664,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             SharedPreferences.Editor editor = prefs.edit();
                             editor.putBoolean("button_seen", cbSeen.isChecked());
                             editor.putBoolean("button_hide", cbHide.isChecked());
+                            editor.putBoolean("button_importance", cbImportance.isChecked());
                             editor.putBoolean("button_junk", cbJunk.isChecked());
                             editor.putBoolean("button_trash", cbTrash.isChecked());
                             editor.putBoolean("button_archive", cbArchive.isChecked());
