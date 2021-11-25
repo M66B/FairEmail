@@ -273,35 +273,8 @@ public class MessageHelper {
         imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
 
         // Addresses
-        if (message.from != null && message.from.length > 0) {
-            InternetAddress from = ((InternetAddress) message.from[0]);
-            String email = from.getAddress();
-            String name = from.getPersonal();
-
-            if (identity != null && identity.sender_extra &&
-                    email != null && message.extra != null) {
-                int at = email.indexOf('@');
-                String username = UriHelper.getEmailUser(identity.email);
-                if (at > 0 && !message.extra.equals(username)) {
-                    if (message.extra.length() > 1 && message.extra.startsWith("+"))
-                        email = email.substring(0, at) + message.extra + email.substring(at);
-                    else if (message.extra.length() > 1 && message.extra.startsWith("@"))
-                        email = email.substring(0, at) + message.extra + '.' + email.substring(at + 1);
-                    else
-                        email = message.extra + email.substring(at);
-
-                    if (!identity.sender_extra_name)
-                        name = null;
-
-                    Log.i("extra=\"" + name + "\" <" + email + ">");
-                }
-            }
-
-            if (EntityMessage.DSN_HARD_BOUNCE.equals(message.dsn))
-                name = null;
-
-            imessage.setFrom(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
-        }
+        if (message.from != null && message.from.length > 0)
+            imessage.setFrom(getFrom(message, identity));
 
         if (message.to != null && message.to.length > 0)
             imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to, identity));
@@ -584,6 +557,36 @@ public class MessageHelper {
         build(context, message, attachments, identity, send, imessage);
 
         return imessage;
+    }
+
+    static Address getFrom(EntityMessage message, EntityIdentity identity) throws UnsupportedEncodingException {
+        InternetAddress from = ((InternetAddress) message.from[0]);
+        String email = from.getAddress();
+        String name = from.getPersonal();
+
+        if (identity != null && identity.sender_extra &&
+                email != null && message.extra != null) {
+            int at = email.indexOf('@');
+            String username = UriHelper.getEmailUser(identity.email);
+            if (at > 0 && !message.extra.equals(username)) {
+                if (message.extra.length() > 1 && message.extra.startsWith("+"))
+                    email = email.substring(0, at) + message.extra + email.substring(at);
+                else if (message.extra.length() > 1 && message.extra.startsWith("@"))
+                    email = email.substring(0, at) + message.extra + '.' + email.substring(at + 1);
+                else
+                    email = message.extra + email.substring(at);
+
+                if (!identity.sender_extra_name)
+                    name = null;
+
+                Log.i("extra=\"" + name + "\" <" + email + ">");
+            }
+        }
+
+        if (EntityMessage.DSN_HARD_BOUNCE.equals(message.dsn))
+            name = null;
+
+        return new InternetAddress(email, name, StandardCharsets.UTF_8.name());
     }
 
     private static void addAddress(String email, Message.RecipientType type, MimeMessage imessage, EntityIdentity identity) throws MessagingException {
