@@ -566,15 +566,9 @@ public class MessageHelper {
 
         if (identity != null && identity.sender_extra &&
                 email != null && message.extra != null) {
-            int at = email.indexOf('@');
             String username = UriHelper.getEmailUser(identity.email);
-            if (at > 0 && !message.extra.equals(username)) {
-                if (message.extra.length() > 1 && message.extra.startsWith("+"))
-                    email = email.substring(0, at) + message.extra + email.substring(at);
-                else if (message.extra.length() > 1 && message.extra.startsWith("@"))
-                    email = email.substring(0, at) + message.extra + '.' + email.substring(at + 1);
-                else
-                    email = message.extra + email.substring(at);
+            if (!message.extra.equals(username)) {
+                email = addExtra(email, message.extra);
 
                 if (!identity.sender_extra_name)
                     name = null;
@@ -587,6 +581,21 @@ public class MessageHelper {
             name = null;
 
         return new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+    }
+
+    static String addExtra(String email, String extra) {
+        int at = email.indexOf('@');
+        if (at < 0)
+            return email;
+
+        if (extra.length() > 1 && extra.startsWith("+"))
+            email = email.substring(0, at) + extra + email.substring(at);
+        else if (extra.length() > 1 && extra.startsWith("@"))
+            email = email.substring(0, at) + extra + '.' + email.substring(at + 1);
+        else
+            email = extra + email.substring(at);
+
+        return email;
     }
 
     private static void addAddress(String email, Message.RecipientType type, MimeMessage imessage, EntityIdentity identity) throws MessagingException {

@@ -6590,6 +6590,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message != null) {
                 keyPosition.put(message.id, i);
                 positionKey.put(i, message.id);
+                addExtra(message.from, message.extra);
+                addExtra(message.senders, message.extra);
                 message.resolveLabelColors(context);
                 message.resolveKeywordColors(context);
             }
@@ -6609,6 +6611,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
         });
+    }
+
+    static void addExtra(Address[] addresses, String extra) {
+        if (addresses == null || addresses.length == 0)
+            return;
+        if (extra == null)
+            return;
+
+        String email = ((InternetAddress) addresses[0]).getAddress();
+        if (email == null)
+            return;
+
+        email = MessageHelper.addExtra(email, extra);
+        ((InternetAddress) addresses[0]).setAddress(email);
     }
 
     PagedList<TupleMessageEx> getCurrentList() {
