@@ -4728,7 +4728,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setIcon(message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
             popupMenu.getMenu().findItem(R.id.menu_flag_color)
-                    .setVisible(flags_background)
+                    .setVisible(flags || message.ui_flagged)
                     .setEnabled(message.uid != null ||
                             message.accountProtocol != EntityAccount.TYPE_IMAP);
 

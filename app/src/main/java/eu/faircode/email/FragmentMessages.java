@@ -3170,7 +3170,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 final Context context = getContext();
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean flags = prefs.getBoolean("flags", true);
-                boolean flags_background = prefs.getBoolean("flags_background", false);
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), fabMore);
 
@@ -3199,7 +3198,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.flagged && flags)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag)
                             .setIcon(R.drawable.twotone_star_border_24);
-                if ((result.unflagged || result.flagged) && flags_background)
+                if ((result.unflagged || result.flagged) && flags)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color)
                             .setIcon(R.drawable.twotone_auto_awesome_24);
 
