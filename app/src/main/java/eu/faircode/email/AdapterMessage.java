@@ -1204,19 +1204,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setVisibility(View.GONE);
 
             if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)) {
-                ibPriority.setImageLevel(0);
+                ibPriority.setImageLevel(message.ui_priority);
                 ibPriority.setVisibility(View.VISIBLE);
             } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_priority)) {
-                ibPriority.setImageLevel(1);
+                ibPriority.setImageLevel(message.ui_priority);
                 ibPriority.setVisibility(View.VISIBLE);
             } else
                 ibPriority.setVisibility(View.GONE);
 
             if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance)) {
-                ivImportance.setImageLevel(0);
+                ivImportance.setImageLevel(message.ui_importance);
                 ivImportance.setVisibility(View.VISIBLE);
             } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_importance)) {
-                ivImportance.setImageLevel(1);
+                ivImportance.setImageLevel(message.ui_importance);
                 ivImportance.setVisibility(View.VISIBLE);
             } else
                 ivImportance.setVisibility(View.GONE);
