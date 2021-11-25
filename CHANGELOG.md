@@ -4,6 +4,11 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next versio
+
+* Added optional set importance button
+* Small improvements and minor bug fixes
+
 ### 1.1781 - 2021-11-23
 
 * Added behavior option to enable swipe right to reply
