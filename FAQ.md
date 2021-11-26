@@ -555,10 +555,13 @@ you can use the quick setup wizard to easily setup a Gmail account and identity.
 The Gmail quick setup wizard is not available for third party builds, like the F-Droid build
 because Google approved the use of OAuth for official builds only.
 
+The Gmail quick setup wizard won't work if the Android account manager doesn't work or doesn't support Google accounts,
+which is typically the case if the account selection is being *canceled* right away.
+
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices,
 you can either enable access for "less secure apps" and use your account password (not advised)
 or enable two factor authentication and use an app specific password.
-To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+To use a password you can use the quick setup wizard and select *Other provider*.
 
 **Important**: sometimes Google issues this alert:
 
