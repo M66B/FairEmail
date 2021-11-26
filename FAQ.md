@@ -2388,6 +2388,15 @@ $$deleted$
 
 Note that *regex* should be disable and that there should be no white space.
 
+The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* with the following string extras:
+
+* *name*
+* *sender*
+* *subject*
+* *received* (ISO 8601 date/time)
+
+An app like Tasker can listen for this intent and perform some action.
+
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
