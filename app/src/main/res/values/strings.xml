@@ -1815,6 +1815,7 @@
 
     <string name="infra_awsses" translatable="false">Amazon SES</string>
     <string name="infra_elastic" translatable="false">Elastic Email</string>
+    <string name="infra_flowmailer" translatable="false">Flowmailer</string>
     <string name="infra_gmail" translatable="false">Gmail/Gsuite</string>
     <string name="infra_icloud" translatable="false">Apple/iCloud</string>
     <string name="infra_icontact" translatable="false">iContact</string>
