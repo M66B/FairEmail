@@ -4767,6 +4767,7 @@ public class FragmentCompose extends FragmentBase {
                                     if (remove_signatures)
                                         d.body().filter(new NodeFilter() {
                                             private boolean remove = false;
+                                            private boolean noremove = false;
 
                                             @Override
                                             public FilterResult head(Node node, int depth) {
@@ -4789,9 +4790,14 @@ public class FragmentCompose extends FragmentBase {
                                                                 remove = true;
                                                         }
                                                     }
+                                                } else if (node instanceof Element) {
+                                                    Element element = (Element) node;
+                                                    if (remove && "blockquote".equals(element.tagName()))
+                                                        noremove = true;
                                                 }
 
-                                                return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
+                                                return (remove && !noremove
+                                                        ? FilterResult.REMOVE : FilterResult.CONTINUE);
                                             }
 
                                             @Override
