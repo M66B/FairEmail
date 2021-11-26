@@ -1805,6 +1805,8 @@ public class MessageHelper {
 
         String return_path = imessage.getHeader("Return-Path", null);
         if (!TextUtils.isEmpty(return_path)) {
+            if (return_path.contains("pdmailservice.com"))
+                return "icontact";
             if (return_path.contains("flowmailer.com"))
                 return "flowmailer";
         }
