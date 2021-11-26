@@ -65,6 +65,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.OperationCanceledException;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.print.PrintAttributes;
@@ -300,8 +301,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private TextView searchView = null;
 
     private WebView printWebView = null;
-
-    private OpenPgpServiceConnection pgpService;
 
     private boolean cards;
     private boolean date;
@@ -1585,11 +1584,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
              */
             }
 
-        final String pkg = Helper.getOpenKeychainPackage(getContext());
-        Log.i("PGP binding to " + pkg);
-        pgpService = new OpenPgpServiceConnection(getContext(), pkg);
-        pgpService.bindToService();
-
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         IntentFilter iff = new IntentFilter(SimpleTask.ACTION_TASK_COUNT);
         lbm.registerReceiver(treceiver, iff);
@@ -1601,12 +1595,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onDestroyView() {
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         lbm.unregisterReceiver(treceiver);
-
-        if (pgpService != null && pgpService.isBound()) {
-            Log.i("PGP unbinding");
-            pgpService.unbindFromService();
-        }
-        pgpService = null;
 
         super.onDestroyView();
     }
@@ -4164,9 +4152,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public void onResume() {
         super.onResume();
-
-        if (!pgpService.isBound())
-            pgpService.bindToService();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         IntentFilter iff = new IntentFilter();
@@ -6740,22 +6725,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
             }.execute(this, args, "messages:alias");
         } else {
-            if (pgpService.isBound()) {
-                Intent data = new Intent();
-                data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-                data.putExtra(BuildConfig.APPLICATION_ID, id);
-                onPgp(data, auto);
-            } else {
-                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true);
-                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Helper.viewFAQ(v.getContext(), 12);
-                    }
-                });
-                snackbar.show();
-            }
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+            data.putExtra(BuildConfig.APPLICATION_ID, id);
+            onPgp(data, auto);
         }
     }
 
@@ -7121,8 +7094,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     // Decrypt message
                     Log.i("Executing " + data.getAction());
                     Log.logExtras(data);
-                    OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                    result = api.executeApi(data, in, out);
+
+                    // Call OpenPGP
+                    OpenPgpServiceConnection pgpService = null;
+                    try {
+                        pgpService = PgpHelper.getConnection(context);
+                        if (!pgpService.isBound())
+                            throw new OperationCanceledException();
+
+                        Log.i("Executing " + data.getAction());
+                        Log.logExtras(data);
+                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                        result = api.executeApi(data, in, out);
+                    } finally {
+                        if (pgpService != null && pgpService.isBound())
+                            pgpService.unbindFromService();
+                    }
 
                     int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
                     Log.i("Result action=" + data.getAction() + " code=" + resultCode);
@@ -7322,6 +7309,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
+                } else if (ex instanceof OperationCanceledException) {
+                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_INDEFINITE)
+                            .setGestureInsetBottomIgnored(true);
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            snackbar.dismiss();
+                            Helper.viewFAQ(v.getContext(), 12);
+                        }
+                    });
+                    snackbar.show();
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
