@@ -4,10 +4,11 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
-### Next versio
+### 1.1782 - 2021-11-27
 
 * Added optional set importance button
 * Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1781 - 2021-11-23
 
