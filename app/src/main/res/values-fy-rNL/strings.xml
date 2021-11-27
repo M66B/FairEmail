@@ -484,9 +484,9 @@
     <string name="title_advanced_sync_delay_hint">Dit sil syngronisearjende berjochten fertrage</string>
     <string name="title_advanced_suggest_names_hint">As útskeakele, wurde allinich emailadressen brûkt by it selektearjen fan kontakten</string>
     <string name="title_advanced_suggest_local_hint">Neist kontakten levere troch Android. Kontaktgegevens wurde allinich opslein foar nij ferstjoerde of ûntfange berjochten as dizze ynskeakele is.</string>
-    <string name="title_advanced_usenet_hint">Foegje \'-\' yn tusken de tekst en de hantekening</string>
     <string name="title_advanced_send_reminders_hint">Toan in warskôging as de tekst fan it berjocht as it ûnderwerp leech is of as in bylage miskien mist</string>
     <string name="title_advanced_reply_move_hint">De emailserver koe de berjochten noch tafoegje oan \'e ferstjoerde berjochtenmap</string>
+    <string name="title_advanced_usenet_hint">Foegje \'-\' yn tusken de tekst en de hantekening</string>
     <string name="title_advanced_metered_hint">Metereare ferbiningen binne oer it algemien mobile ferbiningen as betelle Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Dizze opsje útsette sil it ûntfangen en ferstjoeren fan berjochten op mobile ynternetferbiningen útskeakelje</string>
     <string name="title_advanced_rlah_hint">Utgeande fan gjin swalkjen binnen de EU</string>

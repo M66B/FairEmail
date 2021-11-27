@@ -1,6 +1,6 @@
 # Bantuan Instalasi
 
-Menyiapkan FairEmail cukup simpel. Anda harus menambahkan setidaknya satu akun untuk menerima email dan setidaknya satu identitas jika Anda ingin mengirim email. The quick setup will add an account and an identity in one go for most major providers.
+Menyiapkan FairEmail cukup simpel. Anda harus menambahkan setidaknya satu akun untuk menerima email dan setidaknya satu identitas jika Anda ingin mengirim email. Penyiapan yang cepat akan menambahkan akun dan identitas sekaligus, untuk sebagian besar penyedia layanan email.
 
 ## Persyaratan
 
@@ -8,11 +8,11 @@ Koneksi internet diperlukan untuk mengatur akun dan identitas.
 
 ## Pengaturan Cepat
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Pilih provider yang sesuai atau *provider lainnya* dan isi nama, alamat email dan kata sandi dan tekan *Periksa*.
 
-This will work for most email providers.
+Ini akan berfungsi bagi sebagian besar penyedia layanan email terkemuka.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Jika penyiapan cepat tidak berhasil, Anda perlu menyiapkan akun dan identitas dengan cara lain, lihat di bawah sebagai petunjuk.
 
 ## Siapkan akun - untuk menerima email
 
@@ -30,11 +30,11 @@ Lihat [ FAQ ini ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) ten
 
 ## Berikan izin - untuk mengakses informasi kontak
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Jika Anda ingin mencari alamat email, menampilkan foto kontak, dll, Anda harus memberikan izin baca kontak ke FairEmail. Cukup tekan *Beri izin* dan pilih *Izinkan*.
 
 ## Atur pengoptimalan baterai - untuk terus menerima pesan secara optimal
 
-Pada versi Android terbaru, perangkat akan menutup aplikasi saat layar mati selama beberapa waktu untuk mengurangi penggunaan baterai. Jika Anda ingin menerima email baru tanpa penundaan, Anda harus menonaktifkan pengoptimalan baterai untuk FairEmail. Tap *Manage* and follow the instructions.
+Pada versi Android terbaru, perangkat akan menutup aplikasi saat layar mati selama beberapa waktu untuk mengurangi penggunaan baterai. Jika Anda ingin menerima email baru tanpa penundaan, Anda harus menonaktifkan pengoptimalan baterai untuk FairEmail. Tekan *Atur* dan ikuti petunjuk.
 
 ## Pertanyaan atau masalah
 

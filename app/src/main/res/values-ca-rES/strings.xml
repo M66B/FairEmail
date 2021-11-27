@@ -394,8 +394,8 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
     <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android. Les dades de contacte s’emmagatzemaran per als missatges recentment enviats o rebuts només quan estiguin habilitats.</string>
-    <string name="title_advanced_usenet_hint">Inseriu \"--\" entre el text i la signatura</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avís quan el text del missatge o el tema està buit o quan falta un fitxer adjunt</string>
+    <string name="title_advanced_usenet_hint">Inseriu \"--\" entre el text i la signatura</string>
     <string name="title_advanced_metered_hint">Les connexions comptades generalment són connexions mòbils o punts hotspots Wi-Fi de pagament</string>
     <string name="title_advanced_metered_warning">Si desactiveu aquesta opció, desactivareu la recepció i l\'enviament de missatges a les connexions a Internet mòbils</string>
     <string name="title_advanced_rlah_hint">Si no se suposa una itinerància a la UE</string>

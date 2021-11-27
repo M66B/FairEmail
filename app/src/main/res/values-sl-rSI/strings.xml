@@ -348,8 +348,8 @@
     <string name="title_advanced_lookup_mx_hint">To bo preverilo, ali obstajajo zapisi DNS MX.</string>
     <string name="title_advanced_sync_delay_hint">To bo upočasnilo sinhronizacijo sporočil.</string>
     <string name="title_advanced_suggest_local_hint">Poleg stikov iz Androida.  Podatki o stikih bodo shranjeni za na novo poslana ali prejeta sporočila samo, ko je omogočeno.</string>
-    <string name="title_advanced_usenet_hint">Vstavi \'-- \' med besedilo in podpis.</string>
     <string name="title_advanced_send_reminders_hint">Prikaži opozorilo, kadar je besedilo ali zadeva sporočila prazna, ali ko morda manjka priloga.</string>
+    <string name="title_advanced_usenet_hint">Vstavi \'-- \' med besedilo in podpis.</string>
     <string name="title_advanced_metered_hint">Merjene povezave so v splošnem mobilne povezave ali plačljive dostopne točke Wi-Fi.</string>
     <string name="title_advanced_metered_warning">Onemogočanje te možnosti bo onemogočilo prejemanje in pošiljanje sporočil pri mobilnih internetnih povezavah.</string>
     <string name="title_advanced_rlah_hint">Program predvideva, da v EU-ju ni gostovanja.</string>

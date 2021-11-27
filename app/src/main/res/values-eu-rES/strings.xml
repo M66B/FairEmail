@@ -383,8 +383,8 @@
     <string name="title_advanced_lookup_mx_hint">Honek DNS MX erregistroak dauden ala ez egiaztatuko du</string>
     <string name="title_advanced_sync_delay_hint">Honek mezuen sinkronizazioa motelduko du</string>
     <string name="title_advanced_suggest_local_hint">Android-en kontaktuez gain. Kontaktuen datuak gordeko dira mezuak bidali edo jasotzean soilik baimenduta badago.</string>
-    <string name="title_advanced_usenet_hint">Txertatu \'-- \' testua eta sinaduraren artean</string>
     <string name="title_advanced_send_reminders_hint">Erakutsi abisua mezuaren edo gairen testua hutsik dagoenean edo eranskina falta denean</string>
+    <string name="title_advanced_usenet_hint">Txertatu \'-- \' testua eta sinaduraren artean</string>
     <string name="title_advanced_metered_hint">Neurtutako konexioak orokorrean konexio mugikorrak eta ordainpeko wifi guneak dira</string>
     <string name="title_advanced_metered_warning">Aukera hau desgaitzeak internet konexio mugikorrekin mezuak bidaltzea eta jasotzea eragotziko du</string>
     <string name="title_advanced_rlah_hint">EBn ez da datuen ibiltaritza onartzen</string>

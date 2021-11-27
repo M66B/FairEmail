@@ -607,14 +607,15 @@
     <string name="title_advanced_sync_delay_hint">Це призведе до уповільнення синхронізації повідомлень</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
-    <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_all_hint">Якщо вимкнено, то тривале натискання на кнопку відповіді відповість відправнику</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
+    <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
+    <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
     <string name="title_advanced_metered_warning">Вимкнення цієї опції вимкне отримання та надсилання повідомлень через мобільні підключення до Інтернету</string>
     <string name="title_advanced_rlah_hint">Якщо без роумінгу в межах ЄС</string>
-    <string name="title_advanced_usage_hint">Це збільшить заряд акумулятора, дані та місце для зберігання</string>
+    <string name="title_advanced_usage_hint">Це збільшить використання акумулятора, даних та місця для зберігання</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включення може викликати проблеми з підключенням на деяких пристроях</string>
     <string name="title_advanced_validate_hint">Це може призвести до того що повідомлення можуть бути не синхронізовані, наприклад, при використанні VPN, а також в інших ситуаціях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде застосовано два рази часу підключення. Більш високі значення призведуть до збільшення використання заряду акумулятора.</string>
@@ -851,7 +852,7 @@
     <string name="title_auto_classify_source">Класифікувати нові повідомлення в цій теці</string>
     <string name="title_auto_classify_target">Автоматично переміщати класифіковані повідомлення в цю теку</string>
     <string name="title_sync_days">Синхронізувати повідомлення (дні)</string>
-    <string name="title_sync_days_remark">Збільшення цього значення збільшить витрату заряду акумулятора та даних</string>
+    <string name="title_sync_days_remark">Збільшення цього значення збільшить використання акумулятора та даних</string>
     <string name="title_keep_days">Зберігати повідомлення (дні)</string>
     <string name="title_keep_days_remark">Старі повідомлення будуть видалені з пристрою, але залишаться на сервері</string>
     <string name="title_keep_all">Зберігати всі повідомлення</string>

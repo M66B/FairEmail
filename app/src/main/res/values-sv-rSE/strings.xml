@@ -117,6 +117,7 @@
     <string name="title_edit_account">Redigera konto</string>
     <string name="title_edit_identity">Redigera identitet</string>
     <string name="title_edit_folder">Redigera mapp</string>
+    <string name="title_disable_gmail">Inaktivera Gmail-app</string>
     <string name="title_setup">Inställningar</string>
     <string name="title_setup_help">Hjälp</string>
     <string name="title_setup_quick">Snabbinstallation</string>
@@ -251,7 +252,10 @@
     <string name="title_setup_options">Alternativ</string>
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
+    <string name="title_setup_reset_general">Allmänna frågor</string>
+    <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_setup_reset_images">Visa bilder</string>
+    <string name="title_setup_reset_links">Bekräfta länkar</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
         Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
@@ -582,10 +586,11 @@
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
-    <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_all_hint">Om inaktiverad, långtryck på svarsknappen kommer att svara avsändaren</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
+    <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
+    <string name="title_advanced_remove_signature_hint">Detta kan leda till att för lite eller för mycket text tas bort</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
@@ -624,6 +629,7 @@
     <string name="title_advanced_display_harmful_hint">Inaktivera detta alternativ kan vara skadligt för din integritet</string>
     <string name="title_advanced_display_hidden_hint">Detta kan resultera i udda utseende och dubbla texter</string>
     <string name="title_advanced_display_pin_hint">En PIN-kod har företräde framför biometrisk autentisering</string>
+    <string name="title_advanced_display_autolock_nav_hint">Det kommer att finnas en nådetid på %1$d sekunder</string>
     <string name="title_advanced_safe_browsing_hint">Googles server vet vilka adresser som det görs uppslag för</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
@@ -1153,6 +1159,7 @@
     <string name="title_search_hint">        Till en början görs sökningen på enheten.
         Tryck på knappen \"Sök igen\" för att söka på servern.
     </string>
+    <string name="title_search_index_hint">Sökning via index är snabbt, men kommer bara att hitta hela ord.</string>
     <string name="title_search_text_hint">Sökning efter text i meddelanden, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
     <string name="title_search_text_unsupported">\'%s\' betyder att e-postservern inte stöder sökning i meddelandetexter</string>
     <string name="title_search_size_hint">Sökning efter meddelanden efter storlek, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>

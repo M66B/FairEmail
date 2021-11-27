@@ -556,9 +556,9 @@
     <string name="title_advanced_sync_delay_hint">Isto retardará a sincronización das mensaxes</string>
     <string name="title_advanced_suggest_names_hint">Se está desactivado, so se usarán os enderezos de correo cando se seleccionen contactos</string>
     <string name="title_advanced_suggest_local_hint">Ademais dos contactos de Android. A información dos contactos almacenarase para as novas mensaxes enviadas ou recibidas soamente cando estea activado.</string>
-    <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a sinatura</string>
     <string name="title_advanced_send_reminders_hint">Mostrar unha advertencia cando o texto ou o asunto da mensaxe está baleiro ou cando podería ser que faltara un anexo</string>
     <string name="title_advanced_reply_move_hint">O servidor de correo aínda podería engadir as mensaxes ao cartafol de enviadas</string>
+    <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a sinatura</string>
     <string name="title_advanced_metered_hint">As conexións medidas son xeralmente as móbeis ou as Wi-Fis de pago</string>
     <string name="title_advanced_metered_warning">Ao desactivar esta opción non se recibirán nen enviarán mensaxes nas conexións móbeis de internet</string>
     <string name="title_advanced_rlah_hint">Asúmese que non hai roaming na U.E.</string>

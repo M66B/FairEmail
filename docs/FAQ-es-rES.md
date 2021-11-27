@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden ha�
 * [Preguntas frecuentes](#user-content-frequently-asked-questions)
 * [Obtener ayuda](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Añadir cuentas</h2>
+<h2><a name="authorizing-accounts"></a>Autorizando cuentas</h2>
 
 En la mayoría de los casos, el asistente de configuración rápida podrá identificar automáticamente la configuración correcta.
 
@@ -36,7 +36,7 @@ Para ayuda con la autorización:
 * Apple iCloud, ver [pregunta 148](#user-content-faq148)
 * Free.fr, ver [pregunta 157](#user-content-faq157)
 
-Por favor consulte [aquí](#user-content-faq22) para mensajes de error y soluciones comunes.
+Por favor vea [aquí](#user-content-faq22) para mensajes de error y soluciones comunes.
 
 Preguntas relacionadas:
 
@@ -1109,54 +1109,54 @@ En Android 8.0 Oreo y posteriores puede administrar las propiedades de los canal
 
 FairEmail tiene los siguientes canales de notificación:
 
-* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
-* Send: used for the notification of the send service
-* Notifications: used for new message notifications
-* Warning: used for warning notifications
-* Error: used for error notifications
+* Servicio: usado para la notificación del servicio de sincronización, vea también [esta sección de Preguntas Frecuentes](#user-content-faq2)
+* Enviar: usado para la notificación del servicio de envío
+* Notificaciones: usado para notificaciones de mensajes nuevos
+* Advertencia: usado para notificaciones de advertencia
+* Error: usado para notificaciones de error
 
-See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
+Vea [aquí](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) para más detalles sobre los canales de notificación. En resumen: toque el nombre del canal de notificación para acceder a la configuración del canal.
 
-On Android before Android 8 Oreo you can set the notification sound in the settings.
+En Android antes de Android 8 Oreo puede configurar el sonido de notificación en los ajustes.
 
-See [this FAQ](#user-content-faq21) if your device has a notification light.
+Vea [estas de Preguntas Frecuentes](#user-content-faq21) si su dispositivo tiene una luz de notificación.
 
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) ¿Cómo puedo recibir notificaciones de mensajes nuevos para otras carpetas?**
 
-Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
+Sólo mantenga presionada una carpeta, seleccione *Editar propiedades*, y habilite *Mostrar en bandeja de entrada unificada* o *Notificar mensajes nuevos* (disponible en Android 7 Nougat y posteriores solamente) y toque *Guardar*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) ¿Cómo puedo usar los ajustes rápidos proporcionados?**
 
-There are quick settings (settings tiles) available to:
+Hay ajustes rápidos (botones de ajustes rápidos) disponibles para:
 
-* globally enable/disable synchronization
-* show the number of new messages and marking them as seen (not read)
+* activar/desactivar la sincronización globalmente
+* mostrar el número de mensajes nuevos y marcarlos como vistos (no leídos)
 
-Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Los ajustes rápidos requieren Android 7.0 Nougat o posterior. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) ¿Cómo puedo utilizar los accesos rápidos proporcionados?**
 
-There are shortcuts available to compose a new message to a favorite contact.
+Hay accesos directos disponibles para redactar un nuevo mensaje a un contacto favorito.
 
-Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+Los accesos directos requieren Android 7.1 Nougat o posterior. El uso de accesos rápidos se explica [aquí](https://support.google.com/android/answer/2781850).
 
-It is also possible to create shortcuts to folders by long pressing a folder in the folder list of an account and selecting *Add shortcut*.
+También es posible crear accesos directos a las carpetas manteniendo presionada una carpeta en la lista de carpetas de una cuenta y seleccionando *Añadir acceso directo*.
 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) ¿Cómo puedo comprobar si la lectura del correo electrónico es realmente segura?**
 
-You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+Puede utilizar [Email Privacy Tester](https://www.emailprivacytester.com/) para esto.
 
 <br />
 

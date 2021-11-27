@@ -1,17 +1,17 @@
 <a name="top"></a>
 
-# Bantuan FairEmail
+# Dukungan FairEmail
 
-Jika ada pertanyaan, periksa pertanyaan yang sering diajukan di bawah ini. Di bagian bawah </a> Anda dapat mengetahui cara mengajukan pertanyaan, meminta fitur, dan melaporkan bug
+Jika Anda memiliki pertanyaan, silakan periksa pertanyaan yang sering diajukan di bawah ini terlebih dahulu. [Pada bagian bawah](#user-content-get-support), Anda dapat mengetahui bagaimana cara menanyakan pertanyaan lain, meminta fitur baru, dan melaporkan bug.
 
 Jika Anda memiliki pertanyaan, silakan periksa Pertanyaan yang Sering Diajukan (FAQ) di bawah ini terlebih dahulu. [ Di bagian bawah Anda akan menemukan ](#user-content-get-support), bagaimana Anda dapat mengajukan pertanyaan lebih lanjut, meminta fungsi, dan melaporkan kesalahan.
 
-## Cara, panduan, isi
+## Indeks
 
 * [Memberi izin akun](#user-content-authorizing-accounts)
-* [Caranya ...?](#user-content-howto)
-* [Permasalahan diketahui](#user-content-known-problems)
-* [Perencanaan fitur](#user-content-planned-features)
+* [Bagaimana untuk ...?](#user-content-howto)
+* [Masalah yang diketahui](#user-content-known-problems)
+* [Fitur-fitur yang direncanakan](#user-content-planned-features)
 * [Fitur yang selalu diminta](#user-content-frequently-requested-features)
 * [Pertanyaan yang Sering Diajukan](#user-content-frequently-asked-questions)
 * [Ambil bantuan](#user-content-get-support)

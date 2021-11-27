@@ -608,10 +608,11 @@
     <string name="title_advanced_sync_delay_hint">יאט סנכרון הודעות</string>
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
-    <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_all_hint">אם מושבת, לחיצה על כפתור המענה יענה למוען</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
+    <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
+    <string name="title_advanced_remove_signature_hint">יכול להוביל למעט מדי או יותר מדי טקסט שיוסר</string>
     <string name="title_advanced_metered_hint">חיבורים מוגבלים הם בדרך כלל חיבורים סלולריים או רשת אלחוטית בתשלום</string>
     <string name="title_advanced_metered_warning">השבתת אפשרות זאת תשבית קבלת ושליחת הודעות בחיבורי נתונים סלולריים</string>
     <string name="title_advanced_rlah_hint">להניח שאין נדידה בתוך אירופה</string>
