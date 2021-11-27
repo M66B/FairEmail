@@ -823,6 +823,10 @@ Common errors:
 * *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
 * *OpenPgp error 0: null* / *OpenPgp error 0: General error*: please check the key in the OpenKeychain app and make sure there are no conflicting identities for the key and make sure the email address exactly matches the key, including lower/upper case. Also, make sure the key can be used to sign/encrypt and isn't for encrypting/signing only.
 
+**Important**: if *Don't keep activities* is enabled in the Android developer options,
+FairEmail and the OpenKeychain app cannot run at the same time, causing PGP operations to fail.
+If needed, please [see here](https://developer.android.com/studio/debug/dev-options#enable) about how to enable the developer options.
+
 <br />
 
 *S/MIME*
