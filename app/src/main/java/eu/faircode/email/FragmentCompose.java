@@ -4949,6 +4949,9 @@ public class FragmentCompose extends FragmentBase {
                 } else {
                     args.putBoolean("saved", true);
 
+                    if (!data.draft.ui_seen)
+                        EntityOperation.queue(context, data.draft, EntityOperation.SEEN, true);
+
                     // External draft
                     if (data.draft.identity == null) {
                         for (EntityIdentity identity : data.identities)
