@@ -45,6 +45,8 @@ import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
 import com.sun.mail.util.TraceOutputStream;
 
+import org.json.JSONException;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -114,6 +116,7 @@ public class EmailService implements AutoCloseable {
     private Session isession;
     private Service iservice;
     private StoreListener listener;
+    private ServiceAuthenticator authenticator;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
 
@@ -409,7 +412,7 @@ public class EmailService implements AutoCloseable {
         }
 
         properties.put("mail." + protocol + ".forcepasswordrefresh", "true");
-        ServiceAuthenticator authenticator = new ServiceAuthenticator(context,
+        authenticator = new ServiceAuthenticator(context,
                 auth, provider, keep_alive, user, password, intf);
 
         if ("imap.wp.pl".equals(host))
@@ -425,7 +428,7 @@ public class EmailService implements AutoCloseable {
             if (auth == AUTH_TYPE_OAUTH && "imap.mail.yahoo.com".equals(host))
                 properties.put("mail." + protocol + ".yahoo.guid", "FAIRMAIL_V1");
 
-            connect(host, port, auth, user, authenticator, factory);
+            connect(host, port, auth, user, factory);
         } catch (AuthenticationFailedException ex) {
             //if ("outlook.office365.com".equals(host) &&
             //        "AUTHENTICATE failed.".equals(ex.getMessage()))
@@ -437,7 +440,7 @@ public class EmailService implements AutoCloseable {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
                     authenticator.refreshToken(true);
-                    connect(host, port, auth, user, authenticator, factory);
+                    connect(host, port, auth, user, factory);
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(
@@ -489,8 +492,7 @@ public class EmailService implements AutoCloseable {
     }
 
     private void connect(
-            String host, int port, int auth,
-            String user, Authenticator authenticator,
+            String host, int port, int auth, String user,
             SSLSocketFactoryService factory) throws MessagingException {
         InetAddress main = null;
         boolean require_id = (purpose == PURPOSE_CHECK &&
@@ -533,7 +535,7 @@ public class EmailService implements AutoCloseable {
                 }
 
             EntityLog.log(context, "Connecting to " + main);
-            _connect(main, port, require_id, user, authenticator, factory);
+            _connect(main, port, require_id, user, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
@@ -653,7 +655,7 @@ public class EmailService implements AutoCloseable {
 
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr);
-                            _connect(iaddr, port, require_id, user, authenticator, factory);
+                            _connect(iaddr, port, require_id, user, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
@@ -671,8 +673,7 @@ public class EmailService implements AutoCloseable {
     }
 
     private void _connect(
-            InetAddress address, int port, boolean require_id,
-            String user, Authenticator authenticator,
+            InetAddress address, int port, boolean require_id, String user,
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, authenticator);
 
@@ -854,6 +855,10 @@ public class EmailService implements AutoCloseable {
             return false;
     }
 
+    public void check() {
+        authenticator.checkToken();
+    }
+
     public boolean isOpen() {
         return (iservice != null && iservice.isConnected());
     }
@@ -862,6 +867,8 @@ public class EmailService implements AutoCloseable {
         try {
             if (iservice != null && iservice.isConnected())
                 iservice.close();
+            if (authenticator != null)
+                authenticator = null;
         } finally {
             context = null;
         }

@@ -121,6 +121,32 @@ public class ServiceAuthenticator extends Authenticator {
             return password;
     }
 
+    void checkToken() {
+        Long expiration = null;
+
+        try {
+            if (auth == AUTH_TYPE_GMAIL) {
+                GmailState authState = GmailState.jsonDeserialize(password);
+                expiration = authState.getAccessTokenExpirationTime();
+            } else if (auth == AUTH_TYPE_OAUTH) {
+                AuthState authState = AuthState.jsonDeserialize(password);
+                expiration = authState.getAccessTokenExpirationTime();
+            }
+        } catch (JSONException ex) {
+            Log.e(ex);
+        }
+
+        if (expiration != null && expiration - keep_alive < new Date().getTime()) {
+            try {
+                refreshToken(true);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+
+            throw new IllegalStateException("Token needs refresh");
+        }
+    }
+
     interface IAuthenticated {
         void onPasswordChanged(Context context, String newPassword);
     }

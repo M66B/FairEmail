@@ -1997,6 +1997,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable", cause);
                             }
 
+                            // Check token expiration
+                            iservice.check();
+
                             // Sends store NOOP
                             if (EmailService.SEPARATE_STORE_CONNECTION) {
                                 EntityLog.log(this, EntityLog.Type.Account,
