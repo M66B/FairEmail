@@ -1241,10 +1241,6 @@ public class HtmlHelper {
             }
         }
 
-        // Autolink
-        if (view)
-            autoLink(document);
-
         // Selective new lines
         for (Element div : document.select("div"))
             div.tagName("span");

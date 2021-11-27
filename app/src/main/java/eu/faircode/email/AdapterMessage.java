@@ -2549,6 +2549,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     HtmlHelper.cleanup(document);
                     HtmlHelper.removeRelativeLinks(document);
+                    HtmlHelper.autoLink(document);
 
                     if (message.ui_found && found && !TextUtils.isEmpty(searched))
                         HtmlHelper.highlightSearched(context, document, searched);
@@ -2600,7 +2601,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));
 
-                        HtmlHelper.autoLink(document);
                         HtmlHelper.guessSchemes(document);
 
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
