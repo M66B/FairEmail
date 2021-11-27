@@ -149,7 +149,8 @@ class Core {
     private static final int DOWNLOAD_YIELD_COUNT = 25;
     private static final long DOWNLOAD_YIELD_DURATION = 1000; // milliseconds
     private static final long YIELD_DURATION = 200L; // milliseconds
-    private static final long JOIN_WAIT = 180 * 1000L; // milliseconds
+    private static final long JOIN_WAIT_ALIVE = 5 * 60 * 1000L; // milliseconds
+    private static final long JOIN_WAIT_INTERRUPT = 1 * 60 * 1000L; // milliseconds
     private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
     private static final int LOCAL_RETRY_MAX = 2;
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
@@ -5472,8 +5473,8 @@ class Core {
             semaphore.release();
         }
 
-        void join() {
-            join(thread);
+        void join(Context context) {
+            join(context, thread);
         }
 
         void ensureRunning(String reason) {
@@ -5495,7 +5496,7 @@ class Core {
             return unrecoverable;
         }
 
-        void join(Thread thread) {
+        void join(Context context, Thread thread) {
             boolean joined = false;
             boolean interrupted = false;
             String name = thread.getName();
@@ -5503,15 +5504,16 @@ class Core {
                 try {
                     Log.i("Joining " + name +
                             " alive=" + thread.isAlive() +
-                            " state=" + thread.getState());
+                            " state=" + thread.getState() +
+                            " interrupted=" + interrupted);
 
-                    thread.join(JOIN_WAIT);
+                    thread.join(interrupted ? JOIN_WAIT_INTERRUPT : JOIN_WAIT_ALIVE);
 
                     // https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html
                     Thread.State state = thread.getState();
                     if (thread.isAlive()) {
-                        if (interrupted)
-                            Log.w("Join " + name + " failed state=" + state + " interrupted=" + interrupted);
+                        EntityLog.log(context, "Join " + name + " failed" +
+                                " state=" + state + " interrupted=" + interrupted);
                         if (interrupted)
                             joined = true; // give up
                         else {
@@ -5523,7 +5525,7 @@ class Core {
                         joined = true;
                     }
                 } catch (InterruptedException ex) {
-                    Log.w(thread.getName() + " join " + ex.toString());
+                    EntityLog.log(context, "Join " + name + " error " + ex.toString());
                 }
         }
 

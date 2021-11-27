@@ -507,7 +507,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             Log.i("### stop=" + accountNetworkState);
                             db.account().setAccountThread(accountNetworkState.accountState.id, null);
                             state.stop();
-                            state.join();
+                            state.join(ServiceSynchronize.this);
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                     "### stopped=" + accountNetworkState);
                         } catch (Throwable ex) {
@@ -2207,7 +2207,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Stop idlers
                     for (Thread idler : idlers)
-                        state.join(idler);
+                        state.join(this, idler);
                     idlers.clear();
                 }
 
