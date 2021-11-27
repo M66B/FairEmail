@@ -7092,28 +7092,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Intent result;
                 try {
                     // Decrypt message
-                    Log.i("Executing " + data.getAction());
-                    Log.logExtras(data);
-
-                    // Call OpenPGP
-                    OpenPgpServiceConnection pgpService = null;
-                    try {
-                        pgpService = PgpHelper.getConnection(context);
-                        if (!pgpService.isBound())
-                            throw new OperationCanceledException();
-
-                        Log.i("Executing " + data.getAction());
-                        Log.logExtras(data);
-                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                        result = api.executeApi(data, in, out);
-                    } finally {
-                        if (pgpService != null && pgpService.isBound())
-                            pgpService.unbindFromService();
-                    }
-
+                    result = PgpHelper.execute(context, data, in, out);
                     int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-                    Log.i("Result action=" + data.getAction() + " code=" + resultCode);
-                    Log.logExtras(data);
                     switch (resultCode) {
                         case OpenPgpApi.RESULT_CODE_SUCCESS:
                             if (out != null)
