@@ -471,6 +471,7 @@ public class Log {
 
                     if (ex instanceof IllegalStateException &&
                             (no_internet.equals(ex.getMessage()) ||
+                                    "Token refreshed".equals(ex.getMessage()) ||
                                     "Not connected".equals(ex.getMessage()) ||
                                     "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                         return false;
@@ -1504,7 +1505,8 @@ public class Log {
                 return null;
 
             if (ex instanceof IllegalStateException &&
-                    ("Not connected".equals(ex.getMessage()) ||
+                    ("Token refreshed".equals(ex.getMessage()) ||
+                            "Not connected".equals(ex.getMessage()) ||
                             "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 return null;
         }

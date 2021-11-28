@@ -143,7 +143,7 @@ public class ServiceAuthenticator extends Authenticator {
                 Log.w(ex);
             }
 
-            throw new IllegalStateException("Token needs refresh");
+            throw new IllegalStateException("Token refreshed");
         }
     }
 
