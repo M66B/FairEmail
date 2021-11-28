@@ -5473,8 +5473,8 @@ class Core {
             semaphore.release();
         }
 
-        void join(Context context) {
-            join(context, thread);
+        void join() {
+            join(thread);
         }
 
         void ensureRunning(String reason) {
@@ -5496,7 +5496,7 @@ class Core {
             return unrecoverable;
         }
 
-        void join(Context context, Thread thread) {
+        void join(Thread thread) {
             boolean joined = false;
             boolean interrupted = false;
             String name = thread.getName();
@@ -5512,10 +5512,10 @@ class Core {
                     // https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html
                     Thread.State state = thread.getState();
                     if (thread.isAlive()) {
-                        EntityLog.log(context, "Join " + name + " failed" +
+                        Log.e("Join " + name + " failed" +
                                 " state=" + state + " interrupted=" + interrupted);
                         if (interrupted)
-                            joined = true; // give up
+                            joined = true; // giving up
                         else {
                             thread.interrupt();
                             interrupted = true;
@@ -5525,7 +5525,7 @@ class Core {
                         joined = true;
                     }
                 } catch (InterruptedException ex) {
-                    EntityLog.log(context, "Join " + name + " error " + ex.toString());
+                    Log.e(new Throwable(name, ex));
                 }
         }
 
