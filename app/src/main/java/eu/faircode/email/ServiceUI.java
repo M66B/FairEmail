@@ -57,6 +57,7 @@ public class ServiceUI extends IntentService {
     static final int PI_HIDE = 9;
     static final int PI_SNOOZE = 10;
     static final int PI_IGNORED = 11;
+    static final int PI_DELETE = 12;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -106,6 +107,11 @@ public class ServiceUI extends IntentService {
                 case "trash":
                     cancel(group, id);
                     onMove(id, EntityFolder.TRASH);
+                    break;
+
+                case "delete":
+                    cancel(group, id);
+                    onDelete(id);
                     break;
 
                 case "junk":
@@ -242,6 +248,23 @@ public class ServiceUI extends IntentService {
                 return;
 
             EntityOperation.queue(this, message, EntityOperation.MOVE, account.move_to);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private void onDelete(long id) {
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            EntityOperation.queue(this, message, EntityOperation.DELETE);
 
             db.setTransactionSuccessful();
         } finally {

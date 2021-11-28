@@ -564,6 +564,7 @@
     <string name="title_advanced_notify_transliterate" translatable="false">Transliterate</string>
     <string name="title_advanced_notify_actions">Notification actions</string>
     <string name="title_advanced_notify_action_trash">Trash</string>
+    <string name="title_advanced_notify_action_delete">Delete</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archive</string>
     <string name="title_advanced_notify_action_move">Move</string>

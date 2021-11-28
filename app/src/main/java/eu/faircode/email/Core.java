@@ -5012,6 +5012,26 @@ class Core {
                 wactions.add(actionTrash.build());
             }
 
+            if (notify_trash &&
+                    message.accountProtocol == EntityAccount.TYPE_POP &&
+                    message.accountLeaveDeleted) {
+                Intent delete = new Intent(context, ServiceUI.class)
+                        .setAction("delete:" + message.id)
+                        .putExtra("group", group);
+                PendingIntent piDelete = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_DELETE, delete, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionDelete = new NotificationCompat.Action.Builder(
+                        R.drawable.twotone_delete_forever_24,
+                        context.getString(R.string.title_advanced_notify_action_delete),
+                        piDelete)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
+                        .setShowsUserInterface(false)
+                        .setAllowGeneratedReplies(false);
+                mbuilder.addAction(actionDelete.build());
+
+                wactions.add(actionDelete.build());
+            }
+
             if (notify_junk &&
                     message.accountProtocol == EntityAccount.TYPE_IMAP &&
                     db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null) {
