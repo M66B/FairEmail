@@ -136,15 +136,8 @@ public class ServiceAuthenticator extends Authenticator {
             Log.e(ex);
         }
 
-        if (expiration != null && expiration - keep_alive < new Date().getTime()) {
-            try {
-                refreshToken(true);
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-
-            throw new IllegalStateException("Token refreshed");
-        }
+        if (expiration != null && expiration - keep_alive < new Date().getTime())
+            throw new IllegalStateException("Token refresh required. Is there a VPN based app running?");
     }
 
     interface IAuthenticated {
