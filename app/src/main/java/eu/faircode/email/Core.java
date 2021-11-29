@@ -5531,7 +5531,9 @@ class Core {
 
                     // https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html
                     Thread.State state = thread.getState();
-                    if (thread.isAlive()) {
+                    if (thread.isAlive() &&
+                            state != Thread.State.NEW &&
+                            state != Thread.State.TERMINATED) {
                         Log.e("Join " + name + " failed" +
                                 " state=" + state + " interrupted=" + interrupted);
                         if (interrupted)
