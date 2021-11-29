@@ -1662,7 +1662,7 @@ class Core {
                 }
 
             if (perform_expunge) {
-                if (expunge(context, ifolder, deleted))
+                if (deleted.size() == 0 || expunge(context, ifolder, deleted))
                     db.message().deleteMessage(message.id);
             } else {
                 if (deleted.size() > 0)
