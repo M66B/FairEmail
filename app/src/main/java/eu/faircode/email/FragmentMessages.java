@@ -2132,8 +2132,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
                 return 0;
 
-            if (message.folderReadOnly)
-                return 0;
+            if (message.folderReadOnly) {
+                if (!EntityMessage.SWIPE_ACTION_SEEN.equals(swipes.swipe_left) &&
+                        !EntityMessage.SWIPE_ACTION_FLAG.equals(swipes.swipe_left))
+                    swipes.swipe_left = null;
+                if (!EntityMessage.SWIPE_ACTION_SEEN.equals(swipes.swipe_right) &&
+                        !EntityMessage.SWIPE_ACTION_FLAG.equals(swipes.swipe_right))
+                    swipes.swipe_right = null;
+            }
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP)
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
