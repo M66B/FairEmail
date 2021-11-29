@@ -231,6 +231,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int textColorSecondary;
     private int textColorTertiary;
     private int textColorLink;
+    private int colorUnreadHighlight;
     private int colorUnread;
     private int colorRead;
     private int colorSubject;
@@ -249,6 +250,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean date;
     private boolean cards;
     private boolean shadow_unread;
+    private boolean shadow_highlight;
     private boolean threading;
     private boolean threading_unread;
     private boolean indentation;
@@ -1621,7 +1623,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (cards && shadow_unread) {
                 boolean shadow = (message.unseen > 0);
                 int color = (shadow
-                        ? ColorUtils.setAlphaComponent(colorAccent, 127)
+                        ? ColorUtils.setAlphaComponent(shadow_highlight ? colorUnreadHighlight : colorAccent, 127)
                         : Color.TRANSPARENT);
                 if (!Objects.equals(itemView.getTag(), shadow)) {
                     itemView.setTag(shadow);
@@ -5996,9 +5998,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         boolean highlight_subject = prefs.getBoolean("highlight_subject", false);
-        int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
+        this.colorUnreadHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
 
-        this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
+        this.colorUnread = (highlight_unread ? colorUnreadHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorRead = Helper.resolveColor(context, R.attr.colorRead);
         this.colorSubject = Helper.resolveColor(context, highlight_subject ? R.attr.colorUnreadHighlight : R.attr.colorRead);
         this.colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
@@ -6022,6 +6024,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.date = prefs.getBoolean("date", true);
         this.cards = prefs.getBoolean("cards", true);
         this.shadow_unread = prefs.getBoolean("shadow_unread", false);
+        this.shadow_highlight = prefs.getBoolean("shadow_highlight", false);
         this.threading = prefs.getBoolean("threading", true);
         this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
         this.indentation = prefs.getBoolean("indentation", false);
