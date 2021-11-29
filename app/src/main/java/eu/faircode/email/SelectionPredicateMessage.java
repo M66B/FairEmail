@@ -49,7 +49,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message.accountProtocol != EntityAccount.TYPE_IMAP)
             return true;
 
-        if (message.uid != null && !message.folderReadOnly)
+        if (message.uid != null)
             return true;
 
         return false;
