@@ -4598,6 +4598,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
 
+        // In some cases onPrepareOptionsMenu can be called before onCreateView
+        if (ibSeen == null)
+            ibSeen = view.findViewById(R.id.ibSeen);
+        if (ibUnflagged == null)
+            ibUnflagged = view.findViewById(R.id.ibUnflagged);
+        if (ibSnoozed == null)
+            ibSnoozed = view.findViewById(R.id.ibSnoozed);
+
         ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
         ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
         ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
