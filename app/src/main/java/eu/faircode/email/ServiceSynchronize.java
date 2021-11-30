@@ -1849,6 +1849,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 ops = partitions.get(key).size();
                                                 Log.i(account.name + "/" + folder.name +
                                                         " queuing partition=" + key +
+                                                        " serial=" + serial +
                                                         " operations=" + ops);
                                             }
 
