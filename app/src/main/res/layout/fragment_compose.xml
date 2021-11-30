@@ -109,7 +109,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etTo"
                     app:layout_constraintTop_toTopOf="@+id/etTo"
-                    app:srcCompat="@drawable/twotone_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24"
+                    app:tint="?attr/colorAccent" />
 
                 <ImageView
                     android:id="@+id/ivCcLegend"
@@ -152,7 +153,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etCc"
                     app:layout_constraintTop_toTopOf="@+id/etCc"
-                    app:srcCompat="@drawable/twotone_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24"
+                    app:tint="?attr/colorAccent" />
 
                 <ImageView
                     android:id="@+id/ivBccLegend"
@@ -195,7 +197,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etBcc"
                     app:layout_constraintTop_toTopOf="@+id/etBcc"
-                    app:srcCompat="@drawable/twotone_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24"
+                    app:tint="?attr/colorAccent" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etSubject"
@@ -224,7 +227,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etSubject"
                     app:layout_constraintTop_toTopOf="@+id/etSubject"
-                    app:srcCompat="@drawable/twotone_people_24" />
+                    app:srcCompat="@drawable/twotone_people_24"
+                    app:tint="?attr/colorAccent" />
 
                 <View
                     android:id="@+id/vSeparatorAttachments"
