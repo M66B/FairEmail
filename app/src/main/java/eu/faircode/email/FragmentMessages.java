@@ -7114,6 +7114,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
                     switch (resultCode) {
                         case OpenPgpApi.RESULT_CODE_SUCCESS:
+                            Integer encrypt = null;
                             if (out != null)
                                 if (inline) {
                                     try {
@@ -7203,7 +7204,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         checkPep(message, remotes, context);
 
-                                        db.message().setMessageEncrypt(message.id, parts.getEncryption());
+                                        encrypt = parts.getEncryption();
+                                        db.message().setMessageEncrypt(message.id, encrypt);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
@@ -7232,9 +7234,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             else
                                 Log.i("PGP signature result=" + sresult);
 
-                            if (sresult == RESULT_NO_SIGNATURE)
-                                args.putString("sigresult", context.getString(R.string.title_signature_none));
-                            else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
+                            if (sresult == RESULT_NO_SIGNATURE) {
+                                if (!EntityAttachment.PGP_SIGNATURE.equals(encrypt))
+                                    args.putString("sigresult", context.getString(R.string.title_signature_none));
+                            } else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
                                 List<String> users = sigResult.getConfirmedUserIds();
                                 String text;
                                 if (users.size() > 0)
