@@ -81,6 +81,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private int colorStripeWidth;
     private int colorWarning;
     private int colorUnread;
     private int textColorSecondary;
@@ -150,6 +151,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             btnHelp = itemView.findViewById(R.id.btnHelp);
             grpSettings = itemView.findViewById(R.id.grpSettings);
+
+            vwColor.getLayoutParams().width = colorStripeWidth;
         }
 
         private void wire() {
@@ -611,6 +614,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
+        this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));

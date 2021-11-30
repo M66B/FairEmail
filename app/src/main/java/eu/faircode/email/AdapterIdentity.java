@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +67,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+
+    private int colorStripeWidth;
 
     private List<TupleIdentityEx> items = new ArrayList<>();
 
@@ -109,6 +113,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvMaxSize = itemView.findViewById(R.id.tvMaxSize);
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvError = itemView.findViewById(R.id.tvError);
+
+            vwColor.getLayoutParams().width = colorStripeWidth;
         }
 
         private void wire() {
@@ -401,6 +407,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
+        this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
 

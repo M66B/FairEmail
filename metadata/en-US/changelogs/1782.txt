@@ -7,6 +7,7 @@
 ### Next version
 
 * Added display option to use highlight color for unread shadow
+* Added display option for wide color stripe
 * Added notification/delete for POP3 when "leave deleted" is enabled
 * Improved support for read-only folders
 * Small improvements and minor bug fixes

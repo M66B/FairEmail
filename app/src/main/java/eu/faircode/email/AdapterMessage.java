@@ -226,6 +226,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean suitable;
     private boolean unmetered;
 
+    private int colorStripeWidth;
     private int colorAccent;
     private int textColorPrimary;
     private int textColorSecondary;
@@ -669,6 +670,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             ibHelp = itemView.findViewById(R.id.ibHelp);
             ibSettings = itemView.findViewById(R.id.ibSettings);
+
+            if (vwColor != null)
+                vwColor.getLayoutParams().width = colorStripeWidth;
 
             if (tvFrom != null) {
                 if (compact) {
@@ -5990,6 +5994,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = state.isSuitable();
         this.unmetered = state.isUnmetered();
 
+        boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
+        this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);

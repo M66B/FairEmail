@@ -85,6 +85,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swHighlightUnread;
     private ViewButtonColor btnHighlightColor;
     private SwitchCompat swColorStripe;
+    private SwitchCompat swColorStripeWide;
     private SwitchCompat swAvatars;
     private ImageButton ibBimi;
     private TextView tvBimiHint;
@@ -164,7 +165,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "date", "date_fixed", "date_bold",
             "portrait2", "portrait2c", "landscape", "nav_options", "nav_count", "nav_unseen_drafts", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
-            "highlight_unread", "highlight_color", "color_stripe",
+            "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "font_size_sender", "sender_ellipsize",
@@ -217,6 +218,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
         btnHighlightColor = view.findViewById(R.id.btnHighlightColor);
         swColorStripe = view.findViewById(R.id.swColorStripe);
+        swColorStripeWide = view.findViewById(R.id.swColorStripeWide);
         swAvatars = view.findViewById(R.id.swAvatars);
         swBimi = view.findViewById(R.id.swBimi);
         tvBimiHint = view.findViewById(R.id.tvBimiHint);
@@ -528,6 +530,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("color_stripe", checked).apply();
+                //swColorStripeWide.setEnabled(checked);
+                WidgetUnified.updateData(getContext());
+            }
+        });
+
+        swColorStripeWide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("color_stripe_wide", checked).apply();
                 WidgetUnified.updateData(getContext());
             }
         });
@@ -1116,6 +1127,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
 
         swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
+        swColorStripeWide.setChecked(prefs.getBoolean("color_stripe_wide", false));
+        //swColorStripeWide.setEnabled(swColorStripe.isChecked());
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swBimi.setChecked(prefs.getBoolean("bimi", false));
         swGravatars.setChecked(prefs.getBoolean("gravatars", false));

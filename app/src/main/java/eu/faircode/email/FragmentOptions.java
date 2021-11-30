@@ -128,7 +128,7 @@ public class FragmentOptions extends FragmentBase {
             "startup", "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight",
             "portrait2", "portrait2c", "landscape", "nav_count", "nav_unseen_drafts", "navbar_colorize",
             "indentation", "date", "date_fixed", "date_bold", "threading", "threading_unread",
-            "highlight_unread", "highlight_color", "color_stripe",
+            "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "authentication", "authentication_indicator",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
