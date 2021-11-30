@@ -114,7 +114,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvError = itemView.findViewById(R.id.tvError);
 
-            vwColor.getLayoutParams().width = colorStripeWidth;
+            if (vwColor != null)
+                vwColor.getLayoutParams().width = colorStripeWidth;
         }
 
         private void wire() {

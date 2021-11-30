@@ -187,7 +187,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             grpFlagged = itemView.findViewById(R.id.grpFlagged);
             grpExtended = itemView.findViewById(R.id.grpExtended);
 
-            vwColor.getLayoutParams().width = colorStripeWidth;
+            if (vwColor != null)
+                vwColor.getLayoutParams().width = colorStripeWidth;
         }
 
         private void wire() {

@@ -152,7 +152,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             btnHelp = itemView.findViewById(R.id.btnHelp);
             grpSettings = itemView.findViewById(R.id.grpSettings);
 
-            vwColor.getLayoutParams().width = colorStripeWidth;
+            if (vwColor != null)
+                vwColor.getLayoutParams().width = colorStripeWidth;
         }
 
         private void wire() {
