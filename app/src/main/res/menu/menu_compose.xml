@@ -63,7 +63,7 @@
     <group android:id="@+id/group_operations">
         <item
             android:id="@+id/menu_contact_group"
-            android:icon="@drawable/twotone_people_24"
+            android:icon="@drawable/twotone_group_add_24"
             android:title="@string/title_insert_contact_group"
             app:showAsAction="never">
             <menu />
