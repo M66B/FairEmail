@@ -218,7 +218,7 @@ class Core {
                     if (account.protocol == EntityAccount.TYPE_IMAP &&
                             !folder.local && ifolder != null && !ifolder.isOpen()) {
                         Log.w(folder.name + " is closed");
-                        break;
+                        return;
                     }
 
                     // Fetch most recent copy of message
