@@ -1759,6 +1759,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     };
 
+                    final long serial = state.getSerial();
+
                     Log.i(account.name + " observing operations");
                     getMainHandler().post(new Runnable() {
                         @Override
@@ -1849,8 +1851,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         " queuing partition=" + key +
                                                         " operations=" + ops);
                                             }
-
-                                            final long serial = state.getSerial();
 
                                             Map<String, String> crumb = new HashMap<>();
                                             crumb.put("account", folder.account == null ? null : Long.toString(folder.account));
