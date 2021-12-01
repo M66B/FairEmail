@@ -1291,6 +1291,7 @@ public class FragmentCompose extends FragmentBase {
                         Bundle extras = new Bundle();
                         extras.putString("html", html);
                         extras.putBoolean("show", true);
+                        extras.putBoolean("refedit", true);
                         onAction(R.id.action_save, extras, "refedit");
                     }
 
@@ -5240,7 +5241,7 @@ public class FragmentCompose extends FragmentBase {
                                 };
                             }
 
-                            showDraft(draft, postShow);
+                            showDraft(draft, false, postShow);
                         }
 
                         tvDsn.setVisibility(
@@ -6019,8 +6020,9 @@ public class FragmentCompose extends FragmentBase {
 
             Bundle extras = args.getBundle("extras");
             boolean show = extras.getBoolean("show");
+            boolean refedit = extras.getBoolean("refedit");
             if (show)
-                showDraft(draft, null);
+                showDraft(draft, refedit, null);
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
@@ -6041,7 +6043,7 @@ public class FragmentCompose extends FragmentBase {
                 finish();
 
             } else if (action == R.id.action_undo || action == R.id.action_redo) {
-                showDraft(draft, null);
+                showDraft(draft, false, null);
 
             } else if (action == R.id.action_save) {
                 boolean autosave = extras.getBoolean("autosave");
@@ -6202,7 +6204,7 @@ public class FragmentCompose extends FragmentBase {
                 ref.first().before(div);
     }
 
-    private void showDraft(final EntityMessage draft, Runnable postShow) {
+    private void showDraft(final EntityMessage draft, boolean refedit, Runnable postShow) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
@@ -6333,6 +6335,9 @@ public class FragmentCompose extends FragmentBase {
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
                 setBodyPadding();
+
+                if (refedit && write_below)
+                    etBody.setSelection(etBody.length());
 
                 if (state == State.LOADED)
                     return;
