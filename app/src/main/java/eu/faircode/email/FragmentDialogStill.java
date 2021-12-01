@@ -85,13 +85,13 @@ public class FragmentDialogStill extends FragmentDialogBase {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.title_fix, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendResult(Activity.RESULT_OK);
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, null);
+                .setNegativeButton(R.string.title_dismiss, null);
 
         return builder.create();
     }
