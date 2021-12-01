@@ -137,7 +137,7 @@ public class ServiceAuthenticator extends Authenticator {
         }
 
         if (expiration != null && expiration - keep_alive < new Date().getTime())
-            throw new IllegalStateException("Token refresh required. Is there a VPN based app running?");
+            throw new IllegalStateException(Log.TOKEN_REFRESH_REQUIRED);
     }
 
     interface IAuthenticated {

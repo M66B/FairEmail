@@ -144,6 +144,9 @@ public class Log {
     private static final int MAX_CRASH_REPORTS = 5;
     private static final String TAG = "fairemail";
 
+    static final String TOKEN_REFRESH_REQUIRED =
+            "Token refresh required. Is there a VPN based app running?";
+
     public static void setLevel(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
@@ -471,7 +474,7 @@ public class Log {
 
                     if (ex instanceof IllegalStateException &&
                             (no_internet.equals(ex.getMessage()) ||
-                                    "Token refreshed".equals(ex.getMessage()) ||
+                                    TOKEN_REFRESH_REQUIRED.equals(ex.getMessage()) ||
                                     "Not connected".equals(ex.getMessage()) ||
                                     "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                         return false;
@@ -1505,7 +1508,7 @@ public class Log {
                 return null;
 
             if (ex instanceof IllegalStateException &&
-                    ("Token refreshed".equals(ex.getMessage()) ||
+                    (TOKEN_REFRESH_REQUIRED.equals(ex.getMessage()) ||
                             "Not connected".equals(ex.getMessage()) ||
                             "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 return null;
