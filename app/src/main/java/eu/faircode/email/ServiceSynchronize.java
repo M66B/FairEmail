@@ -1947,7 +1947,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     folder.name + " process " + Log.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                                             if (!(ex instanceof FolderNotFoundException))
-                                                                state.error(new OperationCanceledException("Process"));
+                                                                state.error(new Core.OperationCanceledExceptionEx("Process", ex));
                                                         } finally {
                                                             if (shouldClose) {
                                                                 if (ifolder != null && ifolder.isOpen()) {
