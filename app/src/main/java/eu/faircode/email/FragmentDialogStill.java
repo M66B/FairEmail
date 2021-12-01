@@ -85,7 +85,7 @@ public class FragmentDialogStill extends FragmentDialogBase {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dview)
-                .setPositiveButton(R.string.title_fix, new DialogInterface.OnClickListener() {
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendResult(Activity.RESULT_OK);
