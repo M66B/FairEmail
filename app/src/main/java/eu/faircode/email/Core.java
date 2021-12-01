@@ -5472,6 +5472,7 @@ class Core {
         }
 
         void reset() {
+            Thread.currentThread().interrupted(); // clear interrupted status
             recoverable = true;
             lastActivity = null;
         }
