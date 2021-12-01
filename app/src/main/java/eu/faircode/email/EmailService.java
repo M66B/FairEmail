@@ -45,8 +45,6 @@ import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
 import com.sun.mail.util.TraceOutputStream;
 
-import org.json.JSONException;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -80,7 +78,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.mail.AuthenticationFailedException;
-import javax.mail.Authenticator;
 import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
@@ -117,6 +114,7 @@ public class EmailService implements AutoCloseable {
     private Service iservice;
     private StoreListener listener;
     private ServiceAuthenticator authenticator;
+    private RingBuffer<String> breadcrumbs;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
 
@@ -136,6 +134,7 @@ public class EmailService implements AutoCloseable {
     private final static int POOL_SIZE = 1; // connections
     private final static int POOL_TIMEOUT = 60 * 1000; // milliseconds, default 45 sec
     private final static long PROTOCOL_LOG_DURATION = 12 * 3600 * 1000L;
+    private final static int BREADCRUMBS_SIZE = 100;
 
     private final static int MAX_IPV4 = 2;
     private final static int MAX_IPV6 = 1;
@@ -679,6 +678,8 @@ public class EmailService implements AutoCloseable {
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, authenticator);
 
+        breadcrumbs = new RingBuffer<>(BREADCRUMBS_SIZE);
+
         isession.setDebug(debug || log);
         if (debug || log)
             isession.setDebugOut(new PrintStream(new OutputStream() {
@@ -693,6 +694,7 @@ public class EmailService implements AutoCloseable {
                                 if (log)
                                     EntityLog.log(context, EntityLog.Type.Protocol, user + " " + line);
                                 else {
+                                    breadcrumbs.push(line);
                                     if (BuildConfig.DEBUG)
                                         Log.i("javamail", user + " " + line);
                                 }
@@ -874,6 +876,11 @@ public class EmailService implements AutoCloseable {
         } finally {
             context = null;
         }
+    }
+
+    public void dump() {
+        while (breadcrumbs != null && !breadcrumbs.isEmpty())
+            EntityLog.log(context, "Crumb " + breadcrumbs.pop());
     }
 
     private static class SocketFactoryService extends SocketFactory {
