@@ -182,7 +182,7 @@ class Core {
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
             Store istore, Folder ifolder,
             State state, long serial)
-            throws JSONException {
+            throws JSONException, FolderClosedException {
         try {
             Log.i(folder.name + " start process");
 
@@ -217,17 +217,13 @@ class Core {
 
                     if (account.protocol == EntityAccount.TYPE_IMAP &&
                             !folder.local &&
-                            ifolder != null && !ifolder.isOpen()) {
-                        EntityLog.log(context, account.name + "/" + folder.name + " is closed");
-                        return;
-                    }
+                            ifolder != null && !ifolder.isOpen())
+                        throw new FolderClosedException(ifolder, account.name + "/" + folder.name + " unexpectedly closed");
 
                     if (account.protocol == EntityAccount.TYPE_POP &&
                             EntityFolder.INBOX.equals(folder.type) &&
-                            ifolder != null && !ifolder.isOpen()) {
-                        EntityLog.log(context, account.name + "/" + folder.name + " is closed");
-                        return;
-                    }
+                            ifolder != null && !ifolder.isOpen())
+                        throw new FolderClosedException(ifolder, account.name + "/" + folder.name + " unexpectedly closed");
 
                     // Fetch most recent copy of message
                     EntityMessage message = null;
