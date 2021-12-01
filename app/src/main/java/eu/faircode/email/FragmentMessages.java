@@ -3249,11 +3249,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 .setIcon(R.drawable.twotone_drive_file_move_24);
                         item.setIntent(new Intent().putExtra("account", account.id));
                     }
-
-                    if (result.copyto != null)
-                        popupMenu.getMenu().add(Menu.FIRST, R.string.title_copy_to, order++, R.string.title_copy_to)
-                                .setIcon(R.drawable.twotone_file_copy_24);
                 }
+
+                if (result.copyto != null)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_copy_to, order++, R.string.title_copy_to)
+                            .setIcon(R.drawable.twotone_file_copy_24);
 
                 popupMenu.insertIcons(context);
 
