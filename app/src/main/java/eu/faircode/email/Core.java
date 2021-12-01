@@ -216,8 +216,16 @@ class Core {
                         throw new IllegalArgumentException("Invalid folder=" + folder.id + "/" + op.folder);
 
                     if (account.protocol == EntityAccount.TYPE_IMAP &&
-                            !folder.local && ifolder != null && !ifolder.isOpen()) {
-                        Log.w(folder.name + " is closed");
+                            !folder.local &&
+                            ifolder != null && !ifolder.isOpen()) {
+                        EntityLog.log(context, account.name + "/" + folder.name + " is closed");
+                        return;
+                    }
+
+                    if (account.protocol == EntityAccount.TYPE_POP &&
+                            EntityFolder.INBOX.equals(folder.type) &&
+                            ifolder != null && !ifolder.isOpen()) {
+                        EntityLog.log(context, account.name + "/" + folder.name + " is closed");
                         return;
                     }
 
