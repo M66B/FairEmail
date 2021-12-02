@@ -273,6 +273,7 @@
     <string name="title_advanced_notifications_background_hint">백그라운드 서비스는 안드로이드에 의해 언제든 중단될 수 있지만, 상태표시줄 알림이 없어도 구동됩니다.</string>
     <string name="title_advanced_notify_actions">알림 동작</string>
     <string name="title_advanced_notify_action_trash">삭제</string>
+    <string name="title_advanced_notify_action_delete">제거</string>
     <string name="title_advanced_notify_action_junk">스팸</string>
     <string name="title_advanced_notify_action_archive">보관</string>
     <string name="title_advanced_notify_action_move">이동</string>

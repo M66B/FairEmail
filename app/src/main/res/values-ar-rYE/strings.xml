@@ -219,6 +219,7 @@
     <string name="title_advanced_notifications">إدارة الإشعارات</string>
     <string name="title_advanced_notify_preview">إظهار معاينة للرسائل في الإشعارات</string>
     <string name="title_advanced_notify_action_trash">سلّة المهملات</string>
+    <string name="title_advanced_notify_action_delete">حذف</string>
     <string name="title_advanced_notify_action_junk">البريد المزعج</string>
     <string name="title_advanced_notify_action_archive">أرشيف</string>
     <string name="title_advanced_notify_action_move">نقل</string>

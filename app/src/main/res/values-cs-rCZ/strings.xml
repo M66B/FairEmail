@@ -502,6 +502,7 @@
     <string name="title_advanced_notify_preview_only">Zobrazit pouze oznámení s náhledem textu</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
+    <string name="title_advanced_notify_action_delete">Odstranit</string>
     <string name="title_advanced_notify_action_junk">Nevyžádané</string>
     <string name="title_advanced_notify_action_archive">Archiv</string>
     <string name="title_advanced_notify_action_move">Přesunout</string>

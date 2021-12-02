@@ -117,6 +117,7 @@
     <string name="title_edit_account">Modifica profilo</string>
     <string name="title_edit_identity">Modifica identità</string>
     <string name="title_edit_folder">Modifica cartella</string>
+    <string name="title_disable_gmail">Disabilita l\'app di Gmail</string>
     <string name="title_setup">Impostazioni</string>
     <string name="title_setup_help">Aiuto</string>
     <string name="title_setup_quick">Configurazione rapida</string>
@@ -366,6 +367,7 @@
     <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>
     <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo usando lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
+    <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
@@ -374,6 +376,7 @@
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
+    <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatar</string>
     <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
@@ -483,6 +486,7 @@
     <string name="title_advanced_notify_preview_only">Mostra solo le notifiche con un testo d\'anteprima</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
+    <string name="title_advanced_notify_action_delete">Elimina</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivio</string>
     <string name="title_advanced_notify_action_move">Sposta</string>
@@ -592,7 +596,7 @@
     <string name="title_advanced_reply_all_hint">Se disabilitato, tenere premuto il pulsante di risposta risponderà al mittente</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
-    <string name="title_advanced_remove_signature_hint">Questo può comportare la rimozione di un testo troppo scarso o eccessivo</string>
+    <string name="title_advanced_remove_signature_hint">Questo può risultare nella rimozione di troppo o troppo poco testo</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitare quest\'opzione disabiliterà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi che non ci sia roaming nell\'UE</string>

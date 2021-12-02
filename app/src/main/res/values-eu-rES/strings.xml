@@ -322,6 +322,7 @@
     <string name="title_advanced_notify_preview_all">Aurreikusi testu osoa</string>
     <string name="title_advanced_notify_actions">Jakinarazpenen ekintzak</string>
     <string name="title_advanced_notify_action_trash">Zakarrontzia</string>
+    <string name="title_advanced_notify_action_delete">Ezabatu</string>
     <string name="title_advanced_notify_action_junk">Spama</string>
     <string name="title_advanced_notify_action_archive">Artxibatu</string>
     <string name="title_advanced_notify_action_move">Eraman</string>

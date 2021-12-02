@@ -482,6 +482,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_preview_only">Bildirimleri sadece özet olarak göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
+    <string name="title_advanced_notify_action_delete">Sil</string>
     <string name="title_advanced_notify_action_junk">İstenmeyen posta</string>
     <string name="title_advanced_notify_action_archive">Arşiv</string>
     <string name="title_advanced_notify_action_move">Taşı</string>

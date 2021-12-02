@@ -361,6 +361,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_indentation">Indentação esquerda/direita para mensagens recebidas/enviadas em conversas</string>
     <string name="title_advanced_highlight_unread">Destacar mensagens não lidas</string>
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
+    <string name="title_advanced_color_stripe_wide">Usar ampla faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatar</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
@@ -454,6 +455,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixo</string>
+    <string name="title_advanced_notify_action_delete">Eliminar</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arquivar</string>
     <string name="title_advanced_notify_action_move">Mover</string>

@@ -88,6 +88,7 @@
     <string name="title_advanced_caption_general">सामान्य</string>
     <string name="title_advanced_caption_conversation">वार्तालाप</string>
     <string name="title_advanced_caption_message">संदेश</string>
+    <string name="title_advanced_notify_action_delete">मिटाए</string>
     <string name="title_advanced_cleanup">Depending on the Android version, tethering may work or may not work. Tethered traffic cannot be filtered.</string>
     <string name="title_synchronize_enabled">तुल्यकालित करें</string>
     <string name="title_months_all">सभी</string>

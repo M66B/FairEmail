@@ -1,76 +1,76 @@
 <a name="top"></a>
 
-# FairEmail のサポート
+# FairEmail サポート
 
-ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 [ページ下部](#user-content-get-support)では、他の質問をしたり、機能をリクエストしたり、バグを報告する方法を見つけることができます。
+まずは下記の よくある質問（FAQ）をご確認ください。 FAQ にない質問や機能リクエスト、バグ報告の方法については[こちら](#user-content-get-support)をご確認ください。
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+まずは下記の よくある質問（FAQ）をご確認ください。 FAQ にない質問や機能リクエスト、バグ報告の方法については[こちら](#user-content-get-support)をご確認ください。
 
 ## 索引
 
 * [アカウントの認証](#user-content-authorizing-accounts)
-* [さまざまな操作](#user-content-howto)
+* [How to ...?](#user-content-howto)
 * [既知の問題](#user-content-known-problems)
 * [予定されている機能](#user-content-planned-features)
 * [よくリクエストされる機能](#user-content-frequently-requested-features)
-* [よくある質問](#user-content-frequently-asked-questions)
-* [サポートについて](#user-content-get-support)
+* [よくある質問（FAQ）](#user-content-frequently-asked-questions)
+* [サポートが必要な場合](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>アカウントの認証</h2>
 
-ほとんどの場合、クイックセットアップウィザードは自動的に正しい構成を識別することができます。
+ほとんどの場合、クイックセットアップウィザードに従うことで正しく設定を完了できます。
 
-クイックセットアップに失敗した場合は、アカウント(メール受信用) とID(メール送信用) を、手動で設定する必要があります。 この場合、SSL / TLSまたはSTARTTLSのいずれかを使用するかに関わらず、IMAPおよびSMTPサーバーのアドレスとポート番号、そしてあなたのユーザー名（ほとんどの場合メールアドレス）とパスワードが必要です。
+クイックセットアップウィザードで正しく設定できない場合、アカウント（メール受信用） と ID（メール送信用） を、マニュアル設定から手動で設定する必要があります。 マニュアル設定には、IMAP サーバーと SMTP サーバーのアドレス、ポート番号、そしてあなたのユーザー名（ほとんどの場合メールアドレス）とパスワードが必要です。なお、ポート番号は  SSL/TLS や STARTTLS を使用しない場合でも必要となります。
 
-*IMAP* とプロバイダ名を検索することで、ほとんどの場合適切なドキュメントを見つけることができます。
+ほとんどの場合、「*IMAP*（プロバイダー名）」と検索することで、適切なドキュメントにアクセスできます。
 
-二段階認証を有効にしている場合などでは、アカウントへの外部アクセスを有効にするか アプリパスワードを使用する必要があります。
+二段階認証が有効になっている場合などでは、アカウントへの外部アクセスを有効にするか、アプリパスワードを使用する必要があります。
 
-認証方法:
+認証について特記事項のあるサービス:
 
 * Gmail / G suite の場合: [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail の場合: [question 14](#user-content-faq14)
 * Office 365 の場合: [question 14](#user-content-faq156)
 * Microsoft Exchange の場合: [question 8](#user-content-faq8)
-* Yahoo, AOL, Sky の場合: [question 88](#user-content-faq88)
+* Yahoo、AOL、Sky の場合: [question 88](#user-content-faq88)
 * Apple iCloud の場合: [question 148](#user-content-faq148)
 * Free.fr の場合: [question 157](#user-content-faq157)
 
-一般的なエラーメッセージとその解決策については、 [こちら](#user-content-faq22) を参照してください。
+一般的なエラーメッセージとその解決策については、[こちら](#user-content-faq22)を参照してください。
 
 関連する質問:
 
-* [OAuth はサポートされていますか?](#user-content-faq111)
-* [ActiveSyncがサポートされていないのはなぜですか?](#user-content-faq133)
+* [OAuth はサポートされていますか？](#user-content-faq111)
+* [ActiveSync がサポートされていないのはなぜですか？](#user-content-faq133)
 
 <a name="howto">
 
 ## How to ...?
 
-* アカウントの名前を変更する：設定 > 手動セットアップをタップする > アカウント(Accounts) をタップする > アカウントをタップする
-* 左に/右にすワイプする標的：設定 > 動作(Behavior)タブ > すワイプの行動
-* パスワードを変更する：設定 > 手動セットアップをタップする > アカウント(Accounts) をタップする > アカウント > パスワードを変更する
-* メールの署名をセットする：設定 > 手動セットアップをタップする > ユーザ情報(Identities) をタップする > アカウントをタップする > 署名を編集する
-* CCアドレスとBCCアドレスを追加する：件名の後にある人々のアイコンをタップする
-* アーカイブ/デリートに次/以前のメセージ：動作(Behavior)タブ > 「自動に会話を閉じる」を無効にする > 「会話を閉じる時」の下に「次/前の会話に移動」を選択する
-* 統合受信トレイフォルダーにフォルダーを追加する：フォルダーリストのフォルダーを長押しして「統合受信トレイに表示」をチェックする
-* ナビゲーションメニューにフォルダーを追加する：フォルダーリストのフォルダーを長押しして「ナビゲーションメニューに表示」をチェックする
-* さらにメセージをロードする：フォルダーリストのフォルダーを長押しして「さらにメッセージを取得」をチェックする
-* メッセージを削除してゴミ箱をスキップする：ゴミ箱のアイコンを長押しする
-* アカウント/ユーザ情報を削除する：設定 > 手動セットアップをタップする > アカウント/ユーザ情報(Accounts/Identities)をタップする > 右上にゴミ箱アイコンをタップする
-* フォルダーを削除する：フォルダーリストのフォルダーを長押しする > プロパティを編集 > 右上のゴミ箱アイコンをたっぷする
-* 送信を元に戻す：送信トレイ > メッセージを左か右かにスワイプする
-* 受信トイレに送信済みを保存する：[このFAQ](#user-content-faq142)を見てください
-* システムフォルダーを変更する：設定 > 手動のセットアップをタップする > アカウントをタップする > 下にアカウントをタップする
-* エクスポートやインポート設定：設定 > ナビゲーションの左手メニュー
+* アカウントの名前を変更:［設定］>［手動セットアップ］>［アカウント］> 変更したいアカウントをタップ
+* 左/右のスワイプ操作を変更:［設定］>［動作］タブ >［スワイプ操作の設定］
+* パスワードを変更:［設定］>［手動セットアップ］>［アカウント］> 変更したいアカウントをタップ > パスワードを変更
+* 署名を設定:［設定］>［手動セットアップ］>［ID］> 設定したい ID を選択 >［署名を編集］
+* CC と BCC を追加:［件名］の右にある人のアイコンをタップ
+* アーカイブ/削除したとき前/次のメッセージに移動:［設定］>［動作］>［*会話を自動的に閉じる*］を無効にする >［*会話を閉じるとき*］を［*前/次の会話に移動*］に設定
+* 統合受信トレイにフォルダーを追加: フォルダーリストでフォルダーを長押しして［*統合受信トレイに表示*］をチェック
+* ナビゲーションメニューにフォルダーを追加: フォルダーリストでフォルダーを長押しして［*ナビゲーションメニューに表示*］をチェック
+* さらにメッセージを取得: フォルダーリストでフォルダーを長押しして［*さらにメッセージを取得*］をチェック
+* ゴミ箱をスキップしてメッセージを完全に削除: ゴミ箱のアイコンを長押し
+* アカウント/ID を削除:［設定］>［手動セットアップ］>［アカウント］/［ID］> 削除したいアカウント/ID をタップ > 右上のゴミ箱をタップ
+* フォルダーを削除: フォルダーリストのフォルダーを長押し >［プロパティを編集］> 右上のゴミ箱アイコンをタップ
+* 送信を取り消す:［送信トレイ］> メッセージを右または左にスワイプ
+* 受信トレイに送信済みメッセージを保存: [こちらの FAQ をご確認ください](#user-content-faq142)
+* システムフォルダーを変更:［設定］>［手動セットアップ］>［アカウント］> 下にスクロール
+* エクスポート/インポート設定:［設定］> ナビゲーションメニュー（左側）
 
 <h2><a name="known-problems"></a>既知の問題</h2>
 
-* ~~[Android 5.1 と 6 のバグ](https://issuetracker.google.com/issues/37054851) により、アプリに間違った時刻フォーマットが表示されることがあります。  *「24時間表示」* に設定を切り替えると、問題が一時的に解決する可能性があります。 回避策が追加されました。~~
-* ~~ [ Googleドライブのバグ](https://issuetracker.google.com/issues/126362828)により、Googleドライブにエクスポートされたファイルが空になります。 Google が修正しました。~~
-* ~~ [ AndroidXのバグ](https://issuetracker.google.com/issues/78495471)により、FairEmailが長押しまたはスワイプするとクラッシュすることがあります。 Google が修正しました。~~
-* ~~ [AndroidX ROOMのバグ](https://issuetracker.google.com/issues/138441698) は "* ... でクラッシュすることがあります。 データベースのライブデータの計算中に例外 ... 行 ...* を読み取ることができませんでした。 回避策が追加されました。~~　
-* [Androidのバグ](https://issuetracker.google.com/issues/119872129) で FairEmail がクラッシュする "*... FairEmail を更新し、通知をタップすると、一部のデバイスに ...*" が不正な通知を送信しました。
+* ~~[Android 5.1 と 6 のバグ](https://issuetracker.google.com/issues/37054851) により、アプリに間違った時刻フォーマットが表示されることがあります。  *［24 時間表示］* に設定を切り替えると、問題が一時的に解決する可能性があります。 回避策が追加されました。~~
+* ~~ [ Google ドライブのバグ](https://issuetracker.google.com/issues/126362828)により、Google ドライブにエクスポートされたファイルが空になることがあります。 Google が修正しました。~~
+* ~~ [ AndroidX のバグ](https://issuetracker.google.com/issues/78495471)により、FairEmail が長押しまたはスワイプでクラッシュすることがあります。 Google が修正しました。~~
+* ~~ [AndroidX ROOM のバグ](https://issuetracker.google.com/issues/138441698) により "*... Exception while computing database live data ... Couldn't read row ...*" でクラッシュすることがあります。 回避策が追加されました。~~　
+* [Android のバグ](https://issuetracker.google.com/issues/119872129)により、FairEmail のアップデート後に通知をタップすると FairEmail が "*... Bad notification posted ...*" でクラッシュすることがあります。
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~

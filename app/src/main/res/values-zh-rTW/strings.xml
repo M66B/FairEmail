@@ -106,6 +106,7 @@
     <string name="title_edit_account">編輯帳戶</string>
     <string name="title_edit_identity">編輯身分</string>
     <string name="title_edit_folder">編輯資料夾</string>
+    <string name="title_disable_gmail">停用 Gmail 應用程式</string>
     <string name="title_setup">設定</string>
     <string name="title_setup_help">幫助</string>
     <string name="title_setup_quick">快速設置</string>
@@ -466,6 +467,7 @@
     <string name="title_advanced_notify_preview_only">顯示僅有文字預覽的通知</string>
     <string name="title_advanced_notify_actions">通知動作</string>
     <string name="title_advanced_notify_action_trash">垃圾桶</string>
+    <string name="title_advanced_notify_action_delete">刪除</string>
     <string name="title_advanced_notify_action_junk">垃圾郵件</string>
     <string name="title_advanced_notify_action_archive">封存</string>
     <string name="title_advanced_notify_action_move">移動</string>
@@ -487,8 +489,10 @@
     <string name="title_advanced_confirm_links">開啟超連結前確認</string>
     <string name="title_advanced_check_links_dbl">檢查可疑連結有否出現於網域封鎖清單中</string>
     <string name="title_advanced_browse_links">將連結開啟處理交由 Android 進行</string>
+    <string name="title_advanced_confirm_images">預設不顯示圖片</string>
     <string name="title_advanced_ask_images">顯示圖片前確認</string>
     <string name="title_advanced_confirm_html">預設顯示經過重排的訊息</string>
+    <string name="title_advanced_ask_html">確認顯示原始郵件</string>
     <string name="title_advanced_tracking">嘗試辨識和停用追蹤圖片</string>
     <string name="title_advanced_hide_timezone">傳送不附帶時區資料的訊息</string>
     <string name="title_advanced_client_id">將應用程式名稱和版本傳送到電子郵件伺服器</string>
@@ -498,6 +502,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物特徵辨識驗證時限</string>
     <string name="title_advanced_autolock">關閉螢幕後上鎖</string>
+    <string name="title_advanced_autolock_nav">離開應用程式時上鎖</string>
     <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
     <string name="title_advanced_disconnect_auto_update">每周自動更新清單一次</string>
     <string name="title_advanced_disconnect_links">使用追蹤保護清單來發出追蹤連結相關警告</string>
@@ -534,6 +539,7 @@
     <string name="title_advanced_language">語言</string>
     <string name="title_advanced_language_system">系統</string>
     <string name="title_advanced_deepl">DeepL 整合</string>
+    <string name="title_advanced_sdcard">我想要用外接記憶卡</string>
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
     <string name="title_advanced_updates">檢查GitHub上的更新</string>
     <string name="title_advanced_check_weekly">每周檢查而非每日檢查</string>
@@ -1182,6 +1188,7 @@
     <string name="title_filter_unknown">不明寄件者</string>
     <string name="title_filter_hidden">隱藏</string>
     <string name="title_filter_duplicates">重複</string>
+    <string name="title_filter_trash">於垃圾桶中</string>
     <string name="title_compact">緊湊型視圖</string>
     <string name="title_zoom">文字大小</string>
     <string name="title_padding">填充大小</string>
@@ -1462,6 +1469,7 @@
     <string name="title_snooze_now">延後</string>
     <string name="title_loading">載入中 &#8230;</string>
     <string name="title_fetching_again">再次自伺服器提取訊息</string>
+    <string name="title_go_back">返回</string>
     <string name="title_conversation_actions">動作</string>
     <string name="title_conversation_action_reply">回覆: \'%1$s\'</string>
     <string name="title_conversation_action_copy">複製: \'%1$s\'</string>

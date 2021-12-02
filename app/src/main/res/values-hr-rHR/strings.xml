@@ -292,6 +292,7 @@
     <string name="title_advanced_notify_preview_all">Pregledaj sav tekst</string>
     <string name="title_advanced_notify_actions">Akcije za Obavijesti</string>
     <string name="title_advanced_notify_action_trash">Otpad</string>
+    <string name="title_advanced_notify_action_delete">Izbriši</string>
     <string name="title_advanced_notify_action_junk">Neželjena pošta</string>
     <string name="title_advanced_notify_action_archive">Arhiva</string>
     <string name="title_advanced_notify_action_move">Premjesti</string>

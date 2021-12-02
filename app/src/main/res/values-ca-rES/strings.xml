@@ -332,6 +332,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_notify_preview_only">Mostra les notificacions només amb previsualització del text</string>
     <string name="title_advanced_notify_actions">Accions de les notificacions</string>
     <string name="title_advanced_notify_action_trash">Paperera</string>
+    <string name="title_advanced_notify_action_delete">Eliminar</string>
     <string name="title_advanced_notify_action_junk">Correu brossa</string>
     <string name="title_advanced_notify_action_archive">Arxiu</string>
     <string name="title_advanced_notify_action_move">Mou</string>

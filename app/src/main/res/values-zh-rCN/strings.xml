@@ -357,6 +357,7 @@
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
+    <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
@@ -365,6 +366,7 @@
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_color_stripe">头像前显示一条色带</string>
+    <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
     <string name="title_advanced_bimi_unverified">未验证的发送者</string>
@@ -474,6 +476,7 @@
     <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
+    <string name="title_advanced_notify_action_delete">删除</string>
     <string name="title_advanced_notify_action_junk">垃圾邮件</string>
     <string name="title_advanced_notify_action_archive">存档</string>
     <string name="title_advanced_notify_action_move">移动</string>
@@ -986,7 +989,7 @@
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进 FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
-    <string name="title_reporting_why">错误报告将有助于改进 FairEmail</string>
+    <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
     <string name="title_ask_review">请给FairEmail评分</string>
     <string name="title_ask_review_rationale">        您使用 FairEmail 已经有一段时间了
         如果您能在 Play Store 中为 FairEmail 评分, 我将不胜感激

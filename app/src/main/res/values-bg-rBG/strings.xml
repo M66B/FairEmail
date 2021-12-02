@@ -328,6 +328,7 @@
     <string name="title_advanced_notify_preview_all">Визуализирай целия текст</string>
     <string name="title_advanced_notify_actions">Действия при уведомление</string>
     <string name="title_advanced_notify_action_trash">Кошче</string>
+    <string name="title_advanced_notify_action_delete">Изтриване</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
     <string name="title_advanced_notify_action_archive">Архив</string>
     <string name="title_advanced_notify_action_move">Преместване</string>

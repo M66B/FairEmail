@@ -451,6 +451,7 @@
     <string name="title_advanced_notify_preview_only">Mostrar notificações apenas com pré-visualização de texto</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixeira</string>
+    <string name="title_advanced_notify_action_delete">Deletar</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arquivo</string>
     <string name="title_advanced_notify_action_move">Mover</string>

@@ -83,6 +83,7 @@
     <string name="title_advanced_caption_general">பொது</string>
     <string name="title_advanced_caption_conversation">உரையாடல்</string>
     <string name="title_advanced_caption_message">அஞ்சல்</string>
+    <string name="title_advanced_notify_action_delete">அழி</string>
     <string name="title_advanced_cleanup">சுத்தமாக்கு</string>
     <string name="title_synchronize_enabled">ஒத்திசைத்தல்</string>
     <string name="title_raw_send_message">அஞ்சல்</string>

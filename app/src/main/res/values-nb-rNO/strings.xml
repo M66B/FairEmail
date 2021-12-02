@@ -345,6 +345,7 @@
     <string name="title_advanced_notify_preview_only">Vis varsler med bare forhåndsvisning</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
+    <string name="title_advanced_notify_action_delete">Slett</string>
     <string name="title_advanced_notify_action_junk">Søppelpost</string>
     <string name="title_advanced_notify_action_archive">Arkiver</string>
     <string name="title_advanced_notify_action_move">Flytt</string>

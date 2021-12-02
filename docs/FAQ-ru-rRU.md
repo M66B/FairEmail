@@ -4,7 +4,7 @@
 
 Если у вас есть вопросы, пожалуйста, сначала просмотрите следующие часто задаваемые вопросы. [Ниже](#user-content-get-support), вы можете найти как задать другие вопросы, предложить идеи и сообщить об ошибках.
 
-Если у вас возник вопрос, для начала, сначала проверьте часто задаваемые вопросы ниже. [ В самом низу вы узнаете](#user-content-get-support), как задавать дополнительные вопросы, запрашивать функции и сообщать об ошибках.
+Если у вас есть вопрос, пожалуйста, сначала проверьте часто задаваемые вопросы (FAQ) ниже. [ В самом низу вы узнаете](#user-content-get-support), как задавать дополнительные вопросы, запрашивать функции и сообщать об ошибках.
 
 ## Оглавление
 
@@ -29,7 +29,7 @@
 Для авторизации:
 
 * Набор G/Gmail просмотрите [6 вопрос](#user-content-faq6)
-* Outlook / жизнь / Hotmail, см. [вопрос 14](#user-content-faq14)
+* Outlook / Live / Hotmail, см. [вопрос 14](#user-content-faq14)
 * Office 365, см. [вопрос 14](#user-content-faq156)
 * Microsoft Exchange, см. [вопрос 8](#user-content-faq8)
 * Yahoo, AOL и Sky, см. [вопрос 88](#user-content-faq88)
@@ -716,7 +716,7 @@ FairEmail проверяет и подпись и цепочку для полн
 Как получить доступный ключ из S/MIME сертификата:
 
 ```
-openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
+openssl pkcs12 -clcerts -nokeys -out cert.pem
 ```
 
 Вы можете расшифровать S/MIME и т.д. подписи [здесь](https://lapo.it/asn1js/).
@@ -736,49 +736,49 @@ S/MIME сигнал/шифрование является Pro функцией, 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Как работает поиск на устройстве/сервере?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Вы можете начать поиск сообщений по отправителю (от), получателю (to, cc, bcc), теме, ключевые слова или текст сообщения с помощью кнопки увеличения стекла в панели действий папки. Вы также можете искать в любом приложении, выбрав *Поисковое письмо* в всплывающем меню копирования/вставки.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Поиск в едином почтовом ящике будет искать во всех папках всех учетных записей, поиск в списке папок будет осуществлять поиск только в соответствующем аккаунте, и поиск в папке будет осуществляться только в этой папке.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Сначала будут искаться сообщения на устройстве. В нижней части появится кнопка действий с иконкой поиска для продолжения поиска на сервере. Вы можете выбрать, в какой папке можно продолжить поиск.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+Протокол IMAP не поддерживает поиск более чем в одной папке. Поиск на сервере является затратной процедурой, поэтому невозможно выбрать несколько папок.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Поиск локальных сообщений без учета регистра и частичного текста. Текст сообщения локальных сообщений не будет искаться, если он еще не загружен. Поиск на сервере может быть чувствителен к регистру, и может содержать частичный текст или целые слова, в зависимости от провайдера.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Некоторые серверы не могут выполнять поиск в тексте сообщения, если существует большое количество сообщений. В этом случае есть возможность отключить поиск в тексте сообщения.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. Например:
+Можно использовать операторов поиска Gmail путем префикса команды поиска с *raw:*. Если вы настроили только одну учетную запись Gmail, вы можете начать поиск по единому почтовому ящику прямо на сервере. Если вы настроили несколько аккаунтов Gmail, вам необходимо перейти к списку папок или к папке архива (все сообщения) учетной записи Gmail, которую вы хотите найти. Пожалуйста, [просмотрите здесь](https://support.google.com/mail/answer/7190) для возможных поисковых операторов. Например:
 
 `
 raw:larger:10M`
 
-Searching through a large number of messages on the device is not very fast because of two limitations:
+Поиск по большому количеству сообщений на устройстве не очень быстр из-за двух ограничений:
 
-* [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
-* Android apps get only limited memory to work with, even if the device has plenty memory available
+* [sqlite](https://www.sqlite.org/), движок данных Android имеет предел размера записи, предотвращая хранение сообщений в базе данных
+* Работать только с приложениями Android может только ограниченно, даже если на устройстве имеется достаточно памяти
 
-This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
+Это означает, что в поиске текста сообщения требуется, чтобы файлы, содержащие порно сообщения, были открыты к одному чтобы проверить, есть ли найденный текст в файле, Это относительно дорогой процесс.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+В *разных параметрах* вы можете включить *Индекс поиска* для существенного увеличения скорости поиска на устройстве, , но имейте в виду, что это увеличит использование батареи и пространства для хранения. Поисковый индекс основан на словах, поэтому поиск частичного текста невозможен. Поиск с использованием индекса поиска по умолчанию AND, поэтому поиск *яблочного оранжевого* будет искать яблочное И оранжевое. Слова, разделенные запятыми в поиске OR, например, *яблок, оранжевый* будет искать яблоко OR оранжевый. Оба могут быть объединены, поэтому поиск *яблока, оранжевый банан* будет искать яблоко OR (оранжевый банан AND банан). Использование поискового индекса является Pro функцией.
 
-From version 1.1315 it is possible to use search expressions like this:
+Начиная с версии 1.1315 можно использовать поисковые выражения следующим образом:
 
 ```
 apple +banana -cherry ?nuts
 ```
 
-This will result in searching like this:
+Это приведет к поиску следующим образом:
 
 ```
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
 ```
 
-Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+Поисковые выражения могут быть использованы для поиска на устройстве через поисковый индекс и для поиска на почтовом сервере, , но не для поиска на устройстве без индекса по причинам производительности.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Поиск на устройстве - бесплатная функция, с помощью поискового индекса и поиска на сервере является Pro функцией.
 
 <br />
 
@@ -880,31 +880,31 @@ Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionna
 <a name="faq20" mark="crwd-mark"></a>
 **(20) Могу ли я получить возврат средств?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. Во всех остальных случаях возврат средств невозможен. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Если приобретенная функция Pro не работает как задуманная и это не вызвано проблемой в бесплатных функциях и я не могу решить проблему своевременно, вы можете получить возврат средств. Во всех остальных случаях возврат средств невозможен. Ни в коем случае не существует возможность возврата средств по любой проблеме, связанной с бесплатными функциями, поскольку за них ничего не платилось, и потому что они могут быть оценены без каких-либо ограничений. Я принимаю на себя ответственность как продавец за то, что было обещано и ожидаю, что вы несете ответственность за информирование себя о том, что вы покупаете.
 
 <a name="faq21" mark="crwd-mark"></a>
-**(21) Как включить индикатор уведомлений?**
+**(21) Как включить световой индикатор уведомлений?**
 
-Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
+До Android 8 Oreo: в настройках уведомлений для этого есть расширенная опция.
 
-Версии Android 8 Oreo и более поздние: пожалуйста, смотрите [здесь](https://developer.android.com/training/notify-user/channels) как настроить каналы уведомлений. You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
+Android 8 Oreo и более поздние: пожалуйста, просмотрите [здесь](https://developer.android.com/training/notify-user/channels) о том, как настроить каналы уведомлений. Вы можете использовать кнопку *Стандартный канал* в настройках уведомлений приложения, чтобы перейти к правильным настройкам канала уведомлений Android.
 
-Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
+Учтите, что приложения не могут изменять настройки уведомлений, включая настройки индикатора уведомлений, на Android 8 Oreo и более поздней версии.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround bugs in Android. This might apply to notification sounds and vibrations too.
+Иногда необходимо отключить настройку *Показать предварительный просмотр сообщений в уведомлениях* или включить настройки *Показать уведомления только в тексте предварительного просмотра* для устранения ошибок в Android. Это также можно применить к звукам уведомлений и вибрации.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Установка цвета света перед Android 8 не поддерживается и на Android 8 и более поздней версии невозможна.
 
 <br />
 
 <a name="faq22" mark="crwd-mark"></a>
 **(22) What does account/folder error ... mean?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail не скрывает ошибки, как часто происходит в альтернативных приложениях того же типа, так что диагностировать проблемы становится легче.
 
 FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently. Please see [this FAQ](#user-content-faq123) for more information about this.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Возможны стандартные ошибки и ошибки, свойственные именно для аккаунтов "Google" (см. далее).
 
 **General errors**
 
@@ -994,7 +994,7 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 <br />
 
-**Gmail errors**
+**Ошибки аккаунтов "Gmail"**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
@@ -1210,7 +1210,7 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35" mark="crwd-mark"></a>
-**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
+"(35) Почему мне нужно быть осторожным при просмотре изображений, вложений и самого сообщения, а также при открытии ссылок"
 
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
@@ -1814,7 +1814,7 @@ The folder menu *Clear local messages* removes messages from the device which ar
 <br />
 
 <a name="faq77" mark="crwd-mark"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Почему иногда сообщения бывают показаны с небольшой задержкой?**
 
 Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
 
@@ -1890,7 +1890,7 @@ To enable/disable an account with the name *Gmail*:
 Extras: account:Gmail
 ```
 
-Account names are case sensitive.
+При создании имен учетных записей регистр важен.
 
 Scheduling is a pro feature.
 
@@ -2100,7 +2100,7 @@ Android Q will make it harder and maybe even impossible to directly access files
 <br />
 
 <a name="faq96" mark="crwd-mark"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) Где я могу найти настройки IMAP и SMTP?**
 
 The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
 
@@ -2832,36 +2832,36 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 <br />
 
 <a name="faq154" mark="crwd-mark"></a>
-**~~(154) Can you add favicons as contact photos?~~**
+**~~(154) Можете добавить иконки в качестве фотографий контактов?~~**
 
-~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
+~~~Кроме того, что [иконки](https://en.wikipedia.org/wiki/Favicon) может быть предоставлен многим адресам электронной почты с одним и тем же доменом ~~ ~~и поэтому не имеет прямого отношения к электронному адресу, иконки могут быть использованы для отслеживания вас.~~
 
 <br />
 
 <a name="faq155" mark="crwd-mark"></a>
-**(155) What is a winmail.dat file?**
+**(155) Что за файл winmail.dat?**
 
-A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
+Файл *winmail.dat* отправляется некорректно сконфигурированным клиентом Outlook. Это специальный формат файлов Microsoft ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)), содержащий сообщение и, возможно, вложения.
 
-You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+Вы можете найти дополнительную информацию об этом файле [здесь](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+Вы можете просмотреть его, например с приложением Android [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
 
 <a name="faq156" mark="crwd-mark"></a>
-**(156) How can I set up an Office 365 account?**
+**(156) Как мне создать учетную запись Office 365?**
 
-An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
+Аккаунт Office 365 можно настроить через мастер быстрой настройки выбрав *Office 365 (OAuth)*.
 
-If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+Если мастер завершит работу с *AUTHENTICATE failed*, то IMAP и/или SMTP могут быть отключены для учетной записи. В этом случае попросите администратора включить IMAP и SMTP. Процедура описана [здесь](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
-If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+Если вы включили *безопасность по умолчанию* в вашей организации, вам может потребоваться включить протокол авторизации SMTP. [просмотрите здесь](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) о том, как это сделать.
 
 <br />
 
 <a name="faq157" mark="crwd-mark"></a>
-**(157) Как мне создать учетную запись Free.fr?**
+**(157) Как я могу создать учетную запись Free.fr?**
 
 Инструкции доступны [здесь](https://free.fr/assistance/597.html).
 
@@ -2909,75 +2909,75 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Вы можете добавить полное удаление сообщений без подтверждения?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+Полное удаление означает, что сообщения *необратимо* будут потеряны, и чтобы предотвратить это случайно, это всегда должно быть подтверждено. Даже с подтверждением, некоторые разозлённые люди удалившие их сообщения по своей воле, пишут мне, это неприятный опыт :-(
 
-Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
+Дополнительно: флаг IMAP удаления в сочетании с командой EXPUNGE не поддерживается потому что оба почтовых сервера и не все люди могут справиться с этим, рискуя неожиданной потерей сообщений. Усложняющий фактор заключается в том, что не все почтовые сервера поддерживают [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
-From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+Начиная с версии 1.1485 можно временно включить режим отладки в различных настройках, чтобы отключить выдачу сообщений. Обратите внимание, что сообщения помеченные как *\Deleted* не будут отображаться в FairEmail.
 
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Можете добавить параметр для изменения основного и акцентного цвета?***
 
-If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+Если бы я мог добавить параметр для выбора основного цвета и акцента, это было бы правильно, , однако к сожалению, Android темы исправлены, см. пример [здесь](https://stackoverflow.com/a/26511725/1794097), так что это невозможно.
 
 <br />
 
 <a name="faq162"></a>
-**(162) Is IMAP NOTIFY supported?***
+**(162) Поддерживаются ли уведомления IMAP?***
 
-Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+Да, [уведомления IMAP](https://tools.ietf.org/html/rfc5465) поддерживаются с версии 1.1413.
 
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Поэтому синхронизация для подписанных папок может быть отключена, сохранение папок на сервере электронной почты.
 
-**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
+**Важное**: push-сообщения (=постоянная синхронизация) для управления входящими (параметры получения) должны быть включены.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**Важно**: большинство почтовых серверов не поддерживают это! Вы можете проверить журнал через навигационное меню, если почтовый сервер поддерживает возможности уведомления IMAP.
 
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) Что такое группировка сообщений?**
 
-*This is an experimental feature!*
+*Это экспериментальная функция!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+Группировка сообщений будет пытаться автоматически группировать письма в классы, основываясь на их содержании, с помощью [статистики Байеса](https://en.wikipedia.org/wiki/Bayesian_statistics). В контексте FairEmail, папка является группой. Например, папка "Входящие", папка для спама, папка "Маркетинг", и т.д.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+Вы можете включить группировку сообщений в разных настройках. Это включит только режим обучения. Группировщик учится по новым сообщениям в папках «Входящие» и «Спам» по умолчанию. Свойство папки *Группировать новые сообщения в этой папке* включит или отключит режим обучения папки. Вы можете очистить локальные сообщения (долгое нажатие на папку в списке папок) и синхронизировать сообщения еще раз для классификации существующих сообщений.
 
-Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Каждая папка имеет опцию *Автоматически перемещать группированные сообщения в эту папку* (в кратце, авто группировка). Когда это включено, новые сообщения в других папках, которые группировщик сочтёт пренадлежащими к этой папке, будут автоматически перемещены.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+Параметр *Использовать локальный фильтр спама* в диалоговом окне отчета о спаме включит классификацию сообщений в разных параметрах и автоматическую классификацию для папки спам. Помните, что это не замена фильтра для спама почтового сервера и может привести к [ложным срабатываниям и негативным последствиям](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Также смотрите [это ЧаВо](#user-content-faq92).
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
+Практический пример: предполагается, что в этой папке включена папка «Маркетинг» и автоматическая группировка сообщений. Каждый раз, когда вы перемещаете сообщение в эту папку, вы будете обучать FairEmail тем, что похожие сообщения принадлежат этой папке. Каждый раз, когда вы перемещаете сообщение из этой папки, вы будете обучать FairEmail что похожие сообщения не принадлежат этой папке. После перемещения некоторых сообщений в папку «Маркетинг», FairEmail автоматически начнет перемещать аналогичные сообщения в эту папку. Или если после перемещения некоторых сообщений из папки "Маркетинг", FairEmail автоматически перестанет перемещать похожие сообщения в эту папку. Это лучше всего будет работать с сообщениями похожими по содержанию (адреса электронной почты, тема и текст сообщения).
 
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+Группировка должна рассматриваться как наилучшая догадка - может догадаться неправильно, или группировщик может быть недостаточно уверен, чтобы догадаться. Если группировщик не уверен, он просто оставит электронное письмо не тронутым.
 
-To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+Чтобы не допустить переноса сообщения в папку спама снова и снова, автогруппировка из папки со спамом не будет выполнена.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+Группировщик сообщений считает вероятность того, что сообщение принадлежит папке. В разных настройках есть два параметра, которые определяют, будет ли сообщение автоматически перемещено в папку, при условии, что автоматическая классификация включена для папки:
 
-* *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 15 %)
-* *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
+* *Минимальная вероятность*: сообщение будет перемещено только тогда, когда доверие к папке больше этого значения (по умолчанию 15 %)
+* *Минимальная разница*: сообщение будет перемещено только тогда, когда разница в доверии между одной папкой и следующей наиболее вероятной, больше этого значения (по умолчанию 50 %)
 
-Both conditions must be satisfied before a message will be moved.
+Оба условия должны быть удовлетворены, прежде чем сообщение будет перемещено.
 
-Considering the default option values:
+Учитывать значения опций по умолчанию:
 
-* Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
-* Apples 10 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 15 %
-* Apples 50 % and bananas 20 % would result in selecting apples
+* Яблоки 40% и бананы 30% не будут учтены, поскольку разница в 25% меньше минимального уровня 50%
+* Яблоки 10% и бананы 5% не будут учтены, поскольку вероятность появления яблок ниже минимума 15%
+* Яблоки 50% и бананы 20% приводят к выбору яблок
 
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+Группировка оптимизирована для использования как можно меньших ресурсов, но неизбежно будет использовать дополнительную мощность аккумулятора.
 
-You can delete all classification data by turning classification in the miscellaneous settings three times off.
+Вы можете удалить все данные группирования, трижды переключая группировку в разных настройках.
 
-[Filter rules](#user-content-faq71) will be executed before classification.
+[Правила фильтра](#user-content-faq71) будут выполнены перед группировкой.
 
-Message classification is a pro feature, except for the spam folder.
+Группировка сообщений является Pro функцией, за исключением папки со спамом.
 
 <br />
 

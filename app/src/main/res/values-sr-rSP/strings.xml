@@ -240,6 +240,7 @@
     <string name="title_advanced_notify_preview">Прикажи претпреглед поруке у обавештењима</string>
     <string name="title_advanced_notify_actions">Акција у обавештењу</string>
     <string name="title_advanced_notify_action_trash">Премести на отпад</string>
+    <string name="title_advanced_notify_action_delete">Обриши</string>
     <string name="title_advanced_notify_action_junk">Означи као нежељену пошту</string>
     <string name="title_advanced_notify_action_archive">Архивирај</string>
     <string name="title_advanced_notify_action_move">Премести</string>

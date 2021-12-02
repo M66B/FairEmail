@@ -402,6 +402,7 @@
     <string name="title_advanced_notify_preview_only">Jou notifikaasjes allinich mei in foarbyldtekst</string>
     <string name="title_advanced_notify_actions">Notifikaasje-aksjes</string>
     <string name="title_advanced_notify_action_trash">Jiskefet</string>
+    <string name="title_advanced_notify_action_delete">Ferwiderje</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Argyf</string>
     <string name="title_advanced_notify_action_move">Ferpleatse</string>

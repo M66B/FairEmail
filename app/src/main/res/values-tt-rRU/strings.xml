@@ -35,6 +35,7 @@
     <string name="title_advanced_section_notifications">Искәртүләр</string>
     <string name="title_advanced_advanced">Киңәйтелгән</string>
     <string name="title_advanced_caption_list">Исемлек</string>
+    <string name="title_advanced_notify_action_delete">Бетерү</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
     <string name="title_advanced_notify_action_move">Күчермәләү</string>
     <string name="title_advanced_pin">PIN</string>

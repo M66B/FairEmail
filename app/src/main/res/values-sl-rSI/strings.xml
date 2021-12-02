@@ -293,6 +293,7 @@
     <string name="title_advanced_notify_preview_all">Predogled vsega besedila</string>
     <string name="title_advanced_notify_actions">Dejanja obvestil</string>
     <string name="title_advanced_notify_action_trash">Smeti</string>
+    <string name="title_advanced_notify_action_delete">Izbriši</string>
     <string name="title_advanced_notify_action_junk">Vsiljeno</string>
     <string name="title_advanced_notify_action_archive">Arhiviraj</string>
     <string name="title_advanced_notify_action_move">Premakni</string>

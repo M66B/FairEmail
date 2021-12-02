@@ -385,6 +385,7 @@
     <string name="title_advanced_notify_preview_only">Tampilkan pemberitahuan dengan teks pratinjau saja</string>
     <string name="title_advanced_notify_actions">Tindakan pemberitahuan</string>
     <string name="title_advanced_notify_action_trash">Sampah</string>
+    <string name="title_advanced_notify_action_delete">Hapus</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arsip</string>
     <string name="title_advanced_notify_action_move">Pindah</string>
