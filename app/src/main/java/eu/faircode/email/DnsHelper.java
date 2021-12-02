@@ -67,32 +67,17 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-
-            try {
-                SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
-                resolver.setTimeout(CHECK_TIMEOUT);
-                Lookup lookup = new Lookup(domain, Type.MX);
-                lookup.setResolver(resolver);
-                lookup.run();
-                Log.i("Check name=" + domain + " @" + resolver.getAddress() + " result=" + lookup.getResult());
-
-                if (lookup.getResult() == Lookup.SUCCESSFUL)
-                    continue;
-
-                String error = "Error " + lookup.getResult() + ": " + lookup.getErrorString();
-                if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                        lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                    throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
-            } catch (UnknownHostException ex) {
-                throw ex;
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+            lookup(context, domain, "mx", CHECK_TIMEOUT);
         }
     }
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) throws UnknownHostException {
+        return lookup(context, name, type, LOOKUP_TIMEOUT);
+    }
+
+    @NonNull
+    static DnsRecord[] lookup(Context context, String name, String type, int timeout) throws UnknownHostException {
         int rtype;
         switch (type) {
             case "mx":
@@ -165,7 +150,7 @@ public class DnsHelper {
                                     }
                                 });
                         try {
-                            if (!sem.tryAcquire(LOOKUP_TIMEOUT, TimeUnit.SECONDS))
+                            if (!sem.tryAcquire(timeout, TimeUnit.SECONDS))
                                 ex = new IOException("timeout");
                         } catch (InterruptedException e) {
                             ex = new IOException("interrupted");
@@ -185,7 +170,7 @@ public class DnsHelper {
                     }
                 }
             };
-            resolver.setTimeout(LOOKUP_TIMEOUT);
+            resolver.setTimeout(timeout);
             Lookup lookup = new Lookup(name, rtype);
             lookup.setResolver(resolver);
             Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + rtype);
@@ -221,7 +206,8 @@ public class DnsHelper {
 
             return result.toArray(new DnsRecord[0]);
         } catch (TextParseException ex) {
-            throw new UnknownHostException(ex.getMessage());
+            Log.e(ex);
+            return new DnsRecord[0];
         }
     }
 
