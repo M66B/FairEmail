@@ -4,7 +4,7 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
-### Next version
+### 1.1783 - 2021-12-02
 
 * Added display option to use highlight color for unread shadow
 * Added display option for wide color stripe

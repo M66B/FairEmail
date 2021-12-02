@@ -3,7 +3,7 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 1782 }
+def getVersionCode = { -> return 1783 }
 def getRevision = { -> "a" }
 def getReleaseName = { -> return "Caudipteryx" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
@@ -289,7 +289,7 @@ dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def startup_version = "1.1.0"
-    def annotation_version_experimental = "1.1.0" // 1.2.0-beta01
+    def annotation_version_experimental = "1.1.0" // 1.2.0-rc01
     def core_version = "1.6.0" // 1.7.0
     def shortcuts_version = "1.0.0"
     def appcompat_version = "1.3.1"
@@ -307,8 +307,8 @@ dependencies {
     def documentfile_version = "1.1.0-alpha01"
     def lifecycle_version = "2.4.0"
     def lifecycle_extensions_version = "2.2.0"
-    def room_version = "2.3.0" // 2.4.0-beta02
-    def sqlite_version = "2.1.0" // 2.2.0-beta01
+    def room_version = "2.3.0" // 2.4.0-rc01
+    def sqlite_version = "2.1.0" // 2.2.0-rc01
     def requery_version = "3.36.0"
     def paging_version = "2.1.2" //  3.1.0
     def preference_version = "1.1.1" // 1.2.0-alpha02
