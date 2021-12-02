@@ -660,8 +660,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         // Create transport
         long start, end;
         Long max_size = null;
-        try (EmailService iservice = new EmailService(
-                this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, debug)) {
+        EmailService iservice = new EmailService(
+                this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, debug);
+        try {
             iservice.setUseIp(ident.use_ip, ident.ehlo);
             iservice.setUnicode(ident.unicode);
 
@@ -711,6 +712,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             end = new Date().getTime();
             EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
         } catch (MessagingException ex) {
+            iservice.dump();
             Log.e(ex);
 
             if (ex instanceof SMTPSendFailedException) {
@@ -732,6 +734,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
             throw ex;
         } finally {
+            iservice.close();
             if (lastProgress >= 0) {
                 lastProgress = -1;
                 nm.notify(NotificationHelper.NOTIFICATION_SEND, getNotificationService().build());
