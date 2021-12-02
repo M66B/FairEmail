@@ -91,18 +91,6 @@ public class DnsHelper {
         }
     }
 
-    static InetAddress lookupMx(Context context, String domain) {
-        try {
-            DnsRecord[] records = lookup(context, domain, "mx");
-            if (records.length > 0)
-                return InetAddress.getByName(records[0].name);
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
-
-        return null;
-    }
-
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) throws UnknownHostException {
         int rtype;
@@ -282,20 +270,6 @@ public class DnsHelper {
         DnsRecord(String name, int port) {
             this.name = name;
             this.port = port;
-        }
-    }
-
-    static void test(Context context) {
-        try {
-            String domain = "gmail.com";
-            checkMx(context, new Address[]{Log.myAddress()});
-            InetAddress iaddr = lookupMx(context, domain);
-            DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
-            if (records.length == 0)
-                throw new UnknownHostException(domain);
-            Log.i("DNS iaddr=" + iaddr + " srv=" + records[0].name + ":" + records[0].port);
-        } catch (Throwable ex) {
-            Log.e("DNS", ex);
         }
     }
 }
