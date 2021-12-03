@@ -135,6 +135,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvMessageZoom;
     private SeekBar sbMessageZoom;
     private SwitchCompat swOverviewMode;
+    private SwitchCompat swOverrideWidth;
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
@@ -173,7 +174,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
-            "message_zoom", "overview_mode", "contrast", "monospaced", "monospaced_pre",
+            "message_zoom", "overview_mode", "override_width", "contrast", "monospaced", "monospaced_pre",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra", "attachments_alt", "thumbnails",
             "parse_classes",
@@ -267,6 +268,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvMessageZoom = view.findViewById(R.id.tvMessageZoom);
         sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
+        swOverrideWidth = view.findViewById(R.id.swOverrideWidth);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swMonospacedPre = view.findViewById(R.id.swMonospacedPre);
@@ -898,6 +900,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("overview_mode", checked).apply();
+                swOverrideWidth.setEnabled(!checked);
+            }
+        });
+
+        swOverrideWidth.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("override_width", checked).apply();
             }
         });
 
@@ -1213,6 +1223,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             sbMessageZoom.setProgress(message_zoom - 50);
 
         swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
+        swOverrideWidth.setChecked(prefs.getBoolean("override_width", false));
+        swOverrideWidth.setEnabled(!swOverviewMode.isChecked());
 
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));

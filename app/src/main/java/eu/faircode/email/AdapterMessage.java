@@ -2610,7 +2610,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         HtmlHelper.guessSchemes(document);
 
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
+                        boolean override_width = prefs.getBoolean("override_width", false);
                         HtmlHelper.setViewport(document, overview_mode);
+                        if (!overview_mode && override_width)
+                            HtmlHelper.overrideWidth(document);
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document, show_images);
 

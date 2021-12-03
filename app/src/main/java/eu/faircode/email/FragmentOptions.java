@@ -135,7 +135,7 @@ public class FragmentOptions extends FragmentBase {
             "font_size_sender", "sender_ellipsize",
             "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines",
-            "message_zoom", "overview_mode", "addresses", "button_extra", "attachments_alt", "thumbnails",
+            "message_zoom", "overview_mode", "override_width", "addresses", "button_extra", "attachments_alt", "thumbnails",
             "contrast", "monospaced", "monospaced_pre",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images",

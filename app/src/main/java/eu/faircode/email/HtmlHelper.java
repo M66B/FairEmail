@@ -2064,6 +2064,13 @@ public class HtmlHelper {
             Log.i(document.head().html());
     }
 
+    static void overrideWidth(Document document) {
+        document.select("head")
+                .prepend("<style type=\"text/css\">" +
+                        "* {width: auto !important; max-width: none !important;}" +
+                        "</style>");
+    }
+
     static String getLanguage(Context context, String subject, String text) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
