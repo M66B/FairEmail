@@ -1055,6 +1055,7 @@ Possible causes of messages not being synchronized (sent or received) are:
 * There is no usable internet connection
 * The email server is temporarily not available
 * Android stopped the synchronization service
+* A memory management app stopped the synchronization service
 
 So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
 
