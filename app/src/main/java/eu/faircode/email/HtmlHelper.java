@@ -2065,10 +2065,23 @@ public class HtmlHelper {
     }
 
     static void overrideWidth(Document document) {
-        document.select("head")
-                .prepend("<style type=\"text/css\">" +
-                        "* {width: auto !important; max-width: none !important;}" +
-                        "</style>");
+        List<String> tags = new ArrayList<>();
+        for (Element e : document.select("*")) {
+            String tag = e.tagName();
+            if ("img".equals(tag))
+                continue;
+            if (tags.contains(tag))
+                continue;
+            tags.add(tag);
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("<style type=\"text/css\">");
+        for (String tag : tags)
+            sb.append(tag).append("{max-width: 100% !important;}");
+        sb.append("</style>");
+
+        document.select("head").append(sb.toString());
     }
 
     static String getLanguage(Context context, String subject, String text) {
