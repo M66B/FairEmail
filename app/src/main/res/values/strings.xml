@@ -751,7 +751,7 @@
     <string name="title_advanced_preview_lines_hint">Maximum %s characters in total</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
     <string name="title_advanced_overview_mode_hint">This can result in very small fonts</string>
-    <string name="title_advanced_override_width_hint">This can make messages smaller, but also look strange</string>
+    <string name="title_advanced_override_width_hint">This can make messages narrower, but also look strange</string>
     <string name="title_advanced_placeholders_hint">This applies to reformatted messages only</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
     <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
