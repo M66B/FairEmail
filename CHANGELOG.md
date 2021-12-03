@@ -4,6 +4,11 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Added display option to override widths in original message view
+* Small improvements and minor bug fixes
+
 ### 1.1783 - 2021-12-02
 
 * Added display option to use highlight color for unread shadow
