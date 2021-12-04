@@ -900,7 +900,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("overview_mode", checked).apply();
-                swOverrideWidth.setEnabled(!checked);
             }
         });
 
@@ -1224,7 +1223,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
         swOverrideWidth.setChecked(prefs.getBoolean("override_width", false));
-        swOverrideWidth.setEnabled(!swOverviewMode.isChecked());
 
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));

@@ -2612,7 +2612,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
                         boolean override_width = prefs.getBoolean("override_width", false);
                         HtmlHelper.setViewport(document, overview_mode);
-                        HtmlHelper.overrideWidth(document, overview_mode);
+                        if (override_width)
+                            HtmlHelper.overrideWidth(document);
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document, show_images);
 
@@ -5545,7 +5546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         boolean override_width = prefs.getBoolean("override_width", false);
                         HtmlHelper.setViewport(d, overview_mode);
                         if (override_width)
-                            HtmlHelper.overrideWidth(d, overview_mode);
+                            HtmlHelper.overrideWidth(d);
                     }
 
                     List<CSSStyleSheet> sheets =

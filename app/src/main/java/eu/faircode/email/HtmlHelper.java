@@ -36,7 +36,6 @@ import android.os.Build;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
@@ -2068,23 +2067,24 @@ public class HtmlHelper {
             Log.i(document.head().html());
     }
 
-    static void overrideWidth(Document document, boolean overview_mode) {
-        if (!overview_mode) {
-            for (Element e : document.select("*")) {
-                String width = e.attr("width");
-                if (TextUtils.isEmpty(width))
-                    continue;
-                e.attr("style", mergeStyles(
-                        e.attr("style"),
-                        "width: " + width));
-                e.removeAttr("width");
-            }
-
-            for (Element e : document.body().children())
-                e.attr("style", mergeStyles(
-                        e.attr("style"),
-                        "min-width: 0 !important; max-width: 100% !important;"));
+    static void overrideWidth(Document document) {
+        List<String> tags = new ArrayList<>();
+        for (Element e : document.select("*")) {
+            String tag = e.tagName();
+            if ("img".equals(tag))
+                continue;
+            if (tags.contains(tag))
+                continue;
+            tags.add(tag);
         }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("<style type=\"text/css\">");
+        for (String tag : tags)
+            sb.append(tag).append("{width: auto !important; min-width: 0 !important;max-width: 100% !important;}");
+        sb.append("</style>");
+
+        document.select("head").append(sb.toString());
     }
 
     static String getLanguage(Context context, String subject, String text) {
