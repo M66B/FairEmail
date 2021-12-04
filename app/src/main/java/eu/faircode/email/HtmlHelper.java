@@ -2064,21 +2064,23 @@ public class HtmlHelper {
             Log.i(document.head().html());
     }
 
-    static void overrideWidth(Document document) {
-        for (Element e : document.select("*")) {
-            String width = e.attr("width");
-            if (TextUtils.isEmpty(width))
-                continue;
-            e.attr("style", mergeStyles(
-                    e.attr("style"),
-                    "width: " + width));
-            e.removeAttr("width");
-        }
+    static void overrideWidth(Document document, boolean overview_mode) {
+        if (!overview_mode) {
+            for (Element e : document.select("*")) {
+                String width = e.attr("width");
+                if (TextUtils.isEmpty(width))
+                    continue;
+                e.attr("style", mergeStyles(
+                        e.attr("style"),
+                        "width: " + width));
+                e.removeAttr("width");
+            }
 
-        for (Element e : document.body().children())
-            e.attr("style", mergeStyles(
-                    e.attr("style"),
-                    "min-width: 0 !important; max-width: 100% !important;"));
+            for (Element e : document.body().children())
+                e.attr("style", mergeStyles(
+                        e.attr("style"),
+                        "min-width: 0 !important; max-width: 100% !important;"));
+        }
     }
 
     static String getLanguage(Context context, String subject, String text) {
