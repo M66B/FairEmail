@@ -1066,6 +1066,7 @@ On some devices, where there are lots of applications competing for memory, Andr
 
 Some Android versions stop apps and services too aggressively.
 See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+If you have a Doogee device, please [see here](https://android.stackexchange.com/questions/214639/background-apps-get-killed-by-something-other-than-battery-optimization).
 
 Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
