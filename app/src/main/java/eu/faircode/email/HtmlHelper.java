@@ -2026,9 +2026,13 @@ public class HtmlHelper {
         // https://drafts.csswg.org/css-device-adapt/#viewport-meta
         Elements meta = document.select("meta").select("[name=viewport]");
         // Note that the browser will recognize meta elements in the body too
-        if (overview) // fit width
+        if (overview) {
+            // fit width
             meta.remove();
-        else {
+            document.head().prependElement("meta")
+                    .attr("name", "viewport")
+                    .attr("content", "width=device-width");
+        } else {
             if (meta.size() == 1) {
                 String content = meta.attr("content");
                 String[] param = content.split("[;,]");
