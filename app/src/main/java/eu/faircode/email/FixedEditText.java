@@ -295,4 +295,14 @@ public class FixedEditText extends AppCompatEditText {
         else
             return super.getTextClassifier();
     }
+
+    @Override
+    public boolean onTextContextMenuItem(int id) {
+        try {
+            return super.onTextContextMenuItem(id);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
+    }
 }
