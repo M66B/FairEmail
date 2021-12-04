@@ -44,6 +44,7 @@ For authorizing:
 * Apple iCloud, see [question 148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
 * Posteo: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) isn't enabled
+* Web.de: please check if [IMAP is enabled](https://support.gmx.com/pop-imap/toggle.html) ([German](https://hilfe.gmx.net/pop-imap/einschalten.html))
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
