@@ -3650,7 +3650,47 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
                 return true;
             } else if (id == R.id.ibFull) {
-                onActionOpenFull(message);
+                boolean full = properties.getValue("full", message.id);
+                if (!full) {
+                    onActionOpenFull(message);
+                    return true;
+                }
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibFull);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_fullscreen, 1, R.string.title_fullscreen);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_fit_width, 2, R.string.title_fit_width)
+                        .setCheckable(true)
+                        .setChecked(prefs.getBoolean("overview_mode", false));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_disable_widths, 3, R.string.title_disable_widths)
+                        .setCheckable(true)
+                        .setChecked(prefs.getBoolean("override_width", false));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_fullscreen) {
+                            onActionOpenFull(message);
+                            return true;
+                        } else if (itemId == R.string.title_fit_width || itemId == R.string.title_disable_widths) {
+                            boolean enabled = !item.isChecked();
+                            item.setChecked(enabled);
+                            String key = (itemId == R.string.title_fit_width
+                                    ? "overview_mode" : "override_width");
+                            prefs.edit().putBoolean(key, enabled).apply();
+                            properties.setSize(message.id, null);
+                            properties.setHeight(message.id, null);
+                            properties.setPosition(message.id, null);
+                            bindBody(message, false);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
                 return true;
             } else if (id == R.id.ibMove) {
                 if (message.folderReadOnly)
