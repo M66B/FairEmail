@@ -5540,6 +5540,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     File file = EntityMessage.getFile(context, id);
                     Document d = JsoupEx.parse(file);
 
+                    if (BuildConfig.DEBUG) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean overview_mode = prefs.getBoolean("overview_mode", false);
+                        boolean override_width = prefs.getBoolean("override_width", false);
+                        HtmlHelper.setViewport(d, overview_mode);
+                        if (!overview_mode && override_width)
+                            HtmlHelper.overrideWidth(d);
+                    }
+
                     List<CSSStyleSheet> sheets =
                             HtmlHelper.parseStyles(d.head().select("style"));
                     for (Element element : d.select("*")) {
@@ -5549,7 +5558,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 element.attr("style"),
                                 sheets);
                         if (!TextUtils.isEmpty(computed))
-                            element.attr("computed", computed);
+                            element.attr("x-computed", computed);
                     }
 
                     File dir = new File(context.getCacheDir(), "shared");
