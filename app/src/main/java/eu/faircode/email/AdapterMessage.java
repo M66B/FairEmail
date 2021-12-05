@@ -2555,10 +2555,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     HtmlHelper.cleanup(document);
                     HtmlHelper.removeRelativeLinks(document);
-                    HtmlHelper.autoLink(document);
-
-                    if (message.ui_found && found && !TextUtils.isEmpty(searched))
-                        HtmlHelper.highlightSearched(context, document, searched);
 
                     // Check for inline encryption
                     boolean iencrypted = HtmlHelper.contains(document, new String[]{
@@ -2608,6 +2604,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .text(context.getString(R.string.title_truncated));
 
                         HtmlHelper.guessSchemes(document);
+                        HtmlHelper.autoLink(document);
+
+                        if (message.ui_found && found && !TextUtils.isEmpty(searched))
+                            HtmlHelper.highlightSearched(context, document, searched);
 
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
                         boolean override_width = prefs.getBoolean("override_width", false);
@@ -2636,6 +2636,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         // Cleanup message
                         document = HtmlHelper.sanitizeView(context, document, show_images);
+
+                        HtmlHelper.autoLink(document);
+
+                        if (message.ui_found && found && !TextUtils.isEmpty(searched))
+                            HtmlHelper.highlightSearched(context, document, searched);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                             args.putParcelable("actions", getConversationActions(message, document, context));
