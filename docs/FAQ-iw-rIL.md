@@ -20,11 +20,11 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ברוב המקרים, אשף ההגדרה המהיר יוכל לזהות את ההגדרות הנכונות אוטומטית.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+אם אשף ההקמה המהירה נכשל, יהיה עליך להקים חשבון ידנית (כדי לקבל הודעות) ולהזדהות (כדי לשלוח הודעות). לשם כך יהיה עליך להצטייד בכתובות שרתי ה־IMAP וה־SMTP לרבות הפתחות שלהם, בין אם יש צורך להשתמש ב־SSL/TLS או ב־STARTTLS עם שם המשתמש (בדרך כלל, אך לא תמיד, כתובת הדוא״ל שלך) והסיסמה שלך.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+חיפוש אחר *IMAP* ושם הספק אמור להספיק כדי למצוא את התיעוד המתאים.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+בחלק מהמקרים יהיה עליך להפעיל גישה חיצונית לחשבון שלך ו/או להשתמש בסיסמה (יישומון) מיוחדת, למשל כאשר מופעל אימות דו־שלבי.
 
 לאימות:
 
@@ -47,7 +47,7 @@ In some cases, you'll need to enable external access to your account and/or to u
 
 ## איך…?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* מחליפים את שם החשבון: הגדרות, נגיעה בהקמה אוטומטית, נגיעה בחשבונות, נגיעה בחשבון
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
 * Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
@@ -91,7 +91,7 @@ In some cases, you'll need to enable external access to your account and/or to u
 * ~~הצפנה חצי אוטומטית~~
 * ~~העתקת הודעה~~
 * ~~כוכבים צבעוניים~~
-* ~~Notification settings per folder~~
+* ~~הגדרות התראה לפי תיקייה~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
@@ -115,8 +115,8 @@ In some cases, you'll need to enable external access to your account and/or to u
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~תמיכה ב־S/MIME~~
+* ~~חיפוש אחר הגדרות~~
 
 Anything on this list is in random order and *might* be added in the near future.
 

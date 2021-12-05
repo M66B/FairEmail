@@ -76,7 +76,7 @@
 * [ помилки в LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273)інколи спричиняють поломки з*... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Помилка в Nova Launcher на Android 5.x викликає аварійне завершення роботи FairEmail з *java.lang.cravOverflowError*, коли Nova Launcher має доступ до служби додаткових можливостей.
 * Вибір папки інколи не показує папок з невідомих причин. Здається, це виправлено.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. Робота була додана
+* ~~~ [помилка в AndroidX](https://issuetracker.google.com/issues/64729576) ускладнює використання швидкого прокручування. Робота була додана
 * ~~Encryption with YubiKey results into an infinite loop. Здається, це спричинено [ помилкою в OpenKeychain<](https://github.com/open-keychain/open-keychain/issues/2507)
 * Прокручуваня внутрішньо зв'язаного розташування в оригінальних повідомленнях не працює. Це не може бути виправленим, тому що вигляд оригінального повідомлення подається у вигляді прокручанння.
 * Попередній перегляд тексту повідомлення не (завжди) з'являється на годинниках Samsung, тому що [встановлено тільки місцево ](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) схоже, ігнорується. Попередній перегляд текстів повідомлення вважаються правильно відображуваними на Pebble 2, Fitbit Charge 3, Mi band 3, і Xiaomi Amazfit BIP носимих пристроях. Дивись також[ цю FAQ](#user-content-faq126).
@@ -87,7 +87,7 @@
 
 <h2><a name="planned-features"></a>Заплановані можливості</h2>
 
-* ~~Synchronize on demand (manual)~~
+* ~~Синхронізація за вимогою (вручну)~~
 * ~~Напівавтоматичне шифрування~~
 * ~~Копіювання повідомлення~~
 * ~~Кольорові зірки~~
@@ -95,17 +95,17 @@
 * виберіть локальні зображення для підписів ( це не буде додано, тому що це вимагає зображення файлу керування і тому що зображення не показується за замовчуванням в більшості поштових клієнтів)
 * ~~Показати повідомлення, що відповідають критеріям~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
+* ~~Пошук повідомлення з/без вкладення~~ (неможливо додати, оскільки IMAP не підтримує пошук із вкладеними файлами)
+* ~~Пошук папок~~ (проблема при ієрархічному фільтруванні папок)
 * ~~Пошукові пропозиції~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Спільні уніфіковані теки~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
+* ~~Відкладене сповіщення про отримання нового повідомлення~~ (реалізовано за допомогою додавання налаштувань часу, сповіщення про отримані повідомлення будуть відключені протягом обраного часу)
 * Копіюй облікові записи і особисті дані
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
+* ~~Більш компактний вигляд папок~~
+* ~~Створення списків і таблиць~~ (вимагає ширшого текстового редактору, дивитися [ ЧаПи](#user-content-faq99))
+* ~~Збільшення розміру шрифту~~
 * ~~відображення GIF~~
 * ~~Теми~~ (додано світло-сіру і темну тему, тому що, здається, це те, що більшість людей хоче)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
@@ -114,7 +114,7 @@
 * ~~Нагадування вкласти файли ~~
 * ~~Виберіть домени, щоб показати зображення для~~ (це буде занадто складно для використання)
 * ~~Об'єднані повідомлення з зірочкою~~ (тут вже є спеціальний пошук для цього)
-* ~~Move notification action~~
+* ~~Дії зі сповіщеннями~~
 * ~~Підтримка S/MIME ~~
 * ~~Пошук налаштувань~~
 
@@ -122,7 +122,7 @@
 
 <h2><a name="frequently-requested-features"></a>Часто запитувані функції</h2>
 
-Дизайн заснований на багатьох обговореннях, і, якщо вам подобається, ви можете обговорити це[у цьому форумі теж](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Мета дизайну - бути мінімалістичним (немає непотрібних меню, кнопок, тощо) і без відволікання ( без химерних кольорів, анімацій, тощо). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Дизайн заснований на багатьох обговореннях, і, якщо вам подобається, ви можете обговорити це[у цьому форумі теж](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Мета дизайну - бути мінімалістичним (немає непотрібних меню, кнопок, тощо) і без відволікання ( без химерних кольорів, анімацій, тощо). Усе відображене повинно бути корисним і продумано розташованим для легшого застосунку користувачем. Шрифти, розміри, кольори та ін. повинно всюди вписуватися у дизайн.
 
 <h2><a name="frequently-asked-questions"></a>Запитання й відповіді (FAQ)</h2>
 
@@ -130,9 +130,9 @@
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
 * [(3) What are operations and why are they pending?](#user-content-faq3)
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
+* [(5) Як я можу налаштувати вигляд повідомлення?](#user-content-faq5)
+* [(6) Як увійти до мого Gmail / G suite акаунту?](#user-content-faq6)
+* [(7) Чому відправлені повідомлення не відображається (безпосередньо) у папці надіслані?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
 * [~~(11) Чому POP не підтримується?~~](#user-content-faq11)
@@ -188,7 +188,7 @@
 * [Чому деякі фото затемнені?](#user-content-faq61)
 * [(62) Які методи автентифікації підтримуються?](#user-content-faq62)
 * [(63) Як зображення змінили розмір для відображення на екранах?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
+* [~~(64) Чи можете ви додати функцію налаштування прогортування на вибір, вправо/вліво?~~](#user-content-faq64)
 * [(65) Чому деякі вкладення показують затемнення?](#user-content-faq65)
 * [(66) Чи FairEmail є доступним у сімейній бібліотеці Google Play?](#user-content-faq66)
 * [(67) Як я можу відкласти розмови?](#user-content-faq67)
@@ -224,7 +224,7 @@
 * [(98) Чому я досі можу вибирати контакти після скасування дозволу контактів?](#user-content-faq98)
 * [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
 * [(100) Як я можу синхронізувати категорії Gmail?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
+* [(101) Що означає блакитна/оранжева крапка внизу розмови?](#user-content-faq101)
 * [(102) Як я можу увімкнути автоматичне обертання зображень?](#user-content-faq102)
 * [(103) Як я можу записати звук?](#user-content-faq158)
 * [(104) Що мені потрібно знати про звіт помилки?](#user-content-faq104)
@@ -245,7 +245,7 @@
 * [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
 * [(120) Чому нові сповіщення повідомлень не видаляються при відкритті програми?](#user-content-faq120)
 * [(121) Як повідомлення згруповано в розмову?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
+* [~~(122) Чому ім'я одержувача/адреса електронної пошти відображається попереджувальним кольором?~~](#user-content-faq122)
 * [(123) Що станеться, коли FairEmail не може підключитися до сервера електронної пошти?](#user-content-faq123)
 * [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
 * [(125) What are the current experimental features?](#user-content-faq125)
@@ -258,7 +258,7 @@
 * [Чому нові сповіщення повідомлень без звуку?](#user-content-faq132)
 * [(Чому ActiveSync не підтримується?](#user-content-faq133)
 * [(134) Ви можете додати видалені локальні повідомлення?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
+* [(135) Чому видалені повідомлення та чернетки відображаються у бесідах?](#user-content-faq135)
 * [(136) Як я можу видалити обліковий запис/особисті дані/папку?](#user-content-faq136)
 * [(137) Як я можу скинути "Не питати знову"?](#user-content-faq137)
 * [(138) Чи можете ви додати календар/контакт/завдання/керування нотатками?](#user-content-faq138)
@@ -312,7 +312,7 @@
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
-[додаткові дозволи](https://developer.android.com/training/permissions/requesting) підтримуються на Android 6 Marshmallow і пізніше. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[додаткові дозволи](https://developer.android.com/training/permissions/requesting) підтримуються на Android 6 Marshmallow і пізніше. На попередніх версіях Android користувач повинен буде надати дозвіл на встановлення FairEmail.
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
@@ -333,7 +333,7 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail зберігатиме список адрес з яких ви уже отримували або надсилали повідомлення і пропонуватиме їх коли ви не надали дозволу для використання контактів. Це означає, що ви можете використовувати FairEmail без ваших збережених контактів на Android (контактний книзі). Зверніть увагу, що ви все ще можете обрати контакти без надавання дозволу FairEmail, але в такому разі ви не отримаєте запропонованих контактів, оскільки не давали згоди на їх використання.
 
 <br />
 
@@ -408,7 +408,7 @@ You should try to fix this by contacting your provider or by getting a valid sec
 Крім того, ви можете прийняти відбиток некоректного сертифікату сервера наступним чином:
 
 1. Переконайтеся, що ви використовуєте надійне підключення до Інтернету (не громадські Wi-Fi мережі тощо)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. Перейти до налаштувань через навігаційне меню (прогорнувши зліва до середини)
 1. Натисніть в ручному налаштуванні, натисніть Облікові записи/Особисті дані та виберіть на ньому несправний обліковий запис і особисті дані
 1. Перевірити/зберегти обліковий запис та особисті дані
 1. Tick the checkbox below the error message and save again
@@ -531,15 +531,15 @@ In the display section of the settings you can enable or disable for example:
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Чому надіслані повідомлення не відображаються (безпосередньо) у папці надіслані?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Надіслані повідомлення зазвичай переміщаються із папки вихідні до папки надіслані одразу після того як ваш провайдер відправив його. Це вимагає щоб папка надіслані була обрана у налаштуваннях облікового запису і тоді тека надіслані буде синхронізована автоматично.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Деякі провайдери не відслідковують надіслані повідомлення чи використаний SMTP сервер не пов'язаний із провайдером. У таких випадках FairEmail буде автоматично додавати надіслані повідомлення до теки надіслані, що зазвичай відбувається уже після того як повідомлення було надіслано. Зверніть увагу, що це призведе до використання додаткового трафіку в Інтернеті.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Якщо цього не відбувається, ваш провайдер може не продовжувати відслідковувати надіслані повідомлення чи ви не використовуєте SMTP сервер не пов'язаний із вашим провайдером.~~ ~~У цьому випадку ви можете ввімкнути розширені власні налаштування *Зберігати надіслані повідомлення* щоб дозволити FairEmail додавати надіслані повідомлення до самої теки надіслані повідомленні одразу після їх надсилання.~~ ~~Зверніть увагу, що дозвіл у налаштуваннях може вплинути на те, що повідомлення буде продубльовано, якщо провайдер додасть відправлені повідомлення до теки надіслані також.~~ ~~Також майте на увазі, що ввімкнення цих налаштувань вплинуть на використання додаткового інтернет трафіку, особливо коли повідомлення надіслано із великим вкладенням.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Якщо повідомлення у папці вихідні не знайдені у теці надіслані при повній синхронізації, вони будуть переміщені із папки вихідні до папки надіслані також.~~ ~~При повній синхронізації інколи стається роз'єднання із сервером чи коли синхронізується періодами або вручну.~~ ~~Ви скоріш за все захочете ввімкнути розширені налаштування *Зберігати надіслані повідомлення* замість того щоб відправляти їх до папки надіслані повідомлення.~~
 
 <br />
 
@@ -736,26 +736,26 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Як працює пошук на пристрої/сервері?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Ви можете почати шукати надіслані повідомлення за відправником (від кого), отримувачем (кому), темою, ключовими словами чи уривкам із повідомлень використовуючи лупу із панелі керування у папці. Також, ви можете здійснювати пошук із будь-якої програми, обравши *Пошук по електронній пошті* в контекстному меню.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Пошук у єдиній поштовій скриньці дозволяє шукати у всіх теках всіх облікових записів, пошук в переліку папок здійснюється лише в пов'язаному аккаунті і пошук в уже в самій папці буде здійснено лише в цій папці.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Найперше, пошук повідомлень здійснюватиметься на самому пристрої. Також, піктограма пошуку знову буде доступною в низу для продовження пошуку уже по серверу. Ви можете обрати у якій теці продовжувати пошук.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+IMAP протокол не підтримує пошук у декількох папках одночасно. Пошук по серверу є дорогою операцією, отож неможливо обрати декілька папок для пошуку у них.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Searching local messages is case insensitive and on partial text. Локальні текстові повідомлення не буде знайдено, якшо текст повідомлення ще не було завантажено. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Деякі сервери не здатні обробити пошук по текстових повідомленнях, коли там є велика кількість повідомлень. У такому випадку доступна опція вимкнути пошук по тексту повідомлень.
 
 It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
 
 `
 raw:larger:10M`
 
-Searching through a large number of messages on the device is not very fast because of two limitations:
+Пошук серед великої кількості повідомлень на пристрої відбувається повільно через два обмеження:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available

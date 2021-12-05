@@ -69,16 +69,16 @@
 * ~~[Android 5.1 と 6 のバグ](https://issuetracker.google.com/issues/37054851) により、アプリに間違った時刻フォーマットが表示されることがあります。  *［24 時間表示］* に設定を切り替えると、問題が一時的に解決する可能性があります。 回避策が追加されました。~~
 * ~~ [ Google ドライブのバグ](https://issuetracker.google.com/issues/126362828)により、Google ドライブにエクスポートされたファイルが空になることがあります。 Google が修正しました。~~
 * ~~ [ AndroidX のバグ](https://issuetracker.google.com/issues/78495471)により、FairEmail が長押しまたはスワイプでクラッシュすることがあります。 Google が修正しました。~~
-* ~~ [AndroidX ROOM のバグ](https://issuetracker.google.com/issues/138441698) により "*... Exception while computing database live data ... Couldn't read row ...*" でクラッシュすることがあります。 回避策が追加されました。~~　
-* [Android のバグ](https://issuetracker.google.com/issues/119872129)により、FairEmail のアップデート後に通知をタップすると FairEmail が "*... Bad notification posted ...*" でクラッシュすることがあります。
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
+* ~~ [AndroidX ROOM のバグ](https://issuetracker.google.com/issues/138441698) により "*... Exception while computing database live data ... Couldn't read row ...*" と表示されてクラッシュすることがあります。 回避策が追加されました。~~　
+* [Android のバグ](https://issuetracker.google.com/issues/119872129)により、FairEmail のアップデート後に通知をタップすると FairEmail が "*... Bad notification posted ...*" と表示されてクラッシュすることがあります。
+* [Android のバグ](https://issuetracker.google.com/issues/62427912)により、FairEmail のアップデート後に ActivityRecord not found for ...</em>" と表示されてクラッシュすることがあります。 再インストール（[ソース](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)）すると問題が解決する可能性があります。
+* [Android のバグ](https://issuetracker.google.com/issues/37018931)により、* InputChannel is not initialized ...* と表示されてクラッシュすることがあります。
+* ~~[LineageOS のバグ](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273)により、*... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...* と表示されてクラッシュすることがあります。~~
+* Android 5.x の Nova Launcher のバグにより、Nova Launcher がユーザー補助サービスにアクセスできないとき *java.lang.StackOverflowError* と表示されて FairEmail がクラッシュすることができます。
+* ~~未知の理由により、フォルダーセレクタにフォルダーが表示されないことがあります。 修正されたようです。~~
+* ~~[AndroidX のバグ](https://issuetracker.google.com/issues/64729576)により、素早くスクロールできないことがあります。 回避策が追加されました。~~
+* ~~YubiKey を使用して暗号化すると無限ループに陥ることがあります。 これは、[OpenKeychain のバグ](https://github.com/open-keychain/open-keychain/issues/2507)により発生していると思われます。~~
+* 元のメッセージの内部リンクへのスクロールは機能しません。 元のメッセージビューがスクロールビューに含まれているため、これは修正できません。
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
 * A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
