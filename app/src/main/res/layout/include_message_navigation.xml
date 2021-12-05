@@ -240,30 +240,6 @@
             tools:ignore="MissingConstraints" />
 
         <ImageButton
-            android:id="@+id/ibSearch"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search"
-            app:srcCompat="@drawable/twotone_search_24"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/ibSearchText"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search_in_text"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search_in_text"
-            app:srcCompat="@drawable/twotone_manage_search_24"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
             android:id="@+id/ibTranslate"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -285,6 +261,30 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_force_light"
             app:srcCompat="@drawable/lightdark"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibSearch"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search"
+            app:srcCompat="@drawable/twotone_search_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibSearchText"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_in_text"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_in_text"
+            app:srcCompat="@drawable/twotone_manage_search_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
