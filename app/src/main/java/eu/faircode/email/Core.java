@@ -5552,7 +5552,7 @@ class Core {
                         joined = true;
                     }
                 } catch (InterruptedException ex) {
-                    Log.e(new Throwable(name, ex));
+                    Log.i(new Throwable(name, ex));
                 }
         }
 
