@@ -943,6 +943,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTranslate.setOnLongClickListener(this);
                 ibForceLight.setOnClickListener(this);
                 ibImportance.setOnClickListener(this);
+                ibImportance.setOnLongClickListener(this);
                 ibHide.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
@@ -1042,6 +1043,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTranslate.setOnLongClickListener(null);
                 ibForceLight.setOnClickListener(null);
                 ibImportance.setOnClickListener(null);
+                ibImportance.setOnLongClickListener(null);
                 ibHide.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
@@ -3644,8 +3646,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (id == R.id.ibFlagged) {
                 onMenuColoredStar(message);
                 return true;
-            } else if (view.getId() == R.id.tvFolder) {
+            } else if (id == R.id.tvFolder) {
                 onGotoFolder(message);
+                return true;
+            } else if (id == R.id.ibImportance) {
+                int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 2) % 3);
+                onMenuSetImportance(message, importance);
                 return true;
             } else if (id == R.id.ibNotes) {
                 onActionCopyNote(message);
