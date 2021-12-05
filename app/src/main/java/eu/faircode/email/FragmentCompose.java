@@ -1940,12 +1940,18 @@ public class FragmentCompose extends FragmentBase {
                 for (String group : groups)
                     map.put(group, main.addSubMenu(Menu.NONE, order, order++, group));
 
+                NumberFormat NF = NumberFormat.getNumberInstance();
                 for (EntityAnswer answer : answers) {
                     if (answer.favorite)
                         continue;
                     order++;
 
-                    String name = answer.name;
+                    SpannableStringBuilder name = new SpannableStringBuilder(answer.name);
+                    if (grouped && answer.applied > 0) {
+                        name.append(" (").append(NF.format(answer.applied)).append(")");
+                        name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                                answer.name.length() + 1, name.length(), 0);
+                    }
 
                     MenuItem item;
                     if (answer.group == null)
