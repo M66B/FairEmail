@@ -571,24 +571,28 @@ public class Log {
                 Object v = data.get(key);
 
                 Object value = v;
+                int length = -1;
                 if (v != null && v.getClass().isArray()) {
-                    int length = Array.getLength(v);
-                    if (length <= 10) {
-                        String[] elements = new String[length];
-                        for (int i = 0; i < length; i++) {
-                            Object element = Array.get(v, i);
-                            if (element instanceof Long)
-                                elements[i] = element.toString() + " (0x" + Long.toHexString((Long) element) + ")";
-                            else
-                                elements[i] = (element == null ? null : printableString(element.toString()));
-                        }
-                        value = TextUtils.join(",", elements);
-                    } else
-                        value = "[" + length + "]";
+                    length = Array.getLength(v);
+                    String[] elements = new String[Math.min(length, 10)];
+                    for (int i = 0; i < elements.length; i++) {
+                        Object element = Array.get(v, i);
+                        if (element instanceof Long)
+                            elements[i] = element + " (0x" + Long.toHexString((Long) element) + ")";
+                        else
+                            elements[i] = (element == null ? "<null>" : printableString(element.toString()));
+                    }
+                    value = TextUtils.join(",", elements);
+                    if (length > 10)
+                        value += ", ...";
+                    value = "[" + value + "]";
                 } else if (v instanceof Long)
-                    value = v.toString() + " (0x" + Long.toHexString((Long) v) + ")";
+                    value = v + " (0x" + Long.toHexString((Long) v) + ")";
+                else if (v instanceof Bundle)
+                    value = "{" + TextUtils.join(" ", getExtras((Bundle) v)) + "}";
 
-                result.add(key + "=" + value + (value == null ? "" : " (" + v.getClass().getSimpleName() + ")"));
+                result.add(key + "=" + value + (value == null ? "" :
+                        " (" + v.getClass().getSimpleName() + (length < 0 ? "" : ":" + length) + ")"));
             }
         } catch (BadParcelableException ex) {
             // android.os.BadParcelableException: ClassNotFoundException when unmarshalling: ...
