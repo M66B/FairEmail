@@ -537,6 +537,9 @@ public class FragmentIdentity extends FragmentBase {
     }
 
     private void setAccount(EntityAccount account) {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         auth = account.auth_type;
         provider = account.provider;
         etEmail.setText(account.user);
