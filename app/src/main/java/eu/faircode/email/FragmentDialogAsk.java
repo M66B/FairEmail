@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -100,12 +101,16 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 }
             });
 
+        EntityLog.log(context, "Ask" + TextUtils.join(" ", Log.getExtras(args)));
+
         return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (confirm == null || cbConfirm.isChecked()) {
+                        boolean confirmed = (confirm == null || cbConfirm.isChecked());
+                        EntityLog.log(context, "Ask confirmed=" + confirmed);
+                        if (confirmed) {
                             if (notagain != null && accept != null) {
                                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                                 prefs.edit().putBoolean(notagain, cbNotAgain.isChecked()).apply();
@@ -118,6 +123,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        EntityLog.log(context, "Ask canceled");
                         sendResult(Activity.RESULT_CANCELED);
                     }
                 })
