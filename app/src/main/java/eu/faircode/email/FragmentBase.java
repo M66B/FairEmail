@@ -315,12 +315,12 @@ public class FragmentBase extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        String action = (data == null ? null : data.getAction());
-        Log.i("Result class=" + this.getClass().getSimpleName() +
-                " action=" + action + " request=" + requestCode + " result=" + resultCode);
-        Log.logExtras(data);
-        if (data != null)
-            Log.i("data=" + data.getData());
+        EntityLog.log(getContext(), "Result class=" + this.getClass().getSimpleName() +
+                " action=" + (data == null ? null : data.getAction()) +
+                " request=" + requestCode +
+                " result=" + resultCode + " ok=" + (resultCode == RESULT_OK) +
+                " data=" + (data == null ? null : data.getData()) +
+                (data == null ? "" : " " + TextUtils.join(" ", Log.getExtras(data.getExtras()))));
         super.onActivityResult(requestCode, resultCode, data);
 
         try {
