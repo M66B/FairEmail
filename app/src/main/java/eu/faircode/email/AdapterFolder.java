@@ -1037,7 +1037,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionExecuteRules() {
                     Bundle args = new Bundle();
                     args.putString("question", context.getString(R.string.title_execute_rules));
-                    args.putLong("folder", folder.id);
+                    args.putLong("id", folder.id);
 
                     FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(args);
