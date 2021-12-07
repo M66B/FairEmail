@@ -1331,8 +1331,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 db.account().setAccountBackoff(account.id, null);
             while (state.isRunning() && currentThread.equals(accountThread)) {
                 state.reset();
-                if (!state.isRunning())
-                    break;
                 Log.i(account.name + " run thread=" + currentThread);
 
                 final ObjectHolder<TwoStateOwner> cowner = new ObjectHolder<>();
