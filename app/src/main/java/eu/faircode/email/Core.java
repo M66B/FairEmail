@@ -1970,16 +1970,21 @@ class Core {
     }
 
     static void onSynchronizeFolders(
-            Context context, EntityAccount account, Store istore,
-            State state, boolean force) throws MessagingException {
+            Context context, EntityAccount account, Store istore, State state,
+            boolean keep_alive, boolean force) throws MessagingException {
         DB db = DB.getInstance(context);
+
+        if (account.protocol != EntityAccount.TYPE_IMAP)
+            return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean sync_folders = prefs.getBoolean("sync_folders", true);
+        boolean sync_folders_poll = prefs.getBoolean("sync_folders_poll", false);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
-        Log.i(account.name + " sync folders=" + sync_folders + " shared=" + sync_shared_folders + " force=" + force);
+        Log.i(account.name + " sync folders=" + sync_folders + " poll=" + sync_folders_poll +
+                " shared=" + sync_shared_folders + " force=" + force);
 
-        if (force)
+        if (force || (keep_alive && sync_folders_poll))
             sync_folders = true;
         if (!sync_folders)
             sync_shared_folders = false;
@@ -2089,7 +2094,7 @@ class Core {
         if (!sync_folders)
             return;
 
-        Log.i("Start sync folders account=" + account.name);
+        EntityLog.log(context, "Start sync folders account=" + account.name);
 
         // Get default folder
         Folder defaultFolder = istore.getDefaultFolder();

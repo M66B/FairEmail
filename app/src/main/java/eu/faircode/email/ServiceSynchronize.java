@@ -1533,8 +1533,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     });
 
                     // Update folder list
-                    if (account.protocol == EntityAccount.TYPE_IMAP)
-                        Core.onSynchronizeFolders(this, account, iservice.getStore(), state, force && !forced);
+                    Core.onSynchronizeFolders(this,
+                            account, iservice.getStore(), state,
+                            false, force && !forced);
 
                     // Open synchronizing folders
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
@@ -2040,6 +2041,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     " poll count=" + folder.poll_count +
                                                     " factor=" + folder.poll_factor);
                                         }
+                                Core.onSynchronizeFolders(this,
+                                        account, iservice.getStore(), state,
+                                        true, false);
                             }
                         } catch (Throwable ex) {
                             if (tune) {
