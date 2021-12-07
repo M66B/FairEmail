@@ -4942,6 +4942,8 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     if (save_drafts &&
+                            (data.draft.ui_encrypt == null ||
+                                    EntityMessage.ENCRYPT_NONE.equals(data.draft.ui_encrypt)) &&
                             (!"new".equals(action) ||
                                     answer > 0 ||
                                     !TextUtils.isEmpty(to) ||
