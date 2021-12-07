@@ -139,6 +139,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Boolean inferiors = true;
     public String error;
     public Long last_sync;
+    public Long last_sync_foreground;
     public Integer last_sync_count; // POP3
 
     static final String INBOX = "Inbox";

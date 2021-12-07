@@ -103,6 +103,7 @@ public class EntityOperation {
     static final String EXPUNGE = "expunge";
 
     private static final int MAX_FETCH = 100; // operations
+    private static final long FORCE_WITHIN = 30 * 1000; // milliseconds
 
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
@@ -494,6 +495,16 @@ public class EntityOperation {
         if (folder == null)
             return;
 
+        if (foreground) {
+            long now = new Date().getTime();
+            if (folder.last_sync_foreground != null &&
+                    now - folder.last_sync_foreground < FORCE_WITHIN) {
+                Log.i(folder.name + " Auto force");
+                force = true;
+            }
+            db.folder().setFolderLastSyncForeground(folder.id, now);
+        }
+
         if (force)
             db.operation().deleteOperation(fid, SYNC);
 
@@ -508,7 +519,7 @@ public class EntityOperation {
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 
-            Log.i("Queued sync folder=" + folder);
+            Log.i("Queued sync folder=" + folder + " force=" + force);
         }
 
         if (foreground && folder.sync_state == null) // Show spinner
