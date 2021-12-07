@@ -1043,6 +1043,7 @@ public class FragmentFolders extends FragmentBase {
                 List<EntityRule> rules = db.rule().getEnabledRules(fid);
                 if (rules == null)
                     return 0;
+                EntityLog.log(context, "Executing rules count=" + rules.size());
 
                 for (EntityRule rule : rules) {
                     JSONObject jcondition = new JSONObject(rule.condition);
@@ -1054,6 +1055,7 @@ public class FragmentFolders extends FragmentBase {
                 List<Long> ids = db.message().getMessageIdsByFolder(fid);
                 if (ids == null)
                     return 0;
+                EntityLog.log(context, "Executing rules messages=" + ids.size());
 
                 int applied = 0;
                 for (long mid : ids)
@@ -1064,18 +1066,27 @@ public class FragmentFolders extends FragmentBase {
                         if (message == null)
                             continue;
 
-                        for (EntityRule rule : rules)
+                        EntityLog.log(context, "Executing rules message=" + message.id);
+
+                        for (EntityRule rule : rules) {
+                            EntityLog.log(context, "Executing rules evaluating=" + rule.name);
                             if (rule.matches(context, message, null)) {
-                                if (rule.execute(context, message))
+                                EntityLog.log(context, "Executing rules matches=" + rule.name);
+                                if (rule.execute(context, message)) {
+                                    EntityLog.log(context, "Executing rules applied=" + rule.name);
                                     applied++;
+                                }
                                 if (rule.stop)
                                     break;
                             }
+                        }
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
+
+                EntityLog.log(context, "Executing rules applied=" + applied);
 
                 if (applied > 0)
                     ServiceSynchronize.eval(context, "rules/manual");
