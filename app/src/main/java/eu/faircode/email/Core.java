@@ -5478,6 +5478,7 @@ class Core {
 
         void reset() {
             Thread.currentThread().interrupted(); // clear interrupted status
+            Log.i("Permits=" + semaphore.drainPermits());
             recoverable = true;
             lastActivity = null;
         }
