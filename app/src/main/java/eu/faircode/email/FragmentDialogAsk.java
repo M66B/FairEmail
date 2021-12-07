@@ -101,7 +101,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 }
             });
 
-        EntityLog.log(context, "Ask" + TextUtils.join(" ", Log.getExtras(args)));
+        EntityLog.log(context, "Ask " + TextUtils.join(" ", Log.getExtras(args)));
 
         return new AlertDialog.Builder(context)
                 .setView(dview)
