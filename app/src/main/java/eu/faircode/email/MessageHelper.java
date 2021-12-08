@@ -232,6 +232,11 @@ public class MessageHelper {
         boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
         boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
 
+        Map<String, String> c = new HashMap<>();
+        c.put("id", message.id == null ? null : Long.toString(message.id));
+        c.put("encrypt", message.encrypt + "/" + message.ui_encrypt);
+        Log.breadcrumb("Build message", c);
+
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
         // Flags
