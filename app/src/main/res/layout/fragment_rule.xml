@@ -448,6 +448,16 @@
                     app:layout_constraintTop_toBottomOf="@id/cbBody" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvBodyRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_rule_body_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etBody" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAndBody"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -457,7 +467,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etBody" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvBodyRemark" />
 
                 <View
                     android:id="@+id/vSeparatorDate"
