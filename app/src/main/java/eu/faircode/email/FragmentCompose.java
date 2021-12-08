@@ -4953,8 +4953,15 @@ public class FragmentCompose extends FragmentBase {
                                     !TextUtils.isEmpty(external_body) ||
                                     !TextUtils.isEmpty(external_text) ||
                                     !TextUtils.isEmpty(selected_text) ||
-                                    (uris != null && uris.size() > 0)))
+                                    (uris != null && uris.size() > 0))) {
+                        Map<String, String> c = new HashMap<>();
+                        c.put("id", data.draft.id == null ? null : Long.toString(data.draft.id));
+                        c.put("encrypt", data.draft.encrypt + "/" + data.draft.ui_encrypt);
+                        c.put("action", action);
+                        Log.breadcrumb("Load draft", c);
+
                         EntityOperation.queue(context, data.draft, EntityOperation.ADD);
+                    }
                 } else {
                     args.putBoolean("saved", true);
 
@@ -5423,6 +5430,11 @@ public class FragmentCompose extends FragmentBase {
                     if (empty || trash == null || discard_delete || (drafts != null && drafts.local))
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
                     else {
+                        Map<String, String> c = new HashMap<>();
+                        c.put("id", draft.id == null ? null : Long.toString(draft.id));
+                        c.put("encrypt", draft.encrypt + "/" + draft.ui_encrypt);
+                        Log.breadcrumb("Discard draft", c);
+
                         EntityOperation.queue(context, draft, EntityOperation.ADD);
                         EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
                     }
@@ -5702,8 +5714,16 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
                         if ((dirty || encrypted) && !needsEncryption) {
-                            if (save_drafts)
+                            if (save_drafts) {
+                                Map<String, String> c = new HashMap<>();
+                                c.put("id", draft.id == null ? null : Long.toString(draft.id));
+                                c.put("dirty", Boolean.toString(dirty));
+                                c.put("encrypt", draft.encrypt + "/" + draft.ui_encrypt);
+                                c.put("needsEncryption", Boolean.toString(needsEncryption));
+                                Log.breadcrumb("Save draft", c);
+
                                 EntityOperation.queue(context, draft, EntityOperation.ADD);
+                            }
                         }
 
                         if (action == R.id.action_check) {
