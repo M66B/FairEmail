@@ -5719,7 +5719,9 @@ public class FragmentCompose extends FragmentBase {
                                 c.put("id", draft.id == null ? null : Long.toString(draft.id));
                                 c.put("dirty", Boolean.toString(dirty));
                                 c.put("encrypt", draft.encrypt + "/" + draft.ui_encrypt);
+                                c.put("encrypted", Boolean.toString(encrypted));
                                 c.put("needsEncryption", Boolean.toString(needsEncryption));
+                                c.put("autosave", Boolean.toString(autosave));
                                 Log.breadcrumb("Save draft", c);
 
                                 EntityOperation.queue(context, draft, EntityOperation.ADD);
