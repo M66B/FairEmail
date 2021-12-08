@@ -281,7 +281,6 @@ public class EntityRule {
                     if (!keywords.contains(keyword))
                         return false;
                 } else {
-                    boolean matches = false;
                     if (headers == null) {
                         if (message.headers == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
@@ -289,6 +288,8 @@ public class EntityRule {
                         ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
                         headers = Collections.list(new InternetHeaders(bis).getAllHeaders());
                     }
+
+                    boolean matches = false;
                     for (Header header : headers) {
                         String formatted = header.getName() + ": " + header.getValue();
                         if (matches(context, message, value, formatted, regex)) {
