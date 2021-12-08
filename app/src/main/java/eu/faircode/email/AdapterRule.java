@@ -126,6 +126,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     condition.add(context.getString(R.string.title_rule_subject));
                 if (jcondition.has("header"))
                     condition.add(context.getString(R.string.title_rule_header));
+                if (jcondition.has("body"))
+                    condition.add(context.getString(R.string.title_rule_body));
                 if (jcondition.has("date"))
                     condition.add(context.getString(R.string.title_rule_time_abs));
                 if (jcondition.has("schedule"))
@@ -319,7 +321,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                     if (message == null)
                                         continue;
 
-                                    if (rule.matches(context, message, null))
+                                    if (rule.matches(context, message, null, null))
                                         if (rule.execute(context, message))
                                             applied++;
 

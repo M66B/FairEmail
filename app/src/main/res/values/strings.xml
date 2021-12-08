@@ -1474,6 +1474,7 @@
     <string name="title_rule_attachments">Has attachments</string>
     <string name="title_rule_mime_type" translatable="false">Mime type</string>
     <string name="title_rule_header">Header contains</string>
+    <string name="title_rule_body">Text contains</string>
     <string name="title_rule_time_abs">Absolute time (received) between</string>
     <string name="title_rule_time_after">Received after</string>
     <string name="title_rule_time_before">Received before</string>
@@ -1505,6 +1506,7 @@
 
     <string name="title_rule_check">Check</string>
     <string name="title_rule_no_headers">Header conditions cannot be checked</string>
+    <string name="title_rule_no_body">Message text not available</string>
     <string name="title_rule_matched">Matching messages</string>
     <string name="title_rule_no_matches">No matching messages</string>
 

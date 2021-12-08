@@ -408,12 +408,64 @@
                     app:layout_constraintTop_toBottomOf="@+id/etHeader" />
 
                 <View
-                    android:id="@+id/vSeparatorDate"
+                    android:id="@+id/vSeparatorBody"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAndHeader" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvBody"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/title_rule_body"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbBody"
+                    app:layout_constraintEnd_toStartOf="@+id/cbBody"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbBody" />
+
+                <CheckBox
+                    android:id="@+id/cbBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_rule_regex"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etBody"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_optional"
+                    android:inputType="text|textNoSuggestions"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbBody" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAndBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_and"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etBody" />
+
+                <View
+                    android:id="@+id/vSeparatorDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAndBody" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvDate"

@@ -2800,6 +2800,7 @@ class Core {
 
                         List<Header> headers =
                                 (EntityRule.needsHeaders(rules) ? helper.getAllHeaders() : null);
+                        String body = parts.getHtml(context);
 
                         try {
                             db.beginTransaction();
@@ -2819,7 +2820,7 @@ class Core {
                                 attachment.id = db.attachment().insertAttachment(attachment);
                             }
 
-                            runRules(context, headers, account, folder, message, rules);
+                            runRules(context, headers, body, account, folder, message, rules);
                             reportNewMessage(context, account, folder, message);
 
                             db.setTransactionSuccessful();
@@ -2827,7 +2828,6 @@ class Core {
                             db.endTransaction();
                         }
 
-                        String body = parts.getHtml(context);
                         File file = message.getFile(context);
                         Helper.writeText(file, body);
                         String text = HtmlHelper.getFullText(body);
@@ -3656,6 +3656,8 @@ class Core {
 
         List<Header> headers =
                 (EntityRule.needsHeaders(rules) ? helper.getAllHeaders() : null);
+        String body =
+                (EntityRule.needsBody(rules) ? helper.getMessageParts().getHtml(context) : null);
 
         if (message == null) {
             Long sent = helper.getSent();
@@ -3868,7 +3870,7 @@ class Core {
                     attachment.id = db.attachment().insertAttachment(attachment);
                 }
 
-                runRules(context, headers, account, folder, message, rules);
+                runRules(context, headers, body, account, folder, message, rules);
 
                 if (message.blocklist != null && message.blocklist) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
@@ -3910,7 +3912,7 @@ class Core {
                 EntityContact.received(context, account, folder, message);
 
                 // Download small messages inline
-                if (download && !message.ui_hide) {
+                if (body != null || (download && !message.ui_hide)) {
                     long maxSize;
                     if (state == null || state.networkState.isUnmetered())
                         maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
@@ -3920,10 +3922,12 @@ class Core {
                             maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                     }
 
-                    if ((message.size != null && message.size < maxSize) ||
+                    if (body != null ||
+                            (message.size != null && message.size < maxSize) ||
                             (MessageClassifier.isEnabled(context)) && folder.auto_classify_source)
                         try {
-                            String body = parts.getHtml(context);
+                            if (body == null)
+                                body = parts.getHtml(context);
                             File file = message.getFile(context);
                             Helper.writeText(file, body);
                             String text = HtmlHelper.getFullText(body);
@@ -4078,7 +4082,7 @@ class Core {
                     db.message().updateMessage(message);
 
                     if (process)
-                        runRules(context, headers, account, folder, message, rules);
+                        runRules(context, headers, body, account, folder, message, rules);
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -4241,7 +4245,7 @@ class Core {
     }
 
     private static void runRules(
-            Context context, List<Header> headers,
+            Context context, List<Header> headers, String html,
             EntityAccount account, EntityFolder folder, EntityMessage message,
             List<EntityRule> rules) {
 
@@ -4254,7 +4258,7 @@ class Core {
         try {
             boolean executed = false;
             for (EntityRule rule : rules)
-                if (rule.matches(context, message, headers)) {
+                if (rule.matches(context, message, headers, html)) {
                     rule.execute(context, message);
                     executed = true;
                     if (rule.stop)

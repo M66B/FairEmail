@@ -128,6 +128,10 @@ public class EntityRule {
         return needs(rules, "header");
     }
 
+    static boolean needsBody(List<EntityRule> rules) {
+        return needs(rules, "body");
+    }
+
     private static boolean needs(List<EntityRule> rules, String what) {
         for (EntityRule rule : rules)
             try {
@@ -141,7 +145,7 @@ public class EntityRule {
         return false;
     }
 
-    boolean matches(Context context, EntityMessage message, List<Header> headers) throws MessagingException {
+    boolean matches(Context context, EntityMessage message, List<Header> headers, String html) throws MessagingException {
         try {
             JSONObject jcondition = new JSONObject(condition);
 
@@ -297,6 +301,29 @@ public class EntityRule {
                 }
             }
 
+            // Body
+            JSONObject jbody = jcondition.optJSONObject("body");
+            if (jbody != null) {
+                String value = jbody.getString("value");
+                boolean regex = jbody.getBoolean("regex");
+
+                if (html == null && message.content) {
+                    File file = message.getFile(context);
+                    try {
+                        html = Helper.readText(file);
+                    } catch (IOException ex) {
+                        Log.e(ex);
+                    }
+                }
+
+                if (html == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
+
+                String text = HtmlHelper.getFullText(html);
+                if (!matches(context, message, value, text, regex))
+                    return false;
+            }
+
             // Date
             JSONObject jdate = jcondition.optJSONObject("date");
             if (jdate != null) {
@@ -329,6 +356,7 @@ public class EntityRule {
                     jsubject == null &&
                     !jcondition.optBoolean("attachments") &&
                     jheader == null &&
+                    jbody == null &&
                     jdate == null &&
                     jschedule == null)
                 return false;

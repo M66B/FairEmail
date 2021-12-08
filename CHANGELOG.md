@@ -4,6 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Added text contains filter rule condition
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1784 - 2021-12-08
 
 * Added display option to override widths in original message view
