@@ -370,6 +370,7 @@ public class Log {
             etypes.setAnrs(BuildConfig.DEBUG);
             etypes.setNdkCrashes(false);
             config.setEnabledErrorTypes(etypes);
+            config.setMaxBreadcrumbs(BuildConfig.PLAY_STORE_RELEASE ? 50 : 100);
 
             Set<String> ignore = new HashSet<>();
 
