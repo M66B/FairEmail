@@ -46,7 +46,9 @@ public class UriHelper {
     // https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat
     private static final String SUFFIX_LIST_NAME = "public_suffix_list.dat";
 
+    // https://github.com/svenjacobs/leon
     // https://github.com/newhouse/url-tracking-stripper
+    // https://maxchadwick.xyz/tracking-query-params-registry/
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             // https://en.wikipedia.org/wiki/UTM_parameters
             "awt_a", // AWeber
@@ -54,11 +56,14 @@ public class UriHelper {
             "awt_m", // AWeber
 
             "icid", // Adobe
+            "ef_id", // https://experienceleague.adobe.com/docs/advertising-cloud/integrations/analytics/mc/mc-ids.html
+            "_ga", // Google Analytics
             "gclid", // Google
             "gclsrc", // Google ads
             "dclid", // DoubleClick (Google)
             "fbclid", // Facebook
             "igshid", // Instagram
+            "msclkid", // https://help.ads.microsoft.com/apex/index/3/en/60000
 
             "mc_cid", // MailChimp
             "mc_eid", // MailChimp
