@@ -422,8 +422,10 @@ public interface DaoMessage {
     List<EntityMessage> getMessagesByInReplyTo(long account, String inreplyto);
 
     @Query("SELECT * FROM message" +
-            " WHERE account = :account" +
-            " AND (id = :id OR msgid = :msgid)")
+            " LEFT JOIN message AS base ON base.id = :id" +
+            " WHERE message.account = :account" +
+            " AND (message.id = :id" +
+            " OR (message.msgid = :msgid AND message.folder <> base.folder))")
     List<EntityMessage> getMessagesBySimilarity(long account, long id, String msgid);
 
     @Query("SELECT COUNT(*) FROM message" +
