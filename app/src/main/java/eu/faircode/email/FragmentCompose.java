@@ -5732,7 +5732,7 @@ public class FragmentCompose extends FragmentBase {
                             (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send) ||
                             EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt) ||
                             (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send);
-                    boolean needsEncryption = (dirty && !encrypted && shouldEncrypt);
+                    boolean needsEncryption = (shouldEncrypt && (dirty || !encrypted));
                     boolean autosave = extras.getBoolean("autosave");
                     if (needsEncryption && !autosave) {
                         args.putBoolean("needsEncryption", true);
