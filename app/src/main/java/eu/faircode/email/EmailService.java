@@ -109,6 +109,7 @@ public class EmailService implements AutoCloseable {
     private String ehlo;
     private boolean log;
     private boolean debug;
+    private int level;
     private Properties properties;
     private Session isession;
     private Service iservice;
@@ -180,6 +181,7 @@ public class EmailService implements AutoCloseable {
         else if (protocol_since + PROTOCOL_LOG_DURATION < now)
             prefs.edit().putBoolean("protocol", false).apply();
         this.log = prefs.getBoolean("protocol", false);
+        this.level = prefs.getInt("log_level", Log.getDefaultLogLevel());
         this.harden = prefs.getBoolean("ssl_harden", false);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
@@ -680,8 +682,10 @@ public class EmailService implements AutoCloseable {
 
         breadcrumbs = new RingBuffer<>(BREADCRUMBS_SIZE);
 
-        isession.setDebug(debug || log);
-        if (debug || log)
+        boolean trace = (debug || log || level <= android.util.Log.INFO);
+
+        isession.setDebug(trace);
+        if (trace)
             isession.setDebugOut(new PrintStream(new OutputStream() {
                 private ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
