@@ -112,14 +112,25 @@
 
                 <!-- condition -->
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_rule_and"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbStop" />
+
                 <View
                     android:id="@+id/vSeparatorSender"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="24dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbStop" />
+                    app:layout_constraintTop_toBottomOf="@id/tvCondition" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSender"
@@ -179,7 +190,7 @@
                     android:id="@+id/tvAndSender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -245,7 +256,7 @@
                     android:id="@+id/tvAndRecipient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -297,7 +308,7 @@
                     android:id="@+id/tvAndSubject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -347,7 +358,7 @@
                     android:id="@+id/tvAndAttachments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -399,7 +410,7 @@
                     android:id="@+id/tvAndHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -461,7 +472,7 @@
                     android:id="@+id/tvAndBody"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -543,7 +554,7 @@
                     android:id="@+id/tvAndDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
@@ -611,23 +622,25 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvScheduleHourStart" />
 
-                <View
-                    android:id="@+id/vSeparatorAction"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="24dp"
-                    android:background="?attr/colorSeparator"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvScheduleHourEnd" />
-
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_action"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vSeparatorAction" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvScheduleHourEnd" />
+
+                <View
+                    android:id="@+id/vSeparatorAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAction" />
 
                 <Spinner
                     android:id="@+id/spAction"
@@ -635,7 +648,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAction" />
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorAction" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvActionRemark"
