@@ -285,6 +285,7 @@ public class FragmentCompose extends FragmentBase {
     private long working = -1;
     private State state = State.NONE;
     private boolean show_images = false;
+    private Boolean last_plain_only = null;
     private int last_available = 0; // attachments
     private boolean saved = false;
     private String subject = null;
@@ -5038,6 +5039,8 @@ public class FragmentCompose extends FragmentBase {
                         EntityOperation.queue(context, data.draft, EntityOperation.BODY);
                 }
 
+                last_plain_only = data.draft.plain_only;
+
                 List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
                 for (EntityAttachment attachment : attachments)
                     if (attachment.available) {
@@ -5545,9 +5548,11 @@ public class FragmentCompose extends FragmentBase {
                             !MessageHelper.equal(draft.bcc, abcc) ||
                             !Objects.equals(draft.subject, subject) ||
                             !draft.signature.equals(signature) ||
+                            !Objects.equals(last_plain_only, draft.plain_only) ||
                             last_available != available)
                         dirty = true;
 
+                    last_plain_only = draft.plain_only;
                     last_available = available;
 
                     if (dirty) {
