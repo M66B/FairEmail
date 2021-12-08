@@ -2314,6 +2314,7 @@ The following rule conditions are available:
 * Subject contains
 * Has attachments (optional of specific type)
 * Header contains
+* Text contains (since version 1.1785)
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
 
