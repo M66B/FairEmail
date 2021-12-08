@@ -1045,6 +1045,11 @@ public class MessageHelper {
         return (header == null ? null : MimeUtility.unfold(header));
     }
 
+    List<Header> getAllHeaders() throws MessagingException {
+        ensureHeaders();
+        return Collections.list(imessage.getAllHeaders());
+    }
+
     String[] getReferences() throws MessagingException {
         ensureHeaders();
 

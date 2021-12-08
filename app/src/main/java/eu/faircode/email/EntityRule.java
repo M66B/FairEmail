@@ -51,8 +51,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -61,7 +61,6 @@ import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.Header;
-import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -125,7 +124,20 @@ public class EntityRule {
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
 
-    boolean matches(Context context, EntityMessage message, Message imessage) throws MessagingException {
+    static boolean needsHeaders(List<EntityRule> rules) {
+        for (EntityRule rule : rules)
+            try {
+                JSONObject jcondition = new JSONObject(rule.condition);
+                if (jcondition.has("header"))
+                    return true;
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+        return false;
+    }
+
+    boolean matches(Context context, EntityMessage message, List<Header> headers) throws MessagingException {
         try {
             JSONObject jcondition = new JSONObject(condition);
 
@@ -262,16 +274,14 @@ public class EntityRule {
                         return false;
                 } else {
                     boolean matches = false;
-                    Enumeration<Header> headers;
-                    if (imessage != null)
-                        headers = imessage.getAllHeaders();
-                    else if (message.headers != null) {
+                    if (headers == null) {
+                        if (message.headers == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+
                         ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
-                        headers = new InternetHeaders(bis).getAllHeaders();
-                    } else
-                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
-                    while (headers.hasMoreElements()) {
-                        Header header = headers.nextElement();
+                        headers = Collections.list(new InternetHeaders(bis).getAllHeaders());
+                    }
+                    for (Header header : headers) {
                         String formatted = header.getName() + ": " + header.getValue();
                         if (matches(context, message, value, formatted, regex)) {
                             matches = true;

@@ -98,6 +98,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -114,6 +115,7 @@ import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.FolderNotFoundException;
+import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -2796,6 +2798,9 @@ class Core {
 
                         // No MX check
 
+                        List<Header> headers =
+                                (EntityRule.needsHeaders(rules) ? helper.getAllHeaders() : null);
+
                         try {
                             db.beginTransaction();
 
@@ -2814,7 +2819,7 @@ class Core {
                                 attachment.id = db.attachment().insertAttachment(attachment);
                             }
 
-                            runRules(context, imessage, account, folder, message, rules);
+                            runRules(context, headers, account, folder, message, rules);
                             reportNewMessage(context, account, folder, message);
 
                             db.setTransactionSuccessful();
@@ -3649,6 +3654,9 @@ class Core {
             }
         }
 
+        List<Header> headers =
+                (EntityRule.needsHeaders(rules) ? helper.getAllHeaders() : null);
+
         if (message == null) {
             Long sent = helper.getSent();
 
@@ -3860,7 +3868,7 @@ class Core {
                     attachment.id = db.attachment().insertAttachment(attachment);
                 }
 
-                runRules(context, imessage, account, folder, message, rules);
+                runRules(context, headers, account, folder, message, rules);
 
                 if (message.blocklist != null && message.blocklist) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
@@ -4070,7 +4078,7 @@ class Core {
                     db.message().updateMessage(message);
 
                     if (process)
-                        runRules(context, imessage, account, folder, message, rules);
+                        runRules(context, headers, account, folder, message, rules);
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -4233,7 +4241,7 @@ class Core {
     }
 
     private static void runRules(
-            Context context, Message imessage,
+            Context context, List<Header> headers,
             EntityAccount account, EntityFolder folder, EntityMessage message,
             List<EntityRule> rules) {
 
@@ -4246,7 +4254,7 @@ class Core {
         try {
             boolean executed = false;
             for (EntityRule rule : rules)
-                if (rule.matches(context, message, imessage)) {
+                if (rule.matches(context, message, headers)) {
                     rule.execute(context, message);
                     executed = true;
                     if (rule.stop)
