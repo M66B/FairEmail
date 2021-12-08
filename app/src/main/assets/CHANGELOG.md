@@ -4,10 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
-### Next version
+### 1.1784 - 2021-12-08
 
 * Added display option to override widths in original message view
+* Added sync twice within 30 seconds to sync all messages
 * Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1783 - 2021-12-02
 
