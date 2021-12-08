@@ -733,6 +733,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             db.identity().setIdentityError(ident.id, Log.formatThrowable(ex));
 
             throw ex;
+        } catch (Throwable ex) {
+            iservice.dump();
+            throw ex;
         } finally {
             iservice.close();
             if (lastProgress >= 0) {
