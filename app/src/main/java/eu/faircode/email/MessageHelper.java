@@ -554,6 +554,12 @@ public class MessageHelper {
                 return imessage;
             }
 
+        if (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
+                EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt)) {
+            Log.e("Storing unencrypted message");
+            throw new IllegalArgumentException("Storing unencrypted message");
+        }
+
         build(context, message, attachments, identity, send, imessage);
 
         return imessage;
