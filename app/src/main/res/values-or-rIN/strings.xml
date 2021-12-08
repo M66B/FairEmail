@@ -151,6 +151,7 @@
     <string name="title_advanced_optimize">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_advanced">ବିକଶିତ</string>
     <string name="title_advanced_quick_sync">ଦ୍ରୁତ ସିଙ୍କ୍</string>
+    <string name="title_advanced_sync_folders_poll">ଫୋଲ୍ଡର୍ ତାଲିକା ସକ୍ରିୟ ଭାବରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_caption_general">ସାଧାରଣ</string>
@@ -211,7 +212,7 @@
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
     <string name="title_advanced_remove_signature_hint">ଏହା ଫଳରେ ବହୁତ କମ୍ କିମ୍ୱା ଅତ୍ୟଧିକ ପାଠ୍ୟ ଅପସାରଣ ହୋଇପାରେ</string>
     <string name="title_advanced_highlight_hint">ଥିମର ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ହାଇଲାଇଟ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହେବ</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
+    <string name="title_advanced_override_width_hint">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
     <string name="title_advanced_expandall_hint">ଏକାଧିକ ବାର୍ତ୍ତା ସମ୍ପ୍ରସାରଣ ହୋଇଥିବା ବେଳେ ଉତ୍ତର ବଟନ୍ ଦେଖାଯିବ ନାହିଁ କାରଣ ବଟନ୍ କେଉଁ ବାର୍ତ୍ତା ପାଇଁ ପ୍ରଯୁଜ୍ୟ ତାହା ଅସ୍ପଷ୍ଟ ଅଟେ</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
@@ -310,6 +311,9 @@
     <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
     <string name="title_insufficient_memory">ଉପଲବ୍ଧ ମେମୋରୀ ଅପେକ୍ଷା ବାର୍ତ୍ତା ଅଧିକ ବଡ଼ ଅଟେ (%1$d)</string>
     <string name="title_show_full">ପୂର୍ଣ୍ଣ ବାର୍ତ୍ତା ଦେଖାନ୍ତୁ</string>
+    <string name="title_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="title_fit_width">ଓସାର ଫିଟ୍ କରନ୍ତୁ</string>
+    <string name="title_disable_widths">ଓସାର ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_ask_help">FairEmail କୁ ଉନ୍ନତ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
     <string name="title_need_help">ମତେ ସାହାଯ୍ୟ ଦରକାର</string>
     <string name="title_compose">ରଚନା କରନ୍ତୁ</string>

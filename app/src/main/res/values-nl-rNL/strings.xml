@@ -289,6 +289,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_gmail_thread">Gmail bericht groeperingsstijl voor Gmail accounts</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
+    <string name="title_advanced_sync_folders_poll">Actief mappenlijst synchroniseren</string>
     <string name="title_advanced_sync_shared_folders">Lijst met gedeelde mappen synchroniseren</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_check_authentication">Controleer authenticatie bericht</string>
@@ -587,6 +588,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_gmail_thread_hint">Dit geldt alleen voor nieuw ontvangen berichten en kan bestaande groepen verbreken</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
+    <string name="title_advanced_poll_folders_hint">Periodiek synchroniseren van de mappenlijst naast na verbinding maken met een account</string>
     <string name="title_advanced_check_authentication_hint">Dit controleert de resultaten van DKIM, SPF en DMARC authenticatie zoals uitgevoerd door de e-mailserver</string>
     <string name="title_advanced_check_reply_hint">Hiermee wordt gecontroleerd of de domeinnaam van de afzender en het antwoordadres hetzelfde zijn</string>
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
@@ -621,7 +623,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_preview_lines_hint">Maximaal %s tekens in totaal</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Dit kan berichten smaller maken, maar er ook vreemd laten uitzien</string>
+    <string name="title_advanced_override_width_hint">Dit kan berichten smaller maken, maar er ook vreemd laten uitzien</string>
     <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw opgemaakte berichten</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
@@ -981,6 +983,9 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_truncated">Bericht is te groot om volledig weer te geven</string>
     <string name="title_insufficient_memory">Bericht te groot voor het beschikbare geheugen (%1$d)</string>
     <string name="title_show_full">Toon volledig bericht</string>
+    <string name="title_fullscreen">Toon volledig scherm</string>
+    <string name="title_fit_width">Maak breedte passend</string>
+    <string name="title_disable_widths">Breedtes uitschakelen</string>
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>

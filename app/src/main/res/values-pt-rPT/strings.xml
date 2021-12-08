@@ -287,6 +287,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_gmail_thread">Estilo de agrupamento de mensagens do Gmail para contas do Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
+    <string name="title_advanced_sync_folders_poll">Sincronizar lista de pastas ativamente</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar lista de pastas partilhadas</string>
     <string name="title_advanced_subscriptions">Gerir subscrições de pastas</string>
     <string name="title_advanced_check_authentication">Verificar autenticação da mensagem</string>
@@ -520,7 +521,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não têm o suporte correto, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
+    <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de se conectar a uma conta</string>
+    <string name="title_advanced_override_width_hint">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
@@ -561,6 +563,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_no_viewer_name">Nome do conteúdo</string>
     <string name="title_no_viewer_type">Tipo de conteúdo</string>
     <string name="title_insufficient_memory">Mensagem muito grande para a memória disponível (%1$d)</string>
+    <string name="title_fullscreen">Mostrar ecrã completo</string>
+    <string name="title_fit_width">Ajustar à largura</string>
+    <string name="title_disable_widths">Desativar larguras</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_compose">Compor</string>
     <string name="title_language">Idioma:</string>

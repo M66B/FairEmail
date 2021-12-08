@@ -1295,7 +1295,7 @@ If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you
 If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
 
 * Says '*Still here*' within 3 minutes
-* The email server does not support push messages
+* Le serveur de messagerie ne supporte pas les messages push
 * The keep-alive interval is lower than 12 minutes
 
 In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
@@ -1379,9 +1379,9 @@ See below about how to contact me.
 <br />
 
 <a name="faq43"></a>
-**(43) Can you show the original ... ?**
+**(43) Pouvez-vous montrer l'original ... ?**
 
-Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc. FairEmail does and will not alter this in any way, except for requesting [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), which will *attempt* to make small text more readable.
+Afficher l'original, affiche le message original comme l'expéditeur l'a envoyé, y compris les polices d'origine, les couleurs, les marges, etc. FairEmail ne modifie et ne modifiera en aucune manière le message sauf pour demander [le redimensionnement automatique du texte](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), qui va *tenter* de rendre le texte écrit en petit plus lisible.
 
 <br />
 
@@ -1420,9 +1420,9 @@ Please see [this FAQ](#user-content-faq141) for some more information.
 <br />
 
 <a name="faq48"></a>
-**~~(48) How do I solve the error 'No primary account or no archive folder' ?~~**
+**~~(48) Comment puis-je résoudre l'erreur 'Aucun compte principal ou aucun dossier d'archivage' ?~~**
 
-~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app. FairEmail needs to know where to search, so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.~~
+~~Vous obtiendrez le message d'erreur *Aucun compte principal ou aucun dossier d'archives* lors de la recherche de messages depuis une autre application. FairEmail doit savoir où chercher, donc vous devrez sélectionner un compte pour être le compte principal et/ou vous devrez sélectionner un dossier d'archive pour le compte principal.~~
 
 <br />
 
@@ -1489,27 +1489,27 @@ Note that there are not many, if any, email apps that display a conversation as 
 <br />
 
 <a name="faq55"></a>
-**(55) How can I mark all messages as read / move or delete all messages?**
+**(55) Comment puis-je marquer tous les messages comme lus / déplacer ou supprimer tous les messages ?**
 
-You can use multiple select for this. Long press the first message, don't lift your finger and slide down to the last message. Then use the three dot action button to execute the desired action.
+Vous pouvez utiliser la sélection multiple pour cela. Appuyez longuement sur le premier message, ne levez pas votre doigt et faites glisser vers le bas jusqu'au dernier message. Utilisez ensuite le bouton à trois points pour exécuter l'action souhaitée.
 
 <br />
 
 <a name="faq56"></a>
-**(56) Can you add support for JMAP?**
+**(56) Pouvez-vous ajouter un support pour JMAP ?**
 
-There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so it is not worth a lot of effort to add support for this to FairEmail.
+Il n'y a presque aucun fournisseur proposant le protocole [JMAP](https://jmap.io/) , cela ne vaut donc pas la peine de l'ajouter et de le maintenir dans FairEmail.
 
 <br />
 
 <a name="faq57"></a>
-**(57) Can I use HTML in signatures?**
+**(57) Puis-je utiliser du HTML dans les signatures ?**
 
-Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML). In the signature editor you can switch to HTML mode via the three-dots menu.
+Oui, vous pouvez utiliser du [HTML](https://en.wikipedia.org/wiki/HTML). Dans l'éditeur de signatures, vous pouvez passer en mode HTML via le menu à trois points.
 
-Note that if you switch back to the text editor that not all HTML might be rendered as-is because the Android text editor is not able to render all HTML. Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
+Notez que si vous retournez à l'éditeur de texte, tout le HTML ne pourrait pas être rendu tel quel car l'éditeur de texte Android n'est pas en mesure de d'afficher tout le HTML. De même, si vous utilisez l'éditeur de texte, le HTML pourrait être modifié de manière inattendue.
 
-If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), you should wrap the text in a *pre* element, like this:
+Si vous voulez utiliser du texte préformaté, comme [l'art ASCII](https://en.wikipedia.org/wiki/ASCII_art), vous devriez envelopper ce texte dans un élément *pré* comme ceci :
 
 ```
 <pre>
@@ -1928,15 +1928,15 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq82"></a>
-**(82) What is a tracking image?**
+**(82) Qu'est-ce qu'une image de suivi ?**
 
-Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
+Veuillez consulter [ici](https://en.wikipedia.org/wiki/Web_beacon) pour savoir ce qu'est exactement une image de suivi. En bref, les images de suivi gardent trace de l'ouverture d'un message.
 
-FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+Dans la plupart des cas, FairEmail reconnaîtra automatiquement les images de suivi et les remplacera par cette icône :
 
 ![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+La reconnaissance automatique des images de suivi peut être désactivée dans les paramètres de confidentialité.
 
 <br />
 
@@ -1969,12 +1969,12 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq86"></a>
-**~~(86) What are 'extra privacy features'?~~**
+**~~(86) Quelles sont les 'fonctionnalités de confidentialité supplémentaires'?~~**
 
-~~The advanced option *extra privacy features* enables:~~
+~L'option avancée *fonctionnalités de confidentialité supplémentaires* permet :~~
 
-* ~~Looking up the owner of the IP address of a link~~
-* ~~Detection and removal of [tracking images](#user-content-faq82)~~
+* ~~Recherche du propriétaire de l'adresse IP d'un lien~~
+* ~~Détection et suppression des [images de suivi](#user-content-faq82)~~
 
 <br />
 
@@ -2683,7 +2683,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -3029,7 +3029,7 @@ FairEmail est pris en charge uniquement sur des smartphones et tablettes Android
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-There is no support on things that are not directly related to FairEmail.
+Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
 
 Il n'y a pas de soutien pour construire et développer des choses par soi-même.
 

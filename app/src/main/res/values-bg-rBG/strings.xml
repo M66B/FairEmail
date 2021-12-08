@@ -669,6 +669,7 @@
     <string name="title_too_large">Съобщението е твърде голямо, за да се преформатира напълно</string>
     <string name="title_truncated">Съобщението е твърде голямо, за да се покаже напълно</string>
     <string name="title_show_full">Покажи цялото съобщение</string>
+    <string name="title_fullscreen">Покажи на цял екран</string>
     <string name="title_unused_inline">Неизползваните вградени изображения ще бъдат премахнати при изпращане</string>
     <string name="title_accross_remark">Съобщенията, преместени в други профили, ще бъдат изтеглени наново, което ще доведе до допълнително използване на данни</string>
     <string name="title_raw_saved">Необработеното съобщение е запазео</string>

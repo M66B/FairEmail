@@ -971,6 +971,7 @@
     <string name="title_truncated">Viesti liian suuri näytettäväksi kokonaisuudessaan</string>
     <string name="title_insufficient_memory">Viesti on liian suuri mahtuakseen käytettävissä olevaan muistiin (%1$d)</string>
     <string name="title_show_full">Näytä koko viesti</string>
+    <string name="title_fullscreen">Näytä koko näytöllä</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>

@@ -671,6 +671,7 @@
     <string name="title_too_large">Mezua luzeegia da guztiz birformulatzeko</string>
     <string name="title_truncated">Mezua luzeegia da osorik erakusteko</string>
     <string name="title_show_full">Erakutsi mezu osoa</string>
+    <string name="title_fullscreen">Erakutsi pantaila osoan</string>
     <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira bidaltzean</string>
     <string name="title_accross_remark">Kontutik kontura eramandako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
     <string name="title_raw_saved">Mezu gordina gorde da</string>

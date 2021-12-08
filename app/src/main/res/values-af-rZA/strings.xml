@@ -6,6 +6,9 @@
     <string name="title_importing_exists">Oorgeslaan: bestaan alreeds</string>
     <string name="title_importing_wizard">Hardloop die towenaar om weer te outentiek</string>
     <string name="title_advanced_poll_battery">Hierdie kan verhoogte battery gebruik veroorsaak!</string>
+    <string name="title_fullscreen">Wys Volleskerm</string>
+    <string name="title_fit_width">Pas breedte</string>
+    <string name="title_disable_widths">Deaktiveer breedte</string>
     <!-- Thunderbird -->
     <string-array name="pollIntervalNames">
         <item>Always</item>

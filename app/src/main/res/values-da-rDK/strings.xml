@@ -289,6 +289,7 @@
     <string name="title_advanced_kept_removed">Tjek, om gamle beskeder er fjernet fra serveren</string>
     <string name="title_advanced_gmail_thread">Gmail- beskedgrupperingsstil for Gmail-konti</string>
     <string name="title_advanced_sync_folders">Synkronisér mappeliste</string>
+    <string name="title_advanced_sync_folders_poll">Synk aktivt mappeliste</string>
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_check_authentication">Tjek beskedgodkendelse</string>
@@ -583,6 +584,7 @@
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_gmail_thread_hint">Dette gælder kun for nyligt modtagne beskeder og kan ødelægge eksisterende grupper</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
+    <string name="title_advanced_poll_folders_hint">Synk periodisk mappelisten ud over efter kontotilslutning</string>
     <string name="title_advanced_check_authentication_hint">Dette vil tjekke resultaterne af DKIM-, SPF- og DMARC-godkendelser udført af e-mailserveren</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
@@ -615,7 +617,7 @@
     <string name="title_advanced_preview_lines_hint">Maks. %s tegn i alt</string>
     <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
     <string name="title_advanced_overview_mode_hint">Dette kan resultere i meget små skrifttyper</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Dette gør ikke blot beskeder smallere, men give dem også et mærkeligt-udseende</string>
+    <string name="title_advanced_override_width_hint">Dette gør ikke blot beskeder smallere, men give dem også et mærkeligt-udseende</string>
     <string name="title_advanced_placeholders_hint">Dette gælder kun omformaterede beskeder</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
@@ -973,6 +975,9 @@
     <string name="title_truncated">Besked for stor til fuldstændig visning</string>
     <string name="title_insufficient_memory">Besked for stor ift. tilgængelige hukommelse (%1$d)</string>
     <string name="title_show_full">Vis fuld besked</string>
+    <string name="title_fullscreen">Vis fuldskærm</string>
+    <string name="title_fit_width">Tilpas bredde</string>
+    <string name="title_disable_widths">Deaktivér bredder</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>

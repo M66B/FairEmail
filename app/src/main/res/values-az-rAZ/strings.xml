@@ -367,6 +367,7 @@
     <string name="title_advanced_cards_beige">Kart stilini istifadə edəndə bej arxaplan istifadə et (yalnız açıq temalar)</string>
     <string name="title_advanced_tabular_background">Cədvəl stili istifadə edəndə kart rəngini arxaplan rəngi kimi istifadə et</string>
     <string name="title_advanced_cards_shadow">Kart stilini istifadə edəndə oxunmamış mesajlar üçün kölgə istifadə et</string>
+    <string name="title_advanced_cards_shadow_highlight">Rəngi vurğulamaq əvəzinə vurğu rəngini istifadə et</string>
     <string name="title_advanced_date_header">Tarixə görə qruplaşdır</string>
     <string name="title_advanced_date_fixed">Sabit tarix başlığını üstdə göstər</string>
     <string name="title_advanced_date_bold">Tarixi qalın göstər</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
     <string name="title_advanced_color_stripe">Rəng zolağını göstər</string>
+    <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_gravatars">\"Gravatar\"ları göstər</string>
     <string name="title_advanced_bimi_unverified">Təsdiqlənməmiş göndərən</string>
@@ -412,6 +414,7 @@
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
+    <string name="title_advanced_override_width">Orijinal mesajlarda sabit genişlikləri sıradan çıxart</string>
     <string name="title_advanced_contrast">Mesaj mətni üçün yüksək ziddiyyət istifadə et</string>
     <string name="title_advanced_monospaced">Mesaj mətni üçün ilkin olaraq tək boşluqlu şrift istifadə et</string>
     <string name="title_advanced_monospaced_pre">Ön formatlı mətn üçün tək boşluqlu şrift istifadə et</string>
@@ -617,6 +620,7 @@
     <string name="title_advanced_preview_lines_hint">Cəmi maksimum %s simvol</string>
     <string name="title_advanced_preview_issue">Sətir sayı birdən çox olanda bəzi Android versiyalarında bir xətaya görə sürüşdürmə yavaşlaya bilər</string>
     <string name="title_advanced_overview_mode_hint">Bu, çox kiçik şriftlərə səbəb ola bilər</string>
+    <string name="title_advanced_override_width_hint">Bu, mesajları daraltmaqla yanaşı qəribə göstərə bilər</string>
     <string name="title_advanced_placeholders_hint">Bu, yalnız yenidən format edilmiş mesajlara tətbiq olunur</string>
     <string name="title_advanced_inline_hint">Sətiriçi təsvirlər, mesaja daxil edilən təsvirlərdir</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail 検索</string>
-    <string name="app_changelog">変更履歴</string>
+    <string name="app_changelog">更新履歴</string>
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
     <string name="app_crash">Android のバグによるクラッシュが頻発するため、このデバイスは FairEmail ではサポートされていません</string>
-    <string name="app_exit">もう一度操作すると終了します</string>
+    <string name="app_exit">もう一度「戻る」で終了します</string>
     <string name="app_cake">ストレージの空き容量が不足しています</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="channel_service">受信</string>
@@ -17,7 +17,7 @@
     <string name="channel_error">エラー</string>
     <string name="channel_alert">サーバーアラート</string>
     <string name="channel_group_contacts">連絡先</string>
-    <string name="channel_service_description">アカウントのモニタリングと同期</string>
+    <string name="channel_service_description">アカウントのモニターと同期</string>
     <string name="channel_send_description">メッセージ送信</string>
     <string name="channel_notification_description">新着メッセージ通知</string>
     <string name="channel_progress_description">長時間実行中のアクティビティの進捗通知</string>
@@ -35,7 +35,7 @@
     <string name="shortcut_compose">作成</string>
     <string name="shortcut_setup">設定</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="other">%1$d アカウントをモニタリングしています</item>
+        <item quantity="other">%1$d アカウントをモニターしています</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="other">%1$d 件の操作が保留されています</item>
@@ -59,22 +59,22 @@
         <item quantity="other">%1$d 件のメッセージを迷惑メールとして扱いますか？</item>
     </plurals>
     <string name="title_ask_spam_who">%1$s からのメッセージを迷惑メールとして扱いますか？</string>
-    <string name="title_junk_hint">迷惑メールの振り分けはメールプロバイダが行うものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
+    <string name="title_junk_hint">迷惑メールフィルタリングはメールプロバイダが行うべきものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
     <string name="title_block">%1$s をブロック</string>
     <string name="title_block_sender">差出人をブロック</string>
     <string name="title_block_sender_domain">ドメイン「%1$s」をブロック</string>
-    <string name="title_block_sender_hint">        差出人のブロックは無料の機能です。
-        差出人のドメインをブロックするにはフィルタールールを使用します。これは Pro 版の機能です。
+    <string name="title_block_sender_hint">        差出人のブロックは無料版の機能です。
+        差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
     </string>
     <string name="title_junk_filter">ローカルの迷惑メールフィルターを使用</string>
     <string name="title_junk_filter_hint">バッテリー使用量が増加します。また、メッセージを誤って迷惑メールと判定する可能性が高まります</string>
     <string name="title_junk_blocklist">迷惑メールブロックリストを使用</string>
-    <string name="title_junk_clear">消去</string>
+    <string name="title_junk_clear">クリア</string>
     <string name="title_junk_clear_hint">すべての差出人ブロックルールが削除されます</string>
     <string name="title_notification_sending">メールを送信しています</string>
     <string name="title_notification_waiting">接続を待機しています</string>
     <string name="title_notification_idle">待機</string>
-    <string name="title_notification_failed">「%1$s」に失敗しました</string>
+    <string name="title_notification_failed">「%1$s」失敗しました</string>
     <string name="title_notification_alert">サーバーアラート: %1$s</string>
     <string name="title_notification_sending_left">残りの試行回数: %1$d</string>
     <string name="title_notification_sending_retry">インターネット接続が変更されるか、送信トレイをプルダウンすると送信が再試行されます</string>
@@ -88,12 +88,12 @@
     <string name="menu_legend">凡例</string>
     <string name="menu_test">テストプログラム</string>
     <string name="menu_faq">サポート</string>
-    <string name="menu_translate">翻訳を手伝う</string>
+    <string name="menu_translate">翻訳を改善</string>
     <string name="menu_issue">問題を報告</string>
-    <string name="menu_attribution">帰属</string>
+    <string name="menu_attribution">オープンソースライセンス</string>
     <string name="menu_privacy">プライバシー</string>
-    <string name="menu_about">このアプリについて</string>
-    <string name="menu_pro">Pro 版の機能</string>
+    <string name="menu_about">アプリについて</string>
+    <string name="menu_pro">プロ版の機能</string>
     <string name="menu_rate">このアプリを評価</string>
     <string name="title_welcome">ようこそ</string>
     <string name="title_eula">エンドユーザー使用許諾契約書</string>
@@ -103,16 +103,16 @@
     <string name="title_version">バージョン %1$s</string>
     <string name="title_privacy_policy">プライバシーポリシー</string>
     <string name="title_list_accounts">アカウント</string>
-    <string name="title_list_identities">ユーザー情報</string>
+    <string name="title_list_identities">ID</string>
     <string name="title_edit_account">アカウントを編集</string>
-    <string name="title_edit_identity">ユーザー情報を編集</string>
+    <string name="title_edit_identity">ID を編集</string>
     <string name="title_edit_folder">フォルダーを編集</string>
     <string name="title_disable_gmail">Gmail アプリを無効にする</string>
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
-    <string name="title_setup_quick">クイック セットアップ</string>
+    <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_intro">3 ステップのアカウント設定で、すぐにメールを送受信できます</string>
-    <string name="title_setup_simple">オプションを設定する必要はありません</string>
+    <string name="title_setup_simple">オプション設定を変更する必要はありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
     <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnag がエラーレポートに使用されますが、デフォルトでは無効になっています。</string>
     <string name="title_setup_quick_accounts">アカウントの追加または変更</string>
@@ -280,6 +280,7 @@
     <string name="title_advanced_kept_removed">古いメッセージがサーバから削除されたか確認</string>
     <string name="title_advanced_gmail_thread">Gmail のメッセージグループ表示</string>
     <string name="title_advanced_sync_folders">フォルダーリストを同期</string>
+    <string name="title_advanced_sync_folders_poll">フォルダーリストをアクティブに同期</string>
     <string name="title_advanced_sync_shared_folders">共有フォルダーリストを同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
     <string name="title_advanced_check_authentication">メッセージ認証を確認</string>
@@ -371,7 +372,7 @@
     <string name="title_advanced_gravatars">Gravatar を表示</string>
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
-    <string name="title_advanced_favicons">Faviconsを表示</string>
+    <string name="title_advanced_favicons">Faviconを表示</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示</string>
     <string name="title_advanced_identicons">Identicon を表示</string>
     <string name="title_advanced_circular">丸いアイコンを表示</string>
@@ -576,6 +577,7 @@
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、バッテリー使用量とデータ使用量が大幅に増加することがあります</string>
     <string name="title_advanced_gmail_thread_hint">これは新しく受信したメッセージにのみ適用されます。また、既存のグループを壊す可能性があります</string>
     <string name="title_advanced_sync_folders_hint">無効にするとデータ使用量とバッテリー使用量が減少します</string>
+    <string name="title_advanced_poll_folders_hint">アカウントに接続したあと、さらにフォルダーリストを定期的に同期します</string>
     <string name="title_advanced_check_authentication_hint">メールサーバーで実行された DKIM、SPF、DMARC 認証の結果を確認します</string>
     <string name="title_advanced_check_reply_hint">差出人のドメイン名と返信先アドレスのドメイン名が同じかどうかを確認します</string>
     <string name="title_advanced_lookup_mx_hint">DNS MX レコードが存在するかどうかを確認します</string>
@@ -610,7 +612,7 @@
     <string name="title_advanced_preview_lines_hint">合計 %s 文字</string>
     <string name="title_advanced_preview_issue">行が複数の場合、一部の Android バージョンのバグによりスクロールが遅くなる可能性が有ります</string>
     <string name="title_advanced_overview_mode_hint">フォントが非常に小さくなることがあります</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">メッセージを小さくすることができますが、おかしな見た目になることもあります</string>
+    <string name="title_advanced_override_width_hint">メッセージを小さくすることができますが、おかしな見た目になることもあります</string>
     <string name="title_advanced_placeholders_hint">再フォーマットされたメッセージにのみ適用されます</string>
     <string name="title_advanced_inline_hint">インライン画像はメッセージに含まれる画像のことです</string>
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、遅延が発生する場合があります</string>
@@ -633,7 +635,7 @@
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプで消したり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定します</string>
-    <string name="title_advanced_notify_manage_service_hint">「モニタリング」通知を無効にします</string>
+    <string name="title_advanced_notify_manage_service_hint">「モニター」通知を無効にするには</string>
     <string name="title_advanced_notify_separate_hint">アカウント、フォルダ、差出人の通知を設定するにはどうすればよいですか？</string>
     <string name="title_advanced_notify_preview_all_hint">全文を表示できるウェアラブル（最大 5,000 文字）向け</string>
     <string name="title_advanced_notify_preview_only_hint">本文がダウンロードされるまで通知の表示を遅らせます</string>
@@ -950,7 +952,7 @@
     <string name="title_open_with">アプリで開く</string>
     <string name="title_authentication_failed">%1$s の認証に失敗しました</string>
     <string name="title_on_blocklist">迷惑メールブロックリストにあります</string>
-    <string name="title_receipt_subject">開封確認 Read receipt: %1$s</string>
+    <string name="title_receipt_subject">開封確認メッセージ: %1$s</string>
     <string name="title_receipt_text">この開封確認メッセージはメッセージが表示されたことを知らせるものです。受信者がメッセージを読んだことを保証するものではありません。</string>
     <string name="title_no_answers">返信テンプレートが定義されていません</string>
     <string name="title_no_viewer_caption">対応するビューワーアプリがありません</string>
@@ -970,6 +972,9 @@
     <string name="title_truncated">メッセージが大きすぎて完全には表示できません</string>
     <string name="title_insufficient_memory">使用可能なメモリーに対してメッセージが大きすぎます（%1$d）</string>
     <string name="title_show_full">メッセージ全体を表示</string>
+    <string name="title_fullscreen">全画面表示</string>
+    <string name="title_fit_width">幅に合わせる</string>
+    <string name="title_disable_widths">幅を無効にする</string>
     <string name="title_unused_inline">未使用のインライン画像は送信時に削除されます</string>
     <string name="title_accross_remark">アカウント間でメッセージを移動するともう一度ダウンロードされるため、余分にデータが使用されます</string>
     <string name="title_raw_saved">元のメッセージを保存しました</string>
@@ -1496,27 +1501,27 @@
     <string name="title_icalendar_decline">辞退する</string>
     <string name="title_icalendar_maybe">仮承諾</string>
     <string name="title_icalendar_calendar">カレンダー</string>
-    <string name="title_pro_feature">これはプロ機能です</string>
-    <string name="title_pro_list">プロ機能のリスト</string>
+    <string name="title_pro_feature">これはプロ版の機能です</string>
+    <string name="title_pro_list">プロ版の機能リスト</string>
     <string name="title_pro_purchase">購入</string>
     <string name="title_pro_one_time">%1$s（支払いは一回限り）</string>
     <string name="title_pro_no_play">Play ストアが見つかりませんでした</string>
     <string name="title_pro_info">FairEmail の開発には文字通り数千時間かかりましたが、それにもかかわらず、ほとんどの機能は無料で使用できます。
          FairEmail はあなたのプライバシーを真剣に考え、広告を表示せず、お金を稼ぐために追跡や分析を使用しません。
          FairEmail を長期的に維持およびサポートするために、いくつかの便利で高度な機能を無料で使用することはできません。
-         FairEmail は、これについて小さなリマインダーを表示します。これは、プロ機能を購入すると削除されます。
+         FairEmail は、これについて小さなリマインダーを表示します。これは、プロ版を購入すると削除されます。
     </string>
-    <string name="title_pro_whichever">どの機能がプロ機能に選ばれても、機能が無料であるべきであると文句を言う人が必ずいます。そのような人にならないでください。</string>
+    <string name="title_pro_whichever">どの機能がプロ版の機能に選ばれても、無料であるべきであると文句を言う人が必ずいます。そのような人にならないでください。</string>
     <string name="title_pro_hide">メッセージを %1$d 週間非表示にする</string>
-    <string name="title_pro_hint">プロ機能を購入すると、現在および将来すべてのプロ機能を使用できるようになり、アプリの開発とサポートを継続する支援になります</string>
-    <string name="title_pro_price">なぜプロ機能はそんなに高価なのですか？</string>
+    <string name="title_pro_hint">プロ版を購入すると、現在および将来すべてのプロ版の機能を使用できるようになり、アプリの開発とサポートを継続する支援になります</string>
+    <string name="title_pro_price">なぜプロ版はそんなに高価なのですか？</string>
     <string name="title_pro_family">Google Play ファミリーライブラリを使用できますか？</string>
     <string name="title_pro_restore">（別のデバイスで）購入を復元するにはどうすればよいですか？</string>
     <string name="title_pro_pending">購入保留中</string>
-    <string name="title_pro_activated">すべてのプロ機能が解放されました</string>
-    <string name="title_pro_valid">すべてのプロ機能が解放されています</string>
+    <string name="title_pro_activated">すべてのプロ版の機能が解放されました</string>
+    <string name="title_pro_valid">すべてのプロ版の機能が解放されています</string>
     <string name="title_pro_invalid">無効な応答</string>
-    <string name="title_pro_support">FairEmail はあなたの助けを必要としています。タップしてプロジェクトの維持のためにプロ機能を購入するか、このメッセージをオフにしてください。</string>
+    <string name="title_pro_support">FairEmail はあなたの助けを必要としています。タップしてプロジェクトの維持のためにプロ版を購入するか、このメッセージをオフにしてください。</string>
     <string name="title_boundary_error">メールサーバーからのメッセージのダウンロードエラー</string>
     <string name="title_boundary_retry">再試行</string>
     <string name="title_unexpected_error">予期しないエラー</string>

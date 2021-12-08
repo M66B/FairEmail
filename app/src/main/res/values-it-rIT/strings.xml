@@ -414,6 +414,7 @@
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>
     <string name="title_advanced_message_text_zoom2">Ingrandimento predefinito del testo del messaggio %1$s%%</string>
     <string name="title_advanced_overview_mode">Ingrandisci i messaggi originali per adattarsi allo schermo</string>
+    <string name="title_advanced_override_width">Disabilita le larghezze fisse nei messaggi originali</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa di default caratteri monospaziati per il testo del messaggio</string>
     <string name="title_advanced_monospaced_pre">Usa caratteri monospaziati per il testo preformattato</string>
@@ -620,6 +621,7 @@
     <string name="title_advanced_preview_lines_hint">%s caratteri massimi in totale</string>
     <string name="title_advanced_preview_issue">Lo scorrimento può esser lento per un bug in alcune versioni di Android quando il numero di righe è maggiore di uno</string>
     <string name="title_advanced_overview_mode_hint">Questo può risultare in font molto piccoli</string>
+    <string name="title_advanced_override_width_hint">Questo può restringere i messaggi, ma anche sembrare strano</string>
     <string name="title_advanced_placeholders_hint">Questo si applica solo ai messaggi riformattati</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
@@ -979,6 +981,9 @@
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
     <string name="title_insufficient_memory">Messaggio troppo grande per la memoria disponibile (%1$d)</string>
     <string name="title_show_full">Mostra messaggio completo</string>
+    <string name="title_fullscreen">Visualizza a schermo intero</string>
+    <string name="title_fit_width">Adatta la larghezza</string>
+    <string name="title_disable_widths">Disabilita larghezze</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate saranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra profili saranno riscaricati, risultando in un uso extra dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>

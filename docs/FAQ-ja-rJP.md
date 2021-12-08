@@ -87,13 +87,13 @@
 
 <h2><a name="planned-features"></a>予定されている機能</h2>
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
+* ~~オンデマンド（マニュアル）同期~~
+* ~~半自動暗号化~~
+* ~~メッセージをコピー~~
+* ~~色付きのスター~~
+* ~~フォルダーごとの通知設定~~
+* ~~署名にローカル画像を選択~~（実現には画像ファイルの管理が必要で、ほとんどのメールクライアントではデフォルトで画像が表示されないため、追加されません）
+* ~~ルールでメッセージをフィルター~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
@@ -126,8 +126,8 @@ The design is based on many discussions and if you like you can discuss about it
 
 <h2><a name="frequently-asked-questions"></a>よくある質問</h2>
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
+* [（1）必要とする権限とその理由は何ですか？](#user-content-faq1)
+* [（2）常に通知が表示されるのはなぜですか？](#user-content-faq2)
 * [(3) What are operations and why are they pending?](#user-content-faq3)
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)

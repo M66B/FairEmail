@@ -300,6 +300,7 @@
     <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
     <string name="title_advanced_gmail_thread">Stil grupare mesaje tip Gmail pentru conturile Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
+    <string name="title_advanced_sync_folders_poll">Sincronizarea activă a listei de dosare</string>
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_check_authentication">Verificarea autentificării mesajelor</string>
@@ -597,6 +598,7 @@
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_gmail_thread_hint">Acest lucru se aplică doar la mesajele noi primite și poate strica grupurile existente</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
+    <string name="title_advanced_poll_folders_hint">Sincronizarea periodică a listei de dosare în plus față de după conectarea la un cont</string>
     <string name="title_advanced_check_authentication_hint">Aceasta va verifica rezultatele autentificării DKIM, SPF și DMARC efectuate de serverul de e-mail</string>
     <string name="title_advanced_check_reply_hint">Acest lucru va verifica dacă numele de domeniu al expeditorului și adresa de răspuns sunt aceleași</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
@@ -631,7 +633,7 @@
     <string name="title_advanced_preview_lines_hint">Maxim %s caractere în total</string>
     <string name="title_advanced_preview_issue">Derularea poate fi lentă din cauza unei erori în unele versiuni de Android atunci când numărul de linii este mare</string>
     <string name="title_advanced_overview_mode_hint">Acest lucru poate duce la fonturi foarte mici</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Acest lucru poate face ca mesajele să fie mai înguste, dar și să arate ciudat</string>
+    <string name="title_advanced_override_width_hint">Acest lucru poate face ca mesajele să fie mai înguste, dar și să arate ciudat</string>
     <string name="title_advanced_placeholders_hint">Acest lucru se aplică numai mesajelor reformatate</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
@@ -991,6 +993,9 @@
     <string name="title_truncated">Mesaj prea mare pentru a-l putea afișa complet</string>
     <string name="title_insufficient_memory">Mesaj prea mare pentru memoria disponibilă (%1$d)</string>
     <string name="title_show_full">Arată mesajul întreg</string>
+    <string name="title_fullscreen">Afișează pe ecranul complet</string>
+    <string name="title_fit_width">Potrivește lățimea</string>
+    <string name="title_disable_widths">Dezactivați lățimile</string>
     <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>

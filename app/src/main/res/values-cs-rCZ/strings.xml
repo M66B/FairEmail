@@ -994,6 +994,7 @@
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>
     <string name="title_insufficient_memory">Zpráva je příliš velká na dostupnou paměť (%1$d)</string>
     <string name="title_show_full">Zobrazit celou zprávu</string>
+    <string name="title_fullscreen">Zobrazit na celou obrazovku</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>

@@ -571,7 +571,7 @@ Some providers allow you to have multiple aliases. You can configure these by se
 
 Note that you can copy an identity by long pressing it.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Ви також можете активувати функцію Allow editing sender address (Дозволити редагування адреси відправника) у розширених налаштуваннях наявного облікового запису, що дозволить редагувати ім'я користувача при створенні нового повідомлення, якщо провайдер дозволяє таку функцію.
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 

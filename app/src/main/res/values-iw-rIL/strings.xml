@@ -310,6 +310,7 @@
     <string name="title_advanced_kept_removed">לבדוק אם הודעות ישנות הוסרו מהשרת</string>
     <string name="title_advanced_gmail_thread">סגנון קיבוץ הודעות ב־Gmail לחשבונות Gmail</string>
     <string name="title_advanced_sync_folders">סנכרון רשימת התיקיות</string>
+    <string name="title_advanced_sync_folders_poll">סנכרון רשימת התיקיות באופן פעיל</string>
     <string name="title_advanced_sync_shared_folders">סנכרון רשימות תיקיות משותפות</string>
     <string name="title_advanced_subscriptions">ניהול מינוי על תיקיות</string>
     <string name="title_advanced_check_authentication">בדיקת אימות ההודעה</string>
@@ -606,6 +607,7 @@
     <string name="title_advanced_sync_kept_hint">יגרום להעברה של יותר נתונים וצריכה גבוהה יותר של סוללה, במיוחד אם הודעות רבות מאוחסנות במכשיר</string>
     <string name="title_advanced_gmail_thread_hint">חל רק על הודעות חדשות שמתקבלות ועלול לפגום בקבוצות קיימות</string>
     <string name="title_advanced_sync_folders_hint">השבתת האפשרות הזאת תצמצם את צריכת הנתונים והסוללהבמידה מסוימת אך תשבית גם את עדכון רשימת התיקיות</string>
+    <string name="title_advanced_poll_folders_hint">לסנכרן את רשימת התיקיות מדי פעם בנוסף לסנכרון שאחרי ההתחברות לחשבון</string>
     <string name="title_advanced_check_authentication_hint">אפשרות זו תבדוק את תוצאות אימות DKIM,‏ SPF ו־DMARC כפי שמבוצעות על ידי שרת הדוא״ל</string>
     <string name="title_advanced_check_reply_hint">מנגנון זה יבדוק אם שם התחום של המוען וכתובת המענה זהות</string>
     <string name="title_advanced_lookup_mx_hint">יבדוק אם קיימות רשומות MX ב־DNS</string>
@@ -640,7 +642,7 @@
     <string name="title_advanced_preview_lines_hint">%s תווים לכל היותר בסך הכול</string>
     <string name="title_advanced_preview_issue">גלילה עשויה להאט עקב תקלה בחלק מגרסאות ה־Android כשמספר השורות עולה על אחת</string>
     <string name="title_advanced_overview_mode_hint">יכול לגרום להקטנה מוגזמת של הגופנים</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">זה יכול להצר הודעות אבל גם להציג בצורה מוזרה</string>
+    <string name="title_advanced_override_width_hint">זה יכול להצר הודעות אבל גם להציג בצורה מוזרה</string>
     <string name="title_advanced_placeholders_hint">חל על הודעות שעוצבו מחדש בלבד</string>
     <string name="title_advanced_inline_hint">תמונות מובנות הן תמונות שכלולות בהודעה</string>
     <string name="title_advanced_parse_classes_hint">זה יציג הודעות בצורה יותר מדויקת אך כנראה עם עיכוב מסוים</string>
@@ -1000,6 +1002,9 @@
     <string name="title_truncated">ההודעה גדולה מכדי להופיע במלואה</string>
     <string name="title_insufficient_memory">ההודעה גדולה מדי לזיכרון הזמין (%1$d)</string>
     <string name="title_show_full">הצגת ההודעה המלאה</string>
+    <string name="title_fullscreen">הצגה במסך מלא</string>
+    <string name="title_fit_width">התאמה לרוחב</string>
+    <string name="title_disable_widths">השבתת רוחבים</string>
     <string name="title_unused_inline">תמונות פנימיות שאינן בשימוש תוסרנה בעת השליחה</string>
     <string name="title_accross_remark">הודעות שמועברות בין הודעות תתקבלנה שוב ותוביל לצריכת נתונים גבוהה</string>
     <string name="title_raw_saved">ההודעה הגולמית נשמרה</string>

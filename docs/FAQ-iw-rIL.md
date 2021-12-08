@@ -48,42 +48,42 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 ## איך…?
 
 * מחליפים את שם החשבון: הגדרות, נגיעה בהקמה אוטומטית, נגיעה בחשבונות, נגיעה בחשבון
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* מחליפים יעד החלקה ימינה/שמאלה: הגדרות, עמוד לשונית התנהגות, הגדרת פעולות החלקה
+* מחליפים סיסמה: הגדרות, נוגעים בהקמה ידנית, נוגעים בחשבונות, נוגעים בחשבון, מחליפים סיסמה
+* מגדירים חתימה: הגדרות, נוגעים בהקמה ידנית, נוגעים בזהויות, נוגעים בזהות, עריכת חתימה.
+* מוסיפים כתובות עותק ועותק נסתר: לגעת בסמל של איש הקשר בסוף הנושא
+* עוברים להודעות הבאה/הקודמת עם העברה לארכיון/מחיקה: בהגדרות ההתנהגות יש להשבית את *לסגור דיונים אוטומטית* ולבחור *מעבר לדיון הבא/הקודם* עבור *עם סגירת דיון*
+* מוסיפים תיקייה לתיבת הדואר הנכנס המאוחדת: לחיצה ארוכה על התיקייה ברשימת התיקיות ולסמן את *הצגה בדואר הנכנס המאוחד*
+* מוסיפים תיקייה לתפריט הניווט: לחיצה ארוכה על התיקייה ברשימת התיקיות ולסמן *הצגה בתפריט הניווט*
+* טוענים יותר הודעות: לחיצה ארוכה על תיקייה ברשימת התיקיות, בחירה ב*משיכת הודעות נוספות*
+* מוחקים הודעה תוך דילוג על האשפה: לחיצה ארוכה על סמל האשפה
+* מוחקים חשבון/זהות: הגדרות, לגעת בהקמה ידנית, לגעת בחשבונות/זהויות, לגעת בחשבון/זהות, סמל האשפה בפינה השמאלית למעלה
+* מוחקים תיקייה: לחיצה ארוכה ברשימת התיקיות, עריכת מאפיינים, סמל האשפה בפינה השמאלית העליונה
+* מבטלים שליחה: דואר יוצא, יש להחליק את ההודעה ברשימה שמאלה או ימינה
+* מאחסנים את ההודעות בתיבת הדואר הנכנס: נא [לפנות לשו״ת הזה](#user-content-faq142)
+* מחליפים את תיקיות המערכת: הגדרות, לגעת בהקמה ידנית, לגעת בחשבונות, לגעת בחשבון, למטה
+* הגדרות ייצוא/ייבוא: הגדרות, תפריט ניווט (מימין)
 
 <h2><a name="known-problems"></a>תקלה ידועה</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* ~~[תקלה ב־Android 5.1 וב־6](https://issuetracker.google.com/issues/37054851) גורמת ליישומונים להציג, לעתים, תבנית זמן שגויה. החלפת הגדרת ה־Android *להשתמש בתצורת 24 שעות* עשויה לפתור זמנית את התקלה. נוסף עיקוף.~~
+* ~~[תקלה ב־Google Drive](https://issuetracker.google.com/issues/126362828) גורמת לכך שקבצים שייוצאו ל־Google Drive נותרים ריקים. תוקנה על ידי Google.~~
+* ~~[תקלה ב־AndroidX](https://issuetracker.google.com/issues/78495471) גורמת ל־FairEmail לקרוס לעתים קרובות בלחיצה ארוכה או בהחלקה. תוקנה על ידי Google.~~
+* ~~[תקלה ב־AndroidX ROOM](https://issuetracker.google.com/issues/138441698) גורמת לפעמים לקריסה עם „*… חריגה בזמן חישוב מסד נתונים של נתונים חיים… לא ניתן לקרוא את השורה ...*”. נוסף עיקוף.~~
+* [תקלה ב־Android](https://issuetracker.google.com/issues/119872129) גורמת לפעמים ל־FairEmail לקרוס עם „*… פורסמה התראה שגויה…*” בחלק מהמכשירים פעם אחת לאחר עדכון FairEmail ונגיעה בהתראה.
+* [תקלה ב־Android](https://issuetracker.google.com/issues/62427912) גורמת לפעמים לקריסה עם „*… ActivityRecord לא נמצא עבור…*" לאחר עדכון FairEmail. התקנת ([המקור](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) מחדש עשויה לתקן את התקלה.
+* [תקלה ב־Android](https://issuetracker.google.com/issues/37018931) גורמת לפעמים לקריסה עם *… InputChannel לא מאותחל…* בחלק מהמכשירים.
+* ~~[תקלה ב־LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) לפעמים גורמת לקריסה עם ‎*... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.‎~~
+* תקלה במשגר Nova ב־Android 5.x גורמת ל־FairEmail לקרוס עם *java.lang.StackOverflowError* כאשר למשגר Nova יש גישה לשירות הנגישות.
+* ~~ בוחר התיקיות לפעמים לא מציג תיקיות מסיבות שטרם פוענחו. כנראה שזה תוקן.~~
+* ~~[תקלה ב־AndroidX](https://issuetracker.google.com/issues/64729576) מקשה על תפיסת הגולל המהיר. נוסף עיקוף.~~
+* ~~הצפנה עם YubiKey גורמת ללולאה אינסופית. נגרם, כפי הנראה, עקב [תקלה ב־OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* גלילה למיקום מקושר פנימי בהודעות המקוריות לא עובדת. אי אפשר לתקן את זה כיוון שתצוגת ההודעה המקורית מוכלת בתצוגת גלילה.
+* תצוגת תוכן ההודעה לא (תמיד) מופיע בשעונים של Samsung כיוון ש־[setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) כנראה לא תקף. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. התקלה הזאת תוקנה ב־Android 6.0.1.
+* קישורים פנימיים (עוגן) לא יעבדו כיוון שההודעות המקוריות מופיעות ב־WebView שמוטמע בתצוגה נגללת (רשימת הדיונים). זאת מגבלה של Android שלא ניתן לתקן או לעקוף.
+* זיהוי שפה [לא עובד יותר](https://issuetracker.google.com/issues/173337263) במכשירי Pixel עם (שדרוג אל?) Android 11
+* [תקלה ב־OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) גורמת לחתימות PGP שגויות בעת שימוש באסימון חומרתי.
 
 <h2><a name="planned-features"></a>יכולות מתוכננות</h2>
 
@@ -92,8 +92,8 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~העתקת הודעה~~
 * ~~כוכבים צבעוניים~~
 * ~~הגדרות התראה לפי תיקייה~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
+* ~~בחירת תמונות מקומיות כחתימות~~ (לא יתווסף כיוון שזה דורש ניהול קובצי תמונות וכיוון שהתמונות לא מופיעות כברירת מחדל ברוב לקוחות הדוא״ל בין כה וכה)
+* ~~להציג הודעות שתואמות לכלל~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
@@ -103,15 +103,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
+* ~~תצוגת תיקייה מצומצמת יותר~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~צביטה משנה את גודל הטקסט~~
+* ~~הצגת GIFים~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
+* ~~שליחה כקובץ מצורף~~
+* ~~וידג׳ט לחשבון נבחר~~
+* ~~תזכורת לצירוף קבצים~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
@@ -126,20 +126,20 @@ The design is based on many discussions and if you like you can discuss about it
 
 <h2><a name="frequently-asked-questions"></a>שאלות נפוצות</h2>
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
+* [(1) אילו הרשאות נחוצות ומדוע?](#user-content-faq1)
+* [(2) למה מופיעה התראה קבועה?](#user-content-faq2)
+* [(3) מה הן פעולות ומדוע הן ממתינות?](#user-content-faq3)
+* [(4) כיצד ניתן להשתמש באישור אבטחה שגוי / סיסמה ריקה / חיבור בטקסט פשוט?](#user-content-faq4)
+* [(5) אפשר לכוון את תצוגת ההודעות?](#user-content-faq5)
+* [(6) איך אפשר להיכנס ל־Gmail / G suite?](#user-content-faq6)
+* [(7) למה הודעות שנשלחות לא מופיעות (ישירות) בתיקיית ההודעות שנשלחו?](#user-content-faq7)
+* [(8) אפשר להשתמש בחשבון Microsoft Exchange?](#user-content-faq8)
+* [(9) מה הן זהויות / כיצד ניתן להוסיף כינוי?](#user-content-faq9)
+* [~~(11) למה אין תמיכה ב־POP?~~](#user-content-faq11)
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
+* [(12) איך עובדים ההצפנה/הפענוח?](#user-content-faq12)
+* [(13) איך עובד החיפוש במכשיר/שרת?](#user-content-faq13)
+* [(14) איך אפשר להקים חשבון Outlook / Live / Hotmail?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
@@ -147,17 +147,17 @@ The design is based on many discussions and if you like you can discuss about it
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
+* [(22) מה המשמעות של שגיאת חשבון/תיקייה?](#user-content-faq22)
+* [(23) למה קיבלתי התראה… ?](#user-content-faq23)
+* [(24) מה זה עיון בהודעות בשרת?](#user-content-faq24)
+* [(25) למה אי אפשר לבחור/לפתוח/לשמור תמונה או קובץ מצורף?](#user-content-faq25)
+* [(26) אוכל לסייע לתרגם את FairEmail לשפה שלי?](#user-content-faq26)
+* [(27) איך אפשר להבדיל בין תמונות מוטמעות לחיצוניות?](#user-content-faq27)
+* [(28) איך אפשר לנהל התראות בשורת המצב?](#user-content-faq28)
+* [(29) איך אפשר לקבל התראות על הודעות חדשות בתיקיות אחרות?](#user-content-faq29)
+* [(30) איך אפשר להשתמש בהגדרות המהירות שסופקו?](#user-content-faq30)
+* [(31) איך אפשר להשתמש בקיצורים שסופקו?](#user-content-faq31)
+* [(32) איך ניתן לבדוק אם קריאת הדוא״ל היא אכן בטוחה?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
 * [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
@@ -2683,7 +2683,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![תמונה חיצונית](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2696,17 +2696,17 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-Account:
+חשבון:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-Folder:
+תיקייה:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Sender:
+מוען:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2719,15 +2719,15 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <br />
 
 <a name="faq146"></a>
-**(146) How can I fix incorrect message times?**
+**(146) איך אפשר לתקן מועדי הודעות שגויים?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
+מאחר שהתאריך/שעה הם בגדר רשות והמוען יכול לשנות אותם, FairEmail משתמש בזמועד הקבלה מהשרת כברירת מחדל.
 
-Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
+לפעמים מועד הקבלה מהשרת שגוי, בעיקר כיוון שההודעות יובאו באופן שגוי משרת אחר ולעתים עקב תקלה בשרת הדוא״ל.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
+במקרים נדירים אלו, אפשר להרשות ל־FariEmail להשתמש בתאריך/שעה מהכותרת *תאריך* (מועד השליחה) או מהכותרת *התקבל* כפתרון עוקף. אפשר לשנות את זה בהגדרות החשבון המתקדמות: הגדרות, לגעת בהקמה ידנית, לגעת בחשבונות, לגעת בחשבון, לגעת במתקדם.
 
-This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
+זה לא ישנה את המועד של הודעות שכבר סונכרנו. כדי לפתור את זה, ללחוץ ארוכות על התיקיות ברשימת התיקיות ולבחור ב*מחיקת הודעות מקומיות* וב*סנכרון כעת*.
 
 <br />
 
@@ -2740,13 +2740,13 @@ There is **only support** on the latest Play store version, the latest GitHub re
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+גירסת ה־F-Droid נבנית מאותו קוד המקור אך חתומה בצורה אחרת. משמעות הדבר היא שכל היכולות זמינות גם בגירסה שב־F-Droid, למעט בשימוש באשף ההקמה המהירה של Gmail כיוון ש־Google אישרה (ומאפשרת) חתימת יישומון אחת בלבד. לכל שאר ספקי הדוא״ל, גישה עם OAuth אפשרי רק בגרסאות חנות Play ומהדורות GitHub כיוון שספקי הדוא״ל מרשים להשתמש ב־OAuth במהדורות רשמיות בלבד.
 
-Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
+נא לשים לב שעליך להסיר את המהדורה של F-Droid תחילה בטרם התקנת המהדורה מ־GitHub כיוון ש־Android מסרב להתקין את אותו היישומון עם חתימות שונות מטעמי אבטחת מידע.
 
-Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
+נא לשים לב שהמהדורה מ־GitHub תבדוק אוטומטית אם יש עדכונים. במידת הצורך, אפשר לכבות את זה בהגדרות השונות.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+[כאן](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) ניתן לראות את כל אפשרויות ההורדה.
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
@@ -2940,13 +2940,13 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) מה הוא סיווג הודעות?**
 
-*This is an experimental feature!*
+*זאת יכולת ניסיונית!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+סיווג הודעות תנסה לקבץ הודעות למחלקות אוטומטית בהתאם לתוכן שלהן, באמצעות [סטטיסטיקה בייסיאנית](https://en.wikipedia.org/wiki/Bayesian_statistics). בהקשר של FairEmail, תיקייה היא מחלקה. לכן, למשל, תיבת הדואר הנכנס, תיקיית הספאם, תיקיית ‚שיווק’ וכו׳.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+ניתן להפעיל סיווג הודעות בהגדרות השונות. זה יפעיל מצב ‚למידה’ בלבד. המסווג ‚ילמד’ מהודעות חדשות בתיבת הדואר הנכנס ומהספאם כברירת מחדל. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
@@ -2982,7 +2982,7 @@ Message classification is a pro feature, except for the spam folder.
 <br />
 
 <a name="faq164"></a>
-**(164) Can you add customizable themes?**
+**(164) אפשר להוסיף ערכות עיצוב משלך?**
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
@@ -3023,29 +3023,29 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<h2><a name="get-support"></a>קבלת תמיכה</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Only the latest Play store version and latest GitHub release are supported. המהדורה של F-Droid נתמכת רק אם מספר הגירסה זהה למספר הגירסה העדכני ביותר ב־GitHub. משמעות הדבר היא שגם אין אפשרות לשנמך.
 
-There is no support on things that are not directly related to FairEmail.
+אין תמיכה בדברים שאינם קשורים ישירות ל־FairEmail.
 
-There is no support on building and developing things by yourself.
+אין תמיכה בבניית ופיתוח דברים בעצמך.
 
-Requested features should:
+יכולות שמבקשים אמורות להיות:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* שימושית לרוב האנשים
+* לא לסבך את השימוש ב־FairEmail
+* להתאים לעקרונות של FairEmail (מונחית פרטיות, ממוקדת אבטחה)
+* לעמוד בתקנים נפוצים (IMAP,‏ SMTP וכו׳)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+יכולות שלא עומדות בדרישות האלו כנראה תידחנה. זה נועד גם כדי לשמור על אפשרויות סבירות לתחזוקה ולתמיכה בטווח הרחוק.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+יש לך שאלה, יש יכולת שמעניין אותך שתמומש או תקלה שדורשת תיקון **נא להשתמש [בטופס הזה](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+מעקב התקלות ב־GitHub הושבת עקב שימוש לקוי באופן תדיר.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+כל הזכויות שמורות &copy; ‏2018‏-2021 Marcel Bokhorst.

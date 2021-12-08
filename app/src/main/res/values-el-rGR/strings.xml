@@ -290,6 +290,7 @@
     <string name="title_advanced_kept_removed">Έλεγχος αν τα παλιά μηνύματα έχουν διαγραφεί από τον διακομιστή</string>
     <string name="title_advanced_gmail_thread">Ομαδοποίηση μηνυμάτων με το στιλ του Gmail για λογαριασμούς Google</string>
     <string name="title_advanced_sync_folders">Συγχρονισμός της λίστας φακέλων</string>
+    <string name="title_advanced_sync_folders_poll">Ενεργός συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_shared_folders">Συγχρονισμός της λίστας κοινών φακέλων</string>
     <string name="title_advanced_subscriptions">Διαχείριση συνδρομών σε φακέλους</string>
     <string name="title_advanced_check_authentication">Έλεγχος ταυτοποίησης μηνύματος</string>
@@ -585,6 +586,7 @@
     <string name="title_advanced_sync_kept_hint">Μεταφέρει πρόσθετα δεδομένα και καταναλώνει επιπλέον μπαταρία, ιδίως αν είναι αποθηκευμένα στη συσκευή πολλά μηνύματα</string>
     <string name="title_advanced_gmail_thread_hint">Αυτό εφαρμόζεται μόνον σε μηνύματα που λήφθηκαν πρόσφατα και μπορεί να διαλύσει υπάρχουσες ομάδες</string>
     <string name="title_advanced_sync_folders_hint">Αν απενεργοποιηθεί, θα μειωθεί κάπως η χρήση δεδομένων και μπαταρίας, αλλά θα απενεργοποιηθεί και ο συγχρονισμός της λίστας των φακέλων επίσης</string>
+    <string name="title_advanced_poll_folders_hint">Επιπρόσθετος περιοδικός συγχρονισμός της λίστας φακέλων, μετά από τη σύνδεση σε έναν λογαριασμό</string>
     <string name="title_advanced_check_authentication_hint">Αυτό θα ελέγξει τα αποτελέσματα της ταυτοποίησης DKIM, SPF και DMARC, όπως εκτελείται από τον διακομιστή ηλ. ταχυδρομείου</string>
     <string name="title_advanced_check_reply_hint">Ελέγχει αν το το όνομα τομέα του αποστολέα και η διεύθυνση απάντησης είναι ίδια</string>
     <string name="title_advanced_lookup_mx_hint">Ελέγχει αν υπάρχουν καταγραφές DNS MX</string>
@@ -619,7 +621,7 @@
     <string name="title_advanced_preview_lines_hint">Μέγιστο %s χαρακτήρες συνολικά</string>
     <string name="title_advanced_preview_issue">Η κύλιση ενδέχεται να καθυστερεί εξαιτίας ενός σφάλματος σε ορισμένες εκδόσεις του Android, όταν ο αριθμός των σειρών υπερβαίνει τη μία</string>
     <string name="title_advanced_overview_mode_hint">Μπορεί να προκαλέσει πολύ μικρές γραμματοσειρές</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Αυτό μπορεί να κάνει τα μηνύματα να προβάλλονται πιο στενά, αλλά και κάπως παράξενα</string>
+    <string name="title_advanced_override_width_hint">Αυτό μπορεί να κάνει τα μηνύματα να προβάλλονται πιο στενά, αλλά και κάπως παράξενα</string>
     <string name="title_advanced_placeholders_hint">Εφαρμόζεται μόνον στα αναμορφοποιημένα μηνύματα</string>
     <string name="title_advanced_inline_hint">Οι ένθετες εικόνες είναι οι εικόνες που περιλαμβάνονται στο μήνυμα</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
@@ -979,6 +981,9 @@
     <string name="title_truncated">Το μύνημα είναι πολύ μεγάλο για να προβληθεί ολόκληρο</string>
     <string name="title_insufficient_memory">Υπερβολικά μεγάλο μήνυμα για τη διαθέσιμη μνήμη (%1$d)</string>
     <string name="title_show_full">Προβολή πλήρους μηνύματος</string>
+    <string name="title_fullscreen">Προβολή σε πλήρη οθόνη</string>
+    <string name="title_fit_width">Προσαρμογή στο πλάτος οθόνης</string>
+    <string name="title_disable_widths">Απενεργοποίηση πλατών</string>
     <string name="title_unused_inline">Οι μη χρησιμοποιημένες ένθετες εικόνες θα αφαιρεθούν κατά την αποστολή</string>
     <string name="title_accross_remark">Μηνύματα που έχουν μετακινηθεί μεταξύ των λογαριασμών θα κατέβουν εκ νέου, με αποτέλεσμα επιπλέον χρήση δεδομένων</string>
     <string name="title_raw_saved">Το αρχικό μήνυμα αποθηκεύτηκε</string>

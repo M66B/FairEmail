@@ -280,6 +280,7 @@
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
     <string name="title_advanced_gmail_thread">为 Gmail 账户采用 Gmail (官方)分组风格</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
+    <string name="title_advanced_sync_folders_poll">主动同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_check_authentication">检查消息认证</string>
@@ -577,6 +578,7 @@
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_gmail_thread_hint">这只适用于新收到的消息，且可能会破坏现有的组</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_poll_folders_hint">定期同步文件夹列表（除了在连接账户后）</string>
     <string name="title_advanced_check_authentication_hint">这将检查电子邮件服务器执行的DKIM、SPF和DMARC认证的结果</string>
     <string name="title_advanced_check_reply_hint">这会检查发送者的域名和回复地址是否相同</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
@@ -611,7 +613,7 @@
     <string name="title_advanced_preview_lines_hint">总共最多 %s 个字符</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">这可以使消息更窄，但看起来很奇怪。</string>
+    <string name="title_advanced_override_width_hint">这可以使消息更窄，但看起来很奇怪。</string>
     <string name="title_advanced_placeholders_hint">这仅适用于重建格式的消息</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
@@ -970,6 +972,9 @@
     <string name="title_truncated">消息内容太多，无法完全显示</string>
     <string name="title_insufficient_memory">邮件过大，内存不足（可用内存为 %1$d）</string>
     <string name="title_show_full">显示完整消息</string>
+    <string name="title_fullscreen">全屏显示</string>
+    <string name="title_fit_width">自适应宽度</string>
+    <string name="title_disable_widths">禁用宽度</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>

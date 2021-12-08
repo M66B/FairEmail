@@ -973,6 +973,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_truncated">Mesaj tamamen görüntülenemeyecek kadar büyük</string>
     <string name="title_insufficient_memory">İleti, kullanılabilir bellek için çok büyük (%1$d)</string>
     <string name="title_show_full">Mesajın tamamını göster</string>
+    <string name="title_fullscreen">Tam ekran göster</string>
     <string name="title_unused_inline">Kullanılmayan satır içi resimler gönderirken kaldırılacaktır</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>

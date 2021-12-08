@@ -290,6 +290,7 @@
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
     <string name="title_advanced_gmail_thread">Die Nachrichten in Gmail-Konten im Stil von Gmail gruppieren</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
+    <string name="title_advanced_sync_folders_poll">Ordnerliste aktiv synchronisieren</string>
     <string name="title_advanced_sync_shared_folders">Listen der freigegebenen Ordner synchronisieren</string>
     <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
     <string name="title_advanced_check_authentication">Nachrichtenauthentifizierung prüfen</string>
@@ -587,6 +588,7 @@
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_gmail_thread_hint">Dies gilt nur für neu empfangene Nachrichten und kann bestehende Gruppen zerbrechen</string>
     <string name="title_advanced_sync_folders_hint">Die Deaktivierung dieser Funktion verringert den Daten- und Akkuverbrauch etwas, deaktiviert aber auch die Aktualisierung der Ordnerliste.</string>
+    <string name="title_advanced_poll_folders_hint">Synchronisiert die Ordnerliste regelmäßig und zusätzlich nach der Verbindung mit einem Konto</string>
     <string name="title_advanced_check_authentication_hint">Damit werden die Ergebnisse der DKIM-, SPF- und DMARC-Authentifizierung geprüft, wie sie vom E-Mail-Server durchgeführt werden</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
@@ -621,7 +623,7 @@
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Dies kann zu sehr kleinen Schriften führen</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Dies kann nicht nur dazu führen, dass die Nachrichten schmaler werden, sondern auch ungewohnt aussehen.</string>
+    <string name="title_advanced_override_width_hint">Dies kann nicht nur dazu führen, dass die Nachrichten schmaler werden, sondern auch ungewohnt aussehen.</string>
     <string name="title_advanced_placeholders_hint">Das gilt nur für umformatierte Nachrichten</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
@@ -980,6 +982,9 @@
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
     <string name="title_insufficient_memory">Nachricht zu groß für den verfügbaren Speicher (%1$d)</string>
     <string name="title_show_full">Vollständige Nachricht anzeigen</string>
+    <string name="title_fullscreen">Vollbild anzeigen</string>
+    <string name="title_fit_width">An Bildschirmbreite anpassen</string>
+    <string name="title_disable_widths">Breitenanpassung deaktivieren</string>
     <string name="title_unused_inline">Ungenutzte Inline-Bilder werden beim Senden entfernt</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>
     <string name="title_raw_saved">Rohdaten gespeichert</string>

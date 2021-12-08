@@ -310,6 +310,7 @@
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
     <string name="title_advanced_gmail_thread">Styl grupowania wiadomości Gmail dla kont Gmail</string>
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
+    <string name="title_advanced_sync_folders_poll">Aktywnie synchronizuj listę folderów</string>
     <string name="title_advanced_sync_shared_folders">Synchronizuj listy udostępnionych folderów</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
     <string name="title_advanced_check_authentication">Sprawdź uwierzytelnianie wiadomości</string>
@@ -607,6 +608,7 @@
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_gmail_thread_hint">Dotyczy to tylko nowo odebranych wiadomości i może uszkodzić istniejące grupy</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
+    <string name="title_advanced_poll_folders_hint">Okresowo synchronizuj listę folderów po połączeniu z kontem</string>
     <string name="title_advanced_check_authentication_hint">Spowoduje to sprawdzenie wyników uwierzytelniania DKIM, SPF i DMARC w sposób wykonywany przez serwer poczty elektronicznej</string>
     <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adres odpowiedzi są takie same</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
@@ -641,7 +643,7 @@
     <string name="title_advanced_preview_lines_hint">Maksymalnie %s znaków</string>
     <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jedna</string>
     <string name="title_advanced_overview_mode_hint">Może to skutkować bardzo małymi czcionkami</string>
-    <string name="title_advanced_override_width_hint" comment="title_advanced_override_width_hint&#10;narrower as in less wide.&#10;">Może to sprawić, że wiadomości będą węższe, ale też dziwnie wyglądające</string>
+    <string name="title_advanced_override_width_hint">Może to sprawić, że wiadomości będą węższe, ale też dziwnie wyglądające</string>
     <string name="title_advanced_placeholders_hint">Dotyczy to tylko przeformatowanych wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
@@ -1001,6 +1003,9 @@
     <string name="title_truncated">Wiadomość jest za duża, aby wyświetlić ją w całości</string>
     <string name="title_insufficient_memory">Wiadomość jest zbyt duża dla dostępnej pamięci (%1$d)</string>
     <string name="title_show_full">Pokaż pełną wiadomość</string>
+    <string name="title_fullscreen">Pokaż na pełnym ekranie</string>
+    <string name="title_fit_width">Dopasuj szerokość</string>
+    <string name="title_disable_widths">Wyłącz szerokości</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>
