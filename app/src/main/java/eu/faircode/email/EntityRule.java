@@ -125,10 +125,14 @@ public class EntityRule {
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
 
     static boolean needsHeaders(List<EntityRule> rules) {
+        return needs(rules, "header");
+    }
+
+    private static boolean needs(List<EntityRule> rules, String what) {
         for (EntityRule rule : rules)
             try {
                 JSONObject jcondition = new JSONObject(rule.condition);
-                if (jcondition.has("header"))
+                if (jcondition.has(what))
                     return true;
             } catch (Throwable ex) {
                 Log.e(ex);
