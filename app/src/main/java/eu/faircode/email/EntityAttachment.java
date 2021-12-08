@@ -32,6 +32,7 @@ import androidx.room.PrimaryKey;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -232,6 +233,33 @@ public class EntityAttachment {
         }
 
         return type;
+    }
+
+    public static boolean equals(List<EntityAttachment> a1, List<EntityAttachment> a2) {
+        if (a1 == null || a2 == null)
+            return false;
+
+        List<EntityAttachment> list = new ArrayList<>();
+
+        for (EntityAttachment a : a1)
+            if (a.available && !a.isEncryption())
+                list.add(a);
+
+        for (EntityAttachment a : a2)
+            if (a.available && !a.isEncryption()) {
+                boolean found = false;
+                for (EntityAttachment l : list)
+                    if (Objects.equals(a.sequence, l.sequence) &&
+                            Objects.equals(a.subsequence, l.subsequence)) {
+                        list.remove(l);
+                        found = true;
+                        break;
+                    }
+                if (!found)
+                    return false;
+            }
+
+        return (list.size() == 0);
     }
 
     @Override

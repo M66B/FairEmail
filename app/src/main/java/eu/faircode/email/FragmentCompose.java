@@ -286,7 +286,7 @@ public class FragmentCompose extends FragmentBase {
     private State state = State.NONE;
     private boolean show_images = false;
     private Boolean last_plain_only = null;
-    private int last_available = 0; // attachments
+    private List<EntityAttachment> last_attachments = null;
     private boolean saved = false;
     private String subject = null;
 
@@ -5040,16 +5040,12 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 last_plain_only = data.draft.plain_only;
+                last_attachments = db.attachment().getAttachments(data.draft.id);
 
-                List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
-                for (EntityAttachment attachment : attachments)
-                    if (attachment.available) {
-                        if (!attachment.isEncryption())
-                            last_available++;
-                    } else {
-                        if (attachment.progress == null)
+                if (last_attachments != null)
+                    for (EntityAttachment attachment : last_attachments)
+                        if (!attachment.available && attachment.progress == null)
                             EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
-                    }
 
                 db.setTransactionSuccessful();
             } finally {
@@ -5543,14 +5539,11 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }
 
-                    int available = 0;
                     List<Integer> eparts = new ArrayList<>();
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available)
                             if (attachment.isEncryption())
                                 eparts.add(attachment.encryption);
-                            else
-                                available++;
 
                     if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt)) {
                         if (!eparts.contains(EntityAttachment.PGP_KEY) ||
@@ -5580,11 +5573,11 @@ public class FragmentCompose extends FragmentBase {
                             !Objects.equals(draft.subject, subject) ||
                             !draft.signature.equals(signature) ||
                             !Objects.equals(last_plain_only, draft.plain_only) ||
-                            last_available != available)
+                            !EntityAttachment.equals(last_attachments, attachments))
                         dirty = true;
 
                     last_plain_only = draft.plain_only;
-                    last_available = available;
+                    last_attachments = attachments;
 
                     if (dirty) {
                         // Update draft
