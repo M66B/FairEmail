@@ -2798,8 +2798,8 @@ class Core {
 
                         // No MX check
 
-                        List<Header> headers =
-                                (EntityRule.needsHeaders(rules) ? helper.getAllHeaders() : null);
+                        boolean needsHeaders = EntityRule.needsHeaders(rules);
+                        List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
                         String body = parts.getHtml(context);
 
                         try {
@@ -3654,10 +3654,12 @@ class Core {
             }
         }
 
-        List<Header> headers =
-                (EntityRule.needsHeaders(rules) ? helper.getAllHeaders() : null);
-        String body =
-                (EntityRule.needsBody(rules) ? helper.getMessageParts().getHtml(context) : null);
+        boolean needsHeaders = EntityRule.needsHeaders(rules);
+        boolean needsBody = EntityRule.needsBody(rules);
+        if (needsHeaders || needsBody)
+            Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
+        List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
+        String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
 
         if (message == null) {
             Long sent = helper.getSent();
