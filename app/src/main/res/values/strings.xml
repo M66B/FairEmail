@@ -1475,7 +1475,7 @@
     <string name="title_rule_mime_type" translatable="false">Mime type</string>
     <string name="title_rule_header">Header contains</string>
     <string name="title_rule_body">Text contains</string>
-    <string name="title_rule_body_remark">Using this condition will always download the message text for all new messages in this folder</string>
+    <string name="title_rule_body_remark">Using this condition will always download the message text, which may slow down the synchronization of the message list</string>
     <string name="title_rule_time_abs">Absolute time (received) between</string>
     <string name="title_rule_time_after">Received after</string>
     <string name="title_rule_time_before">Received before</string>
