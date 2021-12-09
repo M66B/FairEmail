@@ -2329,6 +2329,9 @@ Note that email addresses are formatted like this:
 "Somebody" <somebody@example.org>
 ``
 
+Note that message texts are normalized, which means that all whitespaces (spaces, tabs, line breaks, etc) are replaced by a single space.
+This makes it easier to match texts on multiple lines or when the line break is at different places.
+
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
