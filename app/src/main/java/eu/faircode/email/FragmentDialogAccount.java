@@ -27,9 +27,13 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,7 +55,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         final Context context = getContext();
 
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_review_account, null);
-        final TextView tvName = dview.findViewById(R.id.tvName);
+        final EditText etName = dview.findViewById(R.id.etName);
         final TextView tvInbox = dview.findViewById(R.id.tvInbox);
         final TextView tvDrafts = dview.findViewById(R.id.tvDrafts);
         final TextView tvSent = dview.findViewById(R.id.tvSent);
@@ -77,7 +81,8 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         tvJunk.setCompoundDrawablesRelative(null, null, null, null);
         tvArchive.setCompoundDrawablesRelative(null, null, null, null);
 
-        tvName.setText(null);
+        etName.setText(null);
+        etName.setEnabled(false);
         tvLeft.setText(null);
         tvRight.setText(null);
 
@@ -86,6 +91,52 @@ public class FragmentDialogAccount extends FragmentDialogBase {
 
         Bundle args = getArguments();
         final long account = args.getLong("account");
+
+        Runnable update = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String tag = (String) etName.getTag();
+                    String name = etName.getText().toString();
+                    if (!TextUtils.isEmpty(name) && !name.equals(tag)) {
+                        args.putString("name", name);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("account");
+                                String name = args.getString("name");
+
+                                DB db = DB.getInstance(context);
+                                db.account().setAccountName(id, name);
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                // Ignored
+                            }
+                        }.execute(FragmentDialogAccount.this, args, "account:name");
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        };
+
+        etName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    update.run();
+                    dismiss();
+                    return true;
+                }
+
+                return false;
+            }
+        });
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +166,11 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         db.account().liveAccount(account).observe(this, new Observer<EntityAccount>() {
             @Override
             public void onChanged(EntityAccount account) {
-                tvName.setText(account.name);
+                if (!etName.isEnabled()) {
+                    etName.setTag(account.name);
+                    etName.setText(account.name);
+                    etName.setEnabled(true);
+                }
                 btnGmail.setVisibility(
                         hasGmail && account.auth_type == AUTH_TYPE_GMAIL
                                 ? View.VISIBLE : View.GONE);
@@ -179,6 +234,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        update.run();
                         sendResult(RESULT_OK);
                     }
                 })
