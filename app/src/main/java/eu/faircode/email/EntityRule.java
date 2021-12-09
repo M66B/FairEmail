@@ -308,6 +308,9 @@ public class EntityRule {
                 String value = jbody.getString("value");
                 boolean regex = jbody.getBoolean("regex");
 
+                if (!regex)
+                    value = value.replaceAll("\\s+", " ");
+
                 if (html == null && message.content) {
                     File file = message.getFile(context);
                     try {
