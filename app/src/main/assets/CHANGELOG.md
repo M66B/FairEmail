@@ -4,9 +4,9 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
-### Next version
+### 1.1785 - 2021-12-09
 
-* Added text contains filter rule condition
+* Added "text contains" filter rule condition
 * Small improvements and minor bug fixes
 * Updated translations
 
