@@ -563,7 +563,7 @@ public class MessageHelper {
                 EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt)) {
             String msg = "Storing unencrypted message" +
                     " encrypt=" + message.encrypt + "/" + message.ui_encrypt;
-            Log.e(msg);
+            Log.w(msg);
             throw new IllegalArgumentException(msg);
         }
 
