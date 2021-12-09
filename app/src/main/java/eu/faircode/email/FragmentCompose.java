@@ -5742,7 +5742,9 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_undo ||
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
-                        if ((dirty || encrypted) && !needsEncryption) {
+                        boolean unencrypted = (draft.ui_encrypt == null ||
+                                EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt));
+                        if ((dirty && unencrypted) || encrypted) {
                             if (save_drafts) {
                                 Map<String, String> c = new HashMap<>();
                                 c.put("id", draft.id == null ? null : Long.toString(draft.id));
