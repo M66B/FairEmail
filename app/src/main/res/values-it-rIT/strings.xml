@@ -290,6 +290,7 @@
     <string name="title_advanced_kept_removed">Verifica se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_gmail_thread">Stile di raggruppamento dei messaggi di Gmail per i profili di Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco delle cartelle</string>
+    <string name="title_advanced_sync_folders_poll">Sincronizza attivamente l\'elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
     <string name="title_advanced_subscriptions">Gestisci sottoscrizioni alla cartella</string>
     <string name="title_advanced_check_authentication">Verifica l\'autenticazione del messaggio</string>
@@ -587,6 +588,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia extra della batteria, specialmente se sono memorizzati molti messaggi sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Ciò si applica solo ai messaggi appena ricevuti e può corrompere i gruppi esistenti</string>
     <string name="title_advanced_sync_folders_hint">Disabilitarlo ridurrà in qualche modo l\'uso dei dati e della batteria, ma disabiliterà anche l\'aggiornamento dell\'elenco delle cartelle</string>
+    <string name="title_advanced_poll_folders_hint">Sincronizza periodicamente l\'elenco di cartelle oltre alla connessione a un profilo</string>
     <string name="title_advanced_check_authentication_hint">Questo controllerà i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguita dal server email</string>
     <string name="title_advanced_check_reply_hint">Questo verificherà se il nome del dominio del mittente e l\'indirizzo di risposta sono uguali</string>
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>

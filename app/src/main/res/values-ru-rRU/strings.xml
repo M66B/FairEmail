@@ -1301,6 +1301,8 @@
     <string name="title_rule_subject">\"Тема\" содержит</string>
     <string name="title_rule_attachments">Имеет вложения</string>
     <string name="title_rule_header">Заголовок содержит</string>
+    <string name="title_rule_body">Текст содержит</string>
+    <string name="title_rule_body_remark">Использование этого условия всегда будет загружать текст сообщения для всех новых сообщений в этой папке</string>
     <string name="title_rule_time_abs">Абсолютное время (получения) между</string>
     <string name="title_rule_time_after">Получено после</string>
     <string name="title_rule_time_before">Получено до</string>
@@ -1330,6 +1332,7 @@
     <string name="title_rule_applied">Затронутые сообщения: %1$d</string>
     <string name="title_rule_check">Проверить</string>
     <string name="title_rule_no_headers">Условия заголовка не могут быть проверены</string>
+    <string name="title_rule_no_body">Текст сообщения недоступен</string>
     <string name="title_rule_matched">Подходящие сообщения</string>
     <string name="title_rule_no_matches">Нет подходящих сообщений</string>
     <string name="title_rule_tts_ok">Установка в порядке</string>

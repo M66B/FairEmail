@@ -1270,6 +1270,8 @@
     <string name="title_rule_subject">主题包含</string>
     <string name="title_rule_attachments">含附件</string>
     <string name="title_rule_header">邮件头包含</string>
+    <string name="title_rule_body">文本包含</string>
+    <string name="title_rule_body_remark">使用此条件将始终下载此文件夹中所有新邮件的文本内容</string>
     <string name="title_rule_time_abs">绝对时间间隔 (收信)</string>
     <string name="title_rule_time_after">接收时间晚于</string>
     <string name="title_rule_time_before">接收时间早于</string>
@@ -1299,6 +1301,7 @@
     <string name="title_rule_applied">受影响的消息: %1$d</string>
     <string name="title_rule_check">检查</string>
     <string name="title_rule_no_headers">无法检查 邮件标头状况</string>
+    <string name="title_rule_no_body">邮件文本内容不可用</string>
     <string name="title_rule_matched">匹配的消息</string>
     <string name="title_rule_no_matches">没有匹配项目</string>
     <string name="title_rule_tts_ok">设置无误</string>

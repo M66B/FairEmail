@@ -1281,6 +1281,8 @@
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
+    <string name="title_rule_body">Le texte contient</string>
+    <string name="title_rule_body_remark">L\'utilisation de cette condition téléchargera systématiquement le texte du message pour tous les nouveaux messages de ce dossier</string>
     <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
     <string name="title_rule_time_after">Reçu après</string>
     <string name="title_rule_time_before">Reçu avant</string>
@@ -1310,6 +1312,7 @@
     <string name="title_rule_applied">Messages concernés : %1$d</string>
     <string name="title_rule_check">Vérifier</string>
     <string name="title_rule_no_headers">Les conditions sur l\'en-tête ne peuvent pas être vérifiées</string>
+    <string name="title_rule_no_body">Texte du message non disponible</string>
     <string name="title_rule_matched">Messages correspondants</string>
     <string name="title_rule_no_matches">Aucun message correspondant</string>
     <string name="title_rule_tts_ok">Configuration réussie</string>

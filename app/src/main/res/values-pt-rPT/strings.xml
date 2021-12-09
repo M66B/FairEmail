@@ -589,6 +589,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_enabled">Ativado</string>
+    <string name="title_rule_no_body">Texto da mensagem não disponível</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Pastas</string>
     <string name="title_legend_section_messages">Mensagens</string>

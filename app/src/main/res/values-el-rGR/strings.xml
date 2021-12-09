@@ -1279,6 +1279,8 @@
     <string name="title_rule_subject">Το θέμα περιέχει</string>
     <string name="title_rule_attachments">Έχει συνημμένα</string>
     <string name="title_rule_header">Η κεφαλίδα περιέχει</string>
+    <string name="title_rule_body">Το κείμενο περιέχει</string>
+    <string name="title_rule_body_remark">Χρησιμοποιώντας αυτή τη συνθήκη, θα κατεβαίνει πάντα το κείμενο μηνύματος για όλα τα νέα μηνύματα σε αυτόν το φάκελο</string>
     <string name="title_rule_time_abs">Απόλυτος χρόνος (λήψης) μεταξύ</string>
     <string name="title_rule_time_after">Λήφθηκε μετά από</string>
     <string name="title_rule_time_before">Λήφθηκε πριν από</string>
@@ -1308,6 +1310,7 @@
     <string name="title_rule_applied">Μηνύματα που αφορά: %1$d</string>
     <string name="title_rule_check">Έλεγχος</string>
     <string name="title_rule_no_headers">Οι συνθήκες για τις κεφαλίδες δεν μπορούν να ελεγχθούν</string>
+    <string name="title_rule_no_body">Το κείμενο του μηνύματος δεν είναι διαθέσιμο</string>
     <string name="title_rule_matched">Μηνύματα που ανταποκρίνονται</string>
     <string name="title_rule_no_matches">Κανένα μήνυμα δεν ανταποκρίνεται</string>
     <string name="title_rule_tts_ok">Επιτυχής ρύθμιση</string>

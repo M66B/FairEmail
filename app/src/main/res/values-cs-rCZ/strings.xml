@@ -1290,6 +1290,8 @@
     <string name="title_rule_subject">Předmět obsahuje</string>
     <string name="title_rule_attachments">Má přílohy</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
+    <string name="title_rule_body">Text obsahuje</string>
+    <string name="title_rule_body_remark">Pokud zapnuto, tak texty všech zpráv v této složce budou vždy staženy</string>
     <string name="title_rule_time_abs">Absolutní čas (přijatý) mezi</string>
     <string name="title_rule_time_after">Přijato po</string>
     <string name="title_rule_time_before">Přijato před</string>
@@ -1319,6 +1321,7 @@
     <string name="title_rule_applied">Ovlivněné zprávy: %1$d</string>
     <string name="title_rule_check">Zkontrolovat</string>
     <string name="title_rule_no_headers">Podmínky hlavičky nelze zkontrolovat</string>
+    <string name="title_rule_no_body">Text zprávy není dostupný</string>
     <string name="title_rule_matched">Odpovídající zprávy</string>
     <string name="title_rule_no_matches">Žádné odpovídající zprávy</string>
     <string name="title_rule_tts_ok">Nastavení v pořádku</string>

@@ -116,6 +116,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_edit_account">Hesabı Düzenle</string>
     <string name="title_edit_identity">Kimliği düzenle</string>
     <string name="title_edit_folder">Klasörü düzenle</string>
+    <string name="title_disable_gmail">Gmail \'i devre dışı bırak</string>
     <string name="title_setup">Ayarlar</string>
     <string name="title_setup_help">Yardım</string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
@@ -288,6 +289,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_kept_removed">Eski iletilerin sunucudan kaldırılıp kaldırılmadığını denetleyin</string>
     <string name="title_advanced_gmail_thread">Gmail hesapları için Gmail stili gruplama</string>
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
+    <string name="title_advanced_sync_folders_poll">Klasör listesini aktif olarak senkronize et</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
     <string name="title_advanced_check_authentication">Mesaj kimlik doğrulamasını kontrol et</string>
@@ -365,6 +367,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
     <string name="title_advanced_tabular_background">Tablo stilini kullanırken kart rengini arka plan rengi olarak kullan</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
+    <string name="title_advanced_cards_shadow_highlight">Vurgu rengi yerine vurgu rengi kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
@@ -373,6 +376,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
+    <string name="title_advanced_color_stripe_wide">Geniş renkli şerit kullanın</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
     <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
@@ -410,6 +414,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
+    <string name="title_advanced_override_width">Orijinal mesajlarda sabit genişlikleri devre dışı bırakın</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
     <string name="title_advanced_monospaced_pre">Önceden biçimlendirilmiş metin için tek aralıklı yazı tipi kullanın</string>
@@ -582,6 +587,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_gmail_thread_hint">Bu yalnızca yeni alınan mesajlar için geçerlidir ve mevcut grupları bozabilir</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
+    <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıktan sonra ek olarak klasör listesini periyodik olarak senkronize edin</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-posta sunucusu tarafından gerçekleştirilen DKIM, SPF ve DMARC kimlik doğrulamasının sonuçlarını kontrol edecektir</string>
     <string name="title_advanced_check_reply_hint">Bu, gönderenin alan adının ve yanıt adresinin aynı olup olmadığını kontrol edecektir</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
@@ -592,6 +598,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_reply_all_hint">Devre dışı bırakılırsa, cevapla düğmesine uzun basmak göndereni cevaplayacaktır.</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
     <string name="title_advanced_usenet_hint">Metin ve imza arasına \'-- \' ekle</string>
+    <string name="title_advanced_remove_signature_hint">Bu, çok az veya çok fazla metnin kaldırılmasına neden olabilir</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
@@ -615,6 +622,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_preview_lines_hint">Toplamda maksimum %s karakter</string>
     <string name="title_advanced_preview_issue">Bazı Android sürümlerindeki bir hata nedeniyle satır sayısı birden fazla olduğunda kaydırma yavaş olabilir</string>
     <string name="title_advanced_overview_mode_hint">Bu çok küçük yazı tiplerine neden olabilir</string>
+    <string name="title_advanced_override_width_hint">Bu, mesajları daraltabilir, ancak aynı zamanda garip görünebilir</string>
     <string name="title_advanced_placeholders_hint">Bu yalnızca yeniden biçimlendirilmiş mesajlar için geçerlidir</string>
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha doğru bir şekilde gösterecektir, ancak muhtemelen bir gecikme ile</string>
@@ -974,6 +982,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_insufficient_memory">İleti, kullanılabilir bellek için çok büyük (%1$d)</string>
     <string name="title_show_full">Mesajın tamamını göster</string>
     <string name="title_fullscreen">Tam ekran göster</string>
+    <string name="title_fit_width">Genişlik sığdır</string>
+    <string name="title_disable_widths">Genişlikleri devre dışı bırak</string>
     <string name="title_unused_inline">Kullanılmayan satır içi resimler gönderirken kaldırılacaktır</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
@@ -1269,6 +1279,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_subject">Konu içeriği</string>
     <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
+    <string name="title_rule_body">Metin şunları içerir:</string>
+    <string name="title_rule_body_remark">Bu koşulun kullanılması, bu klasördeki tüm yeni mesajlar için her zaman mesaj metnini indirecektir.</string>
     <string name="title_rule_time_abs">Kesin zaman aralığı (alındı)</string>
     <string name="title_rule_time_after">Alındıktan sonra</string>
     <string name="title_rule_time_before">Alınmadan önce</string>
@@ -1298,6 +1310,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
     <string name="title_rule_check">Denetle</string>
     <string name="title_rule_no_headers">Başlık koşulları denetlenemedi</string>
+    <string name="title_rule_no_body">Mesaj metni mevcut değil</string>
     <string name="title_rule_matched">İletiler eşleştiriliyor</string>
     <string name="title_rule_no_matches">Eşleşen ileti yok</string>
     <string name="title_rule_tts_ok">Kurulum tamam</string>

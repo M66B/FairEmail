@@ -1281,6 +1281,8 @@
     <string name="title_rule_subject">Betreff enthält</string>
     <string name="title_rule_attachments">Anhang vorhanden</string>
     <string name="title_rule_header">Kopfzeile enthält</string>
+    <string name="title_rule_body">Text enthält</string>
+    <string name="title_rule_body_remark">Die Verwendung dieser Bedingung wird immer den Nachrichtentext für alle neuen Nachrichten in diesem Ordner herunterladen</string>
     <string name="title_rule_time_abs">Absolute Zeit (empfangen) zwischen</string>
     <string name="title_rule_time_after">Erhalten ab</string>
     <string name="title_rule_time_before">Erhalten bis</string>
@@ -1310,6 +1312,7 @@
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>
     <string name="title_rule_no_headers">Nachrichtenkopf-Bedingungen können nicht überprüft werden</string>
+    <string name="title_rule_no_body">Nachrichtentext nicht verfügbar</string>
     <string name="title_rule_matched">Passende Nachrichten</string>
     <string name="title_rule_no_matches">Keine passenden Nachrichten</string>
     <string name="title_rule_tts_ok">Erfolgreich eingerichtet</string>

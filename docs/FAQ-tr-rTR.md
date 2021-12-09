@@ -552,7 +552,7 @@ Bazı sağlayıcılar gönderilen mesajları takip etmez veya kullanılan SMTP s
 
 ~~Bu olmazsa, sağlayıcınız gönderilen mesajları takip etmeyebilir veya sağlayıcıyla ilgili olmayan bir SMTP sunucusu kullanıyor olabilirsiniz.~~ ~~Bu durumlarda, FairEmail'in bir mesaj gönderdikten hemen sonra gönderilen mesajları gönderilmiş klasöre eklemesine izin vermek için *Gönderilmiş mesajları sakla* gelişmiş kimlik ayarını etkinleştirebilirsiniz.~~ ~~Sağlayıcınız gönderilen mesajları da gönderilenler klasörüne eklerse, bu ayarın etkinleştirilmesinin yinelenen mesajlarla sonuçlanabileceğini unutmayın.~~ ~~Ayrıca bu ayarın etkinleştirilmesinin, özellikle büyük ekleri olan iletiler gönderirken fazladan veri kullanımına neden olacağına dikkat edin.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+Tam senkronizasyonda, giden kutusunda gönderilen mesajlar gönderilenler klasöründe bulunamazsa, giden kutusundan gönderilenler klasörüne de taşınırlar.~~ ~~Sunucuya yeniden bağlanırken veya periyodik veya manuel olarak senkronizasyon yaparken tam senkronizasyon gerçekleşir.~~ ~~Mesajları gönderilenler klasörüne daha erken taşımak yerine büyük olasılıkla *Gönderilen mesajları sakla* gelişmiş ayarını etkinleştirmek isteyeceksiniz.
 
 <br />
 
@@ -563,7 +563,7 @@ Microsoft Exchange Web Hizmetleri protokolü [aşamalı olarak kaldırılıyor](
 
 IMAP aracılığıyla Microsoft Exchange hesabınıza erişebiliyorsanız bu hesabı kullanabilirsiniz. Daha fazla bilgi için [buraya](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) tıklayın.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+FairEmail'in açıklamasının şu sözle başladığını unutmayın. Microsoft Exchange Web Hizmetleri ve Microsoft ActiveSync gibi standart olmayan protokollerin desteklenmediğini.
 
 Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
 

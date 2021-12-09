@@ -1003,6 +1003,9 @@
     <string name="title_truncated">Лист завеликий для показу</string>
     <string name="title_insufficient_memory">Повідомлення занадто велике для доступної пам\'яті (%1$d)</string>
     <string name="title_show_full">Показати повне повідомлення</string>
+    <string name="title_fullscreen">Показати на весь екран</string>
+    <string name="title_fit_width">За шириною</string>
+    <string name="title_disable_widths">Відключити ширину</string>
     <string name="title_unused_inline">Невикористані вбудовані зображення будуть видалені при надсиланні</string>
     <string name="title_accross_remark">Повідомлення, які переміщуються через облікові записи, будуть завантажені знову, в результаті буде додаткове використання даних</string>
     <string name="title_raw_saved">Збережено початковий текст повідомлення</string>
@@ -1298,6 +1301,8 @@
     <string name="title_rule_subject">Тема містить</string>
     <string name="title_rule_attachments">Є вкладення</string>
     <string name="title_rule_header">Заголовок містить</string>
+    <string name="title_rule_body">Текст містить</string>
+    <string name="title_rule_body_remark">Використання цієї умови завжди завантажить текст повідомлення для всіх нових повідомлень в цій теці</string>
     <string name="title_rule_time_abs">Абсолютний час (отримано) між</string>
     <string name="title_rule_time_after">Отримано після</string>
     <string name="title_rule_time_before">Отримано до</string>
@@ -1327,6 +1332,7 @@
     <string name="title_rule_applied">Повідомлення котрі підлягають: %1$d</string>
     <string name="title_rule_check">Перевірити</string>
     <string name="title_rule_no_headers">Умови заголовка не можуть бути перевірені</string>
+    <string name="title_rule_no_body">Не містить текст повідомлення</string>
     <string name="title_rule_matched">Відповідність повідомлень</string>
     <string name="title_rule_no_matches">Немає відповідних повідомлень</string>
     <string name="title_rule_tts_ok">Налаштування завершене</string>

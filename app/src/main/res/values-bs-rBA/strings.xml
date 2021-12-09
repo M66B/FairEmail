@@ -1290,6 +1290,8 @@
     <string name="title_rule_subject">Predmet sadrži</string>
     <string name="title_rule_attachments">Ima priloge</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>
+    <string name="title_rule_body">Tekst sadrži</string>
+    <string name="title_rule_body_remark">Uz ovaj uvjet, tekst poruka će se uvijek preuzimati za sve nove poruke u ovom folderu</string>
     <string name="title_rule_time_abs">Apsolutno vrijeme (primljeno) između</string>
     <string name="title_rule_time_after">Primljeno poslije</string>
     <string name="title_rule_time_before">Primljeno prije</string>
@@ -1319,6 +1321,7 @@
     <string name="title_rule_applied">Zahvaćene poruke: %1$d</string>
     <string name="title_rule_check">Provjeri</string>
     <string name="title_rule_no_headers">Uvjeti zaglavlja se ne mogu provjeriti</string>
+    <string name="title_rule_no_body">Tekst poruke nije dostupan</string>
     <string name="title_rule_matched">Podudarne poruke</string>
     <string name="title_rule_no_matches">Nemaa podudarnih poruka</string>
     <string name="title_rule_tts_ok">Postavljanje u redu</string>

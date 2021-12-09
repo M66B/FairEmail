@@ -1270,6 +1270,8 @@
     <string name="title_rule_subject">件名に以下の語句を含む</string>
     <string name="title_rule_attachments">添付ファイルあり</string>
     <string name="title_rule_header">ヘッダーに以下の語句を含む</string>
+    <string name="title_rule_body">本文に以下の語句を含む</string>
+    <string name="title_rule_body_remark">この条件を使用すると、このフォルダー内のすべての新着メッセージの本文が常にダウンロードされます</string>
     <string name="title_rule_time_abs">以下の期間に受信</string>
     <string name="title_rule_time_after">から</string>
     <string name="title_rule_time_before">まで</string>
@@ -1299,6 +1301,7 @@
     <string name="title_rule_applied">影響を受けるメッセージ: %1$d</string>
     <string name="title_rule_check">確認</string>
     <string name="title_rule_no_headers">ヘッダー条件を確認できません</string>
+    <string name="title_rule_no_body">本文は利用できません</string>
     <string name="title_rule_matched">一致するメッセージ</string>
     <string name="title_rule_no_matches">一致するメッセージがありません</string>
     <string name="title_rule_tts_ok">設定完了</string>
