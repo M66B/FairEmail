@@ -7292,8 +7292,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(Bundle args, PendingIntent pi) {
                 if (args.containsKey("sigresult")) {
                     String text = args.getString("sigresult");
-                    Snackbar.make(view, text, Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                    Snackbar sb = Snackbar.make(view, text, Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true);
+
+                    View sv = sb.getView();
+                    if (sv != null) {
+                        TextView tv = sv.findViewById(com.google.android.material.R.id.snackbar_text);
+                        if (tv != null)
+                            tv.setMaxLines(7);
+                    }
+
+                    sb.show();
                 }
 
                 if (pi != null)
