@@ -211,7 +211,7 @@ See [here](https://github.com/M66B/FairEmail/blob/master/ATTRIBUTION.md) for a l
 
 Online translations are supported by:
 
-![Crowdin logo](/images/localization-at-white-rounded-bordered@1x.png)
+[![Crowdin logo](/images/localization-at-white-rounded-bordered@1x.png)](https://crowdin.com/project/open-source-email)
 
 Error reporting is sponsored by:
 
