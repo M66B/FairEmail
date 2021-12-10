@@ -1183,7 +1183,7 @@ public class MessageHelper {
         }
 
         if (thread == null)
-            thread = (uid == 0 /* POP3 */ ? msgid : account + ":" + folder + ":" + uid);
+            thread = getHash() + ":" + uid;
 
         List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
         for (EntityMessage message : after)
