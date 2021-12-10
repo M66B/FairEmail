@@ -204,10 +204,14 @@ public class FragmentOperations extends FragmentBase {
 
                                         for (EntityOperation op : ops) {
                                             EntityLog.log(context, "Deleting operation=" + op.id + ":" + op.name + " error=" + op.error);
+
                                             if (db.operation().deleteOperation(op.id) > 0) {
                                                 op.cleanup(context, false);
                                                 deleted++;
                                             }
+
+                                            if (EntityOperation.SYNC.equals(op.name))
+                                                db.folder().setFolderSyncState(op.folder, null);
                                         }
 
                                         db.setTransactionSuccessful();
