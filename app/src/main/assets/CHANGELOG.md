@@ -4,6 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### 1.1786 - 2021-12-10
+
+* Fixed marking messages read in some situations
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1785 - 2021-12-09
 
 * Added "text contains" filter rule condition
