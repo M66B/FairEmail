@@ -27,6 +27,8 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -42,10 +44,25 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (!Helper.isSupportedDevice() && Helper.isPlayStoreInstall()) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean accept_unsupported = prefs.getBoolean("accept_unsupported", false);
+
+        if (!accept_unsupported &&
+                !Helper.isSupportedDevice() &&
+                Helper.isPlayStoreInstall()) {
             setTheme(R.style.AppThemeBlueOrangeLight);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_unsupported);
+
+            Button btnContinue = findViewById(R.id.btnContinue);
+            btnContinue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    prefs.edit().putBoolean("accept_unsupported", true).commit();
+                    ApplicationEx.restart(v.getContext());
+                }
+            });
+
             return;
         }
 
@@ -111,7 +128,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             return;
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean eula = prefs.getBoolean("eula", false);
         boolean sync_on_launch = prefs.getBoolean("sync_on_launch", false);
 
