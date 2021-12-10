@@ -623,9 +623,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (Shortcuts.can(context))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, order++, R.string.title_pin);
 
-            if (!folder.selectable && debug)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete)
-                        .setEnabled(folder.inferiors);
+            if (!folder.read_only && EntityFolder.USER.equals(folder.type))
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override

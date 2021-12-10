@@ -353,7 +353,9 @@ public class FragmentFolder extends FragmentBase {
                 btnSave.setEnabled(true);
                 tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
 
-                deletable = (folder != null && EntityFolder.USER.equals(folder.type));
+                deletable = (folder != null &&
+                        !folder.read_only &&
+                        EntityFolder.USER.equals(folder.type));
                 invalidateOptionsMenu();
             }
 
