@@ -1135,7 +1135,7 @@ public class MessageHelper {
         return (header == null ? null : MimeUtility.unfold(header));
     }
 
-    String getThreadId(Context context, long account, long uid) throws MessagingException {
+    String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
         if (imessage instanceof GmailMessage) {
             // https://developers.google.com/gmail/imap/imap-extensions#access_to_the_gmail_thread_id_x-gm-thrid
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1173,23 +1173,24 @@ public class MessageHelper {
             }
         }
 
-        if (thread == null && refs.size() > 0)
-            thread = refs.get(0);
-
-        if (thread != null) {
-            List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
-            for (EntityMessage message : after)
-                if (!TextUtils.isEmpty(message.thread) && !thread.equals(message.thread)) {
-                    Log.w("Updating after thread from " + message.thread + " to " + thread);
-                    db.message().updateMessageThread(message.account, message.thread, thread);
+        if (thread == null) {
+            List<EntityMessage> similar = db.message().getMessagesByMsgId(account, msgid);
+            for (EntityMessage message : similar)
+                if (!TextUtils.isEmpty(message.thread) && message.folder != folder) {
+                    thread = message.thread;
+                    break;
                 }
         }
 
         if (thread == null)
-            if (TextUtils.isEmpty(msgid))
-                thread = Long.toString(uid);
-            else
-                thread = msgid;
+            thread = (uid == 0 /* POP3 */ ? msgid : account + ":" + folder + ":" + uid);
+
+        List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
+        for (EntityMessage message : after)
+            if (!TextUtils.isEmpty(message.thread) && !thread.equals(message.thread)) {
+                Log.w("Updating after thread from " + message.thread + " to " + thread);
+                db.message().updateMessageThread(message.account, message.thread, thread);
+            }
 
         return thread;
     }

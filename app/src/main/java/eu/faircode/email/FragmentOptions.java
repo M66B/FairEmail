@@ -144,7 +144,7 @@ public class FragmentOptions extends FragmentBase {
             "swipe_reply",
             "language_detection",
             "quick_filter", "quick_scroll",
-            "experiments", "debug",
+            "experiments", "debug", "log_level",
             "biometrics",
             "default_light"
     };

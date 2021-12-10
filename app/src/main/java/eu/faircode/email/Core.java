@@ -2729,7 +2729,7 @@ class Core {
                         message.references = TextUtils.join(" ", helper.getReferences());
                         message.inreplyto = helper.getInReplyTo();
                         message.deliveredto = helper.getDeliveredTo();
-                        message.thread = helper.getThreadId(context, account.id, 0);
+                        message.thread = helper.getThreadId(context, account.id, folder.id, 0);
                         message.priority = helper.getPriority();
                         message.auto_submitted = helper.getAutoSubmitted();
                         message.receipt_request = helper.getReceiptRequested();
@@ -3615,7 +3615,7 @@ class Core {
                     have = true;
 
                 if (dup.folder.equals(folder.id)) {
-                    String thread = helper.getThreadId(context, account.id, uid);
+                    String thread = helper.getThreadId(context, account.id, folder.id, uid);
                     Log.i(folder.name + " found as id=" + dup.id +
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
@@ -3701,7 +3701,7 @@ class Core {
             message.inreplyto = helper.getInReplyTo();
             // Local address contains control or whitespace in string ``mailing list someone@example.org''
             message.deliveredto = helper.getDeliveredTo();
-            message.thread = helper.getThreadId(context, account.id, uid);
+            message.thread = helper.getThreadId(context, account.id, folder.id, uid);
             message.priority = helper.getPriority();
             message.auto_submitted = helper.getAutoSubmitted();
             message.receipt_request = helper.getReceiptRequested();

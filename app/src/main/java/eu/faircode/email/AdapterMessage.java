@@ -298,6 +298,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean language_detection;
     private List<String> languages;
     private static boolean debug;
+    private int level;
 
     private boolean gotoTop = false;
     private Integer gotoPos = null;
@@ -1399,6 +1400,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setText(text);
                 tvError.setVisibility(View.VISIBLE);
             } else {
+                if (BuildConfig.DEBUG && level <= android.util.Log.INFO)
+                    error = message.thread;
                 tvError.setText(error);
                 tvError.setVisibility(error == null ? View.GONE : View.VISIBLE);
                 ibHelp.setVisibility(error == null ? View.GONE : View.VISIBLE);
@@ -6154,6 +6157,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             languages = null;
 
         debug = prefs.getBoolean("debug", false);
+        level = prefs.getInt("log_level", Log.getDefaultLogLevel());
 
         DiffUtil.ItemCallback<TupleMessageEx> callback = new DiffUtil.ItemCallback<TupleMessageEx>() {
             @Override
