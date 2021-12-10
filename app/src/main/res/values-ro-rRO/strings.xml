@@ -1291,6 +1291,8 @@
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_attachments">Are atașament</string>
     <string name="title_rule_header">Antetul conține</string>
+    <string name="title_rule_body">Textul conţine</string>
+    <string name="title_rule_body_remark">Utilizarea acestei condiții va descărca întotdeauna textul mesajului, ceea ce poate încetini sincronizarea listei de mesaje</string>
     <string name="title_rule_time_abs">Timp absolut (primit) între</string>
     <string name="title_rule_time_after">Primit după</string>
     <string name="title_rule_time_before">Primit înainte</string>
@@ -1320,6 +1322,7 @@
     <string name="title_rule_applied">Mesaje afectate: %1$d</string>
     <string name="title_rule_check">Verifică</string>
     <string name="title_rule_no_headers">Nu se pot verifica condiții din antet</string>
+    <string name="title_rule_no_body">Textul mesajului nu este disponibil</string>
     <string name="title_rule_matched">Mesaje ce se potrivesc</string>
     <string name="title_rule_no_matches">Nici un mesaj potrivit</string>
     <string name="title_rule_tts_ok">Configurare în regulă</string>

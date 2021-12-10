@@ -1281,7 +1281,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_rule_attachments">Heeft bijlagen</string>
     <string name="title_rule_header">De kop bevat</string>
     <string name="title_rule_body">Tekst bevat</string>
-    <string name="title_rule_body_remark">Als u deze voorwaarde gebruikt, wordt altijd de berichttekst gedownload voor alle nieuwe berichten in deze map</string>
+    <string name="title_rule_body_remark">Het gebruik van deze voorwaarde zal altijd de berichttekst downloaden, wat de synchronisatie van de berichtenlijst kan vertragen</string>
     <string name="title_rule_time_abs">Absolute tijd (ontvangen) tussen</string>
     <string name="title_rule_time_after">Ontvangen na</string>
     <string name="title_rule_time_before">Ontvangen voor</string>

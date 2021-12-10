@@ -1282,7 +1282,7 @@
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_body">Le texte contient</string>
-    <string name="title_rule_body_remark">L\'utilisation de cette condition téléchargera systématiquement le texte du message pour tous les nouveaux messages de ce dossier</string>
+    <string name="title_rule_body_remark">L\'utilisation de cette condition téléchargera systématiquement le texte du message ce qui peut ralentir la synchronisation de la liste des messages</string>
     <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
     <string name="title_rule_time_after">Reçu après</string>
     <string name="title_rule_time_before">Reçu avant</string>

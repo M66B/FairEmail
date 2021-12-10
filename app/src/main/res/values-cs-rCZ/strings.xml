@@ -1291,7 +1291,6 @@
     <string name="title_rule_attachments">Má přílohy</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
     <string name="title_rule_body">Text obsahuje</string>
-    <string name="title_rule_body_remark">Pokud zapnuto, tak texty všech zpráv v této složce budou vždy staženy</string>
     <string name="title_rule_time_abs">Absolutní čas (přijatý) mezi</string>
     <string name="title_rule_time_after">Přijato po</string>
     <string name="title_rule_time_before">Přijato před</string>

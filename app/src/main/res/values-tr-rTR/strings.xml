@@ -1280,7 +1280,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
     <string name="title_rule_body">Metin şunları içerir:</string>
-    <string name="title_rule_body_remark">Bu koşulun kullanılması, bu klasördeki tüm yeni mesajlar için her zaman mesaj metnini indirecektir.</string>
     <string name="title_rule_time_abs">Kesin zaman aralığı (alındı)</string>
     <string name="title_rule_time_after">Alındıktan sonra</string>
     <string name="title_rule_time_before">Alınmadan önce</string>

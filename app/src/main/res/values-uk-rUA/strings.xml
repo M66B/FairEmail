@@ -1302,7 +1302,7 @@
     <string name="title_rule_attachments">Є вкладення</string>
     <string name="title_rule_header">Заголовок містить</string>
     <string name="title_rule_body">Текст містить</string>
-    <string name="title_rule_body_remark">Використання цієї умови завжди завантажить текст повідомлення для всіх нових повідомлень в цій теці</string>
+    <string name="title_rule_body_remark">Використання цієї умови завжди завантажить текст повідомлення, який може уповільнити синхронізацію списку повідомлень</string>
     <string name="title_rule_time_abs">Абсолютний час (отримано) між</string>
     <string name="title_rule_time_after">Отримано після</string>
     <string name="title_rule_time_before">Отримано до</string>

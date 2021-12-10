@@ -402,7 +402,7 @@
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_body">ପାଠ୍ୟ ଧାରଣ କରେ</string>
-    <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ଏହି ଫୋଲ୍ଡରର ସମସ୍ତ ନୂଆ ବାର୍ତ୍ତା ପାଇଁ ବାର୍ତ୍ତାର ପାଠ୍ୟ ସର୍ବଦା ଡାଉନଲୋଡ୍ ହେବ</string>
+    <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ସର୍ବଦା ବାର୍ତ୍ତାର ପାଠ୍ୟ ଡାଉନଲୋଡ୍ ହେବ, ଯାହା ବାର୍ତ୍ତା ତାଲିକାର ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ମନ୍ଥର କରିପାରେ</string>
     <string name="title_rule_regex">RegEx</string>
     <string name="title_rule_identity">ପରିଚୟ</string>
     <string name="title_rule_template">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>

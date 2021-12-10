@@ -1272,6 +1272,8 @@
     <string name="title_rule_subject">Emne indeholder</string>
     <string name="title_rule_attachments">Har vedhæftninger</string>
     <string name="title_rule_header">Overskrift indeholder</string>
+    <string name="title_rule_body">Tekst indeholder</string>
+    <string name="title_rule_body_remark">Brug af denne betingelse vil altid downloade beskedteksten, hvilket kan forsinke synk af beskedlisten</string>
     <string name="title_rule_time_abs">Absolut tid (modtaget) mellem</string>
     <string name="title_rule_time_after">Modtaget efter</string>
     <string name="title_rule_time_before">Modtaget før</string>
@@ -1301,6 +1303,7 @@
     <string name="title_rule_applied">Berørte beskeder: %1$d</string>
     <string name="title_rule_check">Tjek</string>
     <string name="title_rule_no_headers">Overskriftsbetingelser kan ikke tjekkes</string>
+    <string name="title_rule_no_body">Beskedtekst utilgængelig</string>
     <string name="title_rule_matched">Matchende beskeder</string>
     <string name="title_rule_no_matches">Ingen matchende beskeder</string>
     <string name="title_rule_tts_ok">Opsætning OK</string>

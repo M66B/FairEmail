@@ -1302,7 +1302,6 @@
     <string name="title_rule_attachments">Zawiera załącznik</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
     <string name="title_rule_body">Tekst zawiera</string>
-    <string name="title_rule_body_remark">Użycie tego warunku będzie zawsze pobierało tekst wiadomości dla wszystkich nowych wiadomości w tym folderze</string>
     <string name="title_rule_time_abs">Całkowity czas (otrzymany) między</string>
     <string name="title_rule_time_after">Otrzymane po</string>
     <string name="title_rule_time_before">Otrzymane przed</string>

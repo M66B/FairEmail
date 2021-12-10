@@ -1281,6 +1281,8 @@
     <string name="title_rule_subject">L\'oggetto contiene</string>
     <string name="title_rule_attachments">Ha allegati</string>
     <string name="title_rule_header">L\'intestazione contiene</string>
+    <string name="title_rule_body">Il testo contiene</string>
+    <string name="title_rule_body_remark">Usare questa condizione scaricherà sempre il testo del messaggio, il che potrebbe rallentare la sincronizzazione dell\'elenco dei messaggi</string>
     <string name="title_rule_time_abs">Tempo assoluto (di ricezione) tra</string>
     <string name="title_rule_time_after">Ricevuto dopo</string>
     <string name="title_rule_time_before">Ricevuto prima</string>
@@ -1310,6 +1312,7 @@
     <string name="title_rule_applied">Messaggi interessati: %1$d</string>
     <string name="title_rule_check">Verifica</string>
     <string name="title_rule_no_headers">Impossibile controllare le condizioni dell\'intestazione</string>
+    <string name="title_rule_no_body">Testo del messaggio non disponibile</string>
     <string name="title_rule_matched">Messaggi corrispondenti</string>
     <string name="title_rule_no_matches">Nessun messaggio corrispondente</string>
     <string name="title_rule_tts_ok">Configurazione riuscita</string>

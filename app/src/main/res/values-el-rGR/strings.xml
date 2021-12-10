@@ -1280,7 +1280,7 @@
     <string name="title_rule_attachments">Έχει συνημμένα</string>
     <string name="title_rule_header">Η κεφαλίδα περιέχει</string>
     <string name="title_rule_body">Το κείμενο περιέχει</string>
-    <string name="title_rule_body_remark">Χρησιμοποιώντας αυτή τη συνθήκη, θα κατεβαίνει πάντα το κείμενο μηνύματος για όλα τα νέα μηνύματα σε αυτόν το φάκελο</string>
+    <string name="title_rule_body_remark">Χρησιμοποιώντας αυτή τη συνθήκη, θα κατεβαίνει πάντα το κείμενο του μηνύματος, κάτι που μπορεί να επιβραδύνει τον συγχρονισμό της λίστας μηνυμάτων</string>
     <string name="title_rule_time_abs">Απόλυτος χρόνος (λήψης) μεταξύ</string>
     <string name="title_rule_time_after">Λήφθηκε μετά από</string>
     <string name="title_rule_time_before">Λήφθηκε πριν από</string>

@@ -1302,7 +1302,7 @@
     <string name="title_rule_attachments">Имеет вложения</string>
     <string name="title_rule_header">Заголовок содержит</string>
     <string name="title_rule_body">Текст содержит</string>
-    <string name="title_rule_body_remark">Использование этого условия всегда будет загружать текст сообщения для всех новых сообщений в этой папке</string>
+    <string name="title_rule_body_remark">Использование этого условия всегда будет загружать текст сообщения, что может замедлить синхронизацию списка сообщений</string>
     <string name="title_rule_time_abs">Абсолютное время (получения) между</string>
     <string name="title_rule_time_after">Получено после</string>
     <string name="title_rule_time_before">Получено до</string>

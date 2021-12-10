@@ -1300,6 +1300,8 @@
     <string name="title_rule_subject">הנושא מכיל</string>
     <string name="title_rule_attachments">יש קבצים מצורפים</string>
     <string name="title_rule_header">הכותרת מכילה</string>
+    <string name="title_rule_body">הטקסט מכיל</string>
+    <string name="title_rule_body_remark">השימוש בתנאי זה תמיד יוריד את טקסט ההודעה, מה שעלול להאט את סנכרון רשימת ההודעות</string>
     <string name="title_rule_time_abs">זמן מוחלט (של הקבלה) בין</string>
     <string name="title_rule_time_after">התקבל לאחר</string>
     <string name="title_rule_time_before">התקבל לפני</string>
@@ -1329,6 +1331,7 @@
     <string name="title_rule_applied">הודעות שיושפעו: %1$d</string>
     <string name="title_rule_check">בדיקה</string>
     <string name="title_rule_no_headers">אי אפשר לבדוק תנאי כותרות</string>
+    <string name="title_rule_no_body">טקסט ההודעה לא זמין</string>
     <string name="title_rule_matched">הודעות תואמות</string>
     <string name="title_rule_no_matches">אין הודעות תואמות</string>
     <string name="title_rule_tts_ok">ההגדרה הצליחה</string>

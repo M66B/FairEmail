@@ -1278,6 +1278,8 @@
     <string name="title_rule_subject">Ämnet innehåller</string>
     <string name="title_rule_attachments">Har bilagor</string>
     <string name="title_rule_header">Sidhuvud innehåller</string>
+    <string name="title_rule_body">Texten innehåller</string>
+    <string name="title_rule_body_remark">Användning av detta villkor kommer alltid att ladda ner meddelandetexten, vilket kan sakta ner synkroniseringen av meddelandelistan</string>
     <string name="title_rule_time_abs">Absolut tid (mottagen) mellan</string>
     <string name="title_rule_time_after">Mottagen efter</string>
     <string name="title_rule_time_before">Mottagits före</string>
@@ -1307,6 +1309,7 @@
     <string name="title_rule_applied">Berörda meddelanden: %1$d</string>
     <string name="title_rule_check">Kontrollera</string>
     <string name="title_rule_no_headers">Sidhuvudvillkor kan inte kontrolleras</string>
+    <string name="title_rule_no_body">Meddelandetexten är inte tillgänglig</string>
     <string name="title_rule_matched">Matchande meddelanden</string>
     <string name="title_rule_no_matches">Inga matchande meddelanden</string>
     <string name="title_rule_tts_ok">Installation okej</string>

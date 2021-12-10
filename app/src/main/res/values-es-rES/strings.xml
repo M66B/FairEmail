@@ -1281,6 +1281,8 @@
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_attachments">Tiene adjuntos</string>
     <string name="title_rule_header">Encabezado contiene</string>
+    <string name="title_rule_body">El texto contiene</string>
+    <string name="title_rule_body_remark">Utilizar esta condición siempre descargará el texto del mensaje, que puede ralentizar la sincronización de la lista de mensajes</string>
     <string name="title_rule_time_abs">Tiempo absoluto (recibido) entre</string>
     <string name="title_rule_time_after">Recibido después de</string>
     <string name="title_rule_time_before">Recibido antes de</string>
@@ -1310,6 +1312,7 @@
     <string name="title_rule_applied">Mensajes afectados: %1$d</string>
     <string name="title_rule_check">Comprobar</string>
     <string name="title_rule_no_headers">Las condiciones del encabezado no se pueden comprobar</string>
+    <string name="title_rule_no_body">Texto del mensaje no disponible</string>
     <string name="title_rule_matched">Mensajes coincidentes</string>
     <string name="title_rule_no_matches">No hay mensajes coincidentes</string>
     <string name="title_rule_tts_ok">Configuración Ok</string>

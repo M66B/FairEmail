@@ -2788,7 +2788,7 @@ Inserting new calendar events can be done without permissions with special [inte
 <a name="faq151"></a>
 **(151) Can you add backup/restore of messages?**
 
-An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
+An email client is meant to read and write messages, not to backup and restore messages. Merke dir, dass wenn du dein Gerät verlierst, dass auch all deine Nachrichten futsch sind!
 
 Instead, the email provider/server is responsible for backups.
 
@@ -2843,7 +2843,7 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 
 A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
-You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+[Hier](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment) findest du noch mehr Infos über die Datei.
 
 You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
@@ -2873,7 +2873,7 @@ Eine ausführliche Anleitung finden Sie [hier](http://jc.etiemble.free.fr/abc/in
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Welche*s Kamera / Mikrofon bevorzugst du?**
 
 To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
@@ -2940,21 +2940,21 @@ IMAP NOTIFY bedeutet, dass Benachrichtigungen für hinzugefügte, geänderte ode
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) Was ist Nachrichtenklassifikation?**
 
-*This is an experimental feature!*
+*Das ist eine experimentelle Funktion!*
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+Du kannst die Nachrichtenklassifikation in den sonstigen Einstellungen aktivieren. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Siehe auch [diese F&A](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. Wenn der Klassifizierer unsicher ist, lässt er die E-Mail einfach da wo sie ist.
 
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 

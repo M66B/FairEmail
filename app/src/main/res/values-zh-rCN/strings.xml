@@ -1271,7 +1271,7 @@
     <string name="title_rule_attachments">含附件</string>
     <string name="title_rule_header">邮件头包含</string>
     <string name="title_rule_body">文本包含</string>
-    <string name="title_rule_body_remark">使用此条件将始终下载此文件夹中所有新邮件的文本内容</string>
+    <string name="title_rule_body_remark">使用此条件将始终下载邮件文本，这可能会减慢邮件列表的同步</string>
     <string name="title_rule_time_abs">绝对时间间隔 (收信)</string>
     <string name="title_rule_time_after">接收时间晚于</string>
     <string name="title_rule_time_before">接收时间早于</string>
