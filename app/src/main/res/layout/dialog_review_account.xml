@@ -12,14 +12,29 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
             android:drawableStart="@drawable/twotone_account_circle_24"
             android:drawablePadding="6dp"
+            android:minHeight="36dp"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@id/ibEditName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ibEditName"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_edit_account_name"
+            android:tooltipText="@string/title_edit_account_name"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/twotone_edit_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSuccess"

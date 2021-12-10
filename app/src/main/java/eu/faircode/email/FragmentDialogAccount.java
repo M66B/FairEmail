@@ -27,9 +27,12 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -52,6 +55,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
 
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_review_account, null);
         final TextView tvName = dview.findViewById(R.id.tvName);
+        final ImageButton ibEditName = dview.findViewById(R.id.ibEditName);
         final TextView tvInbox = dview.findViewById(R.id.tvInbox);
         final TextView tvDrafts = dview.findViewById(R.id.tvDrafts);
         final TextView tvSent = dview.findViewById(R.id.tvSent);
@@ -78,6 +82,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         tvArchive.setCompoundDrawablesRelative(null, null, null, null);
 
         tvName.setText(null);
+        ibEditName.setEnabled(false);
         tvLeft.setText(null);
         tvRight.setText(null);
 
@@ -86,6 +91,48 @@ public class FragmentDialogAccount extends FragmentDialogBase {
 
         Bundle args = getArguments();
         final long account = args.getLong("account");
+
+        ibEditName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View e = LayoutInflater.from(context).inflate(R.layout.dialog_edit_name, null);
+                EditText etName = e.findViewById(R.id.etName);
+                etName.setText(tvName.getText());
+
+                new AlertDialog.Builder(context)
+                        .setView(e)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String name = etName.getText().toString();
+                                if (TextUtils.isEmpty(name))
+                                    return;
+
+                                args.putString("name", name);
+
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                        long id = args.getLong("account");
+                                        String name = args.getString("name");
+
+                                        DB db = DB.getInstance(context);
+                                        db.account().setAccountName(id, name);
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        // Ignored
+                                    }
+                                }.execute(FragmentDialogAccount.this, args, "account:name");
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
+        });
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +163,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
             @Override
             public void onChanged(EntityAccount account) {
                 tvName.setText(account.name);
+                ibEditName.setEnabled(true);
                 btnGmail.setVisibility(
                         hasGmail && account.auth_type == AUTH_TYPE_GMAIL
                                 ? View.VISIBLE : View.GONE);
