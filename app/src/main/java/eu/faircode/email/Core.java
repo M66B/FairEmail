@@ -3654,13 +3654,6 @@ class Core {
             }
         }
 
-        boolean needsHeaders = EntityRule.needsHeaders(rules);
-        boolean needsBody = EntityRule.needsBody(rules);
-        if (needsHeaders || needsBody)
-            Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
-        List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
-        String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
-
         if (message == null) {
             Long sent = helper.getSent();
 
@@ -3855,6 +3848,13 @@ class Core {
                         Log.w(folder.name, ex);
                     }
             }
+
+            boolean needsHeaders = EntityRule.needsHeaders(rules);
+            boolean needsBody = EntityRule.needsBody(rules);
+            if (needsHeaders || needsBody)
+                Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
+            List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
+            String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
 
             try {
                 db.beginTransaction();
@@ -4077,7 +4077,14 @@ class Core {
                 }
             }
 
-            if (update || process)
+            if (update || process) {
+                boolean needsHeaders = EntityRule.needsHeaders(rules);
+                boolean needsBody = EntityRule.needsBody(rules);
+                if (needsHeaders || needsBody)
+                    Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
+                List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
+                String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
+
                 try {
                     db.beginTransaction();
 
@@ -4090,6 +4097,7 @@ class Core {
                 } finally {
                     db.endTransaction();
                 }
+            }
 
             if (process) {
                 EntityContact.received(context, account, folder, message);
