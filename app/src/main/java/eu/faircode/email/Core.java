@@ -3795,7 +3795,7 @@ class Core {
                     }
 
             if (!self) {
-                String warning = message.checkReplyDomain(context);
+                String[] warning = message.checkReplyDomain(context);
                 message.reply_domain = (warning == null);
             }
 

@@ -3840,9 +3840,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (Boolean.FALSE.equals(message.reply_domain)) {
-                if (sb.length() > 0)
-                    sb.append('\n');
-                sb.append(message.checkReplyDomain(context));
+                String[] warning = message.checkReplyDomain(context);
+                if (warning != null) {
+                    if (sb.length() > 0)
+                        sb.append('\n');
+                    sb.append(context.getString(R.string.title_reply_domain, warning[0], warning[1]));
+                }
             }
 
             if (message.from != null && message.from.length > 0) {

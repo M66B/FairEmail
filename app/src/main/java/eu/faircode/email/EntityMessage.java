@@ -307,7 +307,7 @@ public class EntityMessage implements Serializable {
         return hasKeyword(MessageHelper.FLAG_FORWARDED);
     }
 
-    String checkReplyDomain(Context context) {
+    String[] checkReplyDomain(Context context) {
         if (from == null || from.length == 0)
             return null;
         if (reply == null || reply.length == 0)
@@ -328,7 +328,7 @@ public class EntityMessage implements Serializable {
                 String fdomain = UriHelper.getParentDomain(context, f.substring(fat + 1));
 
                 if (!rdomain.equalsIgnoreCase(fdomain))
-                    return context.getString(R.string.title_reply_domain, fdomain, rdomain);
+                    return new String[]{fdomain, rdomain};
             }
         }
 
