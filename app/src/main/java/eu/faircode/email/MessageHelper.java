@@ -808,6 +808,15 @@ public class MessageHelper {
         // Build html body
         Document document = JsoupEx.parse(message.getFile(context));
 
+        if (message.headers != null) {
+            Element body = document.body();
+            if (body.children().size() == 1) {
+                // Restore original body
+                Element ref = body.children().get(0);
+                body.replaceWith(ref.tagName("body").removeAttr("fairemail"));
+            }
+        }
+
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
         if (message.language != null)
             document.body().attr("lang", message.language);

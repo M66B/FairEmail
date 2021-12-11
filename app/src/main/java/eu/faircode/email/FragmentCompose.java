@@ -254,6 +254,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
     private ImageButton ibWriteAboveBelow;
+    private ImageView ivResend;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private View vwAnchor;
@@ -376,6 +377,7 @@ public class FragmentCompose extends FragmentBase {
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibWriteAboveBelow = view.findViewById(R.id.ibWriteAboveBelow);
+        ivResend = view.findViewById(R.id.ivResend);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
@@ -953,6 +955,7 @@ public class FragmentCompose extends FragmentBase {
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
         ibWriteAboveBelow.setVisibility(View.GONE);
+        ivResend.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
@@ -4696,6 +4699,17 @@ public class FragmentCompose extends FragmentBase {
                         else
                             data.draft.signature = false;
 
+                        if (ref.content && "resend".equals(action)) {
+                            document = JsoupEx.parse(ref.getFile(context));
+                            // Save original body
+                            Element div = document.body()
+                                    .tagName("div")
+                                    .attr("fairemail", "reference");
+                            Element body = document.createElement("body")
+                                    .appendChild(div);
+                            document.body().replaceWith(body);
+                        }
+
                         // Reply header
                         if (ref.content &&
                                 !"resend".equals(action) &&
@@ -6377,6 +6391,7 @@ public class FragmentCompose extends FragmentBase {
                 ibWriteAboveBelow.setVisibility(text[1] == null ||
                         draft.wasforwardedfrom != null || BuildConfig.PLAY_STORE_RELEASE
                         ? View.GONE : View.VISIBLE);
+                ivResend.setVisibility(draft.headers == null ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
