@@ -4561,6 +4561,9 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("forward".equals(action)) {
                             data.draft.thread = data.draft.msgid; // new thread
                             data.draft.wasforwardedfrom = ref.msgid;
+                        } else if ("resend".equals(action)) {
+                            data.draft.thread = data.draft.msgid;
+                            data.draft.headers = ref.headers;
                         } else if ("editasnew".equals(action))
                             data.draft.thread = data.draft.msgid;
 
@@ -4591,7 +4594,7 @@ public class FragmentCompose extends FragmentBase {
                                     ref.language,
                                     alt_fwd ? R.string.title_subject_forward_alt : R.string.title_subject_forward,
                                     subject);
-                        } else if ("editasnew".equals(action)) {
+                        } else if ("resend".equals(action) || "editasnew".equals(action)) {
                             if (ref.from != null && ref.from.length == 1) {
                                 String from = ((InternetAddress) ref.from[0]).getAddress();
                                 for (EntityIdentity identity : data.identities)
@@ -4695,6 +4698,7 @@ public class FragmentCompose extends FragmentBase {
 
                         // Reply header
                         if (ref.content &&
+                                !"resend".equals(action) &&
                                 !"editasnew".equals(action) &&
                                 !("list".equals(action) && TextUtils.isEmpty(selected_text)) &&
                                 !"dsn".equals(action)) {
@@ -4902,7 +4906,9 @@ public class FragmentCompose extends FragmentBase {
 
                     if (ref != null &&
                             ("reply".equals(action) || "reply_all".equals(action) ||
-                                    "forward".equals(action) || "editasnew".equals(action))) {
+                                    "forward".equals(action) ||
+                                    "resend".equals(action) ||
+                                    "editasnew".equals(action))) {
 
                         List<String> cid = new ArrayList<>();
                         for (Element img : document.select("img")) {
@@ -4915,8 +4921,10 @@ public class FragmentCompose extends FragmentBase {
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.isEncryption() &&
-                                    ("forward".equals(action) || "editasnew".equals(action) ||
-                                            cid.contains(attachment.cid))) {
+                                    (cid.contains(attachment.cid) ||
+                                            "forward".equals(action) ||
+                                            "resend".equals(action) ||
+                                            "editasnew".equals(action))) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
 

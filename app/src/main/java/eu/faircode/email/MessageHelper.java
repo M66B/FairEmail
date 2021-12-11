@@ -279,17 +279,92 @@ public class MessageHelper {
         imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
 
         // Addresses
-        if (message.from != null && message.from.length > 0)
-            imessage.setFrom(getFrom(message, identity));
+        if (message.headers == null) {
+            if (message.from != null && message.from.length > 0)
+                imessage.setFrom(getFrom(message, identity));
 
-        if (message.to != null && message.to.length > 0)
-            imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to, identity));
+            if (message.to != null && message.to.length > 0)
+                imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to, identity));
 
-        if (message.cc != null && message.cc.length > 0)
-            imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc, identity));
+            if (message.cc != null && message.cc.length > 0)
+                imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc, identity));
 
-        if (message.bcc != null && message.bcc.length > 0)
-            imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
+            if (message.bcc != null && message.bcc.length > 0)
+                imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
+
+            if (identity != null && identity.replyto != null)
+                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
+
+            MailDateFormat mdf = new MailDateFormat();
+            mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
+            if (message.sent != null)
+                imessage.setHeader("Date", mdf.format(new Date(message.sent)));
+            else
+                imessage.setHeader("Date", mdf.format(new Date(message.received)));
+        } else {
+            ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
+            Enumeration<Header> headers = new InternetHeaders(bis).getAllHeaders();
+            while (headers.hasMoreElements()) {
+                Header header = headers.nextElement();
+                String name = header.getName();
+                String value = header.getValue();
+                if (name == null || value == null)
+                    continue;
+
+                switch (name) {
+                    case "From":
+                        imessage.setFrom(value);
+                        break;
+                    case "To":
+                        imessage.setRecipients(Message.RecipientType.TO, value);
+                        break;
+                    case "Cc":
+                        imessage.setRecipients(Message.RecipientType.CC, value);
+                        break;
+                    case "Bcc":
+                        imessage.setRecipients(Message.RecipientType.BCC, value);
+                        break;
+                    case "Reply-To":
+                        imessage.setReplyTo(InternetAddress.parse(value));
+                        break;
+                    case "Date":
+                        imessage.setHeader("Date", value);
+                        break;
+                    default:
+                        if (name.startsWith("Resent-"))
+                            imessage.addHeader(name, value);
+                }
+            }
+
+            if (message.from != null && message.from.length > 0)
+                imessage.addHeader("Resent-From", getFrom(message, identity).toString());
+
+            if (message.to != null && message.to.length > 0)
+                for (Address a : convertAddress(message.to, identity))
+                    imessage.addHeader("Resent-To", a.toString());
+
+            if (message.cc != null && message.cc.length > 0)
+                for (Address a : convertAddress(message.cc, identity))
+                    imessage.addHeader("Resent-Cc", a.toString());
+
+            if (message.bcc != null && message.bcc.length > 0)
+                for (Address a : convertAddress(message.bcc, identity))
+                    imessage.addHeader("Resent-Bcc", a.toString());
+
+            if (identity != null && identity.replyto != null)
+                for (Address a : convertAddress(InternetAddress.parse(identity.replyto), identity))
+                    imessage.addHeader("Resent-Reply-To", a.toString());
+
+            MailDateFormat mdf = new MailDateFormat();
+            mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
+            if (message.sent != null)
+                imessage.addHeader("Resent-Date", mdf.format(new Date(message.sent)));
+            else
+                imessage.addHeader("Resent-Date", mdf.format(new Date(message.received)));
+
+            // Resent-Sender
+            // Resent-Message-ID
+        }
 
         if (message.subject != null) {
             int maxlen = MAX_HEADER_LENGTH - "Subject: ".length();
@@ -300,10 +375,6 @@ public class MessageHelper {
 
         // Send message
         if (identity != null) {
-            // Add reply to
-            if (identity.replyto != null)
-                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
-
             // Add extra cc
             if (identity.cc != null)
                 addAddress(identity.cc, Message.RecipientType.CC, imessage, identity);
@@ -336,13 +407,6 @@ public class MessageHelper {
 
         if (message.auto_submitted != null && message.auto_submitted)
             imessage.addHeader("Auto-Submitted", "auto-replied");
-
-        MailDateFormat mdf = new MailDateFormat();
-        mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
-        if (message.sent != null)
-            imessage.setHeader("Date", mdf.format(new Date(message.sent)));
-        else
-            imessage.setHeader("Date", mdf.format(new Date(message.received)));
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 

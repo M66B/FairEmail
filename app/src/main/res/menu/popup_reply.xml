@@ -31,6 +31,11 @@
         android:title="@string/title_forward" />
 
     <item
+        android:id="@+id/menu_resend"
+        android:icon="@drawable/twotone_redo_24"
+        android:title="@string/title_resend" />
+
+    <item
         android:id="@+id/menu_editasnew"
         android:icon="@drawable/twotone_edit_24"
         android:title="@string/title_editasnew" />
