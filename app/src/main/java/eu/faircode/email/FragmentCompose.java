@@ -4923,7 +4923,6 @@ public class FragmentCompose extends FragmentBase {
                                     "forward".equals(action) ||
                                     "resend".equals(action) ||
                                     "editasnew".equals(action))) {
-
                         List<String> cid = new ArrayList<>();
                         for (Element img : document.select("img")) {
                             String src = img.attr("src");
@@ -4936,9 +4935,7 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.isEncryption() &&
                                     (cid.contains(attachment.cid) ||
-                                            "forward".equals(action) ||
-                                            "resend".equals(action) ||
-                                            "editasnew".equals(action))) {
+                                            !("reply".equals(action) || "reply_all".equals(action)))) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
 
@@ -4958,9 +4955,7 @@ public class FragmentCompose extends FragmentBase {
                                     Helper.copy(source, target);
 
                                     if (resize_reply &&
-                                            !("forward".equals(action) ||
-                                                    "resend".equals(action) ||
-                                                    "editasnew".equals(action)))
+                                            ("reply".equals(action) || "reply_all".equals(action)))
                                         resizeAttachment(context, attachment, REDUCED_IMAGE_SIZE);
                                 } else
                                     args.putBoolean("incomplete", true);
