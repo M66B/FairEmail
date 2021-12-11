@@ -1783,6 +1783,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 });
             }
+
+            if ("headers".equals(name)) {
+                scrolling = false;
+                updateExpanded();
+            }
         }
 
         @Override
