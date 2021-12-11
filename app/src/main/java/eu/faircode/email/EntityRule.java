@@ -265,21 +265,42 @@ public class EntityRule {
                         value.endsWith("$")) {
                     String keyword = value.substring(1, value.length() - 1);
 
-                    List<String> keywords = new ArrayList<>();
-                    if (message.ui_seen)
-                        keywords.add("$seen");
-                    if (message.ui_answered)
-                        keywords.add("$answered");
-                    if (message.ui_flagged)
-                        keywords.add("$flagged");
-                    if (message.ui_deleted)
-                        keywords.add("$deleted");
-                    if (message.infrastructure != null)
-                        keywords.add('@' + message.infrastructure);
-                    keywords.addAll(Arrays.asList(message.keywords));
+                    if ("$dkim".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.dkim))
+                            return false;
+                    } else if ("$spf".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.spf))
+                            return false;
+                    } else if ("$dmarc".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.dmarc))
+                            return false;
+                    } else if ("$mx".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.mx))
+                            return false;
+                    } else if ("$blocklist".equals(keyword)) {
+                        if (!Boolean.FALSE.equals(message.blocklist))
+                            return false;
+                    } else if ("$replydomain".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.reply_domain))
+                            return false;
+                    } else {
+                        List<String> keywords = new ArrayList<>();
+                        keywords.addAll(Arrays.asList(message.keywords));
 
-                    if (!keywords.contains(keyword))
-                        return false;
+                        if (message.ui_seen)
+                            keywords.add("$seen");
+                        if (message.ui_answered)
+                            keywords.add("$answered");
+                        if (message.ui_flagged)
+                            keywords.add("$flagged");
+                        if (message.ui_deleted)
+                            keywords.add("$deleted");
+                        if (message.infrastructure != null)
+                            keywords.add('$' + message.infrastructure);
+
+                        if (!keywords.contains(keyword))
+                            return false;
+                    }
                 } else {
                     if (headers == null) {
                         if (message.headers == null)

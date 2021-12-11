@@ -2382,19 +2382,30 @@ Some common header conditions (regex):
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-You can match IMAP flags (keywords) via a header condition too (from version 1.1777), like this:
+To match *set* IMAP flags (keywords) via a header condition (since version 1.1777):
 
 ```
 $<keyword>$
 ```
 
-You can use these special values too, representing common system flags:
+To match *set* message flags (since version 1.1777):
 
 ```
 $$seen$
 $$answered$
 $$flagged$
 $$deleted$
+```
+
+To match *passed* message checks (since version 1.1787):
+
+```
+$$dkim$
+$$spf$
+$$dmarc$
+$$mx$
+$$blocklist$
+$$replydomain$
 ```
 
 Note that *regex* should be disable and that there should be no white space.
