@@ -42,6 +42,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.Build;
@@ -1315,6 +1316,25 @@ public class Helper {
             return view.getContext().getResources().getResourceEntryName(id);
         } catch (Throwable ex) {
             return ex.toString();
+        }
+    }
+
+    static int getBytesPerPixel(Bitmap.Config config) {
+        switch (config) {
+            case ALPHA_8:
+                return 1;
+            case RGB_565:
+                return 2;
+            case ARGB_4444:
+                return 4;
+            case ARGB_8888:
+                return 8;
+            case RGBA_F16:
+                return 8;
+            case HARDWARE:
+                return 0;
+            default:
+                return 8;
         }
     }
 

@@ -89,6 +89,7 @@ class ImageHelper {
     static final int DOWNLOAD_TIMEOUT = 15; // seconds
     private static final int MAX_PROBE = 128 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
+    private static final int MAX_BITMAP_SIZE = 100 * 1024 * 1024; // RecordingCanvas.MAX_BITMAP_SIZE
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
     static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
@@ -816,7 +817,8 @@ class ImageHelper {
                             @NonNull ImageDecoder.ImageInfo info,
                             @NonNull ImageDecoder.Source source) {
                         int factor = 1;
-                        while (info.getSize().getWidth() / factor > scaleToPixels)
+                        while (info.getSize().getWidth() / factor > scaleToPixels ||
+                                info.getSize().getWidth() * info.getSize().getHeight() * 8 / factor > MAX_BITMAP_SIZE)
                             factor *= 2;
 
                         Log.i("Decode image (decoder) factor=" + factor);
@@ -833,7 +835,8 @@ class ImageHelper {
             BitmapFactory.decodeFile(file.getAbsolutePath(), options);
 
             int factor = 1;
-            while (options.outWidth / factor > scaleToPixels)
+            while (options.outWidth / factor > scaleToPixels ||
+                    options.outWidth * options.outHeight * 8 / factor > MAX_BITMAP_SIZE)
                 factor *= 2;
 
             if (factor > 1) {
