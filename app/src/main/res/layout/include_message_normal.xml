@@ -389,36 +389,27 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableStart="@drawable/twotone_info_24"
+        android:drawablePadding="6dp"
+        android:drawableTint="?attr/colorWarning"
         android:gravity="center_vertical"
         android:minHeight="24dp"
         android:text="error"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?attr/colorWarning"
-        android:textIsSelectable="true"
-        app:layout_constraintEnd_toStartOf="@+id/ibHelp"
+        app:layout_constraintEnd_toStartOf="@+id/ibSettings"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvNotes" />
 
     <ImageButton
-        android:id="@+id/ibHelp"
+        android:id="@+id/ibSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
         app:layout_constraintTop_toTopOf="@id/tvError"
-        app:srcCompat="@drawable/twotone_info_24"
-        app:tint="?attr/colorWarning" />
-
-    <ImageButton
-        android:id="@+id/ibSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="6dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
-        app:layout_constraintTop_toBottomOf="@id/ibHelp"
         app:srcCompat="@drawable/twotone_settings_24"
         app:tint="?attr/colorWarning" />
 
@@ -436,5 +427,5 @@
         android:layout_height="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibSettings" />
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
 </androidx.constraintlayout.widget.ConstraintLayout>
