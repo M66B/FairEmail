@@ -2410,6 +2410,8 @@ $$replydomain$
 
 Note that *regex* should be disable and that there should be no white space.
 
+Please be aware that a difference in the *from* and *reply-to* domain isn't a good indication of spam.
+
 The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* with the following string extras:
 
 * *name*
