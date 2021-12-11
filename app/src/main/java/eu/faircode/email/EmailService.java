@@ -1157,6 +1157,16 @@ public class EmailService implements AutoCloseable {
             socket.setSoLinger(false, -1);
         }
 
+        if (reuse) {
+            Log.e("Socket reuse=" + reuse);
+            socket.setReuseAddress(false);
+        }
+
+        if (delay) {
+            Log.e("Socket delay=" + delay);
+            socket.setTcpNoDelay(false);
+        }
+
         try {
             boolean tcp_keep_alive = Boolean.parseBoolean(System.getProperty("fairemail.tcp_keep_alive"));
             if (tcp_keep_alive) {
