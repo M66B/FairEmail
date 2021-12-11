@@ -979,7 +979,7 @@ Words separated by commas result in searching for OR, so for example *apple, ora
 Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana).
 Using the search index is a pro feature.
 
-From version 1.1315 it is possible to use search expressions like this:
+Since version 1.1315 it is possible to use search expressions like this:
 
 ```
 apple +banana -cherry ?nuts
@@ -994,7 +994,7 @@ This will result in searching like this:
 Search expressions can be used for searching on the device via the search index and for searching on the email server,
 but not for searching on the device without search index for performance reasons.
 
-From version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later.
+Since version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later.
 You can save a search after searching by tapping on the save button in the top action bar.
 After repeating a search there will be a delete button at the same place to delete a saved search again.
 A saved search might be useful to quickly search for starred messages, or for messages from a specific email address, etc.
@@ -2281,7 +2281,7 @@ When navigation to a conversation one message will be expanded if:
 
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
-* There is exactly one starred (favorite) message in the conversation (from version 1.1508)
+* There is exactly one starred (favorite) message in the conversation (since version 1.1508)
 
 There is one exception: the message was not downloaded yet
 and the message is too large to download automatically on a metered (mobile) connection.
@@ -2364,14 +2364,12 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+An small error in a rule condition can lead to a disaster, therefore irreversible actions, like permanent deletion, are unsupportable and won't be added.
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded,
-so it is not possible to apply conditions to the message text.
-Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+If you want to forward a message, consider to use a *move* action instead.
+This will be more reliable than forwarding because forwarded messages might be considered as spam.
 
-If you want to forward a message, consider to use the move action instead.
-This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+<br />
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
 it is by default not possible to preview which messages would match a header rule condition.
@@ -2388,7 +2386,7 @@ To match *set* IMAP flags (keywords) via a header condition (since version 1.177
 $<keyword>$
 ```
 
-To match *set* message flags (since version 1.1777):
+To match *set* message flags via a header condition (since version 1.1777):
 
 ```
 $$seen$
@@ -2397,7 +2395,7 @@ $$flagged$
 $$deleted$
 ```
 
-To match *passed* message checks (since version 1.1787):
+To match *passed* message checks via a header condition (since version 1.1787):
 
 ```
 $$dkim$
@@ -2412,6 +2410,8 @@ Note that *regex* should be disable and that there should be no white space.
 
 Please be aware that a difference in the *from* and *reply-to* domain isn't a good indication of spam.
 
+<br />
+
 The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* with the following string extras:
 
 * *name*
@@ -2420,6 +2420,8 @@ The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* w
 * *received* (ISO 8601 date/time)
 
 An app like Tasker can listen for this intent and perform some action.
+
+<br />
 
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
@@ -2573,7 +2575,7 @@ To enable/disable a specific account:
 ```
 
 Note that disabling an account will hide the account and all associated folders and messages.
-From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
+Since version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
 
 To set the poll interval:
 
@@ -2833,7 +2835,7 @@ This can be enabled in the receive settings. Be aware that this will slow down s
 
 If the domain name of the sender and the domain name of the reply address differ,
 the warning flag will be shown too because this is most often the case with phishing messages.
-If desired, this can be disabled in the receive settings (from version 1.1506).
+If desired, this can be disabled in the receive settings (since version 1.1506).
 
 If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder.
 Moreover, without proper authentication there is a risk the sender will be impersonated.
@@ -4027,7 +4029,7 @@ Advanced: the IMAP delete flag in combination with the EXPUNGE command is not su
 because both email servers and not all people can handle this, risking unexpected loss of messages.
 A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
-From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable auto expunging messages.
+Since version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable auto expunging messages.
 Note that messages with a *\Deleted* flag will not be shown in FairEmail.
 
 <br />
@@ -4246,7 +4248,7 @@ FairEmail currently uses the following block lists:
 * [Spamcop](https://www.spamcop.net/) &#8211; [Legal info](https://www.spamcop.net/fom-serve/cache/297.html) &#8212; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 * [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Request Access](https://www.barracudacentral.org/account/register) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 
-From version 1.1627 it is possible to enable/disable individual blocklists in the receive settings of the app.
+Since version 1.1627 it is possible to enable/disable individual blocklists in the receive settings of the app.
 
 <br />
 
