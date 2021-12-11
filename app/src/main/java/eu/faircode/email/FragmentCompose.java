@@ -4607,7 +4607,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.cc = ref.cc;
                             data.draft.bcc = ref.bcc;
                             data.draft.subject = ref.subject;
-                            if (ref.content) // Edit-as-new
+                            if (ref.content && "editasnew".equals(action))
                                 document = JsoupEx.parse(ref.getFile(context));
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
@@ -4943,7 +4943,10 @@ public class FragmentCompose extends FragmentBase {
                                     File target = attachment.getFile(context);
                                     Helper.copy(source, target);
 
-                                    if (resize_reply && !"forward".equals(action))
+                                    if (resize_reply &&
+                                            !("forward".equals(action) ||
+                                                    "resend".equals(action) ||
+                                                    "editasnew".equals(action)))
                                         resizeAttachment(context, attachment, REDUCED_IMAGE_SIZE);
                                 } else
                                     args.putBoolean("incomplete", true);
