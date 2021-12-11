@@ -68,6 +68,7 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
@@ -1291,6 +1292,30 @@ public class Helper {
 
         Log.i("hideKeyboard view=" + view);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    static String getViewName(View view) {
+        StringBuilder sb = new StringBuilder(_getViewName(view));
+        ViewParent parent = view.getParent();
+        while (parent != null) {
+            if (parent instanceof View)
+                sb.insert(0, '/').insert(0, _getViewName((View) parent));
+            parent = parent.getParent();
+        }
+        return sb.toString();
+    }
+
+    private static String _getViewName(View view) {
+        if (view == null)
+            return "<null>";
+        int id = view.getId();
+        if (id == View.NO_ID)
+            return "";
+        try {
+            return view.getContext().getResources().getResourceEntryName(id);
+        } catch (Throwable ex) {
+            return ex.toString();
+        }
     }
 
     // Formatting
