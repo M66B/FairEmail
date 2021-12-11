@@ -1212,7 +1212,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         auths < 3 ? colorControlNormal : colorVerified));
-                ibAuth.setVisibility(auths > 0 ? View.VISIBLE : View.GONE);
+                ibAuth.setVisibility(View.VISIBLE);
             } else
                 ibAuth.setVisibility(View.GONE);
 
