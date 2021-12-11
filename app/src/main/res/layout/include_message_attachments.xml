@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibDownloadAttachments"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
         app:srcCompat="@drawable/twotone_cloud_download_24" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibSaveAttachments"
         android:layout_width="36dp"
         android:layout_height="36dp"

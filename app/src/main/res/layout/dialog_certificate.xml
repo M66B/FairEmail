@@ -102,7 +102,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmailInvalid" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibInfo"
             android:layout_width="24dp"
             android:layout_height="24dp"

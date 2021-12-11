@@ -145,7 +145,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swOptimize" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibOptimizeInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -337,7 +337,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay5" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibSchedules"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

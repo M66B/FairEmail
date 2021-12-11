@@ -32,7 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivState"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -44,7 +44,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_cloud_off_24" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivOAuth"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -55,7 +55,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_security_24" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivPrimary"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -66,7 +66,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_star_24" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivGroup"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -93,7 +93,7 @@
                 app:layout_constraintStart_toEndOf="@id/ivGroup"
                 app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivSync"
                 android:layout_width="24dp"
                 android:layout_height="24dp"

@@ -34,7 +34,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ScrollViewEx>
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

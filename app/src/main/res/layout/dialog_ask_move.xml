@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessages" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivArrow"
             android:layout_width="48dp"
             android:layout_height="48dp"

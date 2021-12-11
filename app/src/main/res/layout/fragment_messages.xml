@@ -49,7 +49,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorSupport" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibHintSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSupport" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibHintSwipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSwipe" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibHintSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                 app:srcCompat="@drawable/twotone_reply_24_options"
                 app:tint="?attr/colorFabForeground" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
                 app:srcCompat="@drawable/twotone_vertical_align_bottom_24"
                 app:tint="?attr/colorAccent" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -245,7 +245,7 @@
                 app:srcCompat="@drawable/twotone_vertical_align_top_24"
                 app:tint="?attr/colorAccent" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibOutbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintStart_toEndOf="@+id/tvOutboxCount" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibSeen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -299,7 +299,7 @@
                 app:srcCompat="@drawable/twotone_drafts_24"
                 app:tint="?attr/colorAccent" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibUnflagged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -313,7 +313,7 @@
                 app:srcCompat="@drawable/baseline_star_24"
                 app:tint="?attr/colorAccent" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibSnoozed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

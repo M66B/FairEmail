@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-    <ImageView
+    <eu.faircode.email.FixedImageView
         android:id="@+id/ivPhoto"
         android:layout_width="0dp"
         android:layout_height="36dp"

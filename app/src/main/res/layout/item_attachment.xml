@@ -13,7 +13,7 @@
         android:paddingTop="6dp"
         android:paddingBottom="6dp">
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibDelete"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_delete_24" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivType"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/file_bin" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivDisposition"
             android:layout_width="12dp"
             android:layout_height="12dp"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivStatus"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -70,7 +70,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_cloud_download_24" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibSave"
             android:layout_width="36dp"
             android:layout_height="36dp"

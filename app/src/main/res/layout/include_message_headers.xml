@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibCopyHeaders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvHeaders"
         app:srcCompat="@drawable/twotone_file_copy_24" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibCloseHeaders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -356,7 +356,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEncrypt" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibEncryption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -417,7 +417,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSendTitle" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibSendAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -68,7 +68,7 @@
                     app:layout_constraintStart_toEndOf="@id/etExtra"
                     app:layout_constraintTop_toTopOf="@+id/etExtra" />
 
-                <ImageView
+                <eu.faircode.email.FixedImageView
                     android:id="@+id/ivToLegend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     app:layout_constraintStart_toEndOf="@id/ivToLegend"
                     app:layout_constraintTop_toBottomOf="@id/etExtra" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibToAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -112,7 +112,7 @@
                     app:srcCompat="@drawable/twotone_person_add_24"
                     app:tint="?attr/colorAccent" />
 
-                <ImageView
+                <eu.faircode.email.FixedImageView
                     android:id="@+id/ivCcLegend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                     app:layout_constraintStart_toEndOf="@id/ivCcLegend"
                     app:layout_constraintTop_toBottomOf="@+id/etTo" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibCcAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -156,7 +156,7 @@
                     app:srcCompat="@drawable/twotone_person_add_24"
                     app:tint="?attr/colorAccent" />
 
-                <ImageView
+                <eu.faircode.email.FixedImageView
                     android:id="@+id/ivBccLegend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                     app:layout_constraintStart_toEndOf="@id/ivBccLegend"
                     app:layout_constraintTop_toBottomOf="@+id/etCc" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibBccAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -216,7 +216,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBcc" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibCcBcc"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -360,7 +360,7 @@
                     app:layout_constraintStart_toStartOf="@id/ibSignature"
                     app:layout_constraintTop_toTopOf="@+id/tvSignature" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibSignature"
                     android:layout_width="36dp"
                     android:layout_height="wrap_content"
@@ -384,7 +384,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvSignature" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibCloseRefHint"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
@@ -410,7 +410,7 @@
                     app:layout_constraintStart_toEndOf="@id/ibCloseRefHint"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibWriteAboveBelow"
                     android:layout_width="36dp"
                     android:layout_height="wrap_content"
@@ -424,7 +424,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/abovebelow" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibReferenceEdit"
                     android:layout_width="36dp"
                     android:layout_height="wrap_content"
@@ -438,7 +438,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/twotone_edit_24" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibReferenceImages"
                     android:layout_width="36dp"
                     android:layout_height="wrap_content"

@@ -426,7 +426,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDisplayHiddenHint"
                     app:switchPadding="12dp" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibIncognitoKeyboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -506,7 +506,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swSafeBrowsing" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibSafeBrowsing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -553,7 +553,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLoadEmojiHint" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibDisconnectBlacklist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

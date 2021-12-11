@@ -20,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibInfo"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaption" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibDifferent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLink" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvLink"
             app:srcCompat="@drawable/twotone_search_24" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvLink"
             app:srcCompat="@drawable/twotone_share_24" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibCopy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

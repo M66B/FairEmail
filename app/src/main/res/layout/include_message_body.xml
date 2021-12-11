@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="@id/tvDownloading"
         app:layout_constraintTop_toTopOf="@id/tvDownloading" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibDownloading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBody" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibInfrastructure"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/infra_awsses" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibTrashBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -139,7 +139,7 @@
         app:srcCompat="@drawable/twotone_delete_24"
         app:tint="?attr/colorAccent" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibArchiveBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -154,7 +154,7 @@
         app:srcCompat="@drawable/twotone_archive_24"
         app:tint="?attr/colorAccent" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibMoveBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -169,7 +169,7 @@
         app:srcCompat="@drawable/twotone_drive_file_move_24"
         app:tint="?attr/colorAccent" />
 
-    <ImageButton
+    <eu.faircode.email.FixedImageButton
         android:id="@+id/ibSeenBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"

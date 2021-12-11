@@ -42,7 +42,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/ivStop"
                 app:layout_constraintTop_toTopOf="@+id/ivStop" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivStop"
                 android:layout_width="24dp"
                 android:layout_height="24dp"

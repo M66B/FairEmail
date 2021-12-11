@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivThread"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             app:layout_constraintStart_toEndOf="@id/ivThread"
             app:layout_constraintTop_toTopOf="@id/ivThread" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivBookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toEndOf="@id/ivBookmark"
             app:layout_constraintTop_toTopOf="@id/ivBookmark" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivZoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             app:layout_constraintStart_toEndOf="@id/ivZoom"
             app:layout_constraintTop_toTopOf="@id/ivZoom" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivDraft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             app:layout_constraintStart_toEndOf="@id/ivDraft"
             app:layout_constraintTop_toTopOf="@id/ivDraft" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
             app:layout_constraintStart_toEndOf="@id/ivAuth"
             app:layout_constraintTop_toTopOf="@id/ivAuth" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivHighPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
             app:layout_constraintStart_toEndOf="@id/ivHighPriority"
             app:layout_constraintTop_toTopOf="@id/ivHighPriority" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivLowPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
             app:layout_constraintStart_toEndOf="@id/ivLowPriority"
             app:layout_constraintTop_toTopOf="@id/ivLowPriority" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivHighImportance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
             app:layout_constraintStart_toEndOf="@id/ivHighImportance"
             app:layout_constraintTop_toTopOf="@id/ivHighImportance" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivLowImportance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
             app:layout_constraintStart_toEndOf="@id/ivLowImportance"
             app:layout_constraintTop_toTopOf="@id/ivLowImportance" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivSigned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
             app:layout_constraintStart_toEndOf="@id/ivSigned"
             app:layout_constraintTop_toTopOf="@id/ivSigned" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivEncrypted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
             app:layout_constraintStart_toEndOf="@id/ivEncrypted"
             app:layout_constraintTop_toTopOf="@id/ivEncrypted" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivClassified"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -279,7 +279,7 @@
             app:layout_constraintStart_toEndOf="@id/ivClassified"
             app:layout_constraintTop_toTopOf="@id/ivClassified" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivSnoozed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -301,7 +301,7 @@
             app:layout_constraintStart_toEndOf="@id/ivSnoozed"
             app:layout_constraintTop_toTopOf="@id/ivSnoozed" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivAnswered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
             app:layout_constraintStart_toEndOf="@id/ivAnswered"
             app:layout_constraintTop_toTopOf="@id/ivAnswered" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivForwarded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -345,7 +345,7 @@
             app:layout_constraintStart_toEndOf="@id/ivForwarded"
             app:layout_constraintTop_toTopOf="@id/ivForwarded" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivPlain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -367,7 +367,7 @@
             app:layout_constraintStart_toEndOf="@id/ivPlain"
             app:layout_constraintTop_toTopOf="@id/ivPlain" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivReceipt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -390,7 +390,7 @@
             app:layout_constraintStart_toEndOf="@id/ivReceipt"
             app:layout_constraintTop_toTopOf="@id/ivReceipt" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivAutoSubmitted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -412,7 +412,7 @@
             app:layout_constraintStart_toEndOf="@id/ivAutoSubmitted"
             app:layout_constraintTop_toTopOf="@id/ivAutoSubmitted" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivBrowsed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -434,7 +434,7 @@
             app:layout_constraintStart_toEndOf="@id/ivBrowsed"
             app:layout_constraintTop_toTopOf="@id/ivBrowsed" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivAttachment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -456,7 +456,7 @@
             app:layout_constraintStart_toEndOf="@id/ivAttachment"
             app:layout_constraintTop_toTopOf="@id/ivAttachment" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivStarred"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -478,7 +478,7 @@
             app:layout_constraintStart_toEndOf="@id/ivStarred"
             app:layout_constraintTop_toTopOf="@id/ivStarred" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -500,7 +500,7 @@
             app:layout_constraintStart_toEndOf="@id/ivSearch"
             app:layout_constraintTop_toTopOf="@id/ivSearch" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivPin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -522,7 +522,7 @@
             app:layout_constraintStart_toEndOf="@id/ivPin"
             app:layout_constraintTop_toTopOf="@id/ivPin" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivContacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -544,7 +544,7 @@
             app:layout_constraintStart_toEndOf="@id/ivContacts"
             app:layout_constraintTop_toTopOf="@id/ivContacts" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -566,7 +566,7 @@
             app:layout_constraintStart_toEndOf="@id/ivView"
             app:layout_constraintTop_toTopOf="@id/ivView" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivHide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -588,7 +588,7 @@
             app:layout_constraintStart_toEndOf="@id/ivHide"
             app:layout_constraintTop_toTopOf="@id/ivHide" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivDownload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -610,7 +610,7 @@
             app:layout_constraintStart_toEndOf="@id/ivDownload"
             app:layout_constraintTop_toTopOf="@id/ivDownload" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivRule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -632,7 +632,7 @@
             app:layout_constraintStart_toEndOf="@id/ivRule"
             app:layout_constraintTop_toTopOf="@id/ivRule" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivUnsubscribe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -654,7 +654,7 @@
             app:layout_constraintStart_toEndOf="@id/ivUnsubscribe"
             app:layout_constraintTop_toTopOf="@id/ivUnsubscribe" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivOriginal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -676,7 +676,7 @@
             app:layout_constraintStart_toEndOf="@id/ivOriginal"
             app:layout_constraintTop_toTopOf="@id/ivOriginal" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivReformatted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -698,7 +698,7 @@
             app:layout_constraintStart_toEndOf="@id/ivReformatted"
             app:layout_constraintTop_toTopOf="@id/ivReformatted" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivExternalImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -720,7 +720,7 @@
             app:layout_constraintStart_toEndOf="@id/ivExternalImage"
             app:layout_constraintTop_toTopOf="@id/ivExternalImage" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivEmbeddedImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -742,7 +742,7 @@
             app:layout_constraintStart_toEndOf="@id/ivEmbeddedImage"
             app:layout_constraintTop_toTopOf="@id/ivEmbeddedImage" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivTrackingPixel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -765,7 +765,7 @@
             app:layout_constraintStart_toEndOf="@id/ivTrackingPixel"
             app:layout_constraintTop_toTopOf="@id/ivTrackingPixel" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivBrokenImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -787,7 +787,7 @@
             app:layout_constraintStart_toEndOf="@id/ivBrokenImage"
             app:layout_constraintTop_toTopOf="@id/ivBrokenImage" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivDeletePermanent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

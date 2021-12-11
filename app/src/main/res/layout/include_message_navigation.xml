@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@id/vSeparator"
             app:show_delay="750" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibTools"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -65,7 +65,7 @@
             android:layout_height="36dp"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibMore"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -77,7 +77,7 @@
             app:srcCompat="@drawable/twotone_more_horiz_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibInbox"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -89,7 +89,7 @@
             app:srcCompat="@drawable/twotone_move_to_inbox_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibJunk"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -101,7 +101,7 @@
             app:srcCompat="@drawable/twotone_report_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibTrash"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -113,7 +113,7 @@
             app:srcCompat="@drawable/twotone_delete_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibArchive"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -125,7 +125,7 @@
             app:srcCompat="@drawable/twotone_archive_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibMove"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -137,7 +137,7 @@
             app:srcCompat="@drawable/twotone_drive_file_move_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibCopy"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -149,7 +149,7 @@
             app:srcCompat="@drawable/twotone_file_copy_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibNotes"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -159,7 +159,7 @@
             app:srcCompat="@drawable/twotone_sticky_note_2_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibRule"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -171,7 +171,7 @@
             app:srcCompat="@drawable/twotone_filter_alt_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibKeywords"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -181,7 +181,7 @@
             app:srcCompat="@drawable/twotone_label_important_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibLabels"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -191,7 +191,7 @@
             app:srcCompat="@drawable/twotone_label_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibAnswer"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -203,7 +203,7 @@
             app:srcCompat="@drawable/twotone_reply_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibSeen"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -215,7 +215,7 @@
             app:srcCompat="@drawable/twotone_mail_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibHide"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -227,7 +227,7 @@
             app:srcCompat="@drawable/twotone_visibility_off_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibImportance"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -239,7 +239,7 @@
             app:srcCompat="@drawable/importance"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibSearch"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -251,7 +251,7 @@
             app:srcCompat="@drawable/twotone_search_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibSearchText"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -263,7 +263,7 @@
             app:srcCompat="@drawable/twotone_manage_search_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibTranslate"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -275,7 +275,7 @@
             app:srcCompat="@drawable/twotone_translate_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibForceLight"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -287,7 +287,7 @@
             app:srcCompat="@drawable/lightdark"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibEvent"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -299,7 +299,7 @@
             app:srcCompat="@drawable/twotone_event_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibShare"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -311,7 +311,7 @@
             app:srcCompat="@drawable/twotone_share_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibPin"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -323,7 +323,7 @@
             app:srcCompat="@drawable/twotone_push_pin_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibPrint"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -335,7 +335,7 @@
             app:srcCompat="@drawable/twotone_print_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibHeaders"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -347,7 +347,7 @@
             app:srcCompat="@drawable/baseline_code_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibUnsubscribe"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -359,7 +359,7 @@
             app:srcCompat="@drawable/twotone_unsubscribe_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibUndo"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -371,7 +371,7 @@
             app:srcCompat="@drawable/twotone_cancel_schedule_send_24"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibVerify"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -385,7 +385,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ibFull"
             app:srcCompat="@drawable/twotone_gesture_24" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibDecrypt"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -398,7 +398,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ibFull"
             app:srcCompat="@drawable/twotone_lock_open_24" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibImages"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -413,7 +413,7 @@
             app:srcCompat="@drawable/twotone_image_24"
             app:tint="?attr/colorAccent" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ibFull"
             android:layout_width="36dp"
             android:layout_height="36dp"

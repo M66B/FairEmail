@@ -20,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivTracking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             app:layout_constraintStart_toEndOf="@id/ivTracking"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 
-        <ImageButton
+        <eu.faircode.email.FixedImageButton
             android:id="@+id/ivInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

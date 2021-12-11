@@ -14,7 +14,7 @@
         android:paddingEnd="6dp"
         android:paddingBottom="3dp">
 
-        <ImageView
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -22,7 +22,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <eu.faircode.email.FixedImageView
                 android:id="@+id/ivState"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -41,7 +41,7 @@
                 app:layout_constraintStart_toEndOf="@id/ivState"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
+            <eu.faircode.email.FixedImageButton
                 android:id="@+id/ibExpander"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"

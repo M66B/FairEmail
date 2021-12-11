@@ -75,7 +75,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibClear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManageHint" />
 
-                <ImageView
+                <eu.faircode.email.FixedImageView
                     android:id="@+id/ivChannelDefault"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -143,7 +143,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManageDefaultHint" />
 
-                <ImageView
+                <eu.faircode.email.FixedImageView
                     android:id="@+id/ivChannelService"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -165,7 +165,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnManageService" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibWhy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -488,7 +488,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swBadge" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibBadge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -685,7 +685,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tvNotifyPreviewOnlyHint"
                     app:switchPadding="12dp" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibLight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -719,7 +719,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swWearablePreview" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibWearable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -752,7 +752,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swMessagingStyle" />
 
-                <ImageButton
+                <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibCar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
