@@ -4,7 +4,6 @@
     <string name="app_changelog">Muutosloki</string>
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit oletusarvoisesti uudelleenmuotoillaan turvattomien elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen on vahvistettava turvallisuuden vuoksi. Molemmat ominaisuudet voidaan haluttaessa poistaa käytöstä.</string>
-    <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Poistu menemällä \'takaisin\' uudelleen</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="app_updated">Päivitetty viimeksi: %1$s</string>

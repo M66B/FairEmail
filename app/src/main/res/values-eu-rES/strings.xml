@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail bilaketa</string>
     <string name="app_changelog">Aldaketen erregistroa</string>
     <string name="app_welcome">FairEmail kode irekiko email aplikazio bat da, pribatutasuna eta segurtasuna aintzat dituena. Horregatik ezaugarri batzuk ohi ez bezala funtzionatu dezakete.</string>
-    <string name="app_crash">FairEmail-ek ez du gailu honentzako euskarririk Android akatsek kraskatzea eragiten dutelako</string>
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
     <string name="app_updated">Azken eguneratzea: %1$s</string>
     <string name="channel_service">Jaso</string>

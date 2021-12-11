@@ -80,7 +80,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~הצפנה עם YubiKey גורמת ללולאה אינסופית. נגרם, כפי הנראה, עקב [תקלה ב־OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * גלילה למיקום מקושר פנימי בהודעות המקוריות לא עובדת. אי אפשר לתקן את זה כיוון שתצוגת ההודעה המקורית מוכלת בתצוגת גלילה.
 * תצוגת תוכן ההודעה לא (תמיד) מופיע בשעונים של Samsung כיוון ש־[setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) כנראה לא תקף. הניסיון מראה כי התצוגה מקדימה של תוכן ההודעה מופיע כראוי בהתקנים הלבישים Pebble 2,‏ Fitbit Charge 3,‏ Mi band 3 ו־Xiaomi Amazfit BIP. יש פרטים נוספים ב[שו״ת הזה](#user-content-faq126).
-* [תקלה ב־Android 6.0](https://issuetracker.google.com/issues/37068143) גורמת לקריסה עם *… היסט שגוי:… Valid range is ...* when text is selected and tapping outside of the selected text. התקלה הזאת תוקנה ב־Android 6.0.1.
+* [תקלה ב־Android 6.0](https://issuetracker.google.com/issues/37068143) גורמת לקריסה עם *… היסט שגוי:… הטווח התקף הוא…* כאשר טקסט נבחר ונגעת מחוץ לטקסט הנבחר. התקלה הזאת תוקנה ב־Android 6.0.1.
 * קישורים פנימיים (עוגן) לא יעבדו כיוון שההודעות המקוריות מופיעות ב־WebView שמוטמע בתצוגה נגללת (רשימת הדיונים). זאת מגבלה של Android שלא ניתן לתקן או לעקוף.
 * זיהוי שפה [לא עובד יותר](https://issuetracker.google.com/issues/173337263) במכשירי Pixel עם (שדרוג אל?) Android 11
 * [תקלה ב־OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) גורמת לחתימות PGP שגויות בעת שימוש באסימון חומרתי.

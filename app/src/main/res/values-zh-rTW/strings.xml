@@ -4,7 +4,6 @@
     <string name="app_changelog">變更紀錄</string>
     <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，其中一些功能的工作方式可能與您所熟悉的不同。</string>
     <string name="app_limitations">例如，預設重排訊息以移除不安全的元件並改善可讀性，並且為了安全，連結的開啟還需要獲得確認。如有需要，兩者皆可停用。</string>
-    <string name="app_crash">此裝置不支援 FairEmail 的執行，因為 Android 系統中存在會導致本程式崩潰的 bugs</string>
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
     <string name="app_cake">剩餘儲存空間不足</string>
     <string name="app_updated">最近更新於: %1$s</string>

@@ -4,7 +4,6 @@
     <string name="app_changelog">Nhật ký thay đổi</string>
     <string name="app_welcome">FairEmail là một ứng dụng email mã nguồn mở tập trung vào sự riêng tư và bảo mật. Vì lý do này một số tính năng có thể hoạt động khác với những gì bạn quen.</string>
     <string name="app_limitations">Ví dụ, các thư được định dạng lại theo mặc định để xoá các yếu tố không an toàn và để dễ đọc hơn, và việc mở các liên kết cần được xác nhận để cho an toàn. Cả hai có thể được tắt nếu muốn.</string>
-    <string name="app_crash">FairEmail không được hỗ trợ trên thiết bị này vì lỗi ở Android gây ra crash</string>
     <string name="app_exit">\'Quay lại\' lần nữa để thoát</string>
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
     <string name="app_updated">Lần cập nhật cuối: %1$s</string>

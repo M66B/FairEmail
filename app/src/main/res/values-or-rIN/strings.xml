@@ -3,7 +3,8 @@
     <string name="app_search">FairEmail ସନ୍ଧାନ</string>
     <string name="app_changelog">ପରିବର୍ତ୍ତନ ଲଗ୍</string>
     <string name="app_welcome">FairEmail ହେଉଛି ଏକ ଖୋଲା ଉତ୍ସ ଇମେଲ୍ ଆପ୍ ଯାହାକି ଗୋପନୀୟତା ଏବଂ ସୁରକ୍ଷା ଉପରେ ଧ୍ୟାନ ଦେଇଥାଏ। ଏହି କାରଣରୁ କିଛି ବୈଶିଷ୍ଟ୍ୟ ଆପଣ ଅଭ୍ୟସ୍ତ ଠାରୁ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିପାରେ।</string>
-    <string name="app_crash">ଏହି ଡିଭାଇସରେ FairEmail ସମର୍ଥିତ ନୁହେଁ କାରଣ ଆଣ୍ଡ୍ରଏଡରେ ଥିବା ବଗ୍ ଯୋଗୁ କ୍ରାସ୍ ହୋଇଥାଏ</string>
+    <string name="app_unsupported">ଏହି ଡିଭାଇସର ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ ଥିବା ବଗ୍ କ୍ରାସ୍ ସୃଷ୍ଟି କରେ</string>
+    <string name="app_continue">ଯେକୌଣସି ପ୍ରକାରେ ଜାରି ରଖନ୍ତୁ</string>
     <string name="app_exit">ପ୍ରସ୍ଥାନ କରିବା ପାଇଁ ପୁଣି \'ବ୍ୟାକ୍\' ଯାଆନ୍ତୁ</string>
     <string name="app_updated">ଗତ ଅପଡେଟ୍: %1$s</string>
     <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>

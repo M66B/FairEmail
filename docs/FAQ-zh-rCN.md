@@ -1284,19 +1284,19 @@ FairEmail will by default check if old messages were deleted from the server on 
 
 Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 3 to reliably keep connections alive.
 
-Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
+部分提供商每两分钟发送一次类似 '*我还在*' 消息，这也会导致网络流量和您的设备被唤醒，并增加不必要的电池消耗。 您可以通过主导航菜单检查 *日志* 来判断您的提供商是否有这种行为。 如果您的提供商使用 [Dovecot](https://www.dovecot.org/) 作为 IMAP 服务器， 您可以请求提供商将 [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) 设置改至更高或更好的值来避免此行为。 如果您的提供商不能或不愿对此做出改变，您应该考虑切换为定期而不是连续的同步。 您可以在接收设置中更改此设置。
 
-If you got the message *This provider does not support push messages* while configuring an account, consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
+如果您在配置账户时看到 *此提供商不支持推送消息*，可考虑改用支持推送消息（IMAP IDLE）的提供商以减少电池消耗。
 
-If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
+如果您的设备采用 [AMOLED](https://en.wikipedia.org/wiki/AMOLED) 屏幕，您可以通过切换为黑色主题来减少电量消耗。
 
-If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
+如果在接收设置中启用了自动优化，遇到下列情况时账户会自动切换为定期检查新邮件：
 
-* Says '*Still here*' within 3 minutes
-* The email server does not support push messages
-* The keep-alive interval is lower than 12 minutes
+* 3分钟内再次告知'*我还在*'
+* 电子邮件服务器不支持推送邮件
+* 保活间隔小于12分钟
 
-In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
+此外，连续遭遇三次 [并发连接过多](#user-content-faq23) 错误后，“回收站”和“垃圾邮件”文件夹将自动设为检查新邮件。
 
 <br />
 
@@ -2925,15 +2925,15 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 <a name="faq162"></a>
-**(162) Is IMAP NOTIFY supported?***
+**(162) 支持 IMAP NOTIFY 吗？***
 
-是的，[IMAP NotIFY](https://tools.ietf.org/html/rfc5465) 自版本 1.1413 以来一直支持。
+是的，自版本 1.1413 以来支持 [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465)。
 
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+支持 IMAP NOTIFY 意味着将会为所有 *已订阅* 文件夹的新增、变更和删除邮件请求通知，并在收到已订阅文件夹的变更通知时同步该文件夹。 因此可以禁用已订阅文件夹的同步，减少向电子邮件服务器的同步文件夹的连接。
 
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
-**重要**：大多数电子邮件服务器都不支持它！ 如果电子邮件服务器支持 NOTIFY 功能，您可以通过导航菜单检查其日志。
+**重要**：大多数电子邮件服务器都不支持它！ 您可以通过导航菜单检查日志来判断电子邮件服务器是否支持 NOTIFY 功能。
 
 <br />
 

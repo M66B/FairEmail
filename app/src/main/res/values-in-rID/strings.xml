@@ -4,7 +4,6 @@
     <string name="app_changelog">Daftar Log Pembaruan</string>
     <string name="app_welcome">FairEmail adalah aplikasi email sumber terbuka yang berfokus pada privasi dan keamanan. Karena alasan ini, beberapa fitur mungkin bekerja secara berbeda dari biasanya.</string>
     <string name="app_limitations">Misalnya, pesan diformat ulang secara default untuk menghapus elemen yang tidak aman dan untuk meningkatkan keterbacaan, dan membuka tautan perlu dikonfirmasi demi keamanan. Keduanya dapat dinonaktifkan jika diinginkan.</string>
-    <string name="app_crash">FairEmail tidak didukung pada perangkat ini karena ada beberapa kesalahan di Android menyebabkan crash/error</string>
     <string name="app_exit">Ketuk \"Kembali\" untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>

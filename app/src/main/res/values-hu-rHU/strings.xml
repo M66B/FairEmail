@@ -4,7 +4,6 @@
     <string name="app_changelog">Újdonságok</string>
     <string name="app_welcome">A FairEmail egy nyílt forráskódú e-mail alkalmazás, melynek elsődleges szempontja az adatvédelem és biztonság. Emiatt némely funkció másképp működhet a megszokottnál.</string>
     <string name="app_limitations">Például az üzenetek átformáltak alapból, hogy eltávolítsa a nem biztonságos elemeket és javítsa az olvashatóságot, és linkek megnyitásánál szükséges, hogy legyen megerősítve biztonságért. Mind a kettőt le lehet tiltani, ha kívánt.</string>
-    <string name="app_crash">FairEmail nem támogatott ezen az eszközön, az Android hibái miatt</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="app_cake">Nincs elég tárhely</string>
     <string name="app_updated">Utoljára frissítve: %1$s</string>

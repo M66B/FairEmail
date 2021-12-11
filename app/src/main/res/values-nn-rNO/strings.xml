@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail søk</string>
     <string name="app_changelog">Endringer</string>
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
-    <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
     <string name="channel_service">Tak imot</string>

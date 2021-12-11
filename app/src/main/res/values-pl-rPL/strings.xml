@@ -4,7 +4,8 @@
     <string name="app_changelog">Historia zmian</string>
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
     <string name="app_limitations">Na przykład wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. W razie potrzeby można to wyłączyć w opcjach.</string>
-    <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
+    <string name="app_unsupported">Błędy w wersji Androida tego konkretnego urządzenia powodują awarie</string>
+    <string name="app_continue">Kontynuuj mimo to</string>
     <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
@@ -1302,6 +1303,7 @@
     <string name="title_rule_attachments">Zawiera załącznik</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
     <string name="title_rule_body">Tekst zawiera</string>
+    <string name="title_rule_body_remark">Użycie tego warunku będzie zawsze pobierało tekst wiadomości, co może spowolnić synchronizację listy wiadomości</string>
     <string name="title_rule_time_abs">Całkowity czas (otrzymany) między</string>
     <string name="title_rule_time_after">Otrzymane po</string>
     <string name="title_rule_time_before">Otrzymane przed</string>

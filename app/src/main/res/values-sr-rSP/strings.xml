@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail претрага</string>
     <string name="app_changelog">Дневник измена</string>
     <string name="app_welcome">FairEmail е-мејл апликација отвореног кода са фокусом на приватност и безбедност. Могуће је да ће из ових разлога неке функционалности бити другачије него што сте навикли.</string>
-    <string name="app_crash">FairEmail није подржан на овом уређају пошто Андроид грешке изазивају рушења апликације</string>
     <string name="app_exit">За излаз још једном притисните „назад“</string>
     <string name="channel_service">Примање</string>
     <string name="channel_send">Пошаљи</string>

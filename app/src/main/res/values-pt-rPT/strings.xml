@@ -4,7 +4,7 @@
     <string name="app_changelog">Registo de alterações</string>
     <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que estás acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens são reformatadas por defeito para remover elementos inseguros e melhorar a legibilidade, e a abertura de links precisa de ser confirmada para segurança. Ambos podem ser desativados caso pretendam.</string>
-    <string name="app_crash">O FairEmail não é suportado neste dispositivo porque erros no Android causam falhas</string>
+    <string name="app_continue">Continuar mesmo assim</string>
     <string name="app_exit">Vá \'voltar\' novamente para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>

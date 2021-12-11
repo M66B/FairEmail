@@ -4,7 +4,8 @@
     <string name="app_changelog">更新履歴</string>
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
-    <string name="app_crash">Android のバグによるクラッシュが頻発するため、このデバイスは FairEmail ではサポートされていません</string>
+    <string name="app_unsupported">このデバイスに搭載されているバージョンの Android のバグによりクラッシュすることがあります</string>
+    <string name="app_continue">それでも続行する</string>
     <string name="app_exit">もう一度「戻る」で終了します</string>
     <string name="app_cake">ストレージの空き容量が不足しています</string>
     <string name="app_updated">最終更新: %1$s</string>
@@ -119,8 +120,8 @@
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップは autoconfig.thunderbird.net から設定情報を取得します</string>
     <string name="title_setup_quick_patience">しばらくお待ちください&#8230;</string>
-    <string name="title_setup_quick_imap">メッセージを受信する IMAP サーバー</string>
-    <string name="title_setup_quick_smtp">メッセージを送信する SMTP サーバー</string>
+    <string name="title_setup_quick_imap">メッセージを受信するためのIMAPサーバー</string>
+    <string name="title_setup_quick_smtp">メッセージを送信するためのSMTPサーバー</string>
     <string name="title_setup_quick_certificates">サーバー証明書</string>
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます</string>
@@ -1271,6 +1272,7 @@
     <string name="title_rule_attachments">添付ファイルあり</string>
     <string name="title_rule_header">ヘッダーに以下の語句を含む</string>
     <string name="title_rule_body">本文に以下の語句を含む</string>
+    <string name="title_rule_body_remark">この条件を使用すると本文が常にダウンロードされ、メッセージリストの同期が遅れることがあります</string>
     <string name="title_rule_time_abs">以下の期間に受信</string>
     <string name="title_rule_time_after">から</string>
     <string name="title_rule_time_before">まで</string>

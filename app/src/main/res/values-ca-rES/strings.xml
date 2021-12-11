@@ -5,7 +5,6 @@
     <string name="app_welcome">FairEmail és una aplicació de correu electrònic de codi obert centrada en la privadesa i la seguretat. Per aquesta raó, algunes funcions poden funcionar de manera diferent a la que estàs acostumat.</string>
     <string name="app_limitations">Per exemple, els missatges es reformen per defecte per treure elements insegurs i per maximitzar la lectura, i obrir els enllaços necessita ser aprovat per seguretat.
 Ambdues opcions es poden desactivar si es desitja.</string>
-    <string name="app_crash">FairMail no és compatible en aquest dispositiu perquè els errors a Android causen bloqueigs</string>
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
     <string name="app_cake">Espai d’emmagatzematge insuficient</string>
     <string name="app_updated">Darrera actualització: %1$s</string>

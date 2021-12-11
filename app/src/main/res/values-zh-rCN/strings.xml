@@ -4,7 +4,8 @@
     <string name="app_changelog">更新日志</string>
     <string name="app_welcome">FairEmail 是一款专注于隐私与安全的开源电子邮件应用。所以，某些功能的工作方式可能与您的习惯不同。</string>
     <string name="app_limitations">例如，默认情况下，消息将被重新格式化以移除不安全的元素并提高可读性；另外，为确保安全，打开链接前需要得到确认。当然如有需要，这两个选项都可以禁用</string>
-    <string name="app_crash">FairEmail 不支持该设备，Android 中的 bug 会导致其崩溃</string>
+    <string name="app_unsupported">此特定设备的该 Android 版本中的 Bug 会导致崩溃</string>
+    <string name="app_continue">仍然继续</string>
     <string name="app_exit">再按一次退出</string>
     <string name="app_cake">剩余存储空间不足</string>
     <string name="app_updated">上次更新：%1$s</string>
@@ -1341,7 +1342,7 @@
     <string name="title_legend_trash">回收站</string>
     <string name="title_legend_junk">垃圾邮件</string>
     <string name="title_legend_primary">主邮件</string>
-    <string name="title_legend_subscribed">订阅</string>
+    <string name="title_legend_subscribed">已订阅</string>
     <string name="title_legend_rule">有规则</string>
     <string name="title_legend_similar">搜索类似消息</string>
     <string name="title_legend_notify">通知新邮件</string>

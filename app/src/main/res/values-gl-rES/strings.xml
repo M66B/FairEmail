@@ -4,7 +4,6 @@
     <string name="app_changelog">Rexistro de cambios</string>
     <string name="app_welcome">FairEmail é unha aplicación de correo de código aberto centrada na privacidade e a seguridade. For este motivo algunhas características poderían ser algo distintas do habitual.</string>
     <string name="app_limitations">Por exemplo, as mensaxes rescríbense por defecto para eliminar elementos non seguros e para mellorar a lexibilidade, e a apertura de ligazóns pide confirmación por seguridade. Pódese desactivar as dúas cousas se se quere.</string>
-    <string name="app_crash">FairEmail non é soportado neste dispositivo porque os erros en Android xeran quebras</string>
     <string name="app_exit">\"Dalle a \'saír\' outra vez pra saír\"</string>
     <string name="app_cake">Non hai espazo abondo</string>
     <string name="app_updated">Última actualización: %1$s</string>

@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail търсене</string>
     <string name="app_changelog">Преглед на измененията</string>
     <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали. Превод на български plimboster.</string>
-    <string name="app_crash">FairEmail не се поддържа на това устройство поради срив, причинен от грешка в Android</string>
     <string name="app_exit">Натиснете отново „назад“, за изход</string>
     <string name="app_updated">Последно обновяване: %1$s</string>
     <string name="channel_service">Получаване</string>
