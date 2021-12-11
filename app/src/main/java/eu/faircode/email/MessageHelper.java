@@ -122,6 +122,7 @@ public class MessageHelper {
     private boolean ensuredHeaders = false;
     private boolean ensuredStructure = false;
     private MimeMessage imessage;
+    private String hash = null;
 
     private static File cacheDir = null;
 
@@ -1176,7 +1177,7 @@ public class MessageHelper {
         if (thread == null) {
             List<EntityMessage> similar = db.message().getMessagesByMsgId(account, msgid);
             for (EntityMessage message : similar)
-                if (!TextUtils.isEmpty(message.thread) && message.folder != folder) {
+                if (!TextUtils.isEmpty(message.thread) && Objects.equals(message.hash, getHash())) {
                     thread = message.thread;
                     break;
                 }
@@ -1835,7 +1836,9 @@ public class MessageHelper {
 
     String getHash() throws MessagingException {
         try {
-            return Helper.sha1(getHeaders().getBytes());
+            if (hash == null)
+                hash = Helper.sha1(getHeaders().getBytes());
+            return hash;
         } catch (NoSuchAlgorithmException ex) {
             Log.e(ex);
             return null;
