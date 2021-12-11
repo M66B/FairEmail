@@ -297,6 +297,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuAbout();
             }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(ActivitySetup.this, ActivityBilling.class));
+            }
         }).setSubtitle(BuildConfig.VERSION_NAME));
 
         adapter.set(menus, true);
