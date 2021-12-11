@@ -7095,7 +7095,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (TextUtils.isEmpty(message.msgid))
                             return null;
 
-                        List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
+                        List<EntityMessage> messages =
+                                db.message().getMessagesBySimilarity(message.account, message.id, message.msgid);
                         if (messages == null)
                             return null;
 
