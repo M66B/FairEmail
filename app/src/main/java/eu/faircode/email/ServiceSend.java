@@ -712,13 +712,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             iservice.getTransport().sendMessage(imessage, to);
             end = new Date().getTime();
             EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
-
-            if (BuildConfig.DEBUG) {
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                imessage.writeTo(bos);
-                for (String line : bos.toString().split("\n"))
-                    Log.i("MMM " + line);
-            }
         } catch (MessagingException ex) {
             iservice.dump();
             Log.e(ex);

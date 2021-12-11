@@ -302,6 +302,7 @@ public class MessageHelper {
             else
                 imessage.setHeader("Date", mdf.format(new Date(message.received)));
         } else {
+            // https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6
             ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
             Enumeration<Header> headers = new InternetHeaders(bis).getAllHeaders();
             while (headers.hasMoreElements()) {
