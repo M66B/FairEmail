@@ -3393,6 +3393,27 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 <br />
 
+*Resend (version 1.1788+)*
+
+[Resend](https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6) a message via the reply/answer menu.
+
+To resend a message, the original message headers are required.
+You can enable downloading of messages headers for all messages in the connection settings of the app.
+Alternative, you can show messages headers via the horizontal three-dots menu just above the message text to download the message headers for a single message.
+The resend menu item will be shown grayed (dimmed) if the message headers are not available (yet).
+
+Remarks:
+
+* The original subject is sent as-is, unless it is being changed
+* The original message text will be sent as-is, unless text is being entered
+* The original attachments are sent as they are, unless attachments are being added or removed
+* Default CC and BCC addresses will be applied
+* Read and delivery receipts will be requested when enabled, they could go to the original sender or to you
+* The email server might refused resent messages
+* DKIM, SPF and DMARC will likely fail, often causing resent messages to be considered as spam
+
+<br />
+
 <a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 
