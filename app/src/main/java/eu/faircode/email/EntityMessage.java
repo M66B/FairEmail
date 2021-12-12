@@ -147,10 +147,12 @@ public class EntityMessage implements Serializable {
     public Boolean dmarc;
     public Boolean mx;
     public Boolean blocklist;
-    public Boolean reply_domain; // differs from 'from'
+    public Boolean from_domain; // spf/smtp.mailfrom <> from
+    public Boolean reply_domain; // reply-to <> from
     public String avatar; // lookup URI from sender
     public String sender; // sort key: from email address
     public Address[] return_path;
+    public Address[] smtp_from;
     public Address[] submitter; // sent on behalf of
     public Address[] from;
     public Address[] to;
@@ -307,32 +309,12 @@ public class EntityMessage implements Serializable {
         return hasKeyword(MessageHelper.FLAG_FORWARDED);
     }
 
+    String[] checkFromDomain(Context context) {
+        return MessageHelper.equalDomain(context, from, smtp_from);
+    }
+
     String[] checkReplyDomain(Context context) {
-        if (from == null || from.length == 0)
-            return null;
-        if (reply == null || reply.length == 0)
-            return null;
-
-        for (Address _reply : reply) {
-            String r = ((InternetAddress) _reply).getAddress();
-            int rat = (r == null ? -1 : r.indexOf('@'));
-            if (rat < 0)
-                continue;
-            String rdomain = UriHelper.getParentDomain(context, r.substring(rat + 1));
-
-            for (Address _from : from) {
-                String f = ((InternetAddress) _from).getAddress();
-                int fat = (f == null ? -1 : f.indexOf('@'));
-                if (fat < 0)
-                    continue;
-                String fdomain = UriHelper.getParentDomain(context, f.substring(fat + 1));
-
-                if (!rdomain.equalsIgnoreCase(fdomain))
-                    return new String[]{fdomain, rdomain};
-            }
-        }
-
-        return null;
+        return MessageHelper.equalDomain(context, reply, from);
     }
 
     static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
@@ -534,10 +516,12 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.dmarc, other.dmarc) &&
                     Objects.equals(this.mx, other.mx) &&
                     Objects.equals(this.blocklist, other.blocklist) &&
+                    Objects.equals(this.from_domain, other.from_domain) &&
                     Objects.equals(this.reply_domain, other.reply_domain) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     Objects.equals(this.sender, other.sender) &&
                     MessageHelper.equal(this.return_path, other.return_path) &&
+                    MessageHelper.equal(this.smtp_from, other.smtp_from) &&
                     MessageHelper.equal(this.submitter, other.submitter) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&

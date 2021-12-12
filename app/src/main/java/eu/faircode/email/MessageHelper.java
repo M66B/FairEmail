@@ -139,6 +139,7 @@ public class MessageHelper {
     private static final String DOCTYPE = "<!DOCTYPE";
     private static final String HTML_START = "<html>";
     private static final String HTML_END = "</html>";
+    private static final String SMTP_MAILFORM = "smtp.mailfrom";
 
     private static final List<Charset> CHARSET16 = Collections.unmodifiableList(Arrays.asList(
             StandardCharsets.UTF_16,
@@ -1477,6 +1478,35 @@ public class MessageHelper {
         return (spf.trim().toLowerCase(Locale.ROOT).startsWith("pass"));
     }
 
+    Address[] getMailFrom(String[] headers) {
+        if (headers == null)
+            return null;
+
+        Address[] mailfrom = null;
+        for (String header : headers) {
+            String spf = getKeyValues(header).get("spf");
+            if (spf == null)
+                continue;
+
+            int i = spf.indexOf(SMTP_MAILFORM + "=");
+            if (i < 0)
+                continue;
+
+            String v = spf.substring(i + SMTP_MAILFORM.length() + 1);
+            int s = v.indexOf(' ');
+            if (s > 0)
+                v = v.substring(0, s);
+
+            try {
+                mailfrom = InternetAddress.parseHeader(v, false);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+        }
+
+        return mailfrom;
+    }
+
     private String fixEncoding(String name, String header) {
         if (header.trim().startsWith("=?"))
             return header;
@@ -1565,6 +1595,7 @@ public class MessageHelper {
         Address[] sender = getAddressHeader("X-Google-Original-From");
         if (sender == null)
             sender = getAddressHeader("Sender");
+
         return sender;
     }
 
@@ -3508,6 +3539,32 @@ public class MessageHelper {
                 return false;
 
         return true;
+    }
+
+    static String[] equalDomain(Context context, Address[] a1, Address[] a2) {
+        if (a1 == null || a1.length == 0)
+            return null;
+        if (a2 == null || a2.length == 0)
+            return null;
+
+        for (Address _a1 : a1) {
+            String r = UriHelper.getEmailDomain(((InternetAddress) _a1).getAddress());
+            if (r == null)
+                continue;
+            String d1 = UriHelper.getParentDomain(context, r);
+
+            for (Address _a2 : a2) {
+                String f = UriHelper.getEmailDomain(((InternetAddress) _a2).getAddress());
+                if (f == null)
+                    continue;
+                String d2 = UriHelper.getParentDomain(context, f);
+
+                if (!d1.equalsIgnoreCase(d2))
+                    return new String[]{d2, d1};
+            }
+        }
+
+        return null;
     }
 
     static boolean equal(Address[] a1, Address[] a2) {

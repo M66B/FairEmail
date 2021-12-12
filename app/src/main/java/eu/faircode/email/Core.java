@@ -98,7 +98,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -2740,6 +2739,7 @@ class Core {
                         if (message.spf == null && helper.getSPF())
                             message.spf = true;
                         message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                        message.smtp_from = helper.getMailFrom(authentication);
                         message.return_path = helper.getReturnPath();
                         message.submitter = helper.getSender();
                         message.from = helper.getFrom();
@@ -2796,7 +2796,11 @@ class Core {
                         if (message.avatar == null && notify_known && pro)
                             message.ui_ignored = true;
 
+                        message.from_domain = (message.checkFromDomain(context) == null);
+
+                        // No reply_domain
                         // No MX check
+                        // No blocklist
 
                         boolean needsHeaders = EntityRule.needsHeaders(rules);
                         List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
@@ -3705,6 +3709,7 @@ class Core {
             if (message.spf == null && helper.getSPF())
                 message.spf = true;
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+            message.smtp_from = helper.getMailFrom(authentication);
             message.return_path = helper.getReturnPath();
             message.submitter = helper.getSender();
             message.from = helper.getFrom();
@@ -3777,6 +3782,8 @@ class Core {
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
             if (message.avatar == null && notify_known && pro)
                 message.ui_ignored = true;
+
+            message.from_domain = (message.checkFromDomain(context) == null);
 
             // For contact forms
             boolean self = false;
