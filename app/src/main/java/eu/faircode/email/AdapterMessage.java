@@ -1108,7 +1108,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !((Boolean.FALSE.equals(message.dkim) && check_authentication) ||
                             (Boolean.FALSE.equals(message.spf) && check_authentication) ||
                             (Boolean.FALSE.equals(message.dmarc) && check_authentication) ||
-                            (Boolean.FALSE.equals(message.from_domain) && BuildConfig.DEBUG) ||
                             (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain) ||
                             (Boolean.FALSE.equals(message.mx) && check_mx) ||
                             (Boolean.TRUE.equals(message.blocklist) && check_blocklist));
@@ -3837,12 +3836,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sb.append(context.getString(R.string.title_on_blocklist));
             }
 
-            if (Boolean.FALSE.equals(message.from_domain) && BuildConfig.DEBUG) {
-                if (sb.length() > 0)
-                    sb.append('\n');
-                for (String domain : message.checkFromDomain(context))
-                    sb.append(domain).append(' ');
-            }
+            if (Boolean.FALSE.equals(message.from_domain) && message.smtp_from != null)
+                for (Address smtp_from : message.smtp_from) {
+                    if (sb.length() > 0)
+                        sb.append('\n');
+                    String domain = UriHelper.getEmailDomain(((InternetAddress) smtp_from).getAddress());
+                    sb.append(context.getString(R.string.title_via, UriHelper.getParentDomain(context, domain)));
+                }
 
             if (Boolean.FALSE.equals(message.reply_domain)) {
                 String[] warning = message.checkReplyDomain(context);
@@ -6260,10 +6260,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("blocklist changed", next.id);
                 }
-                if (!Objects.equals(prev.from_domain, next.from_domain)) {
-                    same = false;
-                    log("from_domain changed", next.id);
-                }
+                // from_domain
                 if (!Objects.equals(prev.reply_domain, next.reply_domain)) {
                     same = false;
                     log("reply_domain changed", next.id);
