@@ -3407,7 +3407,7 @@ Remarks:
 * The original subject is sent as-is, unless it is being changed
 * The original message text will be sent as-is, unless text is being entered
 * The original attachments are sent as they are, unless attachments are being added or removed
-* Default CC and BCC addresses will be applied
+* Default CC and BCC addresses will not be applied
 * Read and delivery receipts will be requested when enabled, they could go to the original sender or to you
 * The email server might refused resent messages
 * DKIM, SPF and DMARC will likely fail, often causing resent messages to be considered as spam

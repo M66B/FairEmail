@@ -48,6 +48,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -681,9 +683,30 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if (ident.max_size == null)
                 max_size = iservice.getMaxSize();
 
-            Address[] to = imessage.getAllRecipients();
+            List<Address> recipients = new ArrayList<>();
+            if (message.headers == null) {
+                Address[] all = imessage.getAllRecipients();
+                if (all != null)
+                    recipients.addAll(Arrays.asList(all));
+            } else {
+                String to = imessage.getHeader("Resent-To", ",");
+                if (to != null)
+                    for (Address a : InternetAddress.parse(to))
+                        recipients.add(a);
+
+                String cc = imessage.getHeader("Resent-Cc", ",");
+                if (cc != null)
+                    for (Address a : InternetAddress.parse(cc))
+                        recipients.add(a);
+
+                String bcc = imessage.getHeader("Resent-Bcc", ",");
+                if (bcc != null)
+                    for (Address a : InternetAddress.parse(bcc))
+                        recipients.add(a);
+            }
+
             String via = "via " + ident.host + "/" + ident.user +
-                    " to " + (to == null ? null : TextUtils.join(", ", to));
+                    " recipients=" + TextUtils.join(", ", recipients);
 
             iservice.setReporter(new TraceOutputStream.IReport() {
                 private int progress = -1;
@@ -707,7 +730,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             // Send message
             EntityLog.log(this, "Sending " + via);
             start = new Date().getTime();
-            iservice.getTransport().sendMessage(imessage, to);
+            iservice.getTransport().sendMessage(imessage, recipients.toArray(new Address[0]));
             end = new Date().getTime();
             EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
         } catch (MessagingException ex) {
