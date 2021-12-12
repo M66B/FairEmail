@@ -118,7 +118,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
     private static final int QUIT_DELAY = 10; // seconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
-    private static final int OPTIMIZE_KEEP_ALIVE_INTERVAL = 12; // minutes
+    private static final int TUNE_KEEP_ALIVE_INTERVAL_MIN = 9; // minutes
+    private static final int TUNE_KEEP_ALIVE_INTERVAL_STEP = 2; // minutes
+    private static final int OPTIMIZE_KEEP_ALIVE_INTERVAL_MIN = 12; // minutes
     private static final int OPTIMIZE_POLL_INTERVAL = 15; // minutes
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 8; // seconds (totally 8+2x20=48 seconds)
@@ -1448,7 +1450,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         capabilities = capabilities.substring(0, 500) + "...";
 
                     Log.i(account.name + " idle=" + capIdle);
-                    if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
+                    if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL_MIN)
                         optimizeAccount(account, "IDLE");
 
                     db.account().setAccountState(account.id, "connected");
@@ -1984,7 +1986,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         long idleTime = state.getIdleTime();
                         boolean tune_keep_alive = prefs.getBoolean("tune_keep_alive", true);
                         boolean tune = (tune_keep_alive && !first &&
-                                !account.keep_alive_ok && account.poll_interval > 9 &&
+                                !account.keep_alive_ok &&
+                                account.poll_interval - TUNE_KEEP_ALIVE_INTERVAL_STEP >= TUNE_KEEP_ALIVE_INTERVAL_MIN &&
                                 Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L);
                         if (tune_keep_alive && !first && !account.keep_alive_ok)
                             EntityLog.log(this, EntityLog.Type.Account,
@@ -2053,7 +2056,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 account.keep_alive_succeeded = 0;
                                 if (account.keep_alive_failed >= 3) {
                                     account.keep_alive_failed = 0;
-                                    account.poll_interval = account.poll_interval - 2;
+                                    account.poll_interval = account.poll_interval - TUNE_KEEP_ALIVE_INTERVAL_STEP;
                                     db.account().setAccountKeepAliveInterval(account.id, account.poll_interval);
                                 }
                                 db.account().setAccountKeepAliveValues(account.id,
