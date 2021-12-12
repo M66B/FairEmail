@@ -245,6 +245,7 @@ public class FragmentCompose extends FragmentBase {
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
     private TextView tvDsn;
+    private TextView tvResend;
     private TextView tvPlainTextOnly;
     private EditTextCompose etBody;
     private TextView tvNoInternet;
@@ -254,7 +255,6 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
     private ImageButton ibWriteAboveBelow;
-    private ImageView ivResend;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private View vwAnchor;
@@ -368,6 +368,7 @@ public class FragmentCompose extends FragmentBase {
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         tvDsn = view.findViewById(R.id.tvDsn);
+        tvResend = view.findViewById(R.id.tvResend);
         tvPlainTextOnly = view.findViewById(R.id.tvPlainTextOnly);
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
@@ -377,7 +378,6 @@ public class FragmentCompose extends FragmentBase {
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibWriteAboveBelow = view.findViewById(R.id.ibWriteAboveBelow);
-        ivResend = view.findViewById(R.id.ivResend);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
@@ -943,6 +943,7 @@ public class FragmentCompose extends FragmentBase {
         etExtra.setHint("");
         tvDomain.setText(null);
         tvDsn.setVisibility(View.GONE);
+        tvResend.setVisibility(View.GONE);
         tvPlainTextOnly.setVisibility(View.GONE);
         etBody.setText(null);
 
@@ -955,7 +956,6 @@ public class FragmentCompose extends FragmentBase {
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
         ibWriteAboveBelow.setVisibility(View.GONE);
-        ivResend.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
@@ -5282,6 +5282,8 @@ public class FragmentCompose extends FragmentBase {
                                 draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
                                         ? View.VISIBLE : View.GONE);
 
+                        tvResend.setVisibility(draft.headers == null ? View.GONE : View.VISIBLE);
+
                         tvPlainTextOnly.setVisibility(
                                 draft.plain_only != null && draft.plain_only && !plain_only
                                         ? View.VISIBLE : View.GONE);
@@ -6386,7 +6388,6 @@ public class FragmentCompose extends FragmentBase {
                 ibWriteAboveBelow.setVisibility(text[1] == null ||
                         draft.wasforwardedfrom != null || BuildConfig.PLAY_STORE_RELEASE
                         ? View.GONE : View.VISIBLE);
-                ivResend.setVisibility(draft.headers == null ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 

@@ -285,6 +285,18 @@
                     app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvResend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_resend"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDsn" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPlainTextOnly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -294,7 +306,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDsn" />
+                    app:layout_constraintTop_toBottomOf="@id/tvResend" />
 
                 <eu.faircode.email.EditTextCompose
                     android:id="@+id/etBody"
@@ -423,19 +435,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/abovebelow" />
-
-                <eu.faircode.email.FixedImageView
-                    android:id="@+id/ivResend"
-                    android:layout_width="36dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:contentDescription="@string/title_resend"
-                    android:padding="3dp"
-                    android:tooltipText="@string/title_resend"
-                    app:layout_constraintStart_toEndOf="@id/ibWriteAboveBelow"
-                    app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
-                    app:srcCompat="@drawable/twotone_redo_24" />
 
                 <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibReferenceEdit"
