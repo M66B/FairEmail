@@ -278,94 +278,76 @@ public class MessageHelper {
             imessage.addHeader("In-Reply-To", message.inreplyto);
         imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
 
-        // Addresses
-        if (message.headers == null) {
-            if (message.from != null && message.from.length > 0)
-                imessage.setFrom(getFrom(message, identity));
+        MailDateFormat mdf = new MailDateFormat();
+        mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
+        String date = mdf.format(new Date(message.sent == null ? message.received : message.sent));
+        imessage.setHeader("Date", date);
 
-            if (message.to != null && message.to.length > 0)
-                imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to, identity));
+        Address us = null;
+        if (message.from != null && message.from.length > 0) {
+            us = getFrom(message, identity);
+            imessage.setFrom(us);
+        }
 
-            if (message.cc != null && message.cc.length > 0)
-                imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc, identity));
-
-            if (message.bcc != null && message.bcc.length > 0)
-                imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
-
-            if (identity != null && identity.replyto != null)
-                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
-
-            MailDateFormat mdf = new MailDateFormat();
-            mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
-            if (message.sent != null)
-                imessage.setHeader("Date", mdf.format(new Date(message.sent)));
-            else
-                imessage.setHeader("Date", mdf.format(new Date(message.received)));
-        } else {
+        // Resend
+        if (message.headers != null) {
             // https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6
+            if (us != null)
+                imessage.addHeader("Resent-From", us.toString());
+
+            imessage.addHeader("Resent-Date", date);
+
             ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
-            Enumeration<Header> headers = new InternetHeaders(bis).getAllHeaders();
-            while (headers.hasMoreElements()) {
-                Header header = headers.nextElement();
+            List<Header> headers = Collections.list(new InternetHeaders(bis).getAllHeaders());
+            for (Header header : headers) {
                 String name = header.getName();
                 String value = header.getValue();
                 if (name == null || value == null)
                     continue;
 
-                switch (name) {
-                    case "From":
+                switch (name.toLowerCase(Locale.ROOT)) {
+                    case "from":
+                        // Override default header
                         imessage.setFrom(value);
                         break;
-                    case "To":
-                        imessage.setRecipients(Message.RecipientType.TO, value);
-                        break;
-                    case "Cc":
-                        imessage.setRecipients(Message.RecipientType.CC, value);
-                        break;
-                    case "Bcc":
-                        imessage.setRecipients(Message.RecipientType.BCC, value);
-                        break;
-                    case "Reply-To":
-                        imessage.setReplyTo(InternetAddress.parse(value));
-                        break;
-                    case "Date":
+                    case "date":
+                        // Override default header
                         imessage.setHeader("Date", value);
                         break;
-                    default:
-                        if (name.startsWith("Resent-"))
-                            imessage.addHeader(name, value);
+
+                    case "to":
+                        imessage.addHeader("Resent-To", value);
+                        break;
+                    case "cc":
+                        imessage.addHeader("Resent-Cc", value);
+                        break;
+                    case "bcc":
+                        imessage.addHeader("Resent-Bcc", value);
+                        break;
+                    // Resent-Sender
+                    // Resent-Message-ID
                 }
             }
 
-            if (message.from != null && message.from.length > 0)
-                imessage.addHeader("Resent-From", getFrom(message, identity).toString());
-
-            if (message.to != null && message.to.length > 0)
-                for (Address a : convertAddress(message.to, identity))
-                    imessage.addHeader("Resent-To", a.toString());
-
-            if (message.cc != null && message.cc.length > 0)
-                for (Address a : convertAddress(message.cc, identity))
-                    imessage.addHeader("Resent-Cc", a.toString());
-
-            if (message.bcc != null && message.bcc.length > 0)
-                for (Address a : convertAddress(message.bcc, identity))
-                    imessage.addHeader("Resent-Bcc", a.toString());
-
-            if (identity != null && identity.replyto != null)
-                for (Address a : convertAddress(InternetAddress.parse(identity.replyto), identity))
-                    imessage.addHeader("Resent-Reply-To", a.toString());
-
-            MailDateFormat mdf = new MailDateFormat();
-            mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
-            if (message.sent != null)
-                imessage.addHeader("Resent-Date", mdf.format(new Date(message.sent)));
-            else
-                imessage.addHeader("Resent-Date", mdf.format(new Date(message.received)));
-
-            // Resent-Sender
-            // Resent-Message-ID
+            for (Header header : headers) {
+                String name = header.getName();
+                String value = header.getValue();
+                if (name == null || value == null)
+                    continue;
+                if (name.toLowerCase(Locale.ROOT).startsWith("resent-"))
+                    imessage.addHeader(name, value);
+            }
         }
+
+        // Addresses
+        if (message.to != null && message.to.length > 0)
+            imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to, identity));
+
+        if (message.cc != null && message.cc.length > 0)
+            imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc, identity));
+
+        if (message.bcc != null && message.bcc.length > 0)
+            imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
 
         if (message.subject != null) {
             int maxlen = MAX_HEADER_LENGTH - "Subject: ".length();
@@ -376,6 +358,10 @@ public class MessageHelper {
 
         // Send message
         if (identity != null) {
+            // Add reply to
+            if (message.headers == null && identity.replyto != null)
+                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
+
             // Add extra cc
             if (identity.cc != null)
                 addAddress(identity.cc, Message.RecipientType.CC, imessage, identity);

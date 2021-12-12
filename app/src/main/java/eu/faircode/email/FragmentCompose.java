@@ -4597,7 +4597,9 @@ public class FragmentCompose extends FragmentBase {
                                     ref.language,
                                     alt_fwd ? R.string.title_subject_forward_alt : R.string.title_subject_forward,
                                     subject);
-                        } else if ("resend".equals(action) || "editasnew".equals(action)) {
+                        } else if ("resend".equals(action)) {
+                            data.draft.subject = ref.subject;
+                        } else if ("editasnew".equals(action)) {
                             if (ref.from != null && ref.from.length == 1) {
                                 String from = ((InternetAddress) ref.from[0]).getAddress();
                                 for (EntityIdentity identity : data.identities)
@@ -4606,11 +4608,13 @@ public class FragmentCompose extends FragmentBase {
                                         break;
                                     }
                             }
+
                             data.draft.to = ref.to;
                             data.draft.cc = ref.cc;
                             data.draft.bcc = ref.bcc;
                             data.draft.subject = ref.subject;
-                            if (ref.content && "editasnew".equals(action))
+
+                            if (ref.content)
                                 document = JsoupEx.parse(ref.getFile(context));
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
