@@ -1520,6 +1520,9 @@ public class MessageHelper {
             if (s > 0)
                 v = v.substring(0, s);
 
+            if (v.startsWith("\"") && v.endsWith("\""))
+                v = v.substring(1, v.length() - 1);
+
             try {
                 mailfrom = InternetAddress.parseHeader(v, false);
             } catch (Throwable ex) {
