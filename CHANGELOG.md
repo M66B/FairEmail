@@ -4,6 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Added experimental resend support (RFC2822 section 3.6.6)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1787 - 2021-12-11
 
 * Fixed always downloading headers/bodies for rules requiring this
