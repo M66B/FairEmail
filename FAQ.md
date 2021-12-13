@@ -1237,7 +1237,7 @@ The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*
 
 <a name="connectiondropped"></a>
 The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection.
-This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times.
+This sometimes happen when there were too many (simultaneous) connections in a too short time or when a wrong password was used too often.
 In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again.
 If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
 
