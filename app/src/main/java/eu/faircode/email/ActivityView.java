@@ -213,11 +213,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Configuration config = getResources().getConfiguration();
         boolean portrait2 = prefs.getBoolean("portrait2", false);
         boolean portrait2c = prefs.getBoolean("portrait2c", false);
+        int portrait_min_size = prefs.getInt("portrait_min_size", 0);
         boolean landscape = prefs.getBoolean("landscape", true);
-        Log.i("Orientation=" + config.orientation +
-                " portrait rows=" + portrait2 + " cols=" + portrait2c + " landscape cols=" + landscape);
+        int landscape_min_size = prefs.getInt("landscape_min_size", 0);
+        int layout = (config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK);
+        Log.i("Orientation=" + config.orientation + " layout=" + layout +
+                " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
+                " landscape cols=" + landscape + " min=" + landscape);
 
-        if (config.orientation == ORIENTATION_PORTRAIT && portrait2c)
+        // 1=small, 2=normal, 3=large, 4=xlarge
+        if (layout > 0)
+            layout--;
+
+        if (layout < (config.orientation == ORIENTATION_PORTRAIT ? portrait_min_size : landscape_min_size))
+            layoutId = R.layout.activity_view_portrait;
+        else if (config.orientation == ORIENTATION_PORTRAIT && portrait2c)
             layoutId = R.layout.activity_view_landscape_split;
         else if (config.orientation == ORIENTATION_PORTRAIT || !landscape)
             layoutId = (portrait2 ? R.layout.activity_view_portrait_split : R.layout.activity_view_portrait);

@@ -429,6 +429,7 @@
     <string name="title_advanced_landscape">Landscape mode</string>
     <string name="title_advanced_two_row">Use two rows</string>
     <string name="title_advanced_two_col">Use two columns</string>
+    <string name="title_advanced_min_screen_size">Minimum screen size for splitting the screen</string>
     <string name="title_advanced_nav_options">Show navigation menu options</string>
     <string name="title_advanced_nav_pin">Pin navigation menu</string>
     <string name="title_advanced_nav_hide_title">Hide navigation menu options?</string>
@@ -746,6 +747,7 @@
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
     <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
     <string name="title_advanced_split_hint">This will split the screen into parts</string>
+    <string name="title_advanced_split_min_hint">This is a condition intended for foldable devices</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
     <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
@@ -2142,6 +2144,13 @@
         <item>AES-128</item>
         <item>AES-192</item>
         <item>AES-256</item>
+    </string-array>
+
+    <string-array name="minScreenSizes">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Extra large</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

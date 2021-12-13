@@ -295,6 +295,44 @@
                     app:layout_constraintTop_toBottomOf="@id/swPortrait2c" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvPortraitMinSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_min_screen_size"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPortrait2cHint" />
+
+                <Spinner
+                    android:id="@+id/spPortraitMinSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:entries="@array/minScreenSizes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPortraitMinSize" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvPortraitSplitMinHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_split_min_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spPortraitMinSize" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvLandscape"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -305,7 +343,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvPortrait2cHint" />
+                    app:layout_constraintTop_toBottomOf="@id/tvPortraitSplitMinHint" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLandscape"
@@ -333,6 +371,44 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swLandscape" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLandscapeMinSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_min_screen_size"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandscapeHint" />
+
+                <Spinner
+                    android:id="@+id/spLandscapeMinSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:entries="@array/minScreenSizes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandscapeMinSize" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLandscapeSplitMinHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_split_min_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spLandscapeMinSize" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNavOptions"
                     android:layout_width="0dp"
@@ -341,7 +417,7 @@
                     android:text="@string/title_advanced_nav_options"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLandscapeHint"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandscapeSplitMinHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
