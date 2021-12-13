@@ -44,6 +44,7 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.smtp.SMTPSendFailedException;
 import com.sun.mail.util.TraceOutputStream;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -527,6 +528,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean reply_move = prefs.getBoolean("reply_move", false);
+        boolean protocol = prefs.getBoolean("protocol", false);
         boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
         if (message.identity == null)
@@ -703,6 +705,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 if (bcc != null)
                     for (Address a : InternetAddress.parse(bcc))
                         recipients.add(a);
+            }
+
+            if (protocol && BuildConfig.DEBUG) {
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                imessage.writeTo(bos);
+                for (String line : bos.toString().split("\n"))
+                    EntityLog.log(this, line);
             }
 
             String via = "via " + ident.host + "/" + ident.user +
