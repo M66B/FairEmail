@@ -548,6 +548,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Reenviar</string>
     <string name="title_raw_send_message">Mensagem</string>
     <string name="title_raw_send_thread">Conversa</string>
     <string name="title_eml_remark">Para encaminhar mensagens, as mensagens (originais) precisam de ser descarregadas do servidor de e-mail. Requer uma ligação à internet e as mensagens devem ser armazenadas no servidor de e-mail.</string>

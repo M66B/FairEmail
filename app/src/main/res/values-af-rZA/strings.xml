@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail-soektog</string>
+    <string name="app_changelog">Veranderlogboek</string>
+    <string name="app_welcome">FairEmail is \'n oopbron-e-postoepassing wat op privaatheid en sekuriteit gefokus is. Om hierdie rede kan sommige kenmerke anders werk as waaraan jy gewoond is.</string>
+    <string name="app_limitations">Boodskappe word byvoorbeeld by verstek herformateer om onveilige elemente te verwyder en om leesbaarheid te verbeter, en oopmaakskakels moet vir veiligheid bevestig word. Beide kan gedeaktiveer word indien verlang.</string>
     <string name="title_disagree">I disagree</string>
     <string name="title_importing_account">Rekening %1$s</string>
     <string name="title_importing_identity">Identiteit %1$s</string>

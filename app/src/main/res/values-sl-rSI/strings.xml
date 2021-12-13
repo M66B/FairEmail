@@ -517,7 +517,7 @@
     <string name="title_months_all">Vse</string>
     <string name="title_folder_unified">Poenotena mapa \'Prejeto\'</string>
     <string name="title_folder_inbox">Prejeto</string>
-    <string name="title_folder_outbox">Poslano</string>
+    <string name="title_folder_outbox">Pošiljanje</string>
     <string name="title_folder_all">Arhiv</string>
     <string name="title_folder_drafts">Osnutki</string>
     <string name="title_folder_trash">Smeti</string>

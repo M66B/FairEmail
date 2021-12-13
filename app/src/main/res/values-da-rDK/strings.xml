@@ -4,6 +4,8 @@
     <string name="app_changelog">Ændringslog</string>
     <string name="app_welcome">FairEmail er en open source e-mail app med fokus på privatliv og sikkerhed. Derfor vil visse funktioner muligvis fungere anderledes, end hvad du er vant til.</string>
     <string name="app_limitations">F.eks. omformateres beskeder som standard for at fjerne usikre elementer samt forbedre læsbarheden, og åbning af links skal sikkerhedsbekræftes. Begge funktioner kan om ønsket deaktiveres.</string>
+    <string name="app_unsupported">Fejl i Android-versionen af denne enhed forårsager nedbrud</string>
+    <string name="app_continue">Fortsæt alligevel</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
     <string name="app_updated">Senest opdateret: %1$s</string>
@@ -292,6 +294,7 @@
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_check_authentication">Tjek beskedgodkendelse</string>
+    <string name="title_advanced_check_reply_domain">Tjek svaradresse på synkronisering af beskeder</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_check_blocklist">Tjek om afsenders domænenavn er på en spamblokeringsliste</string>
     <string name="title_advanced_use_blocklist">Flyt beskeder fra blokeringslistedomæner til Spammappen</string>
@@ -585,6 +588,7 @@
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_poll_folders_hint">Synk periodisk mappelisten ud over efter kontotilslutning</string>
     <string name="title_advanced_check_authentication_hint">Dette vil tjekke resultaterne af DKIM-, SPF- og DMARC-godkendelser udført af e-mailserveren</string>
+    <string name="title_advanced_check_reply_hint">Dette tjekker, om domænenavnet for afsender- og svaradresser er ens</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
     <string name="title_advanced_suggest_names_hint">Hvis deaktiveret, bruges kun e-mailadresser ved valg af kontakter</string>
@@ -608,6 +612,7 @@
     <string name="title_advanced_startup_hint">Langt tryk på en vilkårlig mappe på mappelisten for at tilføje/fjerne den fra listen over samlede mapper</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
+    <string name="title_advanced_split_hint">Dette vil opdele skærmen i dele</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
@@ -665,6 +670,7 @@
     <string name="title_identity_email">Din e-mailadresse</string>
     <string name="title_identity_color_hint">Identitetsfarver har forrang over kontofarver</string>
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
+    <string name="title_advanced_sender_name">Brug navnet, når afsenderadressen er blevet redigeret</string>
     <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_internal">Interne domænenavne (kommasepareret)</string>
@@ -842,6 +848,7 @@
     <string name="title_auto_trash">Auto-flyt gamle beskeder til Papirkurv</string>
     <string name="title_auto_delete">Auto-slet gamle beskeder permanent</string>
     <string name="title_auto_delete_hint">Gamle beskeder er beskeder, som ikke længere opbevares på enheden</string>
+    <string name="title_auto_delete_archive_hint">Sletning fra arkivmappen er ikke altid tilladt af e-mail-serveren</string>
     <string name="title_inbox_root_hint">        Visse udbydere kræver, at nye mapper oprettes under indbakken.
          Er dette tilfældet, så tryk og hold på indbakken i mappelisten og vælg \'Opret undermappe\'.
     </string>
@@ -888,6 +895,7 @@
     <string name="title_importance_high">Høj</string>
     <string name="title_search_in_text">Søg i tekst&#8230;</string>
     <string name="title_forward">Videresend</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Send igen</string>
     <string name="title_new_message">Ny besked</string>
     <string name="title_editasnew">Redigér som ny</string>
     <string name="title_edit_notes">Redigér lokale notater</string>

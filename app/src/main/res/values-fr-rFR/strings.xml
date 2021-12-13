@@ -898,6 +898,7 @@
     <string name="title_importance_high">Haute</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Envoyer à nouveau</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_edit_notes">Modifier les notes locales</string>

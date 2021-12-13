@@ -918,6 +918,7 @@
     <string name="title_importance_high">Високий</string>
     <string name="title_search_in_text">Пошук у тексті &#8230;</string>
     <string name="title_forward">Переслати</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Перевідправити</string>
     <string name="title_new_message">Нове повідомлення</string>
     <string name="title_editasnew">Редагувати як нове</string>
     <string name="title_edit_notes">Редагувати локальні нотатки</string>

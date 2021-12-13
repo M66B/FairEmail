@@ -4,7 +4,7 @@
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail è un\'app di email open source concentrata su privacy e sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
     <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default per rimuovere gli elementi non sicuri e migliorare la leggibilità, e l\'apertura dei link dev\'esser confermata per sicurezza. Sono entrambi disabilitabili, se desiderato.</string>
-    <string name="app_unsupported">I bug nella versione Android di questo dispositivo particolare causa crash</string>
+    <string name="app_unsupported">Alcuni errori nella versione Android di questo specifico dispositivo provocano crash</string>
     <string name="app_continue">Continua comunque</string>
     <string name="app_exit">Torna \'indietro\' di nuovo per uscire</string>
     <string name="app_cake">Spazio di archiviazione rimanente insufficiente</string>
@@ -898,6 +898,7 @@
     <string name="title_importance_high">Alta</string>
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Reinvia</string>
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>

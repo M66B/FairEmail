@@ -887,6 +887,7 @@
     <string name="title_importance_high">高</string>
     <string name="title_search_in_text">在文本中搜索 &#8230;</string>
     <string name="title_forward">转发</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">重新发送</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地笔记</string>

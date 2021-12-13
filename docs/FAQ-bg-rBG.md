@@ -2,19 +2,19 @@
 
 # FairEmail support
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Ако имате въпрос, то първо проверете следните често задавани въпроси. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
-## Index
+## Указател
 
 * [Authorizing accounts](#user-content-authorizing-accounts)
-* [How to ...?](#user-content-howto)
-* [Known problems](#user-content-known-problems)
+* [Как да ...?](#user-content-howto)
+* [Известни проблеми](#user-content-known-problems)
 * [Planned features](#user-content-planned-features)
 * [Frequently requested features](#user-content-frequently-requested-features)
-* [Frequently Asked Questions](#user-content-frequently-asked-questions)
-* [Get support](#user-content-get-support)
+* [Често задавани въпроси](#user-content-frequently-asked-questions)
+* [Получаване на поддръжка](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
 
@@ -36,12 +36,12 @@ In some cases, you'll need to enable external access to your account and/or to u
 * Apple iCloud, see [question 148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Вижте [тук](#user-content-faq22) за често срещани съобщения за грешка и решения.
 
 Сродни въпроси:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Поддържа ли се OAuth?](#user-content-faq111)
+* [Защо ActiveSync не се поддържа?](#user-content-faq133)
 
 <a name="howto">
 
@@ -88,16 +88,16 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 <h2><a name="planned-features"></a>Планирани възможности</h2>
 
 * ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
+* ~~Полуавтоматично кодиране~~
+* ~~Копиране на съобщение~~
+* ~~Оцветени звезди~~
+* ~~Настройки известия за папка~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* ~~Предложения за търсене~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
@@ -106,7 +106,7 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~Показване на гифчета~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~Send as attachment~~
@@ -115,10 +115,10 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Поддръжка на S/MIME~~
+* ~~Търсене на настройки~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Всичко в този списък е в произволен ред и *може* да се добави в близко бъдеще.
 
 <h2><a name="frequently-requested-features"></a>Често искани функции</h2>
 
@@ -291,12 +291,12 @@ The design is based on many discussions and if you like you can discuss about it
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Имам друго питане.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Какви позволения са необходими и защо?**
 
-The following Android permissions are needed:
+Необходими са следните позволения за Android:
 
 * *have full network access* (INTERNET): to send and receive email
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes

@@ -4,6 +4,8 @@
     <string name="app_changelog">Spisak izmjena</string>
     <string name="app_welcome">FairEmail je e-mail aplikacija otvorenog koda, s fokusom na privatnost i sigurnost. Zbog toga neke funkcionalnosti mogu raditi drugačije od onog što ste navikli.</string>
     <string name="app_limitations">Na primjer, poruke su preformatirane po zadanom režimu kako bi se uklonili nesigurni elementi i poboljšala čitljivost, te otvarali linkovi (hiperveze) koji se moraju potvrditi zbog sigurnosti. Te se mogućnosti mogu isključiti, ukoliko želite.</string>
+    <string name="app_unsupported">Greške Android verzije s ovog uređaja uzrokuju rušenje aplikacije</string>
+    <string name="app_continue">Želite nastaviti</string>
     <string name="app_exit">Ponovo pritisnite \'nazad\' za izlaz</string>
     <string name="app_cake">Nedovoljno prostora za pohranu</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
@@ -905,6 +907,7 @@
     <string name="title_importance_high">Visoka</string>
     <string name="title_search_in_text">Pretraži u tekstu &#8230;</string>
     <string name="title_forward">Proslijedi</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Ponovljeno slanje</string>
     <string name="title_new_message">Nova poruka</string>
     <string name="title_editasnew">Uredi kao novu</string>
     <string name="title_edit_notes">Uredi lokalne bilješke</string>
@@ -1290,6 +1293,7 @@
     <string name="title_rule_attachments">Ima priloge</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>
     <string name="title_rule_body">Tekst sadrži</string>
+    <string name="title_rule_body_remark">Koristeći ovaj uvjet tekst poruke će se uvijek preuzimati, što može usporiti sinhronizaciju spiskova poruka</string>
     <string name="title_rule_time_abs">Apsolutno vrijeme (primljeno) između</string>
     <string name="title_rule_time_after">Primljeno poslije</string>
     <string name="title_rule_time_before">Primljeno prije</string>

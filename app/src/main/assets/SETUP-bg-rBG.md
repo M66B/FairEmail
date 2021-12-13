@@ -10,7 +10,7 @@
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-This will work for most email providers.
+Това ще работи за основните доставчици на имейл услуги.
 
 If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 

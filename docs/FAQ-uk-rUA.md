@@ -2,7 +2,7 @@
 
 # Підтримка FairEmail
 
-Якщо у вас виникли питання, будь ласка, спочатку перевірте наступні питання, що часто задавалися. [Знизу](#user-content-get-support), ви можете дізнатися, як ставити інші питання, створювати запити на фукції та повідомити про помилки.
+Якщо у вас виникли запитання, будь ласка, спочатку перевірте наступні запитання, що часто задавалися. [Унизу](#user-content-get-support), ви можете дізнатися, як ставити інші запитання, створювати запити на фукції та повідомити про помилки.
 
 Якщо у вас є запитання, спершу ознайомтесь із найпоширенішими запитаннями. [ Нижче ви можете знайти ](#user-content-get-support), як можна задавати подальші запитання, запитувати функції та повідомляти про помилки.
 
@@ -66,28 +66,28 @@
 
 <h2><a name="known-problems"></a>Відома проблема</h2>
 
-* ~~~Помилка [в Android 5.1 і 6](https://issuetracker.google.com/issues/37054851) змушує додатки іноді показувати неправильний формат часу. Перемикання Android налаштувань на *Використовувати 24-годинний формат* може тимчасово вирішити цю проблему. Було додано певну роботу.~~
-* ~~Помилка [в Диску Google](https://issuetracker.google.com/issues/126362828) спонукає експортовані файли до Google Диска бути пустими. Google виправив це.~~
-* ~ ~~A [помилка в AndroidX](https://issuetracker.google.com/issues/78495471) приводить до завершення роботи FairEmail при довгому натисканні або гортанні пальцем. Google виправив це.~~
+* ~~~Помилка [в Android 5.1 і 6](https://issuetracker.google.com/issues/37054851) змушує додатки іноді показувати неправильний формат часу. Перемикання Android налаштувань на *Використання 24-годинного формату* може тимчасово вирішити цю проблему. Було додано певний обхідний шлях.~~
+* ~~Помилка [на Диску Google](https://issuetracker.google.com/issues/126362828) спонукає експортовані файли до Google Диска бути порожніми. Google виправив це.~~
+* ~ ~~A [помилка в AndroidX](https://issuetracker.google.com/issues/78495471) спричиняє завершення роботи FairEmail при довгому натисканні або перетягуванні пальцем. Google виправив це.~~
 * ~~~Ця [помилка в AndroidX ROOM](https://issuetracker.google.com/issues/138441698) викликає завершення роботи з "*... Виключення при обчисленні баз даних в реальному часі ... Не вдалося прочитати рядок ...*". Було додано певну роботу.~~
-* ~~~Ця [помилка в Android](https://issuetracker.google.com/issues/119872129) викликає завершення роботи FairEmail з "*... Опубліковане невірне сповіщення ...*" на деяких пристроях при оновленні FairEmail та натисканні на сповіщення.
-* Помилка [в Android](https://issuetracker.google.com/issues/62427912) іноді призводить до аварії з "*... Активність запису не знайдено...*після оновлення FairEmail. Повторне встановлення ([джерело](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) може вирішити проблему.
+* ~~~Ця [помилка в Android](https://issuetracker.google.com/issues/119872129) стає причиною завершення роботи FairEmail з "*... Опубліковане неправильне сповіщення ...*" на деяких пристроях при оновленні FairEmail та натисканні на сповіщення.
+* Помилка [в Android](https://issuetracker.google.com/issues/62427912) іноді призводить до збою з "*... Запис активності не знайдено...*після оновлення FairEmail. Повторне встановлення ([джерело](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) може вирішити проблему.
 * Помилка [в Android](https://issuetracker.google.com/issues/37018931) іноді викликає помилку з *... Вхідний канал не ініціалізовано...* на деяких пристроях.
 * [ помилки в LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273)інколи спричиняють поломки з*... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Помилка в Nova Launcher на Android 5.x викликає аварійне завершення роботи FairEmail з *java.lang.cravOverflowError*, коли Nova Launcher має доступ до служби додаткових можливостей.
-* Вибір папки інколи не показує папок з невідомих причин. Здається, це виправлено.~~
+* Вибір папки інколи не показує папок з невідомих причин. Здається, що це виправлено.~~
 * ~~~ [помилка в AndroidX](https://issuetracker.google.com/issues/64729576) ускладнює використання швидкого прокручування. Робота була додана
-* ~~Шифрування з YubiKey результати до нескінченного циклу. Здається, це спричинено [ помилкою в OpenKeychain<](https://github.com/open-keychain/open-keychain/issues/2507)
+* ~~Шифрування з YubiKey дає у результаті нескінченний цикл. Здається, що це спричинено [ помилкою з OpenKeychain<](https://github.com/open-keychain/open-keychain/issues/2507)
 * Прокручуваня внутрішньо зв'язаного розташування в оригінальних повідомленнях не працює. Це не може бути виправленим, тому що вигляд оригінального повідомлення подається у вигляді прокручанння.
 * Попередній перегляд тексту повідомлення не (завжди) з'являється на годинниках Samsung, тому що [встановлено тільки місцево ](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) схоже, ігнорується. Попередній перегляд текстів повідомлення вважаються правильно відображуваними на Pebble 2, Fitbit Charge 3, Mi band 3, і Xiaomi Amazfit BIP носимих пристроях. Дивись також[ цю FAQ](#user-content-faq126).
-* [Помилка в Android 6.0](https://issuetracker.google.com/issues/37068143) спричиняє поломку з*... Недійсне зрушення... Дійсний діапазон є *коли текст вибрано і натиснено за межі виділеного тексту. Цю помилку було виправлено в Android 6.0.1.
-* Внутрішні (якірні) посилання не будуть працювати, оскільки оригінальні повідомлення відображаються в вбудованому WebView в режимі прокрутки (список розмови). Це обмеження Android, на яке не можна виправити або опрацювати.
+* [Помилка в Android 6.0](https://issuetracker.google.com/issues/37068143) призводить до збою*... Недійсне зрушення... Дійсний діапазон є *коли текст вибрано і натискається за межами виділеного тексту. Цю помилку було виправлено в Android 6.0.1.
+* Внутрішні (ключові) посилання не будуть працювати, оскільки оригінальні повідомлення відображаються в вбудованому WebView в режимі прокрутки (список розмови). Це обмеження Android, яке не можна виправити або опрацювати.
 * Мова виявлення [ більше не працює](https://issuetracker.google.com/issues/173337263) на пристроях Pixel з (покращених до?) Android 11
-* Помилка [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) викликає невірні PGP підписи при використанні апаратного токену.
+* Помилка [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) викликає несправні PGP підписи при використанні апаратного токену.
 
-<h2><a name="planned-features"></a>Заплановані можливості</h2>
+<h2><a name="planned-features"></a>Заплановані функції</h2>
 
-* ~~Синхронізація за вимогою (вручну)~~
+* ~~Синхронізація на вимогу (вручну)~~
 * ~~Напівавтоматичне шифрування~~
 * ~~Копіювання повідомлення~~
 * ~~Кольорові зірки~~
@@ -95,10 +95,10 @@
 * виберіть локальні зображення для підписів ( це не буде додано, тому що це вимагає зображення файлу керування і тому що зображення не показується за замовчуванням в більшості поштових клієнтів)
 * ~~Показати повідомлення, що відповідають критеріям~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (немає підтримуваних бібліотек Java з відповідною ліцензією і без залежностей і, крім цього, FairEmail має власні правила фільтрів)
-* ~~Пошук повідомлення з/без вкладення~~ (неможливо додати, оскільки IMAP не підтримує пошук із вкладеними файлами)
-* ~~Пошук папок~~ (проблема при ієрархічному фільтруванні папок)
+* ~~Пошук повідомлення з/без вкладень~~ (це неможливо додати, оскільки IMAP не підтримує пошук із вкладеними файлами)
+* ~~Пошук папки~~ (фільтрування списку ієрархічних папок є проблематичним)
 * ~~Пошукові пропозиції~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (розділ 4.4)~~ (Як на мене, це не гарна ідея, дозволити поштовому клієнту оперувати з секретними ключами шифрування, як для винятку, використовуйте OpenKeychain, який також може експортувати ключі)
+* ~~[Автореєстратор повідомлень](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (розділ 4.4)~~ (Як на мене, це не гарна ідея, дозволити поштовому клієнту оперувати з секретними ключами шифрування, як для винятку, використовуйте OpenKeychain, який також може експортувати ключі)
 * ~~Спільні уніфіковані теки~~
 * ~~Відкладене сповіщення про отримання нового повідомлення~~ (реалізовано за допомогою додавання налаштувань часу, сповіщення про отримані повідомлення будуть відключені протягом обраного часу)
 * Копіюй облікові записи і особисті дані
@@ -215,43 +215,43 @@
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Чому деякі тексти були прив'язані, коли не були посиланням?](#user-content-faq90)
 * [~~(91) Ви можете додати періодичну синхронізацію, щоб зберегти заряд акумулятора?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
+* [(92) Чи можете Ви додати фільтрування спаму, верифікацію підпису DKIM та авторизацію SPF?](#user-content-faq92)
+* [(93) Чи можете Ви дозволити встановлення/ зберігання даних на зовнішньому носії (флеш-карті)?](#user-content-faq93)
+* [(94) Що означає червона/помаранчева смужка наприкінці заголовку?](#user-content-faq94)
 * [(95) Чому не всі програми відображаються при виборі прикріплення або зображення?](#user-content-faq95)
 * [(96) Де я можу знайти налаштування IMAP та SMTP?](#user-content-faq96)
 * [(97) Що є "очисткою"?](#user-content-faq97)
 * [(98) Чому я досі можу вибирати контакти після скасування дозволу контактів?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
+* [(99) Чи можете Ви додати багатий текст або редактор по зниженню оцінок?](#user-content-faq99)
 * [(100) Як я можу синхронізувати категорії Gmail?](#user-content-faq100)
-* [(101) Що означає блакитна/оранжева крапка внизу розмови?](#user-content-faq101)
+* [(101) Що означає блакитна/помаранчева крапка внизу бесіди?](#user-content-faq101)
 * [(102) Як я можу увімкнути автоматичне обертання зображень?](#user-content-faq102)
 * [(103) Як я можу записати звук?](#user-content-faq158)
 * [(104) Що мені потрібно знати про звіт помилки?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
+* [(106) Як лаунчери можуть показати кількість значків з кількістю непрочитаних повідомлень?](#user-content-faq106)
 * [(107) Як використовувати кольорові зірки?](#user-content-faq107)
 * [~~(108) Чи можете ви додавати остаточне видалення повідомлення з будь-якої теки?~~](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
+* [~~(109) Чому "обраний обліковий запис" є доступним лише в офіційних версіях?~~](#user-content-faq109)
+* [(110) Чому (деякі) повідомлення порожні або ж вкладення завірусовані?](#user-content-faq110)
+* [(111) Чи підтримується OAuth?](#user-content-faq111)
+* [(112) Який поштовий провайдер Ви рекомендуєте?](#user-content-faq112)
+* [(113) Яким чином працює біометрична аутентифікація?](#user-content-faq113)
+* [(114) Чи можете Ви додати імпорт до налаштувань інших поштових додатків?](#user-content-faq114)
 * [(115) Ви можете додати списки адрес електронної пошти?](#user-content-faq115)
 * [~~(116) Як я можу показувати зображення в повідомленнях від довірених відправників за замовчуванням?~~](#user-content-faq116)
 * [(117) Можеш допомогти мені відновити мою покупку?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Чому нові сповіщення повідомлень не видаляються при відкритті програми?](#user-content-faq120)
+* [(118) Що достеменно означає "Усунути параметри відстеження"?](#user-content-faq118)
+* [~~(119) Чи можете Ви додати кольори до віджета уніфікованої поштової скриньки?~~](#user-content-faq119)
+* [(120) Чому сповіщення про нові повідомлення не видаляються при відкритті додатку?](#user-content-faq120)
 * [(121) Як повідомлення згруповано в розмову?](#user-content-faq121)
 * [~~(122) Чому ім'я одержувача/адреса електронної пошти відображається попереджувальним кольором?~~](#user-content-faq122)
 * [(123) Що станеться, коли FairEmail не може підключитися до сервера електронної пошти?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
+* [(124) Чому я отримую " Повідомлення завелике або занадто складне для дисплею"?](#user-content-faq124)
+* [(125) Які є поточні експериментальні функції?](#user-content-faq125)
+* [(126) Чи можуть попередні перегляди повідомлень відправлятися на мій портативний носій?](#user-content-faq126)
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
+* [(128) Як я можу перевстановити поставлені запитання, наприклад, показати зображення?](#user-content-faq128)
 * [(129) Чи підтримуються ProtonMail, Tutanota?](#user-content-faq129)
 * [Що означає повідомлення про помилку?](#user-content-faq130)
 * [(131) Чи можете ви змінити напрямок проведення пальцем на попереднє/наступне повідомлення?](#user-content-faq131)
@@ -264,32 +264,32 @@
 * [(138) Чи можете ви додати календар/контакт/завдання/керування нотатками?](#user-content-faq138)
 * [(139) Як вирішити 'Користувач проходить автентифікацію, але не підключений'?](#user-content-faq139)
 * [(140) Чому повідомлення містить дивні символи?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
+* [(141) Як я можу виправити "Папка чернеток є необхідною для надсилання повідомлень"?](#user-content-faq141)
+* [(142) Як я можу зберігати відправлені повідомлення у вхідній поштовій скринці?](#user-content-faq142)
+* [~~(143) Чи можете Ви додати корзину для облікових записів POP3](#user-content-faq143)
 * [(144) Як я можу записувати голосові нотатки?](#user-content-faq144)
 * [(145) Як я можу встановити звук сповіщень для облікового запису, папки або відправника?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
+* [(146) Як я можу виправити неправильний час повідомлення?](#user-content-faq146)
 * [(147) Що я повинен знати про тристоронні версії?](#user-content-faq147)
 * [(148) Як я можу використовувати обліковий запис Apple iCloud?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore of messages?](#user-content-faq151)
+* [(149) Як працює віджет підрахунків непрочитаних повідомлень?](#user-content-faq149)
+* [(150) Чи можете Ви додати скасування календарних запрошень?](#user-content-faq150)
+* [(151) Чи можете Ви додати резервне копіювання/відновлення повідомлень?](#user-content-faq151)
 * [(152) Як я можу вставити групу контактів?](#user-content-faq152)
 * [(153) Чому не вдається остаточно видалити повідомлення Gmail?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
+* [~~(154) Чи можете Ви додати фавіконки як фото контактів?~~](#user-content-faq154)
 * [(155) What is a winmail.dat file?](#user-content-faq155)
 * [Як я можу налаштувати обліковий запис Office 365?](#user-content-faq156)
 * [Як я можу налаштувати обліковий запис Free.fr?](#user-content-faq157)
 * [Яку камеру/аудіо ви рекомендуєте?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 * [(160) Чи можна додати постійне видалення повідомлень без підтвердження?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(161) Чи могли б Ви додати налаштування, щоб змінити початковий колір на обраний?](#user-content-faq161)
+* [(162) Чи підтримується IMAP NOTIFY?](#user-content-faq162)
 * [Що таке класифікація повідомлень?](#user-content-faq163)
 * [(164) Ви можете додати налаштовані теми?](#user-content-faq164)
 * [(165) Чи підтримується Android Auto?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(166) Як я можу передавати повідомлення на кілька пристроїв?](#user-content-faq166)
 
 [У мене є ще одне питання.](#user-content-support)
 
@@ -333,54 +333,54 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail зберігатиме список адрес з яких ви уже отримували або надсилали повідомлення і пропонуватиме їх коли ви не надали дозволу для використання контактів. Це означає, що ви можете використовувати FairEmail без ваших збережених контактів на Android (контактний книзі). Зверніть увагу, що ви все ще можете обрати контакти без надавання дозволу FairEmail, але в такому разі ви не отримаєте запропонованих контактів, оскільки не давали згоди на їх використання.
+FairEmail зберігатиме список адрес, з яких ви отримуєте або надсилаєте повідомлення і використовуватиме цей список рекомендованих контактів, у разі, якщо Ви не надаєте дозволу для використання контактів. Це означає, що Ви можете використовувати FairEmail без збережених контактів на Android (контактній книзі). Зверніть увагу, що ви все ще можете обрати контакти без надавання дозволу контактів FairEmail, але в такому разі ви не отримаєте запропоновані контакти, допоки не буде згоди на їх використання.
 
 <br />
 
 <a name="faq2"></a>
 Чому показуються постійні сповіщення
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+З метою запобігання знищення андроїдом сервісної системи, відповідальної за постійне отримання електронних листів, показується сповіщення з пріоритетного розряду статусу з кількістю контрольованих облікових записів та операцій в режимі очікування ( дивіться наступне питання). Це завжди [було необхідним](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), але після введення[ сонного режиму](https://developer.android.com/training/monitoring-device-state/doze-standby) в Андроїді 6 Маршмелоу, це є більш необхідним, ніж будь-коли раніше. Сонний режим припиняє дію всіх додатків, коли вимикається екран на певний час, у випадку, якщо додаток ще не запустив функцію переднього плану, яка вимагає показати сповіщення в ряді статусу.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Більшість інших програм, якщо не всі, не відображають сповіщення про "побічні ефекти", що на нові повідомлення часто не відповідають, або ж роблять це запізно, і що повідомлення або не надсилаються, або надсилаються запізно.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. На практиці це означає, що сповіщення в рядку стану не займають місця в рядку стану, якщо немає вільного місця.
+Андроїд спершу показує значки сповіщень з високопріоритетним статусом і приховує значок сповіщення FairEmail, якщо місця для значків більше не залишилось. На практиці це означає, що сповіщення в рядку стану не займають місця в рядку стану, якщо немає вільного місця.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Сповіщення про статус можна деактивувати у налаштуваннях сповіщень на FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Андроїд 8 Орео та пізніші випуски: натисніть на кнопку* Отримати канал* і деактивуйте канал через налаштування Андроїда( це не деактивує сповіщення про нові повідомлення)
+* Андроїд 7 Nougat і давніші моделі: активовано * Використовувати фоновий сервіс, щоб синхронізувати повідомлення*, але переконайтесь, що прочитали примітку під налаштуванням
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. Перегляньте [](#user-content-faq39) щоб дізнатися більше про використання акумулятора.
+Ви маєте можливість переключатися на періодичну синхронізацію повідомлень у налаштуваннях отримання, щоб видаляти сповіщення, але варто знати, що це може використовувати більше заряду акумулятора. Перегляньте [](#user-content-faq39) щоб дізнатися більше про використання акумулятора.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Будь ласка, перегляньте [тут](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) про те, як вимкнути це повідомлення.
+Aндроїд 8 Oreo також може показувати сповіщення в рядку статусу з текстом *Додатки працюють у фоновому режимі*. Будь ласка, перегляньте [тут](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) про те, як вимкнути це повідомлення.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Частина запропонувала використовувати [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) замість сервісу Андроїд з сповіщенням про статус, але це вимагатиме провайдерів електронної пошти, щоб відправити FCM повідомлення або ж основного сервера, де зібрані всі повідомлення, зоб відправляти FCM повідомлення. Перше носить малоймовірний характер, а друга може мати істотні наслідки на конфіденційність.
 
 Якщо ви прийшли сюди, натиснувши на повідомлення, ви маєте знати, що наступний клік відкриє поштову скриньку.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Що таке операції та чому вони в режимі очікування?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Сповіщення з непріоритетним статусом показують ряд невиконаних операцій, які можуть бути:
 
 * *додати*: додати повідомлення до віддаленої папки
-* *move*: move message to another remote folder
+* *перемістити*: перемістити повідомлення до іншої віддаленої папки
 * *копіювати*: копіювати повідомлення в іншу віддалену папку
-* *fetch*: fetch changed (pushed) message
+* *отримати*: отримати змінені(натиснуті) повідомлення
 * *видалити *: видалити повідомлення з віддаленої папки
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
-* *keyword*: add/remove IMAP flag in remote folder
-* *label*: set/reset Gmail label in remote folder
+* *переглянуто*: позначати повідомлення як прочитане/непрочитане в віддаленій папці
+* *Відповів/ла*: позначити повідомлення як повідомлення з відповіддю у віддаленій папці
+* *прапорець*: додати/забрати зірочку у віддаленій папці
+* *ключове слово*: додати/забрати прапорець IMAP у віддаленій папці
+* *ярлик*: встановити/перевстановити ярлик Gmail у віддаленій папці
 * *заголовки*завантажити заголовки повідомлень
 * *необроблений*завантажити необроблене повідомлення
 * *основний*завантажити текст повідомлення
 * *вкладення*завантажити вкладення
-* *sync*: synchronize local and remote messages
+* *синхронізація*: синхронізувати локальні та віддалені повідомлення
 * *підписати*підписати до видаленої папки
 * *очистка*видалити всі повідомлення з видаленої папки
 * *надіслати*надіслати повідомлення
@@ -388,7 +388,7 @@ The low priority status bar notification shows the number of pending operations,
 * *правило*виконувати правило на основній частині тексту
 * *вилучити*остаточно видалити повідомлення
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. Дивись також[ цю FAQ](#user-content-faq16).
+Операції виконуються лише тоді, коли є з'єднання з поштовим сервером або при ручній синхронізації. Дивись також[ цю FAQ](#user-content-faq16).
 
 <br />
 
@@ -401,78 +401,78 @@ Operations are processed only when there is a connection to the email server or 
 
 Це може бути спричинено використанням неправильного ім'я хоста, тому спочатку перевірте ім'я хоста в додаткових даних чи у налаштуваннях облікового запису (натисніть "налаштувати вручну). Будь ласка, перегляньте документацію поштового провайдера про правильне хост ім'я.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Вам слід спробувати виправити це через контакт з провайдером або ж отримавши справний сертифікат безпеки, оскільки несправні сертифікати безпеки є ненадійними і дозволяють [посередницькі атаки](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Якщо гроші це перешкода, Ви можете отримати безкоштовні сертифікати безпеки з [Давайте Зашифруємо](https://letsencrypt.org).
 
 Швидке, але небезпечне рішення (не рекомендовано), це дозволити *Незахищене з'єднання* в додаткових налаштуваннях особистих даних (навігаційне меню, натисніть *Налаштування*, натисніть *Ручне настроювання*, натисніть *особисті дані*, натисніть на особу, натисніть *Додаткові*).
 
 Крім того, ви можете прийняти відбиток некоректного сертифікату сервера наступним чином:
 
 1. Переконайтеся, що ви використовуєте надійне підключення до Інтернету (не громадські Wi-Fi мережі тощо)
-1. Перейти до налаштувань через навігаційне меню (прогорнувши зліва до середини)
+1. Перейдіть до налаштувань екрану через навігаційне меню (провівши по екрану зліва до середини)
 1. Натисніть в ручному налаштуванні, натисніть Облікові записи/Особисті дані та виберіть на ньому несправний обліковий запис і особисті дані
-1. Перевірити/зберегти обліковий запис та особисті дані
-1. Tick the checkbox below the error message and save again
+1. Перевірте/збережіть обліковий запис та особисті дані
+1. Поставте прапорець під помилковим повідомленням та знову збережіть
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Це закріпить сертифікат сервера і допоможе запобігти посередницькій атаці.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Зверніть увагу, що старіші версії Андроїда можуть не розпізнавати новіші служби сертифікації такі як Давайте Зашифруємо, яка установлює зв'язок, який вважається незахищеним, дивіться також [тут](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
-*Trust anchor for certification path not found*
+*Довірена прив'язка для проведення сертифікації не знайдено*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor не знайдено*, означає, що менеджер довіри Андроїд за замовчуванням не зміг задокументувати ланцюжок серверних сертифікатів.
 
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
+Це може бути пов'язано з тим, що основний сертифікат не був встановлений на Ваш пристрій або ж тому, що бракує середніх сертифікатів, наприклад тому, що поштовий сервер їх не відправив.
 
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
+Ви можете виправити першу проблему, завантаживши або встановивши основний сертифікат з сайту провайдера сертифікатів.
 
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
+Друга проблема може бути виправлена шляхом зміни серверної конфігурації або ж завдяки імпортуванню середніх сертифікатів на прилад.
 
-You can pin the certificate too, see above.
+Ви можете також закріпити сертифікат, дивіться вище.
 
 <br />
 
 *Порожній пароль*
 
-Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
+Ваше ім'я користувача дуже легко вгадується, отож це досить небезпечно, якщо SMTP сервер не є доступним через обмежену локальну мережу або лише через VPN.
 
 *Звичайне текстове з'єднання*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Ваше ім'я користувача та пароль та всі інші повідомлення будуть надіслані і отримані незашифрованими, що є **дуже незахищеним**, оскільки [посередники легко атакують](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) незашифрований зв'язок.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Якщо Ви все ще хочете використовувати недійсний сертифікат безпеки, відсутній пароль або ж просте текстове підключення, вам буде треба активувати незахищене під'єднання в налаштуваннях облікового запису та/або налаштуваннях розпізнання особи. STARTTLS слід використовувати для простих текстових з'єднань. Якщо Ви активуєте незахищені підключення, Вам слід підключатися лише через приватні, довірені мережі і ніколи не через публічні мережі, такі як пропонуються в готелях, аеропортах тощо.
 
 <br />
 
 <a name="faq5"></a>
 **(5) Як я можу налаштувати перегляд повідомлення?**
 
-In the three dot overflow menu you can enable or disable or select:
+У переповненому меню з трьома пунктами Ви можете активувати або деактивувати або обрати:
 
 * *розмір тексту*для три різних розмірів шрифта
-* *compact view*: for more condensed message items and a smaller message text font
+* *компактний перегляд*: для більш стиснутих елементів повідомлення та для меншого текстового шрифту повідомлень
 
-In the display section of the settings you can enable or disable for example:
+У розділі налаштувань "Параметри" ви можете активувати або деактивувати наприклад:
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Tabular style*: to show a linear list instead of cards
+* *Уніфікована поштова скринька*: деактивувати уніфіковану поштову скриньку і укласти список обраних папок замість уніфікованої поштової скриньки
+* *Табличний стиль*: показати лінійний список замість карточок
 * *групувати за датою*показати дату заголовка вище повідомлень з тією ж датою
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Чати*: вимкнути тематичний чат та показувати приватні повідомлення натомість
 * *панель дій розмови*вимкнути кнопку панелі навігації
 * *виділений колір*вибрати колір для відправника непрочитаних повідомлень
 * *Показати фотографії контактів*: приховати фото контактів
 * *Показати імена та адреси електронної пошти*: показати імена та адреси електронної пошти
-* *Show subject italic*: to show the message subject as normal text
+* *Показати курсив*: показати текст повідомлення стандартним шрифтом
 * *Показати зірки*: приховати зірочки (обране)
 * *Показувати попередній перегляд повідомлення*: показати 1-4 рядки тексту повідомлення
 * *показати деталі адреги за замовчуванням* розгорнути розділ адрес за замовчуванням
 * *Автоматично показувати оригінальне повідомлення для відомих контактів*: показувати оригінальні повідомлення для контактів на пристрої, будь ласка, прочитайте [це FAQ](#user-content-faq35)
 * *Автоматично показувати оригінальне повідомлення для відомих контактів*: показувати оригінальні повідомлення для контактів на пристрої, будь ласка, прочитайте [це FAQ](#user-content-faq35)
 
-Зверніть увагу, що повідомлення можуть бути переглянуті тільки тоді, коли було завантажено текст. Larger message texts are not downloaded by default on metered (generally mobile) networks. Ви можете змінити це в налаштуваннях підключення.
+Зверніть увагу, що повідомлення можуть бути переглянуті тільки тоді, коли було завантажено текст. Більші за обсягом тексти не завантажуються по замовчуванню на врегульовані (загально мобільні) мережі. Ви можете змінити це в налаштуваннях підключення.
 
-Деякі питають:
+Дехто питає:
 
 * показати тему жирним шрифтом, але жирний шрифт вже використовується для виділення непрочитаних повідомлень
 * зміщення зірки ліворуч, але набагато легше керувати зіркою з правого боку
@@ -533,28 +533,28 @@ In the display section of the settings you can enable or disable for example:
 <a name="faq7"></a>
 **(7) Чому надіслані повідомлення не відображаються (безпосередньо) у папці надіслані?**
 
-Надіслані повідомлення зазвичай переміщаються із папки вихідні до папки надіслані одразу після того як ваш провайдер відправив його. Це вимагає щоб папка надіслані була обрана у налаштуваннях облікового запису і тоді тека надіслані буде синхронізована автоматично.
+Надіслані повідомлення зазвичай переміщаються із вихідної папки до папки "надіслан"і одразу після того, як ваш провайдер відправив його. Це вимагає щоб папка "надіслані" була обрана у налаштуваннях облікового запису і щоб папка "надіслані" була налаштована на синхронізованізацію.
 
-Деякі провайдери не відслідковують надіслані повідомлення чи використаний SMTP сервер не пов'язаний із провайдером. У таких випадках FairEmail буде автоматично додавати надіслані повідомлення до теки надіслані, що зазвичай відбувається уже після того як повідомлення було надіслано. Зверніть увагу, що це призведе до використання додаткового трафіку в Інтернеті.
+Деякі провайдери не відслідковують надіслані повідомлення або ж використаний SMTP сервер не пов'язаний із провайдером. У таких випадках FairEmail буде автоматично додавати надіслані повідомлення до папки "надіслані", що зазвичай відбувається уже після того, як повідомлення було надіслано. Зверніть увагу, що це позначиться на використанні додаткового трафіку в Інтернеті.
 
-~~Якщо цього не відбувається, ваш провайдер може не продовжувати відслідковувати надіслані повідомлення чи ви не використовуєте SMTP сервер не пов'язаний із вашим провайдером.~~ ~~У цьому випадку ви можете ввімкнути розширені власні налаштування *Зберігати надіслані повідомлення* щоб дозволити FairEmail додавати надіслані повідомлення до самої теки надіслані повідомленні одразу після їх надсилання.~~ ~~Зверніть увагу, що дозвіл у налаштуваннях може вплинути на те, що повідомлення буде продубльовано, якщо провайдер додасть відправлені повідомлення до теки надіслані також.~~ ~~Також майте на увазі, що ввімкнення цих налаштувань вплинуть на використання додаткового інтернет трафіку, особливо коли повідомлення надіслано із великим вкладенням.~~
+~~Якщо це не відбувається, ваш провайдер може не продовжувати відстежувати надіслані повідомлення або ж чи Ви не використовуєте SMTP сервер не пов'язаний із вашим провайдером.~~ ~~У таких випадках ви можете активувати розширені налаштування користувача * Зберігати надіслані повідомлення* щоб дозволити FairEmail додавати надіслані повідомлення до папки "надіслані" одразу після їх надсилання.~~ ~~Зверніть увагу, що активація таких налаштувань може вплинути на те, що повідомлення буде продубльовано, якщо провайдер додасть відправлені повідомлення до папки "надіслані" також.~~ ~~Також майте на увазі, що ввімкнення цих налаштувань вплинуть на використання додаткового інтернет трафіку, особливо коли повідомлення надіслано із великим вкладенням.~~
 
-~~Якщо повідомлення у папці вихідні не знайдені у теці надіслані при повній синхронізації, вони будуть переміщені із папки вихідні до папки надіслані також.~~ ~~При повній синхронізації інколи стається роз'єднання із сервером чи коли синхронізується періодами або вручну.~~ ~~Ви скоріш за все захочете ввімкнути розширені налаштування *Зберігати надіслані повідомлення* замість того щоб відправляти їх до папки надіслані повідомлення.~~
+~~Якщо повідомлення у папці "вихідні" не знайдені у папці "надіслані" при повній синхронізації, вони будуть переміщені із папки "вихідні" до папки "надіслані" також.~~ ~~Повна синхронізація відбувається при роз'єднанні із сервером чи при періодичній синхронізації або вручну.~~ ~~Ви скоріш за все захочете ввімкнути розширені налаштування *Зберігати надіслані повідомлення* замість того, щоб відправляти повідомлення до папки "надіслані" потім.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Чи можу я використовувати обліковий запис Microsoft Exchange?**
 
-The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
+Протокол веб-обслуговування Microsoft Exchange[ більше не використовується](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). Отож, нема сенсу додавати більше цей протокол.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Ви можете використовувати обліковий запис Microsoft Exchange якщо від доступний через IMAP, що зазвичай так і працює. Дивіться [тут](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) для детальнішої інформації.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Зверніть увагу, що опис FairEmail розпочинається з позначення того, що такі нестандартні протоколи, як от веб-обслуговування Microsoft Exchange та Microsoft ActiveSync не підтримуються.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Будь ласка, дивіться [тут](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) про документацію Microsoft про налаштування користувача поштою. Тут також є розділ про типові помилки з'єднання та шляхи вирішення.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Деякі старіші версії сервера Exchange мають помилку, яка призводить до порожніх повідомлень та корумпованих вкладень. Будь ласка, дивіться [тут FAQ](#user-content-faq110) для обхідного шляху.
 
 Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
@@ -563,68 +563,68 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Хто такі користувачі мережі/ як можна додати псевдонім?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Користувачі представляють адреси електронної пошти, які Ви надсилаєте* через* поштовий сервер (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Деякі провайдери дозволяють отримати кілька псевдонімів. Їх можна налаштувати шляхом встановлення поля електронної адреси додаткового користувача до адреси псевдоніма та встановити поле ім'я користувача до головної поштової адреси.
 
-Note that you can copy an identity by long pressing it.
+Зверніть увагу, що Ви можете скопіювати користувача мережі натиснувши і утримавши його.
 
-Ви також можете активувати функцію Allow editing sender address (Дозволити редагування адреси відправника) у розширених налаштуваннях наявного облікового запису, що дозволить редагувати ім'я користувача при створенні нового повідомлення, якщо провайдер дозволяє таку функцію.
+Ви також можете активувати функцію *Allow editing sender address* (Дозволити редагування адреси відправника) у розширених налаштуваннях наявного облікового запису, що дозволить редагувати ім'я користувача при створенні нового повідомлення, якщо провайдер дозволяє таку функцію.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail автоматично оновлює паролі пов'язаних користувачів під час оновлення пароля відповідного облікового запису або пов'язаного з ним користувача.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Дивіться [ FAQ](#user-content-faq33) щодо редагування імені користувача поштової адреси.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Що означає UIDPLUS не підтримується?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+Помилкове повідомлення *UIDPLUS не підтримується* означає, що Ваш поштовий провайдер не забезпечує розширення IMAP [UIDPLUS ](https://tools.ietf.org/html/rfc4315). Це IMAP розширення вимагається для впровадження двосторонньої синхронізації, що є обов'язковою рисою. Отож, якщо Ваш провайдер не здатний активувати розширення, Ви не зможете користуватися FairEmail для цього провайдера.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Чому POP не підтримується?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+Окрім того, будь-який порядний поштовий провайдер підтримує [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) на сьогоднішній день,~~ ~~ використання [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) позначиться на непотрібному додатковому використанні батареї і затримці сповіщень про нові повідомлення.~~ ~~ Більше того, POP не підходить для двосторонньої синхронізації і все частіше не люди читають та пишуть повідомлення з різних пристроїв цими днями. ~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+В основному, POP підтримує лише завантаження або видалення повідомлень з поштової скриньки.~~ ~~ Отже, типові операції такі як налаштування функцій повідомлення( прочитано, позначено, з відповіддю, тощо), додавання( створення резервних копій) та пересування повідомлень не є можливим.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Дивіться також[ що про це пише Google](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+Наприклад[Gmail може імпортувати повідомлення ](https://support.google.com/mail/answer/21289)з іншого облікового запису POP, ~~ ~~ які можуть використовуватися як обхідний шлях, коли Ваш провайдер не підтримує IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~tl;dr; подумайте про перехід до IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Як працює шифрування/дешифрування?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Спілкування з поштовими серверами є завжди зашифрована, якщо ви явно не вимкнули цю функцію. Це питання про вибіркове кінцеве шифрування з PGP або S/MIME. Відправник та одержувач повинні спершу погодити це та обмінятися підписаними повідомленнями, щоб передати їхній публічний ключ, щоб була здатність надсилати зашифровані листи.
 
 <br />
 
-*General*
+*Загальні*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Будь ласка, [дивіться тут](https://en.wikipedia.org/wiki/Public-key_cryptography), як працює публічний/приватний ключ шифрування.
 
-Encryption in short:
+Коротке шифрування:
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **Вихідні** повідомлення зашифровані **публічним ключем** отримувача
+* **Вхідні** повідомлення розшифровуються **приватним ключем** отримувача
 
-Signing in short:
+Швидке підписування:
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* **Вихідні** повідомлення підписуються** приватним ключем **відправника
+* **Вхідні** повідомлення верифікуються **публічним ключем** відправника
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Щоб підписати/зашифрувати повідомлення, просто оберіть відповідний метод у діалозі. Ви завжди можете відкрити діалог використовуючи меню з трьома пунктами у випадку, якщо Ви вибрали *Не показувати знову* перед тим.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Щоб перевірити підпис або щоб розшифрувати отримане повідомлення, відкрийте повідомлення і просто натисніть на жест або значок замка одразу під панеллю "операції в повідомленнях".
 
 The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 

@@ -94,7 +94,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~הגדרות התראה לפי תיקייה~~
 * ~~בחירת תמונות מקומיות כחתימות~~ (לא יתווסף כיוון שזה דורש ניהול קובצי תמונות וכיוון שהתמונות לא מופיעות כברירת מחדל ברוב לקוחות הדוא״ל בין כה וכה)
 * ~~להציג הודעות שתואמות לכלל~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (אין ספריות Java מתוחזקות עם רישיון מתאים וללא תלויות וחוץ מזה, ל־FairEmail יש כללי סינון עצמאיים)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~

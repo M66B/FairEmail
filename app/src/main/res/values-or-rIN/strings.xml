@@ -288,6 +288,7 @@
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
+    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">ପୁନଃପ୍ରେରଣ</string>
     <string name="title_force_light">ହାଲୁକା ଥିମ୍ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
