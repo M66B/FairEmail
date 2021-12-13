@@ -23,6 +23,8 @@ you can find out how to ask other questions, request features, and report bugs.
 
 <h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-authorizing-accounts)
+
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
 If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email).
@@ -57,6 +59,8 @@ Related questions:
 
 ## How to ...?
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-howto)
+
 * Change the account name: Settings, tap Manual setup, tap Accounts, tap account
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions (*)
 * Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
@@ -79,6 +83,8 @@ Related questions:
 
 <h2><a name="known-problems"></a>Known problem</h2>
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-known-problems)
+
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
@@ -100,6 +106,8 @@ Related questions:
 * A [bug in Crowdin](https://crowdin.com/messages/536694) blocks updating FAQ.md (this text) for translation.
 
 <h2><a name="planned-features"></a>Planned features</h2>
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-planned-features)
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -136,12 +144,16 @@ Anything on this list is in random order and *might* be added in the near future
 
 <h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-frequently-requested-features)
+
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 Fonts, sizes, colors, etc should be material design whenever possible.
 
 <h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-frequently-asked-questions)
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -4408,6 +4420,8 @@ but unfortunately modifications by manufacturers often [require it anyway](https
 <br />
 
 <h2><a name="get-support"></a>Get support</h2>
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-get-support)
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
