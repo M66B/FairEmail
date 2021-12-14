@@ -1696,24 +1696,25 @@ public class Log {
 
         PackageManager pm = context.getPackageManager();
         String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
+
         int targetSdk = -1;
         try {
             ApplicationInfo ai = pm.getApplicationInfo(BuildConfig.APPLICATION_ID, 0);
             targetSdk = ai.targetSdkVersion;
-        } catch (PackageManager.NameNotFoundException ignore) {
+        } catch (PackageManager.NameNotFoundException ex) {
+            sb.append(ex).append("\r\n");
         }
 
         // Get version info
-        sb.append(String.format("%s: %s/%s %s/%s%s%s%s%s\r\n",
+        sb.append(String.format("%s %s/%d%s%s%s%s\r\n",
                 context.getString(R.string.app_name),
-                BuildConfig.APPLICATION_ID,
-                installer,
                 BuildConfig.VERSION_NAME + BuildConfig.REVISION,
-                Helper.hasValidFingerprint(context) ? "1" : "3",
+                Helper.hasValidFingerprint(context) ? 1 : 3,
                 BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
                 Helper.hasPlayStore(context) ? "s" : "",
                 BuildConfig.DEBUG ? "d" : "",
-                ActivityBilling.isPro(context) ? "+" : ""));
+                ActivityBilling.isPro(context) ? "+" : "-"));
+        sb.append(String.format("Package: %s\r\n", BuildConfig.APPLICATION_ID));
         sb.append(String.format("Android: %s (SDK %d/%d)\r\n",
                 Build.VERSION.RELEASE, Build.VERSION.SDK_INT, targetSdk));
 
@@ -1723,10 +1724,13 @@ public class Log {
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
 
+        sb.append(String.format("Installer: %s\r\n", installer));
+        sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
+        sb.append(String.format("Now: %s\r\n", new Date()));
+
         sb.append("\r\n");
 
         // Get device info
-        sb.append(String.format("uid: %s\r\n", android.os.Process.myUid()));
         sb.append(String.format("Brand: %s\r\n", Build.BRAND));
         sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
         sb.append(String.format("Model: %s\r\n", Build.MODEL));
@@ -1736,19 +1740,15 @@ public class Log {
         sb.append(String.format("Time: %s\r\n", new Date(Build.TIME).toString()));
         sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
         sb.append(String.format("Id: %s\r\n", Build.ID));
+        sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
         sb.append("\r\n");
-
-        Locale slocale = Resources.getSystem().getConfiguration().locale;
-        String language = prefs.getString("language", null);
-        sb.append(String.format("Locale: def=%s sys=%s lang=%s\r\n",
-                Locale.getDefault(), slocale, language));
 
         sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
 
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        sb.append(String.format("Memory class: %d/%d MB/%s\r\n",
+        sb.append(String.format("Memory class: %d/%d MB Total: %s\r\n",
                 am.getMemoryClass(), am.getLargeMemoryClass(), Helper.humanReadableByteCount(mi.totalMem)));
 
         long storage_available = Helper.getAvailableStorageSpace();
@@ -1771,32 +1771,70 @@ public class Log {
             sb.append(String.format("IPC max: %s\r\n", Helper.humanReadableByteCount(ipc)));
         }
 
-        Configuration config = context.getResources().getConfiguration();
-        String size;
-        if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_XLARGE))
-            size = "XL";
-        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
-            size = "L";
-        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))
-            size = "M";
-        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_SMALL))
-            size = "M";
-        else
-            size = "?";
+        try {
+            int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
+            sb.append(context.getString(R.string.title_advanced_aes_key_size,
+                    Helper.humanReadableByteCount(maxKeySize, false))).append("\r\n");
+        } catch (Throwable ex) {
+            sb.append(ex).append("\r\n");
+        }
+
+        sb.append("\r\n");
+
+        Locale slocale = Resources.getSystem().getConfiguration().locale;
+        String language = prefs.getString("language", null);
+        sb.append(String.format("Locale: def=%s sys=%s lang=%s\r\n",
+                Locale.getDefault(), slocale, language));
+
+        String charset = MimeUtility.getDefaultJavaCharset();
+        sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
+
+        sb.append("Transliterate: ")
+                .append(TextHelper.canTransliterate())
+                .append("\r\n");
+
+        sb.append("\r\n");
+
+
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         Point dim = new Point();
         display.getSize(dim);
         float density = context.getResources().getDisplayMetrics().density;
-        sb.append(String.format("Density %f resolution: %.2f x %.2f dp %s\r\n",
-                density, dim.x / density, dim.y / density, size));
+        sb.append(String.format("Density %f\r\n", density));
+        sb.append(String.format("Resolution: %.2f x %.2f dp\r\n", dim.x / density, dim.y / density));
+
+        Configuration config = context.getResources().getConfiguration();
+
+        String size;
+        if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_XLARGE))
+            size = "XLarge";
+        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
+            size = "Large";
+        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))
+            size = "Medium";
+        else if (config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_SMALL))
+            size = "Small";
+        else
+            size = "size=" + (config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK);
+
+        String orientation;
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE)
+            orientation = "Landscape";
+        else if (config.orientation == Configuration.ORIENTATION_PORTRAIT)
+            orientation = "Portrait";
+        else
+            orientation = "orientation=" + config.orientation;
+
+        sb.append(String.format("%s %s\r\n", size, orientation));
 
         try {
             float animation_scale = Settings.Global.getFloat(resolver,
                     Settings.Global.WINDOW_ANIMATION_SCALE, 0f);
-            sb.append(String.format("Animation scale: %f\r\n", animation_scale));
+            sb.append(String.format("Animation scale: %f %s\r\n", animation_scale,
+                    animation_scale == 1f ? "" : "!!!"));
         } catch (Throwable ex) {
-            Log.w(ex);
+            sb.append(ex).append("\r\n");
         }
 
         int uiMode = context.getResources().getConfiguration().uiMode;
@@ -1805,30 +1843,16 @@ public class Log {
                 .append(" night=").append(Helper.isNight(context))
                 .append("\r\n");
 
-        sb.append(String.format("UI type: %s\r\n", Helper.getUiModeType(context)));
+        String uiType = Helper.getUiModeType(context);
+        sb.append(String.format("UI type: %s %s\r\n", uiType,
+                "normal".equals(uiType) ? "" : "!!!"));
 
-        sb.append("ExactAlarms")
-                .append(" can=")
-                .append(AlarmManagerCompatEx.canScheduleExactAlarms(context))
-                .append(" has=")
-                .append(AlarmManagerCompatEx.hasExactAlarms(context))
-                .append("\r\n");
-
-        sb.append("Transliterate: ")
-                .append(TextHelper.canTransliterate())
-                .append("\r\n");
-
-        try {
-            int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
-            sb.append(context.getString(R.string.title_advanced_aes_key_size,
-                    Helper.humanReadableByteCount(maxKeySize, false))).append("\r\n");
-        } catch (Throwable ex) {
-            sb.append(ex.toString()).append("\r\n");
-        }
+        sb.append("\r\n");
 
         Boolean ignoring = Helper.isIgnoringOptimizations(context);
-        sb.append(String.format("Battery optimizations: %s\r\n",
-                ignoring == null ? null : Boolean.toString(!ignoring)));
+        sb.append(String.format("Battery optimizations: %s %s\r\n",
+                ignoring == null ? null : Boolean.toString(!ignoring),
+                Boolean.FALSE.equals(ignoring) ? "!!!" : ""));
 
         sb.append(String.format("Charging: %b; level: %d\r\n",
                 Helper.isCharging(context), Helper.getBatteryLevel(context)));
@@ -1841,24 +1865,34 @@ public class Log {
                     bucket, Helper.getStandbyBucketName(bucket), inactive));
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            sb.append(String.format("Background restricted: %b\r\n", am.isBackgroundRestricted()));
+        boolean canExact = AlarmManagerCompatEx.canScheduleExactAlarms(context);
+        boolean hasExact = AlarmManagerCompatEx.hasExactAlarms(context);
+        sb.append(String.format("ExactAlarms can=%b has=%b %s\r\n", canExact, hasExact,
+                canExact ? "" : "!!!"));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            sb.append(String.format("Data saving: %b\r\n", ConnectionHelper.isDataSaving(context)));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            boolean restricted = am.isBackgroundRestricted();
+            sb.append(String.format("Background restricted: %b %s\r\n", restricted,
+                    restricted ? "!!!" : ""));
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            boolean saving = ConnectionHelper.isDataSaving(context);
+            sb.append(String.format("Data saving: %b %s\r\n", saving,
+                    saving ? "!!!" : ""));
+        }
 
         try {
             int finish_activities = Settings.Global.getInt(resolver,
                     Settings.Global.ALWAYS_FINISH_ACTIVITIES, 0);
-            sb.append(String.format("Always finish: %d\r\n", finish_activities));
+            sb.append(String.format("Always finish: %d %s\r\n", finish_activities,
+                    finish_activities == 0 ? "" : "!!!"));
         } catch (Throwable ex) {
-            Log.w(ex);
+            sb.append(ex).append("\r\n");
         }
 
-        String charset = MimeUtility.getDefaultJavaCharset();
-        sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
-
-        sb.append(String.format("Configuration: %s\r\n", config.toString()));
+        sb.append("\r\n");
+        sb.append(String.format("Configuration: %s\r\n", config));
 
         sb.append("\r\n");
         for (Provider p : Security.getProviders())
@@ -1876,7 +1910,7 @@ public class Log {
                             .append('=').append(granted).append("\r\n");
                 }
         } catch (Throwable ex) {
-            sb.append(ex.toString()).append("\r\n");
+            sb.append(ex).append("\r\n");
         }
 
         sb.append("\r\n");
@@ -1893,7 +1927,7 @@ public class Log {
                             Helper.humanReadableByteCount(info.getRss() * 1024L),
                             info.getReason(), info.getStatus(), info.getReason()));
             } catch (Throwable ex) {
-                Log.e(ex);
+                sb.append(ex).append("\r\n");
             }
             sb.append("\r\n");
         }
@@ -1905,13 +1939,8 @@ public class Log {
                     sb.append(key).append('=').append(stats.get(key)).append("\r\n");
                 sb.append("\r\n");
             } catch (Throwable ex) {
-                sb.append(ex.toString()).append("\r\n");
+                sb.append(ex).append("\r\n");
             }
-
-        sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
-        sb.append(String.format("Now: %s\r\n", new Date()));
-
-        sb.append("\r\n");
 
         return sb;
     }
