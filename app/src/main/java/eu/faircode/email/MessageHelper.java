@@ -935,6 +935,7 @@ public class MessageHelper {
                             sb.append(' ');
                             flowed.add(sb.toString());
 
+                            // https://tools.ietf.org/html/rfc3676#section-4.5
                             int i = 0;
                             if (sb.length() > 0 && sb.charAt(0) == '>') {
                                 i++;
