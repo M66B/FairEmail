@@ -72,8 +72,7 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
     <string name="title_block_sender_domain">Bloquear o dominio \'%1$s\'</string>
-    <string name="title_block_sender_hint">        Bloquear un remitente é unha característica de balde.
-        Bloquear un dominio de orixe usa regras de filtrado, o que é unha característica avanzada.
+    <string name="title_block_sender_hint">        Bloquear un remitente é unha característica de balde.        Bloquear un dominio de orixe usa regras de filtrado, o que é unha característica avanzada.
     </string>
     <string name="title_junk_filter">Usar o filtro local de correo non desexado</string>
     <string name="title_junk_filter_hint">Isto pode aumentar o uso da batería e clasificar algunhas mensaxes incorrectamente como correo non desexado</string>
@@ -251,8 +250,7 @@
     <string name="title_setup_reset_images">Amosar imaxes</string>
     <string name="title_setup_reset_links">Confirmat ligazóns</string>
     <string name="title_advanced_hint_title">Máis opcións avanzadas</string>
-    <string name="title_advanced_hint_message">        Vostede está navegando cara as opcións máis avanzadas.
-        Todas as opcións teñen valores comúns, que non precisan ser cambiadas de non ser que  vostede teña una preferencia diferente.
+    <string name="title_advanced_hint_message">        Vostede está navegando cara as opcións máis avanzadas.        Todas as opcións teñen valores comúns, que non precisan ser cambiadas de non ser que  vostede teña una preferencia diferente.
     </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
@@ -514,8 +512,7 @@
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Xestionar chaves privadas</string>
     <string name="title_advanced_ca">Certificados CA instalados</string>
-    <string name="title_advanced_manage_keys_hint">Isto abrirá os axustes de seguridade de Android
-        As chaves e os certificados atópanse normalmente baixo Avanzado - Cifrado e credenciais.
+    <string name="title_advanced_manage_keys_hint">Isto abrirá os axustes de seguridade de Android        As chaves e os certificados atópanse normalmente baixo Avanzado - Cifrado e credenciais.
     </string>
     <string name="title_advanced_power_menu">Engadir accións ao menú de enerxía de Android</string>
     <string name="title_advanced_external_search">Permitir que outras aplicacións poidan buscar nas mensaxes</string>
@@ -793,8 +790,7 @@
     <string name="title_auto_delete">Borrar permanentemente de maneira automática as mensaxes vellas</string>
     <string name="title_auto_delete_hint">As mensaxes vellas son mensaxes que non están a ser almacenadas no dispositivo</string>
     <string name="title_auto_delete_archive_hint">O servidor de correo non sempre permite borrar o cartafol de arquivados</string>
-    <string name="title_inbox_root_hint">        Algúns provedores requiren que os novos cartafoles sexan creados baixo a caixa de entrada.
-        Sendo ese o caso, pode facer unha pulsación longa na caixa de entrada e seleccionar \'Crear cartafol\'.
+    <string name="title_inbox_root_hint">        Algúns provedores requiren que os novos cartafoles sexan creados baixo a caixa de entrada.        Sendo ese o caso, pode facer unha pulsación longa na caixa de entrada e seleccionar \'Crear cartafol\'.
     </string>
     <string name="title_folder_name_missing">Falta o nome de cartafol</string>
     <string name="title_folder_exists">O cartafol %1$s xa existe</string>
@@ -942,16 +938,14 @@
     <string name="title_ask_reporting">Enviar informes de erros?</string>
     <string name="title_reporting_why">Enviar informes de erro axudará a mellorar FairEmail</string>
     <string name="title_ask_review">Por favor, revise FairEmail</string>
-    <string name="title_ask_review_rationale">        Vostede xa ten experiencia con FairEmail
-        Agradeceríalle que puxese unha recensión a FairEmail no Play Store.
+    <string name="title_ask_review_rationale">        Vostede xa ten experiencia con FairEmail        Agradeceríalle que puxese unha recensión a FairEmail no Play Store.
     </string>
     <string name="title_need_help">Necesito axuda</string>
     <string name="title_ask_once">Esta mensaxe só aparecerá unha vez, de non ser que seleccione \'Despois\'</string>
     <string name="title_third_party">A súa versión é de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensaxe descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
-    <string name="title_reformatted">        Isto é a vista de mensaxe procesada.
-        Pode tocar a icona &#x26F6; para ver a mensaxe orixinal e agochar esta notificación.
+    <string name="title_reformatted">        Isto é a vista de mensaxe procesada.        Pode tocar a icona &#x26F6; para ver a mensaxe orixinal e agochar esta notificación.
         Procesar as mensaxes leva tempo, dependendo do seu tamaño e da velocidade do seu dispositivo.
     </string>
     <string name="title_compose">Redactar</string>
@@ -1430,8 +1424,7 @@
     <string name="title_pro_feature">Ista é unha funcionalidade Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Mercar</string>
-    <string name="title_pro_info">        Programar FairEmail levou miles de horas, e aínda así, a maioría das características son gratuitas.
-        FairEmail tómase a súa privacidade en serio e non amosa anuncios nen usa rastrexos ou analíticas para gañar cartos.
+    <string name="title_pro_info">        Programar FairEmail levou miles de horas, e aínda así, a maioría das características son gratuitas.        FairEmail tómase a súa privacidade en serio e non amosa anuncios nen usa rastrexos ou analíticas para gañar cartos.
         Para manter e soportar FairEmail ao longo prazo, algunhas funcións de comodidade e avanzadas non son gratuitas.
         FairEmail mostra unha pequena mensaxe para recordarlle isto, e desaparecerá se merca as características «pro».
     </string>
@@ -1644,4 +1637,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Pequeno</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+        <item>Extragrande</item>
+    </string-array>
 </resources>

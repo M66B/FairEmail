@@ -257,8 +257,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_images">Resimleri göster</string>
     <string name="title_setup_reset_links">Bağlantıları onaylayın</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
-    <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
-        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
+    <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
     <string name="title_advanced_hint_remark">Seçenekler sekmeye göre sınıflandırılmış, bölümlere ayrılmış, görünüm veya kullanıma göre düzenlenmiş ve aranabilir.
     </string>
@@ -545,8 +544,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_import_key">Özel anahtarı içe aktar</string>
     <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
     <string name="title_advanced_ca">Yüklü sertifika otoritesi (CA) kök sertifikaları</string>
-    <string name="title_advanced_manage_keys_hint">        Android güvenlik seçeneklerini açar.
-        Anahtarlar ve sertifikalar genellikle Gelişmiş -&gt; Şifreleme ve altındaki menülerde bulunur.
+    <string name="title_advanced_manage_keys_hint">        Android güvenlik seçeneklerini açar.        Anahtarlar ve sertifikalar genellikle Gelişmiş -&gt; Şifreleme ve altındaki menülerde bulunur.
     </string>
     <string name="title_advanced_power_menu">Android güç menüsüne eylemler ekle</string>
     <string name="title_advanced_external_search">Diğer uygulamaların mesajlarda arama yapmasına izin ver</string>
@@ -849,8 +847,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_auto_delete">Eski iletileri otomatik olarak kalıcı sil</string>
     <string name="title_auto_delete_hint">Eski mesajlar, artık cihazda tutulmayan mesajlardır</string>
     <string name="title_auto_delete_archive_hint">Arşiv klasöründen silme işlemine e-posta sunucusu tarafından her zaman izin verilmez</string>
-    <string name="title_inbox_root_hint">Bazı sağlayıcılar, gelen kutusunun altında yeni klasörlerin oluşturulmasını gerektirir.
-        Bu durumda, klasör listesinde gelen kutusuna uzun süre basabilir ve sonra \"Alt klasör oluştur\" seçeneğini seçebilirsiniz.    </string>
+    <string name="title_inbox_root_hint">Bazı sağlayıcılar, gelen kutusunun altında yeni klasörlerin oluşturulmasını gerektirir.        Bu durumda, klasör listesinde gelen kutusuna uzun süre basabilir ve sonra \"Alt klasör oluştur\" seçeneğini seçebilirsiniz.    </string>
     <string name="title_folder_name_missing">Klasör adı eksik</string>
     <string name="title_folder_exists">Klasör %1$s var</string>
     <string name="title_folder_delete">Bu klasör ve içerdiği iletiler kalıcı olarak silinsin mi?</string>
@@ -1006,8 +1003,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
     <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
     <string name="title_ask_review">Lütfen FairEmail\'i değerlendirin</string>
-    <string name="title_ask_review_rationale">        FairEmail\'ı bir süredir kullanıyorsunuz.
-        Eğer FairEmail\'ı Play Store\'da değerlendirirseniz çok mutlu oluruz.
+    <string name="title_ask_review_rationale">        FairEmail\'ı bir süredir kullanıyorsunuz.        Eğer FairEmail\'ı Play Store\'da değerlendirirseniz çok mutlu oluruz.
     </string>
     <string name="title_need_help">Yardıma ihtiyacım var</string>
     <string name="title_ask_once">Daha sonra\'yı seçmezseniz bu mesaj sadece bir kere görünecek</string>
@@ -1166,8 +1162,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_signature_store">Sakla</string>
     <string name="title_search">Ara</string>
     <string name="title_search_for_hint">Metin giriniz</string>
-    <string name="title_search_hint">        Başlangıçta, arama cihazda gerçekleştirilir.
-        Sunucuyu da aramak için \'Tekrar Ara\' düğmesine dokunun.
+    <string name="title_search_hint">        Başlangıçta, arama cihazda gerçekleştirilir.        Sunucuyu da aramak için \'Tekrar Ara\' düğmesine dokunun.
     </string>
     <string name="title_search_index_hint">Arama dizini aracılığıyla arama yapmak hızlıdır, ancak yalnızca tam sözcükleri bulur.</string>
     <string name="title_search_text_hint">Mesajlarda metin arama, çok sayıda mesaj varken, bazı sunucularda çalışmayabilir</string>
@@ -1516,8 +1511,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_one_time">%1$s (bir kerelik satın alma)</string>
     <string name="title_pro_no_play">Play Store bulunamadı</string>
-    <string name="title_pro_info">        FairEmail\'i geliştirmek, kelimenin tam anlamıyla binlerce saat sürdü ve buna rağmen, özelliklerin çoğu kullanımı özgürdür.
-        Fairemail gizliliğinizi ciddiye alır ve reklamlar göstermez ve para kazanmak için izleme veya analitik kullanmaz.
+    <string name="title_pro_info">        FairEmail\'i geliştirmek, kelimenin tam anlamıyla binlerce saat sürdü ve buna rağmen, özelliklerin çoğu kullanımı özgürdür.        Fairemail gizliliğinizi ciddiye alır ve reklamlar göstermez ve para kazanmak için izleme veya analitik kullanmaz.
         Fairemail\'i uzun vadede korumak ve desteklemek için, bazı kolaylıklar ve gelişmiş özellikler kullanmakta ücretsizdir.
         FairEmail, Pro özelliklerini satın alırsanız, bunu hatırlatmak için küçük bir mesajı gösterir.
     </string>
@@ -1743,4 +1737,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
+        <item>Ekstra büyük</item>
+    </string-array>
 </resources>

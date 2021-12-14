@@ -204,7 +204,7 @@
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
     <string name="title_setup_export_remark">        Étant donné que le fichier de paramètres contient tous les réglages et informations des comptes, il est chiffré avec un mot de passe.
-        Le mot de passe est requis pour importer à nouveau les paramètres, donc s\'il vous plaît, ne l\'oubliez pas !
+        Le mot de passe est requis pour importer à nouveau les paramètres, veuillez ne pas l\'oublier !
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
@@ -358,6 +358,7 @@
     <string name="title_advanced_landscape">Mode paysage</string>
     <string name="title_advanced_two_row">Utiliser deux rangées</string>
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
+    <string name="title_advanced_min_screen_size">Taille minimale de l\'écran pour partager l\'écran</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
     <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>
     <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation ?</string>
@@ -548,7 +549,7 @@
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
     <string name="title_advanced_ca">Certificats AC installés</string>
-    <string name="title_advanced_manage_keys_hint">        Ceci va vous amener sur les paramètres de sécurité Android.
+    <string name="title_advanced_manage_keys_hint">        Ceci ouvrira les paramètres de sécurité d\'Android.
         Les clés et les certificats peuvent généralement être trouvés sous Avancé - Chiffrement et identifiants.
     </string>
     <string name="title_advanced_power_menu">Ajouter des actions au menu alimentation d\'Android</string>
@@ -616,6 +617,7 @@
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
     <string name="title_advanced_navbar_colorize_hint">Le fonctionnement dépend de la version et de la variante d’Android</string>
     <string name="title_advanced_split_hint">Ceci divisera l\'écran en plusieurs parties</string>
+    <string name="title_advanced_split_min_hint">Ceci est une condition destinée aux appareils pliables</string>
     <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
     <string name="title_advanced_highlight_hint">La couleur d’accentuation du thème sera utilisée pour la surbrillance</string>
     <string name="title_advanced_gravatars_hint">Ceci pourrait présenter un risque pour la confidentialité</string>
@@ -853,7 +855,7 @@
     <string name="title_auto_delete_hint">Les anciens messages sont ceux qui ne sont plus conservés sur l’appareil</string>
     <string name="title_auto_delete_archive_hint">La suppression depuis le dossier archive n\'est pas toujours autorisée par le serveur de messagerie</string>
     <string name="title_inbox_root_hint">        Certains fournisseurs exigent que les nouveaux dossiers soient créés dans la boîte de réception.
-        Dans ce cas, vous pouvez appuyer longuement sur la boîte de réception dans la liste des dossiers et sélectionner « Créer un sous-dossier ».
+        Dans ce cas, vous pouvez appuyer longuement sur la boîte de réception dans la liste des dossiers et sélectionner \'Créer un sous-dossier\'.
     </string>
     <string name="title_folder_name_missing">Nom de dossier manquant</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
@@ -898,7 +900,7 @@
     <string name="title_importance_high">Haute</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Envoyer à nouveau</string>
+    <string name="title_resend">Envoyer à nouveau</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_edit_notes">Modifier les notes locales</string>
@@ -1020,8 +1022,8 @@
     <string name="title_expand_warning">Déplier ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
     <string name="title_reformatted">        Ceci est la vue de message reformaté.
-        Vous pouvez appuyer sur l\'icône &#x26F6; pour afficher le message original et masquer ce message.
-        Selon la taille du message et la vitesse de votre appareil, le reformatage des messages peut prendre un certain temps.
+        Vous pouvez appuyer sur l\'icône &#x26F6; pour afficher le message original et masquer cette bannière.
+        Le reformatage des messages prend un certain temps selon la taille du message et la vitesse de votre appareil.
     </string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
@@ -1171,8 +1173,8 @@
     <string name="title_signature_store">Enregistrer</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_for_hint">Saisir le texte</string>
-    <string name="title_search_hint">        La recherche affichera initialement les messages stockés sur votre appareil.
-        Pour rechercher également sur le serveur, appuyez sur le bouton « Rechercher de nouveau ».
+    <string name="title_search_hint">        Initialement, la recherche est effectuée sur l\'appareil.
+        Pour rechercher sur le serveur également, appuyez sur le bouton \'Rechercher à nouveau\'.
     </string>
     <string name="title_search_index_hint">La recherche via l’index de recherche est rapide mais elle ne trouve que des mots entiers.</string>
     <string name="title_search_text_hint">La recherche de texte dans les messages peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
@@ -1522,10 +1524,10 @@
     <string name="title_pro_purchase">Acheter</string>
     <string name="title_pro_one_time">%1$s (achat ponctuel)</string>
     <string name="title_pro_no_play">Application Play Store introuvable</string>
-    <string name="title_pro_info">        Développer FairEmail a pris littéralement des milliers d’heures et malgré cela, la plupart des fonctionnalités sont proposées gratuitement.
-        FairEmail prend votre vie privée au sérieux, n\'affiche pas de publicités et n\'utilise pas le pistage ni l\'analyse d\'audience pour gagner de l\'argent.
-        Pour maintenir et rendre FairEmail durable à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites.
-        FairEmail affiche une bannière pour vous le rappeler, laquelle sera retirée si vous achetez les fonctionnalités Pro.
+    <string name="title_pro_info">        Le développement de FairEmail a pris littéralement des milliers d\'heures et malgré cela, la plupart des fonctionnalités sont libres d\'utilisation.
+        FairEmail prend votre vie privée au sérieux, n\'affiche pas de publicité et n\'utilise pas le pistage ni l\'analyse d\'audience pour gagner de l\'argent.
+        Pour maintenir et soutenir FairEmail à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites à utiliser.
+        FairEmail affiche une bannière pour vous le rappeler et qui sera supprimée si vous achetez les fonctionnalités Pro.
     </string>
     <string name="title_pro_whichever">Quelles que soient les fonctionnalités choisies en tant que fonctionnalités Pro, il y a toujours quelqu\'un qui se plaint qu\'une fonctionnalité devrait être gratuite. Ne soyez pas cette personne-là.</string>
     <string name="title_pro_hide">Masquer la bannière pendant %1$d semaines</string>
@@ -1749,4 +1751,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Petit</item>
+        <item>Moyen</item>
+        <item>Grand</item>
+        <item>Très grand</item>
+    </string-array>
 </resources>

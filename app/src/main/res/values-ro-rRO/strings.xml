@@ -270,8 +270,7 @@
     <string name="title_setup_reset_images">Afișare imagini</string>
     <string name="title_setup_reset_links">Confirmați link-urile</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
-    <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
-        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
+    <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
     <string name="title_advanced_hint_remark">        Opțiunile sunt clasificate pe file, împărțite în secțiuni, organizate în funcție de aspect sau utilizare și pot fi căutate.
     </string>
@@ -368,6 +367,7 @@
     <string name="title_advanced_landscape">Mod peisaj</string>
     <string name="title_advanced_two_row">Utilizați două rânduri</string>
     <string name="title_advanced_two_col">Utilizați două coloane</string>
+    <string name="title_advanced_min_screen_size">Dimensiunea minimă a ecranului pentru împărțirea ecranului</string>
     <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
     <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
     <string name="title_advanced_nav_hide_title">Ascundeți opțiunile din meniul de navigare?</string>
@@ -558,8 +558,7 @@
     <string name="title_advanced_import_key">Importare cheie privată</string>
     <string name="title_advanced_manage_keys">Gestionare chei private</string>
     <string name="title_advanced_ca">Certificate CA instalate</string>
-    <string name="title_advanced_manage_keys_hint">        Se va naviga la setările de securitate Android.
-        Cheile și certificatele pot fi găsite în general sub Avansate - Criptare și credențiale.
+    <string name="title_advanced_manage_keys_hint">        Se va naviga la setările de securitate Android.        Cheile și certificatele pot fi găsite în general sub Avansate - Criptare și credențiale.
     </string>
     <string name="title_advanced_power_menu">Adăugați acțiuni în meniul de alimentare Android</string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
@@ -626,6 +625,7 @@
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_navbar_colorize_hint">Depinde de versiunea de Android și de variantă dacă va funcționa</string>
     <string name="title_advanced_split_hint">Aceasta va împărţi ecranul în mai multe părți</string>
+    <string name="title_advanced_split_min_hint">Aceasta este o condiție destinată dispozitivelor pliabile</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_highlight_hint">Culoarea de accent a temei va fi folosită pentru evidențiere</string>
     <string name="title_advanced_gravatars_hint">S-ar putea să existe un risc de confidențialitate</string>
@@ -862,8 +862,7 @@
     <string name="title_auto_delete">Ștergerea permanentă automată a mesajelor vechi</string>
     <string name="title_auto_delete_hint">Mesajele vechi sunt mesaje care nu mai sunt păstrate pe dispozitiv</string>
     <string name="title_auto_delete_archive_hint">Ștergerea din arhivă nu este întotdeauna permisă de serverul de e-mail</string>
-    <string name="title_inbox_root_hint">        Unii furnizori solicită crearea de noi dosare sub căsuța poștală.
-        În acest caz, puteți apăsa lung pe Primite în lista de dosare și selectați \'Creează sub-dosar\'.
+    <string name="title_inbox_root_hint">        Unii furnizori solicită crearea de noi dosare sub căsuța poștală.        În acest caz, puteți apăsa lung pe Primite în lista de dosare și selectați \'Creează sub-dosar\'.
     </string>
     <string name="title_folder_name_missing">Lipsește numele dosarului</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
@@ -908,7 +907,7 @@
     <string name="title_importance_high">Ridicată</string>
     <string name="title_search_in_text">Caută în text &#8230;</string>
     <string name="title_forward">Redirecționează</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Retrimite</string>
+    <string name="title_resend">Retrimite</string>
     <string name="title_new_message">Mesaj nou</string>
     <string name="title_editasnew">Editare ca nou</string>
     <string name="title_edit_notes">Editează notele locale</string>
@@ -1021,16 +1020,14 @@
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
     <string name="title_ask_review">Vă rugăm să evaluați FairEmail</string>
-    <string name="title_ask_review_rationale">        Folosiți FairEmail de ceva vreme.
-        Ar fi apreciat dacă ați putea evalua FairEmail în Magazinul Play.
+    <string name="title_ask_review_rationale">        Folosiți FairEmail de ceva vreme.        Ar fi apreciat dacă ați putea evalua FairEmail în Magazinul Play.
     </string>
     <string name="title_need_help">Am nevoie de ajutor</string>
     <string name="title_ask_once">Acest mesaj va apărea o singură dată, decât dacă nu selectați \'Mai târziu\'</string>
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
-    <string name="title_reformatted">        Aceasta este vizualizarea mesajelor reformatate.
-        Puteți apăsa pe pictograma &#x26F6; pentru a vizualiza mesajul original și pentru a ascunde acest mesaj.
+    <string name="title_reformatted">        Aceasta este vizualizarea mesajelor reformatate.        Puteți apăsa pe pictograma &#x26F6; pentru a vizualiza mesajul original și pentru a ascunde acest mesaj.
         Reformatarea mesajelor necesită ceva timp, în funcție de dimensiunea mesajului și de viteza dispozitivului.
     </string>
     <string name="title_compose">Compune</string>
@@ -1532,8 +1529,7 @@
     <string name="title_pro_purchase">Cumpără</string>
     <string name="title_pro_one_time">%1$s (achiziție unică)</string>
     <string name="title_pro_no_play">Magazinul Play nu a fost găsit</string>
-    <string name="title_pro_info">        Dezvoltarea FairEmail a durat literalmente mii de ore și în ciuda acestui fapt, majoritatea caracteristicilor se pot folosi gratuit.
-        FairEmail ia în serios intimitatea ta și nu afișează reclame și nu folosește tehnici de urmărire sau analiză pentru a câștiga bani.
+    <string name="title_pro_info">        Dezvoltarea FairEmail a durat literalmente mii de ore și în ciuda acestui fapt, majoritatea caracteristicilor se pot folosi gratuit.        FairEmail ia în serios intimitatea ta și nu afișează reclame și nu folosește tehnici de urmărire sau analiză pentru a câștiga bani.
         Pentru a menține și sprijini FairEmail pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
         FairEmail afișează un mic mesaj pentru a vă reaminti acest lucru, care va fi eliminat dacă achiziționați funcțiile Pro.
     </string>
@@ -1760,4 +1756,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Mic</item>
+        <item>Mediu</item>
+        <item>Mare</item>
+        <item>Foarte mare</item>
+    </string-array>
 </resources>

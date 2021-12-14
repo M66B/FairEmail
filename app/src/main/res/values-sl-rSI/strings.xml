@@ -175,6 +175,8 @@
     <string name="title_setup_reset_questions">Ponastavi vprašanja</string>
     <string name="title_setup_reset_images">Prikaži slike</string>
     <string name="title_advanced_hint_title">Več naprednih nastavitev</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_synchronize">Prejemanje</string>
     <string name="title_advanced_section_send">Pošiljanje</string>
     <string name="title_advanced_section_connection">Povezava</string>
@@ -326,6 +328,8 @@
     <string name="title_advanced_manage_certificates">Upravljaj z javnimi ključi</string>
     <string name="title_advanced_import_key">Uvozi zasebni ključ</string>
     <string name="title_advanced_manage_keys">Upravljaj z zasebnimi ključi</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_advanced_external_search">Dovoli drugim programom iskati v sporočilih</string>
     <string name="title_advanced_shortcuts">V Androidovem meniju za deljenje prikaži pogosto uporabljene stike</string>
     <string name="title_advanced_fts">Zgradi iskalno kazalo</string>
@@ -510,6 +514,8 @@
     <string name="title_auto_trash">Samodejno premakni stara sporočila v smeti</string>
     <string name="title_auto_delete">Samodejno trajno izbriši stara sporočila</string>
     <string name="title_auto_delete_hint">Stara sporočila so sporočila, ki se ne hranijo več na napravi.</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">Manjka ime mape.</string>
     <string name="title_folder_exists">Mapa %1$s obstaja.</string>
     <string name="title_folder_delete">Trajno izbriši to mapo in vsa sporočila v njej?</string>
@@ -627,6 +633,8 @@
     <string name="title_ask_reporting">Pošiljaj poročila o napakah?</string>
     <string name="title_reporting_why">Poročanje o napakah bo pomagalo izboljšati FairEmail.</string>
     <string name="title_ask_review">Prosimo, ocenite FairEmail.</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_third_party">Uporabljate različico tretje osebe.</string>
     <string name="title_expand_warning">Razširitev tega sporočila bo prejela %1$s.</string>
     <string name="title_download_message">Prejemanje &#8230;</string>
@@ -1008,6 +1016,10 @@
     <string name="title_pro_feature">To je značilnost Pro.</string>
     <string name="title_pro_list">Seznam značilnosti Pro</string>
     <string name="title_pro_purchase">Kupi</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_hint">Nakup značilnosti Pro bo omogočil uporabo vseh trenutnih in prihodnjih značilnosti, vzdrževanje in podporo tega programa.</string>
     <string name="title_pro_pending">Nakup je na čakanju.</string>
     <string name="title_pro_activated">Vse značilnosti Pro so aktivirane.</string>
@@ -1197,4 +1209,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Majhna</item>
+        <item>Srednja</item>
+        <item>Velika</item>
+        <item>Zelo velika</item>
+    </string-array>
 </resources>

@@ -250,8 +250,7 @@
     <string name="title_setup_reset_images">显示图片</string>
     <string name="title_setup_reset_links">确认链接</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
-    <string name="title_advanced_hint_message">        您正在前往更多的高级选项
-        所有选项默认均使用可更改的常用标准值
+    <string name="title_advanced_hint_message">        您正在前往更多的高级选项        所有选项默认均使用可更改的常用标准值
     </string>
     <string name="title_advanced_hint_remark">        各个选项按照标签页分类，标签页内又分为多个部分，按外观或用途进行整理，并且可搜索。
     </string>
@@ -348,6 +347,7 @@
     <string name="title_advanced_landscape">横屏模式</string>
     <string name="title_advanced_two_row">使用两行</string>
     <string name="title_advanced_two_col">使用两列</string>
+    <string name="title_advanced_min_screen_size">分屏下的最小屏幕尺寸</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
     <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
@@ -538,8 +538,7 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_ca">已安装的 CA 证书</string>
-    <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面
-        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
+    <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
     </string>
     <string name="title_advanced_power_menu">添加操作到 Android 电源菜单</string>
     <string name="title_advanced_external_search">允许其他应用搜索邮件</string>
@@ -606,6 +605,7 @@
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_split_hint">这将把屏幕分割成几部分</string>
+    <string name="title_advanced_split_min_hint">这是一个用于可折叠设备的条件</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
@@ -842,8 +842,7 @@
     <string name="title_auto_delete">自动永久删除旧消息</string>
     <string name="title_auto_delete_hint">旧消息是不再保留在设备上的消息</string>
     <string name="title_auto_delete_archive_hint">邮件服务器并不总是允许从归档文件夹进行删除</string>
-    <string name="title_inbox_root_hint">某些供应商需要在收件箱下创建新文件夹。
-在这种情况下，您可以长按文件夹列表中的收件箱并选择“创建子文件夹”。</string>
+    <string name="title_inbox_root_hint">某些供应商需要在收件箱下创建新文件夹。在这种情况下，您可以长按文件夹列表中的收件箱并选择“创建子文件夹”。</string>
     <string name="title_folder_name_missing">缺少文件夹名</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除此文件夹及其包含的任何邮件？</string>
@@ -887,7 +886,7 @@
     <string name="title_importance_high">高</string>
     <string name="title_search_in_text">在文本中搜索 &#8230;</string>
     <string name="title_forward">转发</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">重新发送</string>
+    <string name="title_resend">重新发送</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地笔记</string>
@@ -1000,16 +999,14 @@
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
     <string name="title_ask_review">请给FairEmail评分</string>
-    <string name="title_ask_review_rationale">        您使用 FairEmail 已经有一段时间了
-        如果您能在 Play Store 中为 FairEmail 评分, 我将不胜感激
+    <string name="title_ask_review_rationale">        您使用 FairEmail 已经有一段时间了        如果您能在 Play Store 中为 FairEmail 评分, 我将不胜感激
     </string>
     <string name="title_need_help">寻求帮助</string>
     <string name="title_ask_once">此消息将只会显示一次，除非您选择\"稍后再说\"</string>
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
-    <string name="title_reformatted">        这是重构格式后的消息视图
-        你可以点击 &#x26F6; 图标来查看原始消息并隐藏此消息
+    <string name="title_reformatted">        这是重构格式后的消息视图        你可以点击 &#x26F6; 图标来查看原始消息并隐藏此消息
         重构消息格式需要一些时间，取决于消息本身的大小和您设备的运行速度
     </string>
     <string name="title_compose">撰写</string>
@@ -1511,8 +1508,7 @@
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_one_time">%1$s (一次性购买)</string>
     <string name="title_pro_no_play">未找到 Play Store</string>
-    <string name="title_pro_info">        毫不夸张地说，我花了数千个小时来开发 FairEmail，尽管如此，大多数功能都可以免费使用。
-        FairEmail 非常重视您的隐私，不会显示广告，更不会偷偷使用跟踪或分析来牟利。
+    <string name="title_pro_info">        毫不夸张地说，我花了数千个小时来开发 FairEmail，尽管如此，大多数功能都可以免费使用。        FairEmail 非常重视您的隐私，不会显示广告，更不会偷偷使用跟踪或分析来牟利。
         为了长期维护和支持 FairEmail，一些便利及高级功能需要付费使用。
         FairEmail 会显示一条小消息来提醒您这一点，该消息将在您购买了专业版功能后被移除。</string>
     <string name="title_pro_whichever">无论选择将哪些功能作为专业功能，总会有人抱怨某个功能应该免费。请谅解也不要成为那样的人。</string>
@@ -1736,4 +1732,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>小</item>
+        <item>中等</item>
+        <item>大</item>
+        <item>特大</item>
+    </string-array>
 </resources>

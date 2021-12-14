@@ -277,8 +277,7 @@
     <string name="title_setup_reset_images">Zobrazit obrázky</string>
     <string name="title_setup_reset_links">Potvrdit odkazy</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
-    <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
-        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
+    <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
     <string name="title_advanced_hint_remark">        Možnosti jsou rozděleny podle karty, rozděleny do sekcí, uspořádány podle vzhledu nebo použití a vyhledávatelné.
     </string>
@@ -560,8 +559,7 @@
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_manage_keys">Spravovat privátní klíče</string>
     <string name="title_advanced_ca">Instalované certifikáty CA</string>
-    <string name="title_advanced_manage_keys_hint">        Otevře nastavení zabezpečení Androidu.
-        Klíče a certifikáty lze obecně najít pod Pokročilé - Šifrování a pověření.
+    <string name="title_advanced_manage_keys_hint">        Otevře nastavení zabezpečení Androidu.        Klíče a certifikáty lze obecně najít pod Pokročilé - Šifrování a pověření.
     </string>
     <string name="title_advanced_power_menu">Přidat akce do menu napájení Androidu</string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
@@ -861,8 +859,7 @@
     <string name="title_auto_delete">Automaticky trvale mazat staré zprávy</string>
     <string name="title_auto_delete_hint">Staré zprávy jsou zprávy, které již nejsou uchovány v zařízení</string>
     <string name="title_auto_delete_archive_hint">Smazání ze složky archivu není e-mailovým serverem pokaždé dovoleno</string>
-    <string name="title_inbox_root_hint">        Někteří poskytovatelé vyžadují, že nové složky budou tvořeny pod složkou doručené.
-        V takovém případě v seznamu složek dlouze podržte složku doručené a zvolte \"Vytvořit podsložku\".
+    <string name="title_inbox_root_hint">        Někteří poskytovatelé vyžadují, že nové složky budou tvořeny pod složkou doručené.        V takovém případě v seznamu složek dlouze podržte složku doručené a zvolte \"Vytvořit podsložku\".
     </string>
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
@@ -1017,16 +1014,14 @@
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
     <string name="title_ask_review">Prosím, ohodnoťte FairEmail</string>
-    <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
-        Cenili bychom si, kdyby jste mohli FairEmail ohodnotit v obchodě Google Play.
+    <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.        Cenili bychom si, kdyby jste mohli FairEmail ohodnotit v obchodě Google Play.
     </string>
     <string name="title_need_help">Potřebuji pomoc</string>
     <string name="title_ask_once">Tato zpráva se zobrazí pouze jednou, nezvolíte-li „Později“</string>
     <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
-    <string name="title_reformatted">        Toto je přeformátované zobrazení zprávy.
-        Stiskem ikony &#x26F6; si můžete zobrazit původní zprávu, zároveň se i skryje toto oznámení.
+    <string name="title_reformatted">        Toto je přeformátované zobrazení zprávy.        Stiskem ikony &#x26F6; si můžete zobrazit původní zprávu, zároveň se i skryje toto oznámení.
         Přeformátování zpráv trvá pár chvil, v závislosti na velikosti zprávy a rychlosti vašeho zařízení.
     </string>
     <string name="title_compose">Napsat zprávu</string>
@@ -1527,8 +1522,7 @@
     <string name="title_pro_purchase">Koupit</string>
     <string name="title_pro_one_time">%1$s (jednorázový nákup)</string>
     <string name="title_pro_no_play">Obchod Play nebyl nalezen</string>
-    <string name="title_pro_info">        Vývoj FairEmailu trval doslova tisíce hodin a i přesto je většina funkcí k dispozici bez omezení.
-        FairEmail bere vaše soukromí vážně a nezobrazuje reklamy, ani nepoužívá sledování či analytika pro získávání příjmů.
+    <string name="title_pro_info">        Vývoj FairEmailu trval doslova tisíce hodin a i přesto je většina funkcí k dispozici bez omezení.        FairEmail bere vaše soukromí vážně a nezobrazuje reklamy, ani nepoužívá sledování či analytika pro získávání příjmů.
         Pro učinění FairEmailu dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně přístupné.
         Jako připomínku téhož zobrazuje FairEmail stručnou zprávu, jež bude odstraněna, zakoupíte-li si funkce Pro.
     </string>
@@ -1756,4 +1750,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Malé</item>
+        <item>Střední</item>
+        <item>Velké</item>
+        <item>Velmi velké</item>
+    </string-array>
 </resources>

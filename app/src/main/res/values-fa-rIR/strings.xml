@@ -74,8 +74,7 @@
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_sender_domain">دامنه %1$s را مسدود کن</string>
-    <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.
-        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
+    <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
     <string name="title_junk_blocklist">از فهرست‌های انسداد هرزنامه استفاده کن</string>
     <string name="title_junk_clear">پاک‌سازی</string>
@@ -201,6 +200,8 @@
     <string name="title_setup_reset_general">پرسش‌های عمومی</string>
     <string name="title_setup_reset_images">نمایش تصاویر</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_main">اصلی</string>
     <string name="title_advanced_section_synchronize">دریافت</string>
     <string name="title_advanced_section_send">ارسال</string>
@@ -355,6 +356,8 @@
     <string name="title_advanced_import_key">وارد کردن کلید خصوصی</string>
     <string name="title_advanced_manage_keys">مدیریت کلید‌های خصوصی</string>
     <string name="title_advanced_ca">CA certificate های نصب شده</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_advanced_external_search">اجازه به دیگر برنامه‌ها برای جستجو در پیام‌ها</string>
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
@@ -506,6 +509,8 @@
     <string name="title_auto_trash">پیام‌های قدیمی را، خودکار به زباله‌دان منتقل کن</string>
     <string name="title_auto_delete">پیام‌های قدیمی را برای همیشه، خودکار حذف کن</string>
     <string name="title_auto_delete_hint">پیام‌های قدیمی، پیام‌هایی هستند که دیگر روی دستگاه نگه‌داری نمی‌شوند</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">نام پوشه موجود نیست</string>
     <string name="title_folder_exists">پوشه %1$s موجود است</string>
     <string name="title_folder_delete">حذف همیشگی این پوشه با تمامی پیام‌های همراه آن؟</string>
@@ -621,6 +626,8 @@
     <string name="title_ask_help">به بهبود FairEmail کمک کنید</string>
     <string name="title_ask_reporting">ارسال گزارش‌های خطا؟</string>
     <string name="title_ask_review">لطفا به FairEmail امتیاز بدهید</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
     <string name="title_expand_warning">گسترش این پیام باعث بارگیری %1$s خواهد شد</string>
     <string name="title_download_message">درحال بارگیری &#8230;</string>
@@ -1007,8 +1014,7 @@
     <string name="title_pro_feature">این یکی از ویژگی‌های نسخه حرفه‌ای است</string>
     <string name="title_pro_list">لیست ویژگی‌های نسخه حرفه‌ای</string>
     <string name="title_pro_purchase">خرید</string>
-    <string name="title_pro_info">        توسعه FairEmail به معنای واقعی کلمه هزاران ساعت طول کشیده و با وجود این، بیشتر ویژگی‌ها برای استفاده رایگان هستند.
-        FairEmail حریم خصوصی شما را جدی می گیرد، آگهی نشان نمی دهد و از ردیابی یا تجزیه و تحلیل برای کسب درآمد استفاده نمی کند.
+    <string name="title_pro_info">        توسعه FairEmail به معنای واقعی کلمه هزاران ساعت طول کشیده و با وجود این، بیشتر ویژگی‌ها برای استفاده رایگان هستند.        FairEmail حریم خصوصی شما را جدی می گیرد، آگهی نشان نمی دهد و از ردیابی یا تجزیه و تحلیل برای کسب درآمد استفاده نمی کند.
         برای حفظ و پشتیبانی FairEmail در طولانی مدت، برخی از امکانات و ویژگی‌های پیشرفته برای استفاده رایگان نیستند.
         FairEmail پیام کوچکی را برای یادآوری این مورد نشان می دهد که در صورت خرید ویژگی‌های حرفه‌ای حذف خواهد شد.
     </string>
@@ -1209,4 +1215,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>کوچک</item>
+        <item>متوسط</item>
+        <item>بزرگ</item>
+        <item>خیلی بزرگ</item>
+    </string-array>
 </resources>

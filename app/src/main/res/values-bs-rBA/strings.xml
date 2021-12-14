@@ -907,7 +907,7 @@
     <string name="title_importance_high">Visoka</string>
     <string name="title_search_in_text">Pretraži u tekstu &#8230;</string>
     <string name="title_forward">Proslijedi</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Ponovljeno slanje</string>
+    <string name="title_resend">Ponovljeno slanje</string>
     <string name="title_new_message">Nova poruka</string>
     <string name="title_editasnew">Uredi kao novu</string>
     <string name="title_edit_notes">Uredi lokalne bilješke</string>
@@ -1752,4 +1752,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Mali</item>
+        <item>Srednji</item>
+        <item>Veliki</item>
+        <item>Vrlo veliko</item>
+    </string-array>
 </resources>

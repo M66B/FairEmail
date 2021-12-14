@@ -257,8 +257,7 @@
     <string name="title_setup_reset_images">Näytä kuvat</string>
     <string name="title_setup_reset_links">Vahvista linkit</string>
     <string name="title_advanced_hint_title">Edistyneemmät asetukset</string>
-    <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
-        Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
+    <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.        Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
     </string>
     <string name="title_advanced_hint_remark">        Asetukset on luokiteltu välilehdille, jaettu osiin, järjestetty ulkoasun tai käytön mukaan, ja ne ovat haettavissa.
     </string>
@@ -539,8 +538,7 @@
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
     <string name="title_advanced_ca">Asennetut CA-sertifikaatit</string>
-    <string name="title_advanced_manage_keys_hint">Tämä avaa Androidin turvallisuusasetukset.
-        Avaimet ja sertifikaatit löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
+    <string name="title_advanced_manage_keys_hint">Tämä avaa Androidin turvallisuusasetukset.        Avaimet ja sertifikaatit löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
     <string name="title_advanced_power_menu">Lisää toimintoja Androidin virrankatkaisuvalikkoon</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
@@ -839,8 +837,7 @@
     <string name="title_auto_delete">Poista vanhat viestit automaattisesti</string>
     <string name="title_auto_delete_hint">Vanhoilla viesteillä tarkoitetaan viestejä, joita ei enää pidetä laitteessa</string>
     <string name="title_auto_delete_archive_hint">Sähköpostipalvelin ei aina salli poistamista arkistokansiosta</string>
-    <string name="title_inbox_root_hint">Jotkut palveluntarjoajat edellyttävät, että uudet kansiot luodaan saapuneet-kansion alle.
-        Voit painaa pitkään saapuneet-kansiota kansiolistauksessa ja valita \'Luo alikansio\'.
+    <string name="title_inbox_root_hint">Jotkut palveluntarjoajat edellyttävät, että uudet kansiot luodaan saapuneet-kansion alle.        Voit painaa pitkään saapuneet-kansiota kansiolistauksessa ja valita \'Luo alikansio\'.
     </string>
     <string name="title_folder_name_missing">Kansion nimi puuttuu</string>
     <string name="title_folder_exists">Kansio %1$s on olemassa</string>
@@ -994,8 +991,7 @@
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
     <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
-    <string name="title_ask_review_rationale">        Olet käyttänyt FairEmailia jo jonkin aikaa.
-        Olisi hyvä, jos voisit arvostella FairEmailin Play Kaupassa.
+    <string name="title_ask_review_rationale">        Olet käyttänyt FairEmailia jo jonkin aikaa.        Olisi hyvä, jos voisit arvostella FairEmailin Play Kaupassa.
     </string>
     <string name="title_need_help">Tarvitsen apua</string>
     <string name="title_ask_once">Tämä viesti näytetään vain kerran, jos et valitse \'Myöhemmin\'</string>
@@ -1500,8 +1496,7 @@
     <string name="title_pro_purchase">Osta</string>
     <string name="title_pro_one_time">%1$s (kertaluonteinen osto)</string>
     <string name="title_pro_no_play">Play Kauppaa ei löytynyt</string>
-    <string name="title_pro_info">FairEmailin kehittäminen kesti kirjaimellisesti tuhansia tunteja mutta siitä huolimatta useimmat ominaisuudet ovat ilmaisia käyttää.
-        FairEmail ottaa yksityisyytesi tosissaan eikä näytä mainoksia eikä käytä seurantaa tai analytiikkaa tienataakseen rahaa.
+    <string name="title_pro_info">FairEmailin kehittäminen kesti kirjaimellisesti tuhansia tunteja mutta siitä huolimatta useimmat ominaisuudet ovat ilmaisia käyttää.        FairEmail ottaa yksityisyytesi tosissaan eikä näytä mainoksia eikä käytä seurantaa tai analytiikkaa tienataakseen rahaa.
         Jotta FairEmailin ylläpitäminen ja tukeminen olisi pitkällä aikavälillä mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
         FairEmail näyttää pienen viestin muistuttaakseen sinua tästä. Viesti poistuu, jos ostat pro-ominaisuudet.
     </string>
@@ -1727,4 +1722,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Pieni</item>
+        <item>Keskikokoinen</item>
+        <item>Suuri</item>
+        <item>Erittäin suuri</item>
+    </string-array>
 </resources>

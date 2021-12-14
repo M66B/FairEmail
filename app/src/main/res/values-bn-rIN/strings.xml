@@ -100,15 +100,23 @@
     <string name="title_setup_configuring">&#8230; অ্যাকাউন্ট কনফিগার করা হচ্ছে</string>
     <string name="title_setup_export">সেটিংস সংরক্ষণ</string>
     <string name="title_setup_import">সেটিংস প্রেরণ</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_synchronize">প্রাপ্তি</string>
     <string name="title_advanced_section_send">পাঠান</string>
     <string name="title_advanced_section_privacy">গোপনীয়তা</string>
     <string name="title_advanced_section_notifications">বিজ্ঞপ্তি</string>
     <string name="title_advanced_caption_conversation">কথোপকথন</string>
     <string name="title_advanced_caption_message">বার্তা</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_synchronize_enabled">সিংক্রোনাইজ হয়েছে</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_raw_send_message">বার্তা</string>
     <string name="title_raw_send_thread">কথোপকথন</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_compose">লেখুন</string>
     <string name="title_send">পাঠান</string>
     <string name="title_legend_section_synchronize">সিংক্রোনাইজ হয়েছে</string>
@@ -116,6 +124,10 @@
     <string name="title_legend_section_compose">লেখুন</string>
     <string name="title_legend_thread">কথোপকথন</string>
     <string name="title_legend_c">লেখুন</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_log_clear">মুছে ফেলুন</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label4">করণীয়</string>

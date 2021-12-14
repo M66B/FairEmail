@@ -193,6 +193,8 @@
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
     <string name="title_setup_reset_images">Показване на изображения</string>
     <string name="title_advanced_hint_title">Разширени настройки</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_main">Главно</string>
     <string name="title_advanced_section_synchronize">Получаване</string>
     <string name="title_advanced_section_send">Изпращане</string>
@@ -400,6 +402,8 @@
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
     <string name="title_advanced_ca">Инсталирани на CA сертификати</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_advanced_external_search">Разрешаване на други приложения да търсят в съобщения</string>
     <string name="title_advanced_shortcuts">Показвайте често използвани контакти в менюто за споделяне на Android</string>
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
@@ -614,8 +618,7 @@
     <string name="title_auto_trash">Автоматично преместване на старите съобщения в коша</string>
     <string name="title_auto_delete">Автоматично изтриване на старите съобщения завинаги</string>
     <string name="title_auto_delete_hint">Старите съобщения са съобщения, които вече не се съхраняват на устройството</string>
-    <string name="title_inbox_root_hint">        Някои доставчици изискват създаване на нови папки под входящата поща.
-        В този случай можете с дълго натискане на входяща поща в списъка с папки да изберете \'Създаване на подпапка\'.
+    <string name="title_inbox_root_hint">        Някои доставчици изискват създаване на нови папки под входящата поща.        В този случай можете с дълго натискане на входяща поща в списъка с папки да изберете \'Създаване на подпапка\'.
     </string>
     <string name="title_folder_name_missing">Липсва име на папка</string>
     <string name="title_folder_exists">Папката %1$s съществува</string>
@@ -751,6 +754,8 @@
     <string name="title_ask_reporting">Изпрати репорт с грешки?</string>
     <string name="title_reporting_why">Докладе с грешки ще помогне да се подобри FairEmail</string>
     <string name="title_ask_review">Моля, прегледайте FairEmail</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_need_help">Нуждая се от помощ</string>
     <string name="title_third_party">Използвате версия на трета страна</string>
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
@@ -1210,8 +1215,7 @@
     <string name="title_pro_purchase">Купувам</string>
     <string name="title_pro_one_time">%1$s (еднократна покупка)</string>
     <string name="title_pro_no_play">Приложението Play Store не е намерено</string>
-    <string name="title_pro_info">        Разработката на FairEmail отне буквално хиляди часове и, въпреки това, повечето от функциите са безплатни за използване.
-        FairEmail взима сериозно поверителността ви и не показва реклами и не използва проследяване или анализи, за да печели пари.
+    <string name="title_pro_info">        Разработката на FairEmail отне буквално хиляди часове и, въпреки това, повечето от функциите са безплатни за използване.        FairEmail взима сериозно поверителността ви и не показва реклами и не използва проследяване или анализи, за да печели пари.
         За да поддържате и поддържате FairEmail в дългосрочен план, някои удобства и разширени функции не са свободни за използване.
         FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите професионалните функции.
     </string>
@@ -1430,4 +1434,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Малък</item>
+        <item>Среден</item>
+        <item>Голяма</item>
+        <item>Много голям</item>
+    </string-array>
 </resources>

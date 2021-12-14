@@ -260,8 +260,7 @@
     <string name="title_setup_reset_images">Προβολή εικόνων</string>
     <string name="title_setup_reset_links">Επιβεβαίωση συνδέσμων</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
-    <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
-        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
+    <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
     </string>
     <string name="title_advanced_hint_remark">        Οι επιλογές κατηγοριοποιούνται ανά καρτέλα, χωρίζονται σε τμήματα, οργανώνονται με κριτήριο την εμφάνιση ή τη χρήση, και υποστηρίζουν λειτουργία αναζήτησης.
     </string>
@@ -358,6 +357,7 @@
     <string name="title_advanced_landscape">Οριζόντιος προσανατολισμός</string>
     <string name="title_advanced_two_row">Χρήση δύο σειρών</string>
     <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
+    <string name="title_advanced_min_screen_size">Ελάχιστο μέγεθος οθόνης για διαχωρισμό της οθόνης</string>
     <string name="title_advanced_nav_options">Προβολή των επιλογών του μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>
     <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
@@ -548,8 +548,7 @@
     <string name="title_advanced_import_key">Εισαγωγή ιδιωτικού κλειδιού</string>
     <string name="title_advanced_manage_keys">Διαχείριση ιδιωτικών κλειδιών</string>
     <string name="title_advanced_ca">Εγκατεστημένα πιστοποιητικά CA</string>
-    <string name="title_advanced_manage_keys_hint">        Αυτό θα ανοίξει τις ρυθμίσεις ασφαλείας του Android.
-        Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
+    <string name="title_advanced_manage_keys_hint">        Αυτό θα ανοίξει τις ρυθμίσεις ασφαλείας του Android.        Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
     <string name="title_advanced_power_menu">Προσθήκη ενεργειών στο μενού ελέγχου συσκευών του Android</string>
     <string name="title_advanced_external_search">Να επιτρέπεται σε άλλες εφαρμογές να διενεργούν αναζητήσεις στα μηνύματα</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
@@ -850,8 +849,7 @@
     <string name="title_auto_delete">Αυτόματη οριστική διαγραφή παλαιών μηνυμάτων</string>
     <string name="title_auto_delete_hint">Παλαιά μηνύματα είναι τα μηνύματα που δεν διατηρούνται πλέον στη συσκευή</string>
     <string name="title_auto_delete_archive_hint">Η διαγραφή από τον φάκελο αρχειοθέτησης δεν επιτρέπεται πάντα από τον διακομιστή ηλ. ταχυδρομείου</string>
-    <string name="title_inbox_root_hint">        Μερικοί πάροχοι υποχρεώνουν ώστε οι νέοι φάκελοι να δημιουργούνται εντός των εισερχομένων.
-        Στην περίπτωση αυτή, πατήστε παρατεταμένα πάνω στα εισερχόμενα από τη λίστα φακέλων και επιλέξτε \"Δημιουργία υποφακέλου\".
+    <string name="title_inbox_root_hint">        Μερικοί πάροχοι υποχρεώνουν ώστε οι νέοι φάκελοι να δημιουργούνται εντός των εισερχομένων.        Στην περίπτωση αυτή, πατήστε παρατεταμένα πάνω στα εισερχόμενα από τη λίστα φακέλων και επιλέξτε \"Δημιουργία υποφακέλου\".
     </string>
     <string name="title_folder_name_missing">Λείπει όνομα φακέλου</string>
     <string name="title_folder_exists">Ο φάκελος %1$s υπάρχει</string>
@@ -896,7 +894,7 @@
     <string name="title_importance_high">Υψηλή</string>
     <string name="title_search_in_text">Αναζήτηση στο κείμενο &#8230;</string>
     <string name="title_forward">Προώθηση</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Επαναποστολή</string>
+    <string name="title_resend">Επαναποστολή</string>
     <string name="title_new_message">Νέο μήνυμα</string>
     <string name="title_editasnew">Επεξεργασία ως νέου</string>
     <string name="title_edit_notes">Επεξεργασία τοπικών σημειώσεων</string>
@@ -1009,16 +1007,14 @@
     <string name="title_ask_reporting">Να αποστέλλονται αναφορές σφαλμάτων;</string>
     <string name="title_reporting_why">Οι αναφορές σφαλμάτων θα βοηθήσουν να βελτιωθεί το FairEmail</string>
     <string name="title_ask_review">Παρακαλούμε, αξιολογήστε το FairEmail</string>
-    <string name="title_ask_review_rationale">        Χρησιμοποιείτε το FairEmail για αρκετό χρονικό διάστημα.
-        Θα το εκτιμούσαμε αν θα αξιολογούσατε το FairEmail στο Play Store.
+    <string name="title_ask_review_rationale">        Χρησιμοποιείτε το FairEmail για αρκετό χρονικό διάστημα.        Θα το εκτιμούσαμε αν θα αξιολογούσατε το FairEmail στο Play Store.
     </string>
     <string name="title_need_help">Χρειάζομαι βοήθεια</string>
     <string name="title_ask_once">Το μήνυμα αυτό θα εμφανιστεί μόνο μια φορά, εκτός αν επιλέξετε \"Αργότερα\"</string>
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
-    <string name="title_reformatted">        Αυτή είναι η προβολή επαναμορφοποιημένου μηνύματος.
-        Μπορείτε να πατήσετε στο εικονίδιο &#x26F6; για να δείτε το αρχικό μήνυμα και να κρύψετε το παρόν μήνυμα.
+    <string name="title_reformatted">        Αυτή είναι η προβολή επαναμορφοποιημένου μηνύματος.        Μπορείτε να πατήσετε στο εικονίδιο &#x26F6; για να δείτε το αρχικό μήνυμα και να κρύψετε το παρόν μήνυμα.
         Η επαναμορφοποίηση μηνυμάτων απαιτεί λίγο χρόνο, ανάλογα με το μέγεθος του μηνύματος και την ταχύτητα της συσκευής σας.
     </string>
     <string name="title_compose">Σύνταξη</string>
@@ -1520,8 +1516,7 @@
     <string name="title_pro_purchase">Αγορά</string>
     <string name="title_pro_one_time">%1$s (εφάπαξ αγορά)</string>
     <string name="title_pro_no_play">H εφαρμογή Play Store δεν βρέθηκε</string>
-    <string name="title_pro_info">Χρειάστηκαν, κυριολεκτικά, χιλιάδες ώρες για να αναπτυχθεί το FairEmail και, παρόλα αυτά, τα περισσότερα χαρακτηριστικά του προσφέρονται δωρεάν.
-        Το FairEmail σέβεται απολύτως το απόρρητό σας και δεν προβάλλει διαφημίσεις ούτε χρησιμοποιεί ιχνηλάτες και αναλύσεις δεδομένων των χρηστών, για να κερδίσει χρήματα.
+    <string name="title_pro_info">Χρειάστηκαν, κυριολεκτικά, χιλιάδες ώρες για να αναπτυχθεί το FairEmail και, παρόλα αυτά, τα περισσότερα χαρακτηριστικά του προσφέρονται δωρεάν.        Το FairEmail σέβεται απολύτως το απόρρητό σας και δεν προβάλλει διαφημίσεις ούτε χρησιμοποιεί ιχνηλάτες και αναλύσεις δεδομένων των χρηστών, για να κερδίσει χρήματα.
         Για να παραμείνει ενεργό το FairEmail και να αναπτυχθεί περαιτέρω, ορισμένες διευκολύνσεις και προχωρημένες δυνατότητες δεν προσφέρονται δωρεάν.
         Το FairEmail προβάλλει μια μικρή υπενθύμιση, η οποία θα αφαιρεθεί αν αγοράσετε την έκδοση pro.
     </string>
@@ -1747,4 +1742,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Μικρό</item>
+        <item>Μεσαίο</item>
+        <item>Μεγάλο</item>
+        <item>Πολύ μεγάλο</item>
+    </string-array>
 </resources>

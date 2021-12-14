@@ -150,6 +150,8 @@
     <string name="title_setup_reset_questions">Ресетуј питања</string>
     <string name="title_setup_reset_images">Прикажи слике</string>
     <string name="title_advanced_hint_title">Више напредних опција</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_synchronize">Примање</string>
     <string name="title_advanced_section_send">Слање</string>
     <string name="title_advanced_section_connection">Конекција</string>
@@ -266,6 +268,8 @@
     <string name="title_advanced_manage_certificates">Управљање јавним кључевима</string>
     <string name="title_advanced_import_key">Увези приватни кључ</string>
     <string name="title_advanced_manage_keys">Управљање приватним кључевима</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_advanced_language">Језик</string>
     <string name="title_advanced_language_system">Систем</string>
     <string name="title_advanced_watchdog">Периодично проверавај да ли је FairEmail и даље активан</string>
@@ -410,6 +414,8 @@
     <string name="title_keep_all">Задржи све поруке</string>
     <string name="title_auto_trash">Аутоматски померај старе поруке на отпад</string>
     <string name="title_auto_delete">Аутоматски обрисати старе поруке заувек</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">Недостаје име фасцикле</string>
     <string name="title_folder_exists">Фасцикла %1$s већ постоји</string>
     <string name="title_folder_delete">Трајно обрисати ову фасциклу и све поруке које садржи?</string>
@@ -520,6 +526,8 @@
     <string name="title_ask_help">Помозите да се FairEmail побољша</string>
     <string name="title_ask_reporting">Послати извештаје о грешкама?</string>
     <string name="title_reporting_why">Извештаји о грешкама ће помоћи да се FairEmail побољша</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_expand_warning">Проширивањем ове поруке ће бити преузет %1$s</string>
     <string name="title_download_message">Преузимам &#8230;</string>
     <string name="title_compose">Састави</string>
@@ -866,6 +874,10 @@
     <string name="title_pro_feature">Ово је премијум функционалност</string>
     <string name="title_pro_list">Списак премијум функционалности</string>
     <string name="title_pro_purchase">Купи</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_hint">Куповина премијум функционалности ће Вам дозволити да користите све тренутне и будуће премијум функције, и бринуће се да се апликација одржава и да буде подржана.</string>
     <string name="title_pro_pending">Куповина на чекању</string>
     <string name="title_pro_activated">Све премијум функционалности су активиране</string>
@@ -1032,4 +1044,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Мала</item>
+        <item>Средња</item>
+        <item>Велика</item>
+        <item>Веома велика</item>
+    </string-array>
 </resources>

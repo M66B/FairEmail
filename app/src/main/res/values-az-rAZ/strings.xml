@@ -897,7 +897,7 @@
     <string name="title_importance_high">Yüksək</string>
     <string name="title_search_in_text">Mətndə axtar &#8230;</string>
     <string name="title_forward">Yönləndir</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Təkrar göndər</string>
+    <string name="title_resend">Təkrar göndər</string>
     <string name="title_new_message">Yeni mesaj</string>
     <string name="title_editasnew">Yeni kimi düzəliş et</string>
     <string name="title_edit_notes">Yerli qeydlərə düzəliş et</string>
@@ -1741,4 +1741,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Kiçik</item>
+        <item>Orta</item>
+        <item>Böyük</item>
+        <item>Ekstra böyük</item>
+    </string-array>
 </resources>

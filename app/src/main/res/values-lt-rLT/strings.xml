@@ -14,11 +14,19 @@
     <string name="title_setup_export">Nustatymų kopija</string>
     <string name="title_setup_import">Įkelti nustatymus</string>
     <string name="title_setup_options">Nustatymai</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_caption_general">Bendra</string>
     <string name="title_advanced_notify_action_delete">Ištrinti</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_advanced_cleanup">Atstatyti</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_delete">Ištrinti</string>
     <string name="title_copy_btn">Kopijuoti</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_rule_enabled">Įjungta</string>
     <string name="title_legend_delete">Ištrinti</string>
     <string name="title_add">Pridėti</string>
@@ -26,6 +34,10 @@
     <string name="title_reset">Atstatyti</string>
     <string name="title_pro_feature">Tai PRO funkcija</string>
     <string name="title_pro_purchase">Įsigyti</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_log_clear">Valyti</string>
     <string name="title_debug_info_remark">Aprašykite sutrikimą ir nurodykite sutrikimo atsiradimo laiką:</string>
     <!-- Thunderbird -->

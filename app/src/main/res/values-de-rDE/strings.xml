@@ -74,8 +74,7 @@
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_sender_domain">Domain „%1$s” sperren</string>
-    <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
-        Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der Pro-Version verfügbar sind.
+    <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.        Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der Pro-Version verfügbar sind.
     </string>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
     <string name="title_junk_filter_hint">Das kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
@@ -260,8 +259,7 @@
     <string name="title_setup_reset_images">Bilder anzeigen</string>
     <string name="title_setup_reset_links">Links bestätigen</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
-    <string name="title_advanced_hint_message">        Sie wechseln zu den erweiterten Optionen.
-        Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.
+    <string name="title_advanced_hint_message">        Sie wechseln zu den erweiterten Optionen.        Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.
     </string>
     <string name="title_advanced_hint_remark">Die Optionen sind nach Registerkarten kategorisiert, in Abschnitte unterteilt, nach Aussehen oder Verwendung geordnet und durchsuchbar.
     </string>
@@ -358,6 +356,7 @@
     <string name="title_advanced_landscape">Querformat</string>
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
+    <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Teilen des Bildschirms</string>
     <string name="title_advanced_nav_options">Navigationsmenü-Optionen anzeigen</string>
     <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
     <string name="title_advanced_nav_hide_title">Navigationsmenü-Optionen ausblenden?</string>
@@ -548,8 +547,7 @@
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
     <string name="title_advanced_ca">Installierte CA-Zertifikate</string>
-    <string name="title_advanced_manage_keys_hint">        Hiermit öffnen Sie die Android-Sicherheitseinstellungen.
-        Schlüssel und Zertifikate sind in der Regel unter »Sicherheit &amp; Standort« ➜ »Verschlüsselung und Anmeldedaten« zu finden.
+    <string name="title_advanced_manage_keys_hint">        Hiermit öffnen Sie die Android-Sicherheitseinstellungen.        Schlüssel und Zertifikate sind in der Regel unter »Sicherheit &amp; Standort« ➜ »Verschlüsselung und Anmeldedaten« zu finden.
     </string>
     <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
@@ -852,8 +850,7 @@
     <string name="title_auto_delete">Automatisch alte Nachrichten dauerhaft löschen</string>
     <string name="title_auto_delete_hint">Alte Nachrichten sind Nachrichten, die nicht mehr auf dem Gerät vorgehalten werden</string>
     <string name="title_auto_delete_archive_hint">Das Löschen aus dem Archivordner wird nicht immer vom E-Mail-Server zugelassen</string>
-    <string name="title_inbox_root_hint">Bei einigen Anbietern müssen neue Ordner unterhalb des Posteingangs angelegt werden. In diesem Fall können Sie den Posteingang in der Ordnerliste lange drücken und „Unterordner erstellen“ wählen.
-    </string>
+    <string name="title_inbox_root_hint">Bei einigen Anbietern müssen neue Ordner unterhalb des Posteingangs angelegt werden. In diesem Fall können Sie den Posteingang in der Ordnerliste lange drücken und „Unterordner erstellen“ wählen.    </string>
     <string name="title_folder_name_missing">Ordnername fehlt</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
     <string name="title_folder_delete">Diesen Ordner und alle darin enthaltenen E-Mails dauerhaft löschen?</string>
@@ -897,7 +894,7 @@
     <string name="title_importance_high">Hoch</string>
     <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Umleiten</string>
+    <string name="title_resend">Umleiten</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_edit_notes">Lokale Notizen bearbeiten</string>
@@ -1010,16 +1007,14 @@
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
     <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
-    <string name="title_ask_review_rationale">        Sie verwenden FairEmail bereits seit einiger Zeit.
-        Es wäre schön, wenn Sie FairEmail im Play Store bewerten würden.
+    <string name="title_ask_review_rationale">        Sie verwenden FairEmail bereits seit einiger Zeit.        Es wäre schön, wenn Sie FairEmail im Play Store bewerten würden.
     </string>
     <string name="title_need_help">Ich benötige Hilfe</string>
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen „Später”</string>
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">        Dies ist die neu formatierte Nachrichtenansicht.
-        Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Ansicht zu verstecken.
+    <string name="title_reformatted">        Dies ist die neu formatierte Nachrichtenansicht.        Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Ansicht zu verstecken.
         Nachrichten neu formatieren dauert einige Zeit je nach Größe der Nachricht und der Geschwindigkeit Ihres Geräts.
     </string>
     <string name="title_compose">Verfassen</string>
@@ -1522,8 +1517,7 @@
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_one_time">%1$s (einmaliger Kauf)</string>
     <string name="title_pro_no_play">Play Store konnte nicht aufgerufen werden</string>
-    <string name="title_pro_info">Die Entwicklung von FairEmail hat buchstäblich tausende Stunden gedauert und trotzdem sind die meisten Funktionen kostenlos nutzbar.
-FairEmail nimmt Ihre Privatsphäre ernst, zeigt keine Werbung an und verwendet keine Nachverfolgungs- oder Analysefunktionen, um damit Geld zu verdienen.
+    <string name="title_pro_info">Die Entwicklung von FairEmail hat buchstäblich tausende Stunden gedauert und trotzdem sind die meisten Funktionen kostenlos nutzbar. FairEmail nimmt Ihre Privatsphäre ernst, zeigt keine Werbung an und verwendet keine Nachverfolgungs- oder Analysefunktionen, um damit Geld zu verdienen.
 Um FairEmail auf lange Sicht zu erhalten und zu unterstützen, sind einige Komfort- und erweiterte Funktionen nicht kostenlos nutzbar.
 Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwindet beim Kauf der Pro-Funktionen.
     </string>
@@ -1749,4 +1743,10 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
+        <item>Sehr groß</item>
+    </string-array>
 </resources>

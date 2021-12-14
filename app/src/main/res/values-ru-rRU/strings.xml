@@ -281,8 +281,7 @@
     <string name="title_setup_reset_links">Подтверждать ссылки</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
-        Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
-    </string>
+        Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.    </string>
     <string name="title_advanced_hint_remark">        Параметры сгруппированы по вкладкам, поделены на разделы, организованы по внешнему виду или использованию и доступны через поиск.
     </string>
     <string name="title_advanced_hint_setup">Можно настроить учётную запись, нажав кнопку мастера на главном экране настроек.</string>
@@ -378,6 +377,7 @@
     <string name="title_advanced_landscape">Альбомный режим</string>
     <string name="title_advanced_two_row">Использовать две строки</string>
     <string name="title_advanced_two_col">Использовать две колонки</string>
+    <string name="title_advanced_min_screen_size">Минимальный размер экрана для его разделения</string>
     <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
     <string name="title_advanced_nav_pin">Закрепить меню навигации</string>
     <string name="title_advanced_nav_hide_title">Скрыть панель меню навигации?</string>
@@ -636,6 +636,7 @@
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если используется сортировка по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_split_hint">Экран будет разделён на части</string>
+    <string name="title_advanced_split_min_hint">Это условие предназначено для складных устройств</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_highlight_hint">Для подсветки будет использован цвет акцента темы</string>
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
@@ -918,7 +919,7 @@
     <string name="title_importance_high">Высокая</string>
     <string name="title_search_in_text">Поиск в тексте&#8230;</string>
     <string name="title_forward">Переслать</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Перенаправить</string>
+    <string name="title_resend">Перенаправить</string>
     <string name="title_new_message">Новое сообщение</string>
     <string name="title_editasnew">Редактировать как новое</string>
     <string name="title_edit_notes">Редактировать локальные заметки</string>
@@ -1039,8 +1040,7 @@
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
-    <string name="title_reformatted">        Это переформатированное сообщение.
-        Можно нажать значок &#x26F6; для просмотра оригинального сообщения и скрытия этого уведомления.
+    <string name="title_reformatted">        Это переформатированное сообщение.        Можно нажать значок &#x26F6; для просмотра оригинального сообщения и скрытия этого уведомления.
         Переформатирование сообщений занимает некоторое время в зависимости от размера сообщения и быстродействия устройства.
     </string>
     <string name="title_compose">Создать</string>
@@ -1771,4 +1771,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Маленький</item>
+        <item>Средний</item>
+        <item>Большой</item>
+        <item>Очень большой</item>
+    </string-array>
 </resources>

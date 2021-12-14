@@ -281,8 +281,7 @@
     <string name="title_setup_reset_images">Показати зображення</string>
     <string name="title_setup_reset_links">Підтвердити посилання</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
-    <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.
-        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
+    <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
     <string name="title_advanced_hint_remark">        Параметри класифіковані вкладками, розділені на секції, організовані за зовнішній виглядом або за використанням, та доступні для пошуку.
     </string>
@@ -569,8 +568,7 @@
     <string name="title_advanced_import_key">Імпортувати особистий ключ</string>
     <string name="title_advanced_manage_keys">Керування особистими ключами</string>
     <string name="title_advanced_ca">Встановлені сертифікати ЦС</string>
-    <string name="title_advanced_manage_keys_hint">        Це дозволить відкрити налаштування безпеки Android.
-        Ключі та сертифікати зазвичай можна знайти в розділі Безпека та місцезнаходження - Додатково - Шифрування й облікові дані.
+    <string name="title_advanced_manage_keys_hint">        Це дозволить відкрити налаштування безпеки Android.        Ключі та сертифікати зазвичай можна знайти в розділі Безпека та місцезнаходження - Додатково - Шифрування й облікові дані.
     </string>
     <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
     <string name="title_advanced_external_search">Дозволити іншим програмам пошук в повідомленнях</string>
@@ -872,8 +870,7 @@
     <string name="title_auto_delete">Автоматично видаляти старі повідомлення назавжди</string>
     <string name="title_auto_delete_hint">Старі повідомлення - це повідомлення, які більше не зберігаються на пристрої</string>
     <string name="title_auto_delete_archive_hint">Видалення з теки архіву не завжди дозволяється сервером електронної пошти</string>
-    <string name="title_inbox_root_hint">        Деякі постачальники вимагають створення нових тек нижче вхідної теки.
-        В цьому випадку, ви можете довго натиснути на кнопку \"Вхідні\" у списку тек і вибрати \"Створити підтеку\".
+    <string name="title_inbox_root_hint">        Деякі постачальники вимагають створення нових тек нижче вхідної теки.        В цьому випадку, ви можете довго натиснути на кнопку \"Вхідні\" у списку тек і вибрати \"Створити підтеку\".
     </string>
     <string name="title_folder_name_missing">Відсутнє ім\'я теки</string>
     <string name="title_folder_exists">Тека %1$s вже існує</string>
@@ -918,7 +915,7 @@
     <string name="title_importance_high">Високий</string>
     <string name="title_search_in_text">Пошук у тексті &#8230;</string>
     <string name="title_forward">Переслати</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Перевідправити</string>
+    <string name="title_resend">Перевідправити</string>
     <string name="title_new_message">Нове повідомлення</string>
     <string name="title_editasnew">Редагувати як нове</string>
     <string name="title_edit_notes">Редагувати локальні нотатки</string>
@@ -1031,16 +1028,14 @@
     <string name="title_ask_reporting">Надіслати звіт про помилки?</string>
     <string name="title_reporting_why">Надсилання звітів про помилки допоможе покращити FairEmail</string>
     <string name="title_ask_review">Будь ласка, зробіть рецензію на FairEmail</string>
-    <string name="title_ask_review_rationale">        Ви користуєтеся FairEmail деякий час.
-        Буду вдячний, якщо Ви зможете оцінити FairEmail у Play Store.
+    <string name="title_ask_review_rationale">        Ви користуєтеся FairEmail деякий час.        Буду вдячний, якщо Ви зможете оцінити FairEmail у Play Store.
     </string>
     <string name="title_need_help">Мені потрібна допомога</string>
     <string name="title_ask_once">Це повідомлення з\'явиться лише один раз, якщо ви не виберете \"Пізніше\"</string>
     <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення може завантажити %1$s</string>
     <string name="title_download_message">Завантаження &#8230;</string>
-    <string name="title_reformatted">        Це вид переформатованого повідомлення.
-        Ви можете натиснути на &#x26F6; значок, щоб переглянути оригінальне повідомлення та приховати це повідомлення.
+    <string name="title_reformatted">        Це вид переформатованого повідомлення.        Ви можете натиснути на &#x26F6; значок, щоб переглянути оригінальне повідомлення та приховати це повідомлення.
         Переформатування повідомлень займає деякий час, в залежності від розміру повідомлення і швидкості Вашого пристрою.
     </string>
     <string name="title_compose">Написати лист</string>
@@ -1542,8 +1537,7 @@
     <string name="title_pro_purchase">Придбати</string>
     <string name="title_pro_one_time">%1$s (одноразове придбання)</string>
     <string name="title_pro_no_play">Play Store не знайдено</string>
-    <string name="title_pro_info">        Розробка FairEmail зайняла тисячі годин і незважаючи на це, більшість функцій можуть вільно використовуватися.
-        FairEmail серйозно охороняє Вашу конфіденційність і не показує рекламу, не використовує відстеження або аналітику, щоб заробити гроші.
+    <string name="title_pro_info">        Розробка FairEmail зайняла тисячі годин і незважаючи на це, більшість функцій можуть вільно використовуватися.        FairEmail серйозно охороняє Вашу конфіденційність і не показує рекламу, не використовує відстеження або аналітику, щоб заробити гроші.
         Щоб зберегти і підтримати FairEmail в довгостроковій перспективі, деякі зручності та розширені функції обмеженні.
         FairEmail показує маленьке повідомлення, щоб нагадати Вам про це, воно буде вилучено, якщо ви купите Pro функції.
     </string>
@@ -1771,4 +1765,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Малий</item>
+        <item>Середній</item>
+        <item>Великий</item>
+        <item>Дуже великий</item>
+    </string-array>
 </resources>

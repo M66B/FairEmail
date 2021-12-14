@@ -62,6 +62,8 @@
     <string name="title_poll_folder">Check periodically instead of continuous synchronise</string>
     <string name="title_sync_days">Synchronise messages (days)</string>
     <string name="title_auto_trash">Automatically move old messages to bin</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_trash">Bin</string>
     <string name="title_flag_color">Coloured star &#8230;</string>
     <string name="title_raw_send_message">Message</string>
@@ -88,6 +90,10 @@
     <string name="title_legend_d">Delete</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronised by default</string>
     <string name="title_hint_message_actions">Swipe left to delete; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

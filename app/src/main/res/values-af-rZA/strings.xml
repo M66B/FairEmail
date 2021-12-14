@@ -10,9 +10,15 @@
     <string name="title_importing_exists">Oorgeslaan: bestaan alreeds</string>
     <string name="title_importing_wizard">Hardloop die towenaar om weer te outentiek</string>
     <string name="title_advanced_poll_battery">Hierdie kan verhoogte battery gebruik veroorsaak!</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_fullscreen">Wys Volleskerm</string>
     <string name="title_fit_width">Pas breedte</string>
     <string name="title_disable_widths">Deaktiveer breedte</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <!-- Thunderbird -->
     <string-array name="pollIntervalNames">
         <item>Always</item>

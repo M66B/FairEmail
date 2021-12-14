@@ -303,6 +303,7 @@
     <string name="title_advanced_poll_hint">주기적으로 새 메시지를 확인하면 매번 오프라인 메시지와 온라인 메시지를 비교하게 되므로, 배터리 사용량이 증가할 수 있습니다. 항상 수신 기능은 변경사항을 그때그때 반영하므로 이런 현상을 막을 수 있습니다.</string>
     <string name="title_advanced_browse_hint">아래로 스크롤하여 메시지 더보기</string>
     <string name="title_advanced_date_hint">메시지가 시간별로 정렬된 경우 날짜별로만 묶입니다</string>
+    <string name="title_advanced_split_min_hint">폴더블 기기를 위한 조건입니다</string>
     <string name="title_advanced_preview_issue">2줄 이상인 경우 일부 Android 버전의 버그로 인해 스크롤이 느려질 수 있습니다</string>
     <string name="title_advanced_notify_action_hint">최대 3개의 동작이 표시됩니다</string>
     <string name="title_advanced_never_favorite">즐겨찾기 등록 차단</string>
@@ -352,6 +353,8 @@
     <string name="title_folder_name">폴더명</string>
     <string name="title_display_name">표시되는 이름</string>
     <string name="title_hide_folder">폴더 숨기기</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_months">개월</string>
     <string name="title_months_all">모두</string>
     <string name="title_folder_unified">통합 받은편지함</string>
@@ -384,7 +387,7 @@
     <string name="title_importance_normal">보통</string>
     <string name="title_importance_high">높음</string>
     <string name="title_forward">앞으로</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">재전송</string>
+    <string name="title_resend">재전송</string>
     <string name="title_new_message">새 메시지</string>
     <string name="title_editasnew">다른 이름으로 수정</string>
     <string name="title_share">공유</string>
@@ -431,8 +434,7 @@
     <string name="title_ask_discard">초안을 삭제하시겠습니까?</string>
     <string name="title_need_help">도움 요청</string>
     <string name="title_download_message">&#8230; 다운로드 중</string>
-    <string name="title_reformatted">        재구성된 메시지를 보고 있습니다.
-        &#x26F6; 아이콘을 눌러 재구성된 메시지를 숨기고 원본 메시지를 볼 수 있습니다.
+    <string name="title_reformatted">        재구성된 메시지를 보고 있습니다.        &#x26F6; 아이콘을 눌러 재구성된 메시지를 숨기고 원본 메시지를 볼 수 있습니다.
         메시지를 재구성하는 데에는 메시지 크기 및 장치 속도에 따라 다소 시간이 걸립니다.
     </string>
     <string name="title_compose">작성</string>
@@ -729,8 +731,7 @@
     <string name="title_pro_purchase">구매</string>
     <string name="title_pro_one_time">%1$s (1회 구매)</string>
     <string name="title_pro_no_play">Play Store를 찾을 수 없음</string>
-    <string name="title_pro_info">        FairEmail을 개발하는 데 말 그대로 수천 시간을 들였지만, 그럼에도 대부분의 기능을 무료로 사용하실 수 있습니다.
-        FairEmail은 사용자의 개인정보를 중요하게 생각하며 광고를 표시하지 않고, 수익을 위해 사용자를 추적하거나 분석하지 않습니다.
+    <string name="title_pro_info">        FairEmail을 개발하는 데 말 그대로 수천 시간을 들였지만, 그럼에도 대부분의 기능을 무료로 사용하실 수 있습니다.        FairEmail은 사용자의 개인정보를 중요하게 생각하며 광고를 표시하지 않고, 수익을 위해 사용자를 추적하거나 분석하지 않습니다.
         FairEmail을 장기적으로 유지하기 위하여, 일부 편의성과 고급 기능은 유료로 사용해야 하도록 했습니다.
         FairEmail은 이에 대한 알림을 표시하며, Pro 기능을 구매하면 사라집니다.
     </string>
@@ -907,4 +908,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>작게</item>
+        <item>보통</item>
+        <item>크게</item>
+        <item>매우 크게</item>
+    </string-array>
 </resources>

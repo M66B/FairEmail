@@ -260,8 +260,7 @@
     <string name="title_setup_reset_images">Mostra le immagini</string>
     <string name="title_setup_reset_links">Confermare i link</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
-    <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
-        Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
+    <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.        Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
     </string>
     <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate per scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
     </string>
@@ -548,8 +547,7 @@
     <string name="title_advanced_import_key">Importa la chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
     <string name="title_advanced_ca">Certificati CA installati</string>
-    <string name="title_advanced_manage_keys_hint">        Questo passerà alle impostazioni di sicurezza di Android.
-        Chiavi e certificati si possono generalmente trovare sotto Avanzate - Crittografia e credenziali.
+    <string name="title_advanced_manage_keys_hint">        Questo passerà alle impostazioni di sicurezza di Android.        Chiavi e certificati si possono generalmente trovare sotto Avanzate - Crittografia e credenziali.
     </string>
     <string name="title_advanced_power_menu">Aggiungi azioni al menù di spegnimento Android</string>
     <string name="title_advanced_external_search">Consenti alle altre app di cercare tra i messaggi</string>
@@ -852,8 +850,7 @@
     <string name="title_auto_delete">Elimina automaticamente e permanentemente i vecchi messaggi</string>
     <string name="title_auto_delete_hint">I vecchi messaggi sono messaggi non più conservati sul dispositivo</string>
     <string name="title_auto_delete_archive_hint">L\'eliminazione dalla cartella d\'archivio non è sempre consentita dal server email</string>
-    <string name="title_inbox_root_hint">        Alcuni provider richiedono la creazione di nuove cartelle nella posta in entrata.
-        In questo caso, puoi tenere premuta la posta in arrivo nell\'elenco delle cartelle e selezionare \'Crea sottocartella\'.
+    <string name="title_inbox_root_hint">        Alcuni provider richiedono la creazione di nuove cartelle nella posta in entrata.        In questo caso, puoi tenere premuta la posta in arrivo nell\'elenco delle cartelle e selezionare \'Crea sottocartella\'.
     </string>
     <string name="title_folder_name_missing">Nome della cartella mancante</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
@@ -898,7 +895,7 @@
     <string name="title_importance_high">Alta</string>
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Reinvia</string>
+    <string name="title_resend">Reinvia</string>
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>
@@ -1011,16 +1008,14 @@
     <string name="title_ask_reporting">Inviare segnalazioni d\'errore?</string>
     <string name="title_reporting_why">La segnalazione degli errori aiuterà a migliorare FairEmail</string>
     <string name="title_ask_review">Sei pregato di valutare FairEmail</string>
-    <string name="title_ask_review_rationale">        Usi FairEmail da un po\'.
-        Sarebbe apprezzato se potessi valutare FairEmail nel Play Store.
+    <string name="title_ask_review_rationale">        Usi FairEmail da un po\'.        Sarebbe apprezzato se potessi valutare FairEmail nel Play Store.
     </string>
     <string name="title_need_help">Ho bisogno d\'aiuto</string>
     <string name="title_ask_once">Questo messaggio comparirà solo una volta, a meno che tu non selezioni \'Più tardi\'</string>
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandere questo messaggio scaricherà %1$s</string>
     <string name="title_download_message">Scaricando&#8230;</string>
-    <string name="title_reformatted">        Questa è la visualizzazione del messaggio riformattato.
-        Puoi toccare sull\'icona &#x26F6; per visualizzare il messaggio originale o nasconderlo.
+    <string name="title_reformatted">        Questa è la visualizzazione del messaggio riformattato.        Puoi toccare sull\'icona &#x26F6; per visualizzare il messaggio originale o nasconderlo.
         La riformattazione dei messaggi richiede un po\' di tempo, in base alla dimensione del messaggio e la velocità del tuo dispositivo.
     </string>
     <string name="title_compose">Scrivi</string>
@@ -1522,8 +1517,7 @@
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_one_time">%1$s (acquisto una tantum)</string>
     <string name="title_pro_no_play">Play Store non trovato</string>
-    <string name="title_pro_info">        Sviluppare FairEmail ha letteralmente impiegato migliaio di ore e, nonostante ciò, gran parte delle funzionalità sono gratuite.
-        FairEmail prende sul serio la tua privacy e non mostra annunci né usa il monitoraggio o le analisi per guadagnare denaro.
+    <string name="title_pro_info">        Sviluppare FairEmail ha letteralmente impiegato migliaio di ore e, nonostante ciò, gran parte delle funzionalità sono gratuite.        FairEmail prende sul serio la tua privacy e non mostra annunci né usa il monitoraggio o le analisi per guadagnare denaro.
         Per mantenere e supportare FairEmail a lungo termine, alcune funzionalità convenzionali e avanzate non sono gratuite.
         FairEmail mostra un piccolo messaggio per ricordartene, che sarà rimosso se acquisti le funzionalità pro.
     </string>
@@ -1749,4 +1743,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Piccolo</item>
+        <item>Medio</item>
+        <item>Grande</item>
+        <item>Extra large</item>
+    </string-array>
 </resources>

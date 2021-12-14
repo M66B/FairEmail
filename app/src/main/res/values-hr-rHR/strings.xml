@@ -494,6 +494,8 @@
     <string name="title_keep_all">Zadrži sve poruke</string>
     <string name="title_auto_trash">Automatski premjesti stare poruke u otpad</string>
     <string name="title_auto_delete">Automatski trajno izbrisati stare poruke</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">Nedostaje naziv mape</string>
     <string name="title_folder_exists">Postoji mapa %1$s</string>
     <string name="title_folder_delete">Trajno izbrisati ovu mapu i sve poruke koje sadrži?</string>
@@ -609,8 +611,7 @@
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>
     <string name="title_ask_review">Molim ostavite recenziju o FairEmailu</string>
-    <string name="title_ask_review_rationale">        Koristite FairEmail već neko vrijeme.
-        Cijenili bi kada bi ocijenili FairEmail u Trgovini Play.
+    <string name="title_ask_review_rationale">        Koristite FairEmail već neko vrijeme.        Cijenili bi kada bi ocijenili FairEmail u Trgovini Play.
     </string>
     <string name="title_third_party">Koristite verziju neke treće strane</string>
     <string name="title_expand_warning">Proširivanjem ove poruke preuzet će se %1$s</string>
@@ -958,6 +959,10 @@
     <string name="title_pro_feature">Ovo je pro funkcija</string>
     <string name="title_pro_list">Popis pro funkcija</string>
     <string name="title_pro_purchase">Kupi</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_hint">Kupnja pro funkcija će vam omogućiti da koristite sve trenutne i buduće mogućnosti aplikacije i zadržat će ovu aplikaciju održavanu i podržanu</string>
     <string name="title_pro_pending">Kupnja na čekanju</string>
     <string name="title_pro_activated">Sve pro funkcije su aktivirane</string>
@@ -1141,4 +1146,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Maleno</item>
+        <item>Srednje</item>
+        <item>Veliko</item>
+        <item>Extra veliko</item>
+    </string-array>
 </resources>

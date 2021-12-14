@@ -260,8 +260,7 @@
     <string name="title_setup_reset_images">Mostrar imágenes</string>
     <string name="title_setup_reset_links">Confirmar enlaces</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
-    <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
-        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
+    <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
     <string name="title_advanced_hint_remark">        Las opciones se clasifican en pestañas, divididas en secciones, organizadas por apariencia o uso y buscables.
     </string>
@@ -358,6 +357,7 @@
     <string name="title_advanced_landscape">Modo apaisado</string>
     <string name="title_advanced_two_row">Usar dos filas</string>
     <string name="title_advanced_two_col">Usar dos columnas</string>
+    <string name="title_advanced_min_screen_size">Tamaño mínimo de pantalla para dividir la pantalla</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
     <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
     <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
@@ -548,8 +548,7 @@
     <string name="title_advanced_import_key">Importar clave privada</string>
     <string name="title_advanced_manage_keys">Administrar claves privadas</string>
     <string name="title_advanced_ca">Certificados CA instalados</string>
-    <string name="title_advanced_manage_keys_hint">        Esto abrirá la configuración de seguridad de Android.
-        Las claves y certificados pueden encontrarse usualmente bajo \"Avanzado - Cifrado y credenciales\".
+    <string name="title_advanced_manage_keys_hint">        Esto abrirá la configuración de seguridad de Android.        Las claves y certificados pueden encontrarse usualmente bajo \"Avanzado - Cifrado y credenciales\".
     </string>
     <string name="title_advanced_power_menu">Añadir acciones al menú de apagado de Android</string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
@@ -616,6 +615,7 @@
     <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
     <string name="title_advanced_navbar_colorize_hint">Que esto funcione dependerá de la versión y variante de Android</string>
     <string name="title_advanced_split_hint">Esto dividirá la pantalla en partes</string>
+    <string name="title_advanced_split_min_hint">Esta es una condición destinada a dispositivos plegables</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_highlight_hint">El color de acento del tema se utilizará para resaltar</string>
     <string name="title_advanced_gravatars_hint">Puede haber un riesgo para la privacidad</string>
@@ -852,8 +852,7 @@
     <string name="title_auto_delete">Eliminar mensajes antiguos permanentemente de manera automática</string>
     <string name="title_auto_delete_hint">Los mensajes antiguos son mensajes que ya no se almacenan en el dispositivo</string>
     <string name="title_auto_delete_archive_hint">La eliminación de la carpeta de archivo no siempre está permitida por el servidor de correo</string>
-    <string name="title_inbox_root_hint">        Algunos proveedores requieren que se creen nuevas carpetas debajo de la bandeja de entrada.
-        En este caso, puede mantener presionada la bandeja de entrada en la lista de carpetas y seleccionar \'Crear subcarpeta\'.
+    <string name="title_inbox_root_hint">        Algunos proveedores requieren que se creen nuevas carpetas debajo de la bandeja de entrada.        En este caso, puede mantener presionada la bandeja de entrada en la lista de carpetas y seleccionar \'Crear subcarpeta\'.
     </string>
     <string name="title_folder_name_missing">Falta nombre de carpeta</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
@@ -898,7 +897,7 @@
     <string name="title_importance_high">Alta</string>
     <string name="title_search_in_text">Buscar en texto &#8230;</string>
     <string name="title_forward">Reenviar</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Reenviar</string>
+    <string name="title_resend">Reenviar</string>
     <string name="title_new_message">Nuevo mensaje</string>
     <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_edit_notes">Editar notas locales</string>
@@ -1011,16 +1010,14 @@
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
     <string name="title_ask_review">Por favor califique FairEmail</string>
-    <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
-        Se agradecería que pudiese calificar FairEmail en Play Store.
+    <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.        Se agradecería que pudiese calificar FairEmail en Play Store.
     </string>
     <string name="title_need_help">Necesito ayuda</string>
     <string name="title_ask_once">Este mensaje sólo aparecerá una vez, a menos que seleccione \'Más tarde\'</string>
     <string name="title_third_party">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
-    <string name="title_reformatted">        Esta es la vista de mensaje reformateada.
-        Puede tocar el icono &#x26F6; para ver el mensaje original y ocultar este mensaje.
+    <string name="title_reformatted">        Esta es la vista de mensaje reformateada.        Puede tocar el icono &#x26F6; para ver el mensaje original y ocultar este mensaje.
         El reformateo de mensajes toma algún tiempo, dependiendo del tamaño del mensaje y la velocidad de su dispositivo.
     </string>
     <string name="title_compose">Redactar</string>
@@ -1171,8 +1168,7 @@
     <string name="title_signature_store">Almacenar</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_for_hint">Ingrese texto</string>
-    <string name="title_search_hint">        Inicialmente, la búsqueda se realiza en el dispositivo.
-        Para buscar también en el servidor, pulse el botón \'Buscar de nuevo\'.
+    <string name="title_search_hint">        Inicialmente, la búsqueda se realiza en el dispositivo.        Para buscar también en el servidor, pulse el botón \'Buscar de nuevo\'.
     </string>
     <string name="title_search_index_hint">Buscar a través del índice de búsqueda es rápido, pero sólo encontrará palabras completas.</string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
@@ -1522,8 +1518,7 @@
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_one_time">%1$s (compra de única vez)</string>
     <string name="title_pro_no_play">No se encontró la Play Store</string>
-    <string name="title_pro_info">        El desarrollo de FairEmail tomó literalmente miles de horas y, a pesar de ello, la mayoría de las características son de uso gratuito.
-        FairEmail se toma en serio su privacidad y no muestra anuncios y no utiliza rastreo ni análisis para ganar dinero.
+    <string name="title_pro_info">        El desarrollo de FairEmail tomó literalmente miles de horas y, a pesar de ello, la mayoría de las características son de uso gratuito.        FairEmail se toma en serio su privacidad y no muestra anuncios y no utiliza rastreo ni análisis para ganar dinero.
         Para mantener y sostener FairEmail a largo plazo, algunas características avanzadas y convenientes no son gratuitas.
         FairEmail muestra un pequeño mensaje para recordarle esto, que se eliminará si adquiere las características Pro.
     </string>
@@ -1749,4 +1744,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+        <item>Extra grande</item>
+    </string-array>
 </resources>

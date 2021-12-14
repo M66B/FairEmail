@@ -117,11 +117,11 @@
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
     <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnag がエラーレポートに使用されますが、デフォルトでは無効になっています。</string>
     <string name="title_setup_quick_accounts">アカウントの追加または変更</string>
-    <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
+    <string name="title_setup_quick_support">一部のプロバイダーはアカウントを追加しにくくしています。FairEmail を非難せずに、サポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップは autoconfig.thunderbird.net から設定情報を取得します</string>
     <string name="title_setup_quick_patience">しばらくお待ちください&#8230;</string>
-    <string name="title_setup_quick_imap">メッセージを受信するためのIMAPサーバー</string>
-    <string name="title_setup_quick_smtp">メッセージを送信するためのSMTPサーバー</string>
+    <string name="title_setup_quick_imap">メッセージの受信に使用する IMAP サーバー</string>
+    <string name="title_setup_quick_smtp">メッセージの送信に使用する SMTP サーバー</string>
     <string name="title_setup_quick_certificates">サーバー証明書</string>
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます</string>
@@ -142,7 +142,7 @@
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません</string>
     <string name="title_setup_gmail_drafts">IMAP で下書きフォルダにアクセスできない場合、Gmail ラベル設定で修正できます</string>
     <string name="title_setup_gmail_password">パスワードでアカウントを認証したい</string>
-    <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によってIMAP/SMTPが無効にされているときに発生する可能性があります</string>
+    <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
     <string name="title_setup_oauth_update">登録済みのアカウントを再認証する</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
@@ -154,7 +154,7 @@
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードをもう一度確認しアカウントで外部アクセス（IMAP/SMTP）が有効になっていることを確認してください</string>
     <string name="title_setup_app_password_hint">このプロバイダーにはアカウントのパスワードの代わりにアプリパスワードが必要です。プロバイダーの指示を確認してください</string>
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
-    <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
+    <string name="title_setup_advanced_protection">高度な保護プログラムに登録すると、サードパーティのメールアプリを使用できなくなります。これは Google によって課されている制限です。</string>
     <string name="title_setup_quick_success">アカウントが追加されました</string>
     <string name="title_setup_quick_no_sent">送信済みメッセージフォルダーが選択されていません。送信済みメッセージは保存されない可能性があります。</string>
     <string name="title_setup_quick_configure">名前、色、スワイプ操作などを編集する</string>
@@ -197,7 +197,7 @@
         設定をインポートするにはパスワードが必要ですので決して忘れないでください！
     </string>
     <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
-    <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
+    <string name="title_setup_import_do">インポートしたアカウントは既存のアカウントを上書きせずに追加されます</string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字または空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードを再入力</string>
@@ -249,7 +249,7 @@
     <string name="title_setup_reset_full">元のメッセージを表示</string>
     <string name="title_setup_reset_images">画像を表示</string>
     <string name="title_setup_reset_links">リンクを確認</string>
-    <string name="title_advanced_hint_title">さらに高度なオプション</string>
+    <string name="title_advanced_hint_title">詳細設定</string>
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         よく使われる標準的な値が設定されているため、特に変更しなくてもアプリを使うことができます。
     </string>
@@ -348,6 +348,7 @@
     <string name="title_advanced_landscape">ランドスケープモード</string>
     <string name="title_advanced_two_row">2 行に分割</string>
     <string name="title_advanced_two_col">2 列に分割</string>
+    <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューのオプションを表示</string>
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留めする</string>
     <string name="title_advanced_nav_hide_title">ナビゲーションメニューのオプションを非表示にしますか？</string>
@@ -605,6 +606,7 @@
     <string name="title_advanced_date_hint">時間で並び替えている場合にのみ、メッセージを日付でグループ化できます</string>
     <string name="title_advanced_navbar_colorize_hint">機能するかは Android のバージョンとバリアントに依存します</string>
     <string name="title_advanced_split_hint">画面をパーツごとに分割します</string>
+    <string name="title_advanced_split_min_hint">これは折りたたみデバイス向けの条件です</string>
     <string name="title_advanced_threading_hint">互いに関連するメッセージをグループします</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーをハイライトカラーに使用します</string>
     <string name="title_advanced_gravatars_hint">プライバシーリスクがあるかもしれません</string>
@@ -887,6 +889,7 @@
     <string name="title_importance_high">高</string>
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
+    <string name="title_resend">再送</string>
     <string name="title_new_message">新しいメッセージ</string>
     <string name="title_editasnew">新規として編集</string>
     <string name="title_edit_notes">ローカルメモを編集</string>
@@ -1436,7 +1439,7 @@
     <string name="title_hint_sync_note">デフォルトでは、ストレージ容量とバッテリーとデータ使用量を制限するためにすべてのメッセージがダウンロードされるわけではありません。フォルダーリスト内のフォルダーを長押しし、「さらにメッセージを取得」を選択することで変更できます。</string>
     <string name="title_hint_battery">FairEmail はデフォルトでは常にメッセージの受信を待機しているため Android は FairEmail が常にアクティブであると報告します。そのため FairEmail は常にバッテリーを使用しているように見えますが実際にはそうではありません</string>
     <string name="title_hint_reformat">デフォルトでは FairEmail はプライバシーとセキュリティ上の理由からメッセージを再フォーマットします。 元のメッセージを表示するにはメッセージテキストの上にある［全画面］アイコンをタップします</string>
-    <string name="title_hint_design">意図的に紛らわしいデザインを採用しているのではなく、豊富に機能があるため紛らわしくなってしまっているのです。外観はある程度カスタマイズできますが、同時に誰もが満足できるデザインは存在しないことを理解してください。</string>
+    <string name="title_hint_design">デザインを意図的に紛らわしくしているのではなく、豊富に機能があるため紛らわしくなってしまっています。外観はある程度カスタマイズできますが、同時に誰もが満足できるデザインは存在しないことを理解してください。</string>
     <string name="title_hint_junk">迷惑メールフィルタリングはメールサーバーで実行すべきもので、機能に制限があるバッテリー駆動のモバイルデバイスでは十分に実行できません。</string>
     <string name="title_hint_junk_learn">迷惑メールフォルダーにメッセージを移動することで、メールサーバーは何が迷惑メールかを学習します</string>
     <string name="title_hint_contact_actions">長押ししてオプションへ</string>
@@ -1523,7 +1526,7 @@
     <string name="title_pro_restore">（別のデバイスで）購入を復元するにはどうすればよいですか？</string>
     <string name="title_pro_pending">購入保留中</string>
     <string name="title_pro_activated">すべてのプロ版の機能が解放されました</string>
-    <string name="title_pro_valid">すべてのプロ版の機能が解放されています</string>
+    <string name="title_pro_valid">すべてのプロ版の機能が解放されました</string>
     <string name="title_pro_invalid">無効な応答</string>
     <string name="title_pro_support">FairEmail はあなたの助けを必要としています。タップしてプロジェクトの維持のためにプロ版を購入するか、このメッセージをオフにしてください。</string>
     <string name="title_boundary_error">メールサーバーからのメッセージのダウンロードエラー</string>
@@ -1736,4 +1739,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+        <item>特大</item>
+    </string-array>
 </resources>

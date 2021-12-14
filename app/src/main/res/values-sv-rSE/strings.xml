@@ -258,8 +258,7 @@
     <string name="title_setup_reset_images">Visa bilder</string>
     <string name="title_setup_reset_links">Bekräfta länkar</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
-    <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
-        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
+    <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
     <string name="title_advanced_hint_remark">        Alternativen kategoriseras efter flik, indelade i sektioner, organiserade efter utseende eller användning och sökbara.
     </string>
     <string name="title_advanced_hint_setup">Du kan konfigurera ett konto genom att trycka på guide-knappen på huvudkonfigurationsskärmen.</string>
@@ -355,6 +354,7 @@
     <string name="title_advanced_landscape">Landskapsläge</string>
     <string name="title_advanced_two_row">Använd två rader</string>
     <string name="title_advanced_two_col">Använd två kolumner</string>
+    <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
     <string name="title_advanced_nav_hide_title">Dölj alternativ för navigeringsmenyn?</string>
@@ -545,8 +545,7 @@
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
     <string name="title_advanced_ca">Installerade CA-certifikat</string>
-    <string name="title_advanced_manage_keys_hint">        Detta kommer att navigera till Androids säkerhetsinställningar.
-        Nycklar och certifikat kan i allmänhet hittas under Avancerat - Kryptering och inloggningsuppgifter.
+    <string name="title_advanced_manage_keys_hint">        Detta kommer att navigera till Androids säkerhetsinställningar.        Nycklar och certifikat kan i allmänhet hittas under Avancerat - Kryptering och inloggningsuppgifter.
     </string>
     <string name="title_advanced_power_menu">Lägg till åtgärder i Androidmenyn för avstängning</string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
@@ -613,6 +612,7 @@
     <string name="title_advanced_date_hint">Meddelanden grupperas endast efter datum om de sorteras efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Om detta fungerar beror på Android-versionen och varianten</string>
     <string name="title_advanced_split_hint">Detta kommer att dela upp skärmen i delar</string>
+    <string name="title_advanced_split_min_hint">Detta är ett villkor för ihopfällbara enheter</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_highlight_hint">Accentfärgen på temat kommer att användas för markering</string>
     <string name="title_advanced_gravatars_hint">Det kan finnas en integritetsrisk</string>
@@ -849,8 +849,7 @@
     <string name="title_auto_delete">Ta automatiskt bort gamla meddelanden permanent</string>
     <string name="title_auto_delete_hint">Gamla meddelanden är meddelanden som inte längre finns på enheten</string>
     <string name="title_auto_delete_archive_hint">Att ta bort meddelanden från arkivmappen tillåts inte elltid av e-postservrar</string>
-    <string name="title_inbox_root_hint">        Vissa leverantörer kräver att nya mappar skapas under inkorgen.
-        I detta fall, du kan långtrycka på inkorgen i mapplistan och välja \"Skapa undermapp\".
+    <string name="title_inbox_root_hint">        Vissa leverantörer kräver att nya mappar skapas under inkorgen.        I detta fall, du kan långtrycka på inkorgen i mapplistan och välja \"Skapa undermapp\".
     </string>
     <string name="title_folder_name_missing">Mappnamn saknas</string>
     <string name="title_folder_exists">Mappen %1$s finns</string>
@@ -895,7 +894,7 @@
     <string name="title_importance_high">Hög</string>
     <string name="title_search_in_text">Sök i text &#8230;</string>
     <string name="title_forward">Vidarebefordra</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Skicka igen</string>
+    <string name="title_resend">Skicka igen</string>
     <string name="title_new_message">Nytt meddelande</string>
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_edit_notes">Redigera lokala anteckningar</string>
@@ -1008,16 +1007,14 @@
     <string name="title_ask_reporting">Skicka felrapporter?</string>
     <string name="title_reporting_why">Felrapportering kommer att bidra till att förbättra FairEmail</string>
     <string name="title_ask_review">Vänligen recensera FairEmail</string>
-    <string name="title_ask_review_rationale">        Du har använt FairEmail ett tag.
-        Det skulle vara uppskattat om du kunde betygsätta FairEmail i Play Store.
+    <string name="title_ask_review_rationale">        Du har använt FairEmail ett tag.        Det skulle vara uppskattat om du kunde betygsätta FairEmail i Play Store.
     </string>
     <string name="title_need_help">Jag behöver hjälp</string>
     <string name="title_ask_once">Detta meddelande kommer bara att visas en gång, om du inte väljer \'Senare\'</string>
     <string name="title_third_party">Du använder en version av en tredje part</string>
     <string name="title_expand_warning">Utvidgningen av detta meddelande kommer att ladda ned %1$s</string>
     <string name="title_download_message">Hämtar &#8230;</string>
-    <string name="title_reformatted">        Detta är den omformaterade meddelandevyn.
-        Du kan trycka på &#x26F6; ikonen för att visa det ursprungliga meddelandet och för att dölja detta meddelande.
+    <string name="title_reformatted">        Detta är den omformaterade meddelandevyn.        Du kan trycka på &#x26F6; ikonen för att visa det ursprungliga meddelandet och för att dölja detta meddelande.
         Omformatering av meddelanden tar lite tid, beroende på storleken på meddelandet och hastigheten på din enhet.
     </string>
     <string name="title_compose">Skriv</string>
@@ -1519,8 +1516,7 @@
     <string name="title_pro_purchase">Köp</string>
     <string name="title_pro_one_time">%1$s (engångköp)</string>
     <string name="title_pro_no_play">Play Store hittades inte</string>
-    <string name="title_pro_info">        Att utveckla FairEmail tog bokstavligen tusentals timmar, trots att de flesta funktioner är fria att använda.
-        FairEmail tar din integritet på allvar och visar inte annonser och använder inte spårning eller analys för att tjäna pengar.
+    <string name="title_pro_info">        Att utveckla FairEmail tog bokstavligen tusentals timmar, trots att de flesta funktioner är fria att använda.        FairEmail tar din integritet på allvar och visar inte annonser och använder inte spårning eller analys för att tjäna pengar.
         Att underhålla och stödja FairEmail i det långa loppet, vissa bekvämlighets- och avancerade funktioner är inte gratis att använda.
         FairEmail visar ett litet meddelande för att påminna dig om detta, som kommer att tas bort om du köper pro funktionerna.
     </string>
@@ -1746,4 +1742,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Liten</item>
+        <item>Mellan</item>
+        <item>Stor</item>
+        <item>Extra stor</item>
+    </string-array>
 </resources>

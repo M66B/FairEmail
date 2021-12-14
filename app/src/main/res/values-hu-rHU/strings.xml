@@ -223,8 +223,7 @@
     <string name="title_setup_reset_general">Általános kérdések</string>
     <string name="title_setup_reset_images">Képek megjelenítése</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
-    <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.
-        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
+    <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
     <string name="title_advanced_section_main">Alapbeállítások</string>
     <string name="title_advanced_section_synchronize">Fogadás</string>
@@ -450,8 +449,7 @@
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
     <string name="title_advanced_ca">Telepített CA tanúsítványok</string>
-    <string name="title_advanced_manage_keys_hint">         A renszser biztonsági beállításainak megnyitása.
-         A biztonsági kulcsok és aláírások általában itt találhatóak.
+    <string name="title_advanced_manage_keys_hint">         A renszser biztonsági beállításainak megnyitása.         A biztonsági kulcsok és aláírások általában itt találhatóak.
     </string>
     <string name="title_advanced_external_search">Keresés engedélyezése az üzenetekben más alkalmazások számára</string>
     <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
@@ -710,8 +708,7 @@
     <string name="title_auto_trash">Régi üzenetek automatikus áthelyezése a kukába</string>
     <string name="title_auto_delete">A régi üzenetek végleges törlése automatikusan</string>
     <string name="title_auto_delete_hint">Régi üzenetek olyan üzenetek, amik már nincsenek az eszközön tartva</string>
-    <string name="title_inbox_root_hint">        Egyes szolgáltatóknál új mappákat a beérkező levelek alatt kell készíteni.
-        Ebben a esetben tartsd hosszan a beérkező mappát a mappalistában és válaszd ki hogy \'Almappa létrehozása\'.
+    <string name="title_inbox_root_hint">        Egyes szolgáltatóknál új mappákat a beérkező levelek alatt kell készíteni.        Ebben a esetben tartsd hosszan a beérkező mappát a mappalistában és válaszd ki hogy \'Almappa létrehozása\'.
     </string>
     <string name="title_folder_name_missing">Hiányzó mappanév</string>
     <string name="title_folder_exists">%1$s nevű mappa már létezik</string>
@@ -852,8 +849,7 @@
     <string name="title_ask_reporting">Hibajelentések küldése?</string>
     <string name="title_reporting_why">Hibajelentések küldésével segíthet a FairEmail fejlesztésében</string>
     <string name="title_ask_review">Kérlek értékeld a FairEmail-t</string>
-    <string name="title_ask_review_rationale">       Már egy ideje a FairEmail-t használod.
-       Megtisztelő lenne, ha értékeled az alkalmazást a Play Áruházban.
+    <string name="title_ask_review_rationale">       Már egy ideje a FairEmail-t használod.       Megtisztelő lenne, ha értékeled az alkalmazást a Play Áruházban.
     </string>
     <string name="title_need_help">Segítségre van szükségem</string>
     <string name="title_ask_once">Ez az üzenez csak egyszer fog megjelenni, kivéve ha a \'Later\'-t választod</string>
@@ -1318,8 +1314,7 @@
     <string name="title_pro_list">Pro szolgáltatások listája</string>
     <string name="title_pro_purchase">Vásárlás</string>
     <string name="title_pro_no_play">A Play áruház nem található</string>
-    <string name="title_pro_info">        A FairEmail készítése több ezer órát vett igénybe annak ellenére hogy a legtöbb funkció ingyenes.
-        A FairEmail komolyan veszi a titoktartást, így nem mutat reklámokat, nem használ követési vagy analítikai technológiát pénzszerzési célra.
+    <string name="title_pro_info">        A FairEmail készítése több ezer órát vett igénybe annak ellenére hogy a legtöbb funkció ingyenes.        A FairEmail komolyan veszi a titoktartást, így nem mutat reklámokat, nem használ követési vagy analítikai technológiát pénzszerzési célra.
         Hogy a FairEmailt fenntartható maradjon hosszútávon, néhány kényelem és haladó beállítások nem ingyenesek.
         A FairEmail egy kicsi üzenetet jelenít meg hogy emlékeztessen erről, ami el lesz távolítva ha megvásárolod a pro verziót.
     </string>
@@ -1539,4 +1534,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Kicsi</item>
+        <item>Közepes</item>
+        <item>Nagy</item>
+        <item>Óriási</item>
+    </string-array>
 </resources>

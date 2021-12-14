@@ -217,8 +217,7 @@
     <string name="title_setup_reset_questions">Fragen weromsette</string>
     <string name="title_setup_reset_images">Sjoch ofbyldings</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
-    <string name="title_advanced_hint_message">        Do navigearst nei de mear avansearre opsjes.
-        Alle opsjes hawwe faak standertwearden brûkt dy\'t feroare wurde kinne asto in oare foarkar hast.
+    <string name="title_advanced_hint_message">        Do navigearst nei de mear avansearre opsjes.        Alle opsjes hawwe faak standertwearden brûkt dy\'t feroare wurde kinne asto in oare foarkar hast.
     </string>
     <string name="title_advanced_section_main">Haad</string>
     <string name="title_advanced_section_synchronize">Ûntfangen</string>
@@ -445,8 +444,7 @@
     <string name="title_advanced_import_key">Ymportearje private kaai</string>
     <string name="title_advanced_manage_keys">Behear privee kaaien</string>
     <string name="title_advanced_ca">CA-sertifikaten ynstalleare</string>
-    <string name="title_advanced_manage_keys_hint">        Dit sil iepenje foar de Android-befeiligingsynstellings.
-        Kaaien en sertifikaten kinne oer it algemien fûn wurde ûnder Avansearre - Fersifering en referinsjes.
+    <string name="title_advanced_manage_keys_hint">        Dit sil iepenje foar de Android-befeiligingsynstellings.        Kaaien en sertifikaten kinne oer it algemien fûn wurde ûnder Avansearre - Fersifering en referinsjes.
     </string>
     <string name="title_advanced_external_search">Stean oare apps tastean om yn berjochten te sykjen</string>
     <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
@@ -717,8 +715,7 @@
     <string name="title_auto_delete">Alde berjochten automatysk permanint wiskje</string>
     <string name="title_auto_delete_hint">Alde berjochten binne berjochten dy\'t net langer op it apparaat wurde bewarre</string>
     <string name="title_auto_delete_archive_hint">It fuortheljen fan de argyfmap is net altyd tastien troch de emailserver</string>
-    <string name="title_inbox_root_hint">        Guon oanbieders fereaskje dat nije mappen wurde oanmakke ûnder it postfak.
-        Yn dit gefal kinne jo lang yn it postfak drukke yn \'e maplist en selektearje\' Submap oanmeitsje \'.
+    <string name="title_inbox_root_hint">        Guon oanbieders fereaskje dat nije mappen wurde oanmakke ûnder it postfak.        Yn dit gefal kinne jo lang yn it postfak drukke yn \'e maplist en selektearje\' Submap oanmeitsje \'.
     </string>
     <string name="title_folder_name_missing">Mapnamme ûntbrekt</string>
     <string name="title_folder_exists">Map %1$s bestiet</string>
@@ -859,16 +856,14 @@
     <string name="title_ask_reporting">Stjoer flaterrapporten?</string>
     <string name="title_reporting_why">Flaterrapportaazje sil FairEmail ferbetterje</string>
     <string name="title_ask_review">Jou FairEmail asjebleaft in resinsje</string>
-    <string name="title_ask_review_rationale">        Jo hawwe FairEmail in skoftke brûkt.
-        It soe wurdearre wurde as jo FairEmail koene beoardielje yn \'e Play Store.
+    <string name="title_ask_review_rationale">        Jo hawwe FairEmail in skoftke brûkt.        It soe wurdearre wurde as jo FairEmail koene beoardielje yn \'e Play Store.
     </string>
     <string name="title_need_help">Ik haw help nedich</string>
     <string name="title_ask_once">Dit berjocht sil mar ien kear ferskine, útsein as jo \'Letter\' selektearje</string>
     <string name="title_third_party">Jo brûke in ferzje fan in tredde partij</string>
     <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil downloade %1$s</string>
     <string name="title_download_message">Ynladen &#8230;</string>
-    <string name="title_reformatted">        Dit is de werfoarme berjochtenwerjefte.
-        Do kinst tikje op it &#x26F6; ikoan om it orizjinele berjocht te besjen en dit berjocht te ferbergjen.
+    <string name="title_reformatted">        Dit is de werfoarme berjochtenwerjefte.        Do kinst tikje op it &#x26F6; ikoan om it orizjinele berjocht te besjen en dit berjocht te ferbergjen.
         Berjochten opnij opmakke duorret wat tiid, ôfhinklik fan \'e grutte fan it berjocht en de snelheid fan dyn apparaat.
     </string>
     <string name="title_compose">Gearstalle</string>
@@ -1337,8 +1332,7 @@
     <string name="title_pro_feature">Dit is in pro-funksje</string>
     <string name="title_pro_list">List fan pro-funksjes</string>
     <string name="title_pro_purchase">Keapje</string>
-    <string name="title_pro_info">        It ûntwikkeljen fan FairEmail hat letterlik tûzenen oeren duorre en, nettsjinsteande dat, binne de measte funksjes fergees te brûken.
-        FairEmail nimt jo privacy serieus en lit gjin advertinsjes sjen en brûkt tracking of analytics net om jild te fertsjinjen.
+    <string name="title_pro_info">        It ûntwikkeljen fan FairEmail hat letterlik tûzenen oeren duorre en, nettsjinsteande dat, binne de measte funksjes fergees te brûken.        FairEmail nimt jo privacy serieus en lit gjin advertinsjes sjen en brûkt tracking of analytics net om jild te fertsjinjen.
         Om FairEmail op \'e lange termyn te behâlden en te stypjen, binne wat gemak en avansearre funksjes net fergees te brûken.
         FairEmail lit in lyts berjocht sjen om jo hjirfan te ûnthâlden, dat sil wurde fuortsmiten as jo de pro-funksjes oanskaffe.
     </string>
@@ -1551,4 +1545,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Lyts</item>
+        <item>Medium</item>
+        <item>Grutte</item>
+        <item>Ekstra grut</item>
+    </string-array>
 </resources>

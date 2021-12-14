@@ -257,8 +257,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_setup_reset_images">Mostrar imagens</string>
     <string name="title_setup_reset_links">Confirmar links</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
-    <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.
-        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
+    <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
     </string>
     <string name="title_advanced_hint_remark">        As opções são categorizadas por separador, divididas em secções, organizadas por aspeto ou uso, e pesquisáveis.
     </string>
@@ -540,6 +539,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_search_folder">Pesquisar pasta</string>
     <string name="title_apply_to_all">Aplicar a tudo</string>
     <string name="title_edit_account_name">Editar nome da conta</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_months_all">Todos</string>
     <string name="title_folder_all">Arquivar</string>
     <string name="title_folder_trash">Lixo</string>
@@ -548,7 +549,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Reenviar</string>
+    <string name="title_resend">Reenviar</string>
     <string name="title_raw_send_message">Mensagem</string>
     <string name="title_raw_send_thread">Conversa</string>
     <string name="title_eml_remark">Para encaminhar mensagens, as mensagens (originais) precisam de ser descarregadas do servidor de e-mail. Requer uma ligação à internet e as mensagens devem ser armazenadas no servidor de e-mail.</string>
@@ -568,6 +569,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_fit_width">Ajustar à largura</string>
     <string name="title_disable_widths">Desativar larguras</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
+    <string name="title_ask_review_rationale">        Você está a utilizar o FairEmail há algum tempo.
+        Gostaríamos que avaliasse o FairEmail na Play Store.
+    </string>
     <string name="title_compose">Compor</string>
     <string name="title_language">Idioma:</string>
     <string name="title_send">Enviar</string>
@@ -580,6 +584,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
     <string name="title_search">Pesquisar</string>
+    <string name="title_search_hint">        Inicialmente, a procura é efetuada no dispositivo.
+        Para procurar também no servidor, clique no botão \'procurar novamente\'.
+    </string>
     <string name="title_search_index_hint">A procura é rápida através do índice de pesquisa, mas só encontra palavras inteiras.</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
     <string name="title_search_more">Mais opções</string>
@@ -618,6 +625,10 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_snooze_now">Adiar</string>
     <string name="title_pro_feature">Esta é uma funcionalidade da versão pro</string>
     <string name="title_pro_purchase">Comprar</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_whichever">Quaisquer que sejam os recursos escolhidos como recursos profissionais, há sempre alguém que reclama que um recurso deve ser gratuito. Por favor, não seja essa pessoa.</string>
     <string name="title_pro_restore">Como posso restaurar uma compra (em outro dispositivo) ?</string>
     <string name="title_log_clear">Limpar</string>

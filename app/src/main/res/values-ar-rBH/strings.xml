@@ -232,6 +232,8 @@
     <string name="title_notify_folder">أخبرني لدى ورود رسائل جديدة</string>
     <string name="title_keep_days">مدة الاحتفاظ (بالأيام)</string>
     <string name="title_keep_all">الإبقاء على كافة الرسائل</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">اسم المجلد مفقود</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
     <string name="title_months_all">الكل</string>
@@ -454,6 +456,10 @@
     <string name="title_pro_feature">هذه ميزة احترافية</string>
     <string name="title_pro_list">قائمة الميزات الاحترافية</string>
     <string name="title_pro_purchase">شراء</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_activated">تم تنشيط كافة الميزات الاحترافية</string>
     <string name="title_pro_valid">تم تنشيط كافة الميزات الاحترافية</string>
     <string name="title_pro_invalid">استجابة غير صالحة</string>

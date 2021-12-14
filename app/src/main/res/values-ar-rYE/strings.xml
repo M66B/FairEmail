@@ -186,6 +186,8 @@
     <string name="title_setup_options">الخيارات</string>
     <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
     <string name="title_setup_reset_images">إظهار الصور</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_synchronize">إستلام</string>
     <string name="title_advanced_section_send">إرسال</string>
     <string name="title_advanced_section_connection">اتصال</string>
@@ -227,6 +229,8 @@
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_generic_user_agent">استخدام اعدادات المستخدم العامة في المتصفح</string>
     <string name="title_advanced_encrypt_default">تشفير بشكل افتراضي</string>
+    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    </string>
     <string name="title_advanced_language_system">النظام</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
     <string name="title_advanced_cleanup">تنظيف</string>
@@ -281,6 +285,8 @@
     <string name="title_notify_folder">أخبرني لدى ورود رسائل جديدة</string>
     <string name="title_keep_days">مدة الاحتفاظ (بالأيام)</string>
     <string name="title_keep_all">الإبقاء على كافة الرسائل</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">اسم المجلد مفقود</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
     <string name="title_months_all">الكل</string>
@@ -334,6 +340,8 @@
     <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
     <string name="title_ask_reporting">إرسال تقارير الأخطاء?</string>
+    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    </string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">مِن:</string>
     <string name="title_to">إلى:</string>
@@ -504,6 +512,10 @@
     <string name="title_pro_feature">هذه ميزة احترافية</string>
     <string name="title_pro_list">قائمة الميزات الاحترافية</string>
     <string name="title_pro_purchase">شراء</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_activated">تم تنشيط كافة الميزات الاحترافية</string>
     <string name="title_pro_valid">تم تنشيط كافة الميزات الاحترافية</string>
     <string name="title_pro_invalid">استجابة غير صالحة</string>

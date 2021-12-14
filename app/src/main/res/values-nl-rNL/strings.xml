@@ -259,8 +259,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_images">Toon afbeeldingen</string>
     <string name="title_setup_reset_links">Bevestig koppelingen</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
-    <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
-        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
+    <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
     <string name="title_advanced_hint_remark">        De opties zijn gecategoriseerd op tabblad, verdeeld in secties, georganiseerd op uiterlijk of gebruik en doorzoekbaar.
     </string>
@@ -358,6 +357,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_landscape">Landschap-modus</string>
     <string name="title_advanced_two_row">Gebruik twee rijen</string>
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
+    <string name="title_advanced_min_screen_size">Minimale schermgrootte voor het splitsen van het scherm</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
     <string name="title_advanced_nav_pin">Navigatiemenu vastzetten</string>
     <string name="title_advanced_nav_hide_title">Verberg navigatiemenu opties?</string>
@@ -548,8 +548,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
     <string name="title_advanced_ca">Geïnstalleerde CA-certificaten</string>
-    <string name="title_advanced_manage_keys_hint">        Dit zal navigeren naar de Android-beveiligingsinstellingen.
-        Sleutels en certificaten kunnen over het algemeen worden gevonden onder Geavanceerd - Versleuteling en gegevens.
+    <string name="title_advanced_manage_keys_hint">        Dit zal navigeren naar de Android-beveiligingsinstellingen.        Sleutels en certificaten kunnen over het algemeen worden gevonden onder Geavanceerd - Versleuteling en gegevens.
     </string>
     <string name="title_advanced_power_menu">Acties toevoegen aan het Android power menu</string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
@@ -616,6 +615,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_date_hint">Berichten worden alleen op datum gegroepeerd als ze op tijd zijn gesorteerd</string>
     <string name="title_advanced_navbar_colorize_hint">Of dit werkt hangt af van de Android-versie en -variant</string>
     <string name="title_advanced_split_hint">Dit zal het scherm opsplitsen in delen</string>
+    <string name="title_advanced_split_min_hint">Dit is een conditie, bedoeld voor opvouwbare apparaten</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_highlight_hint">De accentkleur van het thema wordt gebruikt voor markering</string>
     <string name="title_advanced_gravatars_hint">Er is mogelijk een privacyrisico</string>
@@ -852,8 +852,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_auto_delete">Automatisch oude berichten definitief verwijderen</string>
     <string name="title_auto_delete_hint">Oude berichten zijn berichten die niet meer op het apparaat worden bewaard</string>
     <string name="title_auto_delete_archive_hint">Verwijderen uit de archiefmap wordt niet altijd toegestaan door de e-mailserver</string>
-    <string name="title_inbox_root_hint">        Sommige aanbieders vereisen dat nieuwe mappen aangemaakt worden onder de inbox.
-        In dit geval u kunt de inbox in de mappenlijst lang indrukken en kiezen voor \'Maak submap\'.
+    <string name="title_inbox_root_hint">        Sommige aanbieders vereisen dat nieuwe mappen aangemaakt worden onder de inbox.        In dit geval u kunt de inbox in de mappenlijst lang indrukken en kiezen voor \'Maak submap\'.
     </string>
     <string name="title_folder_name_missing">Mapnaam ontbreekt</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
@@ -898,7 +897,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_importance_high">Hoog</string>
     <string name="title_search_in_text">Zoek in tekst &#8230;</string>
     <string name="title_forward">Doorsturen</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Verstuur opnieuw</string>
+    <string name="title_resend">Verstuur opnieuw</string>
     <string name="title_new_message">Nieuw bericht</string>
     <string name="title_editasnew">Bewerken als nieuw</string>
     <string name="title_edit_notes">Lokale notities bewerken</string>
@@ -1011,16 +1010,14 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
     <string name="title_ask_review">Beoordeel a.u.b. FairEmail</string>
-    <string name="title_ask_review_rationale">        U gebruikt FairEmail al een tijdje.
-        Het zou gewaardeerd worden als u FairEmail in de Play Store zou kunnen beoordelen.
+    <string name="title_ask_review_rationale">        U gebruikt FairEmail al een tijdje.        Het zou gewaardeerd worden als u FairEmail in de Play Store zou kunnen beoordelen.
     </string>
     <string name="title_need_help">Ik heb hulp nodig</string>
     <string name="title_ask_once">Dit bericht zal slechts één keer verschijnen, tenzij je \'Later\' selecteert</string>
     <string name="title_third_party">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
-    <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.
-        U kunt op het &#x26F6; pictogram tikken om het originele bericht te bekijken en dit bericht te verbergen.
+    <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.        U kunt op het &#x26F6; pictogram tikken om het originele bericht te bekijken en dit bericht te verbergen.
         Het opnieuw opmaken van berichten kost enige tijd, afhankelijk van de grootte van het bericht en de snelheid van uw apparaat.
     </string>
     <string name="title_compose">Opstellen</string>
@@ -1171,8 +1168,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_signature_store">Opslaan</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_for_hint">Voer tekst in</string>
-    <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.
-Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
+    <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.</string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
     <string name="title_search_text_unsupported">\'%s\' betekent dat de mailserver het zoeken in berichtteksten niet ondersteunt</string>
@@ -1521,8 +1517,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_pro_purchase">Koop</string>
     <string name="title_pro_one_time">%1$s (eenmalige aankoop)</string>
     <string name="title_pro_no_play">Play Store is niet gevonden</string>
-    <string name="title_pro_info">         Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken.
-         FairEmail neemt uw privacy serieus en toont geen advertenties en gebruikt geen tracking of analyse om geld te verdienen.
+    <string name="title_pro_info">         Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken.         FairEmail neemt uw privacy serieus en toont geen advertenties en gebruikt geen tracking of analyse om geld te verdienen.
          Om FairEmail op de lange termijn te onderhouden en te ondersteunen, zijn sommige gemaks- en geavanceerde functies niet gratis te gebruiken.
          FairEmail toont een klein bericht om u hieraan te herinneren, dat wordt verwijderd als u de pro-functies koopt.</string>
     <string name="title_pro_whichever">Welke functies ook gekozen worden als pro functies, er is altijd wel iemand die klaagt dat een functie gratis zou moeten zijn. Wees alsjeblieft niet die persoon.</string>
@@ -1747,4 +1742,10 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Klein</item>
+        <item>Gemiddeld</item>
+        <item>Groot</item>
+        <item>Extra groot</item>
+    </string-array>
 </resources>

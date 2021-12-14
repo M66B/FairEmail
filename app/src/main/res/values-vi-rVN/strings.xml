@@ -244,8 +244,7 @@
     <string name="title_setup_reset_images">Hiện hình ảnh</string>
     <string name="title_setup_reset_links">Xác nhận liên kết</string>
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
-    <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.
-        Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
+    <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.        Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
     </string>
     <string name="title_advanced_hint_remark">        Các tuỳ chọn được phân loại theo tab, được chia thành các khu vực, được sắp xếp theo ngoại hình hoặc sử dụng, và có thể tìm kiếm được.
     </string>
@@ -524,8 +523,7 @@
     <string name="title_advanced_import_key">Nhập mã khoá riêng</string>
     <string name="title_advanced_manage_keys">Quản lý các mã khoá riêng</string>
     <string name="title_advanced_ca">Các chứng chỉ CA đã cài đặt</string>
-    <string name="title_advanced_manage_keys_hint">        Cái này sẽ mở cài đặt bảo mật của Android.
-        Các mã khóa và chứng chỉ có thể nói chung được tìm thấy ở Nâng cao - Mã hóa và thông tin xác thực.
+    <string name="title_advanced_manage_keys_hint">        Cái này sẽ mở cài đặt bảo mật của Android.        Các mã khóa và chứng chỉ có thể nói chung được tìm thấy ở Nâng cao - Mã hóa và thông tin xác thực.
     </string>
     <string name="title_advanced_power_menu">Thêm các hành động vào menu nguồn của Android</string>
     <string name="title_advanced_external_search">Cho phép các ứng dụng khác tìm kiếm trong thư</string>
@@ -821,8 +819,7 @@
     <string name="title_auto_delete">Tự động xoá các thư cũ vĩnh viễn</string>
     <string name="title_auto_delete_hint">Các thư cũ là các thư không còn được giữ trên thiết bị</string>
     <string name="title_auto_delete_archive_hint">Việc xoá khỏi thư mục lưu trữ không luôn được máy chủ email cho phép</string>
-    <string name="title_inbox_root_hint">        Một số nhà cung cấp yêu cầu tạo các thư mục mới dưới hộp thư đến.
-        Trong trường hợp này, bạn có thể nhấn giữ hộp thư đến trong danh sách thư mục và chọn \'Tạo thư mục con\'.
+    <string name="title_inbox_root_hint">        Một số nhà cung cấp yêu cầu tạo các thư mục mới dưới hộp thư đến.        Trong trường hợp này, bạn có thể nhấn giữ hộp thư đến trong danh sách thư mục và chọn \'Tạo thư mục con\'.
     </string>
     <string name="title_folder_name_missing">Thiếu tên thư mục</string>
     <string name="title_folder_exists">Thư mục %1$s đã tồn tại</string>
@@ -974,16 +971,14 @@
     <string name="title_ask_reporting">Gửi báo cáo lỗi?</string>
     <string name="title_reporting_why">Việc báo cáo lỗi sẽ giúp cải thiện FairEmail</string>
     <string name="title_ask_review">Hãy đánh giá FairEmail</string>
-    <string name="title_ask_review_rationale">        Bạn đã sử dụng FairEmail được một thời gian.
-        Tôi sẽ rất cảm kích nếu bạn có thể đánh giá FairEmail trên CH Play.
+    <string name="title_ask_review_rationale">        Bạn đã sử dụng FairEmail được một thời gian.        Tôi sẽ rất cảm kích nếu bạn có thể đánh giá FairEmail trên CH Play.
     </string>
     <string name="title_need_help">Tôi cần trợ giúp</string>
     <string name="title_ask_once">Thông báo này sẽ chỉ hiện một lần, trừ khi bạn chọn \'Để sau\'</string>
     <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>
     <string name="title_download_message">Đang tải xuống &#8230;</string>
-    <string name="title_reformatted">        Đây là thư đã định dạng lại.
-        Bạn có thể nhấn vào biểu tượng &#x26F6; để xem thư gốc và để ẩn thông báo này.
+    <string name="title_reformatted">        Đây là thư đã định dạng lại.        Bạn có thể nhấn vào biểu tượng &#x26F6; để xem thư gốc và để ẩn thông báo này.
         Việc định dạng lại thư sẽ tốn một ít thời gian, tuỳ vào kích cỡ thư và tốc độ thiết bị của bạn.
     </string>
     <string name="title_compose">Soạn thư</string>
@@ -1478,8 +1473,7 @@
     <string name="title_pro_purchase">Mua</string>
     <string name="title_pro_one_time">%1$s (thanh toán một lần)</string>
     <string name="title_pro_no_play">Không tìm thấy CH Play</string>
-    <string name="title_pro_info">        Việc phát triển FairEmail tốn hàng nghìn tiếng và, mặc dù thế, đa số tính năng đều miễn phí để sử dụng.
-        FairEmail coi trọng sự riêng tư của bạn và không hiện quảng cáo và không sử dụng việc theo dõi hoặc phân tích để kiếm tiền.
+    <string name="title_pro_info">        Việc phát triển FairEmail tốn hàng nghìn tiếng và, mặc dù thế, đa số tính năng đều miễn phí để sử dụng.        FairEmail coi trọng sự riêng tư của bạn và không hiện quảng cáo và không sử dụng việc theo dõi hoặc phân tích để kiếm tiền.
         Để duy trì và hỗ trợ FairEmail trong dài hạn, một số tính năng tiện nghi và nâng cao không miễn phí để sử dụng.
         FairEmail hiện một thông báo nhỏ để nhắc lại bạn về điều này, nó sẽ được xoá nếu bạn mua các tính năng pro.
     </string>
@@ -1697,4 +1691,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Nhỏ</item>
+        <item>Vừa</item>
+        <item>Lớn</item>
+        <item>Rất lớn</item>
+    </string-array>
 </resources>

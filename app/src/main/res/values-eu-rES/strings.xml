@@ -567,8 +567,7 @@
     <string name="title_auto_trash">Eraman automatikoki mezu zaharrak zakarrontzira</string>
     <string name="title_auto_delete">Ezabatu mezu zaharrak behin betiko automatikoki</string>
     <string name="title_auto_delete_hint">Mezu zaharrak jadanik gailuan gordetzen ez diren mezuak dira</string>
-    <string name="title_inbox_root_hint">        Hornitzaile batzuk karpetak sarrera ontziaren azpian sortzea eskatzen dute.
-        Kasu honetan, sakatu luze sarrera ontzia eta hautatu \'sortu azpi-karpeta\'.
+    <string name="title_inbox_root_hint">        Hornitzaile batzuk karpetak sarrera ontziaren azpian sortzea eskatzen dute.        Kasu honetan, sakatu luze sarrera ontzia eta hautatu \'sortu azpi-karpeta\'.
     </string>
     <string name="title_folder_name_missing">Karpetaren izena falta da</string>
     <string name="title_folder_exists">%1$s karpeta badago aurretik</string>
@@ -1119,8 +1118,7 @@
     <string name="title_pro_feature">Hau ordainpeko ezaugarri bat da</string>
     <string name="title_pro_list">Ordainpeko ezaugarrien zerrenda</string>
     <string name="title_pro_purchase">Erosi</string>
-    <string name="title_pro_info">        FairEmail garatzeko milaka ordu erabili dira, hala ere ezaugarri gehienak doan erabili daitezke.
-        FairEmail-ek serio hartzen du zure pribatutasuna eta ez ditu iragarkiak erakusten ezta jarraipen-elementuak edo analitikak erabiltzen dirua irabazteko.
+    <string name="title_pro_info">        FairEmail garatzeko milaka ordu erabili dira, hala ere ezaugarri gehienak doan erabili daitezke.        FairEmail-ek serio hartzen du zure pribatutasuna eta ez ditu iragarkiak erakusten ezta jarraipen-elementuak edo analitikak erabiltzen dirua irabazteko.
         FairEmail epe luzean mantendu ahal izateko ezaugarri aurreratu batzuk ordainpekoak dira.
         FairEmail-ek mezu txiki bat erakusten du hau gogoratuz, ordainpeko ezaugarriak erostean desagertzen dena.
     </string>
@@ -1328,4 +1326,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Txikia</item>
+        <item>Ertaina</item>
+        <item>Handia</item>
+        <item>Oso handia</item>
+    </string-array>
 </resources>

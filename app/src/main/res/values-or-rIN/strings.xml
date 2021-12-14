@@ -32,6 +32,9 @@
     </plurals>
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
     <string name="title_block_sender_domain">\'%1$s\' ଡୋମେନଟିକୁ ଅବରୋଧ କରନ୍ତୁ</string>
+    <string name="title_block_sender_hint">        ପ୍ରେରକକୁ ଅବରୋଧ କରିବା ଏକ ମାଗଣା ବୈଶିଷ୍ଟ୍ୟ।
+        ଗୋଟେ ପ୍ରେରକ ଡୋମେନ୍ ଅବରୋଧ କରିବାରେ ଫିଲ୍ଟର୍ ନିୟମ ବ୍ୟବହାର ହୁଏ, ଯାହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ।
+    </string>
     <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
     <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
     <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
@@ -160,6 +163,7 @@
     <string name="title_advanced_caption_message">ବାର୍ତ୍ତା</string>
     <string name="title_advanced_portrait">ପୋଟ୍ରେଟ୍ ମୋଡ୍</string>
     <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
+    <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_cards_shadow_highlight">ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ବଦଳରେ ହାଇଲାଇଟ୍ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
@@ -288,7 +292,7 @@
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">ପୁନଃପ୍ରେରଣ</string>
+    <string name="title_resend">ପୁନଃପ୍ରେରଣ</string>
     <string name="title_force_light">ହାଲୁକା ଥିମ୍ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_raw_send_message">ବାର୍ତ୍ତା</string>
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
@@ -331,6 +335,9 @@
     <string name="title_send_priority">ପ୍ରାଥମିକତା</string>
     <string name="title_style">ଶୈଳୀ</string>
     <string name="title_style_size">ଆକାର</string>
+    <string name="title_style_size_small">ଛୋଟ</string>
+    <string name="title_style_size_medium">ମଧ୍ୟମ</string>
+    <string name="title_style_size_large">ବଡ଼</string>
     <string name="title_style_align_start">ଆରମ୍ଭ</string>
     <string name="title_style_align_center">କେନ୍ଦ୍ର</string>
     <string name="title_style_align_end">ଶେଷ</string>
@@ -483,13 +490,19 @@
         <item>Primary account folders</item>
         <item>ଆକାଉଣ୍ଟଗୁଡ଼ିକ</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>ଛୋଟ</item>
+        <item>ମଧ୍ୟମ</item>
+        <item>ବଡ଼</item>
+        <item>ଅତିରିକ୍ତ ବଡ଼</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="fontSizeNames">
         <item>ଡିଫଲ୍ଟ</item>
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>ଛୋଟ</item>
+        <item>ମଧ୍ୟମ</item>
+        <item>ବଡ଼</item>
     </string-array>
     <string-array name="receiptNames">
         <item>କେବଳ ପଠନ ରସିଦ</item>
@@ -519,4 +532,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>ଛୋଟ</item>
+        <item>ମଧ୍ୟମ</item>
+        <item>ବଡ଼</item>
+        <item>ଅତିରିକ୍ତ ବଡ଼</item>
+    </string-array>
 </resources>

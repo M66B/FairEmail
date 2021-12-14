@@ -280,8 +280,7 @@
     <string name="title_setup_reset_images">Pokaż obrazy</string>
     <string name="title_setup_reset_links">Potwierdź linki</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
-    <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
-         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
+    <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
     <string name="title_advanced_hint_remark">Opcje są podzielone na kategorie według zakładek, podzielone na sekcje, uporządkowane według wyglądu lub użycia i można je przeszukiwać.
     </string>
@@ -568,8 +567,7 @@
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
     <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
     <string name="title_advanced_ca">Zainstalowane certyfikaty CA</string>
-    <string name="title_advanced_manage_keys_hint">        To przeniesie Cię do ustawień zabezpieczeń Androida.
-        Klucze i certyfikaty można znaleźć w Zaawansowane - Szyfrowanie i uwierzytelnianie.
+    <string name="title_advanced_manage_keys_hint">        To przeniesie Cię do ustawień zabezpieczeń Androida.        Klucze i certyfikaty można znaleźć w Zaawansowane - Szyfrowanie i uwierzytelnianie.
     </string>
     <string name="title_advanced_power_menu">Dodaj akcje do menu zasilania Androida</string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
@@ -872,8 +870,7 @@
     <string name="title_auto_delete">Automatycznie trwale usuwaj stare wiadomości</string>
     <string name="title_auto_delete_hint">Stare wiadomości to wiadomości, które nie są już przechowywane na urządzeniu</string>
     <string name="title_auto_delete_archive_hint">Usunięcie z folderu archiwum nie zawsze jest dozwolone przez serwer e-mail</string>
-    <string name="title_inbox_root_hint">        Niektórzy dostawcy wymagają utworzenia nowych folderów w skrzynce odbiorczej.
-        W takim przypadku możesz dłużej nacisnąć skrzynkę odbiorczą na liście folderów i wybrać \'Utwórz podfolder\'.
+    <string name="title_inbox_root_hint">        Niektórzy dostawcy wymagają utworzenia nowych folderów w skrzynce odbiorczej.        W takim przypadku możesz dłużej nacisnąć skrzynkę odbiorczą na liście folderów i wybrać \'Utwórz podfolder\'.
     </string>
     <string name="title_folder_name_missing">Brak nazwy folderu</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
@@ -918,6 +915,7 @@
     <string name="title_importance_high">Wysoka</string>
     <string name="title_search_in_text">Szukaj w tekście &#8230;</string>
     <string name="title_forward">Prześlij dalej</string>
+    <string name="title_resend">Wyślij ponownie</string>
     <string name="title_new_message">Nowa wiadomość</string>
     <string name="title_editasnew">Edytuj jako nową</string>
     <string name="title_edit_notes">Edytuj lokalne notatki</string>
@@ -1030,16 +1028,14 @@
     <string name="title_ask_reporting">Wyślij raporty o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże ulepszyć FairEmail</string>
     <string name="title_ask_review">Oceń FairEmail</string>
-    <string name="title_ask_review_rationale">        Używasz FairEmail już od jakiegoś czasu.
-        Byłbym wdzięczny, gdybyś mógł ocenić FairEmail w Sklepie Play.
+    <string name="title_ask_review_rationale">        Używasz FairEmail już od jakiegoś czasu.        Byłbym wdzięczny, gdybyś mógł ocenić FairEmail w Sklepie Play.
     </string>
     <string name="title_need_help">Potrzebuję pomocy</string>
     <string name="title_ask_once">Ta wiadomość pojawi się tylko raz, chyba że wybierzesz \'Później\'</string>
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
-    <string name="title_reformatted">        To jest sformatowany widok wiadomości.
-         Możesz dotknąć &#x26F6; ikonę, aby wyświetlić oryginalną wiadomość i ukryć tę wiadomość.
+    <string name="title_reformatted">        To jest sformatowany widok wiadomości.         Możesz dotknąć &#x26F6; ikonę, aby wyświetlić oryginalną wiadomość i ukryć tę wiadomość.
          Ponowne formatowanie wiadomości może zająć trochę czasu, w zależności od rozmiaru wiadomości i szybkości urządzenia.
     </string>
     <string name="title_compose">Napisz</string>
@@ -1541,8 +1537,7 @@
     <string name="title_pro_purchase">Kup</string>
     <string name="title_pro_one_time">%1$s (jednorazowy zakup)</string>
     <string name="title_pro_no_play">Sklep Play nie został znaleziony</string>
-    <string name="title_pro_info">        Opracowanie FairEmail zajęło dosłownie tysiące godzin, a mimo to większość funkcji jest darmowa.
-        FairEmail poważnie traktuje Twoją prywatność i nie wyświetla reklam oraz nie wykorzystuje śledzenia ani analiz do zarabiania pieniędzy.
+    <string name="title_pro_info">        Opracowanie FairEmail zajęło dosłownie tysiące godzin, a mimo to większość funkcji jest darmowa.        FairEmail poważnie traktuje Twoją prywatność i nie wyświetla reklam oraz nie wykorzystuje śledzenia ani analiz do zarabiania pieniędzy.
         Aby utrzymać i wspierać FairEmail na dłuższą metę, niektóre udogodnienia i zaawansowane funkcje nie są bezpłatne.
         FairEmail wyświetla małą wiadomość przypominającą o tym, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
     <string name="title_pro_whichever">Bez względu na to, jakie funkcje są wybierane jako Pro, zawsze jest ktoś, kto narzeka, że dana funkcja powinna być darmowa. Proszę nie bądź tą osobą.</string>
@@ -1769,4 +1764,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Małe</item>
+        <item>Średnie</item>
+        <item>Duże</item>
+        <item>Bardzo duży</item>
+    </string-array>
 </resources>

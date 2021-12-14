@@ -238,8 +238,7 @@
     <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_setup_reset_images">Mostrar Imagens</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
-    <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.
-        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
+    <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
     </string>
     <string name="title_advanced_hint_setup">Você pode configurar uma conta tocando no botão do assistente na tela de configuração principal.</string>
     <string name="title_advanced_section_main">Principal</string>
@@ -499,8 +498,7 @@
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Gerenciar chaves privadas</string>
     <string name="title_advanced_ca">Certificados CA instalados</string>
-    <string name="title_advanced_manage_keys_hint">        Isso abrirá as configurações de segurança do Android.
-        Chaves e certificados geralmente podem ser encontrados em Avançado - Criptografia e credenciais.
+    <string name="title_advanced_manage_keys_hint">        Isso abrirá as configurações de segurança do Android.        Chaves e certificados geralmente podem ser encontrados em Avançado - Criptografia e credenciais.
     </string>
     <string name="title_advanced_power_menu">Adicionar ações ao menu de energia do Android</string>
     <string name="title_advanced_external_search">Permitir que outros aplicativos pesquisem nas mensagens</string>
@@ -787,8 +785,7 @@
     <string name="title_auto_delete">Excluir permanentemente mensagens antigas</string>
     <string name="title_auto_delete_hint">Mensagens antigas são mensagens que não são mais mantidas no dispositivo</string>
     <string name="title_auto_delete_archive_hint">A exclusão na pasta de arquivamento nem sempre é permitida pelo servidor de e-mail</string>
-    <string name="title_inbox_root_hint">        Alguns provedores exigem que novas pastas sejam criadas abaixo da caixa de entrada.
-        Neste caso, você pode pressionar longamente a caixa de entrada na lista de pastas e selecionar \'Criar subpasta\'.
+    <string name="title_inbox_root_hint">        Alguns provedores exigem que novas pastas sejam criadas abaixo da caixa de entrada.        Neste caso, você pode pressionar longamente a caixa de entrada na lista de pastas e selecionar \'Criar subpasta\'.
     </string>
     <string name="title_folder_name_missing">Nome da pasta faltando</string>
     <string name="title_folder_exists">A pasta %1$s já existe</string>
@@ -937,8 +934,7 @@
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>
     <string name="title_ask_review">Por favor, reveja o FairEmail</string>
-    <string name="title_ask_review_rationale">        Você tem usado o FaitEmail já há algum tempo.
-        Nós apreciaríamos se você pudesse nos dar uma nota na Play Store.
+    <string name="title_ask_review_rationale">        Você tem usado o FaitEmail já há algum tempo.        Nós apreciaríamos se você pudesse nos dar uma nota na Play Store.
     </string>
     <string name="title_need_help">Preciso de ajuda</string>
     <string name="title_ask_once">Essa mensagem só aparecerá uma vez, a menos que selecione \'Mais tarde\'</string>
@@ -1437,8 +1433,7 @@
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_one_time">%1$s (compra única)</string>
     <string name="title_pro_no_play">Play Store não encontrada</string>
-    <string name="title_pro_info">        O desenvolvimento do FairEmail levou literalmente milhares de horas e, apesar disso, a maioria dos recursos é gratuita.
-        O FairEmail leva sua privacidade a sério e não mostra propagandas nem usa rastreadores ou análises para ganhar dinheiro.
+    <string name="title_pro_info">        O desenvolvimento do FairEmail levou literalmente milhares de horas e, apesar disso, a maioria dos recursos é gratuita.        O FairEmail leva sua privacidade a sério e não mostra propagandas nem usa rastreadores ou análises para ganhar dinheiro.
         Para tornar o FairEmail sustentável a longo prazo, algumas conveniências e recursos avançados não são gratuitos.
         O FairEmail exibe uma pequena mensagem para lembrá-lo disso, que será removida se você comprar os recursos pro.
     </string>
@@ -1661,4 +1656,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+        <item>Muito grande</item>
+    </string-array>
 </resources>

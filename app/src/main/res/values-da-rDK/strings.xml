@@ -261,7 +261,7 @@
     <string name="title_setup_reset_links">Bekræft links</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
-        Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
+        Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
     </string>
     <string name="title_advanced_hint_remark">        Indstillingerne er kategoriseret efter fane, opdelt i afsnit, organiseret efter udseende/brug, og er søgbare.
     </string>
@@ -357,6 +357,7 @@
     <string name="title_advanced_landscape">Liggende tilstand</string>
     <string name="title_advanced_two_row">Brug to rækker</string>
     <string name="title_advanced_two_col">Brug to kolonner</string>
+    <string name="title_advanced_min_screen_size">Minimumsskærmstørrelse for opsplitning af skærmen</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
     <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_encrypt_subject">Kryptér emne</string>
     <string name="title_advanced_sign_algo">Signaturalgoritme</string>
     <string name="title_advanced_encrypt_algo">Krypteringsalgoritme</string>
-    <string name="title_advanced_remark_algo">        Bemærk, at ikke alle e -mailklienter understøtter alle algoritmer.
+    <string name="title_advanced_remark_algo">        Bemærk, at ikke alle e-mailklienter understøtter alle algoritmer.
         Standardalgoritmerne SHA256 og AES128 understøttes almindeligvis.
     </string>
     <string name="title_advanced_check_certificate">Tjek offentlig nøgle ved afsendelse</string>
@@ -546,7 +547,7 @@
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
     <string name="title_advanced_ca">Installerede CA-certifikater</string>
     <string name="title_advanced_manage_keys_hint">        Dette vil åbne Android-sikkerhedsindstillingerne.
-         Nøgler og certifikater kan generelt findes under Avanceret - Kryptering og akkreditiver.
+        Nøgler og certifikater kan generelt findes under Avanceret - Kryptering og akkreditiver.
     </string>
     <string name="title_advanced_power_menu">Føj handlinger til Androids Tænd/Sluk menu</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
@@ -850,7 +851,7 @@
     <string name="title_auto_delete_hint">Gamle beskeder er beskeder, som ikke længere opbevares på enheden</string>
     <string name="title_auto_delete_archive_hint">Sletning fra arkivmappen er ikke altid tilladt af e-mail-serveren</string>
     <string name="title_inbox_root_hint">        Visse udbydere kræver, at nye mapper oprettes under indbakken.
-         Er dette tilfældet, så tryk og hold på indbakken i mappelisten og vælg \'Opret undermappe\'.
+        Er dette tilfældet, så tryk og hold på indbakken i mappelisten og vælg \'Opret undermappe\'.
     </string>
     <string name="title_folder_name_missing">Mappenavn manngler</string>
     <string name="title_folder_exists">Mappen %1$s findes</string>
@@ -895,7 +896,7 @@
     <string name="title_importance_high">Høj</string>
     <string name="title_search_in_text">Søg i tekst&#8230;</string>
     <string name="title_forward">Videresend</string>
-    <string name="title_resend" comment="title_resend&#10;Resend according to: https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">Send igen</string>
+    <string name="title_resend">Send igen</string>
     <string name="title_new_message">Ny besked</string>
     <string name="title_editasnew">Redigér som ny</string>
     <string name="title_edit_notes">Redigér lokale notater</string>
@@ -1008,15 +1009,15 @@
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
     <string name="title_ask_review">Bedøm venligst FairEmail</string>
-    <string name="title_ask_review_rationale">        Du har nu benyttet FairEmail i et stykke tid.
-         Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
+    <string name="title_ask_review_rationale">        Du har nu benyttet FairEmail i et stykke tide.
+        Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
     </string>
     <string name="title_need_help">Jeg behøver hjælp</string>
     <string name="title_ask_once">Denne besked vises kun én gang, med mindre duvælger \'Senere\'</string>
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
-    <string name="title_reformatted">        Dette er den reformaterede beskedvisning.
+    <string name="title_reformatted">        Dette er den omformaterede beskedvisning.
         Tryk på &#x26F6;-ikonet for at se originalbeskeden og skjule denne besked.
         Beskedomformatering tages lidt tid afhængigt af beskedstørrelsen og hastigheden på enheden.
     </string>
@@ -1169,7 +1170,7 @@
     <string name="title_search">Søg</string>
     <string name="title_search_for_hint">Angiv tekst</string>
     <string name="title_search_hint">        Indledningsvis udføres søgningen på enheden.
-         For også at søge på serveren, så tryk på knappen \'søg igen\'.
+        For også at søge på serveren, så tryk på knappen \'søg igen\'.
     </string>
     <string name="title_search_index_hint">Søgning via søgeindekset er hurtig, men vil kun finde hele ord.</string>
     <string name="title_search_text_hint">Søgning efter tekst i beskeder, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
@@ -1519,9 +1520,9 @@
     <string name="title_pro_one_time">%1$s (engangskøb)</string>
     <string name="title_pro_no_play">Play Butik blev ikke fundet</string>
     <string name="title_pro_info">        Udviklingen af FairEmail tog bogstaveligt talt tusindvis af timer, og på trods heraf, er de fleste af funktionerne gratis at benytte.
-         FairEmail tager din datafortrolighed seriøst og viser ikke annoncer og anvender ikke tracking eller analyse mhp. profitformål.
-         For at vedligeholde og supportere FairEmail i det lange løb er visse avancerede og bekvemmelighedsfunktioner ikke gratis at benytte.
-         For at minde dig om dette, viser FairEmail viser en lille meddelelse, der dog fjernes, hvis du køber Pro-funktionerne.
+        FairEmail tager datafortrolighed seriøst og viser ikke annoncer og anvender ikke tracking eller analyse mhp. profitformål.
+        For at vedligeholde og supportere FairEmail i det lange løb, er visse avancerede og bekvemmelighedsfunktioner ikke gratis at benytte.
+        For at minde om dette, viser FairEmail en lille meddelelse, der dog forsvinder ved køb af Pro-funktionerne.
     </string>
     <string name="title_pro_whichever">Uanset valgte Pro-funktioner, er der altid nogle, som klager over, at en funktion ikke er gratis. Vær venligst ikke en sådan person.</string>
     <string name="title_pro_hide">Skjul små meddelelser i %1$d uger</string>
@@ -1744,4 +1745,10 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Lille</item>
+        <item>Mellem</item>
+        <item>Stor</item>
+        <item>Ekstra stor</item>
+    </string-array>
 </resources>
