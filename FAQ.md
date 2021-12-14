@@ -3407,7 +3407,7 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 *Resend (version 1.1788+)*
 
-[Resend](https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6) a message via the reply/answer menu.
+Resend a message as defined in [rfc2822 section 3.6.6](https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6) via the reply/answer menu.
 
 To resend a message, the original message headers are required.
 You can enable downloading of messages headers for all messages in the connection settings of the app.
