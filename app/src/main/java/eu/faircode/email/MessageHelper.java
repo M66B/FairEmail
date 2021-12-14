@@ -1354,7 +1354,7 @@ public class MessageHelper {
                 else
                     priority = EntityMessage.PRIORITIY_NORMAL;
             } catch (NumberFormatException ex) {
-                Log.e("priority=" + header);
+                Log.w("priority=" + header);
             }
 
         if (EntityMessage.PRIORITIY_NORMAL.equals(priority))
@@ -2415,7 +2415,7 @@ public class MessageHelper {
                         if (CHARSET16.contains(cs)) {
                             Charset detected = CharsetHelper.detect(result);
                             if (!CHARSET16.contains(detected))
-                                Log.e(new Throwable("Charset=" + cs + " detected=" + detected));
+                                Log.w(new Throwable("Charset=" + cs + " detected=" + detected));
                             if (StandardCharsets.US_ASCII.equals(detected) ||
                                     StandardCharsets.UTF_8.equals(detected)) {
                                 charset = null;
@@ -2453,13 +2453,13 @@ public class MessageHelper {
 
                                     // Check if really UTF-8
                                     if (StandardCharsets.UTF_8.equals(c) && !CharsetHelper.isUTF8(result)) {
-                                        Log.e("Charset meta=" + meta + " !isUTF8");
+                                        Log.w("Charset meta=" + meta + " !isUTF8");
                                         break;
                                     }
 
                                     // 16 bits charsets cannot be converted to 8 bits
                                     if (CHARSET16.contains(c)) {
-                                        Log.e("Charset meta=" + meta);
+                                        Log.w("Charset meta=" + meta);
                                         break;
                                     }
 
@@ -2480,12 +2480,8 @@ public class MessageHelper {
                                                     StandardCharsets.ISO_8859_1.equals(c)))
                                         break;
 
-                                    if (BuildConfig.PLAY_STORE_RELEASE)
-                                        Log.w("Converting detected=" + detected + " meta=" + c);
-                                    else
-                                        Log.e("Converting detected=" + detected + " meta=" + c);
-
                                     // Convert
+                                    Log.w("Converting detected=" + detected + " meta=" + c);
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
                                     break;
                                 } catch (Throwable ex) {
