@@ -4,6 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Added support for foldable devices
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1788 - 2021-12-13
 
 * Added experimental resend support (RFC2822 section 3.6.6)
