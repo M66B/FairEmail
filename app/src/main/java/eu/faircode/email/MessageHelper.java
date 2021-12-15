@@ -406,6 +406,7 @@ public class MessageHelper {
                 if (receipt_type == 1 || receipt_type == 2) // Delivery receipt
                     imessage.addHeader("Return-Receipt-To", to);
 
+
                 // https://tools.ietf.org/html/rfc3798
                 if (receipt_type == 0 || receipt_type == 2) // Read receipt
                     imessage.addHeader("Disposition-Notification-To", to);
@@ -1446,8 +1447,9 @@ public class MessageHelper {
     boolean getReceiptRequested() throws MessagingException {
         ensureHeaders();
 
-        return (imessage.getHeader("Return-Receipt-To") != null ||
-                imessage.getHeader("Disposition-Notification-To") != null);
+        // Return-Receipt-To = delivery receipt
+        // Disposition-Notification-To = read receipt
+        return (imessage.getHeader("Disposition-Notification-To") != null);
     }
 
     Address[] getReceiptTo() throws MessagingException {
