@@ -2527,6 +2527,10 @@ public class MessageHelper {
                         }
                     }
                 } else if (h.isDSN()) {
+                    String action = null;
+                    String diag = null;
+                    String status = null;
+
                     StringBuilder report = new StringBuilder();
                     report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
                     for (String line : result.split("\\r?\\n"))
@@ -2549,10 +2553,27 @@ public class MessageHelper {
                                         .append(": ")
                                         .append(TextUtils.htmlEncode(value))
                                         .append("<br>");
+
+                                // https://datatracker.ietf.org/doc/html/rfc3464#section-2.3
+                                switch (name) {
+                                    case "Action":
+                                        action = value;
+                                        break;
+                                    case "Status":
+                                        status = value;
+                                        break;
+                                    case "Diagnostic-Code":
+                                        diag = value;
+                                        break;
+                                }
                             }
                         }
                     report.append("</div>");
                     result = report.toString();
+
+                    if (diag != null &&
+                            ("failed".equals(action) || "delayed".equals(action)))
+                        warnings.add(diag + (status == null ? "" : " (" + status + ")"));
                 } else
                     Log.w("Unexpected content type=" + h.contentType);
 
