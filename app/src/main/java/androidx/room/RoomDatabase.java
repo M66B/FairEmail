@@ -19,6 +19,7 @@ package androidx.room;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.CancellationSignal;
@@ -33,9 +34,11 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.WorkerThread;
 import androidx.arch.core.executor.ArchTaskExecutor;
+import androidx.room.migration.AutoMigrationSpec;
 import androidx.room.migration.Migration;
 import androidx.room.util.SneakyThrow;
 import androidx.sqlite.db.SimpleSQLiteQuery;
+import androidx.sqlite.db.SupportSQLiteCompat;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import androidx.sqlite.db.SupportSQLiteQuery;
@@ -99,6 +102,15 @@ public abstract class RoomDatabase {
     @Deprecated
     protected List<Callback> mCallbacks;
 
+    /**
+     * A map of auto migration spec classes to their provided instance.
+     *
+     * @hide
+     */
+    @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+    @NonNull
+    protected Map<Class<? extends AutoMigrationSpec>, AutoMigrationSpec> mAutoMigrationSpecs;
+
     private final ReentrantReadWriteLock mCloseLock = new ReentrantReadWriteLock();
 
     @Nullable
@@ -150,7 +162,6 @@ public abstract class RoomDatabase {
     // Updated later to an unmodifiable map when init is called.
     private final Map<Class<?>, Object> mTypeConverters;
 
-
     /**
      * Gets the instance of the given Type Converter.
      *
@@ -174,6 +185,7 @@ public abstract class RoomDatabase {
     public RoomDatabase() {
         mInvalidationTracker = createInvalidationTracker();
         mTypeConverters = new HashMap<>();
+        mAutoMigrationSpecs = new HashMap<>();
     }
 
     /**
@@ -184,6 +196,47 @@ public abstract class RoomDatabase {
     @CallSuper
     public void init(@NonNull DatabaseConfiguration configuration) {
         mOpenHelper = createOpenHelper(configuration);
+        Set<Class<? extends AutoMigrationSpec>> requiredAutoMigrationSpecs =
+                getRequiredAutoMigrationSpecs();
+        BitSet usedSpecs = new BitSet();
+        for (Class<? extends AutoMigrationSpec> spec : requiredAutoMigrationSpecs) {
+            int foundIndex = -1;
+            for (int providedIndex = configuration.autoMigrationSpecs.size() - 1;
+                    providedIndex >= 0; providedIndex--
+            ) {
+                Object provided = configuration.autoMigrationSpecs.get(providedIndex);
+                if (spec.isAssignableFrom(provided.getClass())) {
+                    foundIndex = providedIndex;
+                    usedSpecs.set(foundIndex);
+                    break;
+                }
+            }
+            if (foundIndex < 0) {
+                throw new IllegalArgumentException(
+                        "A required auto migration spec (" + spec.getCanonicalName()
+                                + ") is missing in the database configuration.");
+            }
+            mAutoMigrationSpecs.put(spec, configuration.autoMigrationSpecs.get(foundIndex));
+        }
+
+        for (int providedIndex = configuration.autoMigrationSpecs.size() - 1;
+                providedIndex >= 0; providedIndex--) {
+            if (!usedSpecs.get(providedIndex)) {
+                throw new IllegalArgumentException("Unexpected auto migration specs found. "
+                        + "Annotate AutoMigrationSpec implementation with "
+                        + "@ProvidedAutoMigrationSpec annotation or remove this spec from the "
+                        + "builder.");
+            }
+        }
+
+        List<Migration> autoMigrations = getAutoMigrations(mAutoMigrationSpecs);
+        for (Migration autoMigration : autoMigrations) {
+            boolean migrationExists = configuration.migrationContainer.getMigrations()
+                            .containsKey(autoMigration.startVersion);
+            if (!migrationExists) {
+                configuration.migrationContainer.addMigrations(autoMigration);
+            }
+        }
 
         // Configure SqliteCopyOpenHelper if it is available:
         SQLiteCopyOpenHelper copyOpenHelper = unwrapOpenHelper(SQLiteCopyOpenHelper.class,
@@ -211,9 +264,9 @@ public abstract class RoomDatabase {
         mTransactionExecutor = new TransactionExecutor(configuration.transactionExecutor);
         mAllowMainThreadQueries = configuration.allowMainThreadQueries;
         mWriteAheadLoggingEnabled = wal;
-        if (configuration.multiInstanceInvalidation) {
+        if (configuration.multiInstanceInvalidationServiceIntent != null) {
             mInvalidationTracker.startMultiInstanceInvalidation(configuration.context,
-                    configuration.name);
+                    configuration.name, configuration.multiInstanceInvalidationServiceIntent);
         }
 
         Map<Class<?>, List<Class<?>>> requiredFactories = getRequiredTypeConverters();
@@ -254,6 +307,22 @@ public abstract class RoomDatabase {
                         + "or remove this converter from the builder.");
             }
         }
+    }
+
+    /**
+     * Returns a list of {@link Migration} of a database that have been automatically generated.
+     *
+     * @return A list of migration instances each of which is a generated autoMigration
+     * @param autoMigrationSpecs
+     *
+     * @hide
+     */
+    @NonNull
+    @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+    public List<Migration> getAutoMigrations(
+            @NonNull Map<Class<? extends AutoMigrationSpec>, AutoMigrationSpec> autoMigrationSpecs
+    ) {
+        return Collections.emptyList();
     }
 
     /**
@@ -320,6 +389,21 @@ public abstract class RoomDatabase {
     @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
     protected Map<Class<?>, List<Class<?>>> getRequiredTypeConverters() {
         return Collections.emptyMap();
+    }
+
+    /**
+     * Returns a Set of required AutoMigrationSpec classes.
+     * <p>
+     * This is implemented by the generated code.
+     *
+     * @return Creates a set that will include all required auto migration specs for this database.
+     *
+     * @hide
+     */
+    @NonNull
+    @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+    public Set<Class<? extends AutoMigrationSpec>> getRequiredAutoMigrationSpecs() {
+        return Collections.emptySet();
     }
 
     /**
@@ -625,7 +709,7 @@ public abstract class RoomDatabase {
     /**
      * Journal modes for SQLite database.
      *
-     * @see RoomDatabase.Builder#setJournalMode(JournalMode)
+     * @see Builder#setJournalMode(JournalMode)
      */
     public enum JournalMode {
 
@@ -653,7 +737,6 @@ public abstract class RoomDatabase {
          * Resolves {@link #AUTOMATIC} to either {@link #TRUNCATE} or
          * {@link #WRITE_AHEAD_LOGGING}.
          */
-        @SuppressLint("NewApi")
         JournalMode resolve(Context context) {
             if (this != AUTOMATIC) {
                 return this;
@@ -670,7 +753,7 @@ public abstract class RoomDatabase {
 
         private static boolean isLowRamDevice(@NonNull ActivityManager activityManager) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return activityManager.isLowRamDevice();
+                return SupportSQLiteCompat.Api19Impl.isLowRamDevice(activityManager);
             }
             return false;
         }
@@ -690,6 +773,7 @@ public abstract class RoomDatabase {
         private QueryCallback mQueryCallback;
         private Executor mQueryCallbackExecutor;
         private List<Object> mTypeConverters;
+        private List<AutoMigrationSpec> mAutoMigrationSpecs;
 
         /** The Executor used to run database queries. This should be background-threaded. */
         private Executor mQueryExecutor;
@@ -698,7 +782,7 @@ public abstract class RoomDatabase {
         private SupportSQLiteOpenHelper.Factory mFactory;
         private boolean mAllowMainThreadQueries;
         private JournalMode mJournalMode;
-        private boolean mMultiInstanceInvalidation;
+        private Intent mMultiInstanceInvalidationIntent;
         private boolean mRequireMigration;
         private boolean mAllowDestructiveMigrationOnDowngrade;
 
@@ -962,6 +1046,23 @@ public abstract class RoomDatabase {
         }
 
         /**
+         * Adds an auto migration spec to the builder.
+         *
+         * @param autoMigrationSpec The auto migration object that is annotated with
+         * {@link AutoMigrationSpec} and is declared in an {@link AutoMigration} annotation.
+         * @return This {@link Builder} instance.
+         */
+        @NonNull
+        @SuppressWarnings("MissingGetterMatchingBuilder")
+        public Builder<T> addAutoMigrationSpec(@NonNull AutoMigrationSpec autoMigrationSpec) {
+            if (mAutoMigrationSpecs == null) {
+                mAutoMigrationSpecs = new ArrayList<>();
+            }
+            mAutoMigrationSpecs.add(autoMigrationSpec);
+            return this;
+        }
+
+        /**
          * Disables the main thread query check for Room.
          * <p>
          * Room ensures that Database is never accessed on the main thread because it may lock the
@@ -1067,7 +1168,33 @@ public abstract class RoomDatabase {
          */
         @NonNull
         public Builder<T> enableMultiInstanceInvalidation() {
-            mMultiInstanceInvalidation = mName != null;
+            mMultiInstanceInvalidationIntent = mName != null ? new Intent(mContext,
+                    MultiInstanceInvalidationService.class) : null;
+            return this;
+        }
+
+        /**
+         * Sets whether table invalidation in this instance of {@link RoomDatabase} should be
+         * broadcast and synchronized with other instances of the same {@link RoomDatabase},
+         * including those in a separate process. In order to enable multi-instance invalidation,
+         * this has to be turned on both ends and need to point to the same
+         * {@link MultiInstanceInvalidationService}.
+         * <p>
+         * This is not enabled by default.
+         * <p>
+         * This does not work for in-memory databases. This does not work between database instances
+         * targeting different database files.
+         *
+         * @return This {@link Builder} instance.
+         * @param invalidationServiceIntent Intent to bind to the
+         * {@link MultiInstanceInvalidationService}.
+         */
+        @SuppressWarnings("MissingGetterMatchingBuilder")
+        @NonNull
+        @ExperimentalRoomApi
+        public Builder<T> setMultiInstanceInvalidationServiceIntent(
+                @NonNull Intent invalidationServiceIntent) {
+            mMultiInstanceInvalidationIntent = mName != null ? invalidationServiceIntent : null;
             return this;
         }
 
@@ -1346,7 +1473,7 @@ public abstract class RoomDatabase {
                             mJournalMode.resolve(mContext),
                             mQueryExecutor,
                             mTransactionExecutor,
-                            mMultiInstanceInvalidation,
+                            mMultiInstanceInvalidationIntent,
                             mRequireMigration,
                             mAllowDestructiveMigrationOnDowngrade,
                             mMigrationsNotRequiredFrom,
@@ -1354,7 +1481,8 @@ public abstract class RoomDatabase {
                             mCopyFromFile,
                             mCopyFromInputStream,
                             mPrepackagedDatabaseCallback,
-                            mTypeConverters);
+                            mTypeConverters,
+                            mAutoMigrationSpecs);
             T db = Room.getGeneratedImplementation(mDatabaseClass, DB_IMPL_SUFFIX);
             db.init(configuration);
             return db;
@@ -1380,6 +1508,18 @@ public abstract class RoomDatabase {
             }
         }
 
+        /**
+         * Adds the given migrations to the list of available migrations. If 2 migrations have the
+         * same start-end versions, the latter migration overrides the previous one.
+         *
+         * @param migrations List of available migrations.
+         */
+        public void addMigrations(@NonNull List<Migration> migrations) {
+            for (Migration migration : migrations) {
+                addMigration(migration);
+            }
+        }
+
         private void addMigration(Migration migration) {
             final int start = migration.startVersion;
             final int end = migration.endVersion;
@@ -1393,6 +1533,17 @@ public abstract class RoomDatabase {
                 Log.w(Room.LOG_TAG, "Overriding migration " + existing + " with " + migration);
             }
             targetMap.put(end, migration);
+        }
+
+        /**
+         * Returns the map of available migrations where the key is the start version of the
+         * migration, and the value is a map of (end version -> Migration).
+         *
+         * @return Map of migrations keyed by the start version
+         */
+        @NonNull
+        public Map<Integer, Map<Integer, Migration>> getMigrations() {
+            return Collections.unmodifiableMap(mMigrations);
         }
 
         /**

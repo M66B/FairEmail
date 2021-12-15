@@ -16,7 +16,6 @@
 
 package androidx.room;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.CharArrayBuffer;
@@ -36,6 +35,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.arch.core.util.Function;
 import androidx.room.util.SneakyThrow;
+import androidx.sqlite.db.SupportSQLiteCompat;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import androidx.sqlite.db.SupportSQLiteQuery;
@@ -440,7 +440,6 @@ final class AutoClosingRoomOpenHelper implements SupportSQLiteOpenHelper, Delega
             });
         }
 
-        @SuppressLint("UnsafeNewApiCall")
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void setForeignKeyConstraintsEnabled(boolean enable) {
@@ -464,7 +463,6 @@ final class AutoClosingRoomOpenHelper implements SupportSQLiteOpenHelper, Delega
                     + "OpenHelper instead of on the database directly.");
         }
 
-        @SuppressLint("UnsafeNewApiCall")
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public boolean isWriteAheadLoggingEnabled() {
@@ -698,27 +696,24 @@ final class AutoClosingRoomOpenHelper implements SupportSQLiteOpenHelper, Delega
             mDelegate.setNotificationUri(cr, uri);
         }
 
-        @SuppressLint("UnsafeNewApiCall")
         @RequiresApi(api = Build.VERSION_CODES.Q)
         @Override
         public void setNotificationUris(@NonNull ContentResolver cr,
                 @NonNull List<Uri> uris) {
-            mDelegate.setNotificationUris(cr, uris);
+            SupportSQLiteCompat.Api29Impl.setNotificationUris(mDelegate, cr, uris);
         }
 
-        @SuppressLint("UnsafeNewApiCall")
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public Uri getNotificationUri() {
-            return mDelegate.getNotificationUri();
+            return SupportSQLiteCompat.Api19Impl.getNotificationUri(mDelegate);
         }
 
-        @SuppressLint("UnsafeNewApiCall")
         @RequiresApi(api = Build.VERSION_CODES.Q)
         @Nullable
         @Override
         public List<Uri> getNotificationUris() {
-            return mDelegate.getNotificationUris();
+            return SupportSQLiteCompat.Api29Impl.getNotificationUris(mDelegate);
         }
 
         @Override
@@ -726,11 +721,10 @@ final class AutoClosingRoomOpenHelper implements SupportSQLiteOpenHelper, Delega
             return mDelegate.getWantsAllOnMoveCalls();
         }
 
-        @SuppressLint("UnsafeNewApiCall")
         @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public void setExtras(Bundle extras) {
-            mDelegate.setExtras(extras);
+            SupportSQLiteCompat.Api23Impl.setExtras(mDelegate, extras);
         }
 
         @Override

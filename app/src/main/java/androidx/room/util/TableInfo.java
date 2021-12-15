@@ -237,6 +237,7 @@ public final class TableInfo {
 
     private static Map<String, Column> readColumns(SupportSQLiteDatabase database,
             String tableName) {
+
         Cursor cursor = database
                 .query("PRAGMA table_info(`" + tableName + "`)");
         //noinspection TryFinallyCanBeTryWithResources
@@ -312,11 +313,14 @@ public final class TableInfo {
             final int seqnoColumnIndex = cursor.getColumnIndex("seqno");
             final int cidColumnIndex = cursor.getColumnIndex("cid");
             final int nameColumnIndex = cursor.getColumnIndex("name");
-            if (seqnoColumnIndex == -1 || cidColumnIndex == -1 || nameColumnIndex == -1) {
+            final int descColumnIndex = cursor.getColumnIndex("desc");
+            if (seqnoColumnIndex == -1 || cidColumnIndex == -1
+                    || nameColumnIndex == -1 || descColumnIndex == -1) {
                 // we cannot read them so better not validate any index.
                 return null;
             }
-            final TreeMap<Integer, String> results = new TreeMap<>();
+            final TreeMap<Integer, String> columnsMap = new TreeMap<>();
+            final TreeMap<Integer, String> ordersMap = new TreeMap<>();
 
             while (cursor.moveToNext()) {
                 int cid = cursor.getInt(cidColumnIndex);
@@ -326,11 +330,16 @@ public final class TableInfo {
                 }
                 int seq = cursor.getInt(seqnoColumnIndex);
                 String columnName = cursor.getString(nameColumnIndex);
-                results.put(seq, columnName);
+                String order = cursor.getInt(descColumnIndex) > 0 ? "DESC" : "ASC";
+
+                columnsMap.put(seq, columnName);
+                ordersMap.put(seq, order);
             }
-            final List<String> columns = new ArrayList<>(results.size());
-            columns.addAll(results.values());
-            return new Index(name, unique, columns);
+            final List<String> columns = new ArrayList<>(columnsMap.size());
+            columns.addAll(columnsMap.values());
+            final List<String> orders = new ArrayList<>(ordersMap.size());
+            orders.addAll(ordersMap.values());
+            return new Index(name, unique, columns, orders);
         } finally {
             cursor.close();
         }
@@ -456,20 +465,73 @@ public final class TableInfo {
             // from the compiler itself has it. b/136019383
             if (mCreatedFrom == CREATED_FROM_ENTITY
                     && column.mCreatedFrom == CREATED_FROM_DATABASE
-                    && (defaultValue != null && !defaultValue.equals(column.defaultValue))) {
+                    && (defaultValue != null && !defaultValueEquals(defaultValue,
+                    column.defaultValue))) {
                 return false;
             } else if (mCreatedFrom == CREATED_FROM_DATABASE
                     && column.mCreatedFrom == CREATED_FROM_ENTITY
-                    && (column.defaultValue != null && !column.defaultValue.equals(defaultValue))) {
+                    && (column.defaultValue != null && !defaultValueEquals(
+                    column.defaultValue, defaultValue))) {
                 return false;
             } else if (mCreatedFrom != CREATED_FROM_UNKNOWN
                     && mCreatedFrom == column.mCreatedFrom
-                    && (defaultValue != null ? !defaultValue.equals(column.defaultValue)
+                    && (defaultValue != null ? !defaultValueEquals(defaultValue,
+                    column.defaultValue)
                     : column.defaultValue != null)) {
                 return false;
             }
 
             return affinity == column.affinity;
+        }
+
+        /**
+         * Checks if the default values provided match. Handles the special case in which the
+         * default value is surrounded by parenthesis (e.g. encountered in b/182284899).
+         *
+         * Surrounding parenthesis are removed by SQLite when reading from the database, hence
+         * this function will check if they are present in the actual value, if so, it will
+         * compare the two values by ignoring the surrounding parenthesis.
+         *
+         */
+        public static boolean defaultValueEquals(@NonNull String actual, @Nullable String other) {
+            if (other == null) {
+                return false;
+            }
+
+            if (actual.equals(other)) {
+                return true;
+            } else if (containsSurroundingParenthesis(actual)) {
+                return actual.substring(1, actual.length() - 1).trim().equals(other);
+            }
+            return false;
+        }
+
+        /**
+         * Checks for potential surrounding parenthesis, if found, removes them and checks if
+         * remaining paranthesis are balanced. If so, the surrounding parenthesis are redundant,
+         * and returns true.
+         */
+        private static boolean containsSurroundingParenthesis(@NonNull String actual) {
+            if (actual.length() == 0) {
+                return false;
+            }
+            int surroundingParenthesis = 0;
+            for (int i = 0; i < actual.length(); i++) {
+                char c = actual.charAt(i);
+                if (i == 0 && c != '(') {
+                    return false;
+                }
+
+                if (c == '(') {
+                    surroundingParenthesis++;
+                } else if (c == ')') {
+                    surroundingParenthesis--;
+                    if (surroundingParenthesis == 0 && i != actual.length() - 1) {
+                        return false;
+                    }
+                }
+            }
+            return surroundingParenthesis == 0;
         }
 
         /**
@@ -614,11 +676,22 @@ public final class TableInfo {
         public final String name;
         public final boolean unique;
         public final List<String> columns;
+        public final List<String> orders;
 
+        /**
+         * @deprecated Use {@link #Index(String, boolean, List, List)}
+         */
         public Index(String name, boolean unique, List<String> columns) {
+            this(name, unique, columns, null);
+        }
+
+        public Index(String name, boolean unique, List<String> columns, List<String> orders) {
             this.name = name;
             this.unique = unique;
             this.columns = columns;
+            this.orders = orders == null || orders.size() == 0
+                    ? Collections.nCopies(columns.size(), androidx.room.Index.Order.ASC.name())
+                    : orders;
         }
 
         @Override
@@ -631,6 +704,9 @@ public final class TableInfo {
                 return false;
             }
             if (!columns.equals(index.columns)) {
+                return false;
+            }
+            if (!orders.equals(index.orders)) {
                 return false;
             }
             if (name.startsWith(Index.DEFAULT_PREFIX)) {
@@ -650,6 +726,7 @@ public final class TableInfo {
             }
             result = 31 * result + (unique ? 1 : 0);
             result = 31 * result + columns.hashCode();
+            result = 31 * result + orders.hashCode();
             return result;
         }
 
@@ -659,6 +736,7 @@ public final class TableInfo {
                     + "name='" + name + '\''
                     + ", unique=" + unique
                     + ", columns=" + columns
+                    + ", orders=" + orders
                     + '}';
         }
     }

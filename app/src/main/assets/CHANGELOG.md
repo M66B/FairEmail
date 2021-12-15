@@ -7,6 +7,7 @@
 ### Next version
 
 * Small improvements and minor bug fixes
+* Updated AndroidX
 
 ### 1.1789 - 2021-12-14
 
