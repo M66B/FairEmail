@@ -4398,7 +4398,9 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityLog.log(context, "Selected=" + selected.email);
 
-                    if (plain_only)
+                    if (plain_only &&
+                            !"resend".equals(action) &&
+                            !"editasnew".equals(action))
                         data.draft.plain_only = true;
 
                     if (encrypt_default || selected.encrypt_default)
@@ -4467,8 +4469,10 @@ public class FragmentCompose extends FragmentBase {
                         // - reply
                         // - reply_all
                         // - forward
+                        // - resend
                         // - editasnew
                         // - list
+                        // - dsn
                         // - receipt
                         // - participation
 
