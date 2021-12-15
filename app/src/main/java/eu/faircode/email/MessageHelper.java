@@ -402,6 +402,11 @@ public class MessageHelper {
                 // 1=Delivery receipt
                 // 2=Read+delivery receipt
 
+                // defacto standard
+                if (receipt_type == 1 || receipt_type == 2) // Delivery receipt
+                    imessage.addHeader("Return-Receipt-To", to);
+
+
                 // https://tools.ietf.org/html/rfc3798
                 if (receipt_type == 0 || receipt_type == 2) // Read receipt
                     imessage.addHeader("Disposition-Notification-To", to);
