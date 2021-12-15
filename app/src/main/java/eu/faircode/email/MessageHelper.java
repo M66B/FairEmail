@@ -1218,7 +1218,43 @@ public class MessageHelper {
         ensureHeaders();
 
         String header = imessage.getHeader("In-Reply-To", null);
-        return (header == null ? null : MimeUtility.unfold(header));
+        if (header != null)
+            header = MimeUtility.unfold(header);
+
+        if (header == null)
+            try {
+                if (imessage.isMimeType("multipart/report")) {
+                    ContentType ct = new ContentType(imessage.getContentType());
+                    String reportType = ct.getParameter("report-type");
+                    if ("delivery-status".equalsIgnoreCase(reportType) ||
+                            "disposition-notification".equalsIgnoreCase(reportType)) {
+                        MessageParts parts = new MessageParts();
+                        getMessageParts(imessage, parts, null);
+                        for (AttachmentPart apart : parts.attachments)
+                            if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
+                                InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
+                                String amsgid = iheaders.getHeader("Message-Id", null);
+                                if (amsgid != null) {
+                                    Log.i("rfc822 id=" + amsgid);
+                                    return amsgid;
+                                }
+                            } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
+                                Properties props = MessageHelper.getSessionProperties();
+                                Session isession = Session.getInstance(props, null);
+                                MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
+                                String amsgid = amessage.getHeader("Message-Id", null);
+                                if (amsgid != null) {
+                                    Log.i("rfc822 id=" + amsgid);
+                                    return amsgid;
+                                }
+                            }
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+
+        return header;
     }
 
     String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
