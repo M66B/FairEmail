@@ -1445,15 +1445,19 @@ public class MessageHelper {
     }
 
     boolean getReceiptRequested() throws MessagingException {
-        ensureHeaders();
-
-        // Return-Receipt-To = delivery receipt
-        // Disposition-Notification-To = read receipt
-        return (imessage.getHeader("Disposition-Notification-To") != null);
+        Address[] headers = getReceiptTo();
+        return (headers != null && headers.length > 0);
     }
 
     Address[] getReceiptTo() throws MessagingException {
-        return getAddressHeader("Disposition-Notification-To");
+        // Return-Receipt-To = delivery receipt
+        // Disposition-Notification-To = read receipt
+        Address[] receipt = getAddressHeader("Disposition-Notification-To");
+        if (receipt == null || receipt.length == 0)
+            receipt = getAddressHeader("Read-Receipt-To");
+        if (receipt == null || receipt.length == 0)
+            receipt = getAddressHeader("X-Confirm-reading-to");
+        return receipt;
     }
 
     String getBimiSelector() throws MessagingException {
