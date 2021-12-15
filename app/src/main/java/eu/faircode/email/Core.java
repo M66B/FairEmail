@@ -3808,8 +3808,8 @@ class Core {
                     DnsHelper.checkMx(context, addresses);
                     message.mx = true;
                 } catch (UnknownHostException ex) {
+                    Log.w(ex);
                     message.mx = false;
-                    message.warning = ex.getMessage();
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
                     message.warning = Log.formatThrowable(ex, false);
