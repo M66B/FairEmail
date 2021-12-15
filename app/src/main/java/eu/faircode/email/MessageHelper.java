@@ -408,8 +408,12 @@ public class MessageHelper {
 
 
                 // https://tools.ietf.org/html/rfc3798
-                if (receipt_type == 0 || receipt_type == 2) // Read receipt
+                if (receipt_type == 0 || receipt_type == 2) {
+                    // Read receipt
                     imessage.addHeader("Disposition-Notification-To", to);
+                    imessage.addHeader("Read-Receipt-To", to);
+                    imessage.addHeader("X-Confirm-Reading-To", to);
+                }
             }
         }
 
@@ -1456,7 +1460,7 @@ public class MessageHelper {
         if (receipt == null || receipt.length == 0)
             receipt = getAddressHeader("Read-Receipt-To");
         if (receipt == null || receipt.length == 0)
-            receipt = getAddressHeader("X-Confirm-reading-to");
+            receipt = getAddressHeader("X-Confirm-Reading-To");
         return receipt;
     }
 
