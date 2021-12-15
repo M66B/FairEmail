@@ -4,6 +4,10 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Small improvements and minor bug fixes
+
 ### 1.1789 - 2021-12-14
 
 * Added support for foldable devices
