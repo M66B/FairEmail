@@ -4,10 +4,11 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
-### Next version
+### 1.1790 - 2021-12-16
 
 * Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated translations
 
 ### 1.1789 - 2021-12-14
 
