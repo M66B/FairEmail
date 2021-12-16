@@ -634,6 +634,7 @@
     <string name="title_advanced_date_hint">Повідомлення групуються тільки за датою при сортуванні їх за часом</string>
     <string name="title_advanced_navbar_colorize_hint">В цілому робота залежить від версії Android та її модифікації</string>
     <string name="title_advanced_split_hint">Це розділить екран на частини</string>
+    <string name="title_advanced_split_min_hint">Ця умова, призначена для пристроїв котрі можуть бути зігнуті</string>
     <string name="title_advanced_threading_hint">Групові повідомлення, пов\'язані один з одним</string>
     <string name="title_advanced_highlight_hint">Акцентований колір теми буде використаний для виділення</string>
     <string name="title_advanced_gravatars_hint">Там може бути ризик приватності</string>

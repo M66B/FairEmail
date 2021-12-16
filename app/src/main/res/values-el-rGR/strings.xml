@@ -613,6 +613,7 @@
     <string name="title_advanced_date_hint">Τα μηνύματα ομαδοποιούνται μόνον κατά ημερομηνία όταν ταξινομούνται σε χρονολογική σειρά</string>
     <string name="title_advanced_navbar_colorize_hint">Το αν αυτό λειτουργεί ή όχι, εξαρτάται από την έκδοση και εκδοχή του Android</string>
     <string name="title_advanced_split_hint">Θα χωρίσει την οθόνη σε μέρη</string>
+    <string name="title_advanced_split_min_hint">Αυτή είναι μια συνθήκη που αφορά αναδιπλούμενες συσκευές</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
     <string name="title_advanced_highlight_hint">Το χρώμα έμφασης του θέματος θα χρησιμοποιηθεί για την επισήμανση</string>
     <string name="title_advanced_gravatars_hint">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>

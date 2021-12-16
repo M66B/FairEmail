@@ -203,8 +203,8 @@
     <string name="title_setup_close">Tənzimləmələri bağla</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
-    <string name="title_setup_export_remark">        Tənzimləmələr faylı, bütün tənzimləmələri və hesab məlumatlarını ehtiva etdiyi üçün bir şifrə ilə şifrələnir.
-        Tənzimləmələri təkrar idxal etmək üçün həmin şifrə tələb olunur, ona görə də bunu unutmayın!
+    <string name="title_setup_export_remark">Tənzimləmələr faylı, bütün tənzimləmələri və hesab məlumatlarını ehtiva etdiyi üçün bir parol ilə şifrələnir.
+        Tənzimləmələri təkrar idxal etmək üçün həmin parol tələb olunur, ona görə də bunu unutmayın!
     </string>
     <string name="title_setup_export_do">İxrac faylı, bütün tənzimləmələr və verilənləri ehtiva edəcək, ancaq imzalarda istinad edilən mesaj və təsvirləri ehtiva etməyəcək</string>
     <string name="title_setup_import_do">İdxal edilən hesablar, mövcud hesabların üzərinə yazılmadan əlavə ediləcək</string>
@@ -358,6 +358,7 @@
     <string name="title_advanced_landscape">Üfüqi rejim</string>
     <string name="title_advanced_two_row">İki sətir istifadə et</string>
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
+    <string name="title_advanced_min_screen_size">Ekranı bölmək üçün minimum ekran ölçüsü</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
@@ -615,6 +616,7 @@
     <string name="title_advanced_date_hint">Mesajlar, vaxta görə sıralanıbsa, yalnız tarixə görə qruplaşdırılacaq</string>
     <string name="title_advanced_navbar_colorize_hint">Bunun işləməsi Android versiyası və variantından asılıdır</string>
     <string name="title_advanced_split_hint">Bu, ekranı hissələrə ayıracaq</string>
+    <string name="title_advanced_split_min_hint">Bu, qatlana bilən cihazlar üçün nəzərdə tutulmuş bir şərtdir</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
     <string name="title_advanced_highlight_hint">Temanın vurğu rəngi, vurğulamaq üçün istifadə olunacaq</string>
     <string name="title_advanced_gravatars_hint">Bir gizlilik riski ola bilər</string>
@@ -1170,7 +1172,7 @@
     <string name="title_signature_store">Saxla</string>
     <string name="title_search">Axtar</string>
     <string name="title_search_for_hint">Mətn daxil et</string>
-    <string name="title_search_hint">        İlk olaraq, axtarış cihazda həyata keçirilir.
+    <string name="title_search_hint">        Axtarış, ilk olaraq cihazda həyata keçirilir.
         Serverdə də axtarış etmək üçün \"yenidən axtar\" düyməsinə toxunun.
     </string>
     <string name="title_search_index_hint">Axtarış indeksi ilə axtarış sürətlidir, ancaq yalnız bütün sözləri tapır.</string>
@@ -1524,7 +1526,7 @@
     <string name="title_pro_info">        \"FairEmail\"in təkmilləşdirilməsi sözün əsl mənasında minlərlə saat vaxt apardı və buna baxmayaraq, xüsusiyyətlərin əskəriyyəti ödənişsizdir.
         FairEmail gizliliyinizi ciddiyə alır, reklamlar göstərmir və pul qazanmaq üçün izləmə və ya analitikanı istifadə etmir.
         \"FairEmail\"i uzun müddət qorumaq və dəstəkləmək üçün bəzi rahatlığa yönələn və qabaqcıl özəlliklərdən istifadə ödənişsiz deyil.
-        FairEmail bunu xatırlatmaq üçün kiçik bir mesaj göstərir və Pro özəllikləri satın alsanız bu mesaj görünməyəcək.
+        FairEmail, bunu xatırlatmaq üçün kiçik bir mesaj göstərir və Pro özəllikləri satın alsanız bu mesaj görünməyəcək.
     </string>
     <string name="title_pro_whichever">Hansı özəlliyin pro özəllik kimi seçilməsindən asılı olmayaraq, hər zaman həmin özəlliyin ödənişsiz olması üçün şikayət edən biriləri olur. Xahiş edirəm elələri kimi olmayın.</string>
     <string name="title_pro_hide">Kiçik mesajı %1$d həftəlik gizlət</string>
@@ -1745,6 +1747,6 @@
         <item>Kiçik</item>
         <item>Orta</item>
         <item>Böyük</item>
-        <item>Ekstra böyük</item>
+        <item>Çox böyük</item>
     </string-array>
 </resources>

@@ -102,13 +102,13 @@
 * ~~Спільні уніфіковані теки~~
 * ~~Відкладене сповіщення про отримання нового повідомлення~~ (реалізовано за допомогою додавання налаштувань часу, сповіщення про отримані повідомлення будуть відключені протягом обраного часу)
 * Копіюй облікові записи і особисті дані
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
+* ~Закріпити збільшення~~ (не можливо в списку прокрутки; натомість повністю подане повідомлення може бути збільшено)
 * ~~Більш компактний вигляд папок~~
 * ~~Створення списків і таблиць~~ (вимагає ширшого текстового редактору, дивитися [ ЧаПи](#user-content-faq99))
 * ~~Збільшення розміру шрифту~~
 * ~~відображення GIF~~
 * ~~Теми~~ (додано світло-сіру і темну тему, тому що, здається, це те, що більшість людей хоче)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
+* ~~Будь-яка часова умова~~ (будь-який день не дуже вписується в умову/від дати/часу на дату/день)
 * ~~Надіслати як вкладення~~
 * ~~Віджет для вибраного облікового запису~~
 * ~~Нагадування вкласти файли ~~
@@ -127,26 +127,26 @@
 <h2><a name="frequently-asked-questions"></a>Запитання й відповіді (FAQ)</h2>
 
 * [(1) Які дозволи необхідні і чому?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
+* [(2) Чому висвічується постійне сповіщення?](#user-content-faq2)
+* [(3) Що є операціями і чому вони в очікуванні?](#user-content-faq3)
+* [(4) Як я можу використовувати недійсний сертифікат безпеки / порожній пароль / звичайне текстове з'єднання?](#user-content-faq4)
 * [(5) Як я можу налаштувати вигляд повідомлення?](#user-content-faq5)
 * [(6) Як увійти до мого Gmail / G suite акаунту?](#user-content-faq6)
 * [(7) Чому відправлені повідомлення не відображається (безпосередньо) у папці надіслані?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
+* [(8) Чи можу я використовувати обліковий запис Microsoft Exchange?](#user-content-faq8)
+* [(9) Що таке ідентифікатори / як додати псевдонім?](#user-content-faq9)
 * [~~(11) Чому POP не підтримується?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
+* [~~(10) Що означає "UIDPLUS не підтримується"?~~](#user-content-faq10)
+* [(12) Як працює шифрування/дешифрування?](#user-content-faq12)
+* [(13) Як працює пошук на пристрої/сервері?](#user-content-faq13)
+* [(14) Як я можу налаштувати Outlook / Live / Hotmail аккаунт?](#user-content-faq14)
+* [(15) Чому текст повідомлення продовжує завантажуватися?](#user-content-faq15)
 * [(16) Чому повідомлення не синхронізуються?](#user-content-faq16)
 * [~~(17) Чому ручне синхронізування не працює?~~](#user-content-faq17)
 * [(18) Чому попередній перегляд відображається не завжди?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
+* [(19) Чому Pro функції так дорогі?](#user-content-faq19)
 * [(20) Чи можу я отримати повернення коштів?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
+* [(21) Як мені увімкнути індикатор сповіщень?](#user-content-faq21)
 * [(22) Що означає помилка облікового запису/папки?](#user-content-faq22)
 * [(23) Чому я отримую попередження.. ?](#user-content-faq23)
 * [(24) Що являє собою перегляд повідомлень на сервері?](#user-content-faq24)
@@ -161,7 +161,7 @@
 * [Чому редаговані адреси відправника не працюють?](#user-content-faq33)
 * [Як співпадають особисті дані?](#user-content-faq34)
 * [Чому я повинен бути обережним з переглядом зображень, вкладень, оригінальних повідомлень, і відкриті посилань?](#user-content-faq35)
-* [(36) How are settings files encrypted?](#user-content-faq36)
+* [(36) Як зашифровані файли налаштувань?](#user-content-faq36)
 * [(37) Як зберігаються паролі?](#user-content-faq37)
 * [Як я можу зменшити використання батареї FairEmail?](#user-content-faq39)
 * [(40) Як я можу зменшити використання даних FairEmail?](#user-content-faq40)
@@ -173,11 +173,11 @@
 * [(46) Чому список повідомлень постійно оновлюється?](#user-content-faq46)
 * [(47) Як мені вирішити помилку 'Немає основного облікового запису або немає теки для чернетки' ?](#user-content-faq47)
 * [~~(48) Як вирішити помилку 'Немає основного облікового запису або немає папки архіву' ?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
+* [(49) Як виправити помилку "Застаріла програма відправила путь до файлу замість файлового потоку"?](#user-content-faq49)
 * [(50) Ви можете додати опцію для синхронізації всіх повідомлень?](#user-content-faq50)
 * [(51) Як папки сортовані?](#user-content-faq51)
 * [(52) Чому потрібно деякий час, щоб перепід'єднатися до акаунту?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
+* [(53) Чи можна прикріпити панель дій із сповіщеннями зверху/знизу?](#user-content-faq53)
 * [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
 * [(55) Як я можу позначити всі повідомлення як прочитати/перемістити або видалити всі повідомлення?](#user-content-faq55)
 * [(56) Чи можете ви додати підтримку для JMAP?](#user-content-faq56)
@@ -192,27 +192,27 @@
 * [(65) Чому деякі вкладення показують затемнення?](#user-content-faq65)
 * [(66) Чи FairEmail є доступним у сімейній бібліотеці Google Play?](#user-content-faq66)
 * [(67) Як я можу відкласти розмови?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
+* [~~(68) Чому Adobe Acrobat читач не відкриває PDF вкладення / застосунки Microsoft не відкривають документи?~~](#user-content-faq68)
 * [(69) Ви можете додати автоматичне прокручування у новому повідомленні?](#user-content-faq69)
 * [(70) Коли будуть розширюватися повідомлення?](#user-content-faq70)
 * [(71) Як я використовую правила фільтрів?](#user-content-faq71)
 * [(72) Які основні акаунти/особисті дані?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
+* [(73) Чи є перетягування повідомлення між обліковими записами безпечним та ефективними?](#user-content-faq73)
 * [(74) Чому я бачу повторювані повідомлення?](#user-content-faq74)
 * [(75) Ви можете створити iOS, Windows, Linux, тощо версію?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
+* [(76) Що робить "Очистити локальні повідомлення"?](#user-content-faq76)
 * [(77) Чому повідомлення іноді показуються з невеликою затримкою?](#user-content-faq77)
 * [(78) Як мені використовувати розклади?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
+* [(79) Як використуватися синхронізацію за запитом (вручну)?](#user-content-faq79)
+* [~(80) Як виправити помилку 'Неможливо завантажити BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(81) Чи можете ви зробити фон вихідного повідомлення в темній темі?~~](#user-content-faq81)
 * [(82) Що таке зображення для відстеження?](#user-content-faq82)
 * [Для чого місцеві контакти?](#user-content-faq84)
 * [Чому особисті дані недоступні?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
+* [~~(86) Що таке "додаткові функції конфіденційності'?~~](#user-content-faq86)
 * [(87) Що означає "невірні дані"?](#user-content-faq87)
 * [(88) Як я можу використовувати Yahoo, AOL або Sky аккаунт?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
+* [(89) Як я можу надіслати повідомлення у вигляді звичайного тексту?](#user-content-faq89)
 * [(90) Чому деякі тексти були прив'язані, коли не були посиланням?](#user-content-faq90)
 * [~~(91) Ви можете додати періодичну синхронізацію, щоб зберегти заряд акумулятора?~~](#user-content-faq91)
 * [(92) Чи можете Ви додати фільтрування спаму, верифікацію підпису DKIM та авторизацію SPF?](#user-content-faq92)
@@ -228,7 +228,7 @@
 * [(102) Як я можу увімкнути автоматичне обертання зображень?](#user-content-faq102)
 * [(103) Як я можу записати звук?](#user-content-faq158)
 * [(104) Що мені потрібно знати про звіт помилки?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
+* [(105) Як працює опція "роумінг як вдома"?](#user-content-faq105)
 * [(106) Як лаунчери можуть показати кількість значків з кількістю непрочитаних повідомлень?](#user-content-faq106)
 * [(107) Як використовувати кольорові зірки?](#user-content-faq107)
 * [~~(108) Чи можете ви додавати остаточне видалення повідомлення з будь-якої теки?~~](#user-content-faq108)
@@ -250,7 +250,7 @@
 * [(124) Чому я отримую " Повідомлення завелике або занадто складне для дисплею"?](#user-content-faq124)
 * [(125) Які є поточні експериментальні функції?](#user-content-faq125)
 * [(126) Чи можуть попередні перегляди повідомлень відправлятися на мій портативний носій?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
+* [(127) Як я можу виправити "Синтактично неприпустимий аргумент(и) HELO"?](#user-content-faq127)
 * [(128) Як я можу перевстановити поставлені запитання, наприклад, показати зображення?](#user-content-faq128)
 * [(129) Чи підтримуються ProtonMail, Tutanota?](#user-content-faq129)
 * [Що означає повідомлення про помилку?](#user-content-faq130)
@@ -278,11 +278,11 @@
 * [(152) Як я можу вставити групу контактів?](#user-content-faq152)
 * [(153) Чому не вдається остаточно видалити повідомлення Gmail?](#user-content-faq153)
 * [~~(154) Чи можете Ви додати фавіконки як фото контактів?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
+* [(155) Що таке файл winmail.dat?](#user-content-faq155)
 * [Як я можу налаштувати обліковий запис Office 365?](#user-content-faq156)
 * [Як я можу налаштувати обліковий запис Free.fr?](#user-content-faq157)
 * [Яку камеру/аудіо ви рекомендуєте?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(159) Що таке список захисту від'єднаного трекера?](#user-content-faq159)
 * [(160) Чи можна додати постійне видалення повідомлень без підтвердження?](#user-content-faq160)
 * [(161) Чи могли б Ви додати налаштування, щоб змінити початковий колір на обраний?](#user-content-faq161)
 * [(162) Чи підтримується IMAP NOTIFY?](#user-content-faq162)
@@ -556,9 +556,9 @@ Aндроїд 8 Oreo також може показувати сповіщенн
 
 Деякі старіші версії сервера Exchange мають помилку, яка призводить до порожніх повідомлень та корумпованих вкладень. Будь ласка, дивіться [тут FAQ](#user-content-faq110) для обхідного шляху.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Будь ласка, перегляньте [цю ЧАП](#user-content-faq133) про підтримку ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Будь ласка, див. [цей ЧАП](#user-content-faq111) про підтримку OAuth.
 
 <br />
 
@@ -626,7 +626,7 @@ FairEmail автоматично оновлює паролі пов'язаних
 
 Щоб перевірити підпис або щоб розшифрувати отримане повідомлення, відкрийте повідомлення і просто натисніть на жест або значок замка одразу під панеллю "операції в повідомленнях".
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Вперше при відправленні підписаних/ зашифрованих повідомлень, у вас може бути запитано реєстраційний ключ. FairEmail автоматично зберігає обраний ключ для входу в даний ідентифікації для використання у наступний раз. Якщо вам потрібно скинути пароль, просто збережіть особистість або тривало натисніть на ідентифікацію у списку ідентифікацій та виберіть *клавішу скидання знаку*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
 In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
@@ -636,21 +636,21 @@ The to be encrypted message text/attachments and the decrypted message text/atta
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Спочатку вам потрібно буде встановити і налаштувати [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/). FairEmail був протестований з версією OpenKeychain 5.4. Пізніші версії, швидше за все, будуть сумісні, але більш ранні версії - ні.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Важливо**: додаток OpenKeychain, як відома (беззвучно) закривається, коли програма виклику (FairEmail) ще не авторизована і отримує відкритий ключ. Ви можете обійти це, спробувавши відправити підписане/зашифроване повідомлення відправнику з невідомим публічним ключем.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
+**Важливо**: якщо OpenKeychain додаток (більше) не може знайти ключ, можливо, вам доведеться скинути раніше обраний ключ. Це може бути зроблено довгим натисканням на ідентифікацію в списку ідентифікацій (Параметри, натисніть Ручне налаштування, натисніть "Особа").
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Важливо**: щоб дозволити програмам на кшталт FairEmail надійно підключатися до служби OpenKeychain для шифрування/ шифрування повідомлень, Можливо, треба вимкнути оптимізацію використання заряду акумулятора для додатка OpenKeychain OpenKeychain.
 
-**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+**Важливо**: програмі OpenKeychain докладно потрібен дозвіл на роботу, щоб працювати коректно.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Важливо**: на деяких версіях Android/ пристроях необхідно активувати *Показувати спливаючі вікна при роботі у фоновому режимі* у додаткових дозволах Android додатків, налаштуваннях додатку OpenKeychain. Без цього дозволу чернетка буде збережена, але спливаюче вікно OpenKeychain для підтвердження / вибору може не з'явитися.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail відправить заголовок [Autocrypt](https://autocrypt.org/) для використання іншими клієнтами електронної пошти, але тільки для підписаних і зашифрованих повідомлень, тому що занадто багато поштових серверів мають проблеми з часто довгим заголовком автошифрування. Майте на увазі, що найбільш безпечний спосіб розпочати шифровану розсилку електронних листів- це спочатку відправити підписані листи. Отримані заголовки Autocrypt будуть надіслані в програму OpenKeychain для зберігання даних при перевірці підпису або дешифруванні повідомлення.
 
-Although this shouldn't be necessary for most email clients, you can attach your public key to a message and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
+Хоча це не повинно бути необхідним для більшості клієнтів електронної пошти, ви можете прикріпити свій відкритий ключ до повідомлення, а якщо ви скористаєтеся *.ключ* як розширення, тип mime буде правильно *application/pgp-keys*.
 
 All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
@@ -697,7 +697,7 @@ Common errors:
 * *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
 * *No private key*: no certificate was selected or no certificate was available in the Android keystore
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+Якщо ланцюжок сертифіката невірний, ви можете натиснути на невелику кнопку інформації, щоб показати всі сертифікати. Після того, як буде відображено сертифікат видавця або "selfSign". Сертифікат власноруч підписано, коли об'єкт і видавець однакові. Сертифікати від центру сертифікації (CA) позначені "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Сертифікати, знайдені в магазині ключів Android, помічені "Android".
 
 A valid chain looks like this:
 

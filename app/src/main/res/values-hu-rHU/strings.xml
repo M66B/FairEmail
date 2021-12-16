@@ -70,6 +70,10 @@
     <string name="title_junk_hint">A levélszemét szűréséért az email szolgáltatója a felelős. Egy email kliens nem rendelkezik a szükséges adatokkal, hogy ezt megfelelően el tudja végezni.</string>
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
+    <string name="title_block_sender_domain">\'%1$s\' domain letiltása</string>
+    <string name="title_block_sender_hint">        Egy küldő letiltása ingyenes funkció.
+        Egy küldő domain letiltása szűrőszabályokat használ, ami pro funkció.
+    </string>
     <string name="title_junk_filter">Lokális spam-filter használata</string>
     <string name="title_junk_filter_hint">Ez növelni tudja az akkumlátor használatát, és hamisan megjelöl üzeneteket spamként</string>
     <string name="title_junk_blocklist">Spamblokkoló listák használata</string>
@@ -109,11 +113,13 @@
     <string name="title_edit_account">Fiók szerkesztése</string>
     <string name="title_edit_identity">Azonosító szerkesztése</string>
     <string name="title_edit_folder">Könyvtár szerkesztése</string>
+    <string name="title_disable_gmail">Gmail alkalmazás letiltása</string>
     <string name="title_setup">Beállítások</string>
     <string name="title_setup_help">Súgó</string>
     <string name="title_setup_quick">Gyors beállítás</string>
     <string name="title_setup_intro">A fiók létrehozása csak három lépésből áll és ezt követően e-maileket küldhet és fogadhat</string>
     <string name="title_setup_simple">Nincs szükség egyéb lehetőségek megváltoztatására</string>
+    <string name="title_setup_quick_accounts">Fiókok hozzáadása vagy módosítása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
     <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
     <string name="title_setup_quick_patience">Kérlek, legyél türelemmel &#8230;</string>
@@ -124,6 +130,7 @@
     <string name="title_setup_wizard_multiple">A varázsló többször is használható több fiók hozzáadásához</string>
     <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
     <string name="title_setup_manual">Kézi beállítás és fiók opciók</string>
+    <string name="title_setup_classic">Klasszikus konfiguráció</string>
     <string name="title_setup_account_remark">E-mailek fogadása</string>
     <string name="title_setup_identity_remark">E-mailek küldése</string>
     <string name="title_setup_account_identity_hint">Beállíthatod a nevet, színt és csúsztatási műveleteket a fiókbeállításokban, és konfigurálhatsz egy aláírást az identitási beállításokban</string>

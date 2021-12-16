@@ -4,7 +4,7 @@
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail è un\'app di email open source concentrata su privacy e sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
     <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default per rimuovere gli elementi non sicuri e migliorare la leggibilità, e l\'apertura dei link dev\'esser confermata per sicurezza. Sono entrambi disabilitabili, se desiderato.</string>
-    <string name="app_unsupported">Alcuni errori nella versione Android di questo specifico dispositivo provocano crash</string>
+    <string name="app_unsupported">I bug nella versione Android di questo specifico dispositivo causano crash</string>
     <string name="app_continue">Continua comunque</string>
     <string name="app_exit">Torna \'indietro\' di nuovo per uscire</string>
     <string name="app_cake">Spazio di archiviazione rimanente insufficiente</string>
@@ -74,8 +74,8 @@
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
     <string name="title_block_sender_domain">Blocca il dominio \'%1$s\'</string>
-    <string name="title_block_sender_hint">        Bloccare un mittente è una funzionalità gratuita.
-        Bloccare il dominio di un mittente usa le regole del filtro, una funzionalità pro.
+    <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
+        Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
     </string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
@@ -204,7 +204,7 @@
     <string name="title_setup_export">Impostazioni di esportazione</string>
     <string name="title_setup_import">Importa impostazioni</string>
     <string name="title_setup_export_remark">        Poiché il file delle impostazioni contiene tutte le impostazioni e informazioni del profilo, è crittografato con una password.
-        La password è necessaria per importare di nuovo le impostazioni, sei quindi pregato di non dimenticarla!
+        La password è necessaria per re-importare le impostazioni, sei quindi pregato di non dimenticarla!
     </string>
     <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma nessun messaggio e nessun\'immagine riferita nelle firme</string>
     <string name="title_setup_import_do">I profili importati saranno aggiunti senza sovrascriverne alcuno esistente</string>
@@ -260,9 +260,10 @@
     <string name="title_setup_reset_images">Mostra le immagini</string>
     <string name="title_setup_reset_links">Confermare i link</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
-    <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.        Tutte le opzioni hanno comunemente usato valori standard, che non devi cambiare a meno che non abbia una preferenza differente.
+    <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
+        Tutte le opzioni hanno comunemente usato valori standard, che non devi modificare a meno che tu non abbia una preferenza differente.
     </string>
-    <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate per scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
+    <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate dalla scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
     </string>
     <string name="title_advanced_hint_setup">Puoi configurare un profilo toccando il pulsante di procedura guidata sulla schermata di configurazione principale.</string>
     <string name="title_advanced_section_main">Principale</string>
@@ -357,6 +358,7 @@
     <string name="title_advanced_landscape">Modalità Paesaggio</string>
     <string name="title_advanced_two_row">Usa due righe</string>
     <string name="title_advanced_two_col">Usa due colonne</string>
+    <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
@@ -539,7 +541,7 @@
     <string name="title_advanced_encrypt_subject">Crittografa l\'oggetto</string>
     <string name="title_advanced_sign_algo">Algoritmo della firma</string>
     <string name="title_advanced_encrypt_algo">Algoritmo della crittografia</string>
-    <string name="title_advanced_remark_algo">        Sei pregato di tenere presente che non tutti i client email supportano tutti gli algoritmi.
+    <string name="title_advanced_remark_algo">        Sei pregato di tener presente che non tutti i client email supportano tutti gli algoritmi.
         Gli algoritmi predefiniti SHA256 e AES128 sono comunemente supportati.
     </string>
     <string name="title_advanced_check_certificate">Controlla la chiave pubblica all\'invio</string>
@@ -547,7 +549,8 @@
     <string name="title_advanced_import_key">Importa la chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
     <string name="title_advanced_ca">Certificati CA installati</string>
-    <string name="title_advanced_manage_keys_hint">        Questo passerà alle impostazioni di sicurezza di Android.        Chiavi e certificati si possono generalmente trovare sotto Avanzate - Crittografia e credenziali.
+    <string name="title_advanced_manage_keys_hint">        Questo aprirà le impostazioni di sicurezza di Android.
+        Le chiavi e i certificati si possono generalmente trovare in Avanzate - Crittografia e credenziali.
     </string>
     <string name="title_advanced_power_menu">Aggiungi azioni al menù di spegnimento Android</string>
     <string name="title_advanced_external_search">Consenti alle altre app di cercare tra i messaggi</string>
@@ -614,6 +617,7 @@
     <string name="title_advanced_date_hint">I messaggi sono raggruppati solo per data se ordinati cronologicamente</string>
     <string name="title_advanced_navbar_colorize_hint">Se funziona, dipende dalla versione e la variante di Android</string>
     <string name="title_advanced_split_hint">Questo dividerà lo schermo in parti</string>
+    <string name="title_advanced_split_min_hint">Questa è una condizione destinata ai dispositivi pieghevoli</string>
     <string name="title_advanced_threading_hint">Raggruppa i messaggi correlati</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_gravatars_hint">Potrebbe esistere un rischio per la privacy</string>
@@ -850,7 +854,8 @@
     <string name="title_auto_delete">Elimina automaticamente e permanentemente i vecchi messaggi</string>
     <string name="title_auto_delete_hint">I vecchi messaggi sono messaggi non più conservati sul dispositivo</string>
     <string name="title_auto_delete_archive_hint">L\'eliminazione dalla cartella d\'archivio non è sempre consentita dal server email</string>
-    <string name="title_inbox_root_hint">        Alcuni provider richiedono la creazione di nuove cartelle nella posta in entrata.        In questo caso, puoi tenere premuta la posta in arrivo nell\'elenco delle cartelle e selezionare \'Crea sottocartella\'.
+    <string name="title_inbox_root_hint">        Alcuni provider richiedono la crezione di nuove cartelle sotto la posta in entrata.
+        In questo caso, puoi tener premuta la casella di posta in entrata nell\'elenco delle cartelle e selezionare \'Crea sottocartella\".
     </string>
     <string name="title_folder_name_missing">Nome della cartella mancante</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
@@ -1008,15 +1013,17 @@
     <string name="title_ask_reporting">Inviare segnalazioni d\'errore?</string>
     <string name="title_reporting_why">La segnalazione degli errori aiuterà a migliorare FairEmail</string>
     <string name="title_ask_review">Sei pregato di valutare FairEmail</string>
-    <string name="title_ask_review_rationale">        Usi FairEmail da un po\'.        Sarebbe apprezzato se potessi valutare FairEmail nel Play Store.
+    <string name="title_ask_review_rationale">        Hai usato FairEmail per un po\'.
+        Sarebbe apprezzato se potessi valutare FairEmail nel Play Store.
     </string>
     <string name="title_need_help">Ho bisogno d\'aiuto</string>
     <string name="title_ask_once">Questo messaggio comparirà solo una volta, a meno che tu non selezioni \'Più tardi\'</string>
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandere questo messaggio scaricherà %1$s</string>
     <string name="title_download_message">Scaricando&#8230;</string>
-    <string name="title_reformatted">        Questa è la visualizzazione del messaggio riformattato.        Puoi toccare sull\'icona &#x26F6; per visualizzare il messaggio originale o nasconderlo.
-        La riformattazione dei messaggi richiede un po\' di tempo, in base alla dimensione del messaggio e la velocità del tuo dispositivo.
+    <string name="title_reformatted">        Questa è la visualizzazione del messaggio riformattato.
+        Puoi toccare sull\'icona &#x26F6; per visualizzare il messaggio originale e nascondere questo.
+        La riformattazione dei messaggi richiede un po\' di tempo, in base alle dimensioni del messaggio e alla velocità del tuo dispositivo.
     </string>
     <string name="title_compose">Scrivi</string>
     <string name="title_submitter">Inviato da:</string>
@@ -1517,8 +1524,9 @@
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_one_time">%1$s (acquisto una tantum)</string>
     <string name="title_pro_no_play">Play Store non trovato</string>
-    <string name="title_pro_info">        Sviluppare FairEmail ha letteralmente impiegato migliaio di ore e, nonostante ciò, gran parte delle funzionalità sono gratuite.        FairEmail prende sul serio la tua privacy e non mostra annunci né usa il monitoraggio o le analisi per guadagnare denaro.
-        Per mantenere e supportare FairEmail a lungo termine, alcune funzionalità convenzionali e avanzate non sono gratuite.
+    <string name="title_pro_info">        Lo sviluppo di FairEmail ha letteralmente richiesto migliaia di ore e, nonostante ciò, gran parte delle funzionalità sono gratuite.
+        FairEmail prende seriamente la tua privacy e non mostra annunci, né usa monitoraggi o statistiche per ricevere denaro.
+        Per mantenere e supportare FairEmail a lungo termine, alcune funzionalità di convenienza e avanzate non sono gratuite.
         FairEmail mostra un piccolo messaggio per ricordartene, che sarà rimosso se acquisti le funzionalità pro.
     </string>
     <string name="title_pro_whichever">Qualsiasi caratteristica sia scelta come funzionalità pro, c\'è sempre qualcuno che si lamenta del fatto che dovrebbe esser gratuita. Per favore, non essere quella persona.</string>
@@ -1747,6 +1755,6 @@
         <item>Piccolo</item>
         <item>Medio</item>
         <item>Grande</item>
-        <item>Extra large</item>
+        <item>Molto grande</item>
     </string-array>
 </resources>

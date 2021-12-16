@@ -368,6 +368,7 @@
     <string name="title_advanced_landscape">Landšaft (vodoravni) prikaz</string>
     <string name="title_advanced_two_row">Koristi dva reda</string>
     <string name="title_advanced_two_col">Koristi dvije kolone</string>
+    <string name="title_advanced_min_screen_size">Minimalna veličina ekrana za podijeljeni ekran</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog menija</string>
     <string name="title_advanced_nav_pin">Zakači navigacijski meni</string>
     <string name="title_advanced_nav_hide_title">Sakriti opcije navigacijskog menija?</string>
@@ -625,6 +626,7 @@
     <string name="title_advanced_date_hint">Poruke su grupisane samo po datumu ako se sortiraju vremenski</string>
     <string name="title_advanced_navbar_colorize_hint">Ova funkcija radi u zavisnosti od verzije i varijante Androida</string>
     <string name="title_advanced_split_hint">Ovo će podijeliti ekran u dijelove</string>
+    <string name="title_advanced_split_min_hint">Ovaj uvjet je namijenjen za sklopive uređaje</string>
     <string name="title_advanced_threading_hint">Grupiši poruke povezane jedne s drugima</string>
     <string name="title_advanced_highlight_hint">Tematska boja za naglašavanje koristit će se za markiranje</string>
     <string name="title_advanced_gravatars_hint">Moguće je da postoji rizik privatnosti</string>

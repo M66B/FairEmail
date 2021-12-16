@@ -95,13 +95,13 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~בחירת תמונות מקומיות כחתימות~~ (לא יתווסף כיוון שזה דורש ניהול קובצי תמונות וכיוון שהתמונות לא מופיעות כברירת מחדל ברוב לקוחות הדוא״ל בין כה וכה)
 * ~~להציג הודעות שתואמות לכלל~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (אין ספריות Java מתוחזקות עם רישיון מתאים וללא תלויות וחוץ מזה, ל־FairEmail יש כללי סינון עצמאיים)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* ~~חיפוש הודעות עם/בלי קבצים מצורפים~~ (אי אפשר להוסיף את זה כיוון של־IMAP אין תמיכה בחיפוש אחר קבצים מצורפים)
+* ~~חיפוש אחר תיקייה~~ (סינון רשימת תיקיות היררכית היא בעייתית)
+* ~~הצעות חיפוש~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
+* ~~העתקת חשבונות וזהויות~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~תצוגת תיקייה מצומצמת יותר~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))

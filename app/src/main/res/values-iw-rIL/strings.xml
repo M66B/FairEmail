@@ -636,6 +636,7 @@
     <string name="title_advanced_date_hint">הודעות מקובצות לפי תאריך רק אם הן מסודרות לפי זמן</string>
     <string name="title_advanced_navbar_colorize_hint">יכולת התפקוד תלויה בגרסת ה־Android וסוגה</string>
     <string name="title_advanced_split_hint">יפצל את המסך לחלקים</string>
+    <string name="title_advanced_split_min_hint">זה תנאי שמיועד למכשירים מתקפלים</string>
     <string name="title_advanced_threading_hint">קיבוץ הודעות שקשורות זו לזו</string>
     <string name="title_advanced_highlight_hint">הצבע המשני של ערכת הנושא ישמש להדגשה</string>
     <string name="title_advanced_gravatars_hint">עלול להיות סיכון לפרטיות</string>

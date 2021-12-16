@@ -2,9 +2,9 @@
 
 # FairEmail サポート
 
-まずは下記の よくある質問（FAQ）をご確認ください。 FAQ にない質問や機能リクエスト、バグ報告の方法については[こちら](#user-content-get-support)をご確認ください。
+まずは下記の よくある質問 (FAQ) をご確認ください。 FAQ にない質問や機能リクエスト、バグ報告の方法については[こちら](#user-content-get-support)をご確認ください。
 
-まずは下記の よくある質問（FAQ）をご確認ください。 FAQ にない質問や機能リクエスト、バグ報告の方法については[こちら](#user-content-get-support)をご確認ください。
+まずは下記の よくある質問 (FAQ) をご確認ください。 FAQ にない質問や機能リクエスト、バグ報告の方法については[こちら](#user-content-get-support)をご確認ください。
 
 ## 索引
 
@@ -13,16 +13,16 @@
 * [既知の問題](#user-content-known-problems)
 * [予定されている機能](#user-content-planned-features)
 * [よくリクエストされる機能](#user-content-frequently-requested-features)
-* [よくある質問（FAQ）](#user-content-frequently-asked-questions)
+* [よくある質問 (FAQ)](#user-content-frequently-asked-questions)
 * [サポートが必要な場合](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>アカウントの認証</h2>
 
 ほとんどの場合、クイックセットアップウィザードに従うことで正しく設定を完了できます。
 
-クイックセットアップウィザードで正しく設定できない場合、アカウント（メール受信用） と ID（メール送信用） を、マニュアル設定から手動で設定する必要があります。 マニュアル設定には、IMAP サーバーと SMTP サーバーのアドレス、ポート番号、そしてあなたのユーザー名（ほとんどの場合メールアドレス）とパスワードが必要です。なお、ポート番号は  SSL/TLS や STARTTLS を使用しない場合でも必要となります。
+クイックセットアップウィザードで正しく設定できない場合、アカウント (メール受信用) と ID (メール送信用) を、マニュアル設定から手動で設定する必要があります。 マニュアル設定には、IMAP サーバーと SMTP サーバーのアドレス、ポート番号、そしてあなたのユーザー名 (ほとんどの場合メールアドレス) とパスワードが必要です。なお、ポート番号は  SSL/TLS や STARTTLS を使用しない場合でも必要となります。
 
-ほとんどの場合、「*IMAP*（プロバイダー名）」と検索することで、適切なドキュメントにアクセスできます。
+ほとんどの場合、「*IMAP* (プロバイダー名)」と検索することで、適切なドキュメントにアクセスできます。
 
 二段階認証が有効になっている場合などでは、アカウントへの外部アクセスを有効にするか、アプリパスワードを使用する必要があります。
 
@@ -62,7 +62,7 @@
 * 送信を取り消す:［送信トレイ］> メッセージを右または左にスワイプ
 * 受信トレイに送信済みメッセージを保存: [こちらの FAQ をご確認ください](#user-content-faq142)
 * システムフォルダーを変更:［設定］>［手動セットアップ］>［アカウント］> 下にスクロール
-* エクスポート/インポート設定:［設定］> ナビゲーションメニュー（左側）
+* エクスポート/インポート設定:［設定］> ナビゲーションメニュー (左側)
 
 <h2><a name="known-problems"></a>既知の問題</h2>
 
@@ -71,7 +71,7 @@
 * ~~ [ AndroidX のバグ](https://issuetracker.google.com/issues/78495471)により、FairEmail が長押しまたはスワイプでクラッシュすることがあります。 Google が修正しました。~~
 * ~~ [AndroidX ROOM のバグ](https://issuetracker.google.com/issues/138441698) により "*... Exception while computing database live data ... Couldn't read row ...*" と表示されてクラッシュすることがあります。 回避策が追加されました。~~　
 * [Android のバグ](https://issuetracker.google.com/issues/119872129)により、FairEmail のアップデート後に通知をタップすると FairEmail が "*... Bad notification posted ...*" と表示されてクラッシュすることがあります。
-* [Android のバグ](https://issuetracker.google.com/issues/62427912)により、FairEmail のアップデート後に ActivityRecord not found for ...</em>" と表示されてクラッシュすることがあります。 再インストール（[ソース](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)）すると問題が解決する可能性があります。
+* [Android のバグ](https://issuetracker.google.com/issues/62427912)により、FairEmail のアップデート後に ActivityRecord not found for ...</em>" と表示されてクラッシュすることがあります。 再インストール ([ソース](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) すると問題が解決する可能性があります。
 * [Android のバグ](https://issuetracker.google.com/issues/37018931)により、* InputChannel is not initialized ...* と表示されてクラッシュすることがあります。
 * ~~[LineageOS のバグ](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273)により、*... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...* と表示されてクラッシュすることがあります。~~
 * Android 5.x の Nova Launcher のバグにより、Nova Launcher がユーザー補助サービスにアクセスできないとき *java.lang.StackOverflowError* と表示されて FairEmail がクラッシュすることができます。
@@ -87,12 +87,12 @@
 
 <h2><a name="planned-features"></a>予定されている機能</h2>
 
-* ~~オンデマンド（マニュアル）同期~~
+* ~~オンデマンド (マニュアル) 同期~~
 * ~~半自動暗号化~~
 * ~~メッセージをコピー~~
 * ~~色付きのスター~~
 * ~~フォルダーごとの通知設定~~
-* ~~署名にローカル画像を選択~~（実現には画像ファイルの管理が必要で、ほとんどのメールクライアントではデフォルトで画像が表示されないため、追加されません）
+* ~~署名にローカル画像を選択~~ (実現には画像ファイルの管理が必要で、ほとんどのメールクライアントではデフォルトで画像が表示されないため、追加されません)
 * ~~ルールでメッセージをフィルター~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
@@ -126,8 +126,8 @@ The design is based on many discussions and if you like you can discuss about it
 
 <h2><a name="frequently-asked-questions"></a>よくある質問</h2>
 
-* [（1）必要とする権限とその理由は何ですか？](#user-content-faq1)
-* [（2）常に通知が表示されるのはなぜですか？](#user-content-faq2)
+* [(1) 必要とする権限とその理由は何ですか？](#user-content-faq1)
+* [(2) 常に通知が表示されるのはなぜですか？](#user-content-faq2)
 * [(3) What are operations and why are they pending?](#user-content-faq3)
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
