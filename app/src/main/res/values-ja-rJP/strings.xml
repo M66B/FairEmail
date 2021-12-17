@@ -113,10 +113,10 @@
     <string name="title_setup_help">ヘルプ</string>
     <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_intro">3 ステップのアカウント設定で、すぐにメールを送受信できます</string>
-    <string name="title_setup_simple">オプション設定を変更する必要はありません</string>
+    <string name="title_setup_simple">設定を変更する必要はありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
     <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnag がエラーレポートに使用されますが、デフォルトでは無効になっています。</string>
-    <string name="title_setup_quick_accounts">アカウントの追加または変更</string>
+    <string name="title_setup_quick_accounts">アカウントを追加または変更する</string>
     <string name="title_setup_quick_support">一部のプロバイダーはアカウントを追加しにくくしています。FairEmail を非難せずに、サポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップは autoconfig.thunderbird.net から設定情報を取得します</string>
     <string name="title_setup_quick_patience">しばらくお待ちください&#8230;</string>
@@ -126,7 +126,7 @@
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得する</string>
-    <string name="title_setup_manual">手動セットアップとアカウントのオプション設定</string>
+    <string name="title_setup_manual">手動セットアップとアカウントの設定</string>
     <string name="title_setup_classic">マニュアル設定</string>
     <string name="title_setup_documentation">メールサーバー設定については、メールプロバイダーのドキュメントを参照してください</string>
     <string name="title_setup_account_remark">メールを受信</string>
@@ -160,28 +160,28 @@
     <string name="title_setup_quick_configure">名前、色、スワイプ操作などを編集する</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">付与</string>
-    <string name="title_setup_grant_again">アクセス権限を付与</string>
+    <string name="title_setup_grant_again">必要な権限を付与</string>
     <string name="title_setup_exchange_support">Microsoft Exchange に対応していますか？</string>
     <string name="title_setup_identity_what">ID とは？</string>
     <string name="title_setup_free">このアプリは無料で使用できますか？</string>
-    <string name="title_setup_permissions">アクセス権限を付与</string>
+    <string name="title_setup_permissions">アクセス権限を付与する</string>
     <string name="title_setup_permissions_remark">連絡先へのアクセスのため (オプション)</string>
     <string name="title_setup_permissions_explanation">連絡先を検索したり、連絡先を自動入力するには連絡先へのアクセス権限が必要です</string>
     <string name="title_setup_permission_import_contacts">連絡先をインポートするにはどうすればいいですか？</string>
-    <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
+    <string name="title_setup_doze">バッテリー最適化を無効にする</string>
     <string name="title_setup_doze_remark">確実にメールを送受信するため</string>
     <string name="title_setup_doze_explanation">バックグラウンドでのメッセージの送受信を確実に行うには、アプリのバッテリー最適化を無効にする必要があります</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、このアプリのバッテリー最適化をオフにするとバッテリー使用量が少なくなります</string>
-    <string name="title_setup_doze_instructions">次の Android ダイアログで「すべてのアプリ」から、このアプリを選択して「最適化しない」を選択します。</string>
+    <string name="title_setup_doze_instructions">次に表示される Android のダイアログで「すべてのアプリ」から、このアプリを選択して「最適化しない」を選択します</string>
     <string name="title_setup_doze_battery">バッテリー使用量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">このデバイスでは必要と思われます</string>
-    <string name="title_setup_doze_12">プッシュメッセージは無効です</string>
-    <string name="title_setup_alarm_12">このアプリは動作しません</string>
-    <string name="title_setup_inexact">アラーム &amp; リマインダーは無効です</string>
-    <string name="title_setup_background">バックグラウンドの制限が有効です</string>
-    <string name="title_setup_data">データセーバーが有効になっています</string>
-    <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
+    <string name="title_setup_doze_12">プッシュメッセージが無効です</string>
+    <string name="title_setup_alarm_12">このアプリは正しく動作しません</string>
+    <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
+    <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
+    <string name="title_setup_data">データセーバーが有効です</string>
+    <string name="title_setup_advanced_options">詳細設定を表示</string>
     <string name="title_setup_inbox">受信トレイに移動</string>
     <string name="title_setup_go">移動</string>
     <string name="title_setup_to_do">タスク</string>
@@ -193,8 +193,8 @@
     <string name="title_setup_close">設定を閉じる</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
-    <string name="title_setup_export_remark">        設定ファイルにはすべての設定とアカウント情報が含まれていて、パスワードで暗号化されています。
-        設定をインポートするにはパスワードが必要ですので決して忘れないでください！
+    <string name="title_setup_export_remark">        設定ファイルにはすべての設定とアカウント情報が保存され、パスワードで暗号化されます。
+        設定をインポートするにはパスワードが必要です。パスワードは絶対に忘れないでください！
     </string>
     <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
     <string name="title_setup_import_do">インポートしたアカウントは既存のアカウントを上書きせずに追加されます</string>
@@ -202,13 +202,13 @@
     <string name="title_setup_password_chars">パスワードに制御文字または空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードを再入力</string>
     <string name="title_setup_password_missing">パスワードを入力してください</string>
-    <string name="title_setup_password_different">パスワードが間違っています</string>
+    <string name="title_setup_password_different">パスワードが一致しません</string>
     <string name="title_setup_password_invalid">無効なパスワードです</string>
     <string name="title_setup_import_accounts">アカウントと ID をインポート</string>
     <string name="title_setup_import_rules">フィルタールールをインポート</string>
     <string name="title_setup_import_contacts">ローカルの連絡先をインポート</string>
     <string name="title_setup_import_answers">返信テンプレートをインポート</string>
-    <string name="title_setup_import_settings">インポートオプション</string>
+    <string name="title_setup_import_settings">設定をインポート</string>
     <string name="title_setup_exported">設定をエクスポートしました</string>
     <string name="title_setup_imported">設定をインポートしました</string>
     <string name="title_setup_import_invalid">設定ファイルが無効です</string>
@@ -218,20 +218,20 @@
     <string name="title_importing_wizard">ウィザードを実行してもう一度認証する</string>
     <string name="title_setup_reorder_accounts">アカウントの並び替え</string>
     <string name="title_setup_reorder_folders">フォルダーの並び替え</string>
-    <string name="title_reset_order">並び替えをリセット</string>
+    <string name="title_reset_order">並び順をリセット</string>
     <string name="title_setup_authentication">認証</string>
     <string name="title_setup_biometrics">生体認証</string>
     <string name="title_setup_biometrics_enable">有効にする</string>
     <string name="title_setup_biometrics_disable">無効にする</string>
-    <string name="title_setup_biometrics_unlock">ロック解除</string>
+    <string name="title_setup_biometrics_unlock">ロックを解除する</string>
     <string name="title_setup_theme">テーマを選択</string>
     <string name="title_setup_theme_blue_orange">ブルー/オレンジ</string>
     <string name="title_setup_theme_yellow_purple">イエロー/パープル</string>
     <string name="title_setup_theme_red_green">レッド/グリーン</string>
     <string name="title_setup_theme_grey">グレー</string>
     <string name="title_setup_theme_black">ブラック</string>
-    <string name="title_setup_theme_black_and_white">ブラック/ホワイト</string>
-    <string name="title_setup_theme_reverse">色を反転</string>
+    <string name="title_setup_theme_black_and_white">モノクロ</string>
+    <string name="title_setup_theme_reverse">配色を反転</string>
     <string name="title_setup_theme_light">ライト</string>
     <string name="title_setup_theme_dark">ダーク</string>
     <string name="title_setup_theme_system">システム設定に従う</string>
@@ -244,18 +244,18 @@
     <string name="title_setup_advanced">詳細</string>
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">デフォルトに戻す</string>
-    <string name="title_setup_reset_questions">質問をリセット</string>
+    <string name="title_setup_reset_questions">確認表示をリセット</string>
     <string name="title_setup_reset_general">よくある質問</string>
-    <string name="title_setup_reset_full">元のメッセージを表示</string>
-    <string name="title_setup_reset_images">画像を表示</string>
-    <string name="title_setup_reset_links">リンクを確認</string>
+    <string name="title_setup_reset_full">元のメッセージの表示</string>
+    <string name="title_setup_reset_images">画像の表示</string>
+    <string name="title_setup_reset_links">リンクの確認</string>
     <string name="title_advanced_hint_title">詳細設定</string>
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         よく使われる標準的な値が設定されているため、特に変更しなくてもアプリを使うことができます。
     </string>
     <string name="title_advanced_hint_remark">        設定は、外観や動作などのカテゴリーごとにタブに分類され、さらにセクションに分けられています。検索することもできます。
     </string>
-    <string name="title_advanced_hint_setup">メイン画面のウィザードをタップしてアカウントを設定できます。</string>
+    <string name="title_advanced_hint_setup">メイン画面のウィザードをタップするとアカウントを設定できます。</string>
     <string name="title_advanced_section_main">メイン</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
@@ -300,7 +300,7 @@
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
-    <string name="title_advanced_attach_new">共有されたファイルを新しい下書きに追加</string>
+    <string name="title_advanced_attach_new">共有されたファイルを返信の下書きに追加</string>
     <string name="title_advanced_reply_all">返信ボタンを長押しして全員に返信</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_compose_font">デフォルトのフォント</string>
@@ -349,10 +349,10 @@
     <string name="title_advanced_two_row">2 行に分割</string>
     <string name="title_advanced_two_col">2 列に分割</string>
     <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
-    <string name="title_advanced_nav_options">ナビゲーションメニューのオプションを表示</string>
+    <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示</string>
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留めする</string>
-    <string name="title_advanced_nav_hide_title">ナビゲーションメニューのオプションを非表示にしますか？</string>
-    <string name="title_advanced_nav_hide_message">表示設定でもう一度オプションを有効にすることができます</string>
+    <string name="title_advanced_nav_hide_title">ナビゲーションメニューからオプションを非表示にしますか？</string>
+    <string name="title_advanced_nav_hide_message">表示設定からもう一度オプションを表示することができます</string>
     <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示する</string>
     <string name="title_advanced_nav_unseen_drafts">未読の下書きの数をナビゲーションメニューに表示する</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
@@ -592,7 +592,7 @@
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
     <string name="title_advanced_remove_signature_hint">一部のテキストが削除されなかったり、テキストが削除されすぎたりする可能性があります</string>
     <string name="title_advanced_metered_hint">一般にモバイルネットワークまたは有料 Wi-Fi ホットスポットが従量制課金接続に該当します</string>
-    <string name="title_advanced_metered_warning">このオプションを無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
+    <string name="title_advanced_metered_warning">無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU Roam Like at Home の加盟国の SIM カードで加盟国のネットワークを使用する場合、ローミングではないと見なします</string>
     <string name="title_advanced_usage_hint">これによりバッテリー使用量、データ使用量、ストレージ使用量が増加します</string>
     <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部のデバイスで接続に問題が発生する可能性があります</string>
@@ -890,6 +890,7 @@
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
     <string name="title_resend">再送</string>
+    <string name="title_fetching_headers">すべてのメッセージヘッダーをダウンロードしています&#8230;</string>
     <string name="title_new_message">新しいメッセージ</string>
     <string name="title_editasnew">新規として編集</string>
     <string name="title_edit_notes">ローカルメモを編集</string>
@@ -1083,7 +1084,7 @@
     <string name="title_attachment_audio">音声を録音</string>
     <string name="title_show_addresses">CC/BCC を表示</string>
     <string name="title_save_drafts">下書きをサーバーに保存</string>
-    <string name="title_send_dialog">オプションを表示</string>
+    <string name="title_send_dialog">送信オプションを表示</string>
     <string name="title_image_dialog">画像オプションを表示</string>
     <string name="title_media_toolbar">メディアツールバー</string>
     <string name="title_manage_local_contacts">ローカルの連絡先を管理</string>
@@ -1468,7 +1469,7 @@
     <string name="title_redo">やり直す</string>
     <string name="title_add">追加</string>
     <string name="title_browse">アプリで開く</string>
-    <string name="title_info">情報</string>
+    <string name="title_info">Info</string>
     <string name="title_download">ダウンロード</string>
     <string name="title_report">報告</string>
     <string name="title_fix">修正</string>

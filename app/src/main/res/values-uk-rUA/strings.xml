@@ -917,6 +917,7 @@
     <string name="title_search_in_text">Пошук у тексті &#8230;</string>
     <string name="title_forward">Переслати</string>
     <string name="title_resend">Перевідправити</string>
+    <string name="title_fetching_headers">Завантаження заголовків повідомлень &#8230;</string>
     <string name="title_new_message">Нове повідомлення</string>
     <string name="title_editasnew">Редагувати як нове</string>
     <string name="title_edit_notes">Редагувати локальні нотатки</string>

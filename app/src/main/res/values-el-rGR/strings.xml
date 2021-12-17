@@ -896,6 +896,7 @@
     <string name="title_search_in_text">Αναζήτηση στο κείμενο &#8230;</string>
     <string name="title_forward">Προώθηση</string>
     <string name="title_resend">Επαναποστολή</string>
+    <string name="title_fetching_headers">Λήψη κεφαλίδων μηνυμάτων &#8230;</string>
     <string name="title_new_message">Νέο μήνυμα</string>
     <string name="title_editasnew">Επεξεργασία ως νέου</string>
     <string name="title_edit_notes">Επεξεργασία τοπικών σημειώσεων</string>

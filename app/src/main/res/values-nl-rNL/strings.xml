@@ -898,6 +898,7 @@ Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_search_in_text">Zoek in tekst &#8230;</string>
     <string name="title_forward">Doorsturen</string>
     <string name="title_resend">Verstuur opnieuw</string>
+    <string name="title_fetching_headers">Berichtkoppen downloaden &#8230;</string>
     <string name="title_new_message">Nieuw bericht</string>
     <string name="title_editasnew">Bewerken als nieuw</string>
     <string name="title_edit_notes">Lokale notities bewerken</string>

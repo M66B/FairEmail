@@ -896,6 +896,7 @@
     <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_resend">Umleiten</string>
+    <string name="title_fetching_headers">Nachrichten-Kopfzeilen herunterladen &#8230;</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_edit_notes">Lokale Notizen bearbeiten</string>

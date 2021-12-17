@@ -2740,15 +2740,15 @@ Es gibt **nur Support** für die letzte PlayStore-Version, den letzten GitHub-Re
 
 F-Droid erzeugt Builds unregelmäßig, was problematisch sein kann, wenn es ein wichtiges Update gibt. Daher wird empfohlen, zum GitHub Release zu wechseln.
 
-Die F-Droid-Version ist aus dem gleichen Quellcode gebaut, aber anders signiert. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Gmail, da Google nur eine Signatur erlaubt (und zulässt). For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+Die F-Droid-Version ist aus dem gleichen Quellcode gebaut, aber anders signiert. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Gmail, da Google nur eine Signatur erlaubt (und zulässt). Für alle anderen E-Mail-Anbieter ist der OAuth-Zugang nur in Play-Store-Versionen und Github-Versionen verfügbar, da E-Mail-Anbieter nur offiziellen Builds die Nutzung von OAuth erlaubt haben.
 
-Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
+Beachten Sie, dass Sie zuerst die F-Droid-Version deinstallieren müssen, bevor Sie eine GitHub Version installieren können, da Android aus Sicherheitsgründen die selbe App mit einer anderen Signatur nicht installieren kann.
 
-Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
+Beachten Sie, dass die GitHub Version automatisch nach Updates sucht. When desired, this can be turned off in the miscellaneous settings.
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
+Wenn Sie ein Problem mit der F-Droid-Version haben, überprüfen Sie bitte, ob zuerst eine neuere GitHub Version vorhanden ist.
 
 <br />
 
@@ -2757,7 +2757,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 
 There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
-When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
+Bei der Zwei-Faktor-Authentifizierung benötigen Sie möglicherweise ein [-app-spezifisches Passwort](https://support.apple.com/en-us/HT204397).
 
 <br />
 

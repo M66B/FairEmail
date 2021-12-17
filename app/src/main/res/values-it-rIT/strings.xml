@@ -901,6 +901,7 @@
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
     <string name="title_resend">Reinvia</string>
+    <string name="title_fetching_headers">Scaricando intestazioni messaggio &#8230;</string>
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>

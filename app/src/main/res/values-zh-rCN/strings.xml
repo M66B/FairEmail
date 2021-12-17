@@ -887,6 +887,7 @@
     <string name="title_search_in_text">在文本中搜索 &#8230;</string>
     <string name="title_forward">转发</string>
     <string name="title_resend">重新发送</string>
+    <string name="title_fetching_headers">正在下载邮件标头 &#8230;</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地笔记</string>

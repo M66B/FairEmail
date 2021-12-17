@@ -895,6 +895,7 @@
     <string name="title_search_in_text">Sök i text &#8230;</string>
     <string name="title_forward">Vidarebefordra</string>
     <string name="title_resend">Skicka igen</string>
+    <string name="title_fetching_headers">Laddar ner meddelanderubriker &#8230;</string>
     <string name="title_new_message">Nytt meddelande</string>
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_edit_notes">Redigera lokala anteckningar</string>
