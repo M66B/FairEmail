@@ -2407,7 +2407,7 @@ $$flagged$
 $$deleted$
 ```
 
-To match *passed* message checks via a header condition (since version 1.1787):
+To match *passed* message checks via a header condition (since version 1.1787; no/multi-from since version 1.1791):
 
 ```
 $$dkim$
@@ -2416,6 +2416,8 @@ $$dmarc$
 $$mx$
 $$blocklist$
 $$replydomain$
+$$nofrom$
+$$multifrom$
 ```
 
 Note that *regex* should be disable and that there should be no white space.

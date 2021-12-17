@@ -283,6 +283,12 @@ public class EntityRule {
                     } else if ("$replydomain".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.reply_domain))
                             return false;
+                    } else if ("$nofrom".equals(keyword)) {
+                        if (message.from != null && message.from.length > 0)
+                            return false;
+                    } else if ("$multifrom".equals(keyword)) {
+                        if (message.from == null || message.from.length < 2)
+                            return false;
                     } else {
                         List<String> keywords = new ArrayList<>();
                         keywords.addAll(Arrays.asList(message.keywords));
