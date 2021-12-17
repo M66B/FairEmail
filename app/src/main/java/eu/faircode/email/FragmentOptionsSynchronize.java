@@ -82,6 +82,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swDeleteUnseen;
     private SwitchCompat swSyncKept;
     private SwitchCompat swGmailThread;
+    private SwitchCompat swSubjectThreading;
     private SwitchCompat swSyncFolders;
     private SwitchCompat swSyncFoldersPoll;
     private SwitchCompat swSyncSharedFolders;
@@ -103,7 +104,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "auto_optimize", "schedule", "schedule_start", "schedule_end",
             "sync_quick_imap", "sync_quick_pop",
-            "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "gmail_thread_id",
+            "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept",
+            "gmail_thread_id", "subject_threading",
             "sync_folders", "sync_folders_poll", "sync_shared_folders", "subscriptions",
             "check_authentication", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
             "tune_keep_alive"
@@ -149,6 +151,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
         swSyncKept = view.findViewById(R.id.swSyncKept);
         swGmailThread = view.findViewById(R.id.swGmailThread);
+        swSubjectThreading = view.findViewById(R.id.swSubjectThreading);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
         swSyncFoldersPoll = view.findViewById(R.id.swSyncFoldersPoll);
         swSyncSharedFolders = view.findViewById(R.id.swSyncSharedFolders);
@@ -325,6 +328,14 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("gmail_thread_id", checked).apply();
+                swSubjectThreading.setEnabled(!checked);
+            }
+        });
+
+        swSubjectThreading.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subject_threading", checked).apply();
             }
         });
 
@@ -493,6 +504,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
         swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
+        swSubjectThreading.setChecked(prefs.getBoolean("subject_threading", false));
+        swSubjectThreading.setEnabled(!swGmailThread.isChecked());
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
         swSyncFoldersPoll.setChecked(prefs.getBoolean("sync_folders_poll", false));
         swSyncFoldersPoll.setEnabled(swSyncFolders.isChecked());

@@ -421,6 +421,12 @@ public interface DaoMessage {
             " AND inreplyto = :inreplyto")
     List<EntityMessage> getMessagesByInReplyTo(long account, String inreplyto);
 
+    @Query("SELECT * FROM message" +
+            " WHERE account = :account" +
+            " AND sender = :sender" +
+            " AND subject = :subject")
+    List<EntityMessage> getMessagesBySubject(long account, String sender, String subject);
+
     @Query("SELECT message.* FROM message" +
             " LEFT JOIN message AS base ON base.id = :id" +
             " WHERE message.account = :account" +

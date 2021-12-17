@@ -1274,9 +1274,10 @@ public class MessageHelper {
     }
 
     String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         if (imessage instanceof GmailMessage) {
             // https://developers.google.com/gmail/imap/imap-extensions#access_to_the_gmail_thread_id_x-gm-thrid
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean gmail_thread_id = prefs.getBoolean("gmail_thread_id", false);
             if (gmail_thread_id) {
                 long thrid = ((GmailMessage) imessage).getThrId();
@@ -1329,6 +1330,21 @@ public class MessageHelper {
                 Log.w("Updating after thread from " + message.thread + " to " + thread);
                 db.message().updateMessageThread(message.account, message.thread, thread);
             }
+
+        boolean subject_threading = prefs.getBoolean("subject_threading", false);
+        if (subject_threading) {
+            String sender = getSortKey(getFrom());
+            String subject = getSubject();
+            if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
+                List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject);
+                for (EntityMessage message : subjects)
+                    if (!thread.equals(message.thread)) {
+                        Log.w("Updating subject thread from " + message.thread + " to " + thread);
+                        db.message().updateMessageThread(message.account, message.thread, thread);
+                    }
+            }
+        }
+
 
         return thread;
     }
