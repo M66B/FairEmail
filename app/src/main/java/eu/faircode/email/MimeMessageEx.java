@@ -63,6 +63,11 @@ public class MimeMessageEx extends MimeMessage {
         }
     }
 
+    public void updateMessageID(String msgid) throws MessagingException {
+        this.msgid = msgid;
+        updateMessageID();
+    }
+
     @Override
     public synchronized Flags getFlags() throws MessagingException {
         if (original == null)

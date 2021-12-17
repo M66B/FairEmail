@@ -332,8 +332,19 @@ public class MessageHelper {
                     case "reply-to":
                         imessage.setReplyTo(InternetAddress.parse(value));
                         break;
-                    // Resent-Sender
-                    // Resent-Message-ID
+                    case "message-id":
+                        if (send) {
+                            imessage.setHeader("Resent-Message-ID", message.msgid);
+                            imessage.updateMessageID(value);
+                        }
+                        break;
+                    case "references":
+                        imessage.setHeader("References", value);
+                        break;
+                    case "in-reply-to":
+                        imessage.setHeader("In-Reply-To", value);
+                        break;
+                    // Resent-Sender (=on behalf of)
                 }
             }
 
