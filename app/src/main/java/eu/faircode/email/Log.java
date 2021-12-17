@@ -595,8 +595,47 @@ public class Log {
                 result.add(key + "=" + value + (value == null ? "" :
                         " (" + v.getClass().getSimpleName() + (length < 0 ? "" : ":" + length) + ")"));
             }
-        } catch (BadParcelableException ex) {
+        } catch (Throwable ex) {
             // android.os.BadParcelableException: ClassNotFoundException when unmarshalling: ...
+
+            // java.lang.RuntimeException: Failure delivering result ResultInfo{who=null, request=1172374955, result=0, data=Intent { (has extras) }} to activity {eu.faircode.email/eu.faircode.email.ActivityCompose}: java.lang.RuntimeException: Parcelable encountered ClassNotFoundException reading a Serializable object (name = com.lyrebirdstudio.imagecameralib.utils.ImageCameraLibReturnTypes)
+            //        at android.app.ActivityThread.deliverResults(ActivityThread.java:4382)
+            //        at android.app.ActivityThread.handleSendResult(ActivityThread.java:4426)
+            //        at android.app.ActivityThread.-wrap20(Unknown)
+            //        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1685)
+            //        at android.os.Handler.dispatchMessage(Handler.java:106)
+            //        at android.os.Looper.loop(Looper.java:164)
+            //        at android.app.ActivityThread.main(ActivityThread.java:6626)
+            //        at java.lang.reflect.Method.invoke(Method.java:-2)
+            //        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:438)
+            //        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:811)
+            //
+            // Caused by: java.lang.RuntimeException: Parcelable encountered ClassNotFoundException reading a Serializable object (name = com.lyrebirdstudio.imagecameralib.utils.ImageCameraLibReturnTypes)
+            //        at android.os.Parcel.readSerializable(Parcel.java:3019)
+            //        at android.os.Parcel.readValue(Parcel.java:2805)
+            //        at android.os.Parcel.readArrayMapInternal(Parcel.java:3123)
+            //        at android.os.BaseBundle.initializeFromParcelLocked(BaseBundle.java:273)
+            //        at android.os.BaseBundle.unparcel(BaseBundle.java:226)
+            //        at android.os.BaseBundle.keySet(BaseBundle.java:520)
+            //        at eu.faircode.email.Log.getExtras(Log:565)
+            //        at eu.faircode.email.Log.logBundle(Log:555)
+            //        at eu.faircode.email.Log.logExtras(Log:551)
+            //        at eu.faircode.email.ActivityBase.onActivityResult(ActivityBase:376)
+            //        at android.app.Activity.dispatchActivityResult(Activity.java:7305)
+            //        at android.app.ActivityThread.deliverResults(ActivityThread.java:4378)
+            //        at android.app.ActivityThread.handleSendResult(ActivityThread.java:4426)
+            //        at android.app.ActivityThread.-wrap20(Unknown)
+            //        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1685)
+            //        at android.os.Handler.dispatchMessage(Handler.java:106)
+            //        at android.os.Looper.loop(Looper.java:164)
+            //        at android.app.ActivityThread.main(ActivityThread.java:6626)
+            //        at java.lang.reflect.Method.invoke(Method.java:-2)
+            //        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:438)
+            //        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:811)
+            //
+            // Caused by: java.lang.ClassNotFoundException: com.lyrebirdstudio.imagecameralib.utils.ImageCameraLibReturnTypes
+            //
+            // Caused by: java.lang.ClassNotFoundException: Didn't find class "com.lyrebirdstudio.imagecameralib.utils.ImageCameraLibReturnTypes" on path: DexPathList[[zip file "/data/app/eu.faircode.email-b4dvFM1MrZ5iBeNXAXRJhQ==/base.apk"],nativeLibraryDirectories=[/data/app/eu.faircode.email-b4dvFM1MrZ5iBeNXAXRJhQ==/lib/arm, /data/app/eu.faircode.email-b4dvFM1MrZ5iBeNXAXRJhQ==/base.apk!/lib/armeabi-v7a, /system/lib, /system/vendor/lib]]
             Log.e(ex);
         }
 
