@@ -234,7 +234,8 @@ public class FragmentAnswer extends FragmentBase {
                         }, null, context));
                 }
 
-                bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
+                if (answer == null)
+                    bottom_navigation.getMenu().removeItem(R.id.action_delete);
 
                 if (ActivityAnswer.canAnswer(context))
                     cbExternal.setVisibility(View.VISIBLE);
