@@ -4,6 +4,11 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1790 - 2021-12-16
 
 * Small improvements and minor bug fixes
