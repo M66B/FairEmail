@@ -2794,7 +2794,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
-                popupMenu.getMenu().findItem(R.id.menu_resend).setEnabled(message.headers != null);
                 popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_reply_answer).setEnabled(message.content);
 
@@ -2844,7 +2843,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onMenuReply(message, "forward");
                             return true;
                         } else if (itemId == R.id.menu_resend) {
-                            onMenuReply(message, "resend");
+                            onMenuResend(message);
                             return true;
                         } else if (itemId == R.id.menu_editasnew) {
                             onMenuReply(message, "editasnew");
@@ -2879,6 +2878,41 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
         startActivity(reply);
+    }
+
+    private void onMenuResend(TupleMessageEx message) {
+        if (message.headers == null) {
+            iProperties.setValue("resend", message.id, true);
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    EntityOperation.queue(context, message, EntityOperation.HEADERS);
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(getContext(), R.string.title_fetching_headers, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "resend:headers");
+        } else
+            onMenuReply(message, "resend");
     }
 
     private void onMenuDsn(TupleMessageEx message, int type) {
@@ -5522,6 +5556,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     dups.get(i).duplicate = true;
         }
 
+        // Check headers for resend
+        for (TupleMessageEx message : messages) {
+            if (message.headers == null)
+                continue;
+            boolean resend = iProperties.getValue("resend", message.id);
+            if (!resend)
+                continue;
+            iProperties.setValue("resend", message.id, false);
+            onMenuReply(message, "resend");
+        }
+
+        // Auto expand
         if (autoExpanded) {
             autoExpanded = false;
             if (download == 0)
