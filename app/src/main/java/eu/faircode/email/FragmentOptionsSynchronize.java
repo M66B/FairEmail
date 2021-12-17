@@ -83,6 +83,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSyncKept;
     private SwitchCompat swGmailThread;
     private SwitchCompat swSubjectThreading;
+    private TextView tvSubjectThreading;
     private SwitchCompat swSyncFolders;
     private SwitchCompat swSyncFoldersPoll;
     private SwitchCompat swSyncSharedFolders;
@@ -152,6 +153,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSyncKept = view.findViewById(R.id.swSyncKept);
         swGmailThread = view.findViewById(R.id.swGmailThread);
         swSubjectThreading = view.findViewById(R.id.swSubjectThreading);
+        tvSubjectThreading = view.findViewById(R.id.tvSubjectThreading);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
         swSyncFoldersPoll = view.findViewById(R.id.swSyncFoldersPoll);
         swSyncSharedFolders = view.findViewById(R.id.swSyncSharedFolders);
@@ -421,6 +423,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
+
+        tvSubjectThreading.setText(getString(R.string.title_advanced_subject_threading_hint, MessageHelper.MAX_SUBJECT_AGE));
 
         DB db = DB.getInstance(getContext());
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {

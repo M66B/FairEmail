@@ -129,6 +129,7 @@ public class MessageHelper {
     static final int SMALL_MESSAGE_SIZE = 192 * 1024; // bytes
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
+    static final int MAX_SUBJECT_AGE = 48; // hours
 
     private static final int MAX_HEADER_LENGTH = 998;
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
@@ -1324,30 +1325,30 @@ public class MessageHelper {
         for (EntityMessage message : before)
             if (!thread.equals(message.thread)) {
                 Log.w("Updating before thread from " + message.thread + " to " + thread);
-                db.message().updateMessageThread(message.account, message.thread, thread);
+                db.message().updateMessageThread(message.account, message.thread, thread, null);
             }
 
         List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
         for (EntityMessage message : after)
             if (!thread.equals(message.thread)) {
                 Log.w("Updating after thread from " + message.thread + " to " + thread);
-                db.message().updateMessageThread(message.account, message.thread, thread);
+                db.message().updateMessageThread(message.account, message.thread, thread, null);
             }
 
         boolean subject_threading = prefs.getBoolean("subject_threading", false);
         if (subject_threading) {
             String sender = getSortKey(getFrom());
             String subject = getSubject();
+            long since = new Date().getTime() - MAX_SUBJECT_AGE * 3600 * 1000L;
             if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
-                List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject);
+                List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject, since);
                 for (EntityMessage message : subjects)
                     if (!thread.equals(message.thread)) {
                         Log.w("Updating subject thread from " + message.thread + " to " + thread);
-                        db.message().updateMessageThread(message.account, message.thread, thread);
+                        db.message().updateMessageThread(message.account, message.thread, thread, since);
                     }
             }
         }
-
 
         return thread;
     }
