@@ -49,6 +49,7 @@ import androidx.preference.PreferenceManager;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -64,7 +65,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final int protocol = args.getInt("protocol");
         final long folder = args.getLong("folder");
         final String type = args.getString("type");
-        final String from = args.getString("from");
+        final Address[] froms = DB.Converters.decodeAddresses(args.getString("from"));
         final boolean inJunk = args.getBoolean("inJunk");
         final boolean canBlock = args.getBoolean("canBlock");
 
@@ -305,45 +306,43 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         });
 
-        String domain = null;
-        try {
-            boolean common = false;
-            Address[] froms = MessageHelper.parseAddresses(context, from);
-            String email = (froms.length == 0 ? null : ((InternetAddress) froms[0]).getAddress());
-            int at = (email == null ? -1 : email.indexOf('@'));
-            domain = (at > 0 ? email.substring(at + 1).toLowerCase(Locale.ROOT) : null);
+        boolean common = false;
+        List<String> domains = new ArrayList<>();
+        if (froms != null)
+            for (Address from : froms) {
+                String email = ((InternetAddress) from).getAddress();
+                int at = (email == null ? -1 : email.indexOf('@'));
+                String domain = (at < 0 ? null : email.substring(at + 1).toLowerCase(Locale.ROOT));
+                if (TextUtils.isEmpty(domain))
+                    continue;
 
-            if (domain != null) {
-                List<String> domains = EmailProvider.getDomainNames(context);
-                for (String d : domains)
-                    if (domain.matches(d)) {
+                domains.add(domain);
+
+                for (String d : EmailProvider.getDomainNames(context))
+                    if (domain.matches(d))
                         common = true;
-                        break;
-                    }
             }
-
-            if (common) {
-                int dp6 = Helper.dp2pixels(context, 6);
-                int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
-                cbBlockDomain.setTextColor(colorWarning);
-                cbBlockDomain.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.twotone_warning_24, 0);
-                cbBlockDomain.setCompoundDrawablePadding(dp6);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                    cbBlockDomain.setCompoundDrawableTintList(ColorStateList.valueOf(colorWarning));
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
 
         // Initialize
         tvMessage.setText(inJunk
                 ? getString(R.string.title_folder_junk)
-                : getString(R.string.title_ask_spam_who, from));
+                : getString(R.string.title_ask_spam_who, MessageHelper.formatAddresses(froms)));
         cbBlockSender.setEnabled(canBlock);
         cbBlockDomain.setEnabled(false);
         cbBlockSender.setChecked(canBlock);
-        cbBlockDomain.setText(getString(R.string.title_block_sender_domain, domain));
-        cbBlockDomain.setVisibility(domain == null ? View.GONE : View.VISIBLE);
+
+        cbBlockDomain.setText(getString(R.string.title_block_sender_domain, TextUtils.join(",", domains)));
+        if (common) {
+            int dp6 = Helper.dp2pixels(context, 6);
+            int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+            cbBlockDomain.setTextColor(colorWarning);
+            cbBlockDomain.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.twotone_warning_24, 0);
+            cbBlockDomain.setCompoundDrawablePadding(dp6);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                cbBlockDomain.setCompoundDrawableTintList(ColorStateList.valueOf(colorWarning));
+        }
+
+        cbBlockDomain.setVisibility(domains.size() > 0 ? View.VISIBLE : View.GONE);
         ibMore.setImageLevel(1);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));

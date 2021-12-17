@@ -2580,7 +2580,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             aargs.putInt("protocol", message.accountProtocol);
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
-            aargs.putString("from", MessageHelper.formatAddresses(message.from));
+            aargs.putString("from", DB.Converters.encodeAddresses(message.from));
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
             aargs.putBoolean("canBlock", canBlock);
 
@@ -8185,7 +8185,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
                 boolean block_sender = args.getBoolean("block_sender");
                 boolean block_domain = args.getBoolean("block_domain");
-                List<String> whitelist = EmailProvider.getDomainNames(context);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -8208,18 +8207,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 EntityContact.TYPE_JUNK, message.received);
 
                     if (block_domain) {
-                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_domain);
-                        if (rule != null) {
+                        List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
+                        for (EntityRule rule : rules) {
                             if (message.folder.equals(junk.id)) {
                                 EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                                 if (inbox == null)
-                                    rule = null;
-                                else
-                                    rule.folder = inbox.id;
+                                    continue;
+                                rule.folder = inbox.id;
                             }
-                        }
-                        if (rule != null)
                             rule.id = db.rule().insertRule(rule);
+                        }
                     }
 
                     db.setTransactionSuccessful();

@@ -4765,7 +4765,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putInt("protocol", message.accountProtocol);
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
-            aargs.putString("from", MessageHelper.formatAddresses(message.from));
+            aargs.putString("from", DB.Converters.encodeAddresses(message.from));
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
             aargs.putBoolean("canBlock", canBlock);
 

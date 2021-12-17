@@ -948,48 +948,55 @@ public class EntityRule {
         return cal;
     }
 
-    static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain) throws JSONException {
-        if (message.from == null || message.from.length == 0)
-            return null;
+    @NonNull
+    static List<EntityRule> blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain) throws JSONException {
+        List<EntityRule> rules = new ArrayList<>();
 
-        String sender = ((InternetAddress) message.from[0]).getAddress();
-        String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
+        if (message.from == null)
+            return rules;
 
-        if (TextUtils.isEmpty(sender) ||
-                !Helper.EMAIL_ADDRESS.matcher(sender).matches())
-            return null;
+        for (Address from : message.from) {
+            String sender = ((InternetAddress) from).getAddress();
+            String name = MessageHelper.formatAddresses(new Address[]{from});
 
-        boolean regex = false;
-        if (block_domain) {
-            int at = sender.indexOf('@');
-            if (at > 0) {
-                regex = true;
-                sender = ".*@.*" + sender.substring(at + 1) + ".*";
+            if (TextUtils.isEmpty(sender) ||
+                    !Helper.EMAIL_ADDRESS.matcher(sender).matches())
+                continue;
+
+            boolean regex = false;
+            if (block_domain) {
+                int at = sender.indexOf('@');
+                if (at > 0) {
+                    regex = true;
+                    sender = ".*@.*" + sender.substring(at + 1) + ".*";
+                }
             }
+
+            JSONObject jsender = new JSONObject();
+            jsender.put("value", sender);
+            jsender.put("regex", regex);
+
+            JSONObject jcondition = new JSONObject();
+            jcondition.put("sender", jsender);
+
+            JSONObject jaction = new JSONObject();
+            jaction.put("type", TYPE_MOVE);
+            jaction.put("target", junk.id);
+            jaction.put("seen", true);
+
+            EntityRule rule = new EntityRule();
+            rule.folder = message.folder;
+            rule.name = context.getString(R.string.title_block, name);
+            rule.order = 1000;
+            rule.enabled = true;
+            rule.stop = true;
+            rule.condition = jcondition.toString();
+            rule.action = jaction.toString();
+
+            rules.add(rule);
         }
 
-        JSONObject jsender = new JSONObject();
-        jsender.put("value", sender);
-        jsender.put("regex", regex);
-
-        JSONObject jcondition = new JSONObject();
-        jcondition.put("sender", jsender);
-
-        JSONObject jaction = new JSONObject();
-        jaction.put("type", TYPE_MOVE);
-        jaction.put("target", junk.id);
-        jaction.put("seen", true);
-
-        EntityRule rule = new EntityRule();
-        rule.folder = message.folder;
-        rule.name = context.getString(R.string.title_block, name);
-        rule.order = 1000;
-        rule.enabled = true;
-        rule.stop = true;
-        rule.condition = jcondition.toString();
-        rule.action = jaction.toString();
-
-        return rule;
+        return rules;
     }
 
     boolean isBlockingSender(EntityMessage message, EntityFolder junk) throws JSONException {
