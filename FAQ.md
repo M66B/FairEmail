@@ -2823,7 +2823,7 @@ Moreover, email servers have access to information, like the IP address, etc of 
 Spam filtering based on message headers might have been feasible,
 but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
-Recent versions of FairEmail can filter spam to a certain extend using a message classifier.
+Recent versions of FairEmail can filter spam to a certain extent using a message classifier.
 Please see [this FAQ](#user-content-faq163) for more information about this.
 
 Of course you can report messages as spam with FairEmail,
