@@ -290,11 +290,10 @@ public class ServiceUI extends IntentService {
 
             EntityOperation.queue(this, message, EntityOperation.MOVE, junk.id);
 
-            if (block_sender) {
-                EntityRule rule = EntityRule.blockSender(this, message, junk, false);
-                if (rule != null)
-                    rule.id = db.rule().insertRule(rule);
-            }
+            if (block_sender)
+                EntityContact.update(this,
+                        message.account, message.from,
+                        EntityContact.TYPE_JUNK, message.received);
 
             db.setTransactionSuccessful();
         } finally {
