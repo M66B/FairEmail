@@ -1291,7 +1291,7 @@ public class MessageHelper {
 
         List<String> refs = new ArrayList<>();
         for (String ref : getReferences())
-            if (!TextUtils.isEmpty(ref))
+            if (!TextUtils.isEmpty(ref) && !refs.contains(ref))
                 refs.add(ref);
 
         String inreplyto = getInReplyTo();
@@ -1299,18 +1299,15 @@ public class MessageHelper {
             refs.add(inreplyto);
 
         DB db = DB.getInstance(context);
-        for (String ref : refs) {
-            List<EntityMessage> before = db.message().getMessagesByMsgId(account, ref);
-            for (EntityMessage message : before) {
-                if (thread == null && !TextUtils.isEmpty(message.thread))
-                    thread = message.thread;
-                if (thread != null &&
-                        !TextUtils.isEmpty(message.thread) && !thread.equals(message.thread)) {
-                    Log.w("Updating before thread from " + message.thread + " to " + thread);
-                    db.message().updateMessageThread(message.account, message.thread, thread);
-                }
+        List<EntityMessage> before = new ArrayList<>();
+        for (String ref : refs)
+            before.addAll(db.message().getMessagesByMsgId(account, ref));
+
+        for (EntityMessage message : before)
+            if (!TextUtils.isEmpty(message.thread)) {
+                thread = message.thread;
+                break;
             }
-        }
 
         if (thread == null) {
             List<EntityMessage> similar = db.message().getMessagesByMsgId(account, msgid);
@@ -1324,9 +1321,15 @@ public class MessageHelper {
         if (thread == null)
             thread = getHash() + ":" + uid;
 
+        for (EntityMessage message : before)
+            if (!thread.equals(message.thread)) {
+                Log.w("Updating before thread from " + message.thread + " to " + thread);
+                db.message().updateMessageThread(message.account, message.thread, thread);
+            }
+
         List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
         for (EntityMessage message : after)
-            if (!TextUtils.isEmpty(message.thread) && !thread.equals(message.thread)) {
+            if (!thread.equals(message.thread)) {
                 Log.w("Updating after thread from " + message.thread + " to " + thread);
                 db.message().updateMessageThread(message.account, message.thread, thread);
             }
