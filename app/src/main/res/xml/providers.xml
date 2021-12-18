@@ -1217,6 +1217,7 @@
     </provider>
     <provider
         name="GoDaddy Workspace"
+        documentation="'SmtpClientAuthentication is disabled': please &lt;a href=&quot;https://answers.microsoft.com/en-us/msoffice/forum/all/office-365-smtp-not-working-when-email-bought-from/e0be43f4-71cd-40be-aae7-c2090e95162d?auth=1&quot;&gt;see here&lt;/a&gt;"
         link="https://www.godaddy.com/help/server-and-port-settings-for-workspace-email-6949">
         <imap
             host="imap.secureserver.net"
