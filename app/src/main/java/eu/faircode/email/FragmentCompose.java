@@ -4569,6 +4569,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.thread = data.draft.msgid; // new thread
                             data.draft.wasforwardedfrom = ref.msgid;
                         } else if ("resend".equals(action)) {
+                            data.draft.resend = true;
                             data.draft.thread = data.draft.msgid;
                             data.draft.headers = ref.headers;
                         } else if ("editasnew".equals(action))
@@ -5290,7 +5291,9 @@ public class FragmentCompose extends FragmentBase {
                                 draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
                                         ? View.VISIBLE : View.GONE);
 
-                        tvResend.setVisibility(draft.headers == null ? View.GONE : View.VISIBLE);
+                        tvResend.setVisibility(
+                                draft.headers != null && Boolean.TRUE.equals(draft.resend)
+                                        ? View.VISIBLE : View.GONE);
 
                         tvPlainTextOnly.setVisibility(
                                 draft.plain_only != null && draft.plain_only && !plain_only

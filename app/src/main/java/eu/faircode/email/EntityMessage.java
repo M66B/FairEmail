@@ -174,6 +174,7 @@ public class EntityMessage implements Serializable {
     public Boolean content = false;
     public String language = null; // classified
     public Boolean plain_only = null;
+    public Boolean resend = null;
     public Integer encrypt = null;
     public Integer ui_encrypt = null;
     @NonNull

@@ -288,7 +288,7 @@ public class MessageHelper {
         if (message.from != null && message.from.length > 0)
             ourFrom = getFrom(message, identity);
 
-        if (message.headers == null) {
+        if (message.headers == null || !Boolean.TRUE.equals(message.resend)) {
             imessage.setHeader("Date", ourDate);
 
             // Addresses
@@ -392,7 +392,7 @@ public class MessageHelper {
 
         // Send message
         if (identity != null) {
-            if (message.headers == null) {
+            if (message.headers == null || !Boolean.TRUE.equals(message.resend)) {
                 // Add reply to
                 if (identity.replyto != null)
                     imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
@@ -835,7 +835,7 @@ public class MessageHelper {
         // Build html body
         Document document = JsoupEx.parse(message.getFile(context));
 
-        if (message.headers != null) {
+        if (message.headers != null && Boolean.TRUE.equals(message.resend)) {
             Element body = document.body();
             if (body.children().size() == 1) {
                 // Restore original body
