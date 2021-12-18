@@ -210,6 +210,7 @@
     <string name="title_advanced_no_date">날짜 없는 메시지</string>
     <string name="title_advanced_unseen">모든 읽지 않은 메시지</string>
     <string name="title_advanced_flagged">모든 즐겨찾기 메시지</string>
+    <string name="title_advanced_subject_threading">발신자 및 주제로 메시지 묶기</string>
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
     <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>

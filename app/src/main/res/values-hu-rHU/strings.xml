@@ -4,6 +4,8 @@
     <string name="app_changelog">Újdonságok</string>
     <string name="app_welcome">A FairEmail egy nyílt forráskódú e-mail alkalmazás, melynek elsődleges szempontja az adatvédelem és biztonság. Emiatt némely funkció másképp működhet a megszokottnál.</string>
     <string name="app_limitations">Például az üzenetek átformáltak alapból, hogy eltávolítsa a nem biztonságos elemeket és javítsa az olvashatóságot, és linkek megnyitásánál szükséges, hogy legyen megerősítve biztonságért. Mind a kettőt le lehet tiltani, ha kívánt.</string>
+    <string name="app_unsupported">Ezen eszköz Android verziójának hibái összeomlásokat okoznak</string>
+    <string name="app_continue">Folytatás mégis</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="app_cake">Nincs elég tárhely</string>
     <string name="app_updated">Utoljára frissítve: %1$s</string>
@@ -170,6 +172,10 @@
     <string name="title_setup_doze_instructions">A következő Android párbeszédpanelen változtassa meg a „Nincs optimalizálva” értéket „Minden alkalmazás” értékre, válassza ki ezt az alkalmazást, és válassza a „Ne optimalizálja” lehetőséget</string>
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
+    <string name="title_setup_doze_device">Ez valószínűleg szükséges ezen az eszközön</string>
+    <string name="title_setup_doze_12">A leküldéses üzenetek ki vannak kapcsolva</string>
+    <string name="title_setup_alarm_12">Az alkalmazás nem fog működni</string>
+    <string name="title_setup_inexact">Ébresztők &amp; emlékeztetők le vannak tiltva</string>
     <string name="title_setup_background">A háttérkorlátozások engedélyezve vannak</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
     <string name="title_setup_advanced_options">Haladó beállítások megjelenítése</string>
@@ -298,6 +304,7 @@
     <string name="title_advanced_roaming">Üzenetek és mellékleteik letöltése roaming kapcsolaton</string>
     <string name="title_advanced_rlah">Roaming mint otthon</string>
     <string name="title_advanced_validated">Validált (ellenőrzött) kapcsolat szükségessé tétele</string>
+    <string name="title_advanced_vpn_only">Csatlakozás csak VPN-en keresztül</string>
     <string name="title_advanced_timeout">Kapcsolat időtúllépés (másodpercben)</string>
     <string name="title_advanced_prefer_ip4">IPv4 preferálása IPv6 fölött</string>
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
@@ -308,6 +315,8 @@
     <string name="title_advanced_caption_message">Üzenet</string>
     <string name="title_advanced_caption_message_header">Üzenet fejléc</string>
     <string name="title_advanced_caption_message_body">Üzenet szövege</string>
+    <string name="title_advanced_portrait">Álló mód</string>
+    <string name="title_advanced_landscape">Fekvő mód</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
     <string name="title_advanced_cards_shadow">Árnyék használata olvasatlan üzenetekhez kártya-stílus használata esetén</string>

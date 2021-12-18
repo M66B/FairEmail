@@ -279,6 +279,7 @@
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
     <string name="title_advanced_gmail_thread">为 Gmail 账户采用 Gmail (官方)分组风格</string>
+    <string name="title_advanced_subject_threading">按发件人和主题来分组邮件</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_folders_poll">主动同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>

@@ -289,6 +289,7 @@
     <string name="title_advanced_delete_unseen">Διαγραφή των παλιών μη αναγνωσμένων μηνυμάτων</string>
     <string name="title_advanced_kept_removed">Έλεγχος αν τα παλιά μηνύματα έχουν διαγραφεί από τον διακομιστή</string>
     <string name="title_advanced_gmail_thread">Ομαδοποίηση μηνυμάτων με το στιλ του Gmail για λογαριασμούς Google</string>
+    <string name="title_advanced_subject_threading">Ομαδοποίηση μηνυμάτων κατά αποστολέα και θέμα</string>
     <string name="title_advanced_sync_folders">Συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_folders_poll">Ενεργός συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_shared_folders">Συγχρονισμός της λίστας κοινών φακέλων</string>

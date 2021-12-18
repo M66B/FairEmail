@@ -2738,17 +2738,17 @@ Sie sind wahrscheinlich hierher gekommen, weil Sie eine externe Version von Fair
 
 Es gibt **nur Support** für die letzte PlayStore-Version, den letzten GitHub-Release und den F-Droid Build, aber **nur wenn** die Versionsnummer des F-Droid-Builds mit der des neuesten GitHub-Releases übereinstimmt.
 
-F-Droid erzeugt Builds unregelmäßig, was problematisch sein kann, wenn es ein wichtiges Update gibt. Daher wird empfohlen, zum GitHub Release zu wechseln.
+F-Droid erzeugt Builds unregelmäßig, was problematisch sein kann, wenn es ein wichtiges Update gibt. Daher wird empfohlen, zur GitHub-Veröffentlichung zu wechseln.
 
 Die F-Droid-Version ist aus dem gleichen Quellcode gebaut, aber anders signiert. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Gmail, da Google nur eine Signatur erlaubt (und zulässt). Für alle anderen E-Mail-Anbieter ist der OAuth-Zugang nur in Play-Store-Versionen und Github-Versionen verfügbar, da E-Mail-Anbieter nur offiziellen Builds die Nutzung von OAuth erlaubt haben.
 
-Beachten Sie, dass Sie zuerst die F-Droid-Version deinstallieren müssen, bevor Sie eine GitHub Version installieren können, da Android aus Sicherheitsgründen die selbe App mit einer anderen Signatur nicht installieren kann.
+Beachten Sie, dass Sie zuerst die F-Droid-Version deinstallieren müssen, bevor Sie eine GitHub-Version installieren können, da Android aus Sicherheitsgründen die selbe App mit einer anderen Signatur nicht installieren kann.
 
-Beachten Sie, dass die GitHub Version automatisch nach Updates sucht. When desired, this can be turned off in the miscellaneous settings.
+Beachten Sie, dass die GitHub-Version automatisch nach Aktualisierungen sucht. Wenn gewünscht, kann das in den Einstellungen unter „Verschiedenes“ ausgeschaltet werden.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+Bitte [hier](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) für alle Optionen zum Herunterladen nachsehen.
 
-Wenn Sie ein Problem mit der F-Droid-Version haben, überprüfen Sie bitte, ob zuerst eine neuere GitHub Version vorhanden ist.
+Wenn Sie ein Problem mit der F-Droid-Version haben, überprüfen Sie bitte, ob zuerst eine neuere GitHub-Version vorhanden ist.
 
 <br />
 

@@ -309,6 +309,7 @@
     <string name="title_advanced_delete_unseen">Удалять старые непрочитанные сообщения</string>
     <string name="title_advanced_kept_removed">Проверять, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_gmail_thread">Стиль группировки сообщений Gmail для соответствующих учётных записей</string>
+    <string name="title_advanced_subject_threading">Группировать сообщения по отправителю и теме</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_sync_folders_poll">Активная синхронизация списка папок</string>
     <string name="title_advanced_sync_shared_folders">Синхронизировать списки общих папок</string>
@@ -608,6 +609,7 @@
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_gmail_thread_hint">Это относится только к вновь полученным сообщениям и может нарушить существующие группы</string>
+    <string name="title_advanced_subject_threading_hint">Только сообщения, полученные за последние %1$d часов</string>
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
     <string name="title_advanced_poll_folders_hint">Периодическая синхронизация списка папок в дополнение к синхронизации после подключения к учётной записи</string>
     <string name="title_advanced_check_authentication_hint">Проверка результатов аутентификации DKIM, SPF и DMARC в зависимости от почтового сервера</string>

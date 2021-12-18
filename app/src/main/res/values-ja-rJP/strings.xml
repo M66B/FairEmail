@@ -266,7 +266,7 @@
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
-    <string name="title_advanced_default">よく使われる標準的な値が設定されているため、特に変更しなくてもアプリを使うことができます</string>
+    <string name="title_advanced_default">デフォルトでは変更せずにアプリを使用できる一般的な値に設定されています</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_optimize">自動最適化</string>
@@ -278,7 +278,7 @@
     <string name="title_advanced_unseen">すべての未読メッセージ</string>
     <string name="title_advanced_flagged">すべてのスター付きメッセージ</string>
     <string name="title_advanced_delete_unseen">古い未読メッセージを削除</string>
-    <string name="title_advanced_kept_removed">古いメッセージがサーバから削除されたか確認</string>
+    <string name="title_advanced_kept_removed">古いメッセージがサーバーから削除されたか確認</string>
     <string name="title_advanced_gmail_thread">Gmail のメッセージグループ表示</string>
     <string name="title_advanced_sync_folders">フォルダーリストを同期</string>
     <string name="title_advanced_sync_folders_poll">フォルダーリストをアクティブに同期</string>

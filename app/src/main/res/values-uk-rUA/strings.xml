@@ -310,6 +310,7 @@
     <string name="title_advanced_delete_unseen">Видалити старі непрочитані повідомлення</string>
     <string name="title_advanced_kept_removed">Перевірка, чи були старі повідомлення видалені з сервера</string>
     <string name="title_advanced_gmail_thread">Gmail стиль групування повідомлень для облікових записів Gmail</string>
+    <string name="title_advanced_subject_threading">Групувати повідомлення за відправником та темою</string>
     <string name="title_advanced_sync_folders">Синхронізувати список тек</string>
     <string name="title_advanced_sync_folders_poll">Активна синхронізація списку тек</string>
     <string name="title_advanced_sync_shared_folders">Синхронізувати спільний список тек</string>

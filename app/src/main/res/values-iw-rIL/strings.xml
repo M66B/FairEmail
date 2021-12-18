@@ -310,6 +310,7 @@
     <string name="title_advanced_delete_unseen">מחיקת הודעות ישנות שלא נקראו</string>
     <string name="title_advanced_kept_removed">לבדוק אם הודעות ישנות הוסרו מהשרת</string>
     <string name="title_advanced_gmail_thread">סגנון קיבוץ הודעות ב־Gmail לחשבונות Gmail</string>
+    <string name="title_advanced_subject_threading">קיבוץ הודעות לפי מוען ונושא</string>
     <string name="title_advanced_sync_folders">סנכרון רשימת התיקיות</string>
     <string name="title_advanced_sync_folders_poll">סנכרון רשימת התיקיות באופן פעיל</string>
     <string name="title_advanced_sync_shared_folders">סנכרון רשימות תיקיות משותפות</string>

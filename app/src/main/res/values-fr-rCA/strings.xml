@@ -290,6 +290,7 @@
     <string name="title_advanced_delete_unseen">Supprimer les anciens messages non lus</string>
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_gmail_thread">Regrouper les messages en utilisant le style de Gmail pour les comptes Gmail</string>
+    <string name="title_advanced_subject_threading">Grouper les messages par expéditeur et par objet</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_folders_poll">Synchroniser activement la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>

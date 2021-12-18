@@ -4,6 +4,8 @@
     <string name="app_changelog">Değişiklik günlüğü</string>
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri kaldırmak ve okunabilirliği artırmak için mesajlar varsayılan olarak yeniden biçimlendirilir ve güvenlik için bağlantıların açılması onaylanmalıdır. İstenirse ikisi de devre dışı bırakılabilir.</string>
+    <string name="app_unsupported">Bu cihazın Android sürümündeki hatalar çökmelere neden oluyor</string>
+    <string name="app_continue">Yine de devam et</string>
     <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
     <string name="app_updated">Son güncelleme %1$s</string>
@@ -286,6 +288,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_delete_unseen">Eski okunmamış iletileri sil</string>
     <string name="title_advanced_kept_removed">Eski iletilerin sunucudan kaldırılıp kaldırılmadığını denetleyin</string>
     <string name="title_advanced_gmail_thread">Gmail hesapları için Gmail stili gruplama</string>
+    <string name="title_advanced_subject_threading">İletileri gönderene ve konuya göre gruplandır</string>
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_sync_folders_poll">Klasör listesini aktif olarak senkronize et</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
@@ -354,6 +357,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_landscape">Yatay modu</string>
     <string name="title_advanced_two_row">İki satır kullan</string>
     <string name="title_advanced_two_col">İki sütun kullan</string>
+    <string name="title_advanced_min_screen_size">Ekranı bölmek için minimum ekran boyutu</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
     <string name="title_advanced_nav_hide_title">Gezinme menüsü seçenekleri gizlensin mi?</string>
@@ -583,6 +587,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_deleted_unseen">Devre dışı bırakıldığında, okunmamış mesajlar sonsuza kadar cihazda tutulur</string>
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_gmail_thread_hint">Bu yalnızca yeni alınan mesajlar için geçerlidir ve mevcut grupları bozabilir</string>
+    <string name="title_advanced_subject_threading_hint">Yalnızca son %1$d saat içinde alınan iletiler</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıktan sonra ek olarak klasör listesini periyodik olarak senkronize edin</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-posta sunucusu tarafından gerçekleştirilen DKIM, SPF ve DMARC kimlik doğrulamasının sonuçlarını kontrol edecektir</string>
@@ -611,6 +616,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_date_hint">Eğer zamana göre sıralanmışlarsa mesajlar sadece tarihe göre gruplanacaktır</string>
     <string name="title_advanced_navbar_colorize_hint">Bunun işe yarayıp yaramadığı Android sürümüne ve değişkenine bağlıdır</string>
     <string name="title_advanced_split_hint">Bu, ekranı parçalara böler</string>
+    <string name="title_advanced_split_min_hint">Bu, katlanabilir cihazlar için tasarlanmış bir durumdur</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
     <string name="title_advanced_gravatars_hint">Bir gizlilik riski olabilir</string>
@@ -891,6 +897,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_importance_high">Yüksek</string>
     <string name="title_search_in_text">Metin içinde ara &#8230;</string>
     <string name="title_forward">İlet</string>
+    <string name="title_resend">Tekrar gönder</string>
+    <string name="title_fetching_headers">Mesaj üstbilgileri indiriliyor &#8230;</string>
     <string name="title_new_message">Yeni ileti</string>
     <string name="title_editasnew">Yeni olarak düzenle</string>
     <string name="title_edit_notes">Yerel notları düzenle</string>
@@ -1274,6 +1282,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
     <string name="title_rule_body">Metin şunları içerir:</string>
+    <string name="title_rule_body_remark">Bu koşulun kullanılması her zaman mesaj metnini indirecektir, bu da mesaj listesinin senkronizasyonunu yavaşlatabilir</string>
     <string name="title_rule_time_abs">Kesin zaman aralığı (alındı)</string>
     <string name="title_rule_time_after">Alındıktan sonra</string>
     <string name="title_rule_time_before">Alınmadan önce</string>

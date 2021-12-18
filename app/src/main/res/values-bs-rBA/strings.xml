@@ -300,6 +300,7 @@
     <string name="title_advanced_delete_unseen">Izbriši stare nepročitane poruke</string>
     <string name="title_advanced_kept_removed">Provjeri da li su stare poruke izbrisane sa servera</string>
     <string name="title_advanced_gmail_thread">Gmail stil grupisanja poruka za Gmail račune</string>
+    <string name="title_advanced_subject_threading">Grupisanje poruka prema pošiljaocu i predmetu</string>
     <string name="title_advanced_sync_folders">Sinhronizuj spisak foldera</string>
     <string name="title_advanced_sync_folders_poll">Aktivno sinhronizuj spisak foldera</string>
     <string name="title_advanced_sync_shared_folders">Sinhronizuj spisak dijeljenih foldera</string>
@@ -910,6 +911,7 @@
     <string name="title_search_in_text">Pretraži u tekstu &#8230;</string>
     <string name="title_forward">Proslijedi</string>
     <string name="title_resend">Ponovljeno slanje</string>
+    <string name="title_fetching_headers">Preuzimanje zaglavlja poruke &#8230;</string>
     <string name="title_new_message">Nova poruka</string>
     <string name="title_editasnew">Uredi kao novu</string>
     <string name="title_edit_notes">Uredi lokalne bilješke</string>
