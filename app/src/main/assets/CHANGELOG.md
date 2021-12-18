@@ -4,6 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### 1.1792 - 2021-12-18
+
+* Fixed always resending (2)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1791 - 2021-12-18
 
 * Fixed always resending
