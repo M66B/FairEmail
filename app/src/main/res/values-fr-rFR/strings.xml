@@ -290,7 +290,7 @@
     <string name="title_advanced_delete_unseen">Supprimer les anciens messages non lus</string>
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_gmail_thread">Regrouper les messages en utilisant le style de Gmail pour les comptes Gmail</string>
-    <string name="title_advanced_subject_threading">Grouper les messages par expéditeur et par objet</string>
+    <string name="title_advanced_subject_threading">Regrouper les messages par expéditeur et par sujet</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_folders_poll">Synchroniser activement la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>
@@ -590,6 +590,7 @@
     <string name="title_advanced_deleted_unseen">Si ceci est désactivé, les messages non lus seront conservés indéfiniment sur l’appareil</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_gmail_thread_hint">Ceci s\'applique uniquement aux messages nouvellement reçus et peut corrompre les groupes existants</string>
+    <string name="title_advanced_subject_threading_hint">Seuls les messages reçus au cours des %1$d dernières heures</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_poll_folders_hint">Synchroniser périodiquement la liste des dossiers suite à la connexion à un compte</string>
     <string name="title_advanced_check_authentication_hint">Ceci contrôlera les résultats de l\'authentification DKIM, SPF et DMARC effectuée par le serveur de messagerie</string>
@@ -902,7 +903,7 @@
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
     <string name="title_resend">Envoyer à nouveau</string>
-    <string name="title_fetching_headers">Téléchargement de l\'en-tête des messages&#8230;</string>
+    <string name="title_fetching_headers">Téléchargement des en-têtes de message en cours &#8230;</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_edit_notes">Modifier les notes locales</string>
