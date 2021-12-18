@@ -690,7 +690,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 max_size = iservice.getMaxSize();
 
             List<Address> recipients = new ArrayList<>();
-            if (message.headers == null) {
+            if (message.headers == null || !Boolean.TRUE.equals(message.resend)) {
                 Address[] all = imessage.getAllRecipients();
                 if (all != null)
                     recipients.addAll(Arrays.asList(all));
