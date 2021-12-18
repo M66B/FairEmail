@@ -2422,7 +2422,7 @@ $$multifrom$
 
 Note that *regex* should be disable and that there should be no white space.
 
-Please be aware that a difference in the *from* and *reply-to* domain isn't a good indication of spam.
+Please be aware that a difference in the *from* and *reply-to* domain, and no or multi *from* addresses isn't a good indication of spam.
 
 <br />
 
