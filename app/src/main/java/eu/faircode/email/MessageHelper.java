@@ -1656,10 +1656,12 @@ public class MessageHelper {
                     Log.w(ex);
                 }
 
-            email = decodeMime(email);
-            email = punyCode(email);
+            if (email != null) {
+                email = decodeMime(email);
+                email = punyCode(email);
 
-            iaddress.setAddress(email);
+                iaddress.setAddress(email);
+            }
 
             if (personal != null) {
                 try {
