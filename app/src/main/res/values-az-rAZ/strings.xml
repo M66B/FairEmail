@@ -290,6 +290,7 @@
     <string name="title_advanced_delete_unseen">Köhnə oxunmamış mesajları sil</string>
     <string name="title_advanced_kept_removed">Köhnə mesajların serverlərdən silinib silinmədiyini yoxlayın</string>
     <string name="title_advanced_gmail_thread">Gmail hesabları üçün Gmail mesaj qruplaşdırma stili</string>
+    <string name="title_advanced_subject_threading">Göndərənə və mövzuya görə mesajları qruplaşdır</string>
     <string name="title_advanced_sync_folders">Qovluq siyahısını eyniləşdir</string>
     <string name="title_advanced_sync_folders_poll">Qovluq siyahısını aktiv olaraq eyniləşdir</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan qovluq siyahılarını eyniləşdir</string>
@@ -588,6 +589,7 @@
     <string name="title_advanced_deleted_unseen">Sıradan çıxarılanda, oxunmamış mesajlar həmişəlik cihazda qalacaq</string>
     <string name="title_advanced_sync_kept_hint">Bu, xüsusilə cihazda həddindən çox mesaj saxlanılanda ekstra data transfer edir və daha çox batareya enerjisi istifadə edir</string>
     <string name="title_advanced_gmail_thread_hint">Bu, yalnız yeni gələn mesajlara tətbiq olunur və mövcud qrupları zədələyə bilər</string>
+    <string name="title_advanced_subject_threading_hint">Yalnız son %1$d saat ərzində alınan mesajlar</string>
     <string name="title_advanced_sync_folders_hint">Bunu sıradan çıxartmaq, verilənlər və batareya istifadəsini bir az azaldacaq, ancaq qovluq siyahısının yenilənməsini də sıradan çıxardacaq</string>
     <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıqdan sonra əlavə olaraq qovluq siyahısını mütəmadi olaraq eyniləşdir</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-poçt serveri tərəfindən icra edilən DKIM, SPF və DMARC kimlik təsdiqləməsinin nəticələrini yoxlayacaq</string>
@@ -900,6 +902,7 @@
     <string name="title_search_in_text">Mətndə axtar &#8230;</string>
     <string name="title_forward">Yönləndir</string>
     <string name="title_resend">Təkrar göndər</string>
+    <string name="title_fetching_headers">Mesaj başlıqları endirilir &#8230;</string>
     <string name="title_new_message">Yeni mesaj</string>
     <string name="title_editasnew">Yeni kimi düzəliş et</string>
     <string name="title_edit_notes">Yerli qeydlərə düzəliş et</string>

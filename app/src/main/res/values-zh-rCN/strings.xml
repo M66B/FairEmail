@@ -578,6 +578,7 @@
     <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_gmail_thread_hint">这只适用于新收到的消息，且可能会破坏现有的组</string>
+    <string name="title_advanced_subject_threading_hint">仅在过去 %1$d 小时内收到的邮件</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_poll_folders_hint">定期同步文件夹列表（除了在连接账户后）</string>
     <string name="title_advanced_check_authentication_hint">这将检查电子邮件服务器执行的DKIM、SPF和DMARC认证的结果</string>

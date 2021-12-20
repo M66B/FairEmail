@@ -309,6 +309,7 @@
     <string name="title_advanced_delete_unseen">Vymazať staré neprečítané správy</string>
     <string name="title_advanced_kept_removed">Skontrolovať, či boli staré správy zmazané zo servera</string>
     <string name="title_advanced_gmail_thread">Zoskupovať správy ako Gmail pre Gmail účty</string>
+    <string name="title_advanced_subject_threading">Zoskupiť správy podľa odosielateľa a predmetu</string>
     <string name="title_advanced_sync_folders">Synchronizovať zoznam priečinkov</string>
     <string name="title_advanced_sync_folders_poll">Aktívne synchronizovať zoznam priečinkov</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovať zoznam spoločných priečinkov</string>
@@ -607,6 +608,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_deleted_unseen">Ak je to vypnuté, neprečítané správy ostávajú v zariadení uložené navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýši nároky na prenos dát a využívanie batérie, hlavne ak máte v zariadení množstvo správ</string>
     <string name="title_advanced_gmail_thread_hint">Platí len pre nové prichádzajúce správy a môže ovplyvniť existujúce skupiny</string>
+    <string name="title_advanced_subject_threading_hint">Len správy prijaté za posledných %1$d hodín</string>
     <string name="title_advanced_sync_folders_hint">Vypnutím čiastočne ušetríte prenos údajov aj využívanie batérie, ale zároveň zastavíte obnovovanie zoznamu priečinkov</string>
     <string name="title_advanced_poll_folders_hint">Periodicky synchronizovať zoznam priečinkov nie len po pripojení sa k účtu</string>
     <string name="title_advanced_check_authentication_hint">Skontroluje výsledky kontroly autentifikácie DKIM, SPF a DMARC na serveri</string>
@@ -919,6 +921,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_in_text">Hľadať v texte &#8230;</string>
     <string name="title_forward">Preposlať</string>
     <string name="title_resend">Znovu odoslať</string>
+    <string name="title_fetching_headers">Preberanie hlavičiek správ &#8230;</string>
     <string name="title_new_message">Nová správa</string>
     <string name="title_editasnew">Upraviť ako novú</string>
     <string name="title_edit_notes">Upraviť lokálne poznámky</string>

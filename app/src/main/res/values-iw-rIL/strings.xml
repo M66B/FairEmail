@@ -609,6 +609,7 @@
     <string name="title_advanced_deleted_unseen">כאשר מושבת, הודעות שלא נקראו נשמרות על המכשיר לעד</string>
     <string name="title_advanced_sync_kept_hint">יגרום להעברה של יותר נתונים וצריכה גבוהה יותר של סוללה, במיוחד אם הודעות רבות מאוחסנות במכשיר</string>
     <string name="title_advanced_gmail_thread_hint">חל רק על הודעות חדשות שמתקבלות ועלול לפגום בקבוצות קיימות</string>
+    <string name="title_advanced_subject_threading_hint">רק הודעות שהתקבלו ב־%1$d השעות האחרונות</string>
     <string name="title_advanced_sync_folders_hint">השבתת האפשרות הזאת תצמצם את צריכת הנתונים והסוללהבמידה מסוימת אך תשבית גם את עדכון רשימת התיקיות</string>
     <string name="title_advanced_poll_folders_hint">לסנכרן את רשימת התיקיות מדי פעם בנוסף לסנכרון שאחרי ההתחברות לחשבון</string>
     <string name="title_advanced_check_authentication_hint">אפשרות זו תבדוק את תוצאות אימות DKIM,‏ SPF ו־DMARC כפי שמבוצעות על ידי שרת הדוא״ל</string>

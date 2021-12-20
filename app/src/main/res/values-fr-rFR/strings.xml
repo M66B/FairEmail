@@ -903,7 +903,7 @@
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
     <string name="title_resend">Envoyer à nouveau</string>
-    <string name="title_fetching_headers">Téléchargement des en-têtes de message en cours &#8230;</string>
+    <string name="title_fetching_headers">Téléchargement des en-têtes de messages en cours&#8230;</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_edit_notes">Modifier les notes locales</string>

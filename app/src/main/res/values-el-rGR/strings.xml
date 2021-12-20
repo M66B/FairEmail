@@ -586,6 +586,7 @@
     <string name="title_advanced_deleted_unseen">Αν απενεργοποιηθεί, τα μη αναγνωσμένα μηνύματα παραμένουν στη συσκευή για πάντα</string>
     <string name="title_advanced_sync_kept_hint">Μεταφέρει πρόσθετα δεδομένα και καταναλώνει επιπλέον μπαταρία, ιδίως αν είναι αποθηκευμένα στη συσκευή πολλά μηνύματα</string>
     <string name="title_advanced_gmail_thread_hint">Αυτό εφαρμόζεται μόνον σε μηνύματα που λήφθηκαν πρόσφατα και μπορεί να διαλύσει υπάρχουσες ομάδες</string>
+    <string name="title_advanced_subject_threading_hint">Μόνο μηνύματα που ελήφθησαν τις τελευταίες %1$d ώρες</string>
     <string name="title_advanced_sync_folders_hint">Αν απενεργοποιηθεί, θα μειωθεί κάπως η χρήση δεδομένων και μπαταρίας, αλλά θα απενεργοποιηθεί και ο συγχρονισμός της λίστας των φακέλων επίσης</string>
     <string name="title_advanced_poll_folders_hint">Περιοδικός συγχρονισμός της λίστας φακέλων, επιπρόσθετα στον αρχικό συγχρονισμό μετά από τη σύνδεση σε έναν λογαριασμό</string>
     <string name="title_advanced_check_authentication_hint">Αυτό θα ελέγξει τα αποτελέσματα της ταυτοποίησης DKIM, SPF και DMARC, όπως εκτελείται από τον διακομιστή ηλ. ταχυδρομείου</string>

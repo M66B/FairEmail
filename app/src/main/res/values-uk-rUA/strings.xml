@@ -607,6 +607,7 @@
     <string name="title_advanced_deleted_unseen">Якщо вимкнено, непрочитані повідомлення завжди зберігаються на пристрої</string>
     <string name="title_advanced_sync_kept_hint">Це призведе до передачі додаткових даних та більшого споживання заряду акумулятора, особливо якщо багато повідомлень зберігаються на пристрої</string>
     <string name="title_advanced_gmail_thread_hint">Це відноситься тільки до нових повідомлень і може не стосуватися існуючих груп</string>
+    <string name="title_advanced_subject_threading_hint">Лише повідомлення, отримані за останні %1$d годин</string>
     <string name="title_advanced_sync_folders_hint">Вимкнення цього призведе до зменшення споживання даних та використання акумулятора, але також вимкне оновлення списку тек</string>
     <string name="title_advanced_poll_folders_hint">Періодично синхронізувати список тек після підключення до облікового запису</string>
     <string name="title_advanced_check_authentication_hint">Це може перевіряти результати перевірок на DKIM, SPF і DMARC які були виконані сервером електронної пошти</string>

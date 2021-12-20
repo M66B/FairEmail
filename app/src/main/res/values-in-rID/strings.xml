@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Pencarian FairEmail</string>
-    <string name="app_changelog">Daftar Log Pembaruan</string>
-    <string name="app_welcome">FairEmail adalah aplikasi email sumber terbuka yang berfokus pada privasi dan keamanan. Karena alasan ini, beberapa fitur mungkin bekerja secara berbeda dari biasanya.</string>
-    <string name="app_limitations">Misalnya, pesan diformat ulang secara default untuk menghapus elemen yang tidak aman dan untuk meningkatkan keterbacaan, dan membuka tautan perlu dikonfirmasi demi keamanan. Keduanya dapat dinonaktifkan jika diinginkan.</string>
+    <string name="app_changelog">Catatan perubahan</string>
+    <string name="app_welcome">FairEmail adalah aplikasi surel sumber terbuka yang difokuskan pada privasi dan keamanan. Karena alasan ini, beberapa fitur mungkin bekerja secara berbeda dari biasanya.</string>
+    <string name="app_limitations">Sebagai contoh, pesan diformat ulang secara bawaan untuk menghapus elemen yang tidak aman dan menjadikan mudah dibaca, dan membuka tautan perlu dikonfirmasi demi keamanan. Keduanya dapat dinonaktifkan jika diinginkan.</string>
     <string name="app_unsupported">Kesalahan pada versi android di perangkat tertentu menyebabkan kegagalan</string>
     <string name="app_continue">Tetap lanjutkan</string>
-    <string name="app_exit">Ketuk \"Kembali\" untuk keluar</string>
+    <string name="app_exit">Ketuk \'Kembali\' untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>
     <string name="channel_service">Menerima</string>
     <string name="channel_send">Kirim</string>
-    <string name="channel_notification">Email</string>
+    <string name="channel_notification">Surel</string>
     <string name="channel_progress">Pekembangan</string>
     <string name="channel_update">Pembaruan</string>
     <string name="channel_warning">Peringatan</string>
-    <string name="channel_error">Kesalahan/Error</string>
+    <string name="channel_error">Kesalahan</string>
     <string name="channel_alert">Peringatan Server</string>
     <string name="channel_group_contacts">Kontak</string>
     <string name="channel_service_description">Menyinkronkan dan memantau akun</string>
-    <string name="channel_send_description">Mengirim pesan</string>
+    <string name="channel_send_description">Pengiriman pesan</string>
     <string name="channel_notification_description">Pemberitahuan pesan baru</string>
-    <string name="channel_progress_description">Pemberitahuan notifikasi terhadap aktivitas perjalanan yang lama</string>
+    <string name="channel_progress_description">Perkembangan pemberitahuan terhadap aktivitas yang berjalan lebih lama</string>
     <plurals name="page_conversation">
         <item quantity="other">Percakapan</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="other">Pesan</item>
     </plurals>
-    <string name="page_folders">Direktori/Folder</string>
+    <string name="page_folders">Folder</string>
     <string name="page_compose">Menyusun</string>
     <string name="tile_synchronize">Sinkronisasi</string>
-    <string name="tile_unseen">Tulis Pesan</string>
+    <string name="tile_unseen">Pesan baru</string>
     <string name="shortcut_refresh">Segarkan</string>
     <string name="shortcut_compose">Menyusun</string>
     <string name="shortcut_setup">Pengaturan</string>
@@ -74,7 +74,7 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_notification_sending">Mengirim pesan</string>
     <string name="title_notification_waiting">Menunggu koneksi yang sesuai</string>
     <string name="title_notification_idle">Siaga</string>
-    <string name="title_notification_failed">Gagal \'%1$s\'</string>
+    <string name="title_notification_failed">\'%1$s\' gagal</string>
     <string name="title_notification_alert">Peringatan server: \'%1$s\'</string>
     <string name="title_notification_sending_left">Percobaan tersisa: %1$d</string>
     <string name="title_notification_sending_retry">Pengiriman akan dilakukan ulang saat perubahan koneksi internet atau menarik kebawah di kotak keluar</string>
@@ -276,6 +276,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_delete_unseen">Hapus pesan lama yang belum dibaca</string>
     <string name="title_advanced_kept_removed">Periksa apakah pesan lama telah dihapus dari server</string>
     <string name="title_advanced_gmail_thread">Gaya pengelompokan pesan Gmail untuk akun Gmail</string>
+    <string name="title_advanced_subject_threading">Pengelompokan pesan berdasarkan pengirim dan subjek</string>
     <string name="title_advanced_sync_folders">Sinkronkan daftar folder</string>
     <string name="title_advanced_sync_folders_poll">Sinkronisasikan daftar berkas secara aktif</string>
     <string name="title_advanced_sync_shared_folders">Sinkronkan daftar folder bersama</string>
@@ -572,6 +573,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_deleted_unseen">Ketika dinonaktifkan, pesan yang belum dibaca disimpan pada perangkat untuk selamanya</string>
     <string name="title_advanced_sync_kept_hint">Ini akan mentransfer data tambahan dan mengkonsumsi daya baterai ekstra, terutama jika banyak pesan disimpan pada perangkat</string>
     <string name="title_advanced_gmail_thread_hint">Ini hanya berlaku untuk pesan yang baru diterima dan dapat memecahkan grup yang ada</string>
+    <string name="title_advanced_subject_threading_hint">Hanya pesan yang diterima dalam %1$d jam terakhir</string>
     <string name="title_advanced_sync_folders_hint">Menonaktifkan ini akan mengurangi penggunaan data dan sedikit baterai, tetapi juga akan menonaktifkan pembaruan daftar folder</string>
     <string name="title_advanced_poll_folders_hint">Sinkronisasi daftar map secara berkala sebagai tambahan setelah menyambungkan sebuah akun</string>
     <string name="title_advanced_check_authentication_hint">Ini akan memeriksa hasil dari keaslian DKIM, SPF, dan DMARC yang dilakukan oleh server surel</string>
@@ -883,6 +885,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_search_in_text">Telusuri dalam teks &#8230;</string>
     <string name="title_forward">Teruskan</string>
     <string name="title_resend">Kirim ulang</string>
+    <string name="title_fetching_headers">Mengunduh kepala pesan &#8230;</string>
     <string name="title_new_message">Pesan baru</string>
     <string name="title_editasnew">Edit sebagai pesan baru</string>
     <string name="title_edit_notes">Sunting catatan lokal</string>
@@ -1114,6 +1117,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_attachment_keywords">terlampir,lampiran,lampiran-lampiran,termasuk</string>
     <string name="title_attachment_reminder">Apakah Anda berniat menambahkan lampiran?</string>
     <string name="title_plain_reminder">Semua format akan hilang</string>
+    <string name="title_dsn_reminder">Gagal kirim merusak reputasi surel pengirim asli!</string>
     <string name="title_size_reminder">Pesan (%1$s) melebihi dari batas server (%2$s)</string>
     <string name="title_attachments_missing">Tidak semua lampiran diunduh</string>
     <string name="title_dialog_hint">Dialog ini dapat diaktifkan lagi melalui menu tiga titik di bilah aksi sebelah atas</string>
@@ -1127,16 +1131,33 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_encrypt">Enkripsi</string>
     <string name="title_decrypt">Dekripsi</string>
     <string name="title_resync">Sinkron ulang</string>
+    <string name="title_no_openpgp">OpenKeychain tidak ditemukan</string>
+    <string name="title_user_interaction">Memindahkan ke OpenKeychain</string>
+    <string name="title_signed_data">Verifikasi tanda tangan untuk menampilkan teks pesan</string>
     <string name="title_not_encrypted">Pesan tidak ditandatangani atau dienkripsi</string>
+    <string name="title_no_sign_key">Tidak ada kunci tanda tangan yang dipilih</string>
+    <string name="title_reset_sign_key">Atur ulang kunci tanda tangan</string>
+    <string name="title_signature_none">Pesan tidak di tanda tangani</string>
+    <string name="title_signature_valid">Tanda tangan pesan valid</string>
     <string name="title_signature_valid_from">Tanda tangan pesan tidak valid: %1$s</string>
+    <string name="title_signature_unconfirmed">Tanda tangan pesan tervalidasi tetapi tidak terkonfirmasi</string>
+    <string name="title_signature_unconfirmed_from">Tanda tangan tervalidasi tetapi tidak terkonfirmasi: %1$s</string>
     <string name="title_signature_invalid">Tanda tangan pesan tidak valid</string>
+    <string name="title_signature_invalid_reason">Tanda tangan pesan tidak valid: %1$s</string>
+    <string name="title_signature_key_missing">Kunci untuk verifikasi tanda tangan hilang</string>
+    <string name="title_signature_certificate_invalid">Rantai sertifikat tidak valid</string>
     <string name="title_signature_sender">Tampilkan pilihan gambar</string>
+    <string name="title_signature_email">Alamat tanda tangan</string>
+    <string name="title_signature_mismatch">Alamat surel pengirim dan tanda tangan tidak cocok</string>
     <string name="title_signature_algorithm">Algoritma</string>
     <string name="title_signature_subject">Subjek</string>
     <string name="title_signature_validity">Masa berlaku</string>
+    <string name="title_signature_outdated">Kunci publik saat ini tidak valid</string>
     <string name="title_signature_store">Sumber</string>
     <string name="title_search">Pencarian</string>
     <string name="title_search_for_hint">Masukkan teks</string>
+    <string name="title_search_hint">Awalnya, pencarian akan mencari pesan yang ada di perangkat Anda.
+        Untuk mencari di server juga, ketuk tombol \'cari lagi\'.    </string>
     <string name="title_search_index_hint">Cari melalui indeks pencarian lebih cepat, tetapi hanya menemukan keseluruhan kata.</string>
     <string name="title_search_text_hint">Mencari tulisan dalam pesan, bila terdapat pesan dalam jumlah besar, mungkin tidak dapat dilakukan di beberapa server</string>
     <string name="title_search_text_unsupported">\'%s\' berarti server surel tidak mendukung pencarian tulisan dalam pesan</string>
@@ -1257,11 +1278,31 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_action">Tindakan</string>
     <string name="title_rule_action_remark">Aksi ini akan berlaku untuj pesan baru diterima dalam folder %1$s</string>
     <string name="title_rule_hours">Jam</string>
+    <string name="title_rule_schedule_end">Kondisi dari waktu terakhir</string>
     <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_thread">Semua pesan dalam percakapan dan folder yang sama</string>
+    <string name="title_rule_identity">Identitas</string>
     <string name="title_rule_template">Balas dengan template</string>
     <string name="title_rule_forward_to">Diteruskan kepada</string>
+    <string name="title_rule_cc">Balas ke alamat CC</string>
     <string name="title_rule_with_attachments">Dengan lampiran</string>
+    <string name="title_rule_answer_remark">Hanya satu balasan yang akan dikirim ke percakapan manapun, untuk menghindari berputarnya balasan</string>
+    <string name="title_rule_name_missing">Nama peraturan hilang</string>
+    <string name="title_rule_condition_missing">Pengondisian hilang</string>
+    <string name="title_rule_folder_missing">Folder hilang</string>
+    <string name="title_rule_identity_missing">Identitas hilang</string>
+    <string name="title_rule_answer_missing">Templat hilang</string>
+    <string name="title_rule_keyword_missing">Kata kunci hilang</string>
+    <string name="title_rule_automation_hint">Ini akan mengirim inten \'%1$s\' dengan tambahan \'%2$s\'</string>
+    <string name="title_rule_execute">Eksekusi sekarang</string>
+    <string name="title_rule_applied">Pesan yang terdampak: %1$d</string>
     <string name="title_rule_check">Periksa</string>
+    <string name="title_rule_no_headers">Kondisi header tidak dapat diperiksa</string>
+    <string name="title_rule_no_body">Teks pesan tidak tersedia</string>
+    <string name="title_rule_matched">Pesan yang sesuai</string>
+    <string name="title_rule_no_matches">Tidak ada pesan yang sesuai</string>
+    <string name="title_rule_tts_ok">Pengaturan oke</string>
+    <string name="title_rule_tts_setup">Periksa pengaturan</string>
     <string name="title_rule_tts_data">Pasang data suara</string>
     <string name="title_rule_tts_prefix">Pesan baru</string>
     <string name="title_rule_tts_from">Dari</string>
@@ -1284,6 +1325,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_connecting">Menyambungkan</string>
     <string name="title_legend_connected">Tersambung</string>
     <string name="title_legend_backoff">Menunggu setelah terjadi kegagalan koneksi</string>
+    <string name="title_legend_quota">Kotak pesan hampir penuh</string>
     <string name="title_legend_executing">Menjalankan operasi</string>
     <string name="title_legend_synchronizing">Mengsinkronkan</string>
     <string name="title_legend_downloading">Mendownload</string>
@@ -1315,6 +1357,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_encrypted">Dienkripsi</string>
     <string name="title_legend_auth">Otentikasi gagal</string>
     <string name="title_legend_found">Ditemukan</string>
+    <string name="title_legend_classified">Sudah di klasifikasi secara otomatis</string>
     <string name="title_legend_snoozed">Ditunda</string>
     <string name="title_legend_browsed">Ditelusuri atau dicari</string>
     <string name="title_legend_answered">Dibalas</string>
@@ -1330,6 +1373,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_hide">Sembunyikan konten</string>
     <string name="title_legend_download">Mengunduh Konten</string>
     <string name="title_legend_original">Lihat pesan asli</string>
+    <string name="title_legend_reformatted">Lihat pesan yang sudah di format ulang</string>
     <string name="title_legend_external_image">Gambar eksternal pada placeholder</string>
     <string name="title_legend_embedded_image">Gambar yang disematkan pada placeholder</string>
     <string name="title_legend_tracking_pixel">Pelacakan gambar</string>
@@ -1355,7 +1399,9 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_create_rule">Buat aturan</string>
     <string name="title_legend_show_unsubscribe">Berhenti berlangganan dari daftar ini</string>
     <string name="title_legend_show_images">Tampilkan gambar</string>
+    <string name="title_legend_hide_images">Sembunyikan gambar</string>
     <string name="title_legend_show_full">Tampilkan pesan asli</string>
+    <string name="title_legend_show_reformatted">Tampilkan pesan yang sudah di format ulang</string>
     <string name="title_legend_edit">Sunting</string>
     <string name="title_legend_default_color">Warna bawaan</string>
     <string name="title_legend_close_hint">Tutup petunjuk</string>
@@ -1377,20 +1423,36 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_s">Pilih/batalkan</string>
     <string name="title_legend_t">Fokus teks</string>
     <string name="title_hint_folder_actions">Tekan lama pada folder untuk pilihan, seperti menambahkan folder ke menu navigasi untuk akses cepat</string>
+    <string name="title_hint_folder_sync">Untuk membatasi penggunaan baterai dan jaringan tidak semua folder dan pesan di selaraskan secara awalan</string>
     <string name="title_hint_support">Jika Anda memiliki pertanyaan atau masalah, silakan gunakan menu bantuan untuk mendapatkan bantuan</string>
     <string name="title_hint_message_actions">Geser ke kiri untuk membuang; Geser ke kanan untuk mengarsip (jika tersedia); Tindakan saat digeser dapat dikonfigurasi di pengaturan akun</string>
+    <string name="title_hint_message_selection">Ketuk dan tahan sebuah pesan untuk memilih banyak pesan; tahan dan usap keatas atau kebawah untuk memilih lebih banyak pesan</string>
     <string name="title_hint_important">Penting</string>
     <string name="title_hint_sync">Mendownload pesan dapat memakan waktu lama, tergantung pada kecepatan penyedia layanan, koneksi internet, perangkat dan jumlah pesan. Saat mengunduh pesan, mungkin aplikasi merespons lebih lambat.</string>
+    <string name="title_hint_sync_note">Secara bawaan, tidak semua pesan diunduh untuk menghemat ruang penyimpanan, baterai, dan penggunaan data. Anda dapat merubah ini tekan dan tahan sebuah folder di daftar folder dan pilih \'sinkronisasikan lebih banyak\'.</string>
+    <string name="title_hint_battery">Karena FairEmail secara bawaan selalu menerima pesan, Android akan melaporkan FairEmail selalu aktif. Maka FairEmail terlihat selalu menggunakan daya baterai meskipun nyatanya tidak demikian.</string>
+    <string name="title_hint_reformat">Secara bawaan, FairEmail memformat ulang untuk alasan privasi dan keamanan. Untuk melihat pesan asli, ketuk ikon \'layar penuh\' diatas teks pesan.</string>
+    <string name="title_hint_design">Desain sengaja dibuat sederhana, tetapi sangat berfungsi maksimal. Terdapat banyak pilihan untuk mengubah penampilan, tetapi harap dipahami bahwa tidak mungkin membuat setiap orang senang disaat bersamaan.</string>
+    <string name="title_hint_junk">Penyaringan spam harus dilakukan oleh server surel dan tidak dapat dilakukan secara handal pada perangkat berdaya baterai dengan kemampuan yang terbatas.</string>
+    <string name="title_hint_junk_learn">Dengan memindahkan pesan ke dan dari folder spam, server surel \"mempelajari\" bagaimana spam itu</string>
+    <string name="title_hint_contact_actions">Ketuk dan tahan untuk pilihan</string>
+    <string name="title_hint_eml">Ini adalah rangkuman kandungan fail pesan mentah. Simpan pesan mentah dengan ikon simpan di baris aksi untuk melihat semua pesan.</string>
     <string name="title_open_link">Buka tautan</string>
+    <string name="title_image_link">Tautan Gambar</string>
+    <string name="title_different_link">Judul dan alamat tautan berbeda</string>
     <string name="title_tracking_link">Situs web ini mungkin akan melacak Anda</string>
     <string name="title_suspicious_link">Ini tautan yang mencurigakan</string>
     <string name="title_link_http">Lalu lintas tidak akan dienkripsi</string>
     <string name="title_link_https">Lalu lintas akan dienkripsi</string>
+    <string name="title_sanitize_link">Hapus parameter pelacakan</string>
     <string name="title_insecure_link">Tautan ini tidak aman</string>
     <string name="title_check_owner">Periksa pemilik</string>
     <string name="title_remark_owner">Informasi diterima dari <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Alamat IP pemilik</string>
+    <string name="title_default_apps">Aplikasi bawaan</string>
+    <string name="title_reset_open">Atur atau bersihkan aplikasi bawaan</string>
     <string name="title_select_app">Pilih aplikasi</string>
+    <string name="title_updated">Pembaruan ke versi %1$s tersedia</string>
     <string name="title_issue">Apakah Anda memiliki pertanyaan atau masalah?</string>
     <string name="title_yes">Ya</string>
     <string name="title_no">Tidak</string>
@@ -1407,6 +1469,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_enable">Aktifkan</string>
     <string name="title_enabled">Diaktifkan</string>
     <string name="title_disable">Nonaktifkan</string>
+    <string name="title_keep_current">Pertahankan keadaan saat ini</string>
+    <string name="title_executing">Mengeksekusi</string>
     <string name="title_completed">Selesai</string>
     <string name="title_default_changed">Judul Bawaan Diubah</string>
     <string name="title_clipboard_copy">Salin ke papan klip</string>
@@ -1414,6 +1478,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_ask_what">Tanya apa yang harus dilakukan</string>
     <string name="title_no_ask_again">Jangan tanya ini lagi</string>
     <string name="title_no_ask_for_again">Jangan tanya ini lagi untuk %1$s</string>
+    <string name="title_no_body">Teks pesan tidak ditemukan</string>
+    <string name="title_no_charset">Encoding tidak didukung: %1$s</string>
     <string name="title_via">Melalui: %1$s</string>
     <string name="title_1hour">1 jam</string>
     <string name="title_1day">1 hari</string>
@@ -1427,6 +1493,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_snooze_now">Tunda</string>
     <string name="title_loading">Memuat &#8230;</string>
     <string name="title_fetching_again">Mengambil pesan lagi dari server</string>
+    <string name="title_go_back">Kembali</string>
     <string name="title_conversation_actions">Tindakan</string>
     <string name="title_conversation_action_reply">Balas dengan: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Salin: \'%1$s\'</string>
@@ -1443,18 +1510,33 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         Untuk mempertahankan dan mendukung FairEmail dalam jangka panjang, beberapa kenyamanan dan fitur-fitur canggih tidak gratis untuk digunakan.
         FairEmail menampilkan pesan kecil untuk mengingatkan Anda tentang hal ini, yang akan dihapus jika Anda membeli fitur pro.
     </string>
+    <string name="title_pro_whichever">Fitur manapun yang dipilih sebagai fitur pro, akan selalu ada orang yang mengeluh bahwa fitur tersebut seharusnya gratis. Tolong jangan menjadi orang yang seperti itu.</string>
     <string name="title_pro_hide">Sembunyikan pesan kecil selama %1$d minggu</string>
     <string name="title_pro_hint">Membeli fitur pro akan memungkinkan Anda untuk menggunakan semua fitur pro saat ini dan di masa depan, aplikasi ini akan terus dipertahankan, dan didukung.</string>
     <string name="title_pro_price">Mengapa fitur pro sangat mahal?</string>
+    <string name="title_pro_family">Dapatkan saya menggunakan Google Play Family Library?</string>
+    <string name="title_pro_restore">Bagaimana saya dapat memulihkan pembelian (pada perangkat lain)?</string>
     <string name="title_pro_pending">Pembelian tertunda</string>
     <string name="title_pro_activated">Semua fitur-fitur pro sudah aktif</string>
     <string name="title_pro_valid">Semua fitur-fitur pro aktif</string>
     <string name="title_pro_invalid">Respon tidak valid</string>
+    <string name="title_pro_support">FairEmail membutuhkan bantuan anda. Ketuk untuk membeli fitur pro untuk menjaga proyek ini tetap berjalan atau mematikan pesan ini.</string>
+    <string name="title_boundary_error">Kesalahan mengunduh pesan dari server surel</string>
     <string name="title_boundary_retry">Coba lagi</string>
     <string name="title_unexpected_error">Kesalahan tak terduga</string>
+    <string name="title_log">Catatan</string>
     <string name="title_auto_scroll">Gulir otomatis</string>
     <string name="title_log_clear">Bersihkan</string>
+    <string name="title_rules_search_hint">Cari nama atau kondisi</string>
+    <string name="title_rules_export">Ekspor aturan</string>
+    <string name="title_rules_import">Impor aturan</string>
+    <string name="title_rules_delete_all">Hapus semu aturan</string>
+    <string name="title_rules_delete_all_confirm">Hapus semu aturan?</string>
+    <string name="title_debug_info">Info debug</string>
     <string name="title_debug_info_remark">Silakan jelaskan masalahnya dan waktu terjadinya masalah:</string>
+    <string name="title_crash_info_remark">Tolong jelaskan apa yang sedang anda lakukan saat aplikasi berhenti:</string>
+    <string name="title_unexpected_info_remark">Tolong jelaskan apa yang sedang anda lakukan saat anda mendapat pesan kesalahan:</string>
+    <string name="title_widget_title_count">Hitung pesan baru</string>
     <string name="title_widget_title_list">Daftar pesan</string>
     <string name="title_widget_title_sync">Sinkronisasi aktif/nonaktif</string>
     <string name="title_power_menu_sync">Sinkronisasi</string>
@@ -1470,7 +1552,10 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_widget_font_size">Ukuran teks</string>
     <string name="title_widget_padding">Ukuran padding</string>
     <string name="title_widget_semi_transparent">Latar belakang semi bening</string>
+    <string name="title_widget_refresh">Tampilkan tombol penyegaran pesan</string>
+    <string name="title_widget_compose">Tampilkan tombol pesan baru</string>
     <string name="title_widget_background">Warna latar belakang</string>
+    <string name="title_accessibility_collapsed">Ringkaskan</string>
     <string name="title_accessibility_expanded">Perluas</string>
     <string name="title_accessibility_seen">Sudah dibaca</string>
     <string name="title_accessibility_unseen">Belum dibaca</string>
@@ -1495,6 +1580,9 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_accessibility_answered">Balasan</string>
     <string name="title_accessibility_scroll_down">Gulir ke bawah</string>
     <string name="title_accessibility_scroll_up">Gulir ke atas</string>
+    <string name="title_accessibility_filter_out_seen">Alihkan penyaring pesan terbaca</string>
+    <string name="title_accessibility_filter_out_unflagged">Alihkan penyaring pesan bertanda bintang</string>
+    <string name="title_accessibility_filter_out_snoozed">Alihkan penyaring pesan tertidur</string>
     <string name="title_accessibility_edit">Sunting</string>
     <string name="title_accessibility_show_addresses">Tampilkan alamat</string>
     <string name="title_accessibility_hide_addresses">Sembunyikan alamat</string>
@@ -1590,6 +1678,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>Sedang</item>
         <item>Besar</item>
     </string-array>
+    <string name="title_size_tiny">Sangat Kecil</string>
     <string-array name="receiptNames">
         <item>Hanya tanda terima baca</item>
         <item>Hanya tanda terima pengiriman</item>
@@ -1630,7 +1719,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace</item>
-        <item>Fantasy</item>
+        <item>Fantasi</item>
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

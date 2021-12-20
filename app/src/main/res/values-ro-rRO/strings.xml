@@ -299,6 +299,7 @@
     <string name="title_advanced_delete_unseen">Șterge mesajele vechi necitite</string>
     <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
     <string name="title_advanced_gmail_thread">Stil grupare mesaje tip Gmail pentru conturile Gmail</string>
+    <string name="title_advanced_subject_threading">Gruparea mesajelor în funcție de expeditor și subiect</string>
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_sync_folders_poll">Sincronizarea activă a listei de dosare</string>
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
@@ -597,6 +598,7 @@
     <string name="title_advanced_deleted_unseen">Dacă este dezactivat, mesajele necitite sunt păstrate pe dispozitiv pentru totdeauna</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_gmail_thread_hint">Acest lucru se aplică doar la mesajele noi primite și poate strica grupurile existente</string>
+    <string name="title_advanced_subject_threading_hint">Numai mesajele primite în ultimele %1$d ore</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_poll_folders_hint">Sincronizarea periodică a listei de dosare în plus față de după conectarea la un cont</string>
     <string name="title_advanced_check_authentication_hint">Aceasta va verifica rezultatele autentificării DKIM, SPF și DMARC efectuate de serverul de e-mail</string>

@@ -4,7 +4,7 @@
     <string name="app_changelog">Ændringslog</string>
     <string name="app_welcome">FairEmail er en open source e-mail app med fokus på privatliv og sikkerhed. Derfor vil visse funktioner muligvis fungere anderledes, end hvad du er vant til.</string>
     <string name="app_limitations">F.eks. omformateres beskeder som standard for at fjerne usikre elementer samt forbedre læsbarheden, og åbning af links skal sikkerhedsbekræftes. Begge funktioner kan om ønsket deaktiveres.</string>
-    <string name="app_unsupported">Fejl i Android-versionen af denne enhed forårsager nedbrud</string>
+    <string name="app_unsupported">Fejl i Android-versionen på denne enhedstype forårsager nedbrud</string>
     <string name="app_continue">Fortsæt alligevel</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
@@ -122,7 +122,7 @@
     <string name="title_setup">Indstillinger</string>
     <string name="title_setup_help">Hjælp</string>
     <string name="title_setup_quick">Hurtig opsætning</string>
-    <string name="title_setup_intro">Oprettelse af en konto består kun af tre trin, hvorefter du kan sende og modtage e-mails</string>
+    <string name="title_setup_intro">Kontoopsætning udgør kun tre trin, hvorefter e-mails kan afsendes og modtages</string>
     <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
     <string name="title_setup_issue">FairEmail er udviklet for at hjælpe dig med at beskytte din fortrolighed og repræsenterer bogstaveligt talt tusindvis af arbejdstimer. Oplever du problemer, så kontakte mig først mhp. support, inden du giver en dårlig bedømmelse. Jeg vil med glæde hjælpe!</string>
     <string name="title_setup_analytics">FairEmail viser ikke annoncer eller sporer/analyserer brugeradfærd. Bugsnag bruges til fejlrapportering og er som standard deaktiveret.</string>
@@ -134,18 +134,18 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_quick_certificates">Servercertifikater</string>
     <string name="title_setup_wizard">Guide</string>
-    <string name="title_setup_wizard_multiple">Installationsguiden kan anvendes flere gange til opsætning af flere konti</string>
+    <string name="title_setup_wizard_multiple">Guiden kan også anvendes ved fremtidige kontoopsætninger</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_manual">Manuel opsætning og kontoindstillinger</string>
     <string name="title_setup_classic">Klassisk opsætning</string>
     <string name="title_setup_documentation">Tjek e-mailudbyderdokumentationen mht. korrekt e-mailserveropsætning</string>
     <string name="title_setup_account_remark">Modtag e-mail</string>
     <string name="title_setup_identity_remark">Send e-mail</string>
-    <string name="title_setup_account_identity_hint">Du kan indstille navn, farve og stryg handlinger i kontoindstillingerne, og konfigurere en signatur i identitetsindstillingerne</string>
+    <string name="title_setup_account_identity_hint">Navn, farve og stryg-handlinger kan opsættes i kontoindstillingerne, og en signatur kan opsættes i identitetsindstillingerne</string>
     <string name="title_setup_accounts">Konti</string>
     <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_other">Anden udbyder</string>
-    <string name="title_setup_pop3">POP3 konto</string>
+    <string name="title_setup_pop3">POP3-konto</string>
     <string name="title_setup_oauth_permission">E-mailudbyderen har kun godkendt OAuth til Play Store- og GitHub-versioner</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i Play Store-versioner, da Android tjekker den digitale app-signatur</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
@@ -160,12 +160,12 @@
     <string name="title_setup_select_account">Vælg konto</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Prøv at oprette en konto manuelt ved hjælp af indstillingerne fra din e-mail-udbyder</string>
+    <string name="title_setup_no_settings_hint">Prøv at opsætte en konto manuelt vha. indstillingerne fra e-mail-udbyderen</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
     <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden. Tjek din leverandørs instrukser</string>
     <string name="title_setup_no_inbox">Indbakke ikke fundet</string>
     <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
-    <string name="title_setup_quick_success">En konto er blevet tilføjet</string>
+    <string name="title_setup_quick_success">En konto er nu tilføjet</string>
     <string name="title_setup_quick_no_sent">Ingen Sendt-beskedmappe er valgt. Afsendte breve lagres muligvis ikke.</string>
     <string name="title_setup_quick_configure">For at redigere navn, farve, strygehandlinger mv.</string>
     <string name="title_setup_manage">Administrér</string>
@@ -185,7 +185,7 @@
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
-    <string name="title_setup_doze_device">Dette er sandsynligvis nødvendigt for denne enhed</string>
+    <string name="title_setup_doze_device">Dette kræves sandsynligvis for denne enhed</string>
     <string name="title_setup_doze_12">Push-beskeder er deaktivet</string>
     <string name="title_setup_alarm_12">Appen vil ikke fungere</string>
     <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
@@ -266,6 +266,7 @@
     <string name="title_advanced_hint_remark">        Indstillingerne er kategoriseret efter fane, opdelt i afsnit, organiseret efter udseende/brug, og er søgbare.
     </string>
     <string name="title_advanced_hint_setup">En konto kan opsættes ved at trykke på guideknappen på hovedopsætningsskærmen.</string>
+    <string name="title_advanced_section_main">Hovedindstillinger</string>
     <string name="title_advanced_section_synchronize">Modtag</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
@@ -295,7 +296,7 @@
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_check_authentication">Tjek beskedgodkendelse</string>
-    <string name="title_advanced_check_reply_domain">Tjek svaradresse på synkronisering af beskeder</string>
+    <string name="title_advanced_check_reply_domain">Tjek svaradresse ifm. beskedsynk</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_check_blocklist">Tjek om afsenders domænenavn er på en spamblokeringsliste</string>
     <string name="title_advanced_use_blocklist">Flyt beskeder fra blokeringslistedomæner til Spammappen</string>
@@ -369,6 +370,7 @@
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_cards_beige">Brug beige baggrund ifm. kortstil (kun lyse temaer)</string>
     <string name="title_advanced_tabular_background">Brug kortfarve som baggrundsfarve ifm. tabelform</string>
+    <string name="title_advanced_cards_shadow">Brug skyggeeffekt til ulæste beskeder, når kortstil benyttes</string>
     <string name="title_advanced_cards_shadow_highlight">Brug fremhævningsfarve i stedet for accentfarve</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_date_fixed">Vis fast datohoved øverst</string>
@@ -429,7 +431,7 @@
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_image_placeholders">Vis billedpladsholdere</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
-    <string name="title_advanced_button_extra">Vis ekstra knapper i bunden af en besked</string>
+    <string name="title_advanced_button_extra">Vis ekstra knapper nederst i en besked</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
@@ -525,6 +527,7 @@
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_autolock">Lås ved skærmslukning</string>
     <string name="title_advanced_autolock_nav">Lås, når app forlades</string>
+    <string name="title_advanced_generic_user_agent">Brug generel browser-brugeragent</string>
     <string name="title_advanced_load_emoji">Indlæs opdaterede Emoji fra Google Play-tjenester</string>
     <string name="title_advanced_disconnect_auto_update">Opdatér automatisk lister ugentligt</string>
     <string name="title_advanced_disconnect_links">Benyt lister til at advare om sporingslinks</string>
@@ -587,6 +590,7 @@
     <string name="title_advanced_deleted_unseen">Når deaktiveret, opbevares ulæste beskeder på enheden for evigt</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_gmail_thread_hint">Dette gælder kun for nyligt modtagne beskeder og kan ødelægge eksisterende grupper</string>
+    <string name="title_advanced_subject_threading_hint">Kun beskeder modtaget i de seneste %1$d timer</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_poll_folders_hint">Synk periodisk mappelisten ud over efter kontotilslutning</string>
     <string name="title_advanced_check_authentication_hint">Dette vil tjekke resultaterne af DKIM-, SPF- og DMARC-godkendelser udført af e-mailserveren</string>
@@ -614,7 +618,7 @@
     <string name="title_advanced_startup_hint">Langt tryk på en vilkårlig mappe på mappelisten for at tilføje/fjerne den fra listen over samlede mapper</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
-    <string name="title_advanced_split_hint">Dette vil opdele skærmen i dele</string>
+    <string name="title_advanced_split_hint">Dette opdeler skærmen i segmenter</string>
     <string name="title_advanced_split_min_hint">Dette er en betingelse beregnet til foldbare enheder</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
@@ -678,7 +682,7 @@
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_internal">Interne domænenavne (kommasepareret)</string>
     <string name="title_identity_unicode">Benyt Unicode-transport</string>
-    <string name="title_identity_unicode_remark">Flere servere understøtter ikke dette</string>
+    <string name="title_identity_unicode_remark">De fleste servere understøtter ikke dette</string>
     <string name="title_identity_max_size">Maks. beskedstørrelse (MBb)</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
@@ -747,9 +751,9 @@
     <string name="title_no_password">Adgangskode mangler</string>
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_drafts">Ingen Kladde-mappe</string>
-    <string name="title_no_junk_folder">Der er ikke valgt nogen spammappe til denne konto</string>
+    <string name="title_no_junk_folder">Ingen spammappe er valgt til denne konto</string>
     <string name="title_default_composable">Standard-e-mailadressen bestemmes af den primære kontos primære identitet</string>
-    <string name="title_no_composable">Afsendelse af e-mails kræver, at en identitet opsættes samt valg af en Kladde-mappe under kontoindstillingerne</string>
+    <string name="title_no_composable">Afsendelse af e-mails kræver opsætning af en identitet samt valg af en Kladde-mappe under kontoindstillingerne</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>
@@ -851,7 +855,7 @@
     <string name="title_auto_trash">Auto-flyt gamle beskeder til Papirkurv</string>
     <string name="title_auto_delete">Auto-slet gamle beskeder permanent</string>
     <string name="title_auto_delete_hint">Gamle beskeder er beskeder, som ikke længere opbevares på enheden</string>
-    <string name="title_auto_delete_archive_hint">Sletning fra arkivmappen er ikke altid tilladt af e-mail-serveren</string>
+    <string name="title_auto_delete_archive_hint">Sletning fra arkivmappen tillades ikke af alle e-mailservere</string>
     <string name="title_inbox_root_hint">        Visse udbydere kræver, at nye mapper oprettes under indbakken.
         Er dette tilfældet, så tryk og hold på indbakken i mappelisten og vælg \'Opret undermappe\'.
     </string>
@@ -932,7 +936,7 @@
     <string name="title_buttons_hint">De faktisk tilgængelige handlinger afhænger af kontotype og opsætning</string>
     <string name="title_button_search">Søg i beskeder</string>
     <string name="title_button_search_text">Søg i beskedtekst</string>
-    <string name="title_configure_buttons">Indstil knapper &#8230;</string>
+    <string name="title_configure_buttons">Opsæt knapper &#8230;</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>
@@ -1043,11 +1047,11 @@
     <string name="title_subject">Emne:</string>
     <string name="title_attachment">Vedhæftning:</string>
     <string name="title_body_hint">Din besked</string>
-    <string name="title_body_hint_style">Du kan vælge tekst for at formatere det</string>
+    <string name="title_body_hint_style">Der kan vælges tekst for at formatere den</string>
     <string name="title_discard">Kassér</string>
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
-    <string name="title_sending">Sender&#8230;</string>
+    <string name="title_sending">Afsendelse &#8230;</string>
     <string name="title_send_now">Send nu</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
@@ -1186,7 +1190,7 @@
     <string name="title_search_in_subject">I Emne</string>
     <string name="title_search_in_keywords">I nøgleord (hvis understøttet)</string>
     <string name="title_search_in_message">I beskedtekst</string>
-    <string name="title_search_in_notes">I lokale noter</string>
+    <string name="title_search_in_notes">I lokale notater</string>
     <string name="title_search_with">Begræns søgning til</string>
     <string name="title_search_with_unseen">Ulæst</string>
     <string name="title_search_with_flagged">Stjernemarkeret</string>
@@ -1241,6 +1245,7 @@
     <string name="title_previous">Foregående</string>
     <string name="title_next">Næste</string>
     <string name="title_edit_signature">Redigér signatur</string>
+    <string name="title_edit_signature_remark">Selvom Android ikke kan vise al HTML, sendes den som-om</string>
     <string name="title_edit_signature_text">Signaturtekst</string>
     <string name="title_edit_signature_image">Indsæt billede</string>
     <string name="title_answer_caption">Redigér skabelon</string>
@@ -1532,6 +1537,7 @@
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
     <string name="title_pro_price">Hvorfor er Pro-funktionerne så dyre?</string>
     <string name="title_pro_family">Kan man bruge Google Play Familie-biblioteket?</string>
+    <string name="title_pro_restore">Hvordan gendannes et køb (på en anden enhed)?</string>
     <string name="title_pro_pending">Afventende køb</string>
     <string name="title_pro_activated">Alle Pro-funktioner er aktiveret</string>
     <string name="title_pro_valid">Alle Pro-funktioner er aktiveret</string>

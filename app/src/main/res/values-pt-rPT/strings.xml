@@ -520,6 +520,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não têm o suporte correto, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
+    <string name="title_advanced_subject_threading_hint">Apenas mensagens recebidas nas últimas %1$d horas</string>
     <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de se conectar a uma conta</string>
     <string name="title_advanced_override_width_hint">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
