@@ -219,7 +219,11 @@ public class ApplicationEx extends Application
         }
 
         ServiceSynchronize.scheduleWatchdog(this);
-        WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
+        try {
+            WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
+        } catch (IllegalStateException ex) {
+            Log.e(ex);
+        }
 
         WorkerAutoUpdate.init(this);
         WorkerCleanup.init(this);
