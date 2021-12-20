@@ -3579,8 +3579,8 @@ class Core {
 
         if (imessage.isSet(Flags.Flag.DELETED)) {
             Log.w(folder.name + " deleted uid=" + uid);
-            expunge(context, ifolder, Arrays.asList(imessage));
-            throw new MessageRemovedException("Deleted");
+            if (expunge(context, ifolder, Arrays.asList(imessage)))
+                throw new MessageRemovedException("Deleted");
         }
 
         MessageHelper helper = new MessageHelper(imessage, context);
