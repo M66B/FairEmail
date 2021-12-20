@@ -44,6 +44,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
@@ -67,6 +68,7 @@ public class FragmentAccounts extends FragmentBase {
     private boolean settings;
 
     private boolean cards;
+    private boolean compact;
 
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
@@ -91,6 +93,7 @@ public class FragmentAccounts extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        compact = prefs.getBoolean("compact_accounts", false) && !settings;
     }
 
     @Override
@@ -212,7 +215,7 @@ public class FragmentAccounts extends FragmentBase {
         };
         rvAccount.addItemDecoration(categoryDecorator);
 
-        adapter = new AdapterAccount(this, settings);
+        adapter = new AdapterAccount(this, settings, compact);
         rvAccount.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -348,6 +351,7 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_accounts, menu);
+        MenuCompat.setGroupDividerEnabled(menu, true);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -355,6 +359,8 @@ public class FragmentAccounts extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_search).setVisible(!settings);
         menu.findItem(R.id.menu_unified).setVisible(!settings);
+        menu.findItem(R.id.menu_compact).setChecked(compact);
+        menu.findItem(R.id.menu_compact).setVisible(!settings);
         menu.findItem(R.id.menu_theme).setVisible(!settings);
         menu.findItem(R.id.menu_force_sync).setVisible(!settings);
 
@@ -369,6 +375,9 @@ public class FragmentAccounts extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_unified) {
             onMenuUnified();
+            return true;
+        } else if (itemId == R.id.menu_compact) {
+            onMenuCompact();
             return true;
         } else if (itemId == R.id.menu_theme) {
             onMenuTheme();
@@ -395,6 +404,26 @@ public class FragmentAccounts extends FragmentBase {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuCompact() {
+        compact = !compact;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("compact_accounts", compact).apply();
+
+        invalidateOptionsMenu();
+        adapter.setCompact(compact);
+        rvAccount.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    adapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void onMenuTheme() {

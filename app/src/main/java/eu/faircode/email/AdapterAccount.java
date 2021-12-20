@@ -76,6 +76,7 @@ import java.util.List;
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Fragment parentFragment;
     private boolean settings;
+    private boolean compact;
 
     private Context context;
     private LifecycleOwner owner;
@@ -240,6 +241,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvCreated.setVisibility(debug ? View.VISIBLE : View.GONE);
             tvCreated.setText(context.getString(R.string.title_created_at,
                     account.created == null ? null : DTF.format(account.created)));
+            tvLast.setVisibility(compact ? View.GONE : View.VISIBLE);
             tvLast.setText(context.getString(R.string.title_last_connected,
                     (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
                             (BuildConfig.DEBUG ?
@@ -254,7 +256,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             Integer percent = (settings ? null : account.getQuotaPercentage());
             tvUsage.setText(percent == null ? null : NF.format(percent) + "%");
-            tvUsage.setVisibility(percent == null ? View.GONE : View.VISIBLE);
+            tvUsage.setVisibility(percent == null || compact ? View.GONE : View.VISIBLE);
             tvQuota.setText(context.getString(R.string.title_storage_quota,
                     (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)),
                     (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit))));
@@ -606,9 +608,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
     }
 
-    AdapterAccount(final Fragment parentFragment, boolean settings) {
+    AdapterAccount(final Fragment parentFragment, boolean settings, boolean compact) {
         this.parentFragment = parentFragment;
         this.settings = settings;
+        this.compact = compact;
 
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
@@ -667,6 +670,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    void setCompact(boolean compact) {
+        if (this.compact != compact)
+            this.compact = compact;
     }
 
     private static class DiffCallback extends DiffUtil.Callback {
