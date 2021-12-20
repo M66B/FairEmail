@@ -161,6 +161,7 @@ public class Helper {
     static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
     static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
     static final int AUTOLOCK_GRACE = 7; // seconds
+    static final long PIN_FAILURE_DELAY = 10 * 1000L;
 
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
@@ -2039,6 +2040,8 @@ public class Helper {
             final View dview = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_ask, null);
             final EditText etPin = dview.findViewById(R.id.etPin);
 
+            etPin.setEnabled(false);
+
             final AlertDialog dialog = new AlertDialog.Builder(activity)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -2050,9 +2053,11 @@ public class Helper {
 
                             Log.i("Authenticate PIN ok=" + pin.equals(entered));
                             if (pin.equals(entered)) {
+                                prefs.edit().remove("pin_failure").apply();
                                 setAuthenticated(activity);
                                 ApplicationEx.getMainHandler().post(authenticated);
                             } else {
+                                prefs.edit().putLong("pin_failure", new Date().getTime()).apply();
                                 ApplicationEx.getMainHandler().post(cancelled);
                             }
                         }
@@ -2093,15 +2098,22 @@ public class Helper {
                 }
             });
 
-            ApplicationEx.getMainHandler().post(new Runnable() {
-                @Override
-                public void run() {
-                    etPin.requestFocus();
-                }
-            });
-
             try {
                 dialog.show();
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+
+                long pin_failure = prefs.getLong("pin_failure", 0);
+                long delay = pin_failure + PIN_FAILURE_DELAY - new Date().getTime();
+                ApplicationEx.getMainHandler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        etPin.setCompoundDrawables(null, null, null, null);
+                        etPin.setEnabled(true);
+                        etPin.requestFocus();
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                    }
+                }, delay < 0 ? 0 : delay);
+
             } catch (Throwable ex) {
                 Log.e(ex);
                 /*

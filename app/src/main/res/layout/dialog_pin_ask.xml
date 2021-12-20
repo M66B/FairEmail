@@ -22,6 +22,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/twotone_hourglass_top_24"
+        android:drawablePadding="6dp"
         android:hint="@string/title_advanced_pin"
         android:imeOptions="actionDone"
         android:inputType="numberPassword"
