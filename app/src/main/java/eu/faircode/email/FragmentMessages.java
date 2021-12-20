@@ -5558,7 +5558,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Check headers for resend
         for (TupleMessageEx message : messages) {
-            if (message.headers == null)
+            if (message == null || message.headers == null)
                 continue;
             boolean resend = iProperties.getValue("resend", message.id);
             if (!resend)
