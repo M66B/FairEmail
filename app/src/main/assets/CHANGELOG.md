@@ -4,6 +4,13 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### 1.1793 - 2021-12-20
+
+* Fixed crash related to resending
+* Added compact mode for accounts on start screen
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1792 - 2021-12-18
 
 * Fixed always resending (2)
