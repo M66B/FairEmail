@@ -4,7 +4,12 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
-### 1.1793 - 2021-12-20
+### Next version
+
+* Added PIN failure delay of 10 seconds
+* Small improvements and minor bug fixes
+
+### 1.1793 - 2021-12-200
 
 * Fixed crash related to resending
 * Added compact mode for accounts on start screen
