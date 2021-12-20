@@ -1341,10 +1341,10 @@ public class InternetAddress extends Address implements Cloneable {
 	    }
 	    if (c <= 040 || c == 0177)
 		throw new AddressException(
-			"Local address contains control or whitespace", addr);
-	    if (specialsNoDot.indexOf(c) >= 0)
+			"Local address contains control or whitespace (" + Integer.toString(c) + ")", addr);
+	    if (c != ':' && specialsNoDot.indexOf(c) >= 0)
 		throw new AddressException(
-			"Local address contains illegal character", addr);
+			"Local address contains illegal character '" + c + "'", addr);
 	}
 	if (inquote)
 	    throw new AddressException("Unterminated quote", addr);
