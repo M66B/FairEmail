@@ -1027,6 +1027,15 @@ public class Helper {
         return "sony".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
+    static boolean isSurfaceDuo() {
+        return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
+    }
+
+    static boolean isArc() {
+        // https://github.com/google/talkback/blob/master/utils/src/main/java/com/google/android/accessibility/utils/FeatureSupport.java
+        return (Build.DEVICE != null) && Build.DEVICE.matches(".+_cheets|cheets_.+");
+    }
+
     static boolean isStaminaEnabled(Context context) {
         // https://dontkillmyapp.com/sony
         if (BuildConfig.DEBUG)
@@ -1042,10 +1051,6 @@ public class Helper {
             Log.e(ex);
             return false;
         }
-    }
-
-    static boolean isSurfaceDuo() {
-        return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
     }
 
     static boolean isKilling() {

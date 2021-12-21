@@ -677,10 +677,11 @@ public class FragmentSetup extends FragmentBase {
                 btnDoze.setEnabled((ignoring != null && !ignoring) || BuildConfig.DEBUG);
         }
 
-        tvDozeDone.setText(ignoring == null || ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
-        tvDozeDone.setTextColor(ignoring == null || ignoring ? textColorPrimary : colorWarning);
-        tvDozeDone.setTypeface(null, ignoring == null || ignoring ? Typeface.NORMAL : Typeface.BOLD);
-        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring == null || ignoring ? check : null, null, null, null);
+        boolean done = (ignoring == null || ignoring || Helper.isArc());
+        tvDozeDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvDozeDone.setTextColor(done ? textColorPrimary : colorWarning);
+        tvDozeDone.setTypeface(null, done ? Typeface.NORMAL : Typeface.BOLD);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
         tvDoze12.setVisibility(Helper.isOptimizing12(getContext()) ? View.VISIBLE : View.GONE);
 
         grpInexactAlarms.setVisibility(
