@@ -1341,10 +1341,10 @@ public class InternetAddress extends Address implements Cloneable {
 	    }
 	    if (c <= 040 || c == 0177)
 		throw new AddressException(
-			"Local address contains control or whitespace", addr);
+			"Local address contains control or whitespace (" + Integer.toString(c) + ")", addr);
 	    if (specialsNoDot.indexOf(c) >= 0)
 		throw new AddressException(
-			"Local address contains illegal character", addr);
+			"Local address contains illegal character '" + c + "'", addr);
 	}
 	if (inquote)
 	    throw new AddressException("Unterminated quote", addr);
@@ -1390,7 +1390,7 @@ public class InternetAddress extends Address implements Cloneable {
 		inliteral = false;
 	    } else if (c <= 040 || c == 0177) {
 		throw new AddressException(
-				"Domain contains control or whitespace", addr);
+				"Domain contains control or whitespace (" + Integer.toString(c) + ")", addr);
 	    } else {
 		// RFC 2822 rule
 		//if (specialsNoDot.indexOf(c) >= 0)
@@ -1408,7 +1408,7 @@ public class InternetAddress extends Address implements Cloneable {
 		if (!inliteral) {
 		    if (!(Character.isLetterOrDigit(c) || c == '-' || c == '.'))
 			throw new AddressException(
-				    "Domain contains illegal character", addr);
+				    "Domain contains illegal character '" + c + "'", addr);
 		    if (c == '.' && lastc == '.')
 			throw new AddressException(
 					"Domain contains dot-dot", addr);
