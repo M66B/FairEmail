@@ -6251,7 +6251,7 @@ public class FragmentCompose extends FragmentBase {
         div.attr("fairemail", "signature");
 
         if (usenet) {
-            // https://www.ietf.org/rfc/rfc3676.txt
+            // https://datatracker.ietf.org/doc/html/rfc3676#section-4.3
             Element span = document.createElement("span");
             span.text("-- ");
             span.appendElement("br");
