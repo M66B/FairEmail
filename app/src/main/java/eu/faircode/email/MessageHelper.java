@@ -2066,7 +2066,9 @@ public class MessageHelper {
 
     static String formatAddressesCompose(Address[] addresses) {
         String result = formatAddresses(addresses, true, true);
-        if (!TextUtils.isEmpty(result))
+        if (result != null && result.endsWith(","))
+            result += " ";
+        else if (!TextUtils.isEmpty(result))
             result += ", ";
         return result;
     }
