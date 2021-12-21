@@ -1093,6 +1093,7 @@ public class InternetAddress extends Address implements Cloneable {
 			throw new AddressException("Nested group", s, index);
 		if (start == -1)
 		    start = index;
+		if (true) break;
 		if (parseHdr && !strict) {
 		    /*
 		     * If next char is a special character that can't occur at
@@ -1342,7 +1343,7 @@ public class InternetAddress extends Address implements Cloneable {
 	    if (c <= 040 || c == 0177)
 		throw new AddressException(
 			"Local address contains control or whitespace (" + Integer.toString(c) + ")", addr);
-	    if (specialsNoDot.indexOf(c) >= 0)
+	    if (c != ':' && specialsNoDot.indexOf(c) >= 0)
 		throw new AddressException(
 			"Local address contains illegal character '" + c + "'", addr);
 	}
