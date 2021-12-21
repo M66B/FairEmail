@@ -161,7 +161,7 @@ public class Helper {
     static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
     static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
     static final int AUTOLOCK_GRACE = 7; // seconds
-    static final long PIN_FAILURE_DELAY = 10 * 1000L;
+    static final long PIN_FAILURE_DELAY = 3; // seconds
 
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
@@ -2053,11 +2053,18 @@ public class Helper {
 
                             Log.i("Authenticate PIN ok=" + pin.equals(entered));
                             if (pin.equals(entered)) {
-                                prefs.edit().remove("pin_failure").apply();
+                                prefs.edit()
+                                        .remove("pin_failure_at")
+                                        .remove("pin_failure_count")
+                                        .apply();
                                 setAuthenticated(activity);
                                 ApplicationEx.getMainHandler().post(authenticated);
                             } else {
-                                prefs.edit().putLong("pin_failure", new Date().getTime()).apply();
+                                int count = prefs.getInt("pin_failure_count", 0) + 1;
+                                prefs.edit()
+                                        .putLong("pin_failure_at", new Date().getTime())
+                                        .putInt("pin_failure_count", count)
+                                        .apply();
                                 ApplicationEx.getMainHandler().post(cancelled);
                             }
                         }
@@ -2102,8 +2109,11 @@ public class Helper {
                 dialog.show();
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 
-                long pin_failure = prefs.getLong("pin_failure", 0);
-                long delay = pin_failure + PIN_FAILURE_DELAY - new Date().getTime();
+                long pin_failure_at = prefs.getLong("pin_failure_at", 0);
+                int pin_failure_count = prefs.getInt("pin_failure_count", 0);
+                long wait = (long) Math.pow(PIN_FAILURE_DELAY, pin_failure_count) * 1000L;
+                long delay = pin_failure_at + wait - new Date().getTime();
+                Log.i("PIN wait=" + wait + " delay=" + delay);
                 ApplicationEx.getMainHandler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

@@ -6,7 +6,7 @@
 
 ### Next version
 
-* Added PIN failure delay of 10 seconds
+* Added logarithmic PIN failure delay of 3 seconds
 * Small improvements and minor bug fixes
 
 ### 1.1793 - 2021-12-200
