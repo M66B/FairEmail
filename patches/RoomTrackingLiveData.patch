@@ -1,38 +1,33 @@
---- ./support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2020-03-23 17:03:46.216122318 +0100
-+++ ./email/app/src/main/java/androidx/room/RoomTrackingLiveData.java	2020-05-25 14:21:49.137386867 +0200
-@@ -86,11 +86,22 @@ class RoomTrackingLiveData<T> extends Li
+diff --git a/app/src/main/java/androidx/room/RoomTrackingLiveData.java b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
+index 8df1014a4..d02ab8fea 100644
+--- a/app/src/main/java/androidx/room/RoomTrackingLiveData.java
++++ b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
+@@ -85,12 +85,22 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+                     try {
                          T value = null;
                          while (mInvalid.compareAndSet(true, false)) {
-                             computed = true;
+-                            computed = true;
 -                            try {
 -                                value = mComputeFunction.call();
 -                            } catch (Exception e) {
 -                                throw new RuntimeException("Exception while computing database"
 -                                        + " live data.", e);
 +                            int retry = 0;
-+                            boolean done = false;
-+                            while (!done) {
++                            while (!computed) {
 +                                try {
 +                                    value = mComputeFunction.call();
-+                                    done = true;
++                                    computed = true;
 +                                } catch (Throwable e) {
-+                                    if (++retry > 10)
-+                                        throw new RuntimeException(
-+                                                "Exception while computing database live data.", e);
++                                    if (++retry > 5) {
++                                        eu.faircode.email.Log.e(e);
++                                        break;
++                                    }
 +                                    eu.faircode.email.Log.w(e);
 +                                    try {
-+                                        Thread.sleep(3000L);
++                                        Thread.sleep(2000L);
 +                                    } catch (InterruptedException ignored) {
 +                                    }
 +                                }
                              }
                          }
                          if (computed) {
-@@ -125,6 +136,7 @@ class RoomTrackingLiveData<T> extends Li
-             }
-         }
-     };
-+
-     @SuppressLint("RestrictedApi")
-     RoomTrackingLiveData(
-             RoomDatabase database,

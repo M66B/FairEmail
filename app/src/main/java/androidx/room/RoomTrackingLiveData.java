@@ -85,20 +85,19 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                     try {
                         T value = null;
                         while (mInvalid.compareAndSet(true, false)) {
-                            computed = true;
                             int retry = 0;
-                            boolean done = false;
-                            while (!done) {
+                            while (!computed) {
                                 try {
                                     value = mComputeFunction.call();
-                                    done = true;
+                                    computed = true;
                                 } catch (Throwable e) {
-                                    if (++retry > 10)
-                                        throw new RuntimeException(
-                                                "Exception while computing database live data.", e);
+                                    if (++retry > 5) {
+                                        eu.faircode.email.Log.e(e);
+                                        break;
+                                    }
                                     eu.faircode.email.Log.w(e);
                                     try {
-                                        Thread.sleep(3000L);
+                                        Thread.sleep(2000L);
                                     } catch (InterruptedException ignored) {
                                     }
                                 }
@@ -136,7 +135,6 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
             }
         }
     };
-
     @SuppressLint("RestrictedApi")
     RoomTrackingLiveData(
             RoomDatabase database,
