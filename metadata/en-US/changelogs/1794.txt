@@ -4,6 +4,10 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Added Outlook Tenant ID field
+
 ### 1.1794 - 2021-12-22
 
 * Added logarithmic PIN failure delay of 3 seconds
