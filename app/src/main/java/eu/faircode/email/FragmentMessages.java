@@ -9273,6 +9273,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Bundle args = getArguments();
+
+            BoundaryCallbackMessages.SearchCriteria criteria =
+                    (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
+            if (criteria == null)
+                criteria = new BoundaryCallbackMessages.SearchCriteria();
+
             final Context context = getContext();
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_save_search, null);
             EditText etName = dview.findViewById(R.id.etName);
@@ -9290,13 +9297,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     FragmentDialogColor fragment = new FragmentDialogColor();
                     fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentDialogSaveSearch.this, 1);
+                    fragment.setTargetFragment(FragmentDialogSaveSearch.this, 1234);
                     fragment.show(getParentFragmentManager(), "search:color");
                 }
             });
 
-            BoundaryCallbackMessages.SearchCriteria criteria =
-                    (BoundaryCallbackMessages.SearchCriteria) getArguments().getSerializable("criteria");
             etName.setText(criteria.getTitle(context));
             btnColor.setColor(Color.TRANSPARENT);
 
@@ -9305,8 +9310,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     .setPositiveButton(R.string.title_save, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            getArguments().putString("name", etName.getText().toString());
-                            getArguments().putInt("color", btnColor.getColor());
+                            args.putString("name", etName.getText().toString());
+                            args.putInt("color", btnColor.getColor());
                             sendResult(Activity.RESULT_OK);
                         }
                     })
