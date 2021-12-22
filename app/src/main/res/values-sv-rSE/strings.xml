@@ -286,6 +286,7 @@
     <string name="title_advanced_delete_unseen">Ta bort gamla olästa meddelanden</string>
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
     <string name="title_advanced_gmail_thread">Använd Gmails stil för gruppering av meddelande på Gmail-konton</string>
+    <string name="title_advanced_subject_threading">Gruppera meddelanden efter avsändare och ämne</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
     <string name="title_advanced_sync_folders_poll">Synkronisera mapplistan aktivt</string>
     <string name="title_advanced_sync_shared_folders">Synkronisera delade mapplistor</string>
@@ -584,6 +585,7 @@
     <string name="title_advanced_deleted_unseen">När inaktiverad, behålls olästa meddelanden på enheten för alltid</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_gmail_thread_hint">Detta gäller endast för nyligen mottagna meddelanden och kan bryta befintliga grupper</string>
+    <string name="title_advanced_subject_threading_hint">Endast meddelanden mottagna under de senaste %1$d timmarna</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_poll_folders_hint">Synkronisera mapplistan periodiskt utöver när du har anslutit till ett konto</string>
     <string name="title_advanced_check_authentication_hint">Detta kommer att kontrollera resultaten av DKIM, SPF och DMARC-autentisering som utförs av e-postservern</string>

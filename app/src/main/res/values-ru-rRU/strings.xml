@@ -148,7 +148,7 @@
     <string name="title_setup_analytics">FairEmail не показывает рекламу, не отслеживает и не анализирует ваше поведение. Bugsnag используется для сообщений об ошибках и по умолчанию отключён.</string>
     <string name="title_setup_quick_accounts">Добавить или изменить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
-    <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации из autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Пожалуйста, будьте терпеливы&#8230;</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
@@ -194,7 +194,7 @@
     <string name="title_setup_exchange_support">Поддерживается ли Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Что такое идентификатор?</string>
     <string name="title_setup_free">Это бесплатное приложение?</string>
-    <string name="title_setup_permissions">Предоставить доступ</string>
+    <string name="title_setup_permissions">Предоставить разрешения</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
     <string name="title_setup_permission_import_contacts">Как импортировать контакты?</string>
@@ -544,7 +544,7 @@
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
-    <string name="title_advanced_autolock">Отключить блокировку экпана</string>
+    <string name="title_advanced_autolock">Блокировка при выключении экрана</string>
     <string name="title_advanced_autolock_nav">Блокировка при выходе из приложения</string>
     <string name="title_advanced_generic_user_agent">Использовать обычный пользовательский агент браузера</string>
     <string name="title_advanced_load_emoji">Загружать обновлённые эмодзи из Google Play Services</string>
@@ -1000,7 +1000,7 @@
     <string name="title_no_camera">Нет подходящего приложения камеры</string>
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
-    <string name="title_no_internet">Нет или нет подходящего интернет-подключения</string>
+    <string name="title_no_internet">Нет подходящего интернет-подключения</string>
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Исходное сообщение будет включено</string>

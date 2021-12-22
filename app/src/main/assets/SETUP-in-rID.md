@@ -1,18 +1,18 @@
-# Bantuan persiapan
+# Setup help
 
-Menyiapkan FairEmail cukup simpel. Anda harus menambahkan setidaknya satu akun untuk menerima email dan setidaknya satu identitas jika Anda ingin mengirim email. Penyiapan yang cepat akan menambahkan akun dan identitas sekaligus, untuk sebagian besar penyedia layanan email.
+Menyiapkan FairEmail cukup simpel. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
 
-## Persyaratan
+## Requirements
 
-Koneksi internet diperlukan untuk mengatur akun dan identitas.
+An internet connection is required to set up accounts and identities.
 
-## Pengaturan Cepat
+## Quick setup
 
-Pilih provider yang sesuai atau *provider lainnya* dan isi nama, alamat email dan kata sandi dan tekan *Periksa*.
+Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-Ini akan berfungsi bagi sebagian besar penyedia layanan email terkemuka.
+This will work for most email providers.
 
-Jika penyiapan cepat tidak berhasil, Anda perlu menyiapkan akun dan identitas dengan cara lain, lihat di bawah sebagai petunjuk.
+If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
 ## Siapkan akun - untuk menerima email
 

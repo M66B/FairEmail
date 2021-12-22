@@ -309,8 +309,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_alt_re_fwd">Alternatief antwoord/doorsturen voorvoegsel</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
-    <string name="title_advanced_attach_new">31 / 5000
-Voeg gedeelde bestanden toe aan een nieuw concept</string>
+    <string name="title_advanced_attach_new">Voeg gedeelde bestanden toe aan een nieuw concept</string>
     <string name="title_advanced_reply_all">Druk lang op de antwoordknop om iedereen te antwoorden</string>
     <string name="title_advanced_send_pending">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
     <string name="title_advanced_compose_font">Standaard lettertype</string>
