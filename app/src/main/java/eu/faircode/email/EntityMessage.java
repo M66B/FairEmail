@@ -48,6 +48,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -329,19 +331,27 @@ public class EntityMessage implements Serializable {
         for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward_alt, ""))
             prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
 
+        String counts = "((\\[\\d+\\])|(\\(\\d+\\)))?";
+
         List<Boolean> scanned = new ArrayList<>();
         subject = subject.trim();
         while (true) {
             boolean found = false;
-            for (Pair<String, Boolean> prefix : prefixes)
-                if (subject.toLowerCase().startsWith(prefix.first)) {
+            for (Pair<String, Boolean> prefix : prefixes) {
+                String pre = prefix.first.endsWith(":")
+                        ? "(^" + Pattern.quote(prefix.first.substring(0, prefix.first.length() - 1)) + counts + ":)"
+                        : "(^" + Pattern.quote(prefix.first) + ")";
+                Pattern p = Pattern.compile(pre + "(\\s*)(.*)", Pattern.CASE_INSENSITIVE);
+                Matcher m = p.matcher(subject);
+                if (m.matches()) {
                     found = true;
                     int count = scanned.size();
                     if (!prefix.second.equals(count == 0 ? forward : scanned.get(count - 1)))
                         scanned.add(prefix.second);
-                    subject = subject.substring(prefix.first.length()).trim();
+                    subject = m.group(m.groupCount());
                     break;
                 }
+            }
             if (!found)
                 break;
         }
