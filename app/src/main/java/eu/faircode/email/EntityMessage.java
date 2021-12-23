@@ -320,29 +320,45 @@ public class EntityMessage implements Serializable {
         return MessageHelper.equalDomain(context, reply, from);
     }
 
-    private static String SUBJECT_COUNT = "((\\[\\d+\\])|(\\(\\d+\\)))?";
+    static int getReplies(Context context, String language, String subject) {
+        boolean found = false;
+        List<String> res = new ArrayList<>();
+        res.addAll(Arrays.asList(Helper.getStrings(context, language, R.string.title_subject_reply, "")));
+        res.addAll(Arrays.asList(Helper.getStrings(context, language, R.string.title_subject_reply_alt, "")));
+        for (String re : res) {
+            Matcher m = getPattern(re.trim()).matcher(subject);
+            if (m.matches()) {
+                found = true;
+                if (re.trim().endsWith(":"))
+                    try {
+                        String n = m.group(2);
+                        if (n != null)
+                            return Integer.parseInt(n.substring(1, n.length() - 1));
+                    } catch (NumberFormatException ex) {
+                        Log.e(ex);
+                    }
+            }
+        }
+        return (found ? 1 : 0);
+    }
 
     static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
         List<Pair<String, Boolean>> prefixes = new ArrayList<>();
         for (String re : Helper.getStrings(context, language, R.string.title_subject_reply, ""))
-            prefixes.add(new Pair<>(re.trim().toLowerCase(), false));
+            prefixes.add(new Pair<>(re, false));
         for (String re : Helper.getStrings(context, language, R.string.title_subject_reply_alt, ""))
-            prefixes.add(new Pair<>(re.trim().toLowerCase(), false));
+            prefixes.add(new Pair<>(re, false));
         for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward, ""))
-            prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
+            prefixes.add(new Pair<>(fwd, true));
         for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward_alt, ""))
-            prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
+            prefixes.add(new Pair<>(fwd, true));
 
         List<Boolean> scanned = new ArrayList<>();
         subject = subject.trim();
         while (true) {
             boolean found = false;
             for (Pair<String, Boolean> prefix : prefixes) {
-                String pre = prefix.first.endsWith(":")
-                        ? "(^" + Pattern.quote(prefix.first.substring(0, prefix.first.length() - 1)) + SUBJECT_COUNT + ":)"
-                        : "(^" + Pattern.quote(prefix.first) + ")";
-                Pattern p = Pattern.compile(pre + "(\\s*)(.*)", Pattern.CASE_INSENSITIVE);
-                Matcher m = p.matcher(subject);
+                Matcher m = getPattern(prefix.first.trim()).matcher(subject);
                 if (m.matches()) {
                     found = true;
                     int count = scanned.size();
@@ -362,6 +378,13 @@ public class EntityMessage implements Serializable {
         result.append(subject);
 
         return result.toString();
+    }
+
+    private static Pattern getPattern(String prefix) {
+        String pre = prefix.endsWith(":")
+                ? "(^" + Pattern.quote(prefix.substring(0, prefix.length() - 1)) + ")" + "((\\[\\d+\\])|(\\(\\d+\\)))?" + ":"
+                : "(^" + Pattern.quote(prefix) + ")";
+        return Pattern.compile(pre + "(\\s*)(.*)", Pattern.CASE_INSENSITIVE);
     }
 
     Element getReplyHeader(Context context, Document document, boolean separate, boolean extended) {

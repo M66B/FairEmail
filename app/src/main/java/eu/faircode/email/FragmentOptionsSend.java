@@ -59,6 +59,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestFrequently;
     private Button btnLocalContacts;
     private SwitchCompat swPrefixOnce;
+    private SwitchCompat swPrefixCount;
     private RadioGroup rgRe;
     private RadioGroup rgFwd;
     private SwitchCompat swSendReminders;
@@ -97,7 +98,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "alt_re", "alt_fwd",
             "send_reminders", "send_delayed",
             "attach_new", "reply_all", "send_pending",
-            "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
+            "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_forward",
             "discard_delete", "reply_move",
             "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
@@ -122,6 +123,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
+        swPrefixCount = view.findViewById(R.id.swPrefixCount);
         rgRe = view.findViewById(R.id.rgRe);
         rgFwd = view.findViewById(R.id.rgFwd);
         swSendReminders = view.findViewById(R.id.swSendReminders);
@@ -231,6 +233,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefix_once", checked).apply();
+                swPrefixOnce.setEnabled(checked);
+            }
+        });
+
+        swPrefixCount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefix_count", checked).apply();
             }
         });
 
@@ -534,6 +544,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
 
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
+        swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));
+        swPrefixCount.setEnabled(swPrefixOnce.isChecked());
         rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
         rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
 

@@ -274,6 +274,7 @@ public class FragmentCompose extends FragmentBase {
     private AdapterAttachment adapter;
 
     private boolean prefix_once = false;
+    private boolean prefix_count = false;
     private boolean alt_re = false;
     private boolean alt_fwd = false;
     private boolean monospaced = false;
@@ -335,6 +336,7 @@ public class FragmentCompose extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefix_once = prefs.getBoolean("prefix_once", true);
+        prefix_count = prefs.getBoolean("prefix_count", false);
         alt_re = prefs.getBoolean("alt_re", false);
         alt_fwd = prefs.getBoolean("alt_fwd", false);
         monospaced = prefs.getBoolean("monospaced", false);
@@ -4578,12 +4580,24 @@ public class FragmentCompose extends FragmentBase {
                         // Subject
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
-                            if (prefix_once)
+                            int replies = 0;
+                            if (prefix_once) {
+                                if (prefix_count)
+                                    replies = EntityMessage.getReplies(context, ref.language, subject);
                                 subject = EntityMessage.collapsePrefixes(context, ref.language, subject, false);
-                            data.draft.subject = Helper.getString(context,
+                            }
+                            String re = Helper.getString(context,
+                                    ref.language,
+                                    alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply,
+                                    "").trim();
+                            String s = Helper.getString(context,
                                     ref.language,
                                     alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply,
                                     subject);
+                            if (replies > 0 && re.endsWith(":") && s.startsWith(re))
+                                s = re.substring(0, re.length() - 1) + "[" + (replies + 1) + "]:" +
+                                        s.substring(re.length());
+                            data.draft.subject = s;
 
                             if (external_text != null) {
                                 Element div = document.createElement("div");
