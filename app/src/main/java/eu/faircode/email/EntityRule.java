@@ -722,7 +722,7 @@ public class EntityRule {
 
         String subject = (message.subject == null ? "" : message.subject);
         if (prefix_once)
-            EntityMessage.collapsePrefixes(context, message.language, subject, !TextUtils.isEmpty(to));
+            subject = EntityMessage.collapsePrefixes(context, message.language, subject, !TextUtils.isEmpty(to));
 
         reply.subject = context.getString(
                 TextUtils.isEmpty(to)
