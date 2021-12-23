@@ -315,6 +315,7 @@
     <string name="title_advanced_edit_name">이름 수정</string>
     <string name="title_select">&#8230; 선택</string>
     <string name="title_identity_name">이름</string>
+    <string name="title_identity_tenant_hint">이 입력란은 대부분의 경우에 비어 있어야 합니다</string>
     <string name="title_optional">선택</string>
     <string name="title_recommended">추천</string>
     <string name="title_account_linked">연결된 계정</string>

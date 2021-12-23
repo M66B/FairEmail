@@ -694,6 +694,7 @@
     <string name="title_select">בחירה &#8230;</string>
     <string name="title_identity_name">שמך</string>
     <string name="title_identity_email">כתובת הדוא״ל שלך</string>
+    <string name="title_identity_tenant_hint">השדה הזה אמר להיות ריק ברוב המקרים</string>
     <string name="title_identity_color_hint">צבעי הזהויות קודמים בעדיפות על צבעי תיקיות וחשבונות</string>
     <string name="title_advanced_sender">לאפשר את עריכת כתובת המוען</string>
     <string name="title_advanced_sender_name">להשתמש בשם כאשר כתובת המוען נערכה</string>

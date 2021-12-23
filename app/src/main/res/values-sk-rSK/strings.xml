@@ -693,6 +693,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_select">Vybrať &#8230;</string>
     <string name="title_identity_name">Vaše meno</string>
     <string name="title_identity_email">Vaša emailová adresa</string>
+    <string name="title_identity_tenant_hint">Toto pole môže vo väčšine prípadoch ostať prázdne</string>
     <string name="title_identity_color_hint">Farby totožnosti majú prednosť pred farbami priečinkov a účtov</string>
     <string name="title_advanced_sender">Povoliť upravovanie adresy odosielateľa</string>
     <string name="title_advanced_sender_name">Použiť meno keď bola upravená adresa odosielateľa</string>

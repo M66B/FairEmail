@@ -671,6 +671,7 @@
     <string name="title_select">Επιλέξτε &#8230;</string>
     <string name="title_identity_name">Το όνομα σας</string>
     <string name="title_identity_email">Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας</string>
+    <string name="title_identity_tenant_hint">Το πεδίο αυτό θα πρέπει να είναι κενό στις περισσότερες περιπτώσεις</string>
     <string name="title_identity_color_hint">Τα χρώματα των ταυτοτήτων έχουν προτεραιότητα έναντι των χρωμάτων των φακέλων και των λογαριασμών</string>
     <string name="title_advanced_sender">Να επιτρέπεται η τροποποίηση της διεύθυνσης του αποστολέα</string>
     <string name="title_advanced_sender_name">Χρήση ονόματος όταν η διεύθυνση αποστολέα έχει τροποποιηθεί</string>

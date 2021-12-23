@@ -379,6 +379,7 @@
     <string name="title_advanced_landscape">Альбомна орієнтація</string>
     <string name="title_advanced_two_row">Використовувати два рядки</string>
     <string name="title_advanced_two_col">Використовувати два стовпчики</string>
+    <string name="title_advanced_min_screen_size">Мінімальний розмір екрану для його розділення</string>
     <string name="title_advanced_nav_options">Показати параметри меню навігації</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
     <string name="title_advanced_nav_hide_title">Приховати параметри меню навігації?</string>
@@ -692,6 +693,7 @@
     <string name="title_select">Обрати &#8230;</string>
     <string name="title_identity_name">Ваше ім’я</string>
     <string name="title_identity_email">Ваша електронна адреса</string>
+    <string name="title_identity_tenant_hint">У більшості випадків це поле має бути порожнім</string>
     <string name="title_identity_color_hint">Кольори ідентифікації мають пріоритет над кольорами теки та облікового запису</string>
     <string name="title_advanced_sender">Дозволити редагування адреси відправника</string>
     <string name="title_advanced_sender_name">Використовувати ім\'я, коли адресу відправника було відредаговано</string>

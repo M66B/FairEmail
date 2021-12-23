@@ -670,6 +670,7 @@
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
+    <string name="title_identity_tenant_hint">Detta fält skall lämnas tomt i de flesta fall</string>
     <string name="title_identity_color_hint">Identitetsfärger har företräde framför mapp- och kontofärger</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_sender_name">Använd namn när avsändaradressen har redigerats</string>

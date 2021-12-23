@@ -674,6 +674,7 @@
     <string name="title_select">&#8230; seçin</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-poçt ünvanınız</string>
+    <string name="title_identity_tenant_hint">Bu sahə əksər hallarda boş olmalıdır</string>
     <string name="title_identity_color_hint">Kimlik rəngləri, qovluq və hesab rənglərindən əvvəl gəlir</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_sender_name">Göndərənin ünvanına düzəliş ediləndə adı istifadə et</string>
