@@ -4,6 +4,11 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### 1.1795 - 2021-12-23
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1794 - 2021-12-22
 
 * Added logarithmic PIN failure delay of 3 seconds
