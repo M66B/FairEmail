@@ -2010,6 +2010,10 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(icontact))
             return "icontact";
 
+        String paypal = imessage.getHeader("X-Email-Type-Id", null);
+        if (!TextUtils.isEmpty(paypal))
+            return "paypal";
+
         String xmailer = imessage.getHeader("X-Mailer", null);
         if (!TextUtils.isEmpty(xmailer)) {
             if (xmailer.contains("iPhone Mail"))

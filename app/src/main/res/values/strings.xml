@@ -1848,6 +1848,7 @@
     <string name="infra_mandrill" translatable="false">Mandrill</string>
     <string name="infra_netcore" translatable="false">Pepipost/netcore</string>
     <string name="infra_outlook" translatable="false">Outlook/Office 365</string>
+    <string name="infra_paypal" translatable="false">PayPal</string>
     <string name="infra_phpmailer" translatable="false">PHPMailer</string>
     <string name="infra_postmark" translatable="false">Postmark</string>
     <string name="infra_salesforce" translatable="false">Salesforce</string>
