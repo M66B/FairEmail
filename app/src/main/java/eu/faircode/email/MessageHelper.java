@@ -1337,16 +1337,23 @@ public class MessageHelper {
 
         boolean subject_threading = prefs.getBoolean("subject_threading", false);
         if (subject_threading) {
-            String sender = getSortKey(getFrom());
-            String subject = getSubject();
-            long since = new Date().getTime() - MAX_SUBJECT_AGE * 3600 * 1000L;
-            if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
-                List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject, since);
-                for (EntityMessage message : subjects)
-                    if (!thread.equals(message.thread)) {
-                        Log.w("Updating subject thread from " + message.thread + " to " + thread);
-                        db.message().updateMessageThread(message.account, message.thread, thread, since);
-                    }
+            boolean dsn = false;
+            try {
+                dsn = imessage.isMimeType("multipart/report");
+            } catch (Throwable ignored) {
+            }
+            if (!dsn) {
+                String sender = getSortKey(getFrom());
+                String subject = getSubject();
+                long since = new Date().getTime() - MAX_SUBJECT_AGE * 3600 * 1000L;
+                if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
+                    List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject, since);
+                    for (EntityMessage message : subjects)
+                        if (!thread.equals(message.thread)) {
+                            Log.w("Updating subject thread from " + message.thread + " to " + thread);
+                            db.message().updateMessageThread(message.account, message.thread, thread, since);
+                        }
+                }
             }
         }
 
