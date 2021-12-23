@@ -8,6 +8,11 @@
 
 * Added Outlook Tenant ID field
 
+### 1.1796 - 2021-12-23
+
+* Fixed incorrect background colors
+* Small improvements and minor bug fixes
+
 ### 1.1795 - 2021-12-23
 
 * Small improvements and minor bug fixes
