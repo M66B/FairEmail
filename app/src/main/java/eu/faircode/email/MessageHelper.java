@@ -2002,9 +2002,9 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(icloud))
             return "icloud";
 
-        String zoho = imessage.getHeader("X-ZohoMailClient", null);
-        if (!TextUtils.isEmpty(zoho))
-            return "zoho";
+        //String zoho = imessage.getHeader("X-ZohoMailClient", null);
+        //if (!TextUtils.isEmpty(zoho))
+        //    return "zoho";
 
         String icontact = imessage.getHeader("X-SFMC-Stack", null);
         if (!TextUtils.isEmpty(icontact))
@@ -2016,12 +2016,12 @@ public class MessageHelper {
 
         String xmailer = imessage.getHeader("X-Mailer", null);
         if (!TextUtils.isEmpty(xmailer)) {
-            if (xmailer.contains("iPhone Mail"))
-                return "icloud";
+            //if (xmailer.contains("iPhone Mail"))
+            //    return "icloud";
             if (xmailer.contains("PHPMailer"))
                 return "phpmailer";
-            if (xmailer.contains("Zoho Mail"))
-                return "zoho";
+            //if (xmailer.contains("Zoho Mail"))
+            //    return "zoho";
         }
 
         String return_path = imessage.getHeader("Return-Path", null);

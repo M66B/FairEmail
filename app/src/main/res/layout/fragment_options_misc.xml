@@ -1129,6 +1129,7 @@
                     android:layout_height="24dp"
                     android:contentDescription="@string/infra_zoho"
                     android:tooltipText="@string/infra_zoho"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/infra_zoho"
                     tools:ignore="MissingConstraints" />
 
