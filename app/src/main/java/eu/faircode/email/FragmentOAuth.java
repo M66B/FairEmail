@@ -108,7 +108,6 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvPrivacy;
     private EditText etName;
     private EditText etEmail;
-    private EditText etTenant;
     private CheckBox cbUpdate;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
@@ -121,7 +120,6 @@ public class FragmentOAuth extends FragmentBase {
     private Button btnSupport;
     private Button btnHelp;
 
-    private Group grpTenant;
     private Group grpError;
 
     private static final int MAILRU_TIMEOUT = 20 * 1000; // milliseconds
@@ -155,7 +153,6 @@ public class FragmentOAuth extends FragmentBase {
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
-        etTenant = view.findViewById(R.id.etTenant);
         cbUpdate = view.findViewById(R.id.cbUpdate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
@@ -168,7 +165,6 @@ public class FragmentOAuth extends FragmentBase {
         btnSupport = view.findViewById(R.id.btnSupport);
         btnHelp = view.findViewById(R.id.btnHelp);
 
-        grpTenant = view.findViewById(R.id.grpTenant);
         grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
@@ -212,7 +208,6 @@ public class FragmentOAuth extends FragmentBase {
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, name));
         etName.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         etEmail.setVisibility(askAccount ? View.VISIBLE : View.GONE);
-        grpTenant.setVisibility(isOutlook(id) ? View.VISIBLE : View.GONE);
         pbOAuth.setVisibility(View.GONE);
         tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
@@ -220,7 +215,6 @@ public class FragmentOAuth extends FragmentBase {
 
         etName.setText(personal);
         etEmail.setText(address);
-        etTenant.setText(null);
         cbUpdate.setChecked(update);
 
         return view;
@@ -269,12 +263,10 @@ public class FragmentOAuth extends FragmentBase {
 
             etName.clearFocus();
             etEmail.clearFocus();
-            etTenant.clearFocus();
             Helper.hideKeyboard(view);
 
             etName.setEnabled(false);
             etEmail.setEnabled(false);
-            etTenant.setEnabled(false);
             cbUpdate.setEnabled(false);
             btnOAuth.setEnabled(false);
             pbOAuth.setVisibility(View.VISIBLE);
@@ -344,19 +336,9 @@ public class FragmentOAuth extends FragmentBase {
 
             AuthorizationService authService = new AuthorizationService(context, appAuthConfig);
 
-            String authorizationEndpoint = provider.oauth.authorizationEndpoint;
-            String tokenEndpoint = provider.oauth.tokenEndpoint;
-            String tenant = etTenant.getText().toString().trim();
-
-            if (TextUtils.isEmpty(tenant))
-                tenant = "common";
-
-            authorizationEndpoint = authorizationEndpoint.replace("{tenant}", tenant);
-            tokenEndpoint = tokenEndpoint.replace("{tenant}", tenant);
-
             AuthorizationServiceConfiguration serviceConfig = new AuthorizationServiceConfiguration(
-                    Uri.parse(authorizationEndpoint),
-                    Uri.parse(tokenEndpoint));
+                    Uri.parse(provider.oauth.authorizationEndpoint),
+                    Uri.parse(provider.oauth.tokenEndpoint));
 
             AuthState authState = new AuthState(serviceConfig);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -402,8 +384,10 @@ public class FragmentOAuth extends FragmentBase {
                 authRequestBuilder.setPrompt("consent");
 
             // https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow
-            if (isOutlook(provider.id))
+            if ("office365".equals(provider.id))
                 authRequestBuilder.setPrompt("select_account");
+            if ("outlook".equals(provider.id))
+                authRequestBuilder.setPrompt("consent");
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
@@ -429,7 +413,6 @@ public class FragmentOAuth extends FragmentBase {
         try {
             etName.setEnabled(true);
             etEmail.setEnabled(true);
-            etTenant.setEnabled(true);
             cbUpdate.setEnabled(true);
 
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
@@ -467,7 +450,7 @@ public class FragmentOAuth extends FragmentBase {
                     .setAdditionalParameters(Collections.<String, String>emptyMap())
                     .setNonce(auth.request.nonce);
 
-            if (isOutlook(provider.id))
+            if ("office365".equals(provider.id) || "outlook".equals(provider.id))
                 builder.setScope(TextUtils.join(" ", provider.oauth.scopes));
 
             TokenRequest request = builder.build();
@@ -938,7 +921,6 @@ public class FragmentOAuth extends FragmentBase {
     private void onHandleCancel() {
         etName.setEnabled(true);
         etEmail.setEnabled(true);
-        etTenant.setEnabled(true);
         cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
@@ -960,7 +942,7 @@ public class FragmentOAuth extends FragmentBase {
         if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
-        if (isOutlook(id)) {
+        if ("office365".equals(id) || "outlook".equals(id)) {
             if (ex instanceof AuthenticationFailedException)
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
         }
@@ -977,7 +959,6 @@ public class FragmentOAuth extends FragmentBase {
 
         etName.setEnabled(true);
         etEmail.setEnabled(true);
-        etTenant.setEnabled(true);
         cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
@@ -997,9 +978,5 @@ public class FragmentOAuth extends FragmentBase {
         grpError.setVisibility(View.GONE);
         tvGmailDraftsHint.setVisibility(View.GONE);
         tvOfficeAuthHint.setVisibility(View.GONE);
-    }
-
-    private static boolean isOutlook(String id) {
-        return ("office365".equals(id) || "outlook".equals(id));
     }
 }
