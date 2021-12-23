@@ -526,6 +526,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
+    <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
     <string name="title_encryption">Encriptação</string>
     <string name="title_password">Palavra-passe</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
