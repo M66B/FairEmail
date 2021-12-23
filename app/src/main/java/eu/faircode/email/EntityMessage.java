@@ -320,6 +320,8 @@ public class EntityMessage implements Serializable {
         return MessageHelper.equalDomain(context, reply, from);
     }
 
+    private static String SUBJECT_COUNT = "((\\[\\d+\\])|(\\(\\d+\\)))?";
+
     static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
         List<Pair<String, Boolean>> prefixes = new ArrayList<>();
         for (String re : Helper.getStrings(context, language, R.string.title_subject_reply, ""))
@@ -331,15 +333,13 @@ public class EntityMessage implements Serializable {
         for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward_alt, ""))
             prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
 
-        String counts = "((\\[\\d+\\])|(\\(\\d+\\)))?";
-
         List<Boolean> scanned = new ArrayList<>();
         subject = subject.trim();
         while (true) {
             boolean found = false;
             for (Pair<String, Boolean> prefix : prefixes) {
                 String pre = prefix.first.endsWith(":")
-                        ? "(^" + Pattern.quote(prefix.first.substring(0, prefix.first.length() - 1)) + counts + ":)"
+                        ? "(^" + Pattern.quote(prefix.first.substring(0, prefix.first.length() - 1)) + SUBJECT_COUNT + ":)"
                         : "(^" + Pattern.quote(prefix.first) + ")";
                 Pattern p = Pattern.compile(pre + "(\\s*)(.*)", Pattern.CASE_INSENSITIVE);
                 Matcher m = p.matcher(subject);
