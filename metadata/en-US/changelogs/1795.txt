@@ -4,6 +4,10 @@
 
 ### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
+### Next version
+
+* Added Outlook Tenant ID field
+
 ### 1.1795 - 2021-12-23
 
 * Small improvements and minor bug fixes
