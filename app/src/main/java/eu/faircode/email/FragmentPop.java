@@ -495,7 +495,7 @@ public class FragmentPop extends FragmentBase {
                     if (account != null && !account.password.equals(password)) {
                         String domain = UriHelper.getParentDomain(context, account.host);
                         String match = (Objects.equals(account.host, domain) ? account.host : "%." + domain);
-                        int count = db.identity().setIdentityPassword(account.id, account.user, password, match);
+                        int count = db.identity().setIdentityPassword(account.id, account.user, password, AUTH_TYPE_PASSWORD, match);
                         Log.i("Updated passwords=" + count + " match=" + match);
                     }
 

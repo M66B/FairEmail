@@ -104,12 +104,13 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET password = :password WHERE id = :id AND NOT (password IS :password)")
     int setIdentityPassword(long id, String password);
 
-    @Query("UPDATE identity SET password = :password" +
+    @Query("UPDATE identity" +
+            " SET password = :password, auth_type = :auth_type" +
             " WHERE account = :account" +
             " AND user = :user" +
-            " AND NOT (password IS :password)" +
+            " AND NOT (password IS :password AND auth_type = :auth_type)" +
             " AND host LIKE :domain")
-    int setIdentityPassword(long account, String user, String password, String domain);
+    int setIdentityPassword(long account, String user, String password, int auth_type, String domain);
 
     @Query("UPDATE identity" +
             " SET password = :password, auth_type = :new_auth_type" +

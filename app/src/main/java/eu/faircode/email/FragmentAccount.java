@@ -29,6 +29,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -58,10 +59,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -719,6 +722,10 @@ public class FragmentAccount extends FragmentBase {
                 result.account = db.account().getAccount(id);
                 result.folders = new ArrayList<>();
 
+                if (result.account.auth_type != AUTH_TYPE_PASSWORD &&
+                        !Objects.equals(result.account.password, password))
+                    auth = AUTH_TYPE_PASSWORD;
+
                 // Check IMAP server / get folders
                 String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                 try (EmailService iservice = new EmailService(
@@ -983,6 +990,10 @@ public class FragmentAccount extends FragmentBase {
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(id);
 
+                if (account.auth_type != AUTH_TYPE_PASSWORD &&
+                        !Objects.equals(account.password, password))
+                    auth = AUTH_TYPE_PASSWORD;
+
                 if (should) {
                     if (account == null)
                         return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
@@ -1130,7 +1141,7 @@ public class FragmentAccount extends FragmentBase {
                     if (account != null && !account.password.equals(password)) {
                         String domain = UriHelper.getParentDomain(context, account.host);
                         String match = (Objects.equals(account.host, domain) ? account.host : "%." + domain);
-                        int count = db.identity().setIdentityPassword(account.id, account.user, password, match);
+                        int count = db.identity().setIdentityPassword(account.id, account.user, password, auth, match);
                         Log.i("Updated passwords=" + count + " match=" + match);
                     }
 
@@ -1442,12 +1453,13 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, final EntityAccount account) {
                 // Get providers
-                List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
+                final Context context = getContext();
+                List<EmailProvider> providers = EmailProvider.loadProfiles(context);
                 providers.add(0, new EmailProvider(getString(R.string.title_select)));
                 providers.add(1, new EmailProvider(getString(R.string.title_custom)));
 
                 ArrayAdapter<EmailProvider> aaProvider =
-                        new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
+                        new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1, providers);
                 aaProvider.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                 spProvider.setAdapter(aaProvider);
 
@@ -1505,7 +1517,7 @@ public class FragmentAccount extends FragmentBase {
                     etCategory.setText(account == null ? null : account.category);
                     btnColor.setColor(account == null ? null : account.color);
 
-                    boolean pro = ActivityBilling.isPro(getContext());
+                    boolean pro = ActivityBilling.isPro(context);
                     cbNotify.setChecked(account != null && account.notify && pro);
                     cbNotify.setEnabled(pro);
 
@@ -1570,42 +1582,72 @@ public class FragmentAccount extends FragmentBase {
                     tilPassword.setEndIconOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Fragment fragment;
-                            if (auth == AUTH_TYPE_GMAIL)
-                                fragment = new FragmentGmail();
-                            else if (auth == AUTH_TYPE_OAUTH)
-                                fragment = new FragmentOAuth();
-                            else {
-                                Log.e("Unknown auth=" + auth);
-                                return;
-                            }
+                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, FragmentAccount.this, view);
 
-                            try {
-                                Bundle aargs = new Bundle();
-                                if (auth == AUTH_TYPE_OAUTH) {
-                                    if (account == null)
-                                        throw new IllegalArgumentException("Account missing");
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_account_auth_update, 1, R.string.title_account_auth_update);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_account_auth_password, 2, R.string.title_account_auth_password);
 
-                                    EmailProvider provider =
-                                            EmailProvider.getProvider(view.getContext(), account.provider);
-                                    aargs.putString("id", provider.id);
-                                    aargs.putString("name", provider.description);
-                                    aargs.putString("privacy", provider.oauth.privacy);
-                                    aargs.putBoolean("askAccount", provider.oauth.askAccount);
+                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem item) {
+                                    int id = item.getItemId();
+                                    if (id == R.string.title_account_auth_update) {
+                                        onUpdate();
+                                        return true;
+                                    } else if (id == R.string.title_account_auth_password) {
+                                        onPassword();
+                                        return true;
+                                    } else
+                                        return false;
                                 }
-                                aargs.putString("personal", args.getString("personal"));
-                                aargs.putString("address", etUser.getText().toString());
-                                aargs.putBoolean("update", true);
 
-                                fragment.setArguments(aargs);
+                                private void onUpdate() {
+                                    Fragment fragment;
+                                    if (auth == AUTH_TYPE_GMAIL)
+                                        fragment = new FragmentGmail();
+                                    else if (auth == AUTH_TYPE_OAUTH)
+                                        fragment = new FragmentOAuth();
+                                    else {
+                                        Log.e("Unknown auth=" + auth);
+                                        return;
+                                    }
 
-                                getParentFragmentManager().popBackStack();
-                                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("quick");
-                                fragmentTransaction.commit();
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
+                                    try {
+                                        Bundle aargs = new Bundle();
+                                        if (auth == AUTH_TYPE_OAUTH) {
+                                            if (account == null)
+                                                throw new IllegalArgumentException("Account missing");
+
+                                            EmailProvider provider =
+                                                    EmailProvider.getProvider(view.getContext(), account.provider);
+                                            aargs.putString("id", provider.id);
+                                            aargs.putString("name", provider.description);
+                                            aargs.putString("privacy", provider.oauth.privacy);
+                                            aargs.putBoolean("askAccount", provider.oauth.askAccount);
+                                        }
+                                        aargs.putString("personal", args.getString("personal"));
+                                        aargs.putString("address", etUser.getText().toString());
+                                        aargs.putBoolean("update", true);
+
+                                        fragment.setArguments(aargs);
+
+                                        getParentFragmentManager().popBackStack();
+                                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("quick");
+                                        fragmentTransaction.commit();
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+
+                                private void onPassword() {
+                                    tilPassword.getEditText().setText(null);
+                                    tilPassword.getEditText().setEnabled(true);
+                                    tilPassword.requestFocus();
+                                }
+                            });
+
+                            popupMenu.show();
                         }
                     });
                 }

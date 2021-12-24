@@ -955,7 +955,7 @@ public class FragmentIdentity extends FragmentBase {
                     if (identity != null && !identity.password.equals(password)) {
                         int count = db.identity().setIdentityPassword(
                                 identity.account,
-                                identity.user, password,
+                                identity.user, password, identity.auth_type,
                                 identity.host);
                         Log.i("Updated passwords=" + count);
                     }

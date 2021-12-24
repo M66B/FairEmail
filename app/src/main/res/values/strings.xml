@@ -909,6 +909,8 @@
     <string name="title_identity_required">An identity is required to send emails</string>
     <string name="title_drafts_required">A drafts folder is required to send emails</string>
     <string name="title_drafts_select">Sending emails requires a drafts folder to be selected in the account settings</string>
+    <string name="title_account_auth_update">Update authorization</string>
+    <string name="title_account_auth_password">Switch to password authentication</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
