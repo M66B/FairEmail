@@ -123,6 +123,7 @@ public class MessageHelper {
     private boolean ensuredStructure = false;
     private MimeMessage imessage;
     private String hash = null;
+    private InternetHeaders reportHeaders = null;
 
     private static File cacheDir = null;
 
@@ -1170,51 +1171,25 @@ public class MessageHelper {
         if (refs != null)
             result.addAll(Arrays.asList(getReferences(refs)));
 
-        try {
-            // Merge references of original message for threading
-            if (imessage.isMimeType("multipart/report")) {
-                ContentType ct = new ContentType(imessage.getContentType());
-                String reportType = ct.getParameter("report-type");
-                if ("delivery-status".equalsIgnoreCase(reportType) ||
-                        "disposition-notification".equalsIgnoreCase(reportType)) {
-                    String arefs = null;
-                    String amsgid = null;
-
-                    MessageParts parts = new MessageParts();
-                    getMessageParts(imessage, parts, null);
-                    for (AttachmentPart apart : parts.attachments)
-                        if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
-                            InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
-                            arefs = iheaders.getHeader("References", null);
-                            amsgid = iheaders.getHeader("Message-Id", null);
-                            break;
-                        } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
-                            Properties props = MessageHelper.getSessionProperties();
-                            Session isession = Session.getInstance(props, null);
-                            MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
-                            arefs = amessage.getHeader("References", null);
-                            amsgid = amessage.getHeader("Message-Id", null);
-                            break;
-                        }
-
-                    if (arefs != null)
-                        for (String ref : getReferences(arefs))
-                            if (!result.contains(ref)) {
-                                Log.i("rfc822 ref=" + ref);
-                                result.add(ref);
-                            }
-
-                    if (amsgid != null) {
-                        String msgid = MimeUtility.unfold(amsgid);
-                        if (!result.contains(msgid)) {
-                            Log.i("rfc822 id=" + msgid);
-                            result.add(msgid);
-                        }
+        // Merge references of reported message for threading
+        InternetHeaders iheaders = getReportHeaders();
+        if (iheaders != null) {
+            String arefs = iheaders.getHeader("References", null);
+            if (arefs != null)
+                for (String ref : getReferences(arefs))
+                    if (!result.contains(ref)) {
+                        Log.i("rfc822 ref=" + ref);
+                        result.add(ref);
                     }
+
+            String amsgid = iheaders.getHeader("Message-Id", null);
+            if (amsgid != null) {
+                String msgid = MimeUtility.unfold(amsgid);
+                if (!result.contains(msgid)) {
+                    Log.i("rfc822 id=" + msgid);
+                    result.add(msgid);
                 }
             }
-        } catch (Throwable ex) {
-            Log.w(ex);
         }
 
         return result.toArray(new String[0]);
@@ -1247,40 +1222,48 @@ public class MessageHelper {
         if (header != null)
             header = MimeUtility.unfold(header);
 
-        if (header == null)
-            try {
-                if (imessage.isMimeType("multipart/report")) {
-                    ContentType ct = new ContentType(imessage.getContentType());
-                    String reportType = ct.getParameter("report-type");
-                    if ("delivery-status".equalsIgnoreCase(reportType) ||
-                            "disposition-notification".equalsIgnoreCase(reportType)) {
-                        MessageParts parts = new MessageParts();
-                        getMessageParts(imessage, parts, null);
-                        for (AttachmentPart apart : parts.attachments)
-                            if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
-                                InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
-                                String amsgid = iheaders.getHeader("Message-Id", null);
-                                if (amsgid != null) {
-                                    Log.i("rfc822 id=" + amsgid);
-                                    return amsgid;
-                                }
-                            } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
-                                Properties props = MessageHelper.getSessionProperties();
-                                Session isession = Session.getInstance(props, null);
-                                MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
-                                String amsgid = amessage.getHeader("Message-Id", null);
-                                if (amsgid != null) {
-                                    Log.i("rfc822 id=" + amsgid);
-                                    return amsgid;
-                                }
-                            }
-                    }
-                }
-            } catch (Throwable ex) {
-                Log.w(ex);
+        if (header == null) {
+            // Use reported message ID as synthetic in-reply-to
+            InternetHeaders iheaders = getReportHeaders();
+            if (iheaders != null) {
+                header = iheaders.getHeader("Message-Id", null);
+                if (header != null)
+                    Log.i("rfc822 id=" + header);
             }
+        }
 
         return header;
+    }
+
+    private InternetHeaders getReportHeaders() {
+        try {
+            ensureStructure();
+
+            if (imessage.isMimeType("multipart/report")) {
+                ContentType ct = new ContentType(imessage.getContentType());
+                String reportType = ct.getParameter("report-type");
+                if ("delivery-status".equalsIgnoreCase(reportType) ||
+                        "disposition-notification".equalsIgnoreCase(reportType)) {
+                    MessageParts parts = new MessageParts();
+                    getMessageParts(imessage, parts, null);
+                    for (AttachmentPart apart : parts.attachments)
+                        if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
+                            reportHeaders = new InternetHeaders(apart.part.getInputStream());
+                            break;
+                        } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
+                            Properties props = MessageHelper.getSessionProperties();
+                            Session isession = Session.getInstance(props, null);
+                            MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
+                            reportHeaders = amessage.getHeaders();
+                            break;
+                        }
+                }
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return reportHeaders;
     }
 
     String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {

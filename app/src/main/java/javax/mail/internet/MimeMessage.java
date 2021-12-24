@@ -2008,6 +2008,10 @@ public class MimeMessage extends Message implements MimePart {
 	headers.removeHeader(name);
     }
 
+	public InternetHeaders getHeaders() {
+	return headers;
+	}
+
     /**
      * Return all the headers from this Message as an enumeration
      * of Header objects. <p>
