@@ -136,7 +136,8 @@ public class ServiceAuthenticator extends Authenticator {
             Log.e(ex);
         }
 
-        if (expiration != null && expiration - keep_alive < new Date().getTime())
+        long slack = Math.min(keep_alive, 30 * 60 * 1000L);
+        if (expiration != null && expiration - slack < new Date().getTime())
             throw new IllegalStateException(Log.TOKEN_REFRESH_REQUIRED);
     }
 

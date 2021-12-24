@@ -2005,7 +2005,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
 
                             // Check token expiration
-                            iservice.check();
+                            if (!account.isTransient(this))
+                                iservice.check();
 
                             // Sends store NOOP
                             if (EmailService.SEPARATE_STORE_CONNECTION) {
