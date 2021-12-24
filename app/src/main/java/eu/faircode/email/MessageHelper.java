@@ -3310,8 +3310,7 @@ public class MessageHelper {
                         !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
                     parts.text.add(new PartHolder(part, contentType));
                 } else {
-                    if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
-                            "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()))
+                    if (Report.isDeliveryStatus(ct) || Report.isDispositionNotification(ct))
                         parts.extra.add(new PartHolder(part, contentType));
 
                     AttachmentPart apart = new AttachmentPart();
