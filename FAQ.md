@@ -4351,6 +4351,10 @@ Like most Android apps, FairEmail consults the Android address book for contact 
 There is also a local contact database, which is filled with contacts from sent and received messages.
 You can enable/disable this in the send settings of the app.
 
+If you want to import contacts into the local contact database,
+this is possible (in recent versions of the app) by tapping on the *Manage* button in the send settings.
+In the three-dots menu at the top right there is an import (and also an export) [vCard](https://en.wikipedia.org/wiki/VCard)s menu item.
+
 The Android address book is managed by the Android Contacts app (or a replacement for this app).
 Please see [this article](https://support.google.com/contacts/answer/1069522) about importing contacts to the Android address book.
 
