@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -806,7 +807,7 @@ public class FragmentOAuth extends FragmentBase {
 
                     if (args.getBoolean("update")) {
                         List<EntityAccount> accounts =
-                                db.account().getAccounts(username, AUTH_TYPE_OAUTH);
+                                db.account().getAccounts(username, new int[]{AUTH_TYPE_OAUTH, AUTH_TYPE_PASSWORD});
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
                     }
@@ -893,8 +894,8 @@ public class FragmentOAuth extends FragmentBase {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "OAuth update account=" + update.name);
                         db.account().setAccountSynchronize(update.id, true);
-                        db.account().setAccountPassword(update.id, state);
-                        db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type);
+                        db.account().setAccountPassword(update.id, state, AUTH_TYPE_OAUTH);
+                        db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type, AUTH_TYPE_OAUTH);
                     }
 
                     db.setTransactionSuccessful();

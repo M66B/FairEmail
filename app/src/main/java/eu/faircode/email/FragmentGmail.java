@@ -23,6 +23,7 @@ import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.Manifest;
 import android.accounts.Account;
@@ -459,7 +460,7 @@ public class FragmentGmail extends FragmentBase {
 
                     if (args.getBoolean("update")) {
                         List<EntityAccount> accounts =
-                                db.account().getAccounts(user, AUTH_TYPE_GMAIL);
+                                db.account().getAccounts(user, new int[]{AUTH_TYPE_GMAIL, AUTH_TYPE_PASSWORD});
                         if (accounts != null && accounts.size() == 1)
                             update = accounts.get(0);
                     }
@@ -536,8 +537,8 @@ public class FragmentGmail extends FragmentBase {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "Gmail update account=" + update.name);
                         db.account().setAccountSynchronize(update.id, true);
-                        db.account().setAccountPassword(update.id, password);
-                        db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type);
+                        db.account().setAccountPassword(update.id, password, AUTH_TYPE_GMAIL);
+                        db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_GMAIL);
                     }
 
                     db.setTransactionSuccessful();
