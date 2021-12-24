@@ -2582,53 +2582,10 @@ public class MessageHelper {
                         }
                     }
                 } else if (h.isDSN()) {
-                    String action = null;
-                    String diag = null;
-                    String status = null;
-
-                    StringBuilder report = new StringBuilder();
-                    report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
-                    for (String line : result.split("\\r?\\n"))
-                        if (line.length() == 0)
-                            report.append("<br>");
-                        else if (Character.isWhitespace(line.charAt(0)))
-                            report.append(line).append("<br>");
-                        else {
-                            int colon = line.indexOf(':');
-                            if (colon < 0)
-                                report.append(line);
-                            else {
-                                String name = line.substring(0, colon).trim();
-                                String value = line.substring(colon + 1).trim();
-                                value = decodeMime(value);
-                                report
-                                        .append("<strong>")
-                                        .append(TextUtils.htmlEncode(name))
-                                        .append("</strong>")
-                                        .append(": ")
-                                        .append(TextUtils.htmlEncode(value))
-                                        .append("<br>");
-
-                                // https://datatracker.ietf.org/doc/html/rfc3464#section-2.3
-                                switch (name) {
-                                    case "Action":
-                                        action = value;
-                                        break;
-                                    case "Status":
-                                        status = value;
-                                        break;
-                                    case "Diagnostic-Code":
-                                        diag = value;
-                                        break;
-                                }
-                            }
-                        }
-                    report.append("</div>");
-                    result = report.toString();
-
-                    if (diag != null &&
-                            ("failed".equals(action) || "delayed".equals(action)))
-                        warnings.add(diag + (status == null ? "" : " (" + status + ")"));
+                    DeliveryReport report = new DeliveryReport(result);
+                    result = report.html;
+                    if (report.isNonDelivery() && report.diag != null)
+                        warnings.add(report.diag);
                 } else
                     Log.w("Unexpected content type=" + h.contentType);
 
@@ -3754,6 +3711,62 @@ public class MessageHelper {
         @Override
         public String getMessage() {
             return className;
+        }
+    }
+
+    static class DeliveryReport {
+        String action;
+        String status;
+        String diag;
+        String html;
+
+        DeliveryReport(String content) {
+            StringBuilder report = new StringBuilder();
+            report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
+            content = content.replaceAll("(\\r?\\n)+", "\n");
+            ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
+            try {
+                Enumeration<Header> headers = new InternetHeaders(bis).getAllHeaders();
+                while (headers.hasMoreElements()) {
+                    Header header = headers.nextElement();
+                    String name = header.getName();
+                    String value = header.getValue();
+                    value = decodeMime(value);
+                    report
+                            .append("<strong>")
+                            .append(TextUtils.htmlEncode(name))
+                            .append("</strong>")
+                            .append(": ")
+                            .append(TextUtils.htmlEncode(value))
+                            .append("<br>");
+
+                    // https://datatracker.ietf.org/doc/html/rfc3464#section-2.3
+                    switch (name) {
+                        case "Action":
+                            this.action = value;
+                            break;
+                        case "Status":
+                            this.status = value;
+                            break;
+                        case "Diagnostic-Code":
+                            this.diag = value;
+                            break;
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+                report.append(TextUtils.htmlEncode(ex.toString()));
+            }
+            report.append("</div>");
+            this.html = report.toString();
+        }
+
+        boolean isDelivery() {
+            return ("delivered".equals(action) || "relayed".equals(action) || "expanded".equals(action));
+        }
+
+        boolean isNonDelivery() {
+            return ("failed".equals(action) || "delayed".equals(action));
         }
     }
 }
