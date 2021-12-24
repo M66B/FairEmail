@@ -1094,6 +1094,15 @@ public class MessageHelper {
         this.imessage = message;
     }
 
+    boolean isReport() {
+        try {
+            return imessage.isMimeType("multipart/report");
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
     boolean getSeen() throws MessagingException {
         return imessage.isSet(Flags.Flag.SEEN);
     }
@@ -1336,25 +1345,17 @@ public class MessageHelper {
             }
 
         boolean subject_threading = prefs.getBoolean("subject_threading", false);
-        if (subject_threading) {
-            boolean dsn = false;
-            try {
-                dsn = imessage.isMimeType("multipart/report");
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-            if (!dsn) {
-                String sender = getSortKey(getFrom());
-                String subject = getSubject();
-                long since = new Date().getTime() - MAX_SUBJECT_AGE * 3600 * 1000L;
-                if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
-                    List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject, since);
-                    for (EntityMessage message : subjects)
-                        if (!thread.equals(message.thread)) {
-                            Log.w("Updating subject thread from " + message.thread + " to " + thread);
-                            db.message().updateMessageThread(message.account, message.thread, thread, since);
-                        }
-                }
+        if (subject_threading && !isReport()) {
+            String sender = getSortKey(getFrom());
+            String subject = getSubject();
+            long since = new Date().getTime() - MAX_SUBJECT_AGE * 3600 * 1000L;
+            if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
+                List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject, since);
+                for (EntityMessage message : subjects)
+                    if (!thread.equals(message.thread)) {
+                        Log.w("Updating subject thread from " + message.thread + " to " + thread);
+                        db.message().updateMessageThread(message.account, message.thread, thread, since);
+                    }
             }
         }
 
@@ -2311,9 +2312,9 @@ public class MessageHelper {
             return "text/html".equalsIgnoreCase(contentType.getBaseType());
         }
 
-        boolean isDSN() {
-            return ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
-                    "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()));
+        boolean isReport() {
+            String ct = contentType.getBaseType();
+            return Report.isDeliveryStatus(ct) || Report.isDispositionNotification(ct);
         }
     }
 
@@ -2581,11 +2582,13 @@ public class MessageHelper {
                                 }
                         }
                     }
-                } else if (h.isDSN()) {
-                    DeliveryReport report = new DeliveryReport(result);
+                } else if (h.isReport()) {
+                    Report report = new Report(h.contentType.getBaseType(), result);
                     result = report.html;
-                    if (report.isNonDelivery() && report.diag != null)
-                        warnings.add(report.diag);
+                    if (!report.isDelivered() && report.diagnostic != null)
+                        warnings.add(report.diagnostic);
+                    if (!report.isDisplayed() && report.disposition != null)
+                        warnings.add(report.disposition);
                 } else
                     Log.w("Unexpected content type=" + h.contentType);
 
@@ -3714,13 +3717,18 @@ public class MessageHelper {
         }
     }
 
-    static class DeliveryReport {
+    static class Report {
+        String type;
+        String reporter;
         String action;
+        String recipient;
         String status;
-        String diag;
+        String diagnostic;
+        String disposition;
         String html;
 
-        DeliveryReport(String content) {
+        Report(String type, String content) {
+            this.type = type;
             StringBuilder report = new StringBuilder();
             report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
             content = content.replaceAll("(\\r?\\n)+", "\n");
@@ -3740,17 +3748,38 @@ public class MessageHelper {
                             .append(TextUtils.htmlEncode(value))
                             .append("<br>");
 
-                    // https://datatracker.ietf.org/doc/html/rfc3464#section-2.3
-                    switch (name) {
-                        case "Action":
-                            this.action = value;
-                            break;
-                        case "Status":
-                            this.status = value;
-                            break;
-                        case "Diagnostic-Code":
-                            this.diag = value;
-                            break;
+                    if (isDeliveryStatus(type)) {
+                        // https://datatracker.ietf.org/doc/html/rfc3464#section-2.3
+                        switch (name) {
+                            case "Reporting-MTA":
+                                this.reporter = value;
+                                break;
+                            case "Action":
+                                this.action = value;
+                                break;
+                            case "Final-Recipient":
+                                this.recipient = value;
+                                break;
+                            case "Status":
+                                this.status = value;
+                                break;
+                            case "Diagnostic-Code":
+                                this.diagnostic = value;
+                                break;
+                        }
+                    } else if (isDispositionNotification(type)) {
+                        //https://datatracker.ietf.org/doc/html/rfc3798#section-3.2.6
+                        switch (name) {
+                            case "Reporting-UA":
+                                this.reporter = value;
+                                break;
+                            case "Original-Recipient":
+                                this.recipient = value;
+                                break;
+                            case "Disposition":
+                                this.disposition = value;
+                                break;
+                        }
                     }
                 }
             } catch (Throwable ex) {
@@ -3761,12 +3790,35 @@ public class MessageHelper {
             this.html = report.toString();
         }
 
-        boolean isDelivery() {
+        boolean isDelivered() {
             return ("delivered".equals(action) || "relayed".equals(action) || "expanded".equals(action));
         }
 
-        boolean isNonDelivery() {
-            return ("failed".equals(action) || "delayed".equals(action));
+        boolean isDisplayed() {
+            return isType("displayed");
+        }
+
+        boolean isDeleted() {
+            return isType("deleted");
+        }
+
+        private boolean isType(String t) {
+            // manual-action/MDN-sent-manually; displayed
+            if (disposition == null)
+                return false;
+            int semi = disposition.lastIndexOf(';');
+            if (semi < 0)
+                return false;
+            String type = disposition.substring(semi + 1).trim();
+            return t.equals(type);
+        }
+
+        static boolean isDeliveryStatus(String type) {
+            return "message/delivery-status".equalsIgnoreCase(type);
+        }
+
+        static boolean isDispositionNotification(String type) {
+            return "message/disposition-notification".equalsIgnoreCase(type);
         }
     }
 }
