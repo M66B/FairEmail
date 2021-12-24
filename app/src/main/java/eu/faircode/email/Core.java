@@ -1997,7 +1997,7 @@ class Core {
         for (EntityFolder folder : folders) {
             if (folder.tbc != null) {
                 try {
-                    Log.i(folder.name + " creating");
+                    EntityLog.log(context, folder.name + " creating");
                     Folder ifolder = istore.getFolder(folder.name);
                     if (!ifolder.exists()) {
                         ifolder.create(Folder.HOLDS_MESSAGES);
@@ -2011,7 +2011,7 @@ class Core {
 
             } else if (folder.rename != null) {
                 try {
-                    Log.i(folder.name + " rename into " + folder.rename);
+                    EntityLog.log(context, folder.name + " rename into " + folder.rename);
                     Folder ifolder = istore.getFolder(folder.name);
                     if (ifolder.exists()) {
                         // https://tools.ietf.org/html/rfc3501#section-6.3.9
@@ -2041,7 +2041,7 @@ class Core {
 
             } else if (folder.tbd != null && folder.tbd) {
                 try {
-                    Log.i(folder.name + " deleting");
+                    EntityLog.log(context, folder.name + " deleting");
                     Folder ifolder = istore.getFolder(folder.name);
                     if (ifolder.exists()) {
                         ifolder.setSubscribed(false);
@@ -2410,10 +2410,10 @@ class Core {
             List<EntityFolder> childs = parentFolders.get(name);
             if (EntityFolder.USER.equals(folder.type) ||
                     childs == null || childs.size() == 0) {
-                Log.i(name + " delete");
+                EntityLog.log(context, name + " delete");
                 db.folder().deleteFolder(account.id, name);
             } else
-                Log.i(name + " keep type=" + folder.type);
+                Log.w(name + " keep type=" + folder.type);
         }
     }
 
