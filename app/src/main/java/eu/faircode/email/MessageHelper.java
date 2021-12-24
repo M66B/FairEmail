@@ -1340,7 +1340,8 @@ public class MessageHelper {
             boolean dsn = false;
             try {
                 dsn = imessage.isMimeType("multipart/report");
-            } catch (Throwable ignored) {
+            } catch (Throwable ex) {
+                Log.w(ex);
             }
             if (!dsn) {
                 String sender = getSortKey(getFrom());
