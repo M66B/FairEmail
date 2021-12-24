@@ -7399,7 +7399,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(view)
-                    .setPositiveButton(android.R.string.cancel, null);
+                    .setPositiveButton(android.R.string.cancel, null)
+                    .setNeutralButton(R.string.title_copy_btn, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String html = HtmlHelper.toHtml((Spanned) tvText.getText(), context);
+                            String text = HtmlHelper.getText(context, html);
+                            ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                            cbm.setPrimaryClip(ClipData.newHtmlText(getString(R.string.app_name), text, html));
+                            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                        }
+                    });
 
             return builder.create();
         }
