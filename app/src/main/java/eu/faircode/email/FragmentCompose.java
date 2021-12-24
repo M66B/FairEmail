@@ -164,7 +164,6 @@ import org.jsoup.select.Elements;
 import org.jsoup.select.NodeFilter;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
-import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedOutputStream;
@@ -273,10 +272,6 @@ public class FragmentCompose extends FragmentBase {
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
-    private boolean prefix_once = false;
-    private boolean prefix_count = false;
-    private boolean alt_re = false;
-    private boolean alt_fwd = false;
     private boolean monospaced = false;
     private String compose_font;
     private Integer encrypt = null;
@@ -335,10 +330,6 @@ public class FragmentCompose extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefix_once = prefs.getBoolean("prefix_once", true);
-        prefix_count = prefs.getBoolean("prefix_count", false);
-        alt_re = prefs.getBoolean("alt_re", false);
-        alt_fwd = prefs.getBoolean("alt_fwd", false);
         monospaced = prefs.getBoolean("monospaced", false);
         compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
         media = prefs.getBoolean("compose_media", true);
@@ -4580,24 +4571,8 @@ public class FragmentCompose extends FragmentBase {
                         // Subject
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
-                            int replies = 0;
-                            if (prefix_once) {
-                                if (prefix_count)
-                                    replies = EntityMessage.getReplies(context, ref.language, subject);
-                                subject = EntityMessage.collapsePrefixes(context, ref.language, subject, false);
-                            }
-                            String re = Helper.getString(context,
-                                    ref.language,
-                                    alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply,
-                                    "").trim();
-                            String s = Helper.getString(context,
-                                    ref.language,
-                                    alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply,
-                                    subject);
-                            if (replies > 0 && re.endsWith(":") && s.startsWith(re))
-                                s = re.substring(0, re.length() - 1) + "[" + (replies + 1) + "]:" +
-                                        s.substring(re.length());
-                            data.draft.subject = s;
+                            data.draft.subject =
+                                    EntityMessage.getSubject(context, ref.language, subject, false);
 
                             if (external_text != null) {
                                 Element div = document.createElement("div");
@@ -4610,12 +4585,8 @@ public class FragmentCompose extends FragmentBase {
                                 document.body().appendChild(div);
                             }
                         } else if ("forward".equals(action)) {
-                            if (prefix_once)
-                                subject = EntityMessage.collapsePrefixes(context, ref.language, subject, true);
-                            data.draft.subject = Helper.getString(context,
-                                    ref.language,
-                                    alt_fwd ? R.string.title_subject_forward_alt : R.string.title_subject_forward,
-                                    subject);
+                            data.draft.subject =
+                                    EntityMessage.getSubject(context, ref.language, subject, true);
                         } else if ("resend".equals(action)) {
                             data.draft.subject = ref.subject;
                         } else if ("editasnew".equals(action)) {

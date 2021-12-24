@@ -320,46 +320,22 @@ public class EntityMessage implements Serializable {
         return MessageHelper.equalDomain(context, reply, from);
     }
 
-    static int getReplies(Context context, String language, String subject) {
-        int count = 0;
+    static String getSubject(Context context, String language, String subject, boolean forward) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean prefix_once = prefs.getBoolean("prefix_once", true);
+        boolean prefix_count = prefs.getBoolean("prefix_count", false);
+        boolean alt = prefs.getBoolean(forward ? "alt_fwd" : "alt_re", false);
 
-        List<String> res = new ArrayList<>();
-        res.addAll(Arrays.asList(Helper.getStrings(context, language, R.string.title_subject_reply, "")));
-        res.addAll(Arrays.asList(Helper.getStrings(context, language, R.string.title_subject_reply_alt, "")));
+        if (subject == null)
+            subject = "";
 
-        subject = subject.trim();
-        while (true) {
-            boolean found = false;
-            for (String re : res) {
-                Matcher m = getPattern(re.trim()).matcher(subject);
-                if (m.matches()) {
-                    found = true;
-                    subject = m.group(m.groupCount()).trim();
+        int resid = forward
+                ? (alt ? R.string.title_subject_forward_alt : R.string.title_subject_forward)
+                : (alt ? R.string.title_subject_reply_alt : R.string.title_subject_reply);
 
-                    if (re.trim().endsWith(":"))
-                        try {
-                            String n = m.group(2);
-                            if (n == null)
-                                count++;
-                            else
-                                count += Integer.parseInt(n.substring(1, n.length() - 1));
-                        } catch (NumberFormatException ex) {
-                            Log.e(ex);
-                            count++;
-                        }
-                    else
-                        count++;
+        if (!prefix_once)
+            return Helper.getString(context, language, resid, subject);
 
-                    break;
-                }
-            }
-            if (!found)
-                break;
-        }
-        return count;
-    }
-
-    static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
         List<Pair<String, Boolean>> prefixes = new ArrayList<>();
         for (String re : Helper.getStrings(context, language, R.string.title_subject_reply, ""))
             prefixes.add(new Pair<>(re, false));
@@ -370,15 +346,33 @@ public class EntityMessage implements Serializable {
         for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward_alt, ""))
             prefixes.add(new Pair<>(fwd, true));
 
+        int replies = 0;
+        boolean re = !forward;
         List<Boolean> scanned = new ArrayList<>();
-        subject = subject.trim();
+        String subj = subject.trim();
         while (true) {
             boolean found = false;
             for (Pair<String, Boolean> prefix : prefixes) {
-                Matcher m = getPattern(prefix.first.trim()).matcher(subject);
+                Matcher m = getPattern(prefix.first.trim()).matcher(subj);
                 if (m.matches()) {
                     found = true;
-                    subject = m.group(m.groupCount()).trim();
+                    subj = m.group(m.groupCount()).trim();
+
+                    re = (re && !prefix.second);
+                    if (re)
+                        if (prefix.first.trim().endsWith(":"))
+                            try {
+                                String n = m.group(2);
+                                if (n == null)
+                                    replies++;
+                                else
+                                    replies += Integer.parseInt(n.substring(1, n.length() - 1));
+                            } catch (NumberFormatException ex) {
+                                Log.e(ex);
+                                replies++;
+                            }
+                        else
+                            replies++;
 
                     int count = scanned.size();
                     if (!prefix.second.equals(count == 0 ? forward : scanned.get(count - 1)))
@@ -391,19 +385,24 @@ public class EntityMessage implements Serializable {
                 break;
         }
 
-        StringBuilder result = new StringBuilder();
+        String pre = Helper.getString(context, language, resid, "");
+        int semi = pre.lastIndexOf(':');
+        if (prefix_count && replies > 0 && semi > 0)
+            pre = pre.substring(0, semi) + "[" + (replies + 1) + "]" + pre.substring(semi);
+
+        StringBuilder result = new StringBuilder(pre);
         for (int i = 0; i < scanned.size(); i++)
             result.append(context.getString(scanned.get(i) ? R.string.title_subject_forward : R.string.title_subject_reply, ""));
-        result.append(subject);
+        result.append(subj);
 
         return result.toString();
     }
 
     private static Pattern getPattern(String prefix) {
-        String pre = prefix.endsWith(":")
+        String pat = prefix.endsWith(":")
                 ? "(^" + Pattern.quote(prefix.substring(0, prefix.length() - 1)) + ")" + "((\\[\\d+\\])|(\\(\\d+\\)))?" + ":"
                 : "(^" + Pattern.quote(prefix) + ")";
-        return Pattern.compile(pre + "(\\s*)(.*)", Pattern.CASE_INSENSITIVE);
+        return Pattern.compile(pat + "(\\s*)(.*)", Pattern.CASE_INSENSITIVE);
     }
 
     Element getReplyHeader(Context context, Document document, boolean separate, boolean extended) {

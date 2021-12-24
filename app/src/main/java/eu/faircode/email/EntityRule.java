@@ -650,14 +650,13 @@ public class EntityRule {
         boolean cc = jargs.optBoolean("cc");
         boolean attachments = jargs.optBoolean("attachments");
 
+        boolean isReply = TextUtils.isEmpty(to);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean prefix_once = prefs.getBoolean("prefix_once", true);
-        boolean alt_re = prefs.getBoolean("alt_re", false);
-        boolean alt_fwd = prefs.getBoolean("alt_fwd", false);
         boolean separate_reply = prefs.getBoolean("separate_reply", false);
         boolean extended_reply = prefs.getBoolean("extended_reply", false);
         boolean quote_reply = prefs.getBoolean("quote_reply", true);
-        boolean quote = (quote_reply && TextUtils.isEmpty(to));
+        boolean quote = (quote_reply && isReply);
 
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
@@ -665,7 +664,7 @@ public class EntityRule {
 
         EntityAnswer answer;
         if (aid < 0) {
-            if (TextUtils.isEmpty(to))
+            if (isReply)
                 throw new IllegalArgumentException("Rule template missing name=" + rule.name);
 
             answer = new EntityAnswer();
@@ -703,7 +702,7 @@ public class EntityRule {
         reply.identity = identity.id;
         reply.msgid = EntityMessage.generateMessageId();
 
-        if (TextUtils.isEmpty(to)) {
+        if (isReply) {
             reply.references = (message.references == null ? "" : message.references + " ") + message.msgid;
             reply.inreplyto = message.msgid;
             reply.thread = message.thread;
@@ -719,20 +718,10 @@ public class EntityRule {
             reply.cc = message.cc;
         reply.unsubscribe = "mailto:" + identity.email;
         reply.auto_submitted = true;
-
-        String subject = (message.subject == null ? "" : message.subject);
-        if (prefix_once)
-            subject = EntityMessage.collapsePrefixes(context, message.language, subject, !TextUtils.isEmpty(to));
-
-        reply.subject = context.getString(
-                TextUtils.isEmpty(to)
-                        ? (alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply)
-                        : (alt_fwd ? R.string.title_subject_forward_alt : R.string.title_subject_forward),
-                subject);
-
+        reply.subject = EntityMessage.getSubject(context, message.language, message.subject, !isReply);
         reply.received = new Date().getTime();
-
         reply.sender = MessageHelper.getSortKey(reply.from);
+
         Uri lookupUri = ContactInfo.getLookupUri(reply.from);
         reply.avatar = (lookupUri == null ? null : lookupUri.toString());
 
