@@ -2568,10 +2568,27 @@ public class MessageHelper {
                 } else if (h.isReport()) {
                     Report report = new Report(h.contentType.getBaseType(), result);
                     result = report.html;
-                    if (!report.isDelivered() && report.diagnostic != null)
-                        warnings.add(report.diagnostic);
-                    if (!report.isDisplayed() && report.disposition != null)
-                        warnings.add(report.disposition);
+
+                    StringBuilder w = new StringBuilder();
+
+                    if (!report.isDelivered()) {
+                        if (report.diagnostic != null)
+                            w.append(report.diagnostic);
+                        if (report.action != null) {
+                            if (w.length() == 0)
+                                w.append(report.action);
+                            else
+                                w.append(" (").append(report.action).append(')');
+                        }
+                    }
+
+                    if (!report.isDisplayed()) {
+                        if (report.disposition != null)
+                            w.append(report.disposition);
+                    }
+
+                    if (w.length() > 0)
+                        warnings.add(w.toString());
                 } else
                     Log.w("Unexpected content type=" + h.contentType);
 
