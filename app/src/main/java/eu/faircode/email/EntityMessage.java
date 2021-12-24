@@ -321,25 +321,42 @@ public class EntityMessage implements Serializable {
     }
 
     static int getReplies(Context context, String language, String subject) {
-        boolean found = false;
+        int count = 0;
+
         List<String> res = new ArrayList<>();
         res.addAll(Arrays.asList(Helper.getStrings(context, language, R.string.title_subject_reply, "")));
         res.addAll(Arrays.asList(Helper.getStrings(context, language, R.string.title_subject_reply_alt, "")));
-        for (String re : res) {
-            Matcher m = getPattern(re.trim()).matcher(subject);
-            if (m.matches()) {
-                found = true;
-                if (re.trim().endsWith(":"))
-                    try {
-                        String n = m.group(2);
-                        if (n != null)
-                            return Integer.parseInt(n.substring(1, n.length() - 1));
-                    } catch (NumberFormatException ex) {
-                        Log.e(ex);
-                    }
+
+        subject = subject.trim();
+        while (true) {
+            boolean found = false;
+            for (String re : res) {
+                Matcher m = getPattern(re.trim()).matcher(subject);
+                if (m.matches()) {
+                    found = true;
+                    subject = m.group(m.groupCount()).trim();
+
+                    if (re.trim().endsWith(":"))
+                        try {
+                            String n = m.group(2);
+                            if (n == null)
+                                count++;
+                            else
+                                count += Integer.parseInt(n.substring(1, n.length() - 1));
+                        } catch (NumberFormatException ex) {
+                            Log.e(ex);
+                            count++;
+                        }
+                    else
+                        count++;
+
+                    break;
+                }
             }
+            if (!found)
+                break;
         }
-        return (found ? 1 : 0);
+        return count;
     }
 
     static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
@@ -361,10 +378,12 @@ public class EntityMessage implements Serializable {
                 Matcher m = getPattern(prefix.first.trim()).matcher(subject);
                 if (m.matches()) {
                     found = true;
+                    subject = m.group(m.groupCount()).trim();
+
                     int count = scanned.size();
                     if (!prefix.second.equals(count == 0 ? forward : scanned.get(count - 1)))
                         scanned.add(prefix.second);
-                    subject = m.group(m.groupCount());
+
                     break;
                 }
             }
