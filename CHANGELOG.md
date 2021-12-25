@@ -2,11 +2,18 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
+### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
 ### Next version
 
 * Added Outlook Tenant ID field
+* Added option for numbered reply prefix
+* Added conversion of OAuth to password authentication
+* Improved handling of delivery/read receipts
+* Small improvements and minor bug fixes
+* Updated translations
+
+### [Caudipteryx](https://en.wikipedia.org/wiki/Caudipteryx)
 
 ### 1.1796 - 2021-12-23
 
