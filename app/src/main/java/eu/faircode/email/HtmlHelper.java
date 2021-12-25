@@ -958,7 +958,45 @@ public class HtmlHelper {
         // Pre formatted text
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
         for (Element pre : document.select("pre")) {
-            pre.html(formatPre(pre.wholeText()));
+            NodeTraversor.traverse(new NodeVisitor() {
+                private int index = 0;
+                private boolean inElement = false;
+
+                @Override
+                public void head(Node node, int depth) {
+                    if (node instanceof Element)
+                        inElement = true;
+                    else if (node instanceof TextNode) {
+                        if (inElement) {
+                            TextNode tnode = (TextNode) node;
+                            StringBuilder sb = new StringBuilder();
+                            for (Character c : tnode.getWholeText().toCharArray()) {
+                                if (c == '\t')
+                                    do {
+                                        index++;
+                                        sb.append(' ');
+                                    }
+                                    while ((index % TAB_SIZE) != 0);
+                                else {
+                                    if (c == '\n')
+                                        index = 0;
+                                    else
+                                        index++;
+                                    sb.append(c);
+                                }
+                            }
+                            tnode.text(sb.toString());
+                        }
+                    }
+                }
+
+                @Override
+                public void tail(Node node, int depth) {
+                    if (node instanceof Element)
+                        inElement = false;
+                }
+            }, pre);
+
             pre.tagName("div");
             pre.attr("x-plain", "true");
         }
