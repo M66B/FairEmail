@@ -626,6 +626,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 message.ui_hide = true;
                 message.ui_busy = Long.MAX_VALUE; // Needed to keep messages in user folders
                 message.error = null;
+                message.infrastructure = "fairemail";
                 message.id = db.message().insertMessage(message);
 
                 File file = EntityMessage.getFile(this, message.id);

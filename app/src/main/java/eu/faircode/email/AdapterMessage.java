@@ -2908,9 +2908,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindExtras(TupleMessageEx message) {
             int resid = 0;
             if (infra && message.infrastructure != null) {
-                String resname = "infra_" + message.infrastructure;
-                resid = context.getResources()
-                        .getIdentifier(resname, "drawable", context.getPackageName());
+                if ("fairemail".equals(message.infrastructure))
+                    resid = R.mipmap.ic_launcher_round;
+                else {
+                    String resname = "infra_" + message.infrastructure;
+                    resid = context.getResources()
+                            .getIdentifier(resname, "drawable", context.getPackageName());
+                }
             }
             if (resid != 0)
                 ibInfrastructure.setImageResource(resid);
@@ -4970,9 +4974,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionShowInfra(TupleMessageEx message) {
-            String resname = "infra_" + message.infrastructure;
-            int resid = context.getResources()
-                    .getIdentifier(resname, "string", context.getPackageName());
+            int resid;
+            if ("fairemail".equals(message.infrastructure))
+                resid = R.string.app_name;
+            else {
+                String resname = "infra_" + message.infrastructure;
+                resid = context.getResources()
+                        .getIdentifier(resname, "string", context.getPackageName());
+            }
             String infra = (resid < 0 ? message.infrastructure : context.getString(resid));
             ToastEx.makeText(context, infra, Toast.LENGTH_LONG).show();
         }
