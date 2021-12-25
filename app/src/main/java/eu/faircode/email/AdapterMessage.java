@@ -2121,7 +2121,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int maxRecipients = (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL);
             Spanned submitter = formatAddresses(message.submitter, true);
             Spanned from = formatAddresses(message.senders, true);
-            Spanned replyto = formatAddresses(message.reply, true);
 
             grpAddresses.setVisibility(View.VISIBLE);
 
@@ -2158,9 +2157,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTo.setVisibility((!show_recipients || show_addresses) && (message.to != null && message.to.length > 0) ? View.VISIBLE : View.GONE);
             tvTo.setText(formatAddresses(message.to, full, show_addresses ? Integer.MAX_VALUE : maxRecipients));
 
-            tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
-            tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
-            tvReplyTo.setText(replyto);
+            boolean show_reply = (Boolean.FALSE.equals(message.reply_domain) || show_addresses) &&
+                    (message.reply != null && message.reply.length > 0);
+            tvReplyToTitle.setVisibility(show_reply ? View.VISIBLE : View.GONE);
+            tvReplyTo.setVisibility(show_reply ? View.VISIBLE : View.GONE);
+            tvReplyTo.setText(formatAddresses(message.reply, show_addresses));
 
             tvCcTitle.setVisibility(message.cc == null || message.cc.length == 0 ? View.GONE : View.VISIBLE);
             tvCc.setVisibility(message.cc == null || message.cc.length == 0 ? View.GONE : View.VISIBLE);
