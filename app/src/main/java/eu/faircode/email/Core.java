@@ -239,6 +239,7 @@ class Core {
 
                         if (message == null &&
                                 !EntityOperation.FETCH.equals(op.name) &&
+                                !EntityOperation.REPORT.equals(op.name) &&
                                 !EntityOperation.SYNC.equals(op.name) &&
                                 !EntityOperation.SUBSCRIBE.equals(op.name) &&
                                 !EntityOperation.PURGE.equals(op.name) &&
@@ -346,6 +347,7 @@ class Core {
 
                                 case EntityOperation.ANSWERED:
                                 case EntityOperation.ADD:
+                                case EntityOperation.REPORT:
                                     // Do nothing
                                     break;
 
@@ -443,6 +445,10 @@ class Core {
 
                                 case EntityOperation.EXISTS:
                                     onExists(context, jargs, account, folder, message, op, (IMAPFolder) ifolder);
+                                    break;
+
+                                case EntityOperation.REPORT:
+                                    onReport(context, jargs, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.SYNC:
@@ -1967,6 +1973,43 @@ class Core {
             EntityLog.log(context, folder.name +
                     " EXISTS messages=" + (imessages == null ? null : imessages.length));
             EntityOperation.queue(context, message, EntityOperation.ADD);
+        }
+    }
+
+    private static void onReport(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException {
+        String msgid = jargs.getString(0);
+        String keyword = jargs.getString(1);
+
+        if (TextUtils.isEmpty(msgid))
+            throw new IllegalArgumentException("msgid missing");
+
+        if (TextUtils.isEmpty(keyword))
+            throw new IllegalArgumentException("keyword missing");
+
+        if (folder.read_only)
+            throw new IllegalArgumentException(folder.name + " read-only");
+
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER))
+            throw new IllegalArgumentException(folder.name + " has no keywords");
+
+        Message[] imessages = ifolder.search(new MessageIDTerm(msgid));
+        if (imessages == null || imessages.length == 0)
+            throw new IllegalArgumentException(msgid + " not found");
+
+        for (Message imessage : imessages) {
+            long uid = ifolder.getUID(imessage);
+            Log.i("Report uid=" + uid + " keyword=" + keyword);
+
+            Flags flags = new Flags(keyword);
+            imessage.setFlags(flags, true);
+
+            try {
+                JSONArray fargs = new JSONArray();
+                fargs.put(uid);
+                onFetch(context, fargs, folder, istore, ifolder, state);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
         }
     }
 
@@ -3564,6 +3607,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean download_headers = prefs.getBoolean("download_headers", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
+        boolean experiments = prefs.getBoolean("experiments", false);
         boolean pro = ActivityBilling.isPro(context);
 
         long uid = ifolder.getUID(imessage);
@@ -3862,6 +3906,22 @@ class Core {
                 Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
             List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
             String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
+
+            if (experiments && helper.isReport())
+                try {
+                    MessageHelper.Report r = parts.getReport();
+                    EntityFolder s = db.folder().getFolderByType(folder.account, EntityFolder.SENT);
+                    if (r != null && s != null) {
+                        if (r.isDeliveryStatus())
+                            EntityOperation.queue(context, s, EntityOperation.REPORT,
+                                    message.inreplyto, r.isDelivered() ? "$Delivered" : "$NotDelivered");
+                        else if (r.isDispositionNotification())
+                            EntityOperation.queue(context, s, EntityOperation.REPORT,
+                                    message.inreplyto, r.isDisplayed() ? "$Displayed" : "$NotDisplayed");
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
 
             try {
                 db.beginTransaction();

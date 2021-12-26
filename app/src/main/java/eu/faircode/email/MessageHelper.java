@@ -2598,6 +2598,22 @@ public class MessageHelper {
             return sb.toString();
         }
 
+        Report getReport() throws MessagingException, IOException {
+            for (PartHolder h : extra)
+                if (h.isReport()) {
+                    String result;
+                    Object content = h.part.getContent();
+                    if (content instanceof String)
+                        result = (String) content;
+                    else if (content instanceof InputStream)
+                        result = Helper.readStream((InputStream) content);
+                    else
+                        result = content.toString();
+                    return new Report(h.contentType.getBaseType(), result);
+                }
+            return null;
+        }
+
         List<AttachmentPart> getAttachmentParts() {
             return attachments;
         }
@@ -3787,6 +3803,14 @@ public class MessageHelper {
             }
             report.append("</div>");
             this.html = report.toString();
+        }
+
+        boolean isDeliveryStatus() {
+            return isDeliveryStatus(type);
+        }
+
+        boolean isDispositionNotification() {
+            return isDispositionNotification(type);
         }
 
         boolean isDelivered() {

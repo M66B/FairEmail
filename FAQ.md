@@ -448,6 +448,7 @@ The low priority status bar notification shows the number of pending operations,
 * *exists*: check if message exists
 * *rule*: execute rule on body text
 * *expunge*: permanently delete messages
+* *report*: process delivery or read receipt (experimental)
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
@@ -3426,6 +3427,30 @@ Remarks:
 * Read and delivery receipts will be requested when enabled, they could go to the original sender or to you
 * The email server might refuse resent messages
 * DKIM, SPF and DMARC will likely fail, often causing resent messages to be considered as spam
+
+<br />
+
+*Process delivery/read receipt (version 1.1797+)*
+
+On receiving a delivery or read receipt, the related message will be looked up in the sent messages folder
+and the following keywords will be set depending on the contents of the report:
+
+```
+$Delivered
+$NotDelivered
+$Displayed
+$NotDisplayed
+```
+
+* Delivered: action = *delivered*, *relayed*, or *expanded*, [see here](https://datatracker.ietf.org/doc/html/rfc3464#section-2.3.3)
+* Displayed: disposition = *displayed*, [see here](https://datatracker.ietf.org/doc/html/rfc3798#section-3.2.6)
+
+It is probably a good idea to enable *Show keywords in message header* in the display settings.
+
+Note that the email server needs to support IMAP flags (keywords) for this feature.
+
+Filter rules will be applied to the received receipt, so it is possible to move/archive the receipt.
+See [this FAQ](#user-content-faq71) for a header condition to recognize receipts.
 
 <br />
 
