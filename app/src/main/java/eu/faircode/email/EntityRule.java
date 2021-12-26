@@ -157,37 +157,40 @@ public class EntityRule {
                 boolean known = jsender.optBoolean("known");
 
                 boolean matches = false;
-                if (message.from != null) {
-                    for (Address from : message.from) {
-                        InternetAddress ia = (InternetAddress) from;
-                        String email = ia.getAddress();
-                        String personal = ia.getPersonal();
+                List<Address> senders = new ArrayList<>();
+                if (message.from != null)
+                    senders.addAll(Arrays.asList(message.from));
+                if (message.reply != null)
+                    senders.addAll(Arrays.asList(message.reply));
+                for (Address sender : senders) {
+                    InternetAddress ia = (InternetAddress) sender;
+                    String email = ia.getAddress();
+                    String personal = ia.getPersonal();
 
-                        if (known) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-                            if (suggest_sent) {
-                                DB db = DB.getInstance(context);
-                                EntityContact contact =
-                                        db.contact().getContact(message.account, EntityContact.TYPE_TO, email);
-                                if (contact != null) {
-                                    Log.i(email + " is local contact");
-                                    matches = true;
-                                    break;
-                                }
-                            }
-
-                            if (!TextUtils.isEmpty(message.avatar)) {
-                                Log.i(email + " is Android contact");
+                    if (known) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+                        if (suggest_sent) {
+                            DB db = DB.getInstance(context);
+                            EntityContact contact =
+                                    db.contact().getContact(message.account, EntityContact.TYPE_TO, email);
+                            if (contact != null) {
+                                Log.i(email + " is local contact");
                                 matches = true;
                                 break;
                             }
-                        } else {
-                            String formatted = ((personal == null ? "" : personal + " ") + "<" + email + ">");
-                            if (matches(context, message, value, formatted, regex)) {
-                                matches = true;
-                                break;
-                            }
+                        }
+
+                        if (!TextUtils.isEmpty(message.avatar)) {
+                            Log.i(email + " is Android contact");
+                            matches = true;
+                            break;
+                        }
+                    } else {
+                        String formatted = ((personal == null ? "" : personal + " ") + "<" + email + ">");
+                        if (matches(context, message, value, formatted, regex)) {
+                            matches = true;
+                            break;
                         }
                     }
                 }
