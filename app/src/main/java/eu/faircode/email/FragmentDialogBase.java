@@ -44,11 +44,7 @@ public class FragmentDialogBase extends DialogFragment {
     private int targetRequestCode;
 
     public String getRequestKey() {
-        String we = toString();
-        int pa = we.indexOf('(');
-        int sp = we.indexOf(' ', pa);
-        String who = we.substring(pa + 1, sp);
-        return getClass().getName() + ":result:" + who;
+        return Helper.getRequestKey(this);
     }
 
     @Override

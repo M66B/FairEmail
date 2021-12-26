@@ -98,6 +98,7 @@ import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -119,6 +120,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -1183,6 +1185,26 @@ public class Helper {
         Layout layout = widget.getLayout();
         int line = layout.getLineForVertical(y);
         return layout.getOffsetForHorizontal(line, x);
+    }
+
+    static String getRequestKey(Fragment fragment) {
+        String who;
+        try {
+            Class<?> cls = fragment.getClass();
+            while (!cls.isAssignableFrom(Fragment.class))
+                cls = cls.getSuperclass();
+            Field f = cls.getDeclaredField("mWho");
+            f.setAccessible(true);
+            who = (String) f.get(fragment);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            String we = fragment.toString();
+            int pa = we.indexOf('(');
+            int sp = we.indexOf(' ', pa);
+            who = we.substring(pa + 1, sp);
+        }
+
+        return fragment.getClass().getName() + ":result:" + who;
     }
 
     // Graphics
