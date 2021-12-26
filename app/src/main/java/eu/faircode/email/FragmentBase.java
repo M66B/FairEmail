@@ -73,12 +73,9 @@ public class FragmentBase extends Fragment {
     private CharSequence subtitle = " ";
     private boolean finish = false;
     private boolean finished = false;
-    private String requestKey = null;
 
     private int scrollToResid = 0;
     private int scrollToOffset = 0;
-
-    private static int requestSequence = 0;
 
     private static final int REQUEST_ATTACHMENT = 51;
     private static final int REQUEST_ATTACHMENTS = 52;
@@ -201,7 +198,6 @@ public class FragmentBase extends Fragment {
         int before = Helper.getSize(outState);
         outState.putCharSequence("fair:title", title);
         outState.putCharSequence("fair:subtitle", subtitle);
-        outState.putString("fair:requestKey", requestKey);
         super.onSaveInstanceState(outState);
         int after = Helper.getSize(outState);
         Log.d("Saved instance " + this + " size=" + before + "/" + after);
@@ -222,9 +218,7 @@ public class FragmentBase extends Fragment {
     }
 
     public String getRequestKey() {
-        if (requestKey == null)
-            requestKey = getClass().getName() + "_" + (++requestSequence);
-        return requestKey;
+        return getClass().getName() + ":result";
     }
 
     @Override
@@ -239,11 +233,13 @@ public class FragmentBase extends Fragment {
         } else {
             title = savedInstanceState.getCharSequence("fair:title");
             subtitle = savedInstanceState.getCharSequence("fair:subtitle");
-            requestKey = savedInstanceState.getString("fair:requestKey");
         }
 
         // https://developer.android.com/training/basics/fragments/pass-data-between
-        getParentFragmentManager().setFragmentResultListener(getRequestKey(), this, new FragmentResultListener() {
+        String requestKey = getRequestKey();
+        if (!BuildConfig.PLAY_STORE_RELEASE)
+            EntityLog.log(getContext(), "Listing key=" + requestKey);
+        getParentFragmentManager().setFragmentResultListener(requestKey, this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 try {
@@ -251,11 +247,15 @@ public class FragmentBase extends Fragment {
                     int requestCode = result.getInt("requestCode");
                     int resultCode = result.getInt("resultCode");
 
+                    EntityLog.log(getContext(), "Received key=" + requestKey +
+                            " request=" + requestCode +
+                            " result=" + resultCode);
+
                     Intent data = new Intent();
                     data.putExtra("args", result);
                     onActivityResult(requestCode, resultCode, data);
                 } catch (Throwable ex) {
-                    Log.w(ex);
+                    Log.e(ex);
                     /*
                         android.os.BadParcelableException: ClassNotFoundException when unmarshalling: eu.faircode.email.FragmentMessages$MessageTarget
                                 at android.os.Parcel.readParcelableCreator(Parcel.java:2839)

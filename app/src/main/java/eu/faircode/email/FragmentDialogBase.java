@@ -40,16 +40,11 @@ public class FragmentDialogBase extends DialogFragment {
     private boolean once = false;
     private LifecycleOwner owner;
     private LifecycleRegistry registry;
-    private String requestKey = null;
     private String targetRequestKey;
     private int targetRequestCode;
 
-    private static int requestSequence = 0;
-
     public String getRequestKey() {
-        if (requestKey == null)
-            requestKey = getClass().getName() + "_" + (++requestSequence);
-        return requestKey;
+        return getClass().getName() + ":result";
     }
 
     @Override
@@ -67,12 +62,14 @@ public class FragmentDialogBase extends DialogFragment {
         registry.setCurrentState(Lifecycle.State.CREATED);
 
         if (savedInstanceState != null) {
-            requestKey = savedInstanceState.getString("fair:request");
             targetRequestKey = savedInstanceState.getString("fair:key");
             targetRequestCode = savedInstanceState.getInt("fair:code");
         }
 
-        getParentFragmentManager().setFragmentResultListener(getRequestKey(), this, new FragmentResultListener() {
+        String requestKey = getRequestKey();
+        if (!BuildConfig.PLAY_STORE_RELEASE)
+            EntityLog.log(getContext(), "Listing key=" + requestKey);
+        getParentFragmentManager().setFragmentResultListener(requestKey, this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 try {
@@ -84,7 +81,7 @@ public class FragmentDialogBase extends DialogFragment {
                     data.putExtra("args", result);
                     onActivityResult(requestCode, resultCode, data);
                 } catch (Throwable ex) {
-                    Log.w(ex);
+                    Log.e(ex);
                 }
             }
         });
@@ -94,7 +91,6 @@ public class FragmentDialogBase extends DialogFragment {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putString("fair:request", requestKey);
         outState.putString("fair:key", targetRequestKey);
         outState.putInt("fair:code", targetRequestCode);
         super.onSaveInstanceState(outState);
@@ -182,14 +178,20 @@ public class FragmentDialogBase extends DialogFragment {
             Log.e("setTargetFragment=" + fragment.getClass().getName());
             throw new IllegalArgumentException();
         }
+
+        once = false;
         targetRequestCode = requestCode;
-        Log.i("Set target " + this + " " + fragment + " request=" + requestCode);
     }
 
     protected void sendResult(int resultCode) {
+        EntityLog.log(getContext(), "Sending key=" + targetRequestKey +
+                " request=" + targetRequestCode +
+                " result=" + resultCode +
+                " once=" + once);
+
         if (!once) {
             once = true;
-            Log.i("Dialog key=" + targetRequestKey + " result=" + resultCode);
+
             if (targetRequestKey != null) {
                 Bundle args = getArguments();
                 if (args == null) // onDismiss
