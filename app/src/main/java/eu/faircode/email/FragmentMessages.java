@@ -4512,10 +4512,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
         boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
         boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
+        boolean filter_deleted = prefs.getBoolean(getFilter(context, "deleted", viewType, type), false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean filter_trash = prefs.getBoolean("filter_trash", false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int padding = prefs.getInt("view_padding", compact ? 0 : 1);
@@ -4603,6 +4605,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_unflagged).setVisible(folder);
         menu.findItem(R.id.menu_filter_unknown).setVisible(folder && !drafts && !sent);
         menu.findItem(R.id.menu_filter_snoozed).setVisible(folder && !drafts);
+        menu.findItem(R.id.menu_filter_deleted).setVisible(folder && !perform_expunge);
         menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_trash).setVisible(viewType == AdapterMessage.ViewType.THREAD);
 
@@ -4610,6 +4613,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
         menu.findItem(R.id.menu_filter_unknown).setChecked(filter_unknown);
         menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
+        menu.findItem(R.id.menu_filter_deleted).setChecked(filter_deleted);
         menu.findItem(R.id.menu_filter_language).setVisible(language_detection && folder);
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
         menu.findItem(R.id.menu_filter_trash).setChecked(filter_trash);
@@ -4737,6 +4741,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_filter_snoozed) {
             onMenuFilter(getFilter(getContext(), "snoozed", viewType, type), !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_deleted) {
+            onMenuFilter(getFilter(getContext(), "deleted", viewType, type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_language) {
             onMenuFilterLanguage();

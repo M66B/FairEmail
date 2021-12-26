@@ -99,6 +99,7 @@ public interface DaoMessage {
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
+            " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
             " ORDER BY -IFNULL(message.importance, 1)" +
             ", account.category COLLATE NOCASE" +
@@ -118,7 +119,7 @@ public interface DaoMessage {
             String type,
             boolean threading,
             String sort, boolean ascending,
-            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, String filter_language,
+            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, boolean filter_deleted, String filter_language,
             boolean found,
             boolean debug);
 
@@ -171,6 +172,7 @@ public interface DaoMessage {
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
+            " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0 OR " + is_outbox + ")" +
             " ORDER BY -IFNULL(message.importance, 1)" +
             ", CASE" +
@@ -188,7 +190,7 @@ public interface DaoMessage {
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
             String sort, boolean ascending,
-            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, String filter_language,
+            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, boolean filter_deleted, String filter_language,
             boolean found,
             boolean debug);
 

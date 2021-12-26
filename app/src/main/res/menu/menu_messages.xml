@@ -111,6 +111,11 @@
                     android:title="@string/title_filter_hidden" />
 
                 <item
+                    android:id="@+id/menu_filter_deleted"
+                    android:checkable="true"
+                    android:title="@string/title_filter_deleted" />
+
+                <item
                     android:id="@+id/menu_filter_language"
                     android:title="@string/title_select_language">
                     <menu />

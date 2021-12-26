@@ -683,6 +683,7 @@
     <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
     <string name="title_advanced_expunge" translatable="false">AUTO EXPUNGE</string>
     <string name="title_advanced_uid_expunge" translatable="false">UID EXPUNGE</string>
+    <string name="title_advanced_hide_deleted" translatable="false">Hide deleted messages</string>
     <string name="title_advanced_auth_plain" translatable="false">PLAIN</string>
     <string name="title_advanced_auth_login" translatable="false">LOGIN</string>
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>
@@ -1419,6 +1420,7 @@
     <string name="title_filter_unflagged">Unstarred</string>
     <string name="title_filter_unknown">Unknown senders</string>
     <string name="title_filter_hidden">Hidden</string>
+    <string name="title_filter_deleted">Deleted</string>
     <string name="title_filter_duplicates">Duplicates</string>
     <string name="title_filter_trash">Trashed</string>
 
