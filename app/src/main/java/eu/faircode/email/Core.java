@@ -2140,7 +2140,7 @@ class Core {
                         continue;
                     }
                     subscription.add(fullName);
-                    Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
+                    Log.i("Subscribed " + fullName);
                 }
             } catch (Throwable ex) {
                     /*
