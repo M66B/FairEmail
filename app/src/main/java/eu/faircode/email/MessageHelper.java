@@ -2024,12 +2024,6 @@ public class MessageHelper {
                 return "flowmailer";
         }
 
-        if (BuildConfig.DEBUG) {
-            String fairemail = imessage.getHeader(HEADER_CORRELATION_ID, null);
-            if (!TextUtils.isEmpty(fairemail))
-                return "fairemail";
-        }
-
         return null;
     }
 
