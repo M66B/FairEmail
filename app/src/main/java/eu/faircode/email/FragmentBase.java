@@ -218,7 +218,11 @@ public class FragmentBase extends Fragment {
     }
 
     public String getRequestKey() {
-        return getClass().getName() + ":result";
+        String we = toString();
+        int pa = we.indexOf('(');
+        int sp = we.indexOf(' ', pa);
+        String who = we.substring(pa + 1, sp);
+        return getClass().getName() + ":result:" + who;
     }
 
     @Override
