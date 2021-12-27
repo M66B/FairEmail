@@ -3910,7 +3910,24 @@ class Core {
             if (experiments && helper.isReport())
                 try {
                     MessageHelper.Report r = parts.getReport();
+
                     EntityFolder s = db.folder().getFolderByType(folder.account, EntityFolder.SENT);
+                    EntityFolder a = db.folder().getFolderByType(folder.account, EntityFolder.ARCHIVE);
+                    List<EntityMessage> reported = db.message().getMessagesByMsgId(folder.account, message.inreplyto);
+                    if (reported != null) {
+                        Long f = null;
+                        for (EntityMessage m : reported)
+                            if (s != null && m.folder.equals(s.id)) {
+                                f = null;
+                                break;
+                            } else {
+                                if (f == null || (a != null && a.id.equals(f)))
+                                    f = m.folder;
+                            }
+                        if (f != null)
+                            s = db.folder().getFolder(f);
+                    }
+
                     if (r != null && s != null) {
                         if (r.isDeliveryStatus())
                             EntityOperation.queue(context, s, EntityOperation.REPORT,
