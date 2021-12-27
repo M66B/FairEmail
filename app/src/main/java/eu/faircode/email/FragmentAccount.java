@@ -720,7 +720,8 @@ public class FragmentAccount extends FragmentBase {
                 result.account = db.account().getAccount(id);
                 result.folders = new ArrayList<>();
 
-                if (result.account.auth_type != AUTH_TYPE_PASSWORD &&
+                if (result.account != null &&
+                        result.account.auth_type != AUTH_TYPE_PASSWORD &&
                         !Objects.equals(result.account.password, password))
                     auth = AUTH_TYPE_PASSWORD;
 
@@ -988,7 +989,8 @@ public class FragmentAccount extends FragmentBase {
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(id);
 
-                if (account.auth_type != AUTH_TYPE_PASSWORD &&
+                if (account != null &&
+                        account.auth_type != AUTH_TYPE_PASSWORD &&
                         !Objects.equals(account.password, password))
                     auth = AUTH_TYPE_PASSWORD;
 
