@@ -336,6 +336,7 @@
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
+    <string name="title_advanced_prefix_count">Додати лічильник до префікса відповіді</string>
     <string name="title_advanced_separate_reply">Вставити горизонтальну лінію перед заголовком відповіді/перенаправлення</string>
     <string name="title_advanced_extended_reply">Використовувати розширений заголовок відповіді/перенаправлення</string>
     <string name="title_advanced_write_above">Писати перед текстом відправника</string>
@@ -781,6 +782,8 @@
     <string name="title_identity_required">Для надсилання email необхідні особисті данні</string>
     <string name="title_drafts_required">Тека для чернеток необхідна для надсилання електронної пошти</string>
     <string name="title_drafts_select">Для надсилання електронної пошти необхідно вибрати теку для чернеток в налаштуваннях облікового запису</string>
+    <string name="title_account_auth_update">Оновити авторизацію</string>
+    <string name="title_account_auth_password">Перемкнути на автентифікацію за паролем</string>
     <string name="title_account_delete">Видалити цей обліковий запис безповоротно?</string>
     <string name="title_identity_delete">Видалити ці особисті дані безповоротно?</string>
     <string name="title_edit_html">Редагувати як HTML</string>
@@ -797,6 +800,7 @@
     <string name="title_hint_alias">Довге натискання на посвідчення особи для відображення параметрів, наприклад, копіювання для створення псевдонімів</string>
     <string name="title_service_auth">Поштовий сервер сказав: \'%1$s\'</string>
     <string name="title_service_vpn">Це може бути викликано мережею VPN, що використовується</string>
+    <string name="title_service_token">Менеджер облікових записів Android може бути заблокований VPN, брандмауером, блокувальником реклами і т. д., не даючи йому отримати ключ доступу</string>
     <string name="title_service_port">Будь ласка, перевірте номер порту</string>
     <string name="title_service_protocol">Будь ласка, перевірте протокол (SSL/TLS або STARTTLS)</string>
     <string name="title_advanced_browse">Переглянути повідомлення на сервері</string>

@@ -316,6 +316,7 @@
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_compose_font">Police par défaut</string>
     <string name="title_advanced_prefix_once">Ne préfixer l’objet qu’une seule fois lors de la réponse ou du transfert</string>
+    <string name="title_advanced_prefix_count">Ajouter le nombre de réponses au préfixe</string>
     <string name="title_advanced_separate_reply">Insérer une ligne horizontale avant l\'en-tête de réponse/transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l’en-tête de réponse/transfert étendu</string>
     <string name="title_advanced_write_above">Écrire au-dessus du texte de l\'expéditeur</string>
@@ -763,6 +764,8 @@
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des courriels</string>
     <string name="title_drafts_required">Un dossier « Brouillons » est nécessaire pour envoyer des courriels</string>
     <string name="title_drafts_select">L\'envoi de courriels nécessite la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
+    <string name="title_account_auth_update">Mettre à jour l\'autorisation</string>
+    <string name="title_account_auth_password">Passer à l\'authentification par mot de passe</string>
     <string name="title_account_delete">Supprimer définitivement ce compte?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité?</string>
     <string name="title_edit_html">Modifier en HTML</string>
@@ -779,6 +782,7 @@
     <string name="title_hint_alias">Appuyer longuement pour les options, comme copier pour créer des identités alias</string>
     <string name="title_service_auth">Le serveur de messagerie a dit : %1$s</string>
     <string name="title_service_vpn">Ceci pourrait être dû au RPV utilisé</string>
+    <string name="title_service_token">Le gestionnaire de compte d\'Android pourrait être bloqué par un VPN, un pare-feu, un bloqueur de publicité, etc., l\'empêchant d\'obtenir un jeton d\'accès</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_service_protocol">Veuillez vérifier le protocole (SSL/TLS ou STARTTLS)</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
@@ -1230,6 +1234,7 @@
     <string name="title_filter_unflagged">Non suivis</string>
     <string name="title_filter_unknown">Expéditeurs inconnus</string>
     <string name="title_filter_hidden">Masqués</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Supprimé</string>
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_filter_trash">Supprimé</string>
     <string name="title_compact">Vue compacte</string>

@@ -156,7 +156,7 @@
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
     <string name="title_setup_oauth_update">Εκ νέου εξουσιοδότηση υπάρχοντος λογαριασμού</string>
     <string name="title_setup_oauth_updated">Η εξουσιοδότηση λογαριασμού ενημερώθηκε</string>
-    <string name="title_setup_oauth_authorize">Έγκριση</string>
+    <string name="title_setup_oauth_authorize">Εξουσιοδότηση</string>
     <string name="title_setup_select_account">Επιλογή λογαριασμού</string>
     <string name="title_setup_instructions">Οδηγίες ρύθμισης</string>
     <string name="title_setup_no_settings">Δεν βρέθηκαν ρυθμίσεις για τον τομέα %1$s</string>
@@ -315,6 +315,7 @@
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
+    <string name="title_advanced_prefix_count">Προσθήκη μετρητή στο πρόθεμα απάντησης</string>
     <string name="title_advanced_separate_reply">Εισαγωγή μιας οριζόντιας γραμμής πριν από την κεφαλίδα μιας απάντησης/προώθησης</string>
     <string name="title_advanced_extended_reply">Χρήση εκτεταμένων κεφαλίδων κατά την απάντηση/προώθηση</string>
     <string name="title_advanced_write_above">Συγγραφή πάνω από το κείμενο του αποστολέα</string>
@@ -759,6 +760,8 @@
     <string name="title_identity_required">Απαιτείται μια ταυτότητα για την αποστολή μηνυμάτων</string>
     <string name="title_drafts_required">Ένας φάκελος \"Πρόχειρα\" απαιτείται για την αποστολή μηνυμάτων</string>
     <string name="title_drafts_select">Για την αποστολή μηνυμάτων απαιτείται να επιλεγεί ένας φάκελος για πρόχειρα από τις ρυθμίσεις λογαριασμού</string>
+    <string name="title_account_auth_update">Ενημέρωση εξουσιοδότησης</string>
+    <string name="title_account_auth_password">Αλλαγή σε ταυτοποίηση μέσω κωδικού πρόσβασης</string>
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
@@ -775,6 +778,7 @@
     <string name="title_hint_alias">Παρατεταμένο πάτημα πάνω σε μια ταυτότητα για να εμφανιστούν οι επιλογές, όπως αντιγραφή για τη δημιουργία ψευδώνυμων ταυτοτήτων</string>
     <string name="title_service_auth">Ο εξυπηρετητής ηλ. ταχυδρομείου είπε: %1$s</string>
     <string name="title_service_vpn">Αυτό μπορεί να προκαλείται από το χρησιμοποιούμενο VPN</string>
+    <string name="title_service_token">Ο διαχειριστής λογαριασμών Android ενδέχεται να έχει αποκλειστεί από ένα VPN, τείχος προστασίας, πρόγραμμα αποκλεισμού διαφημίσεων, κλπ, που τον εμποδίζει να αποκτήσει ένα διακριτικό πρόσβασης</string>
     <string name="title_service_port">Παρακαλώ, ελέγξτε εκ νέου τον αριθμό θύρας</string>
     <string name="title_service_protocol">Παρακαλώ, ελέγξτε εκ νέου το πρωτόκολλο (SSL/TLS ή STARTTLS)</string>
     <string name="title_advanced_browse">Περιήγηση μηνυμάτων στο διακομιστή</string>
@@ -1223,6 +1227,7 @@
     <string name="title_filter_unflagged">Χωρίς αστέρι</string>
     <string name="title_filter_unknown">Άγνωστοι αποστολείς</string>
     <string name="title_filter_hidden">Κρυφά</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Διαγραμμένο</string>
     <string name="title_filter_duplicates">Διπλότυπα</string>
     <string name="title_filter_trash">Διαγράφηκε</string>
     <string name="title_compact">Συνεπτυγμένη προβολή</string>

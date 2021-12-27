@@ -325,6 +325,7 @@
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
+    <string name="title_advanced_prefix_count">Adăugați numărul la prefixul de răspuns</string>
     <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
     <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
     <string name="title_advanced_write_above">Scrieți deasupra textului expeditorului</string>
@@ -683,6 +684,7 @@
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
+    <string name="title_identity_tenant_hint">Acest câmp ar trebui să fie gol în majoritatea cazurilor</string>
     <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor dosarului și ale contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_name">Utilizează numele atunci când adresa expeditorului a fost editată</string>
@@ -770,6 +772,8 @@
     <string name="title_identity_required">O identitate este necesară pentru a trimite e-mailuri</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite e-mailuri</string>
     <string name="title_drafts_select">Trimiterea de e-mailuri necesită un dosar ciorne selectat în setările contului</string>
+    <string name="title_account_auth_update">Actualizarea autorizației</string>
+    <string name="title_account_auth_password">Treceți la autentificarea prin parolă</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>

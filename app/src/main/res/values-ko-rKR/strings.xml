@@ -346,6 +346,7 @@
     <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_review">검토</string>
+    <string name="title_service_token">Android 계정 관리자가 VPN, 방화벽, 광고 차단기 등에 의해 차단되어 접근 토큰을 받지 못할 수 있습니다</string>
     <string name="title_synchronize_now">지금 동기화</string>
     <string name="title_synchronize_subfolders">하위 폴더</string>
     <string name="title_synchronize_enabled">동기화</string>
@@ -553,6 +554,7 @@
     <string name="title_filter_unflagged">즐겨찾기 해제함</string>
     <string name="title_filter_unknown">알 수 없는 발신자</string>
     <string name="title_filter_hidden">숨김</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">삭제됨</string>
     <string name="title_filter_duplicates">중복</string>
     <string name="title_compact">간략히 보기</string>
     <string name="title_zoom">글씨 크기</string>

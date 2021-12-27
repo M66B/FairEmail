@@ -760,6 +760,8 @@
     <string name="title_identity_required">Für das Versenden von Nachrichten ist eine Identität erforderlich</string>
     <string name="title_drafts_required">Zum Senden von E-Mails wird ein Entwürfe-Ordner benötigt</string>
     <string name="title_drafts_select">Das Senden von E-Mails erfordert die Auswahl eines Entwürfe-Ordners in den Kontoeinstellungen</string>
+    <string name="title_account_auth_update">OAuth-Autorisierung aktualisieren</string>
+    <string name="title_account_auth_password">Stattdessen Passwort-Authentifizierung verwenden</string>
     <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
@@ -776,6 +778,7 @@
     <string name="title_hint_alias">Lange Drücken für Optionen, wie z.B. Kopieren oder um Alias-Adressen zu erstellen</string>
     <string name="title_service_auth">Der E-Mail-Server meldete: „%1$s”</string>
     <string name="title_service_vpn">Dies kann durch das verwendete VPN verursacht werden</string>
+    <string name="title_service_token">Die Android-Kontoverwaltung könnte durch ein VPN, eine Firewall, einen Werbeblocker usw. gesperrt sein, so dass diese keinen Zugriffstoken abrufen kann.</string>
     <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
@@ -1224,6 +1227,7 @@
     <string name="title_filter_unflagged">Nicht markiert</string>
     <string name="title_filter_unknown">Unbekannte Absender</string>
     <string name="title_filter_hidden">Verborgen</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">gelöschte</string>
     <string name="title_filter_duplicates">Doppelte</string>
     <string name="title_filter_trash">Gelöscht</string>
     <string name="title_compact">Kompaktansicht</string>

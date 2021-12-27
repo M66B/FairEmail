@@ -13,21 +13,67 @@
     <string name="channel_send">stuur</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Progress</string>
+    <string name="channel_update">Updates</string>
+    <string name="channel_warning">Waarskuwings</string>
+    <string name="channel_error">Errors</string>
+    <string name="channel_alert">Bedienerwaarskuwings</string>
+    <string name="channel_group_contacts">Contacts</string>
+    <string name="channel_service_description">Synchronizing and monitoring of accounts</string>
+    <string name="channel_send_description">Sending of messages</string>
+    <string name="channel_notification_description">Nuwe boodskapkennisgewings</string>
+    <string name="channel_progress_description">Progress notifications of longer running activities</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Conversation</item>
+        <item quantity="other">Conversations</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Message</item>
+        <item quantity="other">Boodskappe</item>
+    </plurals>
+    <string name="page_folders">Dopsies</string>
+    <string name="page_compose">Komponeer</string>
+    <string name="tile_synchronize">Sinkroniseer</string>
+    <string name="tile_unseen">Nuwe boodskappe</string>
+    <string name="shortcut_refresh">Verfris</string>
+    <string name="shortcut_compose">Komponeer</string>
+    <string name="shortcut_setup">Instellings</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Monitering van %1$d rekening</item>
+        <item quantity="other">Monitering van %1$d rekening</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d bewerking hangende</item>
+        <item quantity="other">%1$d bewerking hangende</item>
+    </plurals>
+    <string name="menu_setup">Instellings</string>
     <string name="title_disagree">I disagree</string>
+    <string name="title_setup">Instellings</string>
     <string name="title_importing_account">Rekening %1$s</string>
     <string name="title_importing_identity">Identiteit %1$s</string>
     <string name="title_importing_exists">Oorgeslaan: bestaan alreeds</string>
     <string name="title_importing_wizard">Hardloop die towenaar om weer te outentiek</string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">stuur</string>
+    <string name="title_advanced_caption_conversation">Conversation</string>
+    <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_poll_battery">Hierdie kan verhoogte battery gebruik veroorsaak!</string>
+    <string name="title_synchronize_enabled">Sinkroniseer</string>
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
+    <string name="title_raw_send_message">Message</string>
+    <string name="title_raw_send_thread">Conversation</string>
     <string name="title_fullscreen">Wys Volleskerm</string>
     <string name="title_fit_width">Pas breedte</string>
     <string name="title_disable_widths">Deaktiveer breedte</string>
+    <string name="title_compose">Komponeer</string>
     <string name="title_send">stuur</string>
+    <string name="title_legend_section_synchronize">Sinkroniseer</string>
+    <string name="title_legend_section_folders">Dopsies</string>
+    <string name="title_legend_section_messages">Boodskappe</string>
+    <string name="title_legend_section_compose">Komponeer</string>
+    <string name="title_legend_thread">Conversation</string>
+    <string name="title_legend_c">Komponeer</string>
     <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
         To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.

@@ -326,6 +326,7 @@
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonicu za odgođeno slanje</string>
     <string name="title_advanced_compose_font">Zadani font</string>
     <string name="title_advanced_prefix_once">Prefiks predmeta samo jedanput pri odgovoru ili prosljeđenju</string>
+    <string name="title_advanced_prefix_count">Dodaj brojač prefiksu odgovora</string>
     <string name="title_advanced_separate_reply">Ubaci vodoravnu liniju prije zaglavlja odgovora/prosljeđenja</string>
     <string name="title_advanced_extended_reply">Koristi prošireno zaglavlje odgovora/prosljeđenja</string>
     <string name="title_advanced_write_above">Piši iznad teksta od pošiljaoca</string>
@@ -684,6 +685,7 @@
     <string name="title_select">Izaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
+    <string name="title_identity_tenant_hint">Ovo polje treba ostati prazno u najvećem broju slučajeva</string>
     <string name="title_identity_color_hint">Boje identiteta su preče od boja foldera i računa</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljaoca</string>
     <string name="title_advanced_sender_name">Koristi ime kada je adresa pošiljaoca uređena</string>
@@ -771,6 +773,8 @@
     <string name="title_identity_required">Identitet je neophodan za slanje e-pošte</string>
     <string name="title_drafts_required">Folder \'nacrti\' je neophodan za slanje e-pošte</string>
     <string name="title_drafts_select">Slanje e-pošte zahtijeva da se izabere folder za nacrte u postavkama računa</string>
+    <string name="title_account_auth_update">Osvježi autorizaciju</string>
+    <string name="title_account_auth_password">Prebaci na provjeru lozinkom</string>
     <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>

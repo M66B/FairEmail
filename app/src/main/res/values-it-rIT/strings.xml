@@ -316,6 +316,7 @@
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
+    <string name="title_advanced_prefix_count">Aggiungi conteggio al prefisso di risposta</string>
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima di un\'intestazione di risposta/inoltro</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposto/inoltro</string>
     <string name="title_advanced_write_above">Scrivi sopra al testo del mittente</string>
@@ -763,6 +764,8 @@
     <string name="title_identity_required">È necessaria un\'identità per inviare le email</string>
     <string name="title_drafts_required">È necessaria una cartella delle bozze per inviare le email</string>
     <string name="title_drafts_select">L\'invio delle email richiede la selezione di una cartella di bozze nelle impostazioni del profilo</string>
+    <string name="title_account_auth_update">Aggiorna l\'autorizzazione</string>
+    <string name="title_account_auth_password">Passa all\'autenticazione con password</string>
     <string name="title_account_delete">Eliminare permanentemente questo profilo?</string>
     <string name="title_identity_delete">Eliminare permanentemente quest\'identità?</string>
     <string name="title_edit_html">Modifica come HTML</string>

@@ -4,6 +4,8 @@
     <string name="app_changelog">變更紀錄</string>
     <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，其中一些功能的工作方式可能與您所熟悉的不同。</string>
     <string name="app_limitations">例如，預設重排訊息以移除不安全的元件並改善可讀性，並且為了安全，連結的開啟還需要獲得確認。如有需要，兩者皆可停用。</string>
+    <string name="app_unsupported">此裝置裏的Android版本存在的漏洞導致了程序的崩潰</string>
+    <string name="app_continue">仍要繼續</string>
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
     <string name="app_cake">剩餘儲存空間不足</string>
     <string name="app_updated">最近更新於: %1$s</string>
@@ -61,6 +63,7 @@
     <string name="title_junk_hint">您的電子郵件供應商負責篩選垃圾郵件。電子郵件程式並不擁有所有用於可靠地處理此操作的數據。</string>
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
+    <string name="title_block_sender_domain">封鎖域名 \'%1$s\'</string>
     <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
         使用篩選器規則封鎖寄件者網域則是一項專業版功能。
     </string>
@@ -133,6 +136,7 @@
     <string name="title_setup_identities">身分</string>
     <string name="title_setup_other">其他電子郵件供應商</string>
     <string name="title_setup_pop3">POP3 帳戶</string>
+    <string name="title_setup_oauth_permission">電子郵件供應商僅批准了在 GitHub 和 Google Play Store 版本的 FairEmail 裏使用 OAuth</string>
     <string name="title_setup_gmail_rationale">請授予權限以選擇帳戶並讀取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 會請求權限以讀取、撰寫、傳送及永久刪除您的電子郵件。FairEmail 永遠不會在您未予明確同意的前提下刪除您的訊息。</string>
     <string name="title_setup_gmail_drafts">如遇草稿資料夾無法透過 IMAP 存取的情況，可於 Gmail 標籤設定中獲得修復</string>
@@ -1274,6 +1278,7 @@
     <string name="title_rule_applied">作用到的訊息: %1$d</string>
     <string name="title_rule_check">檢查</string>
     <string name="title_rule_no_headers">無法檢查標頭狀態</string>
+    <string name="title_rule_no_body">訊息没有内容</string>
     <string name="title_rule_matched">匹配訊息</string>
     <string name="title_rule_no_matches">無匹配訊息</string>
     <string name="title_rule_tts_ok">設置一切正常</string>

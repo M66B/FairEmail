@@ -847,7 +847,7 @@ Dans le cas d'erreurs de connexion successives, FairEmail attendra de plus en pl
 <a name="faq18"></a>
 **(18) Pourquoi la prévisualisation du message n'est-elle pas toujours affichée ?**
 
-La prévisualisation du texte du message ne peut être affichée si le corps du message n'a pas encore été téléchargé. Voir aussi [cette FAQ](#user-content-faq15).
+L'aperçu du texte du message ne peut pas être affiché si le corps du message n'a pas encore été téléchargé. Voir aussi [cette FAQ](#user-content-faq15).
 
 <br />
 
@@ -1033,8 +1033,8 @@ Les causes possibles sont:
 
 Tout d'abord, essayez d'attendre un peu de temps pour voir si le problème se résout par lui-même, sinon:
 
-* basculez vers la vérification périodique des messages dans les paramètres de réception, ce qui entraînera l'ouverture des dossiers un à la fois
-* ou définissez certains dossiers à interroger au lieu de les synchroniser (appuyez longuement sur le dossier dans la liste des dossiers, modifiez les propriétés)
+* soit vous basculez vers la vérification périodique des messages dans les paramètres de réception, ce qui entraînera l'ouverture des dossiers un à la fois
+* ou vous définissez certains dossiers à interroger au lieu de les synchroniser (appuyez longuement sur le dossier dans la liste des dossiers, modifiez les propriétés)
 
 Un moyen facile de configurer la vérification périodique des messages pour tous les dossiers sauf la boîte de réception est d'utiliser *Appliquer à tous…* dans le menu à trois points de la liste des dossiers et de cocher les deux cases à cocher de la section Avancé.
 
@@ -1270,7 +1270,7 @@ Reconnecting to an email server will use extra battery power, so an unstable int
 
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
 
-If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
+Si vous avez au moins une fois par jour une connexion Internet, il suffit de synchroniser les messages pour une seule journée.
 
 Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. Vous pourriez par exemple initialement synchroniser les messages pendant un grand nombre de jours et après que cela ait été terminé réduire le nombre de jours pour synchroniser les messages, mais laissez le nombre de jours pour garder les messages. Après avoir réduit le nombre de jours pour conserver les messages, vous pouvez exécuter le nettoyage dans les paramètres divers pour supprimer les anciens fichiers.
 
@@ -1278,15 +1278,15 @@ Dans les paramètres de réception, vous pouvez activer la synchronisation syst�
 
 La désactivation de l'option de dossier *Téléchargement automatique des textes et des pièces jointes des messages*. Entraînera une diminution du trafic réseau et donc de l'utilisation de la batterie. Vous pouvez désactiver cette option, par exemple pour le dossier envoyé et l'archive.
 
-La synchronisation des messages pendant la nuit n'est généralement pas utile, vous pouvez donc économiser sur l'utilisation de la batterie en ne synchronisant pas la nuit. In the settings you can select a schedule for message synchronization (this is a pro feature).
+La synchronisation des messages pendant la nuit n'est généralement pas utile, vous pouvez donc économiser sur l'utilisation de la batterie en ne synchronisant pas la nuit. Dans les paramètres, vous pouvez sélectionner un calendrier pour la synchronisation des messages (ceci est une fonctionnalité pro).
 
 FairEmail synchronisera par défaut la liste des dossiers à chaque connexion. Comme les dossiers ne sont pas créés, renommés ou supprimés très souvent, vous pouvez économiser une certaine consommation de données et de batterie en désactivant ceci dans les paramètres de réception.
 
 FairEmail vérifiera par défaut si les anciens messages ont été supprimés du serveur à chaque connexion. Si cela ne vous dérange pas que les anciens messages qui ont été supprimés du serveur soient toujours visibles dans FairEmail, vous pouvez économiser une certaine consommation de données et de batterie en désactivant ceci dans les paramètres de réception.
 
-Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 3 to reliably keep connections alive.
+Certains fournisseurs ne suivent pas la norme IMAP et ne maintiennent pas les connexions suffisamment longtemps ouvertes, forçant FairEmail à se reconnecter souvent, causant une utilisation supplémentaire de la batterie. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Notez que les optimisations de batterie doivent être désactivées à l'étape 3 de configuration pour garder les connexions actives.
 
-Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
+Certains fournisseurs envoient toutes les deux minutes quelque chose comme '*toujours ici*' ce qui entraîne du trafic réseau et le reveil de votre appareil et cause une consommation supplémentaire inutile de la batterie. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
 
 If you got the message *This provider does not support push messages* while configuring an account, consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
@@ -1329,7 +1329,7 @@ The error '*Handshake failed ... WRONG_VERSION_NUMBER ...*' might mean that you 
 
 Most providers provide encrypted connections using different ports, typically port 993 (IMAP) and port 465/587 (SMTP).
 
-If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
+Si votre fournisseur ne prend pas en charge les connexions chiffrées, vous devriez demander que cela soit rendu possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
 See also [this FAQ](#user-content-faq4).
 
@@ -1350,7 +1350,7 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 
 If the provider is used by more than a few people, yes, with pleasure.
 
-The following information is needed:
+Les informations suivantes sont nécessaires :
 
 ```
 <provider

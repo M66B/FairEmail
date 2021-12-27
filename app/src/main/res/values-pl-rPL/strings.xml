@@ -335,6 +335,7 @@
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
     <string name="title_advanced_compose_font">Domyślna czcionka</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
+    <string name="title_advanced_prefix_count">Dodaj liczbę do prefiksu odpowiedzi</string>
     <string name="title_advanced_separate_reply">Wstaw poziomą linię przed nagłówkiem odpowiedzi/przekazania</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_write_above">Napisz powyżej tekstu nadawcy</string>
@@ -693,6 +694,7 @@
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoje imię</string>
     <string name="title_identity_email">Twój adres e-mail</string>
+    <string name="title_identity_tenant_hint">To pole powinno być puste w większości przypadków</string>
     <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami folderów i kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_sender_name">Użyj nazwy, gdy adres nadawcy został edytowany</string>
@@ -780,6 +782,8 @@
     <string name="title_identity_required">Tożsamość jest wymagana do wysyłania wiadomości e-mail</string>
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości e-mail</string>
     <string name="title_drafts_select">Wysyłanie wiadomości e-mail wymaga wybrania folderu szkiców w ustawieniach konta</string>
+    <string name="title_account_auth_update">Zaktualizuj autoryzację</string>
+    <string name="title_account_auth_password">Przełącz na uwierzytelnianie hasłem</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>

@@ -21,7 +21,7 @@
     <string name="channel_service_description">Synchronisation et surveillance des comptes</string>
     <string name="channel_send_description">Envoi des messages</string>
     <string name="channel_notification_description">Notifications de nouveaux messages</string>
-    <string name="channel_progress_description">Notifications d\'avancement des actions de longue durée</string>
+    <string name="channel_progress_description">Notifications de progression des activités en cours de longue durée</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversation</item>
         <item quantity="other">Conversations</item>
@@ -316,6 +316,7 @@
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
+    <string name="title_advanced_prefix_count">Ajouter le nombre de réponses au préfixe de réponse</string>
     <string name="title_advanced_separate_reply">Insérer une ligne horizontale avant l\'en-tête de réponse/transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l\'en-tête étendu de réponse/transfert</string>
     <string name="title_advanced_write_above">Écrire au-dessus du texte de l\'expéditeur</string>
@@ -603,7 +604,7 @@
     <string name="title_advanced_reply_all_hint">Si ceci est désactivé, un appui long sur le bouton « Répondre » répondra à l\'expéditeur</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie peut également ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
-    <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou de beaucoup trop de texte</string>
+    <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou trop de texte</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">La désactivation de cette option empêchera la réception et l’envoi de messages sur les connexions de données mobiles</string>
     <string name="title_advanced_rlah_hint">Considérer qu’il n’y a pas d’itinérance au sein de l’Union Européenne (Roam Like at Home)</string>
@@ -675,7 +676,7 @@
     <string name="title_select">Sélectionner&#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
-    <string name="title_identity_tenant_hint">Ce champ devrait être vide dans la plupart des cas</string>
+    <string name="title_identity_tenant_hint">Ce champ devrait rester vide dans la plupart des cas</string>
     <string name="title_identity_color_hint">Les couleurs d’identité ont la priorité sur les couleurs de dossiers et de comptes</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_name">Utiliser le nom lorsque l\'adresse de l\'expéditeur a été modifiée</string>
@@ -763,6 +764,8 @@
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des e-mails</string>
     <string name="title_drafts_required">Un dossier « Brouillons » est nécessaire pour envoyer des e-mails</string>
     <string name="title_drafts_select">L\'envoi d\'e-mails nécessite la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
+    <string name="title_account_auth_update">Mettre à jour l\'autorisation</string>
+    <string name="title_account_auth_password">Passer à l\'authentification par mot de passe</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_edit_html">Modifier en HTML</string>
@@ -779,6 +782,7 @@
     <string name="title_hint_alias">Appuyer longuement sur une identité pour afficher les options, comme copier afin de créer des identités alias</string>
     <string name="title_service_auth">Le serveur de messagerie a dit : %1$s</string>
     <string name="title_service_vpn">Ceci pourrait être dû au VPN utilisé</string>
+    <string name="title_service_token">Le gestionnaire de compte d\'Android pourrait être bloqué par un VPN, un pare-feu, un bloqueur de publicité, etc., l\'empêchant d\'obtenir un jeton d\'accès</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_service_protocol">Veuillez vérifier à nouveau le protocole (SSL/TLS ou STARTTLS)</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
@@ -903,7 +907,7 @@
     <string name="title_importance_high">Haute</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
-    <string name="title_resend">Envoyer à nouveau</string>
+    <string name="title_resend">Réenvoyer</string>
     <string name="title_fetching_headers">Téléchargement des en-têtes de messages en cours&#8230;</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
@@ -1155,7 +1159,7 @@
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
     <string name="title_user_interaction">Transfert vers OpenKeychain</string>
     <string name="title_signed_data">Vérifier la signature pour afficher le texte du message</string>
-    <string name="title_not_encrypted">Le message n\'est pas signé ou chiffré</string>
+    <string name="title_not_encrypted">Le message n\'est ni signé ni chiffré</string>
     <string name="title_no_sign_key">Aucune clé de signature sélectionnée</string>
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>
@@ -1230,6 +1234,7 @@
     <string name="title_filter_unflagged">Non suivis</string>
     <string name="title_filter_unknown">Expéditeurs inconnus</string>
     <string name="title_filter_hidden">Masqués</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Supprimé</string>
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_filter_trash">Supprimé</string>
     <string name="title_compact">Vue compacte</string>
@@ -1290,7 +1295,7 @@
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_body">Le texte contient</string>
-    <string name="title_rule_body_remark">L\'utilisation de cette condition téléchargera systématiquement le texte du message ce qui peut ralentir la synchronisation de la liste des messages</string>
+    <string name="title_rule_body_remark">Utiliser cette condition va toujours télécharger le texte du message, ce qui peut ralentir la synchronisation de la liste des messages</string>
     <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
     <string name="title_rule_time_after">Reçu après</string>
     <string name="title_rule_time_before">Reçu avant</string>
@@ -1298,7 +1303,7 @@
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
     <string name="title_rule_action">Action</string>
-    <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages qui arrivent dans le dossier %1$s</string>
+    <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages arrivant dans le dossier %1$s</string>
     <string name="title_rule_hours">Heures</string>
     <string name="title_rule_schedule_end">À partir de la fin de la condition de temps</string>
     <string name="title_rule_folder">Dossier</string>

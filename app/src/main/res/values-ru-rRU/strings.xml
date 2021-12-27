@@ -335,6 +335,7 @@
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
+    <string name="title_advanced_prefix_count">Добавлять счётчик в префикс ответа</string>
     <string name="title_advanced_separate_reply">Вставлять горизонтальную линию перед заголовком ответа/пересылки</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
     <string name="title_advanced_write_above">Писать над текстом отправителя</string>
@@ -782,6 +783,8 @@
     <string name="title_identity_required">Для отправки электронной почты требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки электронной почты требуется папка черновиков</string>
     <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
+    <string name="title_account_auth_update">Обновить авторизацию</string>
+    <string name="title_account_auth_password">Переключиться на аутентификацию с паролем</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
@@ -798,6 +801,7 @@
     <string name="title_hint_alias">Длительное нажатие откроет другие действия, например, копирования для создания псевдонима идентификатора.</string>
     <string name="title_service_auth">Сервер электронной почты сообщил: \"%1$s\"</string>
     <string name="title_service_vpn">Может быть вызвано использованием VPN</string>
+    <string name="title_service_token">Менеджер аккаунтов Android может быть заблокирован VPN, брандмауэром, блокировщиком рекламы и т.п., не позволяя ему получить токен доступа</string>
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
@@ -1248,6 +1252,7 @@
     <string name="title_filter_unflagged">Не избранные</string>
     <string name="title_filter_unknown">Неизвестные отправители</string>
     <string name="title_filter_hidden">Скрытые</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Удалено</string>
     <string name="title_filter_duplicates">Дубликаты</string>
     <string name="title_filter_trash">Мусор</string>
     <string name="title_compact">Компактный вид</string>

@@ -159,6 +159,7 @@
     <string name="title_advanced_sync_folders_poll">ଫୋଲ୍ଡର୍ ତାଲିକା ସକ୍ରିୟ ଭାବରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
+    <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_advanced_caption_general">ସାଧାରଣ</string>
     <string name="title_advanced_caption_conversation">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_advanced_caption_message">ବାର୍ତ୍ତା</string>
@@ -264,6 +265,8 @@
     <string name="title_no_user">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
     <string name="title_no_password">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
+    <string name="title_account_auth_update">ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରିବା</string>
+    <string name="title_account_auth_password">ପାସ୍‍ୱାର୍ଡ଼ ପ୍ରାମାଣିକିକରଣକୁ ସୁଇଚ୍ କରନ୍ତୁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
     <string name="title_review">ସମୀକ୍ଷା କର</string>

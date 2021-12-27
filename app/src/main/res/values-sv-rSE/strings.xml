@@ -774,6 +774,7 @@
     <string name="title_hint_alias">Långtryck för alternativ, som att kopiera för att skapa alias för olika identiteter</string>
     <string name="title_service_auth">E-postservern sa: \'%1$s\'</string>
     <string name="title_service_vpn">Detta kan orsakas av den VPN som används</string>
+    <string name="title_service_token">Androids kontohanterare kan blockeras av VPN, brandvägg, annonsblockerare, etc, vilket hindrar systemet från att få en åtkomstkod</string>
     <string name="title_service_port">Vänligen dubbelkolla portnumret</string>
     <string name="title_service_protocol">Vänligen dubbelkolla protokollet (SSL/TLS eller STARTTLS)</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>

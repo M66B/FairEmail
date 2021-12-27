@@ -316,6 +316,7 @@
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
     <string name="title_advanced_compose_font">İlkin şrift</string>
     <string name="title_advanced_prefix_once">Mövzunu yalnız bir dəfə cavablayarkən və ya yönləndirərkən prefiks</string>
+    <string name="title_advanced_prefix_count">Prefiksi cavablandırmaq üçün sayğac əlavə et</string>
     <string name="title_advanced_separate_reply">Cavablama/yönləndirmə başlığından əvvəl üfüqi bir xətt əlavə et</string>
     <string name="title_advanced_extended_reply">Genişləndirilmiş cavablama/yönləndirmə başlığı istifadə et</string>
     <string name="title_advanced_write_above">Göndərən mətninin üstünə yaz</string>
@@ -762,6 +763,8 @@
     <string name="title_identity_required">E-poçtları göndərmək üçün bir kimlik tələb olunur</string>
     <string name="title_drafts_required">E-poçtları göndərmək üçün bir qaralama qovluğu tələb olunur</string>
     <string name="title_drafts_select">E-poçtları göndərmək, hesab tənzimləmələrdə bir qaralamalar qovluğunun seçilməsini tələb edir</string>
+    <string name="title_account_auth_update">Səlahiyyətləndirməni yenilə</string>
+    <string name="title_account_auth_password">Parol təsdiqləməsinə keç</string>
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_edit_html">HTML kimi düzəliş et</string>

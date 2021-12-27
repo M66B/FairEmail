@@ -305,6 +305,7 @@
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
+    <string name="title_advanced_prefix_count">在回复（Re:）后显示计数</string>
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展的回复/转发头</string>
     <string name="title_advanced_write_above">写在发件人正文的上方</string>
@@ -751,6 +752,8 @@
     <string name="title_identity_required">发送邮件需要配置一个身份</string>
     <string name="title_drafts_required">发送邮件需要一个草稿文件夹</string>
     <string name="title_drafts_select">需在账户设置中选定草稿文件夹才能发送邮件</string>
+    <string name="title_account_auth_update">重新授权</string>
+    <string name="title_account_auth_password">改用密码认证</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以HTML格式编辑</string>
@@ -767,6 +770,7 @@
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
     <string name="title_service_auth">电子邮件服务器返回：\'%1$s\'</string>
     <string name="title_service_vpn">这可能是正在使用的 VPN 造成的</string>
+    <string name="title_service_token">VPN、防火墙、广告拦截器等可阻止Android 帐户管理器获取访问令牌。</string>
     <string name="title_service_port">请再次检查端口号</string>
     <string name="title_service_protocol">请仔细检查协议 (SSL/TLS 或 STARTTLS)</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
@@ -1214,6 +1218,7 @@
     <string name="title_filter_unflagged">未标星</string>
     <string name="title_filter_unknown">未知发件人</string>
     <string name="title_filter_hidden">隐藏</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">已删除</string>
     <string name="title_filter_duplicates">重复项</string>
     <string name="title_filter_trash">已回收</string>
     <string name="title_compact">紧凑视图</string>

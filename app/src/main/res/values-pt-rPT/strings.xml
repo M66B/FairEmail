@@ -533,6 +533,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
     <string name="title_no_password">Palavra-passe ausente</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
+    <string name="title_account_auth_update">Atualizar autorização</string>
+    <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_expunge">Esponja</string>
     <string name="title_expunge_remark">Isto irá apagar permanentemente todas as mensagens marcadas para exclusão</string>

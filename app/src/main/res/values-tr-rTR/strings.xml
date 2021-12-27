@@ -314,6 +314,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
+    <string name="title_advanced_prefix_count">Yanıt önekine sayım ekle</string>
     <string name="title_advanced_separate_reply">Yanıtlama / iletme başlığından önce yatay bir çizgi ekleyin</string>
     <string name="title_advanced_extended_reply">Genişletilmiş cevapla/ilet başlığı kullan</string>
     <string name="title_advanced_write_above">Gönderenin metninin üstüne yazın</string>
@@ -672,6 +673,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
+    <string name="title_identity_tenant_hint">Bu alan çoğu durumda boş olmalıdır</string>
     <string name="title_identity_color_hint">Kimlik renkleri, klasör ve hesap renklerinden önceliklidir</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_name">Gönderen adresi düzenlendiğinde adı kullan</string>
@@ -759,6 +761,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_drafts_select">İleti göndermek için hesap ayarlarından taslaklar klasörü seçilmelidir</string>
+    <string name="title_account_auth_update">Yetkilendirmeyi güncelle</string>
+    <string name="title_account_auth_password">Parola kimlik doğrulamasına geç</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
@@ -775,6 +779,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hint_alias">Takma ad kimlikleri oluşturmak için kopyalamak gibi seçenekler için uzun basın</string>
     <string name="title_service_auth">E-posta sunucusunun mesajı: \'%1$s\'</string>
     <string name="title_service_vpn">Bu, kullanılan VPN\'den kaynaklanıyor olabilir</string>
+    <string name="title_service_token">Android hesap yöneticisi bir VPN, güvenlik duvarı, reklam engelleyici vb. tarafından engellenebilir ve erişim jetonu almasını engelleyebilir</string>
     <string name="title_service_port">Lütfen port numarasını tekrardan kontrol edin</string>
     <string name="title_service_protocol">Lütfen protokolü iki kez kontrol edin (SSL / TLS veya STARTTLS)</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
