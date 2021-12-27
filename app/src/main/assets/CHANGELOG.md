@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1799 - 2021-12-27
+
+* Fixed removing inline images on replying/forwarding
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1797 - 2021-12-27
 
 * Added Outlook Tenant ID field
