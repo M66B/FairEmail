@@ -790,6 +790,7 @@
     <string name="title_hint_alias">Apăsare lunga pentru opțiuni, precum copiere pentru crearea de identități alias</string>
     <string name="title_service_auth">Serverul de e-mail a spus: \'%1$s\'</string>
     <string name="title_service_vpn">Acesta poate fi cauzată de VPN-ul folosit</string>
+    <string name="title_service_token">Managerul de cont Android ar putea fi blocat de un VPN, un firewall, un blocant de reclame etc., ceea ce îl împiedică să obțină un token de acces</string>
     <string name="title_service_port">Vă rugăm să verificaţi din nou numărul de port</string>
     <string name="title_service_protocol">Vă rugăm să verificaţi protocolul (SSL/TLS sau STARTTLS)</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
@@ -1238,6 +1239,7 @@
     <string name="title_filter_unflagged">Fără stea</string>
     <string name="title_filter_unknown">Expeditori necunoscuți</string>
     <string name="title_filter_hidden">Ascuns</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Șters</string>
     <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_filter_trash">A fost aruncat la gunoi</string>
     <string name="title_compact">Vizualizare compactă</string>
