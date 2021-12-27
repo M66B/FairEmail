@@ -611,10 +611,13 @@ public class EntityRule {
             return false;
         }
 
-        if (!message.content)
-            EntityOperation.queue(context, message, EntityOperation.BODY);
-
         boolean complete = true;
+
+        if (!message.content) {
+            complete = false;
+            EntityOperation.queue(context, message, EntityOperation.BODY);
+        }
+
         if (attachments)
             for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
                 if (!attachment.available) {
@@ -622,9 +625,9 @@ public class EntityRule {
                     EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
                 }
 
-        if (!message.content || !complete) {
+        if (!complete) {
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
-            return true;
+            return false;
         }
 
         executor.submit(new Runnable() {
