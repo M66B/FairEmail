@@ -2003,13 +2003,14 @@ class Core {
             Flags flags = new Flags(keyword);
             imessage.setFlags(flags, true);
 
-            try {
-                JSONArray fargs = new JSONArray();
-                fargs.put(uid);
-                onFetch(context, fargs, folder, istore, ifolder, state);
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
+            if (BuildConfig.DEBUG)
+                try {
+                    JSONArray fargs = new JSONArray();
+                    fargs.put(uid);
+                    onFetch(context, fargs, folder, istore, ifolder, state);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
         }
     }
 
