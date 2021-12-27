@@ -1223,6 +1223,7 @@
     <string name="title_filter_unflagged">Utan stjärnmärkning</string>
     <string name="title_filter_unknown">Okända avsändare</string>
     <string name="title_filter_hidden">Dold</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Raderad</string>
     <string name="title_filter_duplicates">Dubbletter</string>
     <string name="title_filter_trash">Kastade</string>
     <string name="title_compact">Kompakt vy</string>

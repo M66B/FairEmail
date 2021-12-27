@@ -315,6 +315,7 @@
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
     <string name="title_advanced_compose_font">Fuente por defecto</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
+    <string name="title_advanced_prefix_count">Añadir contador a prefijo de respuesta</string>
     <string name="title_advanced_separate_reply">Insertar una línea horizontal antes de un encabezado de respuesta/reenvío</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
     <string name="title_advanced_write_above">Escribir sobre el texto del remitente</string>
@@ -761,6 +762,8 @@
     <string name="title_identity_required">Se requiere una identidad para enviar correos electrónicos</string>
     <string name="title_drafts_required">Se requiere una carpeta de borradores para enviar correos electrónicos</string>
     <string name="title_drafts_select">El envío de correos electrónicos requiere que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
+    <string name="title_account_auth_update">Actualizar autorización</string>
+    <string name="title_account_auth_password">Cambiar a autenticación con contraseña</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -777,6 +780,7 @@
     <string name="title_hint_alias">Dejar pulsado para opciones, como copiar para crear identidades de alias</string>
     <string name="title_service_auth">El servidor de correo electrónico dijo: \'%1$s\'</string>
     <string name="title_service_vpn">Esto podría ser causado por la VPN que está siendo usada</string>
+    <string name="title_service_token">El administrador de cuentas de Android podría estar bloqueado por una VPN, cortafuegos, bloqueador de anuncios, etc., impidiendo que obtenga un token de acceso</string>
     <string name="title_service_port">Por favor, compruebe el número de puerto</string>
     <string name="title_service_protocol">Por favor, compruebe el protocolo (SSL/TLS o STARTTLS)</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
@@ -1224,6 +1228,7 @@
     <string name="title_filter_unflagged">No destacado</string>
     <string name="title_filter_unknown">Remitentes desconocidos</string>
     <string name="title_filter_hidden">Oculto</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Eliminado</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_filter_trash">En Papelera</string>
     <string name="title_compact">Vista compacta</string>

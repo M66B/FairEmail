@@ -1227,6 +1227,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
     <string name="title_filter_unknown">Bilinmeyen gönderenler</string>
     <string name="title_filter_hidden">Gizli</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Silindi</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
     <string name="title_filter_trash">Çöp</string>
     <string name="title_compact">Derlitoplu görünüm</string>

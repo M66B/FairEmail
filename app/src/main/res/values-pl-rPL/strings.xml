@@ -800,6 +800,7 @@
     <string name="title_hint_alias">Naciśnij i przytrzymaj tożsamość, aby wyświetlić opcje, np. kopiuj, aby utworzyć tożsamość aliasu</string>
     <string name="title_service_auth">Serwer e-mail odpowiedział: \'%1$s\'</string>
     <string name="title_service_vpn">Może to być spowodowane przez używany VPN</string>
+    <string name="title_service_token">Menedżer konta Android może być zablokowany przez VPN, zaporę sieciową, bloker reklam itp., uniemożliwiając uzyskanie tokena dostępu</string>
     <string name="title_service_port">Zweryfikuj dokładnie numer portu</string>
     <string name="title_service_protocol">Upewnij się w kwestii protokołu (SSL/TLS lub STARTTLS)</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
@@ -1248,6 +1249,7 @@
     <string name="title_filter_unflagged">Nie oznaczona</string>
     <string name="title_filter_unknown">Nieznani nadawcy</string>
     <string name="title_filter_hidden">Ukryta</string>
+    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Usunięte</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_filter_trash">Usunięte</string>
     <string name="title_compact">Widok kompaktowy</string>
