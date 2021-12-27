@@ -4,7 +4,7 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
-### Next version
+### 1.1797 - 2021-12-27
 
 * Added Outlook Tenant ID field
 * Added option for numbered reply prefix
