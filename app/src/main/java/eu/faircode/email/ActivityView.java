@@ -1110,10 +1110,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
 
             if (content_pane != null) {
-                boolean duo = Helper.isSurfaceDuo();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                boolean close_pane = prefs.getBoolean("close_pane", !Helper.isSurfaceDuo());
                 boolean thread = "thread".equals(getSupportFragmentManager().getBackStackEntryAt(count - 1).getName());
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
-                int visibility = (!thread || fragment == null ? (duo ? View.INVISIBLE : View.GONE) : View.VISIBLE);
+                int visibility = (!thread || fragment == null ? (close_pane ? View.GONE : View.INVISIBLE) : View.VISIBLE);
                 content_separator.setVisibility(visibility);
                 content_pane.setVisibility(visibility);
             }

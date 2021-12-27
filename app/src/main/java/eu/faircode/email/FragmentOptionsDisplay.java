@@ -73,6 +73,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Spinner spPortraitMinSize;
     private SwitchCompat swLandscape;
     private Spinner spLandscapeMinSize;
+    private SwitchCompat swClosePane;
     private SwitchCompat swNavOptions;
     private SwitchCompat swNavMessageCount;
     private SwitchCompat swNavUnseenDrafts;
@@ -166,7 +167,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight",
             "date", "date_fixed", "date_bold",
-            "portrait2", "portrait2c", "landscape", "nav_options", "nav_count", "nav_unseen_drafts", "navbar_colorize",
+            "portrait2", "portrait2c", "landscape", "close_pane",
+            "nav_options", "nav_count", "nav_unseen_drafts", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
@@ -208,6 +210,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPortraitMinSize = view.findViewById(R.id.spPortraitMinSize);
         swLandscape = view.findViewById(R.id.swLandscape);
         spLandscapeMinSize = view.findViewById(R.id.spLandscapeMinSize);
+        swClosePane = view.findViewById(R.id.swClosePane);
         swNavOptions = view.findViewById(R.id.swNavOptions);
         swNavMessageCount = view.findViewById(R.id.swNavMessageCount);
         swNavUnseenDrafts = view.findViewById(R.id.swNavUnseenDrafts);
@@ -436,6 +439,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("landscape_min_size").apply();
+            }
+        });
+
+        swClosePane.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("close_pane", checked).apply();
             }
         });
 
@@ -1145,6 +1155,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPortraitMinSize.setSelection(prefs.getInt("portrait_min_size", 0));
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
         spLandscapeMinSize.setSelection(prefs.getInt("landscape_min_size", 0));
+        swClosePane.setChecked(prefs.getBoolean("close_pane", !Helper.isSurfaceDuo()));
         swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
         swNavUnseenDrafts.setChecked(prefs.getBoolean("nav_unseen_drafts", false));
