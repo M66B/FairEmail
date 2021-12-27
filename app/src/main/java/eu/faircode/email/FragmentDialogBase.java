@@ -35,9 +35,10 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
 import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogBase extends DialogFragment {
-    private boolean once = false;
+    private boolean hasResult = false;
     private LifecycleOwner owner;
     private LifecycleRegistry registry;
     private String targetRequestKey;
@@ -179,7 +180,7 @@ public class FragmentDialogBase extends DialogFragment {
             throw new IllegalArgumentException();
         }
 
-        once = false;
+        hasResult = false;
         targetRequestCode = requestCode;
     }
 
@@ -187,10 +188,10 @@ public class FragmentDialogBase extends DialogFragment {
         EntityLog.log(getContext(), "Sending key=" + targetRequestKey +
                 " request=" + targetRequestCode +
                 " result=" + resultCode +
-                " once=" + once);
+                " has=" + hasResult);
 
-        if (!once) {
-            once = true;
+        if (!hasResult || resultCode == RESULT_OK) {
+            hasResult = true;
 
             if (targetRequestKey != null) {
                 Bundle args = getArguments();
