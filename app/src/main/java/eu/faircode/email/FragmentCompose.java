@@ -5526,37 +5526,6 @@ public class FragmentCompose extends FragmentBase {
                     if (TextUtils.isEmpty(extra))
                         extra = null;
 
-                    if (action == R.id.action_send) {
-                        if (draft.plain_only == null || !draft.plain_only) {
-                            // Remove unused inline images
-                            List<String> cids = new ArrayList<>();
-                            Document d = JsoupEx.parse(body);
-                            for (Element element : d.select("img")) {
-                                String src = element.attr("src");
-                                if (src.startsWith("cid:"))
-                                    cids.add("<" + src.substring(4) + ">");
-                            }
-
-                            for (EntityAttachment attachment : new ArrayList<>(attachments))
-                                if (attachment.isInline() && attachment.isImage() &&
-                                        attachment.cid != null && !cids.contains(attachment.cid)) {
-                                    Log.i("Removing unused inline attachment cid=" + attachment.cid);
-                                    attachments.remove(attachment);
-                                    db.attachment().deleteAttachment(attachment.id);
-                                    dirty = true;
-                                }
-                        } else {
-                            // Convert inline images to attachments
-                            for (EntityAttachment attachment : new ArrayList<>(attachments))
-                                if (attachment.isInline() && attachment.isImage()) {
-                                    Log.i("Converting to attachment cid=" + attachment.cid);
-                                    attachment.disposition = Part.ATTACHMENT;
-                                    db.attachment().setDisposition(attachment.id, attachment.disposition);
-                                    dirty = true;
-                                }
-                        }
-                    }
-
                     List<Integer> eparts = new ArrayList<>();
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available)
@@ -5713,6 +5682,35 @@ public class FragmentCompose extends FragmentBase {
                                     " action=" + getActionName(action));
 
                         dirty = true;
+                    } else if (action == R.id.action_send) {
+                        if (draft.plain_only == null || !draft.plain_only) {
+                            // Remove unused inline images
+                            List<String> cids = new ArrayList<>();
+                            Document d = JsoupEx.parse(body);
+                            for (Element element : d.select("img")) {
+                                String src = element.attr("src");
+                                if (src.startsWith("cid:"))
+                                    cids.add("<" + src.substring(4) + ">");
+                            }
+
+                            for (EntityAttachment attachment : new ArrayList<>(attachments))
+                                if (attachment.isInline() && attachment.isImage() &&
+                                        attachment.cid != null && !cids.contains(attachment.cid)) {
+                                    Log.i("Removing unused inline attachment cid=" + attachment.cid);
+                                    attachments.remove(attachment);
+                                    db.attachment().deleteAttachment(attachment.id);
+                                    dirty = true;
+                                }
+                        } else {
+                            // Convert inline images to attachments
+                            for (EntityAttachment attachment : new ArrayList<>(attachments))
+                                if (attachment.isInline() && attachment.isImage()) {
+                                    Log.i("Converting to attachment cid=" + attachment.cid);
+                                    attachment.disposition = Part.ATTACHMENT;
+                                    db.attachment().setDisposition(attachment.id, attachment.disposition);
+                                    dirty = true;
+                                }
+                        }
                     }
 
                     Helper.writeText(draft.getFile(context), body);
