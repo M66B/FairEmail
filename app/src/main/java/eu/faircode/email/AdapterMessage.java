@@ -1626,25 +1626,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindSeen(TupleMessageEx message) {
-            if (cards) {
-                boolean unseen = (shadow_unread && message.unseen > 0);
-                boolean selected = properties.getValue("selected", message.id);
+            if (cards && shadow_unread) {
+                boolean shadow = (message.unseen > 0);
+                int color = (shadow
+                        ? ColorUtils.setAlphaComponent(shadow_highlight ? colorUnreadHighlight : colorAccent, 127)
+                        : Color.TRANSPARENT);
+                if (!Objects.equals(itemView.getTag(), shadow)) {
+                    itemView.setTag(shadow);
 
-                int color;
-                if (unseen)
-                    color = ColorUtils.setAlphaComponent(shadow_highlight ? colorUnreadHighlight : colorAccent, 127);
-                else if (selected)
-                    color = ColorUtils.setAlphaComponent(colorSeparator, 127);
-                else
-                    color = Color.TRANSPARENT;
-
-                if (!Objects.equals(itemView.getTag(), color)) {
-                    itemView.setTag(color);
                     itemView.setBackgroundColor(color);
 
                     ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
-                    lparam.topMargin = (unseen || selected ? dp1 : 0);
-                    lparam.bottomMargin = (unseen || selected ? dp1 : 0);
+                    lparam.topMargin = (shadow ? dp1 : 0);
+                    lparam.bottomMargin = (shadow ? dp1 : 0);
                     itemView.setLayoutParams(lparam);
                 }
             }
