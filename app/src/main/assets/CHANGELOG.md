@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1800 - 2021-12-27
+
+* Fixed crash when manually configuring an account
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1799 - 2021-12-27
 
 * Fixed removing inline images on replying/forwarding
