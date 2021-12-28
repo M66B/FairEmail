@@ -1,10 +1,6 @@
 <a name="top"></a>
 # FairEmail support
 
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" width="18" height="18" /> Deutsch](https://translate.google.com/translate?sl=en&tl=de&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md) &nbsp;
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" width="18" height="18" /> Français](https://translate.google.com/translate?sl=en&tl=fr&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md) &nbsp;
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" width="18" height="18" /> Español](https://translate.google.com/translate?sl=en&tl=es&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md) &nbsp;
-<br>
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md)
 
 If you have a question, please check the following frequently asked questions first.
