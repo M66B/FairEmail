@@ -2375,6 +2375,10 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
+**Important**: permanent deletion is **irreversible**.
+Instead, consider to move messages to the trash folder
+and to set up auto deletion for the trash folder in the folder properties (long press the folder in the folder list of an account).
+
 If you want to forward a message, consider to use a *move* action instead.
 This will be more reliable than forwarding because forwarded messages might be considered as spam.
 
