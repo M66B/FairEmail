@@ -3999,6 +3999,9 @@ class Core {
             try {
                 EntityContact.received(context, account, folder, message);
 
+                if (body == null && helper.isReport())
+                    body = parts.getHtml(context);
+
                 // Download small messages inline
                 if (body != null || (download && !message.ui_hide)) {
                     long maxSize;
