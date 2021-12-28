@@ -3911,31 +3911,32 @@ class Core {
             if (experiments && helper.isReport())
                 try {
                     MessageHelper.Report r = parts.getReport();
-
-                    EntityFolder s = db.folder().getFolderByType(folder.account, EntityFolder.SENT);
-                    EntityFolder a = db.folder().getFolderByType(folder.account, EntityFolder.ARCHIVE);
-                    List<EntityMessage> reported = db.message().getMessagesByMsgId(folder.account, message.inreplyto);
-                    if (reported != null) {
-                        Long f = null;
-                        for (EntityMessage m : reported)
-                            if (s != null && m.folder.equals(s.id)) {
-                                f = null;
-                                break;
-                            } else {
-                                if (f == null || (a != null && a.id.equals(f)))
-                                    f = m.folder;
-                            }
-                        if (f != null)
-                            s = db.folder().getFolder(f);
-                    }
-
-                    if (r != null && s != null) {
+                    if (r != null) {
+                        String label = null;
                         if (r.isDeliveryStatus())
-                            EntityOperation.queue(context, s, EntityOperation.REPORT,
-                                    message.inreplyto, r.isDelivered() ? "$Delivered" : "$NotDelivered");
+                            label = (r.isDelivered() ? "$Delivered" : "$NotDelivered");
                         else if (r.isDispositionNotification())
-                            EntityOperation.queue(context, s, EntityOperation.REPORT,
-                                    message.inreplyto, r.isDisplayed() ? "$Displayed" : "$NotDisplayed");
+                            label = (r.isDisplayed() ? "$Displayed" : "$NotDisplayed");
+
+                        if (label != null) {
+                            Map<Long, EntityFolder> map = new HashMap<>();
+
+                            EntityFolder s = db.folder().getFolderByType(folder.account, EntityFolder.SENT);
+                            if (s != null)
+                                map.put(s.id, s);
+
+                            List<EntityMessage> reported = db.message().getMessagesByMsgId(folder.account, message.inreplyto);
+                            if (reported != null)
+                                for (EntityMessage m : reported)
+                                    if (!map.containsKey(m.folder)) {
+                                        EntityFolder f = db.folder().getFolder(m.folder);
+                                        if (f != null)
+                                            map.put(f.id, f);
+                                    }
+
+                            for (EntityFolder f : map.values())
+                                EntityOperation.queue(context, f, EntityOperation.REPORT, message.inreplyto, label);
+                        }
                     }
                 } catch (Throwable ex) {
                     Log.w(ex);
