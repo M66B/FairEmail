@@ -4,6 +4,10 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### Next version
+
+* Added rule action to permanently delete messages
+
 ### 1.1800 - 2021-12-27
 
 * Fixed crash when manually configuring an account

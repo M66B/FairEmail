@@ -161,6 +161,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpAnswer;
     private Group grpTts;
     private Group grpAutomation;
+    private Group grpDelete;
 
     private ArrayAdapter<String> adapterDay;
     private ArrayAdapter<Action> adapterAction;
@@ -299,6 +300,7 @@ public class FragmentRule extends FragmentBase {
         grpAnswer = view.findViewById(R.id.grpAnswer);
         grpTts = view.findViewById(R.id.grpTts);
         grpAutomation = view.findViewById(R.id.grpAutomation);
+        grpDelete = view.findViewById(R.id.grpDelete);
 
         ibSender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -456,6 +458,7 @@ public class FragmentRule extends FragmentBase {
             actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
             actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
         }
+        actions.add(new Action(EntityRule.TYPE_DELETE, getString(R.string.title_rule_delete)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
         actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
@@ -587,6 +590,7 @@ public class FragmentRule extends FragmentBase {
         grpAnswer.setVisibility(View.GONE);
         grpTts.setVisibility(View.GONE);
         grpAutomation.setVisibility(View.GONE);
+        grpDelete.setVisibility(View.GONE);
 
         pbWait.setVisibility(View.VISIBLE);
 
@@ -1050,6 +1054,7 @@ public class FragmentRule extends FragmentBase {
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
         grpTts.setVisibility(type == EntityRule.TYPE_TTS ? View.VISIBLE : View.GONE);
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
+        grpDelete.setVisibility(type == EntityRule.TYPE_DELETE ? View.VISIBLE : View.GONE);
     }
 
     private void onActionDelete() {

@@ -2374,13 +2374,10 @@ You can select one of these actions to apply to matching messages:
 * Add keyword
 * Move
 * Copy (Gmail: label)
+* Delete permanently (since version 1.1801)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
-
-An small error in a rule condition can lead to a disaster, therefore irreversible actions, like permanent deletion, are unsupportable and won't be added.
-If you want to permanently delete messages, you can use a filter rule to automatically move messages to the trash folder and set up auto deleting for the trash folder in the folder properties.
-This way there is a chance to recover messages for when the filter condition was incorrect.
 
 If you want to forward a message, consider to use a *move* action instead.
 This will be more reliable than forwarding because forwarded messages might be considered as spam.

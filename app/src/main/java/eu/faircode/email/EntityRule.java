@@ -113,6 +113,7 @@ public class EntityRule {
     static final int TYPE_HIDE = 12;
     static final int TYPE_IMPORTANCE = 13;
     static final int TYPE_TTS = 14;
+    static final int TYPE_DELETE = 15;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -464,6 +465,8 @@ public class EntityRule {
                 return onActionTts(context, message, jaction);
             case TYPE_AUTOMATION:
                 return onActionAutomation(context, message, jaction);
+            case TYPE_DELETE:
+                return onActionDelete(context, message, jaction);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -527,6 +530,8 @@ public class EntityRule {
             case TYPE_TTS:
                 return;
             case TYPE_AUTOMATION:
+                return;
+            case TYPE_DELETE:
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -924,6 +929,14 @@ public class EntityRule {
             throw new IllegalArgumentException("Keyword missing rule=" + name);
 
         EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
+
+        return true;
+    }
+
+    private boolean onActionDelete(Context context, EntityMessage message, JSONObject jargs) {
+        EntityOperation.queue(context, message, EntityOperation.DELETE);
+
+        message.ui_hide = true;
 
         return true;
     }

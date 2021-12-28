@@ -1476,6 +1476,7 @@
     <string name="title_rule_answer">Reply/forward</string>
     <string name="title_rule_tts">Text to speech</string>
     <string name="title_rule_automation">Automation</string>
+    <string name="title_rule_delete">Delete permanently</string>
 
     <string name="title_rule_caption">Edit rule</string>
     <string name="title_rule_title">Rule applies to</string>
@@ -1517,6 +1518,7 @@
     <string name="title_rule_answer_missing">Template missing</string>
     <string name="title_rule_keyword_missing">Keyword missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
+    <string name="title_rule_delete_hint">Permanent deletion is irreversible, so make sure the rule conditions are correct!</string>
 
     <string name="title_rule_execute">Execute now</string>
     <string name="title_rule_applied">Affected messages: %1$d</string>

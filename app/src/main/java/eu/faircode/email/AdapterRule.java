@@ -183,6 +183,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     case EntityRule.TYPE_AUTOMATION:
                         tvAction.setText(R.string.title_rule_automation);
                         break;
+                    case EntityRule.TYPE_DELETE:
+                        tvAction.setText(R.string.title_rule_delete);
+                        break;
                     default:
                         throw new IllegalArgumentException("Unknown action type=" + type);
                 }
