@@ -2622,6 +2622,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putLong("id", message.id);
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
             args.putLong("target", target);
+            args.putBoolean("filter_archive", filter_archive);
 
             new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
@@ -2629,6 +2630,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     long id = args.getLong("id");
                     boolean thread = args.getBoolean("thread");
                     long tid = args.getLong("target");
+                    boolean filter_archive = args.getBoolean("filter_archive");
 
                     ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -2654,11 +2656,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return result;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading && thread ? null : id, message.folder);
+                                message.account, message.thread,
+                                threading && thread ? null : id,
+                                EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                             if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
+                            if (EntityFolder.TRASH.equals(targetFolder.type)) {
+                                if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
+                                    continue;
+                                if (EntityFolder.JUNK.equals(sourceFolder.type) && !threaded.folder.equals(message.folder))
+                                    continue;
+                            }
 
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder));
                         }
@@ -3746,12 +3756,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putString("type", type);
         args.putBoolean("block", block);
         args.putLongArray("ids", getSelection());
+        args.putBoolean("filter_archive", filter_archive);
 
         new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
             protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 String type = args.getString("type");
                 long[] ids = args.getLongArray("ids");
+                boolean filter_archive = args.getBoolean("filter_archive");
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -3773,11 +3785,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading ? null : id, message.folder);
+                                message.account, message.thread,
+                                threading ? null : id,
+                                EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                             if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
+                            if (EntityFolder.TRASH.equals(targetFolder.type)) {
+                                if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
+                                    continue;
+                                if (EntityFolder.JUNK.equals(sourceFolder.type) && !threaded.folder.equals(message.folder))
+                                    continue;
+                            }
 
                             result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder)
                                     .setBlock(block));
