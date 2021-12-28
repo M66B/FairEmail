@@ -7,6 +7,8 @@
 ### Next version
 
 * Added rule action to permanently delete messages
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1800 - 2021-12-27
 
@@ -19,6 +21,12 @@
 * Fixed removing inline images on replying/forwarding
 * Small improvements and minor bug fixes
 * Updated translations
+
+### 1.1798 - 2021-12-27
+
+* Play store only release
+* Fixed removing inline images on replying/forwarding
+* Changes: [see here](https://github.com/M66B/FairEmail/compare/1.1796...1.1798?w=1)
 
 ### 1.1797 - 2021-12-27
 
