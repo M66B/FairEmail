@@ -3978,11 +3978,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onReceipt(TupleMessageEx message) {
-            Intent reply = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "dsn")
-                    .putExtra("dsn", EntityMessage.DSN_RECEIPT)
-                    .putExtra("reference", message.id);
-            context.startActivity(reply);
+            if (EntityFolder.isOutgoing(message.folderType))
+                ToastEx.makeText(context, R.string.title_legend_receipt, Toast.LENGTH_LONG).show();
+            else {
+                Intent reply = new Intent(context, ActivityCompose.class)
+                        .putExtra("action", "dsn")
+                        .putExtra("dsn", EntityMessage.DSN_RECEIPT)
+                        .putExtra("reference", message.id);
+                context.startActivity(reply);
+            }
         }
 
         private void onSearchContact(TupleMessageEx message) {
