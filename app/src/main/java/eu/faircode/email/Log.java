@@ -1117,6 +1117,31 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof NullPointerException &&
+                ex.getCause() instanceof RemoteException)
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'boolean com.android.server.autofill.RemoteFillService$PendingRequest.cancel()' on a null object reference
+                    at android.os.Parcel.createException(Parcel.java:1956)
+                    at android.os.Parcel.readException(Parcel.java:1918)
+                    at android.os.Parcel.readException(Parcel.java:1868)
+                    at android.app.IActivityManager$Stub$Proxy.reportAssistContextExtras(IActivityManager.java:7079)
+                    at android.app.ActivityThread.handleRequestAssistContextExtras(ActivityThread.java:3338)
+                    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1839)
+                    at android.os.Handler.dispatchMessage(Handler.java:106)
+                    at android.os.Looper.loop(Looper.java:193)
+                    at android.app.ActivityThread.main(ActivityThread.java:6971)
+                    at java.lang.reflect.Method.invoke(Native Method)
+                    at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:493)
+                    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:865)
+                Caused by: android.os.RemoteException: Remote stack trace:
+                    at com.android.server.autofill.RemoteFillService.cancelCurrentRequest(RemoteFillService.java:177)
+                    at com.android.server.autofill.Session.cancelCurrentRequestLocked(Session.java:465)
+                    at com.android.server.autofill.Session.access$1000(Session.java:118)
+                    at com.android.server.autofill.Session$1.onHandleAssistData(Session.java:322)
+                    at com.android.server.am.ActivityManagerService.reportAssistContextExtras(ActivityManagerService.java:14510)
+             */
+            return false;
+
         if (ex instanceof IndexOutOfBoundsException &&
                 stack.length > 0 &&
                 "android.text.SpannableStringInternal".equals(stack[0].getClassName()) &&
