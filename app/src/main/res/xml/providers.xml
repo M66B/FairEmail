@@ -1318,7 +1318,8 @@
     </provider>
     <provider
         name="EarthLink.net"
-        enabled="false">
+        enabled="true"
+        link="https://help.earthlink.net/portal/en/kb/articles/earthlink-imap-email-setup-howto#What_are_the_IMAP_settings">
         <imap
             host="imap.earthlink.net"
             port="143"
