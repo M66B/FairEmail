@@ -5145,7 +5145,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 String type = args.getString("type");
                 long folder = args.getLong("folder");
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
                 boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
                 boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
