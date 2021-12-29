@@ -1989,11 +1989,15 @@ class Core {
         if (TextUtils.isEmpty(keyword))
             throw new IllegalArgumentException("keyword missing");
 
-        if (folder.read_only)
-            throw new IllegalArgumentException(folder.name + " read-only");
+        if (folder.read_only) {
+            Log.w(folder.name + " read-only");
+            return;
+        }
 
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER))
-            throw new IllegalArgumentException(folder.name + " has no keywords");
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+            Log.w(folder.name + " has no keywords");
+            return;
+        }
 
         Message[] imessages = ifolder.search(new MessageIDTerm(msgid));
         if (imessages == null || imessages.length == 0)
