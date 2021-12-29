@@ -163,6 +163,10 @@ public class MessageHelper {
     static final String FLAG_NOT_JUNK = "$NotJunk";
     static final String FLAG_CLASSIFIED = "$Classified";
     static final String FLAG_FILTERED = "$Filtered";
+    static final String FLAG_DELIVERED = "$Delivered";
+    static final String FLAG_NOT_DELIVERED = "$NotDelivered";
+    static final String FLAG_DISPLAYED = "$Displayed";
+    static final String FLAG_NOT_DISPLAYED = "$NotDisplayed";
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     // Not black listed: Gmail $Phishing
