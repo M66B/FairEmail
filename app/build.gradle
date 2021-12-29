@@ -53,6 +53,9 @@ android {
         play {
             java.srcDirs = ['src/main/java', 'src/play/java']
         }
+        amazon {
+            java.srcDirs = ['src/main/java', 'src/amazon/java']
+        }
         main.res.srcDirs += 'src/main/resExtra'
     }
 
