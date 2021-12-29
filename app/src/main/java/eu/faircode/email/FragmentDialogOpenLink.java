@@ -406,7 +406,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         if (host != null && !host.equals(puny)) {
             etLink.setText(format(uri.buildUpon().encodedAuthority(puny).build(), context));
             tvLink.setText(uri.toString());
-            tvSuspicious.setVisibility(View.VISIBLE);
+            tvSuspicious.setVisibility(View.GONE);
         } else {
             etLink.setText(format(uri, context));
             tvLink.setText(null);
