@@ -2032,8 +2032,10 @@ class Core {
         Log.i(account.name + " sync folders=" + sync_folders + " poll=" + sync_folders_poll +
                 " shared=" + sync_shared_folders + " force=" + force);
 
-        if (force || (keep_alive && sync_folders_poll))
+        if (force)
             sync_folders = true;
+        if (keep_alive)
+            sync_folders = sync_folders_poll;
         if (!sync_folders)
             sync_shared_folders = false;
 

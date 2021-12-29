@@ -2047,9 +2047,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     " poll count=" + folder.poll_count +
                                                     " factor=" + folder.poll_factor);
                                         }
-                                Core.onSynchronizeFolders(this,
-                                        account, iservice.getStore(), state,
-                                        true, false);
+                                if (!first)
+                                    Core.onSynchronizeFolders(this,
+                                            account, iservice.getStore(), state,
+                                            true, false);
                             }
                         } catch (Throwable ex) {
                             if (tune) {
