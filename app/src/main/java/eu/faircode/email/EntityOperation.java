@@ -136,8 +136,11 @@ public class EntityOperation {
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean auto_important = prefs.getBoolean("auto_important", false);
-                if (auto_important)
-                    db.message().setMessageImportance(message.id, flagged ? 2 : null);
+                if (auto_important) {
+                    db.message().setMessageImportance(message.id, flagged ? EntityMessage.PRIORITIY_HIGH : null);
+                    queue(context, message, KEYWORD, MessageHelper.FLAG_LOW_IMPORTANCE, false);
+                    queue(context, message, KEYWORD, MessageHelper.FLAG_HIGH_IMPORTANCE, true);
+                }
 
                 return;
 
@@ -228,8 +231,11 @@ public class EntityOperation {
                             db.message().setMessageUiSeen(similar.id, true);
                         if (autounflag)
                             db.message().setMessageUiFlagged(similar.id, false, null);
-                        if (reset_importance)
+                        if (reset_importance) {
                             db.message().setMessageImportance(similar.id, null);
+                            queue(context, similar, KEYWORD, MessageHelper.FLAG_LOW_IMPORTANCE, false);
+                            queue(context, similar, KEYWORD, MessageHelper.FLAG_HIGH_IMPORTANCE, false);
+                        }
                     }
 
                 if (source.account.equals(target.account)) {

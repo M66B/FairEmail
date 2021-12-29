@@ -3639,8 +3639,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, message.folder);
-                        for (EntityMessage threaded : messages)
+                        for (EntityMessage threaded : messages) {
                             db.message().setMessageImportance(threaded.id, importance);
+
+                            EntityOperation.queue(context, threaded, EntityOperation.KEYWORD,
+                                    MessageHelper.FLAG_LOW_IMPORTANCE, EntityMessage.PRIORITIY_LOW.equals(importance));
+                            EntityOperation.queue(context, threaded, EntityOperation.KEYWORD,
+                                    MessageHelper.FLAG_HIGH_IMPORTANCE, EntityMessage.PRIORITIY_HIGH.equals(importance));
+                        }
                     }
 
                     db.setTransactionSuccessful();

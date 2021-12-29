@@ -27,6 +27,7 @@ import android.net.Uri;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.net.MailTo;
 import androidx.documentfile.provider.DocumentFile;
@@ -167,15 +168,19 @@ public class MessageHelper {
     static final String FLAG_NOT_DELIVERED = "$NotDelivered";
     static final String FLAG_DISPLAYED = "$Displayed";
     static final String FLAG_NOT_DISPLAYED = "$NotDisplayed";
+    static final String FLAG_LOW_IMPORTANCE = "$LowImportance";
+    static final String FLAG_HIGH_IMPORTANCE = "$HighImportance";
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     // Not black listed: Gmail $Phishing
     private static final List<String> FLAG_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
-            MessageHelper.FLAG_FORWARDED,
-            MessageHelper.FLAG_JUNK,
-            MessageHelper.FLAG_NOT_JUNK,
-            MessageHelper.FLAG_CLASSIFIED, // FairEmail
-            MessageHelper.FLAG_FILTERED, // FairEmail
+            FLAG_FORWARDED,
+            FLAG_JUNK,
+            FLAG_NOT_JUNK,
+            FLAG_CLASSIFIED, // FairEmail
+            FLAG_FILTERED, // FairEmail
+            FLAG_LOW_IMPORTANCE, // FairEmail
+            FLAG_HIGH_IMPORTANCE, // FairEmail
             "$MDNSent", // https://tools.ietf.org/html/rfc3503
             "$SubmitPending",
             "$Submitted",
@@ -1133,6 +1138,7 @@ public class MessageHelper {
         return flags.toString();
     }
 
+    @NonNull
     String[] getKeywords() throws MessagingException {
         List<String> keywords = Arrays.asList(imessage.getFlags().getUserFlags());
         Collections.sort(keywords);

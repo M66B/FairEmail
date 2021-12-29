@@ -5263,7 +5263,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         importance = null;
 
                     DB db = DB.getInstance(context);
-                    db.message().setMessageImportance(id, importance);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        db.message().setMessageImportance(message.id, importance);
+
+                        EntityOperation.queue(context, message, EntityOperation.KEYWORD,
+                                MessageHelper.FLAG_LOW_IMPORTANCE, EntityMessage.PRIORITIY_LOW.equals(importance));
+                        EntityOperation.queue(context, message, EntityOperation.KEYWORD,
+                                MessageHelper.FLAG_HIGH_IMPORTANCE, EntityMessage.PRIORITIY_HIGH.equals(importance));
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
 
                     return null;
                 }

@@ -918,6 +918,11 @@ public class EntityRule {
         DB db = DB.getInstance(context);
         db.message().setMessageImportance(message.id, importance);
 
+        EntityOperation.queue(context, message, EntityOperation.KEYWORD,
+                MessageHelper.FLAG_LOW_IMPORTANCE, EntityMessage.PRIORITIY_LOW.equals(importance));
+        EntityOperation.queue(context, message, EntityOperation.KEYWORD,
+                MessageHelper.FLAG_HIGH_IMPORTANCE, EntityMessage.PRIORITIY_HIGH.equals(importance));
+
         message.importance = importance;
 
         return true;

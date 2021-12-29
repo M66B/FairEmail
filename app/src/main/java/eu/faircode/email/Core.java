@@ -3745,6 +3745,13 @@ class Core {
             message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(context, account.id, folder.id, uid);
             message.priority = helper.getPriority();
+
+            for (String keyword : keywords)
+                if (MessageHelper.FLAG_LOW_IMPORTANCE.equals(keyword))
+                    message.importance = EntityMessage.PRIORITIY_LOW;
+                else if (MessageHelper.FLAG_HIGH_IMPORTANCE.equals(keyword))
+                    message.importance = EntityMessage.PRIORITIY_HIGH;
+
             message.auto_submitted = helper.getAutoSubmitted();
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
