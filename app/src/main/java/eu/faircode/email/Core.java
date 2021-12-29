@@ -263,8 +263,9 @@ class Core {
                                 case EntityOperation.FETCH:
                                     if (EntityOperation.FETCH.equals(next.name)) {
                                         JSONArray jnext = new JSONArray(next.args);
-                                        // Same uid
-                                        if (jargs.getLong(0) == jnext.getLong(0))
+                                        // Same uid, delete flag
+                                        if (jargs.getLong(0) == jnext.getLong(0) &&
+                                                jargs.optBoolean(1) == jnext.optBoolean(1))
                                             skip = true;
                                     }
                                     break;
