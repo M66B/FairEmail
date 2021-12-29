@@ -1943,7 +1943,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             Core.processOperations(ServiceSynchronize.this,
                                                                     account, folder,
                                                                     partition,
-                                                                    iservice.getStore(), ifolder,
+                                                                    iservice, ifolder,
                                                                     state, serial);
 
                                                         } catch (Throwable ex) {

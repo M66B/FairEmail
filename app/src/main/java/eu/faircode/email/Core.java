@@ -181,12 +181,13 @@ class Core {
     static void processOperations(
             Context context,
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
-            Store istore, Folder ifolder,
+            EmailService iservice, Folder ifolder,
             State state, long serial)
             throws JSONException, FolderClosedException {
         try {
             Log.i(folder.name + " start process");
 
+            Store istore = iservice.getStore();
             DB db = DB.getInstance(context);
 
             NotificationManager nm =
@@ -500,6 +501,7 @@ class Core {
                         for (TupleOperationEx s : similar.keySet())
                             ops.remove(s);
                     } catch (Throwable ex) {
+                        iservice.dump();
                         if (ex instanceof OperationCanceledException)
                             Log.i(folder.name, ex);
                         else
