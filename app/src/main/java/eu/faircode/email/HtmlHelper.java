@@ -1328,13 +1328,16 @@ public class HtmlHelper {
         // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
         // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
         // tel:<phonenumber>
+        final Pattern GPA_PATTERN = Pattern.compile("GPA\\.\\d{4}-\\d{4}-\\d{4}-\\d{5}");
+        final String GPA_LINK = "https://play.google.com/console/u/0/developers/8420080860664580239/orders/";
         final Pattern pattern = Pattern.compile(
                 "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern()
                                 .replace("(?i:http|https|rtsp)://",
                                         "(((?i:http|https)://)|((?i:xmpp):))") + "|" +
                         "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)|" +
-                        "(?i:tel:" + Patterns.PHONE.pattern() + ")");
+                        "(?i:tel:" + Patterns.PHONE.pattern() + ")" +
+                        (BuildConfig.DEBUG ? "|(" + GPA_PATTERN + ")" : ""));
 
         NodeTraversor.traverse(new NodeVisitor() {
             private int links = 0;
@@ -1389,7 +1392,10 @@ public class HtmlHelper {
                                 span.appendText(text.substring(pos, start));
 
                                 Element a = document.createElement("a");
-                                a.attr("href", (email ? "mailto:" : "") + group);
+                                if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
+                                    a.attr("href", GPA_LINK + group);
+                                else
+                                    a.attr("href", (email ? "mailto:" : "") + group);
                                 a.text(group);
                                 span.appendChild(a);
 
