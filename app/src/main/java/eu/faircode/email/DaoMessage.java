@@ -42,6 +42,7 @@ public interface DaoMessage {
     String is_drafts = "folder.type = '" + EntityFolder.DRAFTS + "'";
     String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
     String is_sent = "folder.type = '" + EntityFolder.SENT + "'";
+    String is_outgoing = is_drafts + " OR " + is_outbox + " OR " + is_sent;
 
     @Transaction
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
@@ -71,9 +72,9 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN" +
-            "   ((:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND folder.type <> '" + EntityFolder.DRAFTS + "')" +
+            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
-            "   OR (NOT :found AND folder.type = :type))" +
+            "   OR (NOT :found AND folder.type = :type)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM (SELECT * FROM message" +
             "  WHERE message.thread IN" +
@@ -150,7 +151,10 @@ public interface DaoMessage {
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
-            ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
+            ", MAX(CASE WHEN" +
+            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
+            "   OR (NOT :found AND folder.id = :folder)" +
+            "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM (SELECT * FROM message" +
             " WHERE message.thread IN" +
             "  (SELECT DISTINCT mm.thread FROM message mm" +
@@ -242,7 +246,6 @@ public interface DaoMessage {
             " WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN" +
             "  CASE WHEN :filter_archive THEN 9 ELSE 0 END" +
             " ELSE 999 END")
-        // The folder type sort order should match the duplicate algorithm
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(
             long account, String thread, Long id,
             boolean filter_archive,
