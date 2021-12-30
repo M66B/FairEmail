@@ -5918,25 +5918,28 @@ public class FragmentCompose extends FragmentBase {
                                 args.putBoolean("remind_dsn", true);
 
                             // Check size
-                            if (identity != null && identity.max_size != null) {
-                                Properties props = MessageHelper.getSessionProperties();
-                                if (identity.unicode)
-                                    props.put("mail.mime.allowutf8", "true");
-                                Session isession = Session.getInstance(props, null);
-                                Message imessage = MessageHelper.from(context, draft, identity, isession, false);
+                            if (identity != null && identity.max_size != null)
+                                try {
+                                    Properties props = MessageHelper.getSessionProperties();
+                                    if (identity.unicode)
+                                        props.put("mail.mime.allowutf8", "true");
+                                    Session isession = Session.getInstance(props, null);
+                                    Message imessage = MessageHelper.from(context, draft, identity, isession, false);
 
-                                File file = draft.getRawFile(context);
-                                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                                    imessage.writeTo(os);
-                                }
+                                    File file = draft.getRawFile(context);
+                                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                                        imessage.writeTo(os);
+                                    }
 
-                                long size = file.length();
-                                if (size > identity.max_size) {
-                                    args.putBoolean("remind_size", true);
-                                    args.putLong("size", size);
-                                    args.putLong("max_size", identity.max_size);
+                                    long size = file.length();
+                                    if (size > identity.max_size) {
+                                        args.putBoolean("remind_size", true);
+                                        args.putLong("size", size);
+                                        args.putLong("max_size", identity.max_size);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
                                 }
-                            }
                         } else {
                             int mid;
                             if (action == R.id.action_undo)
