@@ -3554,6 +3554,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .putExtra("id", message.id));
                     properties.setValue("selected", message.id, true);
                 } else {
+                    boolean filter_archive = !(viewType == ViewType.SEARCH ||
+                            EntityFolder.ARCHIVE.equals(message.folderType));
                     final LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     final Intent viewThread = new Intent(ActivityView.ACTION_VIEW_THREAD)
                             .putExtra("account", message.account)
@@ -3561,7 +3563,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("thread", message.thread)
                             .putExtra("id", message.id)
                             .putExtra("lpos", getAdapterPosition())
-                            .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
+                            .putExtra("filter_archive", filter_archive)
                             .putExtra("found", viewType == ViewType.SEARCH)
                             .putExtra("searched", searched);
 
