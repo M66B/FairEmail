@@ -1032,15 +1032,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (nav_pinned)
             return getDrawerWidthPinned();
         else {
+            int actionBarHeight = Helper.getActionBarHeight(this);
             DisplayMetrics dm = getResources().getDisplayMetrics();
-
-            int actionBarHeight;
-            TypedValue tv = new TypedValue();
-            if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
-                actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, dm);
-            else
-                actionBarHeight = Helper.dp2pixels(this, 56);
-
             int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
             // Screen width 320 - action bar 56 = 264 dp
             // Icons 6 x (24 width + 2x6 padding) = 216 dp

@@ -62,6 +62,7 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -611,6 +612,17 @@ public class Helper {
     }
 
     // View
+
+    static int getActionBarHeight(Context context) {
+        int actionBarHeight;
+        TypedValue tv = new TypedValue();
+        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            DisplayMetrics dm = context.getResources().getDisplayMetrics();
+            return TypedValue.complexToDimensionPixelSize(tv.data, dm);
+        }
+        else
+            return Helper.dp2pixels(context, 56);
+    }
 
     static Intent getChooser(Context context, Intent intent) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
