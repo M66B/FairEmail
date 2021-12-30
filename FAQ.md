@@ -3419,6 +3419,7 @@ The resend menu item will be shown grayed (dimmed) if the message headers are no
 
 Remarks:
 
+* Messages to, CC or BCC *undisclosed-recipients:* cannot be resend
 * The original subject is sent as-is, unless it is being changed
 * The original message text will be sent as-is, unless text is being entered
 * The original attachments are sent as they are, unless attachments are being added or removed

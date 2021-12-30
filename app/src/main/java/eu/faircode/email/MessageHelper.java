@@ -318,46 +318,49 @@ public class MessageHelper {
             ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
             List<Header> headers = Collections.list(new InternetHeaders(bis).getAllHeaders());
 
-            for (Header header : headers) {
-                String name = header.getName();
-                String value = header.getValue();
-                if (name == null || TextUtils.isEmpty(value))
-                    continue;
+            for (Header header : headers)
+                try {
+                    String name = header.getName();
+                    String value = header.getValue();
+                    if (name == null || TextUtils.isEmpty(value))
+                        continue;
 
-                switch (name.toLowerCase(Locale.ROOT)) {
-                    case "date":
-                        imessage.setHeader("Date", value);
-                        break;
-                    case "from":
-                        imessage.setFrom(value);
-                        break;
-                    case "to":
-                        imessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(value));
-                        break;
-                    case "cc":
-                        imessage.setRecipients(Message.RecipientType.CC, InternetAddress.parse(value));
-                        break;
-                    case "bcc":
-                        imessage.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(value));
-                        break;
-                    case "reply-to":
-                        imessage.setReplyTo(InternetAddress.parse(value));
-                        break;
-                    case "message-id":
-                        if (send) {
-                            imessage.setHeader("Resent-Message-ID", message.msgid);
-                            imessage.updateMessageID(value);
-                        }
-                        break;
-                    case "references":
-                        imessage.setHeader("References", value);
-                        break;
-                    case "in-reply-to":
-                        imessage.setHeader("In-Reply-To", value);
-                        break;
-                    // Resent-Sender (=on behalf of)
+                    switch (name.toLowerCase(Locale.ROOT)) {
+                        case "date":
+                            imessage.setHeader("Date", value);
+                            break;
+                        case "from":
+                            imessage.setFrom(value);
+                            break;
+                        case "to":
+                            imessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(value));
+                            break;
+                        case "cc":
+                            imessage.setRecipients(Message.RecipientType.CC, InternetAddress.parse(value));
+                            break;
+                        case "bcc":
+                            imessage.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(value));
+                            break;
+                        case "reply-to":
+                            imessage.setReplyTo(InternetAddress.parse(value));
+                            break;
+                        case "message-id":
+                            if (send) {
+                                imessage.setHeader("Resent-Message-ID", message.msgid);
+                                imessage.updateMessageID(value);
+                            }
+                            break;
+                        case "references":
+                            imessage.setHeader("References", value);
+                            break;
+                        case "in-reply-to":
+                            imessage.setHeader("In-Reply-To", value);
+                            break;
+                        // Resent-Sender (=on behalf of)
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            }
 
             // The "Resent-Date:" indicates the date and time at which the resent
             //   message is dispatched by the resender of the message.

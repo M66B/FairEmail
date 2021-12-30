@@ -238,6 +238,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Part;
 import javax.mail.Session;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -2790,6 +2791,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             }
                 }
 
+                boolean canResend = true;
+                for (Address r : recipients) {
+                    String email = ((InternetAddress) r).getAddress();
+                    if ("undisclosed-recipients:".equals(email)) {
+                        canResend = false;
+                        break;
+                    }
+                }
+
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
                 popupMenu.inflate(R.menu.popup_reply);
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
@@ -2799,6 +2809,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().findItem(R.id.menu_reply_hard_bounce).setEnabled(canBounce);
                 popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
                 popupMenu.getMenu().findItem(R.id.menu_resend).setVisible(experiments);
+                popupMenu.getMenu().findItem(R.id.menu_resend).setEnabled(canResend);
                 popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
 
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
