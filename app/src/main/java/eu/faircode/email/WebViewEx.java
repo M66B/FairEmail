@@ -47,8 +47,10 @@ import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
+    private int maxHeight;
     private IWebView intf;
     private Runnable onPageLoaded;
+
     private static String userAgent = null;
 
     private static final long PAGE_LOADED_FALLBACK_DELAY = 1500L; // milliseconds
@@ -85,10 +87,16 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
     }
 
-    void init(int height, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
-        Log.i("Init height=" + height + " size=" + size);
+    void init(int height, int maxHeight, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
+        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size);
+
+        if (maxHeight == 0) {
+            Log.e("WebView max height zero");
+            maxHeight = getResources().getDisplayMetrics().heightPixels;
+        }
 
         this.height = (height == 0 ? getMinimumHeight() : height);
+        this.maxHeight = maxHeight;
 
         setInitialScale(size == 0 ? 0 : Math.round(size * 100));
 
@@ -208,14 +216,12 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (height > getMinimumHeight())
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
-        else {
-            int max = getResources().getDisplayMetrics().heightPixels;
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(max, MeasureSpec.AT_MOST));
-        }
+            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(Math.min(height, maxHeight), MeasureSpec.AT_MOST));
+        else
+            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST));
 
         int mh = getMeasuredHeight();
-        Log.i("Measured height=" + mh + " last=" + height);
+        Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());
         if (mh == 0)
             setMeasuredDimension(getMeasuredWidth(), height);
     }

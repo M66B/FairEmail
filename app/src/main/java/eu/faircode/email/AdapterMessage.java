@@ -2406,7 +2406,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 webView.setMinimumHeight(height);
 
-                webView.init(height, size, position, force_light,
+                int maxHeight = rv.getHeight() - rv.getPaddingTop();
+                webView.init(height, maxHeight, size, position, force_light,
                         new WebViewEx.IWebView() {
                             @Override
                             public void onSizeChanged(int w, int h, int ow, int oh) {
