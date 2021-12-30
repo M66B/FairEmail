@@ -378,12 +378,18 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finishAffinity();
 
             if (auth) {
-                Intent intent = getIntent();
-                processStreams(intent);
-                Intent main = new Intent(this, ActivityMain.class)
-                        .putExtra("intent", intent);
-                main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(main);
+                if (this instanceof ActivityWidget ||
+                        this instanceof ActivityWidgetSync ||
+                        this instanceof ActivityWidgetUnified) {
+                    Toast.makeText(this, R.string.title_notification_redacted, Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = getIntent();
+                    processStreams(intent);
+                    Intent main = new Intent(this, ActivityMain.class)
+                            .putExtra("intent", intent);
+                    main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(main);
+                }
             }
         }
     }
