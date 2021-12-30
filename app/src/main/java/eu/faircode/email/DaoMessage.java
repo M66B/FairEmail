@@ -243,8 +243,7 @@ public interface DaoMessage {
             " WHEN folder.type = '" + EntityFolder.JUNK + "' THEN 6" +
             " WHEN folder.type = '" + EntityFolder.SYSTEM + "' THEN 7" +
             " WHEN folder.type = '" + EntityFolder.USER + "' THEN 8" +
-            " WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN" +
-            "  CASE WHEN :filter_archive THEN 9 ELSE 0 END" +
+            " WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 9" +
             " ELSE 999 END")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(
             long account, String thread, Long id,
