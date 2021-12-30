@@ -826,8 +826,8 @@ public interface DaoMessage {
             "   OR (:folder IS NULL AND :type IS NULL AND unified)))")
     int ignoreAll(Long account, Long folder, String type);
 
-    @Query("UPDATE message SET ui_found = 1 WHERE id = :id AND NOT (ui_found IS 1)")
-    int setMessageFound(long id);
+    @Query("UPDATE message SET ui_found = :found WHERE id = :id AND NOT (ui_found IS :found)")
+    int setMessageFound(long id, boolean found);
 
     @Query("UPDATE message SET ui_found = 0 WHERE NOT (ui_found IS 0)")
     int resetSearch();

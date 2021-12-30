@@ -6196,6 +6196,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     for (MessageTarget target : result) {
                         db.message().setMessageUiBusy(target.id, busy);
                         db.message().setMessageUiHide(target.id, true);
+                        db.message().setMessageFound(target.id, false);
                         // Prevent new message notification on undo
                         db.message().setMessageUiIgnored(target.id, true);
                         db.message().setMessageLastAttempt(target.id, now);
@@ -6274,6 +6275,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.i("Move undo id=" + target.id);
                                 db.message().setMessageUiBusy(target.id, null);
                                 db.message().setMessageUiHide(target.id, false);
+                                db.message().setMessageFound(target.id, target.found);
                                 db.message().setMessageLastAttempt(target.id, new Date().getTime());
                             }
 
@@ -8947,6 +8949,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     public static class MessageTarget implements Parcelable {
         long id;
+        boolean found;
         Account sourceAccount;
         Folder sourceFolder;
         Account targetAccount;
@@ -8958,6 +8961,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                       EntityAccount sourceAccount, EntityFolder sourceFolder,
                       EntityAccount targetAccount, EntityFolder targetFolder) {
             this.id = message.id;
+            this.found = message.ui_found;
             this.sourceAccount = new Account(sourceAccount);
             this.sourceFolder = new Folder(context, sourceFolder);
             this.targetAccount = new Account(targetAccount);
@@ -8980,6 +8984,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         protected MessageTarget(Parcel in) {
             id = in.readLong();
+            found = (in.readInt() != 0);
             sourceAccount = (Account) in.readSerializable();
             sourceFolder = (Folder) in.readSerializable();
             targetAccount = (Account) in.readSerializable();
@@ -8991,6 +8996,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
+            dest.writeInt(found ? 1 : 0);
             dest.writeSerializable(sourceAccount);
             dest.writeSerializable(sourceFolder);
             dest.writeSerializable(targetAccount);

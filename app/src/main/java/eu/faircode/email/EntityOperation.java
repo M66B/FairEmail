@@ -238,6 +238,9 @@ public class EntityOperation {
                         }
                     }
 
+                if (message.ui_found)
+                    db.message().setMessageFound(message.id, false);
+
                 if (source.account.equals(target.account)) {
                     EntityAccount account = db.account().getAccount(message.account);
                     if ((account != null && !account.isGmail()) ||
@@ -294,7 +297,8 @@ public class EntityOperation {
                     boolean _flagged = message.flagged;
                     boolean _ui_seen = message.ui_seen;
                     boolean _ui_flagged = message.ui_flagged;
-                    Boolean _ui_hide = message.ui_hide;
+                    boolean _ui_hide = message.ui_hide;
+                    boolean _ui_found = message.ui_found;
                     boolean _ui_browsed = message.ui_browsed;
                     Long ui_busy = message.ui_busy;
                     Integer _color = message.color;
@@ -322,6 +326,7 @@ public class EntityOperation {
                         message.color = null;
                     }
                     message.ui_hide = false;
+                    message.ui_found = false;
                     message.ui_browsed = false;
                     message.ui_busy = null;
                     message.error = null;
@@ -347,6 +352,7 @@ public class EntityOperation {
                     message.ui_seen = _ui_seen;
                     message.ui_flagged = _ui_flagged;
                     message.ui_hide = _ui_hide;
+                    message.ui_found = _ui_found;
                     message.ui_browsed = _ui_browsed;
                     message.ui_busy = ui_busy;
                     message.color = _color;
