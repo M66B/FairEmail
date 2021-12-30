@@ -817,6 +817,7 @@
     <string name="title_rule_copy">کپی (برچسب)</string>
     <string name="title_rule_tts">متن به گفتار</string>
     <string name="title_rule_automation">خودکارسازی</string>
+    <string name="title_rule_delete">حذف برای همیشه</string>
     <string name="title_rule_caption">ویرایش قانون</string>
     <string name="title_rule_title">قانون اعمال می‌شود بر</string>
     <string name="title_rule_name">نام</string>

@@ -380,6 +380,7 @@
     <string name="title_advanced_two_row">Dwa wiersze</string>
     <string name="title_advanced_two_col">Dwie kolumny</string>
     <string name="title_advanced_min_screen_size">Minimalny rozmiar ekranu dla podziału ekranu</string>
+    <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania rozmowy</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
     <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>
     <string name="title_advanced_nav_hide_title">Ukryć opcje menu nawigacji?</string>
@@ -1249,7 +1250,7 @@
     <string name="title_filter_unflagged">Nie oznaczona</string>
     <string name="title_filter_unknown">Nieznani nadawcy</string>
     <string name="title_filter_hidden">Ukryta</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Usunięte</string>
+    <string name="title_filter_deleted">Usunięte</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_filter_trash">Usunięte</string>
     <string name="title_compact">Widok kompaktowy</string>
@@ -1297,6 +1298,7 @@
     <string name="title_rule_answer">Odpowiedz/prześlij dalej</string>
     <string name="title_rule_tts">Przetwarzanie tekstu na mowę</string>
     <string name="title_rule_automation">Automatyzacja</string>
+    <string name="title_rule_delete">Usuń trwale</string>
     <string name="title_rule_caption">Edytuj regułę</string>
     <string name="title_rule_title">Reguła dotyczy</string>
     <string name="title_rule_name">Nazwa</string>
@@ -1336,6 +1338,7 @@
     <string name="title_rule_answer_missing">Brak szablonu</string>
     <string name="title_rule_keyword_missing">Brak słowa kluczowego</string>
     <string name="title_rule_automation_hint">Zostanie wysłany zamiar (intent) \'%1$s\' z dodatkami (extras) \'%2$s\'</string>
+    <string name="title_rule_delete_hint">Trwałe usunięcie jest nieodwracalne, więc upewnij się, że warunki reguły są poprawne!</string>
     <string name="title_rule_execute">Wykonaj teraz</string>
     <string name="title_rule_applied">Problematycznych wiadomości: %1$d</string>
     <string name="title_rule_check">Sprawdź</string>

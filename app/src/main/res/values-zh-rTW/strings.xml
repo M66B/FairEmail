@@ -1237,6 +1237,7 @@
     <string name="title_rule_answer">回覆/轉寄</string>
     <string name="title_rule_tts">文字轉語音</string>
     <string name="title_rule_automation">自動化</string>
+    <string name="title_rule_delete">永久刪除</string>
     <string name="title_rule_caption">編輯規則</string>
     <string name="title_rule_title">規則套用至</string>
     <string name="title_rule_name">名稱</string>

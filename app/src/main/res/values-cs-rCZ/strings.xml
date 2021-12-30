@@ -1295,6 +1295,7 @@
     <string name="title_rule_answer">Odpovědět/přeposlat</string>
     <string name="title_rule_tts">Převod textu na řeč</string>
     <string name="title_rule_automation">Automatizace</string>
+    <string name="title_rule_delete">Trvale smazat</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>

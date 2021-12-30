@@ -360,6 +360,7 @@
     <string name="title_advanced_two_row">Usar dos filas</string>
     <string name="title_advanced_two_col">Usar dos columnas</string>
     <string name="title_advanced_min_screen_size">Tamaño mínimo de pantalla para dividir la pantalla</string>
+    <string name="title_advanced_close_pane">Colapsar fila o columna al cerrar una conversación</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
     <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
     <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
@@ -1228,7 +1229,7 @@
     <string name="title_filter_unflagged">No destacado</string>
     <string name="title_filter_unknown">Remitentes desconocidos</string>
     <string name="title_filter_hidden">Oculto</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Eliminado</string>
+    <string name="title_filter_deleted">Eliminado</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_filter_trash">En Papelera</string>
     <string name="title_compact">Vista compacta</string>
@@ -1276,6 +1277,7 @@
     <string name="title_rule_answer">Responder/reenviar</string>
     <string name="title_rule_tts">Texto a voz</string>
     <string name="title_rule_automation">Automatización</string>
+    <string name="title_rule_delete">Borrar permanentemente</string>
     <string name="title_rule_caption">Editar regla</string>
     <string name="title_rule_title">Regla aplicable a</string>
     <string name="title_rule_name">Nombre</string>
@@ -1315,6 +1317,7 @@
     <string name="title_rule_answer_missing">Plantilla faltante</string>
     <string name="title_rule_keyword_missing">Palabra clave faltante</string>
     <string name="title_rule_automation_hint">Esto enviará el intento \'%1$s\' con los extras \'%2$s\'</string>
+    <string name="title_rule_delete_hint">La eliminación permanente es irreversible, ¡así que asegúrese de que las condiciones de la regla son correctas!</string>
     <string name="title_rule_execute">Ejecutar ahora</string>
     <string name="title_rule_applied">Mensajes afectados: %1$d</string>
     <string name="title_rule_check">Comprobar</string>

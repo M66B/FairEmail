@@ -380,6 +380,7 @@
     <string name="title_advanced_two_row">Использовать две строки</string>
     <string name="title_advanced_two_col">Использовать две колонки</string>
     <string name="title_advanced_min_screen_size">Минимальный размер экрана для его разделения</string>
+    <string name="title_advanced_close_pane">Свернуть строку или столбец при закрытии диалога</string>
     <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
     <string name="title_advanced_nav_pin">Закрепить меню навигации</string>
     <string name="title_advanced_nav_hide_title">Скрыть панель меню навигации?</string>
@@ -835,8 +836,8 @@
     <string name="title_create_sub_folder">Создать вложенную папку</string>
     <string name="title_empty_trash_ask">Удалить все сообщения в корзине навсегда?</string>
     <string name="title_empty_spam_ask">Удалить все сообщения в папке \"Спам\" навсегда?</string>
-    <string name="title_empty_trash_all_ask">Навсегда удалить все сообщения из корзин всех учётных записей?</string>
-    <string name="title_empty_spam_all_ask">Навсегда удалить весь спам из всех учётных записей?</string>
+    <string name="title_empty_trash_all_ask">Окончательно удалить все сообщения из корзин всех учётных записей?</string>
+    <string name="title_empty_spam_all_ask">Окончательно удалить весь спам из всех учётных записей?</string>
     <string name="title_empty_all">Это действие удалит все сообщения и с устройства, и с сервера</string>
     <string name="title_delete_operation_title">Удалить операции</string>
     <string name="title_delete_operation_error">С сообщением об ошибке</string>
@@ -1252,7 +1253,7 @@
     <string name="title_filter_unflagged">Не избранные</string>
     <string name="title_filter_unknown">Неизвестные отправители</string>
     <string name="title_filter_hidden">Скрытые</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Удалено</string>
+    <string name="title_filter_deleted">Удалено</string>
     <string name="title_filter_duplicates">Дубликаты</string>
     <string name="title_filter_trash">Мусор</string>
     <string name="title_compact">Компактный вид</string>
@@ -1300,6 +1301,7 @@
     <string name="title_rule_answer">Ответить/переслать</string>
     <string name="title_rule_tts">Синтез речи</string>
     <string name="title_rule_automation">Автоматизация</string>
+    <string name="title_rule_delete">Удалить окончательно</string>
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>
@@ -1339,6 +1341,7 @@
     <string name="title_rule_answer_missing">Шаблон отсутствует</string>
     <string name="title_rule_keyword_missing">Ключевое слово отсутствует</string>
     <string name="title_rule_automation_hint">Это отправит цель \"%1$s\" с дополнениями \"%2$s\"</string>
+    <string name="title_rule_delete_hint">Окончательное удаление является необратимым, поэтому убедитесь в корректности условий правила!</string>
     <string name="title_rule_execute">Выполнить</string>
     <string name="title_rule_applied">Затронутые сообщения: %1$d</string>
     <string name="title_rule_check">Проверить</string>

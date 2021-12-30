@@ -685,6 +685,7 @@
     <string name="title_rule_move">Премести</string>
     <string name="title_rule_copy">Копирај (ознака)</string>
     <string name="title_rule_automation">Аутоматизација</string>
+    <string name="title_rule_delete">Обриши трајно</string>
     <string name="title_rule_caption">Измени правило</string>
     <string name="title_rule_title">Правило се односи на</string>
     <string name="title_rule_name">Име</string>

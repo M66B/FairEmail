@@ -350,6 +350,7 @@
     <string name="title_advanced_two_row">使用两行</string>
     <string name="title_advanced_two_col">使用两列</string>
     <string name="title_advanced_min_screen_size">分屏下的最小屏幕尺寸</string>
+    <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
     <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
@@ -1218,7 +1219,7 @@
     <string name="title_filter_unflagged">未标星</string>
     <string name="title_filter_unknown">未知发件人</string>
     <string name="title_filter_hidden">隐藏</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">已删除</string>
+    <string name="title_filter_deleted">已删除</string>
     <string name="title_filter_duplicates">重复项</string>
     <string name="title_filter_trash">已回收</string>
     <string name="title_compact">紧凑视图</string>
@@ -1266,6 +1267,7 @@
     <string name="title_rule_answer">回复/转发</string>
     <string name="title_rule_tts">文字转语音</string>
     <string name="title_rule_automation">自动化</string>
+    <string name="title_rule_delete">永久删除</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
     <string name="title_rule_name">名称</string>
@@ -1305,6 +1307,7 @@
     <string name="title_rule_answer_missing">缺少模板</string>
     <string name="title_rule_keyword_missing">缺少关键词</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
+    <string name="title_rule_delete_hint">永久删除是不可逆的，所以请确保规则条件的正确性！</string>
     <string name="title_rule_execute">立即执行</string>
     <string name="title_rule_applied">受影响的消息: %1$d</string>
     <string name="title_rule_check">检查</string>

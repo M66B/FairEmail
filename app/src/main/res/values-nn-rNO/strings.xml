@@ -967,6 +967,7 @@
     <string name="title_rule_answer">Svar/videresend</string>
     <string name="title_rule_tts">Tekst til tale</string>
     <string name="title_rule_automation">Automatisering</string>
+    <string name="title_rule_delete">Slett permanent</string>
     <string name="title_rule_caption">Rediger regel</string>
     <string name="title_rule_title">Regelen gjelder for</string>
     <string name="title_rule_name">Navn</string>

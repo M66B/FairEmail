@@ -1279,6 +1279,7 @@
     <string name="title_rule_answer">Cavabla/yönləndir</string>
     <string name="title_rule_tts">Danışıq mətni</string>
     <string name="title_rule_automation">Avtomatlaşdırma</string>
+    <string name="title_rule_delete">Birdəfəlik sil</string>
     <string name="title_rule_caption">Qaydaya düzəliş et</string>
     <string name="title_rule_title">Qayda tətbiq olunur</string>
     <string name="title_rule_name">Ad</string>

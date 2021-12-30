@@ -361,6 +361,7 @@
     <string name="title_advanced_two_row">Brug to rækker</string>
     <string name="title_advanced_two_col">Brug to kolonner</string>
     <string name="title_advanced_min_screen_size">Minimumsskærmstørrelse for opsplitning af skærmen</string>
+    <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
     <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
@@ -1234,7 +1235,7 @@
     <string name="title_filter_unflagged">Fjernet stjernemarkering</string>
     <string name="title_filter_unknown">Ukendte afsendere</string>
     <string name="title_filter_hidden">Skjult</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Slettet</string>
+    <string name="title_filter_deleted">Slettet</string>
     <string name="title_filter_duplicates">Dubletter</string>
     <string name="title_filter_trash">Slettet</string>
     <string name="title_compact">Kompaktvisning</string>
@@ -1282,6 +1283,7 @@
     <string name="title_rule_answer">Besvar/videresend</string>
     <string name="title_rule_tts">Tekst til tale</string>
     <string name="title_rule_automation">Automatisering</string>
+    <string name="title_rule_delete">Slet permanent</string>
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Regel gælder for</string>
     <string name="title_rule_name">Navn</string>
@@ -1321,6 +1323,7 @@
     <string name="title_rule_answer_missing">Skabelon mangler</string>
     <string name="title_rule_keyword_missing">Nøgleord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
+    <string name="title_rule_delete_hint">Permanent sletning er irreversibel, så sørg for, at regelbetingelserne er korrekte!</string>
     <string name="title_rule_execute">Eksekvér nu</string>
     <string name="title_rule_applied">Berørte beskeder: %1$d</string>
     <string name="title_rule_check">Tjek</string>

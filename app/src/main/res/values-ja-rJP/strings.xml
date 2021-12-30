@@ -351,6 +351,7 @@
     <string name="title_advanced_two_row">2 行に分割</string>
     <string name="title_advanced_two_col">2 列に分割</string>
     <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
+    <string name="title_advanced_close_pane">会話を閉じるときに行または列を閉じる</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示</string>
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留めする</string>
     <string name="title_advanced_nav_hide_title">ナビゲーションメニューからオプションを非表示にしますか？</string>
@@ -787,7 +788,7 @@
     <string name="title_notify_batch_disable">新着メッセージの通知を無効にする</string>
     <string name="title_delete_local">ローカルのメッセージを削除</string>
     <string name="title_delete_browsed">閲覧/検索したメッセージを削除</string>
-    <string name="title_expunge">消去</string>
+    <string name="title_expunge">完全削除</string>
     <string name="title_expunge_remark">削除マークのついたすべてのメッセージを完全に削除します</string>
     <string name="title_empty_trash">ゴミ箱を空にする</string>
     <string name="title_empty_spam">迷惑メールを空にする</string>
@@ -1223,7 +1224,7 @@
     <string name="title_filter_unflagged">スターなし</string>
     <string name="title_filter_unknown">連絡先にいない差出人</string>
     <string name="title_filter_hidden">非表示のメッセージ</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">削除済み</string>
+    <string name="title_filter_deleted">削除済み</string>
     <string name="title_filter_duplicates">重複</string>
     <string name="title_filter_trash">ゴミ箱</string>
     <string name="title_compact">簡易表示</string>
@@ -1271,6 +1272,7 @@
     <string name="title_rule_answer">返信/転送する</string>
     <string name="title_rule_tts">テキストを読み上げる</string>
     <string name="title_rule_automation">自動化</string>
+    <string name="title_rule_delete">完全に削除</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>
@@ -1310,6 +1312,7 @@
     <string name="title_rule_answer_missing">テンプレートがありません</string>
     <string name="title_rule_keyword_missing">キーワードがありません</string>
     <string name="title_rule_automation_hint">インテント「%1$s」とエクストラ「%2$s」が送信されます</string>
+    <string name="title_rule_delete_hint">完全削除は取り消せませんので、ルール条件が正しいことを確認してください！</string>
     <string name="title_rule_execute">今すぐ実行</string>
     <string name="title_rule_applied">影響を受けるメッセージ: %1$d</string>
     <string name="title_rule_check">確認</string>

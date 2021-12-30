@@ -359,6 +359,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_two_row">Gebruik twee rijen</string>
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
     <string name="title_advanced_min_screen_size">Minimale schermgrootte voor het splitsen van het scherm</string>
+    <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
     <string name="title_advanced_nav_pin">Navigatiemenu vastzetten</string>
     <string name="title_advanced_nav_hide_title">Verberg navigatiemenu opties?</string>
@@ -1226,7 +1227,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_filter_unflagged">Zonder ster</string>
     <string name="title_filter_unknown">Onbekende afzenders</string>
     <string name="title_filter_hidden">Verborgen</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Verwijderde</string>
+    <string name="title_filter_deleted">Verwijderde</string>
     <string name="title_filter_duplicates">Duplicaten</string>
     <string name="title_filter_trash">Verwijderde</string>
     <string name="title_compact">Compacte weergave</string>
@@ -1274,6 +1275,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_answer">Beantwoorden/doorsturen</string>
     <string name="title_rule_tts">Tekst-naar-spraak</string>
     <string name="title_rule_automation">Automatisering</string>
+    <string name="title_rule_delete">Definitief verwijderen</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>
@@ -1313,6 +1315,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_answer_missing">Sjabloon ontbreekt</string>
     <string name="title_rule_keyword_missing">Sleutelwoord ontbreekt</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
+    <string name="title_rule_delete_hint">Definitieve verwijdering is onomkeerbaar, dus zorg ervoor dat de voorwaarden van de regel correct zijn!</string>
     <string name="title_rule_execute">Nu uitvoeren</string>
     <string name="title_rule_applied">Beïnvloede berichten: %1$d</string>
     <string name="title_rule_check">Controleer</string>

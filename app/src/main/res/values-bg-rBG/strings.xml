@@ -980,6 +980,7 @@
     <string name="title_rule_answer">Отговор/препращане</string>
     <string name="title_rule_tts">Озвучаване на текст</string>
     <string name="title_rule_automation">Автоматично</string>
+    <string name="title_rule_delete">Изтрийте за постоянно</string>
     <string name="title_rule_caption">Редакция правило</string>
     <string name="title_rule_title">Правилото важи за</string>
     <string name="title_rule_name">Име</string>

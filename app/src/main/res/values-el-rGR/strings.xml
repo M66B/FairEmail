@@ -360,6 +360,7 @@
     <string name="title_advanced_two_row">Χρήση δύο σειρών</string>
     <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
     <string name="title_advanced_min_screen_size">Ελάχιστο μέγεθος οθόνης για διαχωρισμό της οθόνης</string>
+    <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_nav_options">Προβολή των επιλογών του μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>
     <string name="title_advanced_nav_hide_title">Απόκρυψη των επιλογών του μενού πλοήγησης;</string>
@@ -1227,7 +1228,7 @@
     <string name="title_filter_unflagged">Χωρίς αστέρι</string>
     <string name="title_filter_unknown">Άγνωστοι αποστολείς</string>
     <string name="title_filter_hidden">Κρυφά</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Διαγραμμένο</string>
+    <string name="title_filter_deleted">Διαγραμμένο</string>
     <string name="title_filter_duplicates">Διπλότυπα</string>
     <string name="title_filter_trash">Διαγράφηκε</string>
     <string name="title_compact">Συνεπτυγμένη προβολή</string>
@@ -1275,6 +1276,7 @@
     <string name="title_rule_answer">Απάντηση/Προώθηση</string>
     <string name="title_rule_tts">Μετατροπή κειμένου σε φωνή</string>
     <string name="title_rule_automation">Αυτοματοποίηση</string>
+    <string name="title_rule_delete">Οριστική διαγραφή</string>
     <string name="title_rule_caption">Επεξεργασία κανόνα</string>
     <string name="title_rule_title">Ο κανόνας εφαρμόζεται σε</string>
     <string name="title_rule_name">Όνομα</string>
@@ -1314,6 +1316,7 @@
     <string name="title_rule_answer_missing">Λείπει πρότυπο</string>
     <string name="title_rule_keyword_missing">Λείπει λέξη-κλειδί</string>
     <string name="title_rule_automation_hint">Αυτό θα στείλει την πρόθεση %1$s μαζί με τα έξτρα %2$s</string>
+    <string name="title_rule_delete_hint">Η οριστική διαγραφή είναι μη αναστρέψιμη, οπότε βεβαιωθείτε πως οι συνθήκες του κανόνα είναι σωστές!</string>
     <string name="title_rule_execute">Εκτέλεση τώρα</string>
     <string name="title_rule_applied">Μηνύματα που αφορά: %1$d</string>
     <string name="title_rule_check">Έλεγχος</string>

@@ -347,6 +347,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_landscape">Modo paisagem</string>
     <string name="title_advanced_two_row">Use duas linhas</string>
     <string name="title_advanced_two_col">Use duas colunas</string>
+    <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
     <string name="title_advanced_nav_options">Mostrar opções do menu de navegação</string>
     <string name="title_advanced_nav_pin">Fixar menu de navegação</string>
     <string name="title_advanced_nav_hide_title">Ocultar opções do menu de navegação?</string>
@@ -601,7 +602,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_rule_hide">Esconder</string>
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_move">Mover</string>
+    <string name="title_rule_delete">Eliminar permanentemente</string>
     <string name="title_rule_enabled">Ativado</string>
+    <string name="title_rule_delete_hint">A eliminação permanente é irreversível, por isso certifique-se de que as condições da regra estão corretas!</string>
     <string name="title_rule_no_body">Texto da mensagem não disponível</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Pastas</string>

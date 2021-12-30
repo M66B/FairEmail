@@ -1218,7 +1218,7 @@
     <string name="title_filter_unflagged">Chưa gắn sao</string>
     <string name="title_filter_unknown">Người gửi không xác định</string>
     <string name="title_filter_hidden">Ẩn</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Đã xoá</string>
+    <string name="title_filter_deleted">Đã xoá</string>
     <string name="title_filter_duplicates">Bản sao</string>
     <string name="title_filter_trash">Thùng rác</string>
     <string name="title_compact">Xem kiểu thu gọn</string>
@@ -1266,6 +1266,7 @@
     <string name="title_rule_answer">Trả lời/chuyển tiếp</string>
     <string name="title_rule_tts">Văn bản thành giọng nói</string>
     <string name="title_rule_automation">Tự động hóa</string>
+    <string name="title_rule_delete">Xóa vĩnh viễn</string>
     <string name="title_rule_caption">Chỉnh sửa quy tắc</string>
     <string name="title_rule_title">Quy tắc áp dụng cho</string>
     <string name="title_rule_name">Tên</string>

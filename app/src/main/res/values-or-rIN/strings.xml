@@ -166,6 +166,7 @@
     <string name="title_advanced_portrait">ପୋଟ୍ରେଟ୍ ମୋଡ୍</string>
     <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
+    <string name="title_advanced_close_pane">ବାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_cards_shadow_highlight">ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ବଦଳରେ ହାଇଲାଇଟ୍ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
@@ -217,6 +218,7 @@
     <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
     <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
+    <string name="title_advanced_subject_threading_hint">କେବଳ %1$d ଘଣ୍ଟା ମଧ୍ୟରେ ପ୍ରାପ୍ତ ହୋଇଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
     <string name="title_advanced_remove_signature_hint">ଏହା ଫଳରେ ବହୁତ କମ୍ କିମ୍ୱା ଅତ୍ୟଧିକ ପାଠ୍ୟ ଅପସାରଣ ହୋଇପାରେ</string>
     <string name="title_advanced_highlight_hint">ଥିମର ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ହାଇଲାଇଟ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହେବ</string>
     <string name="title_advanced_override_width_hint">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
@@ -226,6 +228,7 @@
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
+    <string name="title_identity_tenant_hint">ଅଧିକାଂଶ ସ୍ଥିତିରେ ଏହି କ୍ଷେତ୍ର ଖାଲି ରହିବା ଉଚିତ୍</string>
     <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାବେ ବିତରଣ/ପଠନ ରସିଦ ଅନୁରୋଧ କରନ୍ତୁ</string>
@@ -270,6 +273,7 @@
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
     <string name="title_review">ସମୀକ୍ଷା କର</string>
+    <string name="title_service_token">ଆଣ୍ଡ୍ରଏଡ୍ ଆକାଉଣ୍ଟ୍ ମ୍ୟାନେଜର୍ ଏକ VPN, ଫାୟାରୱାଲ୍, ବିଜ୍ଞାପନ ଅବରୋଧକ ଇତ୍ୟାଦି ଦ୍ୱାରା ଅବରୋଧ ହୋଇପାରେ, ଯାହା ଏହାକୁ ଏକ ଆକସେସ୍ ଟୋକନ୍ ପ୍ରାପ୍ତ କରିବାରୁ ପ୍ରତିରୋଧ କରିପାରେ</string>
     <string name="title_synchronize_now">ବର୍ତ୍ତମାନ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_synchronize_enabled">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_synchronize_batch_enable">ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
@@ -392,6 +396,7 @@
     <string name="title_sort_on_size">ଆକାର</string>
     <string name="title_sort_on_attachments">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_filter_seen">ପଠିତ</string>
+    <string name="title_filter_deleted">ବିଲୋପିତ</string>
     <string name="title_filter_trash">ଆବର୍ଜନାରେ</string>
     <string name="title_zoom">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_padding">ପ୍ୟାଡିଂ ଆକାର</string>
@@ -414,6 +419,7 @@
     <string name="title_rule_hide">ଲୁଚାଅ</string>
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
+    <string name="title_rule_delete">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_body">ପାଠ୍ୟ ଧାରଣ କରେ</string>
     <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ସର୍ବଦା ବାର୍ତ୍ତାର ପାଠ୍ୟ ଡାଉନଲୋଡ୍ ହେବ, ଯାହା ବାର୍ତ୍ତା ତାଲିକାର ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ମନ୍ଥର କରିପାରେ</string>
@@ -421,6 +427,7 @@
     <string name="title_rule_identity">ପରିଚୟ</string>
     <string name="title_rule_template">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
     <string name="title_rule_identity_missing">ପରିଚୟ ନିଖୋଜ</string>
+    <string name="title_rule_delete_hint">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବା ଅପରିବର୍ତ୍ତନୀୟ ଅଟେ, ତେଣୁ ନିଶ୍ଚିତ କରନ୍ତୁ ଯେ ନିୟମ ସର୍ତ୍ତ ସବୁ ଠିକ୍ ଅଛି!</string>
     <string name="title_rule_check">ଯାଞ୍ଚ କର</string>
     <string name="title_rule_no_body">ବାର୍ତ୍ତାର ପାଠ୍ୟ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="title_rule_tts_from">ପ୍ରେରକ</string>

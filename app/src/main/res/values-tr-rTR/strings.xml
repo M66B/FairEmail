@@ -359,6 +359,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_two_row">İki satır kullan</string>
     <string name="title_advanced_two_col">İki sütun kullan</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmek için minimum ekran boyutu</string>
+    <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
     <string name="title_advanced_nav_hide_title">Gezinme menüsü seçenekleri gizlensin mi?</string>
@@ -1227,7 +1228,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
     <string name="title_filter_unknown">Bilinmeyen gönderenler</string>
     <string name="title_filter_hidden">Gizli</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Silindi</string>
+    <string name="title_filter_deleted">Silindi</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
     <string name="title_filter_trash">Çöp</string>
     <string name="title_compact">Derlitoplu görünüm</string>
@@ -1275,6 +1276,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_answer">Cevapla/İleri</string>
     <string name="title_rule_tts">Konuşma metni</string>
     <string name="title_rule_automation">Özdevinim</string>
+    <string name="title_rule_delete">Kalıcı olarak sil</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>
@@ -1314,6 +1316,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_answer_missing">Şablon eksik</string>
     <string name="title_rule_keyword_missing">Anahtar kelime eksik</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
+    <string name="title_rule_delete_hint">Kalıcı silme işlemi geri alınamaz, bu nedenle kural koşullarının doğru olduğundan emin olun!</string>
     <string name="title_rule_execute">Şimdi çalıştır</string>
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
     <string name="title_rule_check">Denetle</string>

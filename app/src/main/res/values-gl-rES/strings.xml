@@ -1190,6 +1190,7 @@
     <string name="title_rule_answer">Responder/reenviar</string>
     <string name="title_rule_tts">Texto a fala</string>
     <string name="title_rule_automation">Automatización</string>
+    <string name="title_rule_delete">Eliminar permanentemente</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">A regra atinxe a</string>
     <string name="title_rule_name">Nome</string>

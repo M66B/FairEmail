@@ -371,6 +371,7 @@
     <string name="title_advanced_two_row">Koristi dva reda</string>
     <string name="title_advanced_two_col">Koristi dvije kolone</string>
     <string name="title_advanced_min_screen_size">Minimalna veličina ekrana za podijeljeni ekran</string>
+    <string name="title_advanced_close_pane">Suzi red ili kolonu pri zatvaranju konverzacije</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog menija</string>
     <string name="title_advanced_nav_pin">Zakači navigacijski meni</string>
     <string name="title_advanced_nav_hide_title">Sakriti opcije navigacijskog menija?</string>
@@ -791,6 +792,7 @@
     <string name="title_hint_alias">Dugo držite na identitet za prikaz opcija, poput kopiranja u svrhu kreiranja pseudonimskih identiteta</string>
     <string name="title_service_auth">Poruka e-mail servera: \'%1$s\'</string>
     <string name="title_service_vpn">Ovo je možda uzrokovano od strane VPN-a koji se koristi</string>
+    <string name="title_service_token">Upravljač Android računima može biti blokiran od strane VPN-a, vatrozida, blokatora reklama itd., sprječavajući ga da dobije pristupni token</string>
     <string name="title_service_port">Molimo, ponovo provjerite broj porta</string>
     <string name="title_service_protocol">Molimo, ponovo provjerite protokol (SSL/TLS ili STARTTLS)</string>
     <string name="title_advanced_browse">Pretražuj poruke na serveru</string>
@@ -1242,6 +1244,7 @@
     <string name="title_filter_unflagged">Bez zvjezdice</string>
     <string name="title_filter_unknown">Nepoznati pošiljaoci</string>
     <string name="title_filter_hidden">Skrivenom</string>
+    <string name="title_filter_deleted">Izbrisano</string>
     <string name="title_filter_duplicates">Duplikati</string>
     <string name="title_filter_trash">Otpad</string>
     <string name="title_compact">Kompaktni izgled</string>
@@ -1289,6 +1292,7 @@
     <string name="title_rule_answer">Odgovori/proslijedi</string>
     <string name="title_rule_tts">Tekst u govor</string>
     <string name="title_rule_automation">Automatizacija</string>
+    <string name="title_rule_delete">Trajno izbriši</string>
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>
     <string name="title_rule_name">Naziv</string>
@@ -1328,6 +1332,7 @@
     <string name="title_rule_answer_missing">Nedostaje prijedložak</string>
     <string name="title_rule_keyword_missing">Nedostaje ključna riječ</string>
     <string name="title_rule_automation_hint">Ovo će poslati opis zadatka \'%1$s\' sa dodacima \'%2$s\'</string>
+    <string name="title_rule_delete_hint">Trajno brisanje je nepovratna radnja, zato osigurajte da su uvjeti ispravni!</string>
     <string name="title_rule_execute">Izvrši sada</string>
     <string name="title_rule_applied">Zahvaćene poruke: %1$d</string>
     <string name="title_rule_check">Provjeri</string>

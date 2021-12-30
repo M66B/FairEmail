@@ -1249,6 +1249,7 @@
     <string name="title_rule_answer">Vastaa/lähetä edelleen</string>
     <string name="title_rule_tts">Teksti puheeksi</string>
     <string name="title_rule_automation">Automaatio</string>
+    <string name="title_rule_delete">Poista pysyvästi</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>
     <string name="title_rule_title">Säännön käyttökohde on</string>
     <string name="title_rule_name">Nimi</string>

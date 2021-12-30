@@ -370,6 +370,7 @@
     <string name="title_advanced_two_row">Utilizați două rânduri</string>
     <string name="title_advanced_two_col">Utilizați două coloane</string>
     <string name="title_advanced_min_screen_size">Dimensiunea minimă a ecranului pentru împărțirea ecranului</string>
+    <string name="title_advanced_close_pane">Restrângerea unui rând sau a unei coloane la închiderea unei conversații</string>
     <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
     <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
     <string name="title_advanced_nav_hide_title">Ascundeți opțiunile din meniul de navigare?</string>
@@ -1239,7 +1240,7 @@
     <string name="title_filter_unflagged">Fără stea</string>
     <string name="title_filter_unknown">Expeditori necunoscuți</string>
     <string name="title_filter_hidden">Ascuns</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">Șters</string>
+    <string name="title_filter_deleted">Șters</string>
     <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_filter_trash">A fost aruncat la gunoi</string>
     <string name="title_compact">Vizualizare compactă</string>
@@ -1287,6 +1288,7 @@
     <string name="title_rule_answer">Răspunde/redirecționare</string>
     <string name="title_rule_tts">Text în vorbire</string>
     <string name="title_rule_automation">Automatizare</string>
+    <string name="title_rule_delete">Șterge permanent</string>
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
     <string name="title_rule_name">Nume</string>
@@ -1326,6 +1328,7 @@
     <string name="title_rule_answer_missing">Șablon lipsă</string>
     <string name="title_rule_keyword_missing">Lipsește cuvântul cheie</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
+    <string name="title_rule_delete_hint">Ștergerea permanentă este ireversibilă, așa că asigurați-vă că condițiile regulii sunt corecte!</string>
     <string name="title_rule_execute">Execută acum</string>
     <string name="title_rule_applied">Mesaje afectate: %1$d</string>
     <string name="title_rule_check">Verifică</string>

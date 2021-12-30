@@ -1195,6 +1195,7 @@
     <string name="title_rule_answer">Responder/encaminhar</string>
     <string name="title_rule_tts">Texto para voz</string>
     <string name="title_rule_automation">Automatização</string>
+    <string name="title_rule_delete">Apagar permanentemente</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra se aplica a</string>
     <string name="title_rule_name">Nome</string>

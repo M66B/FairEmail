@@ -381,6 +381,7 @@
     <string name="title_advanced_two_row">להשתמש בשתי שורות</string>
     <string name="title_advanced_two_col">להשתמש בשתי עמודות</string>
     <string name="title_advanced_min_screen_size">גודל המסך המזערי לפיצול המסך</string>
+    <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
     <string name="title_advanced_nav_pin">נעיצת תפריט הניווט</string>
     <string name="title_advanced_nav_hide_title">להסתיר את אפשרויות תפריט הניווט?</string>
@@ -1252,7 +1253,7 @@
     <string name="title_filter_unflagged">ללא כוכב</string>
     <string name="title_filter_unknown">מוענים בלתי ידועים</string>
     <string name="title_filter_hidden">מוסתר</string>
-    <string name="title_filter_deleted" comment="title_filter_deleted&#10;Filter out &quot;Deleted&quot; messages = messages with deleted flag set">נמחקו</string>
+    <string name="title_filter_deleted">נמחקו</string>
     <string name="title_filter_duplicates">כפילויות</string>
     <string name="title_filter_trash">באשפה</string>
     <string name="title_compact">תצוגה מצומצמת</string>
@@ -1300,6 +1301,7 @@
     <string name="title_rule_answer">תגובה/העברה</string>
     <string name="title_rule_tts">טקסט לדיבור</string>
     <string name="title_rule_automation">אוטומציה</string>
+    <string name="title_rule_delete">מחיקה לצמיתות</string>
     <string name="title_rule_caption">עריכת כלל</string>
     <string name="title_rule_title">הכלל חל על</string>
     <string name="title_rule_name">שם</string>
@@ -1339,6 +1341,7 @@
     <string name="title_rule_answer_missing">תבנית חסרה</string>
     <string name="title_rule_keyword_missing">מילת מפתח חסרה</string>
     <string name="title_rule_automation_hint">פעולה זו תשלח את ה־intent‏ ‚%1$s’ עם התוספות ‚%2$s’</string>
+    <string name="title_rule_delete_hint">מחיקה לצמיתות היא בלתי הפיכה, לכן כדאי לוודא שתנאי הכלל נכונים!</string>
     <string name="title_rule_execute">לבצע כעת</string>
     <string name="title_rule_applied">הודעות שיושפעו: %1$d</string>
     <string name="title_rule_check">בדיקה</string>

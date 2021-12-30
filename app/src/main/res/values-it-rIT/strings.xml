@@ -1280,6 +1280,7 @@
     <string name="title_rule_answer">Rispondi/inoltra</string>
     <string name="title_rule_tts">Sintesi vocale</string>
     <string name="title_rule_automation">Automazione</string>
+    <string name="title_rule_delete">Elimina permanentemente</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>

@@ -1255,6 +1255,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_answer">Balas/teruskan</string>
     <string name="title_rule_tts">Tulisan ke suara</string>
     <string name="title_rule_automation">Otomatisasi</string>
+    <string name="title_rule_delete">Hapus permanen</string>
     <string name="title_rule_caption">Sunting aturan</string>
     <string name="title_rule_title">Aturan berlaku untuk</string>
     <string name="title_rule_name">Nama</string>
