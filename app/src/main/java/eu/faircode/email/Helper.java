@@ -619,9 +619,16 @@ public class Helper {
         if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             DisplayMetrics dm = context.getResources().getDisplayMetrics();
             return TypedValue.complexToDimensionPixelSize(tv.data, dm);
-        }
-        else
+        } else
             return Helper.dp2pixels(context, 56);
+    }
+
+    static int getBottomNavigationHeight(Context context) {
+        int resid = context.getResources().getIdentifier("design_bottom_navigation_height", "dimen", context.getPackageName());
+        if (resid <= 0)
+            return Helper.dp2pixels(context, 56);
+        else
+            return context.getResources().getDimensionPixelSize(resid);
     }
 
     static Intent getChooser(Context context, Intent intent) {
