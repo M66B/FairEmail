@@ -49,7 +49,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     private int height;
     private IWebView intf;
     private Runnable onPageLoaded;
-
     private static String userAgent = null;
 
     private static final long PAGE_LOADED_FALLBACK_DELAY = 1500L; // milliseconds
@@ -210,8 +209,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (height > getMinimumHeight())
             super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
-        else
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(getResources().getDisplayMetrics().heightPixels, MeasureSpec.AT_MOST));
+        else {
+            int max = getResources().getDisplayMetrics().heightPixels;
+            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(max, MeasureSpec.AT_MOST));
+        }
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height);
