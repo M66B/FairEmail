@@ -4,9 +4,10 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
-### Next version
+### 1.1800 - 2021-12-30
 
 * Added rule action to permanently delete messages
+* Using IMAP flags to store low/high importance
 * Small improvements and minor bug fixes
 * Updated translations
 
