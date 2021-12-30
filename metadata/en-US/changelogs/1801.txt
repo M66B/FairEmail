@@ -4,7 +4,7 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
-### 1.1800 - 2021-12-30
+### 1.1801 - 2021-12-30
 
 * Added rule action to permanently delete messages
 * Using IMAP flags to store low/high importance
