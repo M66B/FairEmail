@@ -201,7 +201,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
              */
         }
 
-        checkAuthentication();
+        checkAuthentication(true);
 
         super.onCreate(savedInstanceState);
     }
@@ -247,7 +247,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finish();
             startActivity(getIntent());
         } else
-            checkAuthentication();
+            checkAuthentication(true);
     }
 
     @Override
@@ -257,9 +257,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         visible = false;
 
-        if (!this.getClass().equals(ActivityMain.class) &&
-                Helper.shouldAuthenticate(this, true))
-            finishAndRemoveTask();
+        checkAuthentication(false);
     }
 
     @Override
@@ -271,14 +269,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void onUserInteraction() {
         Log.d("User interaction");
-
-        if (!this.getClass().equals(ActivityMain.class) &&
-                Helper.shouldAuthenticate(this, false)) {
-            finishAndRemoveTask();
-            Intent main = new Intent(this, ActivityMain.class);
-            main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(main);
-        }
+        checkAuthentication(true);
     }
 
     @Override
@@ -379,18 +370,21 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void checkAuthentication() {
+    private void checkAuthentication(boolean auth) {
         if (!this.getClass().equals(ActivityMain.class) &&
                 Helper.shouldAuthenticate(this, false)) {
-            Intent intent = getIntent();
             finishAndRemoveTask();
             setResult(RESULT_CANCELED);
             finishAffinity();
-            processStreams(intent);
-            Intent main = new Intent(this, ActivityMain.class)
-                    .putExtra("intent", intent);
-            main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(main);
+
+            if (auth) {
+                Intent intent = getIntent();
+                processStreams(intent);
+                Intent main = new Intent(this, ActivityMain.class)
+                        .putExtra("intent", intent);
+                main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(main);
+            }
         }
     }
 
