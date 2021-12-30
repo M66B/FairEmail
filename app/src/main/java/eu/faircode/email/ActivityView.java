@@ -1148,7 +1148,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             undo(undo_timeout, title, args, move, show);
     }
 
-    public void undo(long undo_timeout, String title, final Bundle args, final SimpleTask move, final SimpleTask show) {
+    private void undo(long undo_timeout, String title, final Bundle args, final SimpleTask move, final SimpleTask show) {
         if (drawerLayout == null || drawerLayout.getChildCount() == 0) {
             Log.e("Undo: drawer missing");
             if (show != null)
