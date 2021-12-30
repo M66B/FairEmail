@@ -211,7 +211,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         if (height > getMinimumHeight())
             super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
         else
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec); // Unspecified
+            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(getResources().getDisplayMetrics().heightPixels, MeasureSpec.AT_MOST));
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height);
