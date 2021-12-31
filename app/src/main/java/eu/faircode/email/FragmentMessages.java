@@ -34,6 +34,8 @@ import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecorato
 import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_BCK;
 import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
@@ -282,6 +284,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private TextView tvSelectedCount;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
+    private ObjectAnimator animator;
 
     private String type;
     private long account;
@@ -525,6 +528,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
+
+        animator = Helper.getFabAnimator(fabSearch, this);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -1336,12 +1341,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     criteria.with_encrypted ||
                     criteria.with_attachments ||
                     criteria.with_notes ||
-                    criteria.with_types != null)
+                    criteria.with_types != null) {
                 fabSearch.hide();
-            else
+                if (animator.isStarted())
+                    animator.end();
+            } else {
                 fabSearch.show();
-        } else
+                if (!animator.isStarted())
+                    animator.start();
+            }
+        } else {
             fabSearch.hide();
+            if (animator.isStarted())
+                animator.end();
+        }
 
         fabMore.hide();
         tvSelectedCount.setVisibility(View.GONE);
