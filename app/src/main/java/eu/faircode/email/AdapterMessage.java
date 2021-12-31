@@ -4761,12 +4761,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionJunk(TupleMessageEx message) {
-            boolean canBlock = false;
-            if (message.from != null && message.from.length > 0) {
-                String email = ((InternetAddress) message.from[0]).getAddress();
-                canBlock = !TextUtils.isEmpty(email);
-            }
-
             Bundle aargs = new Bundle();
             aargs.putLong("id", message.id);
             aargs.putLong("account", message.account);
@@ -4775,7 +4769,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putString("type", message.folderType);
             aargs.putString("from", DB.Converters.encodeAddresses(message.from));
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
-            aargs.putBoolean("canBlock", canBlock);
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);

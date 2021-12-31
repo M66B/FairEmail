@@ -67,7 +67,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final String type = args.getString("type");
         final Address[] froms = DB.Converters.decodeAddresses(args.getString("from"));
         final boolean inJunk = args.getBoolean("inJunk");
-        final boolean canBlock = args.getBoolean("canBlock");
 
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_junk, null);
@@ -91,6 +90,12 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
         boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
+
+        boolean canBlock = false;
+        if (froms != null && froms.length > 0) {
+            String email = ((InternetAddress) froms[0]).getAddress();
+            canBlock = !TextUtils.isEmpty(email);
+        }
 
         // Wire controls
 
