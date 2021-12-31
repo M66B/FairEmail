@@ -30,6 +30,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -62,6 +63,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int padding;
     private boolean prefer_contact;
     private boolean only_contact;
+    private boolean distinguish_contacts;
     private int colorStripeWidth;
     private int colorWidgetForeground;
     private int colorWidgetRead;
@@ -101,6 +103,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         prefer_contact = prefs.getBoolean("prefer_contact", false);
         only_contact = prefs.getBoolean("only_contact", false);
+        distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
 
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
@@ -192,6 +195,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setViewVisibility(R.id.stripe, hasColor && color_stripe ? View.VISIBLE : View.GONE);
 
             Address[] recipients = ContactInfo.fillIn(message.from, prefer_contact, only_contact);
+            boolean known = (distinguish_contacts && ContactInfo.getLookupUri(message.from) != null);
 
             SpannableString ssFrom = new SpannableString(pro
                     ? MessageHelper.formatAddressesShort(recipients)
@@ -213,6 +217,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 ssSubject.setSpan(new StyleSpan(subject_italic ? Typeface.BOLD_ITALIC : Typeface.BOLD), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                 ssAccount.setSpan(new StyleSpan(Typeface.BOLD), 0, ssAccount.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             }
+
+            if (known)
+                ssFrom.setSpan(new UnderlineSpan(), 0, ssFrom.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
 
             views.setTextViewText(idFrom, ssFrom);
             views.setTextViewText(idTime, ssTime);
