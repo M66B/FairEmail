@@ -42,6 +42,8 @@ import androidx.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.mail.Address;
+
 public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private Context context;
     private int appWidgetId;
@@ -58,6 +60,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int background;
     private int font;
     private int padding;
+    private boolean prefer_contact;
+    private boolean only_contact;
     private int colorStripeWidth;
     private int colorWidgetForeground;
     private int colorWidgetRead;
@@ -95,8 +99,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
+        prefer_contact = prefs.getBoolean("prefer_contact", false);
+        only_contact = prefs.getBoolean("only_contact", false);
+
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
+
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
         colorSeparator = ContextCompat.getColor(context, R.color.lightColorSeparator);
@@ -183,8 +191,10 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setInt(R.id.stripe, "setBackgroundColor", colorBackground);
             views.setViewVisibility(R.id.stripe, hasColor && color_stripe ? View.VISIBLE : View.GONE);
 
+            Address[] recipients = ContactInfo.fillIn(message.from, prefer_contact, only_contact);
+
             SpannableString ssFrom = new SpannableString(pro
-                    ? MessageHelper.formatAddressesShort(message.from)
+                    ? MessageHelper.formatAddressesShort(recipients)
                     : context.getString(R.string.title_pro_feature));
             SpannableString ssTime = new SpannableString(
                     Helper.getRelativeTimeSpanString(context, message.received));
