@@ -23,6 +23,8 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
@@ -629,6 +631,22 @@ public class Helper {
             return Helper.dp2pixels(context, 56);
         else
             return context.getResources().getDimensionPixelSize(resid);
+    }
+
+    static ObjectAnimator getFabAnimator(View fab, LifecycleOwner owner) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.5f, 1.0f);
+        animator.setDuration(750L);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.addUpdateListener(new ObjectAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                if (!owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+                fab.setAlpha((float) animation.getAnimatedValue());
+            }
+        });
+        return animator;
     }
 
     static Intent getChooser(Context context, Intent intent) {

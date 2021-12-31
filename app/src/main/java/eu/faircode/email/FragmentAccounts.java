@@ -22,7 +22,6 @@ package eu.faircode.email;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -46,7 +45,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -276,18 +274,7 @@ public class FragmentAccounts extends FragmentBase {
             }
         });
 
-        animator = ObjectAnimator.ofFloat(fab, "alpha", 0.5f, 1.0f);
-        animator.setDuration(750L);
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setRepeatMode(ValueAnimator.REVERSE);
-        animator.addUpdateListener(new ObjectAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    return;
-                fab.setAlpha((float) animation.getAnimatedValue());
-            }
-        });
+        animator = Helper.getFabAnimator(fab, this);
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
