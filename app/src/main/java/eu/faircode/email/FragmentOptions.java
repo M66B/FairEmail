@@ -195,7 +195,7 @@ public class FragmentOptions extends FragmentBase {
                                 .setOnDismissListener(new DialogInterface.OnDismissListener() {
                                     @Override
                                     public void onDismiss(DialogInterface dialog) {
-                                        if (!prefs.getBoolean("setup_advanced", false))
+                                        if (pager != null && !prefs.getBoolean("setup_advanced", false))
                                             pager.setCurrentItem(0);
                                     }
                                 })
