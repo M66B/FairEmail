@@ -88,6 +88,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final Group grpMore = view.findViewById(R.id.grpMore);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean block_sender = prefs.getBoolean("block_sender", true);
         boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
         boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
 
@@ -334,7 +335,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 : getString(R.string.title_ask_spam_who, MessageHelper.formatAddresses(froms)));
         cbBlockSender.setEnabled(canBlock);
         cbBlockDomain.setEnabled(false);
-        cbBlockSender.setChecked(canBlock);
+        cbBlockSender.setChecked(canBlock && block_sender);
 
         cbBlockDomain.setText(getString(R.string.title_block_sender_domain, TextUtils.join(",", domains)));
         if (common) {
@@ -404,6 +405,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    prefs.edit().putBoolean("block_sender", cbBlockSender.isChecked()).apply();
                     getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
                     getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
                     sendResult(Activity.RESULT_OK);
