@@ -634,7 +634,7 @@ public class Helper {
     }
 
     static ObjectAnimator getFabAnimator(View fab, LifecycleOwner owner) {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.5f, 1.0f);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.9f, 1.0f);
         animator.setDuration(750L);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.setRepeatMode(ValueAnimator.REVERSE);
@@ -643,7 +643,8 @@ public class Helper {
             public void onAnimationUpdate(ValueAnimator animation) {
                 if (!owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     return;
-                fab.setAlpha((float) animation.getAnimatedValue());
+                fab.setScaleX((float) animation.getAnimatedValue());
+                fab.setScaleY((float) animation.getAnimatedValue());
             }
         });
         return animator;
