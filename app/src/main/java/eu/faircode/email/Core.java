@@ -358,7 +358,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    onMove(context, jargs, folder, message);
+                                    onMove(context, jargs, account, folder, message);
                                     break;
 
                                 case EntityOperation.DELETE:
@@ -1496,7 +1496,7 @@ class Core {
             }
     }
 
-    private static void onMove(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message) throws JSONException, FolderNotFoundException {
+    private static void onMove(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message) throws JSONException, FolderNotFoundException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -1513,10 +1513,11 @@ class Core {
             throw new IllegalArgumentException("self");
 
         // Move from trash/drafts only
-        if (!EntityFolder.TRASH.equals(folder.type) &&
-                !EntityFolder.DRAFTS.equals(folder.type))
+        if (!EntityFolder.DRAFTS.equals(folder.type) &&
+                !(EntityFolder.TRASH.equals(folder.type) && account.leave_deleted))
             throw new IllegalArgumentException("Invalid POP3 folder" +
-                    " source=" + folder.type + " target=" + target.type);
+                    " source=" + folder.type + " target=" + target.type +
+                    " leave deleted=" + account.leave_deleted);
 
         message.folder = target.id;
         if (seen)

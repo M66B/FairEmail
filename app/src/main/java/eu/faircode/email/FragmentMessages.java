@@ -3292,7 +3292,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .setIcon(R.drawable.twotone_attachment_24);
 
                 if (!result.read_only) {
-                    if (result.hasInbox && !result.isInbox) // not is inbox
+                    if ((result.hasInbox && !result.isInbox) ||
+                            (result.leave_deleted != null && result.leave_deleted && result.isTrash)) // not is inbox
                         popupMenu.getMenu().add(Menu.FIRST, R.string.title_folder_inbox, order++, R.string.title_folder_inbox)
                                 .setIcon(R.drawable.twotone_move_to_inbox_24);
 

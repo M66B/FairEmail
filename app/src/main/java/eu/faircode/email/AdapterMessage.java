@@ -1959,7 +1959,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean archive = (move && (hasArchive && !inArchive && !inSent && !inTrash && !inJunk));
                     boolean trash = (move || outbox || debug ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
-                    boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk));
+                    boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk)) ||
+                            (message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted && inTrash);
                     boolean keywords = (message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
