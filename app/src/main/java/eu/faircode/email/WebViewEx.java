@@ -48,6 +48,7 @@ import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
     private int maxHeight;
+    private boolean legacy;
     private IWebView intf;
     private Runnable onPageLoaded;
 
@@ -111,6 +112,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int message_zoom = prefs.getInt("message_zoom", 100);
         boolean monospaced = prefs.getBoolean("monospaced", false);
+        legacy = prefs.getBoolean("webview_legacy", false);
 
         WebSettings settings = getSettings();
 
@@ -215,10 +217,17 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (height > getMinimumHeight())
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(Math.min(height, maxHeight), MeasureSpec.AT_MOST));
-        else
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST));
+        if (legacy) {
+            if (height > getMinimumHeight())
+                super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
+            else
+                super.onMeasure(widthMeasureSpec, heightMeasureSpec); // Unspecified
+        } else {
+            if (height > getMinimumHeight())
+                super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(Math.min(height, maxHeight), MeasureSpec.AT_MOST));
+            else
+                super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST));
+        }
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());

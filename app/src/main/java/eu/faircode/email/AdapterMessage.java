@@ -299,6 +299,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private List<String> languages;
     private static boolean debug;
     private int level;
+    private boolean webview_legacy;
 
     private boolean gotoTop = false;
     private Integer gotoPos = null;
@@ -2430,7 +2431,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 if (clampedY && ((WebViewEx) wvBody).isZoomedY()) {
                                     boolean flinged = false;
                                     try {
-                                        if (rv != null)
+                                        if (!webview_legacy && rv != null)
                                             flinged = rv.fling(dx * 10, dy * 10);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
@@ -6200,6 +6201,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         debug = prefs.getBoolean("debug", false);
         level = prefs.getInt("log_level", Log.getDefaultLogLevel());
+
+        webview_legacy = prefs.getBoolean("webview_legacy", false);
 
         DiffUtil.ItemCallback<TupleMessageEx> callback = new DiffUtil.ItemCallback<TupleMessageEx>() {
             @Override

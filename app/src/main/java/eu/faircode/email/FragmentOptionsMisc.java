@@ -140,6 +140,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvChunkSize;
     private SeekBar sbChunkSize;
     private ImageButton ibSqliteCache;
+    private SwitchCompat swWebViewLegacy;
     private SwitchCompat swModSeq;
     private SwitchCompat swExpunge;
     private SwitchCompat swUidExpunge;
@@ -183,7 +184,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "experiments", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
             "query_threads", "wal", "checkpoints", "sqlite_cache",
-            "chunk_size", "use_modseq", "perform_expunge", "uid_expunge",
+            "chunk_size", "webview_legacy",
+            "use_modseq", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl",
             "keep_alive_poll", "empty_pool", "idle_done",
             "exact_alarms", "infra", "dup_msgids", "test_iab"
@@ -277,6 +279,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
         tvChunkSize = view.findViewById(R.id.tvChunkSize);
         sbChunkSize = view.findViewById(R.id.sbChunkSize);
+        swWebViewLegacy = view.findViewById(R.id.swWebViewLegacy);
         swModSeq = view.findViewById(R.id.swModSeq);
         swExpunge = view.findViewById(R.id.swExpunge);
         swUidExpunge = view.findViewById(R.id.swUidExpunge);
@@ -834,6 +837,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swWebViewLegacy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("webview_legacy", checked).apply();
+            }
+        });
+
         swModSeq.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1381,6 +1391,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));
         sbChunkSize.setProgress(chunk_size);
 
+        swWebViewLegacy.setChecked(prefs.getBoolean("webview_legacy", false));
         swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swUidExpunge.setChecked(prefs.getBoolean("uid_expunge", false));
