@@ -2427,8 +2427,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             @Override
                             public void onOverScrolled(int scrollX, int scrollY, int dx, int dy, boolean clampedX, boolean clampedY) {
-                                if (clampedY && ((WebViewEx) wvBody).isZoomedY())
-                                    rv.fling(dx * 10, dy * 10);
+                                if (clampedY && ((WebViewEx) wvBody).isZoomedY()) {
+                                    boolean flinged = false;
+                                    try {
+                                        if (rv != null)
+                                            flinged = rv.fling(dx * 10, dy * 10);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                    if (!flinged)
+                                        properties.scrollBy(dx, dy);
+                                }
                             }
 
                             @Override
