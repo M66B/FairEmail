@@ -9073,22 +9073,27 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Bundle args = getArguments();
             int count = args.getInt("count");
 
+            final Context context = getContext();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            boolean block_sender = prefs.getBoolean("block_sender", true);
             String text = getResources().getQuantityString(R.plurals.title_ask_spam, count, count);
 
-            final Context context = getContext();
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_spam, null);
             TextView tvMessage = dview.findViewById(R.id.tvMessage);
             CheckBox cbBlockSender = dview.findViewById(R.id.cbBlockSender);
 
             tvMessage.setText(text);
-            cbBlockSender.setChecked(true);
+            cbBlockSender.setChecked(block_sender);
 
             return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            getArguments().putBoolean("block", cbBlockSender.isChecked());
+                            boolean block = cbBlockSender.isChecked();
+                            prefs.edit().putBoolean("block_sender", block).apply();
+                            getArguments().putBoolean("block", block);
                             sendResult(Activity.RESULT_OK);
                         }
                     })
