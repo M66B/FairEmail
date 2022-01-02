@@ -771,7 +771,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (!ch && !dh)
                     return null;
 
-                View header = inflater.inflate(R.layout.item_group, null, false);
+                View header = inflater.inflate(R.layout.item_group, parent, false);
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
                 TextView tvDate = header.findViewById(R.id.tvDate);
                 tvCategory.setVisibility(ch ? View.VISIBLE : View.GONE);

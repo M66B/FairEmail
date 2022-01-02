@@ -192,7 +192,7 @@ public class FragmentAccounts extends FragmentBase {
                         return null;
                 }
 
-                View header = inflater.inflate(R.layout.item_group, null, false);
+                View header = inflater.inflate(R.layout.item_group, parent, false);
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
                 TextView tvDate = header.findViewById(R.id.tvDate);
 
