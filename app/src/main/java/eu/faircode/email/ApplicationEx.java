@@ -318,6 +318,9 @@ public class ApplicationEx extends Application
         if (version < BuildConfig.VERSION_CODE)
             editor.remove("crash_report_count");
 
+        if (!BuildConfig.TEST_RELEASE)
+            editor.remove("test1").remove("test2").remove("test3");
+
         if (version < 468) {
             editor.remove("notify_trash");
             editor.remove("notify_archive");
