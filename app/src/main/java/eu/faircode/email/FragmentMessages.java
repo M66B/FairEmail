@@ -677,10 +677,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             rvMessage.addItemDecoration(itemDecorator);
         }
 
+        int textColorSecondary = Helper.resolveColor(getContext(), android.R.attr.textColorSecondary);
+        int textColorTertiary = Helper.resolveColor(getContext(), android.R.attr.textColorTertiary);
+
         View inGroup = view.findViewById(R.id.inGroup);
         TextView tvFixedCategory = inGroup.findViewById(R.id.tvCategory);
         TextView tvFixedDate = inGroup.findViewById(R.id.tvDate);
         View vFixedSeparator = inGroup.findViewById(R.id.vSeparator);
+
+        tvFixedCategory.setTextColor(textColorSecondary);
+        tvFixedDate.setTextColor(textColorTertiary);
 
         String sort = prefs.getString(getSort(getContext(), viewType, type), "time");
         inGroup.setVisibility(date_fixed && "time".equals(sort) ? View.INVISIBLE : View.GONE);
@@ -774,6 +780,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 View header = inflater.inflate(R.layout.item_group, parent, false);
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
                 TextView tvDate = header.findViewById(R.id.tvDate);
+
+                tvCategory.setTextColor(textColorSecondary);
+                tvDate.setTextColor(textColorTertiary);
+
                 tvCategory.setVisibility(ch ? View.VISIBLE : View.GONE);
                 tvDate.setVisibility(dh ? View.VISIBLE : View.GONE);
 
