@@ -391,9 +391,11 @@ public class FixedTextView extends AppCompatTextView {
                     if (selected instanceof Spanned) {
                         String html = HtmlHelper.toHtml((Spanned) selected, context);
                         cbm.setPrimaryClip(ClipData.newHtmlText(context.getString(R.string.app_name), selected, html));
-                        if (getText() instanceof Spannable)
+                        if (getText() instanceof Spannable) {
                             Selection.removeSelection((Spannable) getText());
-                        return false;
+                            return true;
+                        } else
+                            return false;
                     }
                 }
             }
