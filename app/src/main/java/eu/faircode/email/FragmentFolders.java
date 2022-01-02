@@ -217,6 +217,9 @@ public class FragmentFolders extends FragmentBase {
         }
 
         if (unified) {
+            int textColorSecondary = Helper.resolveColor(getContext(), android.R.attr.textColorSecondary);
+            int textColorTertiary = Helper.resolveColor(getContext(), android.R.attr.textColorTertiary);
+
             DividerItemDecoration categoryDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
                 @Override
                 public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
@@ -267,6 +270,9 @@ public class FragmentFolders extends FragmentBase {
                     View header = inflater.inflate(R.layout.item_group, null, false);
                     TextView tvCategory = header.findViewById(R.id.tvCategory);
                     TextView tvDate = header.findViewById(R.id.tvDate);
+
+                    tvCategory.setTextColor(textColorSecondary);
+                    tvDate.setTextColor(textColorTertiary);
 
                     if (cards) {
                         View vSeparator = header.findViewById(R.id.vSeparator);
