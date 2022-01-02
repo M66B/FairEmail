@@ -127,6 +127,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
+    private SwitchCompat swTest1;
+    private SwitchCompat swTest2;
+    private SwitchCompat swTest3;
 
     private Button btnRepair;
     private SwitchCompat swAutostart;
@@ -170,6 +173,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvPermissions;
 
     private Group grpUpdates;
+    private Group grpTest;
     private CardView cardDebug;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -182,7 +186,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "language", "deepl_enabled", "watchdog",
             "updates", "weekly", "show_changelog",
             "experiments", "crash_reports", "cleanup_attachments",
-            "protocol", "debug", "log_level",
+            "protocol", "debug", "log_level", "test1", "test2", "test3",
             "query_threads", "wal", "checkpoints", "sqlite_cache",
             "chunk_size", "webview_legacy",
             "use_modseq", "perform_expunge", "uid_expunge",
@@ -266,6 +270,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
+        swTest1 = view.findViewById(R.id.swTest1);
+        swTest2 = view.findViewById(R.id.swTest2);
+        swTest3 = view.findViewById(R.id.swTest3);
 
         btnRepair = view.findViewById(R.id.btnRepair);
         swAutostart = view.findViewById(R.id.swAutostart);
@@ -309,6 +316,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvPermissions = view.findViewById(R.id.tvPermissions);
 
         grpUpdates = view.findViewById(R.id.grpUpdates);
+        grpTest = view.findViewById(R.id.grpTest);
         cardDebug = view.findViewById(R.id.cardDebug);
 
         setOptions();
@@ -658,6 +666,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             view.scrollTo(0, swDebug.getTop());
                         }
                     });
+            }
+        });
+
+        swTest1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("test1", checked).apply();
+            }
+        });
+
+        swTest2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("test2", checked).apply();
+            }
+        });
+
+        swTest3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("test3", checked).apply();
             }
         });
 
@@ -1175,6 +1204,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
                 ? View.GONE : View.VISIBLE);
+        grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
@@ -1368,6 +1398,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
+        swTest1.setChecked(prefs.getBoolean("test1", false));
+        swTest2.setChecked(prefs.getBoolean("test2", false));
+        swTest3.setChecked(prefs.getBoolean("test3", false));
 
         swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
 
