@@ -376,6 +376,9 @@ public class FixedTextView extends AppCompatTextView {
     public boolean onTextContextMenuItem(int id) {
         try {
             if (id == android.R.id.copy) {
+                Context context = getContext();
+                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+
                 int start = getSelectionStart();
                 int end = getSelectionEnd();
                 if (start > end) {
@@ -384,8 +387,6 @@ public class FixedTextView extends AppCompatTextView {
                     end = s;
                 }
 
-                Context context = getContext();
-                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if (start != end && cbm != null) {
                     CharSequence selected = getText().subSequence(start, end);
                     if (selected instanceof Spanned) {
