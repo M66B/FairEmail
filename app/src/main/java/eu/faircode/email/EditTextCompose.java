@@ -125,7 +125,7 @@ public class EditTextCompose extends FixedEditText {
                         String html = HtmlHelper.toHtml((Spanned) selected, context);
                         cbm.setPrimaryClip(ClipData.newHtmlText(context.getString(R.string.app_name), selected, html));
                         setSelection(end);
-                        return false;
+                        return true;
                     }
                 }
             } else if (id == android.R.id.paste) {
