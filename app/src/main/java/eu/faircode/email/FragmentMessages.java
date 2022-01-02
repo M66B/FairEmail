@@ -807,7 +807,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return header;
             }
 
-            CharSequence getRelativeDate(long time, Context context) {
+            @NonNull
+            String getRelativeDate(long time, Context context) {
                 Date now = new Date();
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(now);
@@ -817,14 +818,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 cal.set(Calendar.MILLISECOND, 0);
                 cal.add(Calendar.DAY_OF_MONTH, -1);
 
+                CharSequence rtime;
                 if (time <= cal.getTimeInMillis())
-                    return DateUtils.formatDateRange(context,
+                    rtime = DateUtils.formatDateRange(context,
                             time, time,
                             FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE);
                 else
-                    return DateUtils.getRelativeTimeSpanString(
+                    rtime = DateUtils.getRelativeTimeSpanString(
                             time, now.getTime(),
                             DAY_IN_MILLIS, 0);
+                return (rtime == null ? "" : rtime.toString());
             }
         };
         rvMessage.addItemDecoration(dateDecorator);
