@@ -130,6 +130,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swTest1;
     private SwitchCompat swTest2;
     private SwitchCompat swTest3;
+    private SwitchCompat swTest4;
+    private SwitchCompat swTest5;
 
     private Button btnRepair;
     private SwitchCompat swAutostart;
@@ -186,7 +188,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "language", "deepl_enabled", "watchdog",
             "updates", "weekly", "show_changelog",
             "experiments", "crash_reports", "cleanup_attachments",
-            "protocol", "debug", "log_level", "test1", "test2", "test3",
+            "protocol", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
             "query_threads", "wal", "checkpoints", "sqlite_cache",
             "chunk_size", "webview_legacy",
             "use_modseq", "perform_expunge", "uid_expunge",
@@ -273,6 +275,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swTest1 = view.findViewById(R.id.swTest1);
         swTest2 = view.findViewById(R.id.swTest2);
         swTest3 = view.findViewById(R.id.swTest3);
+        swTest4 = view.findViewById(R.id.swTest4);
+        swTest5 = view.findViewById(R.id.swTest5);
 
         btnRepair = view.findViewById(R.id.btnRepair);
         swAutostart = view.findViewById(R.id.swAutostart);
@@ -687,6 +691,20 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("test3", checked).apply();
+            }
+        });
+
+        swTest4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("test4", checked).apply();
+            }
+        });
+
+        swTest5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("test5", checked).apply();
             }
         });
 
@@ -1401,6 +1419,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swTest1.setChecked(prefs.getBoolean("test1", false));
         swTest2.setChecked(prefs.getBoolean("test2", false));
         swTest3.setChecked(prefs.getBoolean("test3", false));
+        swTest4.setChecked(prefs.getBoolean("test4", false));
+        swTest5.setChecked(prefs.getBoolean("test5", false));
 
         swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
 

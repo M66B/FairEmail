@@ -319,7 +319,7 @@ public class ApplicationEx extends Application
             editor.remove("crash_report_count");
 
         if (!BuildConfig.TEST_RELEASE)
-            editor.remove("test1").remove("test2").remove("test3");
+            editor.remove("test1").remove("test2").remove("test3").remove("test4").remove("test5");
 
         if (version < 468) {
             editor.remove("notify_trash");
