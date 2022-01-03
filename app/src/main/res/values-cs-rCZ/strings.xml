@@ -380,6 +380,7 @@
     <string name="title_advanced_two_row">Použít dva řádky</string>
     <string name="title_advanced_two_col">Použít dva sloupce</string>
     <string name="title_advanced_min_screen_size">Minimální velikost obrazovky pro její rozdělení</string>
+    <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>
     <string name="title_advanced_nav_hide_title">Skrýt možnosti navigačního menu?</string>
@@ -800,6 +801,7 @@
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírování pro vytvoření aliasu identity</string>
     <string name="title_service_auth">E-mailový server navrátil: \'%1$s\'</string>
     <string name="title_service_vpn">Toto může být zapříčiněno použitou VPN</string>
+    <string name="title_service_token">Správce účtu Android by mohl být zablokován pomocí VPN, firewallu, blokátoru reklam atd., které by zabránili získání přístupového tokenu</string>
     <string name="title_service_port">Překontrolujte prosím číslo portu</string>
     <string name="title_service_protocol">Překontrolujte prosím protokol (SSL/TLS nebo STARTTLS)</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
@@ -1248,6 +1250,7 @@
     <string name="title_filter_unflagged">Bez hvězdičky</string>
     <string name="title_filter_unknown">Neznámí odesílatelé</string>
     <string name="title_filter_hidden">Skryto</string>
+    <string name="title_filter_deleted">Smazané</string>
     <string name="title_filter_duplicates">Duplikáty</string>
     <string name="title_filter_trash">V koši</string>
     <string name="title_compact">Kompaktní zobrazení</string>
@@ -1335,6 +1338,7 @@
     <string name="title_rule_answer_missing">Chybí šablona</string>
     <string name="title_rule_keyword_missing">Chybí klíčové slovo</string>
     <string name="title_rule_automation_hint">Bude odesláno volání (intent) „%1$s“ s doplňujícími informacemi (extras) „%2$s“</string>
+    <string name="title_rule_delete_hint">Trvalé smazání je nevratné, takže se ujistěte, že jsou podmínky pravidla správné!</string>
     <string name="title_rule_execute">Provést nyní</string>
     <string name="title_rule_applied">Ovlivněné zprávy: %1$d</string>
     <string name="title_rule_check">Zkontrolovat</string>

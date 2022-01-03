@@ -137,6 +137,7 @@
     <string name="title_setup_other">其他電子郵件供應商</string>
     <string name="title_setup_pop3">POP3 帳戶</string>
     <string name="title_setup_oauth_permission">電子郵件供應商僅批准了在 GitHub 和 Google Play Store 版本的 FairEmail 裏使用 OAuth</string>
+    <string name="title_setup_gmail_support">因為 Android 會檢查程式的數字簽名，所以只有 FairEmail 在 Play Store 和 GitHub 發布的版本支持授權 Google 帳戶</string>
     <string name="title_setup_gmail_rationale">請授予權限以選擇帳戶並讀取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 會請求權限以讀取、撰寫、傳送及永久刪除您的電子郵件。FairEmail 永遠不會在您未予明確同意的前提下刪除您的訊息。</string>
     <string name="title_setup_gmail_drafts">如遇草稿資料夾無法透過 IMAP 存取的情況，可於 Gmail 標籤設定中獲得修復</string>
@@ -176,6 +177,7 @@
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_doze_device">此裝置可能需要這項設定</string>
     <string name="title_setup_doze_12">訊息推送已停用</string>
+    <string name="title_setup_alarm_12">程序將無法工作</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒權限已被停用</string>
     <string name="title_setup_background">背景活動限制已啟用</string>
     <string name="title_setup_data">數據節省模式已啟用</string>
@@ -236,6 +238,7 @@
     <string name="title_setup_theme_black_background">純黑背景</string>
     <string name="title_setup_theme_html_light">原始訊息視圖套用亮色背景</string>
     <string name="title_setup_theme_composer_light">訊息編輯工具套用亮色背景</string>
+    <string name="title_setup_theme_you_hint">可以在系統設置的“壁紙和样式”中配置 Material You 顏色</string>
     <string name="title_setup_theme_system_hint">若 Android 支援時將會依據日/夜模式切換亮/暗主題</string>
     <string name="title_setup_theme_more_colors">我想要更多顏色</string>
     <string name="title_setup_advanced">進階</string>
@@ -277,7 +280,9 @@
     <string name="title_advanced_delete_unseen">刪除舊的未讀訊息</string>
     <string name="title_advanced_kept_removed">檢查舊訊息是否已自伺服器移除</string>
     <string name="title_advanced_gmail_thread">用於 Gmail 帳戶的 Gmail 訊息分組式樣</string>
+    <string name="title_advanced_subject_threading">按寄件者和主旨分組郵件</string>
     <string name="title_advanced_sync_folders">同步資料夾清單</string>
+    <string name="title_advanced_sync_folders_poll">主動同步文件夾清單</string>
     <string name="title_advanced_sync_shared_folders">同步分享的資料夾清單</string>
     <string name="title_advanced_subscriptions">管理資料夾訂閱</string>
     <string name="title_advanced_check_authentication">檢查訊息驗證</string>
@@ -301,6 +306,7 @@
     <string name="title_advanced_send_pending">顯示低存在感的傳送延後圖示</string>
     <string name="title_advanced_compose_font">預設字型</string>
     <string name="title_advanced_prefix_once">在回覆或轉寄時，主題前綴只出現一次</string>
+    <string name="title_advanced_prefix_count">在回覆前綴顯示計數</string>
     <string name="title_advanced_separate_reply">在回覆/轉寄標頭前插入水平線</string>
     <string name="title_advanced_extended_reply">使用擴充的回覆/轉寄標頭</string>
     <string name="title_advanced_write_above">回覆書寫於寄件者寄件本文上方</string>
@@ -344,6 +350,8 @@
     <string name="title_advanced_landscape">橫向螢幕模式</string>
     <string name="title_advanced_two_row">使用雙排</string>
     <string name="title_advanced_two_col">使用雙列</string>
+    <string name="title_advanced_min_screen_size">分屏時熒幕最小尺寸</string>
+    <string name="title_advanced_close_pane">關閉會話時摺疊行或列</string>
     <string name="title_advanced_nav_options">顯示導航功能表選項</string>
     <string name="title_advanced_nav_pin">固定導航功能表</string>
     <string name="title_advanced_nav_hide_title">要隱藏導航功能表選項嗎？</string>
@@ -355,6 +363,7 @@
     <string name="title_advanced_cards_beige">使用卡片式樣時采用米黃色背景 (僅亮色主題)</string>
     <string name="title_advanced_tabular_background">使用表狀式樣時，以卡片色為背景顏色</string>
     <string name="title_advanced_cards_shadow">使用卡片式樣時，應用陰影於未讀訊息上</string>
+    <string name="title_advanced_cards_shadow_highlight">使用標亮色 (highlight) 而不是強調色 (accent)</string>
     <string name="title_advanced_date_header">按日期分組</string>
     <string name="title_advanced_date_fixed">在頂部顯示固定日期標頭</string>
     <string name="title_advanced_date_bold">以粗體顯示日期</string>
@@ -363,6 +372,7 @@
     <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
     <string name="title_advanced_color_stripe">顯示彩色條紋</string>
+    <string name="title_advanced_color_stripe_wide">使用寬色條紋</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_gravatars">顯示 Gravatars</string>
     <string name="title_advanced_bimi_unverified">未經驗證的寄件者</string>
@@ -400,6 +410,7 @@
     <string name="title_advanced_thumbnails">顯示圖片縮圖於訊息本文之後</string>
     <string name="title_advanced_message_text_zoom2">預設訊息本文文字縮放: %1$s %%</string>
     <string name="title_advanced_overview_mode">縮放原訊息以適配螢幕</string>
+    <string name="title_advanced_override_width">在原始訊息中禁用固定寬度</string>
     <string name="title_advanced_contrast">應用高對比於訊息本文上</string>
     <string name="title_advanced_monospaced">訊息本文預設使用等寬字型</string>
     <string name="title_advanced_monospaced_pre">於預排文字上使用等寬字型</string>
@@ -454,6 +465,8 @@
     <string name="title_advanced_autounstar">移動訊息時自動移除其中包含的星號</string>
     <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_reset_importance">移動訊息時重設重要性</string>
+    <string name="title_advanced_swipe_reply">右滑已展開的郵件進行回覆</string>
+    <string name="title_advanced_default_snooze">預設重響/延遲時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
     <string name="title_advanced_notifications_service">接收頻道</string>
@@ -507,6 +520,7 @@
     <string name="title_advanced_autolock">關閉螢幕後上鎖</string>
     <string name="title_advanced_autolock_nav">離開應用程式時上鎖</string>
     <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
+    <string name="title_advanced_load_emoji">從 Google Play 服務載入更新好的 Emoji</string>
     <string name="title_advanced_disconnect_auto_update">每周自動更新清單一次</string>
     <string name="title_advanced_disconnect_links">使用追蹤保護清單來發出追蹤連結相關警告</string>
     <string name="title_advanced_disconnect_images">使用追蹤保護清單來辨識追蹤圖片</string>
@@ -567,6 +581,7 @@
     <string name="title_advanced_deleted_unseen">停用後，未讀訊息會一直被保留在裝置上</string>
     <string name="title_advanced_sync_kept_hint">這將導致額外的數據傳輸和電量耗損，尤其是裝置上儲存了大量訊息時</string>
     <string name="title_advanced_gmail_thread_hint">此項設定僅會套用至新近接收的訊息而且還可能破壞現有群組</string>
+    <string name="title_advanced_subject_threading_hint">僅在過去 %1$d 小時內收到的訊息</string>
     <string name="title_advanced_sync_folders_hint">停用此功能會在一定程度上節省數據和電池的用量，但同時也會停用資料夾清單的更新</string>
     <string name="title_advanced_check_authentication_hint">這將檢查與電子郵件伺服器所執行的相同的 DKIM、SPF 和 DMARC 驗證的結果</string>
     <string name="title_advanced_check_reply_hint">這將檢查寄件者所在網域是否與回覆地址所在相同</string>
@@ -871,6 +886,7 @@
     <string name="title_importance_high">高</string>
     <string name="title_search_in_text">在本文中搜尋 &#8230;</string>
     <string name="title_forward">轉寄</string>
+    <string name="title_resend">重新寄出</string>
     <string name="title_new_message">新訊息</string>
     <string name="title_editasnew">當作新訊息編輯</string>
     <string name="title_edit_notes">編輯本地附註</string>
@@ -956,6 +972,8 @@
     <string name="title_too_large">訊息太大，無法完整重排</string>
     <string name="title_truncated">訊息太大，無法完整顯示</string>
     <string name="title_show_full">顯示完整訊息</string>
+    <string name="title_fit_width">符合寬度</string>
+    <string name="title_disable_widths">停用寬度</string>
     <string name="title_unused_inline">未使用的行內圖片將會在傳送時被移除</string>
     <string name="title_accross_remark">跨帳戶移動的訊息會再次被下載，從而產生額外的數據用量</string>
     <string name="title_raw_saved">元訊息已保存</string>
@@ -1063,6 +1081,7 @@
     <string name="title_send_dialog">顯示傳送選項</string>
     <string name="title_image_dialog">顯示圖片選項</string>
     <string name="title_media_toolbar">媒體工具列</string>
+    <string name="title_manage_local_contacts">管理本地聯絡人</string>
     <string name="title_insert_contact_group">插入聯絡人群組</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_create_template">建立模板</string>
@@ -1190,6 +1209,7 @@
     <string name="title_filter_unflagged">未加星號</string>
     <string name="title_filter_unknown">不明寄件者</string>
     <string name="title_filter_hidden">隱藏</string>
+    <string name="title_filter_deleted">已刪除</string>
     <string name="title_filter_duplicates">重複</string>
     <string name="title_filter_trash">於垃圾桶中</string>
     <string name="title_compact">緊湊型視圖</string>
@@ -1250,6 +1270,7 @@
     <string name="title_rule_subject">主旨包含</string>
     <string name="title_rule_attachments">有附件</string>
     <string name="title_rule_header">標頭包含</string>
+    <string name="title_rule_body">文本包含</string>
     <string name="title_rule_time_abs">絕對時間 (接收) 區間</string>
     <string name="title_rule_time_after">接收時間不早於</string>
     <string name="title_rule_time_before">接收時間不晚於</string>
@@ -1275,6 +1296,7 @@
     <string name="title_rule_answer_missing">模板缺失</string>
     <string name="title_rule_keyword_missing">關鍵字缺失</string>
     <string name="title_rule_automation_hint">這將傳送附帶額外 \'%2$s\' 的 Intent \'%1$s\'</string>
+    <string name="title_rule_delete_hint">永久删除是不可逆轉的，請再三確認規則條件是正確的！</string>
     <string name="title_rule_execute">立即執行</string>
     <string name="title_rule_applied">作用到的訊息: %1$d</string>
     <string name="title_rule_check">檢查</string>

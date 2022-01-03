@@ -361,6 +361,7 @@
     <string name="title_advanced_two_row">İki sətir istifadə et</string>
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmək üçün minimum ekran ölçüsü</string>
+    <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
@@ -781,6 +782,7 @@
     <string name="title_hint_alias">Ləqəb kimliklərini yaratmaq üçün kopyalamaq kimi seçimləri görüntüləmək üçün bir kimliyə uzun basın</string>
     <string name="title_service_auth">E-poçt serverinin cavabı: \'%1$s\'</string>
     <string name="title_service_vpn">Bu, istifadə edilən VPN-ə görə ola bilər</string>
+    <string name="title_service_token">Android hesab meneceri, bir VPN, güvənlik divarı, reklam əngəlləyici və s. tərəfindən əngəllənə bilər və müraciət tokeni almasını əngəlləyə bilər</string>
     <string name="title_service_port">Zəhmət olmasa port nömrəsini iki dəfə yoxlayın</string>
     <string name="title_service_protocol">Zəhmət olmasa protokolu iki dəfə yoxlayın (SSL/TLS və ya STARTTLS)</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
@@ -1232,6 +1234,7 @@
     <string name="title_filter_unflagged">Ulduzlu olmayan</string>
     <string name="title_filter_unknown">Bilinməyən göndərənlər</string>
     <string name="title_filter_hidden">Gizli</string>
+    <string name="title_filter_deleted">Silindi</string>
     <string name="title_filter_duplicates">Dublikatlar</string>
     <string name="title_filter_trash">Tullantı</string>
     <string name="title_compact">Yığcam baxış</string>
@@ -1319,6 +1322,7 @@
     <string name="title_rule_answer_missing">Şablon əskikdir</string>
     <string name="title_rule_keyword_missing">Açar söz əskikdir</string>
     <string name="title_rule_automation_hint">Bu, \"%2$s\" əlavələri ilə \"%1$s\" hədəfini göndərəcək</string>
+    <string name="title_rule_delete_hint">Birdəfəlik silmə əməliyyatının geri dönüşü yoxdur, ona görə də qayda şərtlərinin doğru olduğuna əmin olun!</string>
     <string name="title_rule_execute">İndi icra et</string>
     <string name="title_rule_applied">Təsirlənən mesajlar: %1$d</string>
     <string name="title_rule_check">Yoxla</string>
