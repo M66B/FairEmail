@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1802 - 2022-01-03
+
+* Improved original message view scrolling
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1801 - 2021-12-30
 
 * Added rule action to permanently delete messages
