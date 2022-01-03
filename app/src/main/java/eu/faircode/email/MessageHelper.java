@@ -2118,7 +2118,7 @@ public class MessageHelper {
                 String personal = address.getPersonal();
 
                 if (TextUtils.isEmpty(personal) || format == AddressFormat.EMAIL_ONLY)
-                    formatted.add(email);
+                    formatted.add(TextUtils.isEmpty(email) ? "<>" : email);
                 else {
                     if (compose) {
                         boolean quote = false;
@@ -2133,7 +2133,7 @@ public class MessageHelper {
                             personal = "\"" + personal + "\"";
                     }
 
-                    if (format == AddressFormat.NAME_EMAIL)
+                    if (format == AddressFormat.NAME_EMAIL && !TextUtils.isEmpty(email))
                         formatted.add(personal + " <" + email + ">");
                     else
                         formatted.add(personal);
@@ -3558,6 +3558,9 @@ public class MessageHelper {
     }
 
     static String sanitizeEmail(String email) {
+        if (email == null)
+            return null;
+
         if (email.contains("<") && email.contains(">"))
             try {
                 InternetAddress address = new InternetAddress(email);
