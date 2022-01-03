@@ -1797,7 +1797,7 @@ public class MessageHelper {
                 String unsubscribe = list.substring(s + 1, e);
                 if (TextUtils.isEmpty(unsubscribe))
                     ; // Empty address
-h                else if (unsubscribe.toLowerCase(Locale.ROOT).startsWith("mailto:")) {
+                else if (unsubscribe.toLowerCase(Locale.ROOT).startsWith("mailto:")) {
                     if (mailto == null) {
                         try {
                             MailTo.parse(unsubscribe);
