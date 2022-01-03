@@ -55,6 +55,7 @@ import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Printer;
 import android.view.Display;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -2516,5 +2517,18 @@ public class Log {
 
     static InternetAddress myAddress() throws UnsupportedEncodingException {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode", StandardCharsets.UTF_8.name());
+    }
+
+    static StringBuilder getSpans(CharSequence text) {
+        StringBuilder sb = new StringBuilder();
+        TextUtils.dumpSpans(text, new Printer() {
+            @Override
+            public void println(String x) {
+                if (sb.length() > 0)
+                    sb.append(' ');
+                sb.append(x.replace('\n', '|')).append(']');
+            }
+        }, "[");
+        return sb;
     }
 }
