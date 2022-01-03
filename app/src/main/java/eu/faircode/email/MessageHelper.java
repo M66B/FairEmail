@@ -1786,26 +1786,39 @@ public class MessageHelper {
             list = MimeUtility.unfold(list);
             list = decodeMime(list);
 
-            if (list != null && list.startsWith("NO"))
+            if (list == null || list.startsWith("NO"))
                 return null;
 
             String link = null;
             String mailto = null;
-            for (String entry : list.split(",")) {
-                entry = entry.trim();
-                int lt = entry.indexOf("<");
-                int gt = entry.lastIndexOf(">");
-                if (lt >= 0 && gt > lt) {
-                    String unsubscribe = entry.substring(lt + 1, gt);
-                    Uri uri = Uri.parse(unsubscribe);
-                    String scheme = uri.getScheme();
-                    if (scheme != null)
-                        scheme = scheme.toLowerCase(Locale.ROOT);
-                    if (mailto == null && "mailto".equals(scheme))
-                        mailto = unsubscribe;
-                    if (link == null && ("http".equals(scheme) || "https".equals(scheme)))
-                        link = unsubscribe;
+            int s = list.indexOf('<');
+            int e = list.indexOf('>', s + 1);
+            while (s >= 0 && e > s) {
+                String unsubscribe = list.substring(s + 1, e);
+                if (TextUtils.isEmpty(unsubscribe))
+                    ; // Empty address
+h                else if (unsubscribe.toLowerCase(Locale.ROOT).startsWith("mailto:")) {
+                    if (mailto == null) {
+                        try {
+                            MailTo.parse(unsubscribe);
+                            mailto = unsubscribe;
+                        } catch (Throwable ex) {
+                            Log.w(new Throwable(unsubscribe, ex));
+                        }
+                    }
+                } else {
+                    if (link == null) {
+                        Uri uri = Uri.parse(unsubscribe);
+                        String scheme = uri.getScheme();
+                        if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme))
+                            link = unsubscribe;
+                        else
+                            Log.w(new Throwable(unsubscribe));
+                    }
                 }
+
+                s = list.indexOf('<', e + 1);
+                e = list.indexOf('>', s + 1);
             }
 
             if (link != null)
@@ -1815,8 +1828,8 @@ public class MessageHelper {
 
             Log.i(new IllegalArgumentException("List-Unsubscribe: " + list));
             return null;
-        } catch (AddressException ex) {
-            Log.w(ex);
+        } catch (Throwable ex) {
+            Log.e(ex);
             return null;
         }
     }
