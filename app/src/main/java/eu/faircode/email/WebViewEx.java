@@ -223,15 +223,12 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             else
                 super.onMeasure(widthMeasureSpec, heightMeasureSpec); // Unspecified
         } else {
-            if (height > getMinimumHeight())
-                super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(Math.min(height, maxHeight), MeasureSpec.AT_MOST));
-            else
-                super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST));
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());
-        if (mh == 0)
+        if (mh == 0 && legacy)
             setMeasuredDimension(getMeasuredWidth(), height);
     }
 
