@@ -2964,7 +2964,7 @@ See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=49
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
 
-* Create a new filter via Gmail > Settings (wheel) > Filters and Blocked Addresses > Create a new filter
+* Create a new filter via Gmail > Settings wheel > See all settings > Filters and Blocked Addresses > Create a new filter
 * Enter a category search (see below) in the *Has the words* field and click *Create filter*
 * Check *Apply the label* and select a label and click *Create filter*
 
@@ -2977,7 +2977,9 @@ category:forums
 category:promotions
 ```
 
-Unfortunately, this is not possible for snoozed messages folder.
+Documentation: [see here](https://support.google.com/mail/answer/7190).
+
+Unfortunately, this is not possible for the snoozed messages folder.
 
 You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again
 and you can long press the folders to enable synchronization.
