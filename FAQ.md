@@ -2371,6 +2371,7 @@ You can select one of these actions to apply to matching messages:
 * Move
 * Copy (Gmail: label)
 * Delete permanently (since version 1.1801)
+* Play sound (since version 1.1803)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
