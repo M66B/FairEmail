@@ -943,8 +943,6 @@ public class EntityRule {
     private boolean onActionDelete(Context context, EntityMessage message, JSONObject jargs) {
         EntityOperation.queue(context, message, EntityOperation.DELETE);
 
-        message.ui_hide = true;
-
         return true;
     }
 

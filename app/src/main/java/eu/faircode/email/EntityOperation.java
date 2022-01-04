@@ -406,9 +406,10 @@ public class EntityOperation {
             } else if (DELETE.equals(name)) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                if (perform_expunge)
-                    db.message().setMessageUiHide(message.id, true);
-                else {
+                if (perform_expunge) {
+                    message.ui_hide = true;
+                    db.message().setMessageUiHide(message.id, message.ui_hide);
+                } else {
                     message.ui_deleted = !message.ui_deleted;
                     db.message().setMessageUiDeleted(message.id, message.ui_deleted);
                 }
