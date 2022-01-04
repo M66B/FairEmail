@@ -33,9 +33,13 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.QuoteSpan;
 import android.util.AttributeSet;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.TextView;
 
 import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
@@ -43,6 +47,7 @@ import androidx.core.view.inputmethod.InputContentInfoCompat;
 
 import org.jsoup.nodes.Document;
 
+import java.lang.reflect.Method;
 import java.util.concurrent.ExecutorService;
 
 public class EditTextCompose extends FixedEditText {
@@ -55,17 +60,70 @@ public class EditTextCompose extends FixedEditText {
 
     public EditTextCompose(Context context) {
         super(context);
-        Helper.setKeyboardIncognitoMode(this, context);
+        init(context);
     }
 
     public EditTextCompose(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Helper.setKeyboardIncognitoMode(this, context);
+        init(context);
     }
 
     public EditTextCompose(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
+
+        if (BuildConfig.DEBUG &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setCustomInsertionActionModeCallback(new ActionMode.Callback() {
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    boolean undo = can("Undo");
+                    boolean redo = can("Redo");
+                    if (undo)
+                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, R.string.title_undo);
+                    if (redo)
+                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, R.string.title_redo);
+                    return true;
+                }
+
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    return false;
+                }
+
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    if (item.getGroupId() == Menu.CATEGORY_ALTERNATIVE) {
+                        int id = item.getItemId();
+                        if (id == R.string.title_undo)
+                            return EditTextCompose.super.onTextContextMenuItem(android.R.id.undo);
+                        else if (id == R.string.title_redo)
+                            return EditTextCompose.super.onTextContextMenuItem(android.R.id.redo);
+                    }
+                    return false;
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                    // Do nothing
+                }
+            });
+        }
+    }
+
+    private boolean can(String can) {
+        try {
+            Method mCan = TextView.class.getMethod("can" + can);
+            mCan.setAccessible(true);
+            return (boolean) mCan.invoke(this);
+        } catch (ReflectiveOperationException ex) {
+            Log.i(ex);
+            return true;
+        }
     }
 
     @Override
