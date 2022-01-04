@@ -239,6 +239,14 @@ public class UriHelper {
 
             changed = (result != null);
             url = (result == null ? uri : result);
+        } else if ("https".equals(uri.getScheme()) &&
+                uri.getHost() != null &&
+                uri.getHost().startsWith("www.google.") &&
+                uri.getQueryParameter("url") != null) {
+            // Google non-com redirects
+            Uri result = Uri.parse(uri.getQueryParameter("url"));
+            changed = (result != null);
+            url = (result == null ? uri : result);
         } else if (uri.getQueryParameterNames().size() == 1) {
             // Sophos Email Appliance
             Uri result = null;
