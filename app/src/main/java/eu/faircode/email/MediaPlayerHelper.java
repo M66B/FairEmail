@@ -10,9 +10,9 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class MediaPlayerHelper {
-    private static final int MAX_DURATION = 30; // seconds
+    static final int DEFAULT_ALARM_DURATION = 30; // seconds
 
-    static void play(Context context, Uri uri, boolean alarm) throws IOException {
+    static void play(Context context, Uri uri, boolean alarm, int duration) throws IOException {
         Semaphore sem = new Semaphore(0);
 
         AudioAttributes attrs = new AudioAttributes.Builder()
@@ -41,7 +41,7 @@ public class MediaPlayerHelper {
         mediaPlayer.prepareAsync();
 
         try {
-            if (!sem.tryAcquire(MAX_DURATION, TimeUnit.SECONDS)) {
+            if (!sem.tryAcquire(duration, TimeUnit.SECONDS)) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
             }

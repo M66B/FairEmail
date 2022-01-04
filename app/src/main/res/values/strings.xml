@@ -1547,6 +1547,7 @@
     <string name="title_rule_select_sound">Select sound</string>
     <string name="title_rule_use_as_alarm">Use as alarm</string>
     <string name="title_rule_alarm_hint">This will ignore "do not disturb" rules</string>
+    <string name="title_rule_alarm_duration">Maximum alarm duration (seconds)</string>
 
     <string name="title_legend_section_synchronize">Synchronize</string>
     <string name="title_legend_section_folders">Folders</string>

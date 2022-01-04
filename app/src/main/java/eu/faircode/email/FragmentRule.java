@@ -149,6 +149,7 @@ public class FragmentRule extends FragmentBase {
 
     private Button btnSound;
     private CheckBox cbAlarm;
+    private EditText etAlarmDuration;
 
     private TextView tvAutomation;
 
@@ -297,6 +298,7 @@ public class FragmentRule extends FragmentBase {
 
         btnSound = view.findViewById(R.id.btnSound);
         cbAlarm = view.findViewById(R.id.cbAlarm);
+        etAlarmDuration = view.findViewById(R.id.etAlarmDuration);
 
         tvAutomation = view.findViewById(R.id.tvAutomation);
 
@@ -516,6 +518,16 @@ public class FragmentRule extends FragmentBase {
                 });
             }
         });
+
+        cbAlarm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                etAlarmDuration.setEnabled(isChecked);
+            }
+        });
+
+        etAlarmDuration.setHint(Integer.toString(MediaPlayerHelper.DEFAULT_ALARM_DURATION));
+        etAlarmDuration.setEnabled(false);
 
         npDuration.setMinValue(0);
         npDuration.setMaxValue(999);
@@ -1043,7 +1055,11 @@ public class FragmentRule extends FragmentBase {
                                 case EntityRule.TYPE_SOUND:
                                     if (jaction.has("uri"))
                                         FragmentRule.this.sound = Uri.parse(jaction.getString("uri"));
-                                    cbAlarm.setChecked(jaction.optBoolean("alarm"));
+                                    boolean alarm = jaction.optBoolean("alarm");
+                                    int duration = jaction.optInt("duration", 0);
+                                    cbAlarm.setChecked(alarm);
+                                    etAlarmDuration.setEnabled(alarm);
+                                    etAlarmDuration.setText(duration == 0 ? null : Integer.toString(duration));
                                     break;
                             }
 
@@ -1375,8 +1391,16 @@ public class FragmentRule extends FragmentBase {
                     break;
 
                 case EntityRule.TYPE_SOUND:
+                    boolean alarm = cbAlarm.isChecked();
+                    String duration = etAlarmDuration.getText().toString();
                     jaction.put("uri", sound);
-                    jaction.put("alarm", cbAlarm.isChecked());
+                    jaction.put("alarm", alarm);
+                    if (alarm && !TextUtils.isEmpty(duration))
+                        try {
+                            jaction.put("duration", Integer.parseInt(duration));
+                        } catch (NumberFormatException ex) {
+                            Log.e(ex);
+                        }
                     break;
             }
         }

@@ -948,6 +948,30 @@
                     app:layout_constraintTop_toBottomOf="@+id/cbAlarm" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAlarmDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_alarm_duration"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAlarm" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etAlarmDuration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:hint="10"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAlarmDuration" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAutomation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -955,7 +979,7 @@
                     android:text="@string/title_rule_automation_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAlarm" />
+                    app:layout_constraintTop_toBottomOf="@+id/etAlarmDuration" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvDelete"
@@ -1038,7 +1062,7 @@
                     android:id="@+id/grpSound"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="btnSound,cbAlarm,tvAlarm" />
+                    app:constraint_referenced_ids="btnSound,cbAlarm,tvAlarm,tvAlarmDuration,etAlarmDuration" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpAutomation"

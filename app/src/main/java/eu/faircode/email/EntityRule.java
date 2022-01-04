@@ -954,6 +954,7 @@ public class EntityRule {
 
         Uri uri = Uri.parse(jargs.getString("uri"));
         boolean alarm = jargs.getBoolean("alarm");
+        int duration = jargs.optInt("duration", MediaPlayerHelper.DEFAULT_ALARM_DURATION);
 
         DB db = DB.getInstance(context);
 
@@ -964,7 +965,7 @@ public class EntityRule {
             @Override
             public void run() {
                 try {
-                    MediaPlayerHelper.play(context, uri, alarm);
+                    MediaPlayerHelper.play(context, uri, alarm, duration);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
