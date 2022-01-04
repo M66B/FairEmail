@@ -916,6 +916,37 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnTtsSetup" />
 
+                <Button
+                    android:id="@+id/btnSound"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_audiotrack_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_rule_select_sound"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnTtsData" />
+
+                <CheckBox
+                    android:id="@+id/cbAlarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_use_as_alarm"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnSound" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAlarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_rule_alarm_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbAlarm" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAutomation"
                     android:layout_width="wrap_content"
@@ -924,7 +955,7 @@
                     android:text="@string/title_rule_automation_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnTtsData" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvAlarm" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvDelete"
@@ -1002,6 +1033,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="btnTtsSetup,btnTtsData" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpSound"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="btnSound,cbAlarm,tvAlarm" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpAutomation"

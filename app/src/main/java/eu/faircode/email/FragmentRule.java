@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -146,6 +147,9 @@ public class FragmentRule extends FragmentBase {
     private Button btnTtsSetup;
     private Button btnTtsData;
 
+    private Button btnSound;
+    private CheckBox cbAlarm;
+
     private TextView tvAutomation;
 
     private BottomNavigationView bottom_navigation;
@@ -160,6 +164,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpMoveProp;
     private Group grpAnswer;
     private Group grpTts;
+    private Group grpSound;
     private Group grpAutomation;
     private Group grpDelete;
 
@@ -174,6 +179,7 @@ public class FragmentRule extends FragmentBase {
     private long account = -1;
     private int protocol = -1;
     private long folder = -1;
+    private Uri sound = null;
 
     private DateFormat DF;
 
@@ -188,8 +194,9 @@ public class FragmentRule extends FragmentBase {
     private static final int REQUEST_TO = 7;
     private final static int REQUEST_TTS_CHECK = 8;
     private final static int REQUEST_TTS_DATA = 9;
-    private final static int REQUEST_DATE_AFTER = 10;
-    private final static int REQUEST_DATE_BEFORE = 11;
+    private final static int REQUEST_SOUND = 10;
+    private final static int REQUEST_DATE_AFTER = 11;
+    private final static int REQUEST_DATE_BEFORE = 12;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -204,6 +211,9 @@ public class FragmentRule extends FragmentBase {
         account = args.getLong("account", -1);
         protocol = args.getInt("protocol", EntityAccount.TYPE_IMAP);
         folder = args.getLong("folder", -1);
+
+        if (savedInstanceState != null)
+            sound = savedInstanceState.getParcelable("fair:sound");
 
         DF = Helper.getDateTimeInstance(getContext(), DateFormat.SHORT, DateFormat.SHORT);
     }
@@ -284,6 +294,10 @@ public class FragmentRule extends FragmentBase {
 
         btnTtsSetup = view.findViewById(R.id.btnTtsSetup);
         btnTtsData = view.findViewById(R.id.btnTtsData);
+
+        btnSound = view.findViewById(R.id.btnSound);
+        cbAlarm = view.findViewById(R.id.cbAlarm);
+
         tvAutomation = view.findViewById(R.id.tvAutomation);
 
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -299,6 +313,7 @@ public class FragmentRule extends FragmentBase {
         grpMoveProp = view.findViewById(R.id.grpMoveProp);
         grpAnswer = view.findViewById(R.id.grpAnswer);
         grpTts = view.findViewById(R.id.grpTts);
+        grpSound = view.findViewById(R.id.grpSound);
         grpAutomation = view.findViewById(R.id.grpAutomation);
         grpDelete = view.findViewById(R.id.grpDelete);
 
@@ -461,6 +476,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_DELETE, getString(R.string.title_rule_delete)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
         actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts)));
+        actions.add(new Action(EntityRule.TYPE_SOUND, getString(R.string.title_rule_sound)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
         adapterAction.addAll(actions);
 
@@ -552,6 +568,17 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
+        btnSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALL);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound);
+                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_SOUND);
+            }
+        });
+
         tvAutomation.setText(getString(R.string.title_rule_automation_hint,
                 EntityRule.ACTION_AUTOMATION,
                 TextUtils.join(",", new String[]{
@@ -589,6 +616,7 @@ public class FragmentRule extends FragmentBase {
         grpMoveProp.setVisibility(View.GONE);
         grpAnswer.setVisibility(View.GONE);
         grpTts.setVisibility(View.GONE);
+        grpSound.setVisibility(View.GONE);
         grpAutomation.setVisibility(View.GONE);
         grpDelete.setVisibility(View.GONE);
 
@@ -695,6 +723,7 @@ public class FragmentRule extends FragmentBase {
         outState.putInt("fair:target", spTarget.getSelectedItemPosition());
         outState.putInt("fair:identity", spIdent.getSelectedItemPosition());
         outState.putInt("fair:answer", spAnswer.getSelectedItemPosition());
+        outState.putParcelable("fair:sound", sound);
 
         super.onSaveInstanceState(outState);
     }
@@ -751,6 +780,10 @@ public class FragmentRule extends FragmentBase {
                     break;
                 case REQUEST_TTS_DATA:
                     break;
+                case REQUEST_SOUND:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectSound(data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+                    break;
                 case REQUEST_DATE_AFTER:
                     if (resultCode == RESULT_OK && data != null)
                         onDateAfter(data.getBundleExtra("args"));
@@ -779,6 +812,10 @@ public class FragmentRule extends FragmentBase {
             Log.e(ex);
             Log.unexpectedError(getParentFragmentManager(), ex);
         }
+    }
+
+    private void onSelectSound(Uri uri) {
+        this.sound = uri;
     }
 
     private void onDelete() {
@@ -1002,6 +1039,12 @@ public class FragmentRule extends FragmentBase {
                                     cbCc.setChecked(jaction.optBoolean("cc"));
                                     cbWithAttachments.setChecked(jaction.optBoolean("attachments"));
                                     break;
+
+                                case EntityRule.TYPE_SOUND:
+                                    if (jaction.has("uri"))
+                                        FragmentRule.this.sound = Uri.parse(jaction.getString("uri"));
+                                    cbAlarm.setChecked(jaction.optBoolean("alarm"));
+                                    break;
                             }
 
                             for (int pos = 0; pos < adapterAction.getCount(); pos++)
@@ -1053,6 +1096,7 @@ public class FragmentRule extends FragmentBase {
         grpMoveProp.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
         grpTts.setVisibility(type == EntityRule.TYPE_TTS ? View.VISIBLE : View.GONE);
+        grpSound.setVisibility(type == EntityRule.TYPE_SOUND ? View.VISIBLE : View.GONE);
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
         grpDelete.setVisibility(type == EntityRule.TYPE_DELETE ? View.VISIBLE : View.GONE);
     }
@@ -1328,6 +1372,11 @@ public class FragmentRule extends FragmentBase {
                     jaction.put("to", etTo.getText().toString().trim());
                     jaction.put("cc", cbCc.isChecked());
                     jaction.put("attachments", cbWithAttachments.isChecked());
+                    break;
+
+                case EntityRule.TYPE_SOUND:
+                    jaction.put("uri", sound);
+                    jaction.put("alarm", cbAlarm.isChecked());
                     break;
             }
         }

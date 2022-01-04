@@ -27,7 +27,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -114,6 +113,7 @@ public class EntityRule {
     static final int TYPE_IMPORTANCE = 13;
     static final int TYPE_TTS = 14;
     static final int TYPE_DELETE = 15;
+    static final int TYPE_SOUND = 16;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -467,6 +467,8 @@ public class EntityRule {
                 return onActionAutomation(context, message, jaction);
             case TYPE_DELETE:
                 return onActionDelete(context, message, jaction);
+            case TYPE_SOUND:
+                return onActionSound(context, message, jaction);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -532,6 +534,11 @@ public class EntityRule {
             case TYPE_AUTOMATION:
                 return;
             case TYPE_DELETE:
+                return;
+            case TYPE_SOUND:
+                String uri = jargs.optString("uri");
+                if (TextUtils.isEmpty(uri))
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_select_sound));
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -830,13 +837,8 @@ public class EntityRule {
     private static void speak(Context context, EntityRule rule, EntityMessage message) throws IOException {
         Log.i("Speaking name=" + rule.name);
 
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        int callState = tm.getCallState();
-        if (callState != TelephonyManager.CALL_STATE_IDLE) {
-            EntityLog.log(context, EntityLog.Type.Rules, message,
-                    "Call state=" + callState + " rule=" + rule.name);
+        if (message.ui_seen)
             return;
-        }
 
         Locale locale = (message.language == null ? Locale.getDefault() : new Locale(message.language));
 
@@ -942,6 +944,34 @@ public class EntityRule {
         EntityOperation.queue(context, message, EntityOperation.DELETE);
 
         message.ui_hide = true;
+
+        return true;
+    }
+
+    private boolean onActionSound(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        Log.i("Speaking name=" + name);
+
+        if (message.ui_seen)
+            return false;
+
+        Uri uri = Uri.parse(jargs.getString("uri"));
+        boolean alarm = jargs.getBoolean("alarm");
+
+        DB db = DB.getInstance(context);
+
+        message.ui_silent = true;
+        db.message().setMessageUiSilent(message.id, message.ui_silent);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MediaPlayerHelper.play(context, uri, alarm);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
 
         return true;
     }

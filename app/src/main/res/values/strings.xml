@@ -1483,6 +1483,7 @@
     <string name="title_rule_tts">Text to speech</string>
     <string name="title_rule_automation">Automation</string>
     <string name="title_rule_delete">Delete permanently</string>
+    <string name="title_rule_sound">Play sound</string>
 
     <string name="title_rule_caption">Edit rule</string>
     <string name="title_rule_title">Rule applies to</string>
@@ -1542,6 +1543,10 @@
     <string name="title_rule_tts_from">From</string>
     <string name="title_rule_tts_subject">Subject</string>
     <string name="title_rule_tts_content">Text</string>
+
+    <string name="title_rule_select_sound">Select sound</string>
+    <string name="title_rule_use_as_alarm">Use as alarm</string>
+    <string name="title_rule_alarm_hint">This will ignore "do not disturb" rules</string>
 
     <string name="title_legend_section_synchronize">Synchronize</string>
     <string name="title_legend_section_folders">Folders</string>

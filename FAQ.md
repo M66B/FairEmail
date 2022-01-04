@@ -294,7 +294,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
 * [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
 * [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
+* [(145) How can I set a notification sound for an account, folder, sender or condition?](#user-content-faq145)
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
 * [(147) What should I know about third party versions?](#user-content-faq147)
 * [(148) How can I use an Apple iCloud account?](#user-content-faq148)
@@ -3799,7 +3799,7 @@ Voice notes will automatically be attached.
 <br />
 
 <a name="faq145"></a>
-**(145) How can I set a notification sound for an account, folder or sender?**
+**(145) How can I set a notification sound for an account, folder, sender or condition?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq145)
 
@@ -3819,7 +3819,14 @@ Sender:
 * Expand the addresses section by tapping on the down arrow
 * Tap on the bell icon to create or edit a notification channel and to change the notification sound
 
-The order of precendence is: sender sound, folder sound, account sound and default sound.
+Conditional: (since version 1.1803)
+
+* Long press the folder (inbox) in the folder list and select *Edit rules*
+* Add a rule with the big 'plus' button at the bottom right
+* Configure a rule condition, select *Play sound* as rule action and select a sound
+* For more information about filter rules, please [see here](#user-content-faq71)
+
+The order of precendence is: conditional sound, sender sound, folder sound, account sound and (default) notification sound.
 
 Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
 

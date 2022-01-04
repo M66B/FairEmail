@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### Next version
+
+* Added rule action to play (alarm) sound
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1802 - 2022-01-03
 
 * Improved original message view scrolling
