@@ -26,6 +26,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.InputDevice;
 import android.view.MotionEvent;
@@ -329,26 +330,11 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         return super.onGenericMotionEvent(event);
     }
 
-    public boolean isZoomedX() {
-        int xtend = computeHorizontalScrollExtent();
-        if (xtend != 0) {
-            float xscale = computeHorizontalScrollRange() / (float) xtend;
-            if (xscale > 1.2)
-                return true;
-        }
-
-        return false;
-    }
-
     public boolean isZoomedY() {
-        int ytend = computeVerticalScrollExtent();
-        if (ytend != 0) {
-            float yscale = computeVerticalScrollRange() / (float) ytend;
-            if (yscale > 1.2)
-                return true;
-        }
-
-        return false;
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        int ch = Math.round(getContentHeight() * dm.density);
+        int dp6 = Math.round(6 * dm.density);
+        return (ch - dp6 > getHeight());
     }
 
     public static boolean isFeatureSupported(String feature) {
