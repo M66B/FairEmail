@@ -59,9 +59,9 @@ android {
         main.res.srcDirs += 'src/main/resExtra'
     }
 
-    lintOptions {
-        disable 'MissingTranslation'
+    lint {
         abortOnError false
+        disable 'MissingTranslation'
     }
 
     compileOptions {
