@@ -197,7 +197,7 @@ public class TextHelper {
         try {
             return future.get(MAX_CONVERSATION_DURATION, TimeUnit.MILLISECONDS);
         } catch (TimeoutException ex) {
-            Log.e(ex);
+            Log.e(new Throwable("Conversation actions", ex));
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit().putBoolean("conversation_actions", false);
             return null;
