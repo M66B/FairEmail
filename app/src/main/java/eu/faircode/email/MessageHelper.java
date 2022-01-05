@@ -1806,7 +1806,9 @@ public class MessageHelper {
                             Log.w(new Throwable(unsubscribe, ex));
                         }
                     }
-                } else {
+                } else if (Helper.EMAIL_ADDRESS.matcher(unsubscribe).matches())
+                    mailto = "mailto:" + unsubscribe;
+                else {
                     if (link == null) {
                         Uri uri = Uri.parse(unsubscribe);
                         String scheme = uri.getScheme();
