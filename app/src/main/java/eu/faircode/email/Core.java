@@ -3933,7 +3933,7 @@ class Core {
                         if (r.isDeliveryStatus())
                             label = (r.isDelivered() ? MessageHelper.FLAG_DELIVERED : MessageHelper.FLAG_NOT_DELIVERED);
                         else if (r.isDispositionNotification())
-                            label = (r.isDelivered() ? MessageHelper.FLAG_DISPLAYED : MessageHelper.FLAG_NOT_DISPLAYED);
+                            label = (r.isDisplayed() ? MessageHelper.FLAG_DISPLAYED : MessageHelper.FLAG_NOT_DISPLAYED);
 
                         if (label != null) {
                             Map<Long, EntityFolder> map = new HashMap<>();
