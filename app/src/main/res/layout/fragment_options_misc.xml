@@ -843,6 +843,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvChunkSize" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swUndoManager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_undo_manager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbChunkSize"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWebViewLegacy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -851,7 +863,7 @@
                     android:text="@string/title_advanced_webview_legacy"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbChunkSize"
+                    app:layout_constraintTop_toBottomOf="@id/swUndoManager"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

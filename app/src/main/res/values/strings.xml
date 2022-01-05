@@ -686,6 +686,7 @@
     <string name="title_advanced_checkpoints" translatable="false">Checkpoints</string>
     <string name="title_advanced_sqlite_cache" translatable="false">Sqlite cache: %1$s %% - %2$s</string>
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
+    <string name="title_advanced_undo_manager" translatable="false">Use Android\'s undo manager</string>
     <string name="title_advanced_webview_legacy" translatable="false">Old WebView behavior</string>
     <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
     <string name="title_advanced_expunge" translatable="false">AUTO EXPUNGE</string>

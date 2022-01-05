@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -44,6 +45,7 @@ import android.view.inputmethod.InputConnection;
 import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
+import androidx.preference.PreferenceManager;
 
 import org.jsoup.nodes.Document;
 
@@ -79,16 +81,17 @@ public class EditTextCompose extends FixedEditText {
     void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
 
-        if (BuildConfig.DEBUG &&
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean undo_manager = prefs.getBoolean("undo_manager", false);
+
+        if (undo_manager &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setCustomInsertionActionModeCallback(new ActionMode.Callback() {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    boolean undo = can(android.R.id.undo);
-                    boolean redo = can(android.R.id.redo);
-                    if (undo)
+                    if (can(android.R.id.undo))
                         menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, R.string.title_undo);
-                    if (redo)
+                    if (can(android.R.id.redo))
                         menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, R.string.title_redo);
                     return true;
                 }
