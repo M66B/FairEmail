@@ -2001,8 +2001,10 @@ class Core {
         }
 
         Message[] imessages = ifolder.search(new MessageIDTerm(msgid));
-        if (imessages == null || imessages.length == 0)
-            throw new IllegalArgumentException(msgid + " not found");
+        if (imessages == null || imessages.length == 0) {
+            Log.w(folder.name + " " + msgid + " not found");
+            return;
+        }
 
         for (Message imessage : imessages) {
             long uid = ifolder.getUID(imessage);
