@@ -87,6 +87,9 @@ public class UnknownCharsetProvider extends CharsetProvider {
                     "unknown-8bit".equalsIgnoreCase(name))
                 return StandardCharsets.ISO_8859_1;
 
+            if (name.contains("1252"))
+                name = "windows-1252";
+
             // Android will prevent recursion
             String jname = MimeUtility.javaCharset(name);
             return Charset.forName(jname);
