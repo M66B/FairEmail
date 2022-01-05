@@ -2372,7 +2372,7 @@ You can select one of these actions to apply to matching messages:
 * Move
 * Copy (Gmail: label)
 * Delete permanently (since version 1.1801)
-* Play sound (since version 1.1803)
+* Play sound (since version 1.1803; experimental)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
@@ -3823,7 +3823,7 @@ Sender:
 * Expand the addresses section by tapping on the down arrow
 * Tap on the bell icon to create or edit a notification channel and to change the notification sound
 
-Conditional: (since version 1.1803)
+Conditional: (since version 1.1803; experimental)
 
 * Long press the folder (inbox) in the folder list and select *Edit rules*
 * Add a rule with the big 'plus' button at the bottom right

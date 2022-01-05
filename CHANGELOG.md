@@ -6,7 +6,7 @@
 
 ### Next version
 
-* Added rule action to play (alarm) sound
+* Added rule action to play (alarm) sound (experimental)
 * Small improvements and minor bug fixes
 * Updated translations
 
