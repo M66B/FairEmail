@@ -57,7 +57,6 @@ import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
-import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
