@@ -2124,6 +2124,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press the folder name in the message header when viewing a conversation to navigate to the folder? (since version 1.1720)
 * Did you know that you can long press the add contact button in the message composer to insert a contact group? (since version 1.1721)
 * Did you know that you can long press the image action to show the image dialog, even if it was disabled? (since version 1.1772)
+* Did you know that you can long press the "] [" button to fit original messages to the screen width? (this might result in "thin" messages)
 
 <br />
 
