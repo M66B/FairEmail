@@ -34,12 +34,12 @@ import android.text.Spanned;
 import android.text.style.QuoteSpan;
 import android.util.AttributeSet;
 import android.view.ActionMode;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.widget.TextView;
 
 import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
@@ -47,13 +47,16 @@ import androidx.core.view.inputmethod.InputContentInfoCompat;
 
 import org.jsoup.nodes.Document;
 
-import java.lang.reflect.Method;
 import java.util.concurrent.ExecutorService;
 
 public class EditTextCompose extends FixedEditText {
     private boolean raw = false;
     private ISelection selectionListener = null;
     private IInputContentListener inputContentListener = null;
+
+    private Boolean canUndo = null;
+    private Boolean canRedo = null;
+    private boolean checkKeyEvent = false;
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "paste");
@@ -81,8 +84,8 @@ public class EditTextCompose extends FixedEditText {
             setCustomInsertionActionModeCallback(new ActionMode.Callback() {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    boolean undo = can("Undo");
-                    boolean redo = can("Redo");
+                    boolean undo = can(android.R.id.undo);
+                    boolean redo = can(android.R.id.redo);
                     if (undo)
                         menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, R.string.title_undo);
                     if (redo)
@@ -115,15 +118,24 @@ public class EditTextCompose extends FixedEditText {
         }
     }
 
-    private boolean can(String can) {
+    private boolean can(int what) {
+        canUndo = null;
+        canRedo = null;
+
         try {
-            Method mCan = TextView.class.getMethod("can" + can);
-            mCan.setAccessible(true);
-            return (boolean) mCan.invoke(this);
-        } catch (ReflectiveOperationException ex) {
-            Log.i(ex);
-            return true;
+            checkKeyEvent = true;
+            int meta = KeyEvent.META_CTRL_ON;
+            if (what == android.R.id.redo)
+                meta = meta | KeyEvent.META_SHIFT_ON;
+            KeyEvent ke = new KeyEvent(0, 0, 0, 0, 0, meta);
+            onKeyShortcut(KeyEvent.KEYCODE_Z, ke);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        } finally {
+            checkKeyEvent = false;
         }
+
+        return Boolean.TRUE.equals(what == android.R.id.redo ? canRedo : canUndo);
     }
 
     @Override
@@ -289,6 +301,12 @@ public class EditTextCompose extends FixedEditText {
                     }
                 });
 
+                return true;
+            } else if (id == android.R.id.undo) {
+                canUndo = true;
+                return true;
+            } else if (id == android.R.id.redo) {
+                canRedo = true;
                 return true;
             }
 
