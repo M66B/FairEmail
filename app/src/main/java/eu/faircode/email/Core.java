@@ -586,7 +586,7 @@ class Core {
                             // Fetch UID: NO [TEMPFAIL] SELECT completed
                             // Move: NO Over quota
                             // Move: NO No matching messages
-                            // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
+                            // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist (n.nnn + n.nnn + n.nnn secs)
                             // Move: BAD parse error: invalid message sequence number:
                             // Move: NO MOVE failed or partially completed.
                             // Move: NO mailbox selected READ-ONLY
