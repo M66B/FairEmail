@@ -67,6 +67,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Flags;
@@ -438,6 +439,7 @@ public class ActivityEML extends ActivityBase {
 
                             Charset cs = Charset.forName(charset);
                             boolean isUtf8 = CharsetHelper.isUTF8(text.getBytes(cs));
+                            boolean isW1252 = !Objects.equals(text, CharsetHelper.utf8toW1252(text));
 
                             for (int i = 0; i < level; i++)
                                 ssb.append("  ");
@@ -445,6 +447,7 @@ public class ActivityEML extends ActivityBase {
                             ssb.append("Detected: ")
                                     .append(detected == null ? "?" : detected.toString())
                                     .append(" isUTF8=").append(Boolean.toString(isUtf8))
+                                    .append(" isW1252=").append(Boolean.toString(isW1252))
                                     .append('\n');
                         }
                     }

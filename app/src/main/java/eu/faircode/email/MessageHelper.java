@@ -2461,7 +2461,7 @@ public class MessageHelper {
                 }
 
                 if (h.isPlainText()) {
-                    if (charset == null || StandardCharsets.ISO_8859_1.equals(cs))
+                    if (charset == null || StandardCharsets.ISO_8859_1.equals(cs)) {
                         if (StandardCharsets.ISO_8859_1.equals(cs) && CharsetHelper.isUTF8(result)) {
                             Log.i("Charset upgrade=UTF8");
                             result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
@@ -2477,6 +2477,8 @@ public class MessageHelper {
                                 result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
                             }
                         }
+                    } else if (StandardCharsets.UTF_8.equals(cs))
+                        result = CharsetHelper.utf8toW1252(result);
 
                     if ("flowed".equalsIgnoreCase(h.contentType.getParameter("format")))
                         result = HtmlHelper.flow(result);
@@ -2511,6 +2513,9 @@ public class MessageHelper {
                             StandardCharsets.ISO_8859_1.equals(cs)) &&
                             CharsetHelper.isUTF8(result))
                         result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+
+                    //if (StandardCharsets.UTF_8.equals(cs))
+                    //    result = CharsetHelper.utf8w1252(result);
 
                     // Fix incorrect UTF16
                     try {

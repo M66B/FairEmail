@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.text.TextUtils;
+import android.util.Pair;
 
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
@@ -38,9 +40,19 @@ public class CharsetHelper {
     private static final List<String> COMMON = Collections.unmodifiableList(Arrays.asList(
             "US-ASCII", "ISO-8859-1", "ISO-8859-2", "windows-1250", "windows-1252", "windows-1257", "UTF-8"
     ));
+    private static final int MIN_W1252 = 10;
+    private static final Pair<byte[], byte[]>[] sUtf8W1252 = new Pair[128];
 
     static {
         System.loadLibrary("fairemail");
+
+        // https://www.i18nqa.com/debug/utf8-debug.html
+        Charset w1252 = Charset.forName("windows-1252");
+        for (int c = 128; c < 256; c++) {
+            String y = new String(new byte[]{(byte) c}, w1252);
+            String x = new String(y.getBytes(), w1252);
+            sUtf8W1252[c - 128] = new Pair<>(x.getBytes(), y.getBytes());
+        }
     }
 
     private static native DetectResult jni_detect_charset(byte[] octets);
@@ -61,6 +73,57 @@ public class CharsetHelper {
         } catch (CharacterCodingException ex) {
             Log.w(ex);
             return false;
+        }
+    }
+
+    static String utf8toW1252(String text) {
+        try {
+            Charset w1252 = Charset.forName("windows-1252");
+
+            //String result = new String(text.getBytes(StandardCharsets.ISO_8859_1), w1252);
+            //for (int c = 0; c < 128; c++) {
+            //    String y = new String(sUtf8W1252[c].second);
+            //    String x = new String(sUtf8W1252[c].first);
+            //    result = result.replace(x, y);
+            //}
+            //return result;
+
+            byte[] t = new String(text.getBytes(StandardCharsets.ISO_8859_1), w1252).getBytes();
+            byte[] result = new byte[t.length];
+
+            int i = 0;
+            int len = 0;
+            int count = 0;
+            while (i < t.length && (i < MAX_SAMPLE_SIZE || count >= MIN_W1252)) {
+                boolean found = false;
+                for (int c = 0; c < 128; c++) {
+                    int sl = sUtf8W1252[c].first.length;
+                    if (i + sl < t.length) {
+                        found = true;
+                        for (int a = 0; a < sl; a++)
+                            if (t[i + a] != sUtf8W1252[c].first[a]) {
+                                found = false;
+                                break;
+                            }
+                        if (found) {
+                            count++;
+                            int tl = sUtf8W1252[c].second.length;
+                            System.arraycopy(sUtf8W1252[c].second, 0, result, len, tl);
+                            len += tl;
+                            i += sl;
+                            break;
+                        }
+                    }
+                    if (found)
+                        break;
+                }
+                if (!found)
+                    result[len++] = t[i++];
+            }
+            return (count < MIN_W1252 ? text : new String(result, 0, len));
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return text;
         }
     }
 
