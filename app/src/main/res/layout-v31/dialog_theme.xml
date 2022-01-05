@@ -222,6 +222,38 @@
             app:layout_constraintStart_toEndOf="@+id/tvYou800_2"
             app:layout_constraintTop_toBottomOf="@id/tvYou500_1" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPrimary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Primary"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/tvSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvYou800_3" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSecondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Secondary"
+            android:textColor="?android:textColorSecondary"
+            app:layout_constraintEnd_toStartOf="@+id/tvTertiary"
+            app:layout_constraintStart_toEndOf="@+id/tvPrimary"
+            app:layout_constraintTop_toBottomOf="@id/tvYou800_3" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvTertiary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Tertiary"
+            android:textColor="?android:textColorTertiary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSecondary"
+            app:layout_constraintTop_toBottomOf="@id/tvYou800_3" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swReverse"
@@ -231,7 +263,7 @@
             android:text="@string/title_setup_theme_reverse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvYou800_1" />
+            app:layout_constraintTop_toBottomOf="@id/tvPrimary" />
 
         <RadioGroup
             android:id="@+id/rgThemeOptions"
@@ -334,5 +366,15 @@
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnMore" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpDebug"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
+                tvYou200_1,tvYou200_2,tvYou200_3,
+                tvYou500_1,tvYou500_2,tvYou500_3,
+                tvYou800_1,tvYou800_2,tvYou800_3,
+                tvPrimary,tvSecondary,tvTertiary" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

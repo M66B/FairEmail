@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
@@ -36,6 +37,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private SwitchCompat swComposerLight;
     private Button btnMore;
     private TextView tvMore;
+    private Group grpDebug;
 
     private void eval() {
         int checkedId = rgTheme.getCheckedRadioButtonId();
@@ -73,6 +75,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         String theme = prefs.getString("theme", "blue_orange_system");
         boolean default_light = prefs.getBoolean("default_light", false);
         boolean composer_light = prefs.getBoolean("composer_light", false);
+        boolean debug = prefs.getBoolean("debug", false);
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_theme, null);
         rgTheme = dview.findViewById(R.id.rgTheme);
@@ -86,6 +89,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         swComposerLight = dview.findViewById(R.id.swComposerLight);
         btnMore = dview.findViewById(R.id.btnMore);
         tvMore = dview.findViewById(R.id.tvMore);
+        grpDebug = dview.findViewById(R.id.grpDebug);
 
         rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -239,6 +243,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                         .putExtra("tab", "display"));
             }
         });
+
+        if (grpDebug != null)
+            grpDebug.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         return new AlertDialog.Builder(getContext())
                 .setView(dview)
