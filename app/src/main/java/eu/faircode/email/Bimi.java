@@ -125,7 +125,7 @@ public class Bimi {
 
                     try {
                         Uri ul = Uri.parse(l);
-                        if ("https".equals(ul.getScheme()))
+                        if (!"https".equals(ul.getScheme()))
                             throw new MalformedURLException(l);
 
                         URL url = new URL(l);
