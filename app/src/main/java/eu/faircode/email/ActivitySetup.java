@@ -195,7 +195,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 int pos = parent.getChildAdapterPosition(view);
-                NavMenuItem menu = adapter.get(pos);
+                NavMenuItem menu = (adapter == null ? null : adapter.get(pos));
                 outRect.set(0, 0, 0, menu != null && menu.isSeparated() ? d.getIntrinsicHeight() : 0);
             }
         };

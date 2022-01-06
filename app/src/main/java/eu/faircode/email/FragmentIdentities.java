@@ -36,6 +36,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -122,6 +123,9 @@ public class FragmentIdentities extends FragmentBase {
 
             private View getView(View view, RecyclerView parent, int pos) {
                 if (pos == NO_POSITION)
+                    return null;
+
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     return null;
 
                 TupleIdentityEx prev = adapter.getItemAtPosition(pos - 1);

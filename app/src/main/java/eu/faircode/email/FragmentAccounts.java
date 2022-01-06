@@ -45,6 +45,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -175,6 +176,9 @@ public class FragmentAccounts extends FragmentBase {
 
             private View getView(View view, RecyclerView parent, int pos) {
                 if (pos == NO_POSITION)
+                    return null;
+
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     return null;
 
                 TupleAccountEx prev = adapter.getItemAtPosition(pos - 1);

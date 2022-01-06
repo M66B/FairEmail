@@ -697,8 +697,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                 int count = parent.getChildCount();
+                String sort = (adapter == null ? null : adapter.getSort());
+
                 if (date_fixed)
-                    if ("time".equals(adapter.getSort()))
+                    if ("time".equals(sort))
                         inGroup.setVisibility(count > 0 ? View.VISIBLE : View.INVISIBLE);
                     else
                         inGroup.setVisibility(View.GONE);
@@ -707,7 +709,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     View view = parent.getChildAt(i);
                     int pos = parent.getChildAdapterPosition(view);
 
-                    if (i == 0 && date_fixed && "time".equals(adapter.getSort())) {
+                    if (i == 0 && date_fixed && "time".equals(sort)) {
                         TupleMessageEx top = adapter.getItemAtPosition(pos);
                         tvFixedDate.setVisibility(top == null ? View.INVISIBLE : View.VISIBLE);
                         if (!cards)
