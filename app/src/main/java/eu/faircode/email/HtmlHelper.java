@@ -2397,7 +2397,7 @@ public class HtmlHelper {
 
             ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
             String[] received = new InternetHeaders(bis).getHeader("Received");
-            if (received.length > 0) {
+            if (received != null && received.length > 0) {
                 ssb.append('\n');
                 for (int i = received.length - 1; i >= 0; i--) {
                     String h = MimeUtility.unfold(received[i]);
