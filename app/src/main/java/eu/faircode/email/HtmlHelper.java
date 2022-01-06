@@ -2443,15 +2443,23 @@ public class HtmlHelper {
                     ssb.append('\n');
 
                     int j = 0;
+                    boolean p = false;
                     String[] w = h.split("\\s+");
                     while (j < w.length) {
+                        if (w[j].startsWith("("))
+                            p = true;
+
                         if (j > 0)
                             ssb.append(' ');
 
                         s = ssb.length();
                         ssb.append(w[j]);
-                        if (words.contains(w[j].toLowerCase(Locale.ROOT)))
+                        if (!p && words.contains(w[j].toLowerCase(Locale.ROOT)))
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+
+                        if (w[j].endsWith(")"))
+                            p = false;
+
                         j++;
                     }
                     ssb.append("\n\n");
