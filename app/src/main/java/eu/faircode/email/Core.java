@@ -3738,6 +3738,9 @@ class Core {
             if (received == null)
                 received = 0L;
 
+            if (BuildConfig.DEBUG)
+                Log.i("--- TLS=" + helper.getTLS());
+
             String[] authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts();
 

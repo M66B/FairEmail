@@ -101,6 +101,8 @@ public class ConnectionHelper {
 
     public static native int jni_socket_get_send_buffer(int fd);
 
+    public static native boolean jni_is_numeric_address(String _ip);
+
     static class NetworkState {
         private Boolean connected = null;
         private Boolean suitable = null;

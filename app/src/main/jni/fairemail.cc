@@ -157,3 +157,30 @@ Java_eu_faircode_email_ConnectionHelper_jni_1socket_1get_1send_1buffer(
         log_android(ANDROID_LOG_DEBUG, "ioctl(TIOCOUTQ) res=%d queued=%d", res, queued);
     return (res == 0 ? queued : 0);
 }
+
+extern "C"
+JNIEXPORT jboolean JNICALL
+Java_eu_faircode_email_ConnectionHelper_jni_1is_1numeric_1address(
+        JNIEnv *env, jclass clazz,
+        jstring _ip) {
+    jboolean numeric = 0;
+    const char *ip = env->GetStringUTFChars(_ip, 0);
+
+    // https://linux.die.net/man/3/getaddrinfo
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_flags = AI_NUMERICHOST; // suppresses any potentially lengthy network host address lookups
+    struct addrinfo *result;
+    int err = getaddrinfo(ip, nullptr, &hints, &result);
+    if (err)
+        log_android(ANDROID_LOG_DEBUG, "getaddrinfo(%s) error %d: %s", ip, err, gai_strerror(err));
+    else
+        numeric = (jboolean) (result != nullptr);
+
+    if (result != nullptr)
+        freeaddrinfo(result);
+
+    env->ReleaseStringUTFChars(_ip, ip);
+    return numeric;
+}

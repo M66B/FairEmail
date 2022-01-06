@@ -66,7 +66,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.IDN;
+import java.net.InetAddress;
 import java.net.URLDecoder;
+import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
@@ -1912,6 +1914,95 @@ public class MessageHelper {
         }
 
         return null;
+    }
+
+    Boolean getTLS() throws MessagingException {
+        // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
+
+        // Time-stamp-line = "Received:" FWS Stamp <CRLF>
+        // Stamp = From-domain By-domain Opt-info ";"  FWS date-time
+        // From-domain = "FROM" FWS Extended-Domain CFWS
+        // By-domain = "BY" FWS Extended-Domain CFWS
+        // Opt-info = [Via] [With] [ID] [For]
+        // Via = "VIA" FWS Link CFWS
+        // With = "WITH" FWS Protocol CFWS
+        // ID = "ID" FWS String / msg-id CFWS
+        // For = "FOR" FWS 1*( Path / Mailbox ) CFWS
+
+        // Extended-Domain = Domain / ( Domain FWS "(" TCP-info ")" ) / ( Address-literal FWS "(" TCP-info ")" )
+        // TCP-info = Address-literal / ( Domain FWS Address-literal )
+        // Link = "TCP" / Addtl-Link
+        // Addtl-Link = Atom
+        // Protocol = "ESMTP" / "SMTP" / Attdl-Protocol
+        // Attdl-Protocol = Atom
+
+        String[] received = imessage.getHeader("Received");
+        if (received == null || received.length == 0)
+            return null;
+
+        final List<String> words = Collections.unmodifiableList(Arrays.asList(
+                "from", "by", "via", "with", "id", "for"));
+
+        // First header is last added header
+        for (String r : received) {
+            String header = MimeUtility.unfold(r);
+
+            int s, e;
+            do {
+                s = header.indexOf('(');
+                e = header.indexOf(')', s);
+                if (s > 0 && e > 0)
+                    header = header.substring(0, s) + header.substring((e + 1));
+            } while (s > 0 && e > 0);
+
+            int semi = header.lastIndexOf(';');
+            if (semi > 0)
+                header = header.substring(0, semi);
+
+            header = header.replaceAll("\\s+", " ");
+
+            Log.i("--- header=" + header);
+
+            String[] parts = header.split(" ");
+            boolean hasFrom = false;
+            boolean hasWith = false;
+            for (int j = 0; j < parts.length - 1; j++) {
+                Log.i("--- part " + j + " " + parts[j] + "=" + parts[j + 1]);
+                if ("from".equalsIgnoreCase(parts[j])) {
+                    hasFrom = true;
+                    String from = parts[j + 1].toLowerCase(Locale.ROOT);
+                    boolean numeric = ConnectionHelper.jni_is_numeric_address(from);
+                    Log.i("--- numeric=" + numeric);
+                    if (numeric)
+                        try {
+                            InetAddress addr = InetAddress.getByName(from);
+                            if (addr.isSiteLocalAddress())
+                                break;
+                            Log.i("--- remote");
+                        } catch (UnknownHostException ex) {
+                            Log.e(ex);
+                        }
+                } else if ("with".equalsIgnoreCase(parts[j])) {
+                    hasWith = true;
+                    if (hasFrom) {
+                        String with = parts[j + 1].toUpperCase(Locale.ROOT);
+                        Log.i("--- MTP=" + with.contains("MTP") + " MTPS=" + with.contains("MTPS"));
+                        // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
+                        if (!with.contains("MTP"))
+                            return null;
+                        if (!with.contains("MTPS"))
+                            return false;
+                    }
+                    break;
+                }
+                if (words.contains(parts[j]))
+                    j++;
+            }
+            if (hasFrom && !hasWith)
+                return null;
+        }
+
+        return true;
     }
 
     Long getSent() throws MessagingException {
