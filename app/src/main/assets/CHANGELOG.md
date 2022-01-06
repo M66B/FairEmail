@@ -4,10 +4,11 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
-### Next version
+### 1.1803 - 2022-01-06
 
 * Added rule action to play (alarm) sound (experimental)
 * Small improvements and minor bug fixes
+* Updated build tools and libraries
 * Updated translations
 
 ### 1.1802 - 2022-01-03
