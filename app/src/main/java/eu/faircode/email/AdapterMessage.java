@@ -230,7 +230,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorAccent;
     private int textColorPrimary;
     private int textColorSecondary;
-    private int textColorTertiary;
     private int textColorLink;
     private int colorUnreadHighlight;
     private int colorUnread;
@@ -1366,7 +1365,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
             tvNotes.setText(message.notes);
-            tvNotes.setTextColor(message.notes_color == null ? textColorTertiary : message.notes_color);
+            tvNotes.setTextColor(message.notes_color == null ? textColorSecondary : message.notes_color);
             tvNotes.setVisibility(TextUtils.isEmpty(message.notes) ? View.GONE : View.VISIBLE);
 
             // Error / warning
@@ -6109,7 +6108,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
-        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
