@@ -144,6 +144,7 @@ public class EntityMessage implements Serializable {
     public Boolean receipt_request;
     public Address[] receipt_to;
     public String bimi_selector;
+    public Boolean tls;
     public Boolean dkim;
     public Boolean spf;
     public Boolean dmarc;
@@ -563,6 +564,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.receipt_request, other.receipt_request) &&
                     MessageHelper.equal(this.receipt_to, other.receipt_to) &&
                     Objects.equals(this.bimi_selector, other.bimi_selector) &&
+                    Objects.equals(this.tls, other.tls) &&
                     Objects.equals(this.dkim, other.dkim) &&
                     Objects.equals(this.spf, other.spf) &&
                     Objects.equals(this.dmarc, other.dmarc) &&

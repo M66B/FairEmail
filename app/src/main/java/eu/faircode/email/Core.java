@@ -2790,6 +2790,7 @@ class Core {
                         message.receipt_request = helper.getReceiptRequested();
                         message.receipt_to = helper.getReceiptTo();
                         message.bimi_selector = helper.getBimiSelector();
+                        message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
                         if (message.spf == null && helper.getSPF())
@@ -3738,9 +3739,6 @@ class Core {
             if (received == null)
                 received = 0L;
 
-            if (BuildConfig.DEBUG)
-                Log.i("--- TLS=" + helper.getTLS());
-
             String[] authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
@@ -3771,6 +3769,7 @@ class Core {
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
             message.bimi_selector = helper.getBimiSelector();
+            message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             if (message.spf == null && helper.getSPF())

@@ -3834,6 +3834,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (result.size() > 0)
                 sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
             else {
+                if (BuildConfig.DEBUG)
+                    sb.append("TLS: ")
+                            .append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"))
+                            .append('\n');
                 sb.append("DKIM: ")
                         .append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
                         .append('\n');
@@ -6268,6 +6272,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.bimi_selector, next.bimi_selector)) {
                     same = false;
                     log("bimi_selector changed", next.id);
+                }
+                if (!Objects.equals(prev.tls, next.tls)) {
+                    same = false;
+                    log("tls changed", next.id);
                 }
                 if (!Objects.equals(prev.dkim, next.dkim)) {
                     same = false;
