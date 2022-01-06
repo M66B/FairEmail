@@ -475,6 +475,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             setTitle(server ? R.string.title_search_server : R.string.title_search_device);
         }
 
+        if (viewType != AdapterMessage.ViewType.THREAD && EntityFolder.ARCHIVE.equals(type))
+            filter_archive = false;
+
         if (viewType != AdapterMessage.ViewType.THREAD)
             getParentFragmentManager().setFragmentResultListener("message.selected", this, new FragmentResultListener() {
                 @Override
