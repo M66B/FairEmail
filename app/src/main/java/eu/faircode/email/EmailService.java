@@ -887,10 +887,10 @@ public class EmailService implements AutoCloseable {
     }
 
     public void dump() {
-        EntityLog.log(context, "Dump start");
+        EntityLog.log(context, EntityLog.Type.Protocol, "Dump start");
         while (breadcrumbs != null && !breadcrumbs.isEmpty())
-            EntityLog.log(context, "Dump " + breadcrumbs.pop());
-        EntityLog.log(context, "Dump end");
+            EntityLog.log(context, EntityLog.Type.Protocol, "Dump " + breadcrumbs.pop());
+        EntityLog.log(context, EntityLog.Type.Protocol, "Dump end");
     }
 
     private static class SocketFactoryService extends SocketFactory {
