@@ -3683,15 +3683,13 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq139)
 
-In fact this Microsoft Exchange specific error is an incorrect error message caused by a bug in older Exchange server software.
+The confusing server error *User is authenticated but not connected* might occur if:
 
-The error *User is authenticated but not connected* might occur if:
-
+* External access was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
+* SMTP was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how an administrator can enable it again
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
-* The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
-* IMAP was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) how an administrator can enable it again
 
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
@@ -3706,6 +3704,7 @@ The Outlook/Office 365 quick setup wizard supports setting up shared mailboxes.
 When using a shared mailbox, you might want to enable the option *Synchronize shared folder lists* in the receive settings.
 
 Sometimes it helps to use the *Other provider* wizard instead of the *Outlook/Office 365* wizard.
+You might need an app password for this, please see [this FAQ](#user-content-faq14).
 
 <br />
 
