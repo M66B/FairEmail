@@ -1278,6 +1278,7 @@
     <string name="title_rule_tts">Sprachausgabe</string>
     <string name="title_rule_automation">Automatisierung</string>
     <string name="title_rule_delete">Dauerhaft löschen</string>
+    <string name="title_rule_sound">Ton abspielen</string>
     <string name="title_rule_caption">Regel bearbeiten</string>
     <string name="title_rule_title">Regel gilt für</string>
     <string name="title_rule_name">Name</string>
@@ -1332,6 +1333,10 @@
     <string name="title_rule_tts_from">Von</string>
     <string name="title_rule_tts_subject">Betreff</string>
     <string name="title_rule_tts_content">Text</string>
+    <string name="title_rule_select_sound">Ton auswählen</string>
+    <string name="title_rule_use_as_alarm">Als Wecker verwenden</string>
+    <string name="title_rule_alarm_hint">Dies ignoriert die Nicht-stören-Regeln</string>
+    <string name="title_rule_alarm_duration">Maximale Alarmdauer (Sekunden)</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>

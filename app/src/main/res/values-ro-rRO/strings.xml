@@ -1289,6 +1289,7 @@
     <string name="title_rule_tts">Text în vorbire</string>
     <string name="title_rule_automation">Automatizare</string>
     <string name="title_rule_delete">Șterge permanent</string>
+    <string name="title_rule_sound">Redă sunet</string>
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
     <string name="title_rule_name">Nume</string>
@@ -1343,6 +1344,10 @@
     <string name="title_rule_tts_from">De la</string>
     <string name="title_rule_tts_subject">Subiect</string>
     <string name="title_rule_tts_content">Text</string>
+    <string name="title_rule_select_sound">Alege sunet</string>
+    <string name="title_rule_use_as_alarm">Utilizează ca alarmă</string>
+    <string name="title_rule_alarm_hint">Acest lucru va ignora regulile \"nu deranjați\"</string>
+    <string name="title_rule_alarm_duration">Durata maximă a alarmei (secunde)</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>

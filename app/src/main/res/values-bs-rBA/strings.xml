@@ -1293,6 +1293,7 @@
     <string name="title_rule_tts">Tekst u govor</string>
     <string name="title_rule_automation">Automatizacija</string>
     <string name="title_rule_delete">Trajno izbriši</string>
+    <string name="title_rule_sound">Pokreni zvuk</string>
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>
     <string name="title_rule_name">Naziv</string>
@@ -1347,6 +1348,9 @@
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Predmet</string>
     <string name="title_rule_tts_content">Tekst</string>
+    <string name="title_rule_select_sound">Izaberi zvuk</string>
+    <string name="title_rule_use_as_alarm">Koristi kao alarm</string>
+    <string name="title_rule_alarm_hint">Ovo će ignorisati pravila \"neometanja\"</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>

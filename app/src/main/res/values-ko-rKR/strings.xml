@@ -429,6 +429,7 @@
     <string name="title_move_to">&#8230;으로 이동</string>
     <string name="title_move_to_folder">&#8230;으로 이동</string>
     <string name="title_report_spam">스팸으로 처리</string>
+    <string name="title_delete_permanently">영구 삭제</string>
     <string name="title_snooze">&#8230; 미루기</string>
     <string name="title_archive">보관처리</string>
     <string name="title_reply">답장</string>
@@ -594,6 +595,7 @@
     <string name="title_rule_tts">텍스트 음성 변환</string>
     <string name="title_rule_automation">자동화</string>
     <string name="title_rule_delete">영구 삭제</string>
+    <string name="title_rule_sound">소리 재생</string>
     <string name="title_rule_caption">규칙 수정</string>
     <string name="title_rule_name">이름</string>
     <string name="title_rule_order">정렬</string>
@@ -620,6 +622,10 @@
     <string name="title_rule_tts_from">발신인</string>
     <string name="title_rule_tts_subject">제목</string>
     <string name="title_rule_tts_content">내용</string>
+    <string name="title_rule_select_sound">소리 선택</string>
+    <string name="title_rule_use_as_alarm">알람으로 사용</string>
+    <string name="title_rule_alarm_hint">알람은 \"방해 금지 모드\"를 무시합니다</string>
+    <string name="title_rule_alarm_duration">최대 알람 시간 (초)</string>
     <string name="title_legend_section_synchronize">동기화</string>
     <string name="title_legend_section_folders">폴더</string>
     <string name="title_legend_section_messages">메시지</string>

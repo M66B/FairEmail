@@ -1299,6 +1299,7 @@
     <string name="title_rule_tts">Синтез мовлення</string>
     <string name="title_rule_automation">Автоматизація</string>
     <string name="title_rule_delete">Видалити назавжди</string>
+    <string name="title_rule_sound">Відтворити звук</string>
     <string name="title_rule_caption">Редагувати правило</string>
     <string name="title_rule_title">Застосовується правило для</string>
     <string name="title_rule_name">Ім\'я</string>
@@ -1353,6 +1354,10 @@
     <string name="title_rule_tts_from">Від</string>
     <string name="title_rule_tts_subject">Тема</string>
     <string name="title_rule_tts_content">Текст</string>
+    <string name="title_rule_select_sound">Оберіть звук</string>
+    <string name="title_rule_use_as_alarm">Використовувати як будильник</string>
+    <string name="title_rule_alarm_hint">Правила режиму \"не турбувати\" ігноруватимуться</string>
+    <string name="title_rule_alarm_duration">Тривалість сигнала будильника (у секундах)</string>
     <string name="title_legend_section_synchronize">Синхронізація</string>
     <string name="title_legend_section_folders">Теки</string>
     <string name="title_legend_section_messages">Повідомлення</string>

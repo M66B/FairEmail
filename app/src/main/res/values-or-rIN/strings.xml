@@ -311,6 +311,7 @@
     <string name="title_less">କମ୍</string>
     <string name="title_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_copy_btn">କପି କରନ୍ତୁ</string>
+    <string name="title_delete_permanently">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_no_undo">ମୁଁ ବୁଝିପାରୁଛି ଏହାକୁ ପୂର୍ବବତ୍ କରାଯାଇପାରିବ ନାହିଁ</string>
     <string name="title_reply">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_reply_to_sender">ପ୍ରେରକଙ୍କୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
@@ -420,6 +421,7 @@
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_delete">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_rule_sound">ଧ୍ୱନି ବଜାନ୍ତୁ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_body">ପାଠ୍ୟ ଧାରଣ କରେ</string>
     <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ସର୍ବଦା ବାର୍ତ୍ତାର ପାଠ୍ୟ ଡାଉନଲୋଡ୍ ହେବ, ଯାହା ବାର୍ତ୍ତା ତାଲିକାର ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ମନ୍ଥର କରିପାରେ</string>
@@ -433,6 +435,8 @@
     <string name="title_rule_tts_from">ପ୍ରେରକ</string>
     <string name="title_rule_tts_subject">ବିଷୟ</string>
     <string name="title_rule_tts_content">ପାଠ୍ୟ</string>
+    <string name="title_rule_select_sound">ଧ୍ୱନି ବାଛନ୍ତୁ</string>
+    <string name="title_rule_use_as_alarm">ଆଲାର୍ମ ଭାବେ ବ୍ୟବହାର କରିବା</string>
     <string name="title_legend_section_synchronize">ସିଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_legend_section_messages">ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>

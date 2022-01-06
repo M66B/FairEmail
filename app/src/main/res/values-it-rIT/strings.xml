@@ -361,6 +361,7 @@
     <string name="title_advanced_two_row">Usa due righe</string>
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
+    <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
@@ -782,6 +783,7 @@
     <string name="title_hint_alias">Tieni premuta un\'identità per mostrare le opzioni, come copiare per creare identità di alias</string>
     <string name="title_service_auth">Il server email ha detto: \'%1$s\'</string>
     <string name="title_service_vpn">Ciò potrebbe esser causato dalla VPN in uso</string>
+    <string name="title_service_token">Il gestore dei profili di Android potrebbe esser bloccato da una VPN, firewall, adblocker, etc. impedendogli di ottenere un token d\'accesso</string>
     <string name="title_service_port">Sei pregato di ricontrollare il numero della porta</string>
     <string name="title_service_protocol">Sei pregato di ricontrollare il protocollo (SSL/TLS o STARTTLS)</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
@@ -1233,6 +1235,7 @@
     <string name="title_filter_unflagged">Non stellato</string>
     <string name="title_filter_unknown">Mittenti sconosciuti</string>
     <string name="title_filter_hidden">Nascosti</string>
+    <string name="title_filter_deleted">Eliminati</string>
     <string name="title_filter_duplicates">Duplicati</string>
     <string name="title_filter_trash">Cestinato</string>
     <string name="title_compact">Vista compatta</string>
@@ -1281,6 +1284,7 @@
     <string name="title_rule_tts">Sintesi vocale</string>
     <string name="title_rule_automation">Automazione</string>
     <string name="title_rule_delete">Elimina permanentemente</string>
+    <string name="title_rule_sound">Riproduci suono</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>
@@ -1320,6 +1324,7 @@
     <string name="title_rule_answer_missing">Modello mancante</string>
     <string name="title_rule_keyword_missing">Parola chiave mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con \'%2$s\' extra</string>
+    <string name="title_rule_delete_hint">L\'eliminazione permanente è irreversibile, quindi assicurati che le condizioni della regola siano corrette!</string>
     <string name="title_rule_execute">Esegui ora</string>
     <string name="title_rule_applied">Messaggi interessati: %1$d</string>
     <string name="title_rule_check">Verifica</string>
@@ -1334,6 +1339,9 @@
     <string name="title_rule_tts_from">Da</string>
     <string name="title_rule_tts_subject">Oggetto</string>
     <string name="title_rule_tts_content">Testo</string>
+    <string name="title_rule_select_sound">Seleziona suono</string>
+    <string name="title_rule_use_as_alarm">Usa come sveglia</string>
+    <string name="title_rule_alarm_hint">Questo ignorerà le regole \"non disturbare\"</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>

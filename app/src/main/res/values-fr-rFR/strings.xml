@@ -1284,6 +1284,7 @@
     <string name="title_rule_tts">Synthèse vocale</string>
     <string name="title_rule_automation">Automatisation</string>
     <string name="title_rule_delete">Supprimer définitivement</string>
+    <string name="title_rule_sound">Jouer un son</string>
     <string name="title_rule_caption">Modifier la règle</string>
     <string name="title_rule_title">La règle s\'applique à</string>
     <string name="title_rule_name">Nom</string>
@@ -1338,6 +1339,10 @@
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Objet</string>
     <string name="title_rule_tts_content">Texte</string>
+    <string name="title_rule_select_sound">Choisir un son</string>
+    <string name="title_rule_use_as_alarm">Utiliser en tant qu\'alarme</string>
+    <string name="title_rule_alarm_hint">Ceci ignorera les règles « Ne pas déranger »</string>
+    <string name="title_rule_alarm_duration">Durée maximale de l\'alarme (secondes)</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>

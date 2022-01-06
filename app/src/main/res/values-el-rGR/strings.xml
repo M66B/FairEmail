@@ -1277,6 +1277,7 @@
     <string name="title_rule_tts">Μετατροπή κειμένου σε φωνή</string>
     <string name="title_rule_automation">Αυτοματοποίηση</string>
     <string name="title_rule_delete">Οριστική διαγραφή</string>
+    <string name="title_rule_sound">Αναπαραγωγή ήχου</string>
     <string name="title_rule_caption">Επεξεργασία κανόνα</string>
     <string name="title_rule_title">Ο κανόνας εφαρμόζεται σε</string>
     <string name="title_rule_name">Όνομα</string>
@@ -1331,6 +1332,10 @@
     <string name="title_rule_tts_from">Από</string>
     <string name="title_rule_tts_subject">Θέμα</string>
     <string name="title_rule_tts_content">Κείμενο</string>
+    <string name="title_rule_select_sound">Επιλογή ήχου</string>
+    <string name="title_rule_use_as_alarm">Να χρησιμοποιείται ως ξυπνητήρι</string>
+    <string name="title_rule_alarm_hint">Αυτό θα αγνοήσει τους κανόνες \"Μην ενοχλείτε\"</string>
+    <string name="title_rule_alarm_duration">Μέγιστη διάρκεια ξυπνητηριού (δευτερόλεπτα)</string>
     <string name="title_legend_section_synchronize">Συγχρονισμός</string>
     <string name="title_legend_section_folders">Φάκελοι</string>
     <string name="title_legend_section_messages">Μηνύματα</string>

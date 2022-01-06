@@ -305,7 +305,7 @@
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
-    <string name="title_advanced_prefix_count">在回复（Re:）后显示计数</string>
+    <string name="title_advanced_prefix_count">在邮件主题的前缀“回复(Re)”后显示计数</string>
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展的回复/转发头</string>
     <string name="title_advanced_write_above">写在发件人正文的上方</string>
@@ -1268,6 +1268,7 @@
     <string name="title_rule_tts">文字转语音</string>
     <string name="title_rule_automation">自动化</string>
     <string name="title_rule_delete">永久删除</string>
+    <string name="title_rule_sound">播放提示音</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
     <string name="title_rule_name">名称</string>
@@ -1322,6 +1323,10 @@
     <string name="title_rule_tts_from">发件人</string>
     <string name="title_rule_tts_subject">主题</string>
     <string name="title_rule_tts_content">文本</string>
+    <string name="title_rule_select_sound">选择声音</string>
+    <string name="title_rule_use_as_alarm">用作警报</string>
+    <string name="title_rule_alarm_hint">这将忽略“勿扰”规则</string>
+    <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>

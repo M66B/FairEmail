@@ -1276,6 +1276,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_tts">Tekst-naar-spraak</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Definitief verwijderen</string>
+    <string name="title_rule_sound">Speel geluid af</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>
@@ -1330,6 +1331,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_tts_from">Van</string>
     <string name="title_rule_tts_subject">Onderwerp</string>
     <string name="title_rule_tts_content">Tekst</string>
+    <string name="title_rule_select_sound">Selecteer geluid</string>
+    <string name="title_rule_use_as_alarm">Als alarm gebruiken</string>
+    <string name="title_rule_alarm_hint">Dit zal \"niet storen\" regels negeren</string>
+    <string name="title_rule_alarm_duration">Maximale alarmduur (seconden)</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>

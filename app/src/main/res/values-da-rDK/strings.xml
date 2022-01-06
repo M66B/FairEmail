@@ -1284,6 +1284,7 @@
     <string name="title_rule_tts">Tekst til tale</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Slet permanent</string>
+    <string name="title_rule_sound">Afspil lyd</string>
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Regel gælder for</string>
     <string name="title_rule_name">Navn</string>
@@ -1338,6 +1339,10 @@
     <string name="title_rule_tts_from">Fra</string>
     <string name="title_rule_tts_subject">Emne</string>
     <string name="title_rule_tts_content">Tekst</string>
+    <string name="title_rule_select_sound">Vælg lyd</string>
+    <string name="title_rule_use_as_alarm">Benyt som alarm</string>
+    <string name="title_rule_alarm_hint">Dette vil tilsidesætte \"Forstyr ikke\"-regler</string>
+    <string name="title_rule_alarm_duration">Maks. alarmvarighed (sekunder)</string>
     <string name="title_legend_section_synchronize">Synkronisér</string>
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Beskeder</string>

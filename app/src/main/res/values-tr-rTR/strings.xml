@@ -1277,6 +1277,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_tts">Konuşma metni</string>
     <string name="title_rule_automation">Özdevinim</string>
     <string name="title_rule_delete">Kalıcı olarak sil</string>
+    <string name="title_rule_sound">Ses Çal</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>
@@ -1331,6 +1332,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_tts_from">Gönderen</string>
     <string name="title_rule_tts_subject">Konu</string>
     <string name="title_rule_tts_content">Metin</string>
+    <string name="title_rule_select_sound">Ses seç</string>
+    <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
+    <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
+    <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>
     <string name="title_legend_section_synchronize">Eşzamanlama</string>
     <string name="title_legend_section_folders">Klasörler</string>
     <string name="title_legend_section_messages">İletiler</string>

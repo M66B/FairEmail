@@ -1302,6 +1302,7 @@
     <string name="title_rule_tts">Синтез речи</string>
     <string name="title_rule_automation">Автоматизация</string>
     <string name="title_rule_delete">Удалить окончательно</string>
+    <string name="title_rule_sound">Воспроизвести звук</string>
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>
@@ -1356,6 +1357,10 @@
     <string name="title_rule_tts_from">От</string>
     <string name="title_rule_tts_subject">Тема</string>
     <string name="title_rule_tts_content">Текст</string>
+    <string name="title_rule_select_sound">Выбрать звук</string>
+    <string name="title_rule_use_as_alarm">Использовать как будильник</string>
+    <string name="title_rule_alarm_hint">Это игнорирует правила \"не беспокоить\"</string>
+    <string name="title_rule_alarm_duration">Максимальная длительность будильника (в секундах)</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>

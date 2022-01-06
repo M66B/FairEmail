@@ -1283,6 +1283,7 @@
     <string name="title_rule_tts">Danışıq mətni</string>
     <string name="title_rule_automation">Avtomatlaşdırma</string>
     <string name="title_rule_delete">Birdəfəlik sil</string>
+    <string name="title_rule_sound">Səs oxut</string>
     <string name="title_rule_caption">Qaydaya düzəliş et</string>
     <string name="title_rule_title">Qayda tətbiq olunur</string>
     <string name="title_rule_name">Ad</string>
@@ -1337,6 +1338,9 @@
     <string name="title_rule_tts_from">Göndərən</string>
     <string name="title_rule_tts_subject">Mövzu</string>
     <string name="title_rule_tts_content">Mətn</string>
+    <string name="title_rule_select_sound">Səsi seç</string>
+    <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
+    <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
     <string name="title_legend_section_synchronize">Eyniləşdirmə</string>
     <string name="title_legend_section_folders">Qovluqlar</string>
     <string name="title_legend_section_messages">Mesaj</string>

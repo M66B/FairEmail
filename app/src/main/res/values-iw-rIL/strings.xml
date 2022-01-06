@@ -802,6 +802,7 @@
     <string name="title_hint_alias">לחיצה ארוכה על זהות תציג אפשרויות, כגון העתקה ליצירת כינויים לזהות</string>
     <string name="title_service_auth">שרת הדוא״ל החזיר: ‚%1$s’</string>
     <string name="title_service_vpn">אולי בגלל ה־VPN הפעיל</string>
+    <string name="title_service_token">לא ניתן לחסום את מנהל החשבונות של Android עם VPN, חומת אש, חוסם פרסומות וכו׳, מה שימנע ממנו לקבל אסימון גישה</string>
     <string name="title_service_port">נא לבדוק היטב את מספר הפתחה</string>
     <string name="title_service_protocol">נא לבדוק את הפרוטוקול היטב (SSL/TLS או STARTTLS)</string>
     <string name="title_advanced_browse">עיון בהודעות שבשרת</string>
@@ -1302,6 +1303,7 @@
     <string name="title_rule_tts">טקסט לדיבור</string>
     <string name="title_rule_automation">אוטומציה</string>
     <string name="title_rule_delete">מחיקה לצמיתות</string>
+    <string name="title_rule_sound">השמעת צליל</string>
     <string name="title_rule_caption">עריכת כלל</string>
     <string name="title_rule_title">הכלל חל על</string>
     <string name="title_rule_name">שם</string>
@@ -1356,6 +1358,10 @@
     <string name="title_rule_tts_from">מאת</string>
     <string name="title_rule_tts_subject">נושא</string>
     <string name="title_rule_tts_content">טקסט</string>
+    <string name="title_rule_select_sound">בחירת צליל</string>
+    <string name="title_rule_use_as_alarm">להשתמש כהתראה</string>
+    <string name="title_rule_alarm_hint">יתעלם מכללי „לא להפריע”</string>
+    <string name="title_rule_alarm_duration">משך ההתראה המרבי (שניות)</string>
     <string name="title_legend_section_synchronize">סנכרון</string>
     <string name="title_legend_section_folders">תיקיות</string>
     <string name="title_legend_section_messages">הודעות</string>

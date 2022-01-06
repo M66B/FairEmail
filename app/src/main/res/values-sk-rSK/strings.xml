@@ -1298,6 +1298,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_tts">Prevod textu na reč</string>
     <string name="title_rule_automation">Automatizácia</string>
     <string name="title_rule_delete">Odstrániť natrvalo</string>
+    <string name="title_rule_sound">Prehrať zvuk</string>
     <string name="title_rule_caption">Upraviť pravidlo</string>
     <string name="title_rule_title">Pravidlo sa vzťahuje na</string>
     <string name="title_rule_name">Názov</string>
@@ -1352,6 +1353,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Predmet</string>
     <string name="title_rule_tts_content">Text</string>
+    <string name="title_rule_select_sound">Vybrať zvuk</string>
+    <string name="title_rule_use_as_alarm">Použiť ako alarm</string>
+    <string name="title_rule_alarm_hint">Toto nebude rešpektovať režim nerušiť</string>
     <string name="title_legend_section_synchronize">Synchronizovať</string>
     <string name="title_legend_section_folders">Priečinky</string>
     <string name="title_legend_section_messages">Správy</string>

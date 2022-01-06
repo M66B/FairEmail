@@ -1299,6 +1299,7 @@
     <string name="title_rule_tts">Przetwarzanie tekstu na mowę</string>
     <string name="title_rule_automation">Automatyzacja</string>
     <string name="title_rule_delete">Usuń trwale</string>
+    <string name="title_rule_sound">Odtwórz dźwięk</string>
     <string name="title_rule_caption">Edytuj regułę</string>
     <string name="title_rule_title">Reguła dotyczy</string>
     <string name="title_rule_name">Nazwa</string>
@@ -1353,6 +1354,10 @@
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Temat</string>
     <string name="title_rule_tts_content">Tekst</string>
+    <string name="title_rule_select_sound">Wybierz dźwięk</string>
+    <string name="title_rule_use_as_alarm">Użyj jako alarmu</string>
+    <string name="title_rule_alarm_hint">To zignoruje zasady \"nie przeszkadzać\"</string>
+    <string name="title_rule_alarm_duration">Maksymalny czas trwania alarmu (sekundy)</string>
     <string name="title_legend_section_synchronize">Synchronizuj</string>
     <string name="title_legend_section_folders">Foldery</string>
     <string name="title_legend_section_messages">Wiadomości</string>
