@@ -38,7 +38,10 @@ public class CharsetHelper {
     private static final int MAX_SAMPLE_SIZE = 8192;
     private static String CHINESE = new Locale("zh").getLanguage();
     private static final List<String> COMMON = Collections.unmodifiableList(Arrays.asList(
-            "US-ASCII", "ISO-8859-1", "ISO-8859-2", "windows-1250", "windows-1252", "windows-1257", "UTF-8"
+            "US-ASCII",
+            "ISO-8859-1", "ISO-8859-2",
+            "windows-1250", "windows-1252", "windows-1257",
+            "UTF-7", "UTF-8"
     ));
     private static final int MIN_W1252 = 10;
     private static final Pair<byte[], byte[]>[] sUtf8W1252 = new Pair[128];
