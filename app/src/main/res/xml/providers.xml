@@ -1381,6 +1381,19 @@
             starttls="false" />
     </provider>
     <provider
+        name="Aruba.it/PEC"
+        domain="pec\\.it,pec\\.cloud,arubapec\\.it,mypec\\.eu,gigapec\\.it,casellapec\\.com,pecditta\\.com"
+        link="https://guide.pec.it/posta-pec/configurare-casella-pec/configurare-casella-pec-programma-posta.aspx">
+        <imap
+            host="imaps.pec.aruba.it"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtps.pec.aruba.it"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
         name="StartMail"
         appPassword="true"
         domain="startmail\\.com"
