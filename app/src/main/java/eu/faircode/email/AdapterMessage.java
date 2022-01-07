@@ -1207,6 +1207,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         !Boolean.FALSE.equals(message.dmarc))
                     auths = 3;
 
+                if (BuildConfig.DEBUG && auths > 1 && !Boolean.TRUE.equals(message.tls))
+                    auths--;
+
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         auths < 3 ? colorControlNormal : colorVerified));
@@ -2248,8 +2251,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (show_headers && message.headers != null) {
-                tvHeaders.setText(HtmlHelper.highlightHeaders(context,
-                        message.headers, message.blocklist != null && message.blocklist));
+                Spanned headers = HtmlHelper.highlightHeaders(context,
+                        message.headers, message.blocklist != null && message.blocklist);
+                if (BuildConfig.DEBUG && headers instanceof SpannableStringBuilder) {
+                    SpannableStringBuilder ssb = (SpannableStringBuilder) headers;
+                    ssb.append("TLS=" + message.tls).append('\n');
+                    ssb.append("DKIM=" + message.dkim).append('\n');
+                    ssb.append("SPF=" + message.spf).append('\n');
+                    ssb.append("DMARC=" + message.dmarc).append('\n');
+                    ssb.append("BL=" + message.blocklist).append('\n');
+                }
+                tvHeaders.setText(headers);
                 ibCopyHeaders.setVisibility(View.VISIBLE);
             } else {
                 tvHeaders.setText(null);
