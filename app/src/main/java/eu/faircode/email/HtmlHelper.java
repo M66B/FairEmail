@@ -1154,20 +1154,22 @@ public class HtmlHelper {
                         e.attr("x-line-after", "true");
                 }
             } else {
-                String style = e.attr("style");
-                e.attr("style",
-                        mergeStyles(style, "margin-top:0;margin-bottom:0"));
+                if (!BuildConfig.DEBUG) {
+                    String style = e.attr("style");
+                    e.attr("style",
+                            mergeStyles(style, "margin-top:0;margin-bottom:0"));
 
-                int ltr = 0;
-                int rtl = 0;
-                for (Element li : e.children()) {
-                    if ("rtl".equals(li.attr("dir")))
-                        rtl++;
-                    else
-                        ltr++;
-                    li.removeAttr("dir");
+                    int ltr = 0;
+                    int rtl = 0;
+                    for (Element li : e.children()) {
+                        if ("rtl".equals(li.attr("dir")))
+                            rtl++;
+                        else
+                            ltr++;
+                        li.removeAttr("dir");
+                    }
+                    e.attr("dir", rtl > ltr ? "rtl" : "ltr");
                 }
-                e.attr("dir", rtl > ltr ? "rtl" : "ltr");
             }
         }
 
@@ -3262,7 +3264,17 @@ public class HtmlHelper {
         String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
 
         Document doc = JsoupEx.parse(html);
+
         for (Element span : doc.select("span")) {
+            if (span.attr("dir").equals("rtl")) {
+                Element next = span.nextElementSibling();
+                if (next != null && next.tagName().equals("br")) {
+                    span.tagName("div");
+                    span.appendElement("br");
+                    next.remove();
+                }
+            }
+
             String style = span.attr("style");
             if (TextUtils.isEmpty(style))
                 continue;
@@ -3304,6 +3316,19 @@ public class HtmlHelper {
                 else
                     span.attr("style", sb.toString());
             }
+        }
+
+        for (Element e : doc.select("ol,ul")) {
+            int ltr = 0;
+            int rtl = 0;
+            for (Element li : e.children()) {
+                if ("rtl".equals(li.attr("dir")))
+                    rtl++;
+                else
+                    ltr++;
+                li.removeAttr("dir");
+            }
+            e.attr("dir", rtl > ltr ? "rtl" : "ltr");
         }
 
         for (Element quote : doc.select("blockquote")) {
