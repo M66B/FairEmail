@@ -2040,6 +2040,8 @@ public class Helper {
 
             final BiometricPrompt prompt = new BiometricPrompt(activity, executor,
                     new BiometricPrompt.AuthenticationCallback() {
+                        private int fails = 0;
+
                         @Override
                         public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
                             Log.w("Authenticate biometric error " + errorCode + ": " + errString);
@@ -2069,7 +2071,8 @@ public class Helper {
                         @Override
                         public void onAuthenticationFailed() {
                             Log.w("Authenticate biometric failed");
-                            ApplicationEx.getMainHandler().post(cancelled);
+                            if (++fails >= 3)
+                                ApplicationEx.getMainHandler().post(cancelled);
                         }
                     });
 
