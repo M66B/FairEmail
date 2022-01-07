@@ -37,6 +37,9 @@ import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateParsingException;
@@ -482,6 +485,20 @@ public class ConnectionHelper {
     static boolean airplaneMode(Context context) {
         return Settings.Global.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+    }
+
+    static InetAddress from6to4(InetAddress addr) {
+        // https://en.wikipedia.org/wiki/6to4
+        if (addr instanceof Inet6Address) {
+            byte[] octets = ((Inet6Address) addr).getAddress();
+            if (octets[0] == 0x20 && octets[1] == 0x02)
+                try {
+                    return Inet4Address.getByAddress(Arrays.copyOfRange(octets, 2, 6));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+        }
+        return addr;
     }
 
     static List<String> getCommonNames(Context context, String domain, int port, int timeout) throws IOException {
