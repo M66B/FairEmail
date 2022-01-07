@@ -2033,11 +2033,18 @@ public class MessageHelper {
             int w = with.indexOf(' ');
             String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
 
+            if ("local".equals(protocol)) // Exim
+                continue;
             if ("mapi".equals(protocol)) // https://en.wikipedia.org/wiki/MAPI
+                continue;
+            if ("httprest".equals(protocol)) // by gmailapi.google.com
+                continue;
+            if ("_http".equals(protocol)) // ???
                 continue;
             if (!protocol.contains("mtp"))
                 return null;
-            if (!protocol.contains("mtps"))
+            if (!protocol.contains("mtps" /* STARTTLS */) &&
+                    !protocol.contains("_mtpa" /* AUTH */))
                 return false;
         }
 
