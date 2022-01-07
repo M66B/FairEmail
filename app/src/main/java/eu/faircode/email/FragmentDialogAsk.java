@@ -46,7 +46,6 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         Bundle args = getArguments();
         String question = args.getString("question");
         String remark = args.getString("remark");
-        String confirm = args.getString("confirm");
         String notagain = args.getString("notagain");
         String accept = args.getString("accept");
         boolean warning = args.getBoolean("warning");
@@ -60,7 +59,6 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
         TextView tvMessage = dview.findViewById(R.id.tvMessage);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
-        CheckBox cbConfirm = dview.findViewById(R.id.cbConfirm);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         TextView tvAccept = dview.findViewById(R.id.tvAccept);
         ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
@@ -68,11 +66,9 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         tvMessage.setText(question);
         tvRemark.setText(remark);
         tvRemark.setVisibility(remark == null ? View.GONE : View.VISIBLE);
-        cbConfirm.setText(confirm);
-        cbConfirm.setVisibility(confirm == null ? View.GONE : View.VISIBLE);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
         tvAccept.setText(accept);
-        tvAccept.setVisibility(View.GONE);
+        tvAccept.setVisibility(notagain == null && accept != null ? View.VISIBLE : View.GONE);
         ibInfo.setVisibility(faq == 0 ? View.GONE : View.VISIBLE);
 
         if (warning) {
@@ -87,8 +83,6 @@ public class FragmentDialogAsk extends FragmentDialogBase {
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (accept == null)
-                        prefs.edit().putBoolean(notagain, isChecked).apply();
                     tvAccept.setVisibility(isChecked && accept != null ? View.VISIBLE : View.GONE);
                 }
             });
@@ -108,14 +102,10 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        boolean confirmed = (confirm == null || cbConfirm.isChecked());
-                        EntityLog.log(context, "Ask confirmed=" + confirmed);
-                        if (confirmed) {
-                            if (notagain != null && accept != null)
-                                prefs.edit().putBoolean(notagain, cbNotAgain.isChecked()).apply();
-                            sendResult(Activity.RESULT_OK);
-                        } else
-                            sendResult(Activity.RESULT_CANCELED);
+                        EntityLog.log(context, "Ask confirmed");
+                        if (notagain != null)
+                            prefs.edit().putBoolean(notagain, cbNotAgain.isChecked()).apply();
+                        sendResult(Activity.RESULT_OK);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
