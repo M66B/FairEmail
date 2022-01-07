@@ -645,7 +645,7 @@
                     android:id="@+id/grpTest"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swTest1,swTest2,swTest3" />
+                    app:constraint_referenced_ids="swTest1,swTest2,swTest3,swTest4,swTest5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
