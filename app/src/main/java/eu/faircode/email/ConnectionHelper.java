@@ -41,6 +41,7 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
@@ -499,6 +500,20 @@ public class ConnectionHelper {
                 }
         }
         return addr;
+    }
+
+    static boolean isLocalIPAddress(String host) {
+        boolean numeric = ConnectionHelper.jni_is_numeric_address(host);
+        if (!numeric)
+            return false;
+
+        try {
+            InetAddress addr = ConnectionHelper.from6to4(InetAddress.getByName(host));
+            return (addr.isSiteLocalAddress() || addr.isLinkLocalAddress());
+        } catch (UnknownHostException ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static List<String> getCommonNames(Context context, String domain, int port, int timeout) throws IOException {

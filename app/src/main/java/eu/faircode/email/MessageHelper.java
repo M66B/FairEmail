@@ -66,9 +66,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.IDN;
-import java.net.InetAddress;
 import java.net.URLDecoder;
-import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
@@ -134,6 +132,10 @@ public class MessageHelper {
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final int MAX_SUBJECT_AGE = 48; // hours
+
+    static final List<String> RECEIVED_WORDS = Collections.unmodifiableList(Arrays.asList(
+            "from", "by", "via", "with", "id", "for"
+    ));
 
     private static final int MAX_HEADER_LENGTH = 998;
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
@@ -1917,6 +1919,12 @@ public class MessageHelper {
     }
 
     Boolean getTLS() throws MessagingException {
+        Boolean tls = _getTLS();
+        Log.i("--- TLS=" + tls);
+        return tls;
+    }
+
+    Boolean _getTLS() throws MessagingException {
         // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
 
         // Time-stamp-line = "Received:" FWS Stamp <CRLF>
@@ -1943,66 +1951,94 @@ public class MessageHelper {
         if (received == null || received.length == 0)
             return null;
 
-        final List<String> words = Collections.unmodifiableList(Arrays.asList(
-                "from", "by", "via", "with", "id", "for"));
-
         // First header is last added header
+        Log.i("=======");
         for (String r : received) {
             String header = MimeUtility.unfold(r);
+            Log.i("--- header=" + header);
 
-            int s, e;
-            do {
-                s = header.indexOf('(');
-                e = header.indexOf(')', s);
-                if (s > 0 && e > 0)
-                    header = header.substring(0, s) + header.substring((e + 1));
-            } while (s > 0 && e > 0);
-
+            // Strip date
             int semi = header.lastIndexOf(';');
             if (semi > 0)
                 header = header.substring(0, semi);
 
+            if (header.contains("TLS"))
+                continue;
+
+            // (qmail nnn invoked by uid nnn); 1 Jan 2022 00:00:00 -0000
+            if (header.contains("qmail") && header.contains("invoked by uid"))
+                continue;
+
+            // Normalize white space
             header = header.replaceAll("\\s+", " ");
 
-            Log.i("--- header=" + header);
-
+            // Get key/values
             String[] parts = header.split(" ");
-            boolean hasFrom = false;
-            boolean hasWith = false;
-            for (int j = 0; j < parts.length - 1; j++) {
-                Log.i("--- part " + j + " " + parts[j] + "=" + parts[j + 1]);
-                if ("from".equalsIgnoreCase(parts[j])) {
-                    hasFrom = true;
-                    String from = parts[j + 1].toLowerCase(Locale.ROOT);
-                    boolean numeric = ConnectionHelper.jni_is_numeric_address(from);
-                    Log.i("--- numeric=" + numeric);
-                    if (numeric)
-                        try {
-                            InetAddress addr = InetAddress.getByName(from);
-                            if (addr.isSiteLocalAddress())
-                                break;
-                            Log.i("--- remote");
-                        } catch (UnknownHostException ex) {
-                            Log.e(ex);
-                        }
-                } else if ("with".equalsIgnoreCase(parts[j])) {
-                    hasWith = true;
-                    if (hasFrom) {
-                        String with = parts[j + 1].toUpperCase(Locale.ROOT);
-                        Log.i("--- MTP=" + with.contains("MTP") + " MTPS=" + with.contains("MTPS"));
-                        // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
-                        if (!with.contains("MTP"))
-                            return null;
-                        if (!with.contains("MTPS"))
-                            return false;
-                    }
-                    break;
+            Map<String, StringBuilder> kv = new HashMap<>();
+            String key = null;
+            for (int p = 0; p < parts.length; p++) {
+                String k = parts[p].toLowerCase(Locale.ROOT);
+                if (RECEIVED_WORDS.contains(k)) {
+                    key = k;
+                    if (!kv.containsKey(key))
+                        kv.put(key, new StringBuilder());
+                } else if (key != null) {
+                    StringBuilder sb = kv.get(key);
+                    if (sb.length() > 0)
+                        sb.append(' ');
+                    sb.append(parts[p]);
                 }
-                if (words.contains(parts[j]))
-                    j++;
             }
-            if (hasFrom && !hasWith)
+
+            // Dump
+            for (String k : kv.keySet())
+                Log.i("--- " + k + "=" + kv.get(k));
+
+            // Check if 'by' local address
+            if (kv.containsKey("by")) {
+                String by = kv.get("by").toString();
+                if (by.contains("localhost") || by.contains("[127.0.0.1]") || by.contains("[::1]"))
+                    continue;
+                int b = by.indexOf(' ');
+                String host = (b < 0 ? by : by.substring(0, b));
+                if (ConnectionHelper.isLocalIPAddress(host))
+                    continue;
+            }
+
+            // Check if 'from' local address
+            if (kv.containsKey("from")) {
+                String from = kv.get("from").toString();
+                if (from.contains("localhost") || from.contains("[127.0.0.1]") || from.contains("[::1]"))
+                    continue;
+                int f = from.indexOf(' ');
+                String host = (f < 0 ? from : from.substring(0, f));
+                if (ConnectionHelper.isLocalIPAddress(host))
+                    continue;
+            }
+
+            // Check Microsoft front end transport (proxy)
+            // https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx
+            if (kv.containsKey("via")) {
+                String via = kv.get("via").toString();
+                if ("Frontend Transport".equals(via))
+                    continue;
+            }
+
+            // Check protocol
+            if (!kv.containsKey("with"))
                 return null;
+
+            // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
+            String with = kv.get("with").toString();
+            int w = with.indexOf(' ');
+            String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
+
+            if ("mapi".equals(protocol)) // https://en.wikipedia.org/wiki/MAPI
+                continue;
+            if (!protocol.contains("mtp"))
+                return null;
+            if (!protocol.contains("mtps"))
+                return false;
         }
 
         return true;

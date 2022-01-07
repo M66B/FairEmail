@@ -2393,8 +2393,6 @@ public class HtmlHelper {
 
         try {
             // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
-            final List<String> words = Collections.unmodifiableList(Arrays.asList(
-                    "from", "by", "via", "with", "id", "for"));
             final DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
 
             ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
@@ -2456,7 +2454,7 @@ public class HtmlHelper {
 
                         s = ssb.length();
                         ssb.append(w[j]);
-                        if (!p && words.contains(w[j].toLowerCase(Locale.ROOT)))
+                        if (!p && MessageHelper.RECEIVED_WORDS.contains(w[j].toLowerCase(Locale.ROOT)))
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
 
                         if (w[j].endsWith(")"))
