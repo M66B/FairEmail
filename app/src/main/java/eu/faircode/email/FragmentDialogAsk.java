@@ -55,6 +55,8 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         final Context context = getContext();
         final int colorError = Helper.resolveColor(context, R.attr.colorError);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
         TextView tvMessage = dview.findViewById(R.id.tvMessage);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
@@ -85,10 +87,8 @@ public class FragmentDialogAsk extends FragmentDialogBase {
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (accept == null) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    if (accept == null)
                         prefs.edit().putBoolean(notagain, isChecked).apply();
-                    }
                     tvAccept.setVisibility(isChecked && accept != null ? View.VISIBLE : View.GONE);
                 }
             });
@@ -111,10 +111,8 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                         boolean confirmed = (confirm == null || cbConfirm.isChecked());
                         EntityLog.log(context, "Ask confirmed=" + confirmed);
                         if (confirmed) {
-                            if (notagain != null && accept != null) {
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            if (notagain != null && accept != null)
                                 prefs.edit().putBoolean(notagain, cbNotAgain.isChecked()).apply();
-                            }
                             sendResult(Activity.RESULT_OK);
                         } else
                             sendResult(Activity.RESULT_CANCELED);
