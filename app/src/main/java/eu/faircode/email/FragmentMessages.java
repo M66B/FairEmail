@@ -789,7 +789,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 if (dh) {
-                    tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.getTextSize(parent.getContext(), adapter.getZoom()));
+                    int zoom = adapter.getZoom();
+                    if (zoom > 0)
+                        zoom--;
+                    tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.getTextSize(parent.getContext(), zoom));
                     if (date_bold)
                         tvDate.setTypeface(Typeface.DEFAULT_BOLD);
 
