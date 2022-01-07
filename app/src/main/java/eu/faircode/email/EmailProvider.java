@@ -397,8 +397,7 @@ public class EmailProvider implements Parcelable {
                         provider.imap.host.equals(candidate.imap.host) ||
                         provider.smtp.host.equals(candidate.smtp.host)) {
                     EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
-                    if (!BuildConfig.DEBUG)
-                        return Arrays.asList(provider);
+                    return Arrays.asList(provider);
                 }
 
             // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
