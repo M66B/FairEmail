@@ -2380,6 +2380,8 @@ public class HtmlHelper {
     static Spanned highlightHeaders(Context context, String headers, boolean blocklist) {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers);
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+        int colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
+        int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         int index = 0;
         for (String line : headers.split("\n")) {
@@ -2421,8 +2423,6 @@ public class HtmlHelper {
 
                         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
                         d.setBounds(0, 0, iconSize, iconSize);
-
-                        int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
                         d.setTint(colorWarning);
 
                         ssb.append(" \uFFFC"); // Object replacement character
@@ -2462,6 +2462,14 @@ public class HtmlHelper {
 
                         j++;
                     }
+
+                    Boolean tls = MessageHelper.isTLS(h);
+                    ssb.append(" TLS=");
+                    int t = ssb.length();
+                    ssb.append(tls == null ? "?" : Boolean.toString(tls));
+                    if (tls != null)
+                        ssb.setSpan(new ForegroundColorSpan(tls ? colorVerified : colorWarning), t, ssb.length(), 0);
+
                     ssb.append("\n\n");
                 }
             }

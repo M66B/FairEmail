@@ -2055,121 +2055,127 @@ public class MessageHelper {
         for (String r : received) {
             String header = MimeUtility.unfold(r);
             Log.i("--- header=" + header);
-
-            // Strip date
-            int semi = header.lastIndexOf(';');
-            if (semi > 0)
-                header = header.substring(0, semi);
-
-            if (header.contains("using TLS") ||
-                    header.contains("version=TLS")) {
-                Log.i("--- found TLS");
-                continue;
-            }
-
-            // (qmail nnn invoked by uid nnn); 1 Jan 2022 00:00:00 -0000
-            if (header.contains("qmail") && header.contains("invoked by uid")) {
-                Log.i("--- found qmail");
-                continue;
-            }
-
-            // Get key/values
-            String[] parts = header.split("\\s+");
-            Map<String, StringBuilder> kv = new HashMap<>();
-            String key = null;
-            for (int p = 0; p < parts.length; p++) {
-                String k = parts[p].toLowerCase(Locale.ROOT);
-                if (RECEIVED_WORDS.contains(k)) {
-                    key = k;
-                    if (!kv.containsKey(key))
-                        kv.put(key, new StringBuilder());
-                } else if (key != null) {
-                    StringBuilder sb = kv.get(key);
-                    if (sb.length() > 0)
-                        sb.append(' ');
-                    sb.append(parts[p]);
-                }
-            }
-
-            // Dump
-            for (String k : kv.keySet())
-                Log.i("--- " + k + "=" + kv.get(k));
-
-            // Check if 'by' local address
-            if (kv.containsKey("by")) {
-                String by = kv.get("by").toString();
-                if (isLocal(by)) {
-                    Log.i("--- local by=" + by);
-                    continue;
-                }
-            }
-
-            // Check if 'from' local address
-            if (kv.containsKey("from")) {
-                String from = kv.get("from").toString();
-                if (isLocal(from)) {
-                    Log.i("--- local from=" + from);
-                    continue;
-                }
-            }
-
-            // Check Microsoft front end transport (proxy)
-            // https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx
-            if (kv.containsKey("via")) {
-                String via = kv.get("via").toString();
-                if ("Frontend Transport".equals(via)) {
-                    Log.i("--- frontend via=" + via);
-                    continue;
-                }
-            }
-
-            // Check protocol
-            if (!kv.containsKey("with")) {
-                Log.i("--- with missing");
-                return null;
-            }
-
-            // https://datatracker.ietf.org/doc/html/rfc3848
-            // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
-            String with = kv.get("with").toString();
-            int w = with.indexOf(' ');
-            String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
-
-            if ("local".equals(protocol)) {
-                // Exim
-                Log.i("--- local with=" + with);
-                continue;
-            }
-
-            if ("mapi".equals(protocol)) {
-                // https://en.wikipedia.org/wiki/MAPI
-                Log.i("--- mapi with=" + with);
-                continue;
-            }
-
-            if ("http".equals(protocol) ||
-                    "httprest".equals(protocol)) {
-                // httprest by gmailapi.google.com
-                Log.i("--- http with=" + with);
-                continue;
-            }
-
-            if (!protocol.contains("mtp")) {
-                Log.i("--- unknown with=" + with);
-                return null;
-            }
-
-            if (!protocol.contains("mtps" /* STARTTLS */) &&
-                    !protocol.contains("_mtpa" /* AUTH */)) {
-                Log.i("--- insecure with=" + with);
-                return false;
-            }
+            Boolean tls = isTLS(header);
+            if (!Boolean.TRUE.equals(tls))
+                return tls;
         }
 
         return true;
     }
 
-    private boolean isLocal(String value) {
+    static Boolean isTLS(String header) {
+        // Strip date
+        int semi = header.lastIndexOf(';');
+        if (semi > 0)
+            header = header.substring(0, semi);
+
+        if (header.contains("using TLS") ||
+                header.contains("version=TLS")) {
+            Log.i("--- found TLS");
+            return true;
+        }
+
+        // (qmail nnn invoked by uid nnn); 1 Jan 2022 00:00:00 -0000
+        if (header.contains("qmail") && header.contains("invoked by uid")) {
+            Log.i("--- found qmail");
+            return true;
+        }
+
+        // Get key/values
+        String[] parts = header.split("\\s+");
+        Map<String, StringBuilder> kv = new HashMap<>();
+        String key = null;
+        for (int p = 0; p < parts.length; p++) {
+            String k = parts[p].toLowerCase(Locale.ROOT);
+            if (RECEIVED_WORDS.contains(k)) {
+                key = k;
+                if (!kv.containsKey(key))
+                    kv.put(key, new StringBuilder());
+            } else if (key != null) {
+                StringBuilder sb = kv.get(key);
+                if (sb.length() > 0)
+                    sb.append(' ');
+                sb.append(parts[p]);
+            }
+        }
+
+        // Dump
+        for (String k : kv.keySet())
+            Log.i("--- " + k + "=" + kv.get(k));
+
+        // Check if 'by' local address
+        if (kv.containsKey("by")) {
+            String by = kv.get("by").toString();
+            if (isLocal(by)) {
+                Log.i("--- local by=" + by);
+                return true;
+            }
+        }
+
+        // Check if 'from' local address
+        if (kv.containsKey("from")) {
+            String from = kv.get("from").toString();
+            if (isLocal(from)) {
+                Log.i("--- local from=" + from);
+                return true;
+            }
+        }
+
+        // Check Microsoft front end transport (proxy)
+        // https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx
+        if (kv.containsKey("via")) {
+            String via = kv.get("via").toString();
+            if ("Frontend Transport".equals(via)) {
+                Log.i("--- frontend via=" + via);
+                return true;
+            }
+        }
+
+        // Check protocol
+        if (!kv.containsKey("with")) {
+            Log.i("--- with missing");
+            return null;
+        }
+
+        // https://datatracker.ietf.org/doc/html/rfc3848
+        // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
+        String with = kv.get("with").toString();
+        int w = with.indexOf(' ');
+        String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
+
+        if ("local".equals(protocol)) {
+            // Exim
+            Log.i("--- local with=" + with);
+            return true;
+        }
+
+        if ("mapi".equals(protocol)) {
+            // https://en.wikipedia.org/wiki/MAPI
+            Log.i("--- mapi with=" + with);
+            return true;
+        }
+
+        if ("http".equals(protocol) ||
+                "httprest".equals(protocol)) {
+            // httprest by gmailapi.google.com
+            Log.i("--- http with=" + with);
+            return true;
+        }
+
+        if (!protocol.contains("mtp")) {
+            Log.i("--- unknown with=" + with);
+            return null;
+        }
+
+        if (protocol.contains("mtps")) {
+            Log.i("--- insecure with=" + with);
+            return true;
+        }
+
+        return false;
+    }
+
+    private static boolean isLocal(String value) {
         if (value.contains("localhost") ||
                 value.contains("[127.0.0.1]") ||
                 value.contains("[::1]"))
