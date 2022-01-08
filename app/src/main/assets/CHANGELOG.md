@@ -4,6 +4,15 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1804 - 2022-01-08
+
+* Added check for secure (TLS) transport (experimental)
+* Removed double confirm for permanently deleting messages
+* Allowing three tries for biometric authentication
+* Fixed RTL for sent messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1803 - 2022-01-06
 
 * Added rule action to play (alarm) sound (experimental)
