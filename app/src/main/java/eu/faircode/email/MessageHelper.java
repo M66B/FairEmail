@@ -125,6 +125,7 @@ public class MessageHelper {
     private boolean ensuredStructure = false;
     private MimeMessage imessage;
     private String hash = null;
+    private String threadId = null;
     private InternetHeaders reportHeaders = null;
 
     private static File cacheDir = null;
@@ -1285,6 +1286,12 @@ public class MessageHelper {
     }
 
     String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
+        if (threadId == null)
+            threadId = _getThreadId(context, account, folder, uid);
+        return threadId;
+    }
+
+    private String _getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         if (imessage instanceof GmailMessage) {
