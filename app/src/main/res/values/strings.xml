@@ -731,6 +731,7 @@
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
     <string name="title_advanced_poll_folders_hint">Periodically synchronize the folder list in addition to after connecting to an account</string>
     <string name="title_advanced_check_authentication_hint">This will check the results of DKIM, SPF and DMARC authentication as performed by the email server</string>
+    <string name="title_advanced_check_tls_hint">This will show a green shield only if a messages was transported securely by all servers</string>
     <string name="title_advanced_check_reply_hint">This will check if the domain name of the sender and the reply address are the same</string>
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>

@@ -757,6 +757,19 @@
                     app:layout_constraintTop_toBottomOf="@id/tvCheckAuthenticationHint"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvCheckTlsHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_check_tls_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swCheckTls" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCheckReply"
                     android:layout_width="0dp"
@@ -766,7 +779,7 @@
                     android:text="@string/title_advanced_check_reply_domain"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swCheckTls"
+                    app:layout_constraintTop_toBottomOf="@id/tvCheckTlsHint"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
