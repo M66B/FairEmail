@@ -2061,7 +2061,8 @@ public class MessageHelper {
             if (semi > 0)
                 header = header.substring(0, semi);
 
-            if (header.contains("TLS")) {
+            if (header.contains("using TLS") ||
+                    header.contains("version=TLS")) {
                 Log.i("--- found TLS");
                 continue;
             }
