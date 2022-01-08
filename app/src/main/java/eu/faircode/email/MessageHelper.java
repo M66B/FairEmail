@@ -2044,6 +2044,8 @@ public class MessageHelper {
         // Protocol = "ESMTP" / "SMTP" / Attdl-Protocol
         // Attdl-Protocol = Atom
 
+        ensureHeaders();
+
         String[] received = imessage.getHeader("Received");
         if (received == null || received.length == 0)
             return null;
