@@ -2202,18 +2202,26 @@ public class MessageHelper {
 
     private static boolean isLocal(String value) {
         if (value.contains("localhost") ||
-                value.contains("[127.0.0.1]") ||
+                value.contains("127.0.0.1") ||
                 value.contains("[::1]"))
             return true;
+
+        int s = value.indexOf('[');
+        int e = value.indexOf(']', s + 1);
+        if (s >= 0 && e > 0) {
+            String ip = value.substring(s + 1, e);
+            if (ConnectionHelper.isNumericAddress(ip) &&
+                    ConnectionHelper.isLocalAddress(ip))
+                return true;
+        }
+
         int f = value.indexOf(' ');
         String host = (f < 0 ? value : value.substring(0, f));
         if (ConnectionHelper.isNumericAddress(host)) {
             if (ConnectionHelper.isLocalAddress(host))
                 return true;
-        } else {
-            if (!PatternsCompat.DOMAIN_NAME.matcher(host).matches())
-                return true;
         }
+
         return false;
     }
 

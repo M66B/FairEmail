@@ -509,7 +509,9 @@ public class ConnectionHelper {
     static boolean isLocalAddress(String host) {
         try {
             InetAddress addr = ConnectionHelper.from6to4(InetAddress.getByName(host));
-            return (addr.isSiteLocalAddress() || addr.isLinkLocalAddress());
+            return (addr.isLoopbackAddress() ||
+                    addr.isSiteLocalAddress() ||
+                    addr.isLinkLocalAddress());
         } catch (UnknownHostException ex) {
             Log.e(ex);
             return false;

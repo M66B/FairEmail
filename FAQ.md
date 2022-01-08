@@ -4483,8 +4483,7 @@ A message will be consired safely transported if *every* [Received](https://data
 * has a *with* with the value 'HTTP', 'HTTPS', or 'HTTPREST'
 * has a *with* with the value '[xMTPSx](https://datatracker.ietf.org/doc/html/rfc3848)' ('xMTPAx' is considered insecure)
 
-A local address is a local host address, a site local address
-or a non-numeric address which isn't [a domain name](https://developer.android.com/reference/androidx/core/util/PatternsCompat#DOMAIN_NAME).
+A local address is a local host address, a site local address or a link local address.
 
 Example:
 
