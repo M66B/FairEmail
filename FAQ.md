@@ -4471,15 +4471,26 @@ a green shield will be shown only if a messages was transported securely by all 
 
 To show shields, the option *Show authentication status indicator* in the display settings should be enabled.
 
-A message will be consired safely transported if every [Received](https://datatracker.ietf.org/doc/html/rfc2821#section-4.4) header:
+A message will be consired safely transported if *every* [Received](https://datatracker.ietf.org/doc/html/rfc2821#section-4.4) header:
 
 * contains the phrase 'using TLS' or 'version=TLS'
 * contains the phrase 'qmail <nnn> invoked by uid <nnn>'
-* has a *by* with a local address (site local or localhost)
+* has a *by* with a local address
 * has a *from* with a local address
 * has a *via* with the value '[Frontend Transport](https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx)'
 * has a *with* with the value 'local', '[MAPI](https://en.wikipedia.org/wiki/MAPI)', 'HTTP' or 'HTTPREST'
 * has a *with* with the value '[xMTPSx](https://datatracker.ietf.org/doc/html/rfc3848)' ('xMTPAx' is considered insecure)
+
+A local address is a local host address, a site local address
+or a non-numeric address which isn't [a domain name](https://developer.android.com/reference/androidx/core/util/PatternsCompat#DOMAIN_NAME).
+
+Example:
+
+```
+Received: brown.elm.relay.mailchannels.net (brown.elm.relay.mailchannels.net. [23.83.212.23])
+	by mx.google.com with ESMTPS id d10si6675855pgb.5.2021.12.24.13.20.38
+	for <test@example.org> (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+```
 
 <br />
 
