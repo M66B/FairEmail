@@ -502,11 +502,11 @@ public class ConnectionHelper {
         return addr;
     }
 
-    static boolean isLocalIPAddress(String host) {
-        boolean numeric = ConnectionHelper.jni_is_numeric_address(host);
-        if (!numeric)
-            return false;
+    static boolean isNumericAddress(String host) {
+        return ConnectionHelper.jni_is_numeric_address(host);
+    }
 
+    static boolean isLocalAddress(String host) {
         try {
             InetAddress addr = ConnectionHelper.from6to4(InetAddress.getByName(host));
             return (addr.isSiteLocalAddress() || addr.isLinkLocalAddress());

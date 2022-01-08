@@ -30,6 +30,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.net.MailTo;
+import androidx.core.util.PatternsCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
@@ -1919,12 +1920,17 @@ public class MessageHelper {
     }
 
     Boolean getTLS() throws MessagingException {
-        Boolean tls = _getTLS();
-        Log.i("--- TLS=" + tls);
-        return tls;
+        try {
+            Boolean tls = _getTLS();
+            Log.i("--- TLS=" + tls);
+            return tls;
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
     }
 
-    Boolean _getTLS() throws MessagingException {
+    private Boolean _getTLS() throws MessagingException {
         // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
 
         // Time-stamp-line = "Received:" FWS Stamp <CRLF>
@@ -1944,9 +1950,6 @@ public class MessageHelper {
         // Protocol = "ESMTP" / "SMTP" / Attdl-Protocol
         // Attdl-Protocol = Atom
 
-        if (!BuildConfig.DEBUG)
-            return null;
-
         String[] received = imessage.getHeader("Received");
         if (received == null || received.length == 0)
             return null;
@@ -1962,18 +1965,19 @@ public class MessageHelper {
             if (semi > 0)
                 header = header.substring(0, semi);
 
-            if (header.contains("TLS"))
+            if (header.contains("TLS")) {
+                Log.i("--- found TLS");
                 continue;
+            }
 
             // (qmail nnn invoked by uid nnn); 1 Jan 2022 00:00:00 -0000
-            if (header.contains("qmail") && header.contains("invoked by uid"))
+            if (header.contains("qmail") && header.contains("invoked by uid")) {
+                Log.i("--- found qmail");
                 continue;
-
-            // Normalize white space
-            header = header.replaceAll("\\s+", " ");
+            }
 
             // Get key/values
-            String[] parts = header.split(" ");
+            String[] parts = header.split("\\s+");
             Map<String, StringBuilder> kv = new HashMap<>();
             String key = null;
             for (int p = 0; p < parts.length; p++) {
@@ -1997,58 +2001,91 @@ public class MessageHelper {
             // Check if 'by' local address
             if (kv.containsKey("by")) {
                 String by = kv.get("by").toString();
-                if (by.contains("localhost") || by.contains("[127.0.0.1]") || by.contains("[::1]"))
+                if (isLocal(by)) {
+                    Log.i("--- local by=" + by);
                     continue;
-                int b = by.indexOf(' ');
-                String host = (b < 0 ? by : by.substring(0, b));
-                if (ConnectionHelper.isLocalIPAddress(host))
-                    continue;
+                }
             }
 
             // Check if 'from' local address
             if (kv.containsKey("from")) {
                 String from = kv.get("from").toString();
-                if (from.contains("localhost") || from.contains("[127.0.0.1]") || from.contains("[::1]"))
+                if (isLocal(from)) {
+                    Log.i("--- local from=" + from);
                     continue;
-                int f = from.indexOf(' ');
-                String host = (f < 0 ? from : from.substring(0, f));
-                if (ConnectionHelper.isLocalIPAddress(host))
-                    continue;
+                }
             }
 
             // Check Microsoft front end transport (proxy)
             // https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx
             if (kv.containsKey("via")) {
                 String via = kv.get("via").toString();
-                if ("Frontend Transport".equals(via))
+                if ("Frontend Transport".equals(via)) {
+                    Log.i("--- frontend via=" + via);
                     continue;
+                }
             }
 
             // Check protocol
-            if (!kv.containsKey("with"))
+            if (!kv.containsKey("with")) {
+                Log.i("--- with missing");
                 return null;
+            }
 
             // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
             String with = kv.get("with").toString();
             int w = with.indexOf(' ');
             String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
 
-            if ("local".equals(protocol)) // Exim
+            if ("local".equals(protocol)) {
+                // Exim
+                Log.i("--- local with=" + with);
                 continue;
-            if ("mapi".equals(protocol)) // https://en.wikipedia.org/wiki/MAPI
+            }
+
+            if ("mapi".equals(protocol)) {
+                // https://en.wikipedia.org/wiki/MAPI
+                Log.i("--- mapi with=" + with);
                 continue;
-            if ("httprest".equals(protocol)) // by gmailapi.google.com
+            }
+
+            if ("http".equals(protocol) ||
+                    "httprest".equals(protocol)) {
+                // httprest by gmailapi.google.com
+                Log.i("--- http with=" + with);
                 continue;
-            if ("_http".equals(protocol)) // ???
-                continue;
-            if (!protocol.contains("mtp"))
+            }
+
+            if (!protocol.contains("mtp")) {
+                Log.i("--- unknown with=" + with);
                 return null;
+            }
+
             if (!protocol.contains("mtps" /* STARTTLS */) &&
-                    !protocol.contains("_mtpa" /* AUTH */))
+                    !protocol.contains("_mtpa" /* AUTH */)) {
+                Log.i("--- insecure with=" + with);
                 return false;
+            }
         }
 
         return true;
+    }
+
+    private boolean isLocal(String value) {
+        if (value.contains("localhost") ||
+                value.contains("[127.0.0.1]") ||
+                value.contains("[::1]"))
+            return true;
+        int f = value.indexOf(' ');
+        String host = (f < 0 ? value : value.substring(0, f));
+        if (ConnectionHelper.isNumericAddress(host)) {
+            if (ConnectionHelper.isLocalAddress(host))
+                return true;
+        } else {
+            if (!PatternsCompat.DOMAIN_NAME.matcher(host).matches())
+                return true;
+        }
+        return false;
     }
 
     Long getSent() throws MessagingException {
