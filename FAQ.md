@@ -4477,6 +4477,7 @@ A message will be consired safely transported if *every* [Received](https://data
 * contains the phrase '(qmail <nnn> invoked by uid <nnn>)'
 * contains the phrase '(Postfix, from userid nnn)'
 * has a *by* with a local address
+* has a *by* xxx.google.com
 * has a *from* with a local address
 * has a *via* with the value '[Frontend Transport](https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx)'
 * has a *with* with the value 'TLS'

@@ -2122,6 +2122,8 @@ public class MessageHelper {
         // Check if 'by' local address
         if (kv.containsKey("by")) {
             String by = kv.get("by").toString();
+            if (by.matches(".*\\.google\\.com"))
+                return true;
             if (isLocal(by)) {
                 Log.i("--- local by=" + by);
                 return true;
