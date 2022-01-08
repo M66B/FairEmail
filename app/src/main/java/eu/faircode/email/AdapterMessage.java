@@ -3846,7 +3846,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (result.size() > 0)
                 sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
             else {
-                if (BuildConfig.DEBUG)
+                if (check_tls)
                     sb.append("TLS: ")
                             .append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"))
                             .append('\n');
