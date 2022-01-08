@@ -357,6 +357,7 @@
     <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
     <string name="title_advanced_check_authentication">Check message authentication</string>
+    <string name="title_advanced_check_tls">Check transport layer security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Check reply address on synchronizing messages</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
     <string name="title_advanced_check_blocklist">Check if the sender\'s domain name is on a spam block list</string>

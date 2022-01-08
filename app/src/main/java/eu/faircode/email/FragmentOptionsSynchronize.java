@@ -91,6 +91,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swTuneKeepAlive;
 
     private SwitchCompat swCheckAuthentication;
+    private SwitchCompat swCheckTls;
     private SwitchCompat swCheckReply;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckBlocklist;
@@ -108,7 +109,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept",
             "gmail_thread_id", "subject_threading",
             "sync_folders", "sync_folders_poll", "sync_shared_folders", "subscriptions",
-            "check_authentication", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
+            "check_authentication", "check_tls", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
             "tune_keep_alive"
     };
 
@@ -161,6 +162,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
 
         swCheckAuthentication = view.findViewById(R.id.swCheckAuthentication);
+        swCheckTls = view.findViewById(R.id.swCheckTls);
         swCheckReply = view.findViewById(R.id.swCheckReply);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckBlocklist = view.findViewById(R.id.swCheckBlocklist);
@@ -382,6 +384,14 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 prefs.edit().putBoolean("check_authentication", checked).apply();
+                swCheckTls.setEnabled(checked);
+            }
+        });
+
+        swCheckTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("check_tls", checked).apply();
             }
         });
 
@@ -518,6 +528,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
         swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
         swCheckAuthentication.setChecked(prefs.getBoolean("check_authentication", true));
+        swCheckTls.setChecked(prefs.getBoolean("check_tls", false));
+        swCheckTls.setEnabled(swCheckAuthentication.isChecked());
         swCheckReply.setChecked(prefs.getBoolean("check_reply_domain", true));
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
         swCheckBlocklist.setChecked(prefs.getBoolean("check_blocklist", false));

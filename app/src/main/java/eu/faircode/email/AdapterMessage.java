@@ -257,6 +257,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean avatars;
     private boolean color_stripe;
     private boolean check_authentication;
+    private boolean check_tls;
     private boolean check_reply_domain;
     private boolean check_mx;
     private boolean check_blocklist;
@@ -1207,12 +1208,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         !Boolean.FALSE.equals(message.dmarc))
                     auths = 3;
 
-                if (BuildConfig.DEBUG && auths > 1 && !Boolean.TRUE.equals(message.tls))
-                    auths--;
+                boolean verified = (auths == 3 && (!check_tls || Boolean.TRUE.equals(message.tls)));
 
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
-                        auths < 3 ? colorControlNormal : colorVerified));
+                        verified ? colorVerified : colorControlNormal));
                 ibAuth.setVisibility(auths > 0 ? View.VISIBLE : View.GONE);
             } else
                 ibAuth.setVisibility(View.GONE);
@@ -6162,6 +6162,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.check_authentication = prefs.getBoolean("check_authentication", true);
+        this.check_tls = prefs.getBoolean("check_tls", true);
         this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
         this.check_mx = prefs.getBoolean("check_mx", false);
         this.check_blocklist = prefs.getBoolean("check_blocklist", false);
