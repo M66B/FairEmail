@@ -2166,6 +2166,12 @@ public class MessageHelper {
             return true;
         }
 
+        if ("lmtp".equals(protocol)) {
+            // https://en.wikipedia.org/wiki/Local_Mail_Transfer_Protocol
+            Log.i("--- lmtp with=" + with);
+            return true;
+        }
+
         if ("mapi".equals(protocol)) {
             // https://en.wikipedia.org/wiki/MAPI
             Log.i("--- mapi with=" + with);
