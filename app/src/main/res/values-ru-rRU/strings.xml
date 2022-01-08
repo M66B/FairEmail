@@ -315,6 +315,7 @@
     <string name="title_advanced_sync_shared_folders">Синхронизировать списки общих папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
     <string name="title_advanced_check_authentication">Проверять аутентификацию сообщения</string>
+    <string name="title_advanced_check_tls">Проверять transport layer security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Проверять адрес для ответа при синхронизации сообщений</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_check_blocklist">Проверять наличие домена отправителя в списке распространителей спама</string>
@@ -981,7 +982,6 @@
     <string name="title_move_to_account">Переместить в %1$s&#8230;</string>
     <string name="title_report_spam">Считать спамом</string>
     <string name="title_delete_permanently">Удалить окончательно</string>
-    <string name="title_no_undo">Я понимаю, что это не может быть отменено</string>
     <string name="title_snooze">Отложить&#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>

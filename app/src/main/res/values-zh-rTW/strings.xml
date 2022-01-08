@@ -939,7 +939,6 @@
     <string name="title_move_to_account">移動到 %1$s &#8230;</string>
     <string name="title_report_spam">視為垃圾郵件</string>
     <string name="title_delete_permanently">永久刪除</string>
-    <string name="title_no_undo">我明白此操作無法撤銷</string>
     <string name="title_snooze">延後 &#8230;</string>
     <string name="title_archive">封存</string>
     <string name="title_reply">回覆</string>

@@ -957,7 +957,6 @@
     <string name="title_move_to_account">Μετακίνηση προς %1$s &#8230;</string>
     <string name="title_report_spam">Αντιμετώπιση ως ανεπιθύμητο</string>
     <string name="title_delete_permanently">Οριστική διαγραφή</string>
-    <string name="title_no_undo">Κατανοώ ότι αυτό δεν μπορεί να αναιρεθεί</string>
     <string name="title_snooze">Αναβολή &#8230;</string>
     <string name="title_archive">Αρχειοθέτηση</string>
     <string name="title_reply">Απάντηση</string>

@@ -957,7 +957,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_move_to_account">%1$s&#8230; taşı</string>
     <string name="title_report_spam">Spam olarak işaretle</string>
     <string name="title_delete_permanently">Kalıcı olarak sil</string>
-    <string name="title_no_undo">Bunun geri alınamayacağını anlıyorum</string>
     <string name="title_snooze">Ertele &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>

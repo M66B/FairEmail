@@ -938,7 +938,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_move_to_account">Pindahkan ke %1$s&#8230;</string>
     <string name="title_report_spam">Tandai sebagai spam</string>
     <string name="title_delete_permanently">Hapus permanen</string>
-    <string name="title_no_undo">Saya mengerti ini tidak dapat dibatalkan</string>
     <string name="title_snooze">Tunda &#8230;</string>
     <string name="title_archive">Arsip</string>
     <string name="title_reply">Balas</string>

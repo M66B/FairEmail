@@ -980,7 +980,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_move_to_account">Presunúť do %1$s &#8230;</string>
     <string name="title_report_spam">Označiť ako spam</string>
     <string name="title_delete_permanently">Odstrániť natrvalo</string>
-    <string name="title_no_undo">Rozumiem, že toto nie je možné vrátiť späť</string>
     <string name="title_snooze">Odložiť &#8230;</string>
     <string name="title_archive">Archivovať</string>
     <string name="title_reply">Odpovedať</string>
@@ -1356,6 +1355,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_select_sound">Vybrať zvuk</string>
     <string name="title_rule_use_as_alarm">Použiť ako alarm</string>
     <string name="title_rule_alarm_hint">Toto nebude rešpektovať režim nerušiť</string>
+    <string name="title_rule_alarm_duration">Maximálna dĺžka trvania alarmu (v sekundách)</string>
     <string name="title_legend_section_synchronize">Synchronizovať</string>
     <string name="title_legend_section_folders">Priečinky</string>
     <string name="title_legend_section_messages">Správy</string>

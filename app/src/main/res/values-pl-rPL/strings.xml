@@ -979,7 +979,6 @@
     <string name="title_move_to_account">Przenieś do %1$s &#8230;</string>
     <string name="title_report_spam">Traktuj jako spam</string>
     <string name="title_delete_permanently">Usuń trwale</string>
-    <string name="title_no_undo">Rozumiem, że tego nie można cofnąć</string>
     <string name="title_snooze">Odłóż &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>

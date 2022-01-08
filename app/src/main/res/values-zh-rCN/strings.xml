@@ -285,6 +285,7 @@
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_check_authentication">检查消息认证</string>
+    <string name="title_advanced_check_tls">检查安全传输层协议 (TLS)</string>
     <string name="title_advanced_check_reply_domain">同步消息时检查回复地址</string>
     <string name="title_advanced_check_mx">同步消息时检查发件人电子邮件地址</string>
     <string name="title_advanced_check_blocklist">检查发送者的域名是否在垃圾邮件拦截列表中</string>
@@ -948,7 +949,6 @@
     <string name="title_move_to_account">移动到 %1$s &#8230;</string>
     <string name="title_report_spam">视为垃圾邮件</string>
     <string name="title_delete_permanently">永久删除</string>
-    <string name="title_no_undo">我知道这不能撤消。</string>
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>

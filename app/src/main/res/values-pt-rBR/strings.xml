@@ -888,7 +888,6 @@
     <string name="title_move_to_account">Mover para %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Apagar permanentemente</string>
-    <string name="title_no_undo">Isto não pode ser desfeito</string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>

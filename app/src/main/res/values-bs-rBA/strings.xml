@@ -971,7 +971,6 @@
     <string name="title_move_to_account">Premjesti na %1$s &#8230;</string>
     <string name="title_report_spam">Tretiraj kao spam</string>
     <string name="title_delete_permanently">Trajno izbriši</string>
-    <string name="title_no_undo">Razumijem da se ova radnja ne može vratiti</string>
     <string name="title_snooze">Odgodi &#8230;</string>
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
@@ -1351,6 +1350,7 @@
     <string name="title_rule_select_sound">Izaberi zvuk</string>
     <string name="title_rule_use_as_alarm">Koristi kao alarm</string>
     <string name="title_rule_alarm_hint">Ovo će ignorisati pravila \"neometanja\"</string>
+    <string name="title_rule_alarm_duration">Maksimalno trajanje alarma (sekunde)</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>

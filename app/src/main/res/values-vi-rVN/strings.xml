@@ -285,6 +285,7 @@
     <string name="title_advanced_sync_shared_folders">Đồng bộ hoá các danh sách thư mục được chia sẻ</string>
     <string name="title_advanced_subscriptions">Quản lý đăng ký thư mục</string>
     <string name="title_advanced_check_authentication">Kiểm tra xác thực thư</string>
+    <string name="title_advanced_check_tls">Kiểm tra transport layer security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Kiểm tra địa chỉ trả lời khi đồng bộ hoá thư</string>
     <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
     <string name="title_advanced_check_blocklist">Kiểm tra xem tên miền của người gửi có ở trong một danh sách chặn thư rác không</string>
@@ -350,6 +351,7 @@
     <string name="title_advanced_two_row">Sử dụng hai dòng</string>
     <string name="title_advanced_two_col">Sử dụng hai cột</string>
     <string name="title_advanced_min_screen_size">Kích cỡ màn hình tối thiểu để chia tách màn hình</string>
+    <string name="title_advanced_close_pane">Thu gọn hàng hoặc cột khi đóng cuộc hội thoại</string>
     <string name="title_advanced_nav_options">Hiện các tùy chọn menu điều hướng</string>
     <string name="title_advanced_nav_pin">Ghim menu điều hướng</string>
     <string name="title_advanced_nav_hide_title">Ẩn các tùy chọn menu điều hướng?</string>
@@ -947,7 +949,6 @@
     <string name="title_move_to_account">Di chuyển vào %1$s &#8230;</string>
     <string name="title_report_spam">Coi là thư rác</string>
     <string name="title_delete_permanently">Xóa vĩnh viễn</string>
-    <string name="title_no_undo">Tôi hiểu điều này không thể hoàn tác được</string>
     <string name="title_snooze">Đặt báo lại &#8230;</string>
     <string name="title_archive">Lưu trữ</string>
     <string name="title_reply">Trả lời</string>
@@ -1267,6 +1268,7 @@
     <string name="title_rule_tts">Văn bản thành giọng nói</string>
     <string name="title_rule_automation">Tự động hóa</string>
     <string name="title_rule_delete">Xóa vĩnh viễn</string>
+    <string name="title_rule_sound">Phát âm thanh</string>
     <string name="title_rule_caption">Chỉnh sửa quy tắc</string>
     <string name="title_rule_title">Quy tắc áp dụng cho</string>
     <string name="title_rule_name">Tên</string>
@@ -1306,6 +1308,7 @@
     <string name="title_rule_answer_missing">Thiếu mẫu</string>
     <string name="title_rule_keyword_missing">Thiếu từ khoá</string>
     <string name="title_rule_automation_hint">Cái này sẽ gửi intent \'%1$s\' với \'%2$s\' được thêm vào</string>
+    <string name="title_rule_delete_hint">Việc xoá vĩnh viễn không thể đảo ngược được, nên hãy chắc chắn là các điều kiện quy tắc đã đúng!</string>
     <string name="title_rule_execute">Thực thi ngay</string>
     <string name="title_rule_applied">Các thư bị ảnh hưởng: %1$d</string>
     <string name="title_rule_check">Kiểm tra</string>
@@ -1320,6 +1323,10 @@
     <string name="title_rule_tts_from">Từ</string>
     <string name="title_rule_tts_subject">Chủ đề</string>
     <string name="title_rule_tts_content">Văn bản</string>
+    <string name="title_rule_select_sound">Chọn âm thanh</string>
+    <string name="title_rule_use_as_alarm">Sử dụng làm báo động</string>
+    <string name="title_rule_alarm_hint">Việc này sẽ bỏ qua quy tắc \"không làm phiền\"</string>
+    <string name="title_rule_alarm_duration">Độ dài báo động tối đa (giây)</string>
     <string name="title_legend_section_synchronize">Đồng bộ hoá</string>
     <string name="title_legend_section_folders">Thư mục</string>
     <string name="title_legend_section_messages">Thư</string>

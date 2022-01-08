@@ -703,7 +703,6 @@
     <string name="title_move_to_account">Премести в %1$s &#8230;</string>
     <string name="title_report_spam">Третиране като спам</string>
     <string name="title_delete_permanently">Изтрийте за постоянно</string>
-    <string name="title_no_undo">Разбирам, че това не може да бъде отменено</string>
     <string name="title_snooze">Дрямка &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Отговори</string>

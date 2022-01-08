@@ -961,7 +961,6 @@
     <string name="title_move_to_account">%1$s &#8230; köçürt</string>
     <string name="title_report_spam">Spam hesab et</string>
     <string name="title_delete_permanently">Birdəfəlik sil</string>
-    <string name="title_no_undo">Bunun geri dönüşü olmadığını anlayıram</string>
     <string name="title_snooze">Ertələ &#8230;</string>
     <string name="title_archive">Arxivlə</string>
     <string name="title_reply">Cavabla</string>
@@ -1341,6 +1340,7 @@
     <string name="title_rule_select_sound">Səsi seç</string>
     <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
     <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
+    <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>
     <string name="title_legend_section_synchronize">Eyniləşdirmə</string>
     <string name="title_legend_section_folders">Qovluqlar</string>
     <string name="title_legend_section_messages">Mesaj</string>

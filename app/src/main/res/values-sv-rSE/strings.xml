@@ -953,7 +953,6 @@
     <string name="title_move_to_account">Flytta till %1$s &#8230;</string>
     <string name="title_report_spam">Behandla som skräppost</string>
     <string name="title_delete_permanently">Ta bort permanent</string>
-    <string name="title_no_undo">Jag förstår att detta inte kan ångras</string>
     <string name="title_snooze">Slumra &#8230;</string>
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
