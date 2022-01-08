@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.text.TextUtils;
+
 import java.util.Objects;
 
 public class TupleThreadInfo {
@@ -28,11 +30,11 @@ public class TupleThreadInfo {
     public String inreplyto;
 
     public boolean isSelf(String msgid) {
-        return Objects.equals(this.msgid, msgid);
+        return !TextUtils.isEmpty(this.msgid) && this.msgid.equals(msgid);
     }
 
     public boolean isReferenced(String msgid) {
-        return Objects.equals(this.inreplyto, msgid);
+        return !TextUtils.isEmpty(this.inreplyto) && this.inreplyto.equals(msgid);
     }
 
     public boolean isReferencing(String msgid) {
