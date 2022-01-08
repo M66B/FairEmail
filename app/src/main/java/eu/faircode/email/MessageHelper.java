@@ -2143,6 +2143,9 @@ public class MessageHelper {
         int w = with.indexOf(' ');
         String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
 
+        if (with.contains("TLS"))
+            return true;
+
         if ("local".equals(protocol)) {
             // Exim
             Log.i("--- local with=" + with);
