@@ -2173,8 +2173,10 @@ public class MessageHelper {
         }
 
         if ("http".equals(protocol) ||
+                "https".equals(protocol) ||
                 "httprest".equals(protocol)) {
-            // httprest by gmailapi.google.com
+            // https: Outlook
+            // httprest: by gmailapi.google.com
             Log.i("--- http with=" + with);
             return true;
         }
