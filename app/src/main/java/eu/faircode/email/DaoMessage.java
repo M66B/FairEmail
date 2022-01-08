@@ -425,6 +425,11 @@ public interface DaoMessage {
             " AND inreplyto = :inreplyto")
     List<EntityMessage> getMessagesByInReplyTo(long account, String inreplyto);
 
+    @Query("SELECT thread, msgid, hash, inreplyto FROM message" +
+            " WHERE account = :account" +
+            " AND (msgid IN (:msgids) OR inreplyto IN (:msgids))")
+    List<TupleThreadInfo> getThreadInfo(long account, List<String> msgids);
+
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +
             " AND sender = :sender" +

@@ -1287,7 +1287,10 @@ public class MessageHelper {
 
     String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
         if (threadId == null)
-            threadId = _getThreadId(context, account, folder, uid);
+            if (BuildConfig.DEBUG)
+                threadId = _getThreadIdAlt(context, account, folder, uid);
+            else
+                threadId = _getThreadId(context, account, folder, uid);
         return threadId;
     }
 
@@ -1350,6 +1353,90 @@ public class MessageHelper {
             if (!thread.equals(message.thread)) {
                 Log.w("Updating after thread from " + message.thread + " to " + thread);
                 db.message().updateMessageThread(message.account, message.thread, thread, null);
+            }
+
+        boolean subject_threading = prefs.getBoolean("subject_threading", false);
+        if (subject_threading && !isReport()) {
+            String sender = getSortKey(getFrom());
+            String subject = getSubject();
+            long since = new Date().getTime() - MAX_SUBJECT_AGE * 3600 * 1000L;
+            if (!TextUtils.isEmpty(sender) && !TextUtils.isEmpty(subject)) {
+                List<EntityMessage> subjects = db.message().getMessagesBySubject(account, sender, subject, since);
+                for (EntityMessage message : subjects)
+                    if (!thread.equals(message.thread)) {
+                        Log.w("Updating subject thread from " + message.thread + " to " + thread);
+                        db.message().updateMessageThread(message.account, message.thread, thread, since);
+                    }
+            }
+        }
+
+        return thread;
+    }
+
+    private String _getThreadIdAlt(Context context, long account, long folder, long uid) throws MessagingException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        if (imessage instanceof GmailMessage) {
+            // https://developers.google.com/gmail/imap/imap-extensions#access_to_the_gmail_thread_id_x-gm-thrid
+            boolean gmail_thread_id = prefs.getBoolean("gmail_thread_id", false);
+            if (gmail_thread_id) {
+                long thrid = ((GmailMessage) imessage).getThrId();
+                if (thrid > 0)
+                    return "gmail:" + thrid;
+            }
+        }
+
+        String thread = null;
+        String msgid = getMessageID();
+
+        List<String> refs = new ArrayList<>();
+        for (String ref : getReferences())
+            if (!TextUtils.isEmpty(ref) && !refs.contains(ref))
+                refs.add(ref);
+
+        String inreplyto = getInReplyTo();
+        if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
+            refs.add(inreplyto);
+
+        DB db = DB.getInstance(context);
+
+        List<String> all = new ArrayList<>(refs);
+        all.add(msgid);
+        List<TupleThreadInfo> infos = db.message().getThreadInfo(account, all);
+
+        // References, In-Reply-To (before)
+        for (TupleThreadInfo info : infos)
+            if (info.isReference(msgid) && !TextUtils.isEmpty(info.thread)) {
+                thread = info.thread;
+                break;
+            }
+
+        // Similar
+        if (thread == null) {
+            for (TupleThreadInfo info : infos)
+                if (info.isSelf(msgid) &&
+                        !TextUtils.isEmpty(info.thread) && Objects.equals(info.hash, getHash())) {
+                    thread = info.thread;
+                    break;
+                }
+        }
+
+        if (thread == null)
+            thread = getHash() + ":" + uid;
+
+        // Received before
+        for (TupleThreadInfo info : infos)
+            if (info.isReference(msgid) &&
+                    !thread.equals(info.thread)) {
+                Log.w("Updating before thread from " + info.thread + " to " + thread);
+                db.message().updateMessageThread(account, info.thread, thread, null);
+            }
+
+        // Received after
+        for (TupleThreadInfo info : infos)
+            if (info.isInReplyto(msgid) && !thread.equals(info.thread)) {
+                Log.w("Updating after thread from " + info.thread + " to " + thread);
+                db.message().updateMessageThread(account, info.thread, thread, null);
             }
 
         boolean subject_threading = prefs.getBoolean("subject_threading", false);
