@@ -159,6 +159,8 @@ public class EntityContact implements Serializable {
                 addresses.addAll(Arrays.asList(message.to));
             if (message.cc != null)
                 addresses.addAll(Arrays.asList(message.cc));
+            if (message.bcc != null)
+                addresses.addAll(Arrays.asList(message.bcc));
         }
 
         update(context, folder.account, addresses.toArray(new Address[0]), type, message.received);
