@@ -1340,6 +1340,13 @@ public class MessageHelper {
                 }
         }
 
+        // Common reference
+        if (thread == null && refs.size() > 0) {
+            String ref = refs.get(0);
+            if (!Objects.equals(ref, msgid))
+                thread = ref;
+        }
+
         if (thread == null)
             thread = getHash() + ":" + uid;
 
@@ -1420,6 +1427,13 @@ public class MessageHelper {
                     thread = info.thread;
                     break;
                 }
+        }
+
+        // Common reference
+        if (thread == null && refs.size() > 0) {
+            String ref = refs.get(0);
+            if (!Objects.equals(ref, msgid))
+                thread = ref;
         }
 
         if (thread == null)
