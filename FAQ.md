@@ -325,6 +325,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(173) What is the difference between Play store / GitHub / F-Droid version?](#user-content-faq173)
 * [(174) Is auto discovery supported?](#user-content-faq174)
 * [(175) Why should battery optimizations be disabled?](#user-content-faq175)
+* [(176) When will a message be considered safely transported?](#user-content-faq176)
 
 [I have another question.](#user-content-get-support)
 
@@ -4458,6 +4459,27 @@ Android might stop the app, which will result in not sending and receiving messa
 
 It shouldn't be necessary to disable battery optimizations,
 but unfortunately modifications by manufacturers often [require it anyway](https://dontkillmyapp.com/).
+
+<br />
+
+
+<a name="faq176"></a>
+**(176) When will a message be considered safely transported?**
+
+If the receive option *Check transport layer security (TLS)* is enabled,
+a green shield will be shown only if a messages was transported securely by all servers.
+
+To show shields, the option *Show authentication status indicator* in the display settings should be enabled.
+
+A message will be consired safely transported if every [Received](https://datatracker.ietf.org/doc/html/rfc2821#section-4.4) header:
+
+* contains the word 'TLS'
+* contains the phrase 'qmail <nnn> invoked by uid <nnn>'
+* has a *by* with a local address (site local or localhost)
+* has a *from* with a local address
+* has a *via* with the value '[Frontend Transport](https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx)'
+* has a *with* with the value 'local', '[MAPI](https://en.wikipedia.org/wiki/MAPI)', 'HTTP' or 'HTTPREST'
+* has a *with* with the value '[xMTPSx](https://datatracker.ietf.org/doc/html/rfc3848)' ('xMTPAx' is considered insecure)
 
 <br />
 

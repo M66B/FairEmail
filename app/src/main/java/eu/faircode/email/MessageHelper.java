@@ -2128,6 +2128,7 @@ public class MessageHelper {
                 return null;
             }
 
+            // https://datatracker.ietf.org/doc/html/rfc3848
             // https://www.iana.org/assignments/mail-parameters/mail-parameters.txt
             String with = kv.get("with").toString();
             int w = with.indexOf(' ');
