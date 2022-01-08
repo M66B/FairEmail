@@ -649,7 +649,13 @@ public class StyleHelper {
                             e++;
 
                         for (Object span : edit.getSpans(start, e, Object.class)) {
-                            if (!CLEAR_STYLES.contains(span.getClass()))
+                            boolean has = false;
+                            for (Class cls : CLEAR_STYLES)
+                                if (cls.isAssignableFrom(span.getClass())) {
+                                    has = true;
+                                    break;
+                                }
+                            if (!has)
                                 continue;
 
                             int sstart = edit.getSpanStart(span);
