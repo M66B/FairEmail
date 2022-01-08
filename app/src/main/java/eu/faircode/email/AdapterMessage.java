@@ -2255,7 +2255,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         message.headers, message.blocklist != null && message.blocklist);
                 if (BuildConfig.DEBUG && headers instanceof SpannableStringBuilder) {
                     SpannableStringBuilder ssb = (SpannableStringBuilder) headers;
-                    ssb.append("TLS=" + message.tls)
+                    ssb.append('\n')
+                            .append("TLS=" + message.tls)
                             .append(" DKIM=" + message.dkim)
                             .append(" SPF=" + message.spf)
                             .append(" DMARC=" + message.dmarc)

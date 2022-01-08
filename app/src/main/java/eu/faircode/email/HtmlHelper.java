@@ -2400,8 +2400,8 @@ public class HtmlHelper {
             ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
             String[] received = new InternetHeaders(bis).getHeader("Received");
             if (received != null && received.length > 0) {
-                ssb.append('\n');
                 for (int i = received.length - 1; i >= 0; i--) {
+                    ssb.append('\n');
                     String h = MimeUtility.unfold(received[i]);
 
                     int semi = h.lastIndexOf(';');
@@ -2470,7 +2470,7 @@ public class HtmlHelper {
                     if (tls != null)
                         ssb.setSpan(new ForegroundColorSpan(tls ? colorVerified : colorWarning), t, ssb.length(), 0);
 
-                    ssb.append("\n\n");
+                    ssb.append("\n");
                 }
             }
         } catch (Throwable ex) {
