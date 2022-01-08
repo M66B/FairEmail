@@ -31,11 +31,11 @@ public class TupleThreadInfo {
         return Objects.equals(this.msgid, msgid);
     }
 
-    public boolean isInReplyto(String msgid) {
+    public boolean isReferenced(String msgid) {
         return Objects.equals(this.inreplyto, msgid);
     }
 
-    public boolean isReference(String msgid) {
-        return !isSelf(msgid) && !isInReplyto(msgid);
+    public boolean isReferencing(String msgid) {
+        return !isSelf(msgid) && !isReferenced(msgid);
     }
 }

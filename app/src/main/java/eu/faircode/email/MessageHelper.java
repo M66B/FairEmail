@@ -24,6 +24,7 @@ import static android.system.OsConstants.ENOSPC;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.SystemClock;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 
@@ -1404,9 +1405,9 @@ public class MessageHelper {
         all.add(msgid);
         List<TupleThreadInfo> infos = db.message().getThreadInfo(account, all);
 
-        // References, In-Reply-To (before)
+        // References, In-Reply-To (sent before)
         for (TupleThreadInfo info : infos)
-            if (info.isReference(msgid) && !TextUtils.isEmpty(info.thread)) {
+            if (info.isReferencing(msgid) && !TextUtils.isEmpty(info.thread)) {
                 thread = info.thread;
                 break;
             }
@@ -1414,8 +1415,8 @@ public class MessageHelper {
         // Similar
         if (thread == null) {
             for (TupleThreadInfo info : infos)
-                if (info.isSelf(msgid) &&
-                        !TextUtils.isEmpty(info.thread) && Objects.equals(info.hash, getHash())) {
+                if (info.isSelf(msgid) && !TextUtils.isEmpty(info.thread) &&
+                        Objects.equals(info.hash, getHash())) {
                     thread = info.thread;
                     break;
                 }
@@ -1424,17 +1425,16 @@ public class MessageHelper {
         if (thread == null)
             thread = getHash() + ":" + uid;
 
-        // Received before
+        // Sent before
         for (TupleThreadInfo info : infos)
-            if (info.isReference(msgid) &&
-                    !thread.equals(info.thread)) {
+            if (info.isReferencing(msgid) && !thread.equals(info.thread)) {
                 Log.w("Updating before thread from " + info.thread + " to " + thread);
                 db.message().updateMessageThread(account, info.thread, thread, null);
             }
 
-        // Received after
+        // Sent after
         for (TupleThreadInfo info : infos)
-            if (info.isInReplyto(msgid) && !thread.equals(info.thread)) {
+            if (info.isReferenced(msgid) && !thread.equals(info.thread)) {
                 Log.w("Updating after thread from " + info.thread + " to " + thread);
                 db.message().updateMessageThread(account, info.thread, thread, null);
             }
