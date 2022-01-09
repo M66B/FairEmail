@@ -1880,14 +1880,16 @@ public class HtmlHelper {
         return flowed.toString();
     }
 
-    static String formatPre(String text) {
-        return formatPre(text, true);
+    static String formatPlainText(String text) {
+        return formatPlainText(text, true);
     }
 
-    static String formatPre(String text, boolean view) {
+    static String formatPlainText(String text, boolean view) {
         int level = 0;
         StringBuilder sb = new StringBuilder();
-        String[] lines = text.split("\\r?\\n");
+        String[] lines = text
+                .replaceAll("\\r(?!\\n)", "\n")
+                .split("\\r?\\n");
         for (int l = 0; l < lines.length; l++) {
             String line = lines[l];
             lines[l] = null;

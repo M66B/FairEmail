@@ -33,7 +33,6 @@ import android.os.Parcelable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.util.AttributeSet;
@@ -228,7 +227,7 @@ public class EditTextCompose extends FixedEditText {
                     if (raw)
                         html = text.toString();
                     else
-                        html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
+                        html = "<div>" + HtmlHelper.formatPlainText(text.toString(), false) + "</div>";
                 } else
                     html = h;
 

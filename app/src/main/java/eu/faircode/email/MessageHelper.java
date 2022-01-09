@@ -24,7 +24,6 @@ import static android.system.OsConstants.ENOSPC;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.SystemClock;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 
@@ -2834,7 +2833,7 @@ public class MessageHelper {
                             result.substring(e - HTML_END.length(), e).equalsIgnoreCase(HTML_END))
                         return result;
 
-                    result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
+                    result = "<div x-plain=\"true\">" + HtmlHelper.formatPlainText(result) + "</div>";
                 } else if (h.isHtml()) {
                     // Conditionally upgrade to UTF8
                     if ((cs == null ||

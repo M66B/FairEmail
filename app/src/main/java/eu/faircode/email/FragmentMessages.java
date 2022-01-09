@@ -35,7 +35,6 @@ import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecorato
 import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase.DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD;
 
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
@@ -184,7 +183,6 @@ import org.openintents.openpgp.AutocryptPeerUpdate;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
-import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -240,7 +238,6 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Part;
 import javax.mail.Session;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -7248,7 +7245,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         // Write decrypted body
                                         String text = Helper.readText(plain);
-                                        String html = "<div x-plain=\"true\">" + HtmlHelper.formatPre(text) + "</div>";
+                                        String html = "<div x-plain=\"true\">" + HtmlHelper.formatPlainText(text) + "</div>";
                                         Helper.writeText(message.getFile(context), html);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
