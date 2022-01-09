@@ -23,7 +23,6 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -92,6 +91,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private SwitchCompat swCheckAuthentication;
     private SwitchCompat swCheckTls;
+    private ImageButton ibCheckTlsInfo;
     private SwitchCompat swCheckReply;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckBlocklist;
@@ -163,6 +163,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         swCheckAuthentication = view.findViewById(R.id.swCheckAuthentication);
         swCheckTls = view.findViewById(R.id.swCheckTls);
+        ibCheckTlsInfo = view.findViewById(R.id.ibCheckTlsInfo);
         swCheckReply = view.findViewById(R.id.swCheckReply);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckBlocklist = view.findViewById(R.id.swCheckBlocklist);
@@ -392,6 +393,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 prefs.edit().putBoolean("check_tls", checked).apply();
+            }
+        });
+
+        ibCheckTlsInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 176);
             }
         });
 
