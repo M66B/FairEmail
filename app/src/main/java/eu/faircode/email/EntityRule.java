@@ -338,6 +338,7 @@ public class EntityRule {
             if (jbody != null) {
                 String value = jbody.getString("value");
                 boolean regex = jbody.getBoolean("regex");
+                boolean skip_quotes = jbody.optBoolean("skip_quotes");
 
                 if (!regex)
                     value = value.replaceAll("\\s+", " ");
@@ -355,7 +356,8 @@ public class EntityRule {
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
 
                 Document d = JsoupEx.parse(html);
-                //d.select("blockquote").remove();
+                if (skip_quotes)
+                    d.select("blockquote").remove();
                 String text = d.body().text();
                 if (!matches(context, message, value, text, regex))
                     return false;

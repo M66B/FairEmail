@@ -108,6 +108,7 @@ public class FragmentRule extends FragmentBase {
 
     private EditText etBody;
     private CheckBox cbBody;
+    private CheckBox cbSkipQuotes;
 
     private TextView tvDateAfter;
     private TextView tvDateBefore;
@@ -257,6 +258,7 @@ public class FragmentRule extends FragmentBase {
 
         etBody = view.findViewById(R.id.etBody);
         cbBody = view.findViewById(R.id.cbBody);
+        cbSkipQuotes = view.findViewById(R.id.cbSkipQuotes);
 
         tvDateAfter = view.findViewById(R.id.tvDateAfter);
         tvDateBefore = view.findViewById(R.id.tvDateBefore);
@@ -967,6 +969,7 @@ public class FragmentRule extends FragmentBase {
 
                         etBody.setText(jbody == null ? null : jbody.getString("value"));
                         cbBody.setChecked(jbody != null && jbody.getBoolean("regex"));
+                        cbSkipQuotes.setChecked(jbody != null && jbody.optBoolean("skip_quotes"));
 
                         long after = (jdate != null && jdate.has("after") ? jdate.getLong("after") : 0);
                         long before = (jdate != null && jdate.has("before") ? jdate.getLong("before") : 0);
@@ -1303,6 +1306,7 @@ public class FragmentRule extends FragmentBase {
             JSONObject jbody = new JSONObject();
             jbody.put("value", body);
             jbody.put("regex", cbBody.isChecked());
+            jbody.put("skip_quotes", cbSkipQuotes.isChecked());
             jcondition.put("body", jbody);
         }
 

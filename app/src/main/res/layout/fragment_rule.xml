@@ -458,6 +458,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbBody" />
 
+                <CheckBox
+                    android:id="@+id/cbSkipQuotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_rule_skip_quotes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etBody" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBodyRemark"
                     android:layout_width="0dp"
@@ -466,7 +474,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etBody" />
+                    app:layout_constraintTop_toBottomOf="@id/cbSkipQuotes" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAndBody"
@@ -1002,10 +1010,14 @@
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
                     tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
+                    tvCondition,
                     vSeparatorSender,tvSender,cbSender,etSender,ibSender,cbKnownSender,tvAndSender,
                     vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
                     vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
+                    vSeparatorAttachments,cbAttachments,tvMimeType,etMimeType,tvAndAttachments,
                     vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
+                    vSeparatorBody,tvBody,cbBody,etBody,tvBodyRemark,cbSkipQuotes,tvAndBody,
+                    vSeparatorDate,tvDate,tvDateAfter,btnDateAfter,tvDateBefore,btnDateBefore,tvAndDate,
                     vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
                     vSeparatorAction,tvAction,spAction,tvActionRemark,
                     vSeparatorParameters" />
