@@ -2302,10 +2302,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
-                icon = Boolean.TRUE.equals(message.accountLeaveDeleted) &&
-                        EntityFolder.INBOX.equals(message.folderType)
+                icon = (message.accountLeaveDeleted && EntityFolder.INBOX.equals(message.folderType)
                         ? R.drawable.twotone_delete_24
-                        : R.drawable.twotone_delete_forever_24;
+                        : R.drawable.twotone_delete_forever_24);
             else if (EntityMessage.SWIPE_ACTION_REPLY.equals(action))
                 icon = R.drawable.twotone_reply_24;
             else
@@ -2444,7 +2443,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType))) {
-                adapter.notifyItemChanged(pos);
+                if (!(message.accountLeaveDeleted && EntityFolder.INBOX.equals(message.folderType)))
+                    adapter.notifyItemChanged(pos);
                 onSwipeDelete(message);
             } else
                 swipeFolder(message, action);
