@@ -364,7 +364,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNotes;
         private TextView tvError;
         private ImageButton ibError;
-        private ImageButton ibSettings;
 
         private View vsBody;
 
@@ -674,7 +673,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (tvError != null)
                 tvError.setAutoLinkMask(Linkify.EMAIL_ADDRESSES | Linkify.WEB_URLS);
             ibError = itemView.findViewById(R.id.ibError);
-            ibSettings = itemView.findViewById(R.id.ibSettings);
 
             if (vwColor != null)
                 vwColor.getLayoutParams().width = colorStripeWidth;
@@ -919,7 +917,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
             tvError.setOnClickListener(this);
             ibError.setOnClickListener(this);
-            ibSettings.setOnClickListener(this);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(this);
@@ -1020,7 +1017,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
             tvError.setOnClickListener(null);
             ibError.setOnClickListener(null);
-            ibSettings.setOnClickListener(null);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(null);
@@ -1175,7 +1171,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNotes.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvError.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibError.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ibSettings.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
             }
 
             bindSeen(message);
@@ -1421,7 +1416,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setText(error);
                 tvError.setVisibility(error == null ? View.GONE : View.VISIBLE);
                 ibError.setVisibility(error == null ? View.GONE : View.VISIBLE);
-                ibSettings.setVisibility(error == null || !outbox ? View.GONE : View.VISIBLE);
             }
 
             // Contact info
@@ -3455,8 +3449,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onToggleFlag(message);
             else if (view.getId() == R.id.ibError)
                 onHelp(message);
-            else if (view.getId() == R.id.ibSettings)
-                onSettings(message);
             else if (view.getId() == R.id.ibReceipt)
                 onReceipt(message);
             else if (view.getId() == R.id.ibSearchContact)
@@ -4008,21 +4000,62 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onHelp(TupleMessageEx message) {
-            ClipboardManager clipboard =
-                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            if (clipboard != null) {
-                ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), tvError.getText());
-                clipboard.setPrimaryClip(clip);
-            }
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibError);
 
-            Helper.viewFAQ(context, 130);
-        }
+            int order = 0;
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_help, order++, R.string.title_setup_help);
+            popupMenu.getMenu().add(Menu.NONE, R.string.menu_setup, order++, R.string.menu_setup);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, order++, R.string.title_clipboard_copy);
 
-        private void onSettings(TupleMessageEx message) {
-            context.startActivity(new Intent(context, ActivitySetup.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    .putExtra("target", "identities")
-                    .putExtra("id", message.identity));
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_setup_help) {
+                        onHelp();
+                        return true;
+                    } else if (itemId == R.string.menu_setup) {
+                        onSettings();
+                        return true;
+                    } else if (itemId == R.string.title_clipboard_copy) {
+                        onCopy();
+                        return true;
+                    }
+                    return false;
+                }
+
+                private void onHelp() {
+                    Helper.viewFAQ(context, 130);
+                }
+
+                private void onSettings() {
+                    if (EntityFolder.OUTBOX.equals(message.folderType))
+                        context.startActivity(new Intent(context, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("target", "identities")
+                                .putExtra("id", message.identity));
+                    else
+                        context.startActivity(new Intent(context, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("target", "accounts")
+                                .putExtra("id", message.account)
+                                .putExtra("protocol", message.accountProtocol));
+                }
+
+                private void onCopy() {
+                    ClipboardManager clipboard =
+                            (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard == null)
+                        return;
+
+                    ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), tvError.getText());
+                    clipboard.setPrimaryClip(clip);
+
+                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                }
+            });
+
+            popupMenu.show();
         }
 
         private void onReceipt(TupleMessageEx message) {
