@@ -65,6 +65,7 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.os.Debug;
 import android.os.OperationCanceledException;
 import android.os.Parcel;
@@ -99,6 +100,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.ScrollCaptureCallback;
+import android.view.ScrollCaptureSession;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -232,6 +235,7 @@ import java.util.Properties;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.function.Consumer;
 
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
@@ -675,6 +679,62 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             };
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvMessage.addItemDecoration(itemDecorator);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // https://developer.android.com/reference/android/view/ScrollCaptureCallback
+            rvMessage.setScrollCaptureHint(android.view.View.SCROLL_CAPTURE_HINT_EXCLUDE_DESCENDANTS);
+            rvMessage.setScrollCaptureCallback(new ScrollCaptureCallback() {
+                private View child;
+                private Rect rect;
+
+                @Override
+                public void onScrollCaptureSearch(@NonNull CancellationSignal signal, @NonNull Consumer<Rect> onReady) {
+                    rect = new Rect();
+                    List<Long> expanded = values.get("expanded");
+                    Log.i("Capture expanded=" + (expanded == null ? null : expanded.size()));
+                    if (expanded != null && expanded.size() == 1) {
+                        int pos = adapter.getPositionForKey(expanded.get(0));
+                        Log.i("Capture pos=" + pos);
+                        child = llm.findViewByPosition(pos);
+                        Log.i("Capture child=" + child);
+                        if (child != null)
+                            rect.set(0, 0, child.getWidth(), child.getHeight());
+                    }
+                    Log.i("Capture search=" + rect);
+                    onReady.accept(rect);
+                }
+
+                @Override
+                public void onScrollCaptureStart(@NonNull ScrollCaptureSession session, @NonNull CancellationSignal signal, @NonNull Runnable onReady) {
+                    Log.i("Capture selected scroll=" + session.getScrollBounds());
+                    onReady.run();
+                }
+
+                @Override
+                public void onScrollCaptureImageRequest(@NonNull ScrollCaptureSession session, @NonNull CancellationSignal signal, @NonNull Rect captureArea, @NonNull Consumer<Rect> onComplete) {
+                    Canvas canvas = session.getSurface().lockCanvas(rect);
+                    Log.i("Capture draw=" + captureArea + " scroll=" + session.getScrollBounds());
+                    try {
+                        canvas.save();
+                        canvas.translate(-captureArea.left, -captureArea.top - session.getScrollBounds().bottom);
+                        child.draw(canvas);
+                        canvas.restore();
+                    } finally {
+                        session.getSurface().unlockCanvasAndPost(canvas);
+                    }
+
+                    onComplete.accept(captureArea);
+                }
+
+                @Override
+                public void onScrollCaptureEnd(@NonNull Runnable onReady) {
+                    Log.i("Capture end");
+                    child = null;
+                    rect = null;
+                    onReady.run();
+                }
+            });
         }
 
         View inGroup = view.findViewById(R.id.inGroup);
