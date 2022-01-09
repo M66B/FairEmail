@@ -2180,7 +2180,7 @@ public class MessageHelper {
             return true;
         }
 
-        if ("lmtp".equals(protocol)) {
+        if (protocol.startsWith("lmtp")) {
             // https://en.wikipedia.org/wiki/Local_Mail_Transfer_Protocol
             Log.i("--- lmtp with=" + with);
             return true;

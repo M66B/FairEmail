@@ -4481,7 +4481,7 @@ A message will be consired safely transported if *every* [Received](https://data
 * has a *from* with a local address
 * has a *via* with the value '[Frontend Transport](https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx)'
 * has a *with* with the value 'TLS'
-* has a *with* with the value 'local', '[LMTP](https://en.wikipedia.org/wiki/Local_Mail_Transfer_Protocol)], '[MAPI](https://en.wikipedia.org/wiki/MAPI)'
+* has a *with* with the value 'local', '[LMTPx](https://en.wikipedia.org/wiki/Local_Mail_Transfer_Protocol)], '[MAPI](https://en.wikipedia.org/wiki/MAPI)'
 * has a *with* with the value 'HTTP', 'HTTPS', or 'HTTPREST'
 * has a *with* with the value '[xMTPSx](https://datatracker.ietf.org/doc/html/rfc3848)' ('xMTPAx' is considered insecure)
 
