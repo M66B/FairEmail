@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### Next version
+
+* Long screenshots
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1804 - 2022-01-08
 
 * Added check for secure (TLS) transport (experimental)
