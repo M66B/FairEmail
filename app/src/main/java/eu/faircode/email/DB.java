@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -403,9 +404,10 @@ public abstract class DB extends RoomDatabase {
                 .addCallback(new Callback() {
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        Log.i("Database" +
-                                " version=" + db.getVersion() +
-                                " WAL=" + db.isWriteAheadLoggingEnabled());
+                        Map<String, String> map = new HashMap<>();
+                        map.put("version", Integer.toString(db.getVersion()));
+                        map.put("WAL", Boolean.toString(db.isWriteAheadLoggingEnabled()));
+                        Log.breadcrumb("Database", map);
 
                         // https://www.sqlite.org/pragma.html#pragma_cache_size
                         Integer cache_size = getCacheSizeKb(context);
