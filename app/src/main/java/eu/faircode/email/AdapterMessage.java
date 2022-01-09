@@ -76,6 +76,7 @@ import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.text.util.Linkify;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -362,6 +363,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvPreview;
         private TextView tvNotes;
         private TextView tvError;
+        private ImageButton ibError;
         private ImageButton ibSettings;
 
         private View vsBody;
@@ -669,6 +671,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCount = itemView.findViewById(R.id.tvCount);
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
+            if (tvError != null)
+                tvError.setAutoLinkMask(Linkify.EMAIL_ADDRESSES | Linkify.WEB_URLS);
+            ibError = itemView.findViewById(R.id.ibError);
             ibSettings = itemView.findViewById(R.id.ibSettings);
 
             if (vwColor != null)
@@ -913,6 +918,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setOnLongClickListener(this);
             }
             tvError.setOnClickListener(this);
+            ibError.setOnClickListener(this);
             ibSettings.setOnClickListener(this);
 
             if (vsBody != null) {
@@ -1013,6 +1019,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setOnLongClickListener(null);
             }
             tvError.setOnClickListener(null);
+            ibError.setOnClickListener(null);
             ibSettings.setOnClickListener(null);
 
             if (vsBody != null) {
@@ -1167,6 +1174,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvPreview.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvNotes.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvError.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibError.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibSettings.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
             }
 
             bindSeen(message);
@@ -1405,14 +1414,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 tvError.setText(text);
                 tvError.setVisibility(View.VISIBLE);
+                ibError.setVisibility(View.VISIBLE);
             } else {
                 if (BuildConfig.DEBUG && level <= android.util.Log.INFO)
                     error = message.thread;
                 tvError.setText(error);
                 tvError.setVisibility(error == null ? View.GONE : View.VISIBLE);
-                ibSettings.setVisibility(
-                        error != null && EntityFolder.OUTBOX.equals(message.folderType)
-                                ? View.VISIBLE : View.GONE);
+                ibError.setVisibility(error == null ? View.GONE : View.VISIBLE);
+                ibSettings.setVisibility(error == null || !outbox ? View.GONE : View.VISIBLE);
             }
 
             // Contact info
@@ -3444,7 +3453,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ibFlagged)
                 onToggleFlag(message);
-            else if (view.getId() == R.id.tvError)
+            else if (view.getId() == R.id.ibError)
                 onHelp(message);
             else if (view.getId() == R.id.ibSettings)
                 onSettings(message);
@@ -5955,10 +5964,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.getString(R.string.title_accessibility_show_snooze_time)));
                 ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                if (tvError.getVisibility() == View.VISIBLE)
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.tvError,
+                if (ibError.getVisibility() == View.VISIBLE)
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibError,
                             context.getString(R.string.title_accessibility_view_help)));
-                tvError.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                ibError.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
                 info.setContentDescription(populateContentDescription(message));
             }
@@ -5984,7 +5993,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (action == R.id.ibSnoozed) {
                     onShowSnoozed(message);
                     return true;
-                } else if (action == R.id.tvError) {
+                } else if (action == R.id.ibError) {
                     onHelp(message);
                     return true;
                 }
