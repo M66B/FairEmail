@@ -424,7 +424,7 @@ public class Log {
                 @Override
                 public boolean onSession(@NonNull Session session) {
                     // opt-in
-                    return prefs.getBoolean("crash_reports", false);
+                    return prefs.getBoolean("crash_reports", false) || BuildConfig.TEST_RELEASE;
                 }
             });
 
@@ -433,7 +433,7 @@ public class Log {
                 public boolean onError(@NonNull Event event) {
                     // opt-in
                     boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                    if (!crash_reports)
+                    if (!crash_reports && !BuildConfig.TEST_RELEASE)
                         return false;
 
                     Throwable ex = event.getOriginalError();
@@ -536,7 +536,7 @@ public class Log {
             Log.i("uuid=" + uuid);
             client.setUser(uuid, null, null);
 
-            if (prefs.getBoolean("crash_reports", false))
+            if (prefs.getBoolean("crash_reports", false) || BuildConfig.TEST_RELEASE)
                 Bugsnag.startSession();
         } catch (Throwable ex) {
             Log.e(ex);
@@ -1784,7 +1784,7 @@ public class Log {
                 Build.VERSION.RELEASE, Build.VERSION.SDK_INT, targetSdk));
 
         boolean reporting = prefs.getBoolean("crash_reports", false);
-        if (reporting) {
+        if (reporting || BuildConfig.TEST_RELEASE) {
             String uuid = prefs.getString("uuid", null);
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }

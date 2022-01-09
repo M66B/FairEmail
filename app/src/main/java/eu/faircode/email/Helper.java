@@ -934,7 +934,7 @@ public class Helper {
             html += "Locale: " + Html.escapeHtml(slocale.toString()) + "<br>";
             if (language != null)
                 html += "Language: " + Html.escapeHtml(language) + "<br>";
-            if (reporting && uuid != null)
+            if ((reporting || BuildConfig.TEST_RELEASE) && uuid != null)
                 html += "UUID: " + Html.escapeHtml(uuid) + "<br>";
             html += "</p>";
 
