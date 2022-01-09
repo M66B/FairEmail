@@ -3531,7 +3531,7 @@ so you cannot use FairEmail to access Tutanota.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq130)
 
-A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
+If you don't understand an error, please [contact me](https://contact.faircode.eu/?product=fairemailsupport) for support.
 
 The warning *No server found at ...* means that there was no email server registered at the indicated domain name.
 Replying to the message might not be possible and might result in an error.
@@ -3546,7 +3546,7 @@ The error will almost always include a reason. Common reasons are that the messa
 The warning *Message too large to fit into the available memory* means that the message was larger than 10 MiB.
 Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
 
-Please see [here](#user-content-faq22) for other error messages in the outbox.
+Please see [here](#user-content-faq22) for other error messages.
 
 <br />
 
