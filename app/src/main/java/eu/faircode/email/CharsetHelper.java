@@ -79,6 +79,36 @@ public class CharsetHelper {
         }
     }
 
+    static boolean isUTF8Alt(String text) {
+        byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
+
+        int bytes;
+        for (int i = 0; i < octets.length; i++) {
+            if ((octets[i] & 0b10000000) == 0b00000000)
+                bytes = 1;
+            else if ((octets[i] & 0b11100000) == 0b11000000)
+                bytes = 2;
+            else if ((octets[i] & 0b11110000) == 0b11100000)
+                bytes = 3;
+            else if ((octets[i] & 0b11111000) == 0b11110000)
+                bytes = 4;
+            else if ((octets[i] & 0b11111100) == 0b11111000)
+                bytes = 5;
+            else if ((octets[i] & 0b11111110) == 0b11111100)
+                bytes = 6;
+            else
+                return false;
+
+            if (i + bytes > octets.length)
+                return false;
+
+            while (--bytes > 0)
+                if ((octets[++i] & 0b11000000) != 0b10000000)
+                    return false;
+        }
+        return true;
+    }
+
     static String utf8toW1252(String text) {
         try {
             Charset w1252 = Charset.forName("windows-1252");
