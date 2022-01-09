@@ -144,7 +144,8 @@ public class MessageHelper {
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
     private static final int MAX_META_EXCERPT = 1024; // characters
-    private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
+    private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
+    private static final int MAX_DIAGNOSTIC = 250; // characters
 
     private static final String DOCTYPE = "<!DOCTYPE";
     private static final String HTML_START = "<html>";
@@ -2920,8 +2921,12 @@ public class MessageHelper {
                     StringBuilder w = new StringBuilder();
 
                     if (!report.isDelivered()) {
-                        if (report.diagnostic != null)
-                            w.append(report.diagnostic);
+                        if (report.diagnostic != null) {
+                            String diag = report.diagnostic;
+                            if (diag.length() > MAX_DIAGNOSTIC)
+                                diag = diag.substring(0, MAX_DIAGNOSTIC) + "…";
+                            w.append(diag);
+                        }
                         if (report.action != null) {
                             if (w.length() == 0)
                                 w.append(report.action);
