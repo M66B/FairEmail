@@ -57,7 +57,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:autoLink="all"
+                        android:autoLink="email|web"
                         android:text="Error"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="?attr/colorError"
