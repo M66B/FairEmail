@@ -3320,9 +3320,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         popupMenu.getMenu().add(Menu.FIRST, R.string.title_trash, order++, R.string.title_trash)
                                 .setIcon(R.drawable.twotone_delete_24);
 
-                    if (result.isTrash || !result.hasTrash || result.isJunk || true) // is trash or no trash or is junk
-                        popupMenu.getMenu().add(Menu.FIRST, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
-                                .setIcon(R.drawable.twotone_delete_forever_24);
+                    boolean leave = (Boolean.TRUE.equals(result.leave_deleted) && result.isInbox);
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_delete_permanently, order++,
+                            leave ? R.string.title_trash : R.string.title_delete_permanently)
+                            .setIcon(leave ? R.drawable.twotone_delete_24 : R.drawable.twotone_delete_forever_24);
 
                     for (EntityAccount account : result.accounts) {
                         String title = getString(R.string.title_move_to_account, account.name);
