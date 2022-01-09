@@ -570,6 +570,7 @@ public interface DaoMessage {
             " ORDER BY folder")
     LiveData<List<TupleMessageWidgetCount>> liveWidgetUnified();
 
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     @Query("SELECT message.*" +
             ", account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", SUM(1 - message.ui_seen) AS unseen" +
@@ -589,7 +590,6 @@ public interface DaoMessage {
             " GROUP BY account.id" +
             ", CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " ORDER BY message.received DESC")
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     List<TupleMessageWidget> getWidgetUnified(Long account, Long folder, boolean threading, boolean unseen, boolean flagged);
 
     @Query("SELECT uid FROM message" +
