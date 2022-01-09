@@ -1604,11 +1604,8 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
-                        try {
-                            db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " + TupleAccountView.query);
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
+                        db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " +
+                                TupleAccountView.query.replace(", category", ""));
                         db.execSQL("CREATE VIEW IF NOT EXISTS `identity_view` AS " + TupleIdentityView.query);
                         db.execSQL("CREATE VIEW IF NOT EXISTS `folder_view` AS " + TupleFolderView.query);
                     }
@@ -2148,12 +2145,9 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
-                        try {
-                            db.execSQL("DROP VIEW IF EXISTS `account_view`");
-                            db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " + TupleAccountView.query);
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
+                        db.execSQL("DROP VIEW IF EXISTS `account_view`");
+                        db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " +
+                                TupleAccountView.query.replace(", category", ""));
                     }
                 }).addMigrations(new Migration(207, 208) {
                     @Override
