@@ -1805,6 +1805,8 @@ public class Log {
         sb.append(String.format("Time: %s\r\n", new Date(Build.TIME).toString()));
         sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
         sb.append(String.format("Id: %s\r\n", Build.ID));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+            sb.append(String.format("SoC: %s/%s\r\n", Build.SOC_MANUFACTURER, Build.SOC_MODEL));
         sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
         sb.append("\r\n");
 
