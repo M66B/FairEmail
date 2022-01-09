@@ -23,6 +23,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -32,7 +33,9 @@ import android.os.Parcelable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
+import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.KeyEvent;
@@ -90,10 +93,16 @@ public class EditTextCompose extends FixedEditText {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     if (can(android.R.id.undo))
-                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, R.string.title_undo);
+                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, getTitle(R.string.title_undo));
                     if (can(android.R.id.redo))
-                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, R.string.title_redo);
+                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, getTitle(R.string.title_redo));
                     return true;
+                }
+
+                private CharSequence getTitle(int resid) {
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(context.getString(resid));
+                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), 0, ssb.length(), 0);
+                    return ssb;
                 }
 
                 @Override
