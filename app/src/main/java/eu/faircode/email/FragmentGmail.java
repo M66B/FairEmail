@@ -252,7 +252,7 @@ public class FragmentGmail extends FragmentBase {
         tvGranted.setVisibility(granted ? View.VISIBLE : View.GONE);
 
         boolean hasName = (etName.getText() != null && etName.getText().length() > 0);
-        if (granted && !hasName) {
+        if (granted && !hasName && hasPermission(Manifest.permission.READ_CONTACTS)) {
             try (Cursor cursor = getContext().getContentResolver().query(
                     ContactsContract.Profile.CONTENT_URI,
                     new String[]{ContactsContract.Profile.DISPLAY_NAME}, null, null, null)) {
