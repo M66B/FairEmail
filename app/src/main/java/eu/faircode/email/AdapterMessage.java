@@ -708,6 +708,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
 
+            if (tvKeywords != null) {
+                if (compact)
+                    tvKeywords.setSingleLine(true);
+            }
+
             if (viewType != R.layout.item_message_compact && viewType != R.layout.item_message_normal)
                 return;
 
@@ -1481,6 +1486,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ? tvSubject.getMaxLines() == 1
                         : tvSubject.getMaxLines() > 1)
                     tvSubject.setSingleLine(!"full".equals(subject_ellipsize));
+
+                tvKeywords.setSingleLine(true);
             }
 
             tvPreview.setVisibility(
@@ -1779,6 +1786,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (compact) {
                 tvFrom.setSingleLine(false);
                 tvSubject.setSingleLine(false);
+                tvKeywords.setSingleLine(false);
             }
 
             tvPreview.setVisibility(View.GONE);
