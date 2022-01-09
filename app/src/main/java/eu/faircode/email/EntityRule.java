@@ -354,7 +354,9 @@ public class EntityRule {
                 if (html == null)
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_no_body));
 
-                String text = HtmlHelper.getFullText(html);
+                Document d = JsoupEx.parse(html);
+                //d.select("blockquote").remove();
+                String text = d.body().text();
                 if (!matches(context, message, value, text, regex))
                     return false;
             }
