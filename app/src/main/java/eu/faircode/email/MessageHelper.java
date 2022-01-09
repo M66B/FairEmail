@@ -2215,6 +2215,8 @@ public class MessageHelper {
         int e = value.indexOf(']', s + 1);
         if (s >= 0 && e > 0) {
             String ip = value.substring(s + 1, e);
+            if (ip.toLowerCase(Locale.ROOT).startsWith("ipv6:"))
+                ip = ip.substring(5);
             if (ConnectionHelper.isNumericAddress(ip) &&
                     ConnectionHelper.isLocalAddress(ip))
                 return true;
