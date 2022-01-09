@@ -87,6 +87,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
@@ -1928,8 +1929,16 @@ public class MessageHelper {
                         String scheme = uri.getScheme();
                         if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme))
                             link = unsubscribe;
-                        else
-                            Log.w(new Throwable(unsubscribe));
+                        else {
+                            Pattern p =
+                                    Pattern.compile(PatternsCompat.AUTOLINK_WEB_URL.pattern() + "|" +
+                                            PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern());
+                            Matcher m = p.matcher(unsubscribe);
+                            if (m.find())
+                                link = unsubscribe.substring(m.start(), m.end());
+                            else
+                                Log.w(new Throwable(unsubscribe));
+                        }
                     }
                 }
 
