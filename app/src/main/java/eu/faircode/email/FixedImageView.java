@@ -24,7 +24,6 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,8 +48,8 @@ public class FixedImageView extends androidx.appcompat.widget.AppCompatImageView
             super.onDraw(canvas);
         } catch (RuntimeException ex) {
             Log.e(new Throwable(Helper.getViewName(this), ex));
-            Context context = getContext();
-            Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+
+            Drawable d = getContext().getDrawable(R.drawable.twotone_broken_image_24);
             Rect b = getDrawable().getBounds();
             int px = Math.min(b.width(), b.height());
             d.setBounds(0, 0, px, px);

@@ -48,8 +48,8 @@ public class FixedImageButton extends AppCompatImageButton {
             super.onDraw(canvas);
         } catch (RuntimeException ex) {
             Log.e(new Throwable(Helper.getViewName(this), ex));
-            Context context = getContext();
-            Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
+
+            Drawable d = getContext().getDrawable(R.drawable.twotone_broken_image_24);
             Rect b = getDrawable().getBounds();
             int px = Math.min(b.width(), b.height());
             d.setBounds(0, 0, px, px);
