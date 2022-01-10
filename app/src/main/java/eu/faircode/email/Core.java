@@ -3927,7 +3927,7 @@ class Core {
             if (needsHeaders || needsBody)
                 Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
             List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
-            String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
+            String body = (needsBody ? parts.getHtml(context) : null);
 
             if (experiments && helper.isReport())
                 try {
