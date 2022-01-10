@@ -691,18 +691,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void onScrollCaptureSearch(@NonNull CancellationSignal signal, @NonNull Consumer<Rect> onReady) {
                     rect = new Rect();
-                    List<Long> expanded = values.get("expanded");
-                    Log.i("Capture expanded=" + (expanded == null ? null : expanded.size()));
-                    if (expanded != null && expanded.size() == 1) {
-                        int pos = adapter.getPositionForKey(expanded.get(0));
-                        Log.i("Capture pos=" + pos);
-                        child = llm.findViewByPosition(pos);
-                        Log.i("Capture child=" + child);
-                        if (child != null)
-                            rect.set(0, 0, child.getWidth(), child.getHeight());
+                    try {
+                        List<Long> expanded = values.get("expanded");
+                        Log.i("Capture expanded=" + (expanded == null ? null : expanded.size()));
+                        if (expanded != null && expanded.size() == 1) {
+                            int pos = adapter.getPositionForKey(expanded.get(0));
+                            Log.i("Capture pos=" + pos);
+                            child = llm.findViewByPosition(pos);
+                            Log.i("Capture child=" + child);
+                            if (child != null)
+                                rect.set(0, 0, child.getWidth(), child.getHeight());
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    } finally {
+                        Log.i("Capture search=" + rect);
+                        onReady.accept(rect);
                     }
-                    Log.i("Capture search=" + rect);
-                    onReady.accept(rect);
                 }
 
                 @Override
@@ -713,15 +718,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 public void onScrollCaptureImageRequest(@NonNull ScrollCaptureSession session, @NonNull CancellationSignal signal, @NonNull Rect captureArea, @NonNull Consumer<Rect> onComplete) {
-                    //Canvas canvas = session.getSurface().lockCanvas(rect);
-                    Canvas canvas = session.getSurface().lockHardwareCanvas();
                     Log.i("Capture draw=" + captureArea + " scroll=" + session.getScrollBounds());
+                    Canvas canvas = session.getSurface().lockHardwareCanvas();
+                    canvas.save();
                     try {
-                        canvas.save();
                         canvas.translate(-captureArea.left, -captureArea.top - session.getScrollBounds().bottom);
                         child.draw(canvas);
-                        canvas.restore();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
                     } finally {
+                        canvas.restore();
                         session.getSurface().unlockCanvasAndPost(canvas);
                     }
 
