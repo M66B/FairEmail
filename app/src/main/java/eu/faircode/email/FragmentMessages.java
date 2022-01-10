@@ -713,7 +713,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 public void onScrollCaptureImageRequest(@NonNull ScrollCaptureSession session, @NonNull CancellationSignal signal, @NonNull Rect captureArea, @NonNull Consumer<Rect> onComplete) {
-                    Canvas canvas = session.getSurface().lockCanvas(rect);
+                    //Canvas canvas = session.getSurface().lockCanvas(rect);
+                    Canvas canvas = session.getSurface().lockHardwareCanvas();
                     Log.i("Capture draw=" + captureArea + " scroll=" + session.getScrollBounds());
                     try {
                         canvas.save();
@@ -724,6 +725,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         session.getSurface().unlockCanvasAndPost(canvas);
                     }
 
+                    Log.i("Capture drawn");
                     onComplete.accept(captureArea);
                 }
 
