@@ -296,6 +296,7 @@
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_check_authentication">Tjek beskedgodkendelse</string>
+    <string name="title_advanced_check_tls">Tjek transportlagssikkerhed (TLS)</string>
     <string name="title_advanced_check_reply_domain">Tjek svaradresse ifm. beskedsynk</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_check_blocklist">Tjek om afsenders domænenavn er på en spamblokeringsliste</string>
@@ -596,6 +597,7 @@
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_poll_folders_hint">Synk periodisk mappelisten ud over efter kontotilslutning</string>
     <string name="title_advanced_check_authentication_hint">Dette vil tjekke resultaterne af DKIM-, SPF- og DMARC-godkendelser udført af e-mailserveren</string>
+    <string name="title_advanced_check_tls_hint">Dette vil kun vise et grønt skjold, såfremt en besked blev transporteret sikkert af alle servere</string>
     <string name="title_advanced_check_reply_hint">Dette tjekker, om domænenavnet for afsender- og svaradresser er ens</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
@@ -1297,6 +1299,7 @@
     <string name="title_rule_attachments">Har vedhæftninger</string>
     <string name="title_rule_header">Overskrift indeholder</string>
     <string name="title_rule_body">Tekst indeholder</string>
+    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Overspring citeret tekst</string>
     <string name="title_rule_body_remark">Brug af denne betingelse vil altid downloade beskedteksten, hvilket kan forsinke synk af beskedlisten</string>
     <string name="title_rule_time_abs">Absolut tid (modtaget) mellem</string>
     <string name="title_rule_time_after">Modtaget efter</string>

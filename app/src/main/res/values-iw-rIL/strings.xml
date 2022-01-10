@@ -316,6 +316,7 @@
     <string name="title_advanced_sync_shared_folders">סנכרון רשימות תיקיות משותפות</string>
     <string name="title_advanced_subscriptions">ניהול מינוי על תיקיות</string>
     <string name="title_advanced_check_authentication">בדיקת אימות ההודעה</string>
+    <string name="title_advanced_check_tls">בדיקת אבטחת שכבת התעבורה (TLS)</string>
     <string name="title_advanced_check_reply_domain">לבדוק את כתובת המענה בעת סנכרון הודעות</string>
     <string name="title_advanced_check_mx">לבדוק את כתובות הדוא״ל של המוענים בעת סנכרון הודעות</string>
     <string name="title_advanced_check_blocklist">לבדוק אם שם התחום של המוען הוא ברשימת חסימת ספאם</string>
@@ -615,6 +616,7 @@
     <string name="title_advanced_sync_folders_hint">השבתת האפשרות הזאת תצמצם את צריכת הנתונים והסוללהבמידה מסוימת אך תשבית גם את עדכון רשימת התיקיות</string>
     <string name="title_advanced_poll_folders_hint">לסנכרן את רשימת התיקיות מדי פעם בנוסף לסנכרון שאחרי ההתחברות לחשבון</string>
     <string name="title_advanced_check_authentication_hint">אפשרות זו תבדוק את תוצאות אימות DKIM,‏ SPF ו־DMARC כפי שמבוצעות על ידי שרת הדוא״ל</string>
+    <string name="title_advanced_check_tls_hint">יציג מגן ירוק אם ההודעה הועברה בצורה מאובטחת על ידי כל השרתים</string>
     <string name="title_advanced_check_reply_hint">מנגנון זה יבדוק אם שם התחום של המוען וכתובת המענה זהות</string>
     <string name="title_advanced_lookup_mx_hint">יבדוק אם קיימות רשומות MX ב־DNS</string>
     <string name="title_advanced_sync_delay_hint">יאט סנכרון הודעות</string>
@@ -1316,6 +1318,7 @@
     <string name="title_rule_attachments">יש קבצים מצורפים</string>
     <string name="title_rule_header">הכותרת מכילה</string>
     <string name="title_rule_body">הטקסט מכיל</string>
+    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">לדלג על טקסט מצוטט</string>
     <string name="title_rule_body_remark">השימוש בתנאי זה תמיד יוריד את טקסט ההודעה, מה שעלול להאט את סנכרון רשימת ההודעות</string>
     <string name="title_rule_time_abs">זמן מוחלט (של הקבלה) בין</string>
     <string name="title_rule_time_after">התקבל לאחר</string>

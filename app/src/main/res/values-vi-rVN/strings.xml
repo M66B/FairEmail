@@ -584,6 +584,7 @@
     <string name="title_advanced_sync_folders_hint">Việc tắt cái này sẽ làm giảm phần nào sử dụng dữ liệu và pin, nhưng cũng sẽ tắt việc cập nhật các thư mục</string>
     <string name="title_advanced_poll_folders_hint">Đồng bộ định kỳ danh sách thư mục sau khi kết nối đến tài khoản</string>
     <string name="title_advanced_check_authentication_hint">Cái này sẽ kiểm tra kết quả của xác thực DKIM, SPF và DMARC với tư cách được máy chủ email thực hiện</string>
+    <string name="title_advanced_check_tls_hint">Cái này sẽ hiện hình khiên màu xanh chỉ khi thư được tất cả máy chủ vận chuyển một cách bảo mật</string>
     <string name="title_advanced_check_reply_hint">Cái này sẽ kiểm tra xem tên miền của người gửi và địa chỉ trả lời có như nhau không</string>
     <string name="title_advanced_lookup_mx_hint">Cái này sẽ kiểm tra xem các bản ghi DNS MX có tồn tại không</string>
     <string name="title_advanced_sync_delay_hint">Cái này sẽ làm chậm việc đồng bộ hóa thư</string>
@@ -1282,6 +1283,7 @@
     <string name="title_rule_attachments">Có tệp đính kèm</string>
     <string name="title_rule_header">Tiêu đề chứa</string>
     <string name="title_rule_body">Văn bản chứa</string>
+    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Bỏ qua văn bản được trích dẫn</string>
     <string name="title_rule_body_remark">Việc sử dụng điều kiện này sẽ luôn tải xuống văn bản thư, việc này có thể làm chậm việc đồng bộ danh sách thư</string>
     <string name="title_rule_time_abs">Thời gian tuyệt đối (đã nhận) giữa</string>
     <string name="title_rule_time_after">Đã nhận sau</string>

@@ -292,6 +292,7 @@
     <string name="title_advanced_sync_shared_folders">Synkronisera delade mapplistor</string>
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
     <string name="title_advanced_check_authentication">Kontrollera meddelandeautentisering</string>
+    <string name="title_advanced_check_tls">Kontrollera transportskiktssäkerhet (TLS)</string>
     <string name="title_advanced_check_reply_domain">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_check_blocklist">Kontrollera om avsändarens domän återfinns på skräppostblockeringslistor</string>
@@ -590,6 +591,7 @@
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_poll_folders_hint">Synkronisera mapplistan periodiskt utöver när du har anslutit till ett konto</string>
     <string name="title_advanced_check_authentication_hint">Detta kommer att kontrollera resultaten av DKIM, SPF och DMARC-autentisering som utförs av e-postservern</string>
+    <string name="title_advanced_check_tls_hint">Detta kommer att visa en grön sköld endast om ett meddelande transporterades säkert av alla servrar</string>
     <string name="title_advanced_check_reply_hint">Detta kommer att kontrollera om domännamnet för avsändaren och svarsadressen är samma</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
@@ -1285,6 +1287,7 @@
     <string name="title_rule_attachments">Har bilagor</string>
     <string name="title_rule_header">Sidhuvud innehåller</string>
     <string name="title_rule_body">Texten innehåller</string>
+    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Hoppa över citerad text</string>
     <string name="title_rule_body_remark">Användning av detta villkor kommer alltid att ladda ner meddelandetexten, vilket kan sakta ner synkroniseringen av meddelandelistan</string>
     <string name="title_rule_time_abs">Absolut tid (mottagen) mellan</string>
     <string name="title_rule_time_after">Mottagen efter</string>
@@ -1326,6 +1329,7 @@
     <string name="title_rule_tts_from">Från</string>
     <string name="title_rule_tts_subject">Ämne</string>
     <string name="title_rule_tts_content">Text</string>
+    <string name="title_rule_alarm_duration">Maxtid för alarm (sekunder)</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>

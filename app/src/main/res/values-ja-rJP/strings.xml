@@ -248,7 +248,7 @@
     <string name="title_setup_reset_general">よくある質問</string>
     <string name="title_setup_reset_full">元のメッセージの表示</string>
     <string name="title_setup_reset_images">画像の表示</string>
-    <string name="title_setup_reset_links">リンクの確認</string>
+    <string name="title_setup_reset_links">リンクを確認</string>
     <string name="title_advanced_hint_title">詳細設定</string>
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         よく使われる標準的な値が設定されているため、特に変更しなくてもアプリを使うことができます。
@@ -267,10 +267,10 @@
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
     <string name="title_advanced_default">デフォルトでは変更せずにアプリを使用できる一般的な値に設定されています</string>
-    <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
+    <string name="title_advanced_receive">すべてのアカウントのメッセージを受信</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_optimize">自動最適化</string>
-    <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>
+    <string name="title_advanced_always">これらのアカウントのメッセージを常に受信</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_advanced">詳細</string>
     <string name="title_advanced_quick_sync">クイック同期</string>
@@ -298,7 +298,7 @@
     <string name="title_advanced_suggest_local">ローカルに保存された連絡先を提案</string>
     <string name="title_advanced_suggest_sent">メッセージを送信したことのあるアドレスを提案</string>
     <string name="title_advanced_suggest_received">メッセージを受信したことのあるアドレスを提案</string>
-    <string name="title_advanced_suggest_frequently">提案するアドレスを使用頻度で並べ替える</string>
+    <string name="title_advanced_suggest_frequently">提案するアドレスを使用頻度で並べ替え</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
@@ -386,21 +386,21 @@
     <string name="title_advanced_color_value">明度: %1$s %%</string>
     <string name="title_advanced_color_threshold">文字の色のしきい値: %1$s %%</string>
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
-    <string name="title_advanced_replace_name">メールの名前より連絡先の名前を優先</string>
+    <string name="title_advanced_replace_name">差出人の名義より連絡先に登録された名義を優先</string>
     <string name="title_advanced_only_name">連絡先の名前のみ表示</string>
-    <string name="title_advanced_distinguish_contacts">受信したメールの差出人にメールを送ったことがあるとローカル連絡先に記録されている場合、差出人に下線を表示する</string>
+    <string name="title_advanced_distinguish_contacts">受信したメールの差出人にメールを送ったことがあるとローカル連絡先に記録されている場合、差出人に下線を表示</string>
     <string name="title_advanced_show_recipients">メッセージヘッダーに宛先を表示</string>
     <string name="title_advanced_font_size_sender">差出人のテキストサイズ</string>
-    <string name="title_advanced_sender_ellipsize">必要に応じて差出人を短くする</string>
+    <string name="title_advanced_sender_ellipsize">差出人の短縮</string>
     <string name="title_advanced_subject_top">差出人の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
     <string name="title_advanced_highlight_subject">件名をハイライト</string>
     <string name="title_advanced_font_size_subject">件名のテキストサイズ</string>
-    <string name="title_advanced_subject_ellipsize">必要に応じて件名を短くする</string>
+    <string name="title_advanced_subject_ellipsize">件名の短縮</string>
     <string name="title_advanced_compact_mode_remark">コンパクトモードのみ</string>
     <string name="title_advanced_highlight_color">ハイライトカラー</string>
-    <string name="title_advanced_keywords">メッセージヘッダーにキーワードを表示</string>
-    <string name="title_advanced_labels">メッセージヘッダーに Gmail ラベルを表示</string>
+    <string name="title_advanced_keywords">キーワードを表示</string>
+    <string name="title_advanced_labels">Gmail ラベルを表示</string>
     <string name="title_advanced_flags">スターを表示</string>
     <string name="title_advanced_flags_background">色付きのスターの代わりに背景に色を付ける</string>
     <string name="title_advanced_preview">メッセージプレビューを表示</string>
@@ -408,7 +408,7 @@
     <string name="title_advanced_preview_lines">プレビューの行数</string>
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を展開</string>
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示</string>
-    <string name="title_advanced_thumbnails">本文の後に画像のサムネイルを表示</string>
+    <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大</string>
     <string name="title_advanced_override_width">元のメッセージの幅の固定を無効にする</string>
@@ -436,11 +436,11 @@
     <string name="title_advanced_authentication_none">認証なし</string>
     <string name="title_advanced_authentication_some">一部の認証を完了</string>
     <string name="title_advanced_authentication_all">認証を完了</string>
-    <string name="title_advanced_sync_on_launch">起動時に同期</string>
+    <string name="title_advanced_sync_on_launch">アプリ起動時に同期</string>
     <string name="title_advanced_double_back">「戻る」をダブルタップして終了</string>
     <string name="title_advanced_conversation_actions">アクションを提案 (Android 10 以上)</string>
     <string name="title_advanced_conversation_actions_replies">返信テキストを提案 (Android 10 以上)</string>
-    <string name="title_advanced_language_detection">メッセージの言語を検出する</string>
+    <string name="title_advanced_language_detection">メッセージの言語を検出</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したら一番上にスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にする</string>
@@ -498,18 +498,18 @@
     <string name="title_advanced_notify_clear">メッセージリスト表示時に新着メッセージ通知を削除</string>
     <string name="title_advanced_notify_subtext">アカウントまたはフォルダー名をサブタイトルに表示</string>
     <string name="title_advanced_wearable_preview">プレビュー付き通知のみウェアラブルに送信</string>
-    <string name="title_advanced_notify_messaging">Android の「messaging style」の通知フォーマットを使用</string>
+    <string name="title_advanced_notify_messaging">Android の「Messaging Style」の通知フォーマットを使用</string>
     <string name="title_advanced_biometrics_notify">生体認証の使用中も、通知コンテンツを表示</string>
     <string name="title_advanced_light">通知 LED を使用</string>
     <string name="title_advanced_sound">通知音を選択</string>
     <string name="title_advanced_notify_screen_on">画面をオンにして新着メッセージ通知を表示</string>
-    <string name="title_advanced_confirm_links">確認してからリンクを開く</string>
+    <string name="title_advanced_confirm_links">リンクを開く前に確認</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認</string>
     <string name="title_advanced_browse_links">Android の対応リンクを開く</string>
     <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
-    <string name="title_advanced_ask_images">確認してから画像を表示</string>
+    <string name="title_advanced_ask_images">画像を表示する前に確認</string>
     <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
-    <string name="title_advanced_ask_html">確認してから元のメッセージを表示</string>
+    <string name="title_advanced_ask_html">元のメッセージを表示する前に確認</string>
     <string name="title_advanced_tracking">トラッキング画像の識別と無効化を試みる</string>
     <string name="title_advanced_hide_timezone">送信するメッセージにタイムゾーンデータを追加しない</string>
     <string name="title_advanced_client_id">アプリ名とバージョンをメールサーバーに送信</string>
@@ -586,6 +586,7 @@
     <string name="title_advanced_sync_folders_hint">無効にするとデータ使用量とバッテリー使用量が減少します</string>
     <string name="title_advanced_poll_folders_hint">アカウントに接続したあと、さらにフォルダーリストを定期的に同期します</string>
     <string name="title_advanced_check_authentication_hint">メールサーバーで実行された DKIM、SPF、DMARC 認証の結果を確認します</string>
+    <string name="title_advanced_check_tls_hint">メッセージがすべてのサーバーでセキュアに転送されたときにのみ緑色のシールドを表示します</string>
     <string name="title_advanced_check_reply_hint">差出人のドメイン名と返信先アドレスのドメイン名が同じかどうかを確認します</string>
     <string name="title_advanced_lookup_mx_hint">DNS MX レコードが存在するかどうかを確認します</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
@@ -1287,6 +1288,7 @@
     <string name="title_rule_attachments">添付ファイルあり</string>
     <string name="title_rule_header">ヘッダーに以下の語句を含む</string>
     <string name="title_rule_body">本文に以下の語句を含む</string>
+    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">引用テキストをスキップ</string>
     <string name="title_rule_body_remark">この条件を使用すると本文が常にダウンロードされ、メッセージリストの同期が遅れることがあります</string>
     <string name="title_rule_time_abs">以下の期間に受信</string>
     <string name="title_rule_time_after">から</string>
@@ -1683,7 +1685,7 @@
         <item>初め</item>
         <item>途中</item>
         <item>終わり</item>
-        <item>省略されない項目を表示</item>
+        <item>省略しない</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>

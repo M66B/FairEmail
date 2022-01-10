@@ -311,7 +311,7 @@
     <string name="title_advanced_extended_reply">使用扩展的回复/转发头</string>
     <string name="title_advanced_write_above">写在发件人正文的上方</string>
     <string name="title_advanced_write_below">写在发件人正文的下方</string>
-    <string name="title_advanced_quote_reply">引用回复文本</string>
+    <string name="title_advanced_quote_reply">回复引用的文本</string>
     <string name="title_advanced_limit_reply">限制嵌套引用层级</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
@@ -585,6 +585,7 @@
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_poll_folders_hint">定期同步文件夹列表（除了在连接账户后）</string>
     <string name="title_advanced_check_authentication_hint">这将检查电子邮件服务器执行的DKIM、SPF和DMARC认证的结果</string>
+    <string name="title_advanced_check_tls_hint">仅当所有服务器安全传输邮件时才会显示绿色盾牌</string>
     <string name="title_advanced_check_reply_hint">这会检查发送者的域名和回复地址是否相同</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
@@ -1282,6 +1283,7 @@
     <string name="title_rule_attachments">含附件</string>
     <string name="title_rule_header">邮件头包含</string>
     <string name="title_rule_body">文本包含</string>
+    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">忽略引用文本</string>
     <string name="title_rule_body_remark">使用此条件将始终下载邮件文本，这可能会减慢邮件列表的同步</string>
     <string name="title_rule_time_abs">绝对时间间隔 (收信)</string>
     <string name="title_rule_time_after">接收时间晚于</string>
