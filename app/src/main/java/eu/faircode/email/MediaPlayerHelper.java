@@ -2,6 +2,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 
@@ -48,5 +49,19 @@ public class MediaPlayerHelper {
         } catch (Throwable ex) {
             Log.w(ex);
         }
+    }
+
+    static boolean isInCall(Context context) {
+        AudioManager am =
+                (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (am == null)
+            return false;
+
+        // This doesn't require READ_PHONE_STATE permission
+        int mode = am.getMode();
+        EntityLog.log(context, "Audio mode=" + mode);
+        return (mode == AudioManager.MODE_RINGTONE ||
+                mode == AudioManager.MODE_IN_CALL ||
+                mode == AudioManager.MODE_IN_COMMUNICATION);
     }
 }

@@ -822,6 +822,9 @@ public class EntityRule {
     private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) {
         DB db = DB.getInstance(context);
 
+        if (message.ui_seen)
+            return false;
+
         if (!message.content) {
             EntityOperation.queue(context, message, EntityOperation.BODY);
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
@@ -832,6 +835,8 @@ public class EntityRule {
             @Override
             public void run() {
                 try {
+                    if (MediaPlayerHelper.isInCall(context))
+                        return;
                     speak(context, EntityRule.this, message);
                 } catch (Throwable ex) {
                     db.message().setMessageError(message.id, Log.formatThrowable(ex));
@@ -974,6 +979,8 @@ public class EntityRule {
             @Override
             public void run() {
                 try {
+                    if (MediaPlayerHelper.isInCall(context))
+                        return;
                     MediaPlayerHelper.play(context, uri, alarm, duration);
                 } catch (Throwable ex) {
                     Log.e(ex);
