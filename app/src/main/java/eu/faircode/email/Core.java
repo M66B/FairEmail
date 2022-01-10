@@ -1680,8 +1680,10 @@ class Core {
                 if (deleted.size() == 0 || expunge(context, ifolder, deleted))
                     db.message().deleteMessage(message.id);
             } else {
-                if (deleted.size() > 0)
+                if (deleted.size() > 0) {
                     db.message().setMessageDeleted(message.id, message.ui_deleted);
+                    db.message().setMessageUiIgnored(message.id, message.ui_deleted);
+                }
             }
 
         } finally {
@@ -3323,6 +3325,7 @@ class Core {
                                                             update = true;
                                                             message.deleted = deleted;
                                                             message.ui_deleted = deleted;
+                                                            message.ui_ignored = deleted;
                                                             Log.i("UID fetch deleted=" + deleted);
                                                         }
 
@@ -3812,7 +3815,7 @@ class Core {
             message.ui_deleted = deleted;
             message.ui_hide = false;
             message.ui_found = false;
-            message.ui_ignored = seen;
+            message.ui_ignored = (seen || deleted);
             message.ui_browsed = browsed;
 
             if (message.flagged)
@@ -4119,6 +4122,7 @@ class Core {
                 update = true;
                 message.deleted = deleted;
                 message.ui_deleted = deleted;
+                message.ui_ignored = deleted;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " deleted=" + deleted);
                 syncSimilar = true;
             }
