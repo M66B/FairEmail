@@ -190,6 +190,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         private void bindTo(TupleAccountEx account) {
             view.setActivated(account.tbd != null);
+            view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
             vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 

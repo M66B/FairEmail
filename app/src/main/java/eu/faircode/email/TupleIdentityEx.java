@@ -24,6 +24,7 @@ import java.util.Objects;
 public class TupleIdentityEx extends EntityIdentity {
     public String accountName;
     public String accountCategory;
+    public boolean accountSynchronize;
     public Long drafts;
 
     @Override
@@ -31,9 +32,10 @@ public class TupleIdentityEx extends EntityIdentity {
         if (obj instanceof TupleIdentityEx) {
             TupleIdentityEx other = (TupleIdentityEx) obj;
             return (super.equals(obj) &&
-                    Objects.equals(accountCategory, other.accountCategory) &&
-                    Objects.equals(accountName, other.accountName) &&
-                    Objects.equals(drafts, other.drafts));
+                    Objects.equals(this.accountCategory, other.accountCategory) &&
+                    Objects.equals(this.accountName, other.accountName) &&
+                    this.accountSynchronize == other.accountSynchronize &&
+                    Objects.equals(this.drafts, other.drafts));
         } else
             return false;
     }
