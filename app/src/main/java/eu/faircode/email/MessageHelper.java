@@ -2930,7 +2930,7 @@ public class MessageHelper {
 
                     StringBuilder w = new StringBuilder();
 
-                    if (!report.isDelivered()) {
+                    if (report.isDeliveryStatus() && !report.isDelivered()) {
                         if (report.diagnostic != null) {
                             String diag = report.diagnostic;
                             if (diag.length() > MAX_DIAGNOSTIC)
@@ -2945,7 +2945,7 @@ public class MessageHelper {
                         }
                     }
 
-                    if (!report.isDisplayed()) {
+                    if (report.isDispositionNotification() && !report.isDisplayed()) {
                         if (report.disposition != null)
                             w.append(report.disposition);
                     }
