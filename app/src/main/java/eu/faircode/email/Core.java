@@ -2859,7 +2859,7 @@ class Core {
                         // No MX check
                         // No blocklist
 
-                        boolean needsHeaders = EntityRule.needsHeaders(rules);
+                        boolean needsHeaders = EntityRule.needsHeaders(message, rules);
                         List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
                         String body = parts.getHtml(context);
 
@@ -3922,8 +3922,8 @@ class Core {
                     }
             }
 
-            boolean needsHeaders = EntityRule.needsHeaders(rules);
-            boolean needsBody = EntityRule.needsBody(rules);
+            boolean needsHeaders = EntityRule.needsHeaders(message, rules);
+            boolean needsBody = EntityRule.needsBody(message, rules);
             if (needsHeaders || needsBody)
                 Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
             List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
@@ -4188,8 +4188,8 @@ class Core {
             }
 
             if (update || process) {
-                boolean needsHeaders = EntityRule.needsHeaders(rules);
-                boolean needsBody = EntityRule.needsBody(rules);
+                boolean needsHeaders = EntityRule.needsHeaders(message, rules);
+                boolean needsBody = EntityRule.needsBody(message, rules);
                 if (needsHeaders || needsBody)
                     Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
                 List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);

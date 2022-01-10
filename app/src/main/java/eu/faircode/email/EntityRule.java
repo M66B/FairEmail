@@ -125,11 +125,13 @@ public class EntityRule {
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
 
-    static boolean needsHeaders(List<EntityRule> rules) {
+    static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needs(rules, "header");
     }
 
-    static boolean needsBody(List<EntityRule> rules) {
+    static boolean needsBody(EntityMessage message, List<EntityRule> rules) {
+        if (message.encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
+            return false;
         return needs(rules, "body");
     }
 
@@ -334,7 +336,10 @@ public class EntityRule {
             }
 
             // Body
-            JSONObject jbody = jcondition.optJSONObject("body");
+            JSONObject jbody = null;
+            if (message.encrypt == null ||
+                    EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
+                jbody = jcondition.optJSONObject("body");
             if (jbody != null) {
                 String value = jbody.getString("value");
                 boolean regex = jbody.getBoolean("regex");
