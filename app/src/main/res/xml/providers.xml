@@ -430,6 +430,7 @@
     <provider
         name="Ionos (1und1)"
         appPassword="true"
+        documentation="Für Ionos müssen Sie ein App-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-11-ionos-aendern/&quot;&gt;siehe hier&lt;/a&gt;."
         domain="ionos\\.de,ionos\\.com,online\\.de"
         keepalive="12"
         link="https://www.ionos.de/hilfe/e-mail/allgemeine-themen/serverinformationen-fuer-imap-pop-und-smtp/">
@@ -444,6 +445,8 @@
     </provider>
     <provider
         name="Ionos.com"
+        appPassword="true"
+        documentation="For Ionos you need to use an app password instead of your normal account password, please  &lt;a href=&quot;https://www.ionos.com/help/email/troubleshooting-mail-basicmail-business/changing-a-11-ionos-email-account-password/&quot;&gt;see here&lt;/a&gt;."
         keepalive="12"
         link="https://www.ionos.com/help/email/general-topics/settings-for-your-email-programs-imap-pop3/">
         <imap
