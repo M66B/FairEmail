@@ -840,6 +840,10 @@ Common errors:
 FairEmail and the OpenKeychain app cannot run at the same time, causing PGP operations to fail.
 If needed, please [see here](https://developer.android.com/studio/debug/dev-options#enable) about how to enable the developer options.
 
+**Important**: Android 8.1.0 on Tecno CF8 Camon 11 Pro devices blocks communication between apps
+with the message "*AutoStart limited*" in the system logcat.
+So, FairEmail (or any other app) can't communicate with the OpenKeychain app.
+
 <br />
 
 *S/MIME*
