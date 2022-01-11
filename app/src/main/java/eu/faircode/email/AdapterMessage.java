@@ -4645,6 +4645,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
                         HtmlHelper.restorePre(document);
+                    HtmlHelper.guessSchemes(document);
+                    HtmlHelper.autoLink(document);
                     HtmlHelper.cleanup(document);
                     HtmlHelper.setViewport(document, overview_mode);
                     HtmlHelper.embedInlineImages(context, message.id, document, true);
