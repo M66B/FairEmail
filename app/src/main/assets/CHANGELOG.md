@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1807 - 2022-01-11
+
+* Fixed delay when going to a settings page
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1806 - 2022-01-11
 
 * Small improvements and minor bug fixes
