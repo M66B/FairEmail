@@ -4,6 +4,11 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1806 - 2022-01-11
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1805 - 2022-01-10
 
 * Long screenshots (Android 12+)
