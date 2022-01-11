@@ -633,6 +633,7 @@
     <string name="title_advanced_preview_issue">Le défilement peut être lent lorsqu’il y a plus d’une ligne en raison d’un bogue dans certaines versions d’Android</string>
     <string name="title_advanced_overview_mode_hint">Ceci peut afficher de très petites polices de caractères</string>
     <string name="title_advanced_override_width_hint">Ceci peut rendre les messages plus étroits mais également étranges</string>
+    <string name="title_advanced_monospaced_pre_hint">Seuls les messages en texte brut seront considérés comme préformatés</string>
     <string name="title_advanced_placeholders_hint">Ceci s\'applique uniquement aux messages reformatés</string>
     <string name="title_advanced_inline_hint">Les images incluses dans le message peuvent être affichées sans téléchargement supplémentaire</string>
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
@@ -1299,7 +1300,7 @@
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_body">Le texte contient</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Ignorer le texte cité</string>
+    <string name="title_rule_skip_quotes">Ignorer le texte cité</string>
     <string name="title_rule_body_remark">Utiliser cette condition va toujours télécharger le texte du message, ce qui peut ralentir la synchronisation de la liste des messages</string>
     <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
     <string name="title_rule_time_after">Reçu après</string>

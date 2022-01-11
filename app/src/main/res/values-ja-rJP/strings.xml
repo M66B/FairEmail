@@ -1288,7 +1288,7 @@
     <string name="title_rule_attachments">添付ファイルあり</string>
     <string name="title_rule_header">ヘッダーに以下の語句を含む</string>
     <string name="title_rule_body">本文に以下の語句を含む</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">引用テキストをスキップ</string>
+    <string name="title_rule_skip_quotes">引用テキストをスキップ</string>
     <string name="title_rule_body_remark">この条件を使用すると本文が常にダウンロードされ、メッセージリストの同期が遅れることがあります</string>
     <string name="title_rule_time_abs">以下の期間に受信</string>
     <string name="title_rule_time_after">から</string>

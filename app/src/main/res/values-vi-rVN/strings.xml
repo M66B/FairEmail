@@ -1283,7 +1283,7 @@
     <string name="title_rule_attachments">Có tệp đính kèm</string>
     <string name="title_rule_header">Tiêu đề chứa</string>
     <string name="title_rule_body">Văn bản chứa</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Bỏ qua văn bản được trích dẫn</string>
+    <string name="title_rule_skip_quotes">Bỏ qua văn bản được trích dẫn</string>
     <string name="title_rule_body_remark">Việc sử dụng điều kiện này sẽ luôn tải xuống văn bản thư, việc này có thể làm chậm việc đồng bộ danh sách thư</string>
     <string name="title_rule_time_abs">Thời gian tuyệt đối (đã nhận) giữa</string>
     <string name="title_rule_time_after">Đã nhận sau</string>

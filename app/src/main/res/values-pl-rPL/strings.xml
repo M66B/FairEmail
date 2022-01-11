@@ -1314,7 +1314,7 @@
     <string name="title_rule_attachments">Zawiera załącznik</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
     <string name="title_rule_body">Tekst zawiera</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Pomiń cytowany tekst</string>
+    <string name="title_rule_skip_quotes">Pomiń cytowany tekst</string>
     <string name="title_rule_body_remark">Użycie tego warunku będzie zawsze pobierało tekst wiadomości, co może spowolnić synchronizację listy wiadomości</string>
     <string name="title_rule_time_abs">Całkowity czas (otrzymany) między</string>
     <string name="title_rule_time_after">Otrzymane po</string>

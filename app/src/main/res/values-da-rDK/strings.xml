@@ -1299,7 +1299,7 @@
     <string name="title_rule_attachments">Har vedhæftninger</string>
     <string name="title_rule_header">Overskrift indeholder</string>
     <string name="title_rule_body">Tekst indeholder</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Overspring citeret tekst</string>
+    <string name="title_rule_skip_quotes">Overspring citeret tekst</string>
     <string name="title_rule_body_remark">Brug af denne betingelse vil altid downloade beskedteksten, hvilket kan forsinke synk af beskedlisten</string>
     <string name="title_rule_time_abs">Absolut tid (modtaget) mellem</string>
     <string name="title_rule_time_after">Modtaget efter</string>

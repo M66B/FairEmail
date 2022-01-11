@@ -630,6 +630,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
     <string name="title_advanced_override_width_hint">Dit kan berichten smaller maken, maar er ook vreemd laten uitzien</string>
+    <string name="title_advanced_monospaced_pre_hint">Alleen platte tekst berichten worden beschouwd als vooraf opgemaakt</string>
     <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw opgemaakte berichten</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
@@ -1291,7 +1292,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_attachments">Heeft bijlagen</string>
     <string name="title_rule_header">De kop bevat</string>
     <string name="title_rule_body">Tekst bevat</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Sla geciteerde tekst over</string>
+    <string name="title_rule_skip_quotes">Sla geciteerde tekst over</string>
     <string name="title_rule_body_remark">Het gebruik van deze voorwaarde zal altijd de berichttekst downloaden, wat de synchronisatie van de berichtenlijst kan vertragen</string>
     <string name="title_rule_time_abs">Absolute tijd (ontvangen) tussen</string>
     <string name="title_rule_time_after">Ontvangen na</string>

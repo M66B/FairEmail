@@ -1288,7 +1288,7 @@
     <string name="title_rule_attachments">有附件</string>
     <string name="title_rule_header">標頭包含</string>
     <string name="title_rule_body">文本包含</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">忽略引用文字</string>
+    <string name="title_rule_skip_quotes">忽略引用文字</string>
     <string name="title_rule_body_remark">使用此條件將會永遠下載訊息文本，這有可能會減慢訊息列表的同步</string>
     <string name="title_rule_time_abs">絕對時間 (接收) 區間</string>
     <string name="title_rule_time_after">接收時間不早於</string>

@@ -1283,7 +1283,7 @@
     <string name="title_rule_attachments">含附件</string>
     <string name="title_rule_header">邮件头包含</string>
     <string name="title_rule_body">文本包含</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">忽略引用文本</string>
+    <string name="title_rule_skip_quotes">忽略引用文本</string>
     <string name="title_rule_body_remark">使用此条件将始终下载邮件文本，这可能会减慢邮件列表的同步</string>
     <string name="title_rule_time_abs">绝对时间间隔 (收信)</string>
     <string name="title_rule_time_after">接收时间晚于</string>

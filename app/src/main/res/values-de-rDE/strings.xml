@@ -1293,7 +1293,7 @@
     <string name="title_rule_attachments">Anhang vorhanden</string>
     <string name="title_rule_header">Kopfzeile enthält</string>
     <string name="title_rule_body">Text enthält</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Zitierten Text überspringen</string>
+    <string name="title_rule_skip_quotes">Zitierten Text überspringen</string>
     <string name="title_rule_body_remark">Bei Verwendung dieser Bedingung wird der Nachrichtentext immer heruntergeladen, was jedoch die Synchronisation der Nachrichtenliste verlangsamen kann</string>
     <string name="title_rule_time_abs">Absolute Zeit (empfangen) zwischen</string>
     <string name="title_rule_time_after">Erhalten ab</string>

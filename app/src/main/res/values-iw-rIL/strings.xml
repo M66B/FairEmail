@@ -1318,7 +1318,7 @@
     <string name="title_rule_attachments">יש קבצים מצורפים</string>
     <string name="title_rule_header">הכותרת מכילה</string>
     <string name="title_rule_body">הטקסט מכיל</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">לדלג על טקסט מצוטט</string>
+    <string name="title_rule_skip_quotes">לדלג על טקסט מצוטט</string>
     <string name="title_rule_body_remark">השימוש בתנאי זה תמיד יוריד את טקסט ההודעה, מה שעלול להאט את סנכרון רשימת ההודעות</string>
     <string name="title_rule_time_abs">זמן מוחלט (של הקבלה) בין</string>
     <string name="title_rule_time_after">התקבל לאחר</string>

@@ -1292,7 +1292,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
     <string name="title_rule_body">Metin şunları içerir:</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Alıntılanan metni atla</string>
+    <string name="title_rule_skip_quotes">Alıntılanan metni atla</string>
     <string name="title_rule_body_remark">Bu koşulun kullanılması her zaman mesaj metnini indirecektir, bu da mesaj listesinin senkronizasyonunu yavaşlatabilir</string>
     <string name="title_rule_time_abs">Kesin zaman aralığı (alındı)</string>
     <string name="title_rule_time_after">Alındıktan sonra</string>

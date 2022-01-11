@@ -1293,7 +1293,7 @@
     <string name="title_rule_attachments">Tiene adjuntos</string>
     <string name="title_rule_header">Encabezado contiene</string>
     <string name="title_rule_body">El texto contiene</string>
-    <string name="title_rule_skip_quotes" comment="title_rule_skip_quotes&#10;Option for text contains filter rule condition">Saltear texto citado</string>
+    <string name="title_rule_skip_quotes">Saltear texto citado</string>
     <string name="title_rule_body_remark">Utilizar esta condición siempre descargará el texto del mensaje, que puede ralentizar la sincronización de la lista de mensajes</string>
     <string name="title_rule_time_abs">Tiempo absoluto (recibido) entre</string>
     <string name="title_rule_time_after">Recibido después de</string>
