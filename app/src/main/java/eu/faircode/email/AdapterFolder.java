@@ -57,10 +57,12 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -95,6 +97,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+    private ViewModelSelected selectedModel;
 
     private boolean subscriptions;
 
@@ -105,6 +108,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int textColorSecondary;
     private int colorUnread;
     private int colorControlNormal;
+    private int colorSeparator;
 
     private String search = null;
     private List<Long> disabledIds = new ArrayList<>();
@@ -225,6 +229,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
             view.setEnabled(!disabled);
             view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
+
+            if (listener == null && selectedModel != null)
+                view.setBackgroundColor(selectedModel.isSelected(folder.id)
+                        ? colorSeparator : Color.TRANSPARENT);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -425,6 +433,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return;
 
                     if (listener == null) {
+                        if (selectedModel != null)
+                            selectedModel.select(folder.id);
+
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
@@ -1154,6 +1165,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+        if (context instanceof FragmentActivity)
+            this.selectedModel = new ViewModelProvider((FragmentActivity) context)
+                    .get(ViewModelSelected.class);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
@@ -1176,6 +1190,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
+        this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
 
         setHasStableIds(true);
 

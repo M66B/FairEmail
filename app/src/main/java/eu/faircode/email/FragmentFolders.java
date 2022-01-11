@@ -60,6 +60,7 @@ import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -407,6 +408,9 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        if (BuildConfig.DEBUG)
+            new ViewModelProvider(getActivity()).get(ViewModelSelected.class);
 
         if (savedInstanceState != null)
             searching = savedInstanceState.getString("fair:searching");
