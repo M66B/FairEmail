@@ -67,6 +67,7 @@ public class FragmentOptions extends FragmentBase {
     private ViewPager pager;
     private PagerAdapter adapter;
     private String searching = null;
+    private SuggestData data = null;
 
     private final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "suggest");
@@ -324,8 +325,6 @@ public class FragmentOptions extends FragmentBase {
         searchView.setOnSuggestionListener(onSuggestionListener);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            private SuggestData data = null;
-
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searching = query;
@@ -345,7 +344,8 @@ public class FragmentOptions extends FragmentBase {
             }
 
             private void suggest(String query) {
-                if (data == null)
+                if (data == null &&
+                        query != null && query.length() > 0)
                     new SimpleTask<SuggestData>() {
                         @Override
                         protected SuggestData onExecute(Context context, Bundle args) throws Throwable {
@@ -381,7 +381,8 @@ public class FragmentOptions extends FragmentBase {
             private void _suggest(String query) {
                 MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "tab", "resid", "title"});
 
-                if (query != null && query.length() > 1) {
+                if (data != null &&
+                        query != null && query.length() > 1) {
                     int id = 0;
                     for (int tab = 0; tab < TAB_PAGES.length; tab++)
                         id = getSuggestions(query.toLowerCase(), id, tab, data.titles[tab], data.views[tab], cursor);
