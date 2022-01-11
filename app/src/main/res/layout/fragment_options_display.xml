@@ -1492,6 +1492,18 @@
                     app:layout_constraintTop_toBottomOf="@id/swMonospaced"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvMonospacedPreHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_monospaced_pre_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swMonospacedPre" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swBackgroundColor"
                     android:layout_width="0dp"
@@ -1501,7 +1513,7 @@
                     android:text="@string/title_advanced_background_color"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swMonospacedPre"
+                    app:layout_constraintTop_toBottomOf="@id/tvMonospacedPreHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
