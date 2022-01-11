@@ -231,8 +231,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
 
             if (listener == null && selectedModel != null)
-                view.setBackgroundColor(selectedModel.isSelected(folder.id)
-                        ? colorSeparator : Color.TRANSPARENT);
+                itemView.setBackgroundColor(
+                        selectedModel.isSelected(folder.id)
+                                ? colorSeparator : Color.TRANSPARENT);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);

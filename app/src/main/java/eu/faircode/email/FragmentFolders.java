@@ -146,6 +146,13 @@ public class FragmentFolders extends FragmentBase {
         show_hidden = false; // prefs.getBoolean("hidden_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
 
+        if (BuildConfig.DEBUG) {
+            ViewModelSelected selectedModel =
+                    new ViewModelProvider(getActivity()).get(ViewModelSelected.class);
+            if (savedInstanceState == null)
+                selectedModel.select(null);
+        }
+
         setTitle(R.string.page_folders);
     }
 
@@ -408,9 +415,6 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (BuildConfig.DEBUG)
-            new ViewModelProvider(getActivity()).get(ViewModelSelected.class);
 
         if (savedInstanceState != null)
             searching = savedInstanceState.getString("fair:searching");
