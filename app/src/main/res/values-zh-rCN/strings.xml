@@ -713,7 +713,7 @@
     <string name="title_password_storage">密码是如何存储的？</string>
     <string name="title_case_sensitive">用户名和密码通常是区分大小写的</string>
     <string name="title_client_certificate">客户端证书</string>
-    <string name="title_realm">移动数据库</string>
+    <string name="title_realm">Realm</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
     <string name="title_ehlo">自定义 HELO/EHLO 标识</string>
     <string name="title_primary">主要的</string>
@@ -725,7 +725,7 @@
     <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_poll_interval">轮询间隔(分钟)</string>
-    <string name="title_keep_alive_interval">间隔（分钟）</string>
+    <string name="title_keep_alive_interval">保活间隔（分钟）</string>
     <string name="title_server_time">使用接收时间 (服务器)</string>
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>
