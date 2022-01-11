@@ -1951,6 +1951,12 @@ public class HtmlHelper {
         return sb.toString();
     }
 
+    static void restorePre(Document document) {
+        document.select("div[x-plain=true]")
+                .tagName("pre")
+                .removeAttr("x-plain");
+    }
+
     static void removeTrackingPixels(Context context, Document document) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean disconnect_images = prefs.getBoolean("disconnect_images", false);

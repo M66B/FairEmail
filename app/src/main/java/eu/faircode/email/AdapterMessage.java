@@ -2642,6 +2642,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));
 
+                        boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
+                        if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
+                            HtmlHelper.restorePre(document);
+
                         HtmlHelper.guessSchemes(document);
                         HtmlHelper.autoLink(document);
 
@@ -4633,11 +4637,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean overview_mode = prefs.getBoolean("overview_mode", false);
                     boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+                    boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
 
                     long id = args.getLong("id");
                     File file = EntityMessage.getFile(context, id);
                     Document document = JsoupEx.parse(file);
 
+                    if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
+                        HtmlHelper.restorePre(document);
                     HtmlHelper.cleanup(document);
                     HtmlHelper.setViewport(document, overview_mode);
                     HtmlHelper.embedInlineImages(context, message.id, document, true);

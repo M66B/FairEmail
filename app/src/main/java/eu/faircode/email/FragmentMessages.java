@@ -8689,6 +8689,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return null;
 
                 Document document = JsoupEx.parse(file);
+
+                boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
+                if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
+                    HtmlHelper.restorePre(document);
+
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
                 // onPageFinished will not be called if not all images can be loaded
