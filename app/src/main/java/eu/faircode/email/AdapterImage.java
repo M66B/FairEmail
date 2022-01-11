@@ -81,6 +81,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         }
 
         private void bindTo(EntityAttachment attachment) {
+            tvCaption.setText(attachment.name);
+            tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
+
             if (attachment.available) {
                 if (BuildConfig.DEBUG &&
                         Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
@@ -106,10 +109,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             } else
                 ivImage.setImageResource(attachment.progress == null
                         ? R.drawable.twotone_image_24 : R.drawable.twotone_hourglass_top_24);
-
-            tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
-
-            tvCaption.setText(attachment.name);
         }
 
         @Override
