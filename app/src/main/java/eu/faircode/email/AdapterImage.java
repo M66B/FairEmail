@@ -22,6 +22,9 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -79,6 +82,20 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
         private void bindTo(EntityAttachment attachment) {
             if (attachment.available) {
+                if (BuildConfig.DEBUG &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                    try {
+                        Drawable d = ImageHelper.getScaledDrawable(context,
+                                attachment.getFile(context), attachment.getMimeType(),
+                                context.getResources().getDisplayMetrics().widthPixels);
+                        ivImage.setImageDrawable(d);
+                        if (d instanceof AnimatedImageDrawable)
+                            ((AnimatedImageDrawable) d).start();
+                        return;
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+
                 Bitmap bm = ImageHelper.decodeImage(
                         attachment.getFile(context), attachment.getMimeType(),
                         context.getResources().getDisplayMetrics().widthPixels);
