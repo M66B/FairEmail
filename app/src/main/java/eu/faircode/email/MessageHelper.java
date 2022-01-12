@@ -1950,7 +1950,8 @@ public class MessageHelper {
             if (mailto != null)
                 return mailto;
 
-            Log.i(new IllegalArgumentException("List-Unsubscribe: " + list));
+            if (!BuildConfig.PLAY_STORE_RELEASE)
+                Log.i(new IllegalArgumentException("List-Unsubscribe: " + list));
             return null;
         } catch (Throwable ex) {
             Log.e(ex);
