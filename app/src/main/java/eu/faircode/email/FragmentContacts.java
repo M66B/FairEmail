@@ -392,7 +392,6 @@ public class FragmentContacts extends FragmentBase {
                 if (uri == null)
                     throw new FileNotFoundException();
 
-                String password = args.getString("password");
                 EntityLog.log(context, "Exporting " + uri);
 
                 if (!"content".equals(uri.getScheme())) {
