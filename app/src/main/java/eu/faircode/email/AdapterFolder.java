@@ -1166,7 +1166,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
-        if (context instanceof FragmentActivity)
+        if (context instanceof FragmentActivity && BuildConfig.DEBUG)
             this.selectedModel = new ViewModelProvider((FragmentActivity) context)
                     .get(ViewModelSelected.class);
 
