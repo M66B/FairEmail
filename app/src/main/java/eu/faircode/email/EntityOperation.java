@@ -412,6 +412,10 @@ public class EntityOperation {
                 } else {
                     message.ui_deleted = !message.ui_deleted;
                     db.message().setMessageUiDeleted(message.id, message.ui_deleted);
+                    if (message.ui_deleted) {
+                        message.ui_ignored = true;
+                        db.message().setMessageUiIgnored(message.id, message.ui_ignored);
+                    }
                 }
 /*
                 if (message.hash != null) {

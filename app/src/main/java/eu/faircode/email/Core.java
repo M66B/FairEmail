@@ -4859,6 +4859,7 @@ class Core {
         boolean light = prefs.getBoolean("light", false);
         String sound = prefs.getString("sound", null);
         boolean alert_once = prefs.getBoolean("alert_once", true);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
 
         // Get contact info
         Map<Long, Address[]> messageFrom = new HashMap<>();
@@ -5138,6 +5139,7 @@ class Core {
             List<NotificationCompat.Action> wactions = new ArrayList<>();
 
             if (notify_trash &&
+                    perform_expunge &&
                     message.accountProtocol == EntityAccount.TYPE_IMAP &&
                     db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null) {
                 Intent trash = new Intent(context, ServiceUI.class)
@@ -5158,8 +5160,8 @@ class Core {
             }
 
             if (notify_trash &&
-                    message.accountProtocol == EntityAccount.TYPE_POP &&
-                    message.accountLeaveDeleted) {
+                    ((message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted) ||
+                            (message.accountProtocol == EntityAccount.TYPE_IMAP && !perform_expunge))) {
                 Intent delete = new Intent(context, ServiceUI.class)
                         .setAction("delete:" + message.id)
                         .putExtra("group", group);
