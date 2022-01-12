@@ -129,6 +129,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
@@ -6614,6 +6615,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (context == null)
                 return false;
             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                return false;
+
+            List<Fragment> fragments = getParentFragmentManager().getFragments();
+            if (fragments != null && fragments.size() > 0 &&
+                    fragments.get(fragments.size() - 1) != FragmentMessages.this)
                 return false;
 
             if (event.isCtrlPressed() || event.isAltPressed())
