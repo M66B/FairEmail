@@ -2471,7 +2471,7 @@ public class HtmlHelper {
                         j++;
                     }
 
-                    Boolean tls = MessageHelper.isTLS(h);
+                    Boolean tls = MessageHelper.isTLS(h, i == received.length - 1);
                     ssb.append(" TLS=");
                     int t = ssb.length();
                     ssb.append(tls == null ? "?" : Boolean.toString(tls));

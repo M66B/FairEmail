@@ -2076,10 +2076,10 @@ public class MessageHelper {
 
         // First header is last added header
         Log.i("=======");
-        for (String r : received) {
-            String header = MimeUtility.unfold(r);
+        for (int i = 0; i < received.length; i++) {
+            String header = MimeUtility.unfold(received[i]);
             Log.i("--- header=" + header);
-            Boolean tls = isTLS(header);
+            Boolean tls = isTLS(header, i == received.length - 1);
             if (!Boolean.TRUE.equals(tls))
                 return tls;
         }
@@ -2087,7 +2087,7 @@ public class MessageHelper {
         return true;
     }
 
-    static Boolean isTLS(String header) {
+    static Boolean isTLS(String header, boolean first) {
         // Strip date
         int semi = header.lastIndexOf(';');
         if (semi > 0)
@@ -2102,8 +2102,9 @@ public class MessageHelper {
 
         // (qmail nnn invoked by uid nnn); 1 Jan 2022 00:00:00 -0000
         // by <host name> (Postfix, from userid nnn)
-        if (header.matches(".*\\(qmail \\d+ invoked by uid \\d+\\).*") ||
-                header.matches(".*\\(Postfix, from userid \\d+\\).*")) {
+        if (first &&
+                (header.matches(".*\\(qmail \\d+ invoked by uid \\d+\\).*") ||
+                        header.matches(".*\\(Postfix, from userid \\d+\\).*"))) {
             Log.i("--- phrase");
             return true;
         }
