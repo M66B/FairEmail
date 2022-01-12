@@ -4472,7 +4472,7 @@ but unfortunately modifications by manufacturers often [require it anyway](https
 **(176) When will a message be considered safely transported?**
 
 If the receive option *Check transport layer security (TLS)* is enabled,
-a green shield will be shown only if a messages was transported securely by all servers.
+a green shield will be shown only if a message was transported securely by all servers.
 
 To show shields, the option *Show authentication status indicator* in the display settings should be enabled.
 
@@ -4486,7 +4486,7 @@ A message will be consired safely transported if *every* [Received](https://data
 * has a *from* with a local address
 * has a *via* with the value '[Frontend Transport](https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx)'
 * has a *with* with the value 'TLS'
-* has a *with* with the value 'local', '[LMTPx](https://en.wikipedia.org/wiki/Local_Mail_Transfer_Protocol)], '[MAPI](https://en.wikipedia.org/wiki/MAPI)'
+* has a *with* with the value 'local', '[LMTPx](https://en.wikipedia.org/wiki/Local_Mail_Transfer_Protocol), '[MAPI](https://en.wikipedia.org/wiki/MAPI)'
 * has a *with* with the value 'HTTP', 'HTTPS', or 'HTTPREST'
 * has a *with* with the value '[xMTPSx](https://datatracker.ietf.org/doc/html/rfc3848)' ('xMTPAx' is considered insecure)
 
