@@ -53,6 +53,9 @@ public interface DaoRule {
             " ORDER BY `order`, name COLLATE NOCASE")
     LiveData<List<TupleRuleEx>> liveRules(long folder);
 
+    @Query("SELECT COUNT(*) FROM rule")
+    int countTotal();
+
     @Insert
     long insertRule(EntityRule rule);
 

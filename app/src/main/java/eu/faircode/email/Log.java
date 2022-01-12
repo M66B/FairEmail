@@ -2067,14 +2067,17 @@ public class Log {
             boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
             boolean schedule = prefs.getBoolean("schedule", false);
 
-            size += write(os, "accounts=" + accounts.size() +
-                    " enabled=" + enabled +
+            size += write(os, "enabled=" + enabled +
                     " interval=" + pollInterval + "\r\n" +
-                    " metered=" + metered +
+                    "metered=" + metered +
                     " VPN=" + ConnectionHelper.vpnActive(context) +
                     " NetGuard=" + Helper.isInstalled(context, "eu.faircode.netguard") + "\r\n" +
-                    " optimizing=" + (ignoring == null ? null : !ignoring) +
-                    " auto_optimize=" + auto_optimize +
+                    "optimizing=" + (ignoring == null ? null : !ignoring) +
+                    " auto_optimize=" + auto_optimize + "\r\n" +
+                    "accounts=" + accounts.size() +
+                    " folders=" + db.folder().countTotal() +
+                    " messages=" + db.message().countTotal() +
+                    " rules=" + db.rule().countTotal() +
                     "\r\n\r\n");
 
             if (schedule) {

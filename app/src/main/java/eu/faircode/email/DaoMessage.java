@@ -464,6 +464,9 @@ public interface DaoMessage {
             " AND sender = :sender")
     int countSender(long folder, String sender);
 
+    @Query("SELECT COUNT(*) FROM message")
+    int countTotal();
+
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, account.category AS accountCategory, identity.color AS accountColor" +
             ", account.notify AS accountNotify, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
