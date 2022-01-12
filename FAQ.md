@@ -4478,7 +4478,7 @@ To show shields, the option *Show authentication status indicator* in the displa
 
 A message will be consired safely transported if *every* [Received](https://datatracker.ietf.org/doc/html/rfc2821#section-4.4) header:
 
-* contains the phrase 'using TLS' or 'version=TLS'
+* contains the phrase 'using TLS', 'via HTTP', 'version=TLS'
 * contains the phrase '(qmail <nnn> invoked by uid <nnn>)'
 * contains the phrase '(Postfix, from userid nnn)'
 * has a *by* with a local address
