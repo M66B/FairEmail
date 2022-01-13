@@ -59,6 +59,29 @@
             app:layout_constraintTop_toBottomOf="@id/tvUnified" />
 
         <eu.faircode.email.FixedImageView
+            android:id="@+id/ivOutbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_outbox"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvOutbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvOutbox"
+            app:srcCompat="@drawable/twotone_outbox_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvOutbox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_outbox"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivOutbox"
+            app:layout_constraintTop_toBottomOf="@id/tvInbox" />
+
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivDrafts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +102,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivDrafts"
-            app:layout_constraintTop_toBottomOf="@id/tvInbox" />
+            app:layout_constraintTop_toBottomOf="@id/tvOutbox" />
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/ivSent"
@@ -90,7 +113,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvSent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvSent"
-            app:srcCompat="@drawable/twotone_forward_24" />
+            app:srcCompat="@drawable/twotone_send_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSent"
