@@ -41,6 +41,7 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -411,10 +412,9 @@ public class EntityMessage implements Serializable {
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String l = (language_detection ? language : null);
 
-        DateFormat DF = Helper.getDateTimeInstance(context);
-
         Element p = document.createElement("p");
         if (extended) {
+            DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
             if (from != null && from.length > 0) {
                 Element strong = document.createElement("strong");
                 strong.text(Helper.getString(context, l, R.string.title_from) + " ");
@@ -440,7 +440,7 @@ public class EntityMessage implements Serializable {
                 Element strong = document.createElement("strong");
                 strong.text(Helper.getString(context, l, R.string.title_date) + " ");
                 p.appendChild(strong);
-                p.appendText(DF.format(received));
+                p.appendText(DTF.format(received));
                 p.appendElement("br");
             }
             if (!TextUtils.isEmpty(subject)) {
@@ -450,8 +450,10 @@ public class EntityMessage implements Serializable {
                 p.appendText(subject);
                 p.appendElement("br");
             }
-        } else
-            p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
+        } else {
+            DateFormat DTF = Helper.getDateTimeInstance(context);
+            p.text(DTF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
+        }
 
         Element div = document.createElement("div")
                 .attr("fairemail", "reply");
