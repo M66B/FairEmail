@@ -1315,6 +1315,7 @@ Too large messages and triggering the spam filter of an email server are the mos
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
 * *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: please [see here](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) or [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 * *571 5.7.1 Relay access denied*: please double check the username and email address in the advanced identity settings (via the manual setup).
+* Please [see here](https://support.google.com/a/answer/3726730) for more information and other SMTP error codes
 
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
