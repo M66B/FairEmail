@@ -621,6 +621,7 @@
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
     <string name="title_advanced_override_width_hint">这可以使消息更窄，但看起来很奇怪。</string>
+    <string name="title_advanced_monospaced_pre_hint">纯文本邮件将被视为已预格式化</string>
     <string name="title_advanced_placeholders_hint">这仅适用于重建格式的消息</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>

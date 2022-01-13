@@ -296,6 +296,7 @@
     <string name="title_advanced_sync_shared_folders">Paylaşılan qovluq siyahılarını eyniləşdir</string>
     <string name="title_advanced_subscriptions">Qovluq abunəliklərini idarə et</string>
     <string name="title_advanced_check_authentication">Mesaj kimlik təsdiqləməsini yoxla</string>
+    <string name="title_advanced_check_tls">Daşıma qatı güvənliyini (TLS) yoxlayın</string>
     <string name="title_advanced_check_reply_domain">Mesajları eyniləşdirərkən cavab ünvanını yoxla</string>
     <string name="title_advanced_check_mx">Mesajları eyniləşdirərkən göndərən e-poçt ünvanlarını yoxla</string>
     <string name="title_advanced_check_blocklist">Göndərənin domen adının spam əngəlləmə siyahısında mövcudluğunu yoxla</string>
@@ -595,6 +596,7 @@
     <string name="title_advanced_sync_folders_hint">Bunu sıradan çıxartmaq, verilənlər və batareya istifadəsini bir az azaldacaq, ancaq qovluq siyahısının yenilənməsini də sıradan çıxardacaq</string>
     <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıqdan sonra əlavə olaraq qovluq siyahısını mütəmadi olaraq eyniləşdir</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-poçt serveri tərəfindən icra edilən DKIM, SPF və DMARC kimlik təsdiqləməsinin nəticələrini yoxlayacaq</string>
+    <string name="title_advanced_check_tls_hint">Bu, yalnız bir mesaj bütün serverlər tərəfindən güvənli şəkildə daşınılıbsa yaşıl bir qalxan göstərəcək</string>
     <string name="title_advanced_check_reply_hint">Bu, göndərənin domen adı ilə cavab ünvanının eyni olub-olmadığını yoxlayacaq</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX qeydlərinin mövcudluğunu yoxlayacaq</string>
     <string name="title_advanced_sync_delay_hint">Bu, mesajların eyniləşdirilməsini yavaşlandırır</string>
@@ -630,6 +632,7 @@
     <string name="title_advanced_preview_issue">Sətir sayı birdən çox olanda bəzi Android versiyalarında bir xətaya görə sürüşdürmə yavaşlaya bilər</string>
     <string name="title_advanced_overview_mode_hint">Bu, çox kiçik şriftlərə səbəb ola bilər</string>
     <string name="title_advanced_override_width_hint">Bu, mesajları daraltmaqla yanaşı qəribə göstərə bilər</string>
+    <string name="title_advanced_monospaced_pre_hint">Yalnız düz mətn mesajları əvvəlcədən formatlanmış olaraq nəzərə alınacaq</string>
     <string name="title_advanced_placeholders_hint">Bu, yalnız yenidən format edilmiş mesajlara tətbiq olunur</string>
     <string name="title_advanced_inline_hint">Sətiriçi təsvirlər, mesaja daxil edilən təsvirlərdir</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>
@@ -1296,6 +1299,7 @@
     <string name="title_rule_attachments">Qoşmaları var</string>
     <string name="title_rule_header">Başlıq məzmunu</string>
     <string name="title_rule_body">Mətn ehtiva edir</string>
+    <string name="title_rule_skip_quotes">Sitat mətni ötür</string>
     <string name="title_rule_body_remark">Bu şərtin istifadə edilməsi həmişə mesaj mətnini endirəcək, beləcə mesaj siyahısının eyniləşdirilməsi yavaşlayacaq</string>
     <string name="title_rule_time_abs">Dəqiq vaxt (alındı) aralığı</string>
     <string name="title_rule_time_after">Alınandan sonra</string>

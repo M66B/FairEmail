@@ -315,6 +315,7 @@
     <string name="title_advanced_sync_shared_folders">Synchronizovať zoznam spoločných priečinkov</string>
     <string name="title_advanced_subscriptions">Spravovať odoberanie priečinkov</string>
     <string name="title_advanced_check_authentication">Kontrolovať autentifikáciu správ</string>
+    <string name="title_advanced_check_tls">Overiť transport layer security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Skontrolovať adresu pre odpoveď počas synchronizácie správ</string>
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
     <string name="title_advanced_check_blocklist">Skontrolovať, či doména odosielateľa je na zozname blokovaných podozrivích z rozosielania nevižiadanej pošty</string>
@@ -614,6 +615,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_sync_folders_hint">Vypnutím čiastočne ušetríte prenos údajov aj využívanie batérie, ale zároveň zastavíte obnovovanie zoznamu priečinkov</string>
     <string name="title_advanced_poll_folders_hint">Periodicky synchronizovať zoznam priečinkov nie len po pripojení sa k účtu</string>
     <string name="title_advanced_check_authentication_hint">Skontroluje výsledky kontroly autentifikácie DKIM, SPF a DMARC na serveri</string>
+    <string name="title_advanced_check_tls_hint">Zelený štít sa zobrazí len vtedy, ak správa bola doručovaná zabezpečeným kanálom všetkými servermi</string>
     <string name="title_advanced_check_reply_hint">Skontroluje, či sa doména adresy pre odpoveď zhoduje s doménou odosielateľa</string>
     <string name="title_advanced_lookup_mx_hint">Skontroluje, či existujú MX záznamy v systéme DNS</string>
     <string name="title_advanced_sync_delay_hint">Spomalí synchronizáciu správ</string>
@@ -649,6 +651,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_preview_issue">Scrollovanie môže byť pomalé kvôli chybe v niektorých verziách Androidu, ak je počet položiek väčší než 1</string>
     <string name="title_advanced_overview_mode_hint">Výsledkom môžu byť veľmi malé písmená</string>
     <string name="title_advanced_override_width_hint">Zúži zobrazenie správ, ale môže to vyzerať hrozne</string>
+    <string name="title_advanced_monospaced_pre_hint">Správy vo formáte obyčajného textu budú považované za preformátované</string>
     <string name="title_advanced_placeholders_hint">Má vplyv len na preformátované správy</string>
     <string name="title_advanced_inline_hint">Zakomponované obrázky sú obrázky, ktoré sú súčasťou správy</string>
     <string name="title_advanced_parse_classes_hint">Zobrazí správy s vyššou presnosťou, no s určitým oneskorením</string>
@@ -1311,6 +1314,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_attachments">Má prílohy</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
     <string name="title_rule_body">Text obsahuje</string>
+    <string name="title_rule_skip_quotes">Vynechať citovaný text</string>
     <string name="title_rule_body_remark">Použitie tejto podmienky vždy spôsobí prevzatie textu správy, čo môže spomaliť synchronizáciu zoznamu správ</string>
     <string name="title_rule_time_abs">Absolútny čas (prijaté) v rozmedzí</string>
     <string name="title_rule_time_after">Prijaté po</string>
