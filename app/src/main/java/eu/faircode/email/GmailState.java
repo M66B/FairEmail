@@ -105,6 +105,8 @@ public class GmailState {
 
     static Account getAccount(Context context, String user) {
         AccountManager am = AccountManager.get(context);
+        if (am == null)
+            return null;
         Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
         for (Account account : accounts)
             if (Objects.equals(account.name, user))
