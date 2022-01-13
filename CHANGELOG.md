@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### Next version
+
+* Reply with selected text in style
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1808 - 2022-01-13
 
 * Added share images button above mini gallery
