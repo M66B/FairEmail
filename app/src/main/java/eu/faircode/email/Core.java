@@ -1680,10 +1680,8 @@ class Core {
                 if (deleted.size() == 0 || expunge(context, ifolder, deleted))
                     db.message().deleteMessage(message.id);
             } else {
-                if (deleted.size() > 0) {
+                if (deleted.size() > 0)
                     db.message().setMessageDeleted(message.id, message.ui_deleted);
-                    db.message().setMessageUiIgnored(message.id, message.ui_deleted);
-                }
             }
 
         } finally {
