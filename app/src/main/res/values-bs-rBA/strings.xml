@@ -642,6 +642,7 @@
     <string name="title_advanced_preview_issue">Pomjeranje može biti sporo zbog greške u nekim verzijama Androida kada je broj linija veći od jedan</string>
     <string name="title_advanced_overview_mode_hint">Ovo može rezultirati u jako malim fontovima</string>
     <string name="title_advanced_override_width_hint">Ovo ne samo da čini poruke užima, nego i čudnog izgleda</string>
+    <string name="title_advanced_monospaced_pre_hint">Samo poruke s običnim tekstom razmatrat će se kao preformatirane</string>
     <string name="title_advanced_placeholders_hint">Ovo se primjenjuje samo na preformatirane poruke</string>
     <string name="title_advanced_inline_hint">Poravnate slike su slike unutar tijela poruke</string>
     <string name="title_advanced_parse_classes_hint">Ovo će preciznije prikazivati poruke, ali vjerovatno sa kašnjenjem</string>
@@ -1308,6 +1309,7 @@
     <string name="title_rule_attachments">Ima priloge</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>
     <string name="title_rule_body">Tekst sadrži</string>
+    <string name="title_rule_skip_quotes">Preskoči \"citirani tekst\"</string>
     <string name="title_rule_body_remark">Koristeći ovaj uvjet tekst poruke će se uvijek preuzimati, što može usporiti sinhronizaciju spiskova poruka</string>
     <string name="title_rule_time_abs">Apsolutno vrijeme (primljeno) između</string>
     <string name="title_rule_time_after">Primljeno poslije</string>

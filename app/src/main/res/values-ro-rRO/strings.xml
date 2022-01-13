@@ -305,6 +305,7 @@
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_check_authentication">Verificarea autentificării mesajelor</string>
+    <string name="title_advanced_check_tls">Verificați securitatea stratului de transport (TLS)</string>
     <string name="title_advanced_check_reply_domain">Verifică adresa de răspuns la sincronizarea mesajelor</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
     <string name="title_advanced_check_blocklist">Verificați dacă numele de domeniu al expeditorului se află pe o listă de blocare a spam-ului</string>
@@ -604,6 +605,7 @@
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_poll_folders_hint">Sincronizarea periodică a listei de dosare în plus față de după conectarea la un cont</string>
     <string name="title_advanced_check_authentication_hint">Aceasta va verifica rezultatele autentificării DKIM, SPF și DMARC efectuate de serverul de e-mail</string>
+    <string name="title_advanced_check_tls_hint">Aceasta va afișa un scut verde doar dacă un mesaj a fost transportat în siguranță de către toate serverele</string>
     <string name="title_advanced_check_reply_hint">Acest lucru va verifica dacă numele de domeniu al expeditorului și adresa de răspuns sunt aceleași</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
@@ -639,6 +641,7 @@
     <string name="title_advanced_preview_issue">Derularea poate fi lentă din cauza unei erori în unele versiuni de Android atunci când numărul de linii este mare</string>
     <string name="title_advanced_overview_mode_hint">Acest lucru poate duce la fonturi foarte mici</string>
     <string name="title_advanced_override_width_hint">Acest lucru poate face ca mesajele să fie mai înguste, dar și să arate ciudat</string>
+    <string name="title_advanced_monospaced_pre_hint">Mesajele care conțin doar text simplu vor fi considerate ca fiind preformatate</string>
     <string name="title_advanced_placeholders_hint">Acest lucru se aplică numai mesajelor reformatate</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
@@ -1302,6 +1305,7 @@
     <string name="title_rule_attachments">Are atașament</string>
     <string name="title_rule_header">Antetul conține</string>
     <string name="title_rule_body">Textul conţine</string>
+    <string name="title_rule_skip_quotes">Săriți textul citat</string>
     <string name="title_rule_body_remark">Utilizarea acestei condiții va descărca întotdeauna textul mesajului, ceea ce poate încetini sincronizarea listei de mesaje</string>
     <string name="title_rule_time_abs">Timp absolut (primit) între</string>
     <string name="title_rule_time_after">Primit după</string>

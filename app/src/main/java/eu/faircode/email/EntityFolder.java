@@ -347,11 +347,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
         if (EntityFolder.INBOX.equals(type))
             return R.drawable.twotone_inbox_24;
         if (EntityFolder.OUTBOX.equals(type))
-            return R.drawable.twotone_send_24;
+            return R.drawable.twotone_outbox_24;
         if (EntityFolder.DRAFTS.equals(type))
             return R.drawable.twotone_drafts_24;
         if (EntityFolder.SENT.equals(type))
-            return R.drawable.twotone_forward_24;
+            return R.drawable.twotone_send_24;
         if (EntityFolder.ARCHIVE.equals(type))
             return R.drawable.twotone_archive_24;
         if (EntityFolder.TRASH.equals(type))

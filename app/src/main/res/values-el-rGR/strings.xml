@@ -629,6 +629,7 @@
     <string name="title_advanced_preview_issue">Η κύλιση ενδέχεται να καθυστερεί εξαιτίας ενός σφάλματος σε ορισμένες εκδόσεις του Android, όταν ο αριθμός των σειρών υπερβαίνει τη μία</string>
     <string name="title_advanced_overview_mode_hint">Μπορεί να προκαλέσει πολύ μικρές γραμματοσειρές</string>
     <string name="title_advanced_override_width_hint">Αυτό μπορεί να κάνει τα μηνύματα να προβάλλονται πιο στενά, αλλά και κάπως παράξενα</string>
+    <string name="title_advanced_monospaced_pre_hint">Μηνύματα με απλό κείμενο μόνο θα εκλαμβάνονται ως προμορφοποιημένα</string>
     <string name="title_advanced_placeholders_hint">Εφαρμόζεται μόνον στα αναμορφοποιημένα μηνύματα</string>
     <string name="title_advanced_inline_hint">Οι ένθετες εικόνες είναι οι εικόνες που περιλαμβάνονται στο μήνυμα</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
