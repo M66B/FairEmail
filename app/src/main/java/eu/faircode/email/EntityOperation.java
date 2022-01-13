@@ -406,7 +406,12 @@ public class EntityOperation {
             } else if (DELETE.equals(name)) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                if (perform_expunge) {
+
+                EntityAccount account = db.account().getAccount(message.account);
+
+                if (perform_expunge ||
+                        account == null ||
+                        account.protocol != EntityAccount.TYPE_IMAP) {
                     message.ui_hide = true;
                     db.message().setMessageUiHide(message.id, message.ui_hide);
                 } else {
