@@ -14,18 +14,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <eu.faircode.email.FixedImageButton
+        android:id="@+id/ibShareImages"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_share"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_save_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vSeparatorImages"
+        app:srcCompat="@drawable/twotone_share_24" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorImages" />
+        app:layout_constraintTop_toBottomOf="@id/ibShareImages" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpImages"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorImages,rvImage" />
+        app:constraint_referenced_ids="vSeparatorImages,ibShareImages,rvImage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

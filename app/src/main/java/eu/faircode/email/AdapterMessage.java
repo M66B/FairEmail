@@ -484,6 +484,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnCalendarMaybe;
         private ContentLoadingProgressBar pbCalendarWait;
 
+        private ImageButton ibShareImages;
         private RecyclerView rvImage;
 
         private Group grpAddresses;
@@ -861,6 +862,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeenBottom = vsBody.findViewById(R.id.ibSeenBottom);
             flow = vsBody.findViewById(R.id.flow);
 
+            ibShareImages = vsBody.findViewById(R.id.ibShareImages);
             rvImage = vsBody.findViewById(R.id.rvImage);
             rvImage.setHasFixedSize(false);
             StaggeredGridLayoutManager sglm =
@@ -993,6 +995,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarAccept.setOnLongClickListener(this);
                 btnCalendarDecline.setOnLongClickListener(this);
                 btnCalendarMaybe.setOnLongClickListener(this);
+
+                ibShareImages.setOnClickListener(this);
             }
 
             if (accessibility) {
@@ -1091,6 +1095,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarAccept.setOnLongClickListener(null);
                 btnCalendarDecline.setOnLongClickListener(null);
                 btnCalendarMaybe.setOnLongClickListener(null);
+
+                ibShareImages.setOnClickListener(null);
             }
 
             if (accessibility)
@@ -3390,6 +3396,51 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:participation");
         }
 
+        private void onShareImages(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<ArrayList<Uri>>() {
+                @Override
+                protected ArrayList<Uri> onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    if (attachments == null)
+                        return null;
+
+                    ArrayList<Uri> result = new ArrayList<>();
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.isAttachment() && attachment.isImage()) {
+                            File file = attachment.getFile(context);
+                            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                            result.add(uri);
+                        }
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, ArrayList<Uri> uris) {
+                    if (uris == null)
+                        return;
+
+                    final Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+                    intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+                    intent.setType("image/*");
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    context.startActivity(Intent.createChooser(intent, context.getString(R.string.app_name)));
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "attachments:share");
+        }
+
         private boolean isOutgoing(TupleMessageEx message) {
             if (EntityFolder.isOutgoing(message.folderType))
                 return true;
@@ -3562,6 +3613,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onMenuSetImportance(message, importance);
                 } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe || id == R.id.ibCalendar) {
                     onActionCalendar(message, view.getId(), false);
+                } else if (id == R.id.ibShareImages) {
+                    onShareImages(message);
                 } else {
                     onToggleMessage(message);
                 }
