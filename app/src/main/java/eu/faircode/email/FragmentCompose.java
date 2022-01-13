@@ -1392,7 +1392,7 @@ public class FragmentCompose extends FragmentBase {
                     args.putString("subject", a.getString("subject"));
                     args.putString("body", a.getString("body"));
                     args.putString("text", a.getString("text"));
-                    args.putString("selected", a.getString("selected"));
+                    args.putCharSequence("selected", a.getCharSequence("selected"));
 
                     if (a.containsKey("attachments")) {
                         args.putParcelableArrayList("attachments", a.getParcelableArrayList("attachments"));
@@ -4243,7 +4243,7 @@ public class FragmentCompose extends FragmentBase {
             String external_subject = args.getString("subject", "");
             String external_body = args.getString("body", "");
             String external_text = args.getString("text");
-            String selected_text = args.getString("selected");
+            CharSequence selected_text = args.getCharSequence("selected");
             ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -4787,12 +4787,16 @@ public class FragmentCompose extends FragmentBase {
                                 d = Document.createShell("");
 
                                 Element div = d.createElement("div");
-                                for (String line : selected_text.split("\\r?\\n")) {
-                                    Element span = document.createElement("span");
-                                    span.text(line);
-                                    div.appendChild(span);
-                                    div.appendElement("br");
-                                }
+                                if (selected_text instanceof Spanned)
+                                    div.html(HtmlHelper.toHtml((Spanned) selected_text, context));
+                                else
+                                    for (String line : selected_text.toString().split("\\r?\\n")) {
+                                        Element span = document.createElement("span");
+                                        span.text(line);
+                                        div.appendChild(span);
+                                        div.appendElement("br");
+                                    }
+
                                 d.body().appendChild(div);
                             }
 

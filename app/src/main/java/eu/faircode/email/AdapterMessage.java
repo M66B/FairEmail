@@ -5964,7 +5964,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return getKeyAtPosition(getAdapterPosition());
         }
 
-        String getSelectedText() {
+        CharSequence getSelectedText() {
             if (tvBody == null)
                 return null;
 
@@ -5984,7 +5984,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 end = tmp;
             }
 
-            return tvBody.getText().subSequence(start, end).toString();
+            return tvBody.getText().subSequence(start, end);
         }
 
         private View.AccessibilityDelegate accessibilityDelegateHeader = new View.AccessibilityDelegate() {
@@ -7199,7 +7199,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         void move(long id, String type);
 
-        void reply(TupleMessageEx message, String selected, View anchor);
+        void reply(TupleMessageEx message, CharSequence selected, View anchor);
 
         void startSearch(TextView view);
 

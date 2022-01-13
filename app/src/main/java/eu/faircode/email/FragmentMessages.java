@@ -2123,7 +2123,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void reply(TupleMessageEx message, String selected, View anchor) {
+        public void reply(TupleMessageEx message, CharSequence selected, View anchor) {
             onReply(message, selected, anchor);
         }
 
@@ -2792,7 +2792,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             TupleMessageEx message = adapter.getItemAtPosition(pos);
             AdapterMessage.ViewHolder holder =
                     (AdapterMessage.ViewHolder) rvMessage.findViewHolderForAdapterPosition(pos);
-            String selected = (holder == null ? null : holder.getSelectedText());
+            CharSequence selected = (holder == null ? null : holder.getSelectedText());
             if (message == null)
                 return;
 
@@ -2805,7 +2805,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
-    private void onReply(final TupleMessageEx message, final String selected, final View anchor) {
+    private void onReply(final TupleMessageEx message, final CharSequence selected, final View anchor) {
         Bundle args = new Bundle();
         args.putLong("id", message.id);
 
@@ -2979,7 +2979,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         onMenuReply(message, action, null);
     }
 
-    private void onMenuReply(TupleMessageEx message, String action, String selected) {
+    private void onMenuReply(TupleMessageEx message, String action, CharSequence selected) {
         Intent reply = new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
