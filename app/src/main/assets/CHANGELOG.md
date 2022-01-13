@@ -4,6 +4,12 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+### 1.1808 - 2022-01-13
+
+* Added share images button above mini gallery
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1807 - 2022-01-11
 
 * Fixed delay when going to a settings page
