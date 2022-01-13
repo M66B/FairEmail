@@ -3490,32 +3490,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null)
                 return;
 
-            if (view.getId() == R.id.ibAvatar)
+            int id = view.getId();
+            if (id == R.id.ibAvatar)
                 onViewContact(message);
-            else if (view.getId() == R.id.ibVerified)
+            else if (id == R.id.ibVerified)
                 onShowVerified(message);
-            else if (view.getId() == R.id.ibAuth)
+            else if (id == R.id.ibAuth)
                 onShowAuth(message);
-            else if (view.getId() == R.id.ibPriority)
+            else if (id == R.id.ibPriority)
                 onShowPriority(message);
-            else if (view.getId() == R.id.ibSnoozed)
+            else if (id == R.id.ibSnoozed)
                 onShowSnoozed(message);
-            else if (view.getId() == R.id.ibFlagged)
+            else if (id == R.id.ibFlagged)
                 onToggleFlag(message);
-            else if (view.getId() == R.id.ibError)
+            else if (id == R.id.ibError)
                 onHelp(message);
-            else if (view.getId() == R.id.ibReceipt)
+            else if (id == R.id.ibReceipt)
                 onReceipt(message);
-            else if (view.getId() == R.id.ibSearchContact)
+            else if (id == R.id.ibSearchContact)
                 onSearchContact(message);
-            else if (view.getId() == R.id.ibNotifyContact)
+            else if (id == R.id.ibNotifyContact)
                 onNotifyContact(message);
-            else if (view.getId() == R.id.ibPinContact)
+            else if (id == R.id.ibPinContact)
                 onPinContact(message);
-            else if (view.getId() == R.id.ibAddContact)
+            else if (id == R.id.ibAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
-                int id = view.getId();
                 if (id == R.id.ibExpanderAddress) {
                     onToggleAddresses(message);
                 } else if (id == R.id.ibCopyHeaders) {
