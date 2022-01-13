@@ -2964,7 +2964,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
             ibSeenBottom.setVisibility(message.uid != null ||
                     message.accountProtocol == EntityAccount.TYPE_POP
-                    ? View.VISIBLE : View.GONE);
+                    ? View.VISIBLE : View.INVISIBLE);
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments, boolean bind_extras) {
