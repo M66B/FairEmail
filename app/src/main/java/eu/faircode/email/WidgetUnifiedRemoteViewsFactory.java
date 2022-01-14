@@ -226,10 +226,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setTextViewText(idSubject, ssSubject);
             views.setTextViewText(idAccount, ssAccount);
 
-            views.setTextColor(idFrom, message.ui_seen ? colorWidgetRead : colorWidgetForeground);
-            views.setTextColor(idTime, message.ui_seen ? colorWidgetRead : colorWidgetForeground);
-            views.setTextColor(idSubject, message.ui_seen ? colorWidgetRead : colorWidgetForeground);
-            views.setTextColor(idAccount, message.ui_seen ? colorWidgetRead : colorWidgetForeground);
+            int textColor = (message.ui_seen ? colorWidgetRead : colorWidgetForeground);
+
+            views.setTextColor(idFrom, textColor);
+            views.setTextColor(idTime, textColor);
+            views.setTextColor(idSubject, textColor);
+            views.setTextColor(idAccount, textColor);
 
             views.setViewVisibility(idAccount, account < 0 ? View.VISIBLE : View.GONE);
 
