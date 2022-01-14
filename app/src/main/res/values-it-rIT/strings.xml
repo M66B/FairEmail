@@ -1366,6 +1366,7 @@
     <string name="title_legend_closing">Chiusura</string>
     <string name="title_legend_unified">Posta in arrivo unificata / profilo principale</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
+    <string name="title_legend_outbox">Posta in uscita</string>
     <string name="title_legend_drafts">Bozze</string>
     <string name="title_legend_sent">Inviato</string>
     <string name="title_legend_archive">Archivio</string>

@@ -1379,6 +1379,7 @@
     <string name="title_legend_closing">Zatvaranje</string>
     <string name="title_legend_unified">Objedinjeni inbox / primarni račun</string>
     <string name="title_legend_inbox">Inbox</string>
+    <string name="title_legend_outbox">Izlazna pošta</string>
     <string name="title_legend_drafts">Nacrti</string>
     <string name="title_legend_sent">Poslano</string>
     <string name="title_legend_archive">Arhiv</string>

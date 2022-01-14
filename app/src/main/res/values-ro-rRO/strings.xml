@@ -1375,6 +1375,7 @@
     <string name="title_legend_closing">Închidere</string>
     <string name="title_legend_unified">Inbox unificat / cont primar</string>
     <string name="title_legend_inbox">Primite</string>
+    <string name="title_legend_outbox">Mesaje de trimis</string>
     <string name="title_legend_drafts">Ciorne</string>
     <string name="title_legend_sent">Trimis</string>
     <string name="title_legend_archive">Arhivă</string>

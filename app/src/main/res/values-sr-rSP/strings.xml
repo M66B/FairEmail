@@ -740,6 +740,7 @@
     <string name="title_legend_closing">Затварам</string>
     <string name="title_legend_unified">Обједињено пријемно сандуче / главни налог</string>
     <string name="title_legend_inbox">Пријемно сандуче</string>
+    <string name="title_legend_outbox">За слање</string>
     <string name="title_legend_drafts">Нацрти</string>
     <string name="title_legend_sent">Послате</string>
     <string name="title_legend_archive">Архива</string>

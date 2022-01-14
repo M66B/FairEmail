@@ -870,6 +870,7 @@
     <string name="title_legend_closing">Zapiranje</string>
     <string name="title_legend_unified">Poenotena mapa \'Prejeto\'/Glavni račun</string>
     <string name="title_legend_inbox">Prejeto</string>
+    <string name="title_legend_outbox">Pošiljanje</string>
     <string name="title_legend_drafts">Osnutki</string>
     <string name="title_legend_sent">Poslano</string>
     <string name="title_legend_archive">Arhiv</string>

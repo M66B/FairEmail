@@ -935,6 +935,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_legend_closing">Tancant</string>
     <string name="title_legend_unified">Safata d\'entrada unificada / Compre principal</string>
     <string name="title_legend_inbox">Safata d\'entrada</string>
+    <string name="title_legend_outbox">Safata de sortida</string>
     <string name="title_legend_drafts">Esborranys</string>
     <string name="title_legend_sent">Enviat</string>
     <string name="title_legend_archive">Arxiu</string>

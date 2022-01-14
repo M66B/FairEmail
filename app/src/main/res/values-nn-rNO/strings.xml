@@ -1037,6 +1037,7 @@
     <string name="title_legend_closing">Lukker</string>
     <string name="title_legend_unified">Enhetlig innboks/primærkonto</string>
     <string name="title_legend_inbox">Innboks</string>
+    <string name="title_legend_outbox">Utboks</string>
     <string name="title_legend_drafts">Utkast</string>
     <string name="title_legend_sent">Sendt</string>
     <string name="title_legend_archive">Arkiver</string>

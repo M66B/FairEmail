@@ -1167,6 +1167,7 @@
     <string name="title_legend_closing">Bezárás</string>
     <string name="title_legend_unified">Egységes beérkező mappa / elsődleges fiók</string>
     <string name="title_legend_inbox">Bejövő mappa</string>
+    <string name="title_legend_outbox">Kimenő mappa</string>
     <string name="title_legend_drafts">Piszkozatok</string>
     <string name="title_legend_sent">Elküldött</string>
     <string name="title_legend_archive">Archiválás</string>

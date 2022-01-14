@@ -870,6 +870,7 @@
     <string name="title_legend_closing">در حال بسته شدن</string>
     <string name="title_legend_unified">صندوق دریافت یکپارچه / حساب اصلی</string>
     <string name="title_legend_inbox">صندوق دریافت</string>
+    <string name="title_legend_outbox">صندوق خروجی</string>
     <string name="title_legend_drafts">پيش‌نويس‌ها</string>
     <string name="title_legend_sent">ارسال شده</string>
     <string name="title_legend_archive">بایگانی</string>

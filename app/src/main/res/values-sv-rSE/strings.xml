@@ -1355,6 +1355,7 @@
     <string name="title_legend_closing">Stänger</string>
     <string name="title_legend_unified">Samlad inkorg / primärt konto</string>
     <string name="title_legend_inbox">Inkorg</string>
+    <string name="title_legend_outbox">Utkorg</string>
     <string name="title_legend_drafts">Utkast</string>
     <string name="title_legend_sent">Skickat</string>
     <string name="title_legend_archive">Arkivera</string>

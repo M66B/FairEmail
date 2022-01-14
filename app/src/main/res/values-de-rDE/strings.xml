@@ -1364,6 +1364,7 @@
     <string name="title_legend_closing">wird geschlossen</string>
     <string name="title_legend_unified">Sammeleingang / Hauptkonto</string>
     <string name="title_legend_inbox">Posteingang</string>
+    <string name="title_legend_outbox">Postausgang</string>
     <string name="title_legend_drafts">Entwürfe</string>
     <string name="title_legend_sent">Gesendet</string>
     <string name="title_legend_archive">Archiv</string>

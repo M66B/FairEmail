@@ -1370,6 +1370,7 @@
     <string name="title_legend_closing">Fermeture en cours</string>
     <string name="title_legend_unified">Boîte de réception unifiée / compte principal</string>
     <string name="title_legend_inbox">Boîte de réception</string>
+    <string name="title_legend_outbox">Boîte d\'envoi</string>
     <string name="title_legend_drafts">Brouillons</string>
     <string name="title_legend_sent">Envoyés</string>
     <string name="title_legend_archive">Archives</string>

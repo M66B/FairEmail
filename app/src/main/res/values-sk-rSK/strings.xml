@@ -1384,6 +1384,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_closing">Zatváranie</string>
     <string name="title_legend_unified">Spoločná doručená pošta / primárny účet</string>
     <string name="title_legend_inbox">Doručené</string>
+    <string name="title_legend_outbox">Pošta na odoslanie</string>
     <string name="title_legend_drafts">Koncepty</string>
     <string name="title_legend_sent">Odoslané</string>
     <string name="title_legend_archive">Archív</string>

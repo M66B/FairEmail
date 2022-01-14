@@ -1389,6 +1389,7 @@
     <string name="title_legend_closing">נסגר</string>
     <string name="title_legend_unified">דואר נכנס מאוחד / חשבון עיקרי</string>
     <string name="title_legend_inbox">דואר נכנס</string>
+    <string name="title_legend_outbox">דואר יוצא</string>
     <string name="title_legend_drafts">טיוטות</string>
     <string name="title_legend_sent">נשלח</string>
     <string name="title_legend_archive">ארכיון</string>

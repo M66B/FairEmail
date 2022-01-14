@@ -1370,6 +1370,7 @@
     <string name="title_legend_closing">Lukker</string>
     <string name="title_legend_unified">Samlet indbakke/primærkonto</string>
     <string name="title_legend_inbox">Indbakke</string>
+    <string name="title_legend_outbox">Udbakke</string>
     <string name="title_legend_drafts">Kladder</string>
     <string name="title_legend_sent">Sendt</string>
     <string name="title_legend_archive">Arkiv</string>

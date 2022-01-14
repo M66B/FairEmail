@@ -1388,6 +1388,7 @@
     <string name="title_legend_closing">Закрытие</string>
     <string name="title_legend_unified">Единый почтовый ящик / основная учётная запись</string>
     <string name="title_legend_inbox">Входящие</string>
+    <string name="title_legend_outbox">Исходящие</string>
     <string name="title_legend_drafts">Черновики</string>
     <string name="title_legend_sent">Отправленные</string>
     <string name="title_legend_archive">Архив</string>

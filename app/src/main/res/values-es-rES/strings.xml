@@ -1364,6 +1364,7 @@
     <string name="title_legend_closing">Cerrando</string>
     <string name="title_legend_unified">Bandeja de entrada unificada / Cuenta principal</string>
     <string name="title_legend_inbox">Bandeja de entrada</string>
+    <string name="title_legend_outbox">Bandeja de salida</string>
     <string name="title_legend_drafts">Borradores</string>
     <string name="title_legend_sent">Enviado</string>
     <string name="title_legend_archive">Archivo</string>

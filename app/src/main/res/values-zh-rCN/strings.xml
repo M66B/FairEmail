@@ -1354,6 +1354,7 @@
     <string name="title_legend_closing">正在结束</string>
     <string name="title_legend_unified">聚合收件箱/主账户</string>
     <string name="title_legend_inbox">收件箱</string>
+    <string name="title_legend_outbox">发件箱</string>
     <string name="title_legend_drafts">草稿</string>
     <string name="title_legend_sent">已发送</string>
     <string name="title_legend_archive">存档</string>

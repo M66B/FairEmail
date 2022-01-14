@@ -1376,6 +1376,7 @@
     <string name="title_legend_closing">Ukončování</string>
     <string name="title_legend_unified">Sjednocené doručené / hlavní účet</string>
     <string name="title_legend_inbox">Doručené</string>
+    <string name="title_legend_outbox">K odeslání</string>
     <string name="title_legend_drafts">Koncepty</string>
     <string name="title_legend_sent">Odeslané</string>
     <string name="title_legend_archive">Archiv</string>

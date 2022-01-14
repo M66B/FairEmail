@@ -1049,6 +1049,7 @@
     <string name="title_legend_closing">Затваряне</string>
     <string name="title_legend_unified">Обединена входяща поща / главен профил</string>
     <string name="title_legend_inbox">Входящи</string>
+    <string name="title_legend_outbox">Изходящи</string>
     <string name="title_legend_drafts">Чернови</string>
     <string name="title_legend_sent">Изпратено</string>
     <string name="title_legend_archive">Архив</string>

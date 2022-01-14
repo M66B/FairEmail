@@ -616,6 +616,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_legend_section_folders">Pastas</string>
     <string name="title_legend_section_messages">Mensagens</string>
     <string name="title_legend_section_compose">Compor</string>
+    <string name="title_legend_outbox">Caixa de saída</string>
     <string name="title_legend_archive">Arquivar</string>
     <string name="title_legend_trash">Lixo</string>
     <string name="title_legend_junk">Spam</string>

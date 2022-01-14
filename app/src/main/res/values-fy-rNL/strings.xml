@@ -1171,6 +1171,7 @@
     <string name="title_legend_closing">Slút</string>
     <string name="title_legend_unified">Ferienige postfak / primêr akkount</string>
     <string name="title_legend_inbox">Postfek YN</string>
+    <string name="title_legend_outbox">Utfak</string>
     <string name="title_legend_drafts">Konsepten</string>
     <string name="title_legend_sent">Stjoerd</string>
     <string name="title_legend_archive">Argyf</string>

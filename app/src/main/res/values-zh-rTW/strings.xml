@@ -1358,6 +1358,7 @@
     <string name="title_legend_closing">正在關閉</string>
     <string name="title_legend_unified">全域收件匣/主帳戶</string>
     <string name="title_legend_inbox">收件匣</string>
+    <string name="title_legend_outbox">寄件匣</string>
     <string name="title_legend_drafts">草稿</string>
     <string name="title_legend_sent">已傳送</string>
     <string name="title_legend_archive">封存</string>

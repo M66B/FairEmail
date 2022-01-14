@@ -820,6 +820,7 @@
     <string name="title_legend_closing">Zatvaranje</string>
     <string name="title_legend_unified">Objedinjeni spremnik / primarni račun</string>
     <string name="title_legend_inbox">Ulazni spremnik</string>
+    <string name="title_legend_outbox">Odlazni spremnik</string>
     <string name="title_legend_drafts">Skice</string>
     <string name="title_legend_sent">Poslano</string>
     <string name="title_legend_archive">Arhiva</string>

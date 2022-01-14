@@ -1332,6 +1332,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_closing">Mengakhiri</string>
     <string name="title_legend_unified">Kotak masuk terpadu / akun utama</string>
     <string name="title_legend_inbox">Kotak Masuk</string>
+    <string name="title_legend_outbox">Kotak keluar</string>
     <string name="title_legend_drafts">Konsep</string>
     <string name="title_legend_sent">Terkirim</string>
     <string name="title_legend_archive">Arsip</string>

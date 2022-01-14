@@ -1385,6 +1385,7 @@
     <string name="title_legend_closing">Закриття</string>
     <string name="title_legend_unified">Загальна вхідна тека / основний обліковий запис</string>
     <string name="title_legend_inbox">Вхідні</string>
+    <string name="title_legend_outbox">Вихідні</string>
     <string name="title_legend_drafts">Чернетки</string>
     <string name="title_legend_sent">Надіслані</string>
     <string name="title_legend_archive">Архіви</string>

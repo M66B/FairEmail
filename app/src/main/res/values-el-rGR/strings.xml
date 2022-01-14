@@ -1363,6 +1363,7 @@
     <string name="title_legend_closing">Κλείσιμο</string>
     <string name="title_legend_unified">Ενοποιημένα εισερχόμενα / κύριος λογαριασμός</string>
     <string name="title_legend_inbox">Εισερχόμενα</string>
+    <string name="title_legend_outbox">Εξερχόμενα</string>
     <string name="title_legend_drafts">Πρόχειρα</string>
     <string name="title_legend_sent">Απεσταλμένα</string>
     <string name="title_legend_archive">Αρχειοθετημένα</string>

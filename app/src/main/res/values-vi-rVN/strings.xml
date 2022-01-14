@@ -1354,6 +1354,7 @@
     <string name="title_legend_closing">Đang đóng</string>
     <string name="title_legend_unified">Hộp thư đến hợp nhất / tài khoản chính</string>
     <string name="title_legend_inbox">Hộp thư đến</string>
+    <string name="title_legend_outbox">Hộp thư đi</string>
     <string name="title_legend_drafts">Thư nháp</string>
     <string name="title_legend_sent">Đã gửi</string>
     <string name="title_legend_archive">Lưu trữ</string>

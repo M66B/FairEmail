@@ -1363,6 +1363,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_closing">Kapatılıyor</string>
     <string name="title_legend_unified">Birleşik gelen kutusu / birincil hesap</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
+    <string name="title_legend_outbox">Giden Kutusu</string>
     <string name="title_legend_drafts">Taslaklar</string>
     <string name="title_legend_sent">Giden</string>
     <string name="title_legend_archive">Arşiv</string>
