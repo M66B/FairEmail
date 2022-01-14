@@ -81,6 +81,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swDeleteUnseen;
     private SwitchCompat swSyncKept;
     private SwitchCompat swGmailThread;
+    private SwitchCompat swOutlookThread;
     private SwitchCompat swSubjectThreading;
     private TextView tvSubjectThreading;
     private SwitchCompat swSyncFolders;
@@ -107,7 +108,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             "enabled", "poll_interval", "auto_optimize", "schedule", "schedule_start", "schedule_end",
             "sync_quick_imap", "sync_quick_pop",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept",
-            "gmail_thread_id", "subject_threading",
+            "gmail_thread_id", "outlook_thread_id", "subject_threading",
             "sync_folders", "sync_folders_poll", "sync_shared_folders", "subscriptions",
             "check_authentication", "check_tls", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
             "tune_keep_alive"
@@ -153,6 +154,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
         swSyncKept = view.findViewById(R.id.swSyncKept);
         swGmailThread = view.findViewById(R.id.swGmailThread);
+        swOutlookThread = view.findViewById(R.id.swOutlookThread);
         swSubjectThreading = view.findViewById(R.id.swSubjectThreading);
         tvSubjectThreading = view.findViewById(R.id.tvSubjectThreading);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
@@ -333,7 +335,15 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("gmail_thread_id", checked).apply();
-                swSubjectThreading.setEnabled(!checked);
+                swSubjectThreading.setEnabled(!swGmailThread.isChecked() && !swOutlookThread.isChecked());
+            }
+        });
+
+        swOutlookThread.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("outlook_thread_id", checked).apply();
+                swSubjectThreading.setEnabled(!swGmailThread.isChecked() && !swOutlookThread.isChecked());
             }
         });
 
@@ -442,6 +452,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
+        swOutlookThread.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         tvSubjectThreading.setText(getString(R.string.title_advanced_subject_threading_hint, MessageHelper.MAX_SUBJECT_AGE));
 
         DB db = DB.getInstance(getContext());
@@ -526,8 +537,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
         swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
+        swOutlookThread.setChecked(prefs.getBoolean("outlook_thread_id", false));
         swSubjectThreading.setChecked(prefs.getBoolean("subject_threading", false));
-        swSubjectThreading.setEnabled(!swGmailThread.isChecked());
+        swSubjectThreading.setEnabled(!swGmailThread.isChecked() && !swOutlookThread.isChecked());
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
         swSyncFoldersPoll.setChecked(prefs.getBoolean("sync_folders_poll", false));
         swSyncFoldersPoll.setEnabled(swSyncFolders.isChecked());

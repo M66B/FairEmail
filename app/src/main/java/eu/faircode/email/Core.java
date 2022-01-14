@@ -3758,6 +3758,8 @@ class Core {
             // Local address contains control or whitespace in string ``mailing list someone@example.org''
             message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(context, account.id, folder.id, uid);
+            if (BuildConfig.DEBUG && message.thread.startsWith("outlook:"))
+                message.warning = message.thread;
             message.priority = helper.getPriority();
 
             for (String keyword : keywords)
