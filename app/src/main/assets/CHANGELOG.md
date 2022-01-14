@@ -4,7 +4,7 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
-### Next version
+### 1.1809 - 2022-01-14
 
 * Reply with selected text in style
 * Small improvements and minor bug fixes
