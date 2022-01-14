@@ -1399,27 +1399,28 @@ public class MessageHelper {
         }
 
         // https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxomsg/9e994fbb-b839-495f-84e3-2c8c02c7dd9b
-        String tindex = imessage.getHeader("Thread-Index", null);
-        try {
-            if (tindex != null) {
-                boolean outlook_thread_id = prefs.getBoolean("outlook_thread_id", false);
-                if (outlook_thread_id) {
-                    byte[] data = Base64.decode(tindex, Base64.DEFAULT);
-                    if (data.length >= 22) {
-                        long msb = 0, lsb = 0;
-                        for (int i = 0 + 6; i < 8 + 6; i++)
-                            msb = (msb << 8) | (data[i] & 0xff);
-                        for (int i = 8 + 6; i < 16 + 6; i++)
-                            lsb = (lsb << 8) | (data[i] & 0xff);
-                        UUID guid = new UUID(msb, lsb);
-                        Log.i("Outlook thread=" + guid);
-                        return "outlook:" + guid;
+        if (BuildConfig.DEBUG)
+            try {
+                String tindex = imessage.getHeader("Thread-Index", null);
+                if (tindex != null) {
+                    boolean outlook_thread_id = prefs.getBoolean("outlook_thread_id", false);
+                    if (outlook_thread_id) {
+                        byte[] data = Base64.decode(tindex, Base64.DEFAULT);
+                        if (data.length >= 22) {
+                            long msb = 0, lsb = 0;
+                            for (int i = 0 + 6; i < 8 + 6; i++)
+                                msb = (msb << 8) | (data[i] & 0xff);
+                            for (int i = 8 + 6; i < 16 + 6; i++)
+                                lsb = (lsb << 8) | (data[i] & 0xff);
+                            UUID guid = new UUID(msb, lsb);
+                            Log.i("Outlook thread=" + guid);
+                            return "outlook:" + guid;
+                        }
                     }
                 }
+            } catch (Throwable ex) {
+                Log.w(ex);
             }
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
 
         String thread = null;
         String msgid = getMessageID();
