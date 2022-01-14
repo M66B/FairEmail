@@ -396,6 +396,7 @@ public class FragmentOptions extends FragmentBase {
                         new int[]{android.R.id.text1},
                         0
                 ));
+                searchView.getSuggestionsAdapter().notifyDataSetChanged();
             }
 
             private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
