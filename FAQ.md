@@ -2183,15 +2183,24 @@ by [all supported Android versions](https://developer.android.com/training/artic
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq63)
 
-Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images
-will automatically be resized for displaying on screens.
-This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB.
-Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %.
-Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
-Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
+You can add images to a message in two ways:
 
-If you want to resize images on a case-by-case basis,
-you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) or a similar app.
+* As attachment, by tapping on the paperclip icon button in the bottom action bar
+* As image, by tapping on the image icon button in the bottom action bar
+
+If you disabled the bottom action bar, you can enable it again via the three-dots menu at the top right of the message editor.
+
+An attachment will always be sent as-is.
+An image can be added as attachment or inserted into a message and you can select to reduce the size of the image and to remove privacy sensitive information.
+
+Images will be scaled down using whole number factors to reduce memory usage and to retain the image quality.
+Scaled images will be saved with a compression ratio of 90 %.
+
+If the image options do not appear, you can enable them again via the three-dots menu.
+
+Note that most email providers limit the total message size to 10-50 MB.
+
+Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
 
 <br />
 
