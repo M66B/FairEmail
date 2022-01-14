@@ -331,10 +331,18 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     public boolean isZoomedY() {
+/*
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int ch = Math.round(getContentHeight() * dm.density);
         int dp6 = Math.round(6 * dm.density);
         return (ch - dp6 > getHeight());
+*/
+        int ytend = computeVerticalScrollExtent();
+        if (ytend == 0)
+            return false;
+
+        float yscale = computeVerticalScrollRange() / (float) ytend;
+        return (yscale > 1.01);
     }
 
     public static boolean isFeatureSupported(String feature) {
