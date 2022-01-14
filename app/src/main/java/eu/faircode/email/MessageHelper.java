@@ -1292,7 +1292,7 @@ public class MessageHelper {
 
     String getThreadId(Context context, long account, long folder, long uid) throws MessagingException {
         if (threadId == null)
-            if (BuildConfig.DEBUG)
+            if (!BuildConfig.PLAY_STORE_RELEASE)
                 threadId = _getThreadIdAlt(context, account, folder, uid);
             else
                 threadId = _getThreadId(context, account, folder, uid);
