@@ -2969,7 +2969,8 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            IMAPStore istore, final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+            IMAPStore istore, final IMAPFolder ifolder, State state)
+            throws JSONException, ProtocolException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             SyncStats stats = new SyncStats();
@@ -3231,12 +3232,8 @@ class Core {
                         long getuid = SystemClock.elapsedRealtime();
                         MessagingException ex = (MessagingException) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                             @Override
-                            public Object doCommand(IMAPProtocol protocol) {
-                                try {
-                                    protocol.select(folder.name);
-                                } catch (ProtocolException ex) {
-                                    return new MessagingException("UID FETCH", ex);
-                                }
+                            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                protocol.select(folder.name);
 
                                 // Build ranges
                                 List<Pair<Long, Long>> ranges = new ArrayList<>();
@@ -3337,10 +3334,10 @@ class Core {
                                             if (response.isBYE())
                                                 return new MessagingException("UID FETCH", new IOException(response.toString()));
                                             else if (response.isNO())
-                                                return new CommandFailedException(response);
+                                                throw new CommandFailedException(response);
                                             else if (response.isBAD())
-                                                return new BadCommandException(response);
-                                        return new MessagingException("UID FETCH failed");
+                                                throw new BadCommandException(response);
+                                        throw new ProtocolException("UID FETCH failed");
                                     }
                                 }
 
