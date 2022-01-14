@@ -1032,7 +1032,7 @@ public class EntityRule {
                 int at = sender.indexOf('@');
                 if (at > 0) {
                     regex = true;
-                    sender = ".*@.*" + sender.substring(at + 1) + ".*";
+                    sender = ".*@.*" + Pattern.quote(sender.substring(at + 1)) + ".*";
                 }
             }
 
