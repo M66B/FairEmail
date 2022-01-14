@@ -1170,7 +1170,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onClick(View v) {
                 Log.i("Undo cancel");
-                getMainHandler().removeCallbacks(timeout);
+                content.removeCallbacks(timeout);
                 snackbar.dismiss();
                 if (show != null)
                     show.execute(ActivityView.this, args, "undo:show");
@@ -1178,27 +1178,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         snackbar.addCallback(new Snackbar.Callback() {
-            private int margin;
-
             @Override
             public void onShown(Snackbar sb) {
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
-                margin = lparam.bottomMargin;
-                lparam.bottomMargin += snackbar.getView().getHeight();
+                lparam.bottomMargin = snackbar.getView().getHeight();
                 content.setLayoutParams(lparam);
             }
 
             @Override
             public void onDismissed(Snackbar transientBottomBar, int event) {
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
-                lparam.bottomMargin = margin;
+                lparam.bottomMargin = 0;
                 content.setLayoutParams(lparam);
             }
         });
 
         snackbar.show();
 
-        getMainHandler().postDelayed(timeout, undo_timeout);
+        content.postDelayed(timeout, undo_timeout);
     }
 
     private void checkFirst() {
