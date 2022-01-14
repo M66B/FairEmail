@@ -4,6 +4,11 @@
 
 ### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
+
+### 1.1811 - 2022-01-14
+
+* Fixed scroll issue
+
 ### 1.1810 - 2022-01-14
 
 * Fixed searching for options when swiping
