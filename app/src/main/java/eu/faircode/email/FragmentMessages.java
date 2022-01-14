@@ -6506,6 +6506,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     EntityAttachment.SMIME_SIGNED_DATA
             });
             db.message().setMessageEncrypt(message.id, message.ui_encrypt);
+            db.message().setMessageRevision(message.id, null);
             db.message().setMessageStored(message.id, new Date().getTime());
 
             db.setTransactionSuccessful();
@@ -7403,6 +7404,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         encrypt = parts.getEncryption();
                                         db.message().setMessageEncrypt(message.id, encrypt);
+                                        db.message().setMessageRevision(message.id, 1);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
