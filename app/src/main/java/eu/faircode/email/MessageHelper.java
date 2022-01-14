@@ -191,6 +191,7 @@ public class MessageHelper {
             FLAG_FILTERED, // FairEmail
             FLAG_LOW_IMPORTANCE, // FairEmail
             FLAG_HIGH_IMPORTANCE, // FairEmail
+            "Sent",
             "$MDNSent", // https://tools.ietf.org/html/rfc3503
             "$SubmitPending",
             "$Submitted",
