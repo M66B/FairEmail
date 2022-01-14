@@ -2261,13 +2261,14 @@ public class Log {
                 size += write(os, ex.getMessage() + "\r\n");
             }
 
-            size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n\r\n");
-
             ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
             size += write(os, "Connected=" + state.isConnected() + "\r\n");
             size += write(os, "Suitable=" + state.isSuitable() + "\r\n");
             size += write(os, "Unmetered=" + state.isUnmetered() + "\r\n");
-            size += write(os, "Roaming=" + state.isRoaming() + "\r\n");
+            size += write(os, "Roaming=" + state.isRoaming() + "\r\n\r\n");
+
+            size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
+            size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
             size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
         }
 
