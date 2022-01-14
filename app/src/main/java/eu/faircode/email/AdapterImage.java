@@ -132,6 +132,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             long id = args.getLong("id");
                             long mid = args.getLong("message");
 
+                            Long reload = null;
+
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
@@ -139,6 +141,13 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 EntityMessage message = db.message().getMessage(mid);
                                 if (message == null || message.uid == null)
                                     return null;
+
+                                EntityAccount account = db.account().getAccount(message.id);
+                                if (account == null)
+                                    return null;
+
+                                if (!"connected".equals(account.state))
+                                    reload = account.id;
 
                                 EntityAttachment attachment = db.attachment().getAttachment(id);
                                 if (attachment == null || attachment.progress != null || attachment.available)
@@ -151,7 +160,10 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 db.endTransaction();
                             }
 
-                            ServiceSynchronize.eval(context, "attachment");
+                            if (reload == null)
+                                ServiceSynchronize.eval(context, "image");
+                            else
+                                ServiceSynchronize.reload(context, reload, true, "image");
 
                             return null;
                         }

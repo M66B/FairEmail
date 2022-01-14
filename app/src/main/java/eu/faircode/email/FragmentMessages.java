@@ -5992,6 +5992,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
+                Long reload = null;
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -6007,6 +6009,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     EntityAccount account = db.account().getAccount(folder.account);
                     if (account == null)
                         return null;
+
+                    if (!"connected".equals(account.state))
+                        reload = account.id;
 
                     if (message.ui_unsnoozed)
                         db.message().setMessageUnsnoozed(message.id, false);
@@ -6034,7 +6039,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "expand");
+                if (reload == null)
+                    ServiceSynchronize.eval(context, "expand");
+                else
+                    ServiceSynchronize.reload(context, reload, true, "expand");
 
                 return null;
             }
