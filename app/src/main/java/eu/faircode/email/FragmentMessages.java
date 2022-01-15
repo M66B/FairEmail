@@ -6010,7 +6010,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (account == null)
                         return null;
 
-                    if (!"connected".equals(account.state))
+                    if (!"connected".equals(account.state) && !account.isTransient(context))
                         reload = account.id;
 
                     if (message.ui_unsnoozed)

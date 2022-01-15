@@ -305,7 +305,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         if (account == null)
                             return null;
 
-                        if (!"connected".equals(account.state))
+                        if (!"connected".equals(account.state) && !account.isTransient(context))
                             reload = account.id;
 
                         EntityAttachment attachment = db.attachment().getAttachment(id);

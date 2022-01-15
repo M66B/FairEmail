@@ -145,7 +145,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 if (account == null)
                                     return null;
 
-                                if (!"connected".equals(account.state))
+                                if (!"connected".equals(account.state) && !account.isTransient(context))
                                     reload = account.id;
 
                                 EntityAttachment attachment = db.attachment().getAttachment(id);
