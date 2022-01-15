@@ -284,13 +284,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         if (pm != null && !pm.isInteractive()) {
             Log.i("Stop with screen off");
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            boolean biometrics = prefs.getBoolean("biometrics", false);
-            String pin = prefs.getString("pin", null);
-            boolean autolock = prefs.getBoolean("autolock", true);
-            if (autolock && (biometrics || !TextUtils.isEmpty(pin))) {
+            if (Helper.shouldAutoLock(this)) {
                 Helper.clearAuthentication(this);
-                finish();
+                lock();
             }
         }
     }
@@ -371,11 +367,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     private void checkAuthentication(boolean auth) {
-        if (!this.getClass().equals(ActivityMain.class) &&
-                Helper.shouldAuthenticate(this, !auth)) {
-            finishAndRemoveTask();
-            setResult(RESULT_CANCELED);
-            finishAffinity();
+        if (this.getClass().equals(ActivityMain.class))
+            return;
+
+        if (Helper.shouldAuthenticate(this, !auth)) {
+            lock();
 
             if (auth) {
                 if (this instanceof ActivityWidget ||
@@ -391,8 +387,29 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     startActivity(main);
                 }
             }
+        } else {
+            if (!auth && Helper.shouldAutoLockNav(this))
+                getMainHandler().postDelayed(autoLockNav, Helper.AUTOLOCK_GRACE * 1000L);
         }
     }
+
+    private void lock() {
+        finishAndRemoveTask();
+        setResult(RESULT_CANCELED);
+        finishAffinity();
+    }
+
+    private final Runnable autoLockNav = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                if (Helper.willAuthenticate(ActivityBase.this))
+                    lock();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+    };
 
     private void processStreams(Intent intent) {
         intent.setClipData(null);
