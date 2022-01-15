@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build;
@@ -29,8 +30,12 @@ import android.text.Selection;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.util.AttributeSet;
+import android.view.ActionMode;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,14 +44,60 @@ import androidx.appcompat.widget.AppCompatTextView;
 public class FixedTextView extends AppCompatTextView {
     public FixedTextView(@NonNull Context context) {
         super(context);
+        init(context);
     }
 
     public FixedTextView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public FixedTextView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(Context context) {
+        setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                for (int i = 0; i < menu.size(); i++) {
+                    MenuItem item = menu.getItem(i);
+                    Intent intent = item.getIntent();
+                    if (intent != null) {
+                        item.setIntent(null);
+                        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                try {
+                                    context.startActivity(intent);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                }
+                                return true;
+                            }
+                        });
+                    }
+                }
+
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+            }
+        });
     }
 
     @Override
