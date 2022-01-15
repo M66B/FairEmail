@@ -5002,7 +5002,7 @@ public class FragmentCompose extends FragmentBase {
                         Log.i("Selected external identity=" + data.draft.identity);
                     }
 
-                    if (data.draft.revision == null) {
+                    if (data.draft.revision == null || data.draft.revisions == null) {
                         data.draft.revision = 1;
                         data.draft.revisions = 1;
                         db.message().setMessageRevision(data.draft.id, data.draft.revision);
