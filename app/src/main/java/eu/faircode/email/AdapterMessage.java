@@ -3222,8 +3222,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 List<String> attendee = new ArrayList<>();
                                 for (Attendee a : event.getAttendees()) {
                                     String email = a.getEmail();
-                                    if (!TextUtils.isEmpty(email))
+                                    if (!TextUtils.isEmpty(email)) {
+                                        email = email.replaceAll("\\r?\\n", "");
                                         attendee.add(email);
+                                    }
                                 }
 
                                 int status;
