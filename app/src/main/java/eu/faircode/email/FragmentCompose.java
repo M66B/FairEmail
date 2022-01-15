@@ -5080,6 +5080,15 @@ public class FragmentCompose extends FragmentBase {
             final String action = getArguments().getString("action");
             Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
 
+            FragmentActivity activity = getActivity();
+            if (activity != null) {
+                Intent intent = activity.getIntent();
+                if (intent != null) {
+                    intent.putExtra("id", data.draft.id);
+                    intent.putExtra("action", "edit");
+                }
+            }
+
             working = data.draft.id;
             encrypt = data.draft.ui_encrypt;
             invalidateOptionsMenu();
