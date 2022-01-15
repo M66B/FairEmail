@@ -372,7 +372,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     private void checkAuthentication(boolean auth) {
         if (!this.getClass().equals(ActivityMain.class) &&
-                Helper.shouldAuthenticate(this, false)) {
+                Helper.shouldAuthenticate(this, !auth)) {
             finishAndRemoveTask();
             setResult(RESULT_CANCELED);
             finishAffinity();
