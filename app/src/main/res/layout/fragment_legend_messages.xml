@@ -638,26 +638,26 @@
             app:layout_constraintTop_toBottomOf="@id/tvHide" />
 
         <eu.faircode.email.FixedImageView
-            android:id="@+id/ivRule"
+            android:id="@+id/ivJunk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_create_rule"
+            android:contentDescription="@string/title_legend_show_junk"
             android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvRule"
+            app:layout_constraintBottom_toBottomOf="@+id/tvJunk"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tvRule"
-            app:srcCompat="@drawable/twotone_filter_alt_24" />
+            app:layout_constraintTop_toTopOf="@id/tvJunk"
+            app:srcCompat="@drawable/twotone_report_24" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvRule"
+            android:id="@+id/tvJunk"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:minHeight="48dp"
-            android:text="@string/title_legend_create_rule"
+            android:text="@string/title_legend_show_junk"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivRule"
+            app:layout_constraintStart_toEndOf="@id/ivJunk"
             app:layout_constraintTop_toBottomOf="@id/tvDownload" />
 
         <eu.faircode.email.FixedImageView
@@ -681,7 +681,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivUnsubscribe"
-            app:layout_constraintTop_toBottomOf="@id/tvRule" />
+            app:layout_constraintTop_toBottomOf="@id/tvJunk" />
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/ivOriginal"
