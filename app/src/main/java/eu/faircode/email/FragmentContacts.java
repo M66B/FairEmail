@@ -213,8 +213,8 @@ public class FragmentContacts extends FragmentBase {
         } else if (itemId == R.id.menu_export) {
             onMenuVcard(true);
             return true;
-        } else if (itemId == R.id.menu_delete) {
-            onMenuDelete();
+        } else if (itemId == R.id.menu_delete_all) {
+            onMenuDeleteAll();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -242,7 +242,7 @@ public class FragmentContacts extends FragmentBase {
         fragment.show(getParentFragmentManager(), "messages:accounts");
     }
 
-    private void onMenuDelete() {
+    private void onMenuDeleteAll() {
         new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
     }
 

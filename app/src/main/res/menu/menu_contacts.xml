@@ -31,8 +31,8 @@
         android:title="@string/title_export_contacts" />
 
     <item
-        android:id="@+id/menu_delete"
+        android:id="@+id/menu_delete_all"
         android:icon="@drawable/twotone_delete_24"
-        android:title="@string/title_delete"
+        android:title="@string/title_delete_all"
         app:showAsAction="ifRoom" />
 </menu>
