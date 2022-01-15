@@ -2012,28 +2012,12 @@ public class Helper {
         return false;
     }
 
-    static boolean willAuthenticate(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long now = new Date().getTime();
-        long last_authentication = prefs.getLong("last_authentication", 0);
-        long biometrics_timeout = prefs.getInt("biometrics_timeout", 2) * 60 * 1000L;
-        return (last_authentication + biometrics_timeout < now);
-    }
-
     static boolean shouldAutoLock(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
         boolean autolock = prefs.getBoolean("autolock", true);
         return (autolock && (biometrics || !TextUtils.isEmpty(pin)));
-    }
-
-    static boolean shouldAutoLockNav(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean biometrics = prefs.getBoolean("biometrics", false);
-        String pin = prefs.getString("pin", null);
-        boolean autolock_nav = prefs.getBoolean("autolock_nav", false);
-        return (autolock_nav && (biometrics || !TextUtils.isEmpty(pin)));
     }
 
     static void authenticate(final FragmentActivity activity, final LifecycleOwner owner,

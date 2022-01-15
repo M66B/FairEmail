@@ -370,26 +370,24 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (this.getClass().equals(ActivityMain.class))
             return;
 
-        if (Helper.shouldAuthenticate(this, !auth)) {
-            lock();
+        if (!Helper.shouldAuthenticate(this, !auth))
+            return;
 
-            if (auth) {
-                if (this instanceof ActivityWidget ||
-                        this instanceof ActivityWidgetSync ||
-                        this instanceof ActivityWidgetUnified) {
-                    Toast.makeText(this, R.string.title_notification_redacted, Toast.LENGTH_LONG).show();
-                } else {
-                    Intent intent = getIntent();
-                    processStreams(intent);
-                    Intent main = new Intent(this, ActivityMain.class)
-                            .putExtra("intent", intent);
-                    main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(main);
-                }
+        lock();
+
+        if (auth) {
+            if (this instanceof ActivityWidget ||
+                    this instanceof ActivityWidgetSync ||
+                    this instanceof ActivityWidgetUnified) {
+                Toast.makeText(this, R.string.title_notification_redacted, Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = getIntent();
+                processStreams(intent);
+                Intent main = new Intent(this, ActivityMain.class)
+                        .putExtra("intent", intent);
+                main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(main);
             }
-        } else {
-            if (!auth && Helper.shouldAutoLockNav(this))
-                getMainHandler().postDelayed(autoLockNav, Helper.AUTOLOCK_GRACE * 1000L);
         }
     }
 
@@ -398,18 +396,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         setResult(RESULT_CANCELED);
         finishAffinity();
     }
-
-    private final Runnable autoLockNav = new Runnable() {
-        @Override
-        public void run() {
-            try {
-                if (Helper.willAuthenticate(ActivityBase.this))
-                    lock();
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-        }
-    };
 
     private void processStreams(Intent intent) {
         intent.setClipData(null);
