@@ -21,4 +21,11 @@ package eu.faircode.email;
 
 public class ObjectHolder<T> {
     public T value;
+
+    public ObjectHolder() {
+    }
+
+    public ObjectHolder(T init) {
+        this.value = init;
+    }
 }
