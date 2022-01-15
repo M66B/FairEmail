@@ -171,7 +171,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         Log.e(ex);
                     this.ex = ex;
                 } finally {
-                    wl.release();
+                    if (wl.isHeld())
+                        wl.release();
                 }
 
                 // Run on UI thread
