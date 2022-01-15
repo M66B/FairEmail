@@ -85,8 +85,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
 
             if (attachment.available) {
-                if (BuildConfig.DEBUG &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
                     try {
                         Drawable d = ImageHelper.getScaledDrawable(context,
                                 attachment.getFile(context), attachment.getMimeType(),
