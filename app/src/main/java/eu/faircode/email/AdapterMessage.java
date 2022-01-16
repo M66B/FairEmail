@@ -943,6 +943,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibHeaders.setOnClickListener(this);
+                ibHeaders.setOnLongClickListener(this);
                 ibPrint.setOnClickListener(this);
                 ibPin.setOnClickListener(this);
                 ibShare.setOnClickListener(this);
@@ -1045,6 +1046,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibHeaders.setOnClickListener(null);
+                ibHeaders.setOnLongClickListener(null);
                 ibPrint.setOnClickListener(null);
                 ibPin.setOnClickListener(null);
                 ibShare.setOnClickListener(null);
@@ -3755,6 +3757,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else if (id == R.id.ibTranslate) {
                 DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
                 fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
+                return true;
+            } else if (id == R.id.ibHeaders) {
+                onMenuShareHtml(message);
                 return true;
             } else if (id == R.id.ibFull) {
                 boolean full = properties.getValue("full", message.id);
