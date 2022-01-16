@@ -192,19 +192,24 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         };
 
-        boolean hasSearches = false;
         Button[] btn = new Button[]{btnSearch1, btnSearch2, btnSearch3};
-        for (int i = 1; i <= 3; i++) {
-            boolean has = prefs.contains("last_search" + i);
-            if (has) {
-                hasSearches = true;
-                String search = prefs.getString("last_search" + i, null);
-                btn[i - 1].setText(search);
-                btn[i - 1].setOnClickListener(onSearch);
-            }
-            btn[i - 1].setVisibility(has ? View.VISIBLE : View.GONE);
+
+        int searches = 0;
+        for (int i = 0; i < btn.length; i++)
+            if (prefs.contains("last_search" + (i + 1)))
+                searches++;
+
+        for (int i = 0; i < btn.length; i++) {
+            if (prefs.contains("last_search" + (i + 1))) {
+                String search = prefs.getString("last_search" + (i + 1), null);
+                btn[i].setText(search);
+                btn[i].setOnClickListener(onSearch);
+                btn[i].setVisibility(View.VISIBLE);
+            } else
+                btn[i].setVisibility(searches > 0 ? View.INVISIBLE : View.GONE);
         }
-        ibResetSearches.setVisibility(hasSearches ? View.VISIBLE : View.GONE);
+
+        ibResetSearches.setVisibility(searches > 0 ? View.VISIBLE : View.GONE);
 
         ibResetSearches.setOnClickListener(new View.OnClickListener() {
             @Override

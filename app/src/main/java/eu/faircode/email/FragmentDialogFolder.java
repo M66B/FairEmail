@@ -308,12 +308,14 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 else {
                     if (data.favorites != null && data.favorites.size() > 0) {
                         Button[] btn = new Button[]{btnFavorite1, btnFavorite2, btnFavorite3};
-                        for (int i = 0; i < data.favorites.size(); i++) {
-                            EntityFolder favorite = data.favorites.get(i);
-                            btn[i].setTag(favorite.id);
-                            btn[i].setText(favorite.getDisplayName(context));
-                            btn[i].setVisibility(View.VISIBLE);
-                        }
+                        for (int i = 0; i < btn.length; i++)
+                            if (i < data.favorites.size()) {
+                                EntityFolder favorite = data.favorites.get(i);
+                                btn[i].setTag(favorite.id);
+                                btn[i].setText(favorite.getDisplayName(context));
+                                btn[i].setVisibility(View.VISIBLE);
+                            } else
+                                btn[i].setVisibility(View.INVISIBLE);
 
                         ibResetFavorites.setVisibility(View.VISIBLE);
                     }
