@@ -20,17 +20,12 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.ActionMode;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.textclassifier.TextClassifier;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,46 +49,7 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     private void init(Context context) {
-        setCustomSelectionActionModeCallback(new ActionMode.Callback() {
-            @Override
-            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                return true;
-            }
-
-            @Override
-            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                for (int i = 0; i < menu.size(); i++) {
-                    MenuItem item = menu.getItem(i);
-                    Intent intent = item.getIntent();
-                    if (intent != null) {
-                        item.setIntent(null);
-                        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem item) {
-                                try {
-                                    context.startActivity(intent);
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                                }
-                                return true;
-                            }
-                        });
-                    }
-                }
-
-                return false;
-            }
-
-            @Override
-            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                return false;
-            }
-
-            @Override
-            public void onDestroyActionMode(ActionMode mode) {
-            }
-        });
+        setCustomSelectionActionModeCallback(Helper.getActionModeWrapper(context));
     }
 
     @Override

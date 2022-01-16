@@ -65,9 +65,11 @@ import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -1660,13 +1662,56 @@ public class Helper {
         }
     }
 
-    public static String toRoman(int value) {
+     static String toRoman(int value) {
         if (value < 0 || value >= 4000)
             return Integer.toString(value);
         return ROMAN_1000[value / 1000] +
                 ROMAN_100[(value % 1000) / 100] +
                 ROMAN_10[(value % 100) / 10] +
                 ROMAN_1[value % 10];
+    }
+
+    static ActionMode.Callback getActionModeWrapper(Context context){
+        return new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                for (int i = 0; i < menu.size(); i++) {
+                    MenuItem item = menu.getItem(i);
+                    Intent intent = item.getIntent();
+                    if (intent != null) {
+                        item.setIntent(null);
+                        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                try {
+                                    context.startActivity(intent);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                }
+                                return true;
+                            }
+                        });
+                    }
+                }
+
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+            }
+        };
     }
 
     // Files
