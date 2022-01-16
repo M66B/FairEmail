@@ -2,8 +2,14 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
+### [Next name](https://en.wikipedia.org/wiki/List_of_dinosaur_genera#E)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+### [Draconyx](https://en.wikipedia.org/wiki/Draconyx)
 
 ### 1.1811 - 2022-01-14
 
