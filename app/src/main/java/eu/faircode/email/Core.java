@@ -4439,6 +4439,9 @@ class Core {
         if (state.getNetworkState().isRoaming())
             return false;
 
+        if (imessage == null)
+            return false;
+
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null || message.ui_hide)
