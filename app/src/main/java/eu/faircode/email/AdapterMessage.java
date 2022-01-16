@@ -4067,6 +4067,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             int order = 0;
             popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_help, order++, R.string.title_setup_help);
+            if (Helper.hasValidFingerprint(context) || BuildConfig.DEBUG)
+                popupMenu.getMenu().add(Menu.NONE, R.string.menu_faq, order++, R.string.menu_faq);
             popupMenu.getMenu().add(Menu.NONE, R.string.menu_setup, order++, R.string.menu_setup);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, order++, R.string.title_clipboard_copy);
 
@@ -4076,6 +4078,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int itemId = item.getItemId();
                     if (itemId == R.string.title_setup_help) {
                         onHelp();
+                        return true;
+                    } else if (itemId == R.string.menu_faq) {
+                        Helper.view(context, Helper.getSupportUri(context), false);
                         return true;
                     } else if (itemId == R.string.menu_setup) {
                         onSettings();
