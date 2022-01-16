@@ -1106,9 +1106,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             .putExtra(Settings.EXTRA_CHANNEL_ID, EntityFolder.getNotificationChannelId(folder.id));
                     try {
                         context.startActivity(intent);
-                    } catch (ActivityNotFoundException ex) {
-                        Log.w(ex);
-                        Helper.reportNoViewer(context, intent);
+                    } catch (Throwable ex) {
+                        Helper.reportNoViewer(context, intent, ex);
                     }
                 }
 

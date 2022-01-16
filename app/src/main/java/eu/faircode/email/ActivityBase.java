@@ -460,12 +460,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.i("Start intent=" + intent);
             Log.logExtras(intent);
             super.startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Log.w(ex);
-            Helper.reportNoViewer(this, intent);
         } catch (Throwable ex) {
-            Log.e(ex);
-            ToastEx.makeText(this, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+            Helper.reportNoViewer(this, intent, ex);
         }
     }
 
@@ -475,15 +471,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.i("Start intent=" + intent + " request=" + requestCode);
             Log.logExtras(intent);
             super.startActivityForResult(intent, requestCode);
-        } catch (ActivityNotFoundException ex) {
-            Log.w(ex);
-            if (Helper.isTnef(intent.getType(), null))
-                Helper.viewFAQ(this, 155);
-            else
-                Helper.reportNoViewer(this, intent);
         } catch (Throwable ex) {
-            Log.e(ex);
-            ToastEx.makeText(this, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+            Helper.reportNoViewer(this, intent, ex);
         }
     }
 

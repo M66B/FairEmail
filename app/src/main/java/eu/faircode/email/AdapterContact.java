@@ -300,9 +300,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 private void onActionShare() {
                     try {
                         context.startActivity(share);
-                    } catch (ActivityNotFoundException ex) {
-                        Log.w(ex);
-                        Helper.reportNoViewer(context, share);
+                    } catch (Throwable ex) {
+                        Helper.reportNoViewer(context, share, ex);
                     }
                 }
 

@@ -714,7 +714,7 @@ public class Helper {
                 if (isTnef(type, null))
                     viewFAQ(context, 155);
                 else
-                    reportNoViewer(context, intent);
+                    reportNoViewer(context, intent, null);
             else
                 context.startActivity(intent);
         } else
@@ -741,9 +741,8 @@ public class Helper {
         else
             try {
                 context.startActivity(intent);
-            } catch (ActivityNotFoundException ex) {
-                Log.w(ex);
-                reportNoViewer(context, intent);
+            } catch (Throwable ex) {
+                reportNoViewer(context, intent, ex);
             }
     }
 
@@ -774,12 +773,8 @@ public class Helper {
                 if (task)
                     view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(view);
-            } catch (ActivityNotFoundException ex) {
-                Log.w(ex);
-                reportNoViewer(context, uri);
             } catch (Throwable ex) {
-                Log.e(ex);
-                ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                reportNoViewer(context, uri, ex);
             }
         } else {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -807,12 +802,8 @@ public class Helper {
             CustomTabsIntent customTabsIntent = builder.build();
             try {
                 customTabsIntent.launchUrl(context, uri);
-            } catch (ActivityNotFoundException ex) {
-                Log.w(ex);
-                reportNoViewer(context, uri);
             } catch (Throwable ex) {
-                Log.e(ex);
-                ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                reportNoViewer(context, uri, ex);
             }
         }
     }
@@ -1145,15 +1136,28 @@ public class Helper {
         }
     }
 
-    static void reportNoViewer(Context context, Uri uri) {
-        reportNoViewer(context, new Intent().setData(uri));
+    static void reportNoViewer(Context context, @NonNull Uri uri, @Nullable Throwable ex) {
+        reportNoViewer(context, new Intent().setData(uri), ex);
     }
 
-    static void reportNoViewer(Context context, Intent intent) {
+    static void reportNoViewer(Context context, @NonNull Intent intent, @Nullable Throwable ex) {
+        if (ex != null) {
+            if (ex instanceof ActivityNotFoundException && BuildConfig.PLAY_STORE_RELEASE)
+                Log.w(ex);
+            else
+                Log.e(ex);
+        }
+
+        if (Helper.isTnef(intent.getType(), null)) {
+            Helper.viewFAQ(context, 155);
+            return;
+        }
+
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_no_viewer, null);
         TextView tvName = dview.findViewById(R.id.tvName);
         TextView tvFullName = dview.findViewById(R.id.tvFullName);
         TextView tvType = dview.findViewById(R.id.tvType);
+        TextView tvException = dview.findViewById(R.id.tvException);
 
         String title = intent.getStringExtra(Intent.EXTRA_TITLE);
         Uri data = intent.getData();
@@ -1166,6 +1170,9 @@ public class Helper {
         tvFullName.setVisibility(title == null ? View.GONE : View.VISIBLE);
 
         tvType.setText(type);
+
+        tvException.setText(ex == null ? null : ex.toString());
+        tvException.setVisibility(ex == null ? View.GONE : View.VISIBLE);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dview)
@@ -1662,7 +1669,7 @@ public class Helper {
         }
     }
 
-     static String toRoman(int value) {
+    static String toRoman(int value) {
         if (value < 0 || value >= 4000)
             return Integer.toString(value);
         return ROMAN_1000[value / 1000] +
@@ -1671,7 +1678,7 @@ public class Helper {
                 ROMAN_1[value % 10];
     }
 
-    static ActionMode.Callback getActionModeWrapper(Context context){
+    static ActionMode.Callback getActionModeWrapper(Context context) {
         return new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -1691,8 +1698,7 @@ public class Helper {
                                 try {
                                     context.startActivity(intent);
                                 } catch (Throwable ex) {
-                                    Log.e(ex);
-                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                    reportNoViewer(context, intent, ex);
                                 }
                                 return true;
                             }

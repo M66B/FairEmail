@@ -2299,9 +2299,8 @@ public class FragmentCompose extends FragmentBase {
         } else
             try {
                 startActivityForResult(intent, REQUEST_RECORD_AUDIO);
-            } catch (SecurityException ex) {
-                Log.w(ex);
-                Helper.reportNoViewer(getContext(), intent);
+            } catch (Throwable ex) {
+                Helper.reportNoViewer(getContext(), intent, ex);
             }
     }
 
@@ -2771,12 +2770,9 @@ public class FragmentCompose extends FragmentBase {
                     photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
-                } catch (SecurityException ex) {
-                    Log.w(ex);
-                    Helper.reportNoViewer(getContext(), intent);
                 } catch (Throwable ex) {
-                    // / java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
+                    Helper.reportNoViewer(getContext(), intent, ex);
                 }
             }
         } else {

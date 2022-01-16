@@ -501,9 +501,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             .putExtra(Settings.EXTRA_CHANNEL_ID, EntityAccount.getNotificationChannelId(account.id));
                     try {
                         context.startActivity(intent);
-                    } catch (ActivityNotFoundException ex) {
-                        Log.w(ex);
-                        Helper.reportNoViewer(context, intent);
+                    } catch (Throwable ex) {
+                        Helper.reportNoViewer(context, intent, ex);
                     }
                 }
 

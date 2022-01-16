@@ -173,10 +173,8 @@ public class FragmentGmail extends FragmentBase {
                             null,
                             null);
                     PackageManager pm = getContext().getPackageManager();
-                    if (intent.resolveActivity(pm) == null) { // system whitelisted
+                    if (intent.resolveActivity(pm) == null) // system whitelisted
                         Log.e("newChooseAccountIntent unavailable");
-                        Helper.reportNoViewer(getContext(), intent);
-                    }
                     startActivityForResult(intent, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
                 } catch (Throwable ex) {
                     if (ex instanceof IllegalArgumentException)

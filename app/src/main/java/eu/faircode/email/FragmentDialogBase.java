@@ -208,9 +208,8 @@ public class FragmentDialogBase extends DialogFragment {
     public void startActivity(Intent intent) {
         try {
             super.startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Log.w(ex);
-            Helper.reportNoViewer(getContext(), intent);
+        } catch (Throwable ex) {
+            Helper.reportNoViewer(getContext(), intent, ex);
         }
     }
 
@@ -218,9 +217,8 @@ public class FragmentDialogBase extends DialogFragment {
     public void startActivityForResult(Intent intent, int requestCode) {
         try {
             super.startActivityForResult(intent, requestCode);
-        } catch (ActivityNotFoundException ex) {
-            Log.w(ex);
-            Helper.reportNoViewer(getContext(), intent);
+        } catch (Throwable ex) {
+            Helper.reportNoViewer(getContext(), intent, ex);
         }
     }
 }

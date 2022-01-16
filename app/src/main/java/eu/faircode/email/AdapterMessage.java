@@ -3385,9 +3385,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (result instanceof Intent) {
                         try {
                             context.startActivity((Intent) result);
-                        } catch (ActivityNotFoundException ex) {
-                            Log.w(ex);
-                            Helper.reportNoViewer(context, (Intent) result);
+                        } catch (Throwable ex) {
+                            Helper.reportNoViewer(context, (Intent) result, ex);
                         }
                     }
                 }
@@ -3890,9 +3889,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Intent intent = new Intent(Intent.ACTION_VIEW, lookupUri);
                 try {
                     context.startActivity(intent);
-                } catch (ActivityNotFoundException ex) {
-                    Log.w(ex);
-                    Helper.reportNoViewer(context, intent);
+                } catch (Throwable ex) {
+                    Helper.reportNoViewer(context, intent, ex);
                 }
             }
         }
@@ -4255,9 +4253,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
                     try {
                         context.startActivity(intent);
-                    } catch (ActivityNotFoundException ex) {
-                        Log.w(ex);
-                        Helper.reportNoViewer(context, intent);
+                    } catch (Throwable ex) {
+                        Helper.reportNoViewer(context, intent, ex);
                     }
                 }
 
@@ -4336,11 +4333,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             try {
                 parentFragment.startActivityForResult(
                         Helper.getChooser(context, pick), FragmentMessages.REQUEST_PICK_CONTACT);
-            } catch (ActivityNotFoundException ex) {
-                Log.w(ex);
-                Helper.reportNoViewer(context, pick);
             } catch (Throwable ex) {
-                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
+                Helper.reportNoViewer(context, pick, ex);
             }
         }
 
@@ -5265,7 +5259,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
 
             else
-                Helper.reportNoViewer(context, uri);
+                Helper.reportNoViewer(context, uri, null);
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
@@ -5638,12 +5632,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     EntityLog.log(context, "Sharing " + intent +
                             " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
 
-                    PackageManager pm = context.getPackageManager();
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R &&
-                            intent.resolveActivity(pm) == null) // system whitelisted
-                        Helper.reportNoViewer(context, intent);
-                    else
-                        context.startActivity(intent);
+                    context.startActivity(intent);
                 }
 
                 @Override

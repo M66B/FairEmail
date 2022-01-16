@@ -157,12 +157,8 @@ public class FragmentBase extends Fragment {
             Log.i("Start intent=" + intent);
             Log.logExtras(intent);
             super.startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Log.w(ex);
-            Helper.reportNoViewer(getContext(), intent);
         } catch (Throwable ex) {
-            Log.e(ex);
-            ToastEx.makeText(getContext(), Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+            Helper.reportNoViewer(getContext(), intent, ex);
         }
     }
 
@@ -172,12 +168,8 @@ public class FragmentBase extends Fragment {
             Log.i("Start intent=" + intent + " request=" + requestCode);
             Log.logExtras(intent);
             super.startActivityForResult(intent, requestCode);
-        } catch (ActivityNotFoundException ex) {
-            Log.w(ex);
-            Helper.reportNoViewer(getContext(), intent);
         } catch (Throwable ex) {
-            Log.e(ex);
-            ToastEx.makeText(getContext(), Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+            Helper.reportNoViewer(getContext(), intent, ex);
         }
     }
 

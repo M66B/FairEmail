@@ -639,8 +639,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 try {
                     getContext().startActivity(app);
                 } catch (Throwable ex) {
-                    Log.w(ex);
-                    Helper.reportNoViewer(getContext(), app);
+                    Helper.reportNoViewer(getContext(), app, ex);
                 }
             }
         });
