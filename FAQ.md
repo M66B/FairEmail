@@ -4433,7 +4433,7 @@ Related questions:
 * The Play store version does not support [Gravatars](https://gravatar.com/), see [here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-85226179) for the reason
 * The Play store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in this Android version of Amazon
 * The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases) and is updated more frequently
-* The GitHub version has some different links and some options have a different default values (more geared to advanced users)
+* The GitHub version has some different links, some more options (like sharing the HTML of a message) and some different default values (more geared to advanced users)
 * The F-Droid build does not support OAuth, see [this FAQ](#user-content-faq147) about why not
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
 * The F-Droid build is supported only if the version number is the same as the the version number of the latest GitHub version, see also [this FAQ](#user-content-faq147)
