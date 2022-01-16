@@ -388,6 +388,7 @@
         name="web.de"
         domain="web\\.de"
         keepalive="12"
+        documentation="Please check if &lt;a href=&quot;https://hilfe.web.de/email/einstellungen/pop3-imap-einschalten.html&quot;&gt;IMAP is enabled&lt;/a&gt;"
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
         requiresEnabling="true"
         user="local">
@@ -417,6 +418,7 @@
         name="T-Online.de"
         appPassword="true"
         domain="magenta\\.de,t-online\\.de"
+        documentation="Für T-Online müssen Sie ein App-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-adresse-passwoerter-und-sicherheit/passwort-fuer-e-mail-programme-einrichten&quot;&gt;siehe hier&lt;/a&gt;."
         link="https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-server-e-mail-protokolle-und-e-mail-einrichtung/imap/einrichtung-imap">
         <imap
             host="secureimap.t-online.de"
