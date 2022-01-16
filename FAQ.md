@@ -41,9 +41,11 @@ For authorizing:
 * Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
 * Apple iCloud, see [question 148](#user-content-faq148) ([German](https://support.apple.com/de-de/HT204397))
 * Free.fr, see [question 157](#user-content-faq157)
-* Posteo: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) isn't enabled
+* Posteo: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) ([German](https://posteo.de/hilfe/zusaetzlichen-postfachschutz-deaktivieren)) isn't enabled
 * Web.de: please check if [IMAP is enabled](https://support.gmx.com/pop-imap/toggle.html) ([German](https://hilfe.gmx.net/pop-imap/einschalten.html))
-* Ionos (1und1): please make sure you use [the email password](https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-11-ionos-aendern/) and not your account password
+* GMX: please check if [IMAP is enabled](https://support.gmx.com/pop-imap/toggle.html) ([German](https://hilfe.gmx.net/pop-imap/einschalten.html))
+* T-online.de: please make sure you use [an email password](https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-adresse-passwoerter-und-sicherheit/passwort-fuer-e-mail-programme-einrichten) (German) and not your account password
+* Ionos (1und1): please make sure you use [an email password](https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-11-ionos-aendern/) (German) and not your account password
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
