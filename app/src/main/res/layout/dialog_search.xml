@@ -130,58 +130,46 @@
             <requestFocus />
         </eu.faircode.email.TextViewAutoCompleteAction>
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvSearch1"
+        <Button
+            android:id="@+id/btnSearch1"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:ellipsize="end"
             android:padding="6dp"
             android:singleLine="true"
             android:text="search1"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tvSearch2"
+            app:layout_constraintEnd_toStartOf="@+id/btnSearch2"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etQuery" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvSearch2"
+        <Button
+            android:id="@+id/btnSearch2"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:ellipsize="end"
             android:padding="6dp"
             android:singleLine="true"
             android:text="search2"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tvSearch3"
+            app:layout_constraintEnd_toStartOf="@+id/btnSearch3"
             app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tvSearch1"
+            app:layout_constraintStart_toEndOf="@id/btnSearch1"
             app:layout_constraintTop_toBottomOf="@id/etQuery" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvSearch3"
+        <Button
+            android:id="@+id/btnSearch3"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:ellipsize="end"
             android:padding="6dp"
             android:singleLine="true"
             android:text="search3"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/ibResetSearches"
             app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tvSearch2"
+            app:layout_constraintStart_toEndOf="@id/btnSearch2"
             app:layout_constraintTop_toBottomOf="@id/etQuery" />
 
         <eu.faircode.email.FixedImageButton
@@ -204,7 +192,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSearch1" />
+            app:layout_constraintTop_toBottomOf="@id/btnSearch1" />
 
         <eu.faircode.email.FixedImageButton
             android:id="@+id/ibMore"

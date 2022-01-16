@@ -85,9 +85,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
         TextViewAutoCompleteAction etQuery = dview.findViewById(R.id.etQuery);
-        TextView tvSearch1 = dview.findViewById(R.id.tvSearch1);
-        TextView tvSearch2 = dview.findViewById(R.id.tvSearch2);
-        TextView tvSearch3 = dview.findViewById(R.id.tvSearch3);
+        Button btnSearch1 = dview.findViewById(R.id.btnSearch1);
+        Button btnSearch2 = dview.findViewById(R.id.btnSearch2);
+        Button btnSearch3 = dview.findViewById(R.id.btnSearch3);
         ImageButton ibResetSearches = dview.findViewById(R.id.ibResetSearches);
 
         ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
@@ -193,16 +193,16 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         };
 
         boolean hasSearches = false;
-        TextView[] views = new TextView[]{tvSearch1, tvSearch2, tvSearch3};
+        Button[] btn = new Button[]{btnSearch1, btnSearch2, btnSearch3};
         for (int i = 1; i <= 3; i++) {
             boolean has = prefs.contains("last_search" + i);
             if (has) {
                 hasSearches = true;
                 String search = prefs.getString("last_search" + i, null);
-                views[i - 1].setText(search);
-                views[i - 1].setOnClickListener(onSearch);
+                btn[i - 1].setText(search);
+                btn[i - 1].setOnClickListener(onSearch);
             }
-            views[i - 1].setVisibility(has ? View.VISIBLE : View.GONE);
+            btn[i - 1].setVisibility(has ? View.VISIBLE : View.GONE);
         }
         ibResetSearches.setVisibility(hasSearches ? View.VISIBLE : View.GONE);
 
@@ -212,7 +212,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 SharedPreferences.Editor editor = prefs.edit();
                 for (int i = 1; i <= 3; i++) {
                     editor.remove("last_search" + i);
-                    views[i - 1].setVisibility(View.GONE);
+                    btn[i - 1].setVisibility(View.GONE);
                 }
                 editor.apply();
                 ibResetSearches.setVisibility(View.GONE);
