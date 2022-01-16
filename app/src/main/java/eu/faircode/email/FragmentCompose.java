@@ -5256,7 +5256,6 @@ public class FragmentCompose extends FragmentBase {
                                     @Override
                                     public void run() {
                                         try {
-
                                             boolean image_dialog = prefs.getBoolean("image_dialog", true);
                                             if (image_dialog) {
                                                 Helper.hideKeyboard(view);
