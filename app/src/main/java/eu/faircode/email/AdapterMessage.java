@@ -4066,11 +4066,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibError);
 
             int order = 0;
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_help, order++, R.string.title_setup_help);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_help, order++, R.string.title_setup_help).
+                    setIcon(R.drawable.twotone_text_snippet_24);
             if (Helper.hasValidFingerprint(context) || BuildConfig.DEBUG)
-                popupMenu.getMenu().add(Menu.NONE, R.string.menu_faq, order++, R.string.menu_faq);
-            popupMenu.getMenu().add(Menu.NONE, R.string.menu_setup, order++, R.string.menu_setup);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, order++, R.string.title_clipboard_copy);
+                popupMenu.getMenu().add(Menu.NONE, R.string.menu_faq, order++, R.string.menu_faq)
+                        .setIcon(R.drawable.twotone_question_answer_24);
+            popupMenu.getMenu().add(Menu.NONE, R.string.menu_setup, order++, R.string.menu_setup)
+                    .setIcon(R.drawable.twotone_settings_24);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, order++, R.string.title_clipboard_copy)
+                    .setIcon(R.drawable.twotone_file_copy_24);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -4122,6 +4126,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                 }
             });
+
+            popupMenu.insertIcons(context);
 
             popupMenu.show();
         }
