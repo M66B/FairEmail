@@ -253,6 +253,22 @@ class Core {
                             TupleOperationEx next = ops.get(j);
 
                             switch (op.name) {
+                                case EntityOperation.SEEN:
+                                case EntityOperation.FLAG:
+                                    if (group &&
+                                            message.uid != null &&
+                                            op.name.equals(next.name) &&
+                                            account.protocol == EntityAccount.TYPE_IMAP) {
+                                        JSONArray jnext = new JSONArray(next.args);
+                                        // Same flag
+                                        if (jargs.getBoolean(0) == jnext.getBoolean(0)) {
+                                            EntityMessage m = db.message().getMessage(next.message);
+                                            if (m != null && m.uid != null)
+                                                similar.put(next, m);
+                                        }
+                                    }
+                                    break;
+
                                 case EntityOperation.ADD:
                                     // Same message
                                     if (Objects.equals(op.message, next.message) &&
@@ -404,11 +420,11 @@ class Core {
 
                             switch (op.name) {
                                 case EntityOperation.SEEN:
-                                    onSeen(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    onSetFlag(context, jargs, folder, messages, (IMAPFolder) ifolder, Flags.Flag.SEEN);
                                     break;
 
                                 case EntityOperation.FLAG:
-                                    onFlag(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    onSetFlag(context, jargs, folder, messages, (IMAPFolder) ifolder, Flags.Flag.FLAGGED);
                                     break;
 
                                 case EntityOperation.ANSWERED:
@@ -840,30 +856,60 @@ class Core {
         return null;
     }
 
-    private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
+    private static void onSetFlag(Context context, JSONArray jargs, EntityFolder folder, List<EntityMessage> messages, IMAPFolder ifolder, Flags.Flag flag) throws MessagingException, JSONException {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
+
+        if (flag != Flags.Flag.SEEN && flag != Flags.Flag.FLAGGED)
+            throw new IllegalArgumentException("Invalid flag=" + flag);
 
         if (folder.read_only)
             return;
 
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
-            db.message().setMessageSeen(message.id, false);
-            db.message().setMessageUiSeen(message.id, false);
+        if (!ifolder.getPermanentFlags().contains(flag)) {
+            for (EntityMessage message : messages)
+                if (flag == Flags.Flag.SEEN) {
+                    db.message().setMessageSeen(message.id, false);
+                    db.message().setMessageUiSeen(message.id, false);
+                } else if (flag == Flags.Flag.FLAGGED) {
+                    db.message().setMessageFlagged(message.id, false);
+                    db.message().setMessageUiFlagged(message.id, false, null);
+                }
             return;
         }
 
-        boolean seen = jargs.getBoolean(0);
-        if (message.seen.equals(seen))
+        List<Long> uids = new ArrayList<>();
+        boolean set = jargs.getBoolean(0);
+        for (EntityMessage message : messages) {
+            if (message.uid == null)
+                if (messages.size() == 1)
+                    throw new IllegalArgumentException("Set flag: uid missing");
+                else
+                    throw new MessagingException("Set flag: uid missing");
+            if (flag == Flags.Flag.SEEN && !message.seen.equals(set))
+                uids.add(message.uid);
+            else if (flag == Flags.Flag.FLAGGED && !message.flagged.equals(set))
+                uids.add(message.uid);
+        }
+
+        if (uids.size() == 0)
             return;
 
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
+        Message[] imessages = ifolder.getMessagesByUID(Helper.toLongArray(uids));
+        for (Message imessage : imessages)
+            if (imessage == null)
+                if (messages.size() == 1)
+                    throw new MessageRemovedException();
+                else
+                    throw new MessagingException("Set flag: message missing");
 
-        imessage.setFlag(Flags.Flag.SEEN, seen);
+        ifolder.setFlags(imessages, new Flags(flag), set);
 
-        db.message().setMessageSeen(message.id, seen);
+        for (EntityMessage message : messages)
+            if (flag == Flags.Flag.SEEN && !message.seen.equals(set))
+                db.message().setMessageSeen(message.id, set);
+            else if (flag == Flags.Flag.FLAGGED && !message.flagged.equals(set))
+                db.message().setMessageFlagged(message.id, set);
     }
 
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws JSONException {
@@ -872,34 +918,6 @@ class Core {
 
         boolean seen = jargs.getBoolean(0);
         db.message().setMessageUiSeen(message.id, seen);
-    }
-
-    private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
-        // Star/unstar message
-        DB db = DB.getInstance(context);
-
-        if (folder.read_only)
-            return;
-
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
-            db.message().setMessageFlagged(message.id, false);
-            db.message().setMessageUiFlagged(message.id, false, null);
-            return;
-        }
-
-        boolean flagged = jargs.getBoolean(0);
-        if (message.flagged.equals(flagged))
-            return;
-
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
-
-        imessage.setFlag(Flags.Flag.FLAGGED, flagged);
-        if (imessage instanceof GmailMessage)
-            ((GmailMessage) imessage).setLabels(new String[]{"\\Starred"}, flagged);
-
-        db.message().setMessageFlagged(message.id, flagged);
     }
 
     private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws MessagingException, JSONException {
