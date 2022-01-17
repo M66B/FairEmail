@@ -1068,9 +1068,6 @@ public class Helper {
 
     static boolean isStaminaEnabled(Context context) {
         // https://dontkillmyapp.com/sony
-        if (BuildConfig.DEBUG)
-            return true;
-
         if (!isSony())
             return false;
 

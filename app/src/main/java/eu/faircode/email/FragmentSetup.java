@@ -700,7 +700,7 @@ public class FragmentSetup extends FragmentBase {
         tvDoze12.setVisibility(Helper.isOptimizing12(getContext()) ? View.VISIBLE : View.GONE);
 
         grpInexactAlarms.setVisibility(
-                !AlarmManagerCompatEx.canScheduleExactAlarms(getContext()) || BuildConfig.DEBUG
+                !AlarmManagerCompatEx.canScheduleExactAlarms(getContext())
                         ? View.VISIBLE : View.GONE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
