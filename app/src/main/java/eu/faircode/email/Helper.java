@@ -2225,7 +2225,32 @@ public class Helper {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     if (hasFocus)
-                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                        try {
+                            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            /*
+                                java.lang.IllegalArgumentException: View=DecorView@f197613[ActivityMain] not attached to window manager
+                                        at android.view.WindowManagerGlobal.findViewLocked(WindowManagerGlobal.java:604)
+                                        at android.view.WindowManagerGlobal.updateViewLayout(WindowManagerGlobal.java:493)
+                                        at android.view.WindowManagerImpl.updateViewLayout(WindowManagerImpl.java:121)
+                                        at android.app.Dialog.onWindowAttributesChanged(Dialog.java:1072)
+                                        at androidx.appcompat.view.WindowCallbackWrapper.onWindowAttributesChanged(WindowCallbackWrapper:114)
+                                        at android.view.Window.dispatchWindowAttributesChanged(Window.java:1236)
+                                        at com.android.internal.policy.PhoneWindow.dispatchWindowAttributesChanged(PhoneWindow.java:3229)
+                                        at android.view.Window.setSoftInputMode(Window.java:1123)
+                                        at eu.faircode.email.Helper$15.onFocusChange(Helper:2169)
+                                        at android.view.View.onFocusChanged(View.java:8828)
+                                        at android.widget.TextView.onFocusChanged(TextView.java:12091)
+                                        at android.widget.EditText.onFocusChanged(EditText.java:248)
+                                        at android.view.View.handleFocusGainInternal(View.java:8498)
+                                        at android.view.View.requestFocusNoSearch(View.java:14103)
+                                        at android.view.View.requestFocus(View.java:14077)
+                                        at android.view.View.requestFocus(View.java:14044)
+                                        at android.view.View.requestFocus(View.java:13986)
+                                        at eu.faircode.email.Helper$16.run(Helper:2187)
+                             */
+                        }
                 }
             });
 
