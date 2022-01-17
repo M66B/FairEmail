@@ -2,9 +2,9 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
-### [Next name](https://en.wikipedia.org/wiki/List_of_dinosaur_genera#E)
+### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
-### Next version
+### 1.1812 - 2022-01-17
 
 * Small improvements and minor bug fixes
 * Updated translations
