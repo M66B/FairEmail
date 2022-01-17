@@ -141,7 +141,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 if (message == null || message.uid == null)
                                     return null;
 
-                                EntityAccount account = db.account().getAccount(message.id);
+                                EntityAccount account = db.account().getAccount(message.account);
                                 if (account == null)
                                     return null;
 
