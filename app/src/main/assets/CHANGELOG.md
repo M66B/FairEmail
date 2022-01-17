@@ -4,6 +4,11 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
+### 1.1813 - 2022-01-17
+
+* Fixed downloading attachments on demand
+* Small improvements and minor bug fixes
+
 ### 1.1812 - 2022-01-17
 
 * Small improvements and minor bug fixes
