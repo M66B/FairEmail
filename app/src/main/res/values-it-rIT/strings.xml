@@ -296,6 +296,7 @@
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
     <string name="title_advanced_subscriptions">Gestisci sottoscrizioni alla cartella</string>
     <string name="title_advanced_check_authentication">Verifica l\'autenticazione del messaggio</string>
+    <string name="title_advanced_check_tls">Controlla il transport layer security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_blocklist">Controlla se il nome del dominio del mittente è in una lista di blocco dello spam</string>
@@ -596,6 +597,7 @@
     <string name="title_advanced_sync_folders_hint">Disabilitarlo ridurrà in qualche modo l\'uso dei dati e della batteria, ma disabiliterà anche l\'aggiornamento dell\'elenco delle cartelle</string>
     <string name="title_advanced_poll_folders_hint">Sincronizza periodicamente l\'elenco di cartelle oltre alla connessione a un profilo</string>
     <string name="title_advanced_check_authentication_hint">Questo controllerà i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguita dal server email</string>
+    <string name="title_advanced_check_tls_hint">Ciò mostrerà uno scudo verde solo se un messaggio è stato trasportato in modo sicuro da tutti i server</string>
     <string name="title_advanced_check_reply_hint">Questo verificherà se il nome del dominio del mittente e l\'indirizzo di risposta sono uguali</string>
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
@@ -631,6 +633,7 @@
     <string name="title_advanced_preview_issue">Lo scorrimento può esser lento per un bug in alcune versioni di Android quando il numero di righe è maggiore di uno</string>
     <string name="title_advanced_overview_mode_hint">Questo può risultare in font molto piccoli</string>
     <string name="title_advanced_override_width_hint">Questo può restringere i messaggi, ma anche sembrare strano</string>
+    <string name="title_advanced_monospaced_pre_hint">I messaggi solo di testo semplice saranno considerati come preformattati</string>
     <string name="title_advanced_placeholders_hint">Questo si applica solo ai messaggi riformattati</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
@@ -1297,6 +1300,7 @@
     <string name="title_rule_attachments">Ha allegati</string>
     <string name="title_rule_header">L\'intestazione contiene</string>
     <string name="title_rule_body">Il testo contiene</string>
+    <string name="title_rule_skip_quotes">Salta testo citato</string>
     <string name="title_rule_body_remark">Usare questa condizione scaricherà sempre il testo del messaggio, il che potrebbe rallentare la sincronizzazione dell\'elenco dei messaggi</string>
     <string name="title_rule_time_abs">Tempo assoluto (di ricezione) tra</string>
     <string name="title_rule_time_after">Ricevuto dopo</string>

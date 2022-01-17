@@ -958,6 +958,7 @@
     <string name="title_copy_to">Copiază în &#8230;</string>
     <string name="title_subscribe">Abonare</string>
     <string name="title_delete">Şterge</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Ștergeți tot</string>
     <string name="title_more">Mai mult</string>
     <string name="title_less">Mai puțin</string>
     <string name="title_spam">Spam</string>

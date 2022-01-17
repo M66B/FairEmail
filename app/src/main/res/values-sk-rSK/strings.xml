@@ -969,6 +969,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_copy_to">Kopírovať do &#8230;</string>
     <string name="title_subscribe">Odoberať</string>
     <string name="title_delete">Odstrániť</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Vymazať všetko</string>
     <string name="title_more">Viac</string>
     <string name="title_less">Menej</string>
     <string name="title_spam">Označiť za nevyžiadanú</string>

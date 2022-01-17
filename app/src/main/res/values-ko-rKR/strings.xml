@@ -419,6 +419,7 @@
     <string name="title_copy_to">&#8230;으로 복사</string>
     <string name="title_subscribe">구독</string>
     <string name="title_delete">삭제</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">모두 삭제</string>
     <string name="title_more">더보기</string>
     <string name="title_spam">스팸</string>
     <string name="title_move">이동</string>

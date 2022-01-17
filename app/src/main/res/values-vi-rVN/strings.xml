@@ -937,6 +937,7 @@
     <string name="title_copy_to">Sao chép vào &#8230;</string>
     <string name="title_subscribe">Đăng ký</string>
     <string name="title_delete">Xoá</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Xóa tất cả</string>
     <string name="title_more">Thêm</string>
     <string name="title_less">Ít hơn</string>
     <string name="title_spam">Thư rác</string>

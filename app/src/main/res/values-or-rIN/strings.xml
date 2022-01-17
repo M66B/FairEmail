@@ -91,6 +91,7 @@
     <string name="title_setup_alarm_12">ଆପ୍ କାମ କରିବ ନାହିଁ</string>
     <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
     <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_inbox">ଇନବକ୍ସ କୁ ଯାଆନ୍ତୁ</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
     <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
@@ -293,6 +294,8 @@
     <string name="title_hide_folder">ଫୋଲ୍ଡର୍ ଲୁଚାନ୍ତୁ</string>
     <string name="title_months">ମାସ</string>
     <string name="title_months_all">ସମସ୍ତ</string>
+    <string name="title_folder_inbox">ଇନବକ୍ସ</string>
+    <string name="title_folder_outbox">ଆଉଟବକ୍ସ</string>
     <string name="title_folder_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_folder_system">ସିଷ୍ଟମ୍</string>
     <string name="title_filters_active">ଗୋଟିଏ କିମ୍ବା ଅଧିକ ଶୋଧକ ସକ୍ରିୟ</string>
@@ -307,6 +310,7 @@
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_delete">ବିଲୋପ</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">ସମସ୍ତ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_more">ଅଧିକ</string>
     <string name="title_less">କମ୍</string>
     <string name="title_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
@@ -411,6 +415,7 @@
     <string name="title_answer_reply">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
     <string name="title_answer_name">ଟେମ୍ପଲେଟ୍ ନାମ</string>
     <string name="title_answer_standard">ଡିଫଲ୍ଟ</string>
+    <string name="title_answer_favorite">ପସନ୍ଦିତା</string>
     <string name="title_answer_receipt">ପଠନ ରସିଦ ଭାବରେ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_answer_placeholder_name">ପ୍ରେରକଙ୍କ ସମ୍ପୂର୍ଣ୍ଣ ନାମ</string>
     <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
@@ -442,6 +447,8 @@
     <string name="title_legend_section_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="title_legend_synchronize_on">ସିଙ୍କ୍ରୋନାଇଜ୍ ଚାଲୁ</string>
     <string name="title_legend_synchronize_off">ସିଙ୍କ୍ରୋନାଇଜ୍ ବନ୍ଦ</string>
+    <string name="title_legend_inbox">ଇନବକ୍ସ</string>
+    <string name="title_legend_outbox">ଆଉଟବକ୍ସ</string>
     <string name="title_legend_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_legend_primary">ପ୍ରାଥମିକ</string>
     <string name="title_legend_thread">ବାର୍ତ୍ତାଳାପ</string>

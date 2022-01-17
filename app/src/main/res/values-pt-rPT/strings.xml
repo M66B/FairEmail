@@ -548,6 +548,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
     <string name="title_months_all">Todos</string>
+    <string name="title_folder_outbox">Caixa de saída</string>
     <string name="title_folder_all">Arquivar</string>
     <string name="title_folder_trash">Lixo</string>
     <string name="title_folder_junk">Spam</string>
@@ -564,6 +565,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_eml_downloaded">Download de mensagens originais: %1$s</string>
     <string name="title_trash">Lixo</string>
     <string name="title_delete">Eliminar</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Apagar tudo</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
     <string name="title_copy_btn">Copiar</string>

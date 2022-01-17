@@ -970,6 +970,7 @@
     <string name="title_copy_to">העתקה אל&#8230;</string>
     <string name="title_subscribe">מינוי</string>
     <string name="title_delete">מחיקה</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">למחוק הכול</string>
     <string name="title_more">יותר</string>
     <string name="title_less">פחות</string>
     <string name="title_spam">ספאם</string>

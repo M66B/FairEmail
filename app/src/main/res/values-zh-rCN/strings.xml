@@ -937,6 +937,7 @@
     <string name="title_copy_to">复制到 &#8230;</string>
     <string name="title_subscribe">订阅</string>
     <string name="title_delete">删除</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">删除所有</string>
     <string name="title_more">更多</string>
     <string name="title_less">更少</string>
     <string name="title_spam">垃圾邮件</string>

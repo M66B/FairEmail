@@ -946,6 +946,7 @@
     <string name="title_copy_to">Αντιγραφή σε &#8230;</string>
     <string name="title_subscribe">Εγγραφή συνδρομητή</string>
     <string name="title_delete">Διαγραφή</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Διαγραφή όλων</string>
     <string name="title_more">Περισσότερα</string>
     <string name="title_less">Λιγότερα</string>
     <string name="title_spam">Ανεπιθύμητα</string>

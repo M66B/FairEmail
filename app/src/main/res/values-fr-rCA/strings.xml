@@ -951,6 +951,7 @@
     <string name="title_copy_to">Copier vers&#8230;</string>
     <string name="title_subscribe">S’abonner</string>
     <string name="title_delete">Supprimer</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Tout supprimer</string>
     <string name="title_more">Plus</string>
     <string name="title_less">Moins</string>
     <string name="title_spam">Indésirables</string>

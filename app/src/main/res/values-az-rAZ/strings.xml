@@ -950,6 +950,7 @@
     <string name="title_copy_to">Kopyala &#8230;</string>
     <string name="title_subscribe">Abunə ol</string>
     <string name="title_delete">Sil</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Hamısını sil</string>
     <string name="title_more">Daha çox</string>
     <string name="title_less">Daha az</string>
     <string name="title_spam">Spam</string>

@@ -911,7 +911,7 @@
     <string name="title_importance_high">Haute</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
-    <string name="title_resend">Réenvoyer</string>
+    <string name="title_resend">Envoyer à nouveau</string>
     <string name="title_fetching_headers">Téléchargement des en-têtes de messages en cours&#8230;</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
@@ -951,6 +951,7 @@
     <string name="title_copy_to">Copier vers&#8230;</string>
     <string name="title_subscribe">S\'abonner</string>
     <string name="title_delete">Supprimer</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Tout supprimer</string>
     <string name="title_more">Plus</string>
     <string name="title_less">Moins</string>
     <string name="title_spam">Indésirables</string>

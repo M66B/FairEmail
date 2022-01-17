@@ -946,6 +946,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_copy_to">&#8230;\'ya kopyala</string>
     <string name="title_subscribe">Abonelik</string>
     <string name="title_delete">Sil</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Tümünü sil</string>
     <string name="title_more">Daha fazla</string>
     <string name="title_less">Daha az</string>
     <string name="title_spam">İstenmeyen posta</string>

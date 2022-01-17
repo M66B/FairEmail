@@ -968,6 +968,7 @@
     <string name="title_copy_to">Копіювати до &#8230;</string>
     <string name="title_subscribe">Підписатися</string>
     <string name="title_delete">Видалити</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Видалити все</string>
     <string name="title_more">Більше</string>
     <string name="title_less">Менше</string>
     <string name="title_spam">Спам</string>

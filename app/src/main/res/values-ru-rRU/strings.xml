@@ -970,6 +970,7 @@
     <string name="title_copy_to">Копировать в&#8230;</string>
     <string name="title_subscribe">Подписаться</string>
     <string name="title_delete">Удалить</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Удалить все</string>
     <string name="title_more">Ещё</string>
     <string name="title_less">Менее</string>
     <string name="title_spam">Спам</string>

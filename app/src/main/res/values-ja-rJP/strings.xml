@@ -573,17 +573,17 @@
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます</string>
     <string name="title_advanced_poll_battery">バッテリー使用量が大幅に増加する可能性があります！</string>
-    <string name="title_advanced_poll_hint">新着メッセージを定期的に確認すると、ローカルのメッセージとサーバーのメッセージが毎回比較されます。これは負荷のかかる操作であり、特にメッセージが多い場合は、バッテリー使用量が大幅に増加する可能性があります。 常に受信し続けることで、変更を継続的に追跡してこれを防ぎます。</string>
+    <string name="title_advanced_poll_hint">新着メッセージを定期的に確認すると、ローカルのメッセージとサーバーのメッセージが毎回比較されます。これは負荷のかかる操作であり、特にメッセージが多い場合は、バッテリー使用量が大幅に増加する可能性があります。常に受信すると変更を継続的に追跡するため、このような問題はありません。</string>
     <string name="title_advanced_optimize_hint">バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
     <string name="title_advanced_schedule_hint">時間をタップして設定</string>
     <string name="title_advanced_quick_sync_hint">データ使用量が減少しますが、メールサーバーが標準に従わない場合、新着メッセージが見逃される可能性があります</string>
     <string name="title_advanced_no_date_hint">一部のプロバイダーは存在しない日付や無効な日付、将来の日付のメッセージを日付のないメッセージとして取り扱います</string>
     <string name="title_advanced_unseen_hint">一部のプロバイダーでは適切にサポートされていないため、メッセージがまったく同期されないかすべて同期されてしまう場合があります</string>
-    <string name="title_advanced_deleted_unseen">無効にすると未読メッセージがデバイスに永久に保持されます</string>
+    <string name="title_advanced_deleted_unseen">無効にすると未読メッセージがデバイスで永久に保持されます</string>
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、バッテリー使用量とデータ使用量が大幅に増加することがあります</string>
-    <string name="title_advanced_gmail_thread_hint">これは新しく受信したメッセージにのみ適用されます。また、既存のグループを壊す可能性があります</string>
+    <string name="title_advanced_gmail_thread_hint">新しく受信したメッセージにのみ適用されます。また、既存のグループを壊す可能性があります</string>
     <string name="title_advanced_subject_threading_hint">過去 %1$d 時間以内に受信したメッセージのみに適用されます</string>
-    <string name="title_advanced_sync_folders_hint">無効にするとデータ使用量とバッテリー使用量が減少します</string>
+    <string name="title_advanced_sync_folders_hint">無効にするとデータ使用量とバッテリー使用量がわずかに減少しますが、フォルダーリストの更新も無効になります</string>
     <string name="title_advanced_poll_folders_hint">アカウントに接続したあと、さらにフォルダーリストを定期的に同期します</string>
     <string name="title_advanced_check_authentication_hint">メールサーバーで実行された DKIM、SPF、DMARC 認証の結果を確認します</string>
     <string name="title_advanced_check_tls_hint">メッセージがすべてのサーバーでセキュアに転送された場合のみ緑色のシールドを表示します</string>
@@ -940,6 +940,7 @@
     <string name="title_copy_to">&#8230;にコピー</string>
     <string name="title_subscribe">購読</string>
     <string name="title_delete">削除</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">すべて削除</string>
     <string name="title_more">展開</string>
     <string name="title_less">折りたたむ</string>
     <string name="title_spam">迷惑メール</string>

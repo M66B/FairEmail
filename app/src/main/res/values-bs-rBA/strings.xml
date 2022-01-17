@@ -960,6 +960,7 @@
     <string name="title_copy_to">Kopiraj u &#8230;</string>
     <string name="title_subscribe">Pretplati se</string>
     <string name="title_delete">Izbriši</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Izbriši sve</string>
     <string name="title_more">Više</string>
     <string name="title_less">Manje</string>
     <string name="title_spam">Spam</string>

@@ -275,7 +275,7 @@
     <string name="title_advanced_section_encryption">Salaus</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
-    <string name="title_advanced_default">Kaikilla valinnoilla on yleisesti käytetyt vakioarvot, joita ei tarvitse muuttaa</string>
+    <string name="title_advanced_default">Kaikilla valinnoilla on yleisesti käytetyt oletusarvot, joita ei tarvitse muuttaa</string>
     <string name="title_advanced_receive">Vastaanota viestit kaikille tileille</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
@@ -295,6 +295,7 @@
     <string name="title_advanced_sync_shared_folders">Synkronoi jaettujen kansioiden lista</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
     <string name="title_advanced_check_authentication">Tarkista viestin todennus</string>
+    <string name="title_advanced_check_tls">Tarkista \"transport layer security\" (TLS)</string>
     <string name="title_advanced_check_reply_domain">Tarkista vastaussähköpostiosoite viestejä synkronoitaessa</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_check_blocklist">Tarkista, onko lähettäjän verkkotunnus roskapostin estolistalla</string>
@@ -421,8 +422,8 @@
     <string name="title_advanced_overview_mode">Zoomaa alkuperäiset viestit ruudulle sopivaksi</string>
     <string name="title_advanced_override_width">Poista alkuperäisten viestien kiinteät leveydet</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
-    <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>
-    <string name="title_advanced_monospaced_pre">Käytä tasavälistä kirjasinta esimuotoillulle tekstille</string>
+    <string name="title_advanced_monospaced">Käytä tasavälistä kirjasinta oletuksena viestien tekstille</string>
+    <string name="title_advanced_monospaced_pre">Käytä tasavälistä kirjasinta valmiiksi muotoillulle tekstille</string>
     <string name="title_advanced_background_color">Käytä taustavärejä</string>
     <string name="title_advanced_text_color">Käytä tekstin värejä</string>
     <string name="title_advanced_text_size">Käytä tekstin kokoja</string>
@@ -440,7 +441,7 @@
     <string name="title_advanced_parse_classes">Jäsennä tyylisäännöstöt</string>
     <string name="title_advanced_authentication">Näytä todennusvaroitukset</string>
     <string name="title_advanced_authentication_hint">Tehtävät tarkistukset voidaan konfiguroida vastaanottoasetuksissa</string>
-    <string name="title_advanced_authentication_indicator">Näytä todennuksen tilan ilmaisin</string>
+    <string name="title_advanced_authentication_indicator">Näytä todennuksen tila kuvakkeella</string>
     <string name="title_advanced_authentication_none">Ei todennusta</string>
     <string name="title_advanced_authentication_some">Osittainen todennus</string>
     <string name="title_advanced_authentication_all">Täydellinen todennus</string>
@@ -593,6 +594,7 @@
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_poll_folders_hint">Synkronoi kansioluettelo määräajoin eikä ainoastaan, kun tiliin on yhdistetty</string>
     <string name="title_advanced_check_authentication_hint">Tämä tarkistaa sähköpostipalvelimen suorittamien DKIM-, SPF- ja DMARC-todennusten tulokset</string>
+    <string name="title_advanced_check_tls_hint">Tämä näyttää vihreän kilpen vain, jos kaikki palvelimet ovat kuljettaneet viestin turvallisesti</string>
     <string name="title_advanced_check_reply_hint">Tämä tarkistaa, onko lähetys- ja vastaussähköpostiosoitteen verkkotunnus identtinen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
@@ -628,6 +630,7 @@
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
     <string name="title_advanced_overview_mode_hint">Tämä voi aiheuttaa hyvin pieniä kirjasimia</string>
     <string name="title_advanced_override_width_hint">Tämä voi kaventaa viestejä, mutta myös näyttää oudolta</string>
+    <string name="title_advanced_monospaced_pre_hint">Muotoilematonta tekstiä olevat viestit käsitellään valmiiksi muotoiltuina</string>
     <string name="title_advanced_placeholders_hint">Tämä koskee vain uudelleenmuotoiltuja viestejä</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
@@ -944,6 +947,7 @@
     <string name="title_copy_to">Kopioi kansioon &#8230;</string>
     <string name="title_subscribe">Tilaa</string>
     <string name="title_delete">Poista</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Poista kaikki</string>
     <string name="title_more">Lisää</string>
     <string name="title_less">Vähemmän</string>
     <string name="title_spam">Siirrä roskapostikansioon</string>
@@ -1111,7 +1115,7 @@
     <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Napauta käännettävää tekstiä</string>
-    <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
+    <string name="title_edit_plain_text">Muokkaa muotoilemattomana tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>
     <string name="title_certificate_missing">Ei julkista avainta %1$s</string>
@@ -1292,6 +1296,7 @@
     <string name="title_rule_attachments">Sisältää liitteitä</string>
     <string name="title_rule_header">Tunnistetiedot sisältävät</string>
     <string name="title_rule_body">Teksti sisältää</string>
+    <string name="title_rule_skip_quotes">Ohita lainattu teksti</string>
     <string name="title_rule_body_remark">Tämän ehdon käyttäminen lataa aina viestin tekstin, mikä voi hidastaa viestilistan synkronointia</string>
     <string name="title_rule_time_abs">Absoluuttinen aika (vastaanotettu) välillä</string>
     <string name="title_rule_time_after">Vastaanotettu jälkeen</string>

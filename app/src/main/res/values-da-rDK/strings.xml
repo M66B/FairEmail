@@ -951,6 +951,7 @@
     <string name="title_copy_to">Kopiér til &#8230;</string>
     <string name="title_subscribe">Abonnér</string>
     <string name="title_delete">Slet</string>
+    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Slet alt</string>
     <string name="title_more">Mere</string>
     <string name="title_less">Mindre</string>
     <string name="title_spam">Spam</string>
