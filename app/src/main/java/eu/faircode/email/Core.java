@@ -285,6 +285,18 @@ class Core {
                                         }
                                     }
                                     break;
+
+                                case EntityOperation.DELETE:
+                                    if (group &&
+                                            message.uid != null &&
+                                            op.name.equals(next.name) &&
+                                            account.protocol == EntityAccount.TYPE_IMAP) {
+                                        EntityMessage m = db.message().getMessage(next.message);
+                                        if (m != null &&
+                                                m.uid != null && m.ui_deleted == message.ui_deleted)
+                                            similar.put(next, m);
+                                    }
+                                    break;
                             }
                         }
 
@@ -410,12 +422,13 @@ class Core {
                                     onAdd(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
-                                case EntityOperation.MOVE:
+                                case EntityOperation.MOVE: {
                                     List<EntityMessage> messages = new ArrayList<>();
                                     messages.add(message);
                                     messages.addAll(similar.values());
                                     onMove(context, jargs, false, account, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
+                                }
 
                                 case EntityOperation.COPY:
                                     onMove(context, jargs, true, account, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
@@ -425,9 +438,13 @@ class Core {
                                     onFetch(context, jargs, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
-                                case EntityOperation.DELETE:
-                                    onDelete(context, jargs, account, folder, message, (IMAPFolder) ifolder);
+                                case EntityOperation.DELETE: {
+                                    List<EntityMessage> messages = new ArrayList<>();
+                                    messages.add(message);
+                                    messages.addAll(similar.values());
+                                    onDelete(context, jargs, account, folder, messages, (IMAPFolder) ifolder);
                                     break;
+                                }
 
                                 case EntityOperation.HEADERS:
                                     onHeaders(context, jargs, folder, message, (IMAPFolder) ifolder);
@@ -1613,7 +1630,7 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, IMAPFolder ifolder) throws MessagingException, IOException {
         // Delete message
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1621,69 +1638,103 @@ class Core {
 
         if (folder.local) {
             Log.i(folder.name + " local delete");
-            db.message().deleteMessage(message.id);
+            for (EntityMessage message : messages)
+                db.message().deleteMessage(message.id);
             return;
         }
 
         try {
-            List<Message> deleted = new ArrayList<>();
+            if (messages.size() > 1) {
+                boolean ui_deleted = messages.get(0).ui_deleted;
 
-            if (message.uid != null) {
-                Message iexisting = ifolder.getMessageByUID(message.uid);
-                if (iexisting == null)
-                    Log.w(folder.name + " existing not found uid=" + message.uid);
-                else
-                    try {
-                        Log.i(folder.name + " deleting uid=" + message.uid);
-                        if (perform_expunge)
-                            iexisting.setFlag(Flags.Flag.DELETED, true);
-                        else
-                            iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-                        deleted.add(iexisting);
-                    } catch (MessageRemovedException ignored) {
-                        Log.w(folder.name + " existing gone uid=" + message.uid);
-                    }
-            }
-
-            boolean found = (deleted.size() > 0);
-            if (!TextUtils.isEmpty(message.msgid) &&
-                    (!found || EntityFolder.DRAFTS.equals(folder.type)))
-                try {
-                    Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
-                    if (imessages != null)
-                        for (Message iexisting : imessages)
-                            try {
-                                long muid = ifolder.getUID(iexisting);
-                                if (found && muid == message.uid)
-                                    continue;
-
-                                // Fail safe
-                                MessageHelper helper = new MessageHelper((MimeMessage) iexisting, context);
-                                if (!message.msgid.equals(helper.getMessageID()))
-                                    continue;
-
-                                Log.i(folder.name + " deleting uid=" + muid);
-                                if (perform_expunge)
-                                    iexisting.setFlag(Flags.Flag.DELETED, true);
-                                else
-                                    iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-
-                                deleted.add(iexisting);
-                            } catch (MessageRemovedException ex) {
-                                Log.w(ex);
-                            }
-                } catch (MessagingException ex) {
-                    Log.w(ex);
+                List<Long> uids = new ArrayList<>();
+                for (EntityMessage message : messages) {
+                    if (message.uid == null)
+                        throw new MessagingException("Delete: uid missing");
+                    if (message.ui_deleted != ui_deleted)
+                        throw new MessagingException("Delete: flag inconsistent");
+                    uids.add(message.uid);
                 }
 
-            if (perform_expunge) {
-                if (deleted.size() == 0 || expunge(context, ifolder, deleted))
-                    db.message().deleteMessage(message.id);
-            } else {
-                if (deleted.size() > 0)
-                    db.message().setMessageDeleted(message.id, message.ui_deleted);
-            }
+                Message[] idelete = ifolder.getMessagesByUID(Helper.toLongArray(uids));
+                for (Message imessage : idelete)
+                    if (imessage == null)
+                        throw new MessagingException("Delete: message missing");
 
+                EntityLog.log(context, folder.name + " deleting messages=" + uids.size());
+
+                if (perform_expunge) {
+                    ifolder.setFlags(idelete, new Flags(Flags.Flag.DELETED), true);
+                    expunge(context, ifolder, Arrays.asList(idelete));
+                    for (EntityMessage message : messages)
+                        db.message().deleteMessage(message.id);
+                } else {
+                    ifolder.setFlags(idelete, new Flags(Flags.Flag.DELETED), ui_deleted);
+                    for (EntityMessage message : messages)
+                        db.message().setMessageDeleted(message.id, message.ui_deleted);
+                }
+
+                EntityLog.log(context, folder.name + " deleted messages=" + uids.size());
+            } else if (messages.size() == 1) {
+                List<Message> deleted = new ArrayList<>();
+
+                EntityMessage message = messages.get(0);
+                if (message.uid != null) {
+                    Message iexisting = ifolder.getMessageByUID(message.uid);
+                    if (iexisting == null)
+                        Log.w(folder.name + " existing not found uid=" + message.uid);
+                    else
+                        try {
+                            Log.i(folder.name + " deleting uid=" + message.uid);
+                            if (perform_expunge)
+                                iexisting.setFlag(Flags.Flag.DELETED, true);
+                            else
+                                iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
+                            deleted.add(iexisting);
+                        } catch (MessageRemovedException ignored) {
+                            Log.w(folder.name + " existing gone uid=" + message.uid);
+                        }
+                }
+
+                boolean found = (deleted.size() > 0);
+                if (!TextUtils.isEmpty(message.msgid) &&
+                        (!found || EntityFolder.DRAFTS.equals(folder.type)))
+                    try {
+                        Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
+                        if (imessages != null)
+                            for (Message iexisting : imessages)
+                                try {
+                                    long muid = ifolder.getUID(iexisting);
+                                    if (found && muid == message.uid)
+                                        continue;
+
+                                    // Fail safe
+                                    MessageHelper helper = new MessageHelper((MimeMessage) iexisting, context);
+                                    if (!message.msgid.equals(helper.getMessageID()))
+                                        continue;
+
+                                    Log.i(folder.name + " deleting uid=" + muid);
+                                    if (perform_expunge)
+                                        iexisting.setFlag(Flags.Flag.DELETED, true);
+                                    else
+                                        iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
+
+                                    deleted.add(iexisting);
+                                } catch (MessageRemovedException ex) {
+                                    Log.w(ex);
+                                }
+                    } catch (MessagingException ex) {
+                        Log.w(ex);
+                    }
+
+                if (perform_expunge) {
+                    if (deleted.size() == 0 || expunge(context, ifolder, deleted))
+                        db.message().deleteMessage(message.id);
+                } else {
+                    if (deleted.size() > 0)
+                        db.message().setMessageDeleted(message.id, message.ui_deleted);
+                }
+            }
         } finally {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
