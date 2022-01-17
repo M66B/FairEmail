@@ -427,8 +427,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                     searches.add(search);
                                 }
 
-                            if (!searches.contains(criteria.query))
-                                searches.add(0, criteria.query);
+                            searches.remove(criteria.query);
+                            searches.add(0, criteria.query);
 
                             SharedPreferences.Editor editor = prefs.edit();
                             for (int i = 1; i <= Math.min(3, searches.size()); i++)
