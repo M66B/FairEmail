@@ -1593,7 +1593,7 @@ class Core {
             fp.add(FetchProfile.Item.FLAGS);
             fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
             //fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            //fp.add(IMAPFolder.FetchProfileItem.HEADERS);
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
@@ -4255,8 +4255,8 @@ class Core {
             }
 
             if (update || process) {
-                boolean needsHeaders = EntityRule.needsHeaders(message, rules);
-                boolean needsBody = EntityRule.needsBody(message, rules);
+                boolean needsHeaders = (process && EntityRule.needsHeaders(message, rules));
+                boolean needsBody = (process && EntityRule.needsBody(message, rules));
                 if (needsHeaders || needsBody)
                     Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
                 List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
