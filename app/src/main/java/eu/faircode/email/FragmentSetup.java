@@ -82,10 +82,11 @@ public class FragmentSetup extends FragmentBase {
     private CardView cardManual;
 
     private Button btnAccount;
-
     private Button btnIdentity;
+
     private TextView tvExchangeSupport;
     private TextView tvIdentityWhat;
+    private Button btnInbox;
     private TextView tvFree;
     private TextView tvNoComposable;
 
@@ -105,8 +106,6 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvBatteryUsage;
     private TextView tvSyncStopped;
-
-    private Button btnInbox;
 
     private Button btnApp;
 
@@ -151,10 +150,11 @@ public class FragmentSetup extends FragmentBase {
         cardManual = view.findViewById(R.id.cardManual);
 
         btnAccount = view.findViewById(R.id.btnAccount);
-
         btnIdentity = view.findViewById(R.id.btnIdentity);
+
         tvExchangeSupport = view.findViewById(R.id.tvExchangeSupport);
         tvIdentityWhat = view.findViewById(R.id.tvIdentityWhat);
+        btnInbox = view.findViewById(R.id.btnInbox);
         tvFree = view.findViewById(R.id.tvFree);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
 
@@ -174,8 +174,6 @@ public class FragmentSetup extends FragmentBase {
 
         tvBatteryUsage = view.findViewById(R.id.tvBatteryUsage);
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
-
-        btnInbox = view.findViewById(R.id.btnInbox);
 
         btnApp = view.findViewById(R.id.btnApp);
 
@@ -413,6 +411,13 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        btnInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentBase) getParentFragment()).finish();
+            }
+        });
+
         tvFree.setPaintFlags(tvFree.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvFree.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -537,13 +542,6 @@ public class FragmentSetup extends FragmentBase {
                 }
             });
         }
-
-        btnInbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((FragmentBase) getParentFragment()).finish();
-            }
-        });
 
         final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         app.setData(Uri.parse("package:" + getContext().getPackageName()));
