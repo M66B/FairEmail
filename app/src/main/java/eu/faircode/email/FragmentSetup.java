@@ -108,6 +108,8 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnInbox;
 
+    private Button btnApp;
+
     private Group grpInexactAlarms;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
@@ -174,6 +176,8 @@ public class FragmentSetup extends FragmentBase {
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
 
         btnInbox = view.findViewById(R.id.btnInbox);
+
+        btnApp = view.findViewById(R.id.btnApp);
 
         grpInexactAlarms = view.findViewById(R.id.grpInexactAlarms);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
@@ -538,6 +542,19 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 ((FragmentBase) getParentFragment()).finish();
+            }
+        });
+
+        final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        app.setData(Uri.parse("package:" + getContext().getPackageName()));
+        btnApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    getContext().startActivity(app);
+                } catch (Throwable ex) {
+                    Helper.reportNoViewer(getContext(), app, ex);
+                }
             }
         });
 

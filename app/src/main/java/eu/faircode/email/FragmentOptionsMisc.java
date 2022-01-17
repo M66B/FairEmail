@@ -122,7 +122,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
     private TextView tvLastCleanup;
-    private Button btnApp;
     private Button btnMore;
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
@@ -268,7 +267,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
-        btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
@@ -628,19 +626,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View view) {
                 onCleanup();
-            }
-        });
-
-        final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        app.setData(Uri.parse("package:" + getContext().getPackageName()));
-        btnApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    getContext().startActivity(app);
-                } catch (Throwable ex) {
-                    Helper.reportNoViewer(getContext(), app, ex);
-                }
             }
         });
 

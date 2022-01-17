@@ -874,6 +874,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBatteryUsage" />
 
+                <Button
+                    android:id="@+id/btnApp"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_settings_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_app"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSyncStopped" />
+
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpInexactAlarms"
                     android:layout_width="0dp"
