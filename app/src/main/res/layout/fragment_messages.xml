@@ -255,7 +255,7 @@
                 android:padding="12dp"
                 app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/twotone_schedule_send_24"
+                app:srcCompat="@drawable/twotone_outbox_24"
                 app:tint="?attr/colorAccent" />
 
             <eu.faircode.email.FixedTextView
