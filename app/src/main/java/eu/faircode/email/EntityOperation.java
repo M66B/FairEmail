@@ -456,7 +456,7 @@ public class EntityOperation {
             int count = db.operation().getOperationCount(folder, name);
             if (count >= MAX_FETCH) {
                 Log.i("Replacing fetch by sync folder=" + folder + " args=" + jargs + " count=" + count);
-                sync(context, folder, false);
+                sync(context, folder, false, true);
                 return;
             }
         }
