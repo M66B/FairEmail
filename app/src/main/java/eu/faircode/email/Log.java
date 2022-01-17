@@ -1796,6 +1796,13 @@ public class Log {
 
         sb.append("\r\n");
 
+        String osVersion = null;
+        try {
+            osVersion = System.getProperty("os.version");
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
         // Get device info
         sb.append(String.format("Brand: %s\r\n", Build.BRAND));
         sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
@@ -1808,6 +1815,7 @@ public class Log {
         sb.append(String.format("Id: %s\r\n", Build.ID));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
             sb.append(String.format("SoC: %s/%s\r\n", Build.SOC_MANUFACTURER, Build.SOC_MODEL));
+        sb.append(String.format("OS version: %s\r\n", osVersion));
         sb.append(String.format("uid: %d\r\n", android.os.Process.myUid()));
         sb.append("\r\n");
 
