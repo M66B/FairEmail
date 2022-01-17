@@ -264,7 +264,7 @@ task copyChangelog(type: Copy) {
 
 preBuild.dependsOn copyChangelog
 
-task downloadPublicSuffixList(type: Download) {
+task downloadPSL(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
     dest "src/main/assets"
