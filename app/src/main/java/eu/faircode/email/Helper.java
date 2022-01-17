@@ -1699,6 +1699,30 @@ public class Helper {
                                     context.startActivity(intent);
                                 } catch (Throwable ex) {
                                     reportNoViewer(context, intent, ex);
+                                    /*
+                                        java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.PROCESS_TEXT typ=text/plain cmp=com.microsoft.launcher/com.microsoft.bing.ProcessTextSearch launchParam=MultiScreenLaunchParams { mDisplayId=0 mFlags=0 } (has extras) } from ProcessRecord{befc028 15098:eu.faircode.email/u0a406} (pid=15098, uid=10406) not exported from uid 10021
+                                            at android.os.Parcel.readException(Parcel.java:1693)
+                                            at android.os.Parcel.readException(Parcel.java:1646)
+                                            at android.app.ActivityManagerProxy.startActivity(ActivityManagerNative.java:3530)
+                                            at android.app.Instrumentation.execStartActivity(Instrumentation.java:1645)
+                                            at android.app.Activity.startActivityForResult(Activity.java:5033)
+                                            at android.view.View.startActivityForResult(View.java:6413)
+                                            at android.widget.Editor$ProcessTextIntentActionsHandler.fireIntent(Editor.java:7597)
+                                            at android.widget.Editor$ProcessTextIntentActionsHandler.performMenuItemAction(Editor.java:7542)
+                                            at android.widget.Editor$TextActionModeCallback.onActionItemClicked(Editor.java:4246)
+                                            at com.android.internal.policy.DecorView$ActionModeCallback2Wrapper.onActionItemClicked(DecorView.java:2971)
+                                            at com.android.internal.view.FloatingActionMode$3.onMenuItemSelected(FloatingActionMode.java:95)
+                                            at com.android.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:761)
+                                            at com.android.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:157)
+                                            at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:904)
+                                            at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:894)
+                                            at com.android.internal.view.FloatingActionMode$4.onMenuItemClick(FloatingActionMode.java:124)
+                                            at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup$23.onItemClick(FloatingToolbar.java:1898)
+                                            at android.widget.AdapterView.performItemClick(AdapterView.java:339)
+                                            at android.widget.AbsListView.performItemClick(AbsListView.java:1705)
+                                            at android.widget.AbsListView$PerformClick.run(AbsListView.java:4171)
+                                            at android.widget.AbsListView$13.run(AbsListView.java:6735)
+                                     */
                                 }
                                 return true;
                             }
