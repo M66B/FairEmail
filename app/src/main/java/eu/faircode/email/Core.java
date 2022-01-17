@@ -395,7 +395,12 @@ class Core {
                                     Log.w(folder.name + " ignored=" + op.name);
                             }
                         else {
-                            ensureUid(context, account, folder, message, op, (IMAPFolder) ifolder);
+                            List<EntityMessage> messages = new ArrayList<>();
+                            messages.add(message);
+                            if (similar.size() == 0)
+                                ensureUid(context, account, folder, message, op, (IMAPFolder) ifolder);
+                            else
+                                messages.addAll(similar.values());
 
                             switch (op.name) {
                                 case EntityOperation.SEEN:
@@ -422,13 +427,9 @@ class Core {
                                     onAdd(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
-                                case EntityOperation.MOVE: {
-                                    List<EntityMessage> messages = new ArrayList<>();
-                                    messages.add(message);
-                                    messages.addAll(similar.values());
+                                case EntityOperation.MOVE:
                                     onMove(context, jargs, false, account, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
-                                }
 
                                 case EntityOperation.COPY:
                                     onMove(context, jargs, true, account, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
@@ -438,13 +439,9 @@ class Core {
                                     onFetch(context, jargs, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
-                                case EntityOperation.DELETE: {
-                                    List<EntityMessage> messages = new ArrayList<>();
-                                    messages.add(message);
-                                    messages.addAll(similar.values());
+                                case EntityOperation.DELETE:
                                     onDelete(context, jargs, account, folder, messages, (IMAPFolder) ifolder);
                                     break;
-                                }
 
                                 case EntityOperation.HEADERS:
                                     onHeaders(context, jargs, folder, message, (IMAPFolder) ifolder);
