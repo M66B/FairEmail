@@ -862,6 +862,11 @@ public interface DaoMessage {
             " AND account IN (SELECT id FROM account WHERE pop = " + EntityAccount.TYPE_IMAP + ")")
     int clearMessageHeaders();
 
+    @Query("UPDATE message SET raw = NULL" +
+            " WHERE raw IS NOT NULL" +
+            " AND account IN (SELECT id FROM account WHERE pop = " + EntityAccount.TYPE_IMAP + ")")
+    int clearRawMessages();
+
     @Query("UPDATE message SET fts = 0 WHERE NOT (fts IS 0)")
     int resetFts();
 

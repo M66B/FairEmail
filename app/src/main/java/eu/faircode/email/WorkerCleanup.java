@@ -139,6 +139,12 @@ public class WorkerCleanup extends Worker {
                         int headers = db.message().clearMessageHeaders();
                         Log.i("Cleared message headers=" + headers);
                     }
+
+                    // Clear raw message files
+                    if (!download_eml) {
+                        int eml = db.message().clearRawMessages();
+                        Log.i("Cleared raw messages=" + eml);
+                    }
                 }
 
                 // Restore alarms
@@ -228,7 +234,7 @@ public class WorkerCleanup extends Worker {
                     }
                 }
 
-            // Cleanup message files
+            // Cleanup raw message files
             if (!download_eml) {
                 Log.i("Cleanup raw message files");
                 File[] raws = new File(context.getFilesDir(), "raw").listFiles();
