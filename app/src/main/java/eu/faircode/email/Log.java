@@ -51,6 +51,7 @@ import android.os.DeadSystemException;
 import android.os.Debug;
 import android.os.IBinder;
 import android.os.OperationCanceledException;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
 import android.provider.Settings;
@@ -1920,6 +1921,10 @@ public class Log {
         sb.append(String.format("Battery optimizations: %s %s\r\n",
                 ignoring == null ? null : Boolean.toString(!ignoring),
                 Boolean.FALSE.equals(ignoring) ? "!!!" : ""));
+
+        PowerManager power = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        boolean psaving = power.isPowerSaveMode();
+        sb.append(String.format("Battery saving: %s %s\r\n", psaving, psaving ? "!!!" : ""));
 
         sb.append(String.format("Charging: %b; level: %d\r\n",
                 Helper.isCharging(context), Helper.getBatteryLevel(context)));
