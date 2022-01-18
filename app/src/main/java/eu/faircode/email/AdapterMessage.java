@@ -6396,6 +6396,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("ui_importance changed", next.id);
                 }
+                if (!Objects.equals(prev.sensitivity, next.sensitivity)) {
+                    same = false;
+                    log("sensitivity changed", next.id);
+                }
                 if (!Objects.equals(prev.receipt_request, next.receipt_request)) {
                     same = false;
                     log("receipt_request changed", next.id);

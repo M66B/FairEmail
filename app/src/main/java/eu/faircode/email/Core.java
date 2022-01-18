@@ -2852,6 +2852,7 @@ class Core {
                         message.deliveredto = helper.getDeliveredTo();
                         message.thread = helper.getThreadId(context, account.id, folder.id, 0);
                         message.priority = helper.getPriority();
+                        message.sensitivity = helper.getSensitivity();
                         message.auto_submitted = helper.getAutoSubmitted();
                         message.receipt_request = helper.getReceiptRequested();
                         message.receipt_to = helper.getReceiptTo();
@@ -3833,6 +3834,7 @@ class Core {
             if (BuildConfig.DEBUG && message.thread.startsWith("outlook:"))
                 message.warning = message.thread;
             message.priority = helper.getPriority();
+            message.sensitivity = helper.getSensitivity();
 
             for (String keyword : keywords)
                 if (MessageHelper.FLAG_LOW_IMPORTANCE.equals(keyword))

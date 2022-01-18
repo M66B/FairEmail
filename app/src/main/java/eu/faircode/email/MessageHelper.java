@@ -1583,6 +1583,27 @@ public class MessageHelper {
         return priority;
     }
 
+    Integer getSensitivity() throws MessagingException {
+        ensureHeaders();
+
+        // https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55
+        String header = imessage.getHeader("Sensitivity", null);
+
+        if (TextUtils.isEmpty(header))
+            return null;
+
+        header = header.toLowerCase(Locale.ROOT);
+
+        if (header.contains("personal"))
+            return EntityMessage.SENSITIVITY_PERSONAL;
+        if (header.contains("private"))
+            return EntityMessage.SENSITIVITY_PRIVATE;
+        if (header.contains("company")) // company-confidential
+            return EntityMessage.SENSITIVITY_CONFIDENTIAL;
+
+        return null;
+    }
+
     Boolean getAutoSubmitted() throws MessagingException {
         // https://tools.ietf.org/html/rfc3834
         String header = imessage.getHeader("Auto-Submitted", null);

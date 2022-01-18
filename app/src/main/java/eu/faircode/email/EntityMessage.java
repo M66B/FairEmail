@@ -104,6 +104,10 @@ public class EntityMessage implements Serializable {
     static final Integer PRIORITIY_NORMAL = 1;
     static final Integer PRIORITIY_HIGH = 2;
 
+    static final Integer SENSITIVITY_PERSONAL = 1;
+    static final Integer SENSITIVITY_PRIVATE = 2;
+    static final Integer SENSITIVITY_CONFIDENTIAL = 3;
+
     static final Integer DSN_NONE = 0;
     static final Integer DSN_RECEIPT = 1;
     static final Integer DSN_HARD_BOUNCE = 2;
@@ -139,6 +143,7 @@ public class EntityMessage implements Serializable {
     public String thread; // compose = null
     public Integer priority;
     public Integer importance;
+    public Integer sensitivity;
     public Boolean auto_submitted;
     @ColumnInfo(name = "receipt")
     public Integer dsn;
@@ -562,6 +567,8 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.wasforwardedfrom, other.wasforwardedfrom) &&
                     Objects.equals(this.thread, other.thread) &&
                     Objects.equals(this.priority, other.priority) &&
+                    Objects.equals(this.importance, other.importance) &&
+                    Objects.equals(this.sensitivity, other.sensitivity) &&
                     Objects.equals(this.dsn, other.dsn) &&
                     Objects.equals(this.receipt_request, other.receipt_request) &&
                     MessageHelper.equal(this.receipt_to, other.receipt_to) &&
