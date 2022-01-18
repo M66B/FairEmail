@@ -3978,9 +3978,9 @@ public class MessageHelper {
         int len = text.length();
         for (int i = 0; i < len; i++) {
             char kar = text.charAt(i);
-            if (kar == '(')
+            if (kar == '(' && text.indexOf(')', i) > 0)
                 skip++;
-            else if (kar == ')')
+            else if (kar == ')' && skip > 0)
                 skip--;
             else if (skip == 0)
                 sb.append(kar);
