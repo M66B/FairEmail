@@ -198,6 +198,10 @@ public class EntityAttachment {
         if ("pdf".equals(extension))
             return "application/pdf";
 
+        if ("zip".equals(extension) ||
+                "application/x-zip-compressed".equals(type))
+            return "application/zip"; //
+
         if ("text/plain".equals(type) &&
                 ("ics".equals(extension) || "vcs".equals(extension)))
             return "text/calendar";
