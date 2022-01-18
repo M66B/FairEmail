@@ -3399,10 +3399,19 @@ class Core {
                                         for (Response response : responses)
                                             if (response.isBYE())
                                                 return new MessagingException("UID FETCH", new IOException(response.toString()));
-                                            else if (response.isNO())
+                                            else if (response.isNO()) {
+                                                Log.e("UID FETCH " + response);
                                                 throw new CommandFailedException(response);
-                                            else if (response.isBAD())
+                                            } else if (response.isBAD()) {
+                                                Log.e("UID FETCH " + response);
+                                                // BAD Error in IMAP command UID FETCH: Too long argument (n.nnn + n.nnn + n.nnn secs).
+                                                if (response.toString().contains("Too long argument")) {
+                                                    chunk_size = chunk_size / 2;
+                                                    if (chunk_size > 0)
+                                                        prefs.edit().putInt("chunk_size", chunk_size).apply();
+                                                }
                                                 throw new BadCommandException(response);
+                                            }
                                         throw new ProtocolException("UID FETCH failed");
                                     }
                                 }
