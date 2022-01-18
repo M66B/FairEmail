@@ -93,13 +93,25 @@
         app:srcCompat="@drawable/priority"
         app:tint="?attr/colorAccent" />
 
+    <eu.faircode.email.FixedImageButton
+        android:id="@+id/ibSensitivity"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ibPriority"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/sensitivity"
+        app:tint="?attr/colorAccent" />
+
     <eu.faircode.email.FixedImageView
         android:id="@+id/ivImportance"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ibPriority"
+        app:layout_constraintStart_toEndOf="@id/ibSensitivity"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/importance"
         app:tint="?attr/colorAccent" />

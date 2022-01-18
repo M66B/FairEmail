@@ -6959,6 +6959,7 @@ public class FragmentCompose extends FragmentBase {
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
             final ImageButton ibEncryption = dview.findViewById(R.id.ibEncryption);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
+            final Spinner spSensitivity = dview.findViewById(R.id.spSensitivity);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
@@ -7007,6 +7008,8 @@ public class FragmentCompose extends FragmentBase {
             spEncrypt.setSelection(0);
             spPriority.setTag(1);
             spPriority.setSelection(1);
+            spSensitivity.setTag(0);
+            spSensitivity.setSelection(0);
             tvSendAt.setText(null);
             cbArchive.setEnabled(false);
             cbNotAgain.setChecked(!send_dialog);
@@ -7219,6 +7222,47 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
+            spSensitivity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    int last = (int) spSensitivity.getTag();
+                    if (last != position) {
+                        spSensitivity.setTag(position);
+                        setSensitivity(position);
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    spSensitivity.setTag(0);
+                    setSensitivity(0);
+                }
+
+                private void setSensitivity(int sensitivity) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", id);
+                    args.putInt("sensitivity", sensitivity);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            int sensitivity = args.getInt("sensitivity");
+
+                            DB db = DB.getInstance(context);
+                            db.message().setMessageSensitivity(id, sensitivity < 1 ? null : sensitivity);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(getParentFragmentManager(), ex);
+                        }
+                    }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:sensitivity");
+                }
+            });
+
             ibSendAt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -7288,6 +7332,10 @@ public class FragmentCompose extends FragmentBase {
                     int priority = (draft.priority == null ? 1 : draft.priority);
                     spPriority.setTag(priority);
                     spPriority.setSelection(priority);
+
+                    int sensitivity = (draft.sensitivity == null ? 0 : draft.sensitivity);
+                    spSensitivity.setTag(sensitivity);
+                    spSensitivity.setSelection(sensitivity);
 
                     if (draft.ui_snoozed == null) {
                         if (send_delayed == 0)

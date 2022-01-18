@@ -177,6 +177,78 @@
             app:layout_constraintTop_toBottomOf="@id/tvHighPriority" />
 
         <eu.faircode.email.FixedImageView
+            android:id="@+id/ivPersonalSensitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_sensitivity_personal"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPersonalSensitivity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPersonalSensitivity"
+            app:srcCompat="@drawable/twotone_person_24"
+            app:tint="?attr/colorAccent" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPersonalSensitivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_sensitivity_personal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPersonalSensitivity"
+            app:layout_constraintTop_toBottomOf="@id/tvLowPriority" />
+
+        <eu.faircode.email.FixedImageView
+            android:id="@+id/ivPrivateSensitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_sensitivity_private"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPrivateSensitivity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPrivateSensitivity"
+            app:srcCompat="@drawable/twotone_people_24"
+            app:tint="?attr/colorAccent" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPrivateSensitivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_sensitivity_private"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPrivateSensitivity"
+            app:layout_constraintTop_toBottomOf="@id/tvPersonalSensitivity" />
+
+        <eu.faircode.email.FixedImageView
+            android:id="@+id/ivConfidentialSensitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_sensitivity_confidential"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvConfidentialSensitivity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvConfidentialSensitivity"
+            app:srcCompat="@drawable/twotone_business_24"
+            app:tint="?attr/colorAccent" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvConfidentialSensitivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_sensitivity_confidential"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivConfidentialSensitivity"
+            app:layout_constraintTop_toBottomOf="@id/tvPrivateSensitivity" />
+
+        <eu.faircode.email.FixedImageView
             android:id="@+id/ivHighImportance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -197,7 +269,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivHighImportance"
-            app:layout_constraintTop_toBottomOf="@id/tvLowPriority" />
+            app:layout_constraintTop_toBottomOf="@id/tvConfidentialSensitivity" />
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/ivLowImportance"

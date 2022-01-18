@@ -1249,6 +1249,7 @@
     <string name="title_send_auto_archive">Archive replied message</string>
     <string name="title_send_encryption">Encryption</string>
     <string name="title_send_priority">Priority</string>
+    <string name="title_send_sensitivity">Sensitivity</string>
     <string name="title_no_server">No server found at \'%1$s\'</string>
 
     <string name="title_style">Style</string>
@@ -1606,6 +1607,9 @@
     <string name="title_legend_draft">Has draft</string>
     <string name="title_legend_priority">Has high priority</string>
     <string name="title_legend_priority_low">Has low priority</string>
+    <string name="title_legend_sensitivity_personal">Is personal</string>
+    <string name="title_legend_sensitivity_private">Is private</string>
+    <string name="title_legend_sensitivity_confidential">Is confidential</string>
     <string name="title_legend_importance">Is important</string>
     <string name="title_legend_importance_low">Is not important</string>
     <string name="title_legend_signed">Is signed</string>

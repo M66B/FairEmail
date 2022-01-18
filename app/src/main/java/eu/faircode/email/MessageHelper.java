@@ -283,6 +283,14 @@ public class MessageHelper {
             imessage.addHeader("X-MSMail-Priority", "High");
         }
 
+        // Sensitivity
+        if (EntityMessage.SENSITIVITY_PERSONAL.equals(message.sensitivity))
+            imessage.addHeader("Sensitivity", "Personal");
+        else if (EntityMessage.SENSITIVITY_PRIVATE.equals(message.sensitivity))
+            imessage.addHeader("Sensitivity", "Private");
+        else if (EntityMessage.SENSITIVITY_CONFIDENTIAL.equals(message.sensitivity))
+            imessage.addHeader("Sensitivity", "Company-Confidential");
+
         // References
         if (message.references != null) {
             // https://tools.ietf.org/html/rfc5322#section-2.1.1

@@ -677,6 +677,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET priority = :priority WHERE id = :id AND NOT (priority IS :priority)")
     int setMessagePriority(long id, Integer priority);
 
+    @Query("UPDATE message SET sensitivity = :sensitivity WHERE id = :id AND NOT (sensitivity IS :sensitivity)")
+    int setMessageSensitivity(long id, Integer sensitivity);
+
     @Query("UPDATE message SET importance = :importance WHERE id = :id AND NOT (importance IS :importance)")
     int setMessageImportance(long id, Integer importance);
 
