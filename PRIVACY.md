@@ -6,7 +6,9 @@
 
 FairEmail **does not** collect any information.
 
-FairEmail **does not** store data on third party servers.
+FairEmail **does not** send data to or store data on third party servers.
+
+FairEmail **is** therefore [GDPR compliant](https://gdpr.eu/).
 
 FairEmail **does not** require unnecessary permissions.
 For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
