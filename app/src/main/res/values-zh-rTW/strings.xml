@@ -373,7 +373,7 @@
     <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
     <string name="title_advanced_color_stripe">顯示彩色條紋</string>
-    <string name="title_advanced_color_stripe_wide">使用寬色條紋</string>
+    <string name="title_advanced_color_stripe_wide">使用寬幅彩色條紋</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_gravatars">顯示 Gravatars</string>
     <string name="title_advanced_bimi_unverified">未經驗證的寄件者</string>
@@ -410,8 +410,8 @@
     <string name="title_advanced_attachments_alt">顯示附件於訊息本文之後</string>
     <string name="title_advanced_thumbnails">顯示圖片縮圖於訊息本文之後</string>
     <string name="title_advanced_message_text_zoom2">預設訊息本文文字縮放: %1$s %%</string>
-    <string name="title_advanced_overview_mode">縮放原訊息以適配螢幕</string>
-    <string name="title_advanced_override_width">在原始訊息中禁用固定寬度</string>
+    <string name="title_advanced_overview_mode">縮放原始訊息以適配螢幕</string>
+    <string name="title_advanced_override_width">於原始訊息中停用固定寬度</string>
     <string name="title_advanced_contrast">應用高對比於訊息本文上</string>
     <string name="title_advanced_monospaced">訊息本文預設使用等寬字型</string>
     <string name="title_advanced_monospaced_pre">於預排文字上使用等寬字型</string>
@@ -467,7 +467,7 @@
     <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_reset_importance">移動訊息時重設重要性</string>
     <string name="title_advanced_swipe_reply">右滑已展開的郵件進行回覆</string>
-    <string name="title_advanced_default_snooze">預設重響/延遲時間</string>
+    <string name="title_advanced_default_snooze">預設延後/延遲時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
     <string name="title_advanced_notifications_service">接收頻道</string>
@@ -509,7 +509,7 @@
     <string name="title_advanced_confirm_images">預設不顯示圖片</string>
     <string name="title_advanced_ask_images">顯示圖片前確認</string>
     <string name="title_advanced_confirm_html">預設顯示經過重排的訊息</string>
-    <string name="title_advanced_ask_html">確認顯示原始郵件</string>
+    <string name="title_advanced_ask_html">顯示原始訊息前確認</string>
     <string name="title_advanced_tracking">嘗試辨識和停用追蹤圖片</string>
     <string name="title_advanced_hide_timezone">傳送不附帶時區資料的訊息</string>
     <string name="title_advanced_client_id">將應用程式名稱和版本傳送到電子郵件伺服器</string>
@@ -519,7 +519,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物特徵辨識驗證時限</string>
     <string name="title_advanced_autolock">關閉螢幕後上鎖</string>
-    <string name="title_advanced_autolock_nav">離開應用程式時上鎖</string>
+    <string name="title_advanced_autolock_nav">離開應用程式後上鎖</string>
     <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
     <string name="title_advanced_load_emoji">從 Google Play 服務載入更新好的 Emoji</string>
     <string name="title_advanced_disconnect_auto_update">每周自動更新清單一次</string>
@@ -621,7 +621,8 @@
     <string name="title_advanced_preview_lines_hint">總計最多 %s 字元</string>
     <string name="title_advanced_preview_issue">由於某些 Android 版本的 bug，當有多行時，滾動可能會變遲緩</string>
     <string name="title_advanced_overview_mode_hint">可能導致字型變很小</string>
-    <string name="title_advanced_override_width_hint">這可以使訊息變窄，但同時會使訊息看起來有點奇怪</string>
+    <string name="title_advanced_override_width_hint">這可使訊息顯示更緊湊，但也可能導致顯示異常</string>
+    <string name="title_advanced_monospaced_pre_hint">僅純文字訊息會被視作經預排的</string>
     <string name="title_advanced_placeholders_hint">僅適用於經過重排的訊息</string>
     <string name="title_advanced_inline_hint">行內圖片是包含於訊息中的圖片</string>
     <string name="title_advanced_parse_classes_hint">訊息顯示更精準，但可能會延後</string>
@@ -637,7 +638,7 @@
     <string name="title_advanced_display_harmful_hint">停用此選項可能損害您的隱私</string>
     <string name="title_advanced_display_hidden_hint">這可能會產生異樣的外觀和雙重的文字</string>
     <string name="title_advanced_display_pin_hint">PIN 碼驗證優先於生物特徵辨識驗證</string>
-    <string name="title_advanced_display_autolock_nav_hint">這將會有 %1$d 秒的寬限時間</string>
+    <string name="title_advanced_display_autolock_nav_hint">會有一個 %1$d 秒的延緩時間</string>
     <string name="title_advanced_safe_browsing_hint">Google 伺服器知道有哪些地址正在被查詢</string>
     <string name="title_advanced_badge_hint">僅可用於支援的主畫面應用程式</string>
     <string name="title_advanced_notify_action_hint">至多可以顯示三個動作</string>
@@ -783,6 +784,9 @@
     <string name="title_synchronize_subfolders">子資料夾</string>
     <string name="title_synchronize_more">提取更多訊息</string>
     <string name="title_synchronize_more_hint">舊訊息只會被下載一次，因此這不會導致日常使用時的電量消耗增大</string>
+    <string name="title_synchronize_more_hint2">        訊息的提取速度與電子郵件伺服器遞送的速度一樣快，且其儲存速度與裝置儲存和索引的速度一樣快。
+        限制因素通常是裝置內部儲存空間的速度。
+    </string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">啟用同步</string>
     <string name="title_synchronize_batch_disable">停用同步</string>
@@ -939,6 +943,7 @@
     <string name="title_copy_to">複製到 &#8230;</string>
     <string name="title_subscribe">訂閱</string>
     <string name="title_delete">刪除</string>
+    <string name="title_delete_all">刪除全部</string>
     <string name="title_more">更多</string>
     <string name="title_less">更少</string>
     <string name="title_spam">垃圾郵件</string>
@@ -987,7 +992,7 @@
     <string name="title_insufficient_memory">訊息太大，剩下存儲容量不足 (剩下可用容量: %1$d)</string>
     <string name="title_show_full">顯示完整訊息</string>
     <string name="title_fullscreen">全屏顯示</string>
-    <string name="title_fit_width">符合寬度</string>
+    <string name="title_fit_width">適配寬度</string>
     <string name="title_disable_widths">停用寬度</string>
     <string name="title_unused_inline">未使用的行內圖片將會在傳送時被移除</string>
     <string name="title_accross_remark">跨帳戶移動的訊息會再次被下載，從而產生額外的數據用量</string>
@@ -1021,7 +1026,7 @@
     <string name="title_expand_warning">展開此訊息將會下載 %1$s</string>
     <string name="title_download_message">正在下載 &#8230;</string>
     <string name="title_reformatted">        這是經過重排的訊息視圖。
-        您可通過輕觸 &#x26F6; 圖示檢視原始訊息並隱藏此信息。
+        您可透過輕觸 &#x26F6; 圖示檢視原始訊息並隱藏此信息。
         重排訊息需要一些時間，具體取決於訊息的大小以及您的裝置的執行速度。
     </string>
     <string name="title_compose">撰寫</string>
@@ -1289,7 +1294,7 @@
     <string name="title_rule_header">標頭包含</string>
     <string name="title_rule_body">文本包含</string>
     <string name="title_rule_skip_quotes">忽略引用文字</string>
-    <string name="title_rule_body_remark">使用此條件將會永遠下載訊息文本，這有可能會減慢訊息列表的同步</string>
+    <string name="title_rule_body_remark">使用此條件則每次都會下載訊息本文，這可能減慢訊息清單的同步速度</string>
     <string name="title_rule_time_abs">絕對時間 (接收) 區間</string>
     <string name="title_rule_time_after">接收時間不早於</string>
     <string name="title_rule_time_before">接收時間不晚於</string>
@@ -1692,6 +1697,12 @@
         <item>低</item>
         <item>普通</item>
         <item>高</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>普通</item>
+        <item>個人</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

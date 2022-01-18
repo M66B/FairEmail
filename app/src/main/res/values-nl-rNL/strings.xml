@@ -792,6 +792,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_synchronize_subfolders">Submappen</string>
     <string name="title_synchronize_more">Haal meer berichten op</string>
     <string name="title_synchronize_more_hint">Dit zal resulteren in een enkele download van oudere berichten, dus het zal niet resulteren in meer batterijgebruik voor dagelijks gebruik</string>
+    <string name="title_synchronize_more_hint2">Berichten worden opgehaald zo snel als de mailserver ze kan afleveren en opgeslagen zo snel als het apparaat ze kan opslaan en indexeren.
+        De beperkende factor is meestal de snelheid van de interne opslagruimte van het apparaat.    </string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_synchronize_batch_enable">Synchronisatie inschakelen</string>
     <string name="title_synchronize_batch_disable">Synchronisatie uitschakelen</string>
@@ -947,7 +949,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_copy_to">Kopieer naar &#8230;</string>
     <string name="title_subscribe">Abonneren</string>
     <string name="title_delete">Verwijder</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Verwijder alle</string>
+    <string name="title_delete_all">Verwijder alle</string>
     <string name="title_more">Meer</string>
     <string name="title_less">Minder</string>
     <string name="title_spam">Spam</string>
@@ -1061,6 +1063,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_send_auto_archive">Archiveer beantwoord bericht</string>
     <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
+    <string name="title_send_sensitivity">Gevoeligheid</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>
     <string name="title_style">Stijl</string>
     <string name="title_style_bold">Vet</string>
@@ -1383,6 +1386,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_draft">Heeft concept</string>
     <string name="title_legend_priority">Heeft hoge prioriteit</string>
     <string name="title_legend_priority_low">Heeft lage prioriteit</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Is persoonlijk</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Is privé</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Is vertrouwelijk</string>
     <string name="title_legend_importance">Is belangrijk</string>
     <string name="title_legend_importance_low">Is niet belangrijk</string>
     <string name="title_legend_signed">Is ondertekend</string>
@@ -1696,6 +1702,12 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Laag</item>
         <item>Normaal</item>
         <item>Hoog</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normaal</item>
+        <item>Persoonlijk</item>
+        <item>Privé</item>
+        <item>Vertrouwelijk</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

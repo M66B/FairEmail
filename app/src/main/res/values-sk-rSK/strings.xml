@@ -813,6 +813,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_synchronize_subfolders">Podpriečinky</string>
     <string name="title_synchronize_more">Prevziať viac správ</string>
     <string name="title_synchronize_more_hint">Týmto prevezmete staršie správy v jedinom kroku, čím sa nezvýši celková spotreba batérie pri každodennom používaní</string>
+    <string name="title_synchronize_more_hint2">        Správy budú prevzaté tak rýchlo, ako rýchlo bude fungovať preberanie z poštového servera a uložené a zaindexované budú tak rýchlo, ako to umožní úložisko zariadenia.
+        Limitujúci faktor je zvyčajne rýchlosť interného úložiska v zariadení.
+    </string>
     <string name="title_synchronize_enabled">Synchronizovať</string>
     <string name="title_synchronize_batch_enable">Povoliť synchronizáciu</string>
     <string name="title_synchronize_batch_disable">Zakázať synchronizáciu</string>
@@ -969,7 +972,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_copy_to">Kopírovať do &#8230;</string>
     <string name="title_subscribe">Odoberať</string>
     <string name="title_delete">Odstrániť</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Vymazať všetko</string>
+    <string name="title_delete_all">Vymazať všetko</string>
     <string name="title_more">Viac</string>
     <string name="title_less">Menej</string>
     <string name="title_spam">Označiť za nevyžiadanú</string>
@@ -1721,6 +1724,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Nízka</item>
         <item>Normálna</item>
         <item>Vysoká</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normálna</item>
+        <item>Osobný</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

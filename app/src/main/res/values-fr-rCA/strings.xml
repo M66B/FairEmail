@@ -795,6 +795,9 @@
     <string name="title_synchronize_subfolders">Sous-dossiers</string>
     <string name="title_synchronize_more">Récupérer plus de messages</string>
     <string name="title_synchronize_more_hint">Ceci se traduira par un seul téléchargement des messages les plus anciens, ce qui n\'entraînera pas une plus grande utilisation de la pile pour une utilisation quotidienne</string>
+    <string name="title_synchronize_more_hint2">        Les messages seront récupérés aussi vite que le serveur de messagerie peut les délivrer et stockés aussi rapidement que l\'appareil peut les stocker.
+        Le facteur limitant est généralement la vitesse d\'accès à l\'espace de stockage interne de l\'appareil.
+    </string>
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_synchronize_batch_enable">Activer la synchronisation</string>
     <string name="title_synchronize_batch_disable">Désactiver la synchronisation</string>
@@ -951,7 +954,7 @@
     <string name="title_copy_to">Copier vers&#8230;</string>
     <string name="title_subscribe">S’abonner</string>
     <string name="title_delete">Supprimer</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Tout supprimer</string>
+    <string name="title_delete_all">Tout supprimer</string>
     <string name="title_more">Plus</string>
     <string name="title_less">Moins</string>
     <string name="title_spam">Indésirables</string>
@@ -1067,6 +1070,7 @@
     <string name="title_send_auto_archive">Archiver le message répondu</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
+    <string name="title_send_sensitivity">Sensibilité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>
     <string name="title_style">Style</string>
     <string name="title_style_bold">Gras</string>
@@ -1391,6 +1395,9 @@
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_priority">A une priorité élevée</string>
     <string name="title_legend_priority_low">A une priorité basse</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Est personnel</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Est privé</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Est confidentiel</string>
     <string name="title_legend_importance">Est important</string>
     <string name="title_legend_importance_low">N’est pas important</string>
     <string name="title_legend_signed">Est signé</string>
@@ -1706,6 +1713,12 @@
         <item>Basse</item>
         <item>Normale</item>
         <item>Haute</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Personnel</item>
+        <item>Privé</item>
+        <item>Confidentiel</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

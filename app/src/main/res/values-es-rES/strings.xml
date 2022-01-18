@@ -793,6 +793,9 @@
     <string name="title_synchronize_subfolders">Subcarpetas</string>
     <string name="title_synchronize_more">Obtener más mensajes</string>
     <string name="title_synchronize_more_hint">Esto resultará en una sola descarga de mensajes antiguos, por lo que no resultará en un mayor uso de la batería para uso diario</string>
+    <string name="title_synchronize_more_hint2">        Los mensajes se obtendrán tan rápido como el servidor de correo puede entregarlos y almacenarlos, y tan rápido como el dispositivo pueda almacenarlos e indicarlos.
+        El factor limitativo suele ser la velocidad del espacio de almacenamiento interno del dispositivo.
+    </string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_synchronize_batch_enable">Activar sincronización</string>
     <string name="title_synchronize_batch_disable">Desactivar sincronización</string>
@@ -1061,6 +1064,7 @@
     <string name="title_send_auto_archive">Archivar mensaje respondido</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridad</string>
+    <string name="title_send_sensitivity">Sensibilidad</string>
     <string name="title_no_server">No se encontró ningún servidor en \'%1$s\'</string>
     <string name="title_style">Estilo</string>
     <string name="title_style_bold">Negrita</string>
@@ -1384,6 +1388,9 @@
     <string name="title_legend_draft">Tiene borrador</string>
     <string name="title_legend_priority">Tiene prioridad alta</string>
     <string name="title_legend_priority_low">Tiene prioridad baja</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Es personal</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Es privado</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Es confidencial</string>
     <string name="title_legend_importance">Es importante</string>
     <string name="title_legend_importance_low">No es importante</string>
     <string name="title_legend_signed">Está firmado</string>
@@ -1698,6 +1705,12 @@
         <item>Baja</item>
         <item>Normal</item>
         <item>Alta</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Personal</item>
+        <item>Privado</item>
+        <item>Confidencial</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

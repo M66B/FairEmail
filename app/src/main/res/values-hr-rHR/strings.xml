@@ -1095,6 +1095,12 @@
         <item>Normalni</item>
         <item>Visoki</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normalni</item>
+        <item>Personal</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>

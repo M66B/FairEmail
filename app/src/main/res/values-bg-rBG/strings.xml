@@ -1370,6 +1370,12 @@
         <item>Нормален</item>
         <item>Висок</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Нормален</item>
+        <item>Личен</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>

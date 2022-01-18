@@ -783,6 +783,8 @@
     <string name="title_synchronize_subfolders">子文件夹</string>
     <string name="title_synchronize_more">获取更多消息</string>
     <string name="title_synchronize_more_hint">这只会导致一次旧消息的下载，因此它不会造成日常使用的更多电池消耗</string>
+    <string name="title_synchronize_more_hint2">        邮件将以电子邮件服务器的传送速度被快速提取，并根据设备存储和索引能力尽快进行存储
+        限制因素通常是设备内部存储的读写速度    </string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">启用同步</string>
     <string name="title_synchronize_batch_disable">禁用同步</string>
@@ -937,7 +939,7 @@
     <string name="title_copy_to">复制到 &#8230;</string>
     <string name="title_subscribe">订阅</string>
     <string name="title_delete">删除</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">删除所有</string>
+    <string name="title_delete_all">删除所有</string>
     <string name="title_more">更多</string>
     <string name="title_less">更少</string>
     <string name="title_spam">垃圾邮件</string>
@@ -1051,6 +1053,7 @@
     <string name="title_send_auto_archive">存档已回复消息</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">优先级</string>
+    <string name="title_send_sensitivity">敏感度</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
     <string name="title_style">样式</string>
     <string name="title_style_bold">粗体</string>
@@ -1375,6 +1378,9 @@
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_priority_low">低优先级</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">个人</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">私有</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">机密</string>
     <string name="title_legend_importance">重要</string>
     <string name="title_legend_importance_low">不重要</string>
     <string name="title_legend_signed">已签名</string>
@@ -1687,6 +1693,12 @@
         <item>低</item>
         <item>正常</item>
         <item>高</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>正常</item>
+        <item>个人</item>
+        <item>私密</item>
+        <item>机密</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

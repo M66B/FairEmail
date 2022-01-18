@@ -794,6 +794,9 @@
     <string name="title_synchronize_subfolders">Alt qovluqlar</string>
     <string name="title_synchronize_more">Daha çox mesaj yüklə</string>
     <string name="title_synchronize_more_hint">Bu, köhnə mesajların tək bir endirilməsi ilə nəticələnəcək, buna görə də gündəlik istifadə üçün daha çox batareya istifadəsi ilə nəticələnməyəcək</string>
+    <string name="title_synchronize_more_hint2">        Mesajlar, e-poçt serverinin çatdıra biləcəyi qədər sürətli gətiriləcək və saxlaya və indeksləyə biləcəyi qədər sürətli saxlayacaq.
+        Limitləyici faktor adətən cihazın daxili anbar sahəsinin sürətidir.
+    </string>
     <string name="title_synchronize_enabled">Eyniləşdirmə</string>
     <string name="title_synchronize_batch_enable">Eyniləşdirməni fəallaşdır</string>
     <string name="title_synchronize_batch_disable">Eyniləşdirməni sıradan çıxart</string>
@@ -950,7 +953,7 @@
     <string name="title_copy_to">Kopyala &#8230;</string>
     <string name="title_subscribe">Abunə ol</string>
     <string name="title_delete">Sil</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Hamısını sil</string>
+    <string name="title_delete_all">Hamısını sil</string>
     <string name="title_more">Daha çox</string>
     <string name="title_less">Daha az</string>
     <string name="title_spam">Spam</string>
@@ -1705,6 +1708,12 @@
         <item>Aşağı</item>
         <item>Normal</item>
         <item>Yüksək</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Şəxsi</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>İlkin</item>

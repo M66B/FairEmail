@@ -814,6 +814,9 @@
     <string name="title_synchronize_subfolders">Подпапки</string>
     <string name="title_synchronize_more">Получить больше сообщений</string>
     <string name="title_synchronize_more_hint">Это вызовет одноразовую загрузку старых сообщений, поэтому не приведёт к большему потреблению заряда батареи на постоянной основе</string>
+    <string name="title_synchronize_more_hint2">        Сообщения будут загружены настолько быстро, насколько сервер электронной почты сможет отдать их и сохраняться настолько быстро, насколько устройство сможет сохранить и индексировать их.
+        Ограничивающим фактором обычно является скорость внутреннего хранилища устройства.
+    </string>
     <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_synchronize_batch_enable">Включить синхронизацию</string>
     <string name="title_synchronize_batch_disable">Отключить синхронизацию</string>
@@ -970,7 +973,7 @@
     <string name="title_copy_to">Копировать в&#8230;</string>
     <string name="title_subscribe">Подписаться</string>
     <string name="title_delete">Удалить</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Удалить все</string>
+    <string name="title_delete_all">Удалить все</string>
     <string name="title_more">Ещё</string>
     <string name="title_less">Менее</string>
     <string name="title_spam">Спам</string>
@@ -1085,6 +1088,7 @@
     <string name="title_send_auto_archive">Архивировать исходное сообщение</string>
     <string name="title_send_encryption">Шифрование</string>
     <string name="title_send_priority">Приоритет</string>
+    <string name="title_send_sensitivity">Чувствительность</string>
     <string name="title_no_server">Сервер не найден на \"%1$s\"</string>
     <string name="title_style">Стиль</string>
     <string name="title_style_bold">Жирный</string>
@@ -1409,6 +1413,9 @@
     <string name="title_legend_draft">Имеет черновик</string>
     <string name="title_legend_priority">Имеет высокий приоритет</string>
     <string name="title_legend_priority_low">Имеет низкий приоритет</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Личное</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Приватное</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Конфиденциальное</string>
     <string name="title_legend_importance">Важное</string>
     <string name="title_legend_importance_low">Не важное</string>
     <string name="title_legend_signed">Подписано</string>
@@ -1726,6 +1733,12 @@
         <item>Низкий</item>
         <item>Обычный</item>
         <item>Высокий</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Обычное</item>
+        <item>Личное</item>
+        <item>Приватное</item>
+        <item>Конфиденциальное</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

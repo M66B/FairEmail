@@ -613,7 +613,7 @@
     <string name="title_advanced_timeout_hint">Το χρονικό όριο για τις διαδικασίες ανάγνωσης/εγγραφής θα τεθεί στο διπλάσιο από εκείνο για τη λήξη της σύνδεσης. Υψηλότερες τιμές συνεπάγονται μεγαλύτερη χρήση μπαταρίας.</string>
     <string name="title_advanced_ssl_harden_hint">Αν ενεργοποιηθεί, θα απενεργοποιηθούν τα ασθενή πρωτόκολλα SSL και οι αλγόριθμοι κρυπτογράφησης, το οποίο ενδέχεται να οδηγήσει σε προβλήματα σύνδεσης</string>
     <string name="title_advanced_roaming_hint">Οι κεφαλίδες μηνυμάτων θα λαμβάνονται πάντα κατά την περιαγωγή. Από τις ρυθμίσεις περιαγωγής της συσκευής σας, μπορείτε να απενεργοποίησετε το ίντερνετ κατά την περιαγωγή.</string>
-    <string name="title_advanced_browse_hint">Λήψη περισσοτέρων μηνυμάτων με την κύλιση προς τα κάτω</string>
+    <string name="title_advanced_browse_hint">Ανάκτηση περισσοτέρων μηνυμάτων με την κύλιση προς τα κάτω</string>
     <string name="title_advanced_layout_hint">Εναλλαγή σε πιο συμπαγή διάταξη καθώς και αλλαγές στο μέγεθος του κειμένου του μηνύματος, μπορούν να γίνουν από την πάνω γραμμή ενεργειών στην οθόνη προβολής του μηνύματος</string>
     <string name="title_advanced_startup_hint">Πατήστε παρατεταμένα σε οποιονδήποτε φάκελο της λίστας φακέλων για να τον προσθέσετε ή να τον αφαιρέσετε από τη λίστα των ενοποιημένων φακέλων</string>
     <string name="title_advanced_date_hint">Τα μηνύματα ομαδοποιούνται μόνον κατά ημερομηνία όταν ταξινομούνται σε χρονολογική σειρά</string>
@@ -789,8 +789,11 @@
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
     <string name="title_synchronize_subfolders">Υποφάκελοι</string>
-    <string name="title_synchronize_more">Λήψη περισσότερων μηνυμάτων</string>
+    <string name="title_synchronize_more">Ανάκτηση περισσότερων μηνυμάτων</string>
     <string name="title_synchronize_more_hint">Αυτό έχει ως αποτέλεσμα ένα και μοναδικό κατέβασμα παλαιότερων μηνυμάτων, οπότε δεν θα οδηγήσει σε επιπλέον χρήση μπαταρίας κατά την καθημερινή χρήση</string>
+    <string name="title_synchronize_more_hint2">        Τα μηνύματα θα ανακτώνται τόσο γρήγορα όσο ο διακομιστής ηλ. ταχυδρομείου μπορεί να τα παραδίδει, και θα αποθηκεύονται τόσο γρήγορα όσο η συσκευή μπορεί να τα αποθηκεύει και να τα ευρετηριάζει.
+        Ο περιοριστικός παράγοντας συνήθως είναι η ταχύτητα του εσωτερικού χώρου αποθήκευσης της συσκευής.
+    </string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_synchronize_batch_enable">Ενεργοποίηση συγχρονισμού</string>
     <string name="title_synchronize_batch_disable">Απενεργοποίηση συγχρονισμού</string>
@@ -821,7 +824,7 @@
     <string name="title_empty_all">Θα διαγράψει όλα τα μηνύματα και από τη συσκευή και από τον εξυπηρετητή</string>
     <string name="title_delete_operation_title">Διαγραφή δραστηριοτήτων</string>
     <string name="title_delete_operation_error">Με ένα μήνυμα σφάλματος</string>
-    <string name="title_delete_operation_fetch">Φέρε λειτουργίες</string>
+    <string name="title_delete_operation_fetch">Λειτουργίες ανάκτησης</string>
     <string name="title_delete_operation_move">Δραστηριότητες μετακίνησης</string>
     <string name="title_delete_operation_flag">Επισήμανση λειτουργιών</string>
     <string name="title_delete_operation_delete">Δραστηριότητες διαγραφής</string>
@@ -946,7 +949,7 @@
     <string name="title_copy_to">Αντιγραφή σε &#8230;</string>
     <string name="title_subscribe">Εγγραφή συνδρομητή</string>
     <string name="title_delete">Διαγραφή</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Διαγραφή όλων</string>
+    <string name="title_delete_all">Διαγραφή όλων</string>
     <string name="title_more">Περισσότερα</string>
     <string name="title_less">Λιγότερα</string>
     <string name="title_spam">Ανεπιθύμητα</string>
@@ -1060,6 +1063,7 @@
     <string name="title_send_auto_archive">Αρχειοθέτηση απαντημένου μηνύματος</string>
     <string name="title_send_encryption">Κρυπτογράφηση</string>
     <string name="title_send_priority">Προτεραιότητα</string>
+    <string name="title_send_sensitivity">Ευαισθησία</string>
     <string name="title_no_server">Δε βρέθηκε διακομιστής στο \'%1$s\'</string>
     <string name="title_style">Στιλ</string>
     <string name="title_style_bold">Έντονα</string>
@@ -1384,6 +1388,9 @@
     <string name="title_legend_draft">Έχει πρόχειρο</string>
     <string name="title_legend_priority">Έχει υψηλή προτεραιότητα</string>
     <string name="title_legend_priority_low">Έχει χαμηλή προτεραιότητα</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Είναι προσωπικό</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Είναι ιδιωτικό</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Είναι εμπιστευτικό</string>
     <string name="title_legend_importance">Είναι σημαντικό</string>
     <string name="title_legend_importance_low">Δεν είναι σημαντικό</string>
     <string name="title_legend_signed">Είναι υπογεγραμμένο</string>
@@ -1525,7 +1532,7 @@
     <string name="title_dismiss">Απόρριψη</string>
     <string name="title_snooze_now">Αναβολή</string>
     <string name="title_loading">Φόρτωση &#8230;</string>
-    <string name="title_fetching_again">Λήψη του μηνύματος ξανά από το διακομιστή</string>
+    <string name="title_fetching_again">Ανάκτηση του μηνύματος εκ νέου από τον διακομιστή</string>
     <string name="title_go_back">Μετάβαση πίσω</string>
     <string name="title_conversation_actions">Ενέργειες</string>
     <string name="title_conversation_action_reply">Απάντηση με: %1$s</string>
@@ -1698,6 +1705,12 @@
         <item>Χαμηλή</item>
         <item>Κανονική</item>
         <item>Υψηλή</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Κανονικό</item>
+        <item>Προσωπικό</item>
+        <item>Ιδιωτικό</item>
+        <item>Εμπιστευτικό</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

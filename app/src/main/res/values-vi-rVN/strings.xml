@@ -782,6 +782,9 @@
     <string name="title_synchronize_subfolders">Các thư mục con</string>
     <string name="title_synchronize_more">Lấy thêm thư</string>
     <string name="title_synchronize_more_hint">Cái này sẽ dẫn đến một lượt tải xuống các thư cũ hơn, nên nó sẽ không dẫn đến sử dụng pin nhiều hơn khi sử dụng hàng ngày</string>
+    <string name="title_synchronize_more_hint2">        Thư sẽ được lấy với tốc độ bằng với tốc độ máy chủ email có thể gửi thư và được lưu trữ với tốc độ bằng với tốc độ thiết bị có thể lưu trữ và tạo mục lục cho chúng.
+        Yếu tố giới hạn thường là tốc độ của không gian bộ nhớ trong của thiết bị.
+    </string>
     <string name="title_synchronize_enabled">Đồng bộ hoá</string>
     <string name="title_synchronize_batch_enable">Bật đồng bộ hoá</string>
     <string name="title_synchronize_batch_disable">Tắt đồng bộ hoá</string>
@@ -937,7 +940,7 @@
     <string name="title_copy_to">Sao chép vào &#8230;</string>
     <string name="title_subscribe">Đăng ký</string>
     <string name="title_delete">Xoá</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Xóa tất cả</string>
+    <string name="title_delete_all">Xóa tất cả</string>
     <string name="title_more">Thêm</string>
     <string name="title_less">Ít hơn</string>
     <string name="title_spam">Thư rác</string>
@@ -1051,6 +1054,7 @@
     <string name="title_send_auto_archive">Lưu trữ thư đã được trả lời</string>
     <string name="title_send_encryption">Mã hóa</string>
     <string name="title_send_priority">Mức ưu tiên</string>
+    <string name="title_send_sensitivity">Độ nhạy</string>
     <string name="title_no_server">Không tìm thấy máy chủ tại \'%1$s\'</string>
     <string name="title_style">Phong cách</string>
     <string name="title_style_bold">Đậm</string>
@@ -1375,6 +1379,9 @@
     <string name="title_legend_draft">Có nháp</string>
     <string name="title_legend_priority">Ưu tiên cao</string>
     <string name="title_legend_priority_low">Ưu tiên thấp</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Là cá nhân</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Là riêng tư</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Là bí mật</string>
     <string name="title_legend_importance">Quan trọng</string>
     <string name="title_legend_importance_low">Không quan trọng</string>
     <string name="title_legend_signed">Được ký</string>
@@ -1688,6 +1695,12 @@
         <item>Thấp</item>
         <item>Bình thường</item>
         <item>Cao</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Bình thường</item>
+        <item>Cá nhân</item>
+        <item>Riêng tư</item>
+        <item>Bí mật</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Mặc định</item>

@@ -968,7 +968,7 @@
     <string name="title_copy_to">Копіювати до &#8230;</string>
     <string name="title_subscribe">Підписатися</string>
     <string name="title_delete">Видалити</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Видалити все</string>
+    <string name="title_delete_all">Видалити все</string>
     <string name="title_more">Більше</string>
     <string name="title_less">Менше</string>
     <string name="title_spam">Спам</string>
@@ -1082,6 +1082,7 @@
     <string name="title_send_auto_archive">Архівувати повідомлення з відповіддю</string>
     <string name="title_send_encryption">Шифрування</string>
     <string name="title_send_priority">Пріоритет</string>
+    <string name="title_send_sensitivity">Конфіденційність</string>
     <string name="title_no_server">Сервер не знайдено на \'%1$s\'</string>
     <string name="title_style">Стиль</string>
     <string name="title_style_bold">Жирний</string>
@@ -1406,6 +1407,9 @@
     <string name="title_legend_draft">Має чернетку</string>
     <string name="title_legend_priority">Має високий пріоритет</string>
     <string name="title_legend_priority_low">Має низький пріоритет</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Є особистим</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Є приватним</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Є конфіденційним</string>
     <string name="title_legend_importance">Важливо</string>
     <string name="title_legend_importance_low">Не важливо</string>
     <string name="title_legend_signed">Підписано</string>
@@ -1722,6 +1726,12 @@
         <item>Низький</item>
         <item>Звичайний</item>
         <item>Високий</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Звичайний</item>
+        <item>Особистий</item>
+        <item>Приватний</item>
+        <item>Конфіденційний</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

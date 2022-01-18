@@ -790,6 +790,9 @@
     <string name="title_synchronize_subfolders">Undermappar</string>
     <string name="title_synchronize_more">Hämta fler meddelanden</string>
     <string name="title_synchronize_more_hint">Detta kommer att resultera i en enda nedladdning av äldre meddelanden, så det kommer inte att resultera i mer batterianvändning för dagligt bruk</string>
+    <string name="title_synchronize_more_hint2">        Meddelanden kommer att hämtas så snabbt som e-postservern kan leverera dem och lagras så snabbt som enheten kan lagra och indexera dem.
+        Den begränsande faktorn är vanligtvis hastigheten på enhetens interna lagringsutrymme.
+    </string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_synchronize_batch_enable">Aktivera synkronisering</string>
     <string name="title_synchronize_batch_disable">Inaktivera synkronisering</string>
@@ -945,6 +948,7 @@
     <string name="title_copy_to">Kopiera till &#8230;</string>
     <string name="title_subscribe">Prenumerera</string>
     <string name="title_delete">Ta bort</string>
+    <string name="title_delete_all">Radera alla</string>
     <string name="title_more">Mer</string>
     <string name="title_less">Mindre</string>
     <string name="title_spam">Skräppost</string>
@@ -1692,6 +1696,12 @@
         <item>Låg</item>
         <item>Normal</item>
         <item>Hög</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Personligt</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

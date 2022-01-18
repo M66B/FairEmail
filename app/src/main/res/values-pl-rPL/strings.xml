@@ -813,6 +813,9 @@
     <string name="title_synchronize_subfolders">Podfoldery</string>
     <string name="title_synchronize_more">Pobierz więcej wiadomości</string>
     <string name="title_synchronize_more_hint">Spowoduje to jednorazowe pobranie starszych wiadomości, więc nie spowoduje większego zużycia baterii w codziennym użytkowaniu</string>
+    <string name="title_synchronize_more_hint2">        Wiadomości będą pobierane tak szybko, jak serwer poczty e-mail może je dostarczyć i przechowywane tak szybko, jak urządzenie może je przechowywać oraz indeksować.
+        Czynnikiem ograniczającym jest zwykle szybkość wewnętrznej pamięci urządzenia.
+    </string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_synchronize_batch_enable">Włącz synchronizację</string>
     <string name="title_synchronize_batch_disable">Wyłącz synchronizację</string>
@@ -968,7 +971,7 @@
     <string name="title_copy_to">Kopiuj do &#8230;</string>
     <string name="title_subscribe">Subskrybuj</string>
     <string name="title_delete">Usuń</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Usuń wszystko</string>
+    <string name="title_delete_all">Usuń wszystko</string>
     <string name="title_more">Więcej</string>
     <string name="title_less">Mniej</string>
     <string name="title_spam">Spam</string>
@@ -1082,6 +1085,7 @@
     <string name="title_send_auto_archive">Archiwizuj wysłaną odpowiedź</string>
     <string name="title_send_encryption">Szyfrowanie</string>
     <string name="title_send_priority">Priorytet</string>
+    <string name="title_send_sensitivity">Wrażliwość</string>
     <string name="title_no_server">Nie znaleziono serwera na \'%1$s\'</string>
     <string name="title_style">Styl</string>
     <string name="title_style_bold">Pogrubienie</string>
@@ -1406,6 +1410,9 @@
     <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_priority">Posiada wysoki priorytet</string>
     <string name="title_legend_priority_low">Posiada niski priorytet</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Jest osobisty</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Jest prywatny</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Jest poufny</string>
     <string name="title_legend_importance">Jest ważne</string>
     <string name="title_legend_importance_low">Jest nieważne</string>
     <string name="title_legend_signed">Jest podpisana</string>
@@ -1721,6 +1728,12 @@
         <item>Niski</item>
         <item>Normalny</item>
         <item>Wysoki</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normalny</item>
+        <item>Osobiste</item>
+        <item>Prywatny</item>
+        <item>Poufne</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

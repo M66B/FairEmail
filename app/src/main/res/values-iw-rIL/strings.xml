@@ -814,6 +814,9 @@
     <string name="title_synchronize_subfolders">תת־תיקיות</string>
     <string name="title_synchronize_more">משיכת הודעות נוספות</string>
     <string name="title_synchronize_more_hint">יגרום להורדה בודדת של הודעות ישנות יותר, כדי לא להגדיל את צריכת הסוללה בשימוש יומיומי</string>
+    <string name="title_synchronize_more_hint2">        ההודעות תאוחזרנה במהירות בה שרת הדוא״ל יכול להעביר אותן ותאוחסנה במהירות בו המכשיר יכול לאחסן ולסדר אותן.
+        הגורם המגביל הוא בדרך כלל מהירות האחסון הפנימי של המכשיר.
+    </string>
     <string name="title_synchronize_enabled">סנכרון</string>
     <string name="title_synchronize_batch_enable">הפעלת סנכרון</string>
     <string name="title_synchronize_batch_disable">השבתת סנכרון</string>
@@ -970,7 +973,7 @@
     <string name="title_copy_to">העתקה אל&#8230;</string>
     <string name="title_subscribe">מינוי</string>
     <string name="title_delete">מחיקה</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">למחוק הכול</string>
+    <string name="title_delete_all">למחוק הכול</string>
     <string name="title_more">יותר</string>
     <string name="title_less">פחות</string>
     <string name="title_spam">ספאם</string>
@@ -1727,6 +1730,12 @@
         <item>נמוכה</item>
         <item>רגילה</item>
         <item>גבוהה</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>רגילה</item>
+        <item>אישי</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>ברירת מחדל</item>

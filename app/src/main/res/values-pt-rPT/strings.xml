@@ -565,7 +565,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_eml_downloaded">Download de mensagens originais: %1$s</string>
     <string name="title_trash">Lixo</string>
     <string name="title_delete">Eliminar</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Apagar tudo</string>
+    <string name="title_delete_all">Apagar tudo</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
     <string name="title_copy_btn">Copiar</string>
@@ -586,6 +586,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_language">Idioma:</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_encryption">Encriptação</string>
+    <string name="title_send_sensitivity">Sensibilidade</string>
     <string name="title_style_align_start">Iniciar</string>
     <string name="title_style_list">Lista</string>
     <string name="title_attachment_audio">Gravar áudio</string>
@@ -623,6 +624,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_legend_trash">Lixo</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_thread">Conversa</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">É pessoal</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">É privado</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">É confidencial</string>
     <string name="title_legend_audio">Gravar áudio</string>
     <string name="title_legend_show_images">Mostrar imagens</string>
     <string name="title_legend_hide_images">Ocultar imagens</string>
@@ -690,6 +694,12 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Pessoal</item>
+        <item>Privado</item>
+        <item>Confidencial</item>
+    </string-array>
     <string name="title_size_tiny">Muito pequeno</string>
     <string-array name="sizeNames">
         <item>0 B</item>

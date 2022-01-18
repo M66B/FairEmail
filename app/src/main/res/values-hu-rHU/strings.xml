@@ -1487,6 +1487,12 @@
         <item>Normál</item>
         <item>Magas</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normál</item>
+        <item>Személyes</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>

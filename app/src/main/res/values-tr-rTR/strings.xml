@@ -792,6 +792,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_synchronize_subfolders">Alt Klasörler</string>
     <string name="title_synchronize_more">Daha fazla mesaj yükle</string>
     <string name="title_synchronize_more_hint">Bu, eski mesajların tek bir indirilmesiyle sonuçlanacak, bu nedenle günlük kullanım için daha fazla pil kullanımıyla sonuçlanmayacaktır</string>
+    <string name="title_synchronize_more_hint2">        Mesajlar, e-posta sunucusunun teslim edebildiği kadar hızlı getirilecek ve cihazın saklayabileceği ve indeksleyebileceği kadar hızlı saklanacaktır.
+        Sınırlayıcı faktör genellikle cihazın dahili depolama alanının hızıdır.
+       </string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_synchronize_batch_enable">Senkronizasyonunu Etkinleştir</string>
     <string name="title_synchronize_batch_disable">Senkronizasyonunu Devre Dışı Bırak</string>
@@ -946,7 +949,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_copy_to">&#8230;\'ya kopyala</string>
     <string name="title_subscribe">Abonelik</string>
     <string name="title_delete">Sil</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Tümünü sil</string>
+    <string name="title_delete_all">Tümünü sil</string>
     <string name="title_more">Daha fazla</string>
     <string name="title_less">Daha az</string>
     <string name="title_spam">İstenmeyen posta</string>
@@ -1061,6 +1064,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_send_auto_archive">Yanıtlanan iletiyi arşivle</string>
     <string name="title_send_encryption">Şifreleme</string>
     <string name="title_send_priority">Öncelik</string>
+    <string name="title_send_sensitivity">Hassasiyet</string>
     <string name="title_no_server">%1$s\'de sunucu bulunamadı</string>
     <string name="title_style">Biçim</string>
     <string name="title_style_bold">Kalın yazı</string>
@@ -1384,6 +1388,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_priority">Yüksek önceliğe sahip</string>
     <string name="title_legend_priority_low">Düşük önceliğe sahip</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Kişisel mi</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Özel mi</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Gizli mi</string>
     <string name="title_legend_importance">Önemli</string>
     <string name="title_legend_importance_low">Önemli değil</string>
     <string name="title_legend_signed">İmzalı</string>
@@ -1698,6 +1705,12 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Düşük</item>
         <item>Normal</item>
         <item>Yüksek</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Kişisel</item>
+        <item>Özel</item>
+        <item>Gizli</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

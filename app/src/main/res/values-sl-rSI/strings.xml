@@ -1159,6 +1159,12 @@
         <item>Običajna</item>
         <item>Visoka</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Običajna</item>
+        <item>Osebno</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>

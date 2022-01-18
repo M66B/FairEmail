@@ -792,6 +792,9 @@
     <string name="title_synchronize_subfolders">Unterordner</string>
     <string name="title_synchronize_more">Weitere Nachrichten abrufen</string>
     <string name="title_synchronize_more_hint">Dies führt zu einem einzigen Download älterer Nachrichten, so dass es nicht zu mehr Akkuverbrauch bei der täglichen Nutzung führt</string>
+    <string name="title_synchronize_more_hint2">        Nachrichten werden so schnell abgerufen, wie der E-Mail-Server sie ausliefern, und so schnell gespeichert, wie das Gerät sie speichern kann.
+        Der beschränkende Faktor ist normalerweise die Geschwindigkeit des internen Speicherplatzes des Gerätes.
+    </string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_synchronize_batch_enable">Synchronisation aktivieren</string>
     <string name="title_synchronize_batch_disable">Synchronisierung deaktivieren</string>
@@ -946,7 +949,7 @@
     <string name="title_copy_to">Kopieren nach &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Alle löschen</string>
+    <string name="title_delete_all">Alle löschen</string>
     <string name="title_more">Mehr</string>
     <string name="title_less">Weniger</string>
     <string name="title_spam">Spam</string>
@@ -1699,6 +1702,12 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Niedrig</item>
         <item>Normal</item>
         <item>Hoch</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Persönlich</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

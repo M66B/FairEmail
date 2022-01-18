@@ -1268,6 +1268,12 @@
         <item>Arrunta</item>
         <item>Altua</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Arrunta</item>
+        <item>Pertsonala</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>

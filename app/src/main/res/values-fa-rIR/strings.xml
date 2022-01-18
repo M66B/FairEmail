@@ -1157,6 +1157,12 @@
         <item>متوسط</item>
         <item>بالا</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>متوسط</item>
+        <item>شخصی</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>۱</item>
         <item>٢</item>

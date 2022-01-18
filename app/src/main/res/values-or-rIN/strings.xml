@@ -310,7 +310,7 @@
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_delete">ବିଲୋପ</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">ସମସ୍ତ ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_delete_all">ସମସ୍ତ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_more">ଅଧିକ</string>
     <string name="title_less">କମ୍</string>
     <string name="title_move">ଘୁଞ୍ଚାନ୍ତୁ</string>

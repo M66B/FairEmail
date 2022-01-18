@@ -947,7 +947,7 @@
     <string name="title_copy_to">Kopioi kansioon &#8230;</string>
     <string name="title_subscribe">Tilaa</string>
     <string name="title_delete">Poista</string>
-    <string name="title_delete_all" comment="title_delete_all&#10;Delete all &lt;contacts, etc&gt;">Poista kaikki</string>
+    <string name="title_delete_all">Poista kaikki</string>
     <string name="title_more">Lisää</string>
     <string name="title_less">Vähemmän</string>
     <string name="title_spam">Siirrä roskapostikansioon</string>
@@ -1700,6 +1700,12 @@
         <item>Alhainen</item>
         <item>Tavallinen</item>
         <item>Korkea</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Tavallinen</item>
+        <item>Henkilökohtainen</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

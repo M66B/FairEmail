@@ -1713,6 +1713,12 @@
         <item>Normální</item>
         <item>Vysoká</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normální</item>
+        <item>Osobní</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>

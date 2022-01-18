@@ -296,7 +296,7 @@
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
     <string name="title_advanced_subscriptions">Gestisci sottoscrizioni alla cartella</string>
     <string name="title_advanced_check_authentication">Verifica l\'autenticazione del messaggio</string>
-    <string name="title_advanced_check_tls">Controlla il transport layer security (TLS)</string>
+    <string name="title_advanced_check_tls">Controlla il Transport Layer Security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_blocklist">Controlla se il nome del dominio del mittente è in una lista di blocco dello spam</string>
@@ -597,7 +597,7 @@
     <string name="title_advanced_sync_folders_hint">Disabilitarlo ridurrà in qualche modo l\'uso dei dati e della batteria, ma disabiliterà anche l\'aggiornamento dell\'elenco delle cartelle</string>
     <string name="title_advanced_poll_folders_hint">Sincronizza periodicamente l\'elenco di cartelle oltre alla connessione a un profilo</string>
     <string name="title_advanced_check_authentication_hint">Questo controllerà i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguita dal server email</string>
-    <string name="title_advanced_check_tls_hint">Ciò mostrerà uno scudo verde solo se un messaggio è stato trasportato in modo sicuro da tutti i server</string>
+    <string name="title_advanced_check_tls_hint">Questo mostrerà uno scudo verde solo se un messaggio è stato trasportato in sicurezza da tutti i server</string>
     <string name="title_advanced_check_reply_hint">Questo verificherà se il nome del dominio del mittente e l\'indirizzo di risposta sono uguali</string>
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
@@ -633,7 +633,7 @@
     <string name="title_advanced_preview_issue">Lo scorrimento può esser lento per un bug in alcune versioni di Android quando il numero di righe è maggiore di uno</string>
     <string name="title_advanced_overview_mode_hint">Questo può risultare in font molto piccoli</string>
     <string name="title_advanced_override_width_hint">Questo può restringere i messaggi, ma anche sembrare strano</string>
-    <string name="title_advanced_monospaced_pre_hint">I messaggi solo di testo semplice saranno considerati come preformattati</string>
+    <string name="title_advanced_monospaced_pre_hint">I messaggi di solo testo semplice sarà considerati come preformattati</string>
     <string name="title_advanced_placeholders_hint">Questo si applica solo ai messaggi riformattati</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
@@ -795,6 +795,9 @@
     <string name="title_synchronize_subfolders">Sottocartelle</string>
     <string name="title_synchronize_more">Recupera altri messaggi</string>
     <string name="title_synchronize_more_hint">Questo risulterà in un solo download dei messaggi più vecchi, non risulterà quindi in maggiore uso della batteria per l\'uso quotidiano</string>
+    <string name="title_synchronize_more_hint2">        I messaggi saranno recuperati non appena il server email potrà consegnarlo e memorizzati appena il dispositivo potrà memorizzarli e indicizzarli.
+        Il fattore limitante è di solito la velocità dello spazio d\'archiviazione interno del dispositivo.
+    </string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_synchronize_batch_enable">Abilita la sincronizzazione</string>
     <string name="title_synchronize_batch_disable">Disabilita la sincronizzazione</string>
@@ -951,6 +954,7 @@
     <string name="title_copy_to">Copia in &#8230;</string>
     <string name="title_subscribe">Iscriviti</string>
     <string name="title_delete">Elimina</string>
+    <string name="title_delete_all">Elimina tutto</string>
     <string name="title_more">Altro</string>
     <string name="title_less">Meno</string>
     <string name="title_spam">Spam</string>
@@ -1370,7 +1374,7 @@
     <string name="title_legend_closing">Chiusura</string>
     <string name="title_legend_unified">Posta in arrivo unificata / profilo principale</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
-    <string name="title_legend_outbox">Posta in uscita</string>
+    <string name="title_legend_outbox">Posta In Uscita</string>
     <string name="title_legend_drafts">Bozze</string>
     <string name="title_legend_sent">Inviato</string>
     <string name="title_legend_archive">Archivio</string>
@@ -1705,6 +1709,12 @@
         <item>Bassa</item>
         <item>Normale</item>
         <item>Alta</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normale</item>
+        <item>Personale</item>
+        <item>Private</item>
+        <item>Confidential</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

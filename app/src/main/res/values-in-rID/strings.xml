@@ -1666,6 +1666,12 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>Normal</item>
         <item>Tinggi</item>
     </string-array>
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>Pribadi</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>
