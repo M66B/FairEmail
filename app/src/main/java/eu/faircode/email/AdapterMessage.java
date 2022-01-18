@@ -2554,6 +2554,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("signed_data", signed_data);
 
                     Document document = JsoupEx.parse(file);
+                    HtmlHelper.cleanup(document);
 
                     // Add embedded messages
                     for (EntityAttachment attachment : attachments)
@@ -2600,7 +2601,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 Log.e(ex);
                             }
 
-                    HtmlHelper.cleanup(document);
                     HtmlHelper.removeRelativeLinks(document);
 
                     // Check for inline encryption
@@ -4708,12 +4708,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     long id = args.getLong("id");
                     File file = EntityMessage.getFile(context, id);
                     Document document = JsoupEx.parse(file);
+                    HtmlHelper.cleanup(document);
 
                     if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
                         HtmlHelper.restorePre(document);
                     HtmlHelper.guessSchemes(document);
                     HtmlHelper.autoLink(document);
-                    HtmlHelper.cleanup(document);
                     HtmlHelper.setViewport(document, overview_mode);
                     HtmlHelper.embedInlineImages(context, message.id, document, true);
                     if (disable_tracking)
