@@ -357,15 +357,17 @@
 
         <eu.faircode.email.FixedImageButton
             android:id="@+id/ibEncryption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:contentDescription="@string/title_send_at"
-            android:tag="disable"
-            android:tooltipText="@string/title_send_at"
-            app:layout_constraintBottom_toBottomOf="@id/spEncrypt"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@+id/spEncrypt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/twotone_info_24" />
+            app:srcCompat="@drawable/twotone_info_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPriority"
@@ -385,9 +387,24 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:entries="@array/priorityNames"
-            app:layout_constraintEnd_toStartOf="@id/ibEncryption"
+            app:layout_constraintEnd_toStartOf="@id/ibPriority"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriority" />
+
+        <eu.faircode.email.FixedImageButton
+            android:id="@+id/ibPriority"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_info"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/spPriority"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/twotone_info_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSensitivity"
@@ -407,9 +424,24 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:entries="@array/sensitivityNames"
-            app:layout_constraintEnd_toStartOf="@id/ibEncryption"
+            app:layout_constraintEnd_toStartOf="@id/ibSensitivity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSensitivity" />
+
+        <eu.faircode.email.FixedImageButton
+            android:id="@+id/ibSensitivity"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_info"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/spSensitivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/twotone_info_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSendTitle"

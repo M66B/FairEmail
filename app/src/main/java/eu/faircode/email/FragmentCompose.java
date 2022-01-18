@@ -323,6 +323,8 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_PERMISSION = 15;
 
+    private static final String RFC4021 = "https://datatracker.ietf.org/doc/html/rfc4021";
+
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
     @Override
@@ -6957,7 +6959,9 @@ public class FragmentCompose extends FragmentBase {
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
             final ImageButton ibEncryption = dview.findViewById(R.id.ibEncryption);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
+            final ImageButton ibPriority = dview.findViewById(R.id.ibPriority);
             final Spinner spSensitivity = dview.findViewById(R.id.spSensitivity);
+            final ImageButton ibSensitivity = dview.findViewById(R.id.ibSensitivity);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
@@ -7220,6 +7224,13 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
+            ibPriority.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(v.getContext(), Uri.parse(RFC4021 + "#section-2.1.54"), true);
+                }
+            });
+
             spSensitivity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -7258,6 +7269,13 @@ public class FragmentCompose extends FragmentBase {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:sensitivity");
+                }
+            });
+
+            ibSensitivity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(v.getContext(), Uri.parse(RFC4021 + "#section-2.1.55"), true);
                 }
             });
 
