@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="6dp"
-                android:paddingVertical="12dp">
+                android:paddingTop="12dp">
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/welcome"
@@ -126,10 +126,11 @@
 
                 <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibWelcome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSupport"
