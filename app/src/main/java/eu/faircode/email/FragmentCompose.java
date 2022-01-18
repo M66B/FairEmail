@@ -7261,7 +7261,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            ibSendAt.setOnClickListener(new View.OnClickListener() {
+            View.OnClickListener sendAt = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Bundle args = new Bundle();
@@ -7273,7 +7273,10 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setTargetFragment(FragmentDialogSend.this, 1);
                     fragment.show(getParentFragmentManager(), "send:snooze");
                 }
-            });
+            };
+
+            tvSendAt.setOnClickListener(sendAt);
+            ibSendAt.setOnClickListener(sendAt);
 
             cbArchive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
