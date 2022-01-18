@@ -598,6 +598,7 @@ class Core {
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
                             // Sync: BAD Could not parse command
                             // Sync: SEARCH not allowed now
+                            // Sync: BAD Command SEARCH invalid in AUTHENTICATED state (MARKER:xxx)
                             // Seen: NO mailbox selected READ-ONLY
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n.nnn secs).
                             // Fetch: NO all of the requested messages have been expunged
@@ -614,6 +615,7 @@ class Core {
                             // Fetch UID: NO Server Unavailable. 15
                             // Fetch UID: NO [UNAVAILABLE] Failed to open mailbox
                             // Fetch UID: NO [TEMPFAIL] SELECT completed
+                            // Fetch UID: NO Internal error. Try again later... (MARKER:xxx)
                             // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist (n.nnn + n.nnn + n.nnn secs)
