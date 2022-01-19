@@ -4550,6 +4550,7 @@ Requested features should:
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
+* comply with the [Core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 
 A feature will be considered useful to most people if more than 0.1% of the users request a feature, which is practically 500 people.
 
