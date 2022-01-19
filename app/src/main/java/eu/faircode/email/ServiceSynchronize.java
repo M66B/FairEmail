@@ -53,6 +53,7 @@ import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
+import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
@@ -1654,7 +1655,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void messageChanged(MessageChangedEvent e) {
                                     try {
                                         wlMessage.acquire();
-                                        fetch(folder, ifolder, new Message[]{e.getMessage()}, false, "changed");
+                                        Message imessage = e.getMessage();
+                                        if (imessage instanceof IMAPMessage)
+                                            ((IMAPMessage) imessage).invalidateHeaders();
+                                        fetch(folder, ifolder, new Message[]{imessage}, false, "changed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);

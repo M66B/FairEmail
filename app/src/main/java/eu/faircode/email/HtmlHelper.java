@@ -2221,6 +2221,10 @@ public class HtmlHelper {
         return "border-" + dir + ":3px solid #ccc; padding-" + dir + ":3px;margin-top:0; margin-bottom:0;";
     }
 
+    static String getIndentStyle(CharSequence quoted, int start, int end) {
+        return "margin-top:0; margin-bottom:0;";
+    }
+
     static boolean hasBorder(Element e) {
         if ("true".equals(e.attr("x-border")))
             return true;
@@ -3273,8 +3277,10 @@ public class HtmlHelper {
     }
 
     static String toHtml(Spanned spanned, Context context) {
+        Log.i("MMM text=" + spanned.toString().replace("\n", "|"));
         HtmlEx converter = new HtmlEx(context);
         String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
+        Log.i("MMM html=" + html.replace("\n", "|"));
 
         Document doc = JsoupEx.parse(html);
 
@@ -3353,6 +3359,8 @@ public class HtmlHelper {
             if (last != null && "br".equals(last.tagName()))
                 last.remove();
         }
+
+        Log.i("MMM fixed=" + doc.html().replace("\n", "|"));
 
         return doc.html();
     }
