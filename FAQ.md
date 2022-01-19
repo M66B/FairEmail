@@ -4552,7 +4552,7 @@ Requested features should:
 * comply with common standards (IMAP, SMTP, etc)
 * comply with the [Core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 
-A feature will be considered useful to most people if more than 0.1% of the users request a feature, which is practically 500 people.
+A feature will be considered useful to most people if more than 0.1% of the users request a feature, which in practice means about 500 people.
 
 Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
