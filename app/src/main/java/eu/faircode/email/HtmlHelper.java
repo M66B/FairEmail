@@ -3277,10 +3277,8 @@ public class HtmlHelper {
     }
 
     static String toHtml(Spanned spanned, Context context) {
-        Log.i("MMM text=" + spanned.toString().replace("\n", "|"));
         HtmlEx converter = new HtmlEx(context);
         String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
-        Log.i("MMM html=" + html.replace("\n", "|"));
 
         Document doc = JsoupEx.parse(html);
 
@@ -3359,8 +3357,6 @@ public class HtmlHelper {
             if (last != null && "br".equals(last.tagName()))
                 last.remove();
         }
-
-        Log.i("MMM fixed=" + doc.html().replace("\n", "|"));
 
         return doc.html();
     }
