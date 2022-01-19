@@ -3412,8 +3412,7 @@ class Core {
                                             } else if (response.isBAD()) {
                                                 Log.e("UID FETCH " + response);
                                                 // BAD Error in IMAP command UID FETCH: Too long argument (n.nnn + n.nnn + n.nnn secs).
-                                                if (response.toString().contains("Too long argument") ||
-                                                        response.toString().contains("Command Error. 10")) {
+                                                if (response.toString().contains("Too long argument")) {
                                                     chunk_size = chunk_size / 2;
                                                     if (chunk_size > 0)
                                                         prefs.edit().putInt("chunk_size", chunk_size).apply();
