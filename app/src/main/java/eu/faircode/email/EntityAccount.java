@@ -160,7 +160,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean capability_utf8;
 
     boolean isGmail() {
-        return "imap.gmail.com".equalsIgnoreCase(host);
+        return "imap.gmail.com".equalsIgnoreCase(host) ||
+                "imap.googlemail.com".equalsIgnoreCase(host);
     }
 
     boolean isOutlook() {
