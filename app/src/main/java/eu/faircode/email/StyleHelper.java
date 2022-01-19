@@ -596,7 +596,7 @@ public class StyleHelper {
                                     edit.removeSpan(indents[0]);
                             } else {
                                 IndentSpan is = new IndentSpan(intentSize);
-                                edit.setSpan(is, prev, next, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                edit.setSpan(is, prev, next + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                             }
 
                             next++;
