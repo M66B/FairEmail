@@ -323,8 +323,6 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_PERMISSION = 15;
 
-    private static final String RFC4021 = "https://datatracker.ietf.org/doc/html/rfc4021";
-
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
     @Override
@@ -7227,7 +7225,7 @@ public class FragmentCompose extends FragmentBase {
             ibPriority.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.view(v.getContext(), Uri.parse(RFC4021 + "#section-2.1.54"), true);
+                    // Invisible
                 }
             });
 
@@ -7275,7 +7273,7 @@ public class FragmentCompose extends FragmentBase {
             ibSensitivity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.view(v.getContext(), Uri.parse(RFC4021 + "#section-2.1.55"), true);
+                    Helper.viewFAQ(v.getContext(), 177);
                 }
             });
 

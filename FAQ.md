@@ -329,6 +329,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(174) Is auto discovery supported?](#user-content-faq174)
 * [(175) Why should battery optimizations be disabled?](#user-content-faq175)
 * [(176) When will a message be considered safely transported?](#user-content-faq176)
+* [(177) What does 'Sensitivity' mean?](#user-content-faq177)
 
 [I have another question.](#user-content-get-support)
 
@@ -4511,6 +4512,21 @@ Received: brown.elm.relay.mailchannels.net (brown.elm.relay.mailchannels.net. [2
 	by mx.google.com with ESMTPS id d10si6675855pgb.5.2021.12.24.13.20.38
 	for <test@example.org> (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
 ```
+
+<br />
+
+<a name="faq177"></a>
+**(177) What does 'Sensitivity' mean?**
+
+The sensitivity of a message indicates the confidentiality of a message.
+
+* Personal: for you only
+* Private: for you and trusted people only
+* Confidential: for a company, organization or department only
+
+Please see [this article](https://support.microsoft.com/en-us/office/mark-your-email-as-normal-personal-private-or-confidential-4a76d05b-6c29-4a0d-9096-71784a6b12c1) for more information.
+
+The sensitivity indication is sent as [a message header](https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55).
 
 <br />
 
