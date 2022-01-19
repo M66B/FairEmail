@@ -1063,6 +1063,7 @@
     <string name="title_send_auto_archive">Beantwortete Nachricht archivieren</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
+    <string name="title_send_sensitivity">Vertraulichkeit</string>
     <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>
     <string name="title_style">Stil</string>
     <string name="title_style_bold">Fett</string>
@@ -1388,6 +1389,9 @@
     <string name="title_legend_draft">Entwurf vorhanden</string>
     <string name="title_legend_priority">Hat hohe Priorität</string>
     <string name="title_legend_priority_low">Hat niedrige Priorität</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Ist persönlich</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Ist privat</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Ist Vertraulich</string>
     <string name="title_legend_importance">Wichtig</string>
     <string name="title_legend_importance_low">Nicht wichtig</string>
     <string name="title_legend_signed">Signiert</string>
@@ -1706,8 +1710,8 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string-array name="sensitivityNames">
         <item>Normal</item>
         <item>Persönlich</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Privat</item>
+        <item>Vertraulich</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

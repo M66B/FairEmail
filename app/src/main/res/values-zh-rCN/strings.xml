@@ -140,7 +140,7 @@
     <string name="title_setup_gmail_support">只有 Play 商店和 GitHub 版本才支持授权 Google 账户，因为 Android 会检查应用的数字签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 会请求读取、撰写、发送和永久删除您的所有电子邮件的权限。相比之下，未经您的明确同意，FairEmail 永远不会删除您的邮件。</string>
-    <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
+    <string name="title_setup_gmail_drafts">可以借助更改 Gmail 的标签设置来修复无法通过IMAP访问草稿文件夹的问题</string>
     <string name="title_setup_gmail_password">我想通过密码来授权一个账户</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>

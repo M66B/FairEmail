@@ -1089,6 +1089,7 @@
     <string name="title_send_auto_archive">להעביר את הודעת התגובה לארכיון</string>
     <string name="title_send_encryption">הצפנה</string>
     <string name="title_send_priority">עדיפות</string>
+    <string name="title_send_sensitivity">רגישות</string>
     <string name="title_no_server">לא נמצא שרת בכתובת ‚%1$s’</string>
     <string name="title_style">סגנון</string>
     <string name="title_style_bold">מודגש</string>
@@ -1413,6 +1414,9 @@
     <string name="title_legend_draft">יש טיוטה</string>
     <string name="title_legend_priority">יש עדיפות גבוהה</string>
     <string name="title_legend_priority_low">יש עדיפות נמוכה</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">אישית</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">פרטית</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">חסויה</string>
     <string name="title_legend_importance">חשוב</string>
     <string name="title_legend_importance_low">לא חשוב</string>
     <string name="title_legend_signed">חתום</string>
@@ -1733,9 +1737,9 @@
     </string-array>
     <string-array name="sensitivityNames">
         <item>רגילה</item>
-        <item>אישי</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>אישית</item>
+        <item>פרטית</item>
+        <item>חסויה</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>ברירת מחדל</item>

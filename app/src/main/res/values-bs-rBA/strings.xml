@@ -1079,6 +1079,7 @@
     <string name="title_send_auto_archive">Arhiviraj odgovorenu poruku</string>
     <string name="title_send_encryption">Šifriranje</string>
     <string name="title_send_priority">Prioritet</string>
+    <string name="title_send_sensitivity">Osjetljivost</string>
     <string name="title_no_server">Nije pronađen server na \'%1$s\'</string>
     <string name="title_style">Stil</string>
     <string name="title_style_bold">Podebljan</string>
@@ -1403,6 +1404,9 @@
     <string name="title_legend_draft">Nacrt</string>
     <string name="title_legend_priority">S visokim prioritetom</string>
     <string name="title_legend_priority_low">S niskim prioritetom</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Osobno</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Privatno</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Povjerljivo</string>
     <string name="title_legend_importance">Važno</string>
     <string name="title_legend_importance_low">Nevažno</string>
     <string name="title_legend_signed">Potpisan</string>
@@ -1723,8 +1727,8 @@
     <string-array name="sensitivityNames">
         <item>Normalna</item>
         <item>Lično</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Privatno</item>
+        <item>Povjerljivo</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Zadani</item>

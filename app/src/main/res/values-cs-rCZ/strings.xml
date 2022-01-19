@@ -315,6 +315,7 @@
     <string name="title_advanced_sync_shared_folders">Synchronizovat seznamy sdílených složek</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_check_authentication">Zkontrolovat ověření zprávy</string>
+    <string name="title_advanced_check_tls">Kontrolovat Transport Layer Security (TLS)</string>
     <string name="title_advanced_check_reply_domain">Kontrolovat adresu pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_blocklist">Zkontrolujte, zda je doména odesílatele v seznamu blokovaných adres</string>
@@ -614,6 +615,7 @@
     <string name="title_advanced_sync_folders_hint">Vypnutí částečně sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_poll_folders_hint">Periodicky synchronizovat seznam složek navíc po připojení k účtu</string>
     <string name="title_advanced_check_authentication_hint">Zkontroluje výsledky DKIM, SPF a DMARC ověření prováděného e-mailovým serverem</string>
+    <string name="title_advanced_check_tls_hint">Tímto se zobrazí zelený štítek pouze v případě, že zpráva byla zabezpečeně poslána mezi všemi servery</string>
     <string name="title_advanced_check_reply_hint">Ověří, zda je název domény odesílatele totožný s adresou pro odpověď</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
@@ -649,6 +651,7 @@
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
     <string name="title_advanced_overview_mode_hint">Může mít za následek velmi malé písmo</string>
     <string name="title_advanced_override_width_hint">To může zúžit zprávy, ale také to vypadat podivně</string>
+    <string name="title_advanced_monospaced_pre_hint">Pouze prosté textové zprávy budou považovány za předformátované</string>
     <string name="title_advanced_placeholders_hint">Platí pouze pro přeformátované zprávy</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky v těle zprávy</string>
     <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
@@ -810,6 +813,9 @@
     <string name="title_synchronize_subfolders">Podsložky</string>
     <string name="title_synchronize_more">Načíst další zprávy</string>
     <string name="title_synchronize_more_hint">Jednorázově stáhne starší zprávy, tedy nezvýší spotřebu baterie při běžném používání</string>
+    <string name="title_synchronize_more_hint2">        Zprávy budou načteny tak rychle, jak je může e-mailový server doručit a uloženy tak rychle, jak je může zařízení uložit a indexovat.
+        Omezující faktor je obvykle rychlost vnitřního úložného prostoru zařízení.
+    </string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_synchronize_batch_enable">Povolit synchronizaci</string>
     <string name="title_synchronize_batch_disable">Zakázat synchronizaci</string>
@@ -965,6 +971,7 @@
     <string name="title_copy_to">Kopírovat do &#8230;</string>
     <string name="title_subscribe">Přihlásit odběr</string>
     <string name="title_delete">Smazat</string>
+    <string name="title_delete_all">Odstranit vše</string>
     <string name="title_more">Více</string>
     <string name="title_less">Méně</string>
     <string name="title_spam">Nevyžádané</string>
@@ -1078,6 +1085,7 @@
     <string name="title_send_auto_archive">Archivovat odpovězené zprávy</string>
     <string name="title_send_encryption">Šifrování</string>
     <string name="title_send_priority">Priorita</string>
+    <string name="title_send_sensitivity">Důvěrnost</string>
     <string name="title_no_server">Nenalezen žádný server na „%1$s“</string>
     <string name="title_style">Styl</string>
     <string name="title_style_bold">Tučně</string>
@@ -1298,6 +1306,7 @@
     <string name="title_rule_tts">Převod textu na řeč</string>
     <string name="title_rule_automation">Automatizace</string>
     <string name="title_rule_delete">Trvale smazat</string>
+    <string name="title_rule_sound">Přehrát zvuk</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>
@@ -1311,6 +1320,7 @@
     <string name="title_rule_attachments">Má přílohy</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
     <string name="title_rule_body">Text obsahuje</string>
+    <string name="title_rule_skip_quotes">Přeskočit citovaný text</string>
     <string name="title_rule_body_remark">Při použití této volby se vždy stáhne text zprávy, to může zpomalit synchronizaci seznamu zpráv</string>
     <string name="title_rule_time_abs">Absolutní čas (přijatý) mezi</string>
     <string name="title_rule_time_after">Přijato po</string>
@@ -1352,6 +1362,10 @@
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Předmět</string>
     <string name="title_rule_tts_content">Text</string>
+    <string name="title_rule_select_sound">Vybrat zvuk</string>
+    <string name="title_rule_use_as_alarm">Použít jako budík</string>
+    <string name="title_rule_alarm_hint">Toto ignoruje pravidla režimu \"Nerušit\"</string>
+    <string name="title_rule_alarm_duration">Maximální doba trvání budíku (sekundy)</string>
     <string name="title_legend_section_synchronize">Synchronizace</string>
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>
@@ -1396,6 +1410,9 @@
     <string name="title_legend_draft">Má koncept</string>
     <string name="title_legend_priority">Má vysokou prioritu</string>
     <string name="title_legend_priority_low">Má nízkou prioritu</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Osobní</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Soukromé</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Důvěrné</string>
     <string name="title_legend_importance">Je důležité</string>
     <string name="title_legend_importance_low">Není důležité</string>
     <string name="title_legend_signed">Je podepsáno</string>
@@ -1716,8 +1733,8 @@
     <string-array name="sensitivityNames">
         <item>Normální</item>
         <item>Osobní</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Soukromé</item>
+        <item>Důvěrné</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

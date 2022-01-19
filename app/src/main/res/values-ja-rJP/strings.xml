@@ -1384,8 +1384,9 @@
     <string name="title_legend_draft">下書きあり</string>
     <string name="title_legend_priority">重要度が高い</string>
     <string name="title_legend_priority_low">重要度が低い</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">パーソナルに設定</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">プライベートに設定</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">パーソナルにマーク</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">プライベートにマーク</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">機密 (社外秘) にマーク</string>
     <string name="title_legend_importance">重要度を上げる</string>
     <string name="title_legend_importance_low">重要度を下げる</string>
     <string name="title_legend_signed">電子署名されたメッセージ</string>
@@ -1705,7 +1706,7 @@
         <item>標準</item>
         <item>パーソナル</item>
         <item>プライベート</item>
-        <item>Confidential</item>
+        <item>機密 (社外秘)</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

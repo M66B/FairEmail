@@ -1067,6 +1067,7 @@
     <string name="title_send_auto_archive">Arkivér besvarede beskeder</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
+    <string name="title_send_sensitivity">Sensitivitet</string>
     <string name="title_no_server">Ingen server fundet på \'%1$s\'</string>
     <string name="title_style">Stil</string>
     <string name="title_style_bold">Fed</string>
@@ -1391,6 +1392,9 @@
     <string name="title_legend_draft">Har kladde</string>
     <string name="title_legend_priority">Har høj prioritet</string>
     <string name="title_legend_priority_low">Har lav prioritet</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Er personligt</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Er privat</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Er fortroligt</string>
     <string name="title_legend_importance">Er vigtig</string>
     <string name="title_legend_importance_low">Er ikke vigtig</string>
     <string name="title_legend_signed">Er signeret</string>
@@ -1709,9 +1713,9 @@
     </string-array>
     <string-array name="sensitivityNames">
         <item>Normal</item>
-        <item>Personlig</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Personligt</item>
+        <item>Privat</item>
+        <item>Fortroligt</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

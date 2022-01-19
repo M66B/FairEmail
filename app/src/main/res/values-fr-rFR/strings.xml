@@ -3,7 +3,7 @@
     <string name="app_search">Recherche FairEmail</string>
     <string name="app_changelog">Historique des modifications</string>
     <string name="app_welcome">FairEmail est une application de messagerie open source centrée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué.</string>
-    <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer les éléments dangereux et améliorer la lisibilité, et l\'ouverture des liens doit être confirmée par sécurité. Les deux options peuvent être désactivées si vous le souhaitez.</string>
+    <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer tout élément dangereux et améliorer la lisibilité, et l\'ouverture des liens doit être confirmée pour des raisons de sécurité. Les deux options peuvent être désactivées si souhaité.</string>
     <string name="app_unsupported">Des bogues dans la version d\'Android de cet appareil spécifique provoquent des plantages</string>
     <string name="app_continue">Poursuivre tout de même</string>
     <string name="app_exit">Faire de nouveau « Retour » pour quitter</string>
@@ -1101,7 +1101,7 @@
     <string name="title_add_image_attach">Joindre</string>
     <string name="title_add_image_resize">Redimensionner</string>
     <string name="title_add_image_privacy">Supprimer les informations confidentielles sensibles</string>
-    <string name="title_add_image_privacy_remark">Informations de géolocalisation, numéros de série, noms de fichiers, etc.</string>
+    <string name="title_add_image_privacy_remark">Emplacement géographique, numéros de série, noms de fichiers, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Choisir un fichier</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
@@ -1305,7 +1305,7 @@
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_body">Le texte contient</string>
-    <string name="title_rule_skip_quotes">Passer le texte cité</string>
+    <string name="title_rule_skip_quotes">Ignorer le texte cité</string>
     <string name="title_rule_body_remark">Utiliser cette condition va toujours télécharger le texte du message, ce qui peut ralentir la synchronisation de la liste des messages</string>
     <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
     <string name="title_rule_time_after">Reçu après</string>
@@ -1375,7 +1375,7 @@
     <string name="title_legend_closing">Fermeture en cours</string>
     <string name="title_legend_unified">Boîte de réception unifiée / compte principal</string>
     <string name="title_legend_inbox">Boîte de réception</string>
-    <string name="title_legend_outbox">Boîte d\'expédition</string>
+    <string name="title_legend_outbox">Boîte d\'envoi</string>
     <string name="title_legend_drafts">Brouillons</string>
     <string name="title_legend_sent">Envoyés</string>
     <string name="title_legend_archive">Archives</string>

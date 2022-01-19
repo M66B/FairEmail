@@ -1085,6 +1085,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_send_auto_archive">Archivovať odpovedané správy</string>
     <string name="title_send_encryption">Šifrovanie</string>
     <string name="title_send_priority">Priorita</string>
+    <string name="title_send_sensitivity">Citlivosť</string>
     <string name="title_no_server">Nenájdený žiadny server na adrese \'%1$s\'</string>
     <string name="title_style">Štýl</string>
     <string name="title_style_bold">Zvíraznenie</string>
@@ -1408,6 +1409,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_draft">Koncept</string>
     <string name="title_legend_priority">Vysoká priorita</string>
     <string name="title_legend_priority_low">Nizka priorita</string>
+    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Osobné</string>
+    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Súkromné</string>
+    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Dôverné</string>
     <string name="title_legend_importance">Dôležité</string>
     <string name="title_legend_importance_low">Nie dôležité</string>
     <string name="title_legend_signed">Podpísané</string>
@@ -1728,8 +1732,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string-array name="sensitivityNames">
         <item>Normálna</item>
         <item>Osobný</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Súkromné</item>
+        <item>Dôverihodné</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
