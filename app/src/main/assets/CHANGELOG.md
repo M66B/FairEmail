@@ -4,9 +4,12 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
-### 1.1814 - 2022-01-18
+### 1.1815 - 2022-01-19
 
-**THIS IS AN EXPERIMENTAL RELEASE !**
+* Small improvements and minor bug fixes
+* Updated translations
+
+### 1.1814 - 2022-01-18
 
 * Added support for sensivity indicator (personal, private, confidential)
 * Added batch setting of message flags (protocol level)
