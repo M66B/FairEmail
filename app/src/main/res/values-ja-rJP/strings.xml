@@ -672,7 +672,7 @@
     <string name="title_identity_tenant_hint">ほとんどの場合、このフィールドは空です</string>
     <string name="title_identity_color_hint">ID の色はフォルダーとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">差出人アドレスの編集を許可</string>
-    <string name="title_advanced_sender_name">差出人アドレスが編集されたとき、名前を表示</string>
+    <string name="title_advanced_sender_name">差出人アドレスが編集されたとき、名前を使用</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
