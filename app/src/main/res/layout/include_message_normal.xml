@@ -103,7 +103,7 @@
         app:layout_constraintStart_toEndOf="@id/ibPriority"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/sensitivity"
-        app:tint="?attr/colorAccent" />
+        app:tint="?attr/colorWarning" />
 
     <eu.faircode.email.FixedImageView
         android:id="@+id/ivImportance"
