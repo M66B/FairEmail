@@ -2209,15 +2209,16 @@ public class HtmlHelper {
     }
 
     static String getQuoteStyle(CharSequence quoted, int start, int end) {
+        String dir = "left";
         try {
             int count = end - start;
             if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(quoted, start, count))
-                return "border-right:3px solid #ccc; padding-left:3px;";
+                dir = "right";
         } catch (Throwable ex) {
             Log.e(new Throwable("getQuoteStyle " + start + "..." + end, ex));
         }
 
-        return "border-left:3px solid #ccc; padding-left:3px;";
+        return "border-" + dir + ":3px solid #ccc; padding-" + dir + ":3px;margin-top:0; margin-bottom:0;";
     }
 
     static boolean hasBorder(Element e) {
