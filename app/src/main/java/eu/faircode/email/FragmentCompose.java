@@ -79,7 +79,6 @@ import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.LogPrinter;
 import android.util.Pair;
@@ -91,7 +90,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -1893,138 +1891,15 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final List<EntityAnswer> answers) {
+                final Context context = getContext();
+
                 if (answers.size() == 0) {
-                    ToastEx.makeText(getContext(), R.string.title_no_answers, Toast.LENGTH_LONG).show();
+                    ToastEx.makeText(context, R.string.title_no_answers, Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                boolean grouped = BuildConfig.DEBUG;
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
-                Menu main = popupMenu.getMenu();
-
-                List<EntityAnswer> favorites = new ArrayList<>();
-                List<String> groups = new ArrayList<>();
-                for (EntityAnswer answer : answers)
-                    if (answer.favorite)
-                        favorites.add(answer);
-                    else if (answer.group != null && !groups.contains(answer.group))
-                        groups.add(answer.group);
-
-                Collator collator = Collator.getInstance(Locale.getDefault());
-                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-                Collections.sort(groups, collator);
-
-                Collections.sort(answers, new Comparator<EntityAnswer>() {
-                    @Override
-                    public int compare(EntityAnswer a1, EntityAnswer a2) {
-                        if (!grouped || a1.applied.equals(a2.applied))
-                            return collator.compare(a1.name, a2.name);
-                        else
-                            return -a1.applied.compareTo(a2.applied);
-                    }
-                });
-
-                Collections.sort(favorites, new Comparator<EntityAnswer>() {
-                    @Override
-                    public int compare(EntityAnswer a1, EntityAnswer a2) {
-                        return collator.compare(a1.name, a2.name);
-                    }
-                });
-
-                int order = 0;
-
-                Map<String, SubMenu> map = new HashMap<>();
-                for (String group : groups)
-                    map.put(group, main.addSubMenu(Menu.NONE, order, order++, group));
-
-                NumberFormat NF = NumberFormat.getNumberInstance();
-                for (EntityAnswer answer : answers) {
-                    if (answer.favorite)
-                        continue;
-                    order++;
-
-                    SpannableStringBuilder name = new SpannableStringBuilder(answer.name);
-                    if (grouped && answer.applied > 0) {
-                        name.append(" (").append(NF.format(answer.applied)).append(")");
-                        name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
-                                answer.name.length() + 1, name.length(), 0);
-                    }
-
-                    MenuItem item;
-                    if (answer.group == null)
-                        item = main.add(Menu.NONE, order, order++, name);
-                    else {
-                        SubMenu smenu = map.get(answer.group);
-                        item = smenu.add(answer.applied > 0 ? Menu.FIRST : Menu.NONE,
-                                smenu.size(), smenu.size() + 1, name);
-                    }
-                    item.setIntent(new Intent().putExtra("id", answer.id));
-                }
-
-                for (EntityAnswer answer : favorites)
-                    main.add(Menu.NONE, order, order++, answer.toString())
-                            .setIntent(new Intent().putExtra("id", answer.id));
-
-                if (BuildConfig.DEBUG) {
-                    SubMenu profiles = main.addSubMenu(Menu.NONE, order, order++, "Profiles");
-                    for (EmailProvider p : EmailProvider.loadProfiles(getContext())) {
-                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                        int start;
-                        ssb.append("IMAP (account, receive)");
-
-                        ssb.append(" host ");
-                        start = ssb.length();
-                        ssb.append(p.imap.host);
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
-                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        ssb.append(" port ");
-                        start = ssb.length();
-                        ssb.append(Integer.toString(p.imap.port));
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
-                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        ssb.append(" encryption ");
-                        start = ssb.length();
-                        ssb.append(p.imap.starttls ? "STARTTLS" : "SSL/TLS");
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
-                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        ssb.append("\n\n");
-
-                        ssb.append("SMTP (identity, send)");
-
-                        ssb.append(" host ");
-                        start = ssb.length();
-                        ssb.append(p.smtp.host);
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
-                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        ssb.append(" port ");
-                        start = ssb.length();
-                        ssb.append(Integer.toString(p.smtp.port));
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
-                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        ssb.append(" encryption ");
-                        start = ssb.length();
-                        ssb.append(p.smtp.starttls ? "STARTTLS" : "SSL/TLS");
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
-                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        ssb.append("\n\n");
-
-                        if (!TextUtils.isEmpty(p.link))
-                            ssb.append(p.link).append("\n\n");
-
-                        profiles.add(999, profiles.size(), profiles.size() + 1, p.name +
-                                (p.appPassword ? "+" : ""))
-                                .setIntent(new Intent().putExtra("config", ssb));
-                    }
-                }
-
-                if (grouped)
-                    MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), vwAnchorMenu);
+                EntityAnswer.fillMenu(popupMenu.getMenu(), true, answers, context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -2033,8 +1908,8 @@ public class FragmentCompose extends FragmentBase {
                         if (intent == null)
                             return false;
 
-                        if (!ActivityBilling.isPro(getContext())) {
-                            startActivity(new Intent(getContext(), ActivityBilling.class));
+                        if (!ActivityBilling.isPro(context)) {
+                            startActivity(new Intent(context, ActivityBilling.class));
                             return true;
                         }
 

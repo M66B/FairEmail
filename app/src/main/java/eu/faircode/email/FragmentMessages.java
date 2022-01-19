@@ -3047,70 +3047,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
+                final Context context = getContext();
                 if (answers == null || answers.size() == 0) {
                     Snackbar snackbar = Snackbar.make(view, R.string.title_no_answers, Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
                             lbm.sendBroadcast(new Intent(ActivityView.ACTION_EDIT_ANSWERS));
                         }
                     });
                     snackbar.show();
                 } else {
-                    boolean grouped = BuildConfig.DEBUG;
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabReply);
-                    Menu main = popupMenu.getMenu();
-
-                    List<String> groups = new ArrayList<>();
-                    for (EntityAnswer answer : answers)
-                        if (answer.group != null && !groups.contains(answer.group))
-                            groups.add(answer.group);
-
-                    Collator collator = Collator.getInstance(Locale.getDefault());
-                    collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-                    Collections.sort(groups, collator);
-
-                    Collections.sort(answers, new Comparator<EntityAnswer>() {
-                        @Override
-                        public int compare(EntityAnswer a1, EntityAnswer a2) {
-                            if (!grouped || a1.applied.equals(a2.applied))
-                                return collator.compare(a1.name, a2.name);
-                            else
-                                return -a1.applied.compareTo(a2.applied);
-                        }
-                    });
-
-                    int order = 0;
-
-                    Map<String, SubMenu> map = new HashMap<>();
-                    for (String group : groups)
-                        map.put(group, main.addSubMenu(Menu.NONE, order, order++, group));
-
-                    for (EntityAnswer answer : answers) {
-                        order++;
-
-                        SpannableStringBuilder name = new SpannableStringBuilder(answer.name);
-                        if (grouped && answer.applied > 0) {
-                            name.append(" (").append(NF.format(answer.applied)).append(")");
-                            name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
-                                    answer.name.length() + 1, name.length(), 0);
-                        }
-
-                        MenuItem item;
-                        if (answer.group == null)
-                            item = main.add(Menu.NONE, order, order++, name);
-                        else {
-                            SubMenu smenu = map.get(answer.group);
-                            item = smenu.add(answer.applied > 0 ? Menu.FIRST : Menu.NONE,
-                                    smenu.size(), smenu.size() + 1, name);
-                        }
-                        item.setIntent(new Intent().putExtra("id", answer.id));
-                    }
-
-                    if (grouped)
-                        MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), fabReply);
+                    EntityAnswer.fillMenu(popupMenu.getMenu(), false, answers, context);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -3119,12 +3070,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             if (intent == null)
                                 return false;
 
-                            if (!ActivityBilling.isPro(getContext())) {
-                                startActivity(new Intent(getContext(), ActivityBilling.class));
+                            if (!ActivityBilling.isPro(context)) {
+                                startActivity(new Intent(context, ActivityBilling.class));
                                 return true;
                             }
 
-                            startActivity(new Intent(getContext(), ActivityCompose.class)
+                            startActivity(new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
                                     .putExtra("answer", intent.getLongExtra("id", -1)));
