@@ -3196,6 +3196,10 @@ class Core {
                 if (imessages == null)
                     imessages = new Message[0];
 
+                for (Message imessage : imessages)
+                    if (imessage instanceof IMAPMessage)
+                        ((IMAPMessage) imessage).invalidateHeaders();
+
                 stats.search_ms = (SystemClock.elapsedRealtime() - search);
                 Log.i(folder.name + " remote count=" + imessages.length + " search=" + stats.search_ms + " ms");
 
