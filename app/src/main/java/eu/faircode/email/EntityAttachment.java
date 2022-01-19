@@ -171,11 +171,18 @@ public class EntityAttachment {
         if ("csv".equals(extension))
             return "text/csv";
 
+        if ("gpx".equals(extension))
+            return "application/gpx+xml";
+
+        // Adobe
+
         if ("dxf".equals(extension))
             return "application/dxf";
 
-        if ("gpx".equals(extension))
-            return "application/gpx+xml";
+        if ("pdf".equals(extension))
+            return "application/pdf";
+
+        // Microsoft
 
         if ("doc".equals(extension))
             return "application/msword";
@@ -195,8 +202,18 @@ public class EntityAttachment {
         if ("pptx".equals(extension))
             return "application/vnd.openxmlformats-officedocument.presentationml.presentation";
 
-        if ("pdf".equals(extension))
-            return "application/pdf";
+        // OpenOffice
+
+        if ("odt".equals(extension))
+            return "application/vnd.oasis.opendocument.text";
+
+        if ("ods".equals(extension))
+            return "application/vnd.oasis.opendocument.spreadsheet";
+
+        if ("odp".equals(extension))
+            return "application/vnd.oasis.opendocument.presentation";
+
+        // Other
 
         if ("zip".equals(extension) ||
                 "application/x-zip-compressed".equals(type))
