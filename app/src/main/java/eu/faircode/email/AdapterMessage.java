@@ -34,7 +34,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.RemoteAction;
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
@@ -42,7 +41,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -342,8 +340,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibPriority;
         private ImageButton ibSensitivity;
         private ImageView ivImportance;
-        private ImageView ivSigned;
-        private ImageView ivEncrypted;
+        private ImageButton ibSigned;
+        private ImageButton ibEncrypted;
         private TextView tvFrom;
         private TextView tvSize;
         private TextView tvTime;
@@ -651,8 +649,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPriority = itemView.findViewById(R.id.ibPriority);
             ibSensitivity = itemView.findViewById(R.id.ibSensitivity);
             ivImportance = itemView.findViewById(R.id.ivImportance);
-            ivSigned = itemView.findViewById(R.id.ivSigned);
-            ivEncrypted = itemView.findViewById(R.id.ivEncrypted);
+            ibSigned = itemView.findViewById(R.id.ibSigned);
+            ibEncrypted = itemView.findViewById(R.id.ibEncrypted);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
@@ -914,6 +912,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth.setOnClickListener(this);
             ibPriority.setOnClickListener(this);
             ibSensitivity.setOnClickListener(this);
+            ibSigned.setOnClickListener(this);
+            ibEncrypted.setOnClickListener(this);
             ibSnoozed.setOnClickListener(this);
             ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD) {
@@ -1018,6 +1018,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth.setOnClickListener(null);
             ibPriority.setOnClickListener(null);
             ibSensitivity.setOnClickListener(null);
+            ibSigned.setOnClickListener(null);
+            ibEncrypted.setOnClickListener(null);
             ibSnoozed.setOnClickListener(null);
             ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD) {
@@ -1162,8 +1164,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibSensitivity.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivImportance.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivSigned.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivEncrypted.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibSigned.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibEncrypted.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -1260,12 +1262,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else
                 ivImportance.setVisibility(View.GONE);
 
-            ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
-            if (message.verified)
-                ivSigned.setColorFilter(colorEncrypt);
-            else
-                ivSigned.clearColorFilter();
-            ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
+            if (!Objects.equals(ibSigned.getTag(), message.verified)) {
+                ibSigned.setTag(message.verified);
+                if (message.verified)
+                    ibSigned.setColorFilter(colorEncrypt);
+                else
+                    ibSigned.clearColorFilter();
+            }
+            ibSigned.setVisibility(message.isSigned() ? View.VISIBLE : View.GONE);
+            ibEncrypted.setVisibility(message.isEncrypted() ? View.VISIBLE : View.GONE);
 
             MessageHelper.AddressFormat format = email_format;
 
@@ -2783,9 +2788,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibDecrypt.setImageTintList(ColorStateList.valueOf(unlocked
                             ? colorControlNormal : colorAccent));
                     ibDecrypt.setVisibility(!EntityFolder.OUTBOX.equals(message.folderType) &&
-                            (args.getBoolean("inline_encrypted") ||
-                                    EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
-                                    EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt))
+                            (args.getBoolean("inline_encrypted") || message.isEncrypted())
                             ? View.VISIBLE : View.GONE);
 
                     boolean reformatted_hint = prefs.getBoolean("reformatted_hint", true);
@@ -3513,6 +3516,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowPriority(message);
             else if (id == R.id.ibSensitivity)
                 onShowSensitivity(message);
+            else if (id == R.id.ibSigned)
+                onShowSigned(message);
+            else if (id == R.id.ibEncrypted)
+                onShowEncrypted(message);
             else if (id == R.id.ibSnoozed)
                 onShowSnoozed(message);
             else if (id == R.id.ibFlagged)
@@ -3992,6 +3999,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 resid = R.string.title_legend_sensitivity_private;
             else if (EntityMessage.SENSITIVITY_CONFIDENTIAL.equals(message.sensitivity))
                 resid = R.string.title_legend_sensitivity_confidential;
+            if (resid > 0)
+                ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
+        }
+
+        private void onShowSigned(TupleMessageEx message) {
+            int resid = -1;
+            if (EntityMessage.PGP_SIGNONLY.equals(message.ui_encrypt))
+                resid = R.string.title_advanced_caption_pgp;
+            else if (EntityMessage.SMIME_SIGNONLY.equals(message.ui_encrypt))
+                resid = R.string.title_advanced_caption_smime;
+            if (resid > 0)
+                ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
+        }
+
+        private void onShowEncrypted(TupleMessageEx message) {
+            int resid = -1;
+            if (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt))
+                resid = R.string.title_advanced_caption_pgp;
+            else if (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt))
+                resid = R.string.title_advanced_caption_smime;
             if (resid > 0)
                 ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
         }
@@ -6181,9 +6208,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     result.add(message.subject);
                 }
 
-                if (message.encrypted > 0)
+                if (message.isSigned())
                     result.add(context.getString(R.string.title_legend_encrypted));
-                else if (message.signed > 0)
+                else if (message.isEncrypted())
                     result.add(context.getString(R.string.title_legend_signed));
 
                 if (ibAuth.getVisibility() == View.VISIBLE)
@@ -6727,14 +6754,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (prev.drafts != next.drafts) {
                     same = false;
                     log("drafts changed", next.id);
-                }
-                if (prev.signed != next.signed) {
-                    same = false;
-                    log("signed changed", next.id);
-                }
-                if (prev.encrypted != next.encrypted) {
-                    same = false;
-                    log("encrypted changed", next.id);
                 }
                 if (prev.visible != next.visible) {
                     same = false;

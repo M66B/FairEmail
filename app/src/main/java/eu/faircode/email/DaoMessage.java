@@ -57,8 +57,6 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", (message.ui_encrypt IN (2, 4)) AS signed" +
-            ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT" +
             "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
@@ -137,8 +135,6 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", (message.ui_encrypt IN (2, 4)) AS signed" +
-            ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT" +
             "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
@@ -210,8 +206,6 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", (message.ui_encrypt IN (2, 4)) AS signed" +
-            ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
             ", NOT message.ui_seen AS visible_unseen" +
             ", message.total AS totalSize" +
@@ -478,8 +472,6 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", (message.ui_encrypt IN (2, 4)) AS signed" +
-            ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
             ", NOT message.ui_seen AS visible_unseen" +
             ", message.total AS totalSize" +
@@ -510,8 +502,6 @@ public interface DaoMessage {
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
             ", 0 AS drafts" +
-            ", (message.ui_encrypt IN (2, 4)) AS signed" +
-            ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
             ", NOT message.ui_seen AS visible_unseen" +
             ", message.total AS totalSize" +

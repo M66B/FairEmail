@@ -319,6 +319,16 @@ public class EntityMessage implements Serializable {
         return hasKeyword(MessageHelper.FLAG_FORWARDED);
     }
 
+    boolean isSigned() {
+        return (EntityMessage.PGP_SIGNONLY.equals(ui_encrypt) ||
+                EntityMessage.SMIME_SIGNONLY.equals(ui_encrypt));
+    }
+
+    boolean isEncrypted() {
+        return (EntityMessage.PGP_SIGNENCRYPT.equals(ui_encrypt) ||
+                EntityMessage.SMIME_SIGNENCRYPT.equals(ui_encrypt));
+    }
+
     String[] checkFromDomain(Context context) {
         return MessageHelper.equalDomain(context, from, smtp_from);
     }
