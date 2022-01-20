@@ -584,6 +584,7 @@ To use a password you can use the quick setup wizard and select *Other provider*
 *[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+You might see the error *OAUTH2 asked for more*, which basically says the connection is temporarily blocked, until you confirm it is you.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
