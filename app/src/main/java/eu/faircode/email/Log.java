@@ -2141,7 +2141,7 @@ public class Log {
                                     (folder.notify ? " notify" : "") +
                                     " poll=" + folder.poll + "/" + folder.poll_factor +
                                     " days=" + folder.sync_days + "/" + folder.keep_days +
-                                    " msgs=" + folder.content + "/" + folder.messages +
+                                    " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
                                     " " + folder.state +
                                     (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
                                     "\r\n");
