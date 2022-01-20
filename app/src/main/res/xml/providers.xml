@@ -476,7 +476,7 @@
     <provider
         name="Apple iCloud"
         appPassword="true"
-        domain="icloud\\.com"
+        domain="icloud\\.com,me\\.com,mac\\.com"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq148"
         user="local">
         <imap
