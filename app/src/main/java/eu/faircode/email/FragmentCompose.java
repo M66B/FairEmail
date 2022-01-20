@@ -6580,7 +6580,6 @@ public class FragmentCompose extends FragmentBase {
             final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
-            final Button btnManage = dview.findViewById(R.id.btnManage);
 
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
