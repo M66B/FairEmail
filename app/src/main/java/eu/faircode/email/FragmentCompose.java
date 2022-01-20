@@ -6628,6 +6628,8 @@ public class FragmentCompose extends FragmentBase {
                 public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
                     if (view.getId() == R.id.tvGroup) {
                         String title = cursor.getString(1);
+                        if (TextUtils.isEmpty(title))
+                            title = "-";
                         int count = cursor.getInt(2);
                         ((TextView) view).setText(context.getString(R.string.title_name_count, title, NF.format(count)));
                         return true;
