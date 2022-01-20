@@ -55,7 +55,7 @@ public class TextHelper {
     private static final float MIN_DETECT_PROBABILITY = 0.80f;
     private static final String TRANSLITERATOR = "Any-Latin; Latin-ASCII";
     private static final int MAX_CONVERSATION_SAMPLE_SIZE = 8192;
-    private static final long MAX_CONVERSATION_DURATION = 5000; // milliseconds
+    private static final long MAX_CONVERSATION_DURATION = 3000; // milliseconds
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(0, "text");
