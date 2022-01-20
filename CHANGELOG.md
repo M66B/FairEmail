@@ -16,7 +16,7 @@
 
 ### 1.1814 - 2022-01-18
 
-* Added support for sensivity indicator (personal, private, confidential)
+* Added support for sensitivity indicator (personal, private, confidential)
 * Added batch setting of message flags (protocol level)
 * Small improvements and minor bug fixes
 * Updated translations
