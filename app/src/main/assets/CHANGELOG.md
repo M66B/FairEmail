@@ -4,6 +4,11 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
+### 1.1816 - 2022-01-20
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1815 - 2022-01-19
 
 * Small improvements and minor bug fixes
