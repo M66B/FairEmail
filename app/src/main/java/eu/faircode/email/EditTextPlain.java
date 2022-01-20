@@ -61,7 +61,35 @@ public class EditTextPlain extends FixedEditText {
         return new InputConnectionWrapper(ic, true) {
             @Override
             public boolean commitText(CharSequence text, int newCursorPosition) {
-                return super.commitText(text.toString(), newCursorPosition);
+                try {
+                    return super.commitText(text.toString(), newCursorPosition);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return false;
+                    /*
+                        java.lang.IndexOutOfBoundsException: 199, -198
+                            at android.text.PackedIntVector.deleteAt(PackedIntVector.java:222)
+                            at android.text.DynamicLayout.reflow(DynamicLayout.java:317)
+                            at android.text.DynamicLayout.-wrap0(Unknown Source:0)
+                            at android.text.DynamicLayout$ChangeWatcher.reflow(DynamicLayout.java:750)
+                            at android.text.DynamicLayout$ChangeWatcher.onSpanChanged(DynamicLayout.java:779)
+                            at androidx.emoji2.text.SpannableBuilder$WatcherWrapper.onSpanChanged(SourceFile:2)
+                            at android.text.SpannableStringBuilder.sendSpanChanged(SpannableStringBuilder.java:1296)
+                            at android.text.SpannableStringBuilder.sendToSpanWatchers(SpannableStringBuilder.java:651)
+                            at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:581)
+                            at androidx.emoji2.text.SpannableBuilder.replace(SourceFile:7)
+                            at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:504)
+                            at androidx.emoji2.text.SpannableBuilder.replace(SourceFile:4)
+                            at androidx.emoji2.text.SpannableBuilder.replace(SourceFile:1)
+                            at android.view.inputmethod.BaseInputConnection.replaceText(BaseInputConnection.java:848)
+                            at android.view.inputmethod.BaseInputConnection.commitText(BaseInputConnection.java:197)
+                            at com.android.internal.widget.EditableInputConnection.commitText(EditableInputConnection.java:183)
+                            at android.view.inputmethod.InputConnectionWrapper.commitText(InputConnectionWrapper.java:158)
+                            at android.view.inputmethod.InputConnectionWrapper.commitText(InputConnectionWrapper.java:158)
+                            at com.android.internal.view.IInputConnectionWrapper.executeMessage(IInputConnectionWrapper.java:344)
+                            at com.android.internal.view.IInputConnectionWrapper$MyHandler.handleMessage(IInputConnectionWrapper.java:85)
+                     */
+                }
             }
 
             @Override
