@@ -1591,18 +1591,10 @@ class Core {
             List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
             FetchProfile fp = new FetchProfile();
-            fp.add(FetchProfile.Item.ENVELOPE);
-            fp.add(FetchProfile.Item.FLAGS);
-            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            //fp.add(UIDFolder.FetchProfileItem.UID);
-            //fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-            fp.add(FetchProfile.Item.SIZE);
-            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            if (account.isGmail()) {
-                fp.add(GmailFolder.FetchProfileItem.THRID);
+            fp.add(UIDFolder.FetchProfileItem.UID); // To check if message exists
+            fp.add(FetchProfile.Item.FLAGS); // To update existing messages
+            if (account.isGmail())
                 fp.add(GmailFolder.FetchProfileItem.LABELS);
-            }
             ifolder.fetch(new Message[]{imessage}, fp);
 
             EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state, stats);
