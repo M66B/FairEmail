@@ -22,10 +22,12 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.Menu;
@@ -279,9 +281,23 @@ public class EntityAnswer implements Serializable {
             }
         }
 
-        for (EntityAnswer answer : favorites)
-            main.add(Menu.NONE, order, order++, answer.toString())
+        Drawable icon = context.getResources().getDrawable(R.drawable.twotone_star_24);
+        icon = icon.getConstantState().newDrawable().mutate();
+        int color = Helper.resolveColor(context, R.attr.colorAccent);
+        icon.setTint(color);
+
+        for (EntityAnswer answer : favorites) {
+            SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+
+            int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
+            icon.setBounds(0, 0, iconSize, iconSize);
+            ImageSpan imageSpan = new CenteredImageSpan(icon);
+            ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
+            ssb.setSpan(imageSpan, 0, 1, 0);
+
+            main.add(Menu.NONE, order, order++, ssb)
                     .setIntent(new Intent().putExtra("id", answer.id));
+        }
 
         if (grouped)
             MenuCompat.setGroupDividerEnabled(main, true);
