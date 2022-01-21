@@ -1388,9 +1388,9 @@
     <string name="title_legend_draft">Έχει πρόχειρο</string>
     <string name="title_legend_priority">Έχει υψηλή προτεραιότητα</string>
     <string name="title_legend_priority_low">Έχει χαμηλή προτεραιότητα</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Είναι προσωπικό</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Είναι ιδιωτικό</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Είναι εμπιστευτικό</string>
+    <string name="title_legend_sensitivity_personal">Είναι προσωπικό</string>
+    <string name="title_legend_sensitivity_private">Είναι ιδιωτικό</string>
+    <string name="title_legend_sensitivity_confidential">Είναι εμπιστευτικό</string>
     <string name="title_legend_importance">Είναι σημαντικό</string>
     <string name="title_legend_importance_low">Δεν είναι σημαντικό</string>
     <string name="title_legend_signed">Είναι υπογεγραμμένο</string>

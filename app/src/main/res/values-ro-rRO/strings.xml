@@ -1400,9 +1400,9 @@
     <string name="title_legend_draft">Are ciornă</string>
     <string name="title_legend_priority">Prioritate ridicată</string>
     <string name="title_legend_priority_low">Are prioritate redusă</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Este personal</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Este privat</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Este confidențial</string>
+    <string name="title_legend_sensitivity_personal">Este personal</string>
+    <string name="title_legend_sensitivity_private">Este privat</string>
+    <string name="title_legend_sensitivity_confidential">Este confidențial</string>
     <string name="title_legend_importance">Este important</string>
     <string name="title_legend_importance_low">Nu este important</string>
     <string name="title_legend_signed">Este semnat</string>

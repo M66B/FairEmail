@@ -780,6 +780,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_pop_folders">Het POP3-protocol biedt geen ondersteuning voor het maken van mappen</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
+    <string name="title_hint_accounts">Druk lang op een account om opties weer te geven, bijvoorbeeld om een account uit te schakelen of te verwijderen</string>
     <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
     <string name="title_service_auth">De mailserver zei: \'%1$s\'</string>
     <string name="title_service_vpn">Dit kan worden veroorzaakt door de VPN die in gebruik is</string>
@@ -1386,9 +1387,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_draft">Heeft concept</string>
     <string name="title_legend_priority">Heeft hoge prioriteit</string>
     <string name="title_legend_priority_low">Heeft lage prioriteit</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Is persoonlijk</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Is privé</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Is vertrouwelijk</string>
+    <string name="title_legend_sensitivity_personal">Is persoonlijk</string>
+    <string name="title_legend_sensitivity_private">Is privé</string>
+    <string name="title_legend_sensitivity_confidential">Is vertrouwelijk</string>
     <string name="title_legend_importance">Is belangrijk</string>
     <string name="title_legend_importance_low">Is niet belangrijk</string>
     <string name="title_legend_signed">Is ondertekend</string>

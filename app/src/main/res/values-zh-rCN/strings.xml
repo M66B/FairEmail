@@ -771,6 +771,7 @@
     <string name="title_pop_folders">POP3 协议不支持创建文件夹</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
+    <string name="title_hint_accounts">长按账户可显示选项，例如禁用或删除账户</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
     <string name="title_service_auth">电子邮件服务器返回：\'%1$s\'</string>
     <string name="title_service_vpn">这可能是正在使用的 VPN 造成的</string>
@@ -1378,9 +1379,9 @@
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_priority_low">低优先级</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">个人</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">私有</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">机密</string>
+    <string name="title_legend_sensitivity_personal">个人</string>
+    <string name="title_legend_sensitivity_private">私有</string>
+    <string name="title_legend_sensitivity_confidential">机密</string>
     <string name="title_legend_importance">重要</string>
     <string name="title_legend_importance_low">不重要</string>
     <string name="title_legend_signed">已签名</string>

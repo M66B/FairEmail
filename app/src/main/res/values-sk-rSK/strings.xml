@@ -801,6 +801,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_pop_folders">POP3 protokol nepodporuje vytváranie priečinkov</string>
     <string name="title_oauth_support">OAuth nie je podporovaný</string>
     <string name="title_review">Skontrolovať</string>
+    <string name="title_hint_accounts">Podržte dlhšie stlačený názov účtu a zobrazia sa možnosti, ako napríklad zakázať alebo vymazať účet</string>
     <string name="title_hint_alias">Kliknite a podržte totožnosť pre zobrazenie možností, akými sú napríklad kopírovať pre vytvorenie aliasov</string>
     <string name="title_service_auth">Odpoveď z poštového servera: \'%1$s\'</string>
     <string name="title_service_vpn">Môže byť spôsobené použitou VPN</string>
@@ -1409,9 +1410,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_draft">Koncept</string>
     <string name="title_legend_priority">Vysoká priorita</string>
     <string name="title_legend_priority_low">Nizka priorita</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Osobné</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Súkromné</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Dôverné</string>
+    <string name="title_legend_sensitivity_personal">Osobné</string>
+    <string name="title_legend_sensitivity_private">Súkromné</string>
+    <string name="title_legend_sensitivity_confidential">Dôverné</string>
     <string name="title_legend_importance">Dôležité</string>
     <string name="title_legend_importance_low">Nie dôležité</string>
     <string name="title_legend_signed">Podpísané</string>

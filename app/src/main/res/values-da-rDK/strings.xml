@@ -1392,9 +1392,9 @@
     <string name="title_legend_draft">Har kladde</string>
     <string name="title_legend_priority">Har høj prioritet</string>
     <string name="title_legend_priority_low">Har lav prioritet</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Er personligt</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Er privat</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Er fortroligt</string>
+    <string name="title_legend_sensitivity_personal">Er personligt</string>
+    <string name="title_legend_sensitivity_private">Er privat</string>
+    <string name="title_legend_sensitivity_confidential">Er fortroligt</string>
     <string name="title_legend_importance">Er vigtig</string>
     <string name="title_legend_importance_low">Er ikke vigtig</string>
     <string name="title_legend_signed">Er signeret</string>

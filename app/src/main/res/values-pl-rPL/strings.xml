@@ -801,6 +801,7 @@
     <string name="title_pop_folders">Protokół POP3 nie obsługuje tworzenia folderów</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
+    <string name="title_hint_accounts">Przytrzymaj dłużej na koncie, aby wyświetlić opcje, na przykład wyłączyć lub usunąć konto</string>
     <string name="title_hint_alias">Naciśnij i przytrzymaj tożsamość, aby wyświetlić opcje, np. kopiuj, aby utworzyć tożsamość aliasu</string>
     <string name="title_service_auth">Serwer e-mail odpowiedział: \'%1$s\'</string>
     <string name="title_service_vpn">Może to być spowodowane przez używany VPN</string>
@@ -1410,9 +1411,9 @@
     <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_priority">Posiada wysoki priorytet</string>
     <string name="title_legend_priority_low">Posiada niski priorytet</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Jest osobisty</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Jest prywatny</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Jest poufny</string>
+    <string name="title_legend_sensitivity_personal">Jest osobisty</string>
+    <string name="title_legend_sensitivity_private">Jest prywatny</string>
+    <string name="title_legend_sensitivity_confidential">Jest poufny</string>
     <string name="title_legend_importance">Jest ważne</string>
     <string name="title_legend_importance_low">Jest nieważne</string>
     <string name="title_legend_signed">Jest podpisana</string>

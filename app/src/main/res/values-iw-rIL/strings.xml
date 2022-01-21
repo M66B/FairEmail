@@ -802,6 +802,7 @@
     <string name="title_pop_folders">פרוטוקול POP3 לא תומך ביצירת תיקיות</string>
     <string name="title_oauth_support">אין תמיכה ב־OAuth</string>
     <string name="title_review">סקירה</string>
+    <string name="title_hint_accounts">לחיצה ארוכה על חשבון מציגה אפשרויות, למשל כדי להשבית או למחוק חשבון</string>
     <string name="title_hint_alias">לחיצה ארוכה על זהות תציג אפשרויות, כגון העתקה ליצירת כינויים לזהות</string>
     <string name="title_service_auth">שרת הדוא״ל החזיר: ‚%1$s’</string>
     <string name="title_service_vpn">אולי בגלל ה־VPN הפעיל</string>
@@ -1414,9 +1415,9 @@
     <string name="title_legend_draft">יש טיוטה</string>
     <string name="title_legend_priority">יש עדיפות גבוהה</string>
     <string name="title_legend_priority_low">יש עדיפות נמוכה</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">אישית</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">פרטית</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">חסויה</string>
+    <string name="title_legend_sensitivity_personal">אישית</string>
+    <string name="title_legend_sensitivity_private">פרטית</string>
+    <string name="title_legend_sensitivity_confidential">חסויה</string>
     <string name="title_legend_importance">חשוב</string>
     <string name="title_legend_importance_low">לא חשוב</string>
     <string name="title_legend_signed">חתום</string>

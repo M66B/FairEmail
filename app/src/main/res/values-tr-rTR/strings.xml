@@ -1388,9 +1388,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_priority">Yüksek önceliğe sahip</string>
     <string name="title_legend_priority_low">Düşük önceliğe sahip</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Kişisel mi</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Özel mi</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Gizli mi</string>
+    <string name="title_legend_sensitivity_personal">Kişisel mi</string>
+    <string name="title_legend_sensitivity_private">Özel mi</string>
+    <string name="title_legend_sensitivity_confidential">Gizli mi</string>
     <string name="title_legend_importance">Önemli</string>
     <string name="title_legend_importance_low">Önemli değil</string>
     <string name="title_legend_signed">İmzalı</string>

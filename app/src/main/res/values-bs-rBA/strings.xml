@@ -1404,9 +1404,9 @@
     <string name="title_legend_draft">Nacrt</string>
     <string name="title_legend_priority">S visokim prioritetom</string>
     <string name="title_legend_priority_low">S niskim prioritetom</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Osobno</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Privatno</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Povjerljivo</string>
+    <string name="title_legend_sensitivity_personal">Osobno</string>
+    <string name="title_legend_sensitivity_private">Privatno</string>
+    <string name="title_legend_sensitivity_confidential">Povjerljivo</string>
     <string name="title_legend_importance">Važno</string>
     <string name="title_legend_importance_low">Nevažno</string>
     <string name="title_legend_signed">Potpisan</string>

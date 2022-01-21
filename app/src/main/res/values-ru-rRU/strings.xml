@@ -802,6 +802,7 @@
     <string name="title_pop_folders">Протокол POP3 не поддерживает создание папок</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
+    <string name="title_hint_accounts">Долгое нажатие на учётную запись откроет настройку её параметров, например, отключение или удаление учётной записи</string>
     <string name="title_hint_alias">Длительное нажатие откроет другие действия, например, копирования для создания псевдонима идентификатора.</string>
     <string name="title_service_auth">Сервер электронной почты сообщил: \"%1$s\"</string>
     <string name="title_service_vpn">Может быть вызвано использованием VPN</string>
@@ -1413,9 +1414,9 @@
     <string name="title_legend_draft">Имеет черновик</string>
     <string name="title_legend_priority">Имеет высокий приоритет</string>
     <string name="title_legend_priority_low">Имеет низкий приоритет</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Личное</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Приватное</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Конфиденциальное</string>
+    <string name="title_legend_sensitivity_personal">Личное</string>
+    <string name="title_legend_sensitivity_private">Приватное</string>
+    <string name="title_legend_sensitivity_confidential">Конфиденциальное</string>
     <string name="title_legend_importance">Важное</string>
     <string name="title_legend_importance_low">Не важное</string>
     <string name="title_legend_signed">Подписано</string>

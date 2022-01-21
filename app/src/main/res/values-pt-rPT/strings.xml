@@ -537,6 +537,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
+    <string name="title_hint_accounts">Pressione e mantenha numa conta para ver as opções, por exemplo, para desativar ou excluir uma conta</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_expunge">Esponja</string>
     <string name="title_expunge_remark">Isto irá apagar permanentemente todas as mensagens marcadas para exclusão</string>
@@ -556,6 +557,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
+    <string name="title_importance_normal">Normal</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">A transferir cabeçalhos de mensagem &#8230;</string>
     <string name="title_raw_send_message">Mensagem</string>
@@ -624,9 +626,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_legend_trash">Lixo</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_thread">Conversa</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">É pessoal</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">É privado</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">É confidencial</string>
+    <string name="title_legend_sensitivity_personal">É pessoal</string>
+    <string name="title_legend_sensitivity_private">É privado</string>
+    <string name="title_legend_sensitivity_confidential">É confidencial</string>
     <string name="title_legend_audio">Gravar áudio</string>
     <string name="title_legend_show_images">Mostrar imagens</string>
     <string name="title_legend_hide_images">Ocultar imagens</string>
@@ -660,6 +662,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_accessibility_seen">Lida</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label3">Pessoal</string>
     <string name="title_keyword_label4">Pendente</string>
     <string-array name="pollIntervalNames">
         <item>Always</item>
@@ -694,6 +697,11 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="priorityNames">
+        <item>Low</item>
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
     <string-array name="sensitivityNames">
         <item>Normal</item>
         <item>Pessoal</item>

@@ -770,6 +770,7 @@
     <string name="title_pop_folders">Giao thức POP3 không hỗ trợ việc tạo thư mục</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
     <string name="title_review">Xem xét</string>
+    <string name="title_hint_accounts">Nhấn giữ tài khoản để hiển thị tuỳ chọn, ví dụ để tắt hoặc xoá tài khoản</string>
     <string name="title_hint_alias">Nhấn giữ một danh tính để hiển thị các tuỳ chọn, như là sao chép để tạo danh tính kiểu bí danh</string>
     <string name="title_service_auth">Máy chủ email nói: \'%1$s\'</string>
     <string name="title_service_vpn">Điều này có thể được gây ra bởi VPN đang được sử dụng</string>
@@ -1379,9 +1380,9 @@
     <string name="title_legend_draft">Có nháp</string>
     <string name="title_legend_priority">Ưu tiên cao</string>
     <string name="title_legend_priority_low">Ưu tiên thấp</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Là cá nhân</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Là riêng tư</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Là bí mật</string>
+    <string name="title_legend_sensitivity_personal">Là cá nhân</string>
+    <string name="title_legend_sensitivity_private">Là riêng tư</string>
+    <string name="title_legend_sensitivity_confidential">Là bí mật</string>
     <string name="title_legend_importance">Quan trọng</string>
     <string name="title_legend_importance_low">Không quan trọng</string>
     <string name="title_legend_signed">Được ký</string>

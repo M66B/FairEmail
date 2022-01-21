@@ -772,6 +772,7 @@
     <string name="title_pop_folders">POP3 プロトコルはフォルダーの作成をサポートしていません</string>
     <string name="title_oauth_support">OAuth はサポートされていません</string>
     <string name="title_review">レビュー</string>
+    <string name="title_hint_accounts">アカウントを長押して、アカウントの無効化・削除などのオプションを表示します</string>
     <string name="title_hint_alias">ID を長押しして、コピー (エイリアス ID を作成) などのオプションを表示</string>
     <string name="title_service_auth">メールサーバーの応答: %1$s</string>
     <string name="title_service_vpn">お使いの VPN が原因の可能性があります</string>
@@ -1384,9 +1385,9 @@
     <string name="title_legend_draft">下書きあり</string>
     <string name="title_legend_priority">重要度が高い</string>
     <string name="title_legend_priority_low">重要度が低い</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">パーソナルにマーク</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">プライベートにマーク</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">機密 (社外秘) にマーク</string>
+    <string name="title_legend_sensitivity_personal">パーソナルにマーク</string>
+    <string name="title_legend_sensitivity_private">プライベートにマーク</string>
+    <string name="title_legend_sensitivity_confidential">機密 (社外秘) にマーク</string>
     <string name="title_legend_importance">重要度を上げる</string>
     <string name="title_legend_importance_low">重要度を下げる</string>
     <string name="title_legend_signed">電子署名されたメッセージ</string>
@@ -1458,7 +1459,7 @@
     <string name="title_legend_r">返信</string>
     <string name="title_legend_s">選択/選択解除</string>
     <string name="title_legend_t">テキストにフォーカス</string>
-    <string name="title_hint_folder_actions">フォルダーを長押しすると、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
+    <string name="title_hint_folder_actions">フォルダーを長押して、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>

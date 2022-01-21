@@ -801,6 +801,7 @@
     <string name="title_pop_folders">Протокол POP3 не підтримує створення тек</string>
     <string name="title_oauth_support">OAuth не підтримується</string>
     <string name="title_review">Відгук</string>
+    <string name="title_hint_accounts">Довготривале натискання, на назву облікового запису, відкриє меню додаткових параметрів, наприклад, для вимкнення або видалення облікового запису</string>
     <string name="title_hint_alias">Довге натискання на посвідчення особи для відображення параметрів, наприклад, копіювання для створення псевдонімів</string>
     <string name="title_service_auth">Поштовий сервер сказав: \'%1$s\'</string>
     <string name="title_service_vpn">Це може бути викликано мережею VPN, що використовується</string>
@@ -1407,9 +1408,9 @@
     <string name="title_legend_draft">Має чернетку</string>
     <string name="title_legend_priority">Має високий пріоритет</string>
     <string name="title_legend_priority_low">Має низький пріоритет</string>
-    <string name="title_legend_sensitivity_personal" comment="title_legend_sensitivity_personal&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Є особистим</string>
-    <string name="title_legend_sensitivity_private" comment="title_legend_sensitivity_private&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55">Є приватним</string>
-    <string name="title_legend_sensitivity_confidential" comment="title_legend_sensitivity_confidential&#10;https://www.rfc-editor.org/rfc/rfc4021.html#section-2.1.55&#10;">Є конфіденційним</string>
+    <string name="title_legend_sensitivity_personal">Є особистим</string>
+    <string name="title_legend_sensitivity_private">Є приватним</string>
+    <string name="title_legend_sensitivity_confidential">Є конфіденційним</string>
     <string name="title_legend_importance">Важливо</string>
     <string name="title_legend_importance_low">Не важливо</string>
     <string name="title_legend_signed">Підписано</string>
