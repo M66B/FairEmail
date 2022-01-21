@@ -53,7 +53,7 @@ public class FixedTextView extends AppCompatTextView {
     }
 
     private void init(Context context) {
-        setCustomSelectionActionModeCallback(Helper.getActionModeWrapper(context));
+        setCustomSelectionActionModeCallback(Helper.getActionModeWrapper(this));
     }
 
     @Override

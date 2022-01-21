@@ -49,7 +49,7 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     private void init(Context context) {
-        setCustomSelectionActionModeCallback(Helper.getActionModeWrapper(context));
+        setCustomSelectionActionModeCallback(Helper.getActionModeWrapper(this));
     }
 
     @Override
