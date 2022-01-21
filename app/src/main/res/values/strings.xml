@@ -938,7 +938,8 @@
     <string name="title_pop_folders">The POP3 protocol does not support creating folders</string>
     <string name="title_oauth_support">OAuth is not supported</string>
     <string name="title_review">Review</string>
-    <string name="title_hint_alias">Long press an identity to display options, like copy to create alias identities</string>
+    <string name="title_hint_accounts">Long press on an account to display options, for example to disable or delete an account</string>
+    <string name="title_hint_alias">Long press on an identity to display options, like copy to create alias identities</string>
     <string name="title_service_auth">The email server said: \'%1$s\'</string>
     <string name="title_service_vpn">This might be caused by the VPN that is being used</string>
     <string name="title_service_token">The Android account manager could be blocked by a VPN, firewall, ad blocker, etc., preventing it from obtaining an access token</string>

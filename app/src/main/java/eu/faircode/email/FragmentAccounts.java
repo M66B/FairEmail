@@ -71,6 +71,7 @@ public class FragmentAccounts extends FragmentBase {
 
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
+    private TextView tvHintActions;
     private Button btnGrant;
     private RecyclerView rvAccount;
     private ContentLoadingProgressBar pbWait;
@@ -105,6 +106,7 @@ public class FragmentAccounts extends FragmentBase {
 
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
+        tvHintActions = view.findViewById(R.id.tvHintActions);
         btnGrant = view.findViewById(R.id.btnGrant);
         rvAccount = view.findViewById(R.id.rvAccount);
         pbWait = view.findViewById(R.id.pbWait);
@@ -291,6 +293,7 @@ public class FragmentAccounts extends FragmentBase {
             fabCompose.show();
         }
 
+        tvHintActions.setVisibility(settings ? View.VISIBLE : View.GONE);
         btnGrant.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);

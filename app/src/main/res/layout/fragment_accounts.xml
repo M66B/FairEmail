@@ -15,6 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvHintActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_hint_accounts"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <Button
                 android:id="@+id/btnGrant"
                 style="?android:attr/buttonStyleSmall"
@@ -26,7 +36,7 @@
                 android:tag="disable"
                 android:text="@string/title_setup_grant_again"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHintActions" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAccount"
