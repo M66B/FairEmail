@@ -4,6 +4,12 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
+### 1.1817 - 2022-01-21
+
+* Fixed text context menu actions
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1816 - 2022-01-20
 
 * Small improvements and minor bug fixes
