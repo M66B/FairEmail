@@ -395,6 +395,7 @@
     <string name="title_advanced_tabular_background">להשתמש בצבע הכרטיס כצבע הרקע בעת שימוש בסגנון כרטיסיות</string>
     <string name="title_advanced_cards_shadow">להשתמש בהצללה להודעות שלא נקראו בעת שימוש בסגנון כרטיסים</string>
     <string name="title_advanced_cards_shadow_highlight">להשתמש בצבע ההדגשה במקום בצבע המשני</string>
+    <string name="title_advanced_category_header">קיבוץ לפי קטגוריית חשבון</string>
     <string name="title_advanced_date_header">קיבוץ לפי תאריך</string>
     <string name="title_advanced_date_fixed">להציג כותרת תאריך מקובעת למעלה</string>
     <string name="title_advanced_date_bold">הצגת תאריך בהדגשה</string>

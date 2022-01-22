@@ -781,6 +781,7 @@
     <string name="title_pop_folders">El protocolo POP3 no soporta la creación de carpetas</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_review">Revisar</string>
+    <string name="title_hint_accounts">Deje pulsado en una cuenta para mostrar opciones, por ejemplo para desactivar o eliminar una cuenta</string>
     <string name="title_hint_alias">Dejar pulsado para opciones, como copiar para crear identidades de alias</string>
     <string name="title_service_auth">El servidor de correo electrónico dijo: \'%1$s\'</string>
     <string name="title_service_vpn">Esto podría ser causado por la VPN que está siendo usada</string>
@@ -951,6 +952,7 @@
     <string name="title_copy_to">Copiar a &#8230;</string>
     <string name="title_subscribe">Subscribir</string>
     <string name="title_delete">Eliminar</string>
+    <string name="title_delete_all">Eliminar todo</string>
     <string name="title_more">Más</string>
     <string name="title_less">Menos</string>
     <string name="title_spam">Spam</string>

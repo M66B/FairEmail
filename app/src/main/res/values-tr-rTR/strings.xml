@@ -780,6 +780,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_pop_folders">POP3 protokolü klasör oluşturmayı desteklemiyor</string>
     <string name="title_oauth_support">OAuth desteklenmemektedir</string>
     <string name="title_review">Gözden geçir</string>
+    <string name="title_hint_accounts">Bir hesabı devre dışı bırakmak veya silmek gibi seçenekleri görüntülemek için bir hesaba uzun basın</string>
     <string name="title_hint_alias">Takma ad kimlikleri oluşturmak için kopyalamak gibi seçenekler için uzun basın</string>
     <string name="title_service_auth">E-posta sunucusunun mesajı: \'%1$s\'</string>
     <string name="title_service_vpn">Bu, kullanılan VPN\'den kaynaklanıyor olabilir</string>

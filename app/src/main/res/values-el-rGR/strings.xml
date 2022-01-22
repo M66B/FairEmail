@@ -374,6 +374,7 @@
     <string name="title_advanced_tabular_background">Να χρησιμοποιείται το χρώμα της κάρτας ως χρώμα φόντου κατά τη χρήση του στιλ πίνακα</string>
     <string name="title_advanced_cards_shadow">Σκίαση μη αναγνωσμένων μηνυμάτων κατά τη χρήση στιλ κάρτας</string>
     <string name="title_advanced_cards_shadow_highlight">Χρήση του χρώματος επισήμανσης αντί του χρώματος έμφασης</string>
+    <string name="title_advanced_category_header">Ομαδοποίηση ανά κατηγορία λογαριασμού</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
     <string name="title_advanced_date_fixed">Προβολή κεφαλίδας σταθερής ημερομηνίας στην κορυφή</string>
     <string name="title_advanced_date_bold">Προβολή ημερομηνίας με έντονους χαρακτήρες</string>
@@ -779,6 +780,7 @@
     <string name="title_pop_folders">Το πρωτόκολλο POP3 δεν υποστηρίζει τη δημιουργία φακέλων</string>
     <string name="title_oauth_support">Δεν υποστηρίζεται OAuth</string>
     <string name="title_review">Επανέλεγχος</string>
+    <string name="title_hint_accounts">Πατήστε παρατεταμένα σε έναν λογαριασμό για να εμφανιστούν οι επιλογές, όπως, λ.χ., η απενεργοποίηση ή η διαγραφή ενός λογαριασμού</string>
     <string name="title_hint_alias">Παρατεταμένο πάτημα πάνω σε μια ταυτότητα για να εμφανιστούν οι επιλογές, όπως αντιγραφή για τη δημιουργία ψευδώνυμων ταυτοτήτων</string>
     <string name="title_service_auth">Ο εξυπηρετητής ηλ. ταχυδρομείου είπε: %1$s</string>
     <string name="title_service_vpn">Αυτό μπορεί να προκαλείται από το χρησιμοποιούμενο VPN</string>

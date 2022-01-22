@@ -792,6 +792,7 @@
     <string name="title_pop_folders">POP3 protokol ne podržava kreiranje foldera</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Pregledaj</string>
+    <string name="title_hint_accounts">Dugo držite na ime računa za prikaz opcija, poput isključenja ili brisanja računa</string>
     <string name="title_hint_alias">Dugo držite na identitet za prikaz opcija, poput kopiranja u svrhu kreiranja pseudonimskih identiteta</string>
     <string name="title_service_auth">Poruka e-mail servera: \'%1$s\'</string>
     <string name="title_service_vpn">Ovo je možda uzrokovano od strane VPN-a koji se koristi</string>

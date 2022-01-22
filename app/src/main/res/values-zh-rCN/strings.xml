@@ -364,6 +364,7 @@
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
+    <string name="title_advanced_category_header">按账户类别分组</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>

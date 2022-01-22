@@ -354,6 +354,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
+    <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
     <string name="title_advanced_date_bold">Mostrar data em negrito</string>

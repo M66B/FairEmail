@@ -170,6 +170,8 @@
     <string name="title_advanced_close_pane">ବାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_cards_shadow_highlight">ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ବଦଳରେ ହାଇଲାଇଟ୍ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
+    <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
+    <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_subject">ବିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ହାଇଲାଇଟ୍ ରଙ୍ଗ</string>
@@ -225,6 +227,7 @@
     <string name="title_advanced_override_width_hint">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
     <string name="title_advanced_expandall_hint">ଏକାଧିକ ବାର୍ତ୍ତା ସମ୍ପ୍ରସାରଣ ହୋଇଥିବା ବେଳେ ଉତ୍ତର ବଟନ୍ ଦେଖାଯିବ ନାହିଁ କାରଣ ବଟନ୍ କେଉଁ ବାର୍ତ୍ତା ପାଇଁ ପ୍ରଯୁଜ୍ୟ ତାହା ଅସ୍ପଷ୍ଟ ଅଟେ</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
+    <string name="title_advanced_notify_no_grouping">ଏହି ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ ବିଜ୍ଞପ୍ତି ଗୋଷ୍ଠୀକରଣକୁ ସମର୍ଥନ କରେନାହିଁ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>
     <string name="title_advanced_edit_name">ନାମ ସମ୍ପାଦନା</string>
     <string name="title_identity_name">ଆପଣଙ୍କର ନାମ</string>

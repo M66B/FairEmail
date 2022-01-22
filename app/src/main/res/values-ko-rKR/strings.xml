@@ -237,6 +237,7 @@
     <string name="title_advanced_caption_message_header">메시지 제목</string>
     <string name="title_advanced_caption_message_body">메시지 본문</string>
     <string name="title_advanced_close_pane">대화 상자를 닫을 때 행 또는 열 축소</string>
+    <string name="title_advanced_category_header">계정 카테고리로 묶기</string>
     <string name="title_advanced_date_header">날짜로 묶기</string>
     <string name="title_advanced_date_fixed">상단 헤더에서 수정일 표시</string>
     <string name="title_advanced_threading">대화 스레딩</string>
@@ -348,6 +349,7 @@
     <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_review">검토</string>
+    <string name="title_hint_accounts">길게 눌러 계정 비활성화 및 삭제 등 설정 표시</string>
     <string name="title_service_token">Android 계정 관리자가 VPN, 방화벽, 광고 차단기 등에 의해 차단되어 접근 토큰을 받지 못할 수 있습니다</string>
     <string name="title_synchronize_now">지금 동기화</string>
     <string name="title_synchronize_subfolders">하위 폴더</string>

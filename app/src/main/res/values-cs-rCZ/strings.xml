@@ -394,6 +394,7 @@
     <string name="title_advanced_tabular_background">Použít barvu karty jako pozadí při zobrazení stylem tabulky</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
     <string name="title_advanced_cards_shadow_highlight">Použít barvu zvýraznění namísto kontrastní barvy</string>
+    <string name="title_advanced_category_header">Seskupit podle kategorie účtu</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_date_fixed">Zobrazit nahoře datovou hlavičku</string>
     <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
@@ -801,6 +802,7 @@
     <string name="title_pop_folders">Protokol POP3 nepodporuje vytváření složek</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
+    <string name="title_hint_accounts">Dlouhým stiskem účtu zobrazíte možnosti, například jeho vypnutí nebo smazání</string>
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírování pro vytvoření aliasu identity</string>
     <string name="title_service_auth">E-mailový server navrátil: \'%1$s\'</string>
     <string name="title_service_vpn">Toto může být zapříčiněno použitou VPN</string>

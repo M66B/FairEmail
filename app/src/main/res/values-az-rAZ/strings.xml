@@ -782,6 +782,7 @@
     <string name="title_pop_folders">POP3 protokolu qovluq yaratmağı dəstəkləmir</string>
     <string name="title_oauth_support">OAuth dəstəklənmir</string>
     <string name="title_review">Nəzər yetir</string>
+    <string name="title_hint_accounts">Bir hesabı sıradan çıxartmaq və ya silmək kimi seçimləri görüntüləmək üçün hesabın üzərinə uzun basın</string>
     <string name="title_hint_alias">Ləqəb kimliklərini yaratmaq üçün kopyalamaq kimi seçimləri görüntüləmək üçün bir kimliyə uzun basın</string>
     <string name="title_service_auth">E-poçt serverinin cavabı: \'%1$s\'</string>
     <string name="title_service_vpn">Bu, istifadə edilən VPN-ə görə ola bilər</string>
