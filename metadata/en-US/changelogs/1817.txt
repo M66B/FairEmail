@@ -7,6 +7,7 @@
 ### Next version
 
 * Added colors to reply templates
+* Added displaying reply templates by group
 * Added option to group messages by account category (default disabled)
 * Small improvements and minor bug fixes
 

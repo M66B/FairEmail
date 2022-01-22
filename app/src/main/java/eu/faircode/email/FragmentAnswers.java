@@ -19,7 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -28,12 +32,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -44,6 +50,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FragmentAnswers extends FragmentBase {
     private boolean cards;
@@ -89,6 +96,78 @@ public class FragmentAnswers extends FragmentBase {
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvAnswer.addItemDecoration(itemDecorator);
         }
+
+        DividerItemDecoration categoryDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+            @Override
+            public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                int count = parent.getChildCount();
+                for (int i = 0; i < count; i++) {
+                    View view = parent.getChildAt(i);
+                    int pos = parent.getChildAdapterPosition(view);
+
+                    View header = getView(view, parent, pos);
+                    if (header != null) {
+                        canvas.save();
+                        canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
+                        header.draw(canvas);
+                        canvas.restore();
+                    }
+                }
+            }
+
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int pos = parent.getChildAdapterPosition(view);
+                View header = getView(view, parent, pos);
+                if (header == null)
+                    outRect.setEmpty();
+                else
+                    outRect.top = header.getMeasuredHeight();
+            }
+
+            private View getView(View view, RecyclerView parent, int pos) {
+                if (pos == NO_POSITION)
+                    return null;
+
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return null;
+
+                EntityAnswer prev = adapter.getItemAtPosition(pos - 1);
+                EntityAnswer account = adapter.getItemAtPosition(pos);
+                if (pos > 0 && prev == null)
+                    return null;
+                if (account == null)
+                    return null;
+
+                if (pos > 0) {
+                    if (Objects.equals(prev.group, account.group))
+                        return null;
+                } else {
+                    if (account.group == null)
+                        return null;
+                }
+
+                View header = inflater.inflate(R.layout.item_group, parent, false);
+                TextView tvCategory = header.findViewById(R.id.tvCategory);
+                TextView tvDate = header.findViewById(R.id.tvDate);
+
+                if (cards) {
+                    View vSeparator = header.findViewById(R.id.vSeparator);
+                    vSeparator.setVisibility(View.GONE);
+                }
+
+                tvCategory.setText(account.group);
+                tvDate.setVisibility(View.GONE);
+
+                header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
+                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+
+                return header;
+            }
+        };
+
+        rvAnswer.addItemDecoration(categoryDecorator);
 
         adapter = new AdapterAnswer(this);
         rvAnswer.setAdapter(adapter);

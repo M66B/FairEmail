@@ -58,7 +58,7 @@ public interface DaoAnswer {
     EntityAnswer getReceiptAnswer();
 
     @Query("SELECT * FROM answer" +
-            " ORDER BY -favorite, name COLLATE NOCASE")
+            " ORDER BY `group`, -favorite, name COLLATE NOCASE")
     LiveData<List<EntityAnswer>> liveAnswers();
 
     @Query("SELECT COUNT(*) FROM answer" +
