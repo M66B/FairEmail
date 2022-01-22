@@ -584,7 +584,9 @@ class Core {
                                 EntityOperation.HEADERS.equals(op.name) ||
                                 EntityOperation.RAW.equals(op.name) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
-                                (EntityOperation.ADD.equals(op.name) &&
+                                ((op.tries >= LOCAL_RETRY_MAX ||
+                                        db.attachment().countAttachments(op.message) > 0) &&
+                                        EntityOperation.ADD.equals(op.name) &&
                                         EntityFolder.DRAFTS.equals(folder.type)) ||
                                 (op.tries >= LOCAL_RETRY_MAX &&
                                         EntityOperation.SYNC.equals(op.name) &&

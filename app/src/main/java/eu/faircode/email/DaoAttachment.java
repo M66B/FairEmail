@@ -43,6 +43,10 @@ public interface DaoAttachment {
             " ORDER BY sequence, subsequence")
     List<EntityAttachment> getAttachments(long message);
 
+    @Query("SELECT COUNT(*) FROM attachment" +
+            " WHERE message = :message")
+    int countAttachments(long message);
+
     @Query("SELECT * FROM attachment" +
             " WHERE id = :id")
     EntityAttachment getAttachment(long id);
