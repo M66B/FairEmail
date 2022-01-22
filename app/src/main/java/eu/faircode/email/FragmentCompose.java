@@ -3593,6 +3593,7 @@ public class FragmentCompose extends FragmentBase {
                     Log.i(ex);
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
                             .setGestureInsetBottomIgnored(true);
+                    Helper.setSnackbarLines(snackbar, 7);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

@@ -7451,14 +7451,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     String text = args.getString("sigresult");
                     Snackbar sb = Snackbar.make(view, text, Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true);
-
-                    View sv = sb.getView();
-                    if (sv != null) {
-                        TextView tv = sv.findViewById(com.google.android.material.R.id.snackbar_text);
-                        if (tv != null)
-                            tv.setMaxLines(7);
-                    }
-
+                    Helper.setSnackbarLines(sb, 7);
                     sb.show();
                 }
 

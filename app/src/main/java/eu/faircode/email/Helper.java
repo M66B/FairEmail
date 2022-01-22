@@ -111,6 +111,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
@@ -1322,6 +1323,16 @@ public class Helper {
         if (lparam instanceof ConstraintLayout.LayoutParams)
             ((ConstraintLayout.LayoutParams) lparam).setMargins(0, 0, 0, 0);
         view.setLayoutParams(lparam);
+    }
+
+    static void setSnackbarLines(Snackbar snackbar, int lines) {
+        View sv = snackbar.getView();
+        if (sv == null)
+            return;
+        TextView tv = sv.findViewById(com.google.android.material.R.id.snackbar_text);
+        if (tv == null)
+            return;
+        tv.setMaxLines(lines);
     }
 
     static boolean isNight(Context context) {
