@@ -4,12 +4,13 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
-### Next version
+### 1.1818 - 2022-01-22
 
 * Added colors to reply templates
 * Added displaying reply templates by group
 * Added option to group messages by account category (default disabled)
 * Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1817 - 2022-01-21
 
