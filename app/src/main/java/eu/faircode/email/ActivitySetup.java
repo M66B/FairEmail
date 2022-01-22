@@ -941,6 +941,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             if (account.auth_type == AUTH_TYPE_GMAIL &&
                                     GmailState.getAccount(context, account.user) == null) {
                                 SpannableStringBuilder ssb = new SpannableStringBuilder();
+                                ssb.append(account.name).append(": ");
                                 ssb.append(context.getString(R.string.title_importing_wizard));
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
                                 ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
