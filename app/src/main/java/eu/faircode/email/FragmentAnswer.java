@@ -78,7 +78,7 @@ public class FragmentAnswer extends FragmentBase {
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_IMAGE = 2;
     private static final int REQUEST_LINK = 3;
-    private final static int REQUEST_DELETE = 5;
+    private final static int REQUEST_DELETE = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
