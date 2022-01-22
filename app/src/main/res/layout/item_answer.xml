@@ -14,42 +14,54 @@
             android:layout_height="wrap_content"
             android:background="?attr/activatableItemBackground"
             android:foreground="?attr/selectableItemBackground"
-            android:padding="6dp">
+            android:paddingEnd="6dp">
+
+            <eu.faircode.email.ViewStripe
+                android:id="@+id/vwColor"
+                android:layout_width="6dp"
+                android:layout_height="0dp"
+                android:background="?attr/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:minHeight="24dp"
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/ivExternal"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Group"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toStartOf="@+id/ivExternal"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvLastApplied"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:text="Jan 1, 12:34"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toStartOf="@id/tvApplied"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toBottomOf="@id/tvGroup" />
 
             <eu.faircode.email.FixedTextView

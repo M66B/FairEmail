@@ -25,6 +25,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -64,6 +65,7 @@ public class FragmentAnswer extends FragmentBase {
     private CheckBox cbFavorite;
     private CheckBox cbHide;
     private CheckBox cbExternal;
+    private ViewButtonColor btnColor;
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
@@ -73,9 +75,10 @@ public class FragmentAnswer extends FragmentBase {
     private long id = -1;
     private long copy = -1;
 
-    private static final int REQUEST_IMAGE = 1;
-    private static final int REQUEST_LINK = 2;
-    private final static int REQUEST_DELETE = 3;
+    private static final int REQUEST_COLOR = 1;
+    private static final int REQUEST_IMAGE = 2;
+    private static final int REQUEST_LINK = 3;
+    private final static int REQUEST_DELETE = 5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,6 +117,7 @@ public class FragmentAnswer extends FragmentBase {
         cbFavorite = view.findViewById(R.id.cbFavorite);
         cbHide = view.findViewById(R.id.cbHide);
         cbExternal = view.findViewById(R.id.cbExternal);
+        btnColor = view.findViewById(R.id.btnColor);
         etText = view.findViewById(R.id.etText);
 
         style_bar = view.findViewById(R.id.style_bar);
@@ -121,6 +125,21 @@ public class FragmentAnswer extends FragmentBase {
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+
+        btnColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putInt("color", btnColor.getColor());
+                args.putString("title", getString(R.string.title_color));
+                args.putBoolean("reset", true);
+
+                FragmentDialogColor fragment = new FragmentDialogColor();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentAnswer.this, REQUEST_COLOR);
+                fragment.show(getParentFragmentManager(), "account:color");
+            }
+        });
 
         etText.setTypeface(StyleHelper.getTypeface(compose_font, context));
 
@@ -218,6 +237,7 @@ public class FragmentAnswer extends FragmentBase {
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
                     cbHide.setChecked(answer == null ? false : answer.hide);
                     cbExternal.setChecked(answer == null ? false : answer.external);
+                    btnColor.setColor(answer == null ? null : answer.color);
 
                     String html = (answer == null ? a.getString("html") : answer.text);
                     if (html == null)
@@ -342,6 +362,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
         args.putBoolean("external", cbExternal.isChecked());
+        args.putInt("color", btnColor.getColor());
         args.putString("html", HtmlHelper.toHtml(etText.getText(), getContext()));
 
         new SimpleTask<Void>() {
@@ -365,12 +386,15 @@ public class FragmentAnswer extends FragmentBase {
                 boolean favorite = args.getBoolean("favorite");
                 boolean hide = args.getBoolean("hide");
                 boolean external = args.getBoolean("external");
+                Integer color = args.getInt("color");
                 String html = args.getString("html");
 
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                 if (TextUtils.isEmpty(group))
                     group = null;
+                if (color == Color.TRANSPARENT)
+                    color = null;
 
                 Document document = JsoupEx.parse(html);
 
@@ -396,6 +420,7 @@ public class FragmentAnswer extends FragmentBase {
                     answer.favorite = favorite;
                     answer.hide = hide;
                     answer.external = external;
+                    answer.color = color;
                     answer.text = document.body().html();
 
                     if (id < 0)
@@ -433,6 +458,12 @@ public class FragmentAnswer extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case REQUEST_COLOR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        btnColor.setColor(args.getInt("color"));
+                    }
+                    break;
                 case REQUEST_IMAGE:
                     if (resultCode == RESULT_OK && data != null)
                         onImageSelected(data.getData());

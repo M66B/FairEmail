@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -70,6 +71,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
+        private View vwColor;
         private TextView tvName;
         private TextView tvGroup;
         private ImageView ivExternal;
@@ -85,6 +87,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
+            vwColor = itemView.findViewById(R.id.vwColor);
             tvName = itemView.findViewById(R.id.tvName);
             tvGroup = itemView.findViewById(R.id.tvGroup);
             ivExternal = itemView.findViewById(R.id.ivExternal);
@@ -107,6 +110,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
         private void bindTo(EntityAnswer answer) {
             view.setAlpha(answer.hide ? Helper.LOW_LIGHT : 1.0f);
+            vwColor.setBackgroundColor(answer.color == null ? Color.TRANSPARENT : answer.color);
             tvName.setText(answer.name);
             tvGroup.setText(answer.group);
             tvGroup.setVisibility(TextUtils.isEmpty(answer.group) ? View.GONE : View.VISIBLE);
