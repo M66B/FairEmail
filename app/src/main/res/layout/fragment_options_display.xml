@@ -184,6 +184,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_category_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swShadowHighlight"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -192,7 +204,7 @@
                     android:text="@string/title_advanced_date_header"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swShadowHighlight"
+                    app:layout_constraintTop_toBottomOf="@id/swCategory"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

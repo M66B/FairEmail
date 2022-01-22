@@ -309,6 +309,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private WebView printWebView = null;
 
     private boolean cards;
+    private boolean category;
     private boolean date;
     private boolean date_fixed;
     private boolean date_bold;
@@ -437,6 +438,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
+        category = prefs.getBoolean("group_category", false);
         date = prefs.getBoolean("date", true);
         date_fixed = (!date && prefs.getBoolean("date_fixed", false));
         date_bold = prefs.getBoolean("date_bold", false);
@@ -817,7 +819,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message == null)
                     return null;
 
-                boolean ch = (viewType == AdapterMessage.ViewType.UNIFIED &&
+                boolean ch = (category &&
+                        viewType == AdapterMessage.ViewType.UNIFIED &&
                         (pos == 0
                                 ? message.accountCategory != null
                                 : !Objects.equals(prev.accountCategory, message.accountCategory)));

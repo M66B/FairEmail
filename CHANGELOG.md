@@ -7,6 +7,7 @@
 ### Next version
 
 * Added colors to reply templates
+* Added option to group messages by account category (default disabled)
 * Small improvements and minor bug fixes
 
 ### 1.1817 - 2022-01-21
