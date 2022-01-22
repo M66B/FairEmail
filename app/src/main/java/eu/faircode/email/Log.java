@@ -2135,16 +2135,20 @@ public class Log {
                     if (folders.size() > 0)
                         Collections.sort(folders, folders.get(0).getComparator(context));
                     for (TupleFolderEx folder : folders)
-                        if (folder.synchronize)
+                        if (folder.synchronize) {
+                            int unseen = db.message().countUnseen(folder.id);
+                            int notifying = db.message().countNotifying(folder.id);
                             size += write(os, "- " + folder.name + " " + folder.type +
                                     (folder.unified ? " unified" : "") +
                                     (folder.notify ? " notify" : "") +
                                     " poll=" + folder.poll + "/" + folder.poll_factor +
                                     " days=" + folder.sync_days + "/" + folder.keep_days +
                                     " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
+                                    " unseen=" + unseen + " notifying=" + notifying +
                                     " " + folder.state +
                                     (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
                                     "\r\n");
+                        }
 
                     size += write(os, "\r\n");
                 }

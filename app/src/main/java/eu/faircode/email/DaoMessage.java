@@ -461,6 +461,19 @@ public interface DaoMessage {
     @Query("SELECT COUNT(*) FROM message")
     int countTotal();
 
+    @Query("SELECT COUNT(*) FROM message" +
+            " WHERE folder = :folder" +
+            " AND NOT ui_seen")
+    int countUnseen(long folder);
+
+    @Query("SELECT COUNT(*)" +
+            " FROM message" +
+            " WHERE folder = :folder" +
+            " AND notifying <> 0" +
+            " AND notifying <> " + EntityMessage.NOTIFYING_IGNORE +
+            " AND NOT (message.ui_seen OR message.ui_ignored OR message.ui_hide)")
+    int countNotifying(long folder);
+
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, account.category AS accountCategory, identity.color AS accountColor" +
             ", account.notify AS accountNotify, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
