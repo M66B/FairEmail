@@ -1618,7 +1618,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void messagesAdded(MessageCountEvent e) {
                                     try {
                                         wlMessage.acquire();
-                                        fetch(folder, ifolder, e.getMessages(), false, "added");
+                                        fetch(folder, ifolder, e.getMessages(), false, false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1634,7 +1634,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void messagesRemoved(MessageCountEvent e) {
                                     try {
                                         wlMessage.acquire();
-                                        fetch(folder, ifolder, e.getMessages(), true, "removed");
+                                        fetch(folder, ifolder, e.getMessages(), false, true, "removed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1656,9 +1656,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     try {
                                         wlMessage.acquire();
                                         Message imessage = e.getMessage();
-                                        if (imessage instanceof IMAPMessage)
-                                            ((IMAPMessage) imessage).invalidateHeaders();
-                                        fetch(folder, ifolder, new Message[]{imessage}, false, "changed");
+                                        fetch(folder, ifolder, new Message[]{imessage}, true, false, "changed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -2367,7 +2365,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     }
 
-    private void fetch(EntityFolder folder, IMAPFolder ifolder, Message[] messages, boolean deleted, String reason) throws MessagingException {
+    private void fetch(EntityFolder folder, IMAPFolder ifolder, Message[] messages, boolean invalidate, boolean deleted, String reason) throws MessagingException {
         Log.i(folder.name + " " + messages.length + " messages " + reason);
 
         List<Long> uids = new ArrayList<>();
@@ -2386,7 +2384,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             db.beginTransaction();
 
             for (long uid : uids)
-                EntityOperation.queue(this, folder, EntityOperation.FETCH, uid, deleted);
+                EntityOperation.queue(this, folder, EntityOperation.FETCH, uid, invalidate, deleted);
 
             db.setTransactionSuccessful();
         } finally {

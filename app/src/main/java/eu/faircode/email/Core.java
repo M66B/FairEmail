@@ -280,9 +280,10 @@ class Core {
                                 case EntityOperation.FETCH:
                                     if (EntityOperation.FETCH.equals(next.name)) {
                                         JSONArray jnext = new JSONArray(next.args);
-                                        // Same uid, delete flag
+                                        // Same uid, invalidate, delete flag
                                         if (jargs.getLong(0) == jnext.getLong(0) &&
-                                                jargs.optBoolean(1) == jnext.optBoolean(1))
+                                                jargs.optBoolean(1) == jnext.optBoolean(1) &&
+                                                jargs.optBoolean(2) == jnext.optBoolean(2))
                                             skip = true;
                                     }
                                     break;
@@ -1568,7 +1569,8 @@ class Core {
 
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         long uid = jargs.getLong(0);
-        boolean removed = jargs.optBoolean(1);
+        boolean invalidate = jargs.optBoolean(1);
+        boolean removed = jargs.optBoolean(2);
 
         if (uid < 0)
             throw new MessageRemovedException(folder.name + " fetch uid=" + uid);
@@ -1588,6 +1590,9 @@ class Core {
             if (imessage == null)
                 throw new MessageRemovedException(folder.name + " fetch not found uid=" + uid);
             // synchronizeMessage will check expunged/deleted
+
+            if (invalidate && imessage instanceof IMAPMessage)
+                ((IMAPMessage) imessage).invalidateHeaders();
 
             SyncStats stats = new SyncStats();
             boolean download = db.folder().getFolderDownload(folder.id);
