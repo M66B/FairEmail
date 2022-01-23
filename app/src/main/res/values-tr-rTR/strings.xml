@@ -373,6 +373,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_tabular_background">Tablo stilini kullanırken kart rengini arka plan rengi olarak kullan</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
     <string name="title_advanced_cards_shadow_highlight">Vurgu rengi yerine vurgu rengi kullanın</string>
+    <string name="title_advanced_category_header">Hesap kategorisine göre grupla</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
