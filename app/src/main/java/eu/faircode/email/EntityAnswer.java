@@ -209,29 +209,29 @@ public class EntityAnswer implements Serializable {
                 continue;
             order++;
 
-            SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+            SpannableStringBuilder name = new SpannableStringBuilder(answer.name);
 
             if (answer.name != null && answer.color != null) {
                 int first = answer.name.codePointAt(0);
                 int count = Character.charCount(first);
-                ssb.setSpan(new ForegroundColorSpan(answer.color), 0, count, 0);
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, count, 0);
-                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, count, 0);
+                name.setSpan(new ForegroundColorSpan(answer.color), 0, count, 0);
+                name.setSpan(new StyleSpan(Typeface.BOLD), 0, count, 0);
+                name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, count, 0);
             }
 
             if (grouped && answer.applied > 0) {
-                ssb.append(" (").append(NF.format(answer.applied)).append(")");
-                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
-                        answer.name.length() + 1, ssb.length(), 0);
+                name.append(" (").append(NF.format(answer.applied)).append(")");
+                name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                        answer.name.length() + 1, name.length(), 0);
             }
 
             MenuItem item;
             if (answer.group == null)
-                item = main.add(Menu.NONE, order, order++, ssb);
+                item = main.add(Menu.NONE, order, order++, name);
             else {
                 SubMenu smenu = map.get(answer.group);
                 item = smenu.add(answer.applied > 0 ? Menu.FIRST : Menu.NONE,
-                        smenu.size(), smenu.size() + 1, ssb);
+                        smenu.size(), smenu.size() + 1, name);
             }
             item.setIntent(new Intent().putExtra("id", answer.id));
         }
@@ -302,12 +302,6 @@ public class EntityAnswer implements Serializable {
 
         for (EntityAnswer answer : favorites) {
             SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
-
-            int first = answer.name.codePointAt(0);
-            int count = Character.charCount(first);
-            ssb.setSpan(new ForegroundColorSpan(answer.color), 0, count, 0);
-            ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, count, 0);
-            ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, count, 0);
 
             ImageSpan imageSpan = new CenteredImageSpan(icon);
             ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
