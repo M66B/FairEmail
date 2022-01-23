@@ -221,9 +221,10 @@ public class EntityAnswer implements Serializable {
             }
 
             if (grouped && answer.applied > 0) {
+                int start = ssb.length();
                 ssb.append(" (").append(NF.format(answer.applied)).append(")");
                 ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
-                        answer.name.length() + 1, ssb.length(), 0);
+                        start, ssb.length(), 0);
             }
 
             MenuItem item;
