@@ -209,30 +209,30 @@ public class EntityAnswer implements Serializable {
                 continue;
             order++;
 
-            SpannableStringBuilder name = new SpannableStringBuilder(answer.name);
+            SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
 
             if (answer.color != null) {
                 Drawable d = new ColorDrawable(answer.color);
                 d.setBounds(0, 0, iconSize / 4, iconSize);
 
                 ImageSpan imageSpan = new CenteredImageSpan(d);
-                name.insert(0, "\uFFFC\u2002"); // object replacement character, en space
-                name.setSpan(imageSpan, 0, 1, 0);
+                ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
+                ssb.setSpan(imageSpan, 0, 1, 0);
             }
 
             if (grouped && answer.applied > 0) {
-                name.append(" (").append(NF.format(answer.applied)).append(")");
-                name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
-                        answer.name.length() + 1, name.length(), 0);
+                ssb.append(" (").append(NF.format(answer.applied)).append(")");
+                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                        answer.name.length() + 1, ssb.length(), 0);
             }
 
             MenuItem item;
             if (answer.group == null)
-                item = main.add(Menu.NONE, order, order++, name);
+                item = main.add(Menu.NONE, order, order++, ssb);
             else {
                 SubMenu smenu = map.get(answer.group);
                 item = smenu.add(answer.applied > 0 ? Menu.FIRST : Menu.NONE,
-                        smenu.size(), smenu.size() + 1, name);
+                        smenu.size(), smenu.size() + 1, ssb);
             }
             item.setIntent(new Intent().putExtra("id", answer.id));
         }
@@ -303,6 +303,15 @@ public class EntityAnswer implements Serializable {
 
         for (EntityAnswer answer : favorites) {
             SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+
+            if (answer.color != null) {
+                Drawable d = new ColorDrawable(answer.color);
+                d.setBounds(0, 0, iconSize / 4, iconSize);
+
+                ImageSpan imageSpan = new CenteredImageSpan(d);
+                ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
+                ssb.setSpan(imageSpan, 0, 1, 0);
+            }
 
             ImageSpan imageSpan = new CenteredImageSpan(icon);
             ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
