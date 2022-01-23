@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import static android.app.Activity.RESULT_OK;
-import static android.graphics.Typeface.BOLD;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
@@ -5024,7 +5023,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 SpannableStringBuilder all = new SpannableStringBuilderEx(getString(R.string.title_language_all));
                 if (current == null) {
-                    all.setSpan(new StyleSpan(BOLD), 0, all.length(), 0);
+                    all.setSpan(new StyleSpan(Typeface.BOLD), 0, all.length(), 0);
                     all.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, all.length(), 0);
                 }
 
@@ -5035,7 +5034,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     String language = locale.getLanguage();
                     SpannableStringBuilder title = new SpannableStringBuilderEx(locale.getDisplayLanguage());
                     if (language.equals(current)) {
-                        title.setSpan(new StyleSpan(BOLD), 0, title.length(), 0);
+                        title.setSpan(new StyleSpan(Typeface.BOLD), 0, title.length(), 0);
                         title.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, title.length(), 0);
                     }
                     popupMenu.getMenu()
