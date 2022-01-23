@@ -4,6 +4,12 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
+### 1.1819 - 2022-01-23
+
+* Fixed crash in error handling
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1818 - 2022-01-22
 
 * Added colors to reply templates
