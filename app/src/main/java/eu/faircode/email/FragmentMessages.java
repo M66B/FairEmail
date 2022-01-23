@@ -2911,8 +2911,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (data.answers != null) {
                     int order = 100;
                     for (EntityAnswer answer : data.answers) {
+                        SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+
+                        int first = answer.name.codePointAt(0);
+                        int count = Character.charCount(first);
+                        ssb.setSpan(new ForegroundColorSpan(answer.color), 0, count, 0);
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, count, 0);
+                        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, count, 0);
+
                         order++;
-                        popupMenu.getMenu().add(Menu.FIRST, order, order, answer.name)
+                        popupMenu.getMenu().add(Menu.FIRST, order, order, ssb)
                                 .setIcon(R.drawable.twotone_star_24)
                                 .setIntent(new Intent().putExtra("id", answer.id));
                     }
