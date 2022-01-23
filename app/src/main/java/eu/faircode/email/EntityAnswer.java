@@ -22,12 +22,12 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
@@ -211,13 +211,12 @@ public class EntityAnswer implements Serializable {
 
             SpannableStringBuilder name = new SpannableStringBuilder(answer.name);
 
-            if (answer.color != null) {
-                Drawable d = new ColorDrawable(answer.color);
-                d.setBounds(0, 0, iconSize / 4, iconSize);
-
-                ImageSpan imageSpan = new CenteredImageSpan(d);
-                name.insert(0, "\uFFFC\u2002"); // object replacement character, en space
-                name.setSpan(imageSpan, 0, 1, 0);
+            if (answer.name != null && answer.color != null) {
+                int first = answer.name.codePointAt(0);
+                int count = Character.charCount(first);
+                name.setSpan(new ForegroundColorSpan(answer.color), 0, count, 0);
+                name.setSpan(new StyleSpan(Typeface.BOLD), 0, count, 0);
+                name.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, count, 0);
             }
 
             if (grouped && answer.applied > 0) {
