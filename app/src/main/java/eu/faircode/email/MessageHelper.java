@@ -209,7 +209,8 @@ public class MessageHelper {
             "$encrypted", // Kmail
             "$HasAttachment", // Dovecot
             "$HasNoAttachment", // Dovecot
-            "$IsTrusted" // Fastmail
+            "$IsTrusted", // Fastmail
+            "$X-ME-Annot-2" // Fastmail
     ));
 
     // https://tools.ietf.org/html/rfc4021
