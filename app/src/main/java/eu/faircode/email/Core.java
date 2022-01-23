@@ -568,6 +568,8 @@ class Core {
                             continue;
                         }
 
+                        long attachments = (op.message == null ? 0 : db.attachment().countAttachments(op.message));
+
                         if (op.tries >= TOTAL_RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof FileNotFoundException ||
@@ -584,8 +586,7 @@ class Core {
                                 EntityOperation.HEADERS.equals(op.name) ||
                                 EntityOperation.RAW.equals(op.name) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
-                                ((op.tries >= LOCAL_RETRY_MAX ||
-                                        db.attachment().countAttachments(op.message) > 0) &&
+                                ((op.tries >= LOCAL_RETRY_MAX || attachments > 0) &&
                                         EntityOperation.ADD.equals(op.name) &&
                                         EntityFolder.DRAFTS.equals(folder.type)) ||
                                 (op.tries >= LOCAL_RETRY_MAX &&
