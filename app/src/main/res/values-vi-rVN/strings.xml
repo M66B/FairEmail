@@ -65,7 +65,7 @@
     <string name="title_block_sender">Chặn người gửi</string>
     <string name="title_block_sender_domain">Chặn miền \'%1$s\'</string>
     <string name="title_block_sender_hint">        Chặn người gửi là tính năng miễn phí.
-        Chặn miền người gửi có sử dụng quy tắc lọc, đó là tính năng pro.
+        Chặn tên miền người gửi có sử dụng quy tắc lọc, đó là tính năng pro.
     </string>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
