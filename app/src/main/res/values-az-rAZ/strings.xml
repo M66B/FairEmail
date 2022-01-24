@@ -375,6 +375,7 @@
     <string name="title_advanced_tabular_background">Cədvəl stili istifadə edəndə kart rəngini arxaplan rəngi kimi istifadə et</string>
     <string name="title_advanced_cards_shadow">Kart stilini istifadə edəndə oxunmamış mesajlar üçün kölgə istifadə et</string>
     <string name="title_advanced_cards_shadow_highlight">Rəngi vurğulamaq əvəzinə vurğu rəngini istifadə et</string>
+    <string name="title_advanced_category_header">Hesab kateqoriyasına görə qruplaşdır</string>
     <string name="title_advanced_date_header">Tarixə görə qruplaşdır</string>
     <string name="title_advanced_date_fixed">Sabit tarix başlığını üstdə göstər</string>
     <string name="title_advanced_date_bold">Tarixi qalın göstər</string>

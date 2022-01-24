@@ -374,6 +374,7 @@
     <string name="title_advanced_tabular_background">Usar el color de la tarjeta como color de fondo al utilizar el estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensajes no leídos al usar estilo de tarjeta</string>
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado en lugar de color de acento</string>
+    <string name="title_advanced_category_header">Agrupar por categoría de cuenta</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_date_fixed">Mostrar encabezado de fecha fijado en la parte superior</string>
     <string name="title_advanced_date_bold">Mostrar fecha en negrita</string>
