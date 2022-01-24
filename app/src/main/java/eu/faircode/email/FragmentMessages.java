@@ -7156,6 +7156,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (attachments == null)
                     return null;
 
+                if (auto && message.revision != null)
+                    return null;
+
                 InputStream in = null;
                 OutputStream out = null;
                 boolean inline = false;
