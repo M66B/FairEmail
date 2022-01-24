@@ -116,11 +116,12 @@ public class EntityLog {
         executor.submit(new Runnable() {
             @Override
             public void run() {
+                // Check available storage space
                 if (!ok || (++count % LOG_DELETE_BATCH_SIZE) == 0) {
                     long cake = Helper.getAvailableStorageSpace();
                     ok = (cake < Helper.MIN_REQUIRED_SPACE);
                     if (!ok)
-                        ok = false;
+                        return;
                 }
 
                 try {
