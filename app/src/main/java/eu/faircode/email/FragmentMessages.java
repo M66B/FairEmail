@@ -4518,7 +4518,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         snackbar.addCallback(new Snackbar.Callback() {
             @Override
             public void onDismissed(Snackbar transientBottomBar, int event) {
-                prefs.edit().putLong("review_later", new Date().getTime()).apply();
+                prefs.edit().putBoolean("review_asked", true).apply();
             }
         });
         snackbar.show();
