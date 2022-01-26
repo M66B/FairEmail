@@ -119,9 +119,19 @@ public class EntityLog {
                 // Check available storage space
                 if (!ok || (++count % LOG_DELETE_BATCH_SIZE) == 0) {
                     long cake = Helper.getAvailableStorageSpace();
+                    boolean wasOk = ok;
                     ok = (cake < Helper.MIN_REQUIRED_SPACE);
                     if (!ok)
-                        return;
+                        if (wasOk) {
+                            entry.type = Type.General;
+                            entry.account = null;
+                            entry.folder = null;
+                            entry.message = null;
+                            entry.data = "Insufficient storage space=" +
+                                    Helper.humanReadableByteCount(cake) + "/" +
+                                    Helper.humanReadableByteCount(Helper.MIN_REQUIRED_SPACE);
+                        } else
+                            return;
                 }
 
                 try {
