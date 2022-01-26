@@ -739,6 +739,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvReceiptType" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swReceiptLegacy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_identity_receipt_legacy"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spReceiptType"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLookupMx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -746,7 +757,7 @@
                     android:text="@string/title_advanced_lookup_mx"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spReceiptType"
+                    app:layout_constraintTop_toBottomOf="@id/swReceiptLegacy"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

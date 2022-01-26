@@ -90,6 +90,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swRemoveSignatures;
     private SwitchCompat swReceipt;
     private Spinner spReceiptType;
+    private SwitchCompat swReceiptLegacy;
     private SwitchCompat swLookupMx;
 
     private final static String[] RESET_OPTIONS = new String[]{
@@ -102,7 +103,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "signature_location", "signature_new", "signature_reply", "signature_forward",
             "discard_delete", "reply_move",
             "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
-            "receipt_default", "receipt_type", "lookup_mx"
+            "receipt_default", "receipt_type", "receipt_legacy", "lookup_mx"
     };
 
     @Override
@@ -154,6 +155,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swRemoveSignatures = view.findViewById(R.id.swRemoveSignatures);
         swReceipt = view.findViewById(R.id.swReceipt);
         spReceiptType = view.findViewById(R.id.spReceiptType);
+        swReceiptLegacy = view.findViewById(R.id.swReceiptLegacy);
         swLookupMx = view.findViewById(R.id.swLookupMx);
 
         String[] fontNameNames = getResources().getStringArray(R.array.fontNameNames);
@@ -474,6 +476,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swReceiptLegacy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("receipt_legacy", checked).apply();
+            }
+        });
+
         swLookupMx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -597,6 +606,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         int receipt_type = prefs.getInt("receipt_type", 2);
         spReceiptType.setSelection(receipt_type);
+
+        swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
 
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
     }

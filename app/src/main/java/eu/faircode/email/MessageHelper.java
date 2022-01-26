@@ -253,6 +253,7 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int receipt_type = prefs.getInt("receipt_type", 2);
+        boolean receipt_legacy = prefs.getBoolean("receipt_legacy", false);
         boolean hide_timezone = prefs.getBoolean("hide_timezone", true);
         boolean autocrypt = prefs.getBoolean("autocrypt", true);
         boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
@@ -449,9 +450,11 @@ public class MessageHelper {
                 // 2=Read+delivery receipt
 
                 // defacto standard
-                if (receipt_type == 1 || receipt_type == 2) // Delivery receipt
-                    imessage.addHeader("Return-Receipt-To", to);
-
+                if (receipt_type == 1 || receipt_type == 2) {
+                    // Delivery receipt
+                    if (receipt_legacy)
+                        imessage.addHeader("Return-Receipt-To", to);
+                }
 
                 // https://tools.ietf.org/html/rfc3798
                 if (receipt_type == 0 || receipt_type == 2) {
