@@ -386,9 +386,9 @@
     </provider>
     <provider
         name="web.de"
+        documentation="Please check if &lt;a href=&quot;https://hilfe.web.de/email/einstellungen/pop3-imap-einschalten.html&quot;&gt;IMAP is enabled&lt;/a&gt;"
         domain="web\\.de"
         keepalive="12"
-        documentation="Please check if &lt;a href=&quot;https://hilfe.web.de/email/einstellungen/pop3-imap-einschalten.html&quot;&gt;IMAP is enabled&lt;/a&gt;"
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
         requiresEnabling="true"
         user="local">
@@ -417,8 +417,8 @@
     <provider
         name="T-Online.de"
         appPassword="true"
-        domain="magenta\\.de,t-online\\.de"
         documentation="Für T-Online müssen Sie ein App-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-adresse-passwoerter-und-sicherheit/passwort-fuer-e-mail-programme-einrichten&quot;&gt;siehe hier&lt;/a&gt;."
+        domain="magenta\\.de,t-online\\.de"
         link="https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-server-e-mail-protokolle-und-e-mail-einrichtung/imap/einrichtung-imap">
         <imap
             host="secureimap.t-online.de"
@@ -1473,5 +1473,18 @@
             host="smtp-auth.mailprotect.be"
             port="465"
             starttls="false" />
+    </provider>
+    <provider
+        name="Centurylink"
+        domain="centurylink\\.net,q\\.com,elpasotel\\.net,embarqmail\\.com,centurytel\\.net,cswnet\\.com,clds\\.net,coastalnow\\.net,cochill\\.net,emadisonriver\\.com,emadisonriver\\.net,gallatinriver\\.net,grics\\.net,gulftel\\.com,madisonriver\\.biz,mebtel\\.net,qwest\\.net"
+        link="https://www.centurylink.com/home/help/internet/email/how-to-set-up-your-email-server-settings-to-go-through-pop-and-smtp.html">
+        <imap
+            host="mail.centurylink.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.centurylink.net"
+            port="587"
+            starttls="true" />
     </provider>
 </providers>
