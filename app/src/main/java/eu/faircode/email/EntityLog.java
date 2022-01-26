@@ -120,7 +120,7 @@ public class EntityLog {
                 if (!ok || (++count % LOG_DELETE_BATCH_SIZE) == 0) {
                     long cake = Helper.getAvailableStorageSpace();
                     boolean wasOk = ok;
-                    ok = (cake < Helper.MIN_REQUIRED_SPACE);
+                    ok = (cake > Helper.MIN_REQUIRED_SPACE);
                     if (!ok)
                         if (wasOk) {
                             entry.type = Type.General;
