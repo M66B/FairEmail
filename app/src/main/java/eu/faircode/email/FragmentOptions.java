@@ -53,6 +53,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 import androidx.viewpager.widget.ViewPager;
 
@@ -426,6 +428,14 @@ public class FragmentOptions extends FragmentBase {
             menuSearch.expandActionView();
             searchView.setQuery(saved, false);
         }
+
+        getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                menuSearch.collapseActionView();
+                getViewLifecycleOwner().getLifecycle().removeObserver(this);
+            }
+        });
 
         super.onCreateOptionsMenu(menu, inflater);
     }
