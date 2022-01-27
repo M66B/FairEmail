@@ -710,6 +710,7 @@
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
     <string name="title_identity_max_size">Максимальний розмір повідомлення (МБ)</string>
     <string name="title_identity_receipt">Запитати про доставку/прочитання повідомлення за замовчуванням</string>
+    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Використовувати сумісний заголовок для запиту про отримання</string>
     <string name="title_identity_use_ip_hint">У разі отримання \'невірне привітання\', \'вимагає дійсної адреси\' або аналогічної помилки, спробуйте змінити це налаштування</string>
     <string name="title_identity_self_hint">Також запобігає Вам відповідати самому собі</string>
     <string name="title_optional">За бажанням</string>

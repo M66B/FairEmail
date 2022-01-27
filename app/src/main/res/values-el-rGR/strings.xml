@@ -688,6 +688,7 @@
     <string name="title_identity_unicode_remark">Οι περισσότεροι διακομιστές δεν το υποστηρίζουν</string>
     <string name="title_identity_max_size">Μέγιστο μέγεθος αρχείου (MB)</string>
     <string name="title_identity_receipt">Αίτημα αποδεικτικού παράδοσης/ανάγνωσης από προεπιλογή</string>
+    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Χρήση κεφαλίδων παλαιού τύπου για το αίτημα αποδεικτικού λήψης</string>
     <string name="title_identity_use_ip_hint">Σε περιπτώσεις σφαλμάτων όπως: \"\'invalid greeting\'\", \"requires valid address\", ή άλλου παρόμοιου, δοκιμάστε να αλλάξετε αυτή τη ρύθμιση</string>
     <string name="title_identity_self_hint">Σας αποτρέπει, επίσης, από το να απαντάτε στον εαυτό σας</string>
     <string name="title_optional">Προαιρετικό</string>

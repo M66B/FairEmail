@@ -150,6 +150,7 @@
     <string name="title_setup_free">앱을 무료로 사용할 수 있습니까?</string>
     <string name="title_setup_permissions">권한 부여</string>
     <string name="title_setup_permissions_explanation">연락처 정보를 조회하고 연락처를 제안하려면 연락처 권한이 필요합니다</string>
+    <string name="title_setup_permission_import_contacts">연락처를 어떻게 가져올 수 있나요?</string>
     <string name="title_setup_doze">배터리 최적화 비활성화</string>
     <string name="title_setup_doze_explanation">앱이 백그라운드에서도 안정적으로 메일을 수신 및 발신하려면 이 앱에 대한 배터리 최적화 기능을 꺼야 합니다</string>
     <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
@@ -173,6 +174,7 @@
     <string name="title_setup_reorder_folders">폴더 정렬</string>
     <string name="title_reset_order">정렬 초기화</string>
     <string name="title_setup_authentication">인증</string>
+    <string name="title_setup_biometrics">생체 정보 인증</string>
     <string name="title_setup_biometrics_enable">사용</string>
     <string name="title_setup_biometrics_disable">사용 안 함</string>
     <string name="title_setup_biometrics_unlock">잠금 해제</string>
@@ -208,8 +210,10 @@
     <string name="title_advanced_section_notifications">알림</string>
     <string name="title_advanced_section_misc">기타</string>
     <string name="title_advanced_when">일시</string>
+    <string name="title_advanced_optimize">자동으로 최적화</string>
     <string name="title_advanced_schedule">일정</string>
     <string name="title_advanced_advanced">고급</string>
+    <string name="title_advanced_quick_sync">빠른 동기화</string>
     <string name="title_advanced_no_date">날짜 없는 메시지</string>
     <string name="title_advanced_unseen">모든 읽지 않은 메시지</string>
     <string name="title_advanced_flagged">모든 즐겨찾기 메시지</string>
@@ -323,6 +327,7 @@
     <string name="title_recommended">추천</string>
     <string name="title_account_linked">연결된 계정</string>
     <string name="title_account_name">계정명</string>
+    <string name="title_account_category">카테고리</string>
     <string name="title_color">색상</string>
     <string name="title_transparent">투명도</string>
     <string name="title_account_left">왼쪽으로 밀기</string>
@@ -338,6 +343,7 @@
     <string name="title_port">포트 번호</string>
     <string name="title_user">사용자명</string>
     <string name="title_password">비밀번호</string>
+    <string name="title_client_certificate">클라이언트 인증서</string>
     <string name="title_realm">NTML 인증 도메인</string>
     <string name="title_primary">최상</string>
     <string name="title_keep_poll_interval">여론조사 시간 (분)</string>
@@ -347,6 +353,7 @@
     <string name="title_no_account">계정 누락</string>
     <string name="title_no_password">비밀번호 누락</string>
     <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
+    <string name="title_account_delete">이 계정을 영구적으로 삭제할까요?</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_review">검토</string>
     <string name="title_hint_accounts">길게 눌러 계정 비활성화 및 삭제 등 설정 표시</string>
@@ -361,6 +368,8 @@
     <string name="title_execute_rules">규칙 실행</string>
     <string name="title_insert_contact">주소록에 추가</string>
     <string name="title_edit_contact">연락처 수정</string>
+    <string name="title_import_contacts">vCard 들여오기</string>
+    <string name="title_export_contacts">vCard 내보내기</string>
     <string name="title_folder_name">폴더명</string>
     <string name="title_display_name">표시되는 이름</string>
     <string name="title_hide_folder">폴더 숨기기</string>
@@ -493,6 +502,7 @@
     <string name="title_style_font">글꼴</string>
     <string name="title_style_font_default">기본</string>
     <string name="title_style_blockquote">긴 인용문</string>
+    <string name="title_style_indentation">들여쓰기</string>
     <string name="title_style_strikethrough">취소선</string>
     <string name="title_style_clear">서식 지우기</string>
     <string name="title_style_link">링크 삽입</string>
@@ -525,6 +535,7 @@
     <string name="title_decrypt">복호화</string>
     <string name="title_resync">재동기화</string>
     <string name="title_reset_sign_key">서명 키 초기화</string>
+    <string name="title_signature_sender">보낸 사람 주소</string>
     <string name="title_signature_subject">제목</string>
     <string name="title_signature_validity">유효성</string>
     <string name="title_signature_store">저장</string>
@@ -711,7 +722,12 @@
     <string name="title_legend_t">글자에 포커스</string>
     <string name="title_hint_important">중요</string>
     <string name="title_open_link">링크 열기</string>
+    <string name="title_image_link">이미지 링크</string>
+    <string name="title_suspicious_link">신뢰할 수 없는 링크입니다</string>
+    <string name="title_link_http">트래픽이 암호화되지 않습니다</string>
+    <string name="title_link_https">트래픽이 암호화됩니다</string>
     <string name="title_check_owner">소유자 확인</string>
+    <string name="title_default_apps">기본 앱</string>
     <string name="title_select_app">앱 선택</string>
     <string name="title_yes">네</string>
     <string name="title_no">아니오</string>
@@ -905,7 +921,7 @@
         <item>PGP 서명만</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>S/MIME 사인+암호화</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
@@ -934,6 +950,11 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Name only</item>
+        <item>Email only</item>
+        <item>이름 및 이메일</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->

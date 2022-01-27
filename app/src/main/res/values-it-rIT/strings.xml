@@ -375,6 +375,7 @@
     <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo usando lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
+    <string name="title_advanced_category_header">Raggruppa per categoria del profilo</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
@@ -691,6 +692,7 @@
     <string name="title_identity_unicode_remark">Gran parte dei server non lo supportano</string>
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
     <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura di default</string>
+    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Usa le intestazioni di richiesta di ricevuta preesistenti</string>
     <string name="title_identity_use_ip_hint">In caso di \'saluto non valido\', \'richiede indirizzo valido\' o un errore simile, prova a modificare quest\'impostazione</string>
     <string name="title_identity_self_hint">Ti impedisce anche di risponderti da solo</string>
     <string name="title_optional">Opzionale</string>
@@ -783,6 +785,7 @@
     <string name="title_pop_folders">Il protocollo POP3 non supporta la creazione di cartelle</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
+    <string name="title_hint_accounts">Tieni premuto su un profilo per mostrare le opzioni, ad esempio, per disabilitare o eliminare un profilo</string>
     <string name="title_hint_alias">Tieni premuta un\'identità per mostrare le opzioni, come copiare per creare identità di alias</string>
     <string name="title_service_auth">Il server email ha detto: \'%1$s\'</string>
     <string name="title_service_vpn">Ciò potrebbe esser causato dalla VPN in uso</string>

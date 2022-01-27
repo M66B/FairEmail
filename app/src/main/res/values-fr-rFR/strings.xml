@@ -105,7 +105,7 @@
     <string name="menu_privacy">Confidentialité</string>
     <string name="menu_about">À propos</string>
     <string name="menu_pro">Fonctionnalités Pro</string>
-    <string name="menu_rate">Évaluer cette application</string>
+    <string name="menu_rate">Noter cette application</string>
     <string name="title_welcome">Bienvenue</string>
     <string name="title_eula">Contrat de licence d\'utilisateur final</string>
     <string name="title_contributors">Contributeurs</string>
@@ -134,7 +134,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_quick_certificates">Certificats du serveur</string>
     <string name="title_setup_wizard">Assistant</string>
-    <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer de multiples comptes</string>
+    <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
     <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse e-mail</string>
     <string name="title_setup_manual">Configuration manuelle et options des comptes</string>
     <string name="title_setup_classic">Configuration classique</string>
@@ -337,9 +337,9 @@
     <string name="title_advanced_usenet_signature">Suivre la convention Usenet pour les signatures</string>
     <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>
     <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
-    <string name="title_advanced_lookup_mx">Vérifier les adresses électroniques des destinataires avant l’envoi</string>
+    <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail des destinataires avant l’envoi</string>
     <string name="title_advanced_metered">Utiliser les connexions limitées</string>
-    <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes sur les connexions limitées jusqu’à</string>
+    <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
     <string name="title_advanced_download_headers">Télécharger tous les en-têtes de message</string>
@@ -405,7 +405,7 @@
     <string name="title_advanced_sender_ellipsize">Raccourcir l\'expéditeur si nécessaire</string>
     <string name="title_advanced_subject_top">Afficher l’objet au-dessus de l’expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l’objet en italique</string>
-    <string name="title_advanced_highlight_subject">Afficher l’objet en surbrillance</string>
+    <string name="title_advanced_highlight_subject">Mettre l’objet en surbrillance</string>
     <string name="title_advanced_font_size_subject">Taille de police du champ « Objet »</string>
     <string name="title_advanced_subject_ellipsize">Raccourcir l\'objet si nécessaire</string>
     <string name="title_advanced_compact_mode_remark">Mode compact uniquement</string>
@@ -505,7 +505,7 @@
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
     <string name="title_advanced_notify_action_hide">Masquer</string>
     <string name="title_advanced_notify_action_snooze">Reporter</string>
-    <string name="title_advanced_notify_remove">Supprimer les notifications de nouveaux messages en tapant dessus</string>
+    <string name="title_advanced_notify_remove">Supprimer la notification de nouveau message en tapant dessus</string>
     <string name="title_advanced_notify_clear">Supprimer les notifications de nouveaux messages lors de la visualisation de la liste des messages</string>
     <string name="title_advanced_notify_subtext">Afficher le nom du compte ou du dossier comme sous-texte</string>
     <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux objets connectés</string>
@@ -526,7 +526,7 @@
     <string name="title_advanced_client_id">Envoyer le nom et la version de l\'application au serveur de messagerie</string>
     <string name="title_advanced_display_hidden">Afficher les textes cachés des messages</string>
     <string name="title_advanced_incognito_keyboard">Utiliser le clavier en mode incognito (Android 8+)</string>
-    <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
+    <string name="title_advanced_secure">Masquer FairEmail dans la liste des applications récentes et empêcher la prise de captures d\'écran</string>
     <string name="title_advanced_pin">Code PIN</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
     <string name="title_advanced_autolock">Verrouiller lorsque l\'écran s\'éteint</string>
@@ -574,7 +574,7 @@
     <string name="title_advanced_check_weekly">Vérifier une fois par semaine au lieu d\'une fois par jour</string>
     <string name="title_advanced_changelog">Afficher l\'historique des modifications après la mise à jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
-    <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
+    <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
@@ -591,7 +591,7 @@
     <string name="title_advanced_quick_sync_hint">Ceci réduit l\'utilisation des données mais de nouveaux messages pourraient être manquants si le serveur de messagerie ne respecte pas les normes</string>
     <string name="title_advanced_no_date_hint">Certains fournisseurs stockent les messages avec une date inconnue, non valide ou future comme étant des messages sans date</string>
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne prennent pas ceci en charge correctement, ce qui peut entraîner la synchronisation de tous les messages, voire d’aucun</string>
-    <string name="title_advanced_deleted_unseen">Si ceci est désactivé, les messages non lus seront conservés indéfiniment sur l’appareil</string>
+    <string name="title_advanced_deleted_unseen">Lorsque ceci est désactivé, les messages non lus sont conservés sur l\'appareil indéfiniment</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_gmail_thread_hint">Ceci s\'applique uniquement aux messages nouvellement reçus et peut corrompre les groupes existants</string>
     <string name="title_advanced_subject_threading_hint">Seuls les messages reçus au cours des %1$d dernières heures</string>
@@ -659,7 +659,7 @@
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification « Surveillance »</string>
     <string name="title_advanced_notify_separate_hint">Comment configurer les notifications pour les comptes, dossiers et expéditeurs ?</string>
-    <string name="title_advanced_notify_preview_all_hint">Pour les appareils portables qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
+    <string name="title_advanced_notify_preview_all_hint">Pour les appareils connectés qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
     <string name="title_advanced_notify_preview_only_hint">Ceci retarde l\'affichage des notifications jusqu\'à ce que le texte du message ait été téléchargé</string>
     <string name="title_advanced_wearable_hint">Les notifications sont envoyées à un appareil portable seulement après le téléchargement du texte du message</string>
     <string name="title_advanced_messaging_hint">Ceci est nécessaire pour la prise en charge d\'Android Auto</string>
@@ -692,6 +692,7 @@
     <string name="title_identity_unicode_remark">La plupart des serveurs ne prennent pas ceci en charge</string>
     <string name="title_identity_max_size">Taille maximale du message (Mo)</string>
     <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
+    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Utiliser les anciens en-têtes de demande de réception</string>
     <string name="title_identity_use_ip_hint">En cas d’erreur « invalid greeting », « requires valid address » ou similaire, réessayez en modifiant ce paramètre</string>
     <string name="title_identity_self_hint">Vous empêche également de répondre à vous-même</string>
     <string name="title_optional">Facultatif</string>
@@ -762,7 +763,7 @@
     <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée à partir de l\'identité principale du compte principal</string>
     <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
-    <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
+    <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception de nouveaux messages et augmentera l’utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_reply_domain">Le domaine de l\'expéditeur (%1$s) et celui de l\'adresse de réponse (%2$s) sont différents</string>
@@ -790,7 +791,7 @@
     <string name="title_service_vpn">Ceci pourrait être dû au VPN utilisé</string>
     <string name="title_service_token">Le gestionnaire de compte d\'Android pourrait être bloqué par un VPN, un pare-feu, un bloqueur de publicité, etc., l\'empêchant d\'obtenir un jeton d\'accès</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
-    <string name="title_service_protocol">Veuillez vérifier à nouveau le protocole (SSL/TLS ou STARTTLS)</string>
+    <string name="title_service_protocol">Veuillez vérifier le protocole (SSL/TLS ou STARTTLS)</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
