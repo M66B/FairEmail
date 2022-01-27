@@ -835,12 +835,19 @@ public class MessageHelper {
             plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             report.addBodyPart(plainPart);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean client_id = prefs.getBoolean("client_id", true);
+
             String from = null;
             if (message.from != null && message.from.length > 0)
                 from = ((InternetAddress) message.from[0]).getAddress();
 
             StringBuilder sb = new StringBuilder();
-            sb.append("Reporting-MTA: dns;").append(EmailService.getDefaultEhlo()).append("\r\n");
+            sb.append("Reporting-MTA: dns;");
+            if (client_id)
+                sb.append(EmailService.getDefaultEhlo()).append("\r\n");
+            else
+                sb.append("example.com").append("\r\n");
             sb.append("\r\n");
 
             if (from != null)
