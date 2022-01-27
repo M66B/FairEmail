@@ -54,6 +54,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
@@ -72,7 +73,6 @@ import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -133,7 +133,7 @@ public class FragmentRule extends FragmentBase {
 
     private EditText etKeyword;
 
-    private Spinner spTarget;
+    private Button btnFolder;
     private CheckBox cbMoveSeen;
     private CheckBox cbMoveThread;
 
@@ -172,7 +172,6 @@ public class FragmentRule extends FragmentBase {
 
     private ArrayAdapter<String> adapterDay;
     private ArrayAdapter<Action> adapterAction;
-    private ArrayAdapter<AccountFolder> adapterTarget;
     private ArrayAdapter<EntityIdentity> adapterIdentity;
     private ArrayAdapter<EntityAnswer> adapterAnswer;
 
@@ -199,6 +198,7 @@ public class FragmentRule extends FragmentBase {
     private final static int REQUEST_SOUND = 10;
     private final static int REQUEST_DATE_AFTER = 11;
     private final static int REQUEST_DATE_BEFORE = 12;
+    private final static int REQUEST_FOLDER = 13;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -283,7 +283,7 @@ public class FragmentRule extends FragmentBase {
 
         etKeyword = view.findViewById(R.id.etKeyword);
 
-        spTarget = view.findViewById(R.id.spTarget);
+        btnFolder = view.findViewById(R.id.btnFolder);
         cbMoveSeen = view.findViewById(R.id.cbMoveSeen);
         cbMoveThread = view.findViewById(R.id.cbMoveThread);
 
@@ -401,9 +401,67 @@ public class FragmentRule extends FragmentBase {
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAction.setAdapter(adapterAction);
 
-        adapterTarget = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<AccountFolder>());
-        adapterTarget.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-        spTarget.setAdapter(adapterTarget);
+        btnFolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<List<EntityAccount>>() {
+                    @Override
+                    protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                        DB db = DB.getInstance(context);
+                        return db.account().getSynchronizingAccounts();
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                        if (accounts == null)
+                            return;
+
+                        if (accounts.size() == 1) {
+                            selectFolder(accounts.get(0).id);
+                            return;
+                        }
+
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), btnFolder);
+
+                        int order = 0;
+                        for (EntityAccount account : accounts) {
+                            order++;
+                            popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
+                                    .setIntent(new Intent().putExtra("account", account.id));
+                        }
+
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                long account = item.getIntent().getLongExtra("account", -1);
+                                selectFolder(account);
+                                return true;
+                            }
+                        });
+
+                        popupMenu.show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+
+                    private void selectFolder(long account) {
+                        Bundle args = new Bundle();
+                        args.putString("title", getString(R.string.title_rule_folder));
+                        args.putLong("account", account);
+                        args.putLongArray("disabled", new long[]{folder});
+
+                        FragmentDialogFolder fragment = new FragmentDialogFolder();
+                        fragment.setArguments(args);
+                        fragment.setTargetFragment(FragmentRule.this, REQUEST_FOLDER);
+                        fragment.show(getParentFragmentManager(), "rule:folder");
+                    }
+
+                }.execute(FragmentRule.this, new Bundle(), "rule:folder");
+            }
+        });
 
         adapterIdentity = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityIdentity>());
         adapterIdentity.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -552,7 +610,6 @@ public class FragmentRule extends FragmentBase {
         });
 
         spImportance.setOnItemSelectedListener(onItemSelectedListener);
-        spTarget.setOnItemSelectedListener(onItemSelectedListener);
         spIdent.setOnItemSelectedListener(onItemSelectedListener);
         spAnswer.setOnItemSelectedListener(onItemSelectedListener);
 
@@ -657,20 +714,6 @@ public class FragmentRule extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 data.folder = db.folder().getFolder(fid);
-
-                data.folders = new ArrayList<>();
-                List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-                if (accounts != null)
-                    for (EntityAccount account : accounts) {
-                        List<EntityFolder> folders = db.folder().getFolders(account.id, true, true);
-                        if (folders != null) {
-                            if (folders.size() > 0)
-                                Collections.sort(folders, folders.get(0).getComparator(null));
-                            for (EntityFolder folder : folders)
-                                data.folders.add(new AccountFolder(account, folder, context));
-                        }
-                    }
-
                 data.identities = db.identity().getSynchronizingIdentities(aid);
                 data.answers = db.answer().getAnswers(false);
 
@@ -680,9 +723,6 @@ public class FragmentRule extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, RefData data) {
                 tvFolder.setText(data.folder.getDisplayName(getContext()));
-
-                adapterTarget.clear();
-                adapterTarget.addAll(data.folders);
 
                 adapterIdentity.clear();
                 adapterIdentity.addAll(data.identities);
@@ -730,11 +770,13 @@ public class FragmentRule extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        Object tag = btnFolder.getTag();
         outState.putInt("fair:start", spScheduleDayStart.getSelectedItemPosition());
         outState.putInt("fair:end", spScheduleDayEnd.getSelectedItemPosition());
         outState.putInt("fair:action", spAction.getSelectedItemPosition());
         outState.putInt("fair:importance", spImportance.getSelectedItemPosition());
-        outState.putInt("fair:target", spTarget.getSelectedItemPosition());
+        outState.putLong("fair:target", tag == null ? -1 : (long) tag);
+        outState.putCharSequence("fair:name", btnFolder.getText());
         outState.putInt("fair:identity", spIdent.getSelectedItemPosition());
         outState.putInt("fair:answer", spAnswer.getSelectedItemPosition());
         outState.putParcelable("fair:sound", sound);
@@ -805,6 +847,10 @@ public class FragmentRule extends FragmentBase {
                 case REQUEST_DATE_BEFORE:
                     if (resultCode == RESULT_OK && data != null)
                         onDateBefore(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_FOLDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onFolderSelected(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -898,6 +944,13 @@ public class FragmentRule extends FragmentBase {
         tvDateBefore.setText(time == 0 ? "-" : DF.format(time));
     }
 
+    private void onFolderSelected(Bundle args) {
+        long folder = args.getLong("folder");
+        String name = args.getString("name");
+        btnFolder.setTag(folder);
+        btnFolder.setText(name);
+    }
+
     private void loadRule(final Bundle savedInstanceState) {
         Bundle rargs = new Bundle();
         rargs.putLong("id", copy < 0 ? id : copy);
@@ -919,7 +972,25 @@ public class FragmentRule extends FragmentBase {
             @Override
             protected TupleRuleEx onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-                return DB.getInstance(context).rule().getRule(id);
+
+                DB db = DB.getInstance(context);
+                TupleRuleEx rule = db.rule().getRule(id);
+
+                if (rule != null)
+                    try {
+                        JSONObject jaction = new JSONObject(rule.action);
+                        int type = jaction.getInt("type");
+                        if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
+                            long target = jaction.optLong("target", -1);
+                            EntityFolder folder = db.folder().getFolder(target);
+                            if (folder != null)
+                                args.putString("name", folder.name);
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
+                return rule;
             }
 
             @Override
@@ -1024,11 +1095,8 @@ public class FragmentRule extends FragmentBase {
                                 case EntityRule.TYPE_MOVE:
                                 case EntityRule.TYPE_COPY:
                                     long target = jaction.optLong("target", -1);
-                                    for (int pos = 0; pos < adapterTarget.getCount(); pos++)
-                                        if (adapterTarget.getItem(pos).folder.id.equals(target)) {
-                                            spTarget.setSelection(pos);
-                                            break;
-                                        }
+                                    btnFolder.setTag(target);
+                                    btnFolder.setText(args.getString("name"));
                                     if (type == EntityRule.TYPE_MOVE) {
                                         cbMoveSeen.setChecked(jaction.optBoolean("seen"));
                                         cbMoveThread.setChecked(jaction.optBoolean("thread"));
@@ -1080,7 +1148,8 @@ public class FragmentRule extends FragmentBase {
                         spScheduleDayEnd.setSelection(savedInstanceState.getInt("fair:end"));
                         spAction.setSelection(savedInstanceState.getInt("fair:action"));
                         spImportance.setSelection(savedInstanceState.getInt("fair:importance"));
-                        spTarget.setSelection(savedInstanceState.getInt("fair:target"));
+                        btnFolder.setTag(savedInstanceState.getLong("fair:target"));
+                        btnFolder.setText(savedInstanceState.getCharSequence("fair:name"));
                         spIdent.setSelection(savedInstanceState.getInt("fair:identity"));
                         spAnswer.setSelection(savedInstanceState.getInt("fair:answer"));
 
@@ -1376,8 +1445,8 @@ public class FragmentRule extends FragmentBase {
 
                 case EntityRule.TYPE_MOVE:
                 case EntityRule.TYPE_COPY:
-                    AccountFolder target = (AccountFolder) spTarget.getSelectedItem();
-                    jaction.put("target", target == null ? -1 : target.folder.id);
+                    Object tag = btnFolder.getTag();
+                    jaction.put("target", tag instanceof Long ? (long) tag : -1);
                     if (action.type == EntityRule.TYPE_MOVE) {
                         jaction.put("seen", cbMoveSeen.isChecked());
                         jaction.put("thread", cbMoveThread.isChecked());
@@ -1412,25 +1481,8 @@ public class FragmentRule extends FragmentBase {
         return jaction;
     }
 
-    private static class AccountFolder {
-        EntityFolder folder;
-        String name;
-
-        public AccountFolder(EntityAccount account, EntityFolder folder, Context context) {
-            this.folder = folder;
-            this.name = account.name + "/" + EntityFolder.localizeName(context, folder.name);
-        }
-
-        @NonNull
-        @Override
-        public String toString() {
-            return name;
-        }
-    }
-
     private static class RefData {
         EntityFolder folder;
-        List<AccountFolder> folders;
         List<EntityIdentity> identities;
         List<EntityAnswer> answers;
     }

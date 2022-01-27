@@ -775,11 +775,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etKeyword" />
 
-                <Spinner
-                    android:id="@+id/spTarget"
-                    android:layout_width="0dp"
+                <Button
+                    android:id="@+id/btnFolder"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_select"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvMoveTarget" />
 
@@ -790,7 +792,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_rule_seen"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spTarget" />
+                    app:layout_constraintTop_toBottomOf="@id/btnFolder" />
 
                 <CheckBox
                     android:id="@+id/cbMoveThread"
@@ -1050,7 +1052,7 @@
                     android:id="@+id/grpMove"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvMoveTarget,spTarget" />
+                    app:constraint_referenced_ids="tvMoveTarget,btnFolder" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpMoveProp"
