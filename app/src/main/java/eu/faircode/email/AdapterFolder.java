@@ -227,7 +227,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             boolean disabled = isDisabled(folder);
 
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
-            view.setEnabled(!disabled);
             view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
 
             if (listener == null && selectedModel != null)
@@ -529,22 +528,21 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             int order = 1;
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            if (folder.selectable) {
-                String title;
-                if (folder.last_sync == null)
-                    title = folder.getDisplayName(context);
-                else
-                    title = context.getString(R.string.title_name_count,
-                            folder.getDisplayName(context),
-                            Helper.getRelativeTimeSpanString(context, folder.last_sync));
+            String title;
+            if (folder.last_sync == null)
+                title = folder.getDisplayName(context);
+            else
+                title = context.getString(R.string.title_name_count,
+                        folder.getDisplayName(context),
+                        Helper.getRelativeTimeSpanString(context, folder.last_sync));
 
-                SpannableString ss = new SpannableString(title);
-                ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
-                ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-                popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
+            SpannableString ss = new SpannableString(title);
+            ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+            ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
+            if (folder.selectable)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, order++, R.string.title_synchronize_now);
-            }
 
             if (folder.selectable) {
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
@@ -609,7 +607,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_execute_rules, order++, R.string.title_execute_rules);
             }
 
-            if (folder.accountProtocol == EntityAccount.TYPE_POP || debug || BuildConfig.DEBUG)
+            if (folder.accountProtocol == EntityAccount.TYPE_POP ||
+                    (folder.selectable && (debug || BuildConfig.DEBUG)))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_export_messages, order++, R.string.title_export_messages);
 
             int childs = 0;
@@ -632,7 +631,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, order++, R.string.title_create_sub_folder)
                         .setEnabled(folder.inferiors);
 
-            if (Shortcuts.can(context))
+            if (folder.selectable && Shortcuts.can(context))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, order++, R.string.title_pin);
 
             if (!folder.read_only && EntityFolder.USER.equals(folder.type))
