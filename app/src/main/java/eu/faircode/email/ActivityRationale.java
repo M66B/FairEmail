@@ -29,6 +29,6 @@ public class ActivityRationale extends ActivityBase {
         // https://developer.android.com/training/permissions/explaining-access
 
         Helper.viewFAQ(this, 1);
-        finish();
+        finishAndRemoveTask();
     }
 }

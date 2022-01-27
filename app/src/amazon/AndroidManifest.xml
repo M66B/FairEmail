@@ -129,7 +129,6 @@
 
         <activity
             android:name=".ActivityMain"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
             android:theme="@style/Theme.AppCompat.Translucent">
@@ -220,7 +219,6 @@
         <activity
             android:name=".ActivitySearch"
             android:enabled="false"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_search"
@@ -246,7 +244,6 @@
         <activity
             android:name=".ActivityAnswer"
             android:enabled="false"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@drawable/twotone_reply_24"
             android:label="@string/app_answer"
@@ -360,7 +357,6 @@
         <!-- https://developer.android.com/training/permissions/explaining-access -->
         <activity
             android:name=".ActivityRationale"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"

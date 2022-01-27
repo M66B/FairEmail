@@ -49,7 +49,7 @@ public class ActivityAnswer extends ActivityBase {
 
         Intent intent = getIntent();
         if (intent == null) {
-            finish();
+            finishAndRemoveTask();
             return;
         }
 
@@ -96,7 +96,7 @@ public class ActivityAnswer extends ActivityBase {
                     setResult(RESULT_OK, result);
                 }
 
-                finish();
+                finishAndRemoveTask();
             }
         });
 
