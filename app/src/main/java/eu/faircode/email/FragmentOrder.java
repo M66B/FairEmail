@@ -98,7 +98,7 @@ public class FragmentOrder extends FragmentBase {
                 @Override
                 protected List<EntityAccount> onExecute(Context context, Bundle args) {
                     DB db = DB.getInstance(context);
-                    return db.account().getSynchronizingAccounts();
+                    return db.account().getSynchronizingAccounts(null);
                 }
 
                 @Override

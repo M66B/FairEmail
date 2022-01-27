@@ -447,7 +447,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                     DB db = DB.getInstance(context);
                                     EntityAccount account = null;
                                     if (aid < 0) {
-                                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
                                         if (accounts == null)
                                             return null;
                                         for (EntityAccount a : accounts)

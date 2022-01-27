@@ -563,7 +563,7 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected List<EntityAccount> onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
-                return db.account().getSynchronizingAccounts();
+                return db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
             }
 
             @Override
@@ -571,8 +571,7 @@ public class ActivityEML extends ActivityBase {
                 ArrayAdapter<EntityAccount> adapter =
                         new ArrayAdapter<>(ActivityEML.this, R.layout.spinner_item1, android.R.id.text1);
                 for (EntityAccount account : accounts)
-                    if (account.protocol == EntityAccount.TYPE_IMAP)
-                        adapter.add(account);
+                    adapter.add(account);
 
                 new AlertDialog.Builder(ActivityEML.this)
                         .setIcon(R.drawable.twotone_save_alt_24)

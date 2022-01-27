@@ -148,7 +148,7 @@ public class ServiceExternal extends Service {
         DB db = DB.getInstance(context);
         List<EntityAccount> accounts;
         if (accountName == null)
-            accounts = db.account().getSynchronizingAccounts();
+            accounts = db.account().getSynchronizingAccounts(null);
         else {
             EntityAccount account = db.account().getAccount(accountName);
             if (account == null)

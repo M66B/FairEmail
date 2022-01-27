@@ -175,7 +175,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         return true;
 
                     DB db = DB.getInstance(context);
-                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
                     boolean hasAccounts = (accounts != null && accounts.size() > 0);
 
                     prefs.edit().putBoolean("has_accounts", hasAccounts).apply();

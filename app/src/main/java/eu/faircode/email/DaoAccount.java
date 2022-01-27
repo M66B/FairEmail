@@ -33,9 +33,11 @@ public interface DaoAccount {
             " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
     List<EntityAccount> getAccounts();
 
-    @Query("SELECT * FROM account WHERE synchronize" +
+    @Query("SELECT * FROM account" +
+            " WHERE synchronize" +
+            " AND (:type IS NULL OR pop = :type)" +
             " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
-    List<EntityAccount> getSynchronizingAccounts();
+    List<EntityAccount> getSynchronizingAccounts(Integer type);
 
     @Query("SELECT * FROM account" +
             " WHERE (:id IS NULL OR id = :id)" +

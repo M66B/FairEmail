@@ -1255,12 +1255,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         List<EntityAccount> result = new ArrayList<>();
                         DB db = DB.getInstance(context);
-                        if (aid < 0) {
-                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-                            for (EntityAccount account : accounts)
-                                if (account.protocol == EntityAccount.TYPE_IMAP)
-                                    result.add(account);
-                        } else {
+                        if (aid < 0)
+                            result.addAll(db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP));
+                        else {
                             EntityAccount account = db.account().getAccount(aid);
                             if (account != null && account.protocol == EntityAccount.TYPE_IMAP)
                                 result.add(account);
@@ -3269,9 +3266,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 result.accounts = new ArrayList<>();
                 if (!result.hasPop)
-                    for (EntityAccount account : db.account().getSynchronizingAccounts())
-                        if (account.protocol == EntityAccount.TYPE_IMAP)
-                            result.accounts.add(account);
+                    result.accounts.addAll(db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP));
 
                 if (result.folders.size() > 1)
                     result.folders = new ArrayList<>();
@@ -4344,7 +4339,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         DB db = DB.getInstance(context);
                         if (folder < 0) {
-                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
                             if (accounts != null)
                                 for (EntityAccount account : accounts)
                                     db.message().ignoreAll(account.id, null, type);
@@ -8903,7 +8898,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     List<EntityAccount> accounts;
                     if (account < 0)
-                        accounts = db.account().getSynchronizingAccounts();
+                        accounts = db.account().getSynchronizingAccounts(null);
                     else {
                         EntityAccount account = db.account().getAccount(aid);
                         if (account == null)
