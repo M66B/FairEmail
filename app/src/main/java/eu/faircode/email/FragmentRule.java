@@ -946,9 +946,45 @@ public class FragmentRule extends FragmentBase {
 
     private void onFolderSelected(Bundle args) {
         long folder = args.getLong("folder");
-        String name = args.getString("name");
-        btnFolder.setTag(folder);
-        btnFolder.setText(name);
+        showFolder(folder);
+    }
+
+    private void showFolder(long id) {
+        btnFolder.setTag(id);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<String>() {
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+
+                EntityFolder folder = db.folder().getFolder(id);
+                if (folder == null)
+                    return null;
+
+                EntityAccount account = db.account().getAccount(folder.account);
+                if (account == null)
+                    return null;
+
+                return account.name + ":" + folder.name;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String name) {
+                if (name == null)
+                    name = getString(R.string.title_select);
+                btnFolder.setText(name);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "rule:folder");
     }
 
     private void loadRule(final Bundle savedInstanceState) {
@@ -974,23 +1010,7 @@ public class FragmentRule extends FragmentBase {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
-                TupleRuleEx rule = db.rule().getRule(id);
-
-                if (rule != null)
-                    try {
-                        JSONObject jaction = new JSONObject(rule.action);
-                        int type = jaction.getInt("type");
-                        if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
-                            long target = jaction.optLong("target", -1);
-                            EntityFolder folder = db.folder().getFolder(target);
-                            if (folder != null)
-                                args.putString("name", folder.name);
-                        }
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-
-                return rule;
+                return db.rule().getRule(id);
             }
 
             @Override
@@ -1095,8 +1115,7 @@ public class FragmentRule extends FragmentBase {
                                 case EntityRule.TYPE_MOVE:
                                 case EntityRule.TYPE_COPY:
                                     long target = jaction.optLong("target", -1);
-                                    btnFolder.setTag(target);
-                                    btnFolder.setText(args.getString("name"));
+                                    showFolder(target);
                                     if (type == EntityRule.TYPE_MOVE) {
                                         cbMoveSeen.setChecked(jaction.optBoolean("seen"));
                                         cbMoveThread.setChecked(jaction.optBoolean("thread"));

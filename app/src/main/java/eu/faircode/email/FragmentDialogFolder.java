@@ -148,7 +148,6 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
                 Bundle args = getArguments();
                 args.putLong("folder", folder.id);
-                args.putString("name", folder.name);
 
                 sendResult(RESULT_OK);
                 dismiss();
