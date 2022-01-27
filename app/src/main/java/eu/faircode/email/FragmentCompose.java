@@ -4803,7 +4803,8 @@ public class FragmentCompose extends FragmentBase {
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
-                            if (!attachment.isEncryption() &&
+                            if (attachment.subsequence == null &&
+                                    !attachment.isEncryption() &&
                                     (cid.contains(attachment.cid) ||
                                             !("reply".equals(action) || "reply_all".equals(action)))) {
                                 if (attachment.available) {
