@@ -950,6 +950,8 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
+                WorkerCleanup.cleanup(context, false);
+
                 return null;
             }
 

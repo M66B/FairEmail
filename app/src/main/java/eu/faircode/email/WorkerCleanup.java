@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
@@ -51,6 +52,8 @@ public class WorkerCleanup extends Worker {
     private static final long KEEP_FILES_DURATION = 3600 * 1000L; // milliseconds
     private static final long KEEP_IMAGES_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_CONTACTS_DURATION = 180 * 24 * 3600 * 1000L; // milliseconds
+
+    private static Semaphore semaphore = new Semaphore(1);
 
     public WorkerCleanup(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -98,6 +101,7 @@ public class WorkerCleanup extends Worker {
         long start = new Date().getTime();
         DB db = DB.getInstance(context);
         try {
+            semaphore.acquire();
             EntityLog.log(context, "Start cleanup manual=" + manual);
 
             if (manual) {
@@ -364,6 +368,7 @@ public class WorkerCleanup extends Worker {
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {
+            semaphore.release();
             EntityLog.log(context, "End cleanup=" + (new Date().getTime() - start) + " ms");
 
             long now = new Date().getTime();
