@@ -1975,6 +1975,11 @@ public class Log {
         sb.append(String.format("Configuration: %s\r\n", config));
 
         sb.append("\r\n");
+        sb.append(String.format("%s=%b\r\n",
+                Helper.getOpenKeychainPackage(context),
+                Helper.isOpenKeychainInstalled(context)));
+
+        sb.append("\r\n");
         for (Provider p : Security.getProviders())
             sb.append(p).append("\r\n");
         sb.append("\r\n");
