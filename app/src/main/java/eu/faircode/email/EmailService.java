@@ -37,6 +37,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailSSLProvider;
+import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.pop3.POP3Store;
@@ -753,6 +754,14 @@ public class EmailService implements AutoCloseable {
                     // Check for 'User is authenticated but not connected'
                     if (require_id)
                         throw ex;
+                }
+
+            // Verizon
+            if (istore.hasCapability("X-UIDONLY") && istore.hasCapability("ENABLE"))
+                try {
+                    istore.enable("X-UIDONLY");
+                } catch (ProtocolException ex) {
+                    Log.e(ex);
                 }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
