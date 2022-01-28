@@ -586,6 +586,8 @@ class Core {
                                 MessageHelper.isRemoved(ex) ||
                                 EntityOperation.HEADERS.equals(op.name) ||
                                 EntityOperation.RAW.equals(op.name) ||
+                                (op.tries >= LOCAL_RETRY_MAX &&
+                                        EntityOperation.BODY.equals(op.name)) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
                                 ((op.tries >= LOCAL_RETRY_MAX || attachments > 0) &&
                                         EntityOperation.ADD.equals(op.name) &&
