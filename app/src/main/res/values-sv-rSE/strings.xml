@@ -371,6 +371,7 @@
     <string name="title_advanced_tabular_background">Använd kortfärg som bakgrundsfärg när du använder tabulär stil</string>
     <string name="title_advanced_cards_shadow">Använd skugga för olästa meddelanden när du använder kort-stil</string>
     <string name="title_advanced_cards_shadow_highlight">Använd markeringsfärg istället för accentfärg</string>
+    <string name="title_advanced_category_header">Gruppera med konto-kategori</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
     <string name="title_advanced_date_bold">Visa datum i fetstil</string>
@@ -779,6 +780,7 @@
     <string name="title_pop_folders">POP3-protokollet stöder inte skapande av mappar</string>
     <string name="title_oauth_support">OAuth stöds inte</string>
     <string name="title_review">Granska</string>
+    <string name="title_hint_accounts">Tryck och håll in på ett konto för att visa alternativ, till exempel för att inaktivera eller ta bort ett konto</string>
     <string name="title_hint_alias">Långtryck för alternativ, som att kopiera för att skapa alias för olika identiteter</string>
     <string name="title_service_auth">E-postservern sa: \'%1$s\'</string>
     <string name="title_service_vpn">Detta kan orsakas av den VPN som används</string>
@@ -1063,6 +1065,7 @@
     <string name="title_send_auto_archive">Arkivera besvarat meddelande</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
+    <string name="title_send_sensitivity">Känslighet</string>
     <string name="title_no_server">Ingen server hittades vid \"%1$s\"</string>
     <string name="title_style">Stil</string>
     <string name="title_style_bold">Fetstil</string>
@@ -1283,6 +1286,7 @@
     <string name="title_rule_tts">Text till tal</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Ta bort permanent</string>
+    <string name="title_rule_sound">Spela upp ljud</string>
     <string name="title_rule_caption">Redigera regel</string>
     <string name="title_rule_title">Regeln gäller</string>
     <string name="title_rule_name">Namn</string>
@@ -1338,6 +1342,9 @@
     <string name="title_rule_tts_from">Från</string>
     <string name="title_rule_tts_subject">Ämne</string>
     <string name="title_rule_tts_content">Text</string>
+    <string name="title_rule_select_sound">Välj ljud</string>
+    <string name="title_rule_use_as_alarm">Använd som larm</string>
+    <string name="title_rule_alarm_hint">Det här kommer att ignorera \"stör ej\"-reglerna</string>
     <string name="title_rule_alarm_duration">Maxtid för alarm (sekunder)</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
@@ -1383,6 +1390,9 @@
     <string name="title_legend_draft">Har utkast</string>
     <string name="title_legend_priority">Har hög prioritet</string>
     <string name="title_legend_priority_low">Har låg prioritet</string>
+    <string name="title_legend_sensitivity_personal">Är personlig</string>
+    <string name="title_legend_sensitivity_private">Är privat</string>
+    <string name="title_legend_sensitivity_confidential">Är konfidentiell</string>
     <string name="title_legend_importance">Är viktigt</string>
     <string name="title_legend_importance_low">Är inte viktigt</string>
     <string name="title_legend_signed">Är signerad</string>
@@ -1701,8 +1711,8 @@
     <string-array name="sensitivityNames">
         <item>Normal</item>
         <item>Personligt</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Privat</item>
+        <item>Konfidentiellt</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

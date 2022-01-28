@@ -484,7 +484,7 @@
     <string name="title_advanced_notifications_service">Canal « Réception »</string>
     <string name="title_advanced_notifications_newest_first">Afficher les notifications les plus récentes en premier</string>
     <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
-    <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>
+    <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l’icône de lancement</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
@@ -761,7 +761,7 @@
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier « Indésirables » sélectionné pour ce compte</string>
     <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée à partir de l\'identité principale du compte principal</string>
-    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier brouillons dans les paramètres du compte</string>
+    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception de nouveaux messages et augmentera l’utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
@@ -804,8 +804,8 @@
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_synchronize_batch_enable">Activer la synchronisation</string>
     <string name="title_synchronize_batch_disable">Désactiver la synchronisation</string>
-    <string name="title_notify_batch_enable">Activer les notifications de nouveau message</string>
-    <string name="title_notify_batch_disable">Désactiver les notifications de nouveau message</string>
+    <string name="title_notify_batch_enable">Activer les notifications de nouveaux messages</string>
+    <string name="title_notify_batch_disable">Désactiver les notifications de nouveaux messages</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
     <string name="title_expunge">Effacer</string>
@@ -1035,7 +1035,7 @@
         Il serait souhaitable que vous évaluiez FairEmail dans le Play Store.
     </string>
     <string name="title_need_help">J\'ai besoin d\'aide</string>
-    <string name="title_ask_once">Ce message n\'apparaîtra qu\'une seule fois, sauf si vous sélectionnez « Plus tard »</string>
+    <string name="title_ask_once">Ce message n\'apparaîtra qu\'une seule fois sauf si vous sélectionnez « Plus tard »</string>
     <string name="title_third_party">Vous utilisez une version tierce</string>
     <string name="title_expand_warning">Déplier ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
@@ -1140,7 +1140,7 @@
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_dsn">Rapport d\'état</string>
     <string name="title_send_receipt">Demander une confirmation</string>
-    <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes de confirmation de réception</string>
+    <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes de confirmation</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_pgp_reminder">Clés PGP disponibles</string>
     <string name="title_smime_reminder">Clés S/MIME disponibles</string>
@@ -1238,16 +1238,16 @@
     <string name="title_sort_on_subject">Objet</string>
     <string name="title_sort_on_size">Taille</string>
     <string name="title_sort_on_attachments">Pièces jointes</string>
-    <string name="title_sort_on_hidden">Masqué</string>
+    <string name="title_sort_on_hidden">Masqués</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lus</string>
     <string name="title_filter_unflagged">Non suivis</string>
     <string name="title_filter_unknown">Expéditeurs inconnus</string>
     <string name="title_filter_hidden">Masqués</string>
-    <string name="title_filter_deleted">Supprimé</string>
+    <string name="title_filter_deleted">Supprimés</string>
     <string name="title_filter_duplicates">Doublons</string>
-    <string name="title_filter_trash">Supprimé</string>
+    <string name="title_filter_trash">Supprimés</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_padding">Espacement des messages</string>
@@ -1309,7 +1309,7 @@
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_body">Le texte contient</string>
     <string name="title_rule_skip_quotes">Ignorer le texte cité</string>
-    <string name="title_rule_body_remark">Utiliser cette condition va toujours télécharger le texte du message, ce qui peut ralentir la synchronisation de la liste des messages</string>
+    <string name="title_rule_body_remark">L\'utilisation de cette condition téléchargera systématiquement le texte du message ce qui peut ralentir la synchronisation de la liste des messages</string>
     <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
     <string name="title_rule_time_after">Reçu après</string>
     <string name="title_rule_time_before">Reçu avant</string>

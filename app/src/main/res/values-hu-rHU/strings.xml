@@ -262,6 +262,9 @@
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
+    <string name="title_advanced_hint_remark">        Az opciók fülekre vannak osztva, és azok tovább szekciókra, kinézet szerint rendezve, és mind kereshető.
+    </string>
+    <string name="title_advanced_hint_setup">Beállíthatja fiókját a fő konfigurációs képernyőn a varázsló gombra nyomva.</string>
     <string name="title_advanced_section_main">Alapbeállítások</string>
     <string name="title_advanced_section_synchronize">Fogadás</string>
     <string name="title_advanced_section_send">Küldés</string>
@@ -286,11 +289,17 @@
     <string name="title_advanced_delete_unseen">Régi olvasatlan üzenetek törlése</string>
     <string name="title_advanced_kept_removed">Régi üzenetek szerverről való törlésének ellenőrzése</string>
     <string name="title_advanced_gmail_thread">Gmail stílusú üzenetcsoportosítás a Gmail fiókokhoz</string>
+    <string name="title_advanced_subject_threading">Csoport üzenetek küldő és tárgy szerint</string>
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
+    <string name="title_advanced_sync_folders_poll">Mappa lista aktív szinkronizálása</string>
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
+    <string name="title_advanced_check_authentication">Üzenet hitelesítés ellenőrzése</string>
+    <string name="title_advanced_check_tls">Transport Layer Security ellenőrzése (TLS)</string>
     <string name="title_advanced_check_reply_domain">Válaszcím ellenőrzése üzenetek szinkronizálásakor</string>
     <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
+    <string name="title_advanced_check_blocklist">Ellenőrizze, hogy a küldő domainje rajta van e a spam blokk listán</string>
+    <string name="title_advanced_use_blocklist">Blokk listán levő domainekről érkező üzenetek a levélszemét mappába kerüljenek</string>
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
     <string name="title_advanced_keyboard_no_fullscreen">Teljes képernyős billentyűzet letiltása</string>
