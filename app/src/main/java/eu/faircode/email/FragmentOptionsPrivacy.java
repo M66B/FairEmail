@@ -509,7 +509,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swSecure.setChecked(prefs.getBoolean("secure", false));
 
         tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext()));
-        swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", true));
+        swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", false));
         swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
         swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", BuildConfig.PLAY_STORE_RELEASE));
 
