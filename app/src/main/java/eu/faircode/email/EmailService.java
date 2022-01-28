@@ -759,7 +759,7 @@ public class EmailService implements AutoCloseable {
                 }
 
             // Verizon
-            if (istore.hasCapability("X-UIDONLY") && istore.hasCapability("ENABLE"))
+            if (false && istore.hasCapability("X-UIDONLY") && istore.hasCapability("ENABLE"))
                 try {
                     istore.enable("X-UIDONLY");
                 } catch (ProtocolException ex) {
