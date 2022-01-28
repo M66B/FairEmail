@@ -365,6 +365,17 @@ public class FragmentSetup extends FragmentBase {
             public void onClick(View v) {
                 manual = !manual;
                 updateManual();
+                if (manual)
+                    view.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                scrollTo(R.id.ibManual, 0);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    });
             }
         });
 
