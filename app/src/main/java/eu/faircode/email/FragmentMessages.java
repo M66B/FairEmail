@@ -5366,7 +5366,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 errors = true;
             if (folder.sync_state != null &&
                     !"downloading".equals(folder.sync_state) &&
-                    (folder.account == null || "connected".equals(folder.accountState)))
+                    (folder.account == null ||
+                            "connecting".equals(folder.accountState) ||
+                            "connected".equals(folder.accountState)))
                 refreshing = true;
         }
 
