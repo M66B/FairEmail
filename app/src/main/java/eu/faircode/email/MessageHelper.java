@@ -37,10 +37,13 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailMessage;
 import com.sun.mail.iap.ProtocolException;
+import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPBodyPart;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
+import com.sun.mail.imap.Utility;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.MessageSet;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.FolderClosedIOException;
@@ -3888,6 +3891,18 @@ public class MessageHelper {
             if ("Failed to load IMAP envelope".equals(ex.getMessage()) ||
                     "Unable to load BODYSTRUCTURE".equals(ex.getMessage()))
                 try {
+                    if (false)
+                        ((IMAPFolder) imessage.getFolder()).doCommand(new IMAPFolder.ProtocolCommand() {
+                            @Override
+                            public Object doCommand(IMAPProtocol p) throws ProtocolException {
+                                MessageSet[] set = Utility.toMessageSet(new Message[]{imessage}, null);
+                                Response[] r = p.fetch(set, p.isREV1() ? "BODY.PEEK[]" : "RFC822");
+                                p.notifyResponseHandlers(r);
+                                p.handleResult(r[r.length - 1]);
+                                return null;
+                            }
+                        });
+
                     Log.w("Fetching raw message");
                     File file = File.createTempFile("serverbug", null, cacheDir);
                     try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
