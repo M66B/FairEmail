@@ -369,6 +369,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_undo"
             app:srcCompat="@drawable/twotone_cancel_schedule_send_24"
+            app:tint="?attr/colorAccent"
             tools:ignore="MissingConstraints" />
 
         <eu.faircode.email.FixedImageButton
