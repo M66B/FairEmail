@@ -739,6 +739,8 @@ public class EmailService implements AutoCloseable {
                     Map<String, String> id = new LinkedHashMap<>();
                     id.put("name", context.getString(R.string.app_name));
                     id.put("version", BuildConfig.VERSION_NAME);
+                    id.put("os", "Android");
+                    id.put("os-version", Build.VERSION.RELEASE);
 
                     Map<String, String> sid = istore.id(client_id ? id : null);
                     if (sid != null) {
