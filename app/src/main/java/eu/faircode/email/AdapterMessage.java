@@ -1860,8 +1860,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSignedData.setVisibility(View.GONE);
 
             // Message text
-            tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
-            grpDownloading.setVisibility(message.content ? View.GONE : View.VISIBLE);
+            boolean content = (message.content || message.error != null);
+            tvNoInternetBody.setVisibility(suitable || content ? View.GONE : View.VISIBLE);
+            grpDownloading.setVisibility(content ? View.GONE : View.VISIBLE);
 
             int height = properties.getHeight(message.id, 0);
             if (height == 0) {
