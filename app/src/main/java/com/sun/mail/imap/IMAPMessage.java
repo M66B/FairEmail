@@ -1113,7 +1113,8 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 		checkExpunged(); // Insure that this message is not expunged
 			if (p.hasCapability("X-UIDONLY") ||
 					"imap.mail.yahoo.co.jp".equals(p.getInetAddress().getHostName()) ||
-					(eu.faircode.email.BuildConfig.DEBUG && p.hasCapability("UIDPLUS"))) {
+					(p.hasCapability("UIDPLUS") &&
+							Boolean.parseBoolean(System.getProperty("fairemail.uid_command")))) {
 				// Verizon
 				// Yahoo: NO [CANNOT] STORE It's not possible to perform specified operation
 				long uid = getUID();

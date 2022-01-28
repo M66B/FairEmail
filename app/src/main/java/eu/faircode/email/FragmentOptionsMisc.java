@@ -897,6 +897,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("uid_command", checked).apply();
+                System.setProperty("fairemail.uid_command", Boolean.toString(checked));
+                ServiceSynchronize.reload(compoundButton.getContext(), null, true, "uid_command");
             }
         });
 
@@ -913,7 +915,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("uid_expunge", checked).apply();
-                ServiceSynchronize.reload(compoundButton.getContext(), null, true, "perform_expunge");
+                ServiceSynchronize.reload(compoundButton.getContext(), null, true, "uid_expunge");
             }
         });
 

@@ -236,6 +236,10 @@ public class MessageHelper {
         System.setProperty("mail.mime.contentdisposition.strict", "false"); // default true
 
         //System.setProperty("mail.imap.parse.debug", "true");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean uid_command = prefs.getBoolean("uid_command", false);
+        System.setProperty("fairemail.uid_command", Boolean.toString(uid_command));
     }
 
     static Properties getSessionProperties() {

@@ -1413,7 +1413,8 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    try {
 		IMAPProtocol p = getProtocol();
 		if (p.hasCapability("X-UIDONLY") ||
-				(eu.faircode.email.BuildConfig.DEBUG && p.hasCapability("UIDPLUS"))) {
+				(p.hasCapability("UIDPLUS") &&
+						Boolean.parseBoolean(System.getProperty("fairemail.uid_command")))) {
 			// Verizon
 			FetchProfile fp = new FetchProfile();
 			fp.add(UIDFolder.FetchProfileItem.UID);
@@ -2107,7 +2108,8 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		try {
 		    IMAPProtocol p = getProtocol();
 			if (p.hasCapability("X-UIDONLY") ||
-					(eu.faircode.email.BuildConfig.DEBUG && p.hasCapability("UIDPLUS"))) {
+					(p.hasCapability("UIDPLUS") &&
+							Boolean.parseBoolean(System.getProperty("fairemail.uid_command")))) {
 				// Verizon
 				FetchProfile fp = new FetchProfile();
 				fp.add(UIDFolder.FetchProfileItem.UID);
