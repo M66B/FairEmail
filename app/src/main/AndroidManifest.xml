@@ -128,6 +128,7 @@
 
         <activity
             android:name=".ActivityMain"
+            android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
             android:theme="@style/Theme.AppCompat.Translucent">

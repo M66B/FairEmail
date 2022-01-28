@@ -101,7 +101,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onExecuted(Bundle args, EntityMessage message) {
-                    finishAndRemoveTask();
+                    finish();
 
                     if (message == null)
                         return;
@@ -139,7 +139,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             } catch (RuntimeException ex) {
                 Log.e(ex);
                 // https://issuetracker.google.com/issues/181805603
-                finishAndRemoveTask();
+                finish();
                 startActivity(getIntent());
                 return;
             }
@@ -236,7 +236,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     long end = new Date().getTime();
                     Log.i("Main booted " + (end - start) + " ms");
 
-                    finishAndRemoveTask();
+                    finish();
                 }
 
                 @Override
@@ -261,7 +261,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                             @Override
                             public void run() {
                                 try {
-                                    finishAndRemoveTask();
+                                    finish();
                                 } catch (Throwable ex) {
                                     Log.w(ex);
                                     /*
@@ -336,7 +336,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
     public void onBackStackChanged() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0)
-            finishAndRemoveTask();
+            finish();
     }
 
     @Override
