@@ -866,9 +866,6 @@ class Core {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean uid_command = prefs.getBoolean("uid_command", false);
-
         if (flag != Flags.Flag.SEEN &&
                 flag != Flags.Flag.ANSWERED &&
                 flag != Flags.Flag.FLAGGED &&
@@ -917,42 +914,15 @@ class Core {
         if (uids.size() == 0)
             return;
 
-        if (uid_command) {
-            String flags;
-            if (flag == Flags.Flag.SEEN)
-                flags = "\\Seen";
-            else if (flag == Flags.Flag.ANSWERED)
-                flags = "\\Answered";
-            else if (flag == Flags.Flag.FLAGGED)
-                flags = "\\Flagged";
-            else if (flag == Flags.Flag.DELETED)
-                flags = "\\Deleted";
-            else
-                throw new IllegalArgumentException("Unknown flag=" + flag);
+        Message[] imessages = ifolder.getMessagesByUID(Helper.toLongArray(uids));
+        for (Message imessage : imessages)
+            if (imessage == null)
+                if (messages.size() == 1)
+                    throw new MessageRemovedException();
+                else
+                    throw new MessagingException("Set flag: message missing");
 
-            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                @Override
-                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                    for (long uid : uids) {
-                        Response[] r = protocol.command(
-                                "UID STORE " + uid + (set ? " +" : " -") + "FLAGS " + flags, null);
-                        protocol.notifyResponseHandlers(r);
-                        protocol.handleResult(r[r.length - 1]);
-                    }
-                    return null;
-                }
-            });
-        } else {
-            Message[] imessages = ifolder.getMessagesByUID(Helper.toLongArray(uids));
-            for (Message imessage : imessages)
-                if (imessage == null)
-                    if (messages.size() == 1)
-                        throw new MessageRemovedException();
-                    else
-                        throw new MessagingException("Set flag: message missing");
-
-            ifolder.setFlags(imessages, new Flags(flag), set);
-        }
+        ifolder.setFlags(imessages, new Flags(flag), set);
 
         for (EntityMessage message : messages)
             if (flag == Flags.Flag.SEEN && !message.seen.equals(set))
@@ -4403,6 +4373,8 @@ class Core {
         try {
             if (uid_expunge)
                 uid_expunge = MessageHelper.hasCapability(ifolder, "UIDPLUS");
+            if (MessageHelper.hasCapability(ifolder, "X-UIDONLY"))
+                uid_expunge = true;
 
             if (uid_expunge) {
                 FetchProfile fp = new FetchProfile();

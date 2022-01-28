@@ -1412,6 +1412,22 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	synchronized(messageCacheLock) {
 	    try {
 		IMAPProtocol p = getProtocol();
+		if (p.hasCapability("X-UIDONLY") ||
+				(eu.faircode.email.BuildConfig.DEBUG && p.hasCapability("UIDPLUS"))) {
+			// Verizon
+			FetchProfile fp = new FetchProfile();
+			fp.add(UIDFolder.FetchProfileItem.UID);
+			fetch(msgs, fp);
+
+			UIDSet[] uids = Utility.toUIDSet(msgs);
+			if (uids == null)
+				return;
+			Response[] r = p.command("UID STORE " + UIDSet.toString(uids) +
+					" " + (value ? '+' : '-') + "FLAGS " + p.createFlagList(new Flags(flag)), null);
+			p.notifyResponseHandlers(r);
+			p.handleResult(r[r.length - 1]);
+			return;
+		}
 		MessageSet[] ms = Utility.toMessageSetSorted(msgs, null);
 		if (ms == null)
 		    throw new MessageRemovedException(
@@ -2090,6 +2106,24 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    synchronized(messageCacheLock) {
 		try {
 		    IMAPProtocol p = getProtocol();
+			if (p.hasCapability("X-UIDONLY") ||
+					(eu.faircode.email.BuildConfig.DEBUG && p.hasCapability("UIDPLUS"))) {
+				// Verizon
+				FetchProfile fp = new FetchProfile();
+				fp.add(UIDFolder.FetchProfileItem.UID);
+				fetch(msgs, fp);
+
+				UIDSet[] uids = Utility.toUIDSet(msgs);
+				if (uids == null)
+					return;
+				Argument args = new Argument();
+				args.writeAtom(UIDSet.toString(uids));
+				p.writeMailboxName(args, folder.getFullName());
+				Response[] r = p.command(move ? "UID MOVE" : "UID COPY", args);
+				p.notifyResponseHandlers(r);
+				p.handleResult(r[r.length - 1]);
+				return;
+			}
 		    MessageSet[] ms = Utility.toMessageSet(msgs, null);
 		    if (ms == null)
 			throw new MessageRemovedException(

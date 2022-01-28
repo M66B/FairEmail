@@ -1167,7 +1167,7 @@ public class IMAPProtocol extends Protocol {
      * @param	name	the name to encode
      * @since	JavaMail 1.6.0
      */
-    protected void writeMailboxName(Argument args, String name) {
+    public void writeMailboxName(Argument args, String name) {
 	if (utf8)
 	    args.writeString(name, StandardCharsets.UTF_8);
 	else
@@ -2397,7 +2397,7 @@ public class IMAPProtocol extends Protocol {
      * @return		the IMAP flag_list
      * @since	JavaMail 1.5.4
      */
-    protected String createFlagList(Flags flags) {
+    public String createFlagList(Flags flags) {
 	StringBuilder sb = new StringBuilder("("); // start of flag_list
 
 	Flags.Flag[] sf = flags.getSystemFlags(); // get the system flags

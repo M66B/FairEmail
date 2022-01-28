@@ -1111,17 +1111,22 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	    try {
 		IMAPProtocol p = getProtocol();
 		checkExpunged(); // Insure that this message is not expunged
-			if (flag.contains(javax.mail.Flags.Flag.DELETED) &&
-					"imap.mail.yahoo.co.jp".equals(p.getInetAddress().getHostName())) {
-				// NO [CANNOT] STORE It's not possible to perform specified operation
-				long uid = ((IMAPFolder) getFolder()).getUID(this);
+			if (p.hasCapability("X-UIDONLY") ||
+					"imap.mail.yahoo.co.jp".equals(p.getInetAddress().getHostName()) ||
+					(eu.faircode.email.BuildConfig.DEBUG && p.hasCapability("UIDPLUS"))) {
+				// Verizon
+				// Yahoo: NO [CANNOT] STORE It's not possible to perform specified operation
+				long uid = getUID();
+				if (uid < 0) {
+					UID u = p.fetchUID(getSequenceNumber());
+					if (u != null)
+						uid = u.uid;
+				}
 				Response[] r = p.command("UID STORE " + uid +
-						" " + (set ? '+' : '-') + "FLAGS (\\Deleted)", null);
+						" " + (set ? '+' : '-') + "FLAGS " + p.createFlagList(new Flags(flag)), null);
 				p.notifyResponseHandlers(r);
 				p.handleResult(r[r.length - 1]);
-				flag.remove(javax.mail.Flags.Flag.DELETED);
-				if (flag.getSystemFlags().length == 0)
-					return;
+				return;
 			}
 		p.storeFlags(getSequenceNumber(), flag, set);
 	    } catch (ConnectionException cex) {
