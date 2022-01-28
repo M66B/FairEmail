@@ -869,7 +869,10 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean uid_command = prefs.getBoolean("uid_command", false);
 
-        if (flag != Flags.Flag.SEEN && flag != Flags.Flag.FLAGGED)
+        if (flag != Flags.Flag.SEEN &&
+                flag != Flags.Flag.ANSWERED &&
+                flag != Flags.Flag.FLAGGED &&
+                flag != Flags.Flag.DELETED)
             throw new IllegalArgumentException("Invalid flag=" + flag);
 
         if (folder.read_only)
@@ -880,9 +883,15 @@ class Core {
                 if (flag == Flags.Flag.SEEN) {
                     db.message().setMessageSeen(message.id, false);
                     db.message().setMessageUiSeen(message.id, false);
+                } else if (flag == Flags.Flag.ANSWERED) {
+                    db.message().setMessageAnswered(message.id, false);
+                    db.message().setMessageUiAnswered(message.id, false);
                 } else if (flag == Flags.Flag.FLAGGED) {
                     db.message().setMessageFlagged(message.id, false);
                     db.message().setMessageUiFlagged(message.id, false, null);
+                } else if (flag == Flags.Flag.DELETED) {
+                    db.message().setMessageDeleted(message.id, false);
+                    db.message().setMessageUiDeleted(message.id, false);
                 }
             return;
         }
@@ -897,7 +906,11 @@ class Core {
                     throw new MessagingException("Set flag: uid missing");
             if (flag == Flags.Flag.SEEN && !message.seen.equals(set))
                 uids.add(message.uid);
+            else if (flag == Flags.Flag.ANSWERED && !message.answered.equals(set))
+                uids.add(message.uid);
             else if (flag == Flags.Flag.FLAGGED && !message.flagged.equals(set))
+                uids.add(message.uid);
+            else if (flag == Flags.Flag.DELETED && !message.deleted.equals(set))
                 uids.add(message.uid);
         }
 
@@ -908,8 +921,12 @@ class Core {
             String flags;
             if (flag == Flags.Flag.SEEN)
                 flags = "\\Seen";
+            else if (flag == Flags.Flag.ANSWERED)
+                flags = "\\Answered";
             else if (flag == Flags.Flag.FLAGGED)
                 flags = "\\Flagged";
+            else if (flag == Flags.Flag.DELETED)
+                flags = "\\Deleted";
             else
                 throw new IllegalArgumentException("Unknown flag=" + flag);
 
@@ -940,8 +957,12 @@ class Core {
         for (EntityMessage message : messages)
             if (flag == Flags.Flag.SEEN && !message.seen.equals(set))
                 db.message().setMessageSeen(message.id, set);
+            else if (flag == Flags.Flag.ANSWERED && !message.answered.equals(set))
+                db.message().setMessageAnswered(message.id, set);
             else if (flag == Flags.Flag.FLAGGED && !message.flagged.equals(set))
                 db.message().setMessageFlagged(message.id, set);
+            else if (flag == Flags.Flag.DELETED && !message.deleted.equals(set))
+                db.message().setMessageDeleted(message.id, set);
     }
 
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws JSONException {
