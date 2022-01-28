@@ -156,10 +156,14 @@ public class EntityOperation {
                 boolean set = jargs.getBoolean(1);
 
                 List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
+                if (set == keywords.contains(keyword))
+                    return;
+
                 while (keywords.remove(keyword))
                     ;
                 if (set)
                     keywords.add(keyword);
+
                 Collections.sort(keywords);
 
                 message.keywords = keywords.toArray(new String[0]);
