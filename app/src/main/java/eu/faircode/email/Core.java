@@ -2121,8 +2121,11 @@ class Core {
         boolean sync_folders = prefs.getBoolean("sync_folders", true);
         boolean sync_folders_poll = prefs.getBoolean("sync_folders_poll", false);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
-        Log.i(account.name + " sync folders=" + sync_folders + " poll=" + sync_folders_poll +
-                " shared=" + sync_shared_folders + " force=" + force);
+        Log.i(account.name + " sync folders=" + sync_folders +
+                " poll=" + sync_folders_poll +
+                " shared=" + sync_shared_folders +
+                " keep_alive=" + keep_alive +
+                " force=" + force);
 
         if (force)
             sync_folders = true;
