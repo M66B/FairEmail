@@ -3894,6 +3894,9 @@ public class MessageHelper {
                         imessage.writeTo(os);
                     }
 
+                    if (file.length() == 0)
+                        throw new IOException("NIL");
+
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
 
