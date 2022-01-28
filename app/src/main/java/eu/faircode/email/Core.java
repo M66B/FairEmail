@@ -3430,9 +3430,10 @@ class Core {
                                             }
                                     } else {
                                         for (Response response : responses)
-                                            if (response.isBYE())
+                                            if (response.isBYE()) {
+                                                protocol.disconnect();
                                                 return new MessagingException("UID FETCH", new IOException(response.toString()));
-                                            else if (response.isNO()) {
+                                            } else if (response.isNO()) {
                                                 Log.e("UID FETCH " + response);
                                                 throw new CommandFailedException(response);
                                             } else if (response.isBAD()) {

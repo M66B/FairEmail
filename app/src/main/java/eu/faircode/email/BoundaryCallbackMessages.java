@@ -558,9 +558,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         Response[] responses = protocol.command("SEARCH", arg);
                                         if (responses.length == 0)
                                             throw new ProtocolException("No response");
-                                        if (!responses[responses.length - 1].isOK())
+                                        if (!responses[responses.length - 1].isOK()) {
+                                            if (responses[responses.length - 1].isBYE())
+                                                protocol.disconnect();
                                             throw new ProtocolException(
                                                     context.getString(R.string.title_service_auth, responses[responses.length - 1]));
+                                        }
 
                                         List<Integer> msgnums = new ArrayList<>();
                                         for (Response response : responses)

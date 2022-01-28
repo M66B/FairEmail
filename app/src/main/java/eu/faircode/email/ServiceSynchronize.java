@@ -1712,8 +1712,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                         if (responses.length == 0)
                                             throw new ProtocolException("No response");
-                                        if (!responses[responses.length - 1].isOK())
+                                        if (!responses[responses.length - 1].isOK()) {
+                                            if (responses[responses.length - 1].isBYE())
+                                                protocol.disconnect();
                                             throw new ProtocolException(responses[responses.length - 1]);
+                                        }
 
                                         for (int i = 0; i < responses.length - 1; i++) {
                                             EntityLog.log(ServiceSynchronize.this, account.name + " " + responses[i]);
