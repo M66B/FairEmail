@@ -680,7 +680,7 @@
     <string name="title_identity_unicode_remark">大多数服务器不支持这一功能</string>
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
     <string name="title_identity_receipt">默认请求送达/已读回执</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">使用旧式的收据请求标题</string>
+    <string name="title_identity_receipt_legacy">使用旧式的收据请求标题</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
     <string name="title_identity_self_hint">也能防止您回复自己</string>
     <string name="title_optional">可选</string>

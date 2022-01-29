@@ -73,6 +73,7 @@
     <string name="title_junk_hint">Ihr E-Mail-Anbieter ist für das Filtern von Spam zuständig. Eine E-Mail-Anwendung verfügt nicht über alle benötigten Informationen, um das zuverlässig zu gewährleisten.</string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
+    <string name="title_block_return_path">Return-Path sperren</string>
     <string name="title_block_sender_domain">Domain „%1$s” sperren</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.        Das Sperren der Domain eines Absenders verwendet Filterregeln, welche nur in der Pro-Version verfügbar sind.
     </string>
@@ -689,7 +690,7 @@
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
     <string name="title_identity_max_size">Maximale Nachrichtengröße (MB)</string>
     <string name="title_identity_receipt">Empfangs-/Lesebestätigung standardmäßig anfordern</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Kopfzeilen der alten Empfangsanforderung verwenden</string>
+    <string name="title_identity_receipt_legacy">Kopfzeilen der alten Empfangsanforderung verwenden</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
     <string name="title_identity_self_hint">Verhindert ebenfalls, dass Sie sich selbst antworten</string>
     <string name="title_optional">Optional</string>
@@ -1003,6 +1004,7 @@
     <string name="title_fullscreen">Vollbild anzeigen</string>
     <string name="title_fit_width">An Bildschirmbreite anpassen</string>
     <string name="title_disable_widths">Breitenanpassung deaktivieren</string>
+    <string name="title_monospaced_pre" comment="title_monospaced_pre&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre&#10;">Festbreitenschriftart &lt;pre&gt;</string>
     <string name="title_unused_inline">Ungenutzte Inline-Bilder werden beim Senden entfernt</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>
     <string name="title_raw_saved">Rohdaten gespeichert</string>

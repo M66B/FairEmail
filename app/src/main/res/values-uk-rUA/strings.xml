@@ -93,6 +93,7 @@
     <string name="title_junk_hint">Ваш провайдер електронної пошти відповідальний за фільтрацію спаму. У поштовому додатку немає усіх даних, що потрібні для визначення листа як спам чи не спам.</string>
     <string name="title_block">Заблокувати %1$s</string>
     <string name="title_block_sender">Блокувати відправника</string>
+    <string name="title_block_return_path">Блокувати return-path</string>
     <string name="title_block_sender_domain">Заблокувати домен \'%1$s\'</string>
     <string name="title_block_sender_hint">        Блокування відправника - безкоштовна функція.
         Блокування домену відправника використовує правила фільтрів, які є функцією професійної версії.
@@ -710,7 +711,7 @@
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
     <string name="title_identity_max_size">Максимальний розмір повідомлення (МБ)</string>
     <string name="title_identity_receipt">Запитати про доставку/прочитання повідомлення за замовчуванням</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Використовувати сумісний заголовок для запиту про отримання</string>
+    <string name="title_identity_receipt_legacy">Використовувати сумісний заголовок для запиту про отримання</string>
     <string name="title_identity_use_ip_hint">У разі отримання \'невірне привітання\', \'вимагає дійсної адреси\' або аналогічної помилки, спробуйте змінити це налаштування</string>
     <string name="title_identity_self_hint">Також запобігає Вам відповідати самому собі</string>
     <string name="title_optional">За бажанням</string>

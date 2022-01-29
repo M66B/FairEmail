@@ -31,6 +31,7 @@
         <item quantity="other">%1$dଟି ନୂଆ</item>
     </plurals>
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
+    <string name="title_block_return_path">return-path ବ୍ଲକ୍ କରିବା</string>
     <string name="title_block_sender_domain">\'%1$s\' ଡୋମେନଟିକୁ ଅବରୋଧ କରନ୍ତୁ</string>
     <string name="title_block_sender_hint">        ପ୍ରେରକକୁ ଅବରୋଧ କରିବା ଏକ ମାଗଣା ବୈଶିଷ୍ଟ୍ୟ।
         ଗୋଟେ ପ୍ରେରକ ଡୋମେନ୍ ଅବରୋଧ କରିବାରେ ଫିଲ୍ଟର୍ ନିୟମ ବ୍ୟବହାର ହୁଏ, ଯାହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ।
@@ -237,7 +238,7 @@
     <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଭର ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାବେ ବିତରଣ/ପଠନ ରସିଦ ଅନୁରୋଧ କରନ୍ତୁ</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">ପୁରୁଣା ରସିଦ ଅନୁରୋଧ ଶୀର୍ଷଲେଖ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_identity_receipt_legacy">ପୁରୁଣା ରସିଦ ଅନୁରୋଧ ଶୀର୍ଷଲେଖ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_optional">ବୈକଳ୍ପିକ</string>
     <string name="title_recommended">ସୁପାରିଶ କରାଯାଇଛି</string>
     <string name="title_account_linked">ଲିଙ୍କ୍ ହୋଇଥିବା ଆକାଉଣ୍ଟ୍</string>

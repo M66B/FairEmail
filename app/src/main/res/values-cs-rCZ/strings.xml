@@ -93,6 +93,7 @@
     <string name="title_junk_hint">Za filtrování nevyžádané pošty je zodpovědný poskytovatel e-mailu. E-mailové aplikace nemají k dispozici všechna data, aby to mohly provádět spolehlivě.</string>
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
+    <string name="title_block_return_path">Blokovat \"return-path\"</string>
     <string name="title_block_sender_domain">Blokovat doménu \'%1$s\'</string>
     <string name="title_block_sender_hint">        Blokování odesílatele je volná funkce.
         Blokování domény odesílatele používá pravidla filtru, což je Pro funkce.
@@ -710,7 +711,7 @@
     <string name="title_identity_unicode_remark">Většina serverů toto nepodporuje</string>
     <string name="title_identity_max_size">Maximální velikost zprávy (MB)</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Použít legacy hlavičku žádosti potvrzení o doručení</string>
+    <string name="title_identity_receipt_legacy">Použít legacy hlavičku žádosti potvrzení o doručení</string>
     <string name="title_identity_use_ip_hint">V případech jako „neplatný pozdrav“, „vyžadována platná adresa“ či podobné chyby, zkuste změnit toto nastavení</string>
     <string name="title_identity_self_hint">Také předchází odpovídání na vlastní zprávy</string>
     <string name="title_optional">Nepovinné</string>

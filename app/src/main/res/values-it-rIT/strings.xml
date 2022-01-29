@@ -73,6 +73,7 @@
     <string name="title_junk_hint">Il provider della tua email è responsabile del filtraggio dello spam. Un\'app email non ha tutti i dati necessari per farlo in modo affidabile.</string>
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
+    <string name="title_block_return_path">Blocca percorso di ritorno</string>
     <string name="title_block_sender_domain">Blocca il dominio \'%1$s\'</string>
     <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
@@ -692,7 +693,7 @@
     <string name="title_identity_unicode_remark">Gran parte dei server non lo supportano</string>
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
     <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura di default</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Usa le intestazioni di richiesta di ricevuta preesistenti</string>
+    <string name="title_identity_receipt_legacy">Usa le intestazioni di richiesta di ricevuta preesistenti</string>
     <string name="title_identity_use_ip_hint">In caso di \'saluto non valido\', \'richiede indirizzo valido\' o un errore simile, prova a modificare quest\'impostazione</string>
     <string name="title_identity_self_hint">Ti impedisce anche di risponderti da solo</string>
     <string name="title_optional">Opzionale</string>
@@ -1008,6 +1009,7 @@
     <string name="title_fullscreen">Visualizza a schermo intero</string>
     <string name="title_fit_width">Adatta la larghezza</string>
     <string name="title_disable_widths">Disabilita larghezze</string>
+    <string name="title_monospaced_pre" comment="title_monospaced_pre&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre&#10;">&lt;pre&gt; a spaziatura fissa</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate saranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra profili saranno riscaricati, risultando in un uso extra dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>

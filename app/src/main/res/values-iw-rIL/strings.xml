@@ -93,6 +93,7 @@
     <string name="title_junk_hint">ספק הדוא״ל שלך אמון על סינון הספאם. ליישומון דוא״ל אין את כל הנתונים הנחוצים לעשות זאת בצורה מהימנה.</string>
     <string name="title_block">חסימת %1$s</string>
     <string name="title_block_sender">חסימת השולח</string>
+    <string name="title_block_return_path">חסימת נתיב החזרה</string>
     <string name="title_block_sender_domain">חסימת שם התחום ‚%1$s’</string>
     <string name="title_block_sender_hint">        חסימת מען היא תכונה חינמית.
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.

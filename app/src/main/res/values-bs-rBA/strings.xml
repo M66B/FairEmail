@@ -701,7 +701,7 @@
     <string name="title_identity_unicode_remark">Većina servera ne podržava ovo</string>
     <string name="title_identity_max_size">Maksimalna veličina poruke (MB)</string>
     <string name="title_identity_receipt">Po zadanom zahtijevaj potvrdu o dostavi/čitanju</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Koristi stara zaglavlja sa zahtjevanim potvrdama</string>
+    <string name="title_identity_receipt_legacy">Koristi stara zaglavlja sa zahtjevanim potvrdama</string>
     <string name="title_identity_use_ip_hint">U slučaju \'invalid greeting\', \'traži se važeća adresa\' ili slični grešaka, probajte promijeniti postavke</string>
     <string name="title_identity_self_hint">Također sprječava da odgovorite sami sebi</string>
     <string name="title_optional">Opcionalno</string>

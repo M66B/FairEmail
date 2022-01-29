@@ -73,6 +73,7 @@
     <string name="title_junk_hint">Uw e-mailprovider is verantwoordelijk voor het filteren van spam. Een e-mail-app beschikt niet over alle gegevens die nodig zijn om dit betrouwbaar te doen.</string>
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
+    <string name="title_block_return_path">Blokkeer Return-Path</string>
     <string name="title_block_sender_domain">Blokkeer domein \'%1$s\'</string>
     <string name="title_block_sender_hint">Het blokkeren van een afzender is een gratis functie.
 Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro functie is.    </string>
@@ -689,7 +690,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_identity_unicode_remark">De meeste servers ondersteunen dit niet</string>
     <string name="title_identity_max_size">Maximale berichtgrootte (MB)</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Gebruik legacy ontvangstverzoek headers</string>
+    <string name="title_identity_receipt_legacy">Gebruik legacy ontvangstverzoek headers</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
     <string name="title_identity_self_hint">Voorkomt ook dat u aan uzelf antwoordt</string>
     <string name="title_optional">Optioneel</string>
@@ -1003,6 +1004,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_fullscreen">Toon volledig scherm</string>
     <string name="title_fit_width">Maak breedte passend</string>
     <string name="title_disable_widths">Breedtes uitschakelen</string>
+    <string name="title_monospaced_pre" comment="title_monospaced_pre&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre&#10;">Vaste breedte &lt;pre&gt;</string>
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>

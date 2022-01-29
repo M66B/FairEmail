@@ -73,6 +73,7 @@
     <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage du pourriel. Une application de messagerie n\'a pas toutes les données pour le faire de manière fiable.</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
+    <string name="title_block_return_path">Bloquer Return-Path</string>
     <string name="title_block_sender_domain">Bloquer le domaine \'%1$s\'</string>
     <string name="title_block_sender_hint">        Bloquer un expéditeur est une fonctionnalité gratuite.
         Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
@@ -692,7 +693,7 @@
     <string name="title_identity_unicode_remark">La plupart des serveurs ne prennent pas ceci en charge</string>
     <string name="title_identity_max_size">Taille maximale du message (Mo)</string>
     <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Utiliser les anciens en-têtes de demande de réception</string>
+    <string name="title_identity_receipt_legacy">Utiliser les anciens en-têtes de demande de réception</string>
     <string name="title_identity_use_ip_hint">En cas d’erreur « invalid greeting », « requires valid adress » ou similaire, essayez de modifier ce paramètre</string>
     <string name="title_identity_self_hint">Vous empêche également de répondre à vous-même</string>
     <string name="title_optional">Facultatif</string>
@@ -1008,6 +1009,7 @@
     <string name="title_fullscreen">Afficher en plein écran</string>
     <string name="title_fit_width">Ajuster à la largeur</string>
     <string name="title_disable_widths">Désactiver les largeurs</string>
+    <string name="title_monospaced_pre" comment="title_monospaced_pre&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre&#10;">&lt;pre&gt; à espacement fixe</string>
     <string name="title_unused_inline">Les images incluses non utilisées seront supprimées lors de l’envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message original enregistré</string>

@@ -710,7 +710,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_identity_unicode_remark">Väčšina serverov túto možnosť nepodporuje</string>
     <string name="title_identity_max_size">Maximálna veľkosť správy (MB)</string>
     <string name="title_identity_receipt">Predvolene si vyžiadať potvrdenie o doručení/prečítaní</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Používať zastaralé hlavičky pre odpovede na žiadosť o potvrdenie o prečítaní</string>
+    <string name="title_identity_receipt_legacy">Používať zastaralé hlavičky pre odpovede na žiadosť o potvrdenie o prečítaní</string>
     <string name="title_identity_use_ip_hint">Skúste toto zmeniť, Ak zo servera dostávate takéto alebo podobné hlásenia: \'invalid greeting\', \'requires valid address\'</string>
     <string name="title_identity_self_hint">Tiež znemožňuje odpovedať samému sebe</string>
     <string name="title_optional">Nepovinné</string>

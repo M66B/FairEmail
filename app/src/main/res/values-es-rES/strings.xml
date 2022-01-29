@@ -690,7 +690,7 @@
     <string name="title_identity_unicode_remark">La mayoría de servidores no soportan esto</string>
     <string name="title_identity_max_size">Tamaño máximo del mensaje (MB)</string>
     <string name="title_identity_receipt">Solicitar acuse de recibo/lectura por defecto</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Usar encabezados de solicitud de recibo heredados</string>
+    <string name="title_identity_receipt_legacy">Usar encabezados de solicitud de recibo heredados</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
     <string name="title_identity_self_hint">También previene de responderse a sí mismo</string>
     <string name="title_optional">Opcional</string>

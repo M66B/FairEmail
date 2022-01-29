@@ -63,6 +63,7 @@
     <string name="title_junk_hint">迷惑メールフィルタリングはメールプロバイダーが行うべきものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
     <string name="title_block">%1$s をブロック</string>
     <string name="title_block_sender">差出人をブロック</string>
+    <string name="title_block_return_path">Return-Path をブロック</string>
     <string name="title_block_sender_domain">ドメイン「%1$s」をブロック</string>
     <string name="title_block_sender_hint">        差出人のブロックは無料版の機能です。
         差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
@@ -595,7 +596,7 @@
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_all_hint">無効にすると、返信ボタンを長押しすると差出人に返信します</string>
-    <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加することが可能です</string>
+    <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
     <string name="title_advanced_remove_signature_hint">一部のテキストが削除されなかったり、テキストが削除されすぎたりする可能性があります</string>
     <string name="title_advanced_metered_hint">一般にモバイルネットワークまたは有料 Wi-Fi ホットスポットが従量制課金接続に該当します</string>
@@ -610,7 +611,7 @@
     <string name="title_advanced_browse_hint">下にスクロールして、さらにメッセージを取得します</string>
     <string name="title_advanced_layout_hint">レイアウトの簡易表示への切り替えとテキストサイズの変更は、メッセージ上部のアクションバーメニューから行えます</string>
     <string name="title_advanced_startup_hint">フォルダーリストの任意のフォルダーを長押して統合フォルダーに追加または削除します</string>
-    <string name="title_advanced_date_hint">時間で並び替えている場合にのみ、メッセージを日付でグループ化できます</string>
+    <string name="title_advanced_date_hint">時間で並び替えている場合のみ、メッセージを日付でグループ化できます</string>
     <string name="title_advanced_navbar_colorize_hint">機能するかは Android のバージョンとバリアントに依存します</string>
     <string name="title_advanced_split_hint">画面をパーツごとに分割します</string>
     <string name="title_advanced_split_min_hint">これは折りたたみデバイス向けの条件です</string>
@@ -618,9 +619,9 @@
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーをハイライトカラーに使用します</string>
     <string name="title_advanced_gravatars_hint">プライバシーリスクがあるかもしれません</string>
     <string name="title_advanced_name_email_hint">名前は利用可能な場合のみ表示されます</string>
-    <string name="title_advanced_preview_hint">本文をダウンロードできた場合のみ使用可能です</string>
+    <string name="title_advanced_preview_hint">本文がダウンロードできた場合のみ使用できます</string>
     <string name="title_advanced_preview_lines_hint">合計 %s 文字</string>
-    <string name="title_advanced_preview_issue">行が複数の場合、一部の Android バージョンのバグによりスクロールが遅くなる可能性が有ります</string>
+    <string name="title_advanced_preview_issue">行が複数の場合、一部の Android バージョンのバグによりスクロールが遅くなる可能性があります</string>
     <string name="title_advanced_overview_mode_hint">フォントが非常に小さくなることがあります</string>
     <string name="title_advanced_override_width_hint">メッセージを小さくすることができますが、おかしな見た目になることもあります</string>
     <string name="title_advanced_monospaced_pre_hint">プレーンテキストのみのメッセージは書式設定済みとみなされます</string>
@@ -641,7 +642,7 @@
     <string name="title_advanced_display_pin_hint">PIN を生体認証よりも優先します</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d 秒の猶予時間があります</string>
     <string name="title_advanced_safe_browsing_hint">Google のサーバーは、どのアドレスが検索されたか知ることができます</string>
-    <string name="title_advanced_badge_hint">サポートしているランチャーでのみ利用可能です</string>
+    <string name="title_advanced_badge_hint">サポートしているランチャーでのみ利用できます</string>
     <string name="title_advanced_notify_action_hint">最大 3 つのアクションを表示できます</string>
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプで消したり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
@@ -681,7 +682,7 @@
     <string name="title_identity_unicode_remark">ほとんどのサーバーはサポートしていません</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">常に配信確認・開封確認メッセージを要求</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">古い形式の確認メッセージ要求ヘッダーを使用</string>
+    <string name="title_identity_receipt_legacy">古い形式の確認メッセージ要求ヘッダーを使用</string>
     <string name="title_identity_use_ip_hint">「invalid greeting」「requires valid address」などのエラーが発生した場合は、この設定を変更してみてください</string>
     <string name="title_identity_self_hint">自分自身に返信しないようにします</string>
     <string name="title_optional">オプション</string>
@@ -1491,7 +1492,7 @@
     <string name="title_default_apps">デフォルトのアプリ</string>
     <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
-    <string name="title_updated">バージョン %1$s のアップデートが利用可能です</string>
+    <string name="title_updated">バージョン %1$s へアップデートできます</string>
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>

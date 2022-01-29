@@ -73,6 +73,7 @@
     <string name="title_junk_hint">Din e-mailudbyder er ansvarlig for spamfiltreringen. En e-mail app har ikke alle de nødvendige data for at kunne gøre dette pålideligt.</string>
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
+    <string name="title_block_return_path">Blokér retursti</string>
     <string name="title_block_sender_domain">Blokér domænet \'%1$s\'</string>
     <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
@@ -692,7 +693,7 @@
     <string name="title_identity_unicode_remark">De fleste servere understøtter ikke dette</string>
     <string name="title_identity_max_size">Maks. beskedstørrelse (MBb)</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
-    <string name="title_identity_receipt_legacy" comment="title_identity_receipt_legacy&#10;To turn on for example the Return-Receipt-To header">Brug ældre kvittering sidehoveder</string>
+    <string name="title_identity_receipt_legacy">Brug ældre kvittering sidehoveder</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
     <string name="title_identity_self_hint">Forhindrer dig oså i at svare dig selv</string>
     <string name="title_optional">Valgfrit</string>
