@@ -2051,6 +2051,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSeen.setImageResource(message.ui_seen ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
                     ibTrash.setTag(delete);
                     ibTrash.setImageResource(delete ? R.drawable.twotone_delete_forever_24 : R.drawable.twotone_delete_24);
+                    ibTrash.setImageTintList(ColorStateList.valueOf(outbox ? colorWarning : colorControlNormal));
                     ibTrashBottom.setImageResource(delete ? R.drawable.twotone_delete_forever_24 : R.drawable.twotone_delete_24);
                     ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
 
@@ -2976,7 +2977,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibInfrastructure.setImageResource(resid);
             ibInfrastructure.setVisibility(resid != 0 ? View.VISIBLE : View.GONE);
 
-            ibTrashBottom.setVisibility(ibTrash.getVisibility());
+            boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
+
+            ibTrashBottom.setVisibility(outbox ? View.GONE : ibTrash.getVisibility());
             ibArchiveBottom.setVisibility(ibArchive.getVisibility());
             ibMoveBottom.setVisibility(ibMove.getVisibility());
 
