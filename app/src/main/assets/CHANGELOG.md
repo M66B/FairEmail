@@ -4,7 +4,7 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
-### Next version
+### 1.1824 - 2022-01-29
 
 * Show image thumbnail in message editor
 * Small improvements and minor bug fixes
