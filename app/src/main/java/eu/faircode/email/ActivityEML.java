@@ -431,7 +431,8 @@ public class ActivityEML extends ActivityBase {
                             .append(size > 0 ? Helper.humanReadableByteCount(size) : "?")
                             .append('\n');
 
-                    if (!part.isMimeType("multipart/*")) {
+                    if (BuildConfig.DEBUG &&
+                            !part.isMimeType("multipart/*")) {
                         Object content = part.getContent();
                         if (content instanceof String) {
                             String text = (String) content;
