@@ -3819,6 +3819,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             properties.setSize(message.id, null);
                             properties.setHeight(message.id, null);
                             properties.setPosition(message.id, null);
+                            if ("overview_mode".equals(key) && wvBody instanceof WebView)
+                                ((WebView) wvBody).getSettings().setLoadWithOverviewMode(enabled);
                             bindBody(message, false);
                             return true;
                         }
