@@ -6,7 +6,7 @@
 
 ### 1.1824 - 2022-01-29
 
-* Show image thumbnail in message editor
+* Show image thumbnails in message editor
 * Small improvements and minor bug fixes
 * Updated translations
 
