@@ -2669,6 +2669,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
             aargs.putString("from", DB.Converters.encodeAddresses(message.from));
+            aargs.putString("return_path", DB.Converters.encodeAddresses(message.return_path));
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
@@ -8290,6 +8291,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected Void onExecute(Context context, Bundle args) throws JSONException {
                 long id = args.getLong("id");
                 boolean block_sender = args.getBoolean("block_sender");
+                boolean block_return = args.getBoolean("block_return");
                 boolean block_domain = args.getBoolean("block_domain");
 
                 DB db = DB.getInstance(context);
@@ -8307,10 +8309,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (!message.folder.equals(junk.id))
                         EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
-                    if (block_sender)
+                    if (block_sender) {
+                        List<Address> froms = new ArrayList<>();
+                        if (message.from != null)
+                            froms.addAll(Arrays.asList(message.from));
+                        if (block_return && message.return_path != null)
+                            froms.addAll(MessageHelper.exclusive(message.return_path, message.from));
                         EntityContact.update(context,
-                                message.account, message.from,
+                                message.account, froms.toArray(new Address[0]),
                                 EntityContact.TYPE_JUNK, message.received);
+                    }
 
                     if (block_domain) {
                         List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
