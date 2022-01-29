@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -63,6 +64,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private boolean readonly;
     private boolean debug;
     private int dp12;
+    private int dp36;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -118,20 +120,33 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             ibDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
 
-            int resid = 0;
-            String extension = Helper.guessExtension(attachment.getMimeType());
-            if (extension != null)
-                resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
-            if (resid == 0)
-                ivType.setImageDrawable(null);
-            else
-                ivType.setImageResource(resid);
+            if (!readonly && attachment.isImage()) {
+                if (attachment.available) {
+                    Bitmap bm = ImageHelper.decodeImage(
+                            attachment.getFile(context), attachment.getMimeType(), dp36);
+                    if (bm == null)
+                        ivType.setImageResource(R.drawable.twotone_broken_image_24);
+                    else
+                        ivType.setImageBitmap(bm);
+                } else
+                    ivType.setImageResource(R.drawable.twotone_hourglass_top_24);
+                ivDisposition.setVisibility(View.GONE);
+            } else {
+                int resid = 0;
+                String extension = Helper.guessExtension(attachment.getMimeType());
+                if (extension != null)
+                    resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
+                if (resid == 0)
+                    ivType.setImageDrawable(null);
+                else
+                    ivType.setImageResource(resid);
 
-            ivDisposition.setImageLevel(Part.INLINE.equals(attachment.disposition) ? 1 : 0);
-            ivDisposition.setVisibility(
-                    Part.ATTACHMENT.equals(attachment.disposition) ||
-                            Part.INLINE.equals(attachment.disposition)
-                            ? View.VISIBLE : View.INVISIBLE);
+                ivDisposition.setImageLevel(Part.INLINE.equals(attachment.disposition) ? 1 : 0);
+                ivDisposition.setVisibility(
+                        Part.ATTACHMENT.equals(attachment.disposition) ||
+                                Part.INLINE.equals(attachment.disposition)
+                                ? View.VISIBLE : View.INVISIBLE);
+            }
 
             tvName.setText(attachment.name);
 
@@ -346,6 +361,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
         this.dp12 = Helper.dp2pixels(context, 12);
+        this.dp36 = Helper.dp2pixels(context, 36);
 
         setHasStableIds(true);
 
