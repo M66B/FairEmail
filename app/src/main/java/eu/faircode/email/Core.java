@@ -190,6 +190,9 @@ class Core {
             Store istore = iservice.getStore();
             DB db = DB.getInstance(context);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int chunk_size = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE);
+
             NotificationManager nm =
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -315,6 +318,9 @@ class Core {
                                     }
                                     break;
                             }
+
+                            if (similar.size() >= chunk_size)
+                                break;
                         }
 
                         if (skip) {
