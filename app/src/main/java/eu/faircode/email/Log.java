@@ -2085,13 +2085,16 @@ public class Log {
             boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
             boolean schedule = prefs.getBoolean("schedule", false);
 
-            size += write(os, "enabled=" + enabled +
+            boolean vpn = ConnectionHelper.vpnActive(context);
+            boolean netguard = Helper.isInstalled(context, "eu.faircode.netguard");
+
+            size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
                     " interval=" + pollInterval + "\r\n" +
-                    "metered=" + metered +
-                    " VPN=" + ConnectionHelper.vpnActive(context) +
-                    " NetGuard=" + Helper.isInstalled(context, "eu.faircode.netguard") + "\r\n" +
-                    "optimizing=" + (ignoring == null ? null : !ignoring) +
-                    " auto_optimize=" + auto_optimize + "\r\n" +
+                    "metered=" + metered + (metered ? "" : " !!!") +
+                    " VPN=" + vpn + (vpn ? " !!!" : "") +
+                    " NetGuard=" + netguard + "\r\n" +
+                    "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
+                    " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
                     "accounts=" + accounts.size() +
                     " folders=" + db.folder().countTotal() +
                     " messages=" + db.message().countTotal() +
