@@ -51,6 +51,8 @@ import androidx.preference.PreferenceManager;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -58,6 +60,14 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class FragmentDialogJunk extends FragmentDialogBase {
+    private static final List<String> COMMON_DOMAINS = Collections.unmodifiableList(Arrays.asList(
+            "amazon\\.com",
+            "facebook\\.com",
+            "google\\.com",
+            "microsoft\\.com",
+            "twitter\\.com"
+    ));
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -330,9 +340,15 @@ public class FragmentDialogJunk extends FragmentDialogBase {
 
                 domains.add(domain);
 
-                for (String d : EmailProvider.getDomainNames(context))
-                    if (domain.matches(d))
+                List<String> regex = new ArrayList<>();
+                regex.addAll(COMMON_DOMAINS);
+                regex.addAll(EmailProvider.getDomainNames(context));
+
+                for (String r : regex)
+                    if (domain.matches(r)) {
                         common = true;
+                        break;
+                    }
             }
 
         // Initialize
