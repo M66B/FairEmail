@@ -23,12 +23,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 
@@ -62,6 +66,9 @@ public class EntityLog {
     public Long message;
     @NonNull
     public String data;
+
+    @Ignore
+    private static Map<Type, Integer> mapColor = new HashMap<>();
 
     enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules}
 
@@ -192,6 +199,42 @@ public class EntityLog {
             } finally {
                 db.endTransaction();
             }
+    }
+
+    Integer getColor(Context context) {
+        return getColor(context, this.type);
+    }
+
+    static Integer getColor(Context context, Type type) {
+        if (!mapColor.containsKey(type))
+            mapColor.put(type, _getColor(context, type));
+        return mapColor.get(type);
+    }
+
+    private static Integer _getColor(Context context, Type type) {
+        // R.color.solarizedRed
+        switch (type) {
+            case General:
+                return Helper.resolveColor(context, android.R.attr.textColorPrimary);
+            case Statistics:
+                return ContextCompat.getColor(context, R.color.solarizedGreen);
+            case Scheduling:
+                return ContextCompat.getColor(context, R.color.solarizedYellow);
+            case Network:
+                return ContextCompat.getColor(context, R.color.solarizedOrange);
+            case Account:
+                return ContextCompat.getColor(context, R.color.solarizedMagenta);
+            case Protocol:
+                return Helper.resolveColor(context, android.R.attr.textColorSecondary);
+            case Classification:
+                return ContextCompat.getColor(context, R.color.solarizedViolet);
+            case Notification:
+                return ContextCompat.getColor(context, R.color.solarizedBlue);
+            case Rules:
+                return ContextCompat.getColor(context, R.color.solarizedCyan);
+            default:
+                return null;
+        }
     }
 
     @Override

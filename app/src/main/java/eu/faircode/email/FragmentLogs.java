@@ -19,10 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -189,17 +194,23 @@ public class FragmentLogs extends FragmentBase {
     }
 
     private void onMenuShow() {
-        String[] titles = new String[EntityLog.Type.values().length];
+        final Context context = getContext();
+
+        SpannableStringBuilder[] titles = new SpannableStringBuilder[EntityLog.Type.values().length];
         boolean[] states = new boolean[EntityLog.Type.values().length];
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         for (int i = 0; i < EntityLog.Type.values().length; i++) {
             EntityLog.Type type = EntityLog.Type.values()[i];
-            titles[i] = type.toString();
+            titles[i] = new SpannableStringBuilderEx(type.toString());
+            Integer color = EntityLog.getColor(context, type);
+            if (color != null)
+                titles[i].setSpan(new ForegroundColorSpan(color), 0, titles[i].length(), 0);
+            titles[i].setSpan(new StyleSpan(Typeface.BOLD), 0, titles[i].length(), 0);
             String name = type.toString().toLowerCase(Locale.ROOT);
             states[i] = prefs.getBoolean("show_log_" + name, true);
         }
 
-        new AlertDialog.Builder(getContext())
+        new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_visibility_24)
                 .setTitle(R.string.title_unhide)
                 .setMultiChoiceItems(titles, states, new DialogInterface.OnMultiChoiceClickListener() {

@@ -29,7 +29,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -49,16 +48,6 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
-
-    private int textColorSecondary;
-    private int solarizedYellow;
-    private int solarizedOrange;
-    private int solarizedRed;
-    private int solarizedMagenta;
-    private int solarizedViolet;
-    private int solarizedBlue;
-    private int solarizedCyan;
-    private int solarizedGreen;
 
     private Long account = null;
     private Long folder = null;
@@ -86,34 +75,11 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         private void bindTo(EntityLog log) {
             tvTime.setText(TF.format(log.time));
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(log.data);
-            switch (log.type) {
-                case General:
-                    break;
-                case Statistics:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedGreen), 0, ssb.length(), 0);
-                    break;
-                case Scheduling:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedYellow), 0, ssb.length(), 0);
-                    break;
-                case Network:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedOrange), 0, ssb.length(), 0);
-                    break;
-                case Account:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedMagenta), 0, ssb.length(), 0);
-                    break;
-                case Protocol:
-                    ssb.setSpan(new ForegroundColorSpan(textColorSecondary), 0, ssb.length(), 0);
-                    break;
-                case Classification:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedViolet), 0, ssb.length(), 0);
-                    break;
-                case Notification:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedBlue), 0, ssb.length(), 0);
-                    break;
-                case Rules:
-                    ssb.setSpan(new ForegroundColorSpan(solarizedCyan), 0, ssb.length(), 0);
-                    break;
-            }
+
+            Integer color = log.getColor(context);
+            if (color != null)
+                ssb.setSpan(new ForegroundColorSpan(color), 0, ssb.length(), 0);
+
             tvData.setText(ssb);
         }
     }
@@ -123,16 +89,6 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(parentFragment.getContext());
-
-        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
-        this.solarizedYellow = ContextCompat.getColor(context, R.color.solarizedYellow);
-        this.solarizedOrange = ContextCompat.getColor(context, R.color.solarizedOrange);
-        this.solarizedRed = ContextCompat.getColor(context, R.color.solarizedRed);
-        this.solarizedMagenta = ContextCompat.getColor(context, R.color.solarizedMagenta);
-        this.solarizedViolet = ContextCompat.getColor(context, R.color.solarizedViolet);
-        this.solarizedBlue = ContextCompat.getColor(context, R.color.solarizedBlue);
-        this.solarizedCyan = ContextCompat.getColor(context, R.color.solarizedCyan);
-        this.solarizedGreen = ContextCompat.getColor(context, R.color.solarizedGreen);
 
         this.TF = Helper.getTimeInstance(context);
 
