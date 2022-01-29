@@ -368,7 +368,7 @@ public class ActivityEML extends ActivityBase {
                 tvStructure.setText(result.structure);
                 tvHeaders.setText(result.headers);
                 grpReady.setVisibility(View.VISIBLE);
-                cardHeaders.setVisibility(!BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
+                cardHeaders.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
             }
 
             @Override
