@@ -47,6 +47,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -94,6 +95,8 @@ public class ActivityEML extends ActivityBase {
     private TextView tvBody;
     private TextView tvStructure;
     private ImageButton ibEml;
+    private CardView cardHeaders;
+    private TextView tvHeaders;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
@@ -123,6 +126,8 @@ public class ActivityEML extends ActivityBase {
         tvBody = findViewById(R.id.tvBody);
         tvStructure = findViewById(R.id.tvStructure);
         ibEml = findViewById(R.id.ibEml);
+        cardHeaders = findViewById(R.id.cardHeaders);
+        tvHeaders = findViewById(R.id.tvHeaders);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
@@ -205,6 +210,7 @@ public class ActivityEML extends ActivityBase {
         FragmentDialogTheme.setBackground(this, view, false);
         vSeparatorAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
+        cardHeaders.setVisibility(View.GONE);
 
         load();
     }
@@ -280,6 +286,8 @@ public class ActivityEML extends ActivityBase {
                     SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                     getStructure(imessage, ssb, 0, textColorLink);
                     result.structure = ssb;
+
+                    result.headers = HtmlHelper.highlightHeaders(context, helper.getHeaders(), false);
 
                     return result;
                 }
@@ -358,7 +366,9 @@ public class ActivityEML extends ActivityBase {
 
                 tvBody.setText(result.body);
                 tvStructure.setText(result.structure);
+                tvHeaders.setText(result.headers);
                 grpReady.setVisibility(View.VISIBLE);
+                cardHeaders.setVisibility(!BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
             }
 
             @Override
@@ -672,5 +682,6 @@ public class ActivityEML extends ActivityBase {
         MessageHelper.MessageParts parts;
         Spanned body;
         Spanned structure;
+        Spanned headers;
     }
 }
