@@ -3802,6 +3802,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_disable_widths, 3, R.string.title_disable_widths)
                         .setCheckable(true)
                         .setChecked(prefs.getBoolean("override_width", false));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_monospaced_pre, 4, R.string.title_monospaced_pre)
+                        .setCheckable(true)
+                        .setChecked(prefs.getBoolean("monospaced_pre", false));
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -3810,17 +3813,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (itemId == R.string.title_fullscreen) {
                             onActionOpenFull(message);
                             return true;
-                        } else if (itemId == R.string.title_fit_width || itemId == R.string.title_disable_widths) {
+                        } else if (itemId == R.string.title_fit_width ||
+                                itemId == R.string.title_disable_widths ||
+                                itemId == R.string.title_monospaced_pre) {
                             boolean enabled = !item.isChecked();
                             item.setChecked(enabled);
-                            String key = (itemId == R.string.title_fit_width
-                                    ? "overview_mode" : "override_width");
-                            prefs.edit().putBoolean(key, enabled).apply();
+
+                            if (itemId == R.string.title_fit_width)
+                                prefs.edit().putBoolean("overview_mode", enabled).apply();
+                            else if (itemId == R.string.title_disable_widths)
+                                prefs.edit().putBoolean("override_width", enabled).apply();
+                            else if (itemId == R.string.title_monospaced_pre)
+                                prefs.edit().putBoolean("monospaced_pre", enabled).apply();
+
                             properties.setSize(message.id, null);
                             properties.setHeight(message.id, null);
                             properties.setPosition(message.id, null);
-                            if ("overview_mode".equals(key) && wvBody instanceof WebView)
+
+                            if (itemId == R.string.title_fit_width && wvBody instanceof WebView)
                                 ((WebView) wvBody).getSettings().setLoadWithOverviewMode(enabled);
+
                             bindBody(message, false);
                             return true;
                         }
