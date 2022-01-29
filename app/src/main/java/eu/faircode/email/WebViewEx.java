@@ -118,9 +118,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         WebSettings settings = getSettings();
 
         boolean dark = Helper.isDarkTheme(context);
-        if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
+        boolean canForce = WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK);
+        if (canForce)
             WebSettingsCompat.setForceDark(settings, dark && !force_light ? FORCE_DARK_ON : FORCE_DARK_OFF);
-        setBackgroundColor(Color.TRANSPARENT);
+        setBackgroundColor(canForce && force_light ? Color.WHITE : Color.TRANSPARENT);
 
         float fontSize = 16f /* Default */ * message_zoom / 100f;
         if (zoom == 0 /* small */)
