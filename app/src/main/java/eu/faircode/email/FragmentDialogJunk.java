@@ -28,7 +28,9 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -334,9 +336,22 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
 
         // Initialize
-        tvMessage.setText(inJunk
-                ? getString(R.string.title_folder_junk)
-                : getString(R.string.title_ask_spam_who, MessageHelper.formatAddresses(froms)));
+        if (inJunk)
+            tvMessage.setText(R.string.title_folder_junk);
+        else {
+            String who = MessageHelper.formatAddresses(froms);
+            String title = getString(R.string.title_ask_spam_who, who);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(title);
+            if (who.length() > 0) {
+                int start = title.indexOf(who);
+                if (start > 0) {
+                    int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+                    ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, start + who.length(), 0);
+                }
+            }
+            tvMessage.setText(ssb);
+        }
+
         cbBlockSender.setEnabled(canBlock);
         cbBlockReturn.setEnabled(false);
         cbBlockDomain.setEnabled(false);
