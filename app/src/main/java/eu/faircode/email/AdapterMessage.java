@@ -2665,9 +2665,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));
 
-                        boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
-                        if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
-                            HtmlHelper.restorePre(document);
+                        if (Boolean.TRUE.equals(message.plain_only)) {
+                            document.select("body")
+                                    .attr("style", "margin:0; padding:0;");
+                            boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
+                            if (monospaced_pre)
+                                HtmlHelper.restorePre(document);
+                        }
 
                         HtmlHelper.guessSchemes(document);
                         HtmlHelper.autoLink(document);
