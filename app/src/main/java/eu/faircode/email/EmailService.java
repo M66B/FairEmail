@@ -1006,7 +1006,7 @@ public class EmailService implements AutoCloseable {
                                         if (anchor)
                                             throw new CertificateException(principal.getName(), ex);
                                         else
-                                            Log.e(ex);
+                                            Log.w(ex);
                                     } else
                                         throw new CertificateException(principal.getName(), ex);
                                 }
