@@ -156,6 +156,8 @@ public class MessageClassifier {
             addresses.addAll(Arrays.asList(message.bcc));
         if (message.reply != null)
             addresses.addAll(Arrays.asList(message.reply));
+        if (message.return_path != null)
+            addresses.addAll(Arrays.asList(message.return_path));
 
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
