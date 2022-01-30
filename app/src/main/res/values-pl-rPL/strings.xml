@@ -9,6 +9,7 @@
     <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
+    <string name="app_download">Pobrano z: %1$s</string>
     <string name="channel_service">Odbierz</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">E-mail</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
+    <string name="title_advanced_cert_strict">Ścisła kontrola certyfikatu</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
     <string name="title_advanced_caption_checks">Kontrole</string>
@@ -394,6 +396,7 @@
     <string name="title_advanced_tabular_background">Użyj koloru karty jako koloru tła podczas korzystania ze stylu tabelarycznego</string>
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
     <string name="title_advanced_cards_shadow_highlight">Użyj koloru podświetlenia zamiast koloru akcentu</string>
+    <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>
     <string name="title_advanced_date_bold">Pokaż datę pogrubioną</string>
@@ -633,6 +636,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Włączenie tego może powodować problemy z połączeniem na niektórych urządzeniach</string>
     <string name="title_advanced_validate_hint">Może to skutkować brakiem synchronizacji wiadomości, na przykład podczas korzystania z VPN, ale również w innych sytuacjach</string>
     <string name="title_advanced_timeout_hint">Limit czasu odczytu/zapisu zostanie ustawiony na dwukrotność limitu czasu połączenia. Wyższe wartości spowodują większe zużycie baterii.</string>
+    <string name="title_advanced_cert_strict_hint">Wyłączenie tej opcji spowoduje złagodzenie sprawdzania certyfikatów serwera</string>
     <string name="title_advanced_ssl_harden_hint">Włączenie tego spowoduje wyłączenie słabych protokołów SSL i szyfrowania, co może prowadzić do problemów z połączeniem</string>
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
@@ -1023,6 +1027,7 @@
     <string name="title_fullscreen">Pokaż na pełnym ekranie</string>
     <string name="title_fit_width">Dopasuj szerokość</string>
     <string name="title_disable_widths">Wyłącz szerokości</string>
+    <string name="title_monospaced_pre">O stałej szerokości &lt;pre&gt;</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>

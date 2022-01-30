@@ -9,6 +9,7 @@
     <string name="app_exit">\"Πίσω\" ξανά για έξοδο</string>
     <string name="app_cake">Ανεπαρκής χώρος αποθήκευσης</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
+    <string name="app_download">Λήφθηκε από: %1$s</string>
     <string name="channel_service">Λήψη</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
@@ -348,6 +349,7 @@
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
+    <string name="title_advanced_cert_strict">Αυστηρός έλεγχος πιστοποιητικών</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
     <string name="title_advanced_caption_checks">Έλεγχοι</string>
@@ -612,6 +614,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Αν ενεργοποιηθεί, μπορεί να προκαλέσει προβλήματα σύνδεσης σε ορισμένες συσκευές</string>
     <string name="title_advanced_validate_hint">Μπορεί να οδηγήσει σε μη συγχρονισμό μηνυμάτων, για παράδειγμα όταν χρησιμοποιείτε VPN, αλλά και σε άλλες περιπτώσεις</string>
     <string name="title_advanced_timeout_hint">Το χρονικό όριο για τις διαδικασίες ανάγνωσης/εγγραφής θα τεθεί στο διπλάσιο από εκείνο για τη λήξη της σύνδεσης. Υψηλότερες τιμές συνεπάγονται μεγαλύτερη χρήση μπαταρίας.</string>
+    <string name="title_advanced_cert_strict_hint">Αν απενεργοποιηθεί, ο έλεγχος των πιστοποιητικών διακομιστή θα γίνει χαλαρότερος</string>
     <string name="title_advanced_ssl_harden_hint">Αν ενεργοποιηθεί, θα απενεργοποιηθούν τα ασθενή πρωτόκολλα SSL και οι αλγόριθμοι κρυπτογράφησης, το οποίο ενδέχεται να οδηγήσει σε προβλήματα σύνδεσης</string>
     <string name="title_advanced_roaming_hint">Οι κεφαλίδες μηνυμάτων θα λαμβάνονται πάντα κατά την περιαγωγή. Από τις ρυθμίσεις περιαγωγής της συσκευής σας, μπορείτε να απενεργοποίησετε το ίντερνετ κατά την περιαγωγή.</string>
     <string name="title_advanced_browse_hint">Ανάκτηση περισσοτέρων μηνυμάτων με την κύλιση προς τα κάτω</string>
@@ -1003,6 +1006,7 @@
     <string name="title_fullscreen">Προβολή σε πλήρη οθόνη</string>
     <string name="title_fit_width">Προσαρμογή στο πλάτος οθόνης</string>
     <string name="title_disable_widths">Απενεργοποίηση πλατών</string>
+    <string name="title_monospaced_pre">Σταθερού πλάτους &lt;pre&gt;</string>
     <string name="title_unused_inline">Οι μη χρησιμοποιημένες ένθετες εικόνες θα αφαιρεθούν κατά την αποστολή</string>
     <string name="title_accross_remark">Μηνύματα που έχουν μετακινηθεί μεταξύ των λογαριασμών θα κατέβουν εκ νέου, με αποτέλεσμα επιπλέον χρήση δεδομένων</string>
     <string name="title_raw_saved">Το αρχικό μήνυμα αποθηκεύτηκε</string>

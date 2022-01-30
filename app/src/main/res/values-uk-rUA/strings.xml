@@ -93,7 +93,6 @@
     <string name="title_junk_hint">Ваш провайдер електронної пошти відповідальний за фільтрацію спаму. У поштовому додатку немає усіх даних, що потрібні для визначення листа як спам чи не спам.</string>
     <string name="title_block">Заблокувати %1$s</string>
     <string name="title_block_sender">Блокувати відправника</string>
-    <string name="title_block_return_path">Блокувати return-path</string>
     <string name="title_block_sender_domain">Заблокувати домен \'%1$s\'</string>
     <string name="title_block_sender_hint">        Блокування відправника - безкоштовна функція.
         Блокування домену відправника використовує правила фільтрів, які є функцією професійної версії.
@@ -370,6 +369,7 @@
     <string name="title_advanced_timeout">Час очікування зв\'язку (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
     <string name="title_advanced_ssl_harden">Посилене SSL з\'єднання</string>
+    <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
     <string name="title_advanced_caption_checks">Перевірки</string>
@@ -635,6 +635,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Включення може викликати проблеми з підключенням на деяких пристроях</string>
     <string name="title_advanced_validate_hint">Це може призвести до того що повідомлення можуть бути не синхронізовані, наприклад, при використанні VPN, а також в інших ситуаціях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде застосовано два рази часу підключення. Більш високі значення призведуть до збільшення використання заряду акумулятора.</string>
+    <string name="title_advanced_cert_strict_hint">Якщо вимкнути це, перевірку сертифікатів сервера буде послаблено</string>
     <string name="title_advanced_ssl_harden_hint">Увімкнення цієї опції дозволить відключити слабкі SSL протоколи і шифри, що може призвести до проблем з підключенням</string>
     <string name="title_advanced_roaming_hint">Заголовки повідомлень завжди будуть отримуватися під час роумінгу. Ви можете використовувати налаштування роумінгу в Вашому пристрої для вимкнення Інтернету під час роумінгу.</string>
     <string name="title_advanced_browse_hint">Завантажувати більше повідомлень при прокручуванні вниз</string>
@@ -1023,6 +1024,7 @@
     <string name="title_fullscreen">Показати на весь екран</string>
     <string name="title_fit_width">За шириною</string>
     <string name="title_disable_widths">Відключити ширину</string>
+    <string name="title_monospaced_pre">Моноширинний &lt;pre&gt;</string>
     <string name="title_unused_inline">Невикористані вбудовані зображення будуть видалені при надсиланні</string>
     <string name="title_accross_remark">Повідомлення, які переміщуються через облікові записи, будуть завантажені знову, в результаті буде додаткове використання даних</string>
     <string name="title_raw_saved">Збережено початковий текст повідомлення</string>

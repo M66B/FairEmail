@@ -9,6 +9,7 @@
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
+    <string name="app_download">Загружено из: %1$s</string>
     <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Эл. почта</string>
@@ -93,7 +94,6 @@
     <string name="title_junk_hint">За фильтрацию спама отвечает ваш почтовый провайдер. Приложение электронной почты не имеет достаточно данных, чтобы надёжно исполнять данную функцию.</string>
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
-    <string name="title_block_return_path">Блокировать return-path</string>
     <string name="title_block_sender_domain">Блокировать домен \"%1$s\"</string>
     <string name="title_block_sender_hint">        Блокировка отправителя является бесплатной функцией.
         Блокировка домена отправителя использует фильтрующие правила, которые являются функцией pro.
@@ -636,7 +636,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с подключением на некоторых устройствах</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
-    <string name="title_advanced_ssl_harden_hint">Включение этой функции отключит слабые протоколы и алгоритмы SSL, что может привести к проблемам с подключением</string>
+    <string name="title_advanced_ssl_harden_hint">При включении этой функции будут отключены слабые протоколы и алгоритмы SSL, что может привести к проблемам с подключением</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
@@ -686,7 +686,7 @@
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
-    <string name="title_advanced_fts_hint">Включение этой функции улучшит скорость поиска, но также увеличит расход батареи и занимаемое место в хранилище</string>
+    <string name="title_advanced_fts_hint">Включение улучшит скорость поиска, но также увеличит расход батареи и занимаемое место в хранилище</string>
     <string name="title_advanced_english_hint">Произойдёт перезапуск приложения</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
     <string name="title_advanced_protocol_hint">Значительно увеличится использование батареи и занимаемое место в хранилище!</string>
@@ -1028,6 +1028,7 @@
     <string name="title_fullscreen">На полный экран</string>
     <string name="title_fit_width">По ширине</string>
     <string name="title_disable_widths">Не подгонять по ширине</string>
+    <string name="title_monospaced_pre">Моноширинный &lt;pre&gt;</string>
     <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>

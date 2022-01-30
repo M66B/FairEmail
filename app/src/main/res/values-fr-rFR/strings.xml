@@ -9,6 +9,7 @@
     <string name="app_exit">Faire de nouveau « Retour » pour quitter</string>
     <string name="app_cake">Espace de stockage restant insuffisant</string>
     <string name="app_updated">Dernière mise à jour : %1$s</string>
+    <string name="app_download">Téléchargé depuis : %1$s</string>
     <string name="channel_service">Réception</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">E-mail</string>
@@ -73,7 +74,6 @@
     <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage des messages indésirables. Une application de messagerie ne dispose pas de toutes les données nécessaires pour le faire de façon fiable.</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
-    <string name="title_block_return_path">Bloquer Return-Path</string>
     <string name="title_block_sender_domain">Bloquer le domaine \'%1$s\'</string>
     <string name="title_block_sender_hint">        Bloquer un expéditeur est une fonctionnalité gratuite.
         Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
@@ -350,6 +350,7 @@
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
     <string name="title_advanced_prefer_ip4">Préférer IPv4 à IPv6</string>
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
+    <string name="title_advanced_cert_strict">Vérification stricte du certificat</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_caption_general">Général</string>
     <string name="title_advanced_caption_checks">Contrôles</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Activer ceci peut provoquer des problèmes de connexion sur certains appareils</string>
     <string name="title_advanced_validate_hint">Ceci peut entraîner la non-synchronisation des messages, par exemple lors de l\'utilisation d\'un VPN mais aussi dans d\'autres situations</string>
     <string name="title_advanced_timeout_hint">Le délai d’expiration de la connexion sera doublé s’il reste encore des opérations de lecture/écriture. Des valeurs plus élevées entraîneront une utilisation accrue de la batterie.</string>
+    <string name="title_advanced_cert_strict_hint">Désactiver ceci arrêtera la vérification des certificats du serveur</string>
     <string name="title_advanced_ssl_harden_hint">Activer ceci désactivera les protocoles et algorithmes SSL faibles, ce qui peut entraîner des problèmes de connexion</string>
     <string name="title_advanced_roaming_hint">Les en-têtes des messages seront toujours récupérés en itinérance. Vous pouvez utiliser les paramètres d’itinérance de l’appareil pour désactiver l’accès Internet en itinérance.</string>
     <string name="title_advanced_browse_hint">Récupérer davantage de messages en faisant défiler vers le bas</string>
@@ -1009,7 +1011,7 @@
     <string name="title_fullscreen">Afficher en plein écran</string>
     <string name="title_fit_width">Ajuster à la largeur</string>
     <string name="title_disable_widths">Désactiver les largeurs</string>
-    <string name="title_monospaced_pre" comment="title_monospaced_pre&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre&#10;">&lt;pre&gt; à espacement fixe</string>
+    <string name="title_monospaced_pre">&lt;pre&gt; à espacement fixe</string>
     <string name="title_unused_inline">Les images incluses non utilisées seront supprimées lors de l’envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message original enregistré</string>

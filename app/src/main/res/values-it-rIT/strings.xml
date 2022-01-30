@@ -9,6 +9,7 @@
     <string name="app_exit">Torna \'indietro\' di nuovo per uscire</string>
     <string name="app_cake">Spazio di archiviazione rimanente insufficiente</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
+    <string name="app_download">Scaricata da: %1$s</string>
     <string name="channel_service">Ricevi</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">E-mail</string>
@@ -73,7 +74,6 @@
     <string name="title_junk_hint">Il provider della tua email è responsabile del filtraggio dello spam. Un\'app email non ha tutti i dati necessari per farlo in modo affidabile.</string>
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
-    <string name="title_block_return_path">Blocca percorso di ritorno</string>
     <string name="title_block_sender_domain">Blocca il dominio \'%1$s\'</string>
     <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
@@ -350,6 +350,7 @@
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
+    <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_checks">Controlli</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi</string>
     <string name="title_advanced_validate_hint">Questo può risultare nel non sincronizzare i messaggi, ad esempio usando una VPN, ma anche altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
+    <string name="title_advanced_cert_strict_hint">Disabilitarlo rilasserà la verifica dei certificati del server</string>
     <string name="title_advanced_ssl_harden_hint">Abilitarlo disabiliterà i protocolli SSL e cifrari deboli, che possono condurre a problemi di connessione</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate in roaming. Puoi usare le impostazioni di roaming del dispositivo per disabilitare internet in roaming.</string>
     <string name="title_advanced_browse_hint">Recupera altri messaggi scorrendo in giù</string>
@@ -1009,7 +1011,7 @@
     <string name="title_fullscreen">Visualizza a schermo intero</string>
     <string name="title_fit_width">Adatta la larghezza</string>
     <string name="title_disable_widths">Disabilita larghezze</string>
-    <string name="title_monospaced_pre" comment="title_monospaced_pre&#10;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre&#10;">&lt;pre&gt; a spaziatura fissa</string>
+    <string name="title_monospaced_pre">&lt;pre&gt; a spaziatura fissa</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate saranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra profili saranno riscaricati, risultando in un uso extra dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>

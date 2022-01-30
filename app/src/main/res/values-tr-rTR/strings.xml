@@ -9,6 +9,7 @@
     <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
     <string name="app_updated">Son güncelleme %1$s</string>
+    <string name="app_download">Şuradan indirildi: %1$s</string>
     <string name="channel_service">Al</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">e-posta</string>
@@ -347,6 +348,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_timeout">Bağlantı zaman aşımı (saniye)</string>
     <string name="title_advanced_prefer_ip4">IPv6 yerine IPv4\'ü tercih edin</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
+    <string name="title_advanced_cert_strict">Katı sertifika kontrolü</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_caption_general">Genel</string>
     <string name="title_advanced_caption_checks">Kontroller</string>
@@ -613,6 +615,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_tcp_keep_alive_hint">Bu ayarı açmak bazı cihazlarda bağlantı sorunlarına yol açabilir</string>
     <string name="title_advanced_validate_hint">Bu, örneğin bir VPN kullanırken değil, diğer durumlarda da mesajların senkronize edilmemesine neden olabilir</string>
     <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
+    <string name="title_advanced_cert_strict_hint">Bunu devre dışı bırakmak, sunucu sertifikalarının kontrol edilmesini esnetecektir</string>
     <string name="title_advanced_ssl_harden_hint">Bunu etkinleştirmek, zayıf SSL protokollerini ve şifrelerini devre dışı bırakır ve bu da bağlantı sorunlarına yol açabilir.</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
@@ -1003,6 +1006,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_fullscreen">Tam ekran göster</string>
     <string name="title_fit_width">Genişlik sığdır</string>
     <string name="title_disable_widths">Genişlikleri devre dışı bırak</string>
+    <string name="title_monospaced_pre">Tek aralıklı &lt;pre&gt;</string>
     <string name="title_unused_inline">Kullanılmayan satır içi resimler gönderirken kaldırılacaktır</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>

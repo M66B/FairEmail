@@ -581,6 +581,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_fullscreen">Mostrar ecrã completo</string>
     <string name="title_fit_width">Ajustar à largura</string>
     <string name="title_disable_widths">Desativar larguras</string>
+    <string name="title_monospaced_pre">Monosespaçado &lt;pre&gt;</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_ask_review_rationale">        Você está a utilizar o FairEmail há algum tempo.
         Gostaríamos que avaliasse o FairEmail na Play Store.

@@ -73,7 +73,6 @@
     <string name="title_junk_hint">A levélszemét szűréséért az email szolgáltatója a felelős. Egy email kliens nem rendelkezik a szükséges adatokkal, hogy ezt megfelelően el tudja végezni.</string>
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
-    <string name="title_block_return_path">Return-path blokkolása</string>
     <string name="title_block_sender_domain">\'%1$s\' domain letiltása</string>
     <string name="title_block_sender_hint">        Egy küldő letiltása ingyenes funkció.
         Egy küldő domain letiltása szűrőszabályokat használ, ami pro funkció.

@@ -9,6 +9,7 @@
     <string name="app_exit">יש ‚לחזור’ שוב אחורה כדי לצאת</string>
     <string name="app_cake">לא נותר די שטח אחסון</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
+    <string name="app_download">מקור ההורדה: %1$s</string>
     <string name="channel_service">קבלה</string>
     <string name="channel_send">שליחה</string>
     <string name="channel_notification">דוא״ל</string>
@@ -93,7 +94,6 @@
     <string name="title_junk_hint">ספק הדוא״ל שלך אמון על סינון הספאם. ליישומון דוא״ל אין את כל הנתונים הנחוצים לעשות זאת בצורה מהימנה.</string>
     <string name="title_block">חסימת %1$s</string>
     <string name="title_block_sender">חסימת השולח</string>
-    <string name="title_block_return_path">חסימת נתיב החזרה</string>
     <string name="title_block_sender_domain">חסימת שם התחום ‚%1$s’</string>
     <string name="title_block_sender_hint">        חסימת מען היא תכונה חינמית.
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
@@ -370,6 +370,7 @@
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
     <string name="title_advanced_ssl_harden">הקשחת חיבורי SSL</string>
+    <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
     <string name="title_advanced_manage_connectivity">ניהול קישוריות</string>
     <string name="title_advanced_caption_general">כללי</string>
     <string name="title_advanced_caption_checks">בדיקות</string>
@@ -636,6 +637,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">הפעלה יכולה לגרום לבעיות תקשורת בחלק מהמכשירים</string>
     <string name="title_advanced_validate_hint">יכול לגרום לכך שהודעות לא תסתנכרנה, למשל בעת שימוש ב־VPN, אך גם במקרים אחרים</string>
     <string name="title_advanced_timeout_hint">תום זמן קריאה/כתיבה יוגדר להיות כפול מהזמן המוקצב לחיבור. ערכים גבוהים יותר יובילו לצריכה גבוהה יותר של סוללה.</string>
+    <string name="title_advanced_cert_strict_hint">השבתת אפשרות זו תקל על בדיקת אישורי השרת</string>
     <string name="title_advanced_ssl_harden_hint">הפעלת האפשרות הזאת תשבית פרוטוקולים וצפנים חלשים של SSL, מה שיכול לגרום לתקלות בחיבור</string>
     <string name="title_advanced_roaming_hint">כותרות ההודעות תמיד תימשכנה בזמן נדידה. אפשר להשתמש בהגדרות הנדידה של המכשיר כדי להשבית את האינטרנט בזמן נדידה.</string>
     <string name="title_advanced_browse_hint">למשוך עוד הודעות בעת גלילה למטה</string>
@@ -712,6 +714,7 @@
     <string name="title_identity_unicode_remark">רוב השרתים לא תומכים בזה</string>
     <string name="title_identity_max_size">גודל ההודעה המרבי (מ״ב)</string>
     <string name="title_identity_receipt">לבקש אישור שליחה/אישור כבררת מחדל</string>
+    <string name="title_identity_receipt_legacy">להשתמש בכותרות בקשת קבלה מיושנות</string>
     <string name="title_identity_use_ip_hint">במקרה של ‚קבלת פנים שגויה’, ‚דורש כתובת תקפה’ או כל שגיאה דומה, כדאי לנסות לשנות את ההגדרה הזאת</string>
     <string name="title_identity_self_hint">מונע ממך להגיב לעצמך</string>
     <string name="title_optional">רשות</string>
@@ -1027,6 +1030,7 @@
     <string name="title_fullscreen">הצגה במסך מלא</string>
     <string name="title_fit_width">התאמה לרוחב</string>
     <string name="title_disable_widths">השבתת רוחבים</string>
+    <string name="title_monospaced_pre">&lt;pre&gt; ברוחב אחיד</string>
     <string name="title_unused_inline">תמונות פנימיות שאינן בשימוש תוסרנה בעת השליחה</string>
     <string name="title_accross_remark">הודעות שמועברות בין הודעות תתקבלנה שוב ותוביל לצריכת נתונים גבוהה</string>
     <string name="title_raw_saved">ההודעה הגולמית נשמרה</string>

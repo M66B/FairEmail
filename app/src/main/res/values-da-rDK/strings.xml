@@ -73,7 +73,6 @@
     <string name="title_junk_hint">Din e-mailudbyder er ansvarlig for spamfiltreringen. En e-mail app har ikke alle de nødvendige data for at kunne gøre dette pålideligt.</string>
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
-    <string name="title_block_return_path">Blokér retursti</string>
     <string name="title_block_sender_domain">Blokér domænet \'%1$s\'</string>
     <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
@@ -1006,6 +1005,7 @@
     <string name="title_fullscreen">Vis fuldskærm</string>
     <string name="title_fit_width">Tilpas bredde</string>
     <string name="title_disable_widths">Deaktivér bredder</string>
+    <string name="title_monospaced_pre">Monospatieret &lt;pre&gt;</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>

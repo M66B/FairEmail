@@ -9,6 +9,7 @@
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
     <string name="app_updated">Posledná aktualizácia: %1$s</string>
+    <string name="app_download">Stiahnuté z: %1$s</string>
     <string name="channel_service">Prijať</string>
     <string name="channel_send">Odoslať</string>
     <string name="channel_notification">Email</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_timeout">Časový limit pripojenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Uprednostňovať IPv4 pred IPv6</string>
     <string name="title_advanced_ssl_harden">Obrniť SSL pripojenia</string>
+    <string name="title_advanced_cert_strict">Prísna kontrola certifikátov</string>
     <string name="title_advanced_manage_connectivity">Spravovať pripojenie</string>
     <string name="title_advanced_caption_general">Všeobecné</string>
     <string name="title_advanced_caption_checks">Kontroly</string>
@@ -634,6 +636,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_tcp_keep_alive_hint">Zapnutie môže na niektorých zariadeniach spôsobovať problémy s pripojením</string>
     <string name="title_advanced_validate_hint">Výsledkom môžu byť výpadky synchronizácie správ, najmä pri používaní VPN ale aj v iných občasných prípadoch</string>
     <string name="title_advanced_timeout_hint">Časový limit čítania/zápisu bude nastavený na dvojnásobok limitu spojenia. Čím vyššia hodnota, tým vyšší nárok na využívanie batérie.</string>
+    <string name="title_advanced_cert_strict_hint">Vypnutím upustíte od kontroly dôveryhodnosti certifikátov servera</string>
     <string name="title_advanced_ssl_harden_hint">Povolením zakážete slabé metódy a protokoly SSL, čo môže viesť k problémom so spojením</string>
     <string name="title_advanced_roaming_hint">Hlavičky správ budú vždy preberané počas roamingu. Na zakázanie internetu v roamingu použite nastavenia zariadenia.</string>
     <string name="title_advanced_browse_hint">Načítať viac správ pri posúvaní dolu</string>
@@ -1025,6 +1028,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_fullscreen">Zobraziť na celú obrazovku</string>
     <string name="title_fit_width">Prispôsobiť šírke</string>
     <string name="title_disable_widths">Potlačiť šírku</string>
+    <string name="title_monospaced_pre">S pevnou šírkou &lt;pre&gt;</string>
     <string name="title_unused_inline">Nepoužité vnorené obrázky budú odstránené pri odoslaní</string>
     <string name="title_accross_remark">Správy premiestnené medzi účtami budú prevzaté znovu, s využitím ďalšieho prenosu údajov</string>
     <string name="title_raw_saved">Surová správa uložená</string>

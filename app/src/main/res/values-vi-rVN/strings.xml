@@ -9,6 +9,7 @@
     <string name="app_exit">\'Quay lại\' lần nữa để thoát</string>
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
     <string name="app_updated">Lần cập nhật cuối: %1$s</string>
+    <string name="app_download">Được tải xuống từ: %1$s</string>
     <string name="channel_service">Nhận</string>
     <string name="channel_send">Gửi</string>
     <string name="channel_notification">Email</string>
@@ -63,7 +64,6 @@
     <string name="title_junk_hint">Nhà cung cấp email của bạn có trách nhiệm lọc thư rác. Một ứng dụng email không có tất cả dữ liệu cần thiết để làm việc này một cách đáng tin cậy.</string>
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
-    <string name="title_block_return_path">Chặn return-path</string>
     <string name="title_block_sender_domain">Chặn miền \'%1$s\'</string>
     <string name="title_block_sender_hint">        Chặn người gửi là tính năng miễn phí.
         Chặn tên miền người gửi có sử dụng quy tắc lọc, đó là tính năng pro.
@@ -339,6 +339,7 @@
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>
     <string name="title_advanced_ssl_harden">Tăng bảo mật cho các kết nối SSL</string>
+    <string name="title_advanced_cert_strict">Kiểm tra chứng chỉ nghiêm ngặt</string>
     <string name="title_advanced_manage_connectivity">Quản lý sự kết nối</string>
     <string name="title_advanced_caption_general">Cài đặt chung</string>
     <string name="title_advanced_caption_checks">Kiểm tra</string>
@@ -604,6 +605,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra các vấn đề kết nối ở một số thiết bị</string>
     <string name="title_advanced_validate_hint">Cái này có thể dẫn đến không đồng bộ hoá thư, ví dụ khi sử dụng VPN, nhưng cũng trong các trường hợp khác</string>
     <string name="title_advanced_timeout_hint">Thời gian chờ đọc/ghi sẽ được đặt thành gấp đôi thời gian chờ kết nối. Các giá trị cao hơn sẽ dẫn đến hao pin nhiều hơn.</string>
+    <string name="title_advanced_cert_strict_hint">Việc tắt tuỳ chọn này sẽ nới lỏng việc kiểm tra chứng chỉ máy chủ</string>
     <string name="title_advanced_ssl_harden_hint">Việc bật cái này sẽ tắt các giao thức và mã hoá SSL yếu, điều này có thể dẫn đến các vấn đề về kết nối</string>
     <string name="title_advanced_roaming_hint">Tiêu đề thư sẽ luôn được lấy khi chuyển vùng. Bạn có thể sử dụng cài đặt chuyển vùng của thiết bị để tắt internet trong khi chuyển vùng.</string>
     <string name="title_advanced_browse_hint">Lấy nhiều thư hơn khi cuộn xuống</string>
@@ -995,6 +997,7 @@
     <string name="title_fullscreen">Hiện toàn màn hình</string>
     <string name="title_fit_width">Vừa với chiều rộng</string>
     <string name="title_disable_widths">Tắt chiều rộng</string>
+    <string name="title_monospaced_pre">Một khoảng cách &lt;pre&gt;</string>
     <string name="title_unused_inline">Các hình ảnh tích hợp không được sử dụng sẽ bị xoá khi gửi</string>
     <string name="title_accross_remark">Thư được di chuyển qua các tài khoản sẽ được tải xuống lại dẫn đến sử dụng thêm dữ liệu</string>
     <string name="title_raw_saved">Đã lưu thư thô</string>

@@ -993,6 +993,7 @@
     <string name="title_fullscreen">全屏显示</string>
     <string name="title_fit_width">自适应宽度</string>
     <string name="title_disable_widths">禁用宽度</string>
+    <string name="title_monospaced_pre">等宽的&lt;pre&gt;</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>

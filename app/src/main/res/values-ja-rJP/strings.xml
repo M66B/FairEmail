@@ -4,11 +4,12 @@
     <string name="app_changelog">更新履歴</string>
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
-    <string name="app_unsupported">このデバイスに搭載されているバージョンの Android のバグによりクラッシュすることがあります</string>
+    <string name="app_unsupported">このデバイスに搭載されている Android バージョンのバグによりクラッシュすることがあります</string>
     <string name="app_continue">それでも続行する</string>
     <string name="app_exit">もう一度「戻る」で終了します</string>
     <string name="app_cake">ストレージの空き容量が不足しています</string>
     <string name="app_updated">最終更新: %1$s</string>
+    <string name="app_download">ダウンロード元: %1$s</string>
     <string name="channel_service">受信</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">メール</string>
@@ -63,7 +64,6 @@
     <string name="title_junk_hint">迷惑メールフィルタリングはメールプロバイダーが行うべきものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
     <string name="title_block">%1$s をブロック</string>
     <string name="title_block_sender">差出人をブロック</string>
-    <string name="title_block_return_path">Return-Path をブロック</string>
     <string name="title_block_sender_domain">ドメイン「%1$s」をブロック</string>
     <string name="title_block_sender_hint">        差出人のブロックは無料版の機能です。
         差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
@@ -254,7 +254,7 @@
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         よく使われる標準的な値が設定されているため、特に変更しなくてもアプリを使うことができます。
     </string>
-    <string name="title_advanced_hint_remark">        設定は、外観や動作などのカテゴリーごとにタブに分類され、さらにセクションに分けられています。検索することもできます。
+    <string name="title_advanced_hint_remark">        設定は、外観や操作などのカテゴリーごとにタブに分類され、さらにセクションに分けられています。検索することもできます。
     </string>
     <string name="title_advanced_hint_setup">メイン画面のウィザードをタップするとアカウントを設定できます。</string>
     <string name="title_advanced_section_main">メイン</string>
@@ -262,7 +262,7 @@
     <string name="title_advanced_section_send">送信</string>
     <string name="title_advanced_section_connection">接続</string>
     <string name="title_advanced_section_display">表示</string>
-    <string name="title_advanced_section_behavior">動作</string>
+    <string name="title_advanced_section_behavior">操作</string>
     <string name="title_advanced_section_privacy">プライバシー</string>
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
@@ -340,6 +340,7 @@
     <string name="title_advanced_timeout">接続タイムアウト (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6 より IPv4 を優先</string>
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
+    <string name="title_advanced_cert_strict">厳格な証明書確認</string>
     <string name="title_advanced_manage_connectivity">接続を管理</string>
     <string name="title_advanced_caption_general">概要</string>
     <string name="title_advanced_caption_checks">確認</string>
@@ -606,6 +607,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部のデバイスで接続の問題が発生する可能性があります</string>
     <string name="title_advanced_validate_hint">これにより、VPN を使用している場合や、その他の状況でメッセージが同期されない可能性があります</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの 2 倍に設定されます。値を大きくするとバッテリーの使用量が増加します</string>
+    <string name="title_advanced_cert_strict_hint">無効にすると、サーバー証明書の確認基準が緩和されます</string>
     <string name="title_advanced_ssl_harden_hint">有効にすると、弱い SSL プロトコルと暗号化が無効になるため、接続の問題が発生する可能性があります</string>
     <string name="title_advanced_roaming_hint">ローミング時もメッセージヘッダーが常に取得されます。デバイスの設定で、ローミング時はインターネットを無効にすることができます</string>
     <string name="title_advanced_browse_hint">下にスクロールして、さらにメッセージを取得します</string>
@@ -628,12 +630,12 @@
     <string name="title_advanced_placeholders_hint">再フォーマットされたメッセージにのみ適用されます</string>
     <string name="title_advanced_inline_hint">インライン画像はメッセージに含まれる画像のことです</string>
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、遅延が発生する場合があります</string>
-    <string name="title_advanced_language_detection_hint">言語検出をサポートするかはデバイスメーカーによって異なります</string>
+    <string name="title_advanced_language_detection_hint">言語検出のサポートはデバイスメーカーに依存します</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動的にメッセージを開きます</string>
     <string name="title_advanced_expandall_hint">複数のメッセージが展開されている場合、ボタンがどのメッセージに適用されるかが明確でないため、返信ボタンは表示されません</string>
     <string name="title_advanced_autoseen_hint">展開したメッセージを自動で既読にする機能は、アカウント設定の詳細設定から無効にできます</string>
     <string name="title_advanced_autoclose_hint">すべてのメッセージがアーカイブ、送信、または削除されたとき自動的に会話を閉じます</string>
-    <string name="title_advanced_sender_hint">ほとんどのプロバイダーは書き換えられた差出人アドレスを許可しません</string>
+    <string name="title_advanced_sender_hint">ほとんどのプロバイダーは差出人アドレスの編集を許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信するときに追加されます</string>
     <string name="title_advanced_internal_hint">別のドメインに送信するとき、警告が表示されます</string>
     <string name="title_advanced_e2e_encryption">エンドツーエンド暗号化のオプション</string>
@@ -644,28 +646,28 @@
     <string name="title_advanced_safe_browsing_hint">Google のサーバーは、どのアドレスが検索されたか知ることができます</string>
     <string name="title_advanced_badge_hint">サポートしているランチャーでのみ利用できます</string>
     <string name="title_advanced_notify_action_hint">最大 3 つのアクションを表示できます</string>
-    <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプで消したり、メッセージを既読にすると削除されます</string>
+    <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプしたり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定します</string>
-    <string name="title_advanced_notify_manage_service_hint">「モニター」通知を無効にするには</string>
+    <string name="title_advanced_notify_manage_service_hint">「モニター」通知を無効にします</string>
     <string name="title_advanced_notify_separate_hint">アカウント、フォルダ、差出人の通知を設定するにはどうすればよいですか？</string>
     <string name="title_advanced_notify_preview_all_hint">全文を表示できるウェアラブル (最大 5,000 文字) 向け</string>
     <string name="title_advanced_notify_preview_only_hint">本文がダウンロードされるまで通知の表示を遅らせます</string>
     <string name="title_advanced_wearable_hint">通知は本文をダウンロード後、ウェアラブルにのみ送信されます</string>
     <string name="title_advanced_messaging_hint">Android Auto のサポートに必要です</string>
-    <string name="title_advanced_move_hint">ターゲットフォルダーはアカウントから設定できます</string>
+    <string name="title_advanced_move_hint">移動先フォルダーはアカウントから設定できます</string>
     <string name="title_advanced_notify_no_grouping">この Android バージョンでは通知のグループ化がサポートされていません</string>
     <string name="title_advanced_notify_no_channels">この Android バージョンでは通知チャンネルがサポートされていません</string>
     <string name="title_advanced_fts_hint">有効にすると、検索パフォーマンスが向上しますが、バッテリー使用量とストレージ使用量も増加します</string>
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
-    <string name="title_advanced_experiments_hint">現在の実験的な機能のリスト</string>
+    <string name="title_advanced_experiments_hint">現在の実験機能リスト</string>
     <string name="title_advanced_protocol_hint">これにより、バッテリー使用量とストレージの使用量が大幅に増加します！</string>
     <string name="title_advanced_debug_hint">さまざまな場所でデバッグ情報が表示され、デザインが崩れます</string>
     <string name="title_advanced_cleanup_attachments_hint">手動でクリーニングすると同期されていないメッセージから添付ファイルが削除されます</string>
     <string name="title_advanced_cleanup_hint">すべての一時ファイルが削除されます</string>
     <string name="title_advanced_never_favorite">お気に入りに追加しない</string>
     <string name="title_advanced_edit_name">名前を編集</string>
-    <string name="title_advanced_swipe_actions">スワイプ操作の設定</string>
+    <string name="title_advanced_swipe_actions">スワイプ操作を設定</string>
     <string name="title_advanced_swipe_actions_hint">すべての IMAP アカウントの左右のスワイプ操作を設定します</string>
     <string name="title_advanced_swipe_sensitivity">左/右スワイプ感度</string>
     <string name="title_select">選択&#8230;</string>
@@ -675,13 +677,13 @@
     <string name="title_identity_color_hint">ID の色はフォルダーとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">差出人アドレスの編集を許可</string>
     <string name="title_advanced_sender_name">差出人アドレスが編集されたとき、名前を使用</string>
-    <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
+    <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
     <string name="title_identity_unicode">Unicode トランスポートを使用</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーはサポートしていません</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
-    <string name="title_identity_receipt">常に配信確認・開封確認メッセージを要求</string>
+    <string name="title_identity_receipt">デフォルトで配信確認・開封確認メッセージを要求</string>
     <string name="title_identity_receipt_legacy">古い形式の確認メッセージ要求ヘッダーを使用</string>
     <string name="title_identity_use_ip_hint">「invalid greeting」「requires valid address」などのエラーが発生した場合は、この設定を変更してみてください</string>
     <string name="title_identity_self_hint">自分自身に返信しないようにします</string>
@@ -998,6 +1000,7 @@
     <string name="title_fullscreen">全画面表示</string>
     <string name="title_fit_width">幅に合わせる</string>
     <string name="title_disable_widths">幅を無効にする</string>
+    <string name="title_monospaced_pre">等幅 &lt;pre&gt;</string>
     <string name="title_unused_inline">未使用のインライン画像は送信時に削除されます</string>
     <string name="title_accross_remark">アカウント間でメッセージを移動するともう一度ダウンロードされるため、余分にデータが使用されます</string>
     <string name="title_raw_saved">元のメッセージを保存しました</string>

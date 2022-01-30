@@ -7,6 +7,7 @@
     <string name="app_continue">ଯେକୌଣସି ପ୍ରକାରେ ଜାରି ରଖନ୍ତୁ</string>
     <string name="app_exit">ପ୍ରସ୍ଥାନ କରିବା ପାଇଁ ପୁଣି \'ବ୍ୟାକ୍\' ଯାଆନ୍ତୁ</string>
     <string name="app_updated">ଗତ ଅପଡେଟ୍: %1$s</string>
+    <string name="app_download">ଏଠାରୁ ଡାଉନଲୋଡ୍ ହୋଇଛି: %1$s</string>
     <string name="channel_service">ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="channel_send">ପଠାନ୍ତୁ</string>
     <string name="channel_notification">ଇମେଲ୍</string>
@@ -31,7 +32,6 @@
         <item quantity="other">%1$dଟି ନୂଆ</item>
     </plurals>
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
-    <string name="title_block_return_path">return-path ବ୍ଲକ୍ କରିବା</string>
     <string name="title_block_sender_domain">\'%1$s\' ଡୋମେନଟିକୁ ଅବରୋଧ କରନ୍ତୁ</string>
     <string name="title_block_sender_hint">        ପ୍ରେରକକୁ ଅବରୋଧ କରିବା ଏକ ମାଗଣା ବୈଶିଷ୍ଟ୍ୟ।
         ଗୋଟେ ପ୍ରେରକ ଡୋମେନ୍ ଅବରୋଧ କରିବାରେ ଫିଲ୍ଟର୍ ନିୟମ ବ୍ୟବହାର ହୁଏ, ଯାହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ।
