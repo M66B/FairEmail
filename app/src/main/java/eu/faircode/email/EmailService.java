@@ -75,7 +75,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
@@ -106,9 +105,9 @@ public class EmailService implements AutoCloseable {
     private Context context;
     private String protocol;
     private boolean insecure;
-    private boolean anchor;
     private int purpose;
     private boolean harden;
+    private boolean cert_strict;
     private boolean useip;
     private String ehlo;
     private boolean log;
@@ -186,8 +185,8 @@ public class EmailService implements AutoCloseable {
             prefs.edit().putBoolean("protocol", false).apply();
         this.log = prefs.getBoolean("protocol", false);
         this.level = prefs.getInt("log_level", Log.getDefaultLogLevel());
-        this.anchor = prefs.getBoolean("ssl_anchor", !BuildConfig.PLAY_STORE_RELEASE);
         this.harden = prefs.getBoolean("ssl_harden", false);
+        this.cert_strict = prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
         boolean auth_login = prefs.getBoolean("auth_login", true);
@@ -408,7 +407,7 @@ public class EmailService implements AutoCloseable {
                 }
             }
 
-            factory = new SSLSocketFactoryService(host, insecure, anchor, harden, key, chain, fingerprint);
+            factory = new SSLSocketFactoryService(host, insecure, harden, cert_strict, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -946,17 +945,17 @@ public class EmailService implements AutoCloseable {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
         private String server;
         private boolean secure;
-        private boolean anchor;
         private boolean harden;
+        private boolean cert_strict;
         private String trustedFingerprint;
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean anchor, boolean harden, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, boolean harden, boolean cert_strict, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
-            this.anchor = anchor;
             this.harden = harden;
+            this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
             SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -1003,7 +1002,7 @@ public class EmailService implements AutoCloseable {
                                     if (ex.getCause() instanceof CertPathValidatorException &&
                                             "Trust anchor for certification path not found."
                                                     .equals(ex.getCause().getMessage())) {
-                                        if (anchor)
+                                        if (cert_strict)
                                             throw new CertificateException(principal.getName(), ex);
                                         else
                                             Log.w(ex);
@@ -1019,7 +1018,7 @@ public class EmailService implements AutoCloseable {
                                 return;
 
                             // Fallback: check server/certificate IP address
-                            if (!harden)
+                            if (!cert_strict)
                                 try {
                                     InetAddress ip = InetAddress.getByName(server);
                                     for (String name : names) {
