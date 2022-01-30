@@ -1020,9 +1020,11 @@ public class EmailService implements AutoCloseable {
                             if (!cert_strict)
                                 try {
                                     InetAddress ip = InetAddress.getByName(server);
+                                    Log.i("Checking server ip=" + ip);
                                     for (String name : names) {
                                         if (name.startsWith("*."))
                                             name = name.substring(2);
+                                        Log.i("Checking cert name=" + name);
 
                                         try {
                                             for (InetAddress addr : InetAddress.getAllByName(name))
