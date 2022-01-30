@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -1417,8 +1415,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         lastStillHere.setTime(0);
                     } catch (Throwable ex) {
                         // Immediately report auth errors
-                        if (account.auth_type == AUTH_TYPE_PASSWORD &&
-                                ex instanceof AuthenticationFailedException) {
+                        if (ex instanceof AuthenticationFailedException) {
                             if (ConnectionHelper.isIoError(ex)) {
                                 if (!BuildConfig.PLAY_STORE_RELEASE)
                                     Log.e(ex);
