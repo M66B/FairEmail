@@ -4058,37 +4058,6 @@ public class MessageHelper {
         return result.toArray(new InternetAddress[0]);
     }
 
-    static List<Address> exclusive(Address[] address, Address[] base) {
-        if (address == null || address.length == 0 ||
-                base == null || base.length == 0)
-            return Arrays.asList(address == null ? new Address[0] : address);
-
-        // Should dedup
-        List<Address> result = new ArrayList<>();
-        for (Address a : address)
-            if (a instanceof InternetAddress) {
-                String email = ((InternetAddress) a).getAddress();
-                if (TextUtils.isEmpty(email))
-                    continue;
-
-                boolean found = false;
-                for (Address b : base)
-                    if (b instanceof InternetAddress) {
-                        String other = ((InternetAddress) b).getAddress();
-                        if (TextUtils.isEmpty(other))
-                            continue;
-                        if (email.equalsIgnoreCase(other)) {
-                            found = true;
-                            break;
-                        }
-                    }
-                if (!found)
-                    result.add(a);
-            }
-
-        return result;
-    }
-
     static boolean isRemoved(Throwable ex) {
         while (ex != null) {
             if (ex instanceof MessageRemovedException ||

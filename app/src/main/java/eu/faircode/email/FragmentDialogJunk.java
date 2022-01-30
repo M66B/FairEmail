@@ -44,6 +44,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -77,7 +78,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final long folder = args.getLong("folder");
         final String type = args.getString("type");
         final Address[] froms = DB.Converters.decodeAddresses(args.getString("from"));
-        final Address[] return_path = DB.Converters.decodeAddresses(args.getString("return_path"));
         final boolean inJunk = args.getBoolean("inJunk");
 
         final Context context = getContext();
@@ -85,8 +85,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final TextView tvMessage = view.findViewById(R.id.tvMessage);
         final ImageButton ibInfoProvider = view.findViewById(R.id.ibInfoProvider);
         final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
-        final CheckBox cbBlockReturn = view.findViewById(R.id.cbBlockReturn);
-        final TextView tvReturnPath = view.findViewById(R.id.tvReturnPath);
         final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
         final ImageButton ibMore = view.findViewById(R.id.ibMore);
         final TextView tvMore = view.findViewById(R.id.tvMore);
@@ -99,7 +97,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final ImageButton ibRules = view.findViewById(R.id.ibRules);
         final ImageButton ibManage = view.findViewById(R.id.ibManage);
         final Group grpInJunk = view.findViewById(R.id.grpInJunk);
-        final Group grpReturnPath = view.findViewById(R.id.grpReturnPath);
         final Group grpMore = view.findViewById(R.id.grpMore);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -125,7 +122,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                cbBlockReturn.setEnabled(isChecked);
                 cbBlockDomain.setEnabled(isChecked && ActivityBilling.isPro(context));
             }
         });
@@ -369,19 +365,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         }
 
         cbBlockSender.setEnabled(canBlock);
-        cbBlockReturn.setEnabled(false);
         cbBlockDomain.setEnabled(false);
-
         cbBlockSender.setChecked(canBlock && block_sender);
-        cbBlockReturn.setChecked(false);
-
-        List<Address> returns = MessageHelper.exclusive(return_path, froms);
-
-        grpReturnPath.setVisibility(!BuildConfig.PLAY_STORE_RELEASE && returns.size() > 0
-                ? View.VISIBLE : View.GONE);
-        tvReturnPath.setText(MessageHelper.formatAddresses(
-                returns.toArray(new Address[0]),
-                MessageHelper.AddressFormat.EMAIL_ONLY, false));
 
         cbBlockDomain.setText(getString(R.string.title_block_sender_domain, TextUtils.join(",", domains)));
         if (common) {
@@ -453,7 +438,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 public void onClick(DialogInterface dialog, int which) {
                     prefs.edit().putBoolean("block_sender", cbBlockSender.isChecked()).apply();
                     getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
-                    getArguments().putBoolean("block_return", cbBlockReturn.isChecked());
                     getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
                     sendResult(Activity.RESULT_OK);
                 }

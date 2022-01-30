@@ -4499,30 +4499,24 @@ class Core {
                         break;
                 }
 
-            if (EntityFolder.INBOX.equals(folder.type)) {
-                List<Address> froms = new ArrayList<>();
+            if (EntityFolder.INBOX.equals(folder.type))
                 if (message.from != null)
-                    froms.addAll(Arrays.asList(message.from));
-                if (!BuildConfig.PLAY_STORE_RELEASE && message.return_path != null)
-                    froms.addAll(MessageHelper.exclusive(message.return_path, message.from));
+                    for (Address from : message.from) {
+                        String email = ((InternetAddress) from).getAddress();
+                        if (TextUtils.isEmpty(email))
+                            continue;
 
-                for (Address from : froms) {
-                    String email = ((InternetAddress) from).getAddress();
-                    if (TextUtils.isEmpty(email))
-                        continue;
-
-                    EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
-                    if (badboy != null) {
-                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                        if (junk != null) {
-                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
-                            message.ui_hide = true;
-                            executed = true;
+                        EntityContact badboy = db.contact().getContact(message.account, EntityContact.TYPE_JUNK, email);
+                        if (badboy != null) {
+                            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                            if (junk != null) {
+                                EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
+                                message.ui_hide = true;
+                                executed = true;
+                            }
+                            break;
                         }
-                        break;
                     }
-                }
-            }
 
             if (executed &&
                     !message.hasKeyword(MessageHelper.FLAG_FILTERED))

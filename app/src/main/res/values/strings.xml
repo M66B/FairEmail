@@ -94,7 +94,6 @@
 
     <string name="title_block">Block %1$s</string>
     <string name="title_block_sender">Block sender</string>
-    <string name="title_block_return_path">Block return-path</string>
     <string name="title_block_sender_domain">Block domain \'%1$s\'</string>
     <string name="title_block_sender_hint">
         Blocking a sender is a free feature.
