@@ -67,6 +67,7 @@ public class EditTextPlain extends FixedEditText {
                     Log.w(ex);
                     return false;
                     /*
+                        https://issuetracker.google.com/issues/216891011
                         java.lang.IndexOutOfBoundsException: 199, -198
                             at android.text.PackedIntVector.deleteAt(PackedIntVector.java:222)
                             at android.text.DynamicLayout.reflow(DynamicLayout.java:317)
