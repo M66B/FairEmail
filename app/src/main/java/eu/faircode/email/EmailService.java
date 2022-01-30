@@ -106,7 +106,7 @@ public class EmailService implements AutoCloseable {
     private String protocol;
     private boolean insecure;
     private int purpose;
-    private boolean harden;
+    private boolean ssl_harden;
     private boolean cert_strict;
     private boolean useip;
     private String ehlo;
@@ -185,7 +185,7 @@ public class EmailService implements AutoCloseable {
             prefs.edit().putBoolean("protocol", false).apply();
         this.log = prefs.getBoolean("protocol", false);
         this.level = prefs.getInt("log_level", Log.getDefaultLogLevel());
-        this.harden = prefs.getBoolean("ssl_harden", false);
+        this.ssl_harden = prefs.getBoolean("ssl_harden", false);
         this.cert_strict = prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
@@ -407,7 +407,7 @@ public class EmailService implements AutoCloseable {
                 }
             }
 
-            factory = new SSLSocketFactoryService(host, insecure, harden, cert_strict, key, chain, fingerprint);
+            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, cert_strict, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -945,16 +945,16 @@ public class EmailService implements AutoCloseable {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
         private String server;
         private boolean secure;
-        private boolean harden;
+        private boolean ssl_harden;
         private boolean cert_strict;
         private String trustedFingerprint;
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean harden, boolean cert_strict, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, boolean ssl_harden, boolean cert_strict, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
-            this.harden = harden;
+            this.ssl_harden = ssl_harden;
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
@@ -1010,7 +1010,6 @@ public class EmailService implements AutoCloseable {
                                         throw new CertificateException(principal.getName(), ex);
                                 }
                             }
-
 
                             // Check host name
                             List<String> names = EntityCertificate.getDnsNames(certificate);
@@ -1122,7 +1121,7 @@ public class EmailService implements AutoCloseable {
                         if (!cipher.endsWith("_SCSV"))
                             ciphers.add(cipher);
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
-                } else if (harden) {
+                } else if (ssl_harden) {
                     List<String> protocols = new ArrayList<>();
                     for (String protocol : sslSocket.getEnabledProtocols())
                         if (SSL_PROTOCOL_BLACKLIST.contains(protocol))
