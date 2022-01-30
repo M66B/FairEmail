@@ -75,6 +75,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
@@ -1011,10 +1012,34 @@ public class EmailService implements AutoCloseable {
                                 }
                             }
 
+
                             // Check host name
                             List<String> names = EntityCertificate.getDnsNames(certificate);
                             if (EntityCertificate.matches(server, names))
                                 return;
+
+                            // Fallback: check server/certificate IP address
+                            try {
+                                InetAddress ip = InetAddress.getByName(server);
+                                for (String name : names) {
+                                    if (name.startsWith("*."))
+                                        name = name.substring(2);
+
+                                    try {
+                                        for (InetAddress addr : InetAddress.getAllByName(name))
+                                            if (Arrays.equals(ip.getAddress(), addr.getAddress())) {
+                                                Log.i("Accepted " + name + " for " + server);
+                                                return;
+                                            }
+                                    } catch (UnknownHostException ex) {
+                                        Log.w(ex);
+                                    }
+                                }
+                            } catch (UnknownHostException ex) {
+                                Log.w(ex);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
 
                             String error = server + " not in certificate: " + TextUtils.join(",", names);
                             Log.i(error);
