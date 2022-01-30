@@ -1019,6 +1019,7 @@ public class EntityRule {
         if (message.from == null)
             return rules;
 
+        List<String> domains = new ArrayList<>();
         for (Address from : message.from) {
             String sender = ((InternetAddress) from).getAddress();
             String name = MessageHelper.formatAddresses(new Address[]{from});
@@ -1029,10 +1030,11 @@ public class EntityRule {
 
             boolean regex = false;
             if (block_domain) {
-                int at = sender.indexOf('@');
-                if (at > 0) {
+                String domain = UriHelper.getEmailDomain(sender);
+                if (!TextUtils.isEmpty(domain) && !domains.contains(domain)) {
+                    domains.add(domain);
                     regex = true;
-                    sender = ".*@.*" + Pattern.quote(sender.substring(at + 1)) + ".*";
+                    sender = ".*@.*" + Pattern.quote(domain) + ".*";
                 }
             }
 

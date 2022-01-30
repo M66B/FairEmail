@@ -323,21 +323,20 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         });
 
+        List<String> regex = new ArrayList<>();
+        regex.addAll(COMMON_DOMAINS);
+        regex.addAll(EmailProvider.getDomainNames(context));
+
         boolean common = false;
         List<String> domains = new ArrayList<>();
         if (froms != null)
             for (Address from : froms) {
                 String email = ((InternetAddress) from).getAddress();
-                int at = (email == null ? -1 : email.indexOf('@'));
-                String domain = (at < 0 ? null : email.substring(at + 1).toLowerCase(Locale.ROOT));
-                if (TextUtils.isEmpty(domain))
+                String domain = UriHelper.getEmailDomain(email);
+                if (TextUtils.isEmpty(domain) || domains.contains(domain))
                     continue;
 
                 domains.add(domain);
-
-                List<String> regex = new ArrayList<>();
-                regex.addAll(COMMON_DOMAINS);
-                regex.addAll(EmailProvider.getDomainNames(context));
 
                 for (String r : regex)
                     if (domain.matches(r)) {
