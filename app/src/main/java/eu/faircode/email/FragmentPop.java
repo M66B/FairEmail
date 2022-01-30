@@ -468,7 +468,8 @@ public class FragmentPop extends FragmentBase {
                         !account.insecure.equals(insecure) ||
                         !account.port.equals(Integer.parseInt(port)) ||
                         !account.user.equals(user) ||
-                        !account.password.equals(password)));
+                        !account.password.equals(password) ||
+                        BuildConfig.DEBUG));
                 Log.i("Account check=" + check);
 
                 Long last_connected = null;
