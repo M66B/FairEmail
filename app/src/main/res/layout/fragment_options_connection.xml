@@ -380,6 +380,29 @@
                     app:layout_constraintTop_toBottomOf="@id/swTcpKeepAlive" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSslAnchor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_ssl_anchor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTcpKeepAliveHint"
+                    app:switchPadding="12dp" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvSslAnchorHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_ssl_anchor_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSslAnchor" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSslHarden"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -387,7 +410,7 @@
                     android:text="@string/title_advanced_ssl_harden"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTcpKeepAliveHint"
+                    app:layout_constraintTop_toBottomOf="@id/tvSslAnchorHint"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

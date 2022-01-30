@@ -63,6 +63,7 @@ import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.Principal;
 import java.security.PrivateKey;
+import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -104,6 +105,7 @@ public class EmailService implements AutoCloseable {
     private Context context;
     private String protocol;
     private boolean insecure;
+    private boolean anchor;
     private int purpose;
     private boolean harden;
     private boolean useip;
@@ -183,6 +185,7 @@ public class EmailService implements AutoCloseable {
             prefs.edit().putBoolean("protocol", false).apply();
         this.log = prefs.getBoolean("protocol", false);
         this.level = prefs.getInt("log_level", Log.getDefaultLogLevel());
+        this.anchor = prefs.getBoolean("ssl_anchor", !BuildConfig.PLAY_STORE_RELEASE);
         this.harden = prefs.getBoolean("ssl_harden", false);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
@@ -404,7 +407,7 @@ public class EmailService implements AutoCloseable {
                 }
             }
 
-            factory = new SSLSocketFactoryService(host, insecure, harden, key, chain, fingerprint);
+            factory = new SSLSocketFactoryService(host, insecure, anchor, harden, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -942,14 +945,16 @@ public class EmailService implements AutoCloseable {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
         private String server;
         private boolean secure;
+        private boolean anchor;
         private boolean harden;
         private String trustedFingerprint;
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean harden, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, boolean anchor, boolean harden, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
+            this.anchor = anchor;
             this.harden = harden;
             this.trustedFingerprint = fingerprint;
 
@@ -987,13 +992,23 @@ public class EmailService implements AutoCloseable {
 
                             // Check certificates
                             try {
+                                Log.i("Auth type=" + authType);
                                 rtm.checkServerTrusted(chain, authType);
                             } catch (CertificateException ex) {
                                 Principal principal = certificate.getSubjectDN();
                                 if (principal == null)
                                     throw ex;
-                                else
-                                    throw new CertificateException(principal.getName(), ex);
+                                else {
+                                    if (ex.getCause() instanceof CertPathValidatorException &&
+                                            "Trust anchor for certification path not found."
+                                                    .equals(ex.getCause().getMessage())) {
+                                        if (anchor)
+                                            throw new CertificateException(principal.getName(), ex);
+                                        else
+                                            Log.e(ex);
+                                    } else
+                                        throw new CertificateException(principal.getName(), ex);
+                                }
                             }
 
                             // Check host name

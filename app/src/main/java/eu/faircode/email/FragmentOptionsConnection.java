@@ -70,6 +70,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swStandaloneVpn;
     private SwitchCompat swTcpKeepAlive;
     private TextView tvTcpKeepAliveHint;
+    private SwitchCompat swSslAnchor;
     private SwitchCompat swSslHarden;
     private Button btnManage;
     private TextView tvNetworkMetered;
@@ -83,7 +84,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "metered", "download", "roaming", "rlah",
             "download_headers", "download_eml",
             "require_validated", "vpn_only",
-            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "ssl_harden"
+            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
+            "ssl_anchor", "ssl_harden"
     };
 
     @Override
@@ -110,6 +112,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         tvTcpKeepAliveHint = view.findViewById(R.id.tvTcpKeepAliveHint);
+        swSslAnchor = view.findViewById(R.id.swSslAnchor);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         btnManage = view.findViewById(R.id.btnManage);
 
@@ -256,6 +259,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
+        swSslAnchor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ssl_anchor", checked).apply();
+            }
+        });
+
         swSslHarden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -373,6 +383,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
         swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
         swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
+        swSslAnchor.setChecked(prefs.getBoolean("ssl_anchor", !BuildConfig.PLAY_STORE_RELEASE));
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
     }
 
