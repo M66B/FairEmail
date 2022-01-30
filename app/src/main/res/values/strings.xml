@@ -12,6 +12,7 @@
     <string name="app_exit">Go \'back\' again to exit</string>
     <string name="app_cake">Insufficient storage space left</string>
     <string name="app_updated">Last update: %1$s</string>
+    <string name="app_download">Downloaded from: %1$s</string>
 
     <string name="channel_service">Receive</string>
     <string name="channel_send">Send</string>
@@ -2211,6 +2212,7 @@
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
+    <string name="fingerprint_fdroid" translatable="false">77CD40058858DC3A38523E01C227A39AA019F88B</string>
     <string name="fingerprint_amazon" translatable="false">200D0AA43A8ADBC7BB8237023C1553F4753CA7D2</string>
     <string name="public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtFbxEbzL8u5accPGgBw/XdyiSS5BBE6ZQ9ELpKyJ/OQN+kdYniCAOw3lsQ/GuJScy4Y2HobqbBgLL8GLHG+Yu2EHC9dLjA3v2Mc25vvnfn86BsrpQvz1poN2n+roTBdq09FWbtebJ8m0hDBVmtfRi7RhTKIL4No3kodLhksdnucKjcFheubebWKgpmvbmw7NwuELhaZmyhw8WTtnQ4rZPMhjY1JJZgzwNExXgD7zzg4pJPkuQlfkuRkkvBpHpi3C7VDnYjrBlLHngI4wv3wxQBVwJqlvAT9PmX8dOVnTsWWdJdLQBZVWphuqVY54kjBIovN+o8w03WjsV9QiOQq+XwIDAQAB</string>
 </resources>
