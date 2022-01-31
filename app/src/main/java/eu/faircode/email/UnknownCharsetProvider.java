@@ -57,13 +57,13 @@ public class UnknownCharsetProvider extends CharsetProvider {
 
             name = name.replace("\"", "");
 
-            // WİNDOWS-1254
-            name = Normalizer.normalize(name, Normalizer.Form.NFKD)
-                    .replaceAll("[^\\p{ASCII}]", "");
-
             int sp = name.indexOf(" ");
             if (sp > 0)
                 name = name.substring(0, sp);
+
+            // WİNDOWS-1254
+            name = Normalizer.normalize(name, Normalizer.Form.NFKD)
+                    .replaceAll("[^\\p{ASCII}]", "");
 
             name = name.trim().toUpperCase();
 
