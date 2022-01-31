@@ -295,7 +295,7 @@ public interface DaoMessage {
 
     @Query("SELECT COUNT(*) FROM message" +
             " WHERE id IN (:ids)" +
-            " AND raw IS NULL or NOT raw")
+            " AND (raw IS NULL OR NOT raw)")
     LiveData<Integer> liveRaw(long[] ids);
 
     @Query("SELECT *" +
