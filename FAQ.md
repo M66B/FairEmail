@@ -814,6 +814,8 @@ Without this permission the draft will be saved, but the OpenKeychain popup to c
 FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients,
 but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header.
 Note that the most secure way to start an encrypted email exchange is by sending signed messages first.
+There is an encryption option to send signed messages by default.
+Alternatively, this can enabled for a specific identity in the advanced identity settings.
 Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 Although this shouldn't be necessary for most email clients, you can attach your public key to a message
