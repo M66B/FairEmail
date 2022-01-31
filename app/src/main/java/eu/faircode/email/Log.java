@@ -44,7 +44,6 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
-import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
@@ -1668,8 +1667,7 @@ public class Log {
             attachLogcat(context, draft.id, 7);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 attachNotificationInfo(context, draft.id, 8);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                attachUsage(context, draft.id, 9);
+            attachEnvironment(context, draft.id, 9);
             //if (MessageClassifier.isEnabled(context))
             //    attachClassifierData(context, draft.id, 10);
 
@@ -1850,14 +1848,6 @@ public class Log {
             sb.append(String.format("IPC max: %s\r\n", Helper.humanReadableByteCount(ipc)));
         }
 
-        try {
-            int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
-            sb.append(context.getString(R.string.title_advanced_aes_key_size,
-                    Helper.humanReadableByteCount(maxKeySize, false))).append("\r\n");
-        } catch (Throwable ex) {
-            sb.append(ex).append("\r\n");
-        }
-
         sb.append("\r\n");
 
         Locale slocale = Resources.getSystem().getConfiguration().locale;
@@ -1976,60 +1966,6 @@ public class Log {
         }
 
         sb.append("\r\n");
-        sb.append(String.format("Configuration: %s\r\n", config));
-
-        sb.append("\r\n");
-        sb.append(String.format("%s=%b\r\n",
-                Helper.getOpenKeychainPackage(context),
-                Helper.isOpenKeychainInstalled(context)));
-
-        sb.append("\r\n");
-        for (Provider p : Security.getProviders())
-            sb.append(p).append("\r\n");
-        sb.append("\r\n");
-
-        try {
-            PackageInfo pi = context.getPackageManager()
-                    .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
-            for (int i = 0; i < pi.requestedPermissions.length; i++)
-                if (pi.requestedPermissions[i] != null &&
-                        pi.requestedPermissions[i].startsWith("android.permission.")) {
-                    boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
-                    sb.append(pi.requestedPermissions[i].replace("android.permission.", ""))
-                            .append('=').append(granted).append("\r\n");
-                }
-        } catch (Throwable ex) {
-            sb.append(ex).append("\r\n");
-        }
-
-        sb.append("\r\n");
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            try {
-                // https://developer.android.com/reference/android/app/ApplicationExitInfo
-                List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
-                        context.getPackageName(), 0, 20);
-                for (ApplicationExitInfo info : infos)
-                    sb.append(String.format("%s: %s %s/%s reason=%d status=%d importance=%d\r\n",
-                            new Date(info.getTimestamp()), info.getDescription(),
-                            Helper.humanReadableByteCount(info.getPss() * 1024L),
-                            Helper.humanReadableByteCount(info.getRss() * 1024L),
-                            info.getReason(), info.getStatus(), info.getReason()));
-            } catch (Throwable ex) {
-                sb.append(ex).append("\r\n");
-            }
-            sb.append("\r\n");
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            try {
-                Map<String, String> stats = Debug.getRuntimeStats();
-                for (String key : stats.keySet())
-                    sb.append(key).append('=').append(stats.get(key)).append("\r\n");
-                sb.append("\r\n");
-            } catch (Throwable ex) {
-                sb.append(ex).append("\r\n");
-            }
 
         return sb;
     }
@@ -2507,14 +2443,13 @@ public class Log {
         db.attachment().setDownloaded(attachment.id, size);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
-    private static void attachUsage(Context context, long id, int sequence) throws IOException {
+    private static void attachEnvironment(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
         EntityAttachment attachment = new EntityAttachment();
         attachment.message = id;
         attachment.sequence = sequence;
-        attachment.name = "usage.txt";
+        attachment.name = "environment.txt";
         attachment.type = "text/plain";
         attachment.disposition = Part.ATTACHMENT;
         attachment.size = null;
@@ -2527,21 +2462,88 @@ public class Log {
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             try {
-                UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
-                UsageEvents events = usm.queryEventsForSelf(now - 12 * 3600L, now);
-                UsageEvents.Event event = new UsageEvents.Event();
-                while (events != null && events.hasNextEvent()) {
-                    events.getNextEvent(event);
-                    size += write(os, String.format("%s %s %s b=%d s=%d\r\n",
-                            new Date(event.getTimeStamp()),
-                            getEventType(event.getEventType()),
-                            event.getClassName(),
-                            event.getAppStandbyBucket(),
-                            event.getShortcutId()));
-                }
+                PackageInfo pi = context.getPackageManager()
+                        .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
+                for (int i = 0; i < pi.requestedPermissions.length; i++)
+                    if (pi.requestedPermissions[i] != null &&
+                            pi.requestedPermissions[i].startsWith("android.permission.")) {
+                        boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
+                        size += write(os, String.format("%s=%b\r\n",
+                                pi.requestedPermissions[i].replace("android.permission.", ""), granted));
+                    }
             } catch (Throwable ex) {
-                size += write(os, ex.toString());
+                size += write(os, String.format("%s\r\n", ex));
             }
+            size += write(os, "\r\n");
+
+            size += write(os, String.format("Configuration: %s\r\n\r\n",
+                    context.getResources().getConfiguration()));
+
+            for (Provider p : Security.getProviders())
+                size += write(os, String.format("%s\r\n", p));
+            size += write(os, "\r\n");
+
+            size += write(os, String.format("%s=%b\r\n",
+                    Helper.getOpenKeychainPackage(context),
+                    Helper.isOpenKeychainInstalled(context)));
+
+            try {
+                int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
+                size += write(os, context.getString(R.string.title_advanced_aes_key_size,
+                        Helper.humanReadableByteCount(maxKeySize, false)));
+                size += write(os, "\r\n");
+            } catch (Throwable ex) {
+                size += write(os, String.format("%s\r\n", ex));
+            }
+            size += write(os, "\r\n");
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                try {
+                    Map<String, String> stats = Debug.getRuntimeStats();
+                    for (String key : stats.keySet())
+                        size += write(os, String.format("%s=%s\r\n", key, stats.get(key)));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                try {
+                    // https://developer.android.com/reference/android/app/ApplicationExitInfo
+                    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+                    List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
+                            context.getPackageName(), 0, 20);
+                    for (ApplicationExitInfo info : infos)
+                        size += write(os, String.format("%s: %s %s/%s reason=%d status=%d importance=%d\r\n",
+                                new Date(info.getTimestamp()), info.getDescription(),
+                                Helper.humanReadableByteCount(info.getPss() * 1024L),
+                                Helper.humanReadableByteCount(info.getRss() * 1024L),
+                                info.getReason(), info.getStatus(), info.getReason()));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+
+                size += write(os, "\r\n");
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                try {
+                    UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+                    UsageEvents events = usm.queryEventsForSelf(now - 12 * 3600L, now);
+                    UsageEvents.Event event = new UsageEvents.Event();
+                    while (events != null && events.hasNextEvent()) {
+                        events.getNextEvent(event);
+                        size += write(os, String.format("%s %s %s b=%d s=%d\r\n",
+                                new Date(event.getTimeStamp()),
+                                getEventType(event.getEventType()),
+                                event.getClassName(),
+                                event.getAppStandbyBucket(),
+                                event.getShortcutId()));
+                    }
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
         }
 
         db.attachment().setDownloaded(attachment.id, size);
