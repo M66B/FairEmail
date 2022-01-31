@@ -1970,583 +1970,619 @@ public class Log {
         return sb;
     }
 
-    private static void attachSettings(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
+    private static void attachSettings(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
 
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "settings.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-            Map<String, ?> settings = prefs.getAll();
-            List<String> keys = new ArrayList<>(settings.keySet());
-            Collections.sort(keys);
-            for (String key : keys)
-                size += write(os, key + "=" + settings.get(key) + "\r\n");
-        }
-
-        db.attachment().setDownloaded(attachment.id, size);
-    }
-
-    private static void attachAccounts(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "accounts.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        DateFormat dtf = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            List<EntityAccount> accounts = db.account().getAccounts();
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = ServiceSynchronize.getPollInterval(context);
-            boolean metered = prefs.getBoolean("metered", true);
-            Boolean ignoring = Helper.isIgnoringOptimizations(context);
-            boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-            boolean schedule = prefs.getBoolean("schedule", false);
-
-            boolean vpn = ConnectionHelper.vpnActive(context);
-            boolean netguard = Helper.isInstalled(context, "eu.faircode.netguard");
-
-            size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
-                    " interval=" + pollInterval + "\r\n" +
-                    "metered=" + metered + (metered ? "" : " !!!") +
-                    " VPN=" + vpn + (vpn ? " !!!" : "") +
-                    " NetGuard=" + netguard + "\r\n" +
-                    "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
-                    " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
-                    "accounts=" + accounts.size() +
-                    " folders=" + db.folder().countTotal() +
-                    " messages=" + db.message().countTotal() +
-                    " rules=" + db.rule().countTotal() +
-                    "\r\n\r\n");
-
-            if (schedule) {
-                int minuteStart = prefs.getInt("schedule_start", 0);
-                int minuteEnd = prefs.getInt("schedule_end", 0);
-
-                size += write(os, "schedule " +
-                        (minuteStart / 60) + ":" + (minuteStart % 60) + "..." +
-                        (minuteEnd / 60) + ":" + (minuteEnd % 60) + "\r\n");
-
-                String[] daynames = new DateFormatSymbols().getWeekdays();
-                for (int i = 0; i < 7; i++) {
-                    boolean day = prefs.getBoolean("schedule_day" + i, true);
-                    size += write(os, "schedule " + daynames[i + 1] + "=" + day + "\r\n");
-                }
-
-                size += write(os, "\r\n");
-            }
-
-            for (EntityAccount account : accounts) {
-                if (account.synchronize) {
-                    int content = 0;
-                    int messages = 0;
-                    List<TupleFolderEx> folders = db.folder().getFoldersEx(account.id);
-                    for (TupleFolderEx folder : folders) {
-                        content += folder.content;
-                        messages += folder.messages;
-                    }
-
-                    size += write(os, account.name +
-                            " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") + "/" + account.auth_type +
-                            " " + account.host + ":" + account.port + "/" + account.encryption +
-                            " sync=" + account.synchronize +
-                            " exempted=" + account.poll_exempted +
-                            " poll=" + account.poll_interval +
-                            " ondemand=" + account.ondemand +
-                            " messages=" + content + "/" + messages +
-                            " " + account.state +
-                            (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
-                            "\r\n");
-
-                    if (folders.size() > 0)
-                        Collections.sort(folders, folders.get(0).getComparator(context));
-                    for (TupleFolderEx folder : folders)
-                        if (folder.synchronize) {
-                            int unseen = db.message().countUnseen(folder.id);
-                            int notifying = db.message().countNotifying(folder.id);
-                            size += write(os, "- " + folder.name + " " + folder.type +
-                                    (folder.unified ? " unified" : "") +
-                                    (folder.notify ? " notify" : "") +
-                                    " poll=" + folder.poll + "/" + folder.poll_factor +
-                                    " days=" + folder.sync_days + "/" + folder.keep_days +
-                                    " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
-                                    " unseen=" + unseen + " notifying=" + notifying +
-                                    " " + folder.state +
-                                    (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
-                                    "\r\n");
-                        }
-
-                    size += write(os, "\r\n");
-                }
-            }
-
-            for (EntityAccount account : accounts)
-                if (account.synchronize)
-                    try {
-                        JSONObject jaccount = account.toJSON();
-                        jaccount.put("state", account.state == null ? "null" : account.state);
-                        jaccount.put("warning", account.warning);
-                        jaccount.put("error", account.error);
-                        jaccount.put("capabilities", account.capabilities);
-
-                        if (account.last_connected != null)
-                            jaccount.put("last_connected", new Date(account.last_connected).toString());
-
-                        jaccount.put("keep_alive_ok", account.keep_alive_ok);
-                        jaccount.put("keep_alive_failed", account.keep_alive_failed);
-                        jaccount.put("keep_alive_succeeded", account.keep_alive_succeeded);
-
-                        jaccount.remove("password");
-
-                        size += write(os, "==========\r\n");
-                        size += write(os, jaccount.toString(2) + "\r\n");
-
-                        List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
-                        if (folders.size() > 0)
-                            Collections.sort(folders, folders.get(0).getComparator(context));
-                        for (EntityFolder folder : folders) {
-                            JSONObject jfolder = folder.toJSON();
-                            jfolder.put("level", folder.level);
-                            jfolder.put("total", folder.total);
-                            jfolder.put("initialize", folder.initialize);
-                            jfolder.put("subscribed", folder.subscribed);
-                            jfolder.put("state", folder.state == null ? "null" : folder.state);
-                            jfolder.put("sync_state", folder.sync_state == null ? "null" : folder.sync_state);
-                            jfolder.put("poll_count", folder.poll_count);
-                            jfolder.put("read_only", folder.read_only);
-                            jfolder.put("selectable", folder.selectable);
-                            jfolder.put("inferiors", folder.inferiors);
-                            jfolder.put("auto_add", folder.auto_add);
-                            jfolder.put("error", folder.error);
-                            if (folder.last_sync != null)
-                                jfolder.put("last_sync", new Date(folder.last_sync).toString());
-                            if (folder.last_sync_count != null)
-                                jfolder.put("last_sync_count", folder.last_sync_count);
-                            size += write(os, jfolder.toString(2) + "\r\n");
-                        }
-
-                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                        for (EntityIdentity identity : identities)
-                            try {
-                                JSONObject jidentity = identity.toJSON();
-                                jidentity.remove("password");
-                                jidentity.remove("signature");
-                                size += write(os, "----------\r\n");
-                                size += write(os, jidentity.toString(2) + "\r\n");
-                            } catch (JSONException ex) {
-                                size += write(os, ex.toString() + "\r\n");
-                            }
-                    } catch (JSONException ex) {
-                        size += write(os, ex.toString() + "\r\n");
-                    }
-        }
-
-        db.attachment().setDownloaded(attachment.id, size);
-    }
-
-    private static void attachNetworkInfo(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "network.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            NetworkInfo ani = cm.getActiveNetworkInfo();
-            if (ani != null)
-                size += write(os, ani.toString() +
-                        " connected=" + ani.isConnected() +
-                        " metered=" + cm.isActiveNetworkMetered() +
-                        " roaming=" + ani.isRoaming() +
-                        " type=" + ani.getType() + "/" + ani.getTypeName() +
-                        "\r\n\r\n");
-
-            Network active = ConnectionHelper.getActiveNetwork(context);
-            for (Network network : cm.getAllNetworks()) {
-                size += write(os, (network.equals(active) ? "active=" : "network=") + network + "\r\n");
-
-                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                size += write(os, " caps=" + caps + "\r\n");
-
-                LinkProperties props = cm.getLinkProperties(network);
-                size += write(os, " props=" + props + "\r\n");
-
-                size += write(os, "\r\n");
-            }
-
-            try {
-                Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-                while (interfaces != null && interfaces.hasMoreElements()) {
-                    NetworkInterface ni = interfaces.nextElement();
-                    size += write(os, "Interface=" + ni + "\r\n");
-                    for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
-                        InetAddress addr = iaddr.getAddress();
-                        size += write(os, " addr=" + addr +
-                                (addr.isLoopbackAddress() ? " loopback" : "") +
-                                (addr.isSiteLocalAddress() ? " site local (LAN)" : "") +
-                                (addr.isLinkLocalAddress() ? " link local (device)" : "") +
-                                (addr.isAnyLocalAddress() ? " any local" : "") +
-                                (addr.isMulticastAddress() ? " multicast" : "") + "\r\n");
-                    }
-                    size += write(os, "\r\n");
-                }
-            } catch (Throwable ex) {
-                size += write(os, ex.getMessage() + "\r\n");
-            }
-
-            ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
-            size += write(os, "Connected=" + state.isConnected() + "\r\n");
-            size += write(os, "Suitable=" + state.isSuitable() + "\r\n");
-            size += write(os, "Unmetered=" + state.isUnmetered() + "\r\n");
-            size += write(os, "Roaming=" + state.isRoaming() + "\r\n\r\n");
-
-            size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
-            size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
-            size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
-        }
-
-        db.attachment().setDownloaded(attachment.id, size);
-    }
-
-    private static void attachLog(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "log.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            long from = new Date().getTime() - 24 * 3600 * 1000L;
-            DateFormat TF = Helper.getTimeInstance(context);
-
-            for (EntityLog entry : db.log().getLogs(from, null))
-                size += write(os, String.format("%s [%d:%d:%d:%d] %s\r\n",
-                        TF.format(entry.time),
-                        entry.type.ordinal(),
-                        (entry.account == null ? 0 : entry.account),
-                        (entry.folder == null ? 0 : entry.folder),
-                        (entry.message == null ? 0 : entry.message),
-                        entry.data));
-        }
-
-        db.attachment().setDownloaded(attachment.id, size);
-    }
-
-    private static void attachOperations(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "operations.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            DateFormat TF = Helper.getTimeInstance(context);
-
-            for (EntityOperation op : db.operation().getOperations()) {
-                EntityAccount account = (op.account == null ? null : db.account().getAccount(op.account));
-                EntityFolder folder = (op.folder == null ? null : db.folder().getFolder(op.folder));
-                size += write(os, String.format("%s %s/%s %d %s/%d %s %s %s\r\n",
-                        TF.format(op.created),
-                        account == null ? null : account.name,
-                        folder == null ? null : folder.name,
-                        op.message == null ? -1 : op.message,
-                        op.name,
-                        op.tries,
-                        op.args,
-                        op.state,
-                        op.error));
-            }
-        }
-
-        db.attachment().setDownloaded(attachment.id, size);
-    }
-
-    private static void attachTasks(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "tasks.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            for (SimpleTask task : SimpleTask.getList())
-                size += write(os, String.format("%s\r\n", task.toString()));
-            size += write(os, "\r\n");
-            for (TwoStateOwner owner : TwoStateOwner.getList())
-                size += write(os, String.format("%s\r\n", owner.toString()));
-        }
-
-        db.attachment().setDownloaded(attachment.id, size);
-    }
-
-    private static void attachLogcat(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
-
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "logcat.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
-
-        Process proc = null;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            String[] cmd = new String[]{"logcat",
-                    "-d",
-                    "-v", "threadtime",
-                    //"-t", "1000",
-                    Log.TAG + ":I"};
-            proc = Runtime.getRuntime().exec(cmd);
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "settings.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
 
             long size = 0;
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
-                String line;
-                while ((line = br.readLine()) != null)
-                    size += write(os, line + "\r\n");
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                Map<String, ?> settings = prefs.getAll();
+                List<String> keys = new ArrayList<>(settings.keySet());
+                Collections.sort(keys);
+                for (String key : keys)
+                    size += write(os, key + "=" + settings.get(key) + "\r\n");
             }
 
             db.attachment().setDownloaded(attachment.id, size);
-        } finally {
-            if (proc != null)
-                proc.destroy();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private static void attachAccounts(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
+
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "accounts.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            DateFormat dtf = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                List<EntityAccount> accounts = db.account().getAccounts();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean enabled = prefs.getBoolean("enabled", true);
+                int pollInterval = ServiceSynchronize.getPollInterval(context);
+                boolean metered = prefs.getBoolean("metered", true);
+                Boolean ignoring = Helper.isIgnoringOptimizations(context);
+                boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+                boolean schedule = prefs.getBoolean("schedule", false);
+
+                boolean vpn = ConnectionHelper.vpnActive(context);
+                boolean netguard = Helper.isInstalled(context, "eu.faircode.netguard");
+
+                size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
+                        " interval=" + pollInterval + "\r\n" +
+                        "metered=" + metered + (metered ? "" : " !!!") +
+                        " VPN=" + vpn + (vpn ? " !!!" : "") +
+                        " NetGuard=" + netguard + "\r\n" +
+                        "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
+                        " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
+                        "accounts=" + accounts.size() +
+                        " folders=" + db.folder().countTotal() +
+                        " messages=" + db.message().countTotal() +
+                        " rules=" + db.rule().countTotal() +
+                        "\r\n\r\n");
+
+                if (schedule) {
+                    int minuteStart = prefs.getInt("schedule_start", 0);
+                    int minuteEnd = prefs.getInt("schedule_end", 0);
+
+                    size += write(os, "schedule " +
+                            (minuteStart / 60) + ":" + (minuteStart % 60) + "..." +
+                            (minuteEnd / 60) + ":" + (minuteEnd % 60) + "\r\n");
+
+                    String[] daynames = new DateFormatSymbols().getWeekdays();
+                    for (int i = 0; i < 7; i++) {
+                        boolean day = prefs.getBoolean("schedule_day" + i, true);
+                        size += write(os, "schedule " + daynames[i + 1] + "=" + day + "\r\n");
+                    }
+
+                    size += write(os, "\r\n");
+                }
+
+                for (EntityAccount account : accounts) {
+                    if (account.synchronize) {
+                        int content = 0;
+                        int messages = 0;
+                        List<TupleFolderEx> folders = db.folder().getFoldersEx(account.id);
+                        for (TupleFolderEx folder : folders) {
+                            content += folder.content;
+                            messages += folder.messages;
+                        }
+
+                        size += write(os, account.name +
+                                " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") + "/" + account.auth_type +
+                                " " + account.host + ":" + account.port + "/" + account.encryption +
+                                " sync=" + account.synchronize +
+                                " exempted=" + account.poll_exempted +
+                                " poll=" + account.poll_interval +
+                                " ondemand=" + account.ondemand +
+                                " messages=" + content + "/" + messages +
+                                " " + account.state +
+                                (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
+                                "\r\n");
+
+                        if (folders.size() > 0)
+                            Collections.sort(folders, folders.get(0).getComparator(context));
+                        for (TupleFolderEx folder : folders)
+                            if (folder.synchronize) {
+                                int unseen = db.message().countUnseen(folder.id);
+                                int notifying = db.message().countNotifying(folder.id);
+                                size += write(os, "- " + folder.name + " " + folder.type +
+                                        (folder.unified ? " unified" : "") +
+                                        (folder.notify ? " notify" : "") +
+                                        " poll=" + folder.poll + "/" + folder.poll_factor +
+                                        " days=" + folder.sync_days + "/" + folder.keep_days +
+                                        " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
+                                        " unseen=" + unseen + " notifying=" + notifying +
+                                        " " + folder.state +
+                                        (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
+                                        "\r\n");
+                            }
+
+                        size += write(os, "\r\n");
+                    }
+                }
+
+                for (EntityAccount account : accounts)
+                    if (account.synchronize)
+                        try {
+                            JSONObject jaccount = account.toJSON();
+                            jaccount.put("state", account.state == null ? "null" : account.state);
+                            jaccount.put("warning", account.warning);
+                            jaccount.put("error", account.error);
+                            jaccount.put("capabilities", account.capabilities);
+
+                            if (account.last_connected != null)
+                                jaccount.put("last_connected", new Date(account.last_connected).toString());
+
+                            jaccount.put("keep_alive_ok", account.keep_alive_ok);
+                            jaccount.put("keep_alive_failed", account.keep_alive_failed);
+                            jaccount.put("keep_alive_succeeded", account.keep_alive_succeeded);
+
+                            jaccount.remove("password");
+
+                            size += write(os, "==========\r\n");
+                            size += write(os, jaccount.toString(2) + "\r\n");
+
+                            List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
+                            if (folders.size() > 0)
+                                Collections.sort(folders, folders.get(0).getComparator(context));
+                            for (EntityFolder folder : folders) {
+                                JSONObject jfolder = folder.toJSON();
+                                jfolder.put("level", folder.level);
+                                jfolder.put("total", folder.total);
+                                jfolder.put("initialize", folder.initialize);
+                                jfolder.put("subscribed", folder.subscribed);
+                                jfolder.put("state", folder.state == null ? "null" : folder.state);
+                                jfolder.put("sync_state", folder.sync_state == null ? "null" : folder.sync_state);
+                                jfolder.put("poll_count", folder.poll_count);
+                                jfolder.put("read_only", folder.read_only);
+                                jfolder.put("selectable", folder.selectable);
+                                jfolder.put("inferiors", folder.inferiors);
+                                jfolder.put("auto_add", folder.auto_add);
+                                jfolder.put("error", folder.error);
+                                if (folder.last_sync != null)
+                                    jfolder.put("last_sync", new Date(folder.last_sync).toString());
+                                if (folder.last_sync_count != null)
+                                    jfolder.put("last_sync_count", folder.last_sync_count);
+                                size += write(os, jfolder.toString(2) + "\r\n");
+                            }
+
+                            List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                            for (EntityIdentity identity : identities)
+                                try {
+                                    JSONObject jidentity = identity.toJSON();
+                                    jidentity.remove("password");
+                                    jidentity.remove("signature");
+                                    size += write(os, "----------\r\n");
+                                    size += write(os, jidentity.toString(2) + "\r\n");
+                                } catch (JSONException ex) {
+                                    size += write(os, ex.toString() + "\r\n");
+                                }
+                        } catch (JSONException ex) {
+                            size += write(os, ex.toString() + "\r\n");
+                        }
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private static void attachNetworkInfo(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
+
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "network.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+                NetworkInfo ani = cm.getActiveNetworkInfo();
+                if (ani != null)
+                    size += write(os, ani.toString() +
+                            " connected=" + ani.isConnected() +
+                            " metered=" + cm.isActiveNetworkMetered() +
+                            " roaming=" + ani.isRoaming() +
+                            " type=" + ani.getType() + "/" + ani.getTypeName() +
+                            "\r\n\r\n");
+
+                Network active = ConnectionHelper.getActiveNetwork(context);
+                for (Network network : cm.getAllNetworks()) {
+                    size += write(os, (network.equals(active) ? "active=" : "network=") + network + "\r\n");
+
+                    NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                    size += write(os, " caps=" + caps + "\r\n");
+
+                    LinkProperties props = cm.getLinkProperties(network);
+                    size += write(os, " props=" + props + "\r\n");
+
+                    size += write(os, "\r\n");
+                }
+
+                try {
+                    Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                    while (interfaces != null && interfaces.hasMoreElements()) {
+                        NetworkInterface ni = interfaces.nextElement();
+                        size += write(os, "Interface=" + ni + "\r\n");
+                        for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                            InetAddress addr = iaddr.getAddress();
+                            size += write(os, " addr=" + addr +
+                                    (addr.isLoopbackAddress() ? " loopback" : "") +
+                                    (addr.isSiteLocalAddress() ? " site local (LAN)" : "") +
+                                    (addr.isLinkLocalAddress() ? " link local (device)" : "") +
+                                    (addr.isAnyLocalAddress() ? " any local" : "") +
+                                    (addr.isMulticastAddress() ? " multicast" : "") + "\r\n");
+                        }
+                        size += write(os, "\r\n");
+                    }
+                } catch (Throwable ex) {
+                    size += write(os, ex.getMessage() + "\r\n");
+                }
+
+                ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
+                size += write(os, "Connected=" + state.isConnected() + "\r\n");
+                size += write(os, "Suitable=" + state.isSuitable() + "\r\n");
+                size += write(os, "Unmetered=" + state.isUnmetered() + "\r\n");
+                size += write(os, "Roaming=" + state.isRoaming() + "\r\n\r\n");
+
+                size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
+                size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
+                size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private static void attachLog(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
+
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "log.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                long from = new Date().getTime() - 24 * 3600 * 1000L;
+                DateFormat TF = Helper.getTimeInstance(context);
+
+                for (EntityLog entry : db.log().getLogs(from, null))
+                    size += write(os, String.format("%s [%d:%d:%d:%d] %s\r\n",
+                            TF.format(entry.time),
+                            entry.type.ordinal(),
+                            (entry.account == null ? 0 : entry.account),
+                            (entry.folder == null ? 0 : entry.folder),
+                            (entry.message == null ? 0 : entry.message),
+                            entry.data));
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private static void attachOperations(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
+
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "operations.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                DateFormat TF = Helper.getTimeInstance(context);
+
+                for (EntityOperation op : db.operation().getOperations()) {
+                    EntityAccount account = (op.account == null ? null : db.account().getAccount(op.account));
+                    EntityFolder folder = (op.folder == null ? null : db.folder().getFolder(op.folder));
+                    size += write(os, String.format("%s %s/%s %d %s/%d %s %s %s\r\n",
+                            TF.format(op.created),
+                            account == null ? null : account.name,
+                            folder == null ? null : folder.name,
+                            op.message == null ? -1 : op.message,
+                            op.name,
+                            op.tries,
+                            op.args,
+                            op.state,
+                            op.error));
+                }
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private static void attachTasks(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
+
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "tasks.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                for (SimpleTask task : SimpleTask.getList())
+                    size += write(os, String.format("%s\r\n", task.toString()));
+                size += write(os, "\r\n");
+                for (TwoStateOwner owner : TwoStateOwner.getList())
+                    size += write(os, String.format("%s\r\n", owner.toString()));
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private static void attachLogcat(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
+
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "logcat.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
+
+            Process proc = null;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                String[] cmd = new String[]{"logcat",
+                        "-d",
+                        "-v", "threadtime",
+                        //"-t", "1000",
+                        Log.TAG + ":I"};
+                proc = Runtime.getRuntime().exec(cmd);
+
+                long size = 0;
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
+                    String line;
+                    while ((line = br.readLine()) != null)
+                        size += write(os, line + "\r\n");
+                }
+
+                db.attachment().setDownloaded(attachment.id, size);
+            } finally {
+                if (proc != null)
+                    proc.destroy();
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private static void attachNotificationInfo(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
+    private static void attachNotificationInfo(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
 
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "channel.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "channel.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
 
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
 
-            String name;
-            int filter = nm.getCurrentInterruptionFilter();
-            switch (filter) {
-                case NotificationManager.INTERRUPTION_FILTER_UNKNOWN:
-                    name = "Unknown";
-                    break;
-                case NotificationManager.INTERRUPTION_FILTER_ALL:
-                    name = "All";
-                    break;
-                case NotificationManager.INTERRUPTION_FILTER_PRIORITY:
-                    name = "Priority";
-                    break;
-                case NotificationManager.INTERRUPTION_FILTER_NONE:
-                    name = "None";
-                    break;
-                case NotificationManager.INTERRUPTION_FILTER_ALARMS:
-                    name = "Alarms";
-                    break;
-                default:
-                    name = Integer.toString(filter);
-            }
-
-            size += write(os, String.format("Interruption filter allow=%s\r\n\r\n", name));
-
-            for (NotificationChannel channel : nm.getNotificationChannels())
-                try {
-                    JSONObject jchannel = NotificationHelper.channelToJSON(channel);
-                    size += write(os, jchannel.toString(2) + "\r\n\r\n");
-                } catch (JSONException ex) {
-                    size += write(os, ex.toString() + "\r\n");
+                String name;
+                int filter = nm.getCurrentInterruptionFilter();
+                switch (filter) {
+                    case NotificationManager.INTERRUPTION_FILTER_UNKNOWN:
+                        name = "Unknown";
+                        break;
+                    case NotificationManager.INTERRUPTION_FILTER_ALL:
+                        name = "All";
+                        break;
+                    case NotificationManager.INTERRUPTION_FILTER_PRIORITY:
+                        name = "Priority";
+                        break;
+                    case NotificationManager.INTERRUPTION_FILTER_NONE:
+                        name = "None";
+                        break;
+                    case NotificationManager.INTERRUPTION_FILTER_ALARMS:
+                        name = "Alarms";
+                        break;
+                    default:
+                        name = Integer.toString(filter);
                 }
 
-            size += write(os,
-                    String.format("Importance none=%d; min=%d; low=%d; default=%d; high=%d; max=%d; unspecified=%d\r\n",
-                            NotificationManager.IMPORTANCE_NONE,
-                            NotificationManager.IMPORTANCE_MIN,
-                            NotificationManager.IMPORTANCE_LOW,
-                            NotificationManager.IMPORTANCE_DEFAULT,
-                            NotificationManager.IMPORTANCE_HIGH,
-                            NotificationManager.IMPORTANCE_MAX,
-                            NotificationManager.IMPORTANCE_UNSPECIFIED));
-            size += write(os,
-                    String.format("Visibility private=%d; public=%d; secret=%d\r\n",
-                            Notification.VISIBILITY_PRIVATE,
-                            Notification.VISIBILITY_PUBLIC,
-                            Notification.VISIBILITY_SECRET));
-        }
+                size += write(os, String.format("Interruption filter allow=%s\r\n\r\n", name));
 
-        db.attachment().setDownloaded(attachment.id, size);
+                for (NotificationChannel channel : nm.getNotificationChannels())
+                    try {
+                        JSONObject jchannel = NotificationHelper.channelToJSON(channel);
+                        size += write(os, jchannel.toString(2) + "\r\n\r\n");
+                    } catch (JSONException ex) {
+                        size += write(os, ex.toString() + "\r\n");
+                    }
+
+                size += write(os,
+                        String.format("Importance none=%d; min=%d; low=%d; default=%d; high=%d; max=%d; unspecified=%d\r\n",
+                                NotificationManager.IMPORTANCE_NONE,
+                                NotificationManager.IMPORTANCE_MIN,
+                                NotificationManager.IMPORTANCE_LOW,
+                                NotificationManager.IMPORTANCE_DEFAULT,
+                                NotificationManager.IMPORTANCE_HIGH,
+                                NotificationManager.IMPORTANCE_MAX,
+                                NotificationManager.IMPORTANCE_UNSPECIFIED));
+                size += write(os,
+                        String.format("Visibility private=%d; public=%d; secret=%d\r\n",
+                                Notification.VISIBILITY_PRIVATE,
+                                Notification.VISIBILITY_PUBLIC,
+                                Notification.VISIBILITY_SECRET));
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
-    private static void attachEnvironment(Context context, long id, int sequence) throws IOException {
-        DB db = DB.getInstance(context);
+    private static void attachEnvironment(Context context, long id, int sequence) {
+        try {
+            DB db = DB.getInstance(context);
 
-        EntityAttachment attachment = new EntityAttachment();
-        attachment.message = id;
-        attachment.sequence = sequence;
-        attachment.name = "environment.txt";
-        attachment.type = "text/plain";
-        attachment.disposition = Part.ATTACHMENT;
-        attachment.size = null;
-        attachment.progress = 0;
-        attachment.id = db.attachment().insertAttachment(attachment);
+            EntityAttachment attachment = new EntityAttachment();
+            attachment.message = id;
+            attachment.sequence = sequence;
+            attachment.name = "environment.txt";
+            attachment.type = "text/plain";
+            attachment.disposition = Part.ATTACHMENT;
+            attachment.size = null;
+            attachment.progress = 0;
+            attachment.id = db.attachment().insertAttachment(attachment);
 
-        long now = new Date().getTime();
+            long now = new Date().getTime();
 
-        long size = 0;
-        File file = attachment.getFile(context);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            try {
-                PackageInfo pi = context.getPackageManager()
-                        .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
-                for (int i = 0; i < pi.requestedPermissions.length; i++)
-                    if (pi.requestedPermissions[i] != null &&
-                            pi.requestedPermissions[i].startsWith("android.permission.")) {
-                        boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
-                        size += write(os, String.format("%s=%b\r\n",
-                                pi.requestedPermissions[i].replace("android.permission.", ""), granted));
+            long size = 0;
+            File file = attachment.getFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                try {
+                    PackageInfo pi = context.getPackageManager()
+                            .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
+                    for (int i = 0; i < pi.requestedPermissions.length; i++)
+                        if (pi.requestedPermissions[i] != null &&
+                                pi.requestedPermissions[i].startsWith("android.permission.")) {
+                            boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
+                            size += write(os, String.format("%s=%b\r\n",
+                                    pi.requestedPermissions[i].replace("android.permission.", ""), granted));
+                        }
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                size += write(os, String.format("Configuration: %s\r\n\r\n",
+                        context.getResources().getConfiguration()));
+
+                for (Provider p : Security.getProviders())
+                    size += write(os, String.format("%s\r\n", p));
+                size += write(os, "\r\n");
+
+                size += write(os, String.format("%s=%b\r\n",
+                        Helper.getOpenKeychainPackage(context),
+                        Helper.isOpenKeychainInstalled(context)));
+
+                try {
+                    int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
+                    size += write(os, context.getString(R.string.title_advanced_aes_key_size,
+                            Helper.humanReadableByteCount(maxKeySize, false)));
+                    size += write(os, "\r\n");
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    try {
+                        Map<String, String> stats = Debug.getRuntimeStats();
+                        for (String key : stats.keySet())
+                            size += write(os, String.format("%s=%s\r\n", key, stats.get(key)));
+                    } catch (Throwable ex) {
+                        size += write(os, String.format("%s\r\n", ex));
                     }
-            } catch (Throwable ex) {
-                size += write(os, String.format("%s\r\n", ex));
-            }
-            size += write(os, "\r\n");
-
-            size += write(os, String.format("Configuration: %s\r\n\r\n",
-                    context.getResources().getConfiguration()));
-
-            for (Provider p : Security.getProviders())
-                size += write(os, String.format("%s\r\n", p));
-            size += write(os, "\r\n");
-
-            size += write(os, String.format("%s=%b\r\n",
-                    Helper.getOpenKeychainPackage(context),
-                    Helper.isOpenKeychainInstalled(context)));
-
-            try {
-                int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
-                size += write(os, context.getString(R.string.title_advanced_aes_key_size,
-                        Helper.humanReadableByteCount(maxKeySize, false)));
-                size += write(os, "\r\n");
-            } catch (Throwable ex) {
-                size += write(os, String.format("%s\r\n", ex));
-            }
-            size += write(os, "\r\n");
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                try {
-                    Map<String, String> stats = Debug.getRuntimeStats();
-                    for (String key : stats.keySet())
-                        size += write(os, String.format("%s=%s\r\n", key, stats.get(key)));
-                } catch (Throwable ex) {
-                    size += write(os, String.format("%s\r\n", ex));
-                }
-                size += write(os, "\r\n");
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                try {
-                    // https://developer.android.com/reference/android/app/ApplicationExitInfo
-                    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-                    List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
-                            context.getPackageName(), 0, 20);
-                    for (ApplicationExitInfo info : infos)
-                        size += write(os, String.format("%s: %s %s/%s reason=%d status=%d importance=%d\r\n",
-                                new Date(info.getTimestamp()), info.getDescription(),
-                                Helper.humanReadableByteCount(info.getPss() * 1024L),
-                                Helper.humanReadableByteCount(info.getRss() * 1024L),
-                                info.getReason(), info.getStatus(), info.getReason()));
-                } catch (Throwable ex) {
-                    size += write(os, String.format("%s\r\n", ex));
+                    size += write(os, "\r\n");
                 }
 
-                size += write(os, "\r\n");
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                try {
-                    UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
-                    UsageEvents events = usm.queryEventsForSelf(now - 12 * 3600L, now);
-                    UsageEvents.Event event = new UsageEvents.Event();
-                    while (events != null && events.hasNextEvent()) {
-                        events.getNextEvent(event);
-                        size += write(os, String.format("%s %s %s b=%d s=%d\r\n",
-                                new Date(event.getTimeStamp()),
-                                getEventType(event.getEventType()),
-                                event.getClassName(),
-                                event.getAppStandbyBucket(),
-                                event.getShortcutId()));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    try {
+                        // https://developer.android.com/reference/android/app/ApplicationExitInfo
+                        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+                        List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
+                                context.getPackageName(), 0, 20);
+                        for (ApplicationExitInfo info : infos)
+                            size += write(os, String.format("%s: %s %s/%s reason=%d status=%d importance=%d\r\n",
+                                    new Date(info.getTimestamp()), info.getDescription(),
+                                    Helper.humanReadableByteCount(info.getPss() * 1024L),
+                                    Helper.humanReadableByteCount(info.getRss() * 1024L),
+                                    info.getReason(), info.getStatus(), info.getReason()));
+                    } catch (Throwable ex) {
+                        size += write(os, String.format("%s\r\n", ex));
                     }
-                } catch (Throwable ex) {
-                    size += write(os, String.format("%s\r\n", ex));
+
+                    size += write(os, "\r\n");
                 }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                    try {
+                        UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+                        UsageEvents events = usm.queryEventsForSelf(now - 12 * 3600L, now);
+                        UsageEvents.Event event = new UsageEvents.Event();
+                        while (events != null && events.hasNextEvent()) {
+                            events.getNextEvent(event);
+                            size += write(os, String.format("%s %s %s b=%d s=%d\r\n",
+                                    new Date(event.getTimeStamp()),
+                                    getEventType(event.getEventType()),
+                                    event.getClassName(),
+                                    event.getAppStandbyBucket(),
+                                    event.getShortcutId()));
+                        }
+                    } catch (Throwable ex) {
+                        size += write(os, String.format("%s\r\n", ex));
+                    }
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
-
-        db.attachment().setDownloaded(attachment.id, size);
     }
 
     private static String getEventType(int type) {
