@@ -39,6 +39,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1150,7 +1151,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
                     @Override
                     protected void onExecuted(Bundle args, List<File> files) {
-                        StringBuilder sb = new StringBuilder();
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
                         final Context context = getContext();
                         File dataDir = (Build.VERSION.SDK_INT < Build.VERSION_CODES.N
@@ -1159,23 +1160,28 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         File cacheDir = context.getCacheDir();
 
                         if (dataDir != null)
-                            sb.append("Data: ").append(dataDir).append("\r\n");
+                            ssb.append("Data: ").append(dataDir.getAbsolutePath()).append("\r\n");
                         if (filesDir != null)
-                            sb.append("Files: ").append(filesDir).append("\r\n");
+                            ssb.append("Files: ").append(filesDir.getAbsolutePath()).append("\r\n");
                         if (cacheDir != null)
-                            sb.append("Cache: ").append(cacheDir).append("\r\n");
-                        sb.append("\r\n");
+                            ssb.append("Cache: ").append(cacheDir.getAbsolutePath()).append("\r\n");
+                        ssb.append("\r\n");
 
-                        for (File file : files)
-                            sb.append(Helper.humanReadableByteCount(file.length()))
-                                    .append(' ')
+                        for (File file : files) {
+                            int start = ssb.length();
+                            ssb.append(Helper.humanReadableByteCount(file.length()));
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                            ssb.append(' ')
                                     .append(file.getAbsolutePath())
                                     .append("\r\n");
+                        }
+
+                        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
 
                         new AlertDialog.Builder(context)
                                 .setIcon(R.drawable.twotone_info_24)
                                 .setTitle(title)
-                                .setMessage(sb.toString())
+                                .setMessage(ssb)
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
