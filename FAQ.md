@@ -2430,17 +2430,18 @@ $$flagged$
 $$deleted$
 ```
 
-To match *passed* message checks via a header condition (since version 1.1787; no/multi-from since version 1.1791):
+To match *passed* message checks via a header condition (since version 1.1787):
 
 ```
+$$tls$ (since version 1.1826)
 $$dkim$
 $$spf$
 $$dmarc$
 $$mx$
 $$blocklist$
 $$replydomain$
-$$nofrom$
-$$multifrom$
+$$nofrom$ (since version 1.1791)
+$$multifrom$ (since version 1.1791)
 ```
 
 Note that *regex* should be disable and that there should be no white space.

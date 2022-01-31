@@ -271,7 +271,10 @@ public class EntityRule {
                         value.endsWith("$")) {
                     String keyword = value.substring(1, value.length() - 1);
 
-                    if ("$dkim".equals(keyword)) {
+                    if ("$tls".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.tls))
+                            return false;
+                    } else if ("$dkim".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.dkim))
                             return false;
                     } else if ("$spf".equals(keyword)) {
