@@ -25,6 +25,7 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -1667,8 +1668,10 @@ public class Log {
             attachLogcat(context, draft.id, 7);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 attachNotificationInfo(context, draft.id, 8);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                attachUsage(context, draft.id, 9);
             //if (MessageClassifier.isEnabled(context))
-            //    attachClassifierData(context, draft.id, 9);
+            //    attachClassifierData(context, draft.id, 10);
 
             EntityOperation.queue(context, draft, EntityOperation.ADD);
 
@@ -2501,6 +2504,83 @@ public class Log {
         }
 
         db.attachment().setDownloaded(attachment.id, size);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.P)
+    private static void attachUsage(Context context, long id, int sequence) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "usage.txt";
+        attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
+
+        long now = new Date().getTime();
+
+        long size = 0;
+        File file = attachment.getFile(context);
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            try {
+                UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+                UsageEvents events = usm.queryEventsForSelf(now - 12 * 3600L, now);
+                UsageEvents.Event event = new UsageEvents.Event();
+                while (events != null && events.hasNextEvent()) {
+                    events.getNextEvent(event);
+                    size += write(os, String.format("%s %s %s b=%d s=%d\r\n",
+                            new Date(event.getTimeStamp()),
+                            getEventType(event.getEventType()),
+                            event.getClassName(),
+                            event.getAppStandbyBucket(),
+                            event.getShortcutId()));
+                }
+            } catch (Throwable ex) {
+                size += write(os, ex.toString());
+            }
+        }
+
+        db.attachment().setDownloaded(attachment.id, size);
+    }
+
+    private static String getEventType(int type) {
+        switch (type) {
+            case UsageEvents.Event.ACTIVITY_PAUSED:
+                return "Activity/paused";
+            case UsageEvents.Event.ACTIVITY_RESUMED:
+                return "Activity/resumed";
+            case UsageEvents.Event.ACTIVITY_STOPPED:
+                return "Activity/stopped";
+            case UsageEvents.Event.CONFIGURATION_CHANGE:
+                return "Configuration/change";
+            case UsageEvents.Event.DEVICE_SHUTDOWN:
+                return "Device/shutdown";
+            case UsageEvents.Event.DEVICE_STARTUP:
+                return "Device/startup";
+            case UsageEvents.Event.FOREGROUND_SERVICE_START:
+                return "Foreground/start";
+            case UsageEvents.Event.FOREGROUND_SERVICE_STOP:
+                return "Foreground/stop";
+            case UsageEvents.Event.KEYGUARD_HIDDEN:
+                return "Keyguard/hidden";
+            case UsageEvents.Event.KEYGUARD_SHOWN:
+                return "Keyguard/shown";
+            case UsageEvents.Event.SCREEN_INTERACTIVE:
+                return "Screen/interactive";
+            case UsageEvents.Event.SCREEN_NON_INTERACTIVE:
+                return "Screen/non-interactive";
+            case UsageEvents.Event.SHORTCUT_INVOCATION:
+                return "Shortcut/invocation";
+            case UsageEvents.Event.STANDBY_BUCKET_CHANGED:
+                return "Bucket/changed";
+            case UsageEvents.Event.USER_INTERACTION:
+                return "User/interaction";
+            default:
+                return Integer.toString(type);
+        }
     }
 
     private static void attachClassifierData(Context context, long id, int sequence) throws IOException, JSONException {
