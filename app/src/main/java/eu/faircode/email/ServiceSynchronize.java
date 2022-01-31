@@ -232,6 +232,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             private int lastQuitId = -1;
             private List<Long> initialized = new ArrayList<>();
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
+            private PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            private PowerManager.WakeLock wl = pm.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":service");
             private ExecutorService queue = Helper.getBackgroundExecutor(1, "service");
 
             @Override
@@ -418,30 +421,36 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
-                                "### init " + accountNetworkState);
-
-                        DB db = DB.getInstance(ServiceSynchronize.this);
                         try {
-                            db.beginTransaction();
+                            wl.acquire();
 
-                            db.account().setAccountState(accountNetworkState.accountState.id, null);
-                            db.account().setAccountBackoff(accountNetworkState.accountState.id, null);
+                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
+                                    "### init " + accountNetworkState);
 
-                            for (EntityFolder folder : db.folder().getFolders(accountNetworkState.accountState.id, false, false)) {
-                                db.folder().setFolderState(folder.id, null);
-                                if (db.operation().getOperationCount(folder.id, EntityOperation.SYNC) == 0)
-                                    db.folder().setFolderSyncState(folder.id, null);
-                                db.folder().setFolderPollCount(folder.id, 0);
+                            DB db = DB.getInstance(ServiceSynchronize.this);
+                            try {
+                                db.beginTransaction();
+
+                                db.account().setAccountState(accountNetworkState.accountState.id, null);
+                                db.account().setAccountBackoff(accountNetworkState.accountState.id, null);
+
+                                for (EntityFolder folder : db.folder().getFolders(accountNetworkState.accountState.id, false, false)) {
+                                    db.folder().setFolderState(folder.id, null);
+                                    if (db.operation().getOperationCount(folder.id, EntityOperation.SYNC) == 0)
+                                        db.folder().setFolderSyncState(folder.id, null);
+                                    db.folder().setFolderPollCount(folder.id, 0);
+                                }
+
+                                db.operation().resetOperationStates(accountNetworkState.accountState.id);
+
+                                db.setTransactionSuccessful();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            } finally {
+                                db.endTransaction();
                             }
-
-                            db.operation().resetOperationStates(accountNetworkState.accountState.id);
-
-                            db.setTransactionSuccessful();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
                         } finally {
-                            db.endTransaction();
+                            wl.release();
                         }
                     }
                 });
@@ -468,6 +477,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
+                            wl.acquire();
+
                             Map<String, String> crumb = new HashMap<>();
                             crumb.put("account", accountNetworkState.accountState.id.toString());
                             crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
@@ -483,6 +494,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     "### started=" + accountNetworkState);
                         } catch (Throwable ex) {
                             Log.e(ex);
+                        } finally {
+                            wl.release();
                         }
                     }
                 });
@@ -501,6 +514,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
+                            wl.acquire();
+
                             Map<String, String> crumb = new HashMap<>();
                             crumb.put("account", accountNetworkState.accountState.id.toString());
                             crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
@@ -518,6 +533,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     "### stopped=" + accountNetworkState);
                         } catch (Throwable ex) {
                             Log.e(ex);
+                        } finally {
+                            wl.release();
                         }
                     }
                 });
@@ -531,6 +548,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
+                            wl.acquire();
+
                             DB db = DB.getInstance(ServiceSynchronize.this);
                             db.account().deleteAccount(accountNetworkState.accountState.id);
 
@@ -540,6 +559,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
+                        } finally {
+                            wl.release();
                         }
                     }
                 });
@@ -550,6 +571,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
+                            wl.acquire();
+
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
                                     "### quit eventId=" + eventId);
 
@@ -579,14 +602,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
 
                                 // Stop service
+                                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
+                                        "### stopping self eventId=" + eventId);
                                 stopSelf();
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Scheduling,
-                                        "### stop self eventId=" + eventId);
+                                        "### stopped self eventId=" + eventId);
 
                                 WorkerCleanup.cleanupConditionally(ServiceSynchronize.this);
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
+                        } finally {
+                            wl.release();
                         }
                     }
                 });
@@ -599,9 +626,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         @Override
                         public void run() {
                             try {
+                                wl.acquire();
+
                                 MessageClassifier.save(ServiceSynchronize.this);
                             } catch (Throwable ex) {
                                 Log.e(ex);
+                            } finally {
+                                wl.release();
                             }
                         }
                     });
