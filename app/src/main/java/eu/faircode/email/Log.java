@@ -1931,6 +1931,7 @@ public class Log {
                 Helper.isCharging(context), Helper.getBatteryLevel(context)));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // https://developer.android.com/reference/android/app/usage/UsageStatsManager
             UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
             int bucket = usm.getAppStandbyBucket();
             boolean inactive = usm.isAppInactive(BuildConfig.APPLICATION_ID);
