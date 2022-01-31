@@ -713,6 +713,7 @@
     <string name="title_identity_unicode_remark">Większość serwerów nie wspiera tego</string>
     <string name="title_identity_max_size">Maksymalny rozmiar wiadomości (MB)</string>
     <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
+    <string name="title_identity_receipt_legacy">Użyj starszych nagłówków żądania potwierdzenia odbioru</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>
     <string name="title_identity_self_hint">Zapobiega również odpowiadaniu sobie</string>
     <string name="title_optional">Opcjonalnie</string>

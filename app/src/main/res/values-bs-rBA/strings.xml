@@ -9,6 +9,7 @@
     <string name="app_exit">Ponovo pritisnite \'nazad\' za izlaz</string>
     <string name="app_cake">Nedovoljno prostora za pohranu</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
+    <string name="app_download">Preuzeto sa: %1$s</string>
     <string name="channel_service">Prijem</string>
     <string name="channel_send">Slanje</string>
     <string name="channel_notification">E-pošta</string>
@@ -359,6 +360,7 @@
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
+    <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
     <string name="title_advanced_manage_connectivity">Upravljanje konekcijama</string>
     <string name="title_advanced_caption_general">Općenito</string>
     <string name="title_advanced_caption_checks">Provjeravanje</string>
@@ -625,6 +627,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Uključivanjem ove opcije može prouzrokovati probleme na nekim uređajima</string>
     <string name="title_advanced_validate_hint">Ovo može rezultirati u zaustavljanju sinhronizacije poruka, npr. kada se koristi VPN, ali i u drugim situacijama</string>
     <string name="title_advanced_timeout_hint">Vrijeme isteka čitanja/pisanja bit će postavljeno na dvostruku vrijednost vremena isteka konekcije. Više vrijednosti će rezultirati u većoj potrošnji baterije.</string>
+    <string name="title_advanced_cert_strict_hint">Onemogućavanje ove opcije će olakšati provjeru certifikata servera</string>
     <string name="title_advanced_ssl_harden_hint">Uključivanjem ove opcije će se isključiti slabi SSL protokoli i šifre, što može dovesti do problema s konekcijom</string>
     <string name="title_advanced_roaming_hint">Zaglavlja poruka će se uvijek dohvatati tokom roaminga. Možete isključiti internet podatke u postavkama roaminga za vaš uređaj.</string>
     <string name="title_advanced_browse_hint">Dohvati više poruka kada pomičete prema dolje</string>
@@ -1017,6 +1020,7 @@
     <string name="title_fullscreen">Prikaži na cijelom ekranu</string>
     <string name="title_fit_width">Uklopi širinu</string>
     <string name="title_disable_widths">Onemogući širine</string>
+    <string name="title_monospaced_pre">Neproporcionalno &lt;pre&gt;</string>
     <string name="title_unused_inline">Nekorištene poravnate slike bit će uklonjene pri slanju</string>
     <string name="title_accross_remark">Poruke koje se premještaju na računima bit će opet preuzete, što povećava potrošnju podataka</string>
     <string name="title_raw_saved">Raw poruka je sačuvana</string>

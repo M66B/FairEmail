@@ -9,6 +9,7 @@
     <string name="app_exit">再按一次退出</string>
     <string name="app_cake">剩余存储空间不足</string>
     <string name="app_updated">上次更新：%1$s</string>
+    <string name="app_download">下载自：%1$s</string>
     <string name="channel_service">接收</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">电子邮件</string>
@@ -338,6 +339,7 @@
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
+    <string name="title_advanced_cert_strict">严格的证书检查</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_checks">检查</string>
@@ -604,6 +606,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">启用此选项可能会在某些设备上造成连接问题</string>
     <string name="title_advanced_validate_hint">这可能导致消息停止同步，例如使用 VPN 或其他某些情况下</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
+    <string name="title_advanced_cert_strict_hint">禁用此项将放松服务器证书检查</string>
     <string name="title_advanced_ssl_harden_hint">启用此选项将禁用较弱的 SSL 协议和加密算法，这可能导致连接遇到问题</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
