@@ -20,6 +20,7 @@ import android.text.TextUtils;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.spi.CharsetProvider;
+import java.text.Normalizer;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -55,6 +56,10 @@ public class UnknownCharsetProvider extends CharsetProvider {
                 name = "";
 
             name = name.replace("\"", "");
+
+            // WİNDOWS-1254
+            name = Normalizer.normalize(name, Normalizer.Form.NFKD)
+                    .replaceAll("[^\\p{ASCII}]", "");
 
             int sp = name.indexOf(" ");
             if (sp > 0)
