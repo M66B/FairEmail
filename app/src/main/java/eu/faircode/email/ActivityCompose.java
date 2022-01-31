@@ -226,7 +226,8 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
         if (isShared(action)) {
             args.putString("action", "new");
-            args.putLong("account", -1);
+            args.putLong("account",
+                    intent.getLongExtra("fair:account", -1L));
         }
 
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))

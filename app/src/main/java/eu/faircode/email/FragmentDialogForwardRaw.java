@@ -45,6 +45,7 @@ import java.io.File;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FragmentDialogForwardRaw extends FragmentDialogBase {
     private boolean enabled;
@@ -79,6 +80,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                 long[] ids = args.getLongArray("ids");
                 boolean threads = args.getBoolean("threads");
 
+                Long aid = null;
                 List<Long> result = new ArrayList<>();
 
                 DB db = DB.getInstance(context);
@@ -99,6 +101,10 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                         EntityAccount account = db.account().getAccount(message.account);
                         if (account == null)
                             continue;
+                        if (aid == null)
+                            aid = account.id;
+                        else if (!Objects.equals(aid, account.id))
+                            aid = -1L;
 
                         if (account.protocol == EntityAccount.TYPE_IMAP) {
                             if (message.uid == null)
@@ -132,6 +138,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
 
                 ServiceSynchronize.eval(context, "raw");
 
+                args.putLong("account", aid == null ? -1L : aid);
                 return Helper.toLongArray(result);
             }
 
@@ -152,6 +159,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
 
                         if (remaining == 0) {
                             ld.removeObserver(this);
+                            getArguments().putLong("account", args.getLong("account"));
                             getArguments().putLongArray("ids", ids);
                             enabled = true;
                             setButtonEnabled(enabled);
@@ -171,7 +179,9 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                 .setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        send(getArguments().getLongArray("ids"));
+                        long account = getArguments().getLong("account");
+                        long[] ids = getArguments().getLongArray("ids");
+                        send(account, ids);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -220,7 +230,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
         super.onSaveInstanceState(outState);
     }
 
-    private void send(long[] ids) {
+    private void send(long account, long[] ids) {
         try {
             ArrayList<Uri> uris = new ArrayList<>();
             for (long id : ids) {
@@ -234,6 +244,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
             send.setType("message/rfc822");
             send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            send.putExtra("fair:account", account);
 
             startActivity(send);
         } catch (Throwable ex) {
