@@ -4940,24 +4940,69 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuEmpty(String type) {
-        Bundle aargs = new Bundle();
-        if (EntityFolder.TRASH.equals(type))
-            aargs.putString("question", getString(
-                    account < 0 ? R.string.title_empty_trash_all_ask : R.string.title_empty_trash_ask));
-        else if (EntityFolder.JUNK.equals(type))
-            aargs.putString("question", getString(
-                    account < 0 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
-        else
-            throw new IllegalArgumentException("Invalid folder type=" + type);
-        aargs.putBoolean("warning", true);
-        aargs.putString("remark", getString(R.string.title_empty_all));
-        aargs.putLong("account", account);
-        aargs.putString("type", type);
+        Bundle args = new Bundle();
+        args.putLong("account", account);
 
-        FragmentDialogAsk ask = new FragmentDialogAsk();
-        ask.setArguments(aargs);
-        ask.setTargetFragment(this, REQUEST_EMPTY_FOLDER);
-        ask.show(getParentFragmentManager(), "messages:empty");
+        new SimpleTask<List<EntityAccount>>() {
+            @Override
+            protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                long aid = args.getLong("account");
+
+                List<EntityAccount> result = new ArrayList<>();
+
+                DB db = DB.getInstance(context);
+                if (aid < 0) {
+                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+                    if (accounts != null)
+                        result.addAll(accounts);
+                } else {
+                    EntityAccount account = db.account().getAccount(aid);
+                    if (account != null)
+                        result.add(account);
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                boolean permanent = false;
+                for (EntityAccount account : accounts)
+                    if (account.protocol == EntityAccount.TYPE_IMAP || !account.leave_deleted) {
+                        permanent = true;
+                        break;
+                    }
+
+                Bundle aargs = new Bundle();
+
+                if (EntityFolder.TRASH.equals(type))
+                    aargs.putString("question", getString(
+                            accounts.size() > 1 ? R.string.title_empty_trash_all_ask : R.string.title_empty_trash_ask));
+                else if (EntityFolder.JUNK.equals(type))
+                    aargs.putString("question", getString(
+                            accounts.size() > 1 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
+                else
+                    throw new IllegalArgumentException("Invalid folder type=" + type);
+
+                aargs.putBoolean("warning", true);
+
+                if (permanent)
+                    aargs.putString("remark", getString(R.string.title_empty_all));
+
+                aargs.putLong("account", args.getLong("account"));
+                aargs.putString("type", type);
+
+                FragmentDialogAsk ask = new FragmentDialogAsk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(FragmentMessages.this, REQUEST_EMPTY_FOLDER);
+                ask.show(getParentFragmentManager(), "messages:empty");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "folder:empty");
     }
 
     private void onMenuSort(String sort) {
