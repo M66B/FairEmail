@@ -4,6 +4,12 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
+### 1.1827 - 2022-02-01
+
+* Fixed forward as attachment
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1826 - 2022-01-31
 
 * Added $$tls$ rule condition
