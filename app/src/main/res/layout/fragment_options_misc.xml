@@ -702,6 +702,17 @@
                     app:layout_constraintTop_toBottomOf="@id/btnRepair"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swExternalStorage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_external_storage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAutostart"
+                    app:switchPadding="12dp" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvRoomQueryThreads"
                     android:layout_width="0dp"
@@ -712,7 +723,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAutostart" />
+                    app:layout_constraintTop_toBottomOf="@id/swExternalStorage" />
 
                 <SeekBar
                     android:id="@+id/sbRoomQueryThreads"

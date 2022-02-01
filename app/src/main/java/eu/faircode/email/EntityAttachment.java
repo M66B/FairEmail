@@ -22,9 +22,11 @@ package eu.faircode.email;
 import static androidx.room.ForeignKey.CASCADE;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -112,7 +114,14 @@ public class EntityAttachment {
     }
 
     static File getFile(Context context, long id, String name) {
-        File dir = new File(context.getFilesDir(), "attachments");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean external_storage = prefs.getBoolean("external_storage", false);
+
+        File root = (external_storage
+                ? context.getExternalFilesDir(null)
+                : context.getFilesDir());
+
+        File dir = new File(root, "attachments");
         if (!dir.exists())
             dir.mkdir();
         String filename = Long.toString(id);

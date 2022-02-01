@@ -3,6 +3,9 @@
     <files-path
         name="attachments"
         path="attachments" />
+    <external-files-path
+        name="external"
+        path="attachments" />
     <files-path
         name="raw"
         path="raw" />
