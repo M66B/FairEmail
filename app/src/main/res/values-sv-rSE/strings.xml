@@ -9,6 +9,7 @@
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
+    <string name="app_download">Hämtad från: %1$s</string>
     <string name="channel_service">Ta emot</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">E-post</string>
@@ -345,6 +346,7 @@
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
+    <string name="title_advanced_cert_strict">Strikt certifikatkontroll</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
     <string name="title_advanced_caption_checks">Kontroller</string>
@@ -371,7 +373,7 @@
     <string name="title_advanced_tabular_background">Använd kortfärg som bakgrundsfärg när du använder tabulär stil</string>
     <string name="title_advanced_cards_shadow">Använd skugga för olästa meddelanden när du använder kort-stil</string>
     <string name="title_advanced_cards_shadow_highlight">Använd markeringsfärg istället för accentfärg</string>
-    <string name="title_advanced_category_header">Gruppera med konto-kategori</string>
+    <string name="title_advanced_category_header">Gruppera efter kontokategori</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
     <string name="title_advanced_date_bold">Visa datum i fetstil</string>
@@ -611,6 +613,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
+    <string name="title_advanced_cert_strict_hint">Inaktivering av detta kommer att stänga av kontroll av servercertifikat</string>
     <string name="title_advanced_ssl_harden_hint">Aktivering av detta kommer att inaktivera svaga SSL-protokoll och chiffer, vilket kan leda till anslutningsproblem</string>
     <string name="title_advanced_roaming_hint">Meddelanderubriker kommer alltid att hämtas vid roaming. Du kan använda enhetens roaminginställning för att inaktivera internet vid roaming.</string>
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
@@ -1002,6 +1005,7 @@
     <string name="title_fullscreen">Visa i helskärmsläge</string>
     <string name="title_fit_width">Anpassa till bredd</string>
     <string name="title_disable_widths">Inaktivera bredder</string>
+    <string name="title_monospaced_pre">Fast typsnittsbredd &lt;pre&gt;</string>
     <string name="title_unused_inline">Infogade bilder som är oanvända kommer att tas bort vid sändning</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
     <string name="title_raw_saved">Rent meddelande sparat</string>

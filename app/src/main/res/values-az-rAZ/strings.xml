@@ -9,6 +9,7 @@
     <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
     <string name="app_cake">Anbar sahəsi yetərsizdir</string>
     <string name="app_updated">Son yeniləmə: %1$s</string>
+    <string name="app_download">%1$s üzərindən endirildi</string>
     <string name="channel_service">Al</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_notification">E-poçt</string>
@@ -349,6 +350,7 @@
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlam et</string>
+    <string name="title_advanced_cert_strict">Ciddi sertifikat yoxlanışı</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
     <string name="title_advanced_caption_checks">Yoxlanışlar</string>
@@ -615,6 +617,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Bunun fəallaşdırılması, bəzi cihazlarda bağlantı problemlərinə səbəb ola bilər</string>
     <string name="title_advanced_validate_hint">Bu, məsələn bir VPN istifadə edəndə və digər hallarda mesajların eyniləşdirilməməsi ilə nəticələnə bilər</string>
     <string name="title_advanced_timeout_hint">Oxuma/yazma üçün bitmə vaxtı, bağlantı üçün bitmə vaxtının iki qatına tənzimlənəcək. Yüksək dəyərlər, daha çox batareya istifadəsi ilə nəticələnəcək.</string>
+    <string name="title_advanced_cert_strict_hint">Bunu sıradan çıxartmaq, server sertifikatlarının yoxlanışını rahatladacaq</string>
     <string name="title_advanced_ssl_harden_hint">Bunu fəallaşdırmaq, zəif SSL protokollarını və şifrələrini sıradan çıxardacaq, bu da bağlantı problemlərinə səbəb ola bilər</string>
     <string name="title_advanced_roaming_hint">Mesaj başlıqları roaminqdə həmişə götürüləcəkdir. Roaminqdə ikən interneti bağlamaq üçün cihazın roaminq tənzimləməsini istifadə edə bilərsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı sürüşdürəndə daha çox mesaj gətiriləcək</string>
@@ -691,6 +694,7 @@
     <string name="title_identity_unicode_remark">Əksər server bunu dəstəkləmir</string>
     <string name="title_identity_max_size">Maksimum mesaj həcmi (MB)</string>
     <string name="title_identity_receipt">Çatdırılma/oxuma bildirişini ilkin olaraq tələb et</string>
+    <string name="title_identity_receipt_legacy">Köhnə qəbz tələb başlıqlarını istifadə et</string>
     <string name="title_identity_use_ip_hint">\"Etibarsız salamlaşma\", \"etibarlı ünvan tələb olunur\" və ya oxşar xətaların baş verdiyi hallarda, bu tənzimləməni dəyişdirməyə çalışın</string>
     <string name="title_identity_self_hint">Həmçinin özünüzə cavab verməyin qarşısını alır</string>
     <string name="title_optional">İstənilən</string>
@@ -1006,6 +1010,7 @@
     <string name="title_fullscreen">Tam ekranda göstər</string>
     <string name="title_fit_width">Enə uyğunlaşdır</string>
     <string name="title_disable_widths">Eni sıradan çıxart</string>
+    <string name="title_monospaced_pre">Tək boşluqlu &lt;pre&gt;</string>
     <string name="title_unused_inline">İstifadə edilməyən sətiriçi təsvirlər göndəriləndə çıxarılacaq</string>
     <string name="title_accross_remark">Hesablar arasında köçürülən mesajlar yenidən endiriləcək və bu da əlavə verilənlər istifadəsi ilə nəticələnəcək</string>
     <string name="title_raw_saved">Xam mesaj saxlanıldı</string>

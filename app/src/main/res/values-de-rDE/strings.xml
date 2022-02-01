@@ -785,7 +785,7 @@
     <string name="title_pop_folders">Das POP3-Protokoll unterstützt das Erstellen von Ordnern nicht</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
     <string name="title_review">Kontrolle</string>
-    <string name="title_hint_accounts">Lange auf ein Konto drücken, um Optionen anzuzeigen, zum Beispiel um ein Konto zu deaktivieren oder zu löschen</string>
+    <string name="title_hint_accounts">Drücken Sie lange auf ein Konto, um Optionen anzuzeigen, z. B. zum Deaktivieren oder Löschen eines Kontos</string>
     <string name="title_hint_alias">Lange Drücken für Optionen, wie z.B. Kopieren oder um Alias-Adressen zu erstellen</string>
     <string name="title_service_auth">Der E-Mail-Server meldete: „%1$s”</string>
     <string name="title_service_vpn">Dies kann durch das verwendete VPN verursacht werden</string>

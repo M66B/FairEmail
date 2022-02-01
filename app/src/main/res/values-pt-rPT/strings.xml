@@ -8,6 +8,7 @@
     <string name="app_exit">Vá \'voltar\' novamente para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
+    <string name="app_download">Descarregado de: %1$s</string>
     <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>

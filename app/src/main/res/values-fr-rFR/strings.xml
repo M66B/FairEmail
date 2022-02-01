@@ -155,7 +155,7 @@
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
-    <string name="title_setup_oauth_update">Autorisez à nouveau le compte existant</string>
+    <string name="title_setup_oauth_update">Autoriser à nouveau le compte existant</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>

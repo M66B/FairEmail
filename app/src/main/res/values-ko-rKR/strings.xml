@@ -8,6 +8,7 @@
     <string name="app_exit">나가려면 뒤로 버튼을 한번 더 누르세요</string>
     <string name="app_cake">저장 공간 부족</string>
     <string name="app_updated">최근 업데이트: %1$s</string>
+    <string name="app_download">%1$s에서 다운로드 완료</string>
     <string name="channel_service">수신</string>
     <string name="channel_send">발신</string>
     <string name="channel_notification">이메일</string>
@@ -146,6 +147,7 @@
     <string name="title_setup_manage">관리</string>
     <string name="title_setup_grant">권한 허용</string>
     <string name="title_setup_grant_again">필요한 권한 허용하기</string>
+    <string name="title_setup_exchange_support">Microsoft Exchange가 지원되나요?</string>
     <string name="title_setup_identity_what">ID는 무엇입니까?</string>
     <string name="title_setup_free">앱을 무료로 사용할 수 있습니까?</string>
     <string name="title_setup_permissions">권한 부여</string>
@@ -236,6 +238,7 @@
     <string name="title_advanced_vpn_only">VPN을 통해서만 연결</string>
     <string name="title_advanced_prefer_ip4">IPv6보다 IPv4 우선</string>
     <string name="title_advanced_ssl_harden">강화된 SSL 연결</string>
+    <string name="title_advanced_cert_strict">엄격한 인증서 확인</string>
     <string name="title_advanced_manage_connectivity">연결 관리</string>
     <string name="title_advanced_caption_general">일반</string>
     <string name="title_advanced_caption_list">목록</string>
@@ -320,6 +323,7 @@
     <string name="title_advanced_poll_hint">주기적으로 새 메시지를 확인하면 매번 오프라인 메시지와 온라인 메시지를 비교하게 되므로, 배터리 사용량이 증가할 수 있습니다. 항상 수신 기능은 변경사항을 그때그때 반영하므로 이런 현상을 막을 수 있습니다.</string>
     <string name="title_advanced_subject_threading_hint">최근 %1$d시간 동안 수신된 메시지만</string>
     <string name="title_advanced_check_tls_hint">메시지가 모든 서버에서 안전하게 전송된 경우에만 녹색 방패 아이콘이 표시됩니다.</string>
+    <string name="title_advanced_cert_strict_hint">설정을 끄면 서버 인증서 체크를 느슨하게 하게 됩니다</string>
     <string name="title_advanced_browse_hint">아래로 스크롤하여 메시지 더보기</string>
     <string name="title_advanced_date_hint">메시지가 시간별로 정렬된 경우 날짜별로만 묶입니다</string>
     <string name="title_advanced_split_min_hint">폴더블 기기를 위한 조건입니다</string>
