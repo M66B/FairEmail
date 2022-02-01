@@ -2894,6 +2894,7 @@ See also [here](https://developer.android.com/guide/topics/data/install-location
 
 Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe.
 See [here](https://developer.android.com/training/data-storage) for the details.
+Instead, consider to use [adoptable storage](https://source.android.com/devices/storage/adoptable).
 
 When needed you can save (raw) messages via the three-dots menu just above the message text
 and save attachments by tapping on the floppy icon.
