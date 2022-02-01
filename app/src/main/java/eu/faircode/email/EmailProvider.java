@@ -1049,8 +1049,10 @@ public class EmailProvider implements Parcelable {
                                     EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
                                 } finally {
                                     try {
-                                        if (sslSocket != null)
+                                        if (sslSocket != null) {
+                                            signOff(sslSocket, context);
                                             sslSocket.close();
+                                        }
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                     }
@@ -1155,6 +1157,30 @@ public class EmailProvider implements Parcelable {
                 return (SSLSocket) sslFactory.createSocket(socket, host, port, false);
             } else
                 throw new SocketException("No STARTTLS");
+        }
+
+        private void signOff(Socket socket, Context context) {
+            try {
+                String command = (port == 465 || port == 587 ? "QUIT" : "A002 LOGOUT");
+
+                EntityLog.log(context, EntityLog.Type.Protocol,
+                        socket.getRemoteSocketAddress() + " >" + command);
+                socket.getOutputStream().write((command + "\n").getBytes());
+
+                LineInputStream lis =
+                        new LineInputStream(
+                                new BufferedInputStream(
+                                        socket.getInputStream()));
+                String response;
+                do {
+                    response = lis.readLine();
+                    if (response != null)
+                        EntityLog.log(context, EntityLog.Type.Protocol,
+                                socket.getRemoteSocketAddress() + " <" + response);
+                } while (response != null);
+            } catch (IOException ex) {
+                Log.w(ex);
+            }
         }
 
         @Override
