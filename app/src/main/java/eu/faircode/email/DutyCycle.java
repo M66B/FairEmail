@@ -60,12 +60,14 @@ public class DutyCycle {
         if (busy + idle > interval) {
             long wait = (duration - idle);
             Log.i(name + " busy=" + busy + " idle=" + idle + " wait=" + wait);
-            if (wait > 0)
+            if (wait > 0) {
                 try {
                     Thread.sleep(wait);
                 } catch (InterruptedException ex) {
                     Log.w(ex);
                 }
+                last += wait;
+            }
             idle = 0;
             busy = 0;
         }
