@@ -92,7 +92,7 @@ public class EmailProvider implements Parcelable {
 
     enum UserType {LOCAL, EMAIL, VALUE}
 
-    private static final int SCAN_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int SCAN_TIMEOUT = 15 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final List<String> PROPRIETARY = Collections.unmodifiableList(Arrays.asList(
