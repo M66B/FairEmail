@@ -167,6 +167,9 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
                     @Override
                     protected void onExecuted(Bundle args, EntityMessage message) {
+                        if (message == null)
+                            return;
+
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_THREAD)
