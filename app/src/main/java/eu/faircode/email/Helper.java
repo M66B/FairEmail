@@ -598,6 +598,8 @@ public class Helper {
 
     static String getStandbyBucketName(int bucket) {
         switch (bucket) {
+            case 5:
+                return "exempted";
             case UsageStatsManager.STANDBY_BUCKET_ACTIVE:
                 return "active";
             case UsageStatsManager.STANDBY_BUCKET_WORKING_SET:

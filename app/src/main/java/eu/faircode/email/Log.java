@@ -1937,7 +1937,7 @@ public class Log {
             boolean inactive = usm.isAppInactive(BuildConfig.APPLICATION_ID);
             sb.append(String.format("Standby bucket: %d-%b-%s %s\r\n",
                     bucket, inactive, Helper.getStandbyBucketName(bucket),
-                    (bucket == UsageStatsManager.STANDBY_BUCKET_ACTIVE && !inactive ? "" : "!!!")));
+                    (bucket <= UsageStatsManager.STANDBY_BUCKET_ACTIVE && !inactive ? "" : "!!!")));
         }
 
         boolean canExact = AlarmManagerCompatEx.canScheduleExactAlarms(context);
