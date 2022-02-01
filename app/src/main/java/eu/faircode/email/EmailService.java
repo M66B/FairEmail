@@ -545,7 +545,6 @@ public class EmailService implements AutoCloseable {
                     Log.w(ex);
                 }
 
-            EntityLog.log(context, "Connecting to " + main);
             _connect(main, port, require_id, user, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
@@ -686,6 +685,8 @@ public class EmailService implements AutoCloseable {
     private void _connect(
             InetAddress address, int port, boolean require_id, String user,
             SSLSocketFactoryService factory) throws MessagingException {
+        EntityLog.log(context, "Connecting to " + address + ":" + port);
+
         isession = Session.getInstance(properties, authenticator);
 
         breadcrumbs = new RingBuffer<>(BREADCRUMBS_SIZE);
