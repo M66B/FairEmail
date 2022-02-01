@@ -145,10 +145,6 @@ class Core {
     private static final long SCREEN_ON_DURATION = 3000L; // milliseconds
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
-    private static final int SYNC_YIELD_COUNT = 100;
-    private static final long SYNC_YIELD_DURATION = 1000; // milliseconds
-    private static final int DOWNLOAD_YIELD_COUNT = 25;
-    private static final long DOWNLOAD_YIELD_DURATION = 1000; // milliseconds
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long JOIN_WAIT_ALIVE = 5 * 60 * 1000L; // milliseconds
     private static final long JOIN_WAIT_INTERRUPT = 1 * 60 * 1000L; // milliseconds
@@ -3483,7 +3479,7 @@ class Core {
                         fp.add(GmailFolder.FetchProfileItem.THRID);
 
                     // Add/update local messages
-                    int synced = 0;
+                    DutyCycle dc = new DutyCycle(account.name + " sync");
                     Log.i(folder.name + " add=" + imessages.length);
                     for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
                         state.ensureRunning("Sync/IMAP/sync/fetch");
@@ -3522,6 +3518,8 @@ class Core {
                             state.ensureRunning("Sync/IMAP/sync");
 
                             try {
+                                dc.start();
+
                                 // Some providers erroneously return old messages
                                 if (full.contains(isub[j]))
                                     try {
@@ -3545,15 +3543,6 @@ class Core {
                                         false, download && initialize == 0,
                                         rules, state, stats);
                                 ids[from + j] = (message == null || message.ui_hide ? null : message.id);
-
-                                if (message != null && full.contains(isub[j]))
-                                    if ((++synced % SYNC_YIELD_COUNT) == 0)
-                                        try {
-                                            Log.i(folder.name + " yield synced=" + synced);
-                                            Thread.sleep(SYNC_YIELD_DURATION);
-                                        } catch (InterruptedException ex) {
-                                            Log.w(ex);
-                                        }
                             } catch (MessageRemovedException ex) {
                                 Log.w(folder.name, ex);
                             } catch (FolderClosedException ex) {
@@ -3570,6 +3559,7 @@ class Core {
                             } finally {
                                 // Free memory
                                 isub[j] = null;
+                                dc.stop();
                             }
                         }
                     }
@@ -3617,7 +3607,7 @@ class Core {
                 db.folder().setFolderSyncState(folder.id, "downloading");
 
                 // Download messages/attachments
-                int downloaded = 0;
+                DutyCycle dc = new DutyCycle(account.name + " download");
                 Log.i(folder.name + " download=" + imessages.length);
                 for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
                     state.ensureRunning("Sync/IMAP/download/fetch");
@@ -3642,22 +3632,14 @@ class Core {
                         state.ensureRunning("Sync/IMAP/download");
 
                         try {
-                            if (ids[from + j] != null) {
-                                boolean fetched = downloadMessage(
+                            dc.start();
+                            if (ids[from + j] != null)
+                                downloadMessage(
                                         context,
                                         account, folder,
                                         istore, ifolder,
                                         (MimeMessage) isub[j], ids[from + j],
                                         state, stats);
-                                if (fetched)
-                                    if ((++downloaded % DOWNLOAD_YIELD_COUNT) == 0)
-                                        try {
-                                            Log.i(folder.name + " yield downloaded=" + downloaded);
-                                            Thread.sleep(DOWNLOAD_YIELD_DURATION);
-                                        } catch (InterruptedException ex) {
-                                            Log.w(ex);
-                                        }
-                            }
                         } catch (FolderClosedException ex) {
                             throw ex;
                         } catch (Throwable ex) {
@@ -3665,6 +3647,7 @@ class Core {
                         } finally {
                             // Free memory
                             isub[j] = null;
+                            dc.stop();
                         }
                     }
                 }
