@@ -789,9 +789,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 Bundle args = new Bundle();
                 args.putBoolean("external_storage", isChecked);
 
-                new SimpleTask<Void>() {
+                new SimpleTask<Integer>() {
                     @Override
-                    protected Void onExecute(Context context, Bundle args) throws IOException {
+                    protected Integer onExecute(Context context, Bundle args) throws IOException {
                         boolean external_storage = args.getBoolean("external_storage");
 
                         File source = (!external_storage
@@ -814,7 +814,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 attachment.delete();
                             }
 
-                        return null;
+                        return (attachments == null ? -1 : attachments.length);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Integer count) {
+                        String msg = String.format("Moved %d attachments", count);
+                        ToastEx.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
