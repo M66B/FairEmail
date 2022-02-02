@@ -436,6 +436,19 @@
                     app:layout_constraintTop_toBottomOf="@id/tvReferenceHint"
                     app:srcCompat="@drawable/abovebelow" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvLanguage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Language"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toStartOf="@+id/ibReferenceEdit"
+                    app:layout_constraintStart_toEndOf="@id/ibWriteAboveBelow"
+                    app:layout_constraintTop_toBottomOf="@id/tvReferenceHint" />
+
                 <eu.faircode.email.FixedImageButton
                     android:id="@+id/ibReferenceEdit"
                     android:layout_width="36dp"

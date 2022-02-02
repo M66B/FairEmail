@@ -59,6 +59,7 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -252,6 +253,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
     private ImageButton ibWriteAboveBelow;
+    private TextView tvLanguage;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private View vwAnchor;
@@ -369,6 +371,7 @@ public class FragmentCompose extends FragmentBase {
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibWriteAboveBelow = view.findViewById(R.id.ibWriteAboveBelow);
+        tvLanguage = view.findViewById(R.id.tvLanguage);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         vwAnchor = view.findViewById(R.id.vwAnchor);
@@ -947,6 +950,7 @@ public class FragmentCompose extends FragmentBase {
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
         ibWriteAboveBelow.setVisibility(View.GONE);
+        tvLanguage.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
@@ -6236,6 +6240,9 @@ public class FragmentCompose extends FragmentBase {
                     // Strip newline of reply header
                     if (spannedRef.length() > 0 && spannedRef.charAt(0) == '\n')
                         spannedRef = (Spanned) spannedRef.subSequence(1, spannedRef.length());
+
+                    Locale ref_lang = TextHelper.detectLanguage(context, spannedRef.toString());
+                    args.putSerializable("ref_lang", ref_lang);
                 }
 
                 args.putBoolean("ref_has_images", spannedRef != null &&
@@ -6262,6 +6269,25 @@ public class FragmentCompose extends FragmentBase {
 
                 boolean ref_has_images = args.getBoolean("ref_has_images");
 
+                Locale ref_lang = (Locale) args.getSerializable("ref_lang");
+                if (ref_lang != null) {
+                    String dl = ref_lang.getDisplayLanguage();
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                        Locale l = Locale.getDefault();
+                        if (Objects.equals(dl, l.getDisplayLanguage()))
+                            ref_lang = null;
+                    } else {
+                        LocaleList ll = getResources().getConfiguration().getLocales();
+                        for (int i = 0; i < ll.size(); i++) {
+                            Locale l = ll.get(i);
+                            if (Objects.equals(dl, l.getDisplayLanguage())) {
+                                ref_lang = null;
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean ref_hint = prefs.getBoolean("compose_reference", true);
                 boolean write_below = prefs.getBoolean("write_below", false);
@@ -6273,6 +6299,8 @@ public class FragmentCompose extends FragmentBase {
                 ibWriteAboveBelow.setVisibility(text[1] == null ||
                         draft.wasforwardedfrom != null || BuildConfig.PLAY_STORE_RELEASE
                         ? View.GONE : View.VISIBLE);
+                tvLanguage.setText(ref_lang == null ? null : ref_lang.getDisplayLanguage());
+                tvLanguage.setVisibility(ref_lang == null ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
