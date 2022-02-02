@@ -34,6 +34,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.Environment;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -134,6 +135,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnRepair;
     private SwitchCompat swAutostart;
     private SwitchCompat swExternalStorage;
+    private TextView tvExternalStorageFolder;
     private TextView tvRoomQueryThreads;
     private SeekBar sbRoomQueryThreads;
     private ImageButton ibRoom;
@@ -282,6 +284,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnRepair = view.findViewById(R.id.btnRepair);
         swAutostart = view.findViewById(R.id.swAutostart);
         swExternalStorage = view.findViewById(R.id.swExternalStorage);
+        tvExternalStorageFolder = view.findViewById(R.id.tvExternalStorageFolder);
         tvRoomQueryThreads = view.findViewById(R.id.tvRoomQueryThreads);
         sbRoomQueryThreads = view.findViewById(R.id.sbRoomQueryThreads);
         ibRoom = view.findViewById(R.id.ibRoom);
@@ -1284,6 +1287,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
+
+        File external = getContext().getExternalFilesDir(null);
+        boolean emulated = Environment.isExternalStorageEmulated(external);
+        tvExternalStorageFolder.setText(external.getAbsolutePath() + (emulated ? " emulated" : ""));
 
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
         swTestIab.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
