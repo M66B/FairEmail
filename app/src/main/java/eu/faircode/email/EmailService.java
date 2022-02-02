@@ -1005,8 +1005,12 @@ public class EmailService implements AutoCloseable {
                                                     .equals(ex.getCause().getMessage())) {
                                         if (cert_strict)
                                             throw new CertificateException(principal.getName(), ex);
-                                        else
-                                            Log.w(ex);
+                                        else {
+                                            if (BuildConfig.PLAY_STORE_RELEASE)
+                                                Log.i(ex);
+                                            else
+                                                Log.w(ex);
+                                        }
                                     } else
                                         throw new CertificateException(principal.getName(), ex);
                                 }
