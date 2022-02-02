@@ -4515,6 +4515,9 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
+                        // Sensitivity
+                        data.draft.sensitivity = ref.sensitivity;
+
                         // Plain-only
                         if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = true;
