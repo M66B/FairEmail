@@ -4,6 +4,10 @@
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
+### 1.1830 - 2022-02-02
+
+* Fixed extra buttons option
+
 ### 1.1829 - 2022-02-02
 
 * Reduced logging
