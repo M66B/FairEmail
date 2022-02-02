@@ -2896,6 +2896,12 @@ Messages, attachments, etc stored on external storage media, like an sdcard, can
 See [here](https://developer.android.com/training/data-storage) for the details.
 Instead, consider to use [adoptable storage](https://source.android.com/devices/storage/adoptable).
 
+Since version 1.1829 is it possible to store attachments to external storage space private to the app (except for file managers) via an option in the debug panel.
+You can enable the debug panel by enabling debug mode in the miscellaneous settings (last option).
+To prevent ongoing operations from storing attachments at the old location
+you should disable receiving messages in the receive settings and wait until all operations have been completed before changing this option.
+Please be aware that removing the storage space will inevitably result in problems, which is one of the reasons why this option is hidden.
+
 When needed you can save (raw) messages via the three-dots menu just above the message text
 and save attachments by tapping on the floppy icon.
 
