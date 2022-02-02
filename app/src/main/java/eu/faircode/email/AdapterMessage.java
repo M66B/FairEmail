@@ -5085,8 +5085,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(canRaw);
 
             popupMenu.getMenu().findItem(R.id.menu_resync)
-                    .setEnabled(message.uid != null)
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    .setEnabled(message.uid != null ||
+                            message.accountProtocol == EntityAccount.TYPE_POP)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
+                            EntityFolder.INBOX.equals(message.folderType));
 
             popupMenu.insertIcons(context);
 
@@ -5520,28 +5522,44 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
 
+                    EntityAccount account;
+                    EntityFolder folder;
+
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(id);
-                        if (message == null || message.uid == null)
+                        if (message == null)
                             return null;
 
-                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        account = db.account().getAccount(message.account);
+                        if (account == null)
+                            return null;
+
+                        folder = db.folder().getFolder(message.folder);
                         if (folder == null)
+                            return null;
+
+                        if (message.uid == null && account.protocol == EntityAccount.TYPE_IMAP)
+                            return null;
+                        if (account.protocol == EntityAccount.TYPE_POP && !EntityFolder.INBOX.equals(folder.type))
                             return null;
 
                         db.message().deleteMessage(id);
 
-                        EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
+                        if (account.protocol == EntityAccount.TYPE_IMAP)
+                            EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, "resync");
+                    if (account.protocol == EntityAccount.TYPE_IMAP)
+                        ServiceSynchronize.eval(context, "resync");
+                    else
+                        EntityOperation.sync(context, folder.id, true);
 
                     return null;
                 }
