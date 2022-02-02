@@ -693,8 +693,8 @@
     <string name="title_account_name">アカウント名</string>
     <string name="title_account_category">カテゴリー</string>
     <string name="title_account_name_hint">フォルダーを区別するために使用</string>
-    <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度または新しいメッセージを確認する頻度</string>
-    <string name="title_account_partial_fetch_hint">空のメッセージや添付ファイルが破損している場合にのみ無効にする</string>
+    <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度または新着メッセージを確認する頻度</string>
+    <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
     <string name="title_color">色</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
@@ -703,7 +703,7 @@
     <string name="title_account_left">左にスワイプ</string>
     <string name="title_account_right">右にスワイプ</string>
     <string name="title_account_move">デフォルトの移動先</string>
-    <string name="title_account_gmail">Gmail アカウントを確実に同期するには、特殊な事情のない限り Gmail クイックセットアップウィザードを使用してください</string>
+    <string name="title_account_gmail">Gmail アカウントを確実に同期するには、特別な理由のない限り Gmail クイックセットアップウィザードを使用してください</string>
     <string name="title_domain">ドメイン名</string>
     <string name="title_autoconfig">設定を取得</string>
     <string name="title_aliases">エイリアス</string>
@@ -712,8 +712,8 @@
     <string name="title_host">ホスト名</string>
     <string name="title_encryption">暗号化</string>
     <string name="title_encryption_none">なし</string>
-    <string name="title_allow_insecure">安全でない接続を許可</string>
-    <string name="title_insecure_remark">安全でない接続は信頼されたネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
+    <string name="title_allow_insecure">保護されていない接続を許可</string>
+    <string name="title_insecure_remark">保護されていない接続は信頼されたネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>
     <string name="title_password">パスワード</string>
