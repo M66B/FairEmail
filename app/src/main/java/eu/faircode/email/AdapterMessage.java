@@ -2981,11 +2981,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibInfrastructure.setImageResource(resid);
             ibInfrastructure.setVisibility(resid != 0 ? View.VISIBLE : View.GONE);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean button_extra = prefs.getBoolean("button_extra", false);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
 
-            ibTrashBottom.setVisibility(outbox ? View.GONE : ibTrash.getVisibility());
-            ibArchiveBottom.setVisibility(ibArchive.getVisibility());
-            ibMoveBottom.setVisibility(ibMove.getVisibility());
+            ibTrashBottom.setVisibility(outbox || !button_extra ? View.GONE : ibTrash.getVisibility());
+            ibArchiveBottom.setVisibility(button_extra ? ibArchive.getVisibility() : View.GONE);
+            ibMoveBottom.setVisibility(button_extra ? ibMove.getVisibility() : View.GONE);
 
             ibSeenBottom.setImageResource(message.ui_seen
                     ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
