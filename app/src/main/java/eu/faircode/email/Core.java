@@ -5826,30 +5826,6 @@ class Core {
                     ",idle=" + getIdleTime() + "" +
                     ",serial=" + serial + "]";
         }
-
-        private static class FolderPriority {
-            private long folder;
-            private int priority;
-
-            FolderPriority(long folder, int priority) {
-                this.folder = folder;
-                this.priority = priority;
-            }
-
-            @Override
-            public int hashCode() {
-                return (int) (this.folder * 37 + priority);
-            }
-
-            @Override
-            public boolean equals(@Nullable Object obj) {
-                if (obj instanceof FolderPriority) {
-                    FolderPriority other = (FolderPriority) obj;
-                    return (this.folder == other.folder && this.priority == other.priority);
-                } else
-                    return false;
-            }
-        }
     }
 
     static class OperationCanceledExceptionEx extends OperationCanceledException {
