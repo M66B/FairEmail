@@ -2,6 +2,8 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
+
 ### Next version
 
 * Added slider to change message column width
