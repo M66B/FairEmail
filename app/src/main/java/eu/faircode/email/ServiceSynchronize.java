@@ -1459,7 +1459,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 // Allow Android account manager to refresh the access token
                                 if (account.auth_type != AUTH_TYPE_PASSWORD &&
-                                        state.getBackoff() <= CONNECT_BACKOFF_INTERMEDIATE * 60)
+                                        state.getBackoff() <= CONNECT_BACKOFF_ALARM_START * 60)
                                     throw ex;
 
                                 try {
