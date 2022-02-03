@@ -28,6 +28,8 @@ internal class BugsnagStateModule(
 
     val metadataState = copyMetadataState(configuration)
 
+    val featureFlagState = configuration.impl.featureFlagState.copy()
+
     private fun copyMetadataState(configuration: Configuration): MetadataState {
         // performs deep copy of metadata to preserve immutability of Configuration interface
         val orig = configuration.impl.metadataState.metadata

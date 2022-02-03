@@ -18,5 +18,9 @@ enum class ThreadType(internal val desc: String) {
     /**
      * A thread captured from JavaScript
      */
-    REACTNATIVEJS("reactnativejs")
+    REACTNATIVEJS("reactnativejs");
+
+    internal companion object {
+        internal fun fromDescriptor(desc: String) = ThreadType.values().find { it.desc == desc }
+    }
 }

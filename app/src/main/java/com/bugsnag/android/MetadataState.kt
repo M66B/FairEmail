@@ -61,7 +61,7 @@ internal data class MetadataState(val metadata: Metadata = Metadata()) :
 
     private fun notifyMetadataAdded(section: String, value: Map<String, Any?>) {
         value.entries.forEach {
-            updateState { AddMetadata(section, it.key, metadata.getMetadata(it.key)) }
+            updateState { AddMetadata(section, it.key, metadata.getMetadata(section, it.key)) }
         }
     }
 }

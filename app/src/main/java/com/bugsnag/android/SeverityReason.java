@@ -1,5 +1,8 @@
 package com.bugsnag.android;
 
+import static com.bugsnag.android.Severity.ERROR;
+import static com.bugsnag.android.Severity.WARNING;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringDef;
@@ -11,8 +14,8 @@ import java.lang.annotation.RetentionPolicy;
 final class SeverityReason implements JsonStream.Streamable {
 
     @StringDef({REASON_UNHANDLED_EXCEPTION, REASON_STRICT_MODE, REASON_HANDLED_EXCEPTION,
-        REASON_USER_SPECIFIED, REASON_CALLBACK_SPECIFIED, REASON_PROMISE_REJECTION,
-        REASON_LOG, REASON_SIGNAL, REASON_ANR})
+            REASON_HANDLED_ERROR, REASON_USER_SPECIFIED, REASON_CALLBACK_SPECIFIED,
+            REASON_PROMISE_REJECTION, REASON_LOG, REASON_SIGNAL, REASON_ANR })
     @Retention(RetentionPolicy.SOURCE)
     @interface SeverityReasonType {
     }
@@ -20,6 +23,7 @@ final class SeverityReason implements JsonStream.Streamable {
     static final String REASON_UNHANDLED_EXCEPTION = "unhandledException";
     static final String REASON_STRICT_MODE = "strictMode";
     static final String REASON_HANDLED_EXCEPTION = "handledException";
+    static final String REASON_HANDLED_ERROR = "handledError";
     static final String REASON_USER_SPECIFIED = "userSpecifiedSeverity";
     static final String REASON_CALLBACK_SPECIFIED = "userCallbackSetSeverity";
     static final String REASON_PROMISE_REJECTION = "unhandledPromiseRejection";
@@ -29,6 +33,9 @@ final class SeverityReason implements JsonStream.Streamable {
 
     @SeverityReasonType
     private final String severityReasonType;
+
+    @Nullable
+    private final String attributeKey;
 
     @Nullable
     private final String attributeValue;
@@ -42,51 +49,52 @@ final class SeverityReason implements JsonStream.Streamable {
         return newInstance(severityReasonType, null, null);
     }
 
-    static SeverityReason newInstance(@SeverityReasonType String severityReasonType,
+    static SeverityReason newInstance(@SeverityReasonType String reason,
                                       @Nullable Severity severity,
                                       @Nullable String attrVal) {
 
-        if (severityReasonType.equals(REASON_STRICT_MODE) && Intrinsics.isEmpty(attrVal)) {
+        if (reason.equals(REASON_STRICT_MODE) && Intrinsics.isEmpty(attrVal)) {
             throw new IllegalArgumentException("No reason supplied for strictmode");
         }
-        if (!(severityReasonType.equals(REASON_STRICT_MODE)
-            || severityReasonType.equals(REASON_LOG)) && !Intrinsics.isEmpty(attrVal)) {
+        if (!(reason.equals(REASON_STRICT_MODE)
+                || reason.equals(REASON_LOG)) && !Intrinsics.isEmpty(attrVal)) {
             throw new IllegalArgumentException("attributeValue should not be supplied");
         }
 
-        switch (severityReasonType) {
+        switch (reason) {
             case REASON_UNHANDLED_EXCEPTION:
             case REASON_PROMISE_REJECTION:
             case REASON_ANR:
-                return new SeverityReason(severityReasonType, Severity.ERROR, true, null);
+                return new SeverityReason(reason, ERROR, true, true, null, null);
             case REASON_STRICT_MODE:
-                return new SeverityReason(severityReasonType, Severity.WARNING, true, attrVal);
+                return new SeverityReason(reason, WARNING, true, true, attrVal, "violationType");
+            case REASON_HANDLED_ERROR:
             case REASON_HANDLED_EXCEPTION:
-                return new SeverityReason(severityReasonType, Severity.WARNING, false, null);
+                return new SeverityReason(reason, WARNING, false, false, null, null);
             case REASON_USER_SPECIFIED:
             case REASON_CALLBACK_SPECIFIED:
-                return new SeverityReason(severityReasonType, severity, false, null);
+                return new SeverityReason(reason, severity, false, false, null, null);
             case REASON_LOG:
-                return new SeverityReason(severityReasonType, severity, false, attrVal);
+                return new SeverityReason(reason, severity, false, false, attrVal, "level");
             default:
-                String msg = "Invalid argument for severityReason: '" + severityReasonType + '\'';
+                String msg = "Invalid argument for severityReason: '" + reason + '\'';
                 throw new IllegalArgumentException(msg);
         }
     }
 
-    SeverityReason(String severityReasonType, Severity currentSeverity, boolean unhandled,
-                   @Nullable String attributeValue) {
-        this(severityReasonType, currentSeverity, unhandled, unhandled, attributeValue);
-    }
-
-    SeverityReason(String severityReasonType, Severity currentSeverity, boolean unhandled,
-                   boolean originalUnhandled, @Nullable String attributeValue) {
+    SeverityReason(String severityReasonType,
+                   Severity currentSeverity,
+                   boolean unhandled,
+                   boolean originalUnhandled,
+                   @Nullable String attributeValue,
+                   @Nullable String attributeKey) {
         this.severityReasonType = severityReasonType;
         this.unhandled = unhandled;
         this.originalUnhandled = originalUnhandled;
         this.defaultSeverity = currentSeverity;
         this.currentSeverity = currentSeverity;
         this.attributeValue = attributeValue;
+        this.attributeKey = attributeKey;
     }
 
     String calculateSeverityReasonType() {
@@ -118,6 +126,10 @@ final class SeverityReason implements JsonStream.Streamable {
         return attributeValue;
     }
 
+    String getAttributeKey() {
+        return attributeKey;
+    }
+
     void setCurrentSeverity(Severity severity) {
         this.currentSeverity = severity;
     }
@@ -132,25 +144,11 @@ final class SeverityReason implements JsonStream.Streamable {
                 .name("type").value(calculateSeverityReasonType())
                 .name("unhandledOverridden").value(getUnhandledOverridden());
 
-        if (attributeValue != null) {
-            String attributeKey = null;
-            switch (severityReasonType) {
-                case REASON_LOG:
-                    attributeKey = "level";
-                    break;
-                case REASON_STRICT_MODE:
-                    attributeKey = "violationType";
-                    break;
-                default:
-                    break;
-            }
-            if (attributeKey != null) {
-                writer.name("attributes").beginObject()
+        if (attributeKey != null && attributeValue != null) {
+            writer.name("attributes").beginObject()
                     .name(attributeKey).value(attributeValue)
                     .endObject();
-            }
         }
         writer.endObject();
     }
-
 }

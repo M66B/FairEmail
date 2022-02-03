@@ -397,12 +397,22 @@ public class NativeInterface {
         });
     }
 
+    /**
+     * Create an {@code Event} object
+     *
+     * @param exc the Throwable object that caused the event
+     * @param client the Client object that the event is associated with
+     * @param severityReason the severity of the Event
+     * @return a new {@code Event} object
+     */
     @NonNull
     public static Event createEvent(@Nullable Throwable exc,
                                     @NonNull Client client,
                                     @NonNull SeverityReason severityReason) {
         Metadata metadata = client.getMetadataState().getMetadata();
-        return new Event(exc, client.getConfig(), severityReason, metadata, client.logger);
+        FeatureFlags featureFlags = client.getFeatureFlagState().getFeatureFlags();
+        return new Event(exc, client.getConfig(), severityReason, metadata, featureFlags,
+                client.logger);
     }
 
     @NonNull

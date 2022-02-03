@@ -38,4 +38,8 @@ enum class BreadcrumbType(private val type: String) {
     USER("user");
 
     override fun toString() = type
+
+    internal companion object {
+        internal fun fromDescriptor(type: String) = values().singleOrNull { it.type == type }
+    }
 }

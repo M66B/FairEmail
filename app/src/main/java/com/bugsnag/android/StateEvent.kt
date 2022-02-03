@@ -68,4 +68,15 @@ sealed class StateEvent { // JvmField allows direct field access optimizations
         @JvmField val memoryTrimLevel: Int? = null,
         @JvmField val memoryTrimLevelDescription: String = "None"
     ) : StateEvent()
+
+    class AddFeatureFlag(
+        @JvmField val name: String,
+        @JvmField val variant: String? = null
+    ) : StateEvent()
+
+    class ClearFeatureFlag(
+        @JvmField val name: String
+    ) : StateEvent()
+
+    object ClearFeatureFlags : StateEvent()
 }

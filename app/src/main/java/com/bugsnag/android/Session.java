@@ -1,5 +1,7 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.DateUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -7,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -40,6 +43,23 @@ public final class Session implements JsonStream.Streamable, UserAware {
         return copy;
     }
 
+    Session(Map<String, Object> map, Logger logger) {
+        this(null, null, logger);
+        setId((String) map.get("id"));
+
+        String timestamp = (String) map.get("startedAt");
+        setStartedAt(DateUtils.fromIso8601(timestamp));
+
+        @SuppressWarnings("unchecked")
+        Map<String, Object> events = (Map<String, Object>) map.get("events");
+
+        Number handled = (Number) events.get("handled");
+        handledCount.set(handled.intValue());
+
+        Number unhandled = (Number) events.get("unhandled");
+        unhandledCount.set(unhandled.intValue());
+    }
+
     Session(String id, Date startedAt, User user, boolean autoCaptured,
             Notifier notifier, Logger logger) {
         this(null, notifier, logger);
@@ -60,9 +80,14 @@ public final class Session implements JsonStream.Streamable, UserAware {
     Session(File file, Notifier notifier, Logger logger) {
         this.file = file;
         this.logger = logger;
-        Notifier copy = new Notifier(notifier.getName(), notifier.getVersion(), notifier.getUrl());
-        copy.setDependencies(new ArrayList<>(notifier.getDependencies()));
-        this.notifier = copy;
+        if (notifier != null) {
+            Notifier copy = new Notifier(notifier.getName(),
+                    notifier.getVersion(), notifier.getUrl());
+            copy.setDependencies(new ArrayList<>(notifier.getDependencies()));
+            this.notifier = copy;
+        } else {
+            this.notifier = null;
+        }
     }
 
     private void logNull(String property) {

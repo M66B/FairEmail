@@ -1,6 +1,7 @@
 package com.bugsnag.android;
 
 import android.os.StrictMode;
+
 import androidx.annotation.NonNull;
 
 import java.lang.Thread;
@@ -35,37 +36,47 @@ class ExceptionHandler implements UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(@NonNull Thread thread, @NonNull Throwable throwable) {
-        if (client.getConfig().shouldDiscardError(throwable)) {
-            return;
+        try {
+            if (client.getConfig().shouldDiscardError(throwable)) {
+                return;
+            }
+
+            boolean strictModeThrowable = strictModeHandler.isStrictModeThrowable(throwable);
+
+            // Notify any subscribed clients of the uncaught exception
+            Metadata metadata = new Metadata();
+            String violationDesc = null;
+
+            if (strictModeThrowable) { // add strictmode policy violation to metadata
+                violationDesc = strictModeHandler.getViolationDescription(throwable.getMessage());
+                metadata = new Metadata();
+                metadata.addMetadata(STRICT_MODE_TAB, STRICT_MODE_KEY, violationDesc);
+            }
+
+            String severityReason = strictModeThrowable
+                    ? SeverityReason.REASON_STRICT_MODE : SeverityReason.REASON_UNHANDLED_EXCEPTION;
+
+            if (strictModeThrowable) { // writes to disk on main thread
+                StrictMode.ThreadPolicy originalThreadPolicy = StrictMode.getThreadPolicy();
+                StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.LAX);
+
+                client.notifyUnhandledException(throwable,
+                        metadata, severityReason, violationDesc);
+
+                StrictMode.setThreadPolicy(originalThreadPolicy);
+            } else {
+                client.notifyUnhandledException(throwable,
+                        metadata, severityReason, null);
+            }
+        } catch (Throwable ignored) {
+            // the runtime would ignore any exceptions here, we make that absolutely clear
+            // to avoid any possible unhandled-exception loops
+        } finally {
+            forwardToOriginalHandler(thread, throwable);
         }
-        boolean strictModeThrowable = strictModeHandler.isStrictModeThrowable(throwable);
+    }
 
-        // Notify any subscribed clients of the uncaught exception
-        Metadata metadata = new Metadata();
-        String violationDesc = null;
-
-        if (strictModeThrowable) { // add strictmode policy violation to metadata
-            violationDesc = strictModeHandler.getViolationDescription(throwable.getMessage());
-            metadata = new Metadata();
-            metadata.addMetadata(STRICT_MODE_TAB, STRICT_MODE_KEY, violationDesc);
-        }
-
-        String severityReason = strictModeThrowable
-                ? SeverityReason.REASON_STRICT_MODE : SeverityReason.REASON_UNHANDLED_EXCEPTION;
-
-        if (strictModeThrowable) { // writes to disk on main thread
-            StrictMode.ThreadPolicy originalThreadPolicy = StrictMode.getThreadPolicy();
-            StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.LAX);
-
-            client.notifyUnhandledException(throwable,
-                    metadata, severityReason, violationDesc);
-
-            StrictMode.setThreadPolicy(originalThreadPolicy);
-        } else {
-            client.notifyUnhandledException(throwable,
-                    metadata, severityReason, null);
-        }
-
+    private void forwardToOriginalHandler(@NonNull Thread thread, @NonNull Throwable throwable) {
         // Pass exception on to original exception handler
         if (originalHandler != null) {
             originalHandler.uncaughtException(thread, throwable);

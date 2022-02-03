@@ -36,7 +36,7 @@ open class Device internal constructor(
      * A collection of names and their versions of the primary languages, frameworks or
      * runtimes that the application is running on
      */
-    var runtimeVersions: MutableMap<String, Any>?
+    runtimeVersions: MutableMap<String, Any>?
 ) : JsonStream.Streamable {
 
     /**
@@ -59,6 +59,11 @@ open class Device internal constructor(
      */
     var osVersion: String? = buildInfo.osVersion
 
+    var runtimeVersions: MutableMap<String, Any>? = sanitizeRuntimeVersions(runtimeVersions)
+        set(value) {
+            field = sanitizeRuntimeVersions(value)
+        }
+
     internal open fun serializeFields(writer: JsonStream) {
         writer.name("cpuAbi").value(cpuAbi)
         writer.name("jailbroken").value(jailbroken)
@@ -77,4 +82,7 @@ open class Device internal constructor(
         serializeFields(writer)
         writer.endObject()
     }
+
+    private fun sanitizeRuntimeVersions(value: MutableMap<String, Any>?): MutableMap<String, Any>? =
+        value?.mapValuesTo(mutableMapOf()) { (_, value) -> value.toString() }
 }

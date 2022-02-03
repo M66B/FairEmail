@@ -105,32 +105,38 @@ internal class DefaultDelivery(
     }
 
     private fun logRequestInfo(code: Int, conn: HttpURLConnection, status: DeliveryStatus) {
-        logger.i(
-            "Request completed with code $code, " +
-                "message: ${conn.responseMessage}, " +
-                "headers: ${conn.headerFields}"
-        )
-
-        conn.inputStream.bufferedReader().use {
-            logger.d("Received request response: ${it.readText()}")
+        runCatching {
+            logger.i(
+                "Request completed with code $code, " +
+                    "message: ${conn.responseMessage}, " +
+                    "headers: ${conn.headerFields}"
+            )
+        }
+        runCatching {
+            conn.inputStream.bufferedReader().use {
+                logger.d("Received request response: ${it.readText()}")
+            }
         }
 
-        if (status != DeliveryStatus.DELIVERED) {
-            conn.errorStream.bufferedReader().use {
-                logger.w("Request error details: ${it.readText()}")
+        runCatching {
+            if (status != DeliveryStatus.DELIVERED) {
+                conn.errorStream.bufferedReader().use {
+                    logger.w("Request error details: ${it.readText()}")
+                }
             }
         }
     }
 
     internal fun getDeliveryStatus(responseCode: Int): DeliveryStatus {
-        val unrecoverableCodes = IntRange(HTTP_BAD_REQUEST, 499).filter {
-            it != HTTP_CLIENT_TIMEOUT && it != 429
-        }
-
-        return when (responseCode) {
-            in HTTP_OK..299 -> DeliveryStatus.DELIVERED
-            in unrecoverableCodes -> DeliveryStatus.FAILURE
+        return when {
+            responseCode in HTTP_OK..299 -> DeliveryStatus.DELIVERED
+            isUnrecoverableStatusCode(responseCode) -> DeliveryStatus.FAILURE
             else -> DeliveryStatus.UNDELIVERED
         }
     }
+
+    private fun isUnrecoverableStatusCode(responseCode: Int) =
+        responseCode in HTTP_BAD_REQUEST..499 && // 400-499 are considered unrecoverable
+            responseCode != HTTP_CLIENT_TIMEOUT && // except for 408
+            responseCode != 429 // and 429
 }

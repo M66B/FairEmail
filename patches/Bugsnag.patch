@@ -1,17 +1,8 @@
-From 3270faf44aea11754c940ba43ee6db72b7462f14 Mon Sep 17 00:00:00 2001
-From: M66B <M66B@users.noreply.github.com>
-Date: Sat, 15 May 2021 22:07:24 +0200
-Subject: [PATCH] Bugsnag failure on I/O error
-
----
- app/src/main/java/com/bugsnag/android/DefaultDelivery.kt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 diff --git a/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt b/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt
-index a7995164cb4e..5620f0bacd80 100644
+index 0ce2eec8c..e1bac196e 100644
 --- a/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt
 +++ b/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt
-@@ -64,7 +64,7 @@ internal class DefaultDelivery(
+@@ -66,7 +66,7 @@ internal class DefaultDelivery(
              return DeliveryStatus.UNDELIVERED
          } catch (exception: IOException) {
              logger.w("IOException encountered in request", exception)
@@ -20,3 +11,30 @@ index a7995164cb4e..5620f0bacd80 100644
          } catch (exception: Exception) {
              logger.w("Unexpected error delivering payload", exception)
              return DeliveryStatus.FAILURE
+diff --git a/patches/Bugsnag.patch b/patches/Bugsnag.patch
+index 25c19fd4c..e69de29bb 100644
+--- a/patches/Bugsnag.patch
++++ b/patches/Bugsnag.patch
+@@ -1,22 +0,0 @@
+-From 3270faf44aea11754c940ba43ee6db72b7462f14 Mon Sep 17 00:00:00 2001
+-From: M66B <M66B@users.noreply.github.com>
+-Date: Sat, 15 May 2021 22:07:24 +0200
+-Subject: [PATCH] Bugsnag failure on I/O error
+-
+----
+- app/src/main/java/com/bugsnag/android/DefaultDelivery.kt | 2 +-
+- 1 file changed, 1 insertion(+), 1 deletion(-)
+-
+-diff --git a/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt b/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt
+-index a7995164cb4e..5620f0bacd80 100644
+---- a/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt
+-+++ b/app/src/main/java/com/bugsnag/android/DefaultDelivery.kt
+-@@ -64,7 +64,7 @@ internal class DefaultDelivery(
+-             return DeliveryStatus.UNDELIVERED
+-         } catch (exception: IOException) {
+-             logger.w("IOException encountered in request", exception)
+--            return DeliveryStatus.UNDELIVERED
+-+            return DeliveryStatus.FAILURE
+-         } catch (exception: Exception) {
+-             logger.w("Unexpected error delivering payload", exception)
+-             return DeliveryStatus.FAILURE

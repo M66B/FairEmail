@@ -15,7 +15,8 @@ internal class EventStorageModule(
     bgTaskService: BackgroundTaskService,
     trackerModule: TrackerModule,
     systemServiceModule: SystemServiceModule,
-    notifier: Notifier
+    notifier: Notifier,
+    callbackState: CallbackState
 ) : DependencyModule() {
 
     private val cfg = configModule.config
@@ -34,5 +35,5 @@ internal class EventStorageModule(
         )
     }
 
-    val eventStore by future { EventStore(cfg, cfg.logger, notifier, bgTaskService, delegate) }
+    val eventStore by future { EventStore(cfg, cfg.logger, notifier, bgTaskService, delegate, callbackState) }
 }

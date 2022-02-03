@@ -33,6 +33,13 @@ public class JsonStream extends JsonWriter {
         objectJsonStreamer = new ObjectJsonStreamer();
     }
 
+    JsonStream(@NonNull JsonStream stream, @NonNull ObjectJsonStreamer streamer) {
+        super(stream.out);
+        setSerializeNulls(stream.getSerializeNulls());
+        this.out = stream.out;
+        this.objectJsonStreamer = streamer;
+    }
+
     // Allow chaining name().value()
     @NonNull
     public JsonStream name(@Nullable String name) throws IOException {

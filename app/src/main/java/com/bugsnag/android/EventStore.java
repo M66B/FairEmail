@@ -29,6 +29,7 @@ class EventStore extends FileStore {
     private final Delegate delegate;
     private final Notifier notifier;
     private final BackgroundTaskService bgTaskSevice;
+    private final CallbackState callbackState;
     final Logger logger;
 
     static final Comparator<File> EVENT_COMPARATOR = new Comparator<File>() {
@@ -51,7 +52,8 @@ class EventStore extends FileStore {
                @NonNull Logger logger,
                Notifier notifier,
                BackgroundTaskService bgTaskSevice,
-               Delegate delegate) {
+               Delegate delegate,
+               CallbackState callbackState) {
         super(new File(config.getPersistenceDirectory().getValue(), "bugsnag-errors"),
                 config.getMaxPersistedEvents(),
                 EVENT_COMPARATOR,
@@ -62,6 +64,7 @@ class EventStore extends FileStore {
         this.delegate = delegate;
         this.notifier = notifier;
         this.bgTaskSevice = bgTaskSevice;
+        this.callbackState = callbackState;
     }
 
     /**
@@ -162,30 +165,61 @@ class EventStore extends FileStore {
         try {
             EventFilenameInfo eventInfo = EventFilenameInfo.Companion.fromFile(eventFile, config);
             String apiKey = eventInfo.getApiKey();
-            EventPayload payload = new EventPayload(apiKey, null, eventFile, notifier, config);
-            DeliveryParams deliveryParams = config.getErrorApiDeliveryParams(payload);
-            Delivery delivery = config.getDelivery();
-            DeliveryStatus deliveryStatus = delivery.deliver(payload, deliveryParams);
+            EventPayload payload = createEventPayload(eventFile, apiKey);
 
-            switch (deliveryStatus) {
-                case DELIVERED:
-                    deleteStoredFiles(Collections.singleton(eventFile));
-                    logger.i("Deleting sent error file " + eventFile.getName());
-                    break;
-                case UNDELIVERED:
-                    cancelQueuedFiles(Collections.singleton(eventFile));
-                    logger.w("Could not send previously saved error(s)"
-                            + " to Bugsnag, will try again later");
-                    break;
-                case FAILURE:
-                    Exception exc = new RuntimeException("Failed to deliver event payload");
-                    handleEventFlushFailure(exc, eventFile);
-                    break;
-                default:
-                    break;
+            if (payload == null) {
+                deleteStoredFiles(Collections.singleton(eventFile));
+            } else {
+                deliverEventPayload(eventFile, payload);
             }
         } catch (Exception exception) {
             handleEventFlushFailure(exception, eventFile);
+        }
+    }
+
+    private void deliverEventPayload(File eventFile, EventPayload payload) {
+        DeliveryParams deliveryParams = config.getErrorApiDeliveryParams(payload);
+        Delivery delivery = config.getDelivery();
+        DeliveryStatus deliveryStatus = delivery.deliver(payload, deliveryParams);
+
+        switch (deliveryStatus) {
+            case DELIVERED:
+                deleteStoredFiles(Collections.singleton(eventFile));
+                logger.i("Deleting sent error file " + eventFile.getName());
+                break;
+            case UNDELIVERED:
+                cancelQueuedFiles(Collections.singleton(eventFile));
+                logger.w("Could not send previously saved error(s)"
+                        + " to Bugsnag, will try again later");
+                break;
+            case FAILURE:
+                Exception exc = new RuntimeException("Failed to deliver event payload");
+                handleEventFlushFailure(exc, eventFile);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Nullable
+    private EventPayload createEventPayload(File eventFile, String apiKey) {
+        MarshalledEventSource eventSource = new MarshalledEventSource(eventFile, apiKey, logger);
+
+        try {
+            if (!callbackState.runOnSendTasks(eventSource, logger)) {
+                // do not send the payload at all, we must block sending
+                return null;
+            }
+        } catch (Exception ioe) {
+            eventSource.clear();
+        }
+
+        Event processedEvent = eventSource.getEvent();
+        if (processedEvent != null) {
+            apiKey = processedEvent.getApiKey();
+            return new EventPayload(apiKey, processedEvent, null, notifier, config);
+        } else {
+            return new EventPayload(apiKey, null, eventFile, notifier, config);
         }
     }
 

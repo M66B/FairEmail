@@ -16,6 +16,11 @@ public class Breadcrumb implements JsonStream.Streamable {
     final BreadcrumbInternal impl;
     private final Logger logger;
 
+    Breadcrumb(@NonNull BreadcrumbInternal impl, @NonNull Logger logger) {
+        this.impl = impl;
+        this.logger = logger;
+    }
+
     Breadcrumb(@NonNull String message, @NonNull Logger logger) {
         this.impl = new BreadcrumbInternal(message);
         this.logger = logger;

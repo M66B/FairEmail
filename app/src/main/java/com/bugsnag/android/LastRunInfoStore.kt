@@ -89,7 +89,8 @@ private class KeyValueWriter {
     private val sb = StringBuilder()
 
     fun add(key: String, value: Any) {
-        sb.appendln("$key$KEY_VALUE_DELIMITER$value")
+        sb.append("$key$KEY_VALUE_DELIMITER$value")
+        sb.append("\n")
     }
 
     override fun toString() = sb.toString()

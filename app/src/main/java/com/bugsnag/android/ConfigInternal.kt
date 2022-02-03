@@ -3,7 +3,9 @@ package com.bugsnag.android
 import android.content.Context
 import java.io.File
 
-internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware, UserAware {
+internal class ConfigInternal(
+    var apiKey: String
+) : CallbackAware, MetadataAware, UserAware, FeatureFlagAware {
 
     private var user = User()
 
@@ -12,6 +14,9 @@ internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware
 
     @JvmField
     internal val metadataState: MetadataState = MetadataState()
+
+    @JvmField
+    internal val featureFlagState: FeatureFlagState = FeatureFlagState()
 
     var appVersion: String? = null
     var versionCode: Int? = 0
@@ -61,6 +66,8 @@ internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware
         callbackState.removeOnBreadcrumb(onBreadcrumb)
     override fun addOnSession(onSession: OnSessionCallback) = callbackState.addOnSession(onSession)
     override fun removeOnSession(onSession: OnSessionCallback) = callbackState.removeOnSession(onSession)
+    fun addOnSend(onSend: OnSendCallback) = callbackState.addOnSend(onSend)
+    fun removeOnSend(onSend: OnSendCallback) = callbackState.removeOnSend(onSend)
 
     override fun addMetadata(section: String, value: Map<String, Any?>) =
         metadataState.addMetadata(section, value)
@@ -70,6 +77,14 @@ internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware
     override fun clearMetadata(section: String, key: String) = metadataState.clearMetadata(section, key)
     override fun getMetadata(section: String) = metadataState.getMetadata(section)
     override fun getMetadata(section: String, key: String) = metadataState.getMetadata(section, key)
+
+    override fun addFeatureFlag(name: String) = featureFlagState.addFeatureFlag(name)
+    override fun addFeatureFlag(name: String, variant: String?) =
+        featureFlagState.addFeatureFlag(name, variant)
+    override fun addFeatureFlags(featureFlags: Iterable<FeatureFlag>) =
+        featureFlagState.addFeatureFlags(featureFlags)
+    override fun clearFeatureFlag(name: String) = featureFlagState.clearFeatureFlag(name)
+    override fun clearFeatureFlags() = featureFlagState.clearFeatureFlags()
 
     override fun getUser(): User = user
     override fun setUser(id: String?, email: String?, name: String?) {

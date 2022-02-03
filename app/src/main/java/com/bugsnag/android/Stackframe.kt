@@ -10,28 +10,16 @@ class Stackframe : JsonStream.Streamable {
      * The name of the method that was being executed
      */
     var method: String?
-        set(value) {
-            nativeFrame?.method = value
-            field = value
-        }
 
     /**
      * The location of the source file
      */
     var file: String?
-        set(value) {
-            nativeFrame?.file = value
-            field = value
-        }
 
     /**
      * The line number within the source file this stackframe refers to
      */
     var lineNumber: Number?
-        set(value) {
-            nativeFrame?.lineNumber = value
-            field = value
-        }
 
     /**
      * Whether the package is considered to be in your project for the purposes of grouping and
@@ -51,13 +39,29 @@ class Stackframe : JsonStream.Streamable {
     var columnNumber: Number?
 
     /**
+     * The address of the instruction where the event occurred.
+     */
+    var frameAddress: Long? = null
+
+    /**
+     * The address of the function where the event occurred.
+     */
+    var symbolAddress: Long? = null
+
+    /**
+     * The address of the library where the event occurred.
+     */
+    var loadAddress: Long? = null
+
+    /**
+     * Whether this frame identifies the program counter
+     */
+    var isPC: Boolean? = null
+
+    /**
      * The type of the error
      */
     var type: ErrorType? = null
-        set(value) {
-            nativeFrame?.type = value
-            field = value
-        }
 
     @JvmOverloads
     internal constructor(
@@ -76,33 +80,51 @@ class Stackframe : JsonStream.Streamable {
         this.columnNumber = columnNumber
     }
 
-    private var nativeFrame: NativeStackframe? = null
-
     constructor(nativeFrame: NativeStackframe) : this(
         nativeFrame.method,
         nativeFrame.file,
         nativeFrame.lineNumber,
-        false,
+        null,
         null
     ) {
-        this.nativeFrame = nativeFrame
+        this.frameAddress = nativeFrame.frameAddress
+        this.symbolAddress = nativeFrame.symbolAddress
+        this.loadAddress = nativeFrame.loadAddress
+        this.isPC = nativeFrame.isPC
         this.type = nativeFrame.type
+    }
+
+    internal constructor(json: Map<String, Any?>) {
+        method = json["method"] as? String
+        file = json["file"] as? String
+        lineNumber = json["lineNumber"] as? Number
+        inProject = json["inProject"] as? Boolean
+        columnNumber = json["columnNumber"] as? Number
+        frameAddress = (json["frameAddress"] as? Number)?.toLong()
+        symbolAddress = (json["symbolAddress"] as? Number)?.toLong()
+        loadAddress = (json["loadAddress"] as? Number)?.toLong()
+        isPC = json["isPC"] as? Boolean
+
+        @Suppress("UNCHECKED_CAST")
+        code = json["code"] as? Map<String, String?>
+        type = (json["type"] as? String)?.let { ErrorType.fromDescriptor(it) }
     }
 
     @Throws(IOException::class)
     override fun toStream(writer: JsonStream) {
-        val ndkFrame = nativeFrame
-        if (ndkFrame != null) {
-            ndkFrame.toStream(writer)
-            return
-        }
-
         writer.beginObject()
         writer.name("method").value(method)
         writer.name("file").value(file)
         writer.name("lineNumber").value(lineNumber)
-        writer.name("inProject").value(inProject)
+
+        inProject?.let { writer.name("inProject").value(it) }
+
         writer.name("columnNumber").value(columnNumber)
+
+        frameAddress?.let { writer.name("frameAddress").value(it) }
+        symbolAddress?.let { writer.name("symbolAddress").value(it) }
+        loadAddress?.let { writer.name("loadAddress").value(it) }
+        isPC?.let { writer.name("isPC").value(it) }
 
         type?.let {
             writer.name("type").value(it.desc)

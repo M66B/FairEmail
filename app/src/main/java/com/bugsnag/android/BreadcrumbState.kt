@@ -1,6 +1,5 @@
 package com.bugsnag.android
 
-import com.bugsnag.android.internal.DateUtils
 import java.io.IOException
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -43,7 +42,8 @@ internal class BreadcrumbState(
             StateEvent.AddBreadcrumb(
                 breadcrumb.impl.message,
                 breadcrumb.impl.type,
-                DateUtils.toIso8601(breadcrumb.impl.timestamp),
+                // an encoding of milliseconds since the epoch
+                "t${breadcrumb.impl.timestamp.time}",
                 breadcrumb.impl.metadata ?: mutableMapOf()
             )
         }

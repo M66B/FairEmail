@@ -17,4 +17,8 @@ enum class Severity(private val str: String) : JsonStream.Streamable {
     override fun toStream(writer: JsonStream) {
         writer.value(str)
     }
+
+    internal companion object {
+        internal fun fromDescriptor(desc: String) = values().find { it.str == desc }
+    }
 }

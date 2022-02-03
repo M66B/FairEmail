@@ -16,7 +16,7 @@ import java.util.Set;
  * specified at the client level, api-key and endpoint configuration.
  */
 @SuppressWarnings("ConstantConditions") // suppress warning about making redundant null checks
-public class Configuration implements CallbackAware, MetadataAware, UserAware {
+public class Configuration implements CallbackAware, MetadataAware, UserAware, FeatureFlagAware {
 
     private static final int MIN_BREADCRUMBS = 0;
     private static final int MAX_BREADCRUMBS = 100;
@@ -874,6 +874,38 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
     }
 
     /**
+     * Add a callback which will be invoked prior to an event being delivered
+     * to Bugsnag. The callback can be used to modify events or cancel
+     * delivering the event altogether by returning <code>false</code>. Note
+     * that the callback may be invoked in the current or a subsequent app
+     * launch depending on whether the app terminated prior to delivering the
+     * event.
+     *
+     * @param onSend the callback to add
+     * @see OnSendCallback
+     */
+    public void addOnSend(@NonNull OnSendCallback onSend) {
+        if (onSend != null) {
+            impl.addOnSend(onSend);
+        } else {
+            logNull("addOnSend");
+        }
+    }
+
+    /**
+     * Remove a callback previously added with {@link Configuration#addOnSend(OnSendCallback)}
+     *
+     * @param onSend the callback to remove
+     */
+    public void removeOnSend(@NonNull OnSendCallback onSend) {
+        if (onSend != null) {
+            impl.removeOnSend(onSend);
+        } else {
+            logNull("removeOnSend");
+        }
+    }
+
+    /**
      * Adds a map of multiple metadata key-value pairs to the specified section.
      */
     @Override
@@ -948,6 +980,62 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
             logNull("getMetadata");
             return null;
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addFeatureFlag(@NonNull String name) {
+        if (name != null) {
+            impl.addFeatureFlag(name);
+        } else {
+            logNull("addFeatureFlag");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addFeatureFlag(@NonNull String name, @Nullable String variant) {
+        if (name != null) {
+            impl.addFeatureFlag(name, variant);
+        } else {
+            logNull("addFeatureFlag");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addFeatureFlags(@NonNull Iterable<FeatureFlag> featureFlags) {
+        if (featureFlags != null) {
+            impl.addFeatureFlags(featureFlags);
+        } else {
+            logNull("addFeatureFlags");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void clearFeatureFlag(@NonNull String name) {
+        if (name != null) {
+            impl.clearFeatureFlag(name);
+        } else {
+            logNull("clearFeatureFlag");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void clearFeatureFlags() {
+        impl.clearFeatureFlags();
     }
 
     /**

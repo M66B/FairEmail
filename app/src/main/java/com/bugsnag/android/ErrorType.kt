@@ -18,5 +18,9 @@ enum class ErrorType(internal val desc: String) {
     /**
      * An error captured from Android's C layer
      */
-    C("c")
+    C("c");
+
+    internal companion object {
+        internal fun fromDescriptor(desc: String) = values().find { it.desc == desc }
+    }
 }

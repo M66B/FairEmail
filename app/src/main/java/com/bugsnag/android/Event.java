@@ -6,8 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * An Event object represents a Throwable captured by Bugsnag and is available as a parameter on
@@ -15,7 +17,7 @@ import java.util.Map;
  * sent to Bugsnag's API.
  */
 @SuppressWarnings("ConstantConditions")
-public class Event implements JsonStream.Streamable, MetadataAware, UserAware {
+public class Event implements JsonStream.Streamable, MetadataAware, UserAware, FeatureFlagAware {
 
     private final EventInternal impl;
     private final Logger logger;
@@ -24,15 +26,17 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware {
           @NonNull ImmutableConfig config,
           @NonNull SeverityReason severityReason,
           @NonNull Logger logger) {
-        this(originalError, config, severityReason, new Metadata(), logger);
+        this(originalError, config, severityReason, new Metadata(), new FeatureFlags(), logger);
     }
 
     Event(@Nullable Throwable originalError,
           @NonNull ImmutableConfig config,
           @NonNull SeverityReason severityReason,
           @NonNull Metadata metadata,
+          @NonNull FeatureFlags featureFlags,
           @NonNull Logger logger) {
-        this(new EventInternal(originalError, config, severityReason, metadata), logger);
+        this(new EventInternal(originalError, config, severityReason, metadata, featureFlags),
+                logger);
     }
 
     Event(@NonNull EventInternal impl, @NonNull Logger logger) {
@@ -283,6 +287,62 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addFeatureFlag(@NonNull String name) {
+        if (name != null) {
+            impl.addFeatureFlag(name);
+        } else {
+            logNull("addFeatureFlag");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addFeatureFlag(@NonNull String name, @Nullable String variant) {
+        if (name != null) {
+            impl.addFeatureFlag(name, variant);
+        } else {
+            logNull("addFeatureFlag");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addFeatureFlags(@NonNull Iterable<FeatureFlag> featureFlags) {
+        if (featureFlags != null) {
+            impl.addFeatureFlags(featureFlags);
+        } else {
+            logNull("addFeatureFlags");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void clearFeatureFlag(@NonNull String name) {
+        if (name != null) {
+            impl.clearFeatureFlag(name);
+        } else {
+            logNull("clearFeatureFlag");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void clearFeatureFlags() {
+        impl.clearFeatureFlags();
+    }
+
     @Override
     public void toStream(@NonNull JsonStream stream) throws IOException {
         impl.toStream(stream);
@@ -347,5 +407,9 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware {
 
     EventInternal getImpl() {
         return impl;
+    }
+
+    void setRedactedKeys(Collection<String> redactedKeys) {
+        impl.setRedactedKeys(redactedKeys);
     }
 }

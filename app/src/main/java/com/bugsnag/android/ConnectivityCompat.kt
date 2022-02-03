@@ -9,6 +9,9 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.annotation.VisibleForTesting
+import com.bugsnag.android.UnknownConnectivity.retrieveNetworkAccessState
+import java.util.concurrent.atomic.AtomicBoolean
 
 internal typealias NetworkChangeCallback = (hasConnection: Boolean, networkState: String) -> Unit
 
@@ -89,10 +92,16 @@ internal class ConnectivityLegacy(
         }
     }
 
-    private inner class ConnectivityChangeReceiver(private val cb: NetworkChangeCallback?) :
-        BroadcastReceiver() {
+    private inner class ConnectivityChangeReceiver(
+        private val cb: NetworkChangeCallback?
+    ) : BroadcastReceiver() {
+
+        private val receivedFirstCallback = AtomicBoolean(false)
+
         override fun onReceive(context: Context, intent: Intent) {
-            cb?.invoke(hasNetworkConnection(), retrieveNetworkAccessState())
+            if (receivedFirstCallback.getAndSet(true)) {
+                cb?.invoke(hasNetworkConnection(), retrieveNetworkAccessState())
+            }
         }
     }
 }
@@ -122,22 +131,38 @@ internal class ConnectivityApi24(
         }
     }
 
-    private inner class ConnectivityTrackerCallback(private val cb: NetworkChangeCallback?) :
-        ConnectivityManager.NetworkCallback() {
+    @VisibleForTesting
+    internal class ConnectivityTrackerCallback(
+        private val cb: NetworkChangeCallback?
+    ) : ConnectivityManager.NetworkCallback() {
+
+        private val receivedFirstCallback = AtomicBoolean(false)
+
         override fun onUnavailable() {
             super.onUnavailable()
-            cb?.invoke(false, retrieveNetworkAccessState())
+            invokeNetworkCallback(false)
         }
 
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
-            cb?.invoke(true, retrieveNetworkAccessState())
+            invokeNetworkCallback(true)
+        }
+
+        /**
+         * Invokes the network callback, as long as the ConnectivityManager callback has been
+         * triggered at least once before (when setting a NetworkCallback Android always
+         * invokes the callback with the current network state).
+         */
+        private fun invokeNetworkCallback(hasConnection: Boolean) {
+            if (receivedFirstCallback.getAndSet(true)) {
+                cb?.invoke(hasConnection, retrieveNetworkAccessState())
+            }
         }
     }
 }
 
 /**
- * Connectivity used in cases where we cannot access the system  ConnectivityManager.
+ * Connectivity used in cases where we cannot access the system ConnectivityManager.
  * We assume that there is some sort of network and do not attempt to report any network changes.
  */
 internal object UnknownConnectivity : Connectivity {
