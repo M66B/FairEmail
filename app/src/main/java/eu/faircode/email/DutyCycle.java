@@ -31,8 +31,8 @@ public class DutyCycle {
     private long idle = 0;
     private long busy = 0;
 
-    private static final long YIELD_INTERVAL = 15 * 1000L; // milliseconds
-    private static final long YIELD_DURATION = 1500L; // milliseconds
+    private static final long YIELD_INTERVAL = 10 * 1000L; // milliseconds
+    private static final long YIELD_DURATION = 2000L; // milliseconds
 
     public DutyCycle(String name) {
         this(name, YIELD_INTERVAL, YIELD_DURATION);
