@@ -54,6 +54,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -342,6 +343,7 @@ public class DeepL {
             boolean pro = prefs.getBoolean("deepl_pro", false);
             boolean formal = prefs.getBoolean("deepl_formal", true);
             boolean small = prefs.getBoolean("deepl_small", false);
+            int subscription = prefs.getInt("deepl_subscription", BuildConfig.DEBUG ? 17 : 0);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
@@ -406,10 +408,28 @@ public class DeepL {
 
                     @Override
                     protected void onExecuted(Bundle args, Integer[] usage) {
-                        tvUsage.setText(getString(R.string.title_translate_usage,
+                        String used = getString(R.string.title_translate_usage,
                                 Helper.humanReadableByteCount(usage[0]),
                                 Helper.humanReadableByteCount(usage[1]),
-                                Math.round(100f * usage[0] / usage[1])));
+                                Math.round(100f * usage[0] / usage[1]));
+
+                        if (subscription > 0) {
+                            Calendar next = Calendar.getInstance();
+                            next.set(Calendar.MILLISECOND, 0);
+                            next.set(Calendar.SECOND, 0);
+                            next.set(Calendar.MINUTE, 0);
+                            next.set(Calendar.HOUR, 0);
+                            long today = next.getTimeInMillis();
+                            if (next.get(Calendar.DATE) > subscription)
+                                next.add(Calendar.MONTH, 1);
+                            next.set(Calendar.DATE, subscription);
+                            int remaining = (int) ((next.getTimeInMillis() - today) / (24 * 3600 * 1000L));
+
+                            if (remaining > 0)
+                                used += " +" + remaining;
+                        }
+
+                        tvUsage.setText(used);
                         tvUsage.setVisibility(View.VISIBLE);
                     }
 
