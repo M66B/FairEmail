@@ -1193,6 +1193,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onState(Intent intent) {
         foreground = intent.getBooleanExtra("foreground", false);
+        for (Core.State state : coreStates.values())
+            state.setForeground(foreground);
     }
 
     private void onPoll(Intent intent) {
@@ -1992,7 +1994,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         iservice, ifolder,
                                                                         state, serial);
                                                             } finally {
-                                                                dc.stop();
+                                                                dc.stop(state.getForeground());
                                                             }
 
                                                         } catch (Throwable ex) {

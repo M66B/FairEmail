@@ -3559,7 +3559,7 @@ class Core {
                             } finally {
                                 // Free memory
                                 isub[j] = null;
-                                dc.stop();
+                                dc.stop(state.getForeground());
                             }
                         }
                     }
@@ -3647,7 +3647,7 @@ class Core {
                         } finally {
                             // Free memory
                             isub[j] = null;
-                            dc.stop();
+                            dc.stop(state.getForeground());
                         }
                     }
                 }
@@ -5625,6 +5625,7 @@ class Core {
         private Thread thread = new Thread();
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
+        private boolean foreground = false;
         private boolean recoverable = true;
         private Throwable unrecoverable = null;
         private Long lastActivity = null;
@@ -5807,6 +5808,14 @@ class Core {
 
         long getSerial() {
             return serial;
+        }
+
+        void setForeground(boolean value) {
+            this.foreground = value;
+        }
+
+        boolean getForeground() {
+            return this.foreground;
         }
 
         @NonNull

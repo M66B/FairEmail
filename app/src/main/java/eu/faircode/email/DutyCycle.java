@@ -48,7 +48,7 @@ public class DutyCycle {
         start = new Date().getTime();
     }
 
-    public void stop() {
+    public void stop(boolean foreground) {
         long end = new Date().getTime();
 
         if (last != null)
@@ -59,8 +59,9 @@ public class DutyCycle {
 
         if (busy + idle > interval) {
             long wait = (duration - idle);
-            Log.i(name + " busy=" + busy + " idle=" + idle + " wait=" + wait);
-            if (wait > 0) {
+            Log.i(name + " busy=" + busy + " idle=" + idle +
+                    " wait=" + wait + " foreground=" + foreground);
+            if (wait > 0 && foreground) {
                 try {
                     Thread.sleep(wait);
                 } catch (InterruptedException ex) {
