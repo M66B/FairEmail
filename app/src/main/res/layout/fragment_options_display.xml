@@ -433,6 +433,29 @@
                     app:layout_constraintTop_toBottomOf="@id/tvLandscapeSplitMinHint"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvColumnWidth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_column_width"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swClosePane" />
+
+                <SeekBar
+                    android:id="@+id/sbColumnWidth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:min="0"
+                    android:progress="66"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvColumnWidth" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNavOptions"
                     android:layout_width="0dp"
@@ -441,7 +464,7 @@
                     android:text="@string/title_advanced_nav_options"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swClosePane"
+                    app:layout_constraintTop_toBottomOf="@id/sbColumnWidth"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

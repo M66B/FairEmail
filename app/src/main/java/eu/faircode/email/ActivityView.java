@@ -220,6 +220,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Log.i("Orientation=" + config.orientation + " layout=" + layout +
                 " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
                 " landscape cols=" + landscape + " min=" + landscape);
+        boolean duo = Helper.isSurfaceDuo();
 
         // 1=small, 2=normal, 3=large, 4=xlarge
         if (layout > 0)
@@ -244,17 +245,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         content_separator = findViewById(R.id.content_separator);
         content_pane = findViewById(R.id.content_pane);
 
-        // Special: Surface Duo
-        boolean duo = Helper.isSurfaceDuo();
-        if (duo && content_pane != null) {
-            View content_frame = findViewById(R.id.content_frame);
-            ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
-            if (lparam instanceof LinearLayout.LayoutParams) {
-                ((LinearLayout.LayoutParams) lparam).weight = 1; // 50/50
-                content_frame.setLayoutParams(lparam);
+        if (content_pane != null) {
+            // Special: Surface Duo
+            if (duo) {
+                View content_frame = findViewById(R.id.content_frame);
+                ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
+                if (lparam instanceof LinearLayout.LayoutParams) {
+                    ((LinearLayout.LayoutParams) lparam).weight = 1; // 50/50
+                    content_frame.setLayoutParams(lparam);
+                }
+                // https://docs.microsoft.com/en-us/dual-screen/android/duo-dimensions
+                content_separator.getLayoutParams().width = Helper.dp2pixels(this, 34);
+            } else {
+                int column_width = prefs.getInt("column_width", 67);
+                ViewGroup.LayoutParams lparam = content_pane.getLayoutParams();
+                if (lparam instanceof LinearLayout.LayoutParams) {
+                    ((LinearLayout.LayoutParams) lparam).weight =
+                            (float) (100 - column_width) / column_width * 2;
+                    content_pane.setLayoutParams(lparam);
+                }
             }
-            // https://docs.microsoft.com/en-us/dual-screen/android/duo-dimensions
-            content_separator.getLayoutParams().width = Helper.dp2pixels(this, 34);
         }
 
         owner = new TwoStateOwner(this, "drawer");

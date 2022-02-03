@@ -2,6 +2,11 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### Next version
+
+* Added slider to change message column width
+* Small improvements and minor bug fixes
+
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
 ### 1.1830 - 2022-02-02
