@@ -33,7 +33,6 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
-import android.view.InflateException;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -352,7 +351,29 @@ public class FragmentOptions extends FragmentBase {
                         query != null && query.length() > 0)
                     new SimpleTask<SuggestData>() {
                         @Override
-                        protected SuggestData onExecute(Context context, Bundle args) throws Throwable {
+                        protected SuggestData onExecute(Context context, Bundle args) {
+                            return getSuggestData(context);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, SuggestData result) {
+                            data = result;
+                            _suggest(query);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.w(ex);
+                            try {
+                                // Fallback to UI thread (Android 5.1.1)
+                                data = getSuggestData(getContext());
+                                _suggest(query);
+                            } catch (Throwable exex) {
+                                Log.unexpectedError(getParentFragmentManager(), exex);
+                            }
+                        }
+
+                        private SuggestData getSuggestData(Context context) {
                             SuggestData data = new SuggestData();
                             data.titles = new String[TAB_PAGES.length];
                             data.views = new View[TAB_PAGES.length];
@@ -364,57 +385,6 @@ public class FragmentOptions extends FragmentBase {
                             }
 
                             return data;
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, SuggestData result) {
-                            data = result;
-                            _suggest(query);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            /*
-                                android.view.InflateException: Binary XML file line #158: Error inflating class Spinner
-                                    at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:782)
-                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:825)
-                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:828)
-                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:828)
-                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:828)
-                                    at android.view.LayoutInflater.inflate(LayoutInflater.java:523)
-                                    at android.view.LayoutInflater.inflate(LayoutInflater.java:425)
-                                    at android.view.LayoutInflater.inflate(LayoutInflater.java:368)
-                                    at eu.faircode.email.FragmentOptions$4$1.onExecute(SourceFile:8)
-                                    at eu.faircode.email.FragmentOptions$4$1.onExecute(SourceFile:1)
-                                    at eu.faircode.email.SimpleTask$1.run(SourceFile:5)
-                                    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:422)
-                                    at java.util.concurrent.FutureTask.run(FutureTask.java:237)
-                                    at eu.faircode.email.Helper$PriorityFuture.run(SourceFile:1)
-                                    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
-                                    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
-                                    at java.lang.Thread.run(Thread.java:831)
-                                Caused by: java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
-                                    at android.os.Handler.<init>(Handler.java:200)
-                                    at android.os.Handler.<init>(Handler.java:114)
-                                    at android.widget.ListPopupWindow.<init>(ListPopupWindow.java:111)
-                                    at huawei.android.widget.ListPopupWindow.<init>(ListPopupWindow.java:91)
-                                    at android.widget.Spinner$DropdownPopup.<init>(Spinner.java:1065)
-                                    at android.widget.Spinner.<init>(Spinner.java:205)
-                                    at android.widget.Spinner.<init>(Spinner.java:144)
-                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:6)
-                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:5)
-                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:4)
-                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:3)
-                                    at androidx.appcompat.app.AppCompatViewInflater.createSpinner(SourceFile:1)
-                                    at androidx.appcompat.app.AppCompatViewInflater.createView(SourceFile:20)
-                                    at androidx.appcompat.app.AppCompatDelegateImpl.createView(SourceFile:21)
-                                    at androidx.appcompat.app.AppCompatDelegateImpl.onCreateView(SourceFile:1)
-                                    at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:744)
-                             */
-                            if (ex instanceof InflateException)
-                                Log.w(ex);
-                            else
-                                Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.setExecutor(executor)
                             .execute(FragmentOptions.this, new Bundle(), "option:suggest");
