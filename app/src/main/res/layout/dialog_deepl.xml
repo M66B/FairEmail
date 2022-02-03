@@ -63,13 +63,32 @@
             app:layout_constraintTop_toBottomOf="@id/etKey" />
 
         <CheckBox
+            android:id="@+id/cbFormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_translate_formal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPro" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvFormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Languages"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbFormal" />
+
+        <CheckBox
             android:id="@+id/cbSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_translate_small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPro" />
+            app:layout_constraintTop_toBottomOf="@id/tvFormal" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvUsage"

@@ -5,6 +5,7 @@
 ### Next version
 
 * Added slider to change message column width
+* Added option for formal/informal DeepL translation
 * Small improvements and minor bug fixes
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
