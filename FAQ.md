@@ -3221,7 +3221,7 @@ Please see these websites for lists of privacy oriented email providers with adv
 * [Privacy Guides](https://privacyguides.org/providers/email/)
 * [Privacy Tools](https://www.privacytools.io/providers/email/)
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
+**Important**: Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
 Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
