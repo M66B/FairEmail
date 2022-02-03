@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
+import android.view.InflateException;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -358,7 +359,7 @@ public class FragmentOptions extends FragmentBase {
 
                             LayoutInflater inflater = LayoutInflater.from(context);
                             for (int tab = 0; tab < TAB_PAGES.length; tab++) {
-                                data.titles[tab] = getString(PAGE_TITLES[tab]);
+                                data.titles[tab] = context.getString(PAGE_TITLES[tab]);
                                 data.views[tab] = inflater.inflate(TAB_PAGES[tab], null);
                             }
 
@@ -373,7 +374,47 @@ public class FragmentOptions extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(getParentFragmentManager(), ex);
+                            /*
+                                android.view.InflateException: Binary XML file line #158: Error inflating class Spinner
+                                    at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:782)
+                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:825)
+                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:828)
+                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:828)
+                                    at android.view.LayoutInflater.rInflate(LayoutInflater.java:828)
+                                    at android.view.LayoutInflater.inflate(LayoutInflater.java:523)
+                                    at android.view.LayoutInflater.inflate(LayoutInflater.java:425)
+                                    at android.view.LayoutInflater.inflate(LayoutInflater.java:368)
+                                    at eu.faircode.email.FragmentOptions$4$1.onExecute(SourceFile:8)
+                                    at eu.faircode.email.FragmentOptions$4$1.onExecute(SourceFile:1)
+                                    at eu.faircode.email.SimpleTask$1.run(SourceFile:5)
+                                    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:422)
+                                    at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+                                    at eu.faircode.email.Helper$PriorityFuture.run(SourceFile:1)
+                                    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+                                    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+                                    at java.lang.Thread.run(Thread.java:831)
+                                Caused by: java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
+                                    at android.os.Handler.<init>(Handler.java:200)
+                                    at android.os.Handler.<init>(Handler.java:114)
+                                    at android.widget.ListPopupWindow.<init>(ListPopupWindow.java:111)
+                                    at huawei.android.widget.ListPopupWindow.<init>(ListPopupWindow.java:91)
+                                    at android.widget.Spinner$DropdownPopup.<init>(Spinner.java:1065)
+                                    at android.widget.Spinner.<init>(Spinner.java:205)
+                                    at android.widget.Spinner.<init>(Spinner.java:144)
+                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:6)
+                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:5)
+                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:4)
+                                    at androidx.appcompat.widget.AppCompatSpinner.<init>(SourceFile:3)
+                                    at androidx.appcompat.app.AppCompatViewInflater.createSpinner(SourceFile:1)
+                                    at androidx.appcompat.app.AppCompatViewInflater.createView(SourceFile:20)
+                                    at androidx.appcompat.app.AppCompatDelegateImpl.createView(SourceFile:21)
+                                    at androidx.appcompat.app.AppCompatDelegateImpl.onCreateView(SourceFile:1)
+                                    at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:744)
+                             */
+                            if (ex instanceof InflateException)
+                                Log.w(ex);
+                            else
+                                Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.setExecutor(executor)
                             .execute(FragmentOptions.this, new Bundle(), "option:suggest");
