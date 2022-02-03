@@ -1134,7 +1134,7 @@ Please see the Play store description of the app or [see here](https://email.fai
 The right question is "*why are there so many taxes and fees?*":
 
 * VAT: 25 % (depending on your country)
-* Google fee: 30 %
+* Google fee: 15-30 %
 * Income tax: 50 %
 * <sub>Paypal fee: 5-10 % depending on the country/amount</sub>
 
@@ -1144,7 +1144,7 @@ Also note that most free apps will appear not to be sustainable in the end, wher
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 There are no privacy violating ads in the app either.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable.
+I have been working on FairEmail almost every day for more than three years, so I think the price is more than reasonable.
 For this reason there won't be discounts either.
 
 <br />
