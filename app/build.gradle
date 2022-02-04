@@ -538,7 +538,9 @@ dependencies {
     implementation "org.apache.poi:poi-scratchpad:$apache_poi"
 
     // https://github.com/bbottema/outlook-message-parser
-    implementation "org.simplejavamail:outlook-message-parser:$outlook_parser_version"
+    implementation("org.simplejavamail:outlook-message-parser:$outlook_parser_version") {
+        exclude group: "com.sun.activation", module: "jakarta.activation"
+    }
 
     // https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams
     // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
