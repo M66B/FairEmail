@@ -274,6 +274,7 @@ public class FragmentCompose extends FragmentBase {
 
     private boolean monospaced = false;
     private String compose_font;
+    private boolean dsn = true;
     private Integer encrypt = null;
     private boolean media = true;
     private boolean compact = false;
@@ -1586,8 +1587,8 @@ public class FragmentCompose extends FragmentBase {
         ImageButton ib = v.findViewById(R.id.button);
         TextView tv = v.findViewById(R.id.text);
 
-        v.setAlpha(state == State.LOADED ? 1f : Helper.LOW_LIGHT);
-        ib.setEnabled(state == State.LOADED);
+        v.setAlpha(state == State.LOADED && !dsn ? 1f : Helper.LOW_LIGHT);
+        ib.setEnabled(state == State.LOADED && !dsn);
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
             ib.setImageResource(R.drawable.twotone_gesture_24);
@@ -4267,21 +4268,23 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityLog.log(context, "Selected=" + selected.email);
 
-                    if (plain_only &&
-                            !"resend".equals(action) &&
-                            !"editasnew".equals(action))
-                        data.draft.plain_only = true;
+                    if (!"dsn".equals(action)) {
+                        if (plain_only &&
+                                !"resend".equals(action) &&
+                                !"editasnew".equals(action))
+                            data.draft.plain_only = true;
 
-                    if (encrypt_default || selected.encrypt_default)
-                        if (selected.encrypt == 0)
-                            data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                        else
-                            data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-                    else if (sign_default || selected.sign_default)
-                        if (selected.encrypt == 0)
-                            data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
-                        else
-                            data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                        if (encrypt_default || selected.encrypt_default)
+                            if (selected.encrypt == 0)
+                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                            else
+                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                        else if (sign_default || selected.sign_default)
+                            if (selected.encrypt == 0)
+                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                            else
+                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                    }
 
                     if (receipt_default)
                         data.draft.receipt_request = true;
@@ -4519,34 +4522,36 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
-                        // Sensitivity
-                        data.draft.sensitivity = ref.sensitivity;
+                        if (!"dsn".equals(action)) {
+                            // Sensitivity
+                            data.draft.sensitivity = ref.sensitivity;
 
-                        // Plain-only
-                        if (ref.plain_only != null && ref.plain_only)
-                            data.draft.plain_only = true;
+                            // Plain-only
+                            if (ref.plain_only != null && ref.plain_only)
+                                data.draft.plain_only = true;
 
-                        // Encryption
-                        List<Address> recipients = new ArrayList<>();
-                        if (data.draft.to != null)
-                            recipients.addAll(Arrays.asList(data.draft.to));
-                        if (data.draft.cc != null)
-                            recipients.addAll(Arrays.asList(data.draft.cc));
-                        if (data.draft.bcc != null)
-                            recipients.addAll(Arrays.asList(data.draft.bcc));
+                            // Encryption
+                            List<Address> recipients = new ArrayList<>();
+                            if (data.draft.to != null)
+                                recipients.addAll(Arrays.asList(data.draft.to));
+                            if (data.draft.cc != null)
+                                recipients.addAll(Arrays.asList(data.draft.cc));
+                            if (data.draft.bcc != null)
+                                recipients.addAll(Arrays.asList(data.draft.bcc));
 
-                        if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
-                                EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
-                            if (Helper.isOpenKeychainInstalled(context) &&
-                                    selected.sign_key != null &&
-                                    hasPgpKey(context, recipients))
-                                data.draft.ui_encrypt = ref.ui_encrypt;
-                        } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
-                                EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
-                            if (ActivityBilling.isPro(context) &&
-                                    selected.sign_key_alias != null &&
-                                    hasSmimeKey(context, recipients))
-                                data.draft.ui_encrypt = ref.ui_encrypt;
+                            if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
+                                    EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                                if (Helper.isOpenKeychainInstalled(context) &&
+                                        selected.sign_key != null &&
+                                        hasPgpKey(context, recipients))
+                                    data.draft.ui_encrypt = ref.ui_encrypt;
+                            } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
+                                    EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                                if (ActivityBilling.isPro(context) &&
+                                        selected.sign_key_alias != null &&
+                                        hasSmimeKey(context, recipients))
+                                    data.draft.ui_encrypt = ref.ui_encrypt;
+                            }
                         }
 
                         // Reply template
@@ -4970,6 +4975,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             working = data.draft.id;
+            dsn = (data.draft.dsn != null && !EntityMessage.DSN_NONE.equals(data.draft.dsn));
             encrypt = data.draft.ui_encrypt;
             invalidateOptionsMenu();
 
@@ -5767,8 +5773,10 @@ public class FragmentCompose extends FragmentBase {
                                 args.putBoolean("remind_external", external);
                             }
 
-                            if (draft.ui_encrypt == null ||
-                                    EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt)) {
+                            if ((draft.dsn == null ||
+                                    EntityMessage.DSN_NONE.equals(draft.dsn)) &&
+                                    (draft.ui_encrypt == null ||
+                                            EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
                                 args.putBoolean("remind_pgp", hasPgpKey(context, recipients));
                                 args.putBoolean("remind_smime", hasSmimeKey(context, recipients));
                             }
@@ -6866,7 +6874,6 @@ public class FragmentCompose extends FragmentBase {
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
             final ImageButton ibEncryption = dview.findViewById(R.id.ibEncryption);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
-            final ImageButton ibPriority = dview.findViewById(R.id.ibPriority);
             final Spinner spSensitivity = dview.findViewById(R.id.spSensitivity);
             final ImageButton ibSensitivity = dview.findViewById(R.id.ibSensitivity);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
@@ -7128,13 +7135,6 @@ public class FragmentCompose extends FragmentBase {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.setExecutor(executor).execute(FragmentDialogSend.this, args, "compose:priority");
-                }
-            });
-
-            ibPriority.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Invisible
                 }
             });
 

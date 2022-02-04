@@ -387,24 +387,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:entries="@array/priorityNames"
-            app:layout_constraintEnd_toStartOf="@id/ibPriority"
+            app:layout_constraintEnd_toStartOf="@id/ibSensitivity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriority" />
-
-        <eu.faircode.email.FixedImageButton
-            android:id="@+id/ibPriority"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_info"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_info"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/spPriority"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/twotone_info_24"
-            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSensitivity"
@@ -524,6 +509,8 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             cbPlainOnly,cbReceipt,
-            tvEncrypt,spEncrypt,ibEncryption" />
+            tvEncrypt,spEncrypt,ibEncryption,
+            tvPriority,spPriority,
+            tvSensitivity,spSensitivity,ibSensitivity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
