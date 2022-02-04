@@ -4,7 +4,7 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
-### Next version
+### 1.1831 - 2022-02-04
 
 * Added slider to change message column width
 * Added option for formal/informal DeepL translation
