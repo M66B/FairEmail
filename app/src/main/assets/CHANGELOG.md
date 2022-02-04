@@ -10,6 +10,8 @@
 * Added option for formal/informal DeepL translation
 * Added insert line to long press menu
 * Small improvements and minor bug fixes
+* Updated libraries/AndroidX
+* Updated translations
 
 ### [Epidexipteryx](https://en.wikipedia.org/wiki/Epidexipteryx)
 
