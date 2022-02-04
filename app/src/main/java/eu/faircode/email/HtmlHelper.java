@@ -1007,11 +1007,8 @@ public class HtmlHelper {
 
         // Lines
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
-        if (!view)
-            for (Element hr : document.select("hr")) {
-                hr.tagName("div");
-                hr.text(LINE);
-            }
+        for (Element hr : document.select("hr"))
+            hr.attr("x-keep-line", "true");
 
         // Descriptions
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
@@ -2385,6 +2382,12 @@ public class HtmlHelper {
             }
         }
 
+        for (LineSpan span : ssb.getSpans(0, ssb.length(), LineSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            ssb.replace(start, end, LINE);
+        }
+
         return ssb.toString();
     }
 
@@ -3001,32 +3004,34 @@ public class HtmlHelper {
                                 break;
                             case "hr":
                                 // Suppress successive lines
-                                LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
-                                int last = -1;
-                                if (lines != null)
-                                    for (LineSpan line : lines) {
-                                        int e = ssb.getSpanEnd(line);
-                                        if (e > last)
-                                            last = e;
-                                    }
-                                if (last >= 0) {
-                                    boolean blank = true;
-                                    for (int i = last; i < ssb.length(); i++) {
-                                        char kar = ssb.charAt(i);
-                                        if (kar != ' ' && kar != '\n' && kar != '\u00a0') {
-                                            blank = false;
-                                            break;
+                                if (!"true".equals(element.attr("x-keep-line"))) {
+                                    LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
+                                    int last = -1;
+                                    if (lines != null)
+                                        for (LineSpan line : lines) {
+                                            int e = ssb.getSpanEnd(line);
+                                            if (e > last)
+                                                last = e;
                                         }
-                                    }
+                                    if (last >= 0) {
+                                        boolean blank = true;
+                                        for (int i = last; i < ssb.length(); i++) {
+                                            char kar = ssb.charAt(i);
+                                            if (kar != ' ' && kar != '\n' && kar != '\u00a0') {
+                                                blank = false;
+                                                break;
+                                            }
+                                        }
 
-                                    if (blank)
-                                        break;
+                                        if (blank)
+                                            break;
+                                    }
                                 }
 
                                 boolean dashed = "true".equals(element.attr("x-dashed"));
                                 float stroke = context.getResources().getDisplayMetrics().density;
                                 float dash = (dashed ? line_dash_length : 0f);
-                                ssb.append(LINE);
+                                ssb.append("\uFFFC");  // Object replacement character
                                 setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
                                 break;
                             case "img":
@@ -3264,7 +3269,8 @@ public class HtmlHelper {
                 .removeAttr("x-tracking")
                 .removeAttr("x-border")
                 .removeAttr("x-list-style")
-                .removeAttr("x-plain");
+                .removeAttr("x-plain")
+                .remove("x-keep-line");
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
@@ -3356,6 +3362,12 @@ public class HtmlHelper {
             Element last = quote.children().last();
             if (last != null && "br".equals(last.tagName()))
                 last.remove();
+        }
+
+        for (Element line : doc.select("hr")) {
+            Element next = line.nextElementSibling();
+            if (next != null && "br".equals(next.tagName()))
+                next.remove();
         }
 
         return doc.html();

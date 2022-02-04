@@ -252,6 +252,13 @@ public class HtmlEx {
                 if (i != text.length())
                     out.append("<br>\n");
             } else {
+                eu.faircode.email.LineSpan[] line = text.getSpans(i, next, eu.faircode.email.LineSpan.class);
+                if (line.length > 0) {
+                    for (int l = 0; l < line.length; l++)
+                        out.append("<hr>");
+                    continue;
+                }
+
                 int level = 0;
                 Boolean isBulletListItem = null;
                 ParagraphStyle[] paragraphStyles = text.getSpans(i, next, ParagraphStyle.class);
