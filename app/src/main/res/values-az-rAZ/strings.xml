@@ -365,6 +365,7 @@
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmək üçün minimum ekran ölçüsü</string>
     <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
+    <string name="title_advanced_column_width">Mesaj sütunu eni: %1$s %%</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
@@ -1127,6 +1128,7 @@
     <string name="title_translate_configure">Konfiqurasiya &#8230;</string>
     <string name="title_translate_key">Açarı daxil et</string>
     <string name="title_translating">Tərcümə edilir &#8230;</string>
+    <string name="title_translate_formal">Rəsmi formu istifadə et</string>
     <string name="title_translate_small">Mənbə mətni üçün kiçik şrift istifadə et</string>
     <string name="title_translate_usage">İstifadə: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tərcümə ediləcək mətnə toxunun</string>
@@ -1512,6 +1514,7 @@
     <string name="title_later">Sonra</string>
     <string name="title_undo">Geri qaytar</string>
     <string name="title_redo">Təkrar et</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Sətir daxil et</string>
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Aç</string>
     <string name="title_info">Məlumat</string>

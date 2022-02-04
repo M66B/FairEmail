@@ -355,6 +355,7 @@
     <string name="title_advanced_two_col">2 列に分割</string>
     <string name="title_advanced_min_screen_size">画面を分割時の最小画面サイズ</string>
     <string name="title_advanced_close_pane">会話を閉じるときに行または列を閉じる</string>
+    <string name="title_advanced_column_width">本文の横幅: %1$s %%</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示</string>
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留め</string>
     <string name="title_advanced_nav_hide_title">ナビゲーションメニューからオプションを非表示にしますか？</string>
@@ -699,7 +700,7 @@
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
     <string name="title_account_ondemand">手動で同期</string>
-    <string name="title_account_notify">個別の通知</string>
+    <string name="title_account_notify">個別に通知</string>
     <string name="title_account_left">左にスワイプ</string>
     <string name="title_account_right">右にスワイプ</string>
     <string name="title_account_move">デフォルトの移動先</string>
@@ -718,11 +719,11 @@
     <string name="title_user">ユーザー名</string>
     <string name="title_password">パスワード</string>
     <string name="title_password_storage">パスワードはどのように保管されますか？</string>
-    <string name="title_case_sensitive">ユーザー名とパスワードは通常、大文字と小文字を区別します</string>
+    <string name="title_case_sensitive">通常、ユーザー名とパスワードでは大文字と小文字が区別されます</string>
     <string name="title_client_certificate">クライアント証明書</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">ホスト名の代わりにローカル IP アドレスを使用</string>
-    <string name="title_ehlo">カスタム HELO/EHLO 識別</string>
+    <string name="title_ehlo">Custom HELO/EHLO identification</string>
     <string name="title_primary">プライマリー</string>
     <string name="title_primary_account">プライマリー (デフォルトアカウント)</string>
     <string name="title_primary_identity">プライマリー (デフォルト ID)</string>
@@ -1113,10 +1114,11 @@
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
     <string name="title_insert_template">テンプレートを挿入</string>
     <string name="title_create_template">テンプレートを作成</string>
-    <string name="title_translate">翻訳する</string>
+    <string name="title_translate">翻訳</string>
     <string name="title_translate_configure">設定&#8230;</string>
     <string name="title_translate_key">キーを入力</string>
     <string name="title_translating">翻訳しています&#8230;</string>
+    <string name="title_translate_formal">書き言葉を使用</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
     <string name="title_translate_usage">使用: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">テキストをタップして翻訳</string>
@@ -1502,6 +1504,7 @@
     <string name="title_later">あとで</string>
     <string name="title_undo">元に戻す</string>
     <string name="title_redo">やり直す</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">線を挿入</string>
     <string name="title_add">追加</string>
     <string name="title_browse">アプリで開く</string>
     <string name="title_info">Info</string>

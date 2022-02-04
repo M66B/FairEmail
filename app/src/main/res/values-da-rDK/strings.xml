@@ -365,6 +365,7 @@
     <string name="title_advanced_two_col">Brug to kolonner</string>
     <string name="title_advanced_min_screen_size">Minimumsskærmstørrelse for opsplitning af skærmen</string>
     <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
+    <string name="title_advanced_column_width">Beskedkolonnebredde: %1$s %%</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
     <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
@@ -1125,6 +1126,7 @@
     <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>
     <string name="title_translating">Oversætter&#8230;</string>
+    <string name="title_translate_formal">Brug formel form</string>
     <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
     <string name="title_translate_usage">Forbrug: %1$s/%2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tryk på teksten, der skal oversættes</string>

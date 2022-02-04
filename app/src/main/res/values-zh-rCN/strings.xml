@@ -354,6 +354,7 @@
     <string name="title_advanced_two_col">使用两列</string>
     <string name="title_advanced_min_screen_size">分屏下的最小屏幕尺寸</string>
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
+    <string name="title_advanced_column_width">消息列宽：%1$s %%</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
     <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
@@ -1111,6 +1112,7 @@
     <string name="title_translate_configure">配置 &#8230;</string>
     <string name="title_translate_key">输入密钥</string>
     <string name="title_translating">正在翻译 &#8230;</string>
+    <string name="title_translate_formal">使用正式语言形式</string>
     <string name="title_translate_small">对源文本使用一个小字体</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">点击要翻译的文本</string>

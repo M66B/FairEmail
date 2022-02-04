@@ -354,6 +354,7 @@
     <string name="title_advanced_two_col">Sử dụng hai cột</string>
     <string name="title_advanced_min_screen_size">Kích cỡ màn hình tối thiểu để chia tách màn hình</string>
     <string name="title_advanced_close_pane">Thu gọn hàng hoặc cột khi đóng cuộc hội thoại</string>
+    <string name="title_advanced_column_width">Độ rộng cột thư: %1$s %%</string>
     <string name="title_advanced_nav_options">Hiện các tùy chọn menu điều hướng</string>
     <string name="title_advanced_nav_pin">Ghim menu điều hướng</string>
     <string name="title_advanced_nav_hide_title">Ẩn các tùy chọn menu điều hướng?</string>
@@ -1112,6 +1113,7 @@
     <string name="title_translate_configure">Thiết lập &#8230;</string>
     <string name="title_translate_key">Nhập mã khóa</string>
     <string name="title_translating">Đang dịch &#8230;</string>
+    <string name="title_translate_formal">Sử dụng dạng trang trọng</string>
     <string name="title_translate_small">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
     <string name="title_translate_usage">Sử dụng: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Nhấn văn bản để được dịch</string>
@@ -1497,6 +1499,7 @@
     <string name="title_later">Để sau</string>
     <string name="title_undo">Hoàn tác</string>
     <string name="title_redo">Làm lại</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Chèn dòng</string>
     <string name="title_add">Thêm</string>
     <string name="title_browse">Mở bằng</string>
     <string name="title_info">Thông tin</string>

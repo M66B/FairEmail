@@ -171,6 +171,7 @@
     <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
     <string name="title_advanced_close_pane">ବାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
+    <string name="title_advanced_column_width">ବାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ: %1$s %%</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_cards_shadow_highlight">ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ବଦଳରେ ହାଇଲାଇଟ୍ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
@@ -379,6 +380,7 @@
     <string name="title_show_addresses">CC/BCC ଦେଖାଅ</string>
     <string name="title_manage_local_contacts">ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_translate">ଅନୁବାଦ କର</string>
+    <string name="title_translate_formal">ଆନୁଷ୍ଠାନିକ ଶବ୍ଦରୂପ ବ୍ୟବହାର କରିବା</string>
     <string name="title_send_dsn">ସ୍ଥିତି ରିପୋର୍ଟ୍</string>
     <string name="title_send_receipt">ରସିଦ ଅନୁରୋଧ କରିବା</string>
     <string name="title_send_receipt_remark">ଅଧିକାଂଶ ପ୍ରଦାନକାରୀ ଏବଂ ଇମେଲ୍ ଗ୍ରାହକମାନେ ରସିଦ ଅନୁରୋଧକୁ ଅଣଦେଖା କରନ୍ତି</string>
@@ -479,6 +481,7 @@
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">ଲାଇନ୍ ସନ୍ନିବେଶ କର</string>
     <string name="title_info">ସୂଚନା</string>
     <string name="title_show">ଦେଖାଅ</string>
     <string name="title_enable">ସକ୍ଷମ କରନ୍ତୁ</string>

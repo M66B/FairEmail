@@ -55,7 +55,7 @@
         <item quantity="other">%1$d mensajes a enviar</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d nuevo</item>
+        <item quantity="one">%1$d nuevos</item>
         <item quantity="other">%1$d nuevos</item>
     </plurals>
     <plurals name="title_moving_messages">
@@ -364,6 +364,7 @@
     <string name="title_advanced_two_col">Usar dos columnas</string>
     <string name="title_advanced_min_screen_size">Tamaño mínimo de pantalla para dividir la pantalla</string>
     <string name="title_advanced_close_pane">Colapsar fila o columna al cerrar una conversación</string>
+    <string name="title_advanced_column_width">Ancho de columna de mensajes: %1$s %%</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
     <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
     <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
@@ -1123,6 +1124,7 @@
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Introducir clave</string>
     <string name="title_translating">Traduciendo &#8230;</string>
+    <string name="title_translate_formal">Usar modo formal</string>
     <string name="title_translate_small">Usar una fuente pequeña para el texto fuente</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Toque el texto para traducirlo</string>

@@ -361,6 +361,7 @@
     <string name="title_advanced_two_col">Använd två kolumner</string>
     <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
+    <string name="title_advanced_column_width">Kolumnbredd för meddelande: %1$s %%</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>
     <string name="title_advanced_nav_hide_title">Dölj alternativ för navigeringsmenyn?</string>
@@ -1120,6 +1121,7 @@
     <string name="title_translate_configure">Konfigurera &#8230;</string>
     <string name="title_translate_key">Ange nyckel</string>
     <string name="title_translating">Översätter &#8230;</string>
+    <string name="title_translate_formal">Använd formell form</string>
     <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
     <string name="title_translate_usage">Användning: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tryck på texten som ska översättas</string>
@@ -1505,6 +1507,7 @@
     <string name="title_later">Senare</string>
     <string name="title_undo">Ångra</string>
     <string name="title_redo">Gör om</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Infoga rad</string>
     <string name="title_add">Lägg till</string>
     <string name="title_browse">Öppna med</string>
     <string name="title_info">Info</string>

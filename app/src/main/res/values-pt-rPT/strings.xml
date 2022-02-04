@@ -596,6 +596,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_style_list">Lista</string>
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_manage_local_contacts">Gerir contactos locais</string>
+    <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
@@ -641,6 +642,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_legend_c">Compor</string>
     <string name="title_legend_r">Responder</string>
     <string name="title_updated">Atualização para a versão %1$s disponível</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Inserir linha</string>
     <string name="title_add">Adicionar</string>
     <string name="title_fix">Corrigir</string>
     <string name="title_show">Mostrar</string>

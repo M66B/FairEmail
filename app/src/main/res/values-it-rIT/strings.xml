@@ -365,6 +365,7 @@
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
     <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
+    <string name="title_advanced_column_width">Larghezza della colonna del messaggio: %1$s %%</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
@@ -1128,6 +1129,7 @@
     <string name="title_translate_configure">Configura &#8230;</string>
     <string name="title_translate_key">Inserisci tasto</string>
     <string name="title_translating">Traducendo&#8230;</string>
+    <string name="title_translate_formal">Usa il modulo formale</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tocca il testo da tradurre</string>
@@ -1513,6 +1515,7 @@
     <string name="title_later">Più tardi</string>
     <string name="title_undo">Annulla</string>
     <string name="title_redo">Ripeti</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Inserisci riga</string>
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Apri con</string>
     <string name="title_info">Info</string>
