@@ -1994,7 +1994,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         iservice, ifolder,
                                                                         state, serial);
                                                             } finally {
-                                                                dc.stop(state.getForeground());
+                                                                dc.stop(state.getForeground(), executor);
                                                             }
 
                                                         } catch (Throwable ex) {

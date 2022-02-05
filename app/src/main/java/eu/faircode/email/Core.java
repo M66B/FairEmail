@@ -3559,7 +3559,7 @@ class Core {
                             } finally {
                                 // Free memory
                                 isub[j] = null;
-                                dc.stop(state.getForeground());
+                                dc.stop(state.getForeground(), from == 0 && j == 0);
                             }
                         }
                     }
@@ -3647,7 +3647,7 @@ class Core {
                         } finally {
                             // Free memory
                             isub[j] = null;
-                            dc.stop(state.getForeground());
+                            dc.stop(state.getForeground(), from == 0 && j == 0);
                         }
                     }
                 }
