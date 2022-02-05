@@ -292,10 +292,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ? View.VISIBLE : View.INVISIBLE);
 
             if (listener == null && folder.selectable) {
-                ivUnified.setVisibility((account > 0 || primary) && folder.unified ? View.VISIBLE : View.GONE);
-                ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
-                ivRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
-                ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
+                ivUnified.setVisibility(
+                        (account > 0 || primary) && folder.unified && !show_compact
+                                ? View.VISIBLE : View.GONE);
+                ivSubscribed.setVisibility(
+                        subscriptions && folder.subscribed != null && folder.subscribed && !show_compact
+                                ? View.VISIBLE : View.GONE);
+                ivRule.setVisibility(
+                        folder.rules > 0 && !show_compact
+                                ? View.VISIBLE : View.GONE);
+                ivNotify.setVisibility(
+                        folder.notify && !show_compact
+                                ? View.VISIBLE : View.GONE);
                 ivAutoAdd.setVisibility(BuildConfig.DEBUG &&
                         EntityFolder.SENT.equals(folder.type) &&
                         (folder.auto_add == null || folder.auto_add)
