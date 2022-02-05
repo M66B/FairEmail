@@ -37,10 +37,13 @@ import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -109,6 +112,15 @@ public class EntityCertificate {
         byte[] encoded = Base64.decode(this.data, Base64.NO_WRAP);
         return (X509Certificate) CertificateFactory.getInstance("X.509")
                 .generateCertificate(new ByteArrayInputStream(encoded));
+    }
+
+    String getPem() throws CertificateException, IOException {
+        StringWriter writer = new StringWriter();
+        JcaPEMWriter pemWriter = new JcaPEMWriter(writer);
+        pemWriter.writeObject(getCertificate());
+        pemWriter.flush();
+        pemWriter.close();
+        return writer.toString();
     }
 
     boolean isExpired() {

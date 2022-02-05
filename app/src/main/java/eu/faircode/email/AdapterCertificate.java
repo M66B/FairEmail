@@ -36,17 +36,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
+import java.io.IOException;
+import java.security.cert.CertificateException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.ViewHolder> {
+    private Fragment parentFragment;
+
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
@@ -93,16 +101,60 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
             popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 1, R.string.title_delete);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_save, 1, R.string.title_save);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 2, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    if (item.getItemId() == R.string.title_delete) {
+                    int id = item.getItemId();
+                    if (id == R.string.title_save) {
+                        onActionSave();
+                        return true;
+                    } else if (id == R.string.title_delete) {
                         onActionDelete();
                         return true;
                     }
                     return false;
+                }
+
+                private void onActionSave() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", certificate.id);
+
+                    new SimpleTask<File>() {
+                        @Override
+                        protected File onExecute(Context context, Bundle args) throws CertificateException, IOException {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            EntityCertificate certificate = db.certificate().getCertificate(id);
+                            if (certificate == null)
+                                return null;
+
+                            File dir = new File(context.getCacheDir(), "shared");
+                            if (!dir.exists())
+                                dir.mkdir();
+
+                            String name = Helper.sanitizeFilename(certificate.email);
+                            File file = new File(dir, name + ".pem");
+                            Helper.writeText(file, certificate.getPem());
+
+                            return file;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, File file) {
+                            if (file == null)
+                                return;
+                            Helper.share(context, file, "application/*", file.getName());
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "certificate:save");
                 }
 
                 private void onActionDelete() {
@@ -122,7 +174,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            // TODO: report error
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "certificate:delete");
                 }
@@ -159,6 +211,15 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         this.TF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
 
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.d(AdapterCertificate.this + " parent destroyed");
+                AdapterCertificate.this.parentFragment = null;
+                owner.getLifecycle().removeObserver(this);
+            }
+        });
     }
 
     public void set(@NonNull List<EntityCertificate> certificates) {

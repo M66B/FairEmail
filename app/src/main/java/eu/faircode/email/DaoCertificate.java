@@ -36,6 +36,10 @@ public interface DaoCertificate {
     LiveData<List<EntityCertificate>> liveCertificates();
 
     @Query("SELECT * FROM certificate" +
+            " WHERE id = :id")
+    EntityCertificate getCertificate(long id);
+
+    @Query("SELECT * FROM certificate" +
             " WHERE fingerprint = :fingerprint" +
             " AND email = :email COLLATE NOCASE")
     EntityCertificate getCertificate(String fingerprint, String email);
