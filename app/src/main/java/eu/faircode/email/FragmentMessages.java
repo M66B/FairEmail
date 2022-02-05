@@ -2751,7 +2751,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
                             if (EntityFolder.TRASH.equals(targetFolder.type)) {
-                                if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
+                                if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && thread && filter_archive)
                                     continue;
                                 if (EntityFolder.JUNK.equals(sourceFolder.type) && !threaded.folder.equals(message.folder))
                                     continue;
