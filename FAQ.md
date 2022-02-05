@@ -103,7 +103,7 @@ Related questions:
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 * A [bug in Crowdin](https://crowdin.com/messages/536694) blocks updating FAQ.md (this text) for translation.
-* The Strato email server sometimes disconnects when sending messages, possibly due to stringent server firewall rules. This cannot be fixed by the app.
+* Search suggestions causes the keyboard losing focus on Android 12L
 
 <h2><a name="planned-features"></a>Planned features</h2>
 
