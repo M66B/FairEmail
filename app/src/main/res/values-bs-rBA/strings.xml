@@ -375,6 +375,7 @@
     <string name="title_advanced_two_col">Koristi dvije kolone</string>
     <string name="title_advanced_min_screen_size">Minimalna veličina ekrana za podijeljeni ekran</string>
     <string name="title_advanced_close_pane">Suzi red ili kolonu pri zatvaranju konverzacije</string>
+    <string name="title_advanced_column_width">Širina popisne kolone: %1$s %%</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog menija</string>
     <string name="title_advanced_nav_pin">Zakači navigacijski meni</string>
     <string name="title_advanced_nav_hide_title">Sakriti opcije navigacijskog menija?</string>
@@ -1137,6 +1138,7 @@
     <string name="title_translate_configure">Podesi &#8230;</string>
     <string name="title_translate_key">Unesite ključ</string>
     <string name="title_translating">Prevođenje &#8230;</string>
+    <string name="title_translate_formal">Koristi formalni oblik</string>
     <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
     <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Dodirnite tekst za prevođenje</string>
@@ -1522,6 +1524,7 @@
     <string name="title_later">Kasnije</string>
     <string name="title_undo">Vrati</string>
     <string name="title_redo">Vrati</string>
+    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Ubaci liniju</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Otvori pomoću</string>
     <string name="title_info">Informacije</string>
