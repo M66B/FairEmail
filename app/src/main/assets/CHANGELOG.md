@@ -4,6 +4,12 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1832 - 2022-02-05
+
+* Added saving S/MIME public keys
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1831 - 2022-02-04
 
 * Added slider to change message column width
