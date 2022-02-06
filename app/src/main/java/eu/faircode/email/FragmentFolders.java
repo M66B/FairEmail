@@ -110,6 +110,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fabError;
 
     private boolean cards;
+    private boolean dividers;
     private boolean compact;
 
     private long account;
@@ -144,6 +145,7 @@ public class FragmentFolders extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        dividers = prefs.getBoolean("dividers", true);
         compact = prefs.getBoolean("compact_folders", false);
         show_hidden = false; // prefs.getBoolean("hidden_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
@@ -212,7 +214,7 @@ public class FragmentFolders extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        if (!cards) {
+        if (!cards && dividers) {
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
                 @Override
                 public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
@@ -282,7 +284,7 @@ public class FragmentFolders extends FragmentBase {
                     TextView tvCategory = header.findViewById(R.id.tvCategory);
                     TextView tvDate = header.findViewById(R.id.tvDate);
 
-                    if (cards) {
+                    if (cards || !dividers) {
                         View vSeparator = header.findViewById(R.id.vSeparator);
                         vSeparator.setVisibility(View.GONE);
                     }

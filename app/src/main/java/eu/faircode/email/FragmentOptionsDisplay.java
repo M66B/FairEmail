@@ -64,6 +64,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swTabularBackground;
     private SwitchCompat swShadow;
     private SwitchCompat swShadowHighlight;
+    private SwitchCompat swTabularDividers;
     private SwitchCompat swCategory;
     private SwitchCompat swDate;
     private SwitchCompat swDateFixed;
@@ -168,7 +169,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight",
+            "theme", "startup",
+            "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight", "dividers",
             "group_category", "date", "date_fixed", "date_bold",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "nav_options", "nav_count", "nav_unseen_drafts", "navbar_colorize",
@@ -205,6 +207,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTabularBackground = view.findViewById(R.id.swTabularCardBackground);
         swShadow = view.findViewById(R.id.swShadow);
         swShadowHighlight = view.findViewById(R.id.swShadowHighlight);
+        swTabularDividers = view.findViewById(R.id.swTabularDividers);
         swCategory = view.findViewById(R.id.swCategory);
         swDate = view.findViewById(R.id.swDate);
         swDateFixed = view.findViewById(R.id.swDateFixed);
@@ -341,6 +344,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 swTabularBackground.setEnabled(!checked);
                 swShadow.setEnabled(checked);
                 swShadowHighlight.setEnabled(swShadow.isEnabled() && checked);
+                swTabularDividers.setEnabled(!checked);
                 swIndentation.setEnabled(checked);
             }
         });
@@ -372,6 +376,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("shadow_highlight", checked).apply();
+            }
+        });
+
+        swTabularDividers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("dividers", checked).apply();
             }
         });
 
@@ -1183,6 +1194,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTabularBackground.setEnabled(!swCards.isChecked());
         swShadow.setEnabled(swCards.isChecked());
         swShadowHighlight.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
+        swTabularDividers.setChecked(prefs.getBoolean("dividers", true));
+        swTabularDividers.setEnabled(!swCards.isChecked());
         swCategory.setChecked(prefs.getBoolean("group_category", false));
         swDate.setChecked(prefs.getBoolean("date", true));
         swDateFixed.setChecked(prefs.getBoolean("date_fixed", false));

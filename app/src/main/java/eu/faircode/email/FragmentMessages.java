@@ -309,6 +309,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private WebView printWebView = null;
 
     private boolean cards;
+    private boolean dividers;
     private boolean category;
     private boolean date;
     private boolean date_fixed;
@@ -438,6 +439,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
+        dividers = prefs.getBoolean("dividers", true);
         category = prefs.getBoolean("group_category", false);
         date = prefs.getBoolean("date", true);
         date_fixed = (!date && prefs.getBoolean("date_fixed", false));
@@ -669,7 +671,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         };
         rvMessage.setLayoutManager(llm);
 
-        if (!cards) {
+        if (!cards && dividers) {
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
                 @Override
                 public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
@@ -780,7 +782,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (i == 0 && date_fixed && "time".equals(sort)) {
                         TupleMessageEx top = adapter.getItemAtPosition(pos);
                         tvFixedDate.setVisibility(top == null ? View.INVISIBLE : View.VISIBLE);
-                        if (!cards)
+                        if (!cards && dividers)
                             vFixedSeparator.setVisibility(top == null ? View.INVISIBLE : View.VISIBLE);
                         tvFixedDate.setText(top == null ? null : getRelativeDate(top.received, parent.getContext()));
                     } else {
@@ -865,7 +867,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (date_bold)
                         tvDate.setTypeface(Typeface.DEFAULT_BOLD);
 
-                    if (cards) {
+                    if (cards || !dividers) {
                         View vSeparator = header.findViewById(R.id.vSeparator);
                         vSeparator.setVisibility(View.GONE);
                     }

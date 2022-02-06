@@ -67,6 +67,7 @@ public class FragmentAccounts extends FragmentBase {
     private boolean settings;
 
     private boolean cards;
+    private boolean dividers;
     private boolean compact;
 
     private ViewGroup view;
@@ -93,6 +94,7 @@ public class FragmentAccounts extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        dividers = prefs.getBoolean("dividers", true);
         compact = prefs.getBoolean("compact_accounts", false) && !settings;
     }
 
@@ -142,7 +144,7 @@ public class FragmentAccounts extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAccount.setLayoutManager(llm);
 
-        if (!cards) {
+        if (!cards && dividers) {
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvAccount.addItemDecoration(itemDecorator);
@@ -202,7 +204,7 @@ public class FragmentAccounts extends FragmentBase {
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
                 TextView tvDate = header.findViewById(R.id.tvDate);
 
-                if (cards) {
+                if (cards || !dividers) {
                     View vSeparator = header.findViewById(R.id.vSeparator);
                     vSeparator.setVisibility(View.GONE);
                 }

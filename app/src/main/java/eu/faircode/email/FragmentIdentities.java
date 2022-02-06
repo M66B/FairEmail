@@ -51,6 +51,7 @@ import java.util.Objects;
 
 public class FragmentIdentities extends FragmentBase {
     private boolean cards;
+    private boolean dividers;
 
     private RecyclerView rvIdentity;
     private ContentLoadingProgressBar pbWait;
@@ -66,6 +67,7 @@ public class FragmentIdentities extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        dividers = prefs.getBoolean("dividers", true);
     }
 
     @Override
@@ -87,7 +89,7 @@ public class FragmentIdentities extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvIdentity.setLayoutManager(llm);
 
-        if (!cards) {
+        if (!cards && dividers) {
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
             itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
             rvIdentity.addItemDecoration(itemDecorator);
@@ -147,7 +149,7 @@ public class FragmentIdentities extends FragmentBase {
                 TextView tvCategory = header.findViewById(R.id.tvCategory);
                 TextView tvDate = header.findViewById(R.id.tvDate);
 
-                if (cards) {
+                if (cards || !dividers) {
                     View vSeparator = header.findViewById(R.id.vSeparator);
                     vSeparator.setVisibility(View.GONE);
                 }
