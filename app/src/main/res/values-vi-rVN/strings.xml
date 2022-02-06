@@ -1499,7 +1499,7 @@
     <string name="title_later">Để sau</string>
     <string name="title_undo">Hoàn tác</string>
     <string name="title_redo">Làm lại</string>
-    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Chèn dòng</string>
+    <string name="title_insert_line">Chèn dòng</string>
     <string name="title_add">Thêm</string>
     <string name="title_browse">Mở bằng</string>
     <string name="title_info">Thông tin</string>

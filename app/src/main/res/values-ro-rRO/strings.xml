@@ -387,6 +387,7 @@
     <string name="title_advanced_tabular_background">Utilizați culoarea cardului ca și culoare de fundal atunci când folosiți stilul tabular</string>
     <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
     <string name="title_advanced_cards_shadow_highlight">Utilizați culoarea de evidențiere în loc de culoarea de accent</string>
+    <string name="title_advanced_tabular_dividers">Utilizați linii despărțitoare atunci când utilizați stilul tabelar</string>
     <string name="title_advanced_category_header">Gruparea pe categorii de conturi</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_date_fixed">Afișați antetul cu dată fixă în partea de sus</string>
@@ -1276,6 +1277,9 @@
     <string name="title_edit_signature_remark">Deși Android nu poate afișa tot HTML-ul, acesta va fi trimis așa cum este</string>
     <string name="title_edit_signature_text">Text semnătură</string>
     <string name="title_edit_signature_image">Inserare imagine</string>
+    <string name="title_edit_signature_image_hint">        Când trimiteți un mesaj, imaginea este copiată în mesaj din locația selectată.
+        Deci, nu ștergeți fișierul imagine!
+    </string>
     <string name="title_answer_caption">Editare șablon</string>
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
@@ -1520,7 +1524,7 @@
     <string name="title_later">Mai târziu</string>
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
-    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Inserați linia</string>
+    <string name="title_insert_line">Inserați linia</string>
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Deschide cu</string>
     <string name="title_info">Informații</string>
