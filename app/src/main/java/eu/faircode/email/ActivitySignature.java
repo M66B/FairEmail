@@ -43,6 +43,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,6 +62,7 @@ public class ActivitySignature extends ActivityBase {
     private ViewGroup view;
     private TextView tvHtmlRemark;
     private EditTextCompose etText;
+    private ImageButton ibFull;
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
 
@@ -84,6 +86,7 @@ public class ActivitySignature extends ActivityBase {
 
         tvHtmlRemark = findViewById(R.id.tvHtmlRemark);
         etText = findViewById(R.id.etText);
+        ibFull = findViewById(R.id.ibFull);
         style_bar = findViewById(R.id.style_bar);
         bottom_navigation = findViewById(R.id.bottom_navigation);
 
@@ -111,6 +114,21 @@ public class ActivitySignature extends ActivityBase {
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
+            }
+        });
+
+        ibFull.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle args = new Bundle();
+                args.putString("html", getHtml());
+                args.putBoolean("overview_mode", false);
+                args.putBoolean("safe_browsing", false);
+                args.putBoolean("force_light", true);
+
+                FragmentDialogOpenFull dialog = new FragmentDialogOpenFull();
+                dialog.setArguments(args);
+                dialog.show(getSupportFragmentManager(), "signature");
             }
         });
 

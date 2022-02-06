@@ -39,6 +39,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHtmlRemark" />
 
+        <eu.faircode.email.FixedImageButton
+            android:id="@+id/ibFull"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_show_full"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_show_full"
+            app:layout_constraintEnd_toEndOf="@+id/etText"
+            app:layout_constraintTop_toTopOf="@+id/etText"
+            app:srcCompat="@drawable/twotone_fullscreen_24"
+            app:tint="?attr/colorAccent" />
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"
             android:layout_width="0dp"

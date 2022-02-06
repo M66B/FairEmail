@@ -4796,8 +4796,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, String html) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean overview_mode = prefs.getBoolean("overview_mode", false);
+                    boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
+
                     Bundle fargs = new Bundle();
                     fargs.putString("html", html);
+                    fargs.putBoolean("overview_mode", overview_mode);
+                    fargs.putBoolean("safe_browsing", safe_browsing);
                     fargs.putBoolean("force_light", args.getBoolean("force_light"));
 
                     FragmentDialogOpenFull dialog = new FragmentDialogOpenFull();
@@ -7855,66 +7861,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     })
                     .create();
-        }
-    }
-
-    public static class FragmentDialogOpenFull extends FragmentDialogBase {
-        @Override
-        public void onCreate(@Nullable Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setStyle(DialogFragment.STYLE_NORMAL, R.style.fullScreenDialog);
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-            Dialog dialog = getDialog();
-            if (dialog != null)
-                dialog.getWindow().setLayout(MATCH_PARENT, MATCH_PARENT);
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            Bundle args = getArguments();
-            String html = args.getString("html");
-            boolean force_light = args.getBoolean("force_light");
-
-            final Context context = getContext();
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean overview_mode = prefs.getBoolean("overview_mode", false);
-            boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
-
-            View view = inflater.inflate(R.layout.fragment_open_full, container, false);
-            WebView wv = view.findViewById(R.id.wv);
-
-            WebSettings settings = wv.getSettings();
-            settings.setUserAgentString(WebViewEx.getUserAgent(context, wv));
-            settings.setUseWideViewPort(true);
-            settings.setLoadWithOverviewMode(overview_mode);
-
-            settings.setBuiltInZoomControls(true);
-            settings.setDisplayZoomControls(false);
-
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-
-            settings.setAllowFileAccess(false);
-            settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                settings.setSafeBrowsingEnabled(safe_browsing);
-
-            boolean dark = (Helper.isDarkTheme(context) && !force_light);
-            if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
-                WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
-
-            settings.setLoadsImagesAutomatically(true);
-            settings.setBlockNetworkLoads(false);
-            settings.setBlockNetworkImage(false);
-
-            wv.loadDataWithBaseURL(null, html, "text/html", StandardCharsets.UTF_8.name(), null);
-
-            return view;
         }
     }
 
