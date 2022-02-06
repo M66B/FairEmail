@@ -722,6 +722,7 @@
     <string name="title_advanced_android_id" translatable="false">Android ID: %1$s</string>
     <string name="title_advanced_gc" translatable="false">GC</string>
     <string name="title_advanced_charsets" translatable="false">Charsets</string>
+    <string name="title_advanced_font_map" translatable="false">Font map</string>
     <string name="title_advanced_ciphers" translatable="false">Ciphers</string>
     <string name="title_advanced_files" translatable="false">Files &gt;%1$s</string>
 

@@ -38,7 +38,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
@@ -83,6 +82,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.SortedMap;
 
 import javax.net.ssl.SSLSocket;
@@ -176,6 +176,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvCursorWindow;
     private Button btnGC;
     private Button btnCharsets;
+    private Button btnFontMap;
     private Button btnCiphers;
     private Button btnFiles;
     private TextView tvPermissions;
@@ -327,6 +328,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvCursorWindow = view.findViewById(R.id.tvCursorWindow);
         btnGC = view.findViewById(R.id.btnGC);
         btnCharsets = view.findViewById(R.id.btnCharsets);
+        btnFontMap = view.findViewById(R.id.btnFontMap);
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
         tvPermissions = view.findViewById(R.id.tvPermissions);
@@ -1115,6 +1117,36 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentOptionsMisc.this, new Bundle(), "setup:charsets");
+            }
+        });
+
+        btnFontMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+
+                try {
+                    Typeface typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
+                    Field f = Typeface.class.getDeclaredField("sSystemFontMap");
+                    f.setAccessible(true);
+                    Map<String, Typeface> sSystemFontMap = (Map<String, Typeface>) f.get(typeface);
+                    for (String key : sSystemFontMap.keySet())
+                        ssb.append(key).append("\n");
+                } catch (Throwable ex) {
+                    ssb.append(ex.toString());
+                }
+
+                new AlertDialog.Builder(getContext())
+                        .setIcon(R.drawable.twotone_info_24)
+                        .setTitle(R.string.title_advanced_font_map)
+                        .setMessage(ssb)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Do nothing
+                            }
+                        })
+                        .show();
             }
         });
 

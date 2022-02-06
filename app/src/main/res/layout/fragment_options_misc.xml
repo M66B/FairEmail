@@ -1388,6 +1388,16 @@
                     app:layout_constraintTop_toBottomOf="@id/btnGC" />
 
                 <Button
+                    android:id="@+id/btnFontMap"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_font_map"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnCharsets" />
+
+                <Button
                     android:id="@+id/btnCiphers"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
@@ -1395,7 +1405,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_ciphers"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnCharsets" />
+                    app:layout_constraintTop_toBottomOf="@id/btnFontMap" />
 
                 <Button
                     android:id="@+id/btnFiles"
