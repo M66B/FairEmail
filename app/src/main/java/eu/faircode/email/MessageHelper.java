@@ -1475,7 +1475,9 @@ public class MessageHelper {
 
         List<String> all = new ArrayList<>(refs);
         all.add(msgid);
-        List<TupleThreadInfo> infos = db.message().getThreadInfo(account, all);
+        List<TupleThreadInfo> infos = (all.size() == 0
+                ? new ArrayList<>()
+                : db.message().getThreadInfo(account, all));
 
         // References, In-Reply-To (sent before)
         for (TupleThreadInfo info : infos)
