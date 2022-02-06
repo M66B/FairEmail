@@ -1069,6 +1069,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.gc();
+                DB.shrinkMemory(v.getContext());
             }
         });
 
