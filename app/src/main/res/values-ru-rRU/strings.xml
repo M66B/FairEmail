@@ -397,6 +397,7 @@
     <string name="title_advanced_tabular_background">Использовать цвет карточки в качестве цвета фона при использовании табличного стиля</string>
     <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
     <string name="title_advanced_cards_shadow_highlight">Использовать цвет подсветки вместо цвета акцента</string>
+    <string name="title_advanced_tabular_dividers">Разделительные линии при использовании стиля с табуляцией</string>
     <string name="title_advanced_category_header">Группировать по категориям учётных записей</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_date_fixed">Показывать постоянный заголовок с датой вверху</string>
@@ -1289,6 +1290,9 @@
     <string name="title_edit_signature_remark">Хотя Android не может отобразить весь HTML, он будет отправлен как есть</string>
     <string name="title_edit_signature_text">Текст подписи</string>
     <string name="title_edit_signature_image">Вставить изображение</string>
+    <string name="title_edit_signature_image_hint">        При отправке сообщения изображение копируется в сообщение из указанного расположения.
+        Поэтому не удаляйте файл изображения!
+    </string>
     <string name="title_answer_caption">Изменить шаблон</string>
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>
@@ -1533,7 +1537,7 @@
     <string name="title_later">Позже</string>
     <string name="title_undo">Отменить</string>
     <string name="title_redo">Восстановить</string>
-    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Вставить строку</string>
+    <string name="title_insert_line">Вставить строку</string>
     <string name="title_add">Добавить</string>
     <string name="title_browse">В браузере</string>
     <string name="title_info">Информация</string>

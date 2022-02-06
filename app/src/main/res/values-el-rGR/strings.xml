@@ -377,6 +377,7 @@
     <string name="title_advanced_tabular_background">Να χρησιμοποιείται το χρώμα της κάρτας ως χρώμα φόντου κατά τη χρήση του στιλ πίνακα</string>
     <string name="title_advanced_cards_shadow">Σκίαση μη αναγνωσμένων μηνυμάτων κατά τη χρήση στιλ κάρτας</string>
     <string name="title_advanced_cards_shadow_highlight">Χρήση του χρώματος επισήμανσης αντί του χρώματος έμφασης</string>
+    <string name="title_advanced_tabular_dividers">Χρήση διαχωριστικών γραμμών κατά τη χρήση στιλ πίνακα</string>
     <string name="title_advanced_category_header">Ομαδοποίηση ανά κατηγορία λογαριασμού</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
     <string name="title_advanced_date_fixed">Προβολή κεφαλίδας σταθερής ημερομηνίας στην κορυφή</string>
@@ -1264,6 +1265,9 @@
     <string name="title_edit_signature_remark">Παρόλο που το Android δεν μπορεί να προβάλει όλον τον κώδικα HTML, θα αποσταλεί έτσι όπως είναι</string>
     <string name="title_edit_signature_text">Κείμενο υπογραφής</string>
     <string name="title_edit_signature_image">Εισαγωγή εικόνας</string>
+    <string name="title_edit_signature_image_hint">        Κατά την αποστολή μηνύματος, η εικόνα αντιγράφεται στο μήνυμα από την επιλεγμένη τοποθεσία.
+        Άρα, μην διαγράψετε το αρχείο εικόνας!
+    </string>
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>
     <string name="title_answer_reply">Πρότυπο απάντησης</string>
     <string name="title_answer_name">Όνομα προτύπου</string>
@@ -1508,7 +1512,7 @@
     <string name="title_later">Αργότερα</string>
     <string name="title_undo">Αναίρεση</string>
     <string name="title_redo">Επαναφορά</string>
-    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Εισαγωγή γραμμής</string>
+    <string name="title_insert_line">Εισαγωγή γραμμής</string>
     <string name="title_add">Προσθήκη</string>
     <string name="title_browse">Άνοιγμα με</string>
     <string name="title_info">Πληροφορίες</string>

@@ -398,6 +398,7 @@
     <string name="title_advanced_tabular_background">Використовувати колір картки як тло під час використання табличного стилю</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
     <string name="title_advanced_cards_shadow_highlight">Використовувати колір підсвітки замість кольору акценту</string>
+    <string name="title_advanced_tabular_dividers">Роздільні лінії під час використання табличного стилю</string>
     <string name="title_advanced_category_header">Групувати за категорією облікового запису</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
     <string name="title_advanced_date_fixed">Показати фіксований заголовок дати зверху</string>
@@ -1287,6 +1288,9 @@
     <string name="title_edit_signature_remark">Хоча Android не може відобразити весь HTML, він буде відправлений такий як є</string>
     <string name="title_edit_signature_text">Текст підпису</string>
     <string name="title_edit_signature_image">Вставити зображення</string>
+    <string name="title_edit_signature_image_hint">        При надсиланні повідомлення зображення копіюється в повідомлення з вибраного розташування.
+        Отже, не видаляйте файл зображення!
+    </string>
     <string name="title_answer_caption">Редагувати шаблон</string>
     <string name="title_answer_reply">Шаблон відповіді</string>
     <string name="title_answer_name">Ім\'я шаблону</string>

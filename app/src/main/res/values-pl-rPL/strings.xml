@@ -397,6 +397,7 @@
     <string name="title_advanced_tabular_background">Użyj koloru karty jako koloru tła podczas korzystania ze stylu tabelarycznego</string>
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
     <string name="title_advanced_cards_shadow_highlight">Użyj koloru podświetlenia zamiast koloru akcentu</string>
+    <string name="title_advanced_tabular_dividers">Używaj linii oddzielających podczas używania stylu tabelarycznego</string>
     <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>
@@ -1286,6 +1287,10 @@
     <string name="title_edit_signature_remark">Chociaż Android nie może wyświetlić całego kodu HTML, zostanie on wysłany tak, jak jest</string>
     <string name="title_edit_signature_text">Tekst podpisu</string>
     <string name="title_edit_signature_image">Wstaw obraz</string>
+    <string name="title_edit_signature_image_hint">        Podczas wysyłania wiadomości obraz jest kopiowany do wiadomości z wybranej lokalizacji.
+        Nie usuwaj więc pliku z obrazem!
+    
+    </string>
     <string name="title_answer_caption">Edytuj szablon</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>
@@ -1530,7 +1535,7 @@
     <string name="title_later">Później</string>
     <string name="title_undo">Cofnij</string>
     <string name="title_redo">Ponów</string>
-    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Wstaw linię</string>
+    <string name="title_insert_line">Wstaw linię</string>
     <string name="title_add">Dodaj</string>
     <string name="title_browse">Otwórz za pomocą</string>
     <string name="title_info">Info</string>

@@ -376,6 +376,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_tabular_background">Gebruik kaart kleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
     <string name="title_advanced_cards_shadow_highlight">Gebruik markeerkleur in plaats van accentkleur</string>
+    <string name="title_advanced_tabular_dividers">Gebruik scheidingslijnen bij gebruik van tabulaire style</string>
     <string name="title_advanced_category_header">Groeperen op account categorie</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_date_fixed">Toon vaste datumkoptekst bovenaan</string>
@@ -1262,6 +1263,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_signature_remark">Hoewel Android niet alle HTML kan weergeven, zal het worden verzonden zoals het is</string>
     <string name="title_edit_signature_text">Tekst handtekening</string>
     <string name="title_edit_signature_image">Afbeelding invoegen</string>
+    <string name="title_edit_signature_image_hint">Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde locatie naar het bericht gekopieerd.
+         Verwijder het afbeeldingsbestand dus niet!    </string>
     <string name="title_answer_caption">Bewerk sjabloon</string>
     <string name="title_answer_reply">Antwoord sjabloon</string>
     <string name="title_answer_name">Sjabloonnaam</string>
@@ -1506,7 +1509,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_later">Later</string>
     <string name="title_undo">Herstel</string>
     <string name="title_redo">Opnieuw</string>
-    <string name="title_insert_line" comment="title_insert_line&#10;Title for menu item in a popup menu to insert a line into a text&#10;This text should be as short as possible">Lijn invoegen</string>
+    <string name="title_insert_line">Lijn invoegen</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Open met</string>
     <string name="title_info">Info</string>
