@@ -1355,6 +1355,7 @@ public class HtmlHelper {
         // tel:<phonenumber>
         final Pattern GPA_PATTERN = Pattern.compile("GPA\\.\\d{4}-\\d{4}-\\d{4}-\\d{5}");
         final String GPA_LINK = "https://play.google.com/console/u/0/developers/8420080860664580239/orders/";
+        final String PAYPAL = "https://www.paypal.com/activity/payment/";
         final Pattern pattern = Pattern.compile(
                 "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern()
@@ -1372,6 +1373,18 @@ public class HtmlHelper {
                 if (links < MAX_AUTO_LINK && node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
                     String text = tnode.getWholeText();
+
+                    if (BuildConfig.DEBUG && node.parentNode() instanceof Element) {
+                        Element parent = (Element) node.parentNode();
+                        if ("faircode_txn_id".equals(parent.className())) {
+                            Element a = document.createElement("a");
+                            a.attr("href", PAYPAL + text.trim());
+                            a.text(text);
+                            tnode.before(a);
+                            tnode.text("");
+                            return;
+                        }
+                    }
 
                     Matcher matcher = pattern.matcher(text);
                     if (matcher.find()) {
