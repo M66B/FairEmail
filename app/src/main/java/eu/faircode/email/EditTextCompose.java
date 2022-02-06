@@ -88,14 +88,13 @@ public class EditTextCompose extends FixedEditText {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
 
-        if (undo_manager &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setCustomInsertionActionModeCallback(new ActionMode.Callback() {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    if (can(android.R.id.undo))
+                    if (undo_manager && can(android.R.id.undo))
                         menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, getTitle(R.string.title_undo));
-                    if (can(android.R.id.redo))
+                    if (undo_manager && can(android.R.id.redo))
                         menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, getTitle(R.string.title_redo));
                     menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_insert_line, 3, R.string.title_insert_line);
                     return true;
