@@ -391,6 +391,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvStoredTitle;
         private TextView tvSizeExTitle;
         private TextView tvLanguageTitle;
+        private TextView tvThreadTitle;
 
         private TextView tvSubmitter;
         private TextView tvDeliveredTo;
@@ -405,6 +406,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvStored;
         private TextView tvSizeEx;
         private TextView tvLanguage;
+        private TextView tvThread;
 
         private TextView tvSubjectEx;
         private TextView tvFlags;
@@ -761,6 +763,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvStoredTitle = vsBody.findViewById(R.id.tvStoredTitle);
             tvSizeExTitle = vsBody.findViewById(R.id.tvSizeExTitle);
             tvLanguageTitle = vsBody.findViewById(R.id.tvLanguageTitle);
+            tvThreadTitle = vsBody.findViewById(R.id.tvThreadTitle);
 
             tvSubmitter = vsBody.findViewById(R.id.tvSubmitter);
             tvDeliveredTo = vsBody.findViewById(R.id.tvDeliveredTo);
@@ -775,6 +778,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvStored = vsBody.findViewById(R.id.tvStored);
             tvSizeEx = vsBody.findViewById(R.id.tvSizeEx);
             tvLanguage = vsBody.findViewById(R.id.tvLanguage);
+            tvThread = vsBody.findViewById(R.id.tvThread);
 
             tvSubjectEx = vsBody.findViewById(R.id.tvSubjectEx);
             tvFlags = vsBody.findViewById(R.id.tvFlags);
@@ -1557,6 +1561,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvStoredTitle.setVisibility(View.GONE);
             tvSizeExTitle.setVisibility(View.GONE);
             tvLanguageTitle.setVisibility(View.GONE);
+            tvThreadTitle.setVisibility(View.GONE);
 
             tvSubmitter.setVisibility(View.GONE);
             tvDeliveredTo.setVisibility(View.GONE);
@@ -1571,6 +1576,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvStored.setVisibility(View.GONE);
             tvSizeEx.setVisibility(View.GONE);
             tvLanguage.setVisibility(View.GONE);
+            tvThread.setVisibility(View.GONE);
 
             tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
@@ -2252,6 +2258,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvLanguageTitle.setVisibility(showLanguage ? View.VISIBLE : View.GONE);
             tvLanguage.setVisibility(showLanguage ? View.VISIBLE : View.GONE);
             tvLanguage.setText(message.language == null ? null : new Locale(message.language).getDisplayLanguage());
+
+            boolean show_thread = (show_addresses && (BuildConfig.DEBUG || debug));
+            tvThreadTitle.setVisibility(show_thread ? View.VISIBLE : View.GONE);
+            tvThread.setVisibility(show_thread ? View.VISIBLE : View.GONE);
+            tvThread.setText(message.thread);
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);

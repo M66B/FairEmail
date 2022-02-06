@@ -447,6 +447,31 @@
         app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
         app:layout_constraintTop_toBottomOf="@id/tvSizeEx" />
 
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvThreadTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:labelFor="@+id/tvThread"
+        android:text="@string/title_thread"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvThread"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:text="123"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
+        app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_addresses"
         android:layout_width="wrap_content"
@@ -458,7 +483,7 @@
             tvCcTitle,tvBccTitle,
             tvIdentityTitle,
             tvSentTitle,tvReceivedTitle,tvStoredTitle,
-            tvSizeExTitle, tvLanguageTitle" />
+            tvSizeExTitle,tvLanguageTitle,tvThreadTitle" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSubjectEx"
@@ -471,7 +496,7 @@
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
+        app:layout_constraintTop_toBottomOf="@id/tvThread" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvFlags"

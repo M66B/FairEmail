@@ -1247,6 +1247,7 @@
     <string name="title_stored">Stored:</string>
     <string name="title_size">Size:</string>
     <string name="title_language">Language:</string>
+    <string name="title_thread" translatable="false">Thread:</string>
     <string name="title_subject">Subject:</string>
     <string name="title_attachment">Attachment:</string>
     <string name="title_body_hint">Your message</string>
