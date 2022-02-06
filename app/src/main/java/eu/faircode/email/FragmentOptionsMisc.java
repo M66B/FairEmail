@@ -38,7 +38,9 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -1118,7 +1120,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCiphers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringBuilder sb = new StringBuilder();
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                 try {
                     SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket();
 
@@ -1130,33 +1132,33 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
                     for (String p : socket.getSupportedProtocols()) {
                         boolean enabled = protocols.contains(p);
+                        int start = ssb.length();
+                        ssb.append(p);
                         if (!enabled)
-                            sb.append("(");
-                        sb.append(p);
-                        if (!enabled)
-                            sb.append(")");
-                        sb.append("\r\n");
+                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                        ssb.append("\r\n");
                     }
-                    sb.append("\r\n");
+                    ssb.append("\r\n");
 
                     for (String c : socket.getSupportedCipherSuites()) {
                         boolean enabled = ciphers.contains(c);
+                        int start = ssb.length();
+                        ssb.append(c);
                         if (!enabled)
-                            sb.append("(");
-                        sb.append(c);
-                        if (!enabled)
-                            sb.append(")");
-                        sb.append("\r\n");
+                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                        ssb.append("\r\n");
                     }
-                    sb.append("\r\n");
+                    ssb.append("\r\n");
                 } catch (IOException ex) {
-                    sb.append(ex.toString());
+                    ssb.append(ex.toString());
                 }
+
+                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
 
                 new AlertDialog.Builder(getContext())
                         .setIcon(R.drawable.twotone_info_24)
                         .setTitle(R.string.title_advanced_ciphers)
-                        .setMessage(sb.toString())
+                        .setMessage(ssb)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
