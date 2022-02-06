@@ -1234,7 +1234,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 boolean verified = (auths == 3 && (!check_tls || Boolean.TRUE.equals(message.tls)));
 
-                ibAuth.setImageLevel(auths + 1);
+                if (message.dkim == null && message.spf == null && message.dkim == null)
+                    ibAuth.setImageLevel(1);
+                else
+                    ibAuth.setImageLevel(auths + 2);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         verified ? colorVerified : colorControlNormal));
                 ibAuth.setVisibility(auths > 0 || (check_tls && !outgoing) ? View.VISIBLE : View.GONE);

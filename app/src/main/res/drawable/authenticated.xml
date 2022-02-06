@@ -7,12 +7,15 @@
         android:drawable="@drawable/twotone_gpp_question_24"
         android:maxLevel="1" />
     <item
-        android:drawable="@drawable/twotone_gpp_maybe_24"
+        android:drawable="@drawable/twotone_gpp_bad_24"
         android:maxLevel="2" />
     <item
         android:drawable="@drawable/twotone_gpp_maybe_24"
         android:maxLevel="3" />
     <item
-        android:drawable="@drawable/twotone_gpp_good_24"
+        android:drawable="@drawable/twotone_gpp_maybe_24"
         android:maxLevel="4" />
+    <item
+        android:drawable="@drawable/twotone_gpp_good_24"
+        android:maxLevel="5" />
 </level-list>
