@@ -8,6 +8,7 @@
 
 * Added option to disable divider lines for tabular layout
 * Added view original signature
+* Added support for text-transform upper/lowercase
 
 ### 1.1832 - 2022-02-05
 

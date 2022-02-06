@@ -774,6 +774,35 @@ public class HtmlHelper {
                                 sb.append("text-decoration:line-through;");
                             break;
 
+                        case "text-transform":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
+                            NodeTraversor.traverse(new NodeVisitor() {
+                                @Override
+                                public void head(Node node, int depth) {
+                                    if (node instanceof TextNode) {
+                                        TextNode tnode = (TextNode) node;
+                                        String text = tnode.getWholeText();
+                                        switch (value) {
+                                            case "capitalize":
+                                                // TODO: capitalize
+                                                break;
+                                            case "uppercase":
+                                                tnode.text(text.toUpperCase(Locale.ROOT));
+                                                break;
+                                            case "lowercase":
+                                                tnode.text(text.toLowerCase(Locale.ROOT));
+                                                break;
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void tail(Node node, int depth) {
+                                    // Do nothing
+                                }
+                            }, element);
+                            break;
+
                         case "display":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/display
                             if (element.parent() != null &&
