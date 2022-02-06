@@ -624,6 +624,7 @@ class Core {
                             // Fetch UID: NO [UNAVAILABLE] Failed to open mailbox
                             // Fetch UID: NO [TEMPFAIL] SELECT completed
                             // Fetch UID: NO Internal error. Try again later... (MARKER:xxx)
+                            // Fetch UID: BAD Serious error while processing UID FETCH (NioRecvFail (nn/nn))
                             // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist (n.nnn + n.nnn + n.nnn secs)
