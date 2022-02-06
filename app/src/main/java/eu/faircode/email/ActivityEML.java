@@ -88,7 +88,6 @@ public class ActivityEML extends ActivityBase {
     private TextView tvCc;
     private TextView tvBcc;
     private TextView tvSent;
-    private TextView tvReceived;
     private TextView tvSubject;
     private View vSeparatorAttachments;
     private RecyclerView rvAttachment;
@@ -119,7 +118,6 @@ public class ActivityEML extends ActivityBase {
         tvCc = findViewById(R.id.tvCc);
         tvBcc = findViewById(R.id.tvBcc);
         tvSent = findViewById(R.id.tvSent);
-        tvReceived = findViewById(R.id.tvReceived);
         tvSubject = findViewById(R.id.tvSubject);
         vSeparatorAttachments = findViewById(R.id.vSeparatorAttachments);
         rvAttachment = findViewById(R.id.rvAttachment);
@@ -270,7 +268,6 @@ public class ActivityEML extends ActivityBase {
                     result.cc = MessageHelper.formatAddresses(helper.getCc());
                     result.bcc = MessageHelper.formatAddresses(helper.getBcc());
                     result.sent = helper.getSent();
-                    result.received = helper.getReceived();
                     result.subject = helper.getSubject();
                     result.parts = helper.getMessageParts(false);
 
@@ -303,7 +300,6 @@ public class ActivityEML extends ActivityBase {
                 tvCc.setText(result.cc);
                 tvBcc.setText(result.bcc);
                 tvSent.setText(result.sent == null ? null : DTF.format(result.sent));
-                tvReceived.setText(result.received == null ? null : DTF.format(result.received));
                 tvSubject.setText(result.subject);
 
                 vSeparatorAttachments.setVisibility(result.parts.getAttachmentParts().size() > 0 ? View.VISIBLE : View.GONE);
@@ -678,7 +674,6 @@ public class ActivityEML extends ActivityBase {
         String cc;
         String bcc;
         Long sent;
-        Long received;
         String subject;
         MessageHelper.MessageParts parts;
         Spanned body;
