@@ -1474,6 +1474,10 @@
     <string name="title_edit_signature_remark">Although Android cannot display all HTML, it will be sent as-is</string>
     <string name="title_edit_signature_text">Signature text</string>
     <string name="title_edit_signature_image">Insert image</string>
+    <string name="title_edit_signature_image_hint">
+        When sending a message, the image is copied into the message from the selected location.
+        So, don\'t delete the image file!
+    </string>
 
     <string name="title_answer_caption">Edit template</string>
     <string name="title_answer_reply">Reply template</string>

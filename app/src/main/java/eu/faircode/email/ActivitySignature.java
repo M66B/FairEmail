@@ -389,6 +389,21 @@ public class ActivitySignature extends ActivityBase {
                 ssb.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 etText.setText(ssb);
                 etText.setSelection(start + 2);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                boolean signature_images_hint = prefs.getBoolean("signature_images_hint", false);
+
+                if (!signature_images_hint)
+                    new AlertDialog.Builder(this)
+                            .setTitle(R.string.title_hint_important)
+                            .setMessage(R.string.title_edit_signature_image_hint)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    prefs.edit().putBoolean("signature_images_hint", true).apply();
+                                }
+                            })
+                            .show();
             }
         } catch (SecurityException ex) {
             Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE)
