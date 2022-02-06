@@ -4,7 +4,7 @@
         android:drawable="@drawable/twotone_flag_24"
         android:maxLevel="0" />
     <item
-        android:drawable="@drawable/twotone_gpp_bad_24"
+        android:drawable="@drawable/twotone_gpp_question_24"
         android:maxLevel="1" />
     <item
         android:drawable="@drawable/twotone_gpp_maybe_24"
