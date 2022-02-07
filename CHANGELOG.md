@@ -4,11 +4,13 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
-### Next version
+### 1.1833 - 2022-02-07
 
-* Added option to disable divider lines for tabular layout
 * Added view original signature
-* Added support for text-transform upper/lowercase
+* Added support for CSS text-transform
+* Added option to disable divider lines for tabular layout
+* Small improvements and minor bug fixes
+* Updated translations
 
 ### 1.1832 - 2022-02-05
 
