@@ -1003,21 +1003,15 @@ public class EmailService implements AutoCloseable {
                                 Principal principal = certificate.getSubjectDN();
                                 if (principal == null)
                                     throw ex;
-                                else {
-                                    if (ex.getCause() instanceof CertPathValidatorException &&
-                                            "Trust anchor for certification path not found."
-                                                    .equals(ex.getCause().getMessage())) {
-                                        if (cert_strict)
-                                            throw new CertificateException(principal.getName(), ex);
-                                        else {
-                                            if (BuildConfig.PLAY_STORE_RELEASE)
-                                                Log.i(ex);
-                                            else
-                                                Log.w(ex);
-                                        }
-                                    } else
-                                        throw new CertificateException(principal.getName(), ex);
-                                }
+                                else if (cert_strict)
+                                    throw new CertificateException(principal.getName(), ex);
+                                else if (noAnchor(ex) || isExpired(ex)) {
+                                    if (BuildConfig.PLAY_STORE_RELEASE)
+                                        Log.i(ex);
+                                    else
+                                        Log.w(ex);
+                                } else
+                                    throw new CertificateException(principal.getName(), ex);
                             }
 
                             // Check host name
@@ -1060,6 +1054,29 @@ public class EmailService implements AutoCloseable {
                     @Override
                     public X509Certificate[] getAcceptedIssuers() {
                         return rtm.getAcceptedIssuers();
+                    }
+
+                    private boolean noAnchor(Throwable ex) {
+                        while (ex != null) {
+                            if (ex instanceof CertPathValidatorException &&
+                                    "Trust anchor for certification path not found."
+                                            .equals(ex.getMessage()))
+                                return true;
+                            ex = ex.getCause();
+                        }
+                        return false;
+                    }
+
+                    private boolean isExpired(Throwable ex) {
+                        while (ex != null) {
+                            if (ex instanceof CertPathValidatorException &&
+                                    "timestamp check failed"
+                                            .equals(ex.getMessage()))
+                                return true;
+
+                            ex = ex.getCause();
+                        }
+                        return false;
                     }
                 };
 
