@@ -8,10 +8,11 @@ def getRevision = { -> return "a" }
 def getReleaseName = { -> return "Fulgurotherium" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
 
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+Properties localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
     compileSdkVersion 31
@@ -155,6 +156,8 @@ android {
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
             buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
+            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "")
+            buildConfigField "String", "PAYPAL_URI", localProperties.getProperty("paypal.uri", "")
         }
         fdroid {
             dimension "all"
@@ -167,6 +170,8 @@ android {
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
             buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
+            buildConfigField "String", "PAYPAL_URI", "\"\""
+            buildConfigField "String", "GPA_URI", "\"\""
         }
         play {
             dimension "all"
@@ -180,6 +185,8 @@ android {
             buildConfigField "String", "GITHUB_LATEST_API", "\"\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"\""
             buildConfigField "String", "GRAVATAR_URI", "\"\""
+            buildConfigField "String", "PAYPAL_URI", "\"\""
+            buildConfigField "String", "GPA_URI", "\"\""
         }
         amazon {
             dimension "all"
@@ -193,6 +200,8 @@ android {
             buildConfigField "String", "GITHUB_LATEST_API", "\"\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"\""
             buildConfigField "String", "GRAVATAR_URI", "\"\""
+            buildConfigField "String", "PAYPAL_URI", "\"\""
+            buildConfigField "String", "GPA_URI", "\"\""
         }
     }
 

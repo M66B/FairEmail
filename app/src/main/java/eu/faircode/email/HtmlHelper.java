@@ -1354,8 +1354,6 @@ public class HtmlHelper {
         // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
         // tel:<phonenumber>
         final Pattern GPA_PATTERN = Pattern.compile("GPA\\.\\d{4}-\\d{4}-\\d{4}-\\d{5}");
-        final String GPA_LINK = "https://play.google.com/console/u/0/developers/8420080860664580239/orders/";
-        final String PAYPAL = "https://www.paypal.com/activity/payment/";
         final Pattern pattern = Pattern.compile(
                 "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern()
@@ -1378,7 +1376,7 @@ public class HtmlHelper {
                         Element parent = (Element) node.parentNode();
                         if ("faircode_txn_id".equals(parent.className())) {
                             Element a = document.createElement("a");
-                            a.attr("href", PAYPAL + text.trim());
+                            a.attr("href", BuildConfig.PAYPAL_URI + text.trim());
                             a.text(text);
                             tnode.before(a);
                             tnode.text("");
@@ -1431,7 +1429,7 @@ public class HtmlHelper {
 
                                 Element a = document.createElement("a");
                                 if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
-                                    a.attr("href", GPA_LINK + group);
+                                    a.attr("href", BuildConfig.GPA_URI + group);
                                 else
                                     a.attr("href", (email ? "mailto:" : "") + group);
                                 a.text(group);
