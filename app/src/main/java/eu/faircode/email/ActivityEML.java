@@ -270,7 +270,7 @@ public class ActivityEML extends ActivityBase {
                     result.cc = MessageHelper.formatAddresses(helper.getCc());
                     result.bcc = MessageHelper.formatAddresses(helper.getBcc());
                     result.sent = helper.getSent();
-                    result.received = helper.getReceived();
+                    result.received = helper.getReceivedHeader();
                     result.subject = helper.getSubject();
                     result.parts = helper.getMessageParts(false);
 
