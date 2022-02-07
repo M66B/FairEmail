@@ -378,6 +378,7 @@
     <string name="title_advanced_tabular_background">Brug kortfarve som baggrundsfarve ifm. tabelform</string>
     <string name="title_advanced_cards_shadow">Brug skyggeeffekt til ulæste beskeder, når kortstil benyttes</string>
     <string name="title_advanced_cards_shadow_highlight">Brug fremhævningsfarve i stedet for accentfarve</string>
+    <string name="title_advanced_tabular_dividers">Brug skillelinjer ifm. tabelform</string>
     <string name="title_advanced_category_header">Gruppere efter kontokategori</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_date_fixed">Vis fast datohoved øverst</string>
@@ -1268,6 +1269,9 @@
     <string name="title_edit_signature_remark">Selvom Android ikke kan vise al HTML, sendes den som-om</string>
     <string name="title_edit_signature_text">Signaturtekst</string>
     <string name="title_edit_signature_image">Indsæt billede</string>
+    <string name="title_edit_signature_image_hint">        Ved beskedafsendelse kopieres billedet ind i beskeden fra den valgte placering.
+        Slet derfor ikke billedfilen!
+    </string>
     <string name="title_answer_caption">Redigér skabelon</string>
     <string name="title_answer_reply">Svarskabelon</string>
     <string name="title_answer_name">Skabelonnavn</string>

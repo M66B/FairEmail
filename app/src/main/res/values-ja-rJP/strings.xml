@@ -114,7 +114,7 @@
     <string name="title_setup_help">ヘルプ</string>
     <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_intro">3 ステップのアカウント設定で、すぐにメールを送受信できます</string>
-    <string name="title_setup_simple">設定を変更する必要はありません</string>
+    <string name="title_setup_simple">細かな設定は必要ありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
     <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnag がエラーレポートに使用されますが、デフォルトでは無効になっています。</string>
     <string name="title_setup_quick_accounts">アカウントを追加または変更する</string>
@@ -368,6 +368,7 @@
     <string name="title_advanced_tabular_background">表形式のとき背景色にカードの色を使用</string>
     <string name="title_advanced_cards_shadow">カード形式のとき未読メッセージにシャドウを使用</string>
     <string name="title_advanced_cards_shadow_highlight">アクセントカラーの代わりにハイライトカラーを使用</string>
+    <string name="title_advanced_tabular_dividers">表形式のとき区切り線を表示</string>
     <string name="title_advanced_category_header">アカウントのカテゴリーでグループ化</string>
     <string name="title_advanced_date_header">日付でグループ化</string>
     <string name="title_advanced_date_fixed">日付を上部に固定表示</string>
@@ -395,12 +396,12 @@
     <string name="title_advanced_distinguish_contacts">受信したメールの差出人にメールを送ったことがあるとローカル連絡先に記録されている場合、差出人に下線を表示</string>
     <string name="title_advanced_show_recipients">見出しに宛先を表示</string>
     <string name="title_advanced_font_size_sender">差出人のテキストサイズ</string>
-    <string name="title_advanced_sender_ellipsize">差出人の短縮</string>
+    <string name="title_advanced_sender_ellipsize">差出人を短縮</string>
     <string name="title_advanced_subject_top">差出人の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
     <string name="title_advanced_highlight_subject">件名をハイライト</string>
     <string name="title_advanced_font_size_subject">件名のテキストサイズ</string>
-    <string name="title_advanced_subject_ellipsize">件名の短縮</string>
+    <string name="title_advanced_subject_ellipsize">件名を短縮</string>
     <string name="title_advanced_compact_mode_remark">コンパクトモードのみ</string>
     <string name="title_advanced_highlight_color">ハイライトカラー</string>
     <string name="title_advanced_keywords">見出しにキーワードを表示</string>
@@ -1260,6 +1261,9 @@
     <string name="title_edit_signature_remark">Android はすべての HTML を表示することはできませんが、そのまま送信されます</string>
     <string name="title_edit_signature_text">署名テキスト</string>
     <string name="title_edit_signature_image">画像を挿入</string>
+    <string name="title_edit_signature_image_hint">        毎回メッセージを送信するとき、画像は選択した時点の保存場所からコピーされます。
+        画像ファイルは削除しないでください！
+    </string>
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_answer_reply">テンプレートで返信</string>
     <string name="title_answer_name">テンプレート名</string>
@@ -1702,10 +1706,10 @@
         <item>20分</item>
     </string-array>
     <string-array name="ellipsizeNames">
-        <item>初め</item>
-        <item>途中</item>
-        <item>終わり</item>
-        <item>省略しない</item>
+        <item>先頭を短縮</item>
+        <item>途中で短縮</item>
+        <item>末尾を短縮</item>
+        <item>短縮しない</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>
