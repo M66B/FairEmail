@@ -157,8 +157,8 @@ android {
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
             buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
-            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "")
-            buildConfigField "String", "PAYPAL_URI", localProperties.getProperty("paypal.uri", "")
+            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
+            buildConfigField "String", "PAYPAL_URI", localProperties.getProperty("paypal.uri", "\"\"")
         }
         fdroid {
             dimension "all"
