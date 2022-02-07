@@ -330,6 +330,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(175) Why should battery optimizations be disabled?](#user-content-faq175)
 * [(176) When will a message be considered safely transported?](#user-content-faq176)
 * [(177) What does 'Sensitivity' mean?](#user-content-faq177)
+* [(178) Why are widgets not updating?](#user-content-faq178)
 
 [I have another question.](#user-content-get-support)
 
@@ -4538,6 +4539,16 @@ The sensitivity of a message indicates the confidentiality of a message.
 Please see [this article](https://support.microsoft.com/en-us/office/mark-your-email-as-normal-personal-private-or-confidential-4a76d05b-6c29-4a0d-9096-71784a6b12c1) for more information.
 
 The sensitivity indication is sent as [a message header](https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55).
+
+<br />
+
+<a name="faq178"></a>
+**(178) Why are widgets not updating?**
+
+Apps provide the layout and data for widgets on demand, but the homescreen app/launcher manages all widgets, with a little help from Android.
+
+If widgets are not being updated, this is often caused by missing permission.
+Please see [this video](https://www.youtube.com/watch?v=ywQrYJ6rtnM) about how to fix this.
 
 <br />
 
