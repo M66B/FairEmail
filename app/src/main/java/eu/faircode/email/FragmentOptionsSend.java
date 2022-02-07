@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.TypefaceSpan;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -158,14 +159,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReceiptLegacy = view.findViewById(R.id.swReceiptLegacy);
         swLookupMx = view.findViewById(R.id.swLookupMx);
 
-        String[] fontNameNames = getResources().getStringArray(R.array.fontNameNames);
-        String[] fontNameValues = getResources().getStringArray(R.array.fontNameValues);
+        List<Pair<String, String>> fonts = StyleHelper.getFonts(getContext());
 
         List<CharSequence> fn = new ArrayList<>();
         fn.add("-");
-        for (int i = 0; i < fontNameNames.length; i++) {
-            SpannableStringBuilder ssb = new SpannableStringBuilderEx(fontNameNames[i]);
-            ssb.setSpan(new TypefaceSpan(fontNameValues[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        for (int i = 0; i < fonts.size(); i++) {
+            Pair<String, String> font = fonts.get(i);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.second);
+            ssb.setSpan(new TypefaceSpan(font.first), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             fn.add(ssb);
         }
 
@@ -304,7 +305,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String value = (position == 0 ? "" : fontNameValues[position - 1]);
+                String value = (position == 0 ? "" : fonts.get(position - 1).first);
                 boolean monospaced = prefs.getBoolean("monospaced", false);
                 if (value.equals(monospaced ? "monospace" : "sans-serif"))
                     prefs.edit().remove("compose_font").apply();
@@ -574,12 +575,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         boolean monospaced = prefs.getBoolean("monospaced", false);
         String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
-        String[] fontNameValues = getResources().getStringArray(R.array.fontNameValues);
-        for (int pos = 0; pos < fontNameValues.length; pos++)
-            if (fontNameValues[pos].equals(compose_font)) {
+        List<Pair<String, String>> fonts = StyleHelper.getFonts(getContext());
+        for (int pos = 0; pos < fonts.size(); pos++) {
+            Pair<String, String> font = fonts.get(pos);
+            if (font.first.equals(compose_font)) {
                 spComposeFont.setSelection(pos + 1);
                 break;
             }
+        }
 
         swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));

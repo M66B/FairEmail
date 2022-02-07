@@ -169,15 +169,15 @@ public class StyleHelper {
                     }
                 }
 
-                String[] fontNameNames = anchor.getResources().getStringArray(R.array.fontNameNames);
-                String[] fontNameValues = anchor.getResources().getStringArray(R.array.fontNameValues);
+                List<Pair<String, String>> fonts = getFonts(anchor.getContext());
                 SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
-                for (int i = 0; i < fontNameNames.length; i++) {
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(fontNameNames[i]);
-                    ssb.setSpan(getTypefaceSpan(fontNameValues[i], context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                for (int i = 0; i < fonts.size(); i++) {
+                    Pair<String, String> font = fonts.get(i);
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.second);
+                    ssb.setSpan(getTypefaceSpan(font.first, context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     smenu.add(R.id.group_style_font, i, 0, ssb);
                 }
-                smenu.add(R.id.group_style_font, fontNameNames.length, 0, R.string.title_style_font_default);
+                smenu.add(R.id.group_style_font, fonts.size(), 0, R.string.title_style_font_default);
 
                 int level = -1;
                 BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
@@ -505,8 +505,8 @@ public class StyleHelper {
                         Log.breadcrumb("style", "action", "font");
 
                         int id = item.getItemId();
-                        String[] names = anchor.getResources().getStringArray(R.array.fontNameValues);
-                        String face = (id < names.length ? names[id] : null);
+                        List<Pair<String, String>> fonts = StyleHelper.getFonts(anchor.getContext());
+                        String face = (id < fonts.size() ? fonts.get(id).first : null);
 
                         return _setFont(face);
                     }
@@ -951,6 +951,15 @@ public class StyleHelper {
                 return tf;
         }
         return Typeface.DEFAULT;
+    }
+
+    public static List<Pair<String, String>> getFonts(Context context) {
+        List<Pair<String, String>> result = new ArrayList<>();
+        String[] fontNameNames = context.getResources().getStringArray(R.array.fontNameNames);
+        String[] fontNameValues = context.getResources().getStringArray(R.array.fontNameValues);
+        for (int i = 0; i < fontNameNames.length; i++)
+            result.add(new Pair(fontNameValues[i], fontNameNames[i]));
+        return result;
     }
 
     //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
