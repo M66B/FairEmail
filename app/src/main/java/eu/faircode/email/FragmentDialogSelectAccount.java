@@ -43,8 +43,12 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
         new SimpleTask<List<EntityAccount>>() {
             @Override
             protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                boolean all = (args != null && args.getBoolean("all"));
+
                 DB db = DB.getInstance(context);
-                return db.account().getSynchronizingAccounts(null);
+                return (all
+                        ? db.account().getAccounts()
+                        : db.account().getSynchronizingAccounts(null));
             }
 
             @Override
@@ -56,7 +60,7 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, new Bundle(), "messages:accounts");
+        }.execute(this, getArguments(), "messages:accounts");
 
         return new AlertDialog.Builder(getContext())
                 .setIcon(R.drawable.twotone_account_circle_24)
@@ -65,7 +69,9 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         EntityAccount account = adapter.getItem(which);
-                        getArguments().putLong("account", account.id);
+                        Bundle args = getArguments();
+                        args.putLong("account", account.id);
+                        args.putString("name", account.name);
                         sendResult(RESULT_OK);
                     }
                 })

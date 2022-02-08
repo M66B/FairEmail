@@ -142,6 +142,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_IMPORT_CERTIFICATE = 7;
     static final int REQUEST_OAUTH = 8;
     static final int REQUEST_STILL = 9;
+    static final int REQUEST_DELETE_ACCOUNT = 10;
 
     static final int PI_MISC = 1;
 
