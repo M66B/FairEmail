@@ -928,13 +928,13 @@ public interface DaoMessage {
 
     @Query("SELECT id FROM message" +
             " WHERE folder = :folder" +
-            " AND received < :before" +
+            " AND received < :keep_time" +
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
-            " AND NOT ui_browsed" +
+            " AND stored < :sync_time" + // moved, browsed
             " AND ui_snoozed IS NULL")
-    List<Long> getMessagesBefore(long folder, long before, boolean unseen);
+    List<Long> getMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +

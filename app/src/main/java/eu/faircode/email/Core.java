@@ -3168,7 +3168,7 @@ class Core {
 
             // Delete old local messages
             if (auto_delete) {
-                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, delete_unseen);
+                List<Long> tbds = db.message().getMessagesBefore(folder.id, sync_time, keep_time, delete_unseen);
                 Log.i(folder.name + " local tbd=" + tbds.size());
                 EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
                 for (Long tbd : tbds) {
