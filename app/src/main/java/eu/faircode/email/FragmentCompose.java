@@ -5656,8 +5656,9 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_undo ||
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
-                        boolean unencrypted = (draft.ui_encrypt == null ||
-                                EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt));
+                        boolean unencrypted =
+                                (!EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt) &&
+                                        !EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt));
                         if ((dirty && unencrypted) || encrypted) {
                             if (save_drafts) {
                                 Map<String, String> c = new HashMap<>();
