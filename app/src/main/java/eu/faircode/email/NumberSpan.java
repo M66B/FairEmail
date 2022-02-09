@@ -79,17 +79,21 @@ public class NumberSpan extends BulletSpan {
             number = index + ".";
         else {
             switch (type) {
+                case "a":
                 case "lower-alpha":
                 case "lower-latin":
                     number = Character.toString((char) ((int) 'a' + index));
                     break;
+                case "A":
                 case "upper-alpha":
                 case "upper-latin":
                     number = Character.toString((char) ((int) 'A' + index));
                     break;
+                case "i":
                 case "lower-roman":
                     number = Helper.toRoman(index).toLowerCase(Locale.ROOT);
                     break;
+                case "I":
                 case "upper-roman":
                     number = Helper.toRoman(index);
                     break;

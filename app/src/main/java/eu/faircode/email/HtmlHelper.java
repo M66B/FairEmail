@@ -3092,13 +3092,17 @@ public class HtmlHelper {
 
                                 int level = 0;
                                 Element list = null;
-                                String ltype = element.attr("x-list-style");
+                                String ltype = element.attr("type");
+                                if (TextUtils.isEmpty(ltype))
+                                    ltype = element.attr("x-list-style");
                                 Element parent = element.parent();
                                 while (parent != null) {
                                     if ("ol".equals(parent.tagName()) || "ul".equals(parent.tagName())) {
                                         level++;
                                         if (list == null)
                                             list = parent;
+                                        if (TextUtils.isEmpty(ltype))
+                                            ltype = parent.attr("type");
                                         if (TextUtils.isEmpty(ltype))
                                             ltype = parent.attr("x-list-style");
                                     }
