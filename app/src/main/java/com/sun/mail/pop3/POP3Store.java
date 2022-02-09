@@ -288,7 +288,10 @@ public class POP3Store extends Store {
 	} catch (EOFException ex) {
 	    throw cleanupAndThrow(p, ex);
 	} catch (Exception ex) {
-	    throw cleanupAndThrow(p, new EOFException(ex.getMessage()));
+		if (ex.getCause() instanceof IOException)
+			throw cleanupAndThrow(p, (IOException) ex.getCause());
+		else
+			throw cleanupAndThrow(p, new EOFException(ex.getMessage()));
 	}
 
 
@@ -428,10 +431,14 @@ public class POP3Store extends Store {
 
 	    // only the first supported and enabled mechanism is used
 	    logger.log(Level.FINE, "Using mechanism {0}", m);
-	    String msg =
-		p.authenticate(m, host, authzid, user, passwd);
-	    if (msg != null)
-		throw new AuthenticationFailedException(msg);
+	    try {
+			String msg =
+					p.authenticate(m, host, authzid, user, passwd);
+			if (msg != null)
+				throw new AuthenticationFailedException(msg);
+		} catch (IOException ex) {
+			throw new AuthenticationFailedException(m, ex);
+		}
 	    return true;
 	}
 

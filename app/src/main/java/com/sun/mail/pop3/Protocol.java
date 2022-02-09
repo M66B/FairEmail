@@ -296,7 +296,7 @@ class Protocol {
      */
     synchronized String authenticate(String mech,
 				String host, String authzid,
-				String user, String passwd) {
+				String user, String passwd) throws IOException {
 	Authenticator a = authenticators.get(mech.toUpperCase(Locale.ENGLISH));
 	if (a == null)
 	    return "No such authentication mechanism: " + mech;
@@ -305,7 +305,7 @@ class Protocol {
 		return "login failed";
 	    return null;
 	} catch (IOException ex) {
-	    return ex.getMessage();
+	    throw ex;
 	}
     }
 
