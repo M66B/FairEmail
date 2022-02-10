@@ -36,3 +36,8 @@ FairEmail uses:
 * [Public Suffix List](https://publicsuffix.org/). Copyright © 2007–20 Mozilla Foundation. [Mozilla Public License, v. 2.0](https://mozilla.org/MPL/2.0/).
 * [Outlook Message Parser](https://github.com/bbottema/outlook-message-parser). Copyright (C) 2017 Benny Bottema. [Apache License 2.0](https://github.com/bbottema/outlook-message-parser/blob/master/LICENSE-2.0.txt).
 * [ez-vcard](https://github.com/mangstadt/ez-vcard). Copyright (c) 2012-2021, Michael Angstadt. All rights reserved. [FreeBSD License](https://github.com/mangstadt/ez-vcard/blob/master/LICENSE).
+* [Arimo font](https://fonts.google.com/specimen/Arimo). By Steve Matteson. [Apache License, Version 2.0](https://fonts.google.com/specimen/Arimo#license)
+* [Tinos font](https://fonts.google.com/specimen/Tinos). By Steve Matteson. [Apache License, Version 2.0](https://fonts.google.com/specimen/Tinos#license)
+* [Cousine font](https://fonts.google.com/specimen/Cousine). By Steve Matteson. [Apache License, Version 2.0](https://fonts.google.com/specimen/Cousine#license)
+* [Lato font](https://fonts.google.com/specimen/Lato). By Łukasz Dziedzic. [Apache License, Version 2.0](https://fonts.google.com/specimen/Lato#license)
+* [Cambo font](https://fonts.google.com/specimen/Cambo). By Huerta Tipográfica. [Apache License, Version 2.0](https://fonts.google.com/specimen/Cambo#license)

@@ -4,6 +4,10 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### Next version
+
+* Added Croscore and Crosextra fonts
+
 ### 1.1833 - 2022-02-07
 
 * Added view original signature

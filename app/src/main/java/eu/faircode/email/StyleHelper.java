@@ -78,7 +78,7 @@ public class StyleHelper {
             QuoteSpan.class, IndentSpan.class,
             StrikethroughSpan.class,
             URLSpan.class,
-            TypefaceSpan.class
+            TypefaceSpan.class, CustomTypefaceSpan.class
     ));
 
     static boolean apply(int action, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
@@ -930,26 +930,57 @@ public class StyleHelper {
 
     static TypefaceSpan getTypefaceSpan(String family, Context context) {
         String faces = family.toLowerCase(Locale.ROOT);
+        if (faces.contains("arimo"))
+            family = "Arimo, Arial, Verdana, sans-serif";
+        if (faces.contains("tinos"))
+            family = "Tinos, Times New Roman, serif";
+        if (faces.contains("cousine"))
+            family = "Cousine, Courier New, monospace";
+        if (faces.contains("lato"))
+            family = "Lato, Calibri, sans-serif";
+        if (faces.contains("cambo"))
+            family = "Cambo, Cambria, serif";
         if (faces.contains("comic sans"))
-            family = "comic sans ms, sans-serif";
+            family = "Comic Sans, Comic Sans MS, sans-serif";
+
         return new CustomTypefaceSpan(family, getTypeface(family, context));
     }
 
     static Typeface getTypeface(String family, Context context) {
-        String faces = family.toLowerCase(Locale.ROOT);
+        List<String> faces = new ArrayList<>();
+        for (String face : family.split(","))
+            faces.add(face
+                    .trim()
+                    .toLowerCase(Locale.ROOT)
+                    .replace("\"", ""));
 
-        if (faces.equals("fairemail"))
+        if (faces.contains("fairemail"))
             return ResourcesCompat.getFont(context, R.font.fantasy);
 
-        if (faces.contains("comic sans"))
+        if (faces.contains("arimo") || faces.contains("arial") || faces.contains("verdana"))
+            return ResourcesCompat.getFont(context, R.font.arimo);
+
+        if (faces.contains("tinos") || faces.contains("times new roman"))
+            return ResourcesCompat.getFont(context, R.font.tinos);
+
+        if (faces.contains("cousine") || faces.contains("courier new"))
+            return ResourcesCompat.getFont(context, R.font.cousine);
+
+        if (faces.contains("lato") || faces.contains("calibri"))
+            return ResourcesCompat.getFont(context, R.font.lato);
+
+        if (faces.contains("cambo") || faces.contains("cambria"))
+            return ResourcesCompat.getFont(context, R.font.cambo);
+
+        if (faces.contains("comic sans") || faces.contains("comic sans ms"))
             return ResourcesCompat.getFont(context, R.font.opendyslexic);
 
-        for (String face : faces.split(",")) {
-            face = face.trim().replace("\"", "");
+        for (String face : faces) {
             Typeface tf = Typeface.create(face, Typeface.NORMAL);
             if (!tf.equals(Typeface.DEFAULT))
                 return tf;
         }
+
         return Typeface.DEFAULT;
     }
 
@@ -959,7 +990,16 @@ public class StyleHelper {
         String[] fontNameValues = context.getResources().getStringArray(R.array.fontNameValues);
         for (int i = 0; i < fontNameNames.length; i++)
             result.add(new FontDescriptor(fontNameValues[i], fontNameNames[i]));
+
+        // https://en.wikipedia.org/wiki/Croscore_fonts
+        result.add(new FontDescriptor("arimo", "Arimo (Arial, Verdana)", true));
+        result.add(new FontDescriptor("tinos", "Tinos (Times New Roman)", true));
+        result.add(new FontDescriptor("cousine", "Cousine (Courier New)", true));
+        result.add(new FontDescriptor("lato", "Lato (Calibri)", true));
+        result.add(new FontDescriptor("cambo", "Cambo (Cambria)", true));
+
         result.add(new FontDescriptor("comic sans", "OpenDyslexic", true));
+
         return result;
     }
 
