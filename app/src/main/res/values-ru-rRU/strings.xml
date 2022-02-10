@@ -1291,7 +1291,7 @@
     <string name="title_edit_signature_remark">Хотя Android не может отобразить весь HTML, он будет отправлен как есть</string>
     <string name="title_edit_signature_text">Текст подписи</string>
     <string name="title_edit_signature_image">Вставить изображение</string>
-    <string name="title_edit_signature_image_hint">        При отправке сообщения изображение копируется в сообщение из указанного расположения.
+    <string name="title_edit_signature_image_hint">        При отправке сообщения изображение копируется в него из указанного расположения.
         Поэтому не удаляйте файл изображения!
     </string>
     <string name="title_answer_caption">Изменить шаблон</string>

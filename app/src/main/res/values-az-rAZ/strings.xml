@@ -776,6 +776,7 @@
     <string name="title_drafts_select">E-poçtları göndərmək, hesab tənzimləmələrdə bir qaralamalar qovluğunun seçilməsini tələb edir</string>
     <string name="title_account_auth_update">Səlahiyyətləndirməni yenilə</string>
     <string name="title_account_auth_password">Parol təsdiqləməsinə keç</string>
+    <string name="title_delete_account">Hesabı sil</string>
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_edit_html">HTML kimi düzəliş et</string>
