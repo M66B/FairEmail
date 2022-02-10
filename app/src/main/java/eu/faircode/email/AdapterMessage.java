@@ -317,8 +317,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat TF;
     private DateFormat DTF;
 
+    private static final int processors =
+            Runtime.getRuntime().availableProcessors();
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
+    private static final ExecutorService executorContactInfo =
+            Helper.getBackgroundExecutor(Math.max(1, processors / 2), "contact");
 
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
@@ -1486,7 +1490,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
-                }.setLog(false);
+                }.setLog(false).setExecutor((executorContactInfo));
                 taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(message, info, addresses);
