@@ -6141,6 +6141,7 @@ public class FragmentCompose extends FragmentBase {
             // https://datatracker.ietf.org/doc/html/rfc3676#section-4.3
             Element span = document.createElement("span");
             span.text("-- ");
+            span.prependElement("br");
             span.appendElement("br");
             div.appendChild(span);
         }
