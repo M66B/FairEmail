@@ -159,14 +159,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReceiptLegacy = view.findViewById(R.id.swReceiptLegacy);
         swLookupMx = view.findViewById(R.id.swLookupMx);
 
-        List<Pair<String, String>> fonts = StyleHelper.getFonts(getContext());
+        List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
 
         List<CharSequence> fn = new ArrayList<>();
         fn.add("-");
         for (int i = 0; i < fonts.size(); i++) {
-            Pair<String, String> font = fonts.get(i);
-            SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.second);
-            ssb.setSpan(new TypefaceSpan(font.first), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            StyleHelper.FontDescriptor font = fonts.get(i);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
+            ssb.setSpan(new TypefaceSpan(font.type), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             fn.add(ssb);
         }
 
@@ -305,7 +305,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String value = (position == 0 ? "" : fonts.get(position - 1).first);
+                String value = (position == 0 ? "" : fonts.get(position - 1).type);
                 boolean monospaced = prefs.getBoolean("monospaced", false);
                 if (value.equals(monospaced ? "monospace" : "sans-serif"))
                     prefs.edit().remove("compose_font").apply();
@@ -575,10 +575,10 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         boolean monospaced = prefs.getBoolean("monospaced", false);
         String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
-        List<Pair<String, String>> fonts = StyleHelper.getFonts(getContext());
+        List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
         for (int pos = 0; pos < fonts.size(); pos++) {
-            Pair<String, String> font = fonts.get(pos);
-            if (font.first.equals(compose_font)) {
+            StyleHelper.FontDescriptor font = fonts.get(pos);
+            if (font.type.equals(compose_font)) {
                 spComposeFont.setSelection(pos + 1);
                 break;
             }

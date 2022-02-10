@@ -48,7 +48,8 @@
         android:orderInCategory="4"
         android:title="@string/title_style_font">
         <menu>
-            <group android:id="@+id/group_style_font" />
+            <group android:id="@+id/group_style_font_standard" />
+            <group android:id="@+id/group_style_font_custom" />
         </menu>
     </item>
 

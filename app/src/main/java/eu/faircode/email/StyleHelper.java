@@ -48,6 +48,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LifecycleOwner;
@@ -167,15 +168,15 @@ public class StyleHelper {
                     }
                 }
 
-                List<Pair<String, String>> fonts = getFonts(anchor.getContext());
+                List<FontDescriptor> fonts = getFonts(anchor.getContext());
                 SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
                 for (int i = 0; i < fonts.size(); i++) {
-                    Pair<String, String> font = fonts.get(i);
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.second);
-                    ssb.setSpan(getTypefaceSpan(font.first, context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    smenu.add(R.id.group_style_font, i, 0, ssb);
+                    FontDescriptor font = fonts.get(i);
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
+                    ssb.setSpan(getTypefaceSpan(font.type, context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    smenu.add(font.custom ? R.id.group_style_font_custom : R.id.group_style_font_standard, i, 0, ssb);
                 }
-                smenu.add(R.id.group_style_font, fonts.size(), 0, R.string.title_style_font_default);
+                smenu.add(R.id.group_style_font_standard, fonts.size(), 0, R.string.title_style_font_default);
 
                 int level = -1;
                 BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
@@ -207,7 +208,8 @@ public class StyleHelper {
                                 return setBackground(item);
                             } else if (itemId == R.id.menu_style_color) {
                                 return setColor(item);
-                            } else if (groupId == R.id.group_style_font) {
+                            } else if (groupId == R.id.group_style_font_standard ||
+                                    groupId == R.id.group_style_font_custom) {
                                 return setFont(item);
                             } else if (groupId == R.id.group_style_align) {
                                 return setAlignment(item);
@@ -503,8 +505,8 @@ public class StyleHelper {
                         Log.breadcrumb("style", "action", "font");
 
                         int id = item.getItemId();
-                        List<Pair<String, String>> fonts = StyleHelper.getFonts(anchor.getContext());
-                        String face = (id < fonts.size() ? fonts.get(id).first : null);
+                        List<FontDescriptor> fonts = getFonts(anchor.getContext());
+                        String face = (id < fonts.size() ? fonts.get(id).type : null);
 
                         return _setFont(face);
                     }
@@ -951,14 +953,37 @@ public class StyleHelper {
         return Typeface.DEFAULT;
     }
 
-    public static List<Pair<String, String>> getFonts(Context context) {
-        List<Pair<String, String>> result = new ArrayList<>();
+    public static List<FontDescriptor> getFonts(Context context) {
+        List<FontDescriptor> result = new ArrayList<>();
         String[] fontNameNames = context.getResources().getStringArray(R.array.fontNameNames);
         String[] fontNameValues = context.getResources().getStringArray(R.array.fontNameValues);
         for (int i = 0; i < fontNameNames.length; i++)
-            result.add(new Pair(fontNameValues[i], fontNameNames[i]));
-        result.add(new Pair("comic sans", "OpenDyslexic"));
+            result.add(new FontDescriptor(fontNameValues[i], fontNameNames[i]));
+        result.add(new FontDescriptor("comic sans", "OpenDyslexic", true));
         return result;
+    }
+
+    public static class FontDescriptor {
+        @NonNull
+        public String type;
+        @NonNull
+        public String name;
+        public boolean custom;
+
+        FontDescriptor(String type, String name) {
+            this(type, name, false);
+        }
+
+        FontDescriptor(String type, String name, boolean custom) {
+            this.type = type;
+            this.name = name;
+            this.custom = custom;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
     }
 
     //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
