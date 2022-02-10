@@ -957,6 +957,7 @@ public class StyleHelper {
         String[] fontNameValues = context.getResources().getStringArray(R.array.fontNameValues);
         for (int i = 0; i < fontNameNames.length; i++)
             result.add(new Pair(fontNameValues[i], fontNameNames[i]));
+        result.add(new Pair("comic sans", "OpenDyslexic"));
         return result;
     }
 

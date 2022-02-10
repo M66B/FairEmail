@@ -2178,8 +2178,7 @@
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace</item>
-        <item>Fantasy</item>-
-        <item>OpenDyslexic</item>
+        <item>Fantasy</item>
     </string-array>
 
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
@@ -2189,7 +2188,6 @@
         <item>sans-serif</item>
         <item>monospace</item>
         <item>fantasy</item>
-        <item>comic sans</item>
     </string-array>
 
     <string-array name="addressFormatNames">
