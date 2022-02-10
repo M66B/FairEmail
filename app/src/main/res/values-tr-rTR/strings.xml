@@ -774,6 +774,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_drafts_select">İleti göndermek için hesap ayarlarından taslaklar klasörü seçilmelidir</string>
     <string name="title_account_auth_update">Yetkilendirmeyi güncelle</string>
     <string name="title_account_auth_password">Parola kimlik doğrulamasına geç</string>
+    <string name="title_delete_account">Hesabı sil</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
@@ -1265,6 +1266,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_edit_signature_remark">Android tüm HTML\'yi görüntüleyemese de, olduğu gibi gönderilecektir</string>
     <string name="title_edit_signature_text">İmza metni</string>
     <string name="title_edit_signature_image">Resim ekle</string>
+    <string name="title_edit_signature_image_hint">        Mesaj gönderirken, görüntü seçilen konumdan mesajın içine kopyalanır.
+        Bu nedenle, görüntü dosyasını silmeyin!
+    </string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>
     <string name="title_answer_name">Kalıp adı</string>
@@ -1778,7 +1782,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Sans-serif</item>
         <item>Monospace (sabit genişlikli)</item>
         <item>Fantezi</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

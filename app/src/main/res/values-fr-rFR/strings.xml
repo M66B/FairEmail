@@ -777,6 +777,7 @@
     <string name="title_drafts_select">L\'envoi d\'e-mails nécessite la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
     <string name="title_account_auth_update">Mettre à jour l\'autorisation</string>
     <string name="title_account_auth_password">Passer à l\'authentification par mot de passe</string>
+    <string name="title_delete_account">Supprimer le compte</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_edit_html">Modifier en HTML</string>
@@ -1273,7 +1274,7 @@
     <string name="title_edit_signature_text">Texte de la signature</string>
     <string name="title_edit_signature_image">Insérer une image</string>
     <string name="title_edit_signature_image_hint">        Lors de l\'envoi d\'un message, l\'image est copiée dans le message à partir de l\'emplacement sélectionné.
-        Ne supprimez donc pas le fichier image !
+        Donc, ne supprimez pas le fichier image !
     </string>
     <string name="title_answer_caption">Modifier le modèle</string>
     <string name="title_answer_reply">Modèle de réponse</string>
@@ -1789,7 +1790,6 @@
         <item>Sans empattement</item>
         <item>À espacement fixe</item>
         <item>Fantaisie</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

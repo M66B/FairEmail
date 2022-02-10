@@ -773,6 +773,7 @@
     <string name="title_drafts_select">Για την αποστολή μηνυμάτων απαιτείται να επιλεγεί ένας φάκελος για πρόχειρα από τις ρυθμίσεις λογαριασμού</string>
     <string name="title_account_auth_update">Ενημέρωση εξουσιοδότησης</string>
     <string name="title_account_auth_password">Αλλαγή σε ταυτοποίηση μέσω κωδικού πρόσβασης</string>
+    <string name="title_delete_account">Διαγραφή λογαριασμού</string>
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
@@ -1781,7 +1782,6 @@
         <item>Sans-serif</item>
         <item>Σταθερού πλάτους</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

@@ -795,6 +795,7 @@
     <string name="title_drafts_select">Для надсилання електронної пошти необхідно вибрати теку для чернеток в налаштуваннях облікового запису</string>
     <string name="title_account_auth_update">Оновити авторизацію</string>
     <string name="title_account_auth_password">Перемкнути на автентифікацію за паролем</string>
+    <string name="title_delete_account">Видалити обліковий запис</string>
     <string name="title_account_delete">Видалити цей обліковий запис безповоротно?</string>
     <string name="title_identity_delete">Видалити ці особисті дані безповоротно?</string>
     <string name="title_edit_html">Редагувати як HTML</string>
@@ -1535,6 +1536,7 @@
     <string name="title_later">Пізніше</string>
     <string name="title_undo">Скасувати</string>
     <string name="title_redo">Повторити</string>
+    <string name="title_insert_line">Вставити текст</string>
     <string name="title_add">Додати</string>
     <string name="title_browse">Відкрити за допомогою</string>
     <string name="title_info">Інформація</string>
@@ -1805,7 +1807,6 @@
         <item>Без зарубок</item>
         <item>Моноширинний шрифт</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

@@ -777,6 +777,7 @@
     <string name="title_drafts_select">L\'invio delle email richiede la selezione di una cartella di bozze nelle impostazioni del profilo</string>
     <string name="title_account_auth_update">Aggiorna l\'autorizzazione</string>
     <string name="title_account_auth_password">Passa all\'autenticazione con password</string>
+    <string name="title_delete_account">Elimina account</string>
     <string name="title_account_delete">Eliminare permanentemente questo profilo?</string>
     <string name="title_identity_delete">Eliminare permanentemente quest\'identità?</string>
     <string name="title_edit_html">Modifica come HTML</string>
@@ -1789,7 +1790,6 @@
         <item>Sans-serif</item>
         <item>Monospaziato</item>
         <item>Fantasia</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

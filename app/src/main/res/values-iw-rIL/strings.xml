@@ -796,6 +796,7 @@
     <string name="title_drafts_select">שליחת הודעות דוא״ל דורש בחירת תיקיית טיוטות בהגדרות החשבון</string>
     <string name="title_account_auth_update">עדכון אימות</string>
     <string name="title_account_auth_password">מעבר לאימות עם סיסמה</string>
+    <string name="title_delete_account">מחיקת חשבון</string>
     <string name="title_account_delete">למחוק את החשבון הזה לצמיתות?</string>
     <string name="title_identity_delete">למחוק את הזהות הזאת לצמיתות?</string>
     <string name="title_edit_html">עריכה כ־HTML</string>
@@ -1803,7 +1804,6 @@
         <item>נטול עיטורים</item>
         <item>ברוחב מהיר</item>
         <item>פנטזיה</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

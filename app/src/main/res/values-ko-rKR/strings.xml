@@ -247,6 +247,7 @@
     <string name="title_advanced_caption_message_header">메시지 제목</string>
     <string name="title_advanced_caption_message_body">메시지 본문</string>
     <string name="title_advanced_close_pane">대화 상자를 닫을 때 행 또는 열 축소</string>
+    <string name="title_advanced_tabular_dividers">태블릿 스타일 사용 중 구분선 표시</string>
     <string name="title_advanced_category_header">계정 카테고리로 묶기</string>
     <string name="title_advanced_date_header">날짜로 묶기</string>
     <string name="title_advanced_date_fixed">상단 헤더에서 수정일 표시</string>
@@ -364,6 +365,7 @@
     <string name="title_no_account">계정 누락</string>
     <string name="title_no_password">비밀번호 누락</string>
     <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
+    <string name="title_delete_account">계정 삭제</string>
     <string name="title_account_delete">이 계정을 영구적으로 삭제할까요?</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_sign_key">서명 키: %1$s</string>
@@ -608,6 +610,9 @@
     <string name="title_edit_signature">서명 편집</string>
     <string name="title_edit_signature_text">서명 문자</string>
     <string name="title_edit_signature_image">사진 삽입</string>
+    <string name="title_edit_signature_image_hint">        메시지를 보낼 때 선택한 위치에서 메시지로 이미지가 복사됩니다.
+        그러니 이미지 파일을 지우지 마십시오!
+    </string>
     <string name="title_answer_caption">템플릿 수정</string>
     <string name="title_answer_reply">답장 템플릿</string>
     <string name="title_answer_name">템플릿명</string>
@@ -976,7 +981,6 @@
         <item>고딕체</item>
         <item>고정폭</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

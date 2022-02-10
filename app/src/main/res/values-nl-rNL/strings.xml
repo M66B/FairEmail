@@ -774,6 +774,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_drafts_select">Het verzenden van e-mails vereist een conceptmap die geselecteerd kan worden in de accountinstellingen</string>
     <string name="title_account_auth_update">Autorisatie bijwerken</string>
     <string name="title_account_auth_password">Overschakelen naar wachtwoordverificatie</string>
+    <string name="title_delete_account">Verwijder account</string>
     <string name="title_account_delete">Verwijder dit account definitief?</string>
     <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
     <string name="title_edit_html">Bewerk als HTML</string>
@@ -1777,7 +1778,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Schreefloos</item>
         <item>Vaste breedte</item>
         <item>Fantasie</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

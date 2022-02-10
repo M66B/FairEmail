@@ -378,6 +378,7 @@
     <string name="title_advanced_tabular_background">Cədvəl stili istifadə edəndə kart rəngini arxaplan rəngi kimi istifadə et</string>
     <string name="title_advanced_cards_shadow">Kart stilini istifadə edəndə oxunmamış mesajlar üçün kölgə istifadə et</string>
     <string name="title_advanced_cards_shadow_highlight">Rəngi vurğulamaq əvəzinə vurğu rəngini istifadə et</string>
+    <string name="title_advanced_tabular_dividers">Cədvəl stilini istifadə edərkən ayırıcı xətləri də istifadə et</string>
     <string name="title_advanced_category_header">Hesab kateqoriyasına görə qruplaşdır</string>
     <string name="title_advanced_date_header">Tarixə görə qruplaşdır</string>
     <string name="title_advanced_date_fixed">Sabit tarix başlığını üstdə göstər</string>
@@ -1270,6 +1271,9 @@
     <string name="title_edit_signature_remark">Android, bütün HTML-i görüntüləyə bilməsə də, olduğu kimi göndərəcək</string>
     <string name="title_edit_signature_text">İmza mətni</string>
     <string name="title_edit_signature_image">Təsvir daxil et</string>
+    <string name="title_edit_signature_image_hint">        Bir mesaj göndəriləndə, təsvir, seçilən bölmədən mesaja kopyalanır.
+        Ona görə də, təsvir faylını silməyin!
+    </string>
     <string name="title_answer_caption">Şablona düzəliş et</string>
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>
@@ -1777,7 +1781,6 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

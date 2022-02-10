@@ -1759,7 +1759,6 @@
         <item>無襯線字型</item>
         <item>等寬字型</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

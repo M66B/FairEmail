@@ -795,6 +795,7 @@
     <string name="title_drafts_select">Wysyłanie wiadomości e-mail wymaga wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_account_auth_update">Zaktualizuj autoryzację</string>
     <string name="title_account_auth_password">Przełącz na uwierzytelnianie hasłem</string>
+    <string name="title_delete_account">Usuń konto</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
@@ -1805,7 +1806,6 @@
         <item>Bezszeryfowa</item>
         <item>Stała szerokość</item>
         <item>Fantazja</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

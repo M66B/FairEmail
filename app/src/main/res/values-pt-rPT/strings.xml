@@ -539,6 +539,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
+    <string name="title_delete_account">Eliminar conta</string>
     <string name="title_hint_accounts">Pressione e mantenha numa conta para ver as opções, por exemplo, para desativar ou excluir uma conta</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_expunge">Esponja</string>
@@ -738,7 +739,6 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
         <item>Sans Serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->

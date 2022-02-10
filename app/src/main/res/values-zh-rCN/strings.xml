@@ -765,6 +765,7 @@
     <string name="title_drafts_select">需在账户设置中选定草稿文件夹才能发送邮件</string>
     <string name="title_account_auth_update">重新授权</string>
     <string name="title_account_auth_password">改用密码认证</string>
+    <string name="title_delete_account">删除帐户</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以HTML格式编辑</string>
@@ -1255,6 +1256,9 @@
     <string name="title_edit_signature_remark">虽然 Android 不能显示所有的 HTML，但它将按原样发送</string>
     <string name="title_edit_signature_text">签名文本</string>
     <string name="title_edit_signature_image">插入图片</string>
+    <string name="title_edit_signature_image_hint">        发送消息时，图像从所选位置被复制到消息中。
+        因此，不要删除图像文件！
+    </string>
     <string name="title_answer_caption">编辑模板</string>
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名称</string>
@@ -1766,7 +1770,6 @@
         <item>Sans-serif</item>
         <item>等宽字体</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

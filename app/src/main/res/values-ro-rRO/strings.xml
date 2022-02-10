@@ -785,6 +785,7 @@
     <string name="title_drafts_select">Trimiterea de e-mailuri necesită un dosar ciorne selectat în setările contului</string>
     <string name="title_account_auth_update">Actualizarea autorizației</string>
     <string name="title_account_auth_password">Treceți la autentificarea prin parolă</string>
+    <string name="title_delete_account">Ștergere cont</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
@@ -1794,7 +1795,6 @@
         <item>Sans-serif</item>
         <item>Proporțional</item>
         <item>Fantezie</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

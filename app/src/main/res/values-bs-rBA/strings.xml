@@ -1788,7 +1788,6 @@
         <item>Sans Serif</item>
         <item>Monospace</item>
         <item>Fantazija</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

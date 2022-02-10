@@ -796,6 +796,7 @@
     <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
     <string name="title_account_auth_update">Обновить авторизацию</string>
     <string name="title_account_auth_password">Переключиться на аутентификацию с паролем</string>
+    <string name="title_delete_account">Удалить учётную запись</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
@@ -1809,7 +1810,6 @@
         <item>Без засечек</item>
         <item>Моноширинный</item>
         <item>Fantasy</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

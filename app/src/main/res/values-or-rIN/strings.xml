@@ -32,6 +32,7 @@
         <item quantity="other">%1$dଟି ନୂଆ</item>
     </plurals>
     <string name="title_junk_hint">ସ୍ପାମ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ପ୍ରଦାନକାରୀ ଦାୟୀ। ଏକ ଇମେଲ୍ ଆପ୍ ଏହା ବିଶ୍ୱସନୀୟ ଭାବରେ କରିବା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ତଥ୍ୟ ନାହିଁ।</string>
+    <string name="title_block">%1$sକୁ ବ୍ଲକ୍ କରନ୍ତୁ</string>
     <string name="title_block_sender_domain">\'%1$s\' ଡୋମେନଟିକୁ ଅବରୋଧ କରନ୍ତୁ</string>
     <string name="title_block_sender_hint">        ପ୍ରେରକକୁ ଅବରୋଧ କରିବା ଏକ ମାଗଣା ବୈଶିଷ୍ଟ୍ୟ।
         ଗୋଟେ ପ୍ରେରକ ଡୋମେନ୍ ଅବରୋଧ କରିବାରେ ଫିଲ୍ଟର୍ ନିୟମ ବ୍ୟବହାର ହୁଏ, ଯାହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ।
@@ -39,6 +40,7 @@
     <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
     <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
     <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
+    <string name="title_notification_sending_failed">%1$sକୁ ପଠାଇବା ବିଫଳ ହେଲା</string>
     <string name="title_factor_minutes">%1$d ମିନିଟ୍</string>
     <string name="menu_setup">ସେଟିଂସମୂହ</string>
     <string name="menu_faq">ସମର୍ଥନ</string>
@@ -99,6 +101,9 @@
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
+    <string name="title_setup_export_remark">        ଯେହେତୁ ସେଟିଂସ୍ ଫାଇଲ୍ ସମସ୍ତ ସେଟିଂସ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ସୂଚନା ଧାରଣ କରେ, ଏହା ଏକ ପାସ୍‍ୱାର୍ଡ଼ ସହିତ ଏନକ୍ରିପ୍ଟ ହୋଇଛି।
+        ସେଟିଂସ୍ ପୁଣି ଆମଦାନୀ କରିବାକୁ ପାସ୍‍ୱାର୍ଡ଼ ଆବଶ୍ୟକ, ତେଣୁ ଦୟାକରି ଏହାକୁ ଭୁଲନ୍ତୁ ନାହିଁ!
+    </string>
     <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
     <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
     <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
@@ -160,6 +165,7 @@
     <string name="title_advanced_subject_threading">ପ୍ରେରକ ଏବଂ ବିଷୟ ଅନୁଯାୟୀ ବାର୍ତ୍ତାଗୁଡ଼ିକର ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_sync_folders_poll">ଫୋଲ୍ଡର୍ ତାଲିକା ସକ୍ରିୟ ଭାବରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
+    <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_advanced_receipt">ଏକ ରସିଦ ଅନୁରୋଧ କରିବା ସମୟରେ</string>
@@ -182,6 +188,7 @@
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଅ</string>
     <string name="title_advanced_highlight_subject">ବିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ହାଇଲାଇଟ୍ ରଙ୍ଗ</string>
     <string name="title_advanced_override_width">ମୂଳ ବାର୍ତ୍ତାରେ ସ୍ଥିର ଓସାର ଅକ୍ଷମ କରନ୍ତୁ</string>
@@ -261,6 +268,7 @@
     <string name="title_account_left">ବାମକୁ ସ୍ୱାଇପ୍</string>
     <string name="title_account_right">ଡାହାଣକୁ ସ୍ୱାଇପ୍</string>
     <string name="title_domain">ଡୋମେନ୍ ନାମ</string>
+    <string name="title_autoconfig">ସେଟିଂସ୍ ପାଆନ୍ତୁ</string>
     <string name="title_provider">ପ୍ରଦାନକାରୀ</string>
     <string name="title_custom">କଷ୍ଟମ୍</string>
     <string name="title_host">ହୋଷ୍ଟ ନାମ</string>
@@ -286,6 +294,7 @@
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_account_auth_update">ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରିବା</string>
     <string name="title_account_auth_password">ପାସ୍‍ୱାର୍ଡ଼ ପ୍ରାମାଣିକିକରଣକୁ ସୁଇଚ୍ କରନ୍ତୁ</string>
+    <string name="title_delete_account">ଆକାଉଣ୍ଟ୍ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_storage_quota">ସର୍ଭର୍ ଷ୍ଟୋରେଜ୍ ବ୍ୟବହାର: %1$s/%2$s</string>
     <string name="title_review">ସମୀକ୍ଷା କର</string>
@@ -307,6 +316,7 @@
     <string name="title_search_folder">ଫୋଲ୍ଡର୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_hide_folder">ଫୋଲ୍ଡର୍ ଲୁଚାନ୍ତୁ</string>
+    <string name="title_folder_name_missing">ଫୋଲ୍ଡର୍ ନାମ ନିଖୋଜ</string>
     <string name="title_months">ମାସ</string>
     <string name="title_months_all">ସମସ୍ତ</string>
     <string name="title_folder_inbox">ଇନବକ୍ସ</string>
@@ -317,6 +327,9 @@
     <string name="title_trashed_from">%1$sଙ୍କ ଠାରୁ ଆସିଥିବା ଆବର୍ଜନାରେ ଥିବା ବାର୍ତ୍ତା</string>
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
+    <string name="title_importance_low">ନିମ୍ନ</string>
+    <string name="title_importance_normal">ସାଧାରଣ</string>
+    <string name="title_importance_high">ଉଚ୍ଚ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
     <string name="title_resend">ପୁନଃପ୍ରେରଣ</string>
     <string name="title_fetching_headers">ବାର୍ତ୍ତାର ଶୀର୍ଷଲେଖଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ କରୁଛି &#8230;</string>
@@ -389,6 +402,7 @@
     <string name="title_send_dsn">ସ୍ଥିତି ରିପୋର୍ଟ୍</string>
     <string name="title_send_receipt">ରସିଦ ଅନୁରୋଧ କରିବା</string>
     <string name="title_send_receipt_remark">ଅଧିକାଂଶ ପ୍ରଦାନକାରୀ ଏବଂ ଇମେଲ୍ ଗ୍ରାହକମାନେ ରସିଦ ଅନୁରୋଧକୁ ଅଣଦେଖା କରନ୍ତି</string>
+    <string name="title_extra_missing">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
     <string name="title_noreply_reminder">ଏକ \'ଉତ୍ତର-ଦିଅନି\' ଠିକଣାକୁ ପଠାଉଛି</string>
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_signature_subject">ବିଷୟ</string>
@@ -448,12 +462,14 @@
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_delete">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_rule_sound">ଧ୍ୱନି ବଜାନ୍ତୁ</string>
+    <string name="title_rule_name">ନାମ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_body">ପାଠ୍ୟ ଧାରଣ କରେ</string>
     <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ସର୍ବଦା ବାର୍ତ୍ତାର ପାଠ୍ୟ ଡାଉନଲୋଡ୍ ହେବ, ଯାହା ବାର୍ତ୍ତା ତାଲିକାର ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ମନ୍ଥର କରିପାରେ</string>
     <string name="title_rule_regex">RegEx</string>
     <string name="title_rule_identity">ପରିଚୟ</string>
     <string name="title_rule_template">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
+    <string name="title_rule_name_missing">ନିୟମର ନାମ ନିଖୋଜ</string>
     <string name="title_rule_identity_missing">ପରିଚୟ ନିଖୋଜ</string>
     <string name="title_rule_delete_hint">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବା ଅପରିବର୍ତ୍ତନୀୟ ଅଟେ, ତେଣୁ ନିଶ୍ଚିତ କରନ୍ତୁ ଯେ ନିୟମ ସର୍ତ୍ତ ସବୁ ଠିକ୍ ଅଛି!</string>
     <string name="title_rule_check">ଯାଞ୍ଚ କର</string>
@@ -520,7 +536,7 @@
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_accessibility_from">ପ୍ରେରକ</string>
     <string-array name="pollIntervalNames">
-        <item>Always</item>
+        <item>ସର୍ବଦା</item>
         <item>ପ୍ରତି ୫ ମିନିଟରେ</item>
         <item>ପ୍ରତି ୧୫ ମିନିଟରେ</item>
         <item>ପ୍ରତି ୩୦ ମିନିଟରେ</item>
@@ -530,11 +546,39 @@
         <item>ପ୍ରତି ୮ ଘଣ୍ଟାରେ</item>
         <item>ପ୍ରତିଦିନ</item>
     </string-array>
+    <string-array name="sendDelayedNames">
+        <item>No</item>
+        <item>୧୫ ସେକେଣ୍ଡ</item>
+        <item>୩୦ ସେକେଣ୍ଡ</item>
+        <item>୧ ମିନିଟ୍‌</item>
+        <item>୨ ମିନିଟ୍</item>
+        <item>୫ ମିନିଟ୍</item>
+        <item>୧୦ ମିନିଟ୍</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
         <item>Primary account folders</item>
         <item>ଆକାଉଣ୍ଟଗୁଡ଼ିକ</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
+        <item>∞</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>କିଛି କରନି</item>
+        <item>ପୂର୍ବବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
+        <item>ପରବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
     </string-array>
     <string-array name="resizeNames">
         <item>ଛୋଟ</item>
@@ -544,6 +588,35 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>ପ୍ରାପ୍ତକର୍ତ୍ତା</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>ଗୋଟେ ମିନିଟ୍‌</item>
+        <item>୨ ମିନିଟ୍</item>
+        <item>୫ ମିନିଟ୍</item>
+        <item>୧୦ ମିନିଟ୍</item>
+        <item>୨୦ ମିନିଟ୍</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>ଆରମ୍ଭରେ</item>
+        <item>ମଝିରେ</item>
+        <item>ଶେଷରେ</item>
+        <item>Show untruncated</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>ନିମ୍ନ</item>
+        <item>ସାଧାରଣ</item>
+        <item>ଉଚ୍ଚ</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>ସାଧାରଣ</item>
+        <item>Personal</item>
+        <item>Private</item>
+        <item>Confidential</item>
+    </string-array>
     <string-array name="fontSizeNames">
         <item>ଡିଫଲ୍ଟ</item>
         <item>ଛୋଟ</item>
@@ -555,12 +628,28 @@
         <item>କେବଳ ବିତରଣ ରସିଦ</item>
         <item>ପଠନ+ବିତରଣ ରସିଦ</item>
     </string-array>
+    <string-array name="signatureNames">
+        <item>ପାଠ୍ୟ ଉପରେ</item>
+        <item>ପାଠ୍ୟ ତଳେ</item>
+        <item>ସବୁଠୁ ତଳେ</item>
+    </string-array>
     <string-array name="encryptNames">
         <item>କିଛି ନୁହେଁ</item>
         <item>PGP sign-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
         <item>ବନ୍ଦ</item>

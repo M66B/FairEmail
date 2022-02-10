@@ -377,6 +377,7 @@
     <string name="title_advanced_tabular_background">Usar el color de la tarjeta como color de fondo al utilizar el estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensajes no leídos al usar estilo de tarjeta</string>
     <string name="title_advanced_cards_shadow_highlight">Usar color de resaltado en lugar de color de acento</string>
+    <string name="title_advanced_tabular_dividers">Usar líneas divisoras al usar estilo tabular</string>
     <string name="title_advanced_category_header">Agrupar por categoría de cuenta</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_date_fixed">Mostrar encabezado de fecha fijado en la parte superior</string>
@@ -774,6 +775,7 @@
     <string name="title_drafts_select">El envío de correos electrónicos requiere que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
     <string name="title_account_auth_update">Actualizar autorización</string>
     <string name="title_account_auth_password">Cambiar a autenticación con contraseña</string>
+    <string name="title_delete_account">Suprimir la cuenta</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -1265,6 +1267,9 @@
     <string name="title_edit_signature_remark">Aunque Android no puede mostrar todo el HTML, se enviará como es</string>
     <string name="title_edit_signature_text">Texto de la firma</string>
     <string name="title_edit_signature_image">Insertar imagen</string>
+    <string name="title_edit_signature_image_hint">        Al enviar un mensaje, la imagen se copia en el mensaje desde la ubicación seleccionada.
+        ¡Así que no borre el archivo de imagen!
+    </string>
     <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
@@ -1778,7 +1783,6 @@
         <item>Sans-serif</item>
         <item>Monoespaciado</item>
         <item>Fantasía</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

@@ -376,6 +376,7 @@
     <string name="title_advanced_tabular_background">Kartenfarbe als Hintergrundfarbe verwenden, wenn Tabellenstil genutzt wird</string>
     <string name="title_advanced_cards_shadow">Schatten für ungelesene Nachrichten verwenden, wenn Kartenstil verwendet wird</string>
     <string name="title_advanced_cards_shadow_highlight">Hervorhebungsfarbe statt Akzentfarbe verwenden</string>
+    <string name="title_advanced_tabular_dividers">Trennlinien bei Verwendung der Tabellenform verwenden</string>
     <string name="title_advanced_category_header">Nach Kontenkategorie gruppieren</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_date_fixed">Feste Datumskopfzeile oben anzeigen</string>
@@ -773,6 +774,7 @@
     <string name="title_drafts_select">Das Senden von E-Mails erfordert die Auswahl eines Entwürfe-Ordners in den Kontoeinstellungen</string>
     <string name="title_account_auth_update">OAuth-Autorisierung aktualisieren</string>
     <string name="title_account_auth_password">Stattdessen Passwort-Authentifizierung verwenden</string>
+    <string name="title_delete_account">Konto löschen</string>
     <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
@@ -1265,7 +1267,9 @@
     <string name="title_edit_signature_remark">Obwohl Android nicht den gesamten HTML-Code anzeigen kann, wird er unverändert gesendet</string>
     <string name="title_edit_signature_text">Signaturtext</string>
     <string name="title_edit_signature_image">Bild einfügen</string>
-    <string name="title_edit_signature_image_hint">Erst beim Versenden einer Nachricht wird die Bilddatei vom gewählten Speicherort in die Nachricht kopiert. Löschen Sie deshalb nicht die Bilddatei, bevor die Nachricht gesendet wurde!    </string>
+    <string name="title_edit_signature_image_hint">        Erst beim Versenden einer Nachricht wird die Bilddatei vom gewählten Speicherort in die Nachricht kopiert.
+        Löschen Sie deshalb nicht die Bilddatei, bevor die Nachricht gesendet wurde!
+    </string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>
     <string name="title_answer_reply">Antwortvorlage</string>
     <string name="title_answer_name">Vorlagenname</string>
@@ -1779,7 +1783,6 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Serifenlos</item>
         <item>Festbreitenschrift</item>
         <item>Fantasie</item>
-        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">
