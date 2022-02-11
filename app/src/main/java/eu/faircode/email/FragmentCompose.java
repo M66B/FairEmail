@@ -554,14 +554,6 @@ public class FragmentCompose extends FragmentBase {
 
         setZoom();
 
-        SpannableStringBuilder hint = new SpannableStringBuilderEx();
-        hint.append(getString(R.string.title_body_hint));
-        hint.append("\n");
-        int pos = hint.length();
-        hint.append(getString(R.string.title_body_hint_style));
-        hint.setSpan(new RelativeSizeSpan(0.7f), pos, hint.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        etBody.setHint(hint);
-
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
             public void onInputContent(Uri uri) {
@@ -940,6 +932,7 @@ public class FragmentCompose extends FragmentBase {
         tvResend.setVisibility(View.GONE);
         tvPlainTextOnly.setVisibility(View.GONE);
         etBody.setText(null);
+        etBody.setHint(null);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
@@ -6264,6 +6257,14 @@ public class FragmentCompose extends FragmentBase {
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
                 etBody.setTag(text[0]);
+
+                SpannableStringBuilder hint = new SpannableStringBuilderEx();
+                hint.append(getString(R.string.title_body_hint));
+                hint.append("\n");
+                int start = hint.length();
+                hint.append(getString(R.string.title_body_hint_style));
+                hint.setSpan(new RelativeSizeSpan(0.7f), start, hint.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                etBody.setHint(hint);
 
                 if (state != State.LOADED) {
                     int pos = getAutoPos(0, etBody.length());
