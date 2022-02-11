@@ -12,7 +12,8 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
 
 Properties localProperties = new Properties()
-localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+if (rootProject.file("local.properties").exists())
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
     compileSdkVersion 31
