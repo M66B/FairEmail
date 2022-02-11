@@ -1448,8 +1448,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ContactInfo[] info = ContactInfo.getCached(context,
                     message.account, message.folderType, selector, addresses);
             if (info == null) {
-                if (taskContactInfo != null)
+                if (taskContactInfo != null) {
                     taskContactInfo.cancel(context);
+                    taskContactInfo = null;
+                }
 
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
