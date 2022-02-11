@@ -118,6 +118,13 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE error IS NOT NULL")
     List<EntityOperation> getOperationsError();
 
+    @Query("SELECT COUNT(id) FROM operation")
+    int getOperationCount();
+
+    @Query("SELECT COUNT(id) FROM operation" +
+            " WHERE account = :account")
+    int getOperationCount(long account);
+
     @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
             " AND (:name IS NULL OR name = :name)")

@@ -2045,6 +2045,7 @@ public class Log {
                         " folders=" + db.folder().countTotal() +
                         " messages=" + db.message().countTotal() +
                         " rules=" + db.rule().countTotal() +
+                        " operations=" + db.operation().getOperationCount() +
                         "\r\n\r\n");
 
                 if (schedule) {
@@ -2081,7 +2082,8 @@ public class Log {
                                 " exempted=" + account.poll_exempted +
                                 " poll=" + account.poll_interval +
                                 " ondemand=" + account.ondemand +
-                                " messages=" + content + "/" + messages +
+                                " msgs=" + content + "/" + messages +
+                                " ops=" + db.operation().getOperationCount(account.id) +
                                 " " + account.state +
                                 (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
                                 "\r\n");
@@ -2098,6 +2100,7 @@ public class Log {
                                         " poll=" + folder.poll + "/" + folder.poll_factor +
                                         " days=" + folder.sync_days + "/" + folder.keep_days +
                                         " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
+                                        " ops=" + db.operation().getOperationCount(folder.id, null) +
                                         " unseen=" + unseen + " notifying=" + notifying +
                                         " " + folder.state +
                                         (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
@@ -2108,12 +2111,14 @@ public class Log {
                     }
                 }
 
-                for (EntityAccount account : accounts)
-                    if (account.synchronize)
+                for (EntityAccount account : accounts) {
+                    int ops = db.operation().getOperationCount(account.id);
+                    if (account.synchronize || ops > 0)
                         try {
                             JSONObject jaccount = account.toJSON();
                             jaccount.put("state", account.state == null ? "null" : account.state);
                             jaccount.put("warning", account.warning);
+                            jaccount.put("operations", ops);
                             jaccount.put("error", account.error);
                             jaccount.put("capabilities", account.capabilities);
 
@@ -2145,6 +2150,7 @@ public class Log {
                                 jfolder.put("selectable", folder.selectable);
                                 jfolder.put("inferiors", folder.inferiors);
                                 jfolder.put("auto_add", folder.auto_add);
+                                jfolder.put("operations", db.operation().getOperationCount(folder.id, null));
                                 jfolder.put("error", folder.error);
                                 if (folder.last_sync != null)
                                     jfolder.put("last_sync", new Date(folder.last_sync).toString());
@@ -2167,6 +2173,7 @@ public class Log {
                         } catch (JSONException ex) {
                             size += write(os, ex.toString() + "\r\n");
                         }
+                }
             }
 
             db.attachment().setDownloaded(attachment.id, size);
