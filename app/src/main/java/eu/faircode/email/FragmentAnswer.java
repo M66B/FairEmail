@@ -98,8 +98,7 @@ public class FragmentAnswer extends FragmentBase {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean monospaced = prefs.getBoolean("monospaced", false);
-        String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        String compose_font = prefs.getString("compose_font", "");
         boolean compact = prefs.getBoolean("compose_compact", false);
         int zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
         int message_zoom = prefs.getInt("message_zoom", 100);

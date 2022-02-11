@@ -284,7 +284,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean attachments_alt;
     private boolean thumbnails;
     private boolean contrast;
-    private boolean monospaced;
+    private String display_font;
     private boolean inline;
     private boolean collapse_quotes;
     private boolean authentication;
@@ -1403,7 +1403,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvPreview.setMaxLines(preview_lines);
             }
             tvPreview.setTypeface(
-                    monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT,
+                    StyleHelper.getTypeface(display_font, context),
                     preview_italic ? Typeface.ITALIC : Typeface.NORMAL);
             tvPreview.setText(message.preview);
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
@@ -2528,7 +2528,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 
                 tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
-                tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+                tvBody.setTypeface(StyleHelper.getTypeface(display_font, context));
 
                 tvBody.setVisibility(View.VISIBLE);
                 wvBody.setVisibility(View.GONE);
@@ -6433,7 +6433,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
         this.contrast = prefs.getBoolean("contrast", false);
-        this.monospaced = prefs.getBoolean("monospaced", false);
+        this.display_font = prefs.getString("display_font", "");
         this.inline = prefs.getBoolean("inline_images", false);
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);

@@ -928,25 +928,32 @@ public class StyleHelper {
         }
     }
 
-    static TypefaceSpan getTypefaceSpan(String family, Context context) {
+    static String getFamily(String family) {
         String faces = family.toLowerCase(Locale.ROOT);
         if (faces.contains("arimo"))
-            family = "Arimo, Arial, Verdana, sans-serif";
+            return "Arimo, Arial, Verdana, sans-serif";
         if (faces.contains("tinos"))
-            family = "Tinos, Times New Roman, serif";
+            return "Tinos, Times New Roman, serif";
         if (faces.contains("cousine"))
-            family = "Cousine, Courier New, monospace";
+            return "Cousine, Courier New, monospace";
         if (faces.contains("lato"))
-            family = "Lato, Calibri, sans-serif";
+            return "Lato, Calibri, sans-serif";
         if (faces.contains("cambo"))
-            family = "Cambo, Cambria, serif";
+            return "Cambo, Cambria, serif";
         if (faces.contains("comic sans"))
-            family = "Comic Sans, Comic Sans MS, sans-serif";
+            return "Comic Sans, Comic Sans MS, sans-serif";
+        return family;
+    }
 
+    static TypefaceSpan getTypefaceSpan(String family, Context context) {
+        family = getFamily(family);
         return new CustomTypefaceSpan(family, getTypeface(family, context));
     }
 
     static Typeface getTypeface(String family, Context context) {
+        if (TextUtils.isEmpty(family))
+            return Typeface.DEFAULT;
+
         List<String> faces = new ArrayList<>();
         for (String face : family.split(","))
             faces.add(face

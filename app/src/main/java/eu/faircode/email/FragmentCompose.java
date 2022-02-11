@@ -48,7 +48,6 @@ import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
@@ -272,8 +271,8 @@ public class FragmentCompose extends FragmentBase {
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
-    private boolean monospaced = false;
     private String compose_font;
+    private String display_font;
     private boolean dsn = true;
     private Integer encrypt = null;
     private boolean media = true;
@@ -331,8 +330,8 @@ public class FragmentCompose extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        monospaced = prefs.getBoolean("monospaced", false);
-        compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        compose_font = prefs.getString("compose_font", "");
+        display_font = prefs.getString("display_font", "");
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
@@ -751,7 +750,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        tvSignature.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        tvSignature.setTypeface(StyleHelper.getTypeface(compose_font, getContext()));
 
         cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -828,7 +827,7 @@ public class FragmentCompose extends FragmentBase {
         });
 
         etBody.setTypeface(StyleHelper.getTypeface(compose_font, getContext()));
-        tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        tvReference.setTypeface(StyleHelper.getTypeface(display_font, getContext()));
 
         tvReference.setMovementMethod(new ArrowKeyMovementMethod() {
             @Override

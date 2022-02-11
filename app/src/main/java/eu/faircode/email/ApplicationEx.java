@@ -34,6 +34,7 @@ import android.os.Looper;
 import android.os.StrictMode;
 import android.os.SystemClock;
 import android.os.strictmode.Violation;
+import android.text.TextUtils;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
@@ -559,6 +560,20 @@ public class ApplicationEx extends Application
                 boolean ascending = prefs.getBoolean("ascending_list", false);
                 editor.putBoolean("ascending_unified", ascending);
             }
+        } else if (version < 1835) {
+            boolean monospaced = prefs.getBoolean("monospaced", false);
+
+            String compose_font = prefs.getString("compose_font", "");
+            if (TextUtils.isEmpty(compose_font))
+                editor.putString("compose_font", monospaced ? "monospace" : "sans-serif");
+
+            if (monospaced) {
+                String display_font = prefs.getString("display_font", "");
+                if (TextUtils.isEmpty(display_font))
+                    editor.putString("display_font", "monospace");
+            }
+
+            editor.remove("monospaced");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

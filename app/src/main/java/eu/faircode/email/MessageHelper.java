@@ -888,8 +888,7 @@ public class MessageHelper {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean format_flowed = prefs.getBoolean("format_flowed", false);
-        boolean monospaced = prefs.getBoolean("monospaced", false);
-        String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        String compose_font = prefs.getString("compose_font", "");
         boolean auto_link = prefs.getBoolean("auto_link", false);
 
         // Build html body
@@ -919,7 +918,7 @@ public class MessageHelper {
                             TextUtils.isEmpty(child.attr("fairemail"))) {
                         String old = child.attr("style");
                         String style = HtmlHelper.mergeStyles(
-                                "font-family:" + compose_font, old);
+                                "font-family:" + StyleHelper.getFamily(compose_font), old);
                         if (!old.equals(style))
                             child.attr("style", style);
                     }

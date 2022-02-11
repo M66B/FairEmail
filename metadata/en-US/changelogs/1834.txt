@@ -4,6 +4,11 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### Next version
+
+* Added default display font setting
+* Small improvements and minor bug fixes
+
 ### 1.1834 - 2022-02-10
 
 * Added Croscore and Crosextra fonts

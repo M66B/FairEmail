@@ -24,8 +24,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.style.TypefaceSpan;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -306,12 +304,10 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String value = (position == 0 ? "" : fonts.get(position - 1).type);
-                boolean monospaced = prefs.getBoolean("monospaced", false);
-                if (value.equals(monospaced ? "monospace" : "sans-serif"))
+                if (position == 0)
                     prefs.edit().remove("compose_font").apply();
                 else
-                    prefs.edit().putString("compose_font", value).apply();
+                    prefs.edit().putString("compose_font", fonts.get(position - 1).type).apply();
             }
 
             @Override
@@ -574,8 +570,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReplyAll.setChecked(prefs.getBoolean("reply_all", false));
         swSendPending.setChecked(prefs.getBoolean("send_pending", true));
 
-        boolean monospaced = prefs.getBoolean("monospaced", false);
-        String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        String compose_font = prefs.getString("compose_font", "");
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
         for (int pos = 0; pos < fonts.size(); pos++) {
             StyleHelper.FontDescriptor font = fonts.get(pos);
