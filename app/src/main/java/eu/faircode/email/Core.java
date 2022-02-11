@@ -615,9 +615,11 @@ class Core {
                             // Fetch: NO [SERVERBUG] SELECT Server error - Please try again later
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
                             // Fetch: NO Invalid message number (took nnn ms)
+                            // Fetch: NO Invalid message sequence ID: nnn
                             // Fetch: BAD Internal Server Error
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n .nnn secs).
                             // Fetch: NO FETCH sequence parse error in: nnn
+                            // Fetch: NO [NONEXISTENT] No matching messages
                             // Fetch UID: NO Some messages could not be FETCHed (Failure)
                             // Fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
                             // Fetch UID: NO Server Unavailable. 15
@@ -650,6 +652,7 @@ class Core {
                             // Add: NO [OVERQUOTA] Quota exceeded (mailbox for user is full) (n.nnn + n.nnn secs).
                             // Add: NO APPEND failed
                             // Add: BAD [TOOBIG] Message too large.
+                            // Add: NO Permission denied
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
