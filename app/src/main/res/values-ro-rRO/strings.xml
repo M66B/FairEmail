@@ -1340,6 +1340,8 @@
     <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
+    <string name="title_rule_answer_subject">Utilizați numele șablonului ca subiect</string>
+    <string name="title_rule_original_text">Includeți textul original al mesajului</string>
     <string name="title_rule_forward_to">Redirecţionează către</string>
     <string name="title_rule_cc">Răspuns la adresa CC</string>
     <string name="title_rule_with_attachments">Cu atașamente</string>

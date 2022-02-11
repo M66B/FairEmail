@@ -1329,6 +1329,8 @@
     <string name="title_rule_thread">Alle Nachrichten zur selben Unterhaltung und Ordner</string>
     <string name="title_rule_identity">Identität</string>
     <string name="title_rule_template">Antwortvorlage</string>
+    <string name="title_rule_answer_subject">Vorlagenname als Betreff verwenden</string>
+    <string name="title_rule_original_text">Ursprünglichen Nachrichtentext einfügen</string>
     <string name="title_rule_forward_to">Weiterleiten an</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_with_attachments">Mit Anhängen</string>
