@@ -941,7 +941,7 @@ public class StyleHelper {
         if (faces.contains("caladea"))
             return "Caladea, Cambo, Cambria, serif";
         if (faces.contains("comic sans"))
-            return "Comic Sans, Comic Sans MS, sans-serif";
+            return "OpenDyslexic, Comic Sans, Comic Sans MS, sans-serif";
         return family;
     }
 
