@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import android.text.TextUtils;
 
-import java.util.Objects;
-
 public class TupleThreadInfo {
     public String thread;
     public String msgid;

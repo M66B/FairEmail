@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.app.AlarmManager;
@@ -55,7 +54,6 @@ import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;

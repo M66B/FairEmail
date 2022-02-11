@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -74,8 +76,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentRule extends FragmentBase {
     private ViewGroup view;

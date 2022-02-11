@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;

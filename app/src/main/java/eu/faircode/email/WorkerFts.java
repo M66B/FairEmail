@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -36,8 +38,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
-
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerFts extends Worker {
     private static final int INDEX_DELAY = 30; // seconds

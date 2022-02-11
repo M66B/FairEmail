@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,9 +45,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogDuration extends FragmentDialogBase {
     private final Calendar cal = Calendar.getInstance();

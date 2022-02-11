@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -26,7 +29,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.InputDevice;
 import android.view.MotionEvent;
@@ -38,13 +40,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
-import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
-
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
-import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;

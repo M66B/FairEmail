@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -43,8 +45,6 @@ import java.util.Objects;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 // https://developer.android.com/training/data-storage/room/defining-data
 

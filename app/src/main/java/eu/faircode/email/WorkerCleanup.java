@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -44,8 +46,6 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
-
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours

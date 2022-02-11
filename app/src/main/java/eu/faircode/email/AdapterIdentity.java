@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,7 +29,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -59,8 +60,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHolder> {
     private Fragment parentFragment;

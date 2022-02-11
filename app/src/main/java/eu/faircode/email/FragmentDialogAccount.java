@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -43,9 +46,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
 public class FragmentDialogAccount extends FragmentDialogBase {
     @NonNull

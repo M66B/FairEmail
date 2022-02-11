@@ -35,8 +35,6 @@ import android.widget.RemoteViews;
 import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
-import java.util.Date;
-
 public class WidgetUnified extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {

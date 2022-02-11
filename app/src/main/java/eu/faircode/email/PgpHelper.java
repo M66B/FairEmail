@@ -35,9 +35,7 @@ import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class PgpHelper {
     private static final long CONNECT_TIMEOUT = 5000L;

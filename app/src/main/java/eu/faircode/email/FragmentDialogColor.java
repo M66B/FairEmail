@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,8 +34,6 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorChangedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogColor extends FragmentDialogBase {
     private int color;

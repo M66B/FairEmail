@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+import static androidx.room.ForeignKey.SET_NULL;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -41,7 +44,6 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.Serializable;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -54,9 +56,6 @@ import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import static androidx.room.ForeignKey.CASCADE;
-import static androidx.room.ForeignKey.SET_NULL;
 
 // https://developer.android.com/training/data-storage/room/defining-data
 

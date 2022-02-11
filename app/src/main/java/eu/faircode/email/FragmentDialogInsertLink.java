@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.net.Uri;
@@ -33,8 +35,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogInsertLink extends FragmentDialogBase {
     private EditText etLink;

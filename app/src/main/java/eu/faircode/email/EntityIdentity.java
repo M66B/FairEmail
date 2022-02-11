@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -37,8 +39,6 @@ import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityIdentity.TABLE_NAME,

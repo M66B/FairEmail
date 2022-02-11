@@ -16,6 +16,8 @@ package eu.faircode.email;
  * limitations under the License.
  */
 
+import static android.text.Html.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Layout;
@@ -43,8 +45,6 @@ import android.text.style.UnderlineSpan;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.text.Html.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlEx {
     private Context context;

@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -60,8 +61,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentAccounts extends FragmentBase {
     private boolean settings;

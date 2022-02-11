@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,8 +52,6 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentFolder extends FragmentBase {
     private ViewGroup view;

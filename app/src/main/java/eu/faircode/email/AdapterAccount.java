@@ -24,7 +24,6 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 import android.annotation.TargetApi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;

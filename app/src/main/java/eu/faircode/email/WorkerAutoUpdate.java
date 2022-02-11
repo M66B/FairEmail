@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -33,8 +35,6 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.util.concurrent.TimeUnit;
-
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerAutoUpdate extends Worker {
     private static final long UPDATE_INTERVAL = 7; // Days

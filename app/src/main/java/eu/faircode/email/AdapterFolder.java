@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
