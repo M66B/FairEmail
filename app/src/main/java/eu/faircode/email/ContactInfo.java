@@ -716,7 +716,7 @@ public class ContactInfo {
         int max = 0;
         for (String size : sizes.split(" ")) {
             int min = Integer.MAX_VALUE;
-            for (String p : size.trim().split("[x|X]")) {
+            for (String p : size.trim().split("[×|x|X]")) {
                 if (TextUtils.isEmpty(p) || "any".equalsIgnoreCase(p))
                     continue;
 
