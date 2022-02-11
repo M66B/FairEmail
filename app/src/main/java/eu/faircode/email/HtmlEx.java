@@ -381,7 +381,7 @@ public class HtmlEx {
                     //    out.append("<tt>");
                     //}
 
-                    out.append("<span style=\"font-family:" + s + ";\">");
+                    out.append("<span style='font-family:" + s + ";'>");
                 }
                 if (style[j] instanceof SuperscriptSpan) {
                     out.append("<sup>");

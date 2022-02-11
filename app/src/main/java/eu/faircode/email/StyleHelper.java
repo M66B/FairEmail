@@ -933,15 +933,15 @@ public class StyleHelper {
         if (faces.contains("arimo"))
             return "Arimo, Arial, Verdana, sans-serif";
         if (faces.contains("tinos"))
-            return "Tinos, Times New Roman, serif";
+            return "Tinos, \"Times New Roman\", serif";
         if (faces.contains("cousine"))
-            return "Cousine, Courier New, monospace";
+            return "Cousine, \"Courier New\", monospace";
         if (faces.contains("lato"))
             return "Lato, Carlito, Calibri, sans-serif";
         if (faces.contains("caladea"))
             return "Caladea, Cambo, Cambria, serif";
         if (faces.contains("comic sans"))
-            return "OpenDyslexic, Comic Sans, Comic Sans MS, sans-serif";
+            return "OpenDyslexic, \"Comic Sans\", \"Comic Sans MS\", sans-serif";
         return family;
     }
 
@@ -959,6 +959,7 @@ public class StyleHelper {
             faces.add(face
                     .trim()
                     .toLowerCase(Locale.ROOT)
+                    .replace("'", "")
                     .replace("\"", ""));
 
         if (faces.contains("fairemail"))
