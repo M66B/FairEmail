@@ -937,9 +937,9 @@ public class StyleHelper {
         if (faces.contains("cousine"))
             return "Cousine, Courier New, monospace";
         if (faces.contains("lato"))
-            return "Lato, Calibri, sans-serif";
-        if (faces.contains("cambo"))
-            return "Cambo, Cambria, serif";
+            return "Lato, Carlito, Calibri, sans-serif";
+        if (faces.contains("caladea"))
+            return "Caladea, Cambo, Cambria, serif";
         if (faces.contains("comic sans"))
             return "Comic Sans, Comic Sans MS, sans-serif";
         return family;
@@ -976,8 +976,8 @@ public class StyleHelper {
         if (faces.contains("lato") || faces.contains("calibri"))
             return ResourcesCompat.getFont(context, R.font.lato);
 
-        if (faces.contains("cambo") || faces.contains("cambria"))
-            return ResourcesCompat.getFont(context, R.font.cambo);
+        if (faces.contains("caladea") || faces.contains("cambria"))
+            return ResourcesCompat.getFont(context, R.font.caladea);
 
         if (faces.contains("comic sans") || faces.contains("comic sans ms"))
             return ResourcesCompat.getFont(context, R.font.opendyslexic);
@@ -1003,7 +1003,7 @@ public class StyleHelper {
         result.add(new FontDescriptor("tinos", "Tinos (Times New Roman)", true));
         result.add(new FontDescriptor("cousine", "Cousine (Courier New)", true));
         result.add(new FontDescriptor("lato", "Lato (Calibri)", true));
-        result.add(new FontDescriptor("cambo", "Cambo (Cambria)", true));
+        result.add(new FontDescriptor("caladea", "Caladea (Cambria)", true));
 
         result.add(new FontDescriptor("comic sans", "OpenDyslexic", true));
 
