@@ -388,6 +388,7 @@
     <string name="title_advanced_tabular_background">Koristi boju kartice kao pozadinsku boju kada se koristi tabelarni stil</string>
     <string name="title_advanced_cards_shadow">Koristi sjenku za nepročitane poruke u kartičnom stilu</string>
     <string name="title_advanced_cards_shadow_highlight">Koristi boju markiranja umjesto boje naglašavanja</string>
+    <string name="title_advanced_tabular_dividers">Koristi razdjelne linije kod tabelarnog stila</string>
     <string name="title_advanced_category_header">Grupiši prema kategoriji računa</string>
     <string name="title_advanced_date_header">Grupiši po datumu</string>
     <string name="title_advanced_date_fixed">Prikaži na vrhu fiksno zaglavlje s datumom</string>
@@ -785,6 +786,7 @@
     <string name="title_drafts_select">Slanje e-pošte zahtijeva da se izabere folder za nacrte u postavkama računa</string>
     <string name="title_account_auth_update">Osvježi autorizaciju</string>
     <string name="title_account_auth_password">Prebaci na provjeru lozinkom</string>
+    <string name="title_delete_account">Izbriši račun</string>
     <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
@@ -1280,6 +1282,9 @@
     <string name="title_edit_signature_remark">Iako Android ne može prikazati sav HTML, poslat će se kao takav</string>
     <string name="title_edit_signature_text">Tekst potpisa</string>
     <string name="title_edit_signature_image">Ubaci sliku</string>
+    <string name="title_edit_signature_image_hint">        Pri slanju poruke, slika se kopira u tijelo poruke sa izabrane lokacije.
+        Zbog toga nemojte brisati datoteku slike!
+    </string>
     <string name="title_answer_caption">Uredi prijedložak</string>
     <string name="title_answer_reply">Prijedložak za odgovore</string>
     <string name="title_answer_name">Naziv prijedloška</string>

@@ -1353,6 +1353,8 @@
     <string name="title_rule_thread">Все сообщения в одном диалоге и папке</string>
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_template">Шаблон ответа</string>
+    <string name="title_rule_answer_subject">Использовать имя шаблона в качестве темы</string>
+    <string name="title_rule_original_text">Включить текст исходного сообщения</string>
     <string name="title_rule_forward_to">Переслать</string>
     <string name="title_rule_cc">Ответить на адреса копий (CC)</string>
     <string name="title_rule_with_attachments">С вложениями</string>

@@ -1328,6 +1328,8 @@
     <string name="title_rule_thread">Όλα τα μηνύματα στην ίδια συζήτηση και τον ίδιο φάκελο</string>
     <string name="title_rule_identity">Ταυτότητα</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
+    <string name="title_rule_answer_subject">Να χρησιμοποιηθεί το όνομα του προτύπου ως θέμα</string>
+    <string name="title_rule_original_text">Να συμπεριληφθεί το κείμενο του αρχικού μηνύματος</string>
     <string name="title_rule_forward_to">Προώθηση σε</string>
     <string name="title_rule_cc">Απάντηση στις διευθύνσεις Κοιν.</string>
     <string name="title_rule_with_attachments">Με συνημμένα</string>

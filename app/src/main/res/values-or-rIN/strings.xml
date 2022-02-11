@@ -469,6 +469,8 @@
     <string name="title_rule_regex">RegEx</string>
     <string name="title_rule_identity">ପରିଚୟ</string>
     <string name="title_rule_template">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
+    <string name="title_rule_answer_subject">ଟେମ୍ପଲେଟ୍ ନା‍ଁକୁ ବିଷୟ ଭାବେ ବ୍ୟବହାର କରିବା</string>
+    <string name="title_rule_original_text">ମୂଳ ବାର୍ତ୍ତାର ପାଠ୍ୟ ଅନ୍ତର୍ଭୂକ୍ତ କରିବା</string>
     <string name="title_rule_name_missing">ନିୟମର ନାମ ନିଖୋଜ</string>
     <string name="title_rule_identity_missing">ପରିଚୟ ନିଖୋଜ</string>
     <string name="title_rule_delete_hint">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବା ଅପରିବର୍ତ୍ତନୀୟ ଅଟେ, ତେଣୁ ନିଶ୍ଚିତ କରନ୍ତୁ ଯେ ନିୟମ ସର୍ତ୍ତ ସବୁ ଠିକ୍ ଅଛି!</string>

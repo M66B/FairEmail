@@ -1325,6 +1325,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_thread">Alle berichten in hetzelfde gesprek en dezelfde map</string>
     <string name="title_rule_identity">Identiteit</string>
     <string name="title_rule_template">Antwoord sjabloon</string>
+    <string name="title_rule_answer_subject">Sjabloonnaam als onderwerp gebruiken</string>
+    <string name="title_rule_original_text">Voeg de oorspronkelijke berichttekst toe</string>
     <string name="title_rule_forward_to">Doorsturen naar</string>
     <string name="title_rule_cc">Antwoord op CC adressen</string>
     <string name="title_rule_with_attachments">Met bijlagen</string>

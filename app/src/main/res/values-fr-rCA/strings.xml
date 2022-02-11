@@ -1335,6 +1335,8 @@
     <string name="title_rule_thread">Tous les messages dans la même conversation et le même dossier</string>
     <string name="title_rule_identity">Identité</string>
     <string name="title_rule_template">Répondre avec un modèle</string>
+    <string name="title_rule_answer_subject">Utiliser le nom du modèle comme objet</string>
+    <string name="title_rule_original_text">Inclure le texte du message original</string>
     <string name="title_rule_forward_to">Transférer à</string>
     <string name="title_rule_cc">Répondre aux adresses Cc</string>
     <string name="title_rule_with_attachments">Avec pièces jointes</string>

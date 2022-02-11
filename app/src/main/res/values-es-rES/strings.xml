@@ -1329,6 +1329,7 @@
     <string name="title_rule_thread">Todos los mensajes en la misma conversación y carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_template">Plantilla de respuesta</string>
+    <string name="title_rule_original_text">Incluir el texto del mensaje original</string>
     <string name="title_rule_forward_to">Reenviar a</string>
     <string name="title_rule_cc">Responder a direcciones en CC</string>
     <string name="title_rule_with_attachments">Con adjuntos</string>
