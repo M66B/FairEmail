@@ -7,7 +7,7 @@
 ### 1.1835 - 2022-02-11
 
 * Added default display font setting
-* Replaced by Cambo by Caladea font
+* Replaced Cambo by Caladea font
 * Small improvements and minor bug fixes
 * Updated translations
 
