@@ -676,6 +676,7 @@ public class EntityRule {
 
         long iid = jargs.getLong("identity");
         long aid = jargs.getLong("answer");
+        boolean add_text = jargs.optBoolean("text", true);
         String to = jargs.optString("to");
         boolean cc = jargs.optBoolean("cc");
         boolean attachments = jargs.optBoolean("attachments");
@@ -758,26 +759,29 @@ public class EntityRule {
         reply.id = db.message().insertMessage(reply);
 
         String body = answer.getHtml(message.from);
-        Document msg = JsoupEx.parse(body);
 
-        Element div = msg.createElement("div");
+        if (add_text) {
+            Document msg = JsoupEx.parse(body);
 
-        Element p = message.getReplyHeader(context, msg, separate_reply, extended_reply);
-        div.appendChild(p);
+            Element div = msg.createElement("div");
 
-        Document answering = JsoupEx.parse(message.getFile(context));
-        Element e = answering.body();
-        if (quote) {
-            String style = e.attr("style");
-            style = HtmlHelper.mergeStyles(style, HtmlHelper.getQuoteStyle(e));
-            e.tagName("blockquote").attr("style", style);
-        } else
-            e.tagName("p");
-        div.appendChild(e);
+            Element p = message.getReplyHeader(context, msg, separate_reply, extended_reply);
+            div.appendChild(p);
 
-        msg.body().appendChild(div);
+            Document answering = JsoupEx.parse(message.getFile(context));
+            Element e = answering.body();
+            if (quote) {
+                String style = e.attr("style");
+                style = HtmlHelper.mergeStyles(style, HtmlHelper.getQuoteStyle(e));
+                e.tagName("blockquote").attr("style", style);
+            } else
+                e.tagName("p");
+            div.appendChild(e);
 
-        body = msg.outerHtml();
+            msg.body().appendChild(div);
+
+            body = msg.outerHtml();
+        }
 
         File file = reply.getFile(context);
         Helper.writeText(file, body);
