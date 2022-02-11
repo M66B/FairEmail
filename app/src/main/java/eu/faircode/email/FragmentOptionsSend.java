@@ -166,7 +166,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         for (int i = 0; i < fonts.size(); i++) {
             StyleHelper.FontDescriptor font = fonts.get(i);
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
-            ssb.setSpan(new TypefaceSpan(font.type), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ssb.setSpan(StyleHelper.getTypefaceSpan(font.type, getContext()),
+                    0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             fn.add(ssb);
         }
 
