@@ -100,12 +100,11 @@ public class ContactInfo {
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
-    private static final int processors =
-            Runtime.getRuntime().availableProcessors();
     private static final ExecutorService executorLookup =
             Helper.getBackgroundExecutor(1, "contact");
+
     private static final ExecutorService executorFavicon =
-            Helper.getBackgroundExecutor(Math.max(1, processors / 2), "favicon");
+            Helper.getBackgroundExecutor(0, "favicon");
 
     private static final int GENERATED_ICON_SIZE = 96; // dp
     private static final int FAVICON_ICON_SIZE = 64; // dp
