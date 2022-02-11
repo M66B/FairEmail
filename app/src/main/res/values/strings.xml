@@ -1545,7 +1545,8 @@
     <string name="title_rule_thread">All messages in same conversation and folder</string>
     <string name="title_rule_identity">Identity</string>
     <string name="title_rule_template">Reply template</string>
-    <string name="title_rule_include_message_text">Include message text</string>
+    <string name="title_rule_answer_subject">Use template name as subject</string>
+    <string name="title_rule_original_text">Include original message text</string>
     <string name="title_rule_forward_to">Forward to</string>
     <string name="title_rule_cc">Reply to CC addresses</string>
     <string name="title_rule_with_attachments">With attachments</string>

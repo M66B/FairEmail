@@ -841,14 +841,23 @@
                     app:layout_constraintTop_toBottomOf="@id/tvAnswerTemplate" />
 
                 <CheckBox
-                    android:id="@+id/cbIncludeMessageText"
+                    android:id="@+id/cbAnswerSubject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_answer_subject"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spAnswer" />
+
+                <CheckBox
+                    android:id="@+id/cbOriginalText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:checked="true"
-                    android:text="@string/title_rule_include_message_text"
+                    android:text="@string/title_rule_original_text"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAnswer" />
+                    app:layout_constraintTop_toBottomOf="@id/cbAnswerSubject" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvTo"
@@ -859,7 +868,7 @@
                     android:text="@string/title_rule_forward_to"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbIncludeMessageText" />
+                    app:layout_constraintTop_toBottomOf="@id/cbOriginalText" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etTo"
@@ -1075,7 +1084,7 @@
                     android:id="@+id/grpAnswer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbIncludeMessageText,tvTo,etTo,ibTo,cbCc,cbWithAttachments,tvAnswerRemark" />
+                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbAnswerSubject,cbOriginalText,tvTo,etTo,ibTo,cbCc,cbWithAttachments,tvAnswerRemark" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpTts"

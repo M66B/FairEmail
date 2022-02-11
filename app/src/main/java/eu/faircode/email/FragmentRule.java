@@ -140,7 +140,8 @@ public class FragmentRule extends FragmentBase {
     private Spinner spIdent;
 
     private Spinner spAnswer;
-    private CheckBox cbIncludeMessageText;
+    private CheckBox cbAnswerSubject;
+    private CheckBox cbOriginalText;
     private EditText etTo;
     private ImageButton ibTo;
     private CheckBox cbCc;
@@ -291,7 +292,8 @@ public class FragmentRule extends FragmentBase {
         spIdent = view.findViewById(R.id.spIdent);
 
         spAnswer = view.findViewById(R.id.spAnswer);
-        cbIncludeMessageText = view.findViewById(R.id.cbIncludeMessageText);
+        cbAnswerSubject = view.findViewById(R.id.cbAnswerSubject);
+        cbOriginalText = view.findViewById(R.id.cbOriginalText);
         etTo = view.findViewById(R.id.etTo);
         ibTo = view.findViewById(R.id.ibTo);
         cbCc = view.findViewById(R.id.cbCc);
@@ -1139,7 +1141,8 @@ public class FragmentRule extends FragmentBase {
                                             break;
                                         }
 
-                                    cbIncludeMessageText.setChecked(jaction.optBoolean("text", true));
+                                    cbAnswerSubject.setChecked(jaction.optBoolean("answer_subject", false));
+                                    cbOriginalText.setChecked(jaction.optBoolean("original_text", true));
 
                                     etTo.setText(jaction.optString("to"));
                                     cbCc.setChecked(jaction.optBoolean("cc"));
@@ -1481,7 +1484,8 @@ public class FragmentRule extends FragmentBase {
                     EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
                     jaction.put("identity", identity == null ? -1 : identity.id);
                     jaction.put("answer", answer == null || answer.id == null ? -1 : answer.id);
-                    jaction.put("text", cbIncludeMessageText.isChecked());
+                    jaction.put("answer_subject", cbAnswerSubject.isChecked());
+                    jaction.put("original_text", cbOriginalText.isChecked());
                     jaction.put("to", etTo.getText().toString().trim());
                     jaction.put("cc", cbCc.isChecked());
                     jaction.put("attachments", cbWithAttachments.isChecked());

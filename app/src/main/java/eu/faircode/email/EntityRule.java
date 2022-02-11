@@ -676,7 +676,8 @@ public class EntityRule {
 
         long iid = jargs.getLong("identity");
         long aid = jargs.getLong("answer");
-        boolean add_text = jargs.optBoolean("text", true);
+        boolean answer_subject = jargs.optBoolean("answer_subject", false);
+        boolean original_text = jargs.optBoolean("original_text", true);
         String to = jargs.optString("to");
         boolean cc = jargs.optBoolean("cc");
         boolean attachments = jargs.optBoolean("attachments");
@@ -699,6 +700,7 @@ public class EntityRule {
                 throw new IllegalArgumentException("Rule template missing name=" + rule.name);
 
             answer = new EntityAnswer();
+            answer.name = message.subject;
             answer.text = "";
         } else {
             answer = db.answer().getAnswer(aid);
@@ -749,7 +751,10 @@ public class EntityRule {
             reply.cc = message.cc;
         reply.unsubscribe = "mailto:" + identity.email;
         reply.auto_submitted = true;
-        reply.subject = EntityMessage.getSubject(context, message.language, message.subject, !isReply);
+        reply.subject = EntityMessage.getSubject(context,
+                message.language,
+                answer_subject ? answer.name : message.subject,
+                !isReply);
         reply.received = new Date().getTime();
         reply.sender = MessageHelper.getSortKey(reply.from);
 
@@ -760,7 +765,7 @@ public class EntityRule {
 
         String body = answer.getHtml(message.from);
 
-        if (add_text) {
+        if (original_text) {
             Document msg = JsoupEx.parse(body);
 
             Element div = msg.createElement("div");
