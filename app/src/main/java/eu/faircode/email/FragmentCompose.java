@@ -1634,6 +1634,10 @@ public class FragmentCompose extends FragmentBase {
         else
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_send);
 
+        Menu m = bottom_navigation.getMenu();
+        for (int i = 0; i < m.size(); i++)
+            bottom_navigation.findViewById(m.getItem(i).getItemId()).setOnLongClickListener(null);
+
         bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
