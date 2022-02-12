@@ -2917,8 +2917,10 @@ public class MessageHelper {
                     } else if (StandardCharsets.UTF_8.equals(cs))
                         result = CharsetHelper.utf8toW1252(result);
 
+                    // https://datatracker.ietf.org/doc/html/rfc3676
                     if ("flowed".equalsIgnoreCase(h.contentType.getParameter("format")))
-                        result = HtmlHelper.flow(result);
+                        result = HtmlHelper.flow(result,
+                                "yes".equalsIgnoreCase(h.contentType.getParameter("delsp")));
 
                     // https://www.w3.org/QA/2002/04/valid-dtd-list.html
                     if (result.length() > DOCTYPE.length()) {

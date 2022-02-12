@@ -1891,13 +1891,16 @@ public class HtmlHelper {
     }
 
     // https://tools.ietf.org/html/rfc3676
-    static String flow(String text) {
+    static String flow(String text, boolean delsp) {
         boolean continuation = false;
         StringBuilder flowed = new StringBuilder();
         String[] lines = text.split("\\r?\\n");
         for (int l = 0; l < lines.length; l++) {
             String line = lines[l];
             lines[l] = null;
+
+            if (delsp && line.length() > 0)
+                line = line.substring(0, line.length() - 1);
 
             if (continuation)
                 while (line.startsWith(">")) {
