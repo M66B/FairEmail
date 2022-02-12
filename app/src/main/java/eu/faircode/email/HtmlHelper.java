@@ -3141,6 +3141,7 @@ public class HtmlHelper {
 
                                 break;
                             case "pre":
+                            case "tt":
                                 // Signature
                                 setSpan(ssb, StyleHelper.getTypefaceSpan("monospace", context), start, ssb.length());
                                 break;
@@ -3191,9 +3192,6 @@ public class HtmlHelper {
                                 break;
                             case "title":
                                 // Signature, etc
-                                break;
-                            case "tt":
-                                setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
                                 break;
                             case "u":
                                 setSpan(ssb, new UnderlineSpan(), start, ssb.length());
