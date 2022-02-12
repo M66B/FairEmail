@@ -7557,12 +7557,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected String onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
 
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+
                     File file = EntityMessage.getFile(context, id);
                     String html = Helper.readText(file);
                     Document d = HtmlHelper.sanitizeCompose(context, html, false);
+
                     d.select("blockquote").remove();
+
                     HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
+
                     SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
+
+                    if (message != null && message.subject != null) {
+                        ssb.insert(0, "\n\n");
+                        ssb.insert(0, message.subject);
+                    }
+
                     return ssb.toString()
                             .replace("\uFFFC", "") // Object replacement character
                             .replaceAll("\n\\s+\n", "\n")
