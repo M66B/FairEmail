@@ -31,6 +31,8 @@ import android.content.pm.PermissionInfo;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.fonts.Font;
+import android.graphics.fonts.SystemFonts;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
@@ -1134,6 +1136,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         ssb.append(key).append("\n");
                 } catch (Throwable ex) {
                     ssb.append(ex.toString());
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    ssb.append("\n");
+                    for (Font font : SystemFonts.getAvailableFonts())
+                        ssb.append(font.getFile().getName()).append("\n");
                 }
 
                 new AlertDialog.Builder(getContext())
