@@ -3031,7 +3031,7 @@ public class HtmlHelper {
                             case "font":
                                 String face = element.attr("face");
                                 if (!TextUtils.isEmpty(face))
-                                    setSpan(ssb, new TypefaceSpan(face), start, ssb.length());
+                                    setSpan(ssb, StyleHelper.getTypefaceSpan(face, context), start, ssb.length());
                                 break;
                             case "h1":
                             case "h2":
@@ -3142,7 +3142,7 @@ public class HtmlHelper {
                                 break;
                             case "pre":
                                 // Signature
-                                setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
+                                setSpan(ssb, StyleHelper.getTypefaceSpan("monospace", context), start, ssb.length());
                                 break;
                             case "style":
                                 // signatures
@@ -3204,7 +3204,7 @@ public class HtmlHelper {
 
                         if (monospaced_pre &&
                                 "true".equals(element.attr("x-plain")))
-                            setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
+                            setSpan(ssb, StyleHelper.getTypefaceSpan("monospace", context), start, ssb.length());
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
