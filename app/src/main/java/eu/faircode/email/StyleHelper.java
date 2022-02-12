@@ -933,9 +933,9 @@ public class StyleHelper {
         if (faces.contains("arimo"))
             return "Arimo, Arial, Verdana, Helvetica, sans-serif";
         if (faces.contains("tinos"))
-            return "Tinos, \"Times New Roman\", serif";
+            return "Tinos, \"Times New Roman\", Times, serif";
         if (faces.contains("cousine"))
-            return "Cousine, \"Courier New\", monospace";
+            return "Cousine, \"Courier New\", Courier, monospace";
         if (faces.contains("lato"))
             return "Lato, Carlito, Calibri, sans-serif";
         if (faces.contains("caladea"))
@@ -976,10 +976,12 @@ public class StyleHelper {
                 return ResourcesCompat.getFont(context, R.font.arimo);
 
             if (faces.contains("tinos") ||
+                    faces.contains("times") ||
                     faces.contains("times new roman"))
                 return ResourcesCompat.getFont(context, R.font.tinos);
 
             if (faces.contains("cousine") ||
+                    faces.contains("courier") ||
                     faces.contains("courier new"))
                 return ResourcesCompat.getFont(context, R.font.cousine);
 
