@@ -664,17 +664,21 @@ public class Helper {
     }
 
     static void share(Context context, File file, String type, String name) {
+        // https://developer.android.com/reference/androidx/core/content/FileProvider
+        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+        share(context, uri, type, name);
+    }
+
+    static void share(Context context, Uri uri, String type, String name) {
         try {
-            _share(context, file, type, name);
+            _share(context, uri, type, name);
         } catch (Throwable ex) {
             // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
             Log.e(ex);
         }
     }
 
-    static void _share(Context context, File file, String type, String name) {
-        // https://developer.android.com/reference/androidx/core/content/FileProvider
-        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+    private static void _share(Context context, Uri uri, String type, String name) {
         Log.i("uri=" + uri + " type=" + type);
 
         // Build intent
