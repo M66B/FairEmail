@@ -927,7 +927,9 @@ public class StyleHelper {
 
     static String getFamily(String family) {
         // https://web.mit.edu/jmorzins/www/fonts.html
+        // https://en.wikipedia.org/wiki/Croscore_fonts
         // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
+        // TODO: Microsoft: Georgia (Serif), Tahoma (Sans-serif), Trebuchet MS (Sans-serif)
         String faces = family.toLowerCase(Locale.ROOT);
         if (faces.contains("arimo"))
             return "Arimo, Arial, Verdana, Helvetica, sans-serif";
