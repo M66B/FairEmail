@@ -4,6 +4,12 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1836 - 2022-02-12
+
+* Added option to disable using bundled fonts
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1835 - 2022-02-11
 
 * Added default display font setting
