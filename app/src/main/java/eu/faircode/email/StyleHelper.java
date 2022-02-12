@@ -931,7 +931,7 @@ public class StyleHelper {
     static String getFamily(String family) {
         String faces = family.toLowerCase(Locale.ROOT);
         if (faces.contains("arimo"))
-            return "Arimo, Arial, Verdana, sans-serif";
+            return "Arimo, Arial, Verdana, Helvetica, sans-serif";
         if (faces.contains("tinos"))
             return "Tinos, \"Times New Roman\", serif";
         if (faces.contains("cousine"))
@@ -965,22 +965,33 @@ public class StyleHelper {
         if (faces.contains("fairemail"))
             return ResourcesCompat.getFont(context, R.font.fantasy);
 
-        if (faces.contains("arimo") || faces.contains("arial") || faces.contains("verdana"))
+        if (faces.contains("arimo") ||
+                faces.contains("arial") ||
+                faces.contains("verdana") ||
+                faces.contains("helvetica"))
             return ResourcesCompat.getFont(context, R.font.arimo);
 
-        if (faces.contains("tinos") || faces.contains("times new roman"))
+        if (faces.contains("tinos") ||
+                faces.contains("times new roman"))
             return ResourcesCompat.getFont(context, R.font.tinos);
 
-        if (faces.contains("cousine") || faces.contains("courier new"))
+        if (faces.contains("cousine") ||
+                faces.contains("courier new"))
             return ResourcesCompat.getFont(context, R.font.cousine);
 
-        if (faces.contains("lato") || faces.contains("calibri"))
+        if (faces.contains("lato") ||
+                faces.contains("carlito") ||
+                faces.contains("calibri"))
             return ResourcesCompat.getFont(context, R.font.lato);
 
-        if (faces.contains("caladea") || faces.contains("cambria"))
+        if (faces.contains("caladea") ||
+                faces.contains("cambo") ||
+                faces.contains("cambria"))
             return ResourcesCompat.getFont(context, R.font.caladea);
 
-        if (faces.contains("comic sans") || faces.contains("comic sans ms"))
+        if (faces.contains("opendyslexic") ||
+                faces.contains("comic sans") ||
+                faces.contains("comic sans ms"))
             return ResourcesCompat.getFont(context, R.font.opendyslexic);
 
         for (String face : faces) {
