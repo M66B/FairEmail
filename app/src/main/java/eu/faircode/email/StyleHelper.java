@@ -926,6 +926,8 @@ public class StyleHelper {
     }
 
     static String getFamily(String family) {
+        // https://web.mit.edu/jmorzins/www/fonts.html
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
         String faces = family.toLowerCase(Locale.ROOT);
         if (faces.contains("arimo"))
             return "Arimo, Arial, Verdana, Helvetica, sans-serif";
