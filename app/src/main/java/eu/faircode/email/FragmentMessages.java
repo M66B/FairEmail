@@ -4898,7 +4898,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onMenuDeleteSearch() {
         Bundle args = new Bundle();
-        args.putLong("id", criteria.id);
+        args.putLong("id", criteria == null ? -1 : criteria.id);
 
         new SimpleTask<Void>() {
             @Override
