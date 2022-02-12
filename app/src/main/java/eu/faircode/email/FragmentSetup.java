@@ -113,10 +113,12 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnApp;
     private Button btnDelete;
+    private Button btnSupport;
 
     private Group grpInexactAlarms;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
+    private Group grpSupport;
 
     private int textColorPrimary;
     private int colorWarning;
@@ -182,10 +184,12 @@ public class FragmentSetup extends FragmentBase {
 
         btnApp = view.findViewById(R.id.btnApp);
         btnDelete = view.findViewById(R.id.btnDelete);
+        btnSupport = view.findViewById(R.id.btnSupport);
 
         grpInexactAlarms = view.findViewById(R.id.grpInexactAlarms);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
+        grpSupport = view.findViewById(R.id.grpSupport);
 
         // Wire controls
 
@@ -593,6 +597,18 @@ public class FragmentSetup extends FragmentBase {
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_DELETE_ACCOUNT);
                 fragment.show(getParentFragmentManager(), "setup:delete");
+            }
+        });
+
+        grpSupport.setVisibility(
+                Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG
+                        ? View.VISIBLE : View.GONE);
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(Intent.ACTION_VIEW)
+                        .setData(Helper.getSupportUri(v.getContext()));
+                v.getContext().startActivity(view);
             }
         });
 
