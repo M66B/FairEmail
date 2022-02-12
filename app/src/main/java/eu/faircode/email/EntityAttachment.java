@@ -76,6 +76,7 @@ public class EntityAttachment {
     public String type;
     public String disposition;
     public String cid; // Content-ID
+    public Boolean related; // inline
     public Integer encryption;
     public Long size;
     public Integer progress;
@@ -86,7 +87,8 @@ public class EntityAttachment {
     // Gmail sends inline images as attachments with a name and cid
 
     boolean isInline() {
-        return (Part.INLINE.equals(disposition) || cid != null);
+        return (Part.INLINE.equals(disposition) ||
+                (!Boolean.FALSE.equals(related) && cid != null));
     }
 
     boolean isAttachment() {

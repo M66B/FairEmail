@@ -964,6 +964,7 @@ public class MessageHelper {
                         attachment.type = type;
                         attachment.disposition = Part.INLINE;
                         attachment.cid = acid;
+                        attachment.related = true;
                         attachment.size = null;
                         attachment.progress = 0;
                         attachment.id = db.attachment().insertAttachment(attachment);
@@ -1304,7 +1305,7 @@ public class MessageHelper {
                 if ("delivery-status".equalsIgnoreCase(reportType) ||
                         "disposition-notification".equalsIgnoreCase(reportType)) {
                     MessageParts parts = new MessageParts();
-                    getMessageParts(imessage, parts, null);
+                    getMessageParts(null, imessage, parts, null);
                     for (AttachmentPart apart : parts.attachments)
                         if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
                             reportHeaders = new InternetHeaders(apart.part.getInputStream());
@@ -2802,6 +2803,7 @@ public class MessageHelper {
                             !Part.ATTACHMENT.equals(apart.attachment.disposition)) {
                         Log.i("Normalizing " + apart.attachment);
                         apart.attachment.cid = null;
+                        apart.attachment.related = false;
                         apart.attachment.disposition = Part.ATTACHMENT;
                     }
         }
@@ -3579,8 +3581,8 @@ public class MessageHelper {
                         if (content instanceof Multipart) {
                             Multipart multipart = (Multipart) content;
                             if (multipart.getCount() == 2) {
-                                getMessageParts(multipart.getBodyPart(0), parts, null);
-                                getMessageParts(multipart.getBodyPart(1), parts,
+                                getMessageParts(part, multipart.getBodyPart(0), parts, null);
+                                getMessageParts(part, multipart.getBodyPart(1), parts,
                                         "application/pgp-signature".equals(protocol)
                                                 ? EntityAttachment.PGP_SIGNATURE
                                                 : EntityAttachment.SMIME_SIGNATURE);
@@ -3623,7 +3625,7 @@ public class MessageHelper {
                             Multipart multipart = (Multipart) content;
                             if (multipart.getCount() == 2) {
                                 // Ignore header
-                                getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                                getMessageParts(part, multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
                                 return parts;
                             } else {
                                 StringBuilder sb = new StringBuilder();
@@ -3641,10 +3643,10 @@ public class MessageHelper {
                     ContentType ct = new ContentType(part.getContentType());
                     String smimeType = ct.getParameter("smime-type");
                     if ("enveloped-data".equalsIgnoreCase(smimeType)) {
-                        getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
+                        getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
                         return parts;
                     } else if ("signed-data".equalsIgnoreCase(smimeType)) {
-                        getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                        getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                         return parts;
                     } else if ("signed-receipt".equalsIgnoreCase(smimeType)) {
                         // https://datatracker.ietf.org/doc/html/rfc2634#section-2
@@ -3652,10 +3654,10 @@ public class MessageHelper {
                         if (TextUtils.isEmpty(smimeType)) {
                             String name = ct.getParameter("name");
                             if ("smime.p7m".equalsIgnoreCase(name)) {
-                                getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
+                                getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
                                 return parts;
                             } else if ("smime.p7s".equalsIgnoreCase(name)) {
-                                getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                                getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                                 return parts;
                             }
                         }
@@ -3668,7 +3670,7 @@ public class MessageHelper {
                 Log.w(ex);
             }
 
-            getMessageParts(imessage, parts, null);
+            getMessageParts(null, imessage, parts, null);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             parts.warnings.add(Log.formatThrowable(ex, false));
@@ -3692,7 +3694,7 @@ public class MessageHelper {
         return parts;
     }
 
-    private void getMessageParts(Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
+    private void getMessageParts(Part parent, Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
         try {
             Log.d("Part class=" + part.getClass() + " type=" + part.getContentType());
 
@@ -3728,7 +3730,7 @@ public class MessageHelper {
                         if (alternative && count > 1 && child.isMimeType("text/plain"))
                             plain.add(child);
                         else {
-                            getMessageParts(child, parts, encrypt);
+                            getMessageParts(part, child, parts, encrypt);
                             other = true;
                         }
                     } catch (ParseException ex) {
@@ -3741,7 +3743,7 @@ public class MessageHelper {
                 if (alternative && count > 1 && !other)
                     for (Part child : plain)
                         try {
-                            getMessageParts(child, parts, encrypt);
+                            getMessageParts(part, child, parts, encrypt);
                         } catch (ParseException ex) {
                             // Nested body: try to continue
                             // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
@@ -3837,12 +3839,21 @@ public class MessageHelper {
                             parts.warnings.add(Log.formatThrowable(ex, false));
                     }
 
+                    Boolean related = null;
+                    if (parent != null)
+                        try {
+                            related = parent.isMimeType("multipart/related");
+                        } catch (MessagingException ex) {
+                            Log.w(ex);
+                        }
+
                     apart.attachment = new EntityAttachment();
                     apart.attachment.disposition = apart.disposition;
                     apart.attachment.name = apart.filename;
                     apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);
                     apart.attachment.size = (long) apart.part.getSize();
                     apart.attachment.cid = cid;
+                    apart.attachment.related = related;
                     apart.attachment.encryption = apart.encrypt;
 
                     if ("text/calendar".equalsIgnoreCase(apart.attachment.type) &&

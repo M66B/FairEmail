@@ -117,8 +117,9 @@ public interface DaoAttachment {
     @Query("UPDATE attachment" +
             " SET cid = :cid" +
             " WHERE id = :id" +
-            " AND NOT (cid IS :cid)")
-    void setCid(long id, String cid);
+            " AND NOT (cid IS :cid)" +
+            " AND NOT (related IS :related)")
+    void setCid(long id, String cid, Boolean related);
 
     @Query("UPDATE attachment" +
             " SET available = 0" +

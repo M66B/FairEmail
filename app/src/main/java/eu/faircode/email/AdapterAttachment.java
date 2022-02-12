@@ -175,8 +175,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             StringBuilder sb = new StringBuilder();
             sb.append(attachment.type);
             if (debug || BuildConfig.DEBUG) {
-                if (attachment.cid != null)
+                if (attachment.cid != null) {
                     sb.append(' ').append(attachment.cid);
+                    if (attachment.related != null)
+                        sb.append(' ').append(attachment.related);
+                }
                 if (attachment.isEncryption())
                     sb.append(' ').append(attachment.encryption);
             }

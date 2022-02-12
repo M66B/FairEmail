@@ -3928,7 +3928,8 @@ public class FragmentCompose extends FragmentBase {
 
                 if (image) {
                     attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
-                    db.attachment().setCid(attachment.id, attachment.cid);
+                    attachment.related = true;
+                    db.attachment().setCid(attachment.id, attachment.cid, attachment.related);
                 }
             } finally {
                 try {
@@ -4822,6 +4823,7 @@ public class FragmentCompose extends FragmentBase {
                                         attachment.disposition = Part.INLINE;
                                     else {
                                         attachment.cid = null;
+                                        attachment.related = false;
                                         attachment.disposition = Part.ATTACHMENT;
                                     }
 
