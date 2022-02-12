@@ -197,6 +197,7 @@
     <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_font">ଫଣ୍ଟ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_bundled_fonts">ବଣ୍ଡଲ୍ ହୋଇଥିବା ଫଣ୍ଟ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
     <string name="title_advanced_authentication_indicator">ପ୍ରାମାଣିକରଣ ସ୍ଥିତି ସୂଚକ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_authentication_none">ପ୍ରାମାଣିକରଣ ନାହିଁ</string>

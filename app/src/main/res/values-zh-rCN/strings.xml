@@ -1231,7 +1231,7 @@
     <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">旧消息在前</string>
-    <string name="title_filter">筛选</string>
+    <string name="title_filter">滤除</string>
     <string name="title_filter_seen">已读</string>
     <string name="title_filter_unflagged">未标星</string>
     <string name="title_filter_unknown">未知发件人</string>
@@ -1318,6 +1318,8 @@
     <string name="title_rule_thread">在同一会话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>
+    <string name="title_rule_answer_subject">使用模板名称作为主题</string>
+    <string name="title_rule_original_text">包含原始消息文本</string>
     <string name="title_rule_forward_to">转发给</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
     <string name="title_rule_with_attachments">含附件</string>

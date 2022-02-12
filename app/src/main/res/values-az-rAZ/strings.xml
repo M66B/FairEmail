@@ -1334,6 +1334,8 @@
     <string name="title_rule_thread">Eyni danışıq və qovluqdakı bütün mesajlar</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Cavab şablonu</string>
+    <string name="title_rule_answer_subject">Şablon adını mövzu olaraq istifadə et</string>
+    <string name="title_rule_original_text">Orijinal mesaj mətnini daxil et</string>
     <string name="title_rule_forward_to">Yönləndir</string>
     <string name="title_rule_cc">CC ünvanlarını cavabla</string>
     <string name="title_rule_with_attachments">Qoşmalar ilə</string>

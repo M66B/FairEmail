@@ -463,6 +463,7 @@
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
+    <string name="title_advanced_bundled_fonts">Использовать встроенные шрифты</string>
     <string name="title_advanced_parse_classes">Анализировать таблицы стилей</string>
     <string name="title_advanced_authentication">Показывать предупреждения аутентификации</string>
     <string name="title_advanced_authentication_hint">Соответствующие проверки могут быть настроены в параметрах получения</string>

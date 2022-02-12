@@ -434,6 +434,7 @@
     <string name="title_advanced_actionbar">会話アクションバーを表示</string>
     <string name="title_advanced_actionbar_color">会話アクションバーの背景色としてアカウントの色を使用</string>
     <string name="title_advanced_navbar_colorize">Android ナビゲーションバーに色を付ける</string>
+    <string name="title_advanced_bundled_fonts">バンドルされたフォントを使用</string>
     <string name="title_advanced_parse_classes">スタイルシートを解析</string>
     <string name="title_advanced_authentication">認証警告を表示</string>
     <string name="title_advanced_authentication_hint">受信設定で確認内容を設定します</string>
@@ -1324,6 +1325,8 @@
     <string name="title_rule_thread">同じ会話内またはフォルダー内のすべてのメッセージ</string>
     <string name="title_rule_identity">ID</string>
     <string name="title_rule_template">返信テンプレート</string>
+    <string name="title_rule_answer_subject">テンプレート名を件名として使用</string>
+    <string name="title_rule_original_text">元のメッセージ本文を含める</string>
     <string name="title_rule_forward_to">転送先</string>
     <string name="title_rule_cc">CC アドレスへ返信</string>
     <string name="title_rule_with_attachments">添付ファイルも含める</string>

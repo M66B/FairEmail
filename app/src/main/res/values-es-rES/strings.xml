@@ -443,6 +443,7 @@
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
+    <string name="title_advanced_bundled_fonts">Usar fuentes empaquetadas</string>
     <string name="title_advanced_parse_classes">Analizar hojas de estilo</string>
     <string name="title_advanced_authentication">Mostrar advertencias de autenticación</string>
     <string name="title_advanced_authentication_hint">Las comprobaciones subyacentes se pueden configurar en la configuración de recepción</string>

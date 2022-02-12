@@ -463,6 +463,7 @@
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
+    <string name="title_advanced_bundled_fonts">Użyj dołączonych czcionek</string>
     <string name="title_advanced_parse_classes">Parsowanie arkuszy stylów</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenia o uwierzytelnieniu</string>
     <string name="title_advanced_authentication_hint">Podstawowe kontrole można skonfigurować w ustawieniach odbioru</string>
@@ -1351,6 +1352,8 @@
     <string name="title_rule_thread">Wszystkie wiadomości w tej samej rozmowie i folderze</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_template">Szablon odpowiedzi</string>
+    <string name="title_rule_answer_subject">Użyj nazwy szablonu jako tematu</string>
+    <string name="title_rule_original_text">Dołącz oryginalny tekst wiadomości</string>
     <string name="title_rule_forward_to">Przekaż do</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_with_attachments">Z załącznikami</string>

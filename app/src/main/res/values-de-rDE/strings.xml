@@ -442,6 +442,7 @@
     <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
+    <string name="title_advanced_bundled_fonts">Gebündelte Schriften verwenden</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Authentifizierungswarnhinweise anzeigen</string>
     <string name="title_advanced_authentication_hint">Die zugrunde liegenden Prüfungen können in den Empfangseinstellungen konfiguriert werden</string>
@@ -1329,8 +1330,8 @@
     <string name="title_rule_thread">Alle Nachrichten zur selben Unterhaltung und Ordner</string>
     <string name="title_rule_identity">Identität</string>
     <string name="title_rule_template">Antwortvorlage</string>
-    <string name="title_rule_answer_subject">Vorlagenname als Betreff verwenden</string>
-    <string name="title_rule_original_text">Ursprünglichen Nachrichtentext einfügen</string>
+    <string name="title_rule_answer_subject">Namen der Vorlage als Betreff verwenden</string>
+    <string name="title_rule_original_text">Ursprünglichen Nachrichtentext einschließen</string>
     <string name="title_rule_forward_to">Weiterleiten an</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_with_attachments">Mit Anhängen</string>

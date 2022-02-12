@@ -9,6 +9,7 @@
     <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
     <string name="app_updated">Poslední aktualizace: %1$s</string>
+    <string name="app_download">Staženo z: %1$s</string>
     <string name="channel_service">Příjem</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">E-mail</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
+    <string name="title_advanced_cert_strict">Přísná kontrola certifikátu</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
     <string name="title_advanced_caption_checks">Kontroly</string>
@@ -382,6 +384,7 @@
     <string name="title_advanced_two_col">Použít dva sloupce</string>
     <string name="title_advanced_min_screen_size">Minimální velikost obrazovky pro její rozdělení</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
+    <string name="title_advanced_column_width">Šířka sloupce zpráv: %1$s %%</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>
     <string name="title_advanced_nav_hide_title">Skrýt možnosti navigačního menu?</string>
@@ -394,6 +397,7 @@
     <string name="title_advanced_tabular_background">Použít barvu karty jako pozadí při zobrazení stylem tabulky</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
     <string name="title_advanced_cards_shadow_highlight">Použít barvu zvýraznění namísto kontrastní barvy</string>
+    <string name="title_advanced_tabular_dividers">Použít dělicí čáry při použití stylu tabulky</string>
     <string name="title_advanced_category_header">Seskupit podle kategorie účtu</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_date_fixed">Zobrazit nahoře datovou hlavičku</string>
@@ -634,6 +638,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Povolení může na některých zařízeních způsobit problémy s připojením</string>
     <string name="title_advanced_validate_hint">Může vést k nesynchronizovaným zprávám, například při použití VPN, ale i v jiných situacích</string>
     <string name="title_advanced_timeout_hint">Časový limit čtení/zápisu bude nastaven na dvojnásobek časového limitu připojení. Vyšší hodnoty povedou k větší spotřebě baterie.</string>
+    <string name="title_advanced_cert_strict_hint">Zakázáním této funkce se uvolní kontrola serverových certifikátů</string>
     <string name="title_advanced_ssl_harden_hint">Povolení této volby zakáže slabé SSL protokoly a šifry, což může vést k problémům s připojením</string>
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
@@ -790,6 +795,7 @@
     <string name="title_drafts_select">Odesílání e-mailů vyžaduje nastavenou složku pro koncepty v nastavení účtu</string>
     <string name="title_account_auth_update">Aktualizace autorizace</string>
     <string name="title_account_auth_password">Přepnout na ověření heslem</string>
+    <string name="title_delete_account">Odebrat účet</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
@@ -1025,6 +1031,7 @@
     <string name="title_fullscreen">Zobrazit na celou obrazovku</string>
     <string name="title_fit_width">Přizpůsobit šířku</string>
     <string name="title_disable_widths">Zakázat šířky</string>
+    <string name="title_monospaced_pre">Neproporcionální &lt;pre&gt;</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
@@ -1139,6 +1146,7 @@
     <string name="title_translate_configure">Nastavit &#8230;</string>
     <string name="title_translate_key">Zadejte klíč</string>
     <string name="title_translating">Překládání &#8230;</string>
+    <string name="title_translate_formal">Použít formální jazyk</string>
     <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
     <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Stiskněte text, který má být přeložen</string>
@@ -1280,6 +1288,9 @@
     <string name="title_edit_signature_remark">Přestože Android nemůže zobrazit všechno HTML, bude odeslán jako</string>
     <string name="title_edit_signature_text">Text podpisu</string>
     <string name="title_edit_signature_image">Vložit obrázek</string>
+    <string name="title_edit_signature_image_hint">        Při odesílání zprávy je obrázek zkopírován do zprávy z vybraného umístění.
+        Takže neodstraňujte obrázek!
+    </string>
     <string name="title_answer_caption">Upravit šablonu</string>
     <string name="title_answer_reply">Šablona odpovědi</string>
     <string name="title_answer_name">Název šablony</string>
@@ -1339,6 +1350,8 @@
     <string name="title_rule_thread">Všechny zprávy ve stejné konverzaci a složce</string>
     <string name="title_rule_identity">Identita</string>
     <string name="title_rule_template">Šablona odpovědi</string>
+    <string name="title_rule_answer_subject">Použít název šablony jako předmět</string>
+    <string name="title_rule_original_text">Zahrnout text původní zprávy</string>
     <string name="title_rule_forward_to">Přeposlat na</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
     <string name="title_rule_with_attachments">S přílohami</string>
@@ -1524,6 +1537,7 @@
     <string name="title_later">Později</string>
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
+    <string name="title_insert_line">Vložit řádek</string>
     <string name="title_add">Přidat</string>
     <string name="title_browse">Otevřít s</string>
     <string name="title_info">Info</string>

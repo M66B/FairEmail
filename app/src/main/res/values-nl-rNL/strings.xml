@@ -442,6 +442,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
     <string name="title_advanced_actionbar_color">Gebruik de accountkleur als achtergrond voor de gespreksactiebalk</string>
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
+    <string name="title_advanced_bundled_fonts">Gebruik gebundelde lettertypen</string>
     <string name="title_advanced_parse_classes">Stijlbladen parsen</string>
     <string name="title_advanced_authentication">Toon authenticatiewaarschuwingen</string>
     <string name="title_advanced_authentication_hint">De onderliggende controles kunnen worden geconfigureerd in de ontvangstinstellingen</string>
