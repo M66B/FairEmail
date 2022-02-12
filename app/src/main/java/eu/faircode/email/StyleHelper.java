@@ -940,7 +940,7 @@ public class StyleHelper {
             return "Lato, Carlito, Calibri, sans-serif";
         if (faces.contains("caladea"))
             return "Caladea, Cambo, Cambria, serif";
-        if (faces.contains("opendyslexic"))
+        if (faces.contains("comic sans"))
             return "OpenDyslexic, \"Comic Sans\", \"Comic Sans MS\", sans-serif";
         return family;
     }
