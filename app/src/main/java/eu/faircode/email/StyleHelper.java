@@ -954,6 +954,9 @@ public class StyleHelper {
         if (TextUtils.isEmpty(family))
             return Typeface.DEFAULT;
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean bundled_fonts = prefs.getBoolean("bundled_fonts", true);
+
         List<String> faces = new ArrayList<>();
         for (String face : family.split(","))
             faces.add(face
@@ -965,34 +968,36 @@ public class StyleHelper {
         if (faces.contains("fairemail"))
             return ResourcesCompat.getFont(context, R.font.fantasy);
 
-        if (faces.contains("arimo") ||
-                faces.contains("arial") ||
-                faces.contains("verdana") ||
-                faces.contains("helvetica"))
-            return ResourcesCompat.getFont(context, R.font.arimo);
+        if (bundled_fonts) {
+            if (faces.contains("arimo") ||
+                    faces.contains("arial") ||
+                    faces.contains("verdana") ||
+                    faces.contains("helvetica"))
+                return ResourcesCompat.getFont(context, R.font.arimo);
 
-        if (faces.contains("tinos") ||
-                faces.contains("times new roman"))
-            return ResourcesCompat.getFont(context, R.font.tinos);
+            if (faces.contains("tinos") ||
+                    faces.contains("times new roman"))
+                return ResourcesCompat.getFont(context, R.font.tinos);
 
-        if (faces.contains("cousine") ||
-                faces.contains("courier new"))
-            return ResourcesCompat.getFont(context, R.font.cousine);
+            if (faces.contains("cousine") ||
+                    faces.contains("courier new"))
+                return ResourcesCompat.getFont(context, R.font.cousine);
 
-        if (faces.contains("lato") ||
-                faces.contains("carlito") ||
-                faces.contains("calibri"))
-            return ResourcesCompat.getFont(context, R.font.lato);
+            if (faces.contains("lato") ||
+                    faces.contains("carlito") ||
+                    faces.contains("calibri"))
+                return ResourcesCompat.getFont(context, R.font.lato);
 
-        if (faces.contains("caladea") ||
-                faces.contains("cambo") ||
-                faces.contains("cambria"))
-            return ResourcesCompat.getFont(context, R.font.caladea);
+            if (faces.contains("caladea") ||
+                    faces.contains("cambo") ||
+                    faces.contains("cambria"))
+                return ResourcesCompat.getFont(context, R.font.caladea);
 
-        if (faces.contains("opendyslexic") ||
-                faces.contains("comic sans") ||
-                faces.contains("comic sans ms"))
-            return ResourcesCompat.getFont(context, R.font.opendyslexic);
+            if (faces.contains("opendyslexic") ||
+                    faces.contains("comic sans") ||
+                    faces.contains("comic sans ms"))
+                return ResourcesCompat.getFont(context, R.font.opendyslexic);
+        }
 
         for (String face : faces) {
             Typeface tf = Typeface.create(face, Typeface.NORMAL);

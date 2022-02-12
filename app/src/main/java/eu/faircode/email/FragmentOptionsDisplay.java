@@ -165,6 +165,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swThumbnails;
 
+    private SwitchCompat swBundledFonts;
     private SwitchCompat swParseClasses;
     private SwitchCompat swAuthentication;
     private SwitchCompat swAuthenticationIndicator;
@@ -192,7 +193,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "display_font", "contrast", "monospaced_pre",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra", "attachments_alt", "thumbnails",
-            "parse_classes",
+            "bundled_fonts", "parse_classes",
             "authentication", "authentication_indicator"
     };
 
@@ -306,6 +307,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swButtonExtra = view.findViewById(R.id.swButtonExtra);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swThumbnails = view.findViewById(R.id.swThumbnails);
+        swBundledFonts = view.findViewById(R.id.swBundledFonts);
         swParseClasses = view.findViewById(R.id.swParseClasses);
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
@@ -1137,6 +1139,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swBundledFonts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("bundled_fonts", checked).apply();
+            }
+        });
+
         swParseClasses.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1378,6 +1387,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 
+        swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));
         swParseClasses.setChecked(prefs.getBoolean("parse_classes", true));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
         swAuthenticationIndicator.setChecked(prefs.getBoolean("authentication_indicator", false));

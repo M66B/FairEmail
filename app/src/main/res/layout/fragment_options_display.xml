@@ -1760,6 +1760,18 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swBundledFonts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_bundled_fonts"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swParseClasses"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1767,7 +1779,7 @@
                     android:text="@string/title_advanced_parse_classes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+                    app:layout_constraintTop_toBottomOf="@id/swBundledFonts"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
