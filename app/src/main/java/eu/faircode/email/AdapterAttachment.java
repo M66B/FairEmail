@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -34,6 +35,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -293,8 +295,64 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onShare(EntityAttachment attachment) {
-            String title = (attachment.name == null ? attachment.cid : attachment.name);
-            Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
+            if ("text/x-amp-html".equals(attachment.type)) {
+                new AlertDialog.Builder(context)
+                        .setIcon(R.drawable.twotone_bolt_24)
+                        .setTitle(R.string.title_ask_show_amp)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                onAmp(attachment);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            } else {
+                String title = (attachment.name == null ? attachment.cid : attachment.name);
+                Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
+            }
+        }
+
+        private void onAmp(EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment == null)
+                        return null;
+
+                    File file = attachment.getFile(context);
+                    return Helper.readText(file);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    if (html == null)
+                        return;
+
+                    Bundle hargs = new Bundle();
+                    hargs.putString("html", html);
+                    hargs.putBoolean("overview_mode", true);
+                    hargs.putBoolean("safe_browsing", true);
+                    hargs.putBoolean("force_light", true);
+                    hargs.putBoolean("javascript", true);
+
+                    FragmentDialogOpenFull dialog = new FragmentDialogOpenFull();
+                    dialog.setArguments(hargs);
+                    dialog.show(parentFragment.getParentFragmentManager(), "amp");
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "attachment:amp");
         }
 
         private void onDownload(EntityAttachment attachment) {
