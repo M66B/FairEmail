@@ -298,8 +298,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             Configuration config = getResources().getConfiguration();
 
             // Default enable compact mode for smaller screens
-            if (!config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
+            if (!config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE)) {
                 editor.putBoolean("compact", true);
+                //editor.putBoolean("compact_folders", true);
+            }
 
             // Default disable landscape columns for small screens
             if (!config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)) {

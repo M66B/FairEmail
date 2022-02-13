@@ -574,6 +574,9 @@ public class ApplicationEx extends Application
             }
 
             editor.remove("monospaced");
+        } else if (version < 1837) {
+            if (!prefs.contains("compact_folders"))
+                editor.putBoolean("compact_folders", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
