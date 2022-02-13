@@ -5109,6 +5109,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
                             EntityFolder.INBOX.equals(message.folderType));
 
+            popupMenu.getMenu().findItem(R.id.menu_alternative)
+                    .setEnabled(message.uid != null && message.plain_only != null)
+                    .setVisible(BuildConfig.DEBUG);
+
             popupMenu.insertIcons(context);
 
             MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
@@ -5202,6 +5206,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_resync) {
                         onMenuResync(message);
+                        return true;
+                    } else if (itemId == R.id.menu_alternative) {
+                        onMenuAlt(message);
                         return true;
                     } else if (itemId == R.id.menu_log) {
                         onMenuLog(message);
@@ -5579,6 +5586,49 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ServiceSynchronize.eval(context, "resync");
                     else
                         EntityOperation.sync(context, folder.id, true);
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(context, R.string.title_fetching_again, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:resync");
+        }
+
+        private void onMenuAlt(TupleMessageEx message) {
+            properties.setSize(message.id, null);
+            properties.setHeight(message.id, null);
+            properties.setPosition(message.id, null);
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        EntityOperation.queue(context, message, EntityOperation.BODY, !message.plain_only);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
 
                     return null;
                 }

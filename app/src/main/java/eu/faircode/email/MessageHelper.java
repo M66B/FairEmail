@@ -2842,6 +2842,10 @@ public class MessageHelper {
         }
 
         String getHtml(Context context) throws MessagingException, IOException {
+            return getHtml(context, false);
+        }
+
+        String getHtml(Context context, boolean plain_text) throws MessagingException, IOException {
             if (text.size() == 0) {
                 Log.i("No body part");
                 return null;
@@ -2856,8 +2860,13 @@ public class MessageHelper {
                 parts.addAll(text);
             else
                 for (PartHolder h : text)
-                    if (h.isHtml())
-                        parts.add(h);
+                    if (plain_text) {
+                        if (h.isPlainText())
+                            parts.add(h);
+                    } else {
+                        if (h.isHtml())
+                            parts.add(h);
+                    }
 
             parts.addAll(extra);
 

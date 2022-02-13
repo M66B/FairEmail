@@ -156,6 +156,11 @@
             android:title="@string/title_resync" />
 
         <item
+            android:id="@+id/menu_alternative"
+            android:icon="@drawable/twotone_sync_alt_24"
+            android:title="@string/title_alternative" />
+
+        <item
             android:id="@+id/menu_log"
             android:icon="@drawable/twotone_dns_24"
             android:title="@string/title_log" />

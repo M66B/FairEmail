@@ -1932,10 +1932,13 @@ class Core {
     }
 
     private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
+        boolean plain_text = jargs.optBoolean(0);
+
         // Download message body
         DB db = DB.getInstance(context);
 
-        if (message.content)
+        if (message.content &&
+                Objects.equals(message.plain_only, plain_text))
             return;
 
         // Get message
@@ -1945,7 +1948,7 @@ class Core {
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
         MessageHelper.MessageParts parts = helper.getMessageParts();
-        String body = parts.getHtml(context);
+        String body = parts.getHtml(context, plain_text);
         File file = message.getFile(context);
         Helper.writeText(file, body);
         String text = HtmlHelper.getFullText(body);
@@ -1954,7 +1957,7 @@ class Core {
         db.message().setMessageContent(message.id,
                 true,
                 message.language,
-                parts.isPlainOnly(),
+                plain_text || parts.isPlainOnly(),
                 message.preview,
                 parts.getWarnings(message.warning));
         MessageClassifier.classify(message, folder, null, context);
