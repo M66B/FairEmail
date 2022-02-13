@@ -1840,7 +1840,7 @@ public class MessageHelper {
         if (header.trim().startsWith("=?"))
             return header;
 
-        Charset detected = CharsetHelper.detect(header);
+        Charset detected = CharsetHelper.detect(header, StandardCharsets.ISO_8859_1);
         if (detected == null && CharsetHelper.isUTF8(header))
             detected = StandardCharsets.UTF_8;
         if (detected == null ||
@@ -2928,7 +2928,7 @@ public class MessageHelper {
                             Log.i("Charset upgrade=UTF8");
                             result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                         } else {
-                            Charset detected = CharsetHelper.detect(result);
+                            Charset detected = CharsetHelper.detect(result, StandardCharsets.ISO_8859_1);
                             if (detected == null) {
                                 if (CharsetHelper.isUTF8(result)) {
                                     Log.i("Charset plain=UTF8");
@@ -2984,7 +2984,7 @@ public class MessageHelper {
                     // Fix incorrect UTF16
                     try {
                         if (CHARSET16.contains(cs)) {
-                            Charset detected = CharsetHelper.detect(result);
+                            Charset detected = CharsetHelper.detect(result, cs);
                             if (!CHARSET16.contains(detected))
                                 Log.w(new Throwable("Charset=" + cs + " detected=" + detected));
                             if (StandardCharsets.US_ASCII.equals(detected) ||
@@ -3034,7 +3034,7 @@ public class MessageHelper {
                                         break;
                                     }
 
-                                    Charset detected = CharsetHelper.detect(result);
+                                    Charset detected = CharsetHelper.detect(result, c);
                                     if (c.equals(detected))
                                         break;
 

@@ -437,7 +437,6 @@ public class ActivityEML extends ActivityBase {
                         Object content = part.getContent();
                         if (content instanceof String) {
                             String text = (String) content;
-                            Charset detected = CharsetHelper.detect(text);
 
                             String charset;
                             try {
@@ -450,6 +449,7 @@ public class ActivityEML extends ActivityBase {
                                 charset = StandardCharsets.ISO_8859_1.name();
 
                             Charset cs = Charset.forName(charset);
+                            Charset detected = CharsetHelper.detect(text, cs);
                             boolean isUtf8 = CharsetHelper.isUTF8(text.getBytes(cs));
                             boolean isW1252 = !Objects.equals(text, CharsetHelper.utf8toW1252(text));
 

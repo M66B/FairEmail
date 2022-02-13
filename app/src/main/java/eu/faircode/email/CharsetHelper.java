@@ -57,7 +57,7 @@ public class CharsetHelper {
         }
     }
 
-    private static native DetectResult jni_detect_charset(byte[] octets);
+    private static native DetectResult jni_detect_charset(byte[] octets, String ref, String lang);
 
     static boolean isUTF8(String text) {
         // Get extended ASCII characters
@@ -159,7 +159,10 @@ public class CharsetHelper {
         }
     }
 
-    public static Charset detect(String text) {
+    public static Charset detect(String text, Charset ref) {
+        if (text == null)
+            return null;
+
         try {
             byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
 
@@ -172,7 +175,9 @@ public class CharsetHelper {
             }
 
             Log.i("compact_enc_det sample=" + sample.length);
-            DetectResult detected = jni_detect_charset(sample);
+            DetectResult detected = jni_detect_charset(sample,
+                    ref == null ? null : ref.name(),
+                    Locale.getDefault().getLanguage());
 
             if (TextUtils.isEmpty(detected.charset)) {
                 Log.e("compact_enc_det result=" + detected);
@@ -185,7 +190,7 @@ public class CharsetHelper {
                 Log.e("compact_enc_det result=" + detected + " chinese=" + chinese);
                 if (!chinese)
                     return null;
-            } else // GBK, Big5, ISO-2022-JP, HZ-GB-2312, Shift_JIS
+            } else // GBK, Big5, ISO-2022-JP, HZ-GB-2312, Shift_JIS, x-binaryenc
                 Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected.charset);
