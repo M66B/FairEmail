@@ -689,7 +689,8 @@ public class Helper {
         if (!("message/rfc822".equals(type) ||
                 "message/delivery-status".equals(type) ||
                 "message/disposition-notification".equals(type) ||
-                "text/rfc822-headers".equals(type)))
+                "text/rfc822-headers".equals(type) ||
+                "text/x-amp-html".equals(type)))
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         if (!TextUtils.isEmpty(name))

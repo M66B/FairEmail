@@ -44,11 +44,19 @@ import org.jsoup.nodes.Element;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 public class ActivityAMP extends ActivityBase {
     private WebView wvAmp;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
+
+    private static final List<String> ALLOWED_SCRIPT_HOSTS = Collections.unmodifiableList(Arrays.asList(
+            "cdn.ampproject.org"
+    ));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +153,8 @@ public class ActivityAMP extends ActivityBase {
                 for (Element script : d.select("script")) {
                     String src = script.attr("src");
                     Uri u = Uri.parse(src);
-                    if (!u.isHierarchical() || !"cdn.ampproject.org".equals(u.getHost()))
+                    String host = (u.isHierarchical() ? u.getHost() : null);
+                    if (host == null || !ALLOWED_SCRIPT_HOSTS.contains(host.toLowerCase(Locale.ROOT)))
                         script.removeAttr("src");
                 }
 
