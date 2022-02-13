@@ -108,6 +108,7 @@ public class ActivityEML extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle("EML");
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_eml, null);

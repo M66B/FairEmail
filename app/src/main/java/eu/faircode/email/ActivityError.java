@@ -44,6 +44,7 @@ public class ActivityError extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(getString(R.string.title_setup_error));
         setContentView(R.layout.activity_error);
 

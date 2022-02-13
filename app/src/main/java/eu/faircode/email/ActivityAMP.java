@@ -62,6 +62,7 @@ public class ActivityAMP extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.drawable.twotone_bolt_24);
         getSupportActionBar().setSubtitle("AMP");
 

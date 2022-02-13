@@ -78,6 +78,7 @@ public class ActivitySignature extends ActivityBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean monospaced = prefs.getBoolean("monospaced", false);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
 
         LayoutInflater inflater = LayoutInflater.from(this);

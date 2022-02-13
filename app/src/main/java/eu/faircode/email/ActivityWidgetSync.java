@@ -59,6 +59,7 @@ public class ActivityWidgetSync extends ActivityBase {
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_sync);
         setContentView(R.layout.activity_widget_sync);
 

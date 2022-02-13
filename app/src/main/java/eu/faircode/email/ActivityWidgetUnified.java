@@ -96,6 +96,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_list);
         setContentView(R.layout.activity_widget_unified);
 

@@ -82,6 +82,7 @@ public class ActivityWidget extends ActivityBase {
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_count);
         setContentView(R.layout.activity_widget);
 

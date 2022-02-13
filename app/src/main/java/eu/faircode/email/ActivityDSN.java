@@ -47,6 +47,7 @@ public class ActivityDSN extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle("DSN");
         setContentView(R.layout.activity_dsn);
 
