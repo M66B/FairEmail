@@ -421,6 +421,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View vSeparator;
         private ImageButton ibFull;
         private ImageButton ibImages;
+        private ImageButton ibAmp;
         private ImageButton ibDecrypt;
         private ImageButton ibVerify;
         private ImageButton ibUndo;
@@ -814,6 +815,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vSeparator = vsBody.findViewById(R.id.vSeparator);
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
+            ibAmp = vsBody.findViewById(R.id.ibAmp);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibUndo = vsBody.findViewById(R.id.ibUndo);
@@ -938,6 +940,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(this);
                 ibFull.setOnLongClickListener(this);
                 ibImages.setOnClickListener(this);
+                ibAmp.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
                 ibUndo.setOnClickListener(this);
@@ -1044,6 +1047,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(null);
                 ibFull.setOnLongClickListener(null);
                 ibImages.setOnClickListener(null);
+                ibAmp.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
                 ibUndo.setOnClickListener(null);
@@ -1593,6 +1597,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vSeparator.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
+            ibAmp.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
@@ -1831,6 +1836,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setEnabled(false);
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.INVISIBLE);
+            ibAmp.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
@@ -2666,6 +2672,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             db.endTransaction();
                         }
 
+                    // Check for AMP
+                    boolean has_amp = false;
+                    for (EntityAttachment attachment : attachments)
+                        if ("text/x-amp-html".equals(attachment.type)) {
+                            has_amp = true;
+                            break;
+                        }
+                    args.putBoolean("has_amp", has_amp);
+
                     // Format message
                     if (show_full) {
                         if (HtmlHelper.truncate(document, HtmlHelper.MAX_FULL_TEXT_SIZE))
@@ -2796,6 +2811,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
                             (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
                                     !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
+
+                    // Show AMP
+                    ibAmp.setVisibility(args.getBoolean("has_amp") ? View.VISIBLE : View.GONE);
 
                     // Show encrypt actions
                     ibVerify.setVisibility(verifyable ? View.VISIBLE : View.GONE);
@@ -3025,6 +3043,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
                 boolean inline = (attachment.isEncryption() ||
+                        "text/x-amp-html".equals(attachment.type) ||
                         (attachment.isInline() && attachment.isImage()));
                 if (inline && attachment.available)
                     has_inline = true;
@@ -3570,6 +3589,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onShow(message, true);
                 } else if (id == R.id.ibImages) {
                     onShow(message, false);
+                } else if (id == R.id.ibAmp) {
+                    onShowAmp(message);
                 } else if (id == R.id.ibDecrypt) {
                     boolean lock =
                             (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
@@ -4746,6 +4767,42 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:full");
+        }
+
+        private void onShowAmp(final TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<EntityAttachment>() {
+                @Override
+                protected EntityAttachment onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    if (attachments == null)
+                        return null;
+
+                    for (EntityAttachment attachment : attachments)
+                        if ("text/x-amp-html".equals(attachment.type))
+                            return attachment;
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityAttachment attachment) {
+                    File file = attachment.getFile(context);
+                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                    context.startActivity(new Intent(context, ActivityAMP.class)
+                            .setData(uri));
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:amp");
         }
 
         private void onActionOpenFull(final TupleMessageEx message) {

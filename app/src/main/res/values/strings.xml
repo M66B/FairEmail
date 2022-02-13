@@ -1688,6 +1688,7 @@
     <string name="title_legend_show_unsubscribe">Unsubscribe from list</string>
     <string name="title_legend_show_images">Show images</string>
     <string name="title_legend_hide_images">Hide images</string>
+    <string name="title_legend_show_amp">Show AMP variant</string>
     <string name="title_legend_show_full">Show original message</string>
     <string name="title_legend_show_reformatted">Show reformatted message</string>
     <string name="title_legend_edit">Edit</string>

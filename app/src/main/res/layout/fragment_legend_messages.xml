@@ -765,7 +765,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvOriginal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvOriginal"
-            app:srcCompat="@drawable/twotone_fullscreen_24" />
+            app:srcCompat="@drawable/twotone_fullscreen_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvOriginal"
@@ -788,7 +789,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvReformatted"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvReformatted"
-            app:srcCompat="@drawable/twotone_fullscreen_exit_24" />
+            app:srcCompat="@drawable/twotone_fullscreen_exit_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvReformatted"
@@ -801,6 +803,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivReformatted"
             app:layout_constraintTop_toBottomOf="@id/tvOriginal" />
+
+        <eu.faircode.email.FixedImageView
+            android:id="@+id/ivAmp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_show_amp"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAmp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvAmp"
+            app:srcCompat="@drawable/twotone_bolt_24"
+            app:tint="?attr/colorAccent" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAmp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_show_amp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAmp"
+            app:layout_constraintTop_toBottomOf="@id/tvReformatted" />
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/ivExternalImage"
@@ -823,7 +849,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivExternalImage"
-            app:layout_constraintTop_toBottomOf="@id/tvReformatted" />
+            app:layout_constraintTop_toBottomOf="@id/ivAmp" />
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/ivEmbeddedImage"

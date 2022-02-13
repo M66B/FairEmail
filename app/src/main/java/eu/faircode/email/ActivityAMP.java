@@ -63,7 +63,6 @@ public class ActivityAMP extends ActivityBase {
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.twotone_bolt_24);
         getSupportActionBar().setSubtitle("AMP");
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_amp, null);

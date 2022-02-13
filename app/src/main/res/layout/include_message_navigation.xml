@@ -383,7 +383,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_verify"
             app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
-            app:layout_constraintTop_toBottomOf="@+id/ibFull"
+            app:layout_constraintTop_toBottomOf="@+id/ibAmp"
             app:srcCompat="@drawable/twotone_gesture_24" />
 
         <eu.faircode.email.FixedImageButton
@@ -396,8 +396,22 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_decrypt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ibFull"
+            app:layout_constraintTop_toBottomOf="@+id/ibAmp"
             app:srcCompat="@drawable/twotone_lock_open_24" />
+
+        <eu.faircode.email.FixedImageButton
+            android:id="@+id/ibAmp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_show_amp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_legend_show_amp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ibFull"
+            app:srcCompat="@drawable/twotone_bolt_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedImageButton
             android:id="@+id/ibImages"
