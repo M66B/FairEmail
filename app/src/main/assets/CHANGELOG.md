@@ -4,6 +4,13 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### Next version
+
+* Added menu item to show plain text part
+* Added [AMP](https://amp.dev/about/email/) viewer
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1836 - 2022-02-12
 
 * Added option to disable using bundled fonts
