@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -175,6 +176,11 @@ public class ActivityAMP extends ActivityBase {
     private void load() {
         Uri uri = getIntent().getData();
         Log.i("AMP uri=" + uri);
+
+        String subject = getIntent().getStringExtra("subject");
+        if (TextUtils.isEmpty(subject))
+            subject = "AMP";
+        getSupportActionBar().setSubtitle(subject);
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);

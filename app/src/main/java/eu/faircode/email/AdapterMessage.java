@@ -4832,10 +4832,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, EntityAttachment attachment) {
+                    if (attachment == null)
+                        return;
+
                     File file = attachment.getFile(context);
                     Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                     context.startActivity(new Intent(context, ActivityAMP.class)
-                            .setData(uri));
+                            .setData(uri)
+                            .putExtra("subject", message.subject));
                 }
 
                 @Override
