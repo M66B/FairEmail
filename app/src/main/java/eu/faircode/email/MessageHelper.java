@@ -2777,10 +2777,16 @@ public class MessageHelper {
         Boolean isPlainOnly() {
             if (text.size() + extra.size() == 0)
                 return null;
-            for (PartHolder h : text)
-                if (!h.isPlainText())
+
+            boolean has = false;
+            for (PartHolder h : text) {
+                if (h.isHtml())
                     return false;
-            return true;
+                if (h.isPlainText())
+                    has = true;
+            }
+
+            return (has ? true : null);
         }
 
         boolean hasBody() throws MessagingException {
@@ -2845,8 +2851,17 @@ public class MessageHelper {
             StringBuilder sb = new StringBuilder();
 
             List<PartHolder> parts = new ArrayList<>();
-            parts.addAll(text);
+
+            Boolean plain = isPlainOnly();
+            if (plain != null && plain)
+                parts.addAll(text);
+            else
+                for (PartHolder h : text)
+                    if (h.isHtml())
+                        parts.add(h);
+
             parts.addAll(extra);
+
             for (PartHolder h : parts) {
                 int size = h.part.getSize();
                 if (size > 100 * 1024 * 1024)
@@ -3722,36 +3737,17 @@ public class MessageHelper {
                 else
                     throw new MessagingStructureException(content);
 
-                boolean other = false;
-                List<Part> plain = new ArrayList<>();
                 int count = multipart.getCount();
-                boolean alternative = part.isMimeType("multipart/alternative");
                 for (int i = 0; i < count; i++)
                     try {
                         BodyPart child = multipart.getBodyPart(i);
-                        if (alternative && count > 1 && child.isMimeType("text/plain"))
-                            plain.add(child);
-                        else {
-                            getMessageParts(part, child, parts, encrypt);
-                            other = true;
-                        }
+                        getMessageParts(part, child, parts, encrypt);
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
                         Log.w(ex);
                         parts.warnings.add(Log.formatThrowable(ex, false));
                     }
-
-                if (alternative && count > 1 && !other)
-                    for (Part child : plain)
-                        try {
-                            getMessageParts(part, child, parts, encrypt);
-                        } catch (ParseException ex) {
-                            // Nested body: try to continue
-                            // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
-                            Log.w(ex);
-                            parts.warnings.add(Log.formatThrowable(ex, false));
-                        }
             } else {
                 // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
                 String disposition;
