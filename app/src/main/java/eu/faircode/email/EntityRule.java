@@ -796,7 +796,7 @@ public class EntityRule {
         db.message().setMessageContent(reply.id,
                 true,
                 reply.language,
-                false,
+                0,
                 reply.preview,
                 null);
 

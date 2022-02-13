@@ -282,7 +282,7 @@ public class FragmentCompose extends FragmentBase {
     private long working = -1;
     private State state = State.NONE;
     private boolean show_images = false;
-    private Boolean last_plain_only = null;
+    private Integer last_plain_only = null;
     private List<EntityAttachment> last_attachments = null;
     private boolean saved = false;
     private String subject = null;
@@ -2743,7 +2743,7 @@ public class FragmentCompose extends FragmentBase {
                     return null;
 
                 DB db = DB.getInstance(context);
-                db.message().setMessagePlainOnly(id, false);
+                db.message().setMessagePlainOnly(id, 0);
 
                 args.putInt("start", start);
 
@@ -4269,7 +4269,7 @@ public class FragmentCompose extends FragmentBase {
                         if (plain_only &&
                                 !"resend".equals(action) &&
                                 !"editasnew".equals(action))
-                            data.draft.plain_only = true;
+                            data.draft.plain_only = 1;
 
                         if (encrypt_default || selected.encrypt_default)
                             if (selected.encrypt == 0)
@@ -4524,8 +4524,8 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.sensitivity = ref.sensitivity;
 
                             // Plain-only
-                            if (ref.plain_only != null && ref.plain_only)
-                                data.draft.plain_only = true;
+                            if (ref.isPlainOnly())
+                                data.draft.plain_only = 1;
 
                             // Encryption
                             List<Address> recipients = new ArrayList<>();
@@ -5177,7 +5177,7 @@ public class FragmentCompose extends FragmentBase {
                                         ? View.VISIBLE : View.GONE);
 
                         tvPlainTextOnly.setVisibility(
-                                draft.plain_only != null && draft.plain_only && !plain_only
+                                draft.isPlainOnly() && !plain_only
                                         ? View.VISIBLE : View.GONE);
 
                         tvNoInternet.setTag(draft.content);
@@ -5579,7 +5579,7 @@ public class FragmentCompose extends FragmentBase {
 
                         dirty = true;
                     } else if (action == R.id.action_send) {
-                        if (draft.plain_only == null || !draft.plain_only) {
+                        if (!draft.isPlainOnly()) {
                             // Remove unused inline images
                             List<String> cids = new ArrayList<>();
                             Document d = JsoupEx.parse(body);
@@ -6036,7 +6036,7 @@ public class FragmentCompose extends FragmentBase {
                         remind_dsn || remind_size || remind_pgp || remind_smime ||
                         remind_to || remind_noreply || remind_external ||
                         recipients > RECIPIENTS_WARNING ||
-                        (formatted && (draft.plain_only != null && draft.plain_only)) ||
+                        (formatted && draft.isPlainOnly()) ||
                         (send_reminders &&
                                 (remind_extra || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
@@ -6982,7 +6982,7 @@ public class FragmentCompose extends FragmentBase {
                             boolean plain_only = args.getBoolean("plain_only");
 
                             DB db = DB.getInstance(context);
-                            db.message().setMessagePlainOnly(id, plain_only);
+                            db.message().setMessagePlainOnly(id, plain_only ? 1 : 0);
 
                             return null;
                         }
@@ -7252,7 +7252,7 @@ public class FragmentCompose extends FragmentBase {
                         tvViaTitle.setTextColor(draft.identityColor);
                     tvVia.setText(draft.identityEmail);
 
-                    cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only && !dsn);
+                    cbPlainOnly.setChecked(draft.isPlainOnly() && !dsn);
                     cbReceipt.setChecked(draft.receipt_request != null && draft.receipt_request && !dsn);
 
                     int encrypt = (draft.ui_encrypt == null || dsn ? EntityMessage.ENCRYPT_NONE : draft.ui_encrypt);

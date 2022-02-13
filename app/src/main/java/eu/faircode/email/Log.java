@@ -1656,7 +1656,7 @@ public class Log {
 
             File file = draft.getFile(context);
             Helper.writeText(file, body);
-            db.message().setMessageContent(draft.id, true, null, false, null, null);
+            db.message().setMessageContent(draft.id, true, null, 0, null, null);
 
             attachSettings(context, draft.id, 1);
             attachAccounts(context, draft.id, 2);

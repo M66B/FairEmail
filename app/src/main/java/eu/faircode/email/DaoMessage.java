@@ -788,7 +788,7 @@ public interface DaoMessage {
             "  OR NOT (plain_only IS :plain_only)" +
             "  OR NOT (preview IS :preview)" +
             "  OR NOT (warning IS :warning))")
-    int setMessageContent(long id, boolean content, String language, Boolean plain_only, String preview, String warning);
+    int setMessageContent(long id, boolean content, String language, Integer plain_only, String preview, String warning);
 
     @Query("UPDATE message" +
             " SET notes = :notes, notes_color = :color" +
@@ -812,7 +812,7 @@ public interface DaoMessage {
     int setMessageStored(long id, long stored);
 
     @Query("UPDATE message SET plain_only = :plain_only WHERE id = :id AND NOT (plain_only IS :plain_only)")
-    int setMessagePlainOnly(long id, boolean plain_only);
+    int setMessagePlainOnly(long id, Integer plain_only);
 
     @Query("UPDATE message SET encrypt = :encrypt WHERE id = :id AND NOT (encrypt IS :encrypt)")
     int setMessageEncrypt(long id, Integer encrypt);

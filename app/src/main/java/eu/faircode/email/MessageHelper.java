@@ -927,7 +927,7 @@ public class MessageHelper {
             document.select("div[fairemail=reference]").removeAttr("fairemail");
 
             Elements reply = document.select("div[fairemail=reply]");
-            if (message.plain_only != null && message.plain_only)
+            if (message.isPlainOnly())
                 reply.select("strong").tagName("span");
             reply.removeAttr("fairemail");
 
@@ -1057,7 +1057,7 @@ public class MessageHelper {
             }
 
         if (availableAttachments == 0)
-            if (message.plain_only != null && message.plain_only)
+            if (message.isPlainOnly())
                 imessage.setContent(plainContent, plainContentType);
             else
                 imessage.setContent(altMultiPart);
@@ -1066,7 +1066,7 @@ public class MessageHelper {
             Multipart relatedMultiPart = new MimeMultipart("related");
 
             BodyPart bodyPart;
-            if (message.plain_only != null && message.plain_only)
+            if (message.isPlainOnly())
                 bodyPart = plainPart;
             else {
                 bodyPart = new MimeBodyPart();
@@ -2774,19 +2774,21 @@ public class MessageHelper {
             return protected_subject;
         }
 
-        Boolean isPlainOnly() {
-            if (text.size() + extra.size() == 0)
-                return null;
-
-            boolean has = false;
+        Integer isPlainOnly() {
+            int html = 0;
+            int plain = 0;
             for (PartHolder h : text) {
                 if (h.isHtml())
-                    return false;
+                    html++;
                 if (h.isPlainText())
-                    has = true;
+                    plain++;
             }
 
-            return (has ? true : null);
+            if (html + plain == 0)
+                return null;
+            if (html == 0)
+                return 1;
+            return (plain > 0 ? 0x80 : 0);
         }
 
         boolean hasBody() throws MessagingException {
@@ -2802,8 +2804,8 @@ public class MessageHelper {
         }
 
         void normalize() {
-            Boolean plain = isPlainOnly();
-            if (plain == null || plain)
+            Integer plain = isPlainOnly();
+            if (plain != null && (plain & 1) != 0)
                 for (AttachmentPart apart : attachments)
                     if (!TextUtils.isEmpty(apart.attachment.cid) ||
                             !Part.ATTACHMENT.equals(apart.attachment.disposition)) {
@@ -2855,8 +2857,8 @@ public class MessageHelper {
 
             List<PartHolder> parts = new ArrayList<>();
 
-            Boolean plain = isPlainOnly();
-            if (plain != null && plain)
+            Integer plain = isPlainOnly();
+            if (plain != null && (plain & 1) != 0)
                 parts.addAll(text);
             else
                 for (PartHolder h : text)

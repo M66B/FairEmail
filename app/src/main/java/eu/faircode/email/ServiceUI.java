@@ -352,7 +352,7 @@ public class ServiceUI extends IntentService {
             db.message().setMessageContent(reply.id,
                     true,
                     language,
-                    plain_only || ref.plain_only,
+                    plain_only || ref.isPlainOnly() ? 1 : 0,
                     preview,
                     null);
 

@@ -2170,7 +2170,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
             ibExpanderAddress.setContentDescription(context.getString(show_addresses ? R.string.title_accessibility_hide_addresses : R.string.title_accessibility_show_addresses));
 
-            ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
+            ivPlain.setVisibility(show_addresses && message.isPlainOnly() ? View.VISIBLE : View.GONE);
             ibReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ibReceipt.setImageTintList(ColorStateList.valueOf(message.ui_answered ? colorControlNormal : colorError));
             ivAutoSubmitted.setVisibility(show_addresses && message.auto_submitted != null && message.auto_submitted ? View.VISIBLE : View.GONE);
@@ -2675,7 +2675,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));
 
-                        if (Boolean.TRUE.equals(message.plain_only)) {
+                        if (message.isPlainOnly()) {
                             document.select("body")
                                     .attr("style", "margin:0; padding:0;");
                             boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
@@ -4793,7 +4793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Document document = JsoupEx.parse(file);
                     HtmlHelper.cleanup(document);
 
-                    if (Boolean.TRUE.equals(message.plain_only) && monospaced_pre)
+                    if (message.isPlainOnly() && monospaced_pre)
                         HtmlHelper.restorePre(document);
                     HtmlHelper.guessSchemes(document);
                     HtmlHelper.autoLink(document);
@@ -5110,7 +5110,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             EntityFolder.INBOX.equals(message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_alternative)
-                    .setEnabled(message.uid != null && message.plain_only != null)
+                    .setEnabled(message.uid != null && message.hasAlt())
                     .setVisible(BuildConfig.DEBUG);
 
             popupMenu.insertIcons(context);
@@ -5623,7 +5623,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        EntityOperation.queue(context, message, EntityOperation.BODY, !message.plain_only);
+                        EntityOperation.queue(context, message, EntityOperation.BODY, !message.isPlainOnly());
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -6333,7 +6333,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (expanded) {
                     if (message.receipt_request != null && message.receipt_request)
                         result.add(context.getString(R.string.title_legend_receipt));
-                    if (message.plain_only != null && message.plain_only)
+                    if (message.isPlainOnly())
                         result.add(context.getString(R.string.title_legend_plain_only));
                     if (message.ui_browsed)
                         result.add(context.getString(R.string.title_legend_browsed));

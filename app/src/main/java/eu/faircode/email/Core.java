@@ -1937,8 +1937,7 @@ class Core {
         // Download message body
         DB db = DB.getInstance(context);
 
-        if (message.content &&
-                Objects.equals(message.plain_only, plain_text))
+        if (message.content && message.isPlainOnly() == plain_text)
             return;
 
         // Get message
@@ -1954,10 +1953,13 @@ class Core {
         String text = HtmlHelper.getFullText(body);
         message.preview = HtmlHelper.getPreview(text);
         message.language = HtmlHelper.getLanguage(context, message.subject, text);
+        Integer plain_only = parts.isPlainOnly();
+        if (plain_text)
+            plain_only = 1 | (plain_only == null ? 0 : plain_only & 0x80);
         db.message().setMessageContent(message.id,
                 true,
                 message.language,
-                plain_text || parts.isPlainOnly(),
+                plain_only,
                 message.preview,
                 parts.getWarnings(message.warning));
         MessageClassifier.classify(message, folder, null, context);
