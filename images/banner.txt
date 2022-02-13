@@ -1,0 +1,8 @@
+The base image for the banner was downloaded from here:
+
+https://pixabay.com/fr/illustrations/social-r%C3%A9seau-social-1206612/
+
+"Libre pour usage commercial
+Pas d'attribution requise"
+
+https://pixabay.com/fr/service/license/
