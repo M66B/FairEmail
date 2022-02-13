@@ -1913,8 +1913,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (attachment.available)
                                 if (attachment.isInline() && attachment.isImage())
                                     inlineImages++;
-                                else if ("message/rfc822".equals(attachment.getMimeType()))
-                                    embeddedMessages++;
+                                else {
+                                    String mimeType = attachment.getMimeType();
+                                    if ("text/x-amp-html".equals(mimeType) ||
+                                            "message/rfc822".equals(mimeType))
+                                        embeddedMessages++;
+                                }
 
                     int lastInlineImages = 0;
                     int lastEmbeddedMessages = 0;
@@ -1924,8 +1928,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (attachment.available)
                                 if (attachment.isInline() && attachment.isImage())
                                     lastInlineImages++;
-                                else if ("message/rfc822".equals(attachment.getMimeType()))
-                                    lastEmbeddedMessages++;
+                                else {
+                                    String mimeType = attachment.getMimeType();
+                                    if ("text/x-amp-html".equals(mimeType) ||
+                                            "message/rfc822".equals(mimeType))
+                                        lastEmbeddedMessages++;
+                                }
 
                     boolean show_images = properties.getValue("images", message.id);
                     boolean inline = prefs.getBoolean("inline_images", false);
@@ -2676,7 +2684,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean has_amp = false;
                     for (EntityAttachment attachment : attachments)
                         if ("text/x-amp-html".equals(attachment.type)) {
-                            has_amp = true;
+                            has_amp = attachment.available;
                             break;
                         }
                     args.putBoolean("has_amp", has_amp);
@@ -4770,6 +4778,38 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowAmp(final TupleMessageEx message) {
+            boolean open_amp_confirmed = prefs.getBoolean("open_amp_confirmed", false);
+            if (open_amp_confirmed)
+                onShowAmpConfirmed(message);
+            else {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                View dview = inflater.inflate(R.layout.dialog_ask_amp, null, false);
+                final TextView tvRemark = dview.findViewById(R.id.tvRemark);
+                final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+                tvRemark.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Helper.view(v.getContext(), Uri.parse("https://amp.dev/about/email/"), true);
+                    }
+                });
+
+                new AlertDialog.Builder(context)
+                        .setView(dview)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (cbNotAgain.isChecked())
+                                    prefs.edit().putBoolean("open_amp_confirmed", true).apply();
+                                onShowAmpConfirmed(message);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
+        }
+
+        private void onShowAmpConfirmed(final TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
