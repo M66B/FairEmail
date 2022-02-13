@@ -38,6 +38,9 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -130,10 +133,21 @@ public class ActivityAMP extends ActivityBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
+                String html;
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
-                    return Helper.readStream(is);
+                    html = Helper.readStream(is);
                 }
+
+                Document d = JsoupEx.parse(html);
+                for (Element script : d.select("script")) {
+                    String src = script.attr("src");
+                    Uri u = Uri.parse(src);
+                    if (!u.isHierarchical() || !"cdn.ampproject.org".equals(u.getHost()))
+                        script.removeAttr("src");
+                }
+
+                return d.html();
             }
 
             @Override
