@@ -348,49 +348,51 @@ public class FragmentOptions extends FragmentBase {
             }
 
             private void suggest(String query) {
-                if (data == null &&
-                        query != null && query.length() > 0)
-                    new SimpleTask<SuggestData>() {
-                        @Override
-                        protected SuggestData onExecute(Context context, Bundle args) {
-                            return getSuggestData(context);
-                        }
+                Bundle args = new Bundle();
+                args.putString("query", query);
 
-                        @Override
-                        protected void onExecuted(Bundle args, SuggestData result) {
-                            data = result;
-                            _suggest(query);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Log.w(ex);
-                            try {
-                                // Fallback to UI thread (Android 5.1.1)
-                                data = getSuggestData(getContext());
-                                _suggest(query);
-                            } catch (Throwable exex) {
-                                Log.unexpectedError(getParentFragmentManager(), exex);
-                            }
-                        }
-
-                        private SuggestData getSuggestData(Context context) {
-                            SuggestData data = new SuggestData();
-                            data.titles = new String[TAB_PAGES.length];
-                            data.views = new View[TAB_PAGES.length];
-
-                            LayoutInflater inflater = LayoutInflater.from(context);
-                            for (int tab = 0; tab < TAB_PAGES.length; tab++) {
-                                data.titles[tab] = context.getString(PAGE_TITLES[tab]);
-                                data.views[tab] = inflater.inflate(TAB_PAGES[tab], null);
-                            }
-
+                new SimpleTask<SuggestData>() {
+                    @Override
+                    protected SuggestData onExecute(Context context, Bundle args) {
+                        if (TextUtils.isEmpty(args.getString("query")))
                             return data;
+
+                        return (data == null ? getSuggestData(context) : data);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, SuggestData result) {
+                        data = result;
+                        _suggest(args.getString("query"));
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.w(ex);
+                        try {
+                            // Fallback to UI thread (Android 5.1.1)
+                            data = getSuggestData(getContext());
+                            _suggest(args.getString("query"));
+                        } catch (Throwable exex) {
+                            Log.unexpectedError(getParentFragmentManager(), exex);
                         }
-                    }.setExecutor(executor)
-                            .execute(FragmentOptions.this, new Bundle(), "option:suggest");
-                else
-                    _suggest(query);
+                    }
+
+                    private SuggestData getSuggestData(Context context) {
+                        SuggestData data = new SuggestData();
+                        data.titles = new String[TAB_PAGES.length];
+                        data.views = new View[TAB_PAGES.length];
+
+                        LayoutInflater inflater = LayoutInflater.from(context);
+                        for (int tab = 0; tab < TAB_PAGES.length; tab++) {
+                            data.titles[tab] = context.getString(PAGE_TITLES[tab]);
+                            data.views[tab] = inflater.inflate(TAB_PAGES[tab], null);
+                        }
+
+                        return data;
+                    }
+                }.setExecutor(executor)
+                        .execute(FragmentOptions.this, args, "option:suggest");
             }
 
             private void _suggest(String query) {
