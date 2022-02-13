@@ -296,9 +296,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         private void onShare(EntityAttachment attachment) {
             if ("text/x-amp-html".equals(attachment.type)) {
+                // https://amp.dev/about/email/
                 new AlertDialog.Builder(context)
                         .setIcon(R.drawable.twotone_bolt_24)
                         .setTitle(R.string.title_ask_show_amp)
+                        .setMessage(R.string.title_ask_show_html)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
