@@ -1,0 +1,46 @@
+From: marcel@faircode.eu
+To: marcel@faircode.eu
+Subject: FairEmail AMP test
+Date: Sun, 13 Feb 2022 20:18:34 +0100
+Message-ID: <13feb2022201834@faircode.eu>
+Content-Type: multipart/alternative; boundary="xxx"
+
+--xxx
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+Plain
+
+--xxx
+Content-Type: text/html; charset="UTF-8"
+
+<p>HTML</p>
+
+--xxx
+Content-Type: text/x-amp-html; charset="UTF-8"
+
+<!doctype html>
+<html ⚡4email>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <style amp-custom>
+      h1 {
+        text-align: center;
+      }    
+  </style>
+</head>
+
+<body>
+  <h1>FairEmail AMP test</h1>
+  <amp-carousel id="carousel-with-preview" width="800" height="400" layout="responsive" type="slides" on="slideChange:AMP.setState({currentCat: event.index})">
+    <amp-img layout="fill" src="https://amp.dev/static/img/docs/tutorials/firstemail/photo_by_caleb_woods.jpg" alt="photo courtesy of Unsplash"></amp-img>
+    <amp-img layout="fill" src="https://amp.dev/static/img/docs/tutorials/firstemail/photo_by_craig_mclaclan.jpg" alt="photo courtesy of Unsplash"></amp-img>
+    <amp-img layout="fill" src="https://amp.dev/static/img/docs/tutorials/firstemail/photo_by_lightscape.jpg" alt="photo courtesy of Unsplash"></amp-img>
+    <amp-img layout="fill" src="https://amp.dev/static/img/docs/tutorials/firstemail/photo_by_nick_karvounis.jpg" alt="photo courtesy of Unsplash"></amp-img>
+  </amp-carousel>
+</body>
+</html>
+
+--xxx--
