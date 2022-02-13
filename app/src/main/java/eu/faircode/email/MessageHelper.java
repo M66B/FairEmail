@@ -2819,7 +2819,6 @@ public class MessageHelper {
 
             List<PartHolder> all = new ArrayList<>();
             all.addAll(text);
-            all.addAll(extra);
             for (PartHolder h : all) {
                 int s = h.part.getSize();
                 if (s >= 0)
