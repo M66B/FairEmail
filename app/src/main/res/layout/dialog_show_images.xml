@@ -36,24 +36,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableEnd="@drawable/twotone_info_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_ask_show_image_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/ivInfo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivTracking"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
-
-        <eu.faircode.email.FixedImageButton
-            android:id="@+id/ivInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTracking"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvTracking"
-            app:srcCompat="@drawable/twotone_info_24" />
 
         <CheckBox
             android:id="@+id/cbNotAgainSender"
@@ -90,6 +82,6 @@
             android:id="@+id/grpTracking"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="ivTracking,tvTracking,ivInfo" />
+            app:constraint_referenced_ids="ivTracking,tvTracking" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

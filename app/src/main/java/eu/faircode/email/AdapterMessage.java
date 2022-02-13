@@ -4660,12 +4660,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
-                ImageView ivInfo = dview.findViewById(R.id.ivInfo);
+                TextView tvTracking = dview.findViewById(R.id.tvTracking);
                 Group grpTracking = dview.findViewById(R.id.grpTracking);
 
                 grpTracking.setVisibility(disable_tracking ? View.VISIBLE : View.GONE);
 
-                ivInfo.setOnClickListener(new View.OnClickListener() {
+                tvTracking.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Helper.viewFAQ(v.getContext(), 82);
