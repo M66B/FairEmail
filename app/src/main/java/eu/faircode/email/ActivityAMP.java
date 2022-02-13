@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
+
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -28,6 +31,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -35,6 +41,8 @@ import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -54,6 +62,8 @@ public class ActivityAMP extends ActivityBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean force_light = false;
+
     private static final List<String> ALLOWED_SCRIPT_HOSTS = Collections.unmodifiableList(Arrays.asList(
             "cdn.ampproject.org"
     ));
@@ -61,6 +71,9 @@ public class ActivityAMP extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+            force_light = savedInstanceState.getBoolean("fair:force_light");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle("AMP");
@@ -92,6 +105,8 @@ public class ActivityAMP extends ActivityBase {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             settings.setSafeBrowsingEnabled(safe_browsing);
 
+        setDarkMode();
+
         settings.setLoadsImagesAutomatically(true);
         settings.setBlockNetworkLoads(false);
         settings.setBlockNetworkImage(false);
@@ -104,10 +119,57 @@ public class ActivityAMP extends ActivityBase {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:force_light", force_light);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_amp, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        boolean available =
+                (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK) &&
+                        Helper.isDarkTheme(this));
+        menu.findItem(R.id.menu_force_light)
+                .setVisible(available)
+                .getIcon().setLevel(force_light ? 1 : 0);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_force_light) {
+            onMenuForceLight();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void onMenuForceLight() {
+        force_light = !force_light;
+        invalidateOptionsMenu();
+        setDarkMode();
+    }
+
+    @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
         load();
+    }
+
+    private void setDarkMode() {
+        WebSettings settings = wvAmp.getSettings();
+        boolean dark = (Helper.isDarkTheme(this) && !force_light);
+        if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
+            WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
     }
 
     private void load() {
