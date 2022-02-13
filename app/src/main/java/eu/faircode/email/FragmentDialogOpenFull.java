@@ -62,7 +62,6 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
         boolean overview_mode = args.getBoolean("overview_mode");
         boolean safe_browsing = args.getBoolean("safe_browsing");
         boolean force_light = args.getBoolean("force_light");
-        boolean javascript = args.getBoolean("javascript");
 
         final Context context = getContext();
 
@@ -89,8 +88,6 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
         boolean dark = (Helper.isDarkTheme(context) && !force_light);
         if (WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
             WebSettingsCompat.setForceDark(settings, dark ? FORCE_DARK_ON : FORCE_DARK_OFF);
-
-        settings.setJavaScriptEnabled(javascript);
 
         settings.setLoadsImagesAutomatically(true);
         settings.setBlockNetworkLoads(false);
