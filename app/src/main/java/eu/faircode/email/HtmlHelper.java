@@ -1899,7 +1899,7 @@ public class HtmlHelper {
             String line = lines[l];
             lines[l] = null;
 
-            if (delsp && line.length() > 0)
+            if (delsp && line.endsWith(" "))
                 line = line.substring(0, line.length() - 1);
 
             if (continuation)
