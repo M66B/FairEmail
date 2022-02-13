@@ -1369,7 +1369,8 @@
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
     <string name="title_resync">Resync</string>
-    <string name="title_alternative" translatable="false">Alternative</string>
+    <string name="title_alternative_text">Show plain text</string>
+    <string name="title_alternative_html">Show HTML</string>
     <string name="title_no_openpgp">OpenKeychain not found</string>
     <string name="title_user_interaction">Transferring to OpenKeychain</string>
     <string name="title_signed_data">Verify the signature to show the message text</string>

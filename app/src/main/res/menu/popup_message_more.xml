@@ -158,7 +158,7 @@
         <item
             android:id="@+id/menu_alternative"
             android:icon="@drawable/twotone_sync_alt_24"
-            android:title="@string/title_alternative" />
+            android:title="@string/title_alternative_text" />
 
         <item
             android:id="@+id/menu_log"

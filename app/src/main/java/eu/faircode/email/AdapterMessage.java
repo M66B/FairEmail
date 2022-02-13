@@ -5110,8 +5110,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             EntityFolder.INBOX.equals(message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_alternative)
+                    .setTitle(message.isPlainOnly()
+                            ? R.string.title_alternative_html : R.string.title_alternative_text)
                     .setEnabled(message.uid != null && message.hasAlt())
-                    .setVisible(BuildConfig.DEBUG);
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.insertIcons(context);
 
@@ -5609,11 +5611,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             Bundle args = new Bundle();
             args.putLong("id", message.id);
+            args.putBoolean("plain", message.isPlainOnly());
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
+                    boolean plain = args.getBoolean("plain");
 
                     DB db = DB.getInstance(context);
                     try {
@@ -5623,7 +5627,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        EntityOperation.queue(context, message, EntityOperation.BODY, !message.isPlainOnly());
+                        EntityOperation.queue(context, message, EntityOperation.BODY, !plain);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -5642,7 +5646,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
-            }.execute(context, owner, args, "message:resync");
+            }.execute(context, owner, args, "message:alt");
         }
 
         private void onMenuNotes(TupleMessageEx message) {
