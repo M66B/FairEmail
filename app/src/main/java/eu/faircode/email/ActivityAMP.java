@@ -140,6 +140,8 @@ public class ActivityAMP extends ActivityBase {
                 }
 
                 Document d = JsoupEx.parse(html);
+                HtmlHelper.setViewport(d, false);
+
                 for (Element script : d.select("script")) {
                     String src = script.attr("src");
                     Uri u = Uri.parse(src);
