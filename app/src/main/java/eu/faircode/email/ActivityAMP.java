@@ -102,8 +102,8 @@ public class ActivityAMP extends ActivityBase {
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            settings.setSafeBrowsingEnabled(safe_browsing);
+        if (WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
+            WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
 
         setDarkMode();
 
