@@ -815,6 +815,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         source = new File(source, "attachments");
                         target = new File(target, "attachments");
 
+                        source.mkdirs();
+                        target.mkdirs();
+
                         File[] attachments = source.listFiles();
                         if (attachments != null)
                             for (File attachment : attachments) {
