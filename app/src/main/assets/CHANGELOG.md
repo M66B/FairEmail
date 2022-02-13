@@ -7,7 +7,7 @@
 ### Next version
 
 * Added menu item to show plain text part
-* Added [AMP](https://amp.dev/about/email/) viewer
+* Added [AMP](https://amp.dev/about/email/) support
 * Small improvements and minor bug fixes
 * Updated translations
 
