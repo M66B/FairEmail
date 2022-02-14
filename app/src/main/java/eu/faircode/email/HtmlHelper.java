@@ -2365,8 +2365,10 @@ public class HtmlHelper {
             String url = span.getURL();
             if (TextUtils.isEmpty(url))
                 continue;
+
             if (url.toLowerCase(Locale.ROOT).startsWith("mailto:"))
                 url = url.substring("mailto:".length());
+
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
             String text = ssb.subSequence(start, end).toString();
@@ -2378,6 +2380,12 @@ public class HtmlHelper {
             String source = span.getSource();
             if (TextUtils.isEmpty(source))
                 continue;
+
+            if (source.toLowerCase(Locale.ROOT).startsWith("data:")) {
+                int semi = source.indexOf(';');
+                source = (semi < 0 ? "" : source.substring(0, semi));
+            }
+
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
             for (int i = start; i < end; i++)
