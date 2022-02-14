@@ -3415,8 +3415,6 @@ public class HtmlHelper {
                 next.remove();
         }
 
-        doc.body().tagName("div").wrap("<body></body>");
-
         return doc.html();
     }
 

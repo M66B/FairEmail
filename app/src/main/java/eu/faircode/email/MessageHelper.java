@@ -51,6 +51,7 @@ import com.sun.mail.util.MessageRemovedIOException;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.simplejavamail.outlookmessageparser.OutlookMessageParser;
 import org.simplejavamail.outlookmessageparser.model.OutlookAttachment;
@@ -912,16 +913,21 @@ public class MessageHelper {
             if (auto_link)
                 HtmlHelper.autoLink(document);
 
-            if (!TextUtils.isEmpty(compose_font))
-                for (Element child : document.body().children())
-                    if (!TextUtils.isEmpty(child.text()) &&
-                            TextUtils.isEmpty(child.attr("fairemail"))) {
-                        String old = child.attr("style");
-                        String style = HtmlHelper.mergeStyles(
-                                "font-family:" + StyleHelper.getFamily(compose_font), old);
-                        if (!old.equals(style))
-                            child.attr("style", style);
-                    }
+            if (!TextUtils.isEmpty(compose_font)) {
+                List<Node> childs = new ArrayList<>();
+                for (Node child : document.body().childNodes())
+                    if (TextUtils.isEmpty(child.attr("fairemail"))) {
+                        childs.add(child);
+                        child.remove();
+                    } else
+                        break;
+
+                Element div = document.createElement("div").attr("style",
+                        "font-family:" + StyleHelper.getFamily(compose_font));
+                for (Node child : childs)
+                    div.appendChild(child);
+                document.body().prependChild(div);
+            }
 
             document.select("div[fairemail=signature]").removeAttr("fairemail");
             document.select("div[fairemail=reference]").removeAttr("fairemail");
