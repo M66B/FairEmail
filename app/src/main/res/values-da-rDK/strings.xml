@@ -444,6 +444,7 @@
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Android-navigeringsbjælken</string>
+    <string name="title_advanced_bundled_fonts">Brug bundtede skrifttyper</string>
     <string name="title_advanced_parse_classes">CSS-fortolkning</string>
     <string name="title_advanced_authentication">Vis godkendelsesadvarsler</string>
     <string name="title_advanced_authentication_hint">De underliggende tjek kan opsættes i modtagelsesindstillingerne</string>
@@ -1030,6 +1031,8 @@
     <string name="title_ask_show_html_images">Vis altid billeder, når originalbeskederne vises</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
+    <string name="title_ask_show_amp">Vis AMP-variant af beskeden?</string>
+    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP-beskeder er designet til at være dynamiske og interagere med Internet, og de kan derfor potentielt bruges til brugersporing</string>
     <string name="title_ask_delete_local">Slet lokale beskeder? Beskeder forbliver på den eksterne server.</string>
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
@@ -1172,6 +1175,8 @@
     <string name="title_encrypt">Kryptér</string>
     <string name="title_decrypt">Dekryptér</string>
     <string name="title_resync">Synkronisér igen</string>
+    <string name="title_alternative_text">Vis simpel tekst</string>
+    <string name="title_alternative_html">Vis HTML</string>
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
     <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_signed_data">Bekræft signaturen for at vise beskedtekst</string>
@@ -1332,6 +1337,8 @@
     <string name="title_rule_thread">Alle beskeder i samme samtale og mappe</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Besvarelsesskabelon</string>
+    <string name="title_rule_answer_subject">Brug skabelonnavn som emne</string>
+    <string name="title_rule_original_text">Medtag oprindelig beskedtekst</string>
     <string name="title_rule_forward_to">Videresend til</string>
     <string name="title_rule_cc">Svar til Cc-adresser</string>
     <string name="title_rule_with_attachments">Med vedhæftninger</string>
@@ -1458,6 +1465,7 @@
     <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>
     <string name="title_legend_hide_images">Skjul billeder</string>
+    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Vis AMP-variant</string>
     <string name="title_legend_show_full">Vis oprindelig besked</string>
     <string name="title_legend_show_reformatted">Vis omformateret besked</string>
     <string name="title_legend_edit">Redigér</string>

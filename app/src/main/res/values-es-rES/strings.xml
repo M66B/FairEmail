@@ -1031,6 +1031,7 @@
     <string name="title_ask_show_html_images">Siempre mostrar imágenes al mostrar mensajes originales</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
+    <string name="title_ask_show_amp">Mostrar variante AMP del mensaje?</string>
     <string name="title_ask_delete_local">¿Borrar mensajes locales? Los mensajes permanecerán en el servidor remoto.</string>
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
@@ -1171,6 +1172,8 @@
     <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Descifrar</string>
     <string name="title_resync">Resincronizar</string>
+    <string name="title_alternative_text">Mostrar en texto sin formato</string>
+    <string name="title_alternative_html">Mostrar en HTML</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
     <string name="title_user_interaction">Transfiriendo a OpenKeychain</string>
     <string name="title_signed_data">Verificar la firma para mostrar el texto del mensaje</string>

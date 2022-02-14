@@ -367,6 +367,7 @@
     <string name="title_advanced_tabular_background">Sử dụng màu thẻ làm màu nền khi dùng kiểu tab</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_cards_shadow_highlight">Sử dụng màu đánh dấu thay vì màu nổi bật</string>
+    <string name="title_advanced_tabular_dividers">Sử dụng đường chia tách khi dùng kiểu tab</string>
     <string name="title_advanced_category_header">Nhóm theo thể loại tài khoản</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
     <string name="title_advanced_date_fixed">Hiện tiêu đề ngày cố định ở đầu</string>
@@ -432,6 +433,7 @@
     <string name="title_advanced_actionbar">Hiện thanh hành đông ở cuộc hội thoại</string>
     <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
     <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
+    <string name="title_advanced_bundled_fonts">Sử dụng phông chữ tích hợp</string>
     <string name="title_advanced_parse_classes">Xử lý các trang phong cách</string>
     <string name="title_advanced_authentication">Hiện cảnh báo xác thực</string>
     <string name="title_advanced_authentication_hint">Các lần kiểm tra đằng sau đó có thể được thiết lập trong cài đặt nhận</string>
@@ -763,6 +765,7 @@
     <string name="title_drafts_select">Việc gửi email yêu cầu một thư mục nháp được chọn trong cài đặt tài khoản</string>
     <string name="title_account_auth_update">Cập nhật uỷ quyền</string>
     <string name="title_account_auth_password">Chuyển sang xác thực mật khẩu</string>
+    <string name="title_delete_account">Xoá tài khoản</string>
     <string name="title_account_delete">Xóa tài khoản này vĩnh viễn?</string>
     <string name="title_identity_delete">Xóa danh tính này vĩnh viễn?</string>
     <string name="title_edit_html">Chỉnh sửa dưới dạng HTML</string>
@@ -1017,6 +1020,8 @@
     <string name="title_ask_show_html_images">Luôn hiện các hình ảnh khi hiện các thư gốc</string>
     <string name="title_ask_show_image">Việc hiện các hình ảnh có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
     <string name="title_ask_show_image_hint">Các hình ảnh được nhận ra là hình ảnh theo dõi sẽ không được hiện</string>
+    <string name="title_ask_show_amp">Hiện bản AMP của thư?</string>
+    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Thư AMP được thiết kế để tương tác với internet và do đó, theo định nghĩa, có thể được sử dụng để theo dõi bạn</string>
     <string name="title_ask_delete_local">Xoá các thư cục bộ? Thư vẫn sẽ còn trên máy chủ trên mạng.</string>
     <string name="title_ask_help">Giúp cải thiện FairEmail</string>
     <string name="title_ask_reporting">Gửi báo cáo lỗi?</string>
@@ -1157,6 +1162,8 @@
     <string name="title_encrypt">Mã hóa</string>
     <string name="title_decrypt">Giải mã</string>
     <string name="title_resync">Đồng bộ lại</string>
+    <string name="title_alternative_text">Hiện văn bản thuần</string>
+    <string name="title_alternative_html">Hiện HTML</string>
     <string name="title_no_openpgp">Không tìm thấy OpenKeychain</string>
     <string name="title_user_interaction">Đang chuyển sang OpenKeychain</string>
     <string name="title_signed_data">Xác minh chữ ký để hiện văn bản thư</string>
@@ -1255,6 +1262,9 @@
     <string name="title_edit_signature_remark">Dù Android không thể hiển thị tất cả HTML, nó sẽ được gửi đi mà không thay đổi</string>
     <string name="title_edit_signature_text">Văn bản chữ ký</string>
     <string name="title_edit_signature_image">Chèn hình ảnh</string>
+    <string name="title_edit_signature_image_hint">        Khi gửi thư, hình ảnh được sao chép vào thư từ vị trí được chọn.
+        Vậy nên đừng xoá tệp hình ảnh!
+    </string>
     <string name="title_answer_caption">Chỉnh sửa mẫu</string>
     <string name="title_answer_reply">Mẫu trả lời</string>
     <string name="title_answer_name">Tên mẫu</string>
@@ -1314,6 +1324,8 @@
     <string name="title_rule_thread">Tất cả thư trong cùng cuộc hội thoại và thư mục</string>
     <string name="title_rule_identity">Danh tính</string>
     <string name="title_rule_template">Mẫu trả lời</string>
+    <string name="title_rule_answer_subject">Sử dụng tên mẫu làm chủ đề</string>
+    <string name="title_rule_original_text">Bao gồm văn bản thư gốc</string>
     <string name="title_rule_forward_to">Chuyển tiếp đến</string>
     <string name="title_rule_cc">Trả lời đến các địa chỉ CC</string>
     <string name="title_rule_with_attachments">Có tệp đính kèm</string>
@@ -1440,6 +1452,7 @@
     <string name="title_legend_show_unsubscribe">Hủy đăng ký khỏi danh sách</string>
     <string name="title_legend_show_images">Hiện hình ảnh</string>
     <string name="title_legend_hide_images">Ẩn hình ảnh</string>
+    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Hiện bản AMP</string>
     <string name="title_legend_show_full">Hiện thư gốc</string>
     <string name="title_legend_show_reformatted">Hiện thư đã định dạng lại</string>
     <string name="title_legend_edit">Chỉnh sửa</string>

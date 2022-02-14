@@ -453,6 +453,7 @@
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_actionbar_color">Folosește culoarea contului pentru culoarea de fundal a barei de acțiuni a conversației</string>
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
+    <string name="title_advanced_bundled_fonts">Utilizați fonturi incluse în pachet</string>
     <string name="title_advanced_parse_classes">Utilizează foile de stil</string>
     <string name="title_advanced_authentication">Afișați avertismentele de autentificare</string>
     <string name="title_advanced_authentication_hint">Verificările subiacente pot fi configurate în setările de recepție</string>

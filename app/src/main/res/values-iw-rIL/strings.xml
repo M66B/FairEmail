@@ -464,6 +464,7 @@
     <string name="title_advanced_actionbar">הצגת סרגל פעולות דיון</string>
     <string name="title_advanced_actionbar_color">להשתמש בצבע החשבון כצבע הרקע לסרגל הפעולות של הדיון</string>
     <string name="title_advanced_navbar_colorize">לצבוע את סרגל הניווט של Android</string>
+    <string name="title_advanced_bundled_fonts">להשתמש בגופנים מאוגדים</string>
     <string name="title_advanced_parse_classes">פענוח גיליונות עיצוב</string>
     <string name="title_advanced_authentication">הצגת אזהרות אימות</string>
     <string name="title_advanced_authentication_hint">את הבדיקות שמאחורי הקלעים אפשר להגדיר בהגדרות הקבלה</string>
@@ -1052,6 +1053,7 @@
     <string name="title_ask_show_html_images">תמיד להציג תמונות בהצגת ההודעות המקוריות</string>
     <string name="title_ask_show_image">הצגת תמונות עשויה להדליף פרטים אישיים רגישים</string>
     <string name="title_ask_show_image_hint">תמונות שמזוהות כתמונות מעקב לא תוצגנה</string>
+    <string name="title_ask_show_amp">להציג תצורת AMP של ההודעה?</string>
     <string name="title_ask_delete_local">למחוק הודעות מקומיות? ההודעות תישארנה על השרת המרוחק.</string>
     <string name="title_ask_help">סיוע בשיפור FairEmail</string>
     <string name="title_ask_reporting">לשלוח דוחות שגיאה?</string>
@@ -1194,6 +1196,8 @@
     <string name="title_encrypt">הצפנה</string>
     <string name="title_decrypt">פענוח</string>
     <string name="title_resync">סנכרון מחדש</string>
+    <string name="title_alternative_text">הצגת טקסט פשוט</string>
+    <string name="title_alternative_html">הצגת HTML</string>
     <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
     <string name="title_user_interaction">מועבר ל־OpenKeychain</string>
     <string name="title_signed_data">אימות החתימה כדי להציג את טקסט ההודעה</string>
@@ -1354,6 +1358,8 @@
     <string name="title_rule_thread">כל ההודעות באותו הדיון והתיקייה</string>
     <string name="title_rule_identity">זהות</string>
     <string name="title_rule_template">תבנית תגובה</string>
+    <string name="title_rule_answer_subject">להשתמש בשם התבנית כנושא</string>
+    <string name="title_rule_original_text">לכלול את תוכן ההודעה המקורית</string>
     <string name="title_rule_forward_to">העברה אל</string>
     <string name="title_rule_cc">להגיב לכתובות של עותק</string>
     <string name="title_rule_with_attachments">עם קבצים מצורפים</string>

@@ -454,6 +454,7 @@
     <string name="title_advanced_actionbar">Prikaži radnu traku za konverzaciju</string>
     <string name="title_advanced_actionbar_color">Koristi boju računa kao pozadinsku boju radne trake za konverzaciju</string>
     <string name="title_advanced_navbar_colorize">Oboji navigacijsku traku Androida</string>
+    <string name="title_advanced_bundled_fonts">Koristi paketske fontove</string>
     <string name="title_advanced_parse_classes">Raščlani stilske stranice</string>
     <string name="title_advanced_authentication">Prikaži upozorenja kod provjere</string>
     <string name="title_advanced_authentication_hint">Osnovne kontrole mogu se podesiti u postavkama za prijem</string>
@@ -1042,6 +1043,8 @@
     <string name="title_ask_show_html_images">Uvijek prikazuj slike u prikazu izvornih poruka</string>
     <string name="title_ask_show_image">Prikaz slika može uzrokovati curenje osjetljivih informacija</string>
     <string name="title_ask_show_image_hint">Slike koje su prepoznate kao \'one koje prate\' neće se prikazivati</string>
+    <string name="title_ask_show_amp">Prikazati AMP varijantu poruke?</string>
+    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP poruke su dizajnirane kao dinamične i interaktivne na internetu, i stoga po definiciji mogu Vas pratiti</string>
     <string name="title_ask_delete_local">Izbrisati lokalne poruke? Poruke će biti zadržane na udaljenom serveru.</string>
     <string name="title_ask_help">Pomozite u poboljšanju FairEmail-a</string>
     <string name="title_ask_reporting">Pošalji izvještaj o greški?</string>
@@ -1184,6 +1187,8 @@
     <string name="title_encrypt">Šifriraj</string>
     <string name="title_decrypt">Dešifriraj</string>
     <string name="title_resync">Ponovo sinhronizuj</string>
+    <string name="title_alternative_text">Prikaži obični tekst</string>
+    <string name="title_alternative_html">Prikaži HTML</string>
     <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
     <string name="title_user_interaction">Prebacivanje na OpenKeychain</string>
     <string name="title_signed_data">Potvrdi potpis za prikazivanje teksta poruke</string>
@@ -1344,6 +1349,8 @@
     <string name="title_rule_thread">Sve poruke u istoj konverzaciji i folderu</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Prijedložak za odgovore</string>
+    <string name="title_rule_answer_subject">Koristi naziv šablona kao predmet</string>
+    <string name="title_rule_original_text">Uvrsti tekst izvorne poruke</string>
     <string name="title_rule_forward_to">Proslijedi za</string>
     <string name="title_rule_cc">Odgovori na CC adrese</string>
     <string name="title_rule_with_attachments">S prilozima</string>
@@ -1470,6 +1477,7 @@
     <string name="title_legend_show_unsubscribe">Otkaži pretplatu sa spiska</string>
     <string name="title_legend_show_images">Prikaži slike</string>
     <string name="title_legend_hide_images">Sakrij slike</string>
+    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Prikaži AMP varijantu</string>
     <string name="title_legend_show_full">Prikaži izvornu poruku</string>
     <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
     <string name="title_legend_edit">Uredi</string>

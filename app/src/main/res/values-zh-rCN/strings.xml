@@ -433,6 +433,7 @@
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
+    <string name="title_advanced_bundled_fonts">使用捆绑的字体</string>
     <string name="title_advanced_parse_classes">解析样式表</string>
     <string name="title_advanced_authentication">显示身份验证警告</string>
     <string name="title_advanced_authentication_hint">可以在接收设置中配置底层检查</string>
@@ -1018,6 +1019,8 @@
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
+    <string name="title_ask_show_amp">显示 AMP 样式的消息？</string>
+    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP 消息被设计为动态的，与互联网交互，因此根据定义可以用于跟踪你</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进 FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
@@ -1158,6 +1161,8 @@
     <string name="title_encrypt">加密</string>
     <string name="title_decrypt">解密</string>
     <string name="title_resync">重新同步</string>
+    <string name="title_alternative_text">显示纯文本</string>
+    <string name="title_alternative_html">显示 HTML</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
     <string name="title_user_interaction">正传输到 OpenKeychain</string>
     <string name="title_signed_data">验证签名以显示消息文本</string>
@@ -1446,6 +1451,7 @@
     <string name="title_legend_show_unsubscribe">取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
     <string name="title_legend_hide_images">隐藏图片</string>
+    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">显示 AMP 变体</string>
     <string name="title_legend_show_full">显示原始消息</string>
     <string name="title_legend_show_reformatted">显示已格式化的消息</string>
     <string name="title_legend_edit">编辑</string>

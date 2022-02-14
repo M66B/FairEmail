@@ -464,6 +464,7 @@
     <string name="title_advanced_actionbar">Показати панель дій для бесіди</string>
     <string name="title_advanced_actionbar_color">Використовувати колір аккаунта як тло у панелі дій для розмови</string>
     <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
+    <string name="title_advanced_bundled_fonts">Використовувати вбудовані шрифти</string>
     <string name="title_advanced_parse_classes">Аналіз таблиці стилів</string>
     <string name="title_advanced_authentication">Показати попередження про авторизацію</string>
     <string name="title_advanced_authentication_hint">Налаштування основних перевірок можливо в параметрах з приймання</string>
@@ -1051,6 +1052,8 @@
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_image_hint">Зображення за якими можна відслідковувати не будуть показані</string>
+    <string name="title_ask_show_amp">Показувати AMP варіант повідомлення?</string>
+    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Розроблені AMP повідомлення призначено, щоб бути динамічними та взаємодіяти з інтернетом і тому, за визначенням, використовується для відстеження вашої діяльності</string>
     <string name="title_ask_delete_local">Видалити локальні повідомлення? Повідомлення залишаться на віддаленому сервері.</string>
     <string name="title_ask_help">Допомогти поліпшити FairEmail</string>
     <string name="title_ask_reporting">Надіслати звіт про помилки?</string>
@@ -1191,6 +1194,8 @@
     <string name="title_encrypt">Шифрувати</string>
     <string name="title_decrypt">Розшифрувати</string>
     <string name="title_resync">Повторна синхронізація</string>
+    <string name="title_alternative_text">Показувати простий текст</string>
+    <string name="title_alternative_html">Показувати HTML</string>
     <string name="title_no_openpgp">OpenKeychain не знайдено</string>
     <string name="title_user_interaction">Передача в OpenKeychain</string>
     <string name="title_signed_data">Перевірте підпис, щоб показати текст повідомлення</string>
@@ -1351,6 +1356,8 @@
     <string name="title_rule_thread">Усі повідомлення в тій самій розмові і теці</string>
     <string name="title_rule_identity">Ідентифікація</string>
     <string name="title_rule_template">Шаблон відповіді</string>
+    <string name="title_rule_answer_subject">Використати назву шаблона як тему</string>
+    <string name="title_rule_original_text">Включати текст оригінального повідомлення</string>
     <string name="title_rule_forward_to">Переслати</string>
     <string name="title_rule_cc">Відповісти на адреси CC</string>
     <string name="title_rule_with_attachments">З вкладеннями</string>
@@ -1477,6 +1484,7 @@
     <string name="title_legend_show_unsubscribe">Відписати зі списку</string>
     <string name="title_legend_show_images">Показати зображення</string>
     <string name="title_legend_hide_images">Приховати зображення</string>
+    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Показати варіант AMP</string>
     <string name="title_legend_show_full">Показати оригінальне повідомлення</string>
     <string name="title_legend_show_reformatted">Показати переформатоване повідомлення</string>
     <string name="title_legend_edit">Редагувати</string>

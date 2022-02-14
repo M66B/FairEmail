@@ -4,10 +4,12 @@
     <string name="app_changelog">Histórico de mudanças</string>
     <string name="app_welcome">FairEmail é um aplicativo de e-mail de código aberto focado em privacidade e segurança. Por esse motivo, alguns recursos podem funcionar de maneira diferente do que você está acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens são reformatadas por padrão para remover elementos inseguros e melhorar a legibilidade, e a abertura de links precisa ser confirmada para segurança. Ambos podem ser desativados se desejados.</string>
+    <string name="app_unsupported">Bugs na versão Android deste dispositivo em particular causam travamentos</string>
     <string name="app_continue">Continuar mesmo assim</string>
     <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
+    <string name="app_download">Baixado de: %1$s</string>
     <string name="channel_service">﻿Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
@@ -73,10 +75,14 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remetente</string>
     <string name="title_block_sender_domain">Bloquear domínio \'%1$s\'</string>
+    <string name="title_block_sender_hint">        Bloquear o remetente é um recurso grátis.
+        Bloquear o domínio do remetente usa regras de filtro, que trata-se de uma opção Pro.
+    </string>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Isso pode aumentar o uso de bateria e incorretamente marcar mensagens como spam</string>
     <string name="title_junk_blocklist">Usar listas de bloqueio por spam</string>
     <string name="title_junk_clear">Limpar</string>
+    <string name="title_junk_clear_hint">Isto irá deletar todas as regras de bloqueio de remetente</string>
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_idle">Ocioso</string>
@@ -113,12 +119,14 @@
     <string name="title_edit_account">Editar conta</string>
     <string name="title_edit_identity">Editar identidade</string>
     <string name="title_edit_folder">Editar pasta</string>
+    <string name="title_disable_gmail">Desabilitar o app Gmail</string>
     <string name="title_setup">Configurações</string>
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_intro">A criação de uma conta tem apenas três passos e, depois disso, você poderá enviar e receber e-mails</string>
     <string name="title_setup_simple">Não há necessidade de alteração de nenhuma das opções</string>
     <string name="title_setup_issue">O FairEmail foi desenvolvido para ajudar a proteger sua privacidade e representa literalmente milhares de horas de trabalho. Se você tiver qualquer problema, por favor, entre em contato comigo antes de deixar uma análise ruim. Ficarei feliz em ajudar!</string>
+    <string name="title_setup_analytics">FairEmail não exibe anúncios e não rastreia ou analisa seu comportamento. Bugsnag é usado para relatório de erros e é desativado por padrão.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns fornecedores dificultam a adição de uma conta. Por favor, não culpe a FairEmail por isso, mas peça apoio em seu lugar.</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
@@ -139,6 +147,8 @@
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
+    <string name="title_setup_oauth_permission">O provedor de e-mail aprovou OAuth apenas para a versão Play Store e GitHub</string>
+    <string name="title_setup_gmail_support">A autorização de contas Google funcionará apenas nas versões Play Store e GitHub porque o Android verifica a assinatura do aplicativo digital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
@@ -177,6 +187,7 @@
     <string name="title_setup_doze_battery">Alto uso de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
     <string name="title_setup_doze_device">Isto é provavelmente exigido para este dispositivo</string>
+    <string name="title_setup_doze_12">Mensagens PUSH estão desabilitadas</string>
     <string name="title_setup_alarm_12">O app não funcionará</string>
     <string name="title_setup_inexact">Alarmes &amp; os lembretes estão desativados</string>
     <string name="title_setup_background">Restrições de fundo estão habilitadas</string>
@@ -212,6 +223,10 @@
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
     <string name="title_setup_import_invalid">Arquivo de configurações inválido</string>
+    <string name="title_importing_account">Conta %1$s</string>
+    <string name="title_importing_identity">Identidade %1$s</string>
+    <string name="title_importing_exists">Ignorado: já existe</string>
+    <string name="title_importing_wizard">Execute o assistente para autenticar novamente</string>
     <string name="title_setup_reorder_accounts">Ordenar contas</string>
     <string name="title_setup_reorder_folders">Ordenar pastas</string>
     <string name="title_reset_order">Redefinir ordem</string>
@@ -232,6 +247,9 @@
     <string name="title_setup_theme_dark">Escuro</string>
     <string name="title_setup_theme_system">Seguir o sistema</string>
     <string name="title_setup_theme_black_background">Fundo preto</string>
+    <string name="title_setup_theme_html_light">Fundo claro para visualização de mensagem original</string>
+    <string name="title_setup_theme_composer_light">Fundo claro para editor de mensagens</string>
+    <string name="title_setup_theme_you_hint">As cores do Material You podem ser configuradas no Wallpaper do Android &amp; configurações de estilo</string>
     <string name="title_setup_theme_system_hint">O tema de seguir o sistema muda automaticamente para claro/escuro no dia/noite, se suportado pelo Android</string>
     <string name="title_setup_theme_more_colors">Quero mais cores</string>
     <string name="title_setup_advanced">Avançado</string>
@@ -241,6 +259,7 @@
     <string name="title_setup_reset_general">Dúvidas gerais</string>
     <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_setup_reset_images">Mostrar Imagens</string>
+    <string name="title_setup_reset_links">Confirmar links</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
     </string>

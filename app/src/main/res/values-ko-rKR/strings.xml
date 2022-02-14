@@ -271,6 +271,7 @@
     <string name="title_advanced_text_font">글꼴 사용</string>
     <string name="title_advanced_text_align">글자 정렬 사용</string>
     <string name="title_advanced_text_separators">구분선 사용</string>
+    <string name="title_advanced_bundled_fonts">번들 글꼴 사용</string>
     <string name="title_advanced_parse_classes">CSS 구문 분석</string>
     <string name="title_advanced_double_back">2번 눌러 종료</string>
     <string name="title_advanced_conversation_actions">동작 제안 (안드로이드 10 이상)</string>

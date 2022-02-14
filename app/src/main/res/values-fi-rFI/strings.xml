@@ -1155,6 +1155,8 @@
     <string name="title_encrypt">Salaa</string>
     <string name="title_decrypt">Pura salaus</string>
     <string name="title_resync">Synkronoi uudelleen</string>
+    <string name="title_alternative_text">Näytä pelkkä teksti</string>
+    <string name="title_alternative_html">Näytä HTML</string>
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_user_interaction">Siirretään OpenKeychain-sovellukseen</string>
     <string name="title_signed_data">Todenna allekirjoitus näyttääksesi viestin tekstin</string>

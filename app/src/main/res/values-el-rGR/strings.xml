@@ -443,6 +443,7 @@
     <string name="title_advanced_actionbar">Προβολή της γραμμής ενεργειών της συζήτησης</string>
     <string name="title_advanced_actionbar_color">Χρήση του χρώματος του λογαριασμού ως χρωματικό υπόβαθρο για τη γραμμή ενεργειών της συζήτησης</string>
     <string name="title_advanced_navbar_colorize">Να χρωματίζεται η γραμμή πλοήγησης του Android</string>
+    <string name="title_advanced_bundled_fonts">Χρήση γραμματοσειρών σε πακέτο</string>
     <string name="title_advanced_parse_classes">Χρήση φύλλων στιλ</string>
     <string name="title_advanced_authentication">Να προβάλλονται προειδοποιήσεις ταυτοποίησης</string>
     <string name="title_advanced_authentication_hint">Οι υποκείμενοι έλεγχοι μπορούν να ρυθμιστούν στις ρυθμίσεις λήψης</string>
@@ -1028,6 +1029,8 @@
     <string name="title_ask_show_html_images">Να προβάλλονται πάντοτε οι εικόνες κατά την προβολή των αρχικών μηνυμάτων</string>
     <string name="title_ask_show_image">Η προβολή των εικόνων ίσως προκαλέσει διαρροή ευαίσθητων προσωπικών δεδομένων</string>
     <string name="title_ask_show_image_hint">Όσες εικόνες αναγνωρίζονται ως εικόνες ιχνηλάτησης δεν θα προβληθούν</string>
+    <string name="title_ask_show_amp">Προβολή παραλλαγής AMP του μηνύματος;</string>
+    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Τα μηνύματα AMP έχουν σχεδιαστεί έτσι ώστε να είναι δυναμικά και να αλληλεπιδρούν με το διαδίκτυο, και, ως εκ τούτου, εξ ορισμού μπορούν να χρησιμοποιηθούν για την παρακολούθησή σας</string>
     <string name="title_ask_delete_local">Διαγραφή τοπικών μηνυμάτων; Τα μηνύματα θα παραμείνουν στο διακομιστή.</string>
     <string name="title_ask_help">Βοηθήστε το FairEmail να βελτιωθεί</string>
     <string name="title_ask_reporting">Να αποστέλλονται αναφορές σφαλμάτων;</string>
@@ -1168,6 +1171,8 @@
     <string name="title_encrypt">Κρυπτογράφηση</string>
     <string name="title_decrypt">Αποκρυπτογράφηση</string>
     <string name="title_resync">Επανασυγχρονισμός</string>
+    <string name="title_alternative_text">Προβολή απλού κειμένου</string>
+    <string name="title_alternative_html">Προβολή HTML</string>
     <string name="title_no_openpgp">Δεν βρέθηκε OpenKeychain</string>
     <string name="title_user_interaction">Μεταφορά προς OpenKeychain</string>
     <string name="title_signed_data">Επαλήθευση της υπογραφής για προβολή του κειμένου του μηνύματος</string>
@@ -1456,6 +1461,7 @@
     <string name="title_legend_show_unsubscribe">Κατάργηση συνδρομής από τη λίστα</string>
     <string name="title_legend_show_images">Προβολή εικόνων</string>
     <string name="title_legend_hide_images">Απόκρυψη εικόνων</string>
+    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Προβολή παραλλαγής AMP</string>
     <string name="title_legend_show_full">Προβολή αρχικού μηνύματος</string>
     <string name="title_legend_show_reformatted">Προβολή αναμορφοποιήμενου μηνύματος</string>
     <string name="title_legend_edit">Επεξεργασία</string>
