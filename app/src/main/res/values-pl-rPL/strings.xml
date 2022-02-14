@@ -221,6 +221,7 @@
     <string name="title_setup_error">Błąd</string>
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_app_password">Może być konieczne użycie hasła aplikacji</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Extra</string>
     <string name="title_setup_close">Zamknij ustawienia</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
@@ -1052,7 +1053,7 @@
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
     <string name="title_ask_show_amp">Pokaż wariant AMP wiadomości?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Wiadomości AMP są zaprojektowane jako dynamiczne i wchodzące w interakcję z internetem, dlatego z definicji mogą być używane do śledzenia Ciebie</string>
+    <string name="title_ask_show_amp_hint">Wiadomości AMP są zaprojektowane jako dynamiczne i wchodzące w interakcję z internetem, dlatego z definicji mogą być używane do śledzenia Ciebie</string>
     <string name="title_ask_delete_local">Usunąć wiadomości lokalne? Wiadomości pozostaną na serwerze zdalnym.</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raporty o błędach?</string>
@@ -1484,7 +1485,7 @@
     <string name="title_legend_show_unsubscribe">Wypisz się z listy</string>
     <string name="title_legend_show_images">Pokaż obrazy</string>
     <string name="title_legend_hide_images">Ukryj obrazy</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Pokaż wariant AMP</string>
+    <string name="title_legend_show_amp">Pokaż wariant AMP</string>
     <string name="title_legend_show_full">Pokaż oryginalną wiadomość</string>
     <string name="title_legend_show_reformatted">Pokaż sformatowaną wiadomość</string>
     <string name="title_legend_edit">Edycja</string>

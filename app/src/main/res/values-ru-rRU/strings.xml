@@ -1054,7 +1054,7 @@
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_show_amp">Показать AMP-вариант сообщения?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP-сообщения создавались как динамически взаимодействующие с интернетом и, следовательно, по определению используются для вашего отслеживания</string>
+    <string name="title_ask_show_amp_hint">AMP-сообщения создавались как динамически взаимодействующие с интернетом и, следовательно, по определению используются для вашего отслеживания</string>
     <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
@@ -1486,7 +1486,7 @@
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>
     <string name="title_legend_hide_images">Скрыть изображения</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Показать AMP-вариант</string>
+    <string name="title_legend_show_amp">Показать AMP-вариант</string>
     <string name="title_legend_show_full">Показать исходное сообщение</string>
     <string name="title_legend_show_reformatted">Показать переформатированное сообщение</string>
     <string name="title_legend_edit">Редактировать</string>

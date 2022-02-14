@@ -222,6 +222,7 @@
     <string name="title_setup_error">Помилка</string>
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
     <string name="title_setup_app_password">Можливо, Ви повинні використовувати пароль для додатку</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Додатково</string>
     <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
@@ -1053,7 +1054,7 @@
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_image_hint">Зображення за якими можна відслідковувати не будуть показані</string>
     <string name="title_ask_show_amp">Показувати AMP варіант повідомлення?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Розроблені AMP повідомлення призначено, щоб бути динамічними та взаємодіяти з інтернетом і тому, за визначенням, використовується для відстеження вашої діяльності</string>
+    <string name="title_ask_show_amp_hint">Розроблені AMP повідомлення призначено, щоб бути динамічними та взаємодіяти з інтернетом і тому, за визначенням, використовується для відстеження вашої діяльності</string>
     <string name="title_ask_delete_local">Видалити локальні повідомлення? Повідомлення залишаться на віддаленому сервері.</string>
     <string name="title_ask_help">Допомогти поліпшити FairEmail</string>
     <string name="title_ask_reporting">Надіслати звіт про помилки?</string>
@@ -1484,7 +1485,7 @@
     <string name="title_legend_show_unsubscribe">Відписати зі списку</string>
     <string name="title_legend_show_images">Показати зображення</string>
     <string name="title_legend_hide_images">Приховати зображення</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Показати варіант AMP</string>
+    <string name="title_legend_show_amp">Показати варіант AMP</string>
     <string name="title_legend_show_full">Показати оригінальне повідомлення</string>
     <string name="title_legend_show_reformatted">Показати переформатоване повідомлення</string>
     <string name="title_legend_edit">Редагувати</string>

@@ -1044,7 +1044,7 @@
     <string name="title_ask_show_image">Prikaz slika može uzrokovati curenje osjetljivih informacija</string>
     <string name="title_ask_show_image_hint">Slike koje su prepoznate kao \'one koje prate\' neće se prikazivati</string>
     <string name="title_ask_show_amp">Prikazati AMP varijantu poruke?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP poruke su dizajnirane kao dinamične i interaktivne na internetu, i stoga po definiciji mogu Vas pratiti</string>
+    <string name="title_ask_show_amp_hint">AMP poruke su dizajnirane kao dinamične i interaktivne na internetu, i stoga po definiciji mogu Vas pratiti</string>
     <string name="title_ask_delete_local">Izbrisati lokalne poruke? Poruke će biti zadržane na udaljenom serveru.</string>
     <string name="title_ask_help">Pomozite u poboljšanju FairEmail-a</string>
     <string name="title_ask_reporting">Pošalji izvještaj o greški?</string>
@@ -1477,7 +1477,7 @@
     <string name="title_legend_show_unsubscribe">Otkaži pretplatu sa spiska</string>
     <string name="title_legend_show_images">Prikaži slike</string>
     <string name="title_legend_hide_images">Sakrij slike</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Prikaži AMP varijantu</string>
+    <string name="title_legend_show_amp">Prikaži AMP varijantu</string>
     <string name="title_legend_show_full">Prikaži izvornu poruku</string>
     <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
     <string name="title_legend_edit">Uredi</string>

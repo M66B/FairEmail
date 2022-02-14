@@ -1032,7 +1032,7 @@
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_show_amp">Vis AMP-variant af beskeden?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP-beskeder er designet til at være dynamiske og interagere med Internet, og de kan derfor potentielt bruges til brugersporing</string>
+    <string name="title_ask_show_amp_hint">AMP-beskeder er designet til at være dynamiske og interagere med Internet, og de kan derfor potentielt bruges til brugersporing</string>
     <string name="title_ask_delete_local">Slet lokale beskeder? Beskeder forbliver på den eksterne server.</string>
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
@@ -1465,7 +1465,7 @@
     <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>
     <string name="title_legend_hide_images">Skjul billeder</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Vis AMP-variant</string>
+    <string name="title_legend_show_amp">Vis AMP-variant</string>
     <string name="title_legend_show_full">Vis oprindelig besked</string>
     <string name="title_legend_show_reformatted">Vis omformateret besked</string>
     <string name="title_legend_edit">Redigér</string>

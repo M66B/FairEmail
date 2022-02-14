@@ -191,6 +191,7 @@
     <string name="title_setup_error">出错</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用 app 密码</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">更多</string>
     <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
@@ -1020,7 +1021,7 @@
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
     <string name="title_ask_show_amp">显示 AMP 样式的消息？</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP 消息被设计为动态的，与互联网交互，因此根据定义可以用于跟踪你</string>
+    <string name="title_ask_show_amp_hint">AMP 消息被设计为动态的，与互联网交互，因此根据定义可以用于跟踪你</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进 FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
@@ -1451,7 +1452,7 @@
     <string name="title_legend_show_unsubscribe">取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
     <string name="title_legend_hide_images">隐藏图片</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">显示 AMP 变体</string>
+    <string name="title_legend_show_amp">显示 AMP 变体</string>
     <string name="title_legend_show_full">显示原始消息</string>
     <string name="title_legend_show_reformatted">显示已格式化的消息</string>
     <string name="title_legend_edit">编辑</string>

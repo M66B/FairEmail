@@ -201,6 +201,7 @@
     <string name="title_setup_error">Error</string>
     <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
     <string name="title_setup_app_password">Puede que necesite usar una contraseña de aplicación</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Opciones adicionales</string>
     <string name="title_setup_close">Cerrar ajustes</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>

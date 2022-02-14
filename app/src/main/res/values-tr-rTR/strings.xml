@@ -200,6 +200,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_error">Hata</string>
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
     <string name="title_setup_app_password">Bir uygulama şifresi kullanmanız gerekebilir</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Ekstra</string>
     <string name="title_setup_close">Ayarları kapat</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
@@ -442,6 +443,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
     <string name="title_advanced_actionbar_color">Hesap rengini konuşma eylem çubuğu için arka plan rengi olarak kullan</string>
     <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
+    <string name="title_advanced_bundled_fonts">Birlikte verilen yazı tiplerini kullan</string>
     <string name="title_advanced_parse_classes">CSS\'i çözümle</string>
     <string name="title_advanced_authentication">Kimlik doğrulama uyarılarını göster</string>
     <string name="title_advanced_authentication_hint">Temel kontroller, alma ayarlarında yapılandırılabilir</string>
@@ -1028,6 +1030,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
+    <string name="title_ask_show_amp">Mesajın AMP varyantı gösterilsin mi?</string>
+    <string name="title_ask_show_amp_hint">AMP mesajları dinamik olacak ve internet ile etkileşime girecek şekilde tasarlanmıştır ve bu nedenle tanım gereği sizi izlemek için kullanılabilir</string>
     <string name="title_ask_delete_local">Yerel iletiler silinsin mi? İletiler uzak sunucuda kalacaktır.</string>
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
@@ -1169,6 +1173,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
     <string name="title_resync">Yeniden eşzamanla</string>
+    <string name="title_alternative_text">Düz metni göster</string>
     <string name="title_alternative_html">HTML Göster</string>
     <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
     <string name="title_user_interaction">OpenKeychain\'e gönderiliyor</string>
@@ -1329,6 +1334,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_thread">Aynı sohbet ve klasördeki tüm iletiler</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Yanıt kalıbı</string>
+    <string name="title_rule_answer_subject">Konu olarak şablon adını kullan</string>
+    <string name="title_rule_original_text">Orijinal mesaj metnini dahil et</string>
     <string name="title_rule_forward_to">İlet</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_with_attachments">Eklerle Birlikte</string>
@@ -1455,6 +1462,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_show_unsubscribe">Listeden Çık</string>
     <string name="title_legend_show_images">Resimleri göster</string>
     <string name="title_legend_hide_images">Resimleri gizle</string>
+    <string name="title_legend_show_amp">AMP varyantını göster</string>
     <string name="title_legend_show_full">Orijinal iletiyi gör</string>
     <string name="title_legend_show_reformatted">Yeniden biçimlendirilmiş mesajı göster</string>
     <string name="title_legend_edit">Düzenle</string>

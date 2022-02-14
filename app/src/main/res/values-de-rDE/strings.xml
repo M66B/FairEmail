@@ -1030,7 +1030,7 @@
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_show_amp">AMP-Variante der Nachricht anzeigen?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind und mit dem Internet interagieren und können daher per Definition dazu verwendet werden, Sie zu verfolgen.</string>
+    <string name="title_ask_show_amp_hint">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind und mit dem Internet interagieren und können daher per Definition dazu verwendet werden, Sie zu verfolgen.</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -1462,7 +1462,7 @@
     <string name="title_legend_show_unsubscribe">Aus Liste abmelden</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>
     <string name="title_legend_hide_images">Bilder ausblenden</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">AMP-Variante anzeigen</string>
+    <string name="title_legend_show_amp">AMP-Variante anzeigen</string>
     <string name="title_legend_show_full">Originalnachricht anzeigen</string>
     <string name="title_legend_show_reformatted">Umformatierte Nachricht anzeigen</string>
     <string name="title_legend_edit">Bearbeiten</string>

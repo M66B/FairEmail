@@ -201,6 +201,7 @@
     <string name="title_setup_error">Erreur</string>
     <string name="title_setup_configuring">Configuration du compte&#8230;</string>
     <string name="title_setup_app_password">Vous devrez éventuellement utiliser un mot de passe d\'application</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Options supplémentaires</string>
     <string name="title_setup_close">Fermer les paramètres</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
@@ -1035,7 +1036,7 @@
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>
     <string name="title_ask_show_image_hint">Les images identifiées comme étant des images de pistage ne seront pas affichées</string>
     <string name="title_ask_show_amp">Afficher la variante AMP du message?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Les messages AMP sont conçus pour être dynamiques, interagir avec Internet et peuvent donc par définition être utilisés pour vous pister</string>
+    <string name="title_ask_show_amp_hint">Les messages AMP sont conçus pour être dynamiques, interagir avec Internet et peuvent donc par définition être utilisés pour vous pister</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux? Les messages resteront sur le serveur distant.</string>
     <string name="title_ask_help">Aider à l’amélioration de FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d’erreur?</string>
@@ -1468,7 +1469,7 @@
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
     <string name="title_legend_hide_images">Masquer les images</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Afficher la variante AMP</string>
+    <string name="title_legend_show_amp">Afficher la variante AMP</string>
     <string name="title_legend_show_full">Afficher le message original</string>
     <string name="title_legend_show_reformatted">Afficher le message reformaté</string>
     <string name="title_legend_edit">Modifier</string>

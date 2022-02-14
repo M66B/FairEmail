@@ -1030,7 +1030,7 @@
     <string name="title_ask_show_image">Η προβολή των εικόνων ίσως προκαλέσει διαρροή ευαίσθητων προσωπικών δεδομένων</string>
     <string name="title_ask_show_image_hint">Όσες εικόνες αναγνωρίζονται ως εικόνες ιχνηλάτησης δεν θα προβληθούν</string>
     <string name="title_ask_show_amp">Προβολή παραλλαγής AMP του μηνύματος;</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Τα μηνύματα AMP έχουν σχεδιαστεί έτσι ώστε να είναι δυναμικά και να αλληλεπιδρούν με το διαδίκτυο, και, ως εκ τούτου, εξ ορισμού μπορούν να χρησιμοποιηθούν για την παρακολούθησή σας</string>
+    <string name="title_ask_show_amp_hint">Τα μηνύματα AMP έχουν σχεδιαστεί έτσι ώστε να είναι δυναμικά και να αλληλεπιδρούν με το διαδίκτυο, και, ως εκ τούτου, εξ ορισμού μπορούν να χρησιμοποιηθούν για την παρακολούθησή σας</string>
     <string name="title_ask_delete_local">Διαγραφή τοπικών μηνυμάτων; Τα μηνύματα θα παραμείνουν στο διακομιστή.</string>
     <string name="title_ask_help">Βοηθήστε το FairEmail να βελτιωθεί</string>
     <string name="title_ask_reporting">Να αποστέλλονται αναφορές σφαλμάτων;</string>
@@ -1461,7 +1461,7 @@
     <string name="title_legend_show_unsubscribe">Κατάργηση συνδρομής από τη λίστα</string>
     <string name="title_legend_show_images">Προβολή εικόνων</string>
     <string name="title_legend_hide_images">Απόκρυψη εικόνων</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Προβολή παραλλαγής AMP</string>
+    <string name="title_legend_show_amp">Προβολή παραλλαγής AMP</string>
     <string name="title_legend_show_full">Προβολή αρχικού μηνύματος</string>
     <string name="title_legend_show_reformatted">Προβολή αναμορφοποιήμενου μηνύματος</string>
     <string name="title_legend_edit">Επεξεργασία</string>

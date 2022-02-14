@@ -201,6 +201,7 @@
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
     <string name="title_setup_app_password">Talvez seja necessário usar uma senha da app</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Extra</string>
     <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
@@ -592,7 +593,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_disable_widths">Desativar larguras</string>
     <string name="title_monospaced_pre">Monosespaçado &lt;pre&gt;</string>
     <string name="title_ask_show_amp">Mostrar a variante AMP da mensagem?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">As mensagens AMP são concebidas para serem dinâmicas e para interagirem com a internet e, portanto, podem ser usadas por definição para o acompanhar</string>
+    <string name="title_ask_show_amp_hint">As mensagens AMP são concebidas para serem dinâmicas e para interagirem com a internet e, portanto, podem ser usadas por definição para o acompanhar</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_ask_review_rationale">        Você está a utilizar o FairEmail há algum tempo.
         Gostaríamos que avaliasse o FairEmail na Play Store.
@@ -625,8 +626,15 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_search_index_hint">A procura é rápida através do índice de pesquisa, mas só encontra palavras inteiras.</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
     <string name="title_search_more">Mais opções</string>
+    <string name="title_search_with_unseen">Não lida</string>
+    <string name="title_search_with_flagged">Com estrela</string>
+    <string name="title_search_flag_unseen">não lida</string>
+    <string name="title_search_flag_flagged">com estrela</string>
+    <string name="title_sort_on_unread">Não lida</string>
+    <string name="title_sort_on_starred">Com estrela</string>
     <string name="title_sort_on_sender">Remetente</string>
     <string name="title_filter_seen">Lida</string>
+    <string name="title_filter_unflagged">Sem estrela</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_language_all">Todos</string>
@@ -661,15 +669,17 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_legend_audio">Gravar áudio</string>
     <string name="title_legend_show_images">Mostrar imagens</string>
     <string name="title_legend_hide_images">Ocultar imagens</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Mostrar variante AMP</string>
+    <string name="title_legend_show_amp">Mostrar variante AMP</string>
     <string name="title_legend_show_reformatted">Mostrar mensagem reformatada</string>
     <string name="title_legend_edit">Editar</string>
     <string name="title_legend_delete">Eliminar</string>
     <string name="title_legend_a">Arquivar</string>
     <string name="title_legend_c">Compor</string>
     <string name="title_legend_r">Responder</string>
+    <string name="title_hint_important">Importante</string>
     <string name="title_updated">Atualização para a versão %1$s disponível</string>
     <string name="title_no">Não</string>
+    <string name="title_later">Mais tarde</string>
     <string name="title_insert_line">Inserir linha</string>
     <string name="title_add">Adicionar</string>
     <string name="title_info">Informação</string>

@@ -69,6 +69,8 @@
     <string name="title_setup_quick_accounts">ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ନ୍ତୁ ବା ବଦଳାନ୍ତୁ</string>
     <string name="title_setup_quick_support">କିଛି ପ୍ରଦାନକାରୀ ଏକ ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ିବା କଷ୍ଟକର କରନ୍ତି। ଦୟାକରି ଏଥିପାଇଁ FairEmail କୁ ଦୋଷ ଦିଅନ୍ତୁ ନାହିଁ, କିନ୍ତୁ ଏହା ବଦଳରେ ସମର୍ଥନ ମାଗନ୍ତୁ।</string>
     <string name="title_setup_quick_patience">ଦୟାକରି ଧୈର୍ଯ୍ୟ ରଖନ୍ତୁ &#8230;</string>
+    <string name="title_setup_quick_imap">ବାର୍ତ୍ତା ପ୍ରାପ୍ତ କରିବା ପାଇଁ IMAP ସର୍ଭର୍</string>
+    <string name="title_setup_quick_smtp">ବାର୍ତ୍ତା ପଠାଇବା ପାଇଁ SMTP ସର୍ଭର୍</string>
     <string name="title_setup_wizard">ଓ୍ୱିଜାର୍ଡ</string>
     <string name="title_setup_wizard_new">ମୋର ଏକ ନୂତନ ଇମେଲ୍ ଠିକଣା ଦରକାର</string>
     <string name="title_setup_manual">ହସ୍ତକୃତ ସେଟଅପ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ବିକଳ୍ପ ସମୂହ</string>
@@ -98,6 +100,7 @@
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
     <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
+    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">ଅତିରିକ୍ତ</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
@@ -363,7 +366,7 @@
     <string name="title_fit_width">ଓସାର ଫିଟ୍ କରନ୍ତୁ</string>
     <string name="title_disable_widths">ଓସାର ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_ask_show_amp">ବାର୍ତ୍ତାର AMP ଭାରିଆଣ୍ଟ ଦେଖାଇବା କି?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">AMP ବାର୍ତ୍ତାଗୁଡ଼ିକ ଗତିଶୀଳ ଓ ଇଣ୍ଟରନେଟ୍ ସହ ଇଣ୍ଟରାକ୍ଟ କରିବା ପାଇଁ ଡିଜାଇନ୍ କରାଯାଇଛି ଏବଂ ସେଥିପାଇଁ ଆପଣଙ୍କୁ ଟ୍ରାକ୍ କରିବା ପାଇଁ ବ୍ୟବହାର କରାଯାଇପାରିବ</string>
+    <string name="title_ask_show_amp_hint">AMP ବାର୍ତ୍ତାଗୁଡ଼ିକ ଗତିଶୀଳ ଓ ଇଣ୍ଟରନେଟ୍ ସହ ଇଣ୍ଟରାକ୍ଟ କରିବା ପାଇଁ ଡିଜାଇନ୍ କରାଯାଇଛି ଏବଂ ସେଥିପାଇଁ ଆପଣଙ୍କୁ ଟ୍ରାକ୍ କରିବା ପାଇଁ ବ୍ୟବହାର କରାଯାଇପାରିବ</string>
     <string name="title_ask_help">FairEmail କୁ ଉନ୍ନତ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
     <string name="title_need_help">ମତେ ସାହାଯ୍ୟ ଦରକାର</string>
     <string name="title_compose">ରଚନା କରନ୍ତୁ</string>
@@ -503,7 +506,7 @@
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କରନ୍ତୁ</string>
     <string name="title_legend_show_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">AMP ଭାରିଆଣ୍ଟ ଦେଖାଇବା</string>
+    <string name="title_legend_show_amp">AMP ଭାରିଆଣ୍ଟ ଦେଖାଇବା</string>
     <string name="title_legend_edit">ସମ୍ପାଦନ</string>
     <string name="title_legend_delete">ବିଲୋପ</string>
     <string name="title_legend_c">ରଚନା କରନ୍ତୁ</string>

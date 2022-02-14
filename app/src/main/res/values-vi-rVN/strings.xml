@@ -1021,7 +1021,7 @@
     <string name="title_ask_show_image">Việc hiện các hình ảnh có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
     <string name="title_ask_show_image_hint">Các hình ảnh được nhận ra là hình ảnh theo dõi sẽ không được hiện</string>
     <string name="title_ask_show_amp">Hiện bản AMP của thư?</string>
-    <string name="title_ask_show_amp_hint" comment="title_ask_show_amp_hint&#10;https://amp.dev/about/email/">Thư AMP được thiết kế để tương tác với internet và do đó, theo định nghĩa, có thể được sử dụng để theo dõi bạn</string>
+    <string name="title_ask_show_amp_hint">Thư AMP được thiết kế để tương tác với internet và do đó, theo định nghĩa, có thể được sử dụng để theo dõi bạn</string>
     <string name="title_ask_delete_local">Xoá các thư cục bộ? Thư vẫn sẽ còn trên máy chủ trên mạng.</string>
     <string name="title_ask_help">Giúp cải thiện FairEmail</string>
     <string name="title_ask_reporting">Gửi báo cáo lỗi?</string>
@@ -1452,7 +1452,7 @@
     <string name="title_legend_show_unsubscribe">Hủy đăng ký khỏi danh sách</string>
     <string name="title_legend_show_images">Hiện hình ảnh</string>
     <string name="title_legend_hide_images">Ẩn hình ảnh</string>
-    <string name="title_legend_show_amp" comment="title_legend_show_amp&#10;https://amp.dev/about/email/">Hiện bản AMP</string>
+    <string name="title_legend_show_amp">Hiện bản AMP</string>
     <string name="title_legend_show_full">Hiện thư gốc</string>
     <string name="title_legend_show_reformatted">Hiện thư đã định dạng lại</string>
     <string name="title_legend_edit">Chỉnh sửa</string>

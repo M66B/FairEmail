@@ -440,6 +440,7 @@
     <string name="title_advanced_actionbar">Visa konversationsåtgärdsfältet</string>
     <string name="title_advanced_actionbar_color">Använd kontofärg som bakgrundsfärg för konversationsfältet</string>
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
+    <string name="title_advanced_bundled_fonts">Använd medföljande typsnitt</string>
     <string name="title_advanced_parse_classes">Tolka stilmallar</string>
     <string name="title_advanced_authentication">Visa autentiseringsvarningar</string>
     <string name="title_advanced_authentication_hint">De underliggande kontrollerna kan konfigureras i mottagningsinställningarna</string>
@@ -1027,6 +1028,8 @@
     <string name="title_ask_show_html_images">Visa alltid bilder när originalmeddelanden visas</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image_hint">Bilder som känns igen som spårningsbilder kommer inte att visas</string>
+    <string name="title_ask_show_amp">Visa AMP-variant av meddelandet?</string>
+    <string name="title_ask_show_amp_hint">AMP-meddelanden är utformade för att vara dynamiska och interagera med internet och kan därför per definition användas för att spåra dig</string>
     <string name="title_ask_delete_local">Ta bort lokala meddelanden? Meddelanden kommer att finnas kvar på fjärrservern.</string>
     <string name="title_ask_help">Hjälp till att förbättra FairEmail</string>
     <string name="title_ask_reporting">Skicka felrapporter?</string>
@@ -1167,6 +1170,8 @@
     <string name="title_encrypt">Kryptera</string>
     <string name="title_decrypt">Dekryptera</string>
     <string name="title_resync">Synkronisera om</string>
+    <string name="title_alternative_text">Visa oformaterad text</string>
+    <string name="title_alternative_html">Visa HTML</string>
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
     <string name="title_user_interaction">Överför till OpenKeychain</string>
     <string name="title_signed_data">Verifiera signaturen för att visa meddelandetexten</string>
@@ -1327,6 +1332,8 @@
     <string name="title_rule_thread">Alla meddelanden i samma konversation och mapp</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarsmall</string>
+    <string name="title_rule_answer_subject">Använd mallens namn som ämne</string>
+    <string name="title_rule_original_text">Inkludera ursprunglig meddelandetext</string>
     <string name="title_rule_forward_to">Vidarebefordra till</string>
     <string name="title_rule_cc">Svar till CC-adresser</string>
     <string name="title_rule_with_attachments">Med bilagor</string>
@@ -1453,6 +1460,7 @@
     <string name="title_legend_show_unsubscribe">Avregistrera dig från listan</string>
     <string name="title_legend_show_images">Visa bilder</string>
     <string name="title_legend_hide_images">Dölj bilder</string>
+    <string name="title_legend_show_amp">Visa AMP variant</string>
     <string name="title_legend_show_full">Visa originalmeddelande</string>
     <string name="title_legend_show_reformatted">Visa omformaterat meddelande</string>
     <string name="title_legend_edit">Redigera</string>
