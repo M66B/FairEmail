@@ -2381,17 +2381,17 @@ public class HtmlHelper {
             if (TextUtils.isEmpty(source))
                 continue;
 
-            if (source.toLowerCase(Locale.ROOT).startsWith("data:")) {
-                int semi = source.indexOf(';');
-                source = (semi < 0 ? "" : source.substring(0, semi));
-            }
-
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
+
+            if (!source.toLowerCase(Locale.ROOT).startsWith("data:"))
+                ssb.insert(end, "[" + source + "]");
+
             for (int i = start; i < end; i++)
-                if (ssb.charAt(i) == '\uFFFC')
-                    ssb.replace(i, i + 1, " ");
-            ssb.insert(end, "[" + source + "]");
+                if (ssb.charAt(i) == '\uFFFC') {
+                    ssb.delete(i, i + 1);
+                    end--;
+                }
         }
 
         // https://tools.ietf.org/html/rfc3676#section-4.5
