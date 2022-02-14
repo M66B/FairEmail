@@ -843,8 +843,14 @@ public class FragmentSetup extends FragmentBase {
         long account = args.getLong("account");
         String name = args.getString("name");
 
-        new AlertDialog.Builder(view.getContext())
-                .setIcon(R.drawable.twotone_warning_24)
+        final Context context = getContext();
+
+        Drawable d = context.getDrawable(R.drawable.twotone_warning_24);
+        d.mutate();
+        d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
+
+        new AlertDialog.Builder(context)
+                .setIcon(d)
                 .setTitle(name)
                 .setMessage(R.string.title_account_delete)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -878,7 +884,6 @@ public class FragmentSetup extends FragmentBase {
                     }
                 })
                 .show();
-
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
