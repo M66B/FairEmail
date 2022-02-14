@@ -100,6 +100,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private boolean subscriptions;
 
+    private int dp3;
     private int dp12;
     private float textSize;
     private int colorStripeWidth;
@@ -225,6 +226,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void bindTo(final TupleFolderEx folder) {
             boolean disabled = isDisabled(folder);
 
+            int p = (show_compact ? dp3 : 0);
+            view.setPadding(p, p, p, p);
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
             view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
 
@@ -1185,6 +1188,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.subscribed_only = prefs.getBoolean("subscribed_only", false) && subscriptions;
         this.sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
 
+        this.dp3 = Helper.dp2pixels(context, 3);
         this.dp12 = Helper.dp2pixels(context, 12);
         this.textSize = Helper.getTextSize(context, zoom);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
