@@ -122,6 +122,10 @@ public interface DaoOperation {
     int getOperationCount();
 
     @Query("SELECT COUNT(id) FROM operation" +
+            " WHERE name = :name")
+    int getOperationCount(String name);
+
+    @Query("SELECT COUNT(id) FROM operation" +
             " WHERE account = :account")
     int getOperationCount(long account);
 

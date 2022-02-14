@@ -2075,7 +2075,7 @@ public class Log {
                             messages += folder.messages;
                         }
 
-                        size += write(os, account.name +
+                        size += write(os, account.name + (account.primary ? "*" : "") +
                                 " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") + "/" + account.auth_type +
                                 " " + account.host + ":" + account.port + "/" + account.encryption +
                                 " sync=" + account.synchronize +
@@ -2086,6 +2086,7 @@ public class Log {
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " " + account.state +
                                 (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
+                                (account.error == null ? "" : "\r\n" + account.error) +
                                 "\r\n");
 
                         if (folders.size() > 0)
@@ -2110,6 +2111,24 @@ public class Log {
                         size += write(os, "\r\n");
                     }
                 }
+
+                for (EntityAccount account : accounts)
+                    if (account.synchronize) {
+                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                        for (EntityIdentity identity : identities)
+                            if (identity.synchronize) {
+                                size += write(os, account.name + "/" + identity.name + (identity.primary ? "*" : "") + " " +
+                                        identity.display + " " + identity.email + " " +
+                                        " " + identity.host + ":" + identity.port + "/" + identity.encryption +
+                                        " ops=" + db.operation().getOperationCount(EntityOperation.SEND) +
+                                        " " + identity.state +
+                                        (identity.last_connected == null ? "" : " " + dtf.format(identity.last_connected)) +
+                                        (identity.error == null ? "" : "\r\n" + identity.error) +
+                                        "\r\n");
+                            }
+                    }
+
+                size += write(os, "\r\n");
 
                 for (EntityAccount account : accounts) {
                     int ops = db.operation().getOperationCount(account.id);
