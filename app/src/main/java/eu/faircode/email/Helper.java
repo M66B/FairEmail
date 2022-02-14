@@ -157,6 +157,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Pattern;
 
 public class Helper {
+    private static Boolean hasWebView = null;
     private static Boolean hasPlayStore = null;
     private static Boolean hasValidFingerprint = null;
 
@@ -410,6 +411,12 @@ public class Helper {
     }
 
     static boolean hasWebView(Context context) {
+        if (hasWebView == null)
+            hasWebView = _hasWebView(context);
+        return hasWebView;
+    }
+
+    private static boolean _hasWebView(Context context) {
         try {
             PackageManager pm = context.getPackageManager();
             if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW)) {

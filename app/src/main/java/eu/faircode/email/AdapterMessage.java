@@ -2821,7 +2821,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
 
                     // Show AMP
-                    ibAmp.setVisibility(args.getBoolean("has_amp") ? View.VISIBLE : View.GONE);
+                    boolean has_amp = args.getBoolean("has_amp");
+                    ibAmp.setVisibility(has_amp && Helper.hasWebView(context)
+                            ? View.VISIBLE : View.GONE);
 
                     // Show encrypt actions
                     ibVerify.setVisibility(verifyable ? View.VISIBLE : View.GONE);
