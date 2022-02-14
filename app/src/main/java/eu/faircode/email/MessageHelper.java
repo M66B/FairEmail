@@ -2658,7 +2658,9 @@ public class MessageHelper {
         while (p + 1 < parts.size()) {
             MimeTextPart p1 = parts.get(p);
             MimeTextPart p2 = parts.get(p + 1);
-            if (p1.charset != null && p1.charset.equalsIgnoreCase(p2.charset) &&
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=1374149
+            if (!"ISO-2022-JP".equalsIgnoreCase(p1.charset) &&
+                    p1.charset != null && p1.charset.equalsIgnoreCase(p2.charset) &&
                     p1.encoding != null && p1.encoding.equalsIgnoreCase(p2.encoding)) {
                 try {
                     byte[] b1 = decodeWord(p1.text, p1.encoding, p1.charset);
