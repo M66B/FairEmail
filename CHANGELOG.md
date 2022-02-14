@@ -4,7 +4,7 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
-### Next version
+### 1.1837 - 2022-02-14
 
 * Added menu item to show plain text part
 * Added [AMP](https://amp.dev/about/email/) support
