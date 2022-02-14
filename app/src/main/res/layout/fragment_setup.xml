@@ -919,7 +919,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="@string/title_advanced_more"
+                    android:text="@string/title_setup_extra"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -950,6 +950,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnApp" />
 
+                <Button
+                    android:id="@+id/btnMore"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_more_horiz_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_more"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnDelete" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSupportHint"
                     android:layout_width="0dp"
@@ -960,7 +972,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnDelete" />
+                    app:layout_constraintTop_toBottomOf="@+id/btnMore" />
 
                 <Button
                     android:id="@+id/btnSupport"
@@ -973,6 +985,16 @@
                     android:text="@string/menu_faq"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSupportHint" />
+
+                <eu.faircode.email.FixedImageView
+                    android:id="@+id/ivExternal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnSupport"
+                    app:layout_constraintStart_toEndOf="@id/btnSupport"
+                    app:layout_constraintTop_toTopOf="@id/btnSupport"
+                    app:srcCompat="@drawable/twotone_open_in_new_24" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSupport"

@@ -113,6 +113,7 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnApp;
     private Button btnDelete;
+    private Button btnMore;
     private Button btnSupport;
 
     private Group grpInexactAlarms;
@@ -184,6 +185,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnApp = view.findViewById(R.id.btnApp);
         btnDelete = view.findViewById(R.id.btnDelete);
+        btnMore = view.findViewById(R.id.btnMore);
         btnSupport = view.findViewById(R.id.btnSupport);
 
         grpInexactAlarms = view.findViewById(R.id.grpInexactAlarms);
@@ -597,6 +599,14 @@ public class FragmentSetup extends FragmentBase {
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_DELETE_ACCOUNT);
                 fragment.show(getParentFragmentManager(), "setup:delete");
+            }
+        });
+
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_MORE));
             }
         });
 
