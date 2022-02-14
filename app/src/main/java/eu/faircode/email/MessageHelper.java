@@ -2782,6 +2782,15 @@ public class MessageHelper {
             return protected_subject;
         }
 
+        Integer isPlainOnly(boolean download_plain) {
+            Integer plain = isPlainOnly();
+            if (plain == null)
+                return null;
+            if (download_plain && plain == 0x80)
+                plain |= 1;
+            return plain;
+        }
+
         Integer isPlainOnly() {
             int html = 0;
             int plain = 0;

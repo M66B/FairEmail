@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -49,6 +50,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -256,6 +258,9 @@ public class ActivityEML extends ActivityBase {
 
                 Result result = new Result();
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean download_plain = prefs.getBoolean("download_plain", false);
+
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
 
@@ -275,7 +280,7 @@ public class ActivityEML extends ActivityBase {
                     result.subject = helper.getSubject();
                     result.parts = helper.getMessageParts(false);
 
-                    String html = result.parts.getHtml(context);
+                    String html = result.parts.getHtml(context, download_plain);
                     if (html != null) {
                         Document parsed = JsoupEx.parse(html);
                         HtmlHelper.autoLink(parsed);

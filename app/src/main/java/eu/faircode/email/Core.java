@@ -2674,6 +2674,7 @@ class Core {
         boolean sync_quick_pop = prefs.getBoolean("sync_quick_pop", true);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean download_eml = prefs.getBoolean("download_eml", false);
+        boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean pro = ActivityBilling.isPro(context);
 
         boolean force = jargs.optBoolean(5, false);
@@ -2963,7 +2964,7 @@ class Core {
 
                         boolean needsHeaders = EntityRule.needsHeaders(message, rules);
                         List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
-                        String body = parts.getHtml(context);
+                        String body = parts.getHtml(context, download_plain);
 
                         try {
                             db.beginTransaction();
@@ -2999,7 +3000,7 @@ class Core {
                         db.message().setMessageContent(message.id,
                                 true,
                                 message.language,
-                                parts.isPlainOnly(),
+                                parts.isPlainOnly(download_plain),
                                 message.preview,
                                 parts.getWarnings(message.warning));
 
@@ -3720,6 +3721,7 @@ class Core {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean download_headers = prefs.getBoolean("download_headers", false);
+        boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean experiments = prefs.getBoolean("experiments", false);
         boolean pro = ActivityBilling.isPro(context);
@@ -4030,7 +4032,7 @@ class Core {
             if (needsHeaders || needsBody)
                 Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
             List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
-            String body = (needsBody ? parts.getHtml(context) : null);
+            String body = (needsBody ? parts.getHtml(context, download_plain) : null);
 
             if (experiments && helper.isReport())
                 try {
@@ -4124,7 +4126,7 @@ class Core {
                 EntityContact.received(context, account, folder, message);
 
                 if (body == null && helper.isReport())
-                    body = parts.getHtml(context);
+                    body = parts.getHtml(context, download_plain);
 
                 // Download small messages inline
                 if (body != null || (download && !message.ui_hide)) {
@@ -4142,7 +4144,7 @@ class Core {
                             (MessageClassifier.isEnabled(context)) && folder.auto_classify_source)
                         try {
                             if (body == null)
-                                body = parts.getHtml(context);
+                                body = parts.getHtml(context, download_plain);
                             File file = message.getFile(context);
                             Helper.writeText(file, body);
                             String text = HtmlHelper.getFullText(body);
@@ -4151,7 +4153,7 @@ class Core {
                             db.message().setMessageContent(message.id,
                                     true,
                                     message.language,
-                                    parts.isPlainOnly(),
+                                    parts.isPlainOnly(download_plain),
                                     message.preview,
                                     parts.getWarnings(message.warning));
                             MessageClassifier.classify(message, folder, null, context);
@@ -4297,7 +4299,7 @@ class Core {
                 if (needsHeaders || needsBody)
                     Log.i(folder.name + " needs headers=" + needsHeaders + " body=" + needsBody);
                 List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
-                String body = (needsBody ? helper.getMessageParts().getHtml(context) : null);
+                String body = (needsBody ? helper.getMessageParts().getHtml(context, download_plain) : null);
 
                 try {
                     db.beginTransaction();

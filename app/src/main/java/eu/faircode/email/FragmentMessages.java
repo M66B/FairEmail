@@ -7368,7 +7368,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     String protect_subject = parts.getProtectedSubject();
 
                                     // Write decrypted body
-                                    String html = parts.getHtml(context);
+                                    boolean download_plain = prefs.getBoolean("download_plain", false);
+                                    String html = parts.getHtml(context, download_plain);
                                     Helper.writeText(message.getFile(context), html);
                                     Log.i("pgp html=" + (html == null ? null : html.length()));
 
@@ -7385,7 +7386,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         db.message().setMessageContent(message.id,
                                                 true,
                                                 message.language,
-                                                parts.isPlainOnly(),
+                                                parts.isPlainOnly(download_plain),
                                                 message.preview,
                                                 message.warning);
 
@@ -8076,7 +8077,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 MessageHelper.MessageParts parts = helper.getMessageParts();
 
                 // Write decrypted body
-                String html = parts.getHtml(context);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean download_plain = prefs.getBoolean("download_plain", false);
+                String html = parts.getHtml(context, download_plain);
                 Helper.writeText(message.getFile(context), html);
                 Log.i("s/mime html=" + (html == null ? null : html.length()));
 
@@ -8091,7 +8094,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.message().setMessageContent(message.id,
                             true,
                             message.language,
-                            parts.isPlainOnly(),
+                            parts.isPlainOnly(download_plain),
                             message.preview,
                             message.warning);
 

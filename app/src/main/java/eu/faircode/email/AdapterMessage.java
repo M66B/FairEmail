@@ -2568,6 +2568,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final boolean show_quotes = args.getBoolean("show_quotes");
                     final int zoom = args.getInt("zoom");
                     final float scale = args.getFloat("scale");
+                    final boolean download_plain = prefs.getBoolean("download_plain", false);
 
                     if (message == null || !message.content)
                         return null;
@@ -2613,7 +2614,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     embedded.received = helper.getSent();
                                 embedded.subject = helper.getSubject();
 
-                                String html = parts.getHtml(context);
+                                String html = parts.getHtml(context, download_plain);
                                 Document d = (html == null ? Document.createShell("") : JsoupEx.parse(html));
 
                                 Element div = document.createElement("div");

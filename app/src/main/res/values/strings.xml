@@ -412,6 +412,7 @@
     <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_download_headers">Download all message headers</string>
     <string name="title_advanced_download_eml">Download raw message files</string>
+    <string name="title_advanced_download_plain">Download plain text only parts by default (if available)</string>
     <string name="title_advanced_validated">Require a validated (checked) connection</string>
     <string name="title_advanced_vpn_only">Connect only via a VPN</string>
     <string name="title_advanced_timeout">Connection timeout (seconds)</string>
