@@ -58,7 +58,7 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect_1charset(
     const char *name = MimeEncodingName(encoding);
 
     log_android(ANDROID_LOG_DEBUG,
-                "MMM detect=%d/%s bytes=%d reliable=%d"
+                "detect=%d/%s bytes=%d reliable=%d"
                 " ref=%s/%s lang=%s/%s",
                 encoding, name, bytes_consumed, is_reliable,
                 EncodingName(encoding_hint), ref, LanguageCode(language_hint), lang);
