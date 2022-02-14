@@ -28,6 +28,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -514,10 +515,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibResetLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(view.getContext())
+                Locale system = Resources.getSystem().getConfiguration().locale;
+                new AlertDialog.Builder(v.getContext())
                         .setIcon(R.drawable.twotone_help_24)
-                        .setTitle(R.string.title_advanced_language_system)
-                        .setMessage(R.string.title_advanced_english_hint)
+                        .setTitle(system.getDisplayName(system))
+                        .setMessage(Helper.getString(v.getContext(), system, R.string.title_advanced_english_hint))
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
