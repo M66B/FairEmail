@@ -19,7 +19,7 @@
             android:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_advanced_nav_hide_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

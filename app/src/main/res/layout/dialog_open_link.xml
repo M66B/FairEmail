@@ -270,7 +270,7 @@
             android:layout_height="wrap_content"
             android:text="example.org"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle" />
@@ -281,7 +281,7 @@
             android:layout_height="wrap_content"
             android:text="Cloudflare"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHost" />
@@ -317,11 +317,11 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            android:drawableTint="?android:textColorLink"
+            android:drawableTint="?android:attr/textColorLink"
             android:focusable="false"
             android:text="@string/title_reset_open"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:textColorLink"
+            android:textColor="?android:attr/textColorLink"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDefault" />
