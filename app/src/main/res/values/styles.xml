@@ -376,12 +376,19 @@
 
         <item name="android:textColor">@color/bw_textcolor</item>
         <item name="android:textColorPrimary">@color/bw_textcolor</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/bw_textcolor</item>
         <item name="android:textColorSecondary">@color/bw_textcolor</item>
         <item name="android:textColorTertiary">@color/bw_textcolor</item>
         <item name="android:textColorPrimaryInverse">@color/bw_textcolor_inverse</item>
         <item name="android:textColorSecondaryInverse">@color/bw_textcolor_inverse</item>
         <item name="android:textColorTertiaryInverse">@color/bw_textcolor_inverse</item>
         <item name="android:textColorLink">@color/lightBluePrimary</item>
+        <item name="android:textColorLinkInverse">@color/lightBluePrimary</item>
+        <item name="android:textColorHint">@color/bw_textcolor</item>
+        <item name="android:textColorHintInverse">@color/bw_textcolor_inverse</item>
+        <item name="android:textColorAlertDialogListItem">@color/bw_textcolor</item>
+        <item name="android:textColorHighlight">@color/lightBluePrimary</item>
+        <item name="android:textColorHighlightInverse">@color/lightBluePrimary</item>
 
         <item name="colorRead">@color/white</item>
         <item name="colorUnread">@color/white</item>
