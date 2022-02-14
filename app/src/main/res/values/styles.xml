@@ -150,6 +150,7 @@
         <item name="colorInfoBackground">@color/lightBluePrimary</item>
 
         <item name="android:textColorLink">@color/lightAmberAccentDark</item>
+        <item name="android:textColorLinkInverse">@color/lightAmberAccentDark</item>
     </style>
 
     <style name="AppThemeOrangeBlueLight" parent="AppThemeBaseLight">
@@ -165,6 +166,7 @@
         <item name="colorInfoBackground">@color/lightAmberPrimary</item>
 
         <item name="android:textColorLink">@color/lightBlueAccent</item>
+        <item name="android:textColorLinkInverse">@color/lightBlueAccent</item>
     </style>
 
     <style name="AppThemeYellowPurpleLight" parent="AppThemeBaseLight">
@@ -180,6 +182,7 @@
         <item name="colorInfoBackground">@color/lightYellowPrimary</item>
 
         <item name="android:textColorLink">@color/lightPurpleAccent</item>
+        <item name="android:textColorLinkInverse">@color/lightPurpleAccent</item>
     </style>
 
     <style name="AppThemePurpleYellowLight" parent="AppThemeBaseLight">
@@ -195,6 +198,7 @@
         <item name="colorInfoBackground">@color/lightPurplePrimary</item>
 
         <item name="android:textColorLink">@color/lightYellowAccent</item>
+        <item name="android:textColorLinkInverse">@color/lightYellowAccent</item>
     </style>
 
     <style name="AppThemeRedGreenLight" parent="AppThemeBaseLight">
@@ -210,6 +214,7 @@
         <item name="colorInfoBackground">@color/lightRedPrimary</item>
 
         <item name="android:textColorLink">@color/lightGreenAccent</item>
+        <item name="android:textColorLinkInverse">@color/lightGreenAccent</item>
     </style>
 
     <style name="AppThemeGreenRedLight" parent="AppThemeBaseLight">
@@ -225,6 +230,7 @@
         <item name="colorInfoBackground">@color/lightGreenPrimary</item>
 
         <item name="android:textColorLink">@color/lightRedAccent</item>
+        <item name="android:textColorLinkInverse">@color/lightRedAccent</item>
     </style>
 
     <!-- Dark -->
@@ -268,6 +274,7 @@
         <item name="colorInfoBackground">@color/darkYellowPrimary</item>
 
         <item name="android:textColorLink">@color/darkPurpleAccent</item>
+        <item name="android:textColorLinkInverse">@color/darkPurpleAccent</item>
     </style>
 
     <style name="AppThemePurpleYellowDark" parent="AppThemeBaseDark">
@@ -283,6 +290,7 @@
         <item name="colorInfoBackground">@color/darkPurplePrimary</item>
 
         <item name="android:textColorLink">@color/darkYellowAccent</item>
+        <item name="android:textColorLinkInverse">@color/darkYellowAccent</item>
     </style>
 
     <style name="AppThemeRedGreenDark" parent="AppThemeBaseDark">
@@ -298,6 +306,7 @@
         <item name="colorInfoBackground">@color/darkRedPrimary</item>
 
         <item name="android:textColorLink">@color/darkGreenAccent</item>
+        <item name="android:textColorLinkInverse">@color/darkGreenAccent</item>
     </style>
 
     <style name="AppThemeGreenRedDark" parent="AppThemeBaseDark">
@@ -313,6 +322,7 @@
         <item name="colorInfoBackground">@color/darkGreenPrimary</item>
 
         <item name="android:textColorLink">@color/darkRedAccent</item>
+        <item name="android:textColorLinkInverse">@color/darkRedAccent</item>
     </style>
 
     <!-- Black -->
@@ -454,6 +464,7 @@
         <item name="colorInfoBackground">@color/darkSolarizedAccent</item>
 
         <item name="android:textColorLink">@color/darkSolarizedAccent</item>
+        <item name="android:textColorLinkInverse">@color/darkSolarizedAccent</item>
 
         <item name="colorCardBackground">@color/lightSolarizedPaper</item>
         <item name="android:windowBackground">@drawable/background_white</item>
@@ -477,6 +488,7 @@
         <item name="colorInfoBackground">@color/darkSolarizedAccent</item>
 
         <item name="android:textColorLink">@color/darkSolarizedAccent</item>
+        <item name="android:textColorLinkInverse">@color/darkSolarizedAccent</item>
 
         <item name="colorCardBackground">@color/darkSolarizedPrimaryDark</item>
         <item name="android:windowBackground">@drawable/background_black</item>
