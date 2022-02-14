@@ -190,7 +190,7 @@ public class CharsetHelper {
                 Log.e("compact_enc_det result=" + detected + " chinese=" + chinese);
                 if (!chinese)
                     return null;
-            } else // GBK, Big5, ISO-2022-JP, HZ-GB-2312, Shift_JIS, x-binaryenc
+            } else // GBK, Big5, ISO-2022-JP, HZ-GB-2312, Shift_JIS, x-binaryenc, EUC-KR
                 Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected.charset);
