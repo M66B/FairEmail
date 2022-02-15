@@ -2175,6 +2175,7 @@
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
+        <item>15 s</item>
     </string-array>
 
     <integer-array name="undoValues" translatable="false">
@@ -2183,6 +2184,7 @@
         <item>5000</item>
         <item>7500</item>
         <item>10000</item>
+        <item>15000</item>
     </integer-array>
 
     <string-array name="fontNameNames">
