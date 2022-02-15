@@ -2771,6 +2771,10 @@ public class HtmlHelper {
                             (i == 0 || endsWithSpace(block.get(i - 1).text())))
                         text = text.substring(1);
 
+                    // Soft hyphen
+                    if (text.trim().equals("\u00ad"))
+                        text = "";
+
                     tnode.text(text);
 
                     if (TextUtils.isEmpty(text))
