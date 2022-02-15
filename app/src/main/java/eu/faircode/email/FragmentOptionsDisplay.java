@@ -1328,14 +1328,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
 
         String sender_ellipsize = prefs.getString("sender_ellipsize", "end");
-        for (int pos = 0; pos < startupValues.length; pos++)
+        for (int pos = 0; pos < ellipsizeValues.length; pos++)
             if (ellipsizeValues[pos].equals(sender_ellipsize)) {
                 spSenderEllipsize.setSelection(pos);
                 break;
             }
 
         String subject_ellipsize = prefs.getString("subject_ellipsize", "full");
-        for (int pos = 0; pos < startupValues.length; pos++)
+        for (int pos = 0; pos < ellipsizeValues.length; pos++)
             if (ellipsizeValues[pos].equals(subject_ellipsize)) {
                 spSubjectEllipsize.setSelection(pos);
                 break;
