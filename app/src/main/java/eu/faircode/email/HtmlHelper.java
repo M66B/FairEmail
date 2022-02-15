@@ -3220,6 +3220,13 @@ public class HtmlHelper {
                             setSpan(ssb, StyleHelper.getTypefaceSpan("Cousine", context), start, ssb.length());
                     } catch (Throwable ex) {
                         Log.e(ex);
+                        if (BuildConfig.DEBUG || debug) {
+                            int s = ssb.length();
+                            ssb.append(ex.toString()).append('\n')
+                                    .append(android.util.Log.getStackTraceString(ex)).append('\n');
+                            setSpan(ssb, StyleHelper.getTypefaceSpan("Cousine", context), s, ssb.length());
+                            setSpan(ssb, new RelativeSizeSpan(HtmlHelper.FONT_SMALL), s, ssb.length());
+                        }
                     }
 
                     if ("true".equals(element.attr("x-block")))
