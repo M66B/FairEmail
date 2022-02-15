@@ -2763,9 +2763,6 @@ public class HtmlHelper {
                         continue;
                     }
 
-                    // &shy;
-                    text = text.replace("\u00ad", "");
-
                     // Fold white space
                     text = FOLD_WHITESPACE.matcher(text).replaceAll(" ");
 
