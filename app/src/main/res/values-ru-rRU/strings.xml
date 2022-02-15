@@ -1815,7 +1815,7 @@
         <item>5 сек.</item>
         <item>7,5 сек.</item>
         <item>10 сек.</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 сек.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

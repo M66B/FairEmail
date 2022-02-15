@@ -1720,7 +1720,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>5 detik</item>
         <item>7.5 detik</item>
         <item>10 detik</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 detik</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

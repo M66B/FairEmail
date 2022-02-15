@@ -844,6 +844,7 @@
     <string name="title_delete_operation_deleted">%1$d operaciones eliminadas</string>
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
+    <string name="title_check_operations">Comprobando operaciones</string>
     <string name="title_hint_operations">Eliminar operaciones puede resultar en la desaparición de mensajes y problemas de sincronización</string>
     <string name="title_op_title_headers">Descargando encabezados</string>
     <string name="title_op_title_raw">Descargando mensaje sin procesar</string>

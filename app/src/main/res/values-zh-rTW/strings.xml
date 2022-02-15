@@ -1752,7 +1752,7 @@
         <item>5 秒</item>
         <item>7.5 秒</item>
         <item>10 秒</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草書</item>

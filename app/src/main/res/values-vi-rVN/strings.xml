@@ -335,6 +335,7 @@
     <string name="title_advanced_rlah">Chuyển vùng như ở nhà</string>
     <string name="title_advanced_download_headers">Tải xuống tất cả tiêu đề thư</string>
     <string name="title_advanced_download_eml">Tải xuống các tệp thư thô</string>
+    <string name="title_advanced_download_plain">Tải xuống các phần chỉ gồm văn bản thuần theo mặc định (nếu có)</string>
     <string name="title_advanced_validated">Yêu cầu kết nối đã xác minh (đã kiểm tra)</string>
     <string name="title_advanced_vpn_only">Kết nối chỉ qua VPN</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
@@ -606,6 +607,7 @@
     <string name="title_advanced_metered_warning">Việc tắt tuỳ chọn này sẽ tắt việc nhận và gửi thư khi dùng kết nối internet di động</string>
     <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
     <string name="title_advanced_usage_hint">Cái này sẽ làm tăng sử dụng pin, dữ liệu và không gian bộ nhớ</string>
+    <string name="title_advanced_plain_hint">Việc bật cái này sẽ giới hạn sử dụng dữ liệu, nhưng thư sẽ được hiện mà không được tạo kiểu</string>
     <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra các vấn đề kết nối ở một số thiết bị</string>
     <string name="title_advanced_validate_hint">Cái này có thể dẫn đến không đồng bộ hoá thư, ví dụ khi sử dụng VPN, nhưng cũng trong các trường hợp khác</string>
     <string name="title_advanced_timeout_hint">Thời gian chờ đọc/ghi sẽ được đặt thành gấp đôi thời gian chờ kết nối. Các giá trị cao hơn sẽ dẫn đến hao pin nhiều hơn.</string>
@@ -833,6 +835,7 @@
     <string name="title_delete_operation_deleted">%1$d hoạt động đã xoá</string>
     <string name="title_delete_contacts">Xoá tất cả liên hệ cục bộ?</string>
     <string name="title_no_operations">Không có hoạt động đang chờ</string>
+    <string name="title_check_operations">Đang kiểm tra hoạt động</string>
     <string name="title_hint_operations">Việc xoá các hoạt động có thể dẫn đến biến mất thư và các vấn đề đồng bộ hoá</string>
     <string name="title_op_title_headers">Đang tải xuống tiêu đề</string>
     <string name="title_op_title_raw">Đang tải xuống thư thô</string>
@@ -1767,7 +1770,7 @@
         <item>5 giây</item>
         <item>7.5 giây</item>
         <item>10 giây</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 giây</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Chữ viết tay</item>

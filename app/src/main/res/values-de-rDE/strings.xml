@@ -617,7 +617,7 @@
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_usage_hint">Das erhöht die Akku-, Daten- und Speicherplatzauslastung</string>
-    <string name="title_advanced_plain_hint">Aktivieren wird den Datenverbrauch begrenzen, aber Nachrichten werden ohne Styling angezeigt</string>
+    <string name="title_advanced_plain_hint">Wenn Sie diese Option aktivieren, wird der Datenverbrauch reduziert, aber Nachrichten werden ohne Formatierung angezeigt.</string>
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen</string>
     <string name="title_advanced_validate_hint">Dies kann dazu führen, dass Nachrichten nicht synchronisiert werden, zum Beispiel bei der Verwendung eines VPN, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
@@ -845,6 +845,7 @@
     <string name="title_delete_operation_deleted">%1$d Vorgänge gelöscht</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
+    <string name="title_check_operations">Auf Vorgänge wird geprüft</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
     <string name="title_op_title_headers">Kopfzeilen werden heruntergeladen</string>
     <string name="title_op_title_raw">Rohdaten der Nachricht werden heruntergeladen</string>
