@@ -3507,10 +3507,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             String type = attachment.getMimeType();
                             String title = (attachment.name == null ? file.getName() : attachment.name);
 
-                            // Fix mime type
-                            if ("image/jpg".equals(type))
-                                type = "image/jpeg";
-
                             ContentValues values = new ContentValues();
                             values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/" + folder);
                             values.put(MediaStore.Images.Media.TITLE, title);

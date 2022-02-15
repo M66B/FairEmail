@@ -242,7 +242,7 @@ public class EntityAttachment {
             return "audio/midi";
 
         // https://www.rfc-editor.org/rfc/rfc3555.txt
-        if ("video/jpeg".equals(type))
+        if ("image/jpg".equals(type) || "video/jpeg".equals(type))
             return "image/jpeg";
 
         if (!TextUtils.isEmpty(type) &&
