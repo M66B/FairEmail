@@ -1011,6 +1011,7 @@
     <string name="title_delete_operation_deleted">%1$d operations deleted</string>
     <string name="title_delete_contacts">Delete all local contacts?</string>
     <string name="title_no_operations">No pending operations</string>
+    <string name="title_check_operations">Checking for operations</string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronization problems</string>
     <string name="title_op_title_headers">Downloading headers</string>
     <string name="title_op_title_raw">Downloading raw message</string>
