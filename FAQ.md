@@ -2759,7 +2759,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq87)
 
 The error message *invalid credentials* means either that the user name and/or password is incorrect,
-for example because the password was changed or expired, or that the account authorization has expired.
+for example because the password was changed or expired, or that the account authorization has expired, for example due to logging out.
 
 If the password is incorrect/expired, you will have to update the password in the account and/or identity settings.
 
