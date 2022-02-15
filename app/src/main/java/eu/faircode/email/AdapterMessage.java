@@ -34,6 +34,7 @@ import android.app.RemoteAction;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -53,6 +54,7 @@ import android.os.LocaleList;
 import android.os.Parcelable;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Html;
 import android.text.Spannable;
@@ -155,6 +157,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
@@ -480,6 +483,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnCalendarMaybe;
         private ContentLoadingProgressBar pbCalendarWait;
 
+        private ImageButton ibStoreMedia;
         private ImageButton ibShareImages;
         private RecyclerView rvImage;
 
@@ -862,6 +866,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeenBottom = vsBody.findViewById(R.id.ibSeenBottom);
             flow = vsBody.findViewById(R.id.flow);
 
+            ibStoreMedia = vsBody.findViewById(R.id.ibStoreMedia);
             ibShareImages = vsBody.findViewById(R.id.ibShareImages);
             rvImage = vsBody.findViewById(R.id.rvImage);
             rvImage.setHasFixedSize(false);
@@ -1001,6 +1006,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarDecline.setOnLongClickListener(this);
                 btnCalendarMaybe.setOnLongClickListener(this);
 
+                ibStoreMedia.setOnClickListener(this);
                 ibShareImages.setOnClickListener(this);
             }
 
@@ -1106,6 +1112,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarDecline.setOnLongClickListener(null);
                 btnCalendarMaybe.setOnLongClickListener(null);
 
+                ibStoreMedia.setOnClickListener(null);
                 ibShareImages.setOnClickListener(null);
             }
 
@@ -1644,6 +1651,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibArchiveBottom.setVisibility(View.GONE);
             ibMoveBottom.setVisibility(View.GONE);
             ibSeenBottom.setVisibility(View.GONE);
+
+            ibStoreMedia.setVisibility(View.GONE);
         }
 
         private void clearActions() {
@@ -3110,6 +3119,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
+            ibStoreMedia.setVisibility(
+                    images.size() > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+                            ? View.VISIBLE : View.GONE);
         }
 
         private void bindCalendar(final TupleMessageEx message, EntityAttachment attachment) {
@@ -3459,6 +3471,103 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:participation");
         }
 
+        private void onStoreMedia(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Uri>() {
+                @Override
+                @RequiresApi(api = Build.VERSION_CODES.Q)
+                protected Uri onExecute(Context context, Bundle args) throws IOException {
+                    long id = args.getLong("id");
+
+                    ContentResolver resolver = context.getContentResolver();
+                    Uri collection = MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY);
+                    String folder = context.getString(R.string.app_name);
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    if (attachments == null || attachments.size() == 0)
+                        return null;
+
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.available &&
+                                attachment.isAttachment() && attachment.isImage()) {
+
+                            // Check is exists
+                            if (attachment.media_uri != null) {
+                                Uri uri = Uri.parse(attachment.media_uri);
+                                try (Cursor cursor = resolver.query(uri, null, null, null, null)) {
+                                    if (cursor.moveToFirst())
+                                        continue;
+                                }
+                            }
+
+                            File file = attachment.getFile(context);
+                            String type = attachment.getMimeType();
+                            String title = (attachment.name == null ? file.getName() : attachment.name);
+
+                            // Fix mime type
+                            if ("image/jpg".equals(type))
+                                type = "image/jpeg";
+
+                            ContentValues values = new ContentValues();
+                            values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/" + folder);
+                            values.put(MediaStore.Images.Media.TITLE, title);
+                            values.put(MediaStore.Images.Media.DISPLAY_NAME, title);
+                            values.put(MediaStore.Images.Media.MIME_TYPE, type);
+                            values.put(MediaStore.Images.Media.IS_PENDING, 1);
+
+                            Uri uri = resolver.insert(collection, values);
+                            if (uri == null)
+                                return null;
+
+                            InputStream is = null;
+                            OutputStream os = null;
+                            try {
+                                is = new FileInputStream(file);
+                                os = resolver.openOutputStream(uri);
+                                Helper.copy(is, os);
+                            } finally {
+                                try {
+                                    if (is != null)
+                                        is.close();
+                                } finally {
+                                    if (os != null)
+                                        os.close();
+                                }
+                            }
+
+                            values.clear();
+                            values.put(MediaStore.Images.Media.IS_PENDING, 0);
+                            values.put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
+                            resolver.update(uri, values, null, null);
+
+                            db.attachment().setMediaUri(attachment.id, uri.toString());
+                        }
+
+                    return collection;
+                }
+
+                @Override
+                @RequiresApi(api = Build.VERSION_CODES.Q)
+                protected void onExecuted(Bundle args, Uri uri) {
+                    if (uri == null)
+                        return;
+                    Intent view = new Intent(Intent.ACTION_VIEW)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .setDataAndType(uri, "image/*");
+                    context.startActivity(
+                            Intent.createChooser(view, context.getString(R.string.title_select)));
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "images:store");
+        }
+
         private void onShareImages(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
@@ -3475,7 +3584,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ArrayList<Uri> result = new ArrayList<>();
                     for (EntityAttachment attachment : attachments)
-                        if (attachment.isAttachment() && attachment.isImage()) {
+                        if (attachment.available &&
+                                attachment.isAttachment() && attachment.isImage()) {
                             File file = attachment.getFile(context);
                             Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                             result.add(uri);
@@ -3501,7 +3611,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
-            }.execute(context, owner, args, "attachments:share");
+            }.execute(context, owner, args, "images:share");
         }
 
         private boolean isOutgoing(TupleMessageEx message) {
@@ -3684,6 +3794,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onMenuSetImportance(message, importance);
                 } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe || id == R.id.ibCalendar) {
                     onActionCalendar(message, view.getId(), false);
+                } else if (id == R.id.ibStoreMedia) {
+                    onStoreMedia(message);
                 } else if (id == R.id.ibShareImages) {
                     onShareImages(message);
                 } else {

@@ -82,6 +82,7 @@ public class EntityAttachment {
     public Integer progress;
     @NonNull
     public Boolean available = false;
+    public String media_uri;
     public String error;
 
     // Gmail sends inline images as attachments with a name and cid

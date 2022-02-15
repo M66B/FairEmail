@@ -122,6 +122,12 @@ public interface DaoAttachment {
     void setCid(long id, String cid, Boolean related);
 
     @Query("UPDATE attachment" +
+            " SET media_uri = :media_uri" +
+            " WHERE id = :id" +
+            " AND NOT (media_uri IS :media_uri)")
+    void setMediaUri(long id, String media_uri);
+
+    @Query("UPDATE attachment" +
             " SET available = 0" +
             " WHERE NOT (available IS 0)" +
             " AND EXISTS" +
