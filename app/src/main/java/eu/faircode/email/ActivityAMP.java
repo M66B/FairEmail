@@ -87,12 +87,13 @@ public class ActivityAMP extends ActivityBase {
         grpReady = findViewById(R.id.grpReady);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
         WebSettings settings = wvAmp.getSettings();
         settings.setUserAgentString(WebViewEx.getUserAgent(this, wvAmp));
         settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
+        settings.setLoadWithOverviewMode(overview_mode);
 
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
