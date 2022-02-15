@@ -3226,6 +3226,8 @@ public class HtmlHelper {
                                     .append(android.util.Log.getStackTraceString(ex)).append('\n');
                             setSpan(ssb, StyleHelper.getTypefaceSpan("Cousine", context), s, ssb.length());
                             setSpan(ssb, new RelativeSizeSpan(HtmlHelper.FONT_SMALL), s, ssb.length());
+                            int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+                            setSpan(ssb, new ForegroundColorSpan(colorWarning), s, ssb.length());
                         }
                     }
 
