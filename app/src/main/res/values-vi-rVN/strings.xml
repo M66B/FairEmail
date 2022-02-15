@@ -191,6 +191,7 @@
     <string name="title_setup_error">Lỗi</string>
     <string name="title_setup_configuring">Đang thiết lập tài khoản &#8230;</string>
     <string name="title_setup_app_password">Bạn có thể cần phải sử dụng mật khẩu ứng dụng</string>
+    <string name="title_setup_extra">Thêm</string>
     <string name="title_setup_close">Đóng cài đặt</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
@@ -1766,6 +1767,7 @@
         <item>5 giây</item>
         <item>7.5 giây</item>
         <item>10 giây</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Chữ viết tay</item>

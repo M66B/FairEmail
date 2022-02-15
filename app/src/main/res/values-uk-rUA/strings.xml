@@ -222,7 +222,7 @@
     <string name="title_setup_error">Помилка</string>
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
     <string name="title_setup_app_password">Можливо, Ви повинні використовувати пароль для додатку</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Додатково</string>
+    <string name="title_setup_extra">Додатково</string>
     <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
@@ -1809,6 +1809,7 @@
         <item>5 с</item>
         <item>7,5 с</item>
         <item>10 с</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

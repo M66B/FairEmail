@@ -201,6 +201,7 @@
     <string name="title_setup_error">Fel</string>
     <string name="title_setup_configuring">Konfigurerar konto &#8230;</string>
     <string name="title_setup_app_password">Du kan behöva använda ett applösenord</string>
+    <string name="title_setup_extra">Extra</string>
     <string name="title_setup_close">Stäng inställningar</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
@@ -341,6 +342,7 @@
     <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_download_headers">Ladda ner meddelande-huvuden</string>
     <string name="title_advanced_download_eml">Ladda ner råa meddelande-filer</string>
+    <string name="title_advanced_download_plain">Ladda ner delar med ren text som standard (om tillgängligt)</string>
     <string name="title_advanced_validated">Kräv en validerad (kontrollerad) anslutning</string>
     <string name="title_advanced_vpn_only">Anslut endast via VPN</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
@@ -613,6 +615,7 @@
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
     <string name="title_advanced_usage_hint">Det här kommer att öka användningen av batteri, data och lagringsutrymme</string>
+    <string name="title_advanced_plain_hint">Aktivering av detta kommer att begränsa dataanvändningen, men meddelanden kommer att visas utan formatering</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
@@ -840,6 +843,7 @@
     <string name="title_delete_operation_deleted">%1$d åtgärder raderade</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>
+    <string name="title_check_operations">Söker efter aktiviteter</string>
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
     <string name="title_op_title_headers">Laddar ner rubriker</string>
     <string name="title_op_title_raw">Hämtar rådata för meddelande</string>
@@ -1782,6 +1786,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursivt</item>

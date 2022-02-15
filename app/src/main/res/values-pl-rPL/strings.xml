@@ -221,7 +221,7 @@
     <string name="title_setup_error">Błąd</string>
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_app_password">Może być konieczne użycie hasła aplikacji</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Extra</string>
+    <string name="title_setup_extra">Dodatkowe opcje</string>
     <string name="title_setup_close">Zamknij ustawienia</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
@@ -365,6 +365,7 @@
     <string name="title_advanced_rlah">Roaming jak w domu</string>
     <string name="title_advanced_download_headers">Pobierz wszystkie nagłówki wiadomości</string>
     <string name="title_advanced_download_eml">Pobierz nieprzetworzone pliki wiadomości</string>
+    <string name="title_advanced_download_plain">Domyślnie pobieraj tylko części w postaci zwykłego tekstu (jeśli jest dostępny)</string>
     <string name="title_advanced_validated">Wymagaj zweryfikowanego (sprawdzonego) połączenia</string>
     <string name="title_advanced_vpn_only">Połącz tylko przez VPN</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
@@ -637,6 +638,7 @@
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
     <string name="title_advanced_usage_hint">Zwiększy to zużycie baterii, danych i przestrzeni dyskowej</string>
+    <string name="title_advanced_plain_hint">Włączenie tej opcji ograniczy wykorzystanie danych, ale wiadomości będą wyświetlane bez stylizacji</string>
     <string name="title_advanced_tcp_keep_alive_hint">Włączenie tego może powodować problemy z połączeniem na niektórych urządzeniach</string>
     <string name="title_advanced_validate_hint">Może to skutkować brakiem synchronizacji wiadomości, na przykład podczas korzystania z VPN, ale również w innych sytuacjach</string>
     <string name="title_advanced_timeout_hint">Limit czasu odczytu/zapisu zostanie ustawiony na dwukrotność limitu czasu połączenia. Wyższe wartości spowodują większe zużycie baterii.</string>
@@ -864,6 +866,7 @@
     <string name="title_delete_operation_deleted">Usuniętych operacji - %1$d</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
+    <string name="title_check_operations">Sprawdzanie operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
     <string name="title_op_title_headers">Pobieranie nagłówków</string>
     <string name="title_op_title_raw">Pobieranie nieprzetworzonej wiadomości</string>
@@ -1808,6 +1811,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursywa</item>

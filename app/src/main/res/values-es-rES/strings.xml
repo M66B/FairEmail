@@ -201,7 +201,7 @@
     <string name="title_setup_error">Error</string>
     <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
     <string name="title_setup_app_password">Puede que necesite usar una contraseña de aplicación</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Opciones adicionales</string>
+    <string name="title_setup_extra">Opciones adicionales</string>
     <string name="title_setup_close">Cerrar ajustes</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
@@ -1033,6 +1033,7 @@
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
     <string name="title_ask_show_amp">Mostrar variante AMP del mensaje?</string>
+    <string name="title_ask_show_amp_hint">Los mensajes AMP están diseñados para ser dinámicos e interactuar con Internet y por lo tanto pueden utilizarse por definición para rastrearle</string>
     <string name="title_ask_delete_local">¿Borrar mensajes locales? Los mensajes permanecerán en el servidor remoto.</string>
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
@@ -1334,6 +1335,7 @@
     <string name="title_rule_thread">Todos los mensajes en la misma conversación y carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_template">Plantilla de respuesta</string>
+    <string name="title_rule_answer_subject">Usar nombre de plantilla como asunto</string>
     <string name="title_rule_original_text">Incluir el texto del mensaje original</string>
     <string name="title_rule_forward_to">Reenviar a</string>
     <string name="title_rule_cc">Responder a direcciones en CC</string>
@@ -1461,6 +1463,7 @@
     <string name="title_legend_show_unsubscribe">Desuscribirse de la lista</string>
     <string name="title_legend_show_images">Mostrar imágenes</string>
     <string name="title_legend_hide_images">Ocultar imágenes</string>
+    <string name="title_legend_show_amp">Mostrar variante AMP</string>
     <string name="title_legend_show_full">Mostrar mensaje original</string>
     <string name="title_legend_show_reformatted">Mostrar mensaje reformateado</string>
     <string name="title_legend_edit">Editar</string>
@@ -1782,6 +1785,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursiva</item>

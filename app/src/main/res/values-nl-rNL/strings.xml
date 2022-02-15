@@ -200,7 +200,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_error">Fout</string>
     <string name="title_setup_configuring">Account configureren &#8230;</string>
     <string name="title_setup_app_password">Mogelijk moet u een app-wachtwoord gebruiken</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Extra</string>
+    <string name="title_setup_extra">Extra</string>
     <string name="title_setup_close">Sluit instellingen</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
@@ -344,6 +344,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_download_headers">Download alle berichtkoppen</string>
     <string name="title_advanced_download_eml">Ruwe berichtbestanden downloaden</string>
+    <string name="title_advanced_download_plain">Standaard alleen platte tekst delen downloaden (indien beschikbaar)</string>
     <string name="title_advanced_validated">Vereis een gevalideerde (gecontroleerde) verbinding</string>
     <string name="title_advanced_vpn_only">Alleen via een VPN verbinden</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
@@ -616,6 +617,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
     <string name="title_advanced_usage_hint">Dit zal het gebruik van de batterij, gegevens en opslagruimte verhogen</string>
+    <string name="title_advanced_plain_hint">Dit inschakelen zal het gegevensgebruik beperken, maar berichten zullen worden weergegeven zonder opmaak</string>
     <string name="title_advanced_tcp_keep_alive_hint">Dit inschakelen kan verbindingsproblemen veroorzaken op sommige apparaten</string>
     <string name="title_advanced_validate_hint">Dit kan resulteren in het niet synchroniseren van berichten, bijvoorbeeld bij het gebruik van een VPN, maar ook in andere situaties</string>
     <string name="title_advanced_timeout_hint">De lees/schrijf time-out wordt ingesteld op de dubbele waarde van de verbinding time-out. Hogere waarden zullen leiden tot meer batterijgebruik.</string>
@@ -842,6 +844,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_delete_operation_deleted">%1$d bewerkingen verwijderd</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
+    <string name="title_check_operations">Controleren op bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>
     <string name="title_op_title_headers">Headers downloaden</string>
     <string name="title_op_title_raw">Ruw bericht downloaden</string>
@@ -1780,6 +1783,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Schrijfletter</item>

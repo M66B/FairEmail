@@ -201,6 +201,7 @@
     <string name="title_setup_error">Fejl</string>
     <string name="title_setup_configuring">Opsætter konto &#8230;</string>
     <string name="title_setup_app_password">En app-adgangskode skal muligvis benyttes</string>
+    <string name="title_setup_extra">Ekstra</string>
     <string name="title_setup_close">Luk indstillinger</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
@@ -1788,6 +1789,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

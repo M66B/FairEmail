@@ -191,7 +191,7 @@
     <string name="title_setup_error">出错</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_app_password">您可能需要使用 app 密码</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">更多</string>
+    <string name="title_setup_extra">更多</string>
     <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
@@ -335,6 +335,7 @@
     <string name="title_advanced_rlah">欧盟 Roam like at home</string>
     <string name="title_advanced_download_headers">下载所有消息标题</string>
     <string name="title_advanced_download_eml">下载原始消息文件</string>
+    <string name="title_advanced_download_plain">默认只下载纯文本部分（如果可用）</string>
     <string name="title_advanced_validated">仅限通过检查的已验证连接</string>
     <string name="title_advanced_vpn_only">仅通过 VPN 连接</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
@@ -607,6 +608,7 @@
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假设欧盟境内不存在漫游</string>
     <string name="title_advanced_usage_hint">这将增加电池、数据和存储空间的使用</string>
+    <string name="title_advanced_plain_hint">启用此选项将限制数据使用量，但邮件将不会显示样式</string>
     <string name="title_advanced_tcp_keep_alive_hint">启用此选项可能会在某些设备上造成连接问题</string>
     <string name="title_advanced_validate_hint">这可能导致消息停止同步，例如使用 VPN 或其他某些情况下</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
@@ -833,6 +835,7 @@
     <string name="title_delete_operation_deleted">%1$d 个操作已删除</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
+    <string name="title_check_operations">正在检查操作</string>
     <string name="title_hint_operations">删除这些操作可能弄丢相应消息和导致同步问题</string>
     <string name="title_op_title_headers">正在下载信头</string>
     <string name="title_op_title_raw">正在下载原始消息</string>
@@ -1772,6 +1775,7 @@
         <item>5 秒</item>
         <item>7.5 秒</item>
         <item>10 秒</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草写体</item>

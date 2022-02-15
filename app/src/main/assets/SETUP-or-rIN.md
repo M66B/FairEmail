@@ -34,7 +34,7 @@ If you want to lookup email addresses, have contact photos shown, etc, you'll ne
 
 ## Setup battery optimizations - to continuously receive emails
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. ଯଦି ଆପଣ ବିଳମ୍ବ ନକରି ନୂଆ ଇମେଲ୍ ପ୍ରାପ୍ତ କରିବାକୁ ଚାହାଁନ୍ତି, ତେବେ ଆପଣ FairEmail ପାଇଁ ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ କରିବା ଉଚିତ୍। Tap *Manage* and follow the instructions.
 
 ## Questions or problems
 

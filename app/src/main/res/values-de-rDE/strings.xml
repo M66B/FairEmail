@@ -200,6 +200,7 @@
     <string name="title_setup_error">Fehler</string>
     <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
     <string name="title_setup_app_password">Möglicherweise müssen Sie ein App-Passwort verwenden</string>
+    <string name="title_setup_extra">Extra</string>
     <string name="title_setup_close">Einstellungen schließen</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
@@ -343,6 +344,7 @@
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_download_headers">Alle Kopfzeilen der Nachricht herunterladen</string>
     <string name="title_advanced_download_eml">Rohnachrichtendateien herunterladen</string>
+    <string name="title_advanced_download_plain">Standardmäßig nur Textteile herunterladen (falls verfügbar)</string>
     <string name="title_advanced_validated">Erfordert eine validierte (geprüfte) Verbindung</string>
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
@@ -615,6 +617,7 @@
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_usage_hint">Das erhöht die Akku-, Daten- und Speicherplatzauslastung</string>
+    <string name="title_advanced_plain_hint">Aktivieren wird den Datenverbrauch begrenzen, aber Nachrichten werden ohne Styling angezeigt</string>
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen</string>
     <string name="title_advanced_validate_hint">Dies kann dazu führen, dass Nachrichten nicht synchronisiert werden, zum Beispiel bei der Verwendung eines VPN, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
@@ -1030,7 +1033,7 @@
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_show_amp">AMP-Variante der Nachricht anzeigen?</string>
-    <string name="title_ask_show_amp_hint">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind und mit dem Internet interagieren und können daher per Definition dazu verwendet werden, Sie zu verfolgen.</string>
+    <string name="title_ask_show_amp_hint">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind, mit dem Internet interagieren und daher per Definition dazu verwendet werden können, um Sie zu verfolgen.</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -1784,6 +1787,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

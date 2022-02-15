@@ -1769,6 +1769,7 @@
         <item>5 mp</item>
         <item>7,5 mp</item>
         <item>10 mp</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Folyóírás</item>

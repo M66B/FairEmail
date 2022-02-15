@@ -9,6 +9,7 @@
     <string name="app_exit">Poistu menemällä \'takaisin\' uudelleen</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="app_updated">Päivitetty viimeksi: %1$s</string>
+    <string name="app_download">Ladattu palvelusta: %1$s</string>
     <string name="channel_service">Vastaanottaminen</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Sähköposti</string>
@@ -132,7 +133,7 @@
     <string name="title_setup_quick_patience">Ole kärsivällinen &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
-    <string name="title_setup_quick_certificates">Palvelinsertifikaatit</string>
+    <string name="title_setup_quick_certificates">Palvelinvarmenteet</string>
     <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_wizard_multiple">Asetusvelholla voidaan asettaa monta tiliä käyttämällä sitä useamman kerran</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
@@ -200,6 +201,7 @@
     <string name="title_setup_error">Virhe</string>
     <string name="title_setup_configuring">Määritetään tiliä &#8230;</string>
     <string name="title_setup_app_password">Saatat joutua käyttämään sovelluksen salasanaa</string>
+    <string name="title_setup_extra">Lisää</string>
     <string name="title_setup_close">Sulje asetukset</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
@@ -348,6 +350,7 @@
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
     <string name="title_advanced_prefer_ip4">Käytä IPv4:ää ensisijaisesti IPv6:n sijaan</string>
     <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
+    <string name="title_advanced_cert_strict">Tiukka varmenteiden tarkistus</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_caption_general">Yleiset</string>
     <string name="title_advanced_caption_checks">Tarkastukset</string>
@@ -362,6 +365,7 @@
     <string name="title_advanced_two_col">Käyttää kahta saraketta</string>
     <string name="title_advanced_min_screen_size">Näytön vähimmäiskoko näytön jakamiseksi</string>
     <string name="title_advanced_close_pane">Tiivistä rivi tai sarake, kun keskustelu suljetaan</string>
+    <string name="title_advanced_column_width">Viestisarakkeen leveys: %1$s %%</string>
     <string name="title_advanced_nav_options">Näytä asetukset navigointivalikossa</string>
     <string name="title_advanced_nav_pin">Kiinnitä navigointivalikko</string>
     <string name="title_advanced_nav_hide_title">Piilotetaanko navigointivalikon asetukset?</string>
@@ -374,6 +378,8 @@
     <string name="title_advanced_tabular_background">Käytä kortin väriä taulukkotyylin taustavärinä</string>
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
     <string name="title_advanced_cards_shadow_highlight">Käytä valittua korostusväriä teeman korostusvärin sijaan</string>
+    <string name="title_advanced_tabular_dividers">Käytä jakoviivoja taulukkotyylissä</string>
+    <string name="title_advanced_category_header">Ryhmittele tilin kategorian mukaan</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_date_fixed">Näytä kiinteä päivämäärän tunnistekenttä yläreunassa</string>
     <string name="title_advanced_date_bold">Näytä päivämäärä lihavoituna</string>
@@ -438,6 +444,7 @@
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
+    <string name="title_advanced_bundled_fonts">Käytä mukaan paketoituja kirjasimia</string>
     <string name="title_advanced_parse_classes">Jäsennä tyylisäännöstöt</string>
     <string name="title_advanced_authentication">Näytä todennusvaroitukset</string>
     <string name="title_advanced_authentication_hint">Tehtävät tarkistukset voidaan konfiguroida vastaanottoasetuksissa</string>
@@ -551,8 +558,8 @@
     <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
-    <string name="title_advanced_ca">Asennetut CA-sertifikaatit</string>
-    <string name="title_advanced_manage_keys_hint">Tämä avaa Androidin turvallisuusasetukset.        Avaimet ja sertifikaatit löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
+    <string name="title_advanced_ca">Asennetut CA-varmenteet</string>
+    <string name="title_advanced_manage_keys_hint">Tämä avaa Androidin turvallisuusasetukset.        Avaimet ja varmenteet löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
     <string name="title_advanced_power_menu">Lisää toimintoja Androidin virrankatkaisuvalikkoon</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
@@ -612,6 +619,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa yhteysongelmia joissakin laitteissa</string>
     <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä tai joissakin muissakaan tilanteissa</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
+    <string name="title_advanced_cert_strict_hint">Tämän poistaminen käytöstä tekee palvelinvarmenteiden tarkistamisesta vähemmän tiukan</string>
     <string name="title_advanced_ssl_harden_hint">Tämän käyttöönotto kytkee heikot SSL-protokollat ja salakirjoitukset pois käytöstä, mikä voi aiheuttaa yhteysongelmia</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
@@ -688,6 +696,7 @@
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (Mt)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/vastaanottokuittaus oletuksena</string>
+    <string name="title_identity_receipt_legacy">Käytä vanhoja kuittauspyyntöjen tunnistetietoja</string>
     <string name="title_identity_use_ip_hint">Jos saat virheilmoituksen \'invalid greeting\', \'requires valid address\' tai vastaava, yritä muuttaa tätä asetusta</string>
     <string name="title_identity_self_hint">Estää myös vastaamasta itsellesi</string>
     <string name="title_optional">Valinnainen</string>
@@ -742,7 +751,7 @@
     <string name="title_date_remark">Muutokset vaikuttavat vain uusiin viesteihin</string>
     <string name="title_related_identity">Lisää vastaava identiteetti (SMTP-palvelin)</string>
     <string name="title_check">Tarkista</string>
-    <string name="title_trust">Luota palvelimen sertifikaattiin, jolla on sormenjälki %1$s</string>
+    <string name="title_trust">Luota palvelimen varmenteeseen, jolla on sormenjälki %1$s</string>
     <string name="title_no_name">Nimi puuttuu</string>
     <string name="title_no_email">Sähköpostiosoite puuttuu</string>
     <string name="title_email_invalid">Virheellinen sähköpostiosoite: \'%1$s\'</string>
@@ -767,6 +776,7 @@
     <string name="title_drafts_select">Sähköpostien lähettäminen edellyttää, että luonnokset-kansio on valittu tilin asetuksista</string>
     <string name="title_account_auth_update">Päivitä valtuutus</string>
     <string name="title_account_auth_password">Vaihda salasanatunnistautumiseen</string>
+    <string name="title_delete_account">Poista tili</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
@@ -780,6 +790,7 @@
     <string name="title_pop_folders">POP3-protokolla ei tue kansioiden luomista</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
+    <string name="title_hint_accounts">Paina tiliä pitkään, että näet valinnat kuten poistaminen tai poistaminen käytöstä</string>
     <string name="title_hint_alias">Pitkä painallus näyttää vaihtoehdot, kuten kopioinnin aliasten luomiseksi</string>
     <string name="title_service_auth">Sähköpostipalvelin sanoi: \'%1$s\'</string>
     <string name="title_service_vpn">Tämä voi olla käytössä olevan VPN-palvelun aiheuttama</string>
@@ -792,6 +803,9 @@
     <string name="title_synchronize_subfolders">Alikansiot</string>
     <string name="title_synchronize_more">Hae lisää viestejä</string>
     <string name="title_synchronize_more_hint">Tämä lataa lisää vanhoja viestejä laitteeseen ja päivittäisessä käytössä aiheuttaa lisää akun käyttöä</string>
+    <string name="title_synchronize_more_hint2">        Viestit haetaan niin nopeasti kuin sähköpostipalvelin voi ne toimittaa ja tallennetaan sekä indeksoidaan niin nopeasti kuin laite pystyy.
+        Rajoittava tekijä on yleensä laitteen sisäisen tallennustilan nopeus.
+    </string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_synchronize_batch_enable">Ota synkronointi käyttöön</string>
     <string name="title_synchronize_batch_disable">Poista synkronointi käytöstä</string>
@@ -998,6 +1012,7 @@
     <string name="title_fullscreen">Näytä koko näytöllä</string>
     <string name="title_fit_width">Sovita leveys</string>
     <string name="title_disable_widths">Poista leveydet käytöstä</string>
+    <string name="title_monospaced_pre">Tasavälinen &lt;pre&gt;</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
@@ -1016,6 +1031,8 @@
     <string name="title_ask_show_html_images">Näytä kuvat aina, kun näytetään alkuperäisiä viestejä</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
+    <string name="title_ask_show_amp">Näytä viestin AMP-versio?</string>
+    <string name="title_ask_show_amp_hint">AMP-viestit on suunniteltu dynaamisiksi ja yhdistämään internetiin ja voivat siten seurata sinua</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit? Viestit säilyvät palvelimella.</string>
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
@@ -1062,6 +1079,7 @@
     <string name="title_send_auto_archive">Arkistoi vastattu viesti</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
+    <string name="title_send_sensitivity">Herkkyys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
     <string name="title_style">Tyyli</string>
     <string name="title_style_bold">Lihavointi</string>
@@ -1112,6 +1130,7 @@
     <string name="title_translate_configure">Määritä &#8230;</string>
     <string name="title_translate_key">Syötä avain</string>
     <string name="title_translating">Käännetään &#8230;</string>
+    <string name="title_translate_formal">Käytä muodollista kieltä</string>
     <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Napauta käännettävää tekstiä</string>
@@ -1171,7 +1190,7 @@
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
     <string name="title_signature_invalid_reason">Viestin allekirjoitus virheellinen: %1$s</string>
     <string name="title_signature_key_missing">Avain allekirjoituksen todentamiseksi puuttuu</string>
-    <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
+    <string name="title_signature_certificate_invalid">Virheellinen varmenneketju</string>
     <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>
     <string name="title_signature_mismatch">Lähettäjän ja allekirjoituksen sähköpostiosoitteet eivät vastaa toisiaan</string>
@@ -1255,6 +1274,9 @@
     <string name="title_edit_signature_remark">Vaikka Android ei voi näyttää kaikkea HTML:ää, se lähetetään sellaisena kuin se on</string>
     <string name="title_edit_signature_text">Allekirjoituksen teksti</string>
     <string name="title_edit_signature_image">Lisää kuva</string>
+    <string name="title_edit_signature_image_hint">        Kun viesti lähetetään, kuva kopioidaan valitusta sijainnista viestiin.
+        Älä siis poista kuvatiedostoa!
+    </string>
     <string name="title_answer_caption">Muokkaa viestipohjaa</string>
     <string name="title_answer_reply">Vastausviestipohja</string>
     <string name="title_answer_name">Viestipohjan nimi</string>
@@ -1314,6 +1336,8 @@
     <string name="title_rule_thread">Kaikki viestit samassa keskustelussa ja kansiossa</string>
     <string name="title_rule_identity">Identiteetti</string>
     <string name="title_rule_template">Vastausviestipohja</string>
+    <string name="title_rule_answer_subject">Käytä viestipohjan nimeä otsikkona</string>
+    <string name="title_rule_original_text">Sisällytä alkuperäinen viestin teksti</string>
     <string name="title_rule_forward_to">Lähetä edelleen vastaanottajalle</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
     <string name="title_rule_with_attachments">Liitteiden kanssa</string>
@@ -1388,6 +1412,9 @@
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
     <string name="title_legend_priority_low">Tärkeysjärjestyksessä alhaalla</string>
+    <string name="title_legend_sensitivity_personal">Henkilökohtainen</string>
+    <string name="title_legend_sensitivity_private">Yksityinen</string>
+    <string name="title_legend_sensitivity_confidential">Luottamuksellinen</string>
     <string name="title_legend_importance">Tärkeä</string>
     <string name="title_legend_importance_low">Ei tärkeä</string>
     <string name="title_legend_signed">Salattu</string>
@@ -1437,6 +1464,7 @@
     <string name="title_legend_show_unsubscribe">Peruuta listan tilaus</string>
     <string name="title_legend_show_images">Näytä kuvat</string>
     <string name="title_legend_hide_images">Piilota kuvat</string>
+    <string name="title_legend_show_amp">Näytä AMP-versio</string>
     <string name="title_legend_show_full">Näytä alkuperäinen viesti</string>
     <string name="title_legend_show_reformatted">Näytä uudelleenmuotoiltu viesti</string>
     <string name="title_legend_edit">Muokkaa</string>
@@ -1496,6 +1524,7 @@
     <string name="title_later">Myöhemmin</string>
     <string name="title_undo">Kumoa</string>
     <string name="title_redo">Tee uudelleen</string>
+    <string name="title_insert_line">Lisää viiva</string>
     <string name="title_add">Lisää</string>
     <string name="title_browse">Avaa sovelluksessa</string>
     <string name="title_info">Lisätietoa</string>
@@ -1706,8 +1735,8 @@
     <string-array name="sensitivityNames">
         <item>Tavallinen</item>
         <item>Henkilökohtainen</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Yksityinen</item>
+        <item>Luottamuksellinen</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
@@ -1757,6 +1786,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursivoitu</item>

@@ -200,7 +200,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_error">Hata</string>
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
     <string name="title_setup_app_password">Bir uygulama şifresi kullanmanız gerekebilir</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">Ekstra</string>
+    <string name="title_setup_extra">Ekstra</string>
     <string name="title_setup_close">Ayarları kapat</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
@@ -344,6 +344,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
     <string name="title_advanced_download_headers">Tüm mesaj başlıklarını indir</string>
     <string name="title_advanced_download_eml">Ham mesaj dosyalarını indir</string>
+    <string name="title_advanced_download_plain">Varsayılan olarak yalnızca düz metin kısımlarını indirin (varsa)</string>
     <string name="title_advanced_validated">Doğrulanmış (kontrol edilmiş) bir bağlantı gerektir</string>
     <string name="title_advanced_vpn_only">Yalnızca bir VPN aracılığıyla bağlanın</string>
     <string name="title_advanced_timeout">Bağlantı zaman aşımı (saniye)</string>
@@ -616,6 +617,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
     <string name="title_advanced_usage_hint">Bu pil, veri ve depolama alanı kullanımını artıracaktır</string>
+    <string name="title_advanced_plain_hint">Bunu etkinleştirmek veri kullanımını sınırlayacaktır, ancak mesajlar stil olmadan gösterilecektir</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bu ayarı açmak bazı cihazlarda bağlantı sorunlarına yol açabilir</string>
     <string name="title_advanced_validate_hint">Bu, örneğin bir VPN kullanırken değil, diğer durumlarda da mesajların senkronize edilmemesine neden olabilir</string>
     <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
@@ -843,6 +845,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_delete_operation_deleted">%1$d işlem silindi</string>
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
+    <string name="title_check_operations">İşlemleri kontrol ediyor</string>
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
     <string name="title_op_title_headers">Başlıklar İndiriliyor</string>
     <string name="title_op_title_raw">Ham mesaj indiriliyor</string>
@@ -1784,6 +1787,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>El yazısı</item>

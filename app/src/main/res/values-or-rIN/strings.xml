@@ -92,6 +92,7 @@
     <string name="title_setup_quick_configure">ନାମ, ରଙ୍ଗ, ସ୍ୱାଇପ୍ କ୍ରିୟା ଇତ୍ୟାଦି ସମ୍ପାଦନ କରିବାକୁ</string>
     <string name="title_setup_manage">ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="title_setup_identity_what">ଏକ ପରିଚୟ କ’ଣ?</string>
+    <string name="title_setup_doze_remark">ବିଶ୍ୱସନୀୟ ଭାବରେ ଇମେଲ୍ ପ୍ରେରଣ ଓ ପ୍ରାପ୍ତ କରିବା ପାଇଁ</string>
     <string name="title_setup_doze_device">ଏହି ଡିଭାଇସ୍ ପାଇଁ ଏହା ବୋଧହୁଏ ଆବଶ୍ୟକୀୟ</string>
     <string name="title_setup_alarm_12">ଆପ୍ କାମ କରିବ ନାହିଁ</string>
     <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
@@ -100,7 +101,7 @@
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
     <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
-    <string name="title_setup_extra" comment="title_setup_extra&#10;Title for card with more options">ଅତିରିକ୍ତ</string>
+    <string name="title_setup_extra">ଅତିରିକ୍ତ</string>
     <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
@@ -163,6 +164,7 @@
     <string name="title_advanced_section_misc">ବିବିଧ</string>
     <string name="title_advanced_when">କେବେ</string>
     <string name="title_advanced_optimize">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ</string>
+    <string name="title_advanced_always">ଏହି ଆକାଉଣ୍ଟଗୁଡ଼ିକ ପାଇଁ ସର୍ବଦା ବାର୍ତ୍ତା ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
     <string name="title_advanced_advanced">ବିକଶିତ</string>
     <string name="title_advanced_quick_sync">ଦ୍ରୁତ ସିଙ୍କ୍</string>
     <string name="title_advanced_subject_threading">ପ୍ରେରକ ଏବଂ ବିଷୟ ଅନୁଯାୟୀ ବାର୍ତ୍ତାଗୁଡ଼ିକର ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
@@ -372,6 +374,7 @@
     <string name="title_compose">ରଚନା କରନ୍ତୁ</string>
     <string name="title_from">ପ୍ରେରକ:</string>
     <string name="title_to">ପ୍ରାପ୍ତକର୍ତ୍ତା:</string>
+    <string name="title_received">ପ୍ରାପ୍ତ ହୋଇଛି:</string>
     <string name="title_date">ତାରିଖ:</string>
     <string name="title_size">ଆକାର:</string>
     <string name="title_language">ଭାଷା:</string>
@@ -668,6 +671,7 @@
         <item>୫ ସେକେଣ୍ଡ</item>
         <item>୭.୫ ସେକେଣ୍ଡ</item>
         <item>୧୦ ସେକେଣ୍ଡ</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

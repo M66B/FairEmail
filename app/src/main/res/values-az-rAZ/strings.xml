@@ -201,6 +201,7 @@
     <string name="title_setup_error">Xəta</string>
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
     <string name="title_setup_app_password">Bir tətbiq şifrəsi istifadə etməyiniz lazım gələ bilər</string>
+    <string name="title_setup_extra">Ekstra</string>
     <string name="title_setup_close">Tənzimləmələri bağla</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
@@ -444,6 +445,7 @@
     <string name="title_advanced_actionbar">Danışıq əməliyyat sətrini göstər</string>
     <string name="title_advanced_actionbar_color">Hesab rəngini danışıq əməliyyat sətri üçün arxaplan rəngi kimi istifadə et</string>
     <string name="title_advanced_navbar_colorize">Android naviqasiya sətrini rəngləndir</string>
+    <string name="title_advanced_bundled_fonts">Paketlənmiş yazı növlərini istifadə et</string>
     <string name="title_advanced_parse_classes">CSS-i təhlil et</string>
     <string name="title_advanced_authentication">Kimlik təsdiqləmə xəbərdarlıqlarını göstər</string>
     <string name="title_advanced_authentication_hint">Təməl yoxlanışlar, alma tənzimləmələrində konfiqurasiya edilə bilər</string>
@@ -1032,6 +1034,8 @@
     <string name="title_ask_show_html_images">Orijinal mesajları göstərəndə təsvirləri həmişə göstər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
     <string name="title_ask_show_image_hint">İzləmə təsvirləri kimi bilinən təsvirlər göstərilməyəcək</string>
+    <string name="title_ask_show_amp">Mesajın AMP variantı göstərilsin?</string>
+    <string name="title_ask_show_amp_hint">AMP mesajları dinamik olacaq və internet ilə qarşılıqlı əlaqədə olacaq formada dizayn edilib və buna görə də tərifə görə sizi izləmək üçün istifadə edilə bilər</string>
     <string name="title_ask_delete_local">Yerli mesajlar silinsin? Mesajlar uzaq serverdə qalacaq.</string>
     <string name="title_ask_help">\"FairEmail\"in təkmilləşdirilməsinə kömək edin</string>
     <string name="title_ask_reporting">Xəta hesabatları göndərilsin?</string>
@@ -1174,6 +1178,8 @@
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_resync">Yenidən eyniləşdirmə</string>
+    <string name="title_alternative_text">Düz mətni göstər</string>
+    <string name="title_alternative_html">HTML göstər</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
     <string name="title_user_interaction">\"OpenKeychain\"ə köçürülür</string>
     <string name="title_signed_data">Mesaj mətnini göstərmək üçün imzanı təsdiqlə</string>
@@ -1462,6 +1468,7 @@
     <string name="title_legend_show_unsubscribe">Siyahıdan çıx</string>
     <string name="title_legend_show_images">Təsvirləri göstər</string>
     <string name="title_legend_hide_images">Təsvirləri gizlət</string>
+    <string name="title_legend_show_amp">AMP variantını göstər</string>
     <string name="title_legend_show_full">Orijinal mesajı göstər</string>
     <string name="title_legend_show_reformatted">Yenidən format edilən mesajı göstər</string>
     <string name="title_legend_edit">Düzəliş et</string>
@@ -1777,6 +1784,7 @@
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Əl yazısı</item>

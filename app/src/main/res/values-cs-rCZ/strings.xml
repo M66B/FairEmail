@@ -221,6 +221,7 @@
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_configuring">Probíhá konfigurace účtu &#8230;</string>
     <string name="title_setup_app_password">Možná budete muset použít heslo aplikace</string>
+    <string name="title_setup_extra">Další</string>
     <string name="title_setup_close">Zavřít nastavení</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
@@ -364,6 +365,7 @@
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_download_headers">Stáhnout hlavičky všech zpráv</string>
     <string name="title_advanced_download_eml">Stáhnout zdrojové soubory zprávy</string>
+    <string name="title_advanced_download_plain">Stahovat pouze prostý text (vždy v případě dostupnosti)</string>
     <string name="title_advanced_validated">Vyžadovat ověřené (zkontrolované) připojení</string>
     <string name="title_advanced_vpn_only">Připojit pouze pomocí VPN</string>
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
@@ -463,6 +465,7 @@
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
+    <string name="title_advanced_bundled_fonts">Použít připojená písma</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
     <string name="title_advanced_authentication">Zobrazit upozornění na ověření</string>
     <string name="title_advanced_authentication_hint">Základní kontroly mohou být nastaveny v nastavení příjmu</string>
@@ -635,6 +638,7 @@
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
     <string name="title_advanced_usage_hint">Zvýší využití baterie, dat a úložného prostoru</string>
+    <string name="title_advanced_plain_hint">Pomocí této volby omezíte využití dat, zprávy však budou zobrazeny bez specifického formátování</string>
     <string name="title_advanced_tcp_keep_alive_hint">Povolení může na některých zařízeních způsobit problémy s připojením</string>
     <string name="title_advanced_validate_hint">Může vést k nesynchronizovaným zprávám, například při použití VPN, ale i v jiných situacích</string>
     <string name="title_advanced_timeout_hint">Časový limit čtení/zápisu bude nastaven na dvojnásobek časového limitu připojení. Vyšší hodnoty povedou k větší spotřebě baterie.</string>
@@ -862,6 +866,7 @@
     <string name="title_delete_operation_deleted">Smazáno %1$d operací</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
+    <string name="title_check_operations">Kontrola operací</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>
     <string name="title_op_title_headers">Stahování záhlaví</string>
     <string name="title_op_title_raw">Stahování zdrojové zprávy</string>
@@ -1050,6 +1055,7 @@
     <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
+    <string name="title_ask_show_amp">Zobrazit zprávu ve variantě AMP?</string>
     <string name="title_ask_show_amp_hint">AMP zprávy jsou navrženy tak, aby byly dynamické a interagovaly s internetem, a proto mohou být podle definice použity ke sledování</string>
     <string name="title_ask_delete_local">Smazat lokální zprávy? Zprávy zůstanou na vzdáleném serveru.</string>
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
@@ -1191,6 +1197,8 @@
     <string name="title_encrypt">Šifrovat</string>
     <string name="title_decrypt">Dešifrovat</string>
     <string name="title_resync">Znovu synchronizovat</string>
+    <string name="title_alternative_text">Zobrazit pouze prostý text</string>
+    <string name="title_alternative_html">Zobrazit HTML</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_user_interaction">Přenášení do OpenKeychain</string>
     <string name="title_signed_data">Ověřit podpis pro zobrazení textu zprávy</string>
@@ -1803,6 +1811,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kurzíva</item>

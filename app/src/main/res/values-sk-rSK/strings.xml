@@ -1791,6 +1791,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>
