@@ -2787,7 +2787,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     };
 
-    private void onReply(boolean sender) {
+    private void onReply(boolean long_press) {
         if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
             long id = values.get("expanded").get(0);
             int pos = adapter.getPositionForKey(id);
@@ -2798,10 +2798,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return;
 
-            if (sender && message.content) {
+            if (long_press && message.content) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean reply_all = prefs.getBoolean("reply_all", false);
-                onMenuReply(message, reply_all ? "reply_all" : "reply", selected);
+                String answer_action = prefs.getString("answer_action", "reply");
+                if ("reply".equals(answer_action) ||
+                        "reply_all".equals(answer_action) ||
+                        "list".equals(answer_action))
+                    onMenuReply(message, answer_action, selected);
+                else
+                    onMenuReply(message, answer_action);
             } else
                 onReply(message, selected, fabReply);
         }

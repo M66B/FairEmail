@@ -333,27 +333,27 @@
                     app:layout_constraintTop_toBottomOf="@id/spSendDelayed"
                     app:switchPadding="12dp" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swReplyAll"
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAnswerAction"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_reply_all"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_answer_action"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAttachNew"
-                    app:switchPadding="12dp" />
+                    app:layout_constraintTop_toBottomOf="@id/swAttachNew" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvReplyAll"
+                <Spinner
+                    android:id="@+id/spAnswerAction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_reply_all_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/answerNames"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swReplyAll" />
+                    app:layout_constraintTop_toBottomOf="@id/tvAnswerAction" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSendPending"
@@ -364,7 +364,7 @@
                     android:text="@string/title_advanced_send_pending"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvReplyAll"
+                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction"
                     app:switchPadding="12dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

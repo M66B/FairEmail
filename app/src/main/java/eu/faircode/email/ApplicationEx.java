@@ -577,6 +577,10 @@ public class ApplicationEx extends Application
         } else if (version < 1837) {
             if (!prefs.contains("compact_folders"))
                 editor.putBoolean("compact_folders", false);
+        } else if (version < 1839) {
+            boolean reply_all = prefs.getBoolean("reply_all", false);
+            if (reply_all)
+                editor.remove("reply_all").putString("answer_action", "reply_all");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

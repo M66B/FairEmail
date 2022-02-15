@@ -64,7 +64,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
     private SwitchCompat swAttachNew;
-    private SwitchCompat swReplyAll;
+    private Spinner spAnswerAction;
     private SwitchCompat swSendPending;
 
     private Spinner spComposeFont;
@@ -97,7 +97,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
             "alt_re", "alt_fwd",
             "send_reminders", "send_delayed",
-            "attach_new", "reply_all", "send_pending",
+            "attach_new", "answer_action", "send_pending",
             "compose_font", "prefix_once", "prefix_count", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_forward",
             "discard_delete", "reply_move",
@@ -129,7 +129,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
         swAttachNew = view.findViewById(R.id.swAttachNew);
-        swReplyAll = view.findViewById(R.id.swReplyAll);
+        spAnswerAction = view.findViewById(R.id.spAnswerAction);
         swSendPending = view.findViewById(R.id.swSendPending);
 
         spComposeFont = view.findViewById(R.id.spComposeFont);
@@ -287,10 +287,16 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swReplyAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spAnswerAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("reply_all", checked).apply();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.answerValues);
+                prefs.edit().putString("answer_action", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("sender_ellipsize").apply();
             }
         });
 
@@ -567,7 +573,16 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
 
         swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
-        swReplyAll.setChecked(prefs.getBoolean("reply_all", false));
+
+        boolean reply_all = prefs.getBoolean("reply_all", false);
+        String answer_action = prefs.getString("answer_action", reply_all ? "reply_all" : "reply");
+        String[] answerValues = getResources().getStringArray(R.array.answerValues);
+        for (int pos = 0; pos < answerValues.length; pos++)
+            if (answerValues[pos].equals(answer_action)) {
+                spAnswerAction.setSelection(pos);
+                break;
+            }
+
         swSendPending.setChecked(prefs.getBoolean("send_pending", true));
 
         String compose_font = prefs.getString("compose_font", "");
