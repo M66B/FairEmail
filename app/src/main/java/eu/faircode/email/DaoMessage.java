@@ -330,7 +330,7 @@ public interface DaoMessage {
             " AND NOT fts" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             " ORDER BY message.received")
-    List<Long> getMessageFts();
+    Cursor getMessageFts();
 
     @Query("SELECT message.id, account, thread, (:find IS NULL" +
             " OR (:senders AND `from` LIKE :find COLLATE NOCASE)" + // no index

@@ -23,6 +23,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -66,8 +67,10 @@ public class WorkerFts extends Worker {
 
             SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
 
-            for (long id : db.message().getMessageFts())
+            Cursor cursor = db.message().getMessageFts();
+            while (cursor != null && cursor.moveToNext())
                 try {
+                    long id = cursor.getLong(0);
                     Log.i("FTS index=" + id);
 
                     ids.add(id);
