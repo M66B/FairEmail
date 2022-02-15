@@ -210,6 +210,9 @@ public class ActivityAMP extends ActivityBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean overview_mode = prefs.getBoolean("overview_mode", false);
+
                 String html;
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
@@ -217,7 +220,7 @@ public class ActivityAMP extends ActivityBase {
                 }
 
                 Document d = JsoupEx.parse(html);
-                HtmlHelper.setViewport(d, false);
+                HtmlHelper.setViewport(d, overview_mode);
 
                 for (Element script : d.select("script")) {
                     String src = script.attr("src");
