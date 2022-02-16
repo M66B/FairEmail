@@ -6741,6 +6741,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     public void run() {
                         try {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
                             adapter.notifyDataSetChanged();
                         } catch (Throwable ex) {
                             Log.e(ex);
