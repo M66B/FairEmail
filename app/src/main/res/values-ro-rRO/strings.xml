@@ -211,6 +211,7 @@
     <string name="title_setup_error">Eroare</string>
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
     <string name="title_setup_app_password">Este posibil să fie nevoie să folosiți o parolă de aplicație</string>
+    <string name="title_setup_extra">Suplimentar</string>
     <string name="title_setup_close">Închideți setările</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
@@ -354,6 +355,7 @@
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_download_headers">Descărcați toate anteturile mesajelor</string>
     <string name="title_advanced_download_eml">Descărcați fișiere cu mesaje brute</string>
+    <string name="title_advanced_download_plain">Descărcați în mod implicit numai părți de text simplu (dacă sunt disponibile)</string>
     <string name="title_advanced_validated">Necesită o conexiune validată (verificată)</string>
     <string name="title_advanced_vpn_only">Conectați-vă numai prin intermediul unui VPN</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
@@ -625,6 +627,7 @@
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
     <string name="title_advanced_usage_hint">Acest lucru va crește utilizarea bateriei, a datelor și a spațiului de stocare</string>
+    <string name="title_advanced_plain_hint">Activarea acestei opțiuni va limita utilizarea datelor, dar mesajele vor fi afișate fără stilizare</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activarea acesteia poate cauza probleme de conexiune pe unele dispozitive</string>
     <string name="title_advanced_validate_hint">Acest lucru poate duce la nesincronizarea mesajelor, de exemplu atunci când se utilizează un VPN, dar și în alte situații</string>
     <string name="title_advanced_timeout_hint">Timpul de expirare a citirii/scrierii va fi setat la dublul intervalului de expirare a conexiunii. Valori mai mari au ca rezultat o utilizare mai mare a bateriei.</string>
@@ -852,6 +855,7 @@
     <string name="title_delete_operation_deleted">%1$d operațiuni șterse</string>
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
+    <string name="title_check_operations">Verificarea operațiunilor</string>
     <string name="title_hint_operations">Ștergerea de operațiuni poate duce la dispariția mesajelor și la probleme de sincronizare</string>
     <string name="title_op_title_headers">Descărcarea antetelor</string>
     <string name="title_op_title_raw">Descărcarea mesajului original</string>
@@ -1040,6 +1044,8 @@
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
+    <string name="title_ask_show_amp">Afișați varianta AMP a mesajului?</string>
+    <string name="title_ask_show_amp_hint">Mesajele AMP sunt concepute pentru a fi dinamice și pentru a interacționa cu internetul și, prin urmare, pot fi folosite, prin definiție, pentru a vă urmări</string>
     <string name="title_ask_delete_local">Ștergeți mesajele locale? Mesajele vor rămâne pe serverul gazdă.</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
@@ -1180,6 +1186,8 @@
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>
     <string name="title_resync">Resincronizare</string>
+    <string name="title_alternative_text">Afișare text simplu</string>
+    <string name="title_alternative_html">Afișați HTML</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
     <string name="title_user_interaction">Transfer la OpenKeychain</string>
     <string name="title_signed_data">Verificați semnătura pentru a afișa textul mesajului</string>
@@ -1468,6 +1476,7 @@
     <string name="title_legend_show_unsubscribe">Dezabonare de la listă</string>
     <string name="title_legend_show_images">Afișare imagini</string>
     <string name="title_legend_hide_images">Ascundeți imaginile</string>
+    <string name="title_legend_show_amp">Afișați varianta AMP</string>
     <string name="title_legend_show_full">Arată mesajul original</string>
     <string name="title_legend_show_reformatted">Afișați mesajul reformatat</string>
     <string name="title_legend_edit">Editează</string>
