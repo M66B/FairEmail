@@ -3490,6 +3490,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     File pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                     // Android < 10 requires:
                     // <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+                    // https://developer.android.com/training/data-storage/shared/media#request-permissions
 
                     DB db = DB.getInstance(context);
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
