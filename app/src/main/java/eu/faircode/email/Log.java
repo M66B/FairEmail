@@ -85,6 +85,7 @@ import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.util.FolderClosedIOException;
+import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -104,6 +105,7 @@ import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
 import java.security.Provider;
 import java.security.Security;
@@ -1570,6 +1572,10 @@ public class Log {
                 return null;
 
             if (ex instanceof ConnectionException)
+                return null;
+
+            if (ex instanceof MailConnectException &&
+                    ex.getCause() instanceof SocketTimeoutException)
                 return null;
 
             if (ex instanceof StoreClosedException ||
