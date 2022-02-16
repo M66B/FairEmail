@@ -3542,7 +3542,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             db.attachment().setMediaUri(attachment.id, uri.toString());
                         }
 
-                    return collection;
+                    // Viewing the containing folder is not possible
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.media_uri != null)
+                            return Uri.parse(attachment.media_uri);
+
+                    return null;
                 }
 
                 @Override
