@@ -339,24 +339,27 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq1)
 
-The following Android permissions are needed:
+The following Android permissions are *required*:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
+* *have full network access* (INTERNET): to send and receive via the internet
+* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes (mobile data, WiFi)
+* *run at startup* (RECEIVE_BOOT_COMPLETED): to start sending and receiving on device start
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while performing actions, like synchronization of messages
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later), for example to snooze messages
+* *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc)
+* *in-app billing* (BILLING): for in-app purchases
+
+The following Android permissions are *optional*:
+
+* *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
-On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+On earlier Android versions you will be asked to grant the permissions on installing FairEmail.
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
