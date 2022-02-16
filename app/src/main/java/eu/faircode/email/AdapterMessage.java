@@ -3120,7 +3120,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
-            ibStoreMedia.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
+            ibStoreMedia.setVisibility(
+                    images.size() > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+                            ? View.VISIBLE : View.GONE);
         }
 
         private void bindCalendar(final TupleMessageEx message, EntityAttachment attachment) {
@@ -3486,6 +3488,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? MediaStore.Images.Media.EXTERNAL_CONTENT_URI
                             : MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY));
                     File pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                    // Android < 10 requires:
+                    // <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
 
                     DB db = DB.getInstance(context);
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
