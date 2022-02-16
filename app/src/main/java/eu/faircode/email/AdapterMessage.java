@@ -2201,7 +2201,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean button_search = prefs.getBoolean("button_search", false);
             ibSearchContact.setVisibility(show_addresses && (froms > 0 || tos > 0) && !button_search ? View.VISIBLE : View.GONE);
             ibNotifyContact.setVisibility(show_addresses && hasChannel && froms > 0 ? View.VISIBLE : View.GONE);
-            ibPinContact.setVisibility(show_addresses && pin && froms > 0 ? View.VISIBLE : View.GONE);
+            ibPinContact.setVisibility(show_addresses && pin && contacts && froms > 0 ? View.VISIBLE : View.GONE);
             ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
 
             tvSubmitterTitle.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
@@ -4505,9 +4505,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onPinContact(TupleMessageEx message) {
-            ShortcutInfoCompat.Builder builder =
-                    Shortcuts.getShortcut(context, (InternetAddress) message.from[0]);
-            ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
+            try {
+                ShortcutInfoCompat.Builder builder =
+                        Shortcuts.getShortcut(context, (InternetAddress) message.from[0]);
+                ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
+            } catch (Throwable ex) {
+                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+            }
         }
 
         private void onAddContact(TupleMessageEx message) {
