@@ -4,13 +4,13 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
-### Next version
+### 1.1839 - 2022-02-16
 
-* Added send setting to select long press answer button action
+* Added option to select long press answer button action
 * Small improvements and minor bug fixes
 * Updated translations
 
-### 1.1836 - 2022-02-15
+### 1.1838 - 2022-02-15
 
 * Small improvements and minor bug fixes
 * Updated translations
