@@ -4326,7 +4326,8 @@ public class FragmentCompose extends FragmentBase {
                                 : db.answer().getAnswer(answer));
                         if (a != null) {
                             db.answer().applyAnswer(a.id, new Date().getTime());
-                            data.draft.subject = a.name;
+                            if (answer > 0)
+                                data.draft.subject = a.name;
                             Document d = JsoupEx.parse(a.getHtml(null));
                             document.body().append(d.body().html());
                         }
