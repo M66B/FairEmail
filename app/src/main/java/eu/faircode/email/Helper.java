@@ -192,8 +192,7 @@ public class Helper {
     private static final String[] ROMAN_10 = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
     private static final String[] ROMAN_1 = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 
-    static final Pattern EMAIL_ADDRESS
-            = Pattern.compile(
+    static final Pattern EMAIL_ADDRESS = Pattern.compile(
             "[\\S]{1,256}" +
                     "\\@" +
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
@@ -201,6 +200,14 @@ public class Helper {
                     "\\." +
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                     ")+"
+    );
+
+    static final Pattern EMAIL_ADDRESS_UNICODE = Pattern.compile(
+            "([\\p{L}\\_\\.\\-\\d]+)" +
+                    "@" +
+                    "([\\p{L}\\-\\.\\d]+)" +
+                    "((\\.(\\p{L}){2,63})+)"
+            // ^([\p{L}\_\.\-\d]+)@([\p{L}\-\.\d]+)((\.(\p{L}){2,63})+)$
     );
 
     private static final ExecutorService executor = getBackgroundExecutor(1, "helper");

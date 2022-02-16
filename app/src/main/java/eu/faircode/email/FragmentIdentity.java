@@ -70,6 +70,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -757,8 +758,11 @@ public class FragmentIdentity extends FragmentBase {
                 //    throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                 if (TextUtils.isEmpty(email) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                if (!Helper.EMAIL_ADDRESS.matcher(email).matches() && !should)
+
+                Pattern pattern = (unicode ? Helper.EMAIL_ADDRESS_UNICODE : Helper.EMAIL_ADDRESS);
+                if (!pattern.matcher(email).matches() && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
+
                 if (TextUtils.isEmpty(host) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
