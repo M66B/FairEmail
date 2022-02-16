@@ -339,10 +339,10 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq1)
 
-The following Android permissions are *required*:
+The following Android permissions are **required**:
 
 * *have full network access* (INTERNET): to send and receive via the internet
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes (mobile data, WiFi)
+* *view network connections* (ACCESS_NETWORK_STATE): to monitor connectivity changes (mobile data, WiFi)
 * *run at startup* (RECEIVE_BOOT_COMPLETED): to start sending and receiving on device start
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while performing actions, like synchronization of messages
@@ -350,7 +350,9 @@ The following Android permissions are *required*:
 * *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc)
 * *in-app billing* (BILLING): for in-app purchases
 
-The following Android permissions are *optional*:
+<br />
+
+The following Android permissions are **optional**:
 
 * *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
@@ -360,6 +362,8 @@ The following Android permissions are *optional*:
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
 On earlier Android versions you will be asked to grant the permissions on installing FairEmail.
+
+<br />
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
@@ -380,6 +384,8 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 * *com.vivo.notification.permission.BADGE_ICON*
+
+<br />
 
 FairEmail will keep a list of addresses you receive messages from and send messages to
 and will use this list for contact suggestions when no contacts permissions is granted to FairEmail.
