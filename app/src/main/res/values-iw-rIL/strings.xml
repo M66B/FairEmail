@@ -335,7 +335,6 @@
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
     <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
-    <string name="title_advanced_reply_all">לחיצה ארוכה על כפתור התשובה תענה לכולם</string>
     <string name="title_advanced_send_pending">הצגת סמלי שליחה מושהית שאינם בולטים</string>
     <string name="title_advanced_compose_font">גופן ברירת המחדל</string>
     <string name="title_advanced_prefix_once">ליצור קידומת לנושא רק פעם אחת במענה או העברה</string>
@@ -630,7 +629,6 @@
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
-    <string name="title_advanced_reply_all_hint">אם מושבת, לחיצה על כפתור המענה יענה למוען</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
     <string name="title_advanced_remove_signature_hint">יכול להוביל למעט מדי או יותר מדי טקסט שיוסר</string>
@@ -1806,7 +1804,7 @@
         <item>5 שנ׳</item>
         <item>7.5 שנ׳</item>
         <item>10 שנ׳</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 שנ׳</item>
+        <item>15 שנ׳</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>מחובר</item>

@@ -323,7 +323,7 @@
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_attach_new">Adăugați fișierele partajate la o nouă ciornă</string>
-    <string name="title_advanced_reply_all">Apăsați lung butonul de răspuns pentru a răspunde la toate</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Apăsarea îndelungată a butonului de răspuns va:</string>
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
@@ -618,7 +618,6 @@
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
-    <string name="title_advanced_reply_all_hint">Dacă este dezactivată, apăsarea lungă a butonului de răspuns va răspunde expeditorului</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
     <string name="title_advanced_remove_signature_hint">Acest lucru poate duce la eliminarea unui text prea scurt sau prea mare</string>
@@ -1791,7 +1790,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursiv</item>

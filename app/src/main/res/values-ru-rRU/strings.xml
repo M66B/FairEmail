@@ -334,7 +334,7 @@
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_attach_new">Создавать новый черновик для файлов, которыми поделились</string>
-    <string name="title_advanced_reply_all">Долгое нажатие на кнопку ответа, чтобы ответить всем</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Долгое нажатие на кнопку ответа:</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
@@ -631,7 +631,6 @@
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
-    <string name="title_advanced_reply_all_hint">Если отключено, долгое нажатие на кнопку ответа приведёт к ответу отправителю</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
     <string name="title_advanced_remove_signature_hint">Может привести к слишком маленькому или большому убиранию текста</string>
@@ -1815,7 +1814,7 @@
         <item>5 сек.</item>
         <item>7,5 сек.</item>
         <item>10 сек.</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 сек.</item>
+        <item>15 сек.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

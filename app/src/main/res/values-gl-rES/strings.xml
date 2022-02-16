@@ -307,7 +307,6 @@
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Adiar o envío de mensaxes</string>
     <string name="title_advanced_attach_new">Engadir arquivos compartidos a un novo borrador</string>
-    <string name="title_advanced_reply_all">Faga unha presión longa no botón de resposta para responder a todos</string>
     <string name="title_advanced_send_pending">Mostrar iconas non obstruíntes de envíos adiados</string>
     <string name="title_advanced_compose_font">Fonte predefinida</string>
     <string name="title_advanced_prefix_once">Só poñer un único prefixo no asunto cando se responde ou reenvía</string>
@@ -594,7 +593,6 @@
     <string name="title_advanced_suggest_names_hint">Se está desactivado, so se usarán os enderezos de correo cando se seleccionen contactos</string>
     <string name="title_advanced_suggest_local_hint">Ademais dos contactos de Android. A información dos contactos almacenarase para as novas mensaxes enviadas ou recibidas soamente cando estea activado.</string>
     <string name="title_advanced_send_reminders_hint">Mostrar unha advertencia cando o texto ou o asunto da mensaxe está baleiro ou cando podería ser que faltara un anexo</string>
-    <string name="title_advanced_reply_all_hint">Se está desactivado, un toque longo do botón de réplica responderá ao remitente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correo aínda podería engadir as mensaxes ao cartafol de enviadas</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a sinatura</string>
     <string name="title_advanced_remove_signature_hint">Isto podería eliminar demasiado ou moi pouco texto</string>
@@ -1743,7 +1741,7 @@
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursiva</item>

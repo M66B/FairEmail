@@ -298,7 +298,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
     <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
     <string name="title_advanced_attach_new">Tambahkan berkas berbagi ke konsep baru</string>
-    <string name="title_advanced_reply_all">Ketuk dan tahan tombol balas untuk balas ke semua</string>
     <string name="title_advanced_send_pending">Tampilkan ikon tunda kirim yang tidak mengganggu</string>
     <string name="title_advanced_compose_font">Huruf Standar</string>
     <string name="title_advanced_prefix_once">Awali subjek hanya sekali saat membalas atau meneruskan</string>
@@ -583,7 +582,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_suggest_names_hint">Jika dinonaktifkan, hanya alamat email yang akan digunakan saat memilih kontak</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
-    <string name="title_advanced_reply_all_hint">Jika di nonaktifkan, tekan dan tahan tombol balas akan menjawab pengirim</string>
     <string name="title_advanced_reply_move_hint">Server email bisa menambahkan pesan pada folder pesan terkirim</string>
     <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>
     <string name="title_advanced_remove_signature_hint">Ini dapat berakibat terlalu sedikit atau terlalu banyak teks yang disingkirkan</string>
@@ -1720,7 +1718,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>5 detik</item>
         <item>7.5 detik</item>
         <item>10 detik</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 detik</item>
+        <item>15 detik</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

@@ -1423,7 +1423,7 @@
         <item>5 с</item>
         <item>7,5 с</item>
         <item>10 с</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 с</item>
+        <item>15 с</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

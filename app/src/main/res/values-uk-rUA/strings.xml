@@ -335,7 +335,7 @@
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_attach_new">Додати спільні файли до нової чернетки</string>
-    <string name="title_advanced_reply_all">Натисніть і утримуйте кнопку відповідь, щоб відповісти всім</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Тривале натискання на кнопку відповіді для:</string>
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
@@ -630,7 +630,6 @@
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
-    <string name="title_advanced_reply_all_hint">Якщо вимкнено, то тривале натискання на кнопку відповіді відповість відправнику</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
@@ -867,6 +866,7 @@
     <string name="title_delete_operation_deleted">%1$d операцій видалено</string>
     <string name="title_delete_contacts">Видалити всі локальні контакти?</string>
     <string name="title_no_operations">Немає відкладених операцій</string>
+    <string name="title_check_operations">Перевірка операцій</string>
     <string name="title_hint_operations">Видалення операцій може призвести до зникнення повідомлень та проблем з синхронізацією</string>
     <string name="title_op_title_headers">Завантаження заголовків</string>
     <string name="title_op_title_raw">Завантаження raw повідомлень</string>
@@ -1811,7 +1811,7 @@
         <item>5 с</item>
         <item>7,5 с</item>
         <item>10 с</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 с</item>
+        <item>15 с</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

@@ -4,9 +4,12 @@
     <string name="app_changelog">گزارش دگرگونی</string>
     <string name="app_welcome">FairEmail یک برنامه منبع باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
     <string name="app_limitations">به عنوان مثال ، پیامها به طور پیش فرض برای حذف عناصر ناامن و بهبود خوانایی مجدداً قالب بندی می شوند و باز شدن پیوندها باید از نظر ایمنی تأیید شود. در صورت تمایل می توان هر دو را غیرفعال کرد.</string>
+    <string name="app_unsupported">اشکالات در نسخه اندروید این دستگاه خاص باعث خروج ناگهانی می شود</string>
+    <string name="app_continue">به هر حال ادامه بده</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
     <string name="app_cake">فضای ذخیره سازی کافی باقی نمانده است</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
+    <string name="app_download">در حال دانلود از %1$s</string>
     <string name="channel_service">دریافت</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">ایمیل</string>
@@ -76,8 +79,10 @@
     <string name="title_block_sender_domain">دامنه %1$s را مسدود کن</string>
     <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
+    <string name="title_junk_filter_hint">این می تواند استفاده از باتری را افزایش دهد و پیام ها را به صورت نادرست به عنوان اسپم علامت گذاری کند</string>
     <string name="title_junk_blocklist">از فهرست‌های انسداد هرزنامه استفاده کن</string>
     <string name="title_junk_clear">پاک‌سازی</string>
+    <string name="title_junk_clear_hint">این همه قوانین فرستنده مسدود را پاک میکند</string>
     <string name="title_notification_sending">درحال ارسال پیام‌ها</string>
     <string name="title_notification_waiting">درحال انتظار برای اتصال مناسب</string>
     <string name="title_notification_idle">بیکار</string>
@@ -1210,7 +1215,7 @@
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

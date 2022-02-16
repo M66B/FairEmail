@@ -314,7 +314,6 @@
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_attach_new">Añadir archivos compartidos a un nuevo borrador</string>
-    <string name="title_advanced_reply_all">Deje pulsado el botón de respuesta para responder a todos</string>
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
     <string name="title_advanced_compose_font">Fuente por defecto</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
@@ -345,6 +344,7 @@
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
     <string name="title_advanced_download_headers">Descargar todos los encabezados de mensajes</string>
     <string name="title_advanced_download_eml">Descargar archivos de mensajes sin procesar</string>
+    <string name="title_advanced_download_plain">Descargar sólo partes de texto plano por defecto (si está disponible)</string>
     <string name="title_advanced_validated">Requerir una conexión validada (comprobada)</string>
     <string name="title_advanced_vpn_only">Conectar sólo a través de una VPN</string>
     <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
@@ -609,7 +609,6 @@
     <string name="title_advanced_suggest_names_hint">Si está desactivado, sólo se usarán direcciones de correo electrónico al seleccionar contactos</string>
     <string name="title_advanced_suggest_local_hint">Además de los contactos proporcionados por Android, los datos de contactos se almacenarán para nuevos mensajes enviados o recibidos sólo cuando esté activado.</string>
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
-    <string name="title_advanced_reply_all_hint">Si está desactivado, mantener presionado el botón de respuesta responderá al remitente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
     <string name="title_advanced_remove_signature_hint">Esto puede dar lugar a que se elimine demasiado poco o demasiado texto</string>
@@ -617,6 +616,7 @@
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_usage_hint">Esto aumentará el uso de batería, datos y espacio de almacenamiento</string>
+    <string name="title_advanced_plain_hint">Activar esto limitará el uso de datos, pero los mensajes se mostrarán sin estilizar</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos</string>
     <string name="title_advanced_validate_hint">Esto puede ocasionar que no sincronicen los mensajes, por ejemplo cuando se utiliza una VPN, pero también en otras situaciones</string>
     <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
@@ -1786,7 +1786,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursiva</item>

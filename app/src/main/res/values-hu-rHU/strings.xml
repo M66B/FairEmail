@@ -313,7 +313,6 @@
     <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
     <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
     <string name="title_advanced_attach_new">Megosztott fájlok hozzáadása új piszkozathoz</string>
-    <string name="title_advanced_reply_all">Válasz hosszan nyomása mindenkinek válaszol</string>
     <string name="title_advanced_send_pending">Nem zavaró küldés késleltetett ikon megjelenítése</string>
     <string name="title_advanced_compose_font">Alapértelmezett betűtípus</string>
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
@@ -605,7 +604,6 @@
     <string name="title_advanced_suggest_names_hint">Ha ki van kapcsolva, csak e-mail címek lesznek használva névjegyek kiválasztásakor</string>
     <string name="title_advanced_suggest_local_hint">Az Android által biztosított névjegyek mellett. A kapcsolattartási adatokat az újonnan elküldött vagy fogadott üzenetek csak akkor fogják tárolni, ha ez engedélyezve van.</string>
     <string name="title_advanced_send_reminders_hint">Figyelmeztetés megjelenítése, ha az üzenet szövege vagy a tárgy üres, illetve ha a melléklet feltehetőleg hiányzik</string>
-    <string name="title_advanced_reply_all_hint">Kikapcsoláskor a válasz hosszú nyomása esetén a küldőnek válaszol</string>
     <string name="title_advanced_reply_move_hint">Az e-mail szerver továbbra is felveheti az üzeneteket az elküldött üzenetek mappájába</string>
     <string name="title_advanced_usenet_hint">Elválasztó \'--\' beillesztése a szövegtörzs és az aláírás közé</string>
     <string name="title_advanced_remove_signature_hint">Túl kevés vagy túl sok szöveg törlését eredményezheti</string>
@@ -1769,7 +1767,7 @@
         <item>5 mp</item>
         <item>7,5 mp</item>
         <item>10 mp</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 mp</item>
+        <item>15 mp</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Folyóírás</item>

@@ -314,7 +314,6 @@
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_attach_new">Lisää jaetut tiedostot uuteen luonnokseen</string>
-    <string name="title_advanced_reply_all">Vastaa kaikille painamalla vastauspainiketta pitkään</string>
     <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
@@ -608,7 +607,6 @@
     <string name="title_advanced_suggest_names_hint">Jos poistettu käytöstä, yhteystietoja valittaessa käytetään vain sähköpostiosoitteita</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
-    <string name="title_advanced_reply_all_hint">Jos poistettu käytöstä, vastauspainikkeen pitkä painallus vastaa lähettäjälle</string>
     <string name="title_advanced_reply_move_hint">Sähköpostipalvelin voi silti lisätä viestit lähetettyjen viestien kansioon</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
     <string name="title_advanced_remove_signature_hint">Tämä voi aiheuttaa, että tekstiä poistetaan liian vähän tai liian paljon</string>
@@ -1786,7 +1784,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursivoitu</item>

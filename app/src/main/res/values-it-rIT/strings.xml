@@ -201,6 +201,7 @@
     <string name="title_setup_error">Errore</string>
     <string name="title_setup_configuring">Configurazione del profilo &#8230;</string>
     <string name="title_setup_app_password">Potresti dover usare la password di un\'app</string>
+    <string name="title_setup_extra">Extra</string>
     <string name="title_setup_close">Chiudi le impostazioni</string>
     <string name="title_setup_export">Impostazioni di esportazione</string>
     <string name="title_setup_import">Importa impostazioni</string>
@@ -314,7 +315,7 @@
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
     <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
-    <string name="title_advanced_reply_all">Tieni premuto il pulsante di risposta per rispondere a tutti</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">La pressione prolungata sul pulsante di risposta:</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
@@ -345,6 +346,7 @@
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_download_headers">Scarica tutte le intestazioni del messaggio</string>
     <string name="title_advanced_download_eml">Scarica i file dei messaggi non elaborati</string>
+    <string name="title_advanced_download_plain">Scarica le parti in solo testo semplice di default (se disponibile)</string>
     <string name="title_advanced_validated">Richiede una connessione convalidata (verificata)</string>
     <string name="title_advanced_vpn_only">Connettiti solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
@@ -444,6 +446,7 @@
     <string name="title_advanced_actionbar">Mostra barra d\'azione della conversazione</string>
     <string name="title_advanced_actionbar_color">Usa il colore del profilo come colore di sfondo per la barra d\'azione della conversazione</string>
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
+    <string name="title_advanced_bundled_fonts">Usa font impacchettati</string>
     <string name="title_advanced_parse_classes">Analizza fogli di stile</string>
     <string name="title_advanced_authentication">Mostra avvisi d\'autenticazione</string>
     <string name="title_advanced_authentication_hint">I controlli sottostanti sono configurabili nelle impostazioni di ricezione</string>
@@ -609,7 +612,6 @@
     <string name="title_advanced_suggest_names_hint">Se disabilitato, solo gli indirizzi email saranno usati selezionando i contatti</string>
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
-    <string name="title_advanced_reply_all_hint">Se disabilitato, tenere premuto il pulsante di risposta risponderà al mittente</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
     <string name="title_advanced_remove_signature_hint">Questo può risultare nella rimozione di troppo o troppo poco testo</string>
@@ -617,6 +619,7 @@
     <string name="title_advanced_metered_warning">Disabilitare quest\'opzione disabiliterà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi che non ci sia roaming nell\'UE</string>
     <string name="title_advanced_usage_hint">Questo aumenterà l\'uso di batteria, dati e spazio d\'archiviazione</string>
+    <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati, ma i messaggi saranno mostrati senza stilizzazione</string>
     <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi</string>
     <string name="title_advanced_validate_hint">Questo può risultare nel non sincronizzare i messaggi, ad esempio usando una VPN, ma anche altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
@@ -777,7 +780,7 @@
     <string name="title_drafts_select">L\'invio delle email richiede la selezione di una cartella di bozze nelle impostazioni del profilo</string>
     <string name="title_account_auth_update">Aggiorna l\'autorizzazione</string>
     <string name="title_account_auth_password">Passa all\'autenticazione con password</string>
-    <string name="title_delete_account">Elimina account</string>
+    <string name="title_delete_account">Elimina il profilo</string>
     <string name="title_account_delete">Eliminare permanentemente questo profilo?</string>
     <string name="title_identity_delete">Eliminare permanentemente quest\'identità?</string>
     <string name="title_edit_html">Modifica come HTML</string>
@@ -844,6 +847,7 @@
     <string name="title_delete_operation_deleted">%1$d operazioni eliminate</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
+    <string name="title_check_operations">Controllando le operazioni</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
     <string name="title_op_title_headers">Scaricando le intestazioni</string>
     <string name="title_op_title_raw">Scaricando il messaggio non elaborato</string>
@@ -1033,6 +1037,8 @@
     <string name="title_ask_show_html_images">Mostra sempre le immagini mostrando i messaggi originali</string>
     <string name="title_ask_show_image">Mostrare le immagini potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come di monitoraggio non saranno mostrate</string>
+    <string name="title_ask_show_amp">Mostrare la variante AMP del messaggio?</string>
+    <string name="title_ask_show_amp_hint">I messaggi AMP sono progettati per esser dinamici e interagire con l\'Internet e possono dunque, per definizione, esser usati per monitorarti</string>
     <string name="title_ask_delete_local">Elimina i messaggi locali? I messaggi rimarranno sul server remoto.</string>
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare segnalazioni d\'errore?</string>
@@ -1175,6 +1181,8 @@
     <string name="title_encrypt">Crittografa</string>
     <string name="title_decrypt">Decrittografa</string>
     <string name="title_resync">Risincronizza</string>
+    <string name="title_alternative_text">Mostra il testo semplice</string>
+    <string name="title_alternative_html">Mostra HTML</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
     <string name="title_user_interaction">Trasferimento a OpenKeychain</string>
     <string name="title_signed_data">Verifica la firma per mostrare il testo del messaggio</string>
@@ -1335,6 +1343,8 @@
     <string name="title_rule_thread">Tutti i messaggi nella stessa conversazione e cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
+    <string name="title_rule_answer_subject">Usa il nome del modello come oggetto</string>
+    <string name="title_rule_original_text">Includi il testo del messaggio originale</string>
     <string name="title_rule_forward_to">Inoltra a</string>
     <string name="title_rule_cc">Rispondi agli indirizzi CC</string>
     <string name="title_rule_with_attachments">Con allegati</string>
@@ -1461,6 +1471,7 @@
     <string name="title_legend_show_unsubscribe">Disiscriviti dall\'elenco</string>
     <string name="title_legend_show_images">Mostra immagini</string>
     <string name="title_legend_hide_images">Nascondi immagini</string>
+    <string name="title_legend_show_amp">Mostra la variante AMP</string>
     <string name="title_legend_show_full">Mostra il messaggio originale</string>
     <string name="title_legend_show_reformatted">Mostra il messaggio riformattato</string>
     <string name="title_legend_edit">Modifica</string>
@@ -1783,7 +1794,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

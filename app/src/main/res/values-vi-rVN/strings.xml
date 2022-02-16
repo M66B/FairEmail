@@ -304,7 +304,6 @@
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
     <string name="title_advanced_attach_new">Thêm các tệp được chia sẻ vào bản nháp mới</string>
-    <string name="title_advanced_reply_all">Nhấn giữ nút trả lời để trả lời tất cả</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
@@ -599,7 +598,6 @@
     <string name="title_advanced_suggest_names_hint">Nếu bị tắt, chỉ có các địa chỉ email sẽ được sử dụng khi chọn các liên hệ</string>
     <string name="title_advanced_suggest_local_hint">Bên cạnh các liên hệ được Android cung cấp. Dữ liệu liên hệ sẽ được lưu trữ cho các thư mới được gửi hoặc nhận chỉ khi được bật.</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
-    <string name="title_advanced_reply_all_hint">Nếu bị tắt, việc nhấn giữ nút trả lời sẽ trả lời người gửi</string>
     <string name="title_advanced_reply_move_hint">Máy chủ email vẫn có thể thêm thư vào thư mục thư đã gửi</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>
     <string name="title_advanced_remove_signature_hint">Việc này có thể dẫn đến văn bản bị xoá quá nhiều hoặc ít</string>
@@ -1770,7 +1768,7 @@
         <item>5 giây</item>
         <item>7.5 giây</item>
         <item>10 giây</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 giây</item>
+        <item>15 giây</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Chữ viết tay</item>

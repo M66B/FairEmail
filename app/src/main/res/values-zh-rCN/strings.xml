@@ -304,7 +304,7 @@
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
-    <string name="title_advanced_reply_all">长按答复按钮回复所有</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">长按回复按钮动作：</string>
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
@@ -600,7 +600,6 @@
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
-    <string name="title_advanced_reply_all_hint">如禁用，长按答复按钮将答复发送者</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍然可以将消息添加到“已发送消息”文件夹</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
@@ -1775,7 +1774,7 @@
         <item>5 秒</item>
         <item>7.5 秒</item>
         <item>10 秒</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 秒</item>
+        <item>15 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草写体</item>

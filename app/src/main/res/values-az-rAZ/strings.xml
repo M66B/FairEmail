@@ -315,7 +315,6 @@
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
     <string name="title_advanced_attach_new">Yeni bir qaralamaya paylaşılan faylları əlavə edin</string>
-    <string name="title_advanced_reply_all">Hamısını cavablandırmaq üçün cavabla düyməsinə uzun basın</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
     <string name="title_advanced_compose_font">İlkin şrift</string>
     <string name="title_advanced_prefix_once">Mövzunu yalnız bir dəfə cavablayarkən və ya yönləndirərkən prefiks</string>
@@ -346,6 +345,7 @@
     <string name="title_advanced_rlah">Evdə olduğu kimi gəz</string>
     <string name="title_advanced_download_headers">Bütün mesaj başlıqlarını endir</string>
     <string name="title_advanced_download_eml">Xam mesaj fayllarını endir</string>
+    <string name="title_advanced_download_plain">Ilkin olaraq yalnız düz mətn hissələrini endir (əgər varsa)</string>
     <string name="title_advanced_validated">Təsdiqlənmiş (yoxlanılmış) bir bağlantı tələb et</string>
     <string name="title_advanced_vpn_only">Yalnız VPN vasitəsilə bağlantı qurun</string>
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
@@ -610,7 +610,6 @@
     <string name="title_advanced_suggest_names_hint">Əgər sıradan çıxarılsa, əlaqələr seçiləndə yalnız e-poçt ünvanları istifadə ediləcək</string>
     <string name="title_advanced_suggest_local_hint">Android tərəfindən təmin edilən əlaqələrə əlavə olaraq. Əlaqə verilənləri, yeni göndərilən və alınan mesajlar üçün yalnız fəal olanda saxlanılacaq.</string>
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
-    <string name="title_advanced_reply_all_hint">Sıradan çıxarılsa, cavabla düyməsinə uzun basmaq, göndərə cavab verəcək</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
     <string name="title_advanced_remove_signature_hint">Bu, həddindən az və ya çox mətnin silinməsinə səbəb ola bilər</string>
@@ -618,6 +617,7 @@
     <string name="title_advanced_metered_warning">Bu seçimin sıradan çıxarılması, mobil internet bağlantılarında mesajların göndərilməsini və alınmasını dayandıracaq</string>
     <string name="title_advanced_rlah_hint">AB daxilində roaminqdə olmadığını hesab et</string>
     <string name="title_advanced_usage_hint">Bu, batareya, verilənlər və anbar sahəsi istifadəsini artıracaq</string>
+    <string name="title_advanced_plain_hint">Bunu fəallaşdırmaq verilənlər istifadəsini məhdudlaşdıracaq, ancaq mesajlar stil olmadan görünəcək</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunun fəallaşdırılması, bəzi cihazlarda bağlantı problemlərinə səbəb ola bilər</string>
     <string name="title_advanced_validate_hint">Bu, məsələn bir VPN istifadə edəndə və digər hallarda mesajların eyniləşdirilməməsi ilə nəticələnə bilər</string>
     <string name="title_advanced_timeout_hint">Oxuma/yazma üçün bitmə vaxtı, bağlantı üçün bitmə vaxtının iki qatına tənzimlənəcək. Yüksək dəyərlər, daha çox batareya istifadəsi ilə nəticələnəcək.</string>
@@ -845,6 +845,7 @@
     <string name="title_delete_operation_deleted">%1$d əməliyyatlar silindi</string>
     <string name="title_delete_contacts">Bütün yerli əlaqələr silinsin?</string>
     <string name="title_no_operations">Gözləyən heç bir əməliyyat yoxdur</string>
+    <string name="title_check_operations">Əməliyyatların yoxlanılması</string>
     <string name="title_hint_operations">Əməliyyatların silinməsi, mesajların görünməməsi və eyniləşdirmə problemlərinin yaranması ilə nəticələnə bilər</string>
     <string name="title_op_title_headers">Başlıqlar endirilir</string>
     <string name="title_op_title_raw">Xam mesaj endirilir</string>
@@ -1784,7 +1785,7 @@
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Əl yazısı</item>

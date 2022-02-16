@@ -307,7 +307,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
     <string name="title_advanced_attach_new">Adicionar arquivos partilhados a um novo rascunho</string>
-    <string name="title_advanced_reply_all">Pressione e segure o botão de resposta para responder a todos</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Pressionar e segurar o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
@@ -530,7 +530,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de se conectar a uma conta</string>
     <string name="title_advanced_override_width_hint">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
     <string name="title_advanced_monospaced_pre_hint">Mensagens de texto simples serão consideradas como pré-formatadas</string>
-    <string name="title_advanced_never_favorite">Nunca favoritar</string>
+    <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
@@ -699,6 +699,17 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_important">Importante</string>
+    <string name="title_tracking_link">Este sítio web pode rastreá-lo</string>
+    <string name="title_suspicious_link">Esta é uma hiperligação suspeita</string>
+    <string name="title_link_http">O tráfego não será cifrado</string>
+    <string name="title_link_https">O tráfego será cifrado</string>
+    <string name="title_sanitize_link">Remover parâmetros de rastreamento</string>
+    <string name="title_insecure_link">Esta hiperligação é insegura</string>
+    <string name="title_check_owner">Verificar proprietário</string>
+    <string name="title_remark_owner">A informação será recuperada a partir de <a href="https://ipinfo.io/">ipinfo.io</a></string>
+    <string name="title_ip_owner">Endereço IP do proprietário</string>
+    <string name="title_default_apps">Aplicações predefinidas</string>
+    <string name="title_reset_open">Definir ou limpar as aplicações predefinidas</string>
     <string name="title_select_app">Seleccionar aplicação</string>
     <string name="title_updated">Atualização para a versão %1$s disponível</string>
     <string name="title_issue">Tem alguma questão ou um problema?</string>
@@ -741,6 +752,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_dismiss">Dispensar</string>
     <string name="title_snooze_now">Adiar</string>
     <string name="title_loading">A carregar &#8230;</string>
+    <string name="title_fetching_again">A procurar novamente a mensagem do servidor</string>
     <string name="title_go_back">Retroceder</string>
     <string name="title_conversation_actions">Acções</string>
     <string name="title_conversation_action_reply">Resposta com: \'%1$s\'</string>
@@ -798,6 +810,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
+    <string name="title_widget_padding">Tamanho do espaçamento</string>
     <string name="title_widget_semi_transparent">Fundo semi-transparente</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
@@ -960,7 +973,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursivo</item>

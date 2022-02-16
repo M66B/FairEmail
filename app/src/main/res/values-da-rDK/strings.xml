@@ -315,7 +315,7 @@
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
     <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
-    <string name="title_advanced_reply_all">Langt tryk på svarknappen for at besvare alle</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Langt tryk på svarknappen vil:</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
@@ -346,6 +346,7 @@
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
     <string name="title_advanced_download_headers">Download alle brevoverskrifter</string>
     <string name="title_advanced_download_eml">Download råformat beskedfiler</string>
+    <string name="title_advanced_download_plain">Download som standard kun simpel tekst dele (hvis tilgængelig)</string>
     <string name="title_advanced_validated">Kræv en valideret (kontrolleret) forbindelse</string>
     <string name="title_advanced_vpn_only">Tilslut kun vha. VPN</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
@@ -611,7 +612,6 @@
     <string name="title_advanced_suggest_names_hint">Hvis deaktiveret, bruges kun e-mailadresser ved valg af kontakter</string>
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
-    <string name="title_advanced_reply_all_hint">Hvis deaktiveret, vil langt tryk på Besvar-knappen svare afsenderen</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_remove_signature_hint">Dette kan resultere i, at for lidt/meget tekst fjernes</string>
@@ -619,6 +619,7 @@
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_usage_hint">Dette vil forøge batteri-, data- samt lagerpladsforbrug</string>
+    <string name="title_advanced_plain_hint">Aktivering af dette reducerer dataforbruget, men beskeder vises uden styling</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering af dette kan på visse enheder forårsage forbindelsesproblemer</string>
     <string name="title_advanced_validate_hint">Dette kan betyde, at beskeder i visse situationer ikke synkes, bl.a. ved brug af VPN</string>
     <string name="title_advanced_timeout_hint">Læse-/skrive-timeout indstilles til det dobbelte af forbindelses-timeout. Højere værdier vil resultere i øget batteriforbrug.</string>
@@ -1789,7 +1790,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

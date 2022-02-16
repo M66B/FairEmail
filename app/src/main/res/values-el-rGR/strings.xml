@@ -314,7 +314,7 @@
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
     <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο προσχέδιο</string>
-    <string name="title_advanced_reply_all">Πατήστε παρατεταμένα το κουμπί απάντησης για να απαντήσετε σε όλους</string>
+    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Το παρατεταμένο πάτημα στο κουμπί απάντησης θα:</string>
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
@@ -345,6 +345,7 @@
     <string name="title_advanced_rlah">Περιήγηση όπως στο σπίτι</string>
     <string name="title_advanced_download_headers">Λήψη όλων των κεφαλίδων μηνυμάτων</string>
     <string name="title_advanced_download_eml">Λήψη αρχείων αρχικών μηνυμάτων</string>
+    <string name="title_advanced_download_plain">Να κατεβαίνουν, από προεπιλογή, μόνον τα τμήματα απλού κειμένου (εφόσον είναι διαθέσιμα)</string>
     <string name="title_advanced_validated">Απαιτείται επικυρωμένη (επαληθευμένη) σύνδεση</string>
     <string name="title_advanced_vpn_only">Σύνδεση μόνο μέσω VPN</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
@@ -607,7 +608,6 @@
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
-    <string name="title_advanced_reply_all_hint">Εάν απενεργοποιηθεί, το παρατεταμένο πάτημα στο κουμπί απάντησης θα στείλει απάντηση μόνον στον αποστολέα</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_remove_signature_hint">Αυτό μπορεί να επιφέρει την απαλοιφή είτε υπερβολικά λίγου είτε υπερβολικά πολύ κειμένου</string>
@@ -615,6 +615,7 @@
     <string name="title_advanced_metered_warning">Αν απενεργοποιηθεί, θα απενεργοποιηθούν η λήψη και η αποστολή μηνυμάτων σε κινητές συνδέσεις διαδικτύου</string>
     <string name="title_advanced_rlah_hint">Υπό την προϋπόθεση ότι δεν λαμβάνει χώρα περιαγωγή εντός της ΕΕ</string>
     <string name="title_advanced_usage_hint">Θα αυξήσει τη χρήση μπαταρίας, δεδομένων και χώρου αποθήκευσης</string>
+    <string name="title_advanced_plain_hint">Εάν ενεργοποιηθεί, θα περιοριστεί η χρήση δεδομένων, αλλά τα μηνύματα θα προβάλλονται χωρίς μορφοποίηση</string>
     <string name="title_advanced_tcp_keep_alive_hint">Αν ενεργοποιηθεί, μπορεί να προκαλέσει προβλήματα σύνδεσης σε ορισμένες συσκευές</string>
     <string name="title_advanced_validate_hint">Μπορεί να οδηγήσει σε μη συγχρονισμό μηνυμάτων, για παράδειγμα όταν χρησιμοποιείτε VPN, αλλά και σε άλλες περιπτώσεις</string>
     <string name="title_advanced_timeout_hint">Το χρονικό όριο για τις διαδικασίες ανάγνωσης/εγγραφής θα τεθεί στο διπλάσιο από εκείνο για τη λήξη της σύνδεσης. Υψηλότερες τιμές συνεπάγονται μεγαλύτερη χρήση μπαταρίας.</string>
@@ -842,6 +843,7 @@
     <string name="title_delete_operation_deleted">%1$d δραστηριότητες διεγράφησαν</string>
     <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
     <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
+    <string name="title_check_operations">Έλεγχος για δραστηριότητες</string>
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
     <string name="title_op_title_headers">Λήψη κεφαλίδων</string>
     <string name="title_op_title_raw">Λήψη αρχικού μηνύματος</string>
@@ -1784,7 +1786,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 δευτ.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Επισεσυρμένη</item>

@@ -333,7 +333,6 @@
     <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
     <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
     <string name="title_advanced_attach_new">Pridať zdieľané súbory do nového konceptu</string>
-    <string name="title_advanced_reply_all">Dlhým stlačením tlačidla pre odpoveď odpovedať všetkým</string>
     <string name="title_advanced_send_pending">Zobrazovať nevtieravú ikonu oneskoreného odosielania</string>
     <string name="title_advanced_compose_font">Predvolené písmo</string>
     <string name="title_advanced_prefix_once">Pri odpovedaní alebo preposielaní pridať do predmetu len jednu predponu</string>
@@ -626,7 +625,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_suggest_names_hint">Ak je to zakázané, pri výbere kontaktov sa budú používať len emailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Okrem kontaktov poskytnutých systémom. Zaznamenané budú kontaktné údaje z prijatých a odoslaných správ, len ak je to povolené.</string>
     <string name="title_advanced_send_reminders_hint">Zobraziť varovanie, ak je text správy alebo predmet prázdny alebo môže chýbať príloha</string>
-    <string name="title_advanced_reply_all_hint">Ak nie je povolené dlhým stlačením tlačidla pre odpoveď budete odpovedať len odosielateľovi</string>
     <string name="title_advanced_reply_move_hint">Poštový server môže stále umiestniť správy v priečinku s odoslanou poštou</string>
     <string name="title_advanced_usenet_hint">Oddeliť podpis od textu správy znakmi \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">Môže sa stať že bude odstráneného príliš málo alebo príliš veľa textu</string>
@@ -1791,7 +1789,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

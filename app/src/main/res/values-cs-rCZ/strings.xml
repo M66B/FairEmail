@@ -334,7 +334,6 @@
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_attach_new">Přidat sdílené soubory do nového konceptu</string>
-    <string name="title_advanced_reply_all">Pro odpověď všem stiskněte tlačítko odpovědi dlouze</string>
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
@@ -630,7 +629,6 @@
     <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
-    <string name="title_advanced_reply_all_hint">Pokud je vypnuto, dlouhé stisknutí tlačítka odpovědi odpoví odesílateli</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_remove_signature_hint">To může vést k odstranění příliš malého nebo příliš velkého textu</string>
@@ -1811,7 +1809,7 @@
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 s</item>
+        <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kurzíva</item>

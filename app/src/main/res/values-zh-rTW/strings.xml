@@ -303,7 +303,6 @@
     <string name="title_advanced_send_reminders">顯示提醒</string>
     <string name="title_advanced_send_delayed">延後傳送訊息</string>
     <string name="title_advanced_attach_new">將分享的檔案加至新建草稿中</string>
-    <string name="title_advanced_reply_all">長按應答按鈕回覆所有人</string>
     <string name="title_advanced_send_pending">顯示低存在感的傳送延後圖示</string>
     <string name="title_advanced_compose_font">預設字型</string>
     <string name="title_advanced_prefix_once">在回覆或轉寄時，主題前綴只出現一次</string>
@@ -593,7 +592,6 @@
     <string name="title_advanced_suggest_names_hint">如果停用，則在選取聯絡人時僅有電子郵件地址會被使用</string>
     <string name="title_advanced_suggest_local_hint">除了 Android 提供的聯絡人以外，針對新近傳送或接收訊息的聯絡人數據儲存，將僅在相應選項被啟用後才會進行。</string>
     <string name="title_advanced_send_reminders_hint">當訊息本文或主旨為空或在附件可能有缺失時顯示警告</string>
-    <string name="title_advanced_reply_all_hint">如果停用此項設定，則長按應答按鈕僅會回覆寄件者</string>
     <string name="title_advanced_reply_move_hint">電子郵件伺服器仍可將訊息新增至已傳送訊息資料夾</string>
     <string name="title_advanced_usenet_hint">在本文和簽名之間插入 ‘-- ’</string>
     <string name="title_advanced_remove_signature_hint">這會導致移除太多或太少文字</string>
@@ -1752,7 +1750,7 @@
         <item>5 秒</item>
         <item>7.5 秒</item>
         <item>10 秒</item>
-        <item comment="undoNames&#10;Undo timeout value option">15 秒</item>
+        <item>15 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草書</item>
