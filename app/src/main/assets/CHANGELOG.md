@@ -6,7 +6,7 @@
 
 ### 1.1839 - 2022-02-16
 
-* Added option to select long press answer button action
+* Added an option to select the long press answer button action
 * Small improvements and minor bug fixes
 * Updated translations
 
