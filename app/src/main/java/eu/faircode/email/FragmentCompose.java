@@ -4328,8 +4328,10 @@ public class FragmentCompose extends FragmentBase {
                             db.answer().applyAnswer(a.id, new Date().getTime());
                             if (answer > 0)
                                 data.draft.subject = a.name;
-                            Document d = JsoupEx.parse(a.getHtml(null));
-                            document.body().append(d.body().html());
+                            if (TextUtils.isEmpty(external_body)) {
+                                Document d = JsoupEx.parse(a.getHtml(null));
+                                document.body().append(d.body().html());
+                            }
                         }
 
                         data.draft.signature = prefs.getBoolean("signature_new", true);
