@@ -1355,7 +1355,8 @@ public class HtmlHelper {
         // tel:<phonenumber>
         final Pattern GPA_PATTERN = Pattern.compile("GPA\\.\\d{4}-\\d{4}-\\d{4}-\\d{5}");
         final Pattern pattern = Pattern.compile(
-                "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")" +
+                "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() +
+                        "(\\?[^\\s]*)" /* query parameters */ + ")" +
                         "|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern()
                                 .replace("(?i:http|https|rtsp)://",
