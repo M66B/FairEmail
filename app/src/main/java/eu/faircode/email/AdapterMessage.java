@@ -50,6 +50,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.LocaleList;
 import android.os.Parcelable;
 import android.provider.CalendarContract;
@@ -3119,9 +3120,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
-            ibStoreMedia.setVisibility(
-                    images.size() > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-                            ? View.VISIBLE : View.GONE);
+            ibStoreMedia.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
         }
 
         private void bindCalendar(final TupleMessageEx message, EntityAttachment attachment) {
@@ -3477,13 +3476,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             new SimpleTask<Uri>() {
                 @Override
-                @RequiresApi(api = Build.VERSION_CODES.Q)
                 protected Uri onExecute(Context context, Bundle args) throws IOException {
                     long id = args.getLong("id");
 
                     ContentResolver resolver = context.getContentResolver();
-                    Uri collection = MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY);
+
                     String folder = context.getString(R.string.app_name);
+                    Uri collection = (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
+                            ? MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                            : MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY));
+                    File pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
                     DB db = DB.getInstance(context);
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -3494,7 +3496,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (attachment.available &&
                                 attachment.isAttachment() && attachment.isImage()) {
 
-                            // Check is exists
+                            // Check if exists
                             if (attachment.media_uri != null) {
                                 Uri uri = Uri.parse(attachment.media_uri);
                                 try (Cursor cursor = resolver.query(uri, null, null, null, null)) {
@@ -3508,11 +3510,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             String title = (attachment.name == null ? file.getName() : attachment.name);
 
                             ContentValues values = new ContentValues();
-                            values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/" + folder);
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                                File image = new File(pictures, file.getName());
+                                values.put(MediaStore.Images.Media.DATA, image.getPath());
+                            } else {
+                                File target = new File(Environment.DIRECTORY_PICTURES, folder);
+                                values.put(MediaStore.Images.Media.RELATIVE_PATH, target.getPath());
+                            }
                             values.put(MediaStore.Images.Media.TITLE, title);
                             values.put(MediaStore.Images.Media.DISPLAY_NAME, title);
                             values.put(MediaStore.Images.Media.MIME_TYPE, type);
-                            values.put(MediaStore.Images.Media.IS_PENDING, 1);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                values.put(MediaStore.Images.Media.IS_PENDING, 1);
 
                             Uri uri = resolver.insert(collection, values);
                             if (uri == null)
@@ -3535,11 +3544,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                             values.clear();
-                            values.put(MediaStore.Images.Media.IS_PENDING, 0);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                values.put(MediaStore.Images.Media.IS_PENDING, 0);
                             values.put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
                             resolver.update(uri, values, null, null);
 
-                            db.attachment().setMediaUri(attachment.id, uri.toString());
+                            attachment.media_uri = uri.toString();
+                            db.attachment().setMediaUri(attachment.id, attachment.media_uri);
                         }
 
                     // Viewing the containing folder is not possible
@@ -3551,7 +3562,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @Override
-                @RequiresApi(api = Build.VERSION_CODES.Q)
                 protected void onExecuted(Bundle args, Uri uri) {
                     if (uri == null)
                         return;
