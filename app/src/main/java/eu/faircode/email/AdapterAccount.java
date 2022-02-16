@@ -284,8 +284,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvWarning.setVisibility(account.warning == null || !settings ? View.GONE : View.VISIBLE);
 
             tvError.setText(account.error);
-            tvError.setVisibility(account.error == null || !settings ? View.GONE : View.VISIBLE);
-            btnHelp.setVisibility(account.error == null || !settings ? View.GONE : View.VISIBLE);
+            tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
+            btnHelp.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
 
             ibInbox.setVisibility(settings ? View.GONE : View.VISIBLE);
             grpSettings.setVisibility(settings ? View.VISIBLE : View.GONE);
