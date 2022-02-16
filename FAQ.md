@@ -4255,6 +4255,8 @@ it is not feasible to add for each color combination (literally millions) a pred
 Moreover, a theme is more than just a few colors.
 For example themes with a yellow accent color use a darker link color for enough contrast.
 
+Most people like the beige background for the light themes, but if you don't like it, it can be disabled in the display settings.
+
 The [Material You](https://material.io/blog/announcing-material-you) theme,
 a more dynamic theme based on the selected background image ("Monet"),
 which was introduced in Android 12 on Google Pixel devices,
