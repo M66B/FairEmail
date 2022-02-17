@@ -348,7 +348,7 @@
             starttls="true" />
     </provider>
     <provider
-        name="Mail.de"
+        name="Mail.de/fr"
         domain="mail\\.de"
         link="https://mail.de/hilfe/pop3-imap-einstellungen">
         <imap
