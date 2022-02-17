@@ -4,6 +4,12 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1840 - 2022-02-17
+
+* Fixed auto linking of email addresses
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1839 - 2022-02-16
 
 * Added an option to select the long press answer button action
