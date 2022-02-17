@@ -1580,7 +1580,7 @@ public class Log {
                     ex.getCause() instanceof SocketTimeoutException)
                 return null;
 
-            if (false &&
+            if (BuildConfig.PLAY_STORE_RELEASE &&
                     ex instanceof MessagingException &&
                     ex.getCause() instanceof UnknownHostException)
                 return null;
