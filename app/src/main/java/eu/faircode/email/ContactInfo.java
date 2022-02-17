@@ -666,7 +666,7 @@ public class ContactInfo {
         for (int i = 0; i < imgs.size(); i++)
             Log.i("Favicon " + i + "=" + imgs.get(i) + " @" + base);
 
-        List<Future<Favicon>> futures = new ArrayList<>();
+        List<Future<Pair<Favicon, URL>>> futures = new ArrayList<>();
         for (Element img : imgs) {
             String rel = img.attr("rel").trim().toLowerCase(Locale.ROOT);
             if (REL_EXCLUDE.contains(rel)) // dns-prefetch: gmx.net
@@ -679,17 +679,19 @@ public class ContactInfo {
                 continue;
 
             final URL url = new URL(base, favicon);
-            futures.add(executorFavicon.submit(new Callable<Favicon>() {
+            futures.add(executorFavicon.submit(new Callable<Pair<Favicon, URL>>() {
                 @Override
-                public Favicon call() throws Exception {
-                    return getFavicon(url, img.attr("type"), scaleToPixels, context);
+                public Pair<Favicon, URL> call() throws Exception {
+                    return new Pair(getFavicon(url, img.attr("type"), scaleToPixels, context), url);
                 }
             }));
         }
 
-        for (Future<Favicon> future : futures)
+        for (Future<Pair<Favicon, URL>> future : futures)
             try {
-                return future.get();
+                Pair<Favicon, URL> result = future.get();
+                Log.i("Using favicon=" + result.second);
+                return result.first;
             } catch (Throwable ex) {
                 if (ex.getCause() instanceof FileNotFoundException ||
                         ex.getCause() instanceof CertPathValidatorException)
