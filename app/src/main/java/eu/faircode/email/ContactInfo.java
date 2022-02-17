@@ -647,6 +647,7 @@ public class ContactInfo {
                 if (l != 0)
                     return -l;
 
+                // https://en.wikipedia.org/wiki/Favicon#How_to_use
                 boolean i1 = "icon".equalsIgnoreCase(img1.attr("rel")
                         .replace("shortcut", "").trim());
                 boolean i2 = "icon".equalsIgnoreCase(img2.attr("rel")
@@ -655,8 +656,8 @@ public class ContactInfo {
                 if (i != 0)
                     return -i;
 
-                int t1 = getOrder(img1.attr("href"), img1.attr("type"));
-                int t2 = getOrder(img2.attr("href"), img2.attr("type"));
+                int t1 = getOrder(img1);
+                int t2 = getOrder(img2);
                 int t = Integer.compare(t1, t2);
                 if (t != 0)
                     return t;
@@ -710,7 +711,10 @@ public class ContactInfo {
         return null;
     }
 
-    private static int getOrder(String href, String type) {
+    private static int getOrder(Element img) {
+        String href = img.attr("href");
+        String type = img.attr("type");
+
         int order = -1;
         String h = (href == null ? "" : href.toLowerCase(Locale.ROOT));
         if (h.endsWith(".ico"))
