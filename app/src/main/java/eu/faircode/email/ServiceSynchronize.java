@@ -1998,9 +1998,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         } catch (Throwable ex) {
                                                             Log.e(folder.name, ex);
                                                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                                    account.name + "/" + folder.name + " process " + Log.formatThrowable(ex, false));
+                                                                    account.name + "/" + folder.name + " process " + ex + "\n" + android.util.Log.getStackTraceString(ex));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                            if (!(ex instanceof FolderNotFoundException))
+                                                            // NO Mailbox doesn't exist
+                                                            if (!(ex instanceof FolderNotFoundException) &&
+                                                                    iservice.getStore().getFolder(folder.name).exists())
                                                                 state.error(new Core.OperationCanceledExceptionEx("Process", ex));
                                                         } finally {
                                                             if (shouldClose) {
