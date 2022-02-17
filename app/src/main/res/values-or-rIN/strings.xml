@@ -171,6 +171,7 @@
     <string name="title_advanced_sync_folders_poll">ଫୋଲ୍ଡର୍ ତାଲିକା ସକ୍ରିୟ ଭାବରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ବ୍ୟବହାର କରିବା</string>
+    <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ସମୟ ଦବାଇବା ଦ୍ୱାରା:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_advanced_receipt">ଏକ ରସିଦ ଅନୁରୋଧ କରିବା ସମୟରେ</string>
@@ -193,6 +194,7 @@
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">ୱେବ୍ ପୃଷ୍ଠାର କେବଳ ପ୍ରଥମ %1$s ସ୍କେନ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଅ</string>
     <string name="title_advanced_highlight_subject">ବିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ହାଇଲାଇଟ୍ ରଙ୍ଗ</string>
@@ -317,6 +319,7 @@
     <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="title_empty_trash_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
     <string name="title_empty_trash_all_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ଆକାଉଣ୍ଟର ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
+    <string name="title_check_operations">ସଞ୍ଚାଳନ ପାଇଁ ଯାଞ୍ଚ କରୁଛି</string>
     <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
     <string name="title_display_name">ଦେଖାଇବା ନାମ</string>
     <string name="title_search_folder">ଫୋଲ୍ଡର୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
@@ -671,7 +674,7 @@
         <item>୫ ସେକେଣ୍ଡ</item>
         <item>୭.୫ ସେକେଣ୍ଡ</item>
         <item>୧୦ ସେକେଣ୍ଡ</item>
-        <item>15 s</item>
+        <item>୧୫ ସେକେଣ୍ଡ</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

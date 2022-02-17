@@ -145,7 +145,7 @@
     <string name="title_setup_account_identity_hint">Pode configurar o nome, cor e deslizar acções na configuração de conta, e configurar a assinatura na configuração de identidade</string>
     <string name="title_setup_accounts">Contas</string>
     <string name="title_setup_identities">Identidades</string>
-    <string name="title_setup_other">Outro provedor</string>
+    <string name="title_setup_other">Outro fornecedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
     <string name="title_setup_oauth_permission">O fornecedor de e-mail aprovou OAuth apenas para a versão da Play Store e do GitHub</string>
     <string name="title_setup_gmail_support">Autorizar contas do Google funcionará na Play Store e na versão GitHub apenas porque o Android verifica a assinatura da aplicação digital</string>
@@ -177,7 +177,7 @@
     <string name="title_setup_free">Este gratuito usar este aplicativo?</string>
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para aceder a informações de contato (opcional)</string>
-    <string name="title_setup_permissions_explanation">As permissões de contato são necessárias para procurar informações de contato e sugerir contatos</string>
+    <string name="title_setup_permissions_explanation">As permissões de contacto são necessárias para procurar informações de contacto e sugerir contactos</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Para enviar e receber e-mail corretamente</string>
@@ -275,7 +275,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_section_encryption">Encriptação</string>
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
-    <string name="title_advanced_default">Todas as opções têm valores padrão, que não precisam ser alterados para usar o aplicativo</string>
+    <string name="title_advanced_default">Todas as opções têm os valores padrão, que não precisam ser alterados para utilizar a aplicação</string>
     <string name="title_advanced_receive">Receber mensagens de todas as contas</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Otimizar automaticamente</string>
@@ -307,7 +307,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
     <string name="title_advanced_attach_new">Adicionar arquivos partilhados a um novo rascunho</string>
-    <string name="title_advanced_answer_action" comment="title_advanced_answer_action&#10;Long pressing on the answer button will: &lt;reply to sender&gt;, &lt;forward&gt;, etc">Pressionar e segurar o botão de resposta irá:</string>
+    <string name="title_advanced_answer_action">Pressionar e segurar o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
@@ -456,7 +456,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar ícone do launcher com o número de mensagens novas</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
-    <string name="title_advanced_notify_known">Mostrar notificações apenas para contatos</string>
+    <string name="title_advanced_notify_known">Mostrar notificações apenas para contactos</string>
     <string name="title_advanced_notify_summary">Mostrar apenas resumo na notificação</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>
@@ -488,6 +488,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo limite para autenticação biométrica</string>
     <string name="title_advanced_autolock">Bloquear quando o ecrã se desligar</string>
+    <string name="title_advanced_generic_user_agent">Utilizar \'user agent\' de navegador genérico</string>
     <string name="title_advanced_load_emoji">Carregar emoji atualizado do Google Play Services</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
@@ -506,7 +507,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_manage_keys">Gerir chaves privadas</string>
     <string name="title_advanced_ca">Certificados CA instalados</string>
     <string name="title_advanced_external_search">Permitir procura de mensagens por outras aplicações</string>
-    <string name="title_advanced_shortcuts">Mostrar contatos usados com frequência no menu de partilha do Android</string>
+    <string name="title_advanced_shortcuts">Mostrar contactos usados com frequência no menu de partilha do Android</string>
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
     <string name="title_advanced_language">Idioma</string>
@@ -530,7 +531,10 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de se conectar a uma conta</string>
     <string name="title_advanced_override_width_hint">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
     <string name="title_advanced_monospaced_pre_hint">Mensagens de texto simples serão consideradas como pré-formatadas</string>
+    <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
+    <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_notify_action_hint">No máximo três acções serão mostradas</string>
+    <string name="title_advanced_english_hint">Isto irá reiniciar a aplicação</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
@@ -538,6 +542,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_encryption">Encriptação</string>
     <string name="title_encryption_none">Nenhum</string>
     <string name="title_password">Palavra-passe</string>
+    <string name="title_check">Verificar</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
     <string name="title_no_password">Palavra-passe ausente</string>
@@ -559,8 +564,10 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     </string>
     <string name="title_months_all">Todos</string>
     <string name="title_folder_unified">Caixa de entrada unificada</string>
+    <string name="title_folder_inbox">Caixa de entrada</string>
     <string name="title_folder_outbox">Caixa de saída</string>
     <string name="title_folder_all">Arquivar</string>
+    <string name="title_folder_drafts">Rascunhos</string>
     <string name="title_folder_trash">Lixo</string>
     <string name="title_folder_junk">Spam</string>
     <string name="title_folder_sent">Enviados</string>
@@ -610,7 +617,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_sent">Enviados:</string>
     <string name="title_date">Data:</string>
     <string name="title_language">Idioma:</string>
+    <string name="title_subject">Assunto:</string>
     <string name="title_attachment">Anexo:</string>
+    <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_encryption">Encriptação</string>
     <string name="title_send_sensitivity">Sensibilidade</string>
@@ -628,6 +637,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_alternative_html">Mostrar HTML</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
+    <string name="title_signature_subject">Assunto</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_hint">        Inicialmente, a procura é efetuada no dispositivo.
         Para procurar também no servidor, clique no botão \'procurar novamente\'.
@@ -642,12 +652,15 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_sort_on_unread">Não lida</string>
     <string name="title_sort_on_starred">Com estrela</string>
     <string name="title_sort_on_sender">Remetente</string>
+    <string name="title_sort_on_subject">Assunto</string>
     <string name="title_filter_seen">Lida</string>
     <string name="title_filter_unflagged">Sem estrela</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_zoom">Tamanho do texto</string>
+    <string name="title_padding">Tamanho do espaçamento</string>
     <string name="title_language_all">Todos</string>
     <string name="title_previous">Anterior</string>
+    <string name="title_next">Seguinte</string>
     <string name="title_answer_standard">Predefinido</string>
     <string name="title_rule_hide">Esconder</string>
     <string name="title_rule_snooze">Adiar</string>
@@ -660,6 +673,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_rule_answer_subject">Utilizar o nome do modelo como assunto</string>
     <string name="title_rule_original_text">Inserir o texto original da mensagem</string>
     <string name="title_rule_delete_hint">A eliminação permanente é irreversível, por isso certifique-se de que as condições da regra estão corretas!</string>
+    <string name="title_rule_check">Verificar</string>
     <string name="title_rule_no_body">Texto da mensagem não disponível</string>
     <string name="title_rule_tts_subject">Assunto</string>
     <string name="title_rule_tts_content">Texto</string>
@@ -819,7 +833,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_pro_hint">Comprar o pacote pro permitirá que utilize todas as funcionalidades pro actuais e futuras, como contribui para a manutenção e suporte desta aplicação.</string>
     <string name="title_pro_price">Porque razão o pacote pro é tão caro?</string>
     <string name="title_pro_family">Posso usar a Biblioteca da Família do Google Play?</string>
-    <string name="title_pro_restore">Como posso restaurar uma compra (em outro dispositivo) ?</string>
+    <string name="title_pro_restore">Como posso restaurar uma compra (noutro dispositivo)?</string>
     <string name="title_pro_pending">Compra pendente</string>
     <string name="title_pro_activated">Todas as funcionalidades pro estão activadas</string>
     <string name="title_pro_valid">Activadas todas as funcionalidades pro</string>

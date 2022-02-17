@@ -8,7 +8,7 @@ Uma ligação à internet é obrigatória para configurar contas e identidades.
 
 ## Configurador rápido
 
-Basta selecionar o provedor apropriado ou *Outro provedor* e inserir seu nome, endereço de e-mail e senha e tocar em *Verifique*.
+Basta seleccionar o fornecedor adequado ou *Outro fornecedor* e inserir o seu nome, endereço de e-mail e palavra-passe e tocar em *Verificar*.
 
 Isto funcionará para a maioria dos provedores de e-mail.
 
@@ -30,7 +30,7 @@ Veja [este FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) sobre
 
 ## Conceder permissões - para aceder a informação de contacto
 
-Se você quiser consultar endereços de e-mail, ter fotos de contatos mostradas, etc, você precisará conceder permissão para ler informações de contato para FairEmail. Toque em *Conceder* e selecione *Permitir*.
+Se quiser consultar endereços de correio electrónico, ter as fotos de contactos mostradas (entre outros), precisará de conceder permissão para ler informações de contacto para FairEmail. Toque em *Conceder* e selecione *Permitir*.
 
 ## Configurar otimizações de bateria - para continuamente receber emails
 

@@ -191,6 +191,7 @@
     <string name="title_setup_error">エラー</string>
     <string name="title_setup_configuring">アカウントを設定しています&#8230;</string>
     <string name="title_setup_app_password">アプリパスワードを使用する必要があるかもしれません</string>
+    <string name="title_setup_extra">その他</string>
     <string name="title_setup_close">設定を閉じる</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
@@ -334,6 +335,7 @@
     <string name="title_advanced_rlah">EU Roam Like at Home を適用</string>
     <string name="title_advanced_download_headers">すべてのメッセージヘッダーをダウンロード</string>
     <string name="title_advanced_download_eml">元のメッセージファイルをダウンロード</string>
+    <string name="title_advanced_download_plain">デフォルトでプレーンテキストのみをダウンロード (可能な場合)</string>
     <string name="title_advanced_validated">ネットワークの種類が確定するまで使用しない</string>
     <string name="title_advanced_vpn_only">VPN 経由でのみ接続</string>
     <string name="title_advanced_timeout">接続タイムアウト (秒)</string>
@@ -383,6 +385,7 @@
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
     <string name="title_advanced_favicons">Favicon を表示</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">ウェブページの最初の %1$s だけをスキャン</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示</string>
     <string name="title_advanced_identicons">Identicon を表示</string>
     <string name="title_advanced_circular">丸アイコンを表示</string>
@@ -605,6 +608,7 @@
     <string name="title_advanced_metered_warning">無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU Roam Like at Home の加盟国の SIM カードで加盟国のネットワークを使用する場合、ローミングではないとみなします</string>
     <string name="title_advanced_usage_hint">これによりバッテリー使用量、データ使用量、ストレージ使用量が増加します</string>
+    <string name="title_advanced_plain_hint">有効にするとデータ使用量が制限されますが、スタイルを設定せずにメッセージが表示されます</string>
     <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部のデバイスで接続の問題が発生する可能性があります</string>
     <string name="title_advanced_validate_hint">これにより、VPN を使用している場合や、その他の状況でメッセージが同期されない可能性があります</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの 2 倍に設定されます。値を大きくするとバッテリーの使用量が増加します</string>
