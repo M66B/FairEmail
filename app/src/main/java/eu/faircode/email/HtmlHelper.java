@@ -2291,6 +2291,49 @@ public class HtmlHelper {
         return false;
     }
 
+    static boolean isStyled(Document d) {
+        ObjectHolder<Boolean> result = new ObjectHolder<>(false);
+
+        d.body().filter(new NodeFilter() {
+            private final List<String> STRUCTURE = Collections.unmodifiableList(Arrays.asList(
+                    "body", "div", "p", "span", "br",
+                    "strong", "b", "em", "i", "blockquote", "hr"
+            ));
+
+            @Override
+            public FilterResult head(Node node, int depth) {
+                if (node instanceof Element) {
+                    Element e = (Element) node;
+
+                    if (STRUCTURE.contains(e.tagName()))
+                        return FilterResult.CONTINUE;
+
+                    if (!TextUtils.isEmpty(e.attr("fairemail")))
+                        return FilterResult.CONTINUE;
+
+                    //Element p = e.parent();
+                    //if ("blockquote".equals(e.tagName()) &&
+                    //        p != null &&
+                    //        !TextUtils.isEmpty(p.attr("fairemail")))
+                    //    return FilterResult.CONTINUE;
+
+                    Log.i("Style element=" + node);
+                    result.value = true;
+                    return FilterResult.STOP;
+
+                } else
+                    return FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                return FilterResult.CONTINUE;
+            }
+        });
+
+        return result.value;
+    }
+
     static void collapseQuotes(Document document) {
         document.body().filter(new NodeFilter() {
             private int level = 0;

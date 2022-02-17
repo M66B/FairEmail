@@ -3817,12 +3817,6 @@ public class FragmentCompose extends FragmentBase {
 
         Editable e = etBody.getText();
         boolean notext = e.toString().trim().isEmpty();
-        boolean formatted = false;
-        for (Object span : e.getSpans(0, e.length(), Object.class))
-            if (span instanceof CharacterStyle || span instanceof ParagraphStyle) {
-                formatted = true;
-                break;
-            }
 
         Bundle args = new Bundle();
         args.putLong("id", working);
@@ -3839,7 +3833,6 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
         args.putBoolean("notext", notext);
-        args.putBoolean("formatted", formatted);
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
         args.putInt("focus", focus == null ? -1 : focus.getId());
         if (focus instanceof EditText) {
@@ -5792,6 +5785,9 @@ public class FragmentCompose extends FragmentBase {
                                     d.select("div[fairemail=reference]").isEmpty())
                                 args.putBoolean("remind_text", true);
 
+                            boolean styled = HtmlHelper.isStyled(d);
+                            args.putBoolean("styled", styled);
+
                             int attached = 0;
                             for (EntityAttachment attachment : attachments)
                                 if (!attachment.available)
@@ -6029,7 +6025,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
-                boolean formatted = args.getBoolean("formatted", false);
+                boolean styled = args.getBoolean("styled", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
@@ -6039,7 +6035,7 @@ public class FragmentCompose extends FragmentBase {
                         remind_dsn || remind_size || remind_pgp || remind_smime ||
                         remind_to || remind_noreply || remind_external ||
                         recipients > RECIPIENTS_WARNING ||
-                        (formatted && draft.isPlainOnly()) ||
+                        (styled && draft.isPlainOnly()) ||
                         (send_reminders &&
                                 (remind_extra || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
@@ -6841,7 +6837,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
-            final boolean formatted = args.getBoolean("formatted", false);
+            final boolean styled = args.getBoolean("styled", false);
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
 
@@ -6972,7 +6968,7 @@ public class FragmentCompose extends FragmentBase {
             cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    tvPlainHint.setVisibility(checked && formatted ? View.VISIBLE : View.GONE);
+                    tvPlainHint.setVisibility(checked && styled ? View.VISIBLE : View.GONE);
 
                     Bundle args = new Bundle();
                     args.putLong("id", id);
