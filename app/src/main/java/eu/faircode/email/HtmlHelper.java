@@ -1354,9 +1354,9 @@ public class HtmlHelper {
         // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
         // tel:<phonenumber>
         final Pattern GPA_PATTERN = Pattern.compile("GPA\\.\\d{4}-\\d{4}-\\d{4}-\\d{5}");
+        final String BOUNDARY = "(?:\\b|$|^)";
         final Pattern pattern = Pattern.compile(
-                "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() +
-                        "(\\?[^\\s]*)" /* query parameters */ + ")" +
+                "(" + BOUNDARY + "((?i:mailto):)?" + Helper.EMAIL_ADDRESS + "(\\?[^\\s]*)?" + BOUNDARY + ")" +
                         "|" +
                         PatternsCompat.AUTOLINK_WEB_URL.pattern()
                                 .replace("(?i:http|https|rtsp)://",
