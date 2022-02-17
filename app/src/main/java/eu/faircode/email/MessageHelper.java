@@ -442,7 +442,8 @@ public class MessageHelper {
 
         // Send message
         if (identity != null) {
-            if (message.headers == null || !Boolean.TRUE.equals(message.resend)) {
+            if ((message.headers == null || !Boolean.TRUE.equals(message.resend)) &&
+                    (message.dsn == null || EntityMessage.DSN_NONE.equals(message.dsn))) {
                 // Add reply to
                 if (identity.replyto != null)
                     imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
