@@ -1574,7 +1574,8 @@ public class Log {
             if (ex instanceof ConnectionException)
                 return null;
 
-            if (ex instanceof MailConnectException &&
+            if (BuildConfig.PLAY_STORE_RELEASE &&
+                    ex instanceof MailConnectException &&
                     ex.getCause() instanceof SocketTimeoutException)
                 return null;
 
