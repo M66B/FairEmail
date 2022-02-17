@@ -858,6 +858,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swFavicons" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swFaviconsPartial"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_favicons_partial"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFaviconsHint"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swGeneratedIcons"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -866,7 +879,7 @@
                     android:text="@string/title_advanced_generated_icons"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvFaviconsHint"
+                    app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

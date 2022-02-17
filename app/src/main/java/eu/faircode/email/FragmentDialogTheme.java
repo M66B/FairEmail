@@ -247,14 +247,14 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         if (grpDebug != null)
             grpDebug.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         getActivity().getIntent().putExtra("tab", "display");
 
-                        ContactInfo.clearCache(getContext());
+                        ContactInfo.clearCache(context);
 
                         int optionId = rgThemeOptions.getCheckedRadioButtonId();
                         boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());

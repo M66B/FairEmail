@@ -97,6 +97,8 @@ public class ContactInfo {
     private boolean known;
     private long time;
 
+    static final int FAVICON_READ_BYTES = 5000;
+
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
@@ -111,7 +113,6 @@ public class ContactInfo {
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
-    private static final int FAVICON_READ_BYTES = 4096;
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
 
@@ -539,6 +540,9 @@ public class ContactInfo {
     }
 
     private static Favicon parseFavicon(URL base, int scaleToPixels, Context context) throws IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean favicons_partial = prefs.getBoolean("favicons_partial", true);
+
         Log.i("PARSE favicon " + base);
         HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
         connection.setRequestMethod("GET");
@@ -554,25 +558,27 @@ public class ContactInfo {
         connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
         connection.connect();
 
-        String response;
+        Document doc;
         try {
-            byte[] buffer = new byte[FAVICON_READ_BYTES];
-            int len = 0;
-            while (len < buffer.length) {
-                int read = connection.getInputStream().read(buffer, len, buffer.length - len);
-                if (read < 0)
-                    break;
-                else
-                    len += read;
-            }
-            if (len < 0)
-                throw new IOException("length");
-            response = new String(buffer, 0, len, StandardCharsets.UTF_8.name());
+            Log.i("Favicon partial=" + favicons_partial);
+            if (favicons_partial) {
+                byte[] buffer = new byte[FAVICON_READ_BYTES];
+                int len = 0;
+                while (len < buffer.length) {
+                    int read = connection.getInputStream().read(buffer, len, buffer.length - len);
+                    if (read < 0)
+                        break;
+                    else
+                        len += read;
+                }
+                if (len < 0)
+                    throw new IOException("length");
+                doc = JsoupEx.parse(new String(buffer, 0, len, StandardCharsets.UTF_8.name()));
+            } else
+                doc = JsoupEx.parse(connection.getInputStream(), StandardCharsets.UTF_8.name(), base.toString());
         } finally {
             connection.disconnect();
         }
-
-        Document doc = JsoupEx.parse(response);
 
         // Use canonical address
         Element canonical = doc.head().select("link[rel=canonical]").first();
@@ -663,6 +669,7 @@ public class ContactInfo {
             }
         });
 
+        Log.i("Favicons " + base + "=" + imgs.size());
         for (int i = 0; i < imgs.size(); i++)
             Log.i("Favicon " + i + "=" + imgs.get(i) + " @" + base);
 

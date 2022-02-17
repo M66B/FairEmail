@@ -54,6 +54,15 @@ public class JsoupEx {
         }
     }
 
+    static Document parse(InputStream stream, String charset, String baseUri) throws IOException {
+        try {
+            return Jsoup.parse(stream, charset, baseUri);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
+            return Document.createShell("");
+        }
+    }
+
     static Document parse(File in) throws IOException {
         try (InputStream is = new FileInputStream(in)) {
             return Jsoup.parse(new FilteredStream(is), StandardCharsets.UTF_8.name(), "");

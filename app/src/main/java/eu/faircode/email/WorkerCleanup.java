@@ -305,7 +305,7 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup contact info
             if (manual)
-                ContactInfo.clearCache(context, true);
+                ContactInfo.clearCache(context);
             else
                 ContactInfo.cleanup(context);
 
