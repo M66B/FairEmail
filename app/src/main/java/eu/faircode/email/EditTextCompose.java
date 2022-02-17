@@ -92,11 +92,15 @@ public class EditTextCompose extends FixedEditText {
             setCustomInsertionActionModeCallback(new ActionMode.Callback() {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    if (undo_manager && can(android.R.id.undo))
-                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, getTitle(R.string.title_undo));
-                    if (undo_manager && can(android.R.id.redo))
-                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, getTitle(R.string.title_redo));
-                    menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_insert_line, 3, R.string.title_insert_line);
+                    try {
+                        if (undo_manager && can(android.R.id.undo))
+                            menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_undo, 1, getTitle(R.string.title_undo));
+                        if (undo_manager && can(android.R.id.redo))
+                            menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_redo, 2, getTitle(R.string.title_redo));
+                        menu.add(Menu.CATEGORY_ALTERNATIVE, R.string.title_insert_line, 3, R.string.title_insert_line);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                     return true;
                 }
 
