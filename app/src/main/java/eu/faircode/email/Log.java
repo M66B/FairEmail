@@ -106,6 +106,7 @@ import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.Provider;
 import java.security.Security;
@@ -1577,6 +1578,11 @@ public class Log {
             if (BuildConfig.PLAY_STORE_RELEASE &&
                     ex instanceof MailConnectException &&
                     ex.getCause() instanceof SocketTimeoutException)
+                return null;
+
+            if (false &&
+                    ex instanceof MessagingException &&
+                    ex.getCause() instanceof UnknownHostException)
                 return null;
 
             if (ex instanceof StoreClosedException ||
