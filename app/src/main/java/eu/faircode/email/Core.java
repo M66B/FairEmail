@@ -3148,9 +3148,12 @@ class Core {
                 try {
                     if (MessageHelper.hasCapability(ifolder, "CONDSTORE")) {
                         modseq = ifolder.getHighestModSeq();
-                        modified = (force || initialize != 0 || modseq < 0 ||
+                        if (modseq < 0)
+                            modseq = null;
+                        modified = (force || initialize != 0 ||
                                 folder.modseq == null || !folder.modseq.equals(modseq));
-                        EntityLog.log(context, folder.name + " modseq=" + modseq + "/" + folder.modseq + " modified=" + modified);
+                        EntityLog.log(context, folder.name + " modseq=" + modseq + "/" + folder.modseq +
+                                " force=" + force + " init=" + (initialize != 0) + " modified=" + modified);
                     }
                 } catch (MessagingException ex) {
                     Log.w(folder.name, ex);
@@ -3277,7 +3280,7 @@ class Core {
                         else
                             Log.w(ex);
                         modified = true;
-                        db.folder().setFolderModSeq(folder.id, null);
+                        modseq = null;
                     }
 
                     if (uids.size() > 0) {
@@ -3330,6 +3333,7 @@ class Core {
                             throw ex;
                         } catch (Throwable ex) {
                             Log.e(folder.name, ex);
+                            modseq = null;
                             EntityLog.log(context, folder.name + " expunge " + Log.formatThrowable(ex, false));
                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                         }
@@ -3566,11 +3570,13 @@ class Core {
                             } catch (IOException ex) {
                                 if (ex.getCause() instanceof MessagingException) {
                                     Log.w(folder.name, ex);
+                                    modseq = null;
                                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                 } else
                                     throw ex;
                             } catch (Throwable ex) {
                                 Log.e(folder.name, ex);
+                                modseq = null;
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                             } finally {
                                 // Free memory
@@ -3611,6 +3617,7 @@ class Core {
 
             // Update modseq
             folder.modseq = modseq;
+            Log.i(folder.name + " set modseq=" + modseq);
             db.folder().setFolderModSeq(folder.id, folder.modseq);
 
             // Update stats
