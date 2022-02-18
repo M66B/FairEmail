@@ -219,7 +219,7 @@ public class FragmentBase extends Fragment {
 
         if (savedInstanceState == null) {
             Bundle args = getArguments();
-            if (args == null)
+            if (args == null && !isStateSaved())
                 setArguments(new Bundle());
         } else {
             title = savedInstanceState.getCharSequence("fair:title");
