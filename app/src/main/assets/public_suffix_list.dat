@@ -7131,7 +7131,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-02-02T15:12:37Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-02-18T15:13:38Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7555,9 +7555,6 @@ brother
 
 // brussels : 2014-02-06 DNS.be vzw
 brussels
-
-// budapest : 2013-11-21 Minds + Machines Group Limited
-budapest
 
 // bugatti : 2015-07-23 Bugatti International SA
 bugatti
