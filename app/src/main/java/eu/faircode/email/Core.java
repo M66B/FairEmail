@@ -543,7 +543,7 @@ class Core {
                         EntityLog.log(context, folder.name +
                                 " op=" + op.name +
                                 " try=" + op.tries +
-                                " " + Log.formatThrowable(ex, false));
+                                " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
 
                         try {
                             db.beginTransaction();
