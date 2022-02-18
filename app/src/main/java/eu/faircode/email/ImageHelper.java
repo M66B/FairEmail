@@ -912,6 +912,23 @@ class ImageHelper {
         }
     }
 
+    static float getLuminance(Bitmap bitmap) {
+        int n = 0;
+        float lum = 0;
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
+        for (int y = 0; y < h; y++)
+            for (int x = 0; x < w; x++) {
+                int color = bitmap.getPixel(x, y);
+                if (color != Color.TRANSPARENT) {
+                    n++;
+                    lum += ColorUtils.calculateLuminance(color);
+                }
+            }
+
+        return (lum / n);
+    }
+
     static class AnnotatedSource {
         private String source;
         private int width = 0;

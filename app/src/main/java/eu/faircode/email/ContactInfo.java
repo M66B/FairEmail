@@ -115,6 +115,7 @@ public class ContactInfo {
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
+    private static final float MIN_FAVICON_LUMINANCE = 0.2f;
 
     // https://css-tricks.com/prefetching-preloading-prebrowsing/
     // https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
@@ -447,6 +448,19 @@ public class ContactInfo {
                             try {
                                 Favicon favicon = future.get();
                                 if (favicon != null) {
+                                    float lum = ImageHelper.getLuminance(favicon.bitmap);
+                                    if (lum < MIN_FAVICON_LUMINANCE) {
+                                        Bitmap bitmap = Bitmap.createBitmap(
+                                                favicon.bitmap.getWidth(),
+                                                favicon.bitmap.getHeight(),
+                                                favicon.bitmap.getConfig());
+                                        bitmap.eraseColor(Color.WHITE);
+                                        Canvas canvas = new Canvas(bitmap);
+                                        canvas.drawBitmap(favicon.bitmap, 0, 0, null);
+                                        favicon.bitmap.recycle();
+                                        favicon.bitmap = bitmap;
+                                    }
+
                                     info.bitmap = favicon.bitmap;
                                     info.type = favicon.type;
                                     info.verified = favicon.verified;
@@ -777,14 +791,7 @@ public class ContactInfo {
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), mimeType, scaleToPixels);
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");
-            else {
-                Bitmap favicon = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-                favicon.eraseColor(Color.WHITE);
-                Canvas canvas = new Canvas(favicon);
-                canvas.drawBitmap(bitmap, 0, 0, null);
-                bitmap.recycle();
-                return new Favicon(favicon);
-            }
+            return new Favicon(bitmap);
         } finally {
             connection.disconnect();
         }

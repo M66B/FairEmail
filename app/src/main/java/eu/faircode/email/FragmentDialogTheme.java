@@ -254,8 +254,6 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         getActivity().getIntent().putExtra("tab", "display");
 
-                        ContactInfo.clearCache(context);
-
                         int optionId = rgThemeOptions.getCheckedRadioButtonId();
                         boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());
                         boolean dark = (rgThemeOptions.isEnabled() && optionId == R.id.rbThemeDark);
