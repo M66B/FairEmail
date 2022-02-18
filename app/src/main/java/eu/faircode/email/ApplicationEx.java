@@ -53,7 +53,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class ApplicationEx extends Application
-        implements SharedPreferences.OnSharedPreferenceChangeListener {
+        implements androidx.work.Configuration.Provider, SharedPreferences.OnSharedPreferenceChangeListener {
     private Thread.UncaughtExceptionHandler prev = null;
 
     @Override
@@ -94,6 +94,13 @@ public class ApplicationEx extends Application
         }
 
         return context;
+    }
+
+    @NonNull
+    public androidx.work.Configuration getWorkManagerConfiguration() {
+        return new androidx.work.Configuration.Builder()
+                .setMinimumLoggingLevel(android.util.Log.INFO)
+                .build();
     }
 
     @Override
@@ -220,14 +227,20 @@ public class ApplicationEx extends Application
         }
 
         ServiceSynchronize.scheduleWatchdog(this);
-        try {
-            WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
-        } catch (IllegalStateException ex) {
-            Log.e(ex);
-        }
 
-        WorkerAutoUpdate.init(this);
-        WorkerCleanup.init(this);
+        boolean work_manager = prefs.getBoolean("work_manager", true);
+        Log.i("Work manager=" + work_manager);
+        if (work_manager) {
+            // Legacy
+            try {
+                WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
+            } catch (IllegalStateException ex) {
+                Log.e(ex);
+            }
+
+            WorkerAutoUpdate.init(this);
+            WorkerCleanup.init(this);
+        }
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 

@@ -138,6 +138,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private Button btnRepair;
     private SwitchCompat swAutostart;
+    private SwitchCompat swWorkManager;
     private SwitchCompat swExternalStorage;
     private TextView tvExternalStorageFolder;
     private TextView tvRoomQueryThreads;
@@ -198,7 +199,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "updates", "weekly", "show_changelog",
             "experiments", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
-            // "external_storage",
+            "work_manager", // "external_storage",
             "query_threads", "wal", "checkpoints", "sqlite_cache",
             "chunk_size", "undo_manager", "webview_legacy",
             "use_modseq", "uid_command", "perform_expunge", "uid_expunge",
@@ -289,6 +290,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         btnRepair = view.findViewById(R.id.btnRepair);
         swAutostart = view.findViewById(R.id.swAutostart);
+        swWorkManager = view.findViewById(R.id.swWorkManager);
         swExternalStorage = view.findViewById(R.id.swExternalStorage);
         tvExternalStorageFolder = view.findViewById(R.id.tvExternalStorageFolder);
         tvRoomQueryThreads = view.findViewById(R.id.tvRoomQueryThreads);
@@ -780,6 +782,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton v, boolean checked) {
                 Helper.enableComponent(v.getContext(), ReceiverAutoStart.class, checked);
+            }
+        });
+
+        swWorkManager.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("work_manager", isChecked).apply();
             }
         });
 
@@ -1544,6 +1553,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swTest5.setChecked(prefs.getBoolean("test5", false));
 
         swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
+        swWorkManager.setChecked(prefs.getBoolean("work_manager", true));
         swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
 
         int query_threads = prefs.getInt("query_threads", DB.DEFAULT_QUERY_THREADS);
