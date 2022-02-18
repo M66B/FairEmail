@@ -596,7 +596,8 @@ class Core {
                                         EntityFolder.DRAFTS.equals(folder.type)) ||
                                 (op.tries >= LOCAL_RETRY_MAX &&
                                         EntityOperation.SYNC.equals(op.name) &&
-                                        account.protocol == EntityAccount.TYPE_POP)) {
+                                        (account.protocol == EntityAccount.TYPE_POP ||
+                                                !ConnectionHelper.isIoError(ex)))) {
                             // com.sun.mail.iap.BadCommandException: BAD [TOOBIG] Message too large
                             // com.sun.mail.iap.CommandFailedException: NO [CANNOT] Cannot APPEND to a SPAM folder
                             // com.sun.mail.iap.CommandFailedException: NO [ALERT] Cannot MOVE messages out of the Drafts folder
