@@ -235,7 +235,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefix_once", checked).apply();
-                swPrefixOnce.setEnabled(checked);
+                swPrefixCount.setEnabled(checked);
             }
         });
 
