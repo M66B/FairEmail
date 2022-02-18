@@ -750,8 +750,12 @@ class Core {
                 }
             }
 
-            if (ops.size() != 0 && state.getSerial() == serial)
-                state.error(new OperationCanceledException("Processing"));
+            if (ops.size() != 0 && state.getSerial() == serial) {
+                List<String> names = new ArrayList<>();
+                for (EntityOperation op : ops)
+                    names.add(op.name);
+                state.error(new OperationCanceledException("Processing " + TextUtils.join(",", names)));
+            }
         } finally {
             Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
         }
