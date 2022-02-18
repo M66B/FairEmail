@@ -51,6 +51,7 @@ import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.Argument;
+import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
@@ -1964,16 +1965,42 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                 }
 
                                                                 try {
-                                                                    ifolder.open(Folder.READ_WRITE);
-                                                                    if (ifolder instanceof IMAPFolder) {
-                                                                        folder.read_only = ((IMAPFolder) ifolder).getUIDNotSticky();
+                                                                    try {
+                                                                        ifolder.open(Folder.READ_WRITE);
+                                                                        if (ifolder instanceof IMAPFolder) {
+                                                                            folder.read_only = ((IMAPFolder) ifolder).getUIDNotSticky();
+                                                                            db.folder().setFolderReadOnly(folder.id, folder.read_only);
+                                                                        }
+                                                                    } catch (ReadOnlyFolderException ex) {
+                                                                        Log.w(folder.name + " read only");
+                                                                        ifolder.open(Folder.READ_ONLY);
+                                                                        folder.read_only = true;
                                                                         db.folder().setFolderReadOnly(folder.id, folder.read_only);
                                                                     }
-                                                                } catch (ReadOnlyFolderException ex) {
-                                                                    Log.w(folder.name + " read only");
-                                                                    ifolder.open(Folder.READ_ONLY);
-                                                                    folder.read_only = true;
-                                                                    db.folder().setFolderReadOnly(folder.id, folder.read_only);
+                                                                } catch (MessagingException ex) {
+                                                                    /*
+                                                                        javax.mail.MessagingException: GS38 NO Mailbox doesn't exist: 0 XXX (0.020 + 0.000 + 0.019 secs).;
+                                                                          nested exception is:
+                                                                            com.sun.mail.iap.CommandFailedException: GS38 NO Mailbox doesn't exist: 0 XXX (0.020 + 0.000 + 0.019 secs).
+                                                                            at com.sun.mail.imap.IMAPFolder.open(SourceFile:61)
+                                                                            at com.sun.mail.imap.IMAPFolder.open(SourceFile:1)
+                                                                            at eu.faircode.email.ServiceSynchronize$19$1$2.run(SourceFile:30)
+                                                                            at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:459)
+                                                                            at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+                                                                            at eu.faircode.email.Helper$PriorityFuture.run(SourceFile:1)
+                                                                            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+                                                                            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+                                                                            at java.lang.Thread.run(Thread.java:764)
+                                                                        Caused by: com.sun.mail.iap.CommandFailedException: GS38 NO Mailbox doesn't exist: 0 XXX (0.020 + 0.000 + 0.019 secs).
+                                                                            at com.sun.mail.iap.Protocol.handleResult(SourceFile:8)
+                                                                            at com.sun.mail.imap.protocol.IMAPProtocol.select(SourceFile:19)
+                                                                            at com.sun.mail.imap.IMAPFolder.open(SourceFile:16)
+                                                                     */
+                                                                    if (ex.getCause() instanceof ProtocolException &&
+                                                                            !ConnectionHelper.isIoError(ex))
+                                                                        throw new FolderNotFoundException(ifolder, ex.getMessage(), ex);
+                                                                    else
+                                                                        throw ex;
                                                                 }
 
                                                                 db.folder().setFolderState(folder.id, "connected");
@@ -2001,29 +2028,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
                                                                     account.name + "/" + folder.name + " process " + Log.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-
-                                                            /*
-                                                                javax.mail.MessagingException: GS38 NO Mailbox doesn't exist: 0 XXX (0.020 + 0.000 + 0.019 secs).;
-                                                                  nested exception is:
-                                                                    com.sun.mail.iap.CommandFailedException: GS38 NO Mailbox doesn't exist: 0 XXX (0.020 + 0.000 + 0.019 secs).
-                                                                    at com.sun.mail.imap.IMAPFolder.open(SourceFile:61)
-                                                                    at com.sun.mail.imap.IMAPFolder.open(SourceFile:1)
-                                                                    at eu.faircode.email.ServiceSynchronize$19$1$2.run(SourceFile:30)
-                                                                    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:459)
-                                                                    at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-                                                                    at eu.faircode.email.Helper$PriorityFuture.run(SourceFile:1)
-                                                                    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
-                                                                    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
-                                                                    at java.lang.Thread.run(Thread.java:764)
-                                                                Caused by: com.sun.mail.iap.CommandFailedException: GS38 NO Mailbox doesn't exist: 0 XXX (0.020 + 0.000 + 0.019 secs).
-                                                                    at com.sun.mail.iap.Protocol.handleResult(SourceFile:8)
-                                                                    at com.sun.mail.imap.protocol.IMAPProtocol.select(SourceFile:19)
-                                                                    at com.sun.mail.imap.IMAPFolder.open(SourceFile:16)
-                                                             */
-                                                            if (ex.getMessage() != null &&
-                                                                    (ex.getMessage().contains("Mailbox doesn't exist") ||
-                                                                            ex.getMessage().contains("Mailbox does not exist")))
-                                                                ex = new FolderNotFoundException(ifolder, ex.getMessage(), (Exception) ex);
 
                                                             if (!(ex instanceof FolderNotFoundException))
                                                                 state.error(new Core.OperationCanceledExceptionEx("Process", ex));
