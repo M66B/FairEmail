@@ -1380,7 +1380,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onMenuFolders(account);
+                if (Boolean.TRUE.equals(v.getTag())) {
+                    Bundle args = new Bundle();
+                    args.putBoolean("settings", false);
+
+                    FragmentAccounts fragment = new FragmentAccounts();
+                    fragment.setArguments(args);
+
+                    FragmentManager fm = getParentFragmentManager();
+                    FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
+                    fragmentTransaction.commit();
+                } else
+                    onMenuFolders(account);
             }
         });
 
@@ -5410,18 +5422,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Get state
         int unseen = 0;
-        boolean errors = false;
         boolean refreshing = false;
+        boolean folderErrors = false;
+        boolean accountErrors = false;
         for (TupleFolderEx folder : folders) {
             unseen += folder.unseen;
-            if (folder.error != null && folder.account != null /* outbox */)
-                errors = true;
+
             if (folder.sync_state != null &&
                     !"downloading".equals(folder.sync_state) &&
                     (folder.account == null ||
                             "connecting".equals(folder.accountState) ||
                             "connected".equals(folder.accountState)))
                 refreshing = true;
+
+            if (folder.account != null) { // Outbox
+                if (folder.error != null)
+                    folderErrors = true;
+                if (!BuildConfig.PLAY_STORE_RELEASE && folder.accountError != null)
+                    accountErrors = true;
+            }
         }
 
         // Get name
@@ -5448,7 +5467,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         else
             setSubtitle(getString(R.string.title_name_count, name, NF.format(unseen)));
 
-        if (errors)
+        fabError.setTag(accountErrors);
+        if (folderErrors || accountErrors)
             fabError.show();
         else
             fabError.hide();

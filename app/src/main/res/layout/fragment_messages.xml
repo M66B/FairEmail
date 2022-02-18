@@ -458,9 +458,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_margin="@dimen/fab_padding"
-        android:contentDescription="@string/title_legend_section_folders"
-        android:tooltipText="@string/title_compose"
+        android:layout_marginBottom="45dp"
+        android:contentDescription="@string/title_setup_error"
+        android:tooltipText="@string/title_setup_error"
         app:backgroundTint="?attr/colorWarning"
         app:srcCompat="@drawable/twotone_warning_24"
         app:tint="?attr/colorFabForeground" />
