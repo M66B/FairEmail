@@ -1348,7 +1348,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvExternalStorageFolder.setText(external.getAbsolutePath() + (emulated ? " emulated" : ""));
 
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
-        swTestIab.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        swTestIab.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

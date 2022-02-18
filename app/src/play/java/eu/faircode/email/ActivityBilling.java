@@ -164,7 +164,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     static boolean isTesting(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return (BuildConfig.DEBUG && prefs.getBoolean("test_iab", false));
+        return (BuildConfig.TEST_RELEASE && prefs.getBoolean("test_iab", false));
     }
 
     private static String getChallenge(Context context) throws NoSuchAlgorithmException {
