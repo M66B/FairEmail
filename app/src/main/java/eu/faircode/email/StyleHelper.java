@@ -932,7 +932,7 @@ public class StyleHelper {
         // TODO: Microsoft: Georgia (Serif), Tahoma (Sans-serif), Trebuchet MS (Sans-serif)
         String faces = family.toLowerCase(Locale.ROOT);
         if (faces.contains("arimo"))
-            return "Arimo, Arial, Verdana, Helvetica, sans-serif";
+            return "Arimo, Arial, Verdana, Helvetica, Helvetica Neue, sans-serif";
         if (faces.contains("tinos"))
             return "Tinos, \"Times New Roman\", Times, serif";
         if (faces.contains("cousine"))
@@ -973,7 +973,8 @@ public class StyleHelper {
             if (faces.contains("arimo") ||
                     faces.contains("arial") ||
                     faces.contains("verdana") ||
-                    faces.contains("helvetica"))
+                    faces.contains("helvetica") ||
+                    faces.contains("helvetica neue"))
                 return ResourcesCompat.getFont(context, R.font.arimo);
 
             if (faces.contains("tinos") ||
