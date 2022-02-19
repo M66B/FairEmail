@@ -4,6 +4,14 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1841 - 2022-02-19
+
+* Improved plain text only check
+* Updated [Public Suffix List](https://publicsuffix.org/)
+* Preliminary Android 13 support
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1840 - 2022-02-17
 
 * Fixed auto linking of email addresses
