@@ -395,6 +395,7 @@
     <string name="title_advanced_bimi_unverified">Μη επαληθευμένος αποστολέας</string>
     <string name="title_advanced_bimi_verified">Επαληθευμένος αποστολέας</string>
     <string name="title_advanced_favicons">Προβολή favicon</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Να σαρωθεί μόνο το πρώτο %1$s της ιστοσελίδας</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>
     <string name="title_advanced_identicons">Προβολή identicon</string>
     <string name="title_advanced_circular">Στρογγυλεμένα εικονίδια</string>

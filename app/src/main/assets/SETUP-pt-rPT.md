@@ -12,7 +12,7 @@ Basta seleccionar o fornecedor adequado ou *Outro fornecedor* e inserir o seu no
 
 Isto funcionará para a maioria dos provedores de e-mail.
 
-Se a configuração rápida não funcionar, você precisará configurar uma conta e uma identidade manualmente, veja abaixo para obter instruções.
+Se a configuração rápida não funcionar, precisará de configurar a conta e a identidade manualmente. Veja abaixo para obter instruções.
 
 ## Configurar conta - para receber email
 

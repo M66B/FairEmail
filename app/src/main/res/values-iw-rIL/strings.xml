@@ -414,6 +414,7 @@
     <string name="title_advanced_bimi_unverified">מוען בלתי מאומת</string>
     <string name="title_advanced_bimi_verified">מוען מאומת</string>
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>
     <string name="title_advanced_identicons">הצגת סמלי זיהוי</string>
     <string name="title_advanced_circular">הצגת סמלים מעוגלים</string>

@@ -396,6 +396,7 @@
     <string name="title_advanced_bimi_unverified">Ubekræftet afsender</string>
     <string name="title_advanced_bimi_verified">Bekræftet afsender</string>
     <string name="title_advanced_favicons">Vis favoritkoner</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Skan kun de første %1$s af websiden</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>

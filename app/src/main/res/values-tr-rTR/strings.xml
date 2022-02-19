@@ -394,6 +394,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
     <string name="title_advanced_bimi_verified">Doğrulanmış gönderen</string>
     <string name="title_advanced_favicons">Faviconları göster</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Web sayfasının yalnızca ilk %1$s tarayın</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>

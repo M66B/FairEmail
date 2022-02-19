@@ -405,6 +405,7 @@
     <string name="title_advanced_bimi_unverified">Expeditor neverificat</string>
     <string name="title_advanced_bimi_verified">Expeditor verificat</string>
     <string name="title_advanced_favicons">Arată iconițe siteuri</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Scanează numai primele %1$s din pagina web</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>

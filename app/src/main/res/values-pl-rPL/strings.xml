@@ -415,6 +415,7 @@
     <string name="title_advanced_bimi_unverified">Niezweryfikowany nadawca</string>
     <string name="title_advanced_bimi_verified">Zweryfikowany nadawca</string>
     <string name="title_advanced_favicons">Pokaż favikony</string>
+    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Skanuj tylko pierwsze %1$s strony internetowej</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>

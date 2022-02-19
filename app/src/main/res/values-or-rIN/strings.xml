@@ -175,6 +175,7 @@
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_advanced_receipt">ଏକ ରସିଦ ଅନୁରୋଧ କରିବା ସମୟରେ</string>
+    <string name="title_advanced_download_plain">ଡିଫଲ୍ଟ ଭାବେ କେବଳ ସାଧା ପାଠ୍ୟ ଥିବା ଅଂଶଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ କରିବା (ଯଦି ଉପଲବ୍ଧ ଥାଏ)</string>
     <string name="title_advanced_cert_strict">କଠୋର ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ</string>
     <string name="title_advanced_caption_general">ସାଧାରଣ</string>
     <string name="title_advanced_caption_conversation">ବାର୍ତ୍ତାଳାପ</string>
@@ -247,6 +248,7 @@
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
     <string name="title_advanced_subject_threading_hint">କେବଳ %1$d ଘଣ୍ଟା ମଧ୍ୟରେ ପ୍ରାପ୍ତ ହୋଇଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକ</string>
     <string name="title_advanced_remove_signature_hint">ଏହା ଫଳରେ ବହୁତ କମ୍ କିମ୍ୱା ଅତ୍ୟଧିକ ପାଠ୍ୟ ଅପସାରଣ ହୋଇପାରେ</string>
+    <string name="title_advanced_plain_hint">ଏହାକୁ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଡାଟା ବ୍ୟବହାର ସୀମିତ ହେବ, କିନ୍ତୁ ଶୈଳିକରଣ ବିନା ବାର୍ତ୍ତା ଦେଖାଯିବ</string>
     <string name="title_advanced_cert_strict_hint">ଏହା ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ସର୍ଭର ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ କରିବା କୋହଳ ହେବ</string>
     <string name="title_advanced_date_hint">ସମୟାନୁସାର ସଜାଯାଇଥିଲେ ହି ବାର୍ତ୍ତାଗୁଡ଼ିକ ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରାଯିବ</string>
     <string name="title_advanced_highlight_hint">ଥିମର ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ହାଇଲାଇଟ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହେବ</string>
