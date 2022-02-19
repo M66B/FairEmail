@@ -448,7 +448,7 @@ public class ContactInfo {
                             try {
                                 Favicon favicon = future.get();
                                 if (favicon != null) {
-                                    float lum = ImageHelper.getLuminance(favicon.bitmap);
+                                    float lum = 0; // ImageHelper.getLuminance(favicon.bitmap);
                                     if (lum < MIN_FAVICON_LUMINANCE) {
                                         Bitmap bitmap = Bitmap.createBitmap(
                                                 favicon.bitmap.getWidth(),
