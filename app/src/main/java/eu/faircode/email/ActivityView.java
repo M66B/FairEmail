@@ -1829,6 +1829,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean foldernav = prefs.getBoolean("foldernav", false);
+        if (foldernav) {
+            long account = intent.getLongExtra("account", -1);
+            if (account > 0) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+                onMenuFolders(account);
+            }
+        }
+
         Bundle args = new Bundle();
         args.putString("type", intent.getStringExtra("type"));
         args.putLong("account", intent.getLongExtra("account", -1));
