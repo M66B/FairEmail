@@ -1487,4 +1487,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Purelymail"
+        domain="purelymail\\.com,cheapermail\\.com,placeq\\.com,rethinkmail\\.com,worldofmail\\.com"
+        link="https://purelymail.com/docs/setup/technical">
+        <imap
+            host="imap.purelymail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.purelymail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
