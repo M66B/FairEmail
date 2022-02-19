@@ -658,6 +658,7 @@ class Core {
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
+                            // Delete: NO Mails not exist!
                             // Flags: NO mailbox selected READ-ONLY
                             // Keyword: NO STORE completed
                             // Keyword: NO [CANNOT] Keyword length too long (n.nnn + n.nnn secs).
