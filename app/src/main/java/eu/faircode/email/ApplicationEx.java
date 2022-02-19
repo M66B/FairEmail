@@ -594,8 +594,7 @@ public class ApplicationEx extends Application
             boolean reply_all = prefs.getBoolean("reply_all", false);
             if (reply_all)
                 editor.remove("reply_all").putString("answer_action", "reply_all");
-        } else if (version < 1841)
-            ContactInfo.clearCache(context);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
