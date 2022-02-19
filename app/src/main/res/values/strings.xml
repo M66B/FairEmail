@@ -291,6 +291,7 @@
     <string name="title_setup_theme_grey">Grey</string>
     <string name="title_setup_theme_solarized" translatable="false">Solarized</string>
     <string name="title_setup_theme_black">Black</string>
+    <string name="title_setup_theme_white">White</string>
     <string name="title_setup_theme_black_and_white">Black and white</string>
     <string name="title_setup_theme_you" translatable="false">Material You</string>
 

@@ -410,6 +410,31 @@
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
+    <style name="AppThemeWhite" parent="AppThemeBaseLight">
+        <item name="colorPrimary">@color/greyPrimary</item>
+        <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
+        <item name="colorAccent">@color/greyPrimary</item>
+
+        <item name="colorUnreadHighlight">@color/greyPrimaryDark</item>
+
+        <item name="colorEncrypt">@color/colorEncryptDark</item>
+
+        <item name="colorDrawerBackground">@color/white</item>
+
+        <item name="colorFabBackground">@color/greyPrimary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/greyPrimary</item>
+
+        <item name="actionBarTheme">@style/WhiteActionBar</item>
+    </style>
+
+    <style name="WhiteActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@color/white</item>
+        <item name="android:titleTextStyle">@style/ActionBarTitle</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="AppThemeBlackAndWhite" parent="AppThemeBaseDark">
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackAndWhitePrimary</item>
@@ -459,6 +484,10 @@
 
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/greyPrimary</item>
+    </style>
+
+    <style name="ActionBarTitle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="AppThemeGreySteelBlueDark" parent="AppThemeBaseDark">

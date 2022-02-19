@@ -208,6 +208,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             case "black":
                 rgTheme.check(R.id.rbThemeBlack);
                 break;
+            case "white":
+                rgTheme.check(R.id.rbThemeWhite);
+                break;
             case "black_and_white":
                 rgTheme.check(R.id.rbThemeBlackAndWhite);
                 break;
@@ -306,6 +309,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                                         "solarized" + (dark ? "_dark" : "_light")).apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeBlack) {
                             editor.putString("theme", "black").apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeWhite) {
+                            editor.putString("theme", "white").apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeBlackAndWhite) {
                             editor.putString("theme", "black_and_white").apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeYou) {
@@ -451,6 +456,12 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                     return R.style.AppThemeGreySteelBlueLight;
                 else
                     return R.style.AppThemeBlack;
+
+            case "white":
+                if (light)
+                    return R.style.AppThemeGreySteelBlueLight;
+                else
+                    return R.style.AppThemeWhite;
 
             case "black_and_white":
                 if (light)
