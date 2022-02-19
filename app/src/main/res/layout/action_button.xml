@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <eu.faircode.email.FixedImageButton xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Widget.AppCompat.Toolbar.Button.Navigation"
+    style="@android:style/Widget.ActionButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="?actionBarTheme"
     app:srcCompat="@mipmap/ic_launcher"
-    app:tint="?colorActionForeground" />
+    app:tint="?android:attr/textColorPrimary" />

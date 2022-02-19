@@ -122,7 +122,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         int colorPrimaryDark = Helper.resolveColor(this, R.attr.colorPrimaryDark);
-        int colorActionForeground = Helper.resolveColor(this, R.attr.colorActionForeground);
 
         try {
             Drawable d = getDrawable(R.drawable.baseline_mail_24);
@@ -132,7 +131,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(bm);
             d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-            d.setTint(colorActionForeground);
+            d.setTint(Color.WHITE);
             d.draw(canvas);
 
             int colorPrimary = colorPrimaryDark;

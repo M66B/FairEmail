@@ -1572,8 +1572,11 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_zoom).setTitle(ssbZoom);
         PopupMenuLifecycle.insertIcon(context, menu.findItem(R.id.menu_zoom), false);
 
+        FragmentActivity activity = getActivity();
+        Context tcontext = (activity instanceof ActivityBase
+                ? ((ActivityBase) activity).getSupportActionBar().getThemedContext() : context);
         int colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
-        int colorActionForeground = Helper.resolveColor(context, R.attr.colorActionForeground);
+        int colorActionForeground = Helper.resolveColor((tcontext), android.R.attr.textColorPrimary);
 
         View v = menu.findItem(R.id.menu_encrypt).getActionView();
         ImageButton ib = v.findViewById(R.id.button);
