@@ -3260,10 +3260,10 @@ class Core {
                     stats.flags_ms = (SystemClock.elapsedRealtime() - fetch);
                     Log.i(folder.name + " remote fetched=" + stats.flags_ms + " ms");
 
-                    try {
-                        for (int i = 0; i < imessages.length; i++) {
-                            state.ensureRunning("Sync/IMAP/check");
+                    for (int i = 0; i < imessages.length; i++) {
+                        state.ensureRunning("Sync/IMAP/check");
 
+                        try {
                             long uid = ifolder.getUID(imessages[i]);
                             EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                             ids[i] = (message == null ? null : message.id);
@@ -3273,14 +3273,11 @@ class Core {
                                 break;
                             } else
                                 uids.remove(uid);
-                        }
-                    } catch (Throwable ex) {
-                        if (ex instanceof OperationCanceledException)
-                            Log.i(ex);
-                        else
+                        } catch (Throwable ex) {
                             Log.w(ex);
-                        modified = true;
-                        modseq = null;
+                            modified = true;
+                            modseq = null;
+                        }
                     }
 
                     if (uids.size() > 0) {
@@ -5767,7 +5764,7 @@ class Core {
             join(thread);
         }
 
-        void ensureRunning(String reason) {
+        void ensureRunning(String reason) throws OperationCanceledException {
             if (!recoverable && unrecoverable != null)
                 throw new OperationCanceledExceptionEx(reason, unrecoverable);
             if (!running)
