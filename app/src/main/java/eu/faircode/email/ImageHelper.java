@@ -249,7 +249,7 @@ class ImageHelper {
         Canvas canvas = new Canvas(round);
 
         Paint paint = new Paint();
-        paint.setAntiAlias(true);
+        paint.setAntiAlias(false);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(Color.GRAY);
         if (radius == null)
