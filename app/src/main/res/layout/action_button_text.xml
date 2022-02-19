@@ -22,8 +22,9 @@
         android:layout_marginEnd="3dp"
         android:clickable="false"
         android:text="P"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         android:textColor="?colorActionForeground"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/button"
         app:layout_constraintEnd_toEndOf="@id/button"
         app:layout_constraintTop_toTopOf="@id/button" />
