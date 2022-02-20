@@ -315,6 +315,7 @@
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
     <string name="title_advanced_attach_new">Yeni bir qaralamaya paylaşılan faylları əlavə edin</string>
+    <string name="title_advanced_answer_action">Cavab düyməsinə uzun basanda:</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
     <string name="title_advanced_compose_font">İlkin şrift</string>
     <string name="title_advanced_prefix_once">Mövzunu yalnız bir dəfə cavablayarkən və ya yönləndirərkən prefiks</string>
@@ -395,6 +396,7 @@
     <string name="title_advanced_bimi_unverified">Təsdiqlənməmiş göndərən</string>
     <string name="title_advanced_bimi_verified">Təsdiqlənmiş göndərən</string>
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
+    <string name="title_advanced_favicons_partial">Veb səhifədəki yalnız ilk %1$s skan edilsin</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>
     <string name="title_advanced_identicons">Kimlikləri göstər</string>
     <string name="title_advanced_circular">Dairəvi nişanları göstər</string>

@@ -242,6 +242,8 @@
     <string name="title_setup_theme_red_green">Rouge/vert</string>
     <string name="title_setup_theme_grey">Gris</string>
     <string name="title_setup_theme_black">Noir</string>
+    <string name="title_setup_theme_white">Blanc</string>
+    <string name="title_setup_theme_black_or_white" comment="title_setup_theme_black_or_white&#10;Black or white (theme)&#10;&#10;Note that this is explicitly NOT [black AND white] because the theme can be both, also system selectable.">Noir ou blanc</string>
     <string name="title_setup_theme_black_and_white">Noir et blanc</string>
     <string name="title_setup_theme_reverse">Permuter les couleurs</string>
     <string name="title_setup_theme_light">Clair</string>
@@ -396,7 +398,7 @@
     <string name="title_advanced_bimi_unverified">Expéditeur non vérifié</string>
     <string name="title_advanced_bimi_verified">Expéditeur vérifié</string>
     <string name="title_advanced_favicons">Afficher l\'icône des sites web</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Inspecter uniquement les premiers %1$s de la page web</string>
+    <string name="title_advanced_favicons_partial">Inspecter uniquement les premiers %1$s de la page web</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées automatiquement</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>
@@ -480,6 +482,7 @@
     <string name="title_advanced_undo">Délai d\'expiration de l\'annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
+    <string name="title_advanced_folder_nav" comment="title_advanced_folder_nav&#10;Option title to change the way of navigating.&#10;&#10;'back' from a list of messages will always return to the folder list of the related account with this option enabled.">Toujours revenir à la liste des dossiers à partir d\'une liste de messages</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile de suivi des messages lors de leur déplacement</string>

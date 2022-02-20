@@ -262,6 +262,8 @@
     <string name="title_setup_theme_red_green">אדום/ירוק</string>
     <string name="title_setup_theme_grey">אפור</string>
     <string name="title_setup_theme_black">שחור</string>
+    <string name="title_setup_theme_white">לבן</string>
+    <string name="title_setup_theme_black_or_white" comment="title_setup_theme_black_or_white&#10;Black or white (theme)&#10;&#10;Note that this is explicitly NOT [black AND white] because the theme can be both, also system selectable.">שחור או לבן</string>
     <string name="title_setup_theme_black_and_white">שחור ולבן</string>
     <string name="title_setup_theme_reverse">היפוך צבעים</string>
     <string name="title_setup_theme_light">בהיר</string>
@@ -335,6 +337,7 @@
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
     <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
+    <string name="title_advanced_answer_action">לחיצה ארוכה על כפתור המענה:</string>
     <string name="title_advanced_send_pending">הצגת סמלי שליחה מושהית שאינם בולטים</string>
     <string name="title_advanced_compose_font">גופן ברירת המחדל</string>
     <string name="title_advanced_prefix_once">ליצור קידומת לנושא רק פעם אחת במענה או העברה</string>
@@ -365,6 +368,7 @@
     <string name="title_advanced_rlah">לנדוד ולהרגיש בבית</string>
     <string name="title_advanced_download_headers">הורדת כל כותרות ההודעה</string>
     <string name="title_advanced_download_eml">הורדת קובצי הודעה גולמיים</string>
+    <string name="title_advanced_download_plain">להוריד רק חלקים בטקסט פשוט כברירת מחדל (אם זמינים)</string>
     <string name="title_advanced_validated">דורש חיבור מאומת (שנבדק)</string>
     <string name="title_advanced_vpn_only">התחברות רק דרך VPN</string>
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
@@ -414,7 +418,7 @@
     <string name="title_advanced_bimi_unverified">מוען בלתי מאומת</string>
     <string name="title_advanced_bimi_verified">מוען מאומת</string>
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
+    <string name="title_advanced_favicons_partial">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>
     <string name="title_advanced_identicons">הצגת סמלי זיהוי</string>
     <string name="title_advanced_circular">הצגת סמלים מעוגלים</string>
@@ -498,6 +502,7 @@
     <string name="title_advanced_undo">תום זמן לביטול</string>
     <string name="title_advanced_quick_filter">הצגת סמלי מסננים מהירים שאינם בולטים</string>
     <string name="title_advanced_quick_scroll">הצגת סמלי גלילה מהירה מעלה/מטה שאינם בולטים</string>
+    <string name="title_advanced_folder_nav" comment="title_advanced_folder_nav&#10;Option title to change the way of navigating.&#10;&#10;'back' from a list of messages will always return to the folder list of the related account with this option enabled.">תמיד לחזור אחורה לרשימת התיקיות מרשימת ההודעות</string>
     <string name="title_advanced_autoread">לסמן הודעות כנקראו אוטומטית בהעברתן</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
     <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>
@@ -637,6 +642,7 @@
     <string name="title_advanced_metered_warning">השבתת אפשרות זאת תשבית קבלת ושליחת הודעות בחיבורי נתונים סלולריים</string>
     <string name="title_advanced_rlah_hint">להניח שאין נדידה בתוך אירופה</string>
     <string name="title_advanced_usage_hint">יגדיל את צריכת הסוללה, הנתונים ואת נפח האחסון</string>
+    <string name="title_advanced_plain_hint">הפעלת האפשרות תגביל את השימוש בנתונים אך הודעות תופענה ללא עיצוב</string>
     <string name="title_advanced_tcp_keep_alive_hint">הפעלה יכולה לגרום לבעיות תקשורת בחלק מהמכשירים</string>
     <string name="title_advanced_validate_hint">יכול לגרום לכך שהודעות לא תסתנכרנה, למשל בעת שימוש ב־VPN, אך גם במקרים אחרים</string>
     <string name="title_advanced_timeout_hint">תום זמן קריאה/כתיבה יוגדר להיות כפול מהזמן המוקצב לחיבור. ערכים גבוהים יותר יובילו לצריכה גבוהה יותר של סוללה.</string>
@@ -864,6 +870,7 @@
     <string name="title_delete_operation_deleted">%1$d פעילויות נמחקו</string>
     <string name="title_delete_contacts">למחוק את כל אנשי הקשר המקומיים?</string>
     <string name="title_no_operations">אין פעילויות ממתינות</string>
+    <string name="title_check_operations">הפעולות נבדקות</string>
     <string name="title_hint_operations">פעולות מחיקה יכולות לגרום להודעות שנעלמות ולתקלות סנכרון</string>
     <string name="title_op_title_headers">כותרות מתקבלות</string>
     <string name="title_op_title_raw">הודעה גולמית מתקבלת</string>

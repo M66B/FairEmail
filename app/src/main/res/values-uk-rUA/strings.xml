@@ -100,7 +100,7 @@
     </string>
     <string name="title_junk_filter">Використовувати локальний фільтр спаму</string>
     <string name="title_junk_filter_hint">Це може збільшити використання заряду акумулятора та неправильно позначати повідомлення як спам</string>
-    <string name="title_junk_blocklist">Використовувати списки спам-блоків</string>
+    <string name="title_junk_blocklist">Використовувати списки блокування спаму</string>
     <string name="title_junk_clear">Очистити</string>
     <string name="title_junk_clear_hint">Це призведе до видалення всіх правил 
 блокування відправника</string>
@@ -263,6 +263,7 @@
     <string name="title_setup_theme_red_green">Червона/зелена</string>
     <string name="title_setup_theme_grey">Сіра</string>
     <string name="title_setup_theme_black">Чорна</string>
+    <string name="title_setup_theme_white">Світла</string>
     <string name="title_setup_theme_black_and_white">Чорно-біла</string>
     <string name="title_setup_theme_reverse">Поміняти кольори</string>
     <string name="title_setup_theme_light">Світла</string>
@@ -416,6 +417,7 @@
     <string name="title_advanced_bimi_unverified">Неперевірений відправник</string>
     <string name="title_advanced_bimi_verified">Перевірений відправник</string>
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
+    <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_generated_icons">Показати згенеровані іконки</string>
     <string name="title_advanced_identicons">Показати identicons</string>
     <string name="title_advanced_circular">Показати круглі іконки</string>

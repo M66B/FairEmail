@@ -385,7 +385,7 @@
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
     <string name="title_advanced_favicons">Favicon を表示</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">ウェブページの最初の %1$s だけをスキャン</string>
+    <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャン</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示</string>
     <string name="title_advanced_identicons">Identicon を表示</string>
     <string name="title_advanced_circular">丸アイコンを表示</string>

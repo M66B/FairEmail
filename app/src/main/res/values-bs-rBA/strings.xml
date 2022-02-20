@@ -406,7 +406,7 @@
     <string name="title_advanced_bimi_unverified">Nepotvrđeni pošiljalac</string>
     <string name="title_advanced_bimi_verified">Potvrđeni pošiljalac</string>
     <string name="title_advanced_favicons">Prikaži fav ikonice</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Skeniraj samo prva(ih) %1$s web stranice</string>
+    <string name="title_advanced_favicons_partial">Skeniraj samo prva(ih) %1$s web stranice</string>
     <string name="title_advanced_generated_icons">Prikaži generisane ikonice</string>
     <string name="title_advanced_identicons">Prikaži identitet ikonice</string>
     <string name="title_advanced_circular">Prikaži zaobljene ikonice</string>

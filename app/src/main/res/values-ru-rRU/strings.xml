@@ -262,6 +262,8 @@
     <string name="title_setup_theme_red_green">Красно-зелёная</string>
     <string name="title_setup_theme_grey">Серая</string>
     <string name="title_setup_theme_black">Чёрная</string>
+    <string name="title_setup_theme_white">Белая</string>
+    <string name="title_setup_theme_black_or_white" comment="title_setup_theme_black_or_white&#10;Black or white (theme)&#10;&#10;Note that this is explicitly NOT [black AND white] because the theme can be both, also system selectable.">Чёрная или белая</string>
     <string name="title_setup_theme_black_and_white">Чёрно-белая</string>
     <string name="title_setup_theme_reverse">Инвертировать цвета</string>
     <string name="title_setup_theme_light">Светлая</string>
@@ -415,7 +417,7 @@
     <string name="title_advanced_bimi_unverified">Непроверенный отправитель</string>
     <string name="title_advanced_bimi_verified">Проверенный отправитель</string>
     <string name="title_advanced_favicons">Показывать значки сайтов</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Сканировать только %1$s в начале веб-страницы</string>
+    <string name="title_advanced_favicons_partial">Сканировать только %1$s в начале веб-страницы</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
     <string name="title_advanced_circular">Использовать круглые значки</string>
@@ -499,6 +501,7 @@
     <string name="title_advanced_undo">Время ожидания отмены</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
+    <string name="title_advanced_folder_nav" comment="title_advanced_folder_nav&#10;Option title to change the way of navigating.&#10;&#10;'back' from a list of messages will always return to the folder list of the related account with this option enabled.">Всегда возвращаться к списку папок из списка сообщений</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_star_snoozed">Автоматически добавлять в избранное при откладывании сообщений</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>

@@ -415,7 +415,7 @@
     <string name="title_advanced_bimi_unverified">Neoverený odosielateľ</string>
     <string name="title_advanced_bimi_verified">Overený odosielateľ</string>
     <string name="title_advanced_favicons">Zobraziť favikony</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Analyzovať len prvých %1$s webstránky</string>
+    <string name="title_advanced_favicons_partial">Analyzovať len prvých %1$s webstránky</string>
     <string name="title_advanced_generated_icons">Zobraziť generované ikonky</string>
     <string name="title_advanced_identicons">Zobraziť identikony</string>
     <string name="title_advanced_circular">Zobraziť okrúhle ikonky</string>

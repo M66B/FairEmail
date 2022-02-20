@@ -395,7 +395,7 @@
     <string name="title_advanced_bimi_unverified">Remitente no verificado</string>
     <string name="title_advanced_bimi_verified">Remitente verificado</string>
     <string name="title_advanced_favicons">Mostrar favicons</string>
-    <string name="title_advanced_favicons_partial" comment="title_advanced_favicons_partial&#10;Scan only the first &lt;xxx KB&gt; of the web page (for favicons)&#10;https://en.wikipedia.org/wiki/Favicon&#10;">Escanear solo los primeros %1$s de la página web</string>
+    <string name="title_advanced_favicons_partial">Escanear solo los primeros %1$s de la página web</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
