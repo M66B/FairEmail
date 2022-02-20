@@ -579,6 +579,7 @@ class Core {
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
                                 ex instanceof SQLiteConstraintException ||
+                                ex instanceof OperationCanceledException ||
                                 (!ConnectionHelper.isIoError(ex) &&
                                         (ex.getCause() instanceof BadCommandException ||
                                                 ex.getCause() instanceof CommandFailedException /* NO */) &&
