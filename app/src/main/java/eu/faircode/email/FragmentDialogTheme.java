@@ -42,15 +42,16 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private void eval() {
         int checkedId = rgTheme.getCheckedRadioButtonId();
         boolean grey = (checkedId == R.id.rbThemeGrey);
+        boolean bw = (checkedId == R.id.rbThemeBlackOrWhite);
         boolean solarized = (checkedId == R.id.rbThemeSolarized);
         boolean you = (checkedId == R.id.rbThemeYou);
-        boolean colored = (grey || solarized || you ||
+        boolean colored = (grey || bw || solarized || you ||
                 checkedId == R.id.rbThemeBlueOrange ||
                 checkedId == R.id.rbThemeRedGreen ||
                 checkedId == R.id.rbThemeYellowPurple);
         int optionId = rgThemeOptions.getCheckedRadioButtonId();
 
-        swReverse.setEnabled(colored && !grey && !solarized);
+        swReverse.setEnabled(colored && !grey && !bw && !solarized);
 
         rgThemeOptions.setEnabled(colored);
         for (int i = 0; i < rgThemeOptions.getChildCount(); i++)
@@ -58,7 +59,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
         tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
 
-        swBlack.setEnabled(colored && !grey && !solarized && optionId != R.id.rbThemeLight);
+        swBlack.setEnabled(colored && !grey && !bw && !solarized && optionId != R.id.rbThemeLight);
 
         swHtmlLight.setEnabled(!colored || optionId != R.id.rbThemeLight);
         swComposerLight.setEnabled(!colored || optionId != R.id.rbThemeLight);
@@ -134,7 +135,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                         theme.startsWith("orange_blue") ||
                         theme.startsWith("purple_yellow") ||
                         theme.startsWith("green_red"));
-        boolean dark = theme.endsWith("dark");
+        boolean dark = (theme.endsWith("dark") || theme.equals("black"));
         boolean system = (theme.endsWith("system") || theme.endsWith("system_black"));
         boolean black = (!"black".equals(theme) && theme.endsWith("black"));
 
@@ -206,10 +207,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 break;
 
             case "black":
-                rgTheme.check(R.id.rbThemeBlack);
-                break;
             case "white":
-                rgTheme.check(R.id.rbThemeWhite);
+            case "bw_system":
+                rgTheme.check(R.id.rbThemeBlackOrWhite);
                 break;
             case "black_and_white":
                 rgTheme.check(R.id.rbThemeBlackAndWhite);
@@ -307,10 +307,11 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                             else
                                 editor.putString("theme",
                                         "solarized" + (dark ? "_dark" : "_light")).apply();
-                        } else if (checkedRadioButtonId == R.id.rbThemeBlack) {
-                            editor.putString("theme", "black").apply();
-                        } else if (checkedRadioButtonId == R.id.rbThemeWhite) {
-                            editor.putString("theme", "white").apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeBlackOrWhite) {
+                            if (system)
+                                editor.putString("theme", "bw_system").apply();
+                            else
+                                editor.putString("theme", (dark ? "black" : "white")).apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeBlackAndWhite) {
                             editor.putString("theme", "black_and_white").apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeYou) {
@@ -513,6 +514,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             case "solarized_system":
                 return (night
                         ? R.style.AppThemeSolarizedDark : R.style.AppThemeSolarizedLight);
+            case "bw_system":
+                return (night
+                        ? R.style.AppThemeBlack : R.style.AppThemeWhite);
 
             case "you_light":
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)

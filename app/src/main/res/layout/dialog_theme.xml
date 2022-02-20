@@ -74,19 +74,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
-                android:id="@+id/rbThemeBlack"
+                android:id="@+id/rbThemeBlackOrWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="@string/title_setup_theme_black"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <RadioButton
-                android:id="@+id/rbThemeWhite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:text="@string/title_setup_theme_white"
+                android:text="@string/title_setup_theme_black_or_white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton

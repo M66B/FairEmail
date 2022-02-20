@@ -410,29 +410,28 @@
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeWhite" parent="AppThemeBaseLight">
-        <item name="colorPrimary">@color/greyPrimary</item>
-        <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
-        <item name="colorAccent">@color/greyPrimary</item>
-
-        <item name="colorUnreadHighlight">@color/greyPrimaryDark</item>
-
-        <item name="colorEncrypt">@color/colorEncryptDark</item>
-
-        <item name="colorDrawerBackground">@color/white</item>
-
-        <item name="colorFabBackground">@color/greyPrimary</item>
+    <style name="AppThemeWhite" parent="AppThemeBlueOrangeLight">
+        <item name="colorPrimary">@color/blackPrimary</item>
+        <item name="colorPrimaryDark">@color/blackPrimaryDark</item>
+        <item name="colorAccent">@color/blackAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
-        <item name="colorInfoBackground">@color/greyPrimary</item>
+        <item name="colorInfoBackground">@color/blackPrimary</item>
 
         <item name="actionBarTheme">@style/WhiteActionBar</item>
+        <item name="snackbarStyle">@style/WhiteSnackBar</item>
     </style>
 
     <style name="WhiteActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:background">@color/white</item>
         <item name="android:titleTextStyle">@style/ActionBarTitle</item>
-        <item name="android:textColor">@color/black</item>
+        <!-- snackbar text color -->
+        <item name="android:textColor">@color/blackPrimaryDark</item>
+    </style>
+
+    <style name="WhiteSnackBar" parent="Widget.Design.Snackbar">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
     </style>
 
     <style name="AppThemeBlackAndWhite" parent="AppThemeBaseDark">

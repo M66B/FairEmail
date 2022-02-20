@@ -146,6 +146,7 @@
     <color name="lightSolarizedActionBackground">#93a1a1</color><!-- Base1 -->
 
     <!-- default: #323232 -->
+    <!-- https://issuetracker.google.com/issues/37120757 -->
     <color name="design_snackbar_background_color" tools:override="true">#222</color>
 
     <color name="white">#ffffffff</color>
