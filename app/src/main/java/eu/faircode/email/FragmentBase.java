@@ -83,6 +83,14 @@ public class FragmentBase extends Fragment {
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
 
+    protected ActionBar getSupportActionBar() {
+        FragmentActivity activity = getActivity();
+        if (activity instanceof ActivityBase)
+            return ((ActivityBase) activity).getSupportActionBar();
+        else
+            return null;
+    }
+
     protected void setTitle(int resid) {
         setTitle(getString(resid));
     }
