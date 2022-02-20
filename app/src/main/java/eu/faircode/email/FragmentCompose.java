@@ -2597,6 +2597,23 @@ public class FragmentCompose extends FragmentBase {
                     etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
                     etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
                 }
+
+                // After showDraft/setFocus
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            if (requestCode == REQUEST_CONTACT_TO)
+                                etTo.setSelection(etTo.length());
+                            else if (requestCode == REQUEST_CONTACT_CC)
+                                etCc.setSelection(etCc.length());
+                            else if (requestCode == REQUEST_CONTACT_BCC)
+                                etBcc.setSelection(etBcc.length());
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
             }
 
             @Override
