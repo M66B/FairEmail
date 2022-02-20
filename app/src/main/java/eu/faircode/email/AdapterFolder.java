@@ -117,6 +117,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
+    private static final int DENSE_ITEMS_THRESHOLD = 50;
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
 
@@ -226,7 +228,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void bindTo(final TupleFolderEx folder) {
             boolean disabled = isDisabled(folder);
 
-            int p = (show_compact ? dp3 : 0);
+            int p = (show_compact && all.size() < DENSE_ITEMS_THRESHOLD ? dp3 : 0);
             view.setPadding(p, p, p, p);
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
             view.setAlpha(folder.hide || disabled ? Helper.LOW_LIGHT : 1.0f);
