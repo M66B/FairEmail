@@ -4,10 +4,10 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
-### Next version
+### 1.1842 - 2022-02-20
 
 * Added black or white theme
-* Added option to always navigation from message to folder list
+* Added option to always navigation from message list to folder list
 * Small improvements and minor bug fixes
 * Updated translations
 
