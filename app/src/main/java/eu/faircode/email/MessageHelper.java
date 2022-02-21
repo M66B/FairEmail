@@ -2877,16 +2877,20 @@ public class MessageHelper {
 
             Integer plain = isPlainOnly();
             if (plain != null && (plain & 1) != 0)
+                // Plain only
                 parts.addAll(text);
-            else
+            else {
+                // Either plain and HTML or HTML only
+                boolean hasPlain = (plain != null && (plain & 0x80) != 0);
                 for (PartHolder h : text)
-                    if (plain_text) {
+                    if (plain_text && hasPlain) {
                         if (h.isPlainText())
                             parts.add(h);
                     } else {
                         if (h.isHtml())
                             parts.add(h);
                     }
+            }
 
             parts.addAll(extra);
 
