@@ -1575,15 +1575,13 @@ public class Log {
             if (ex instanceof ConnectionException)
                 return null;
 
-            if (BuildConfig.PLAY_STORE_RELEASE &&
-                    ex instanceof MailConnectException &&
+            if (ex instanceof MailConnectException &&
                     ex.getCause() instanceof SocketTimeoutException)
-                return null;
+                ex = new Throwable("No response received from email server", ex);
 
-            if (BuildConfig.PLAY_STORE_RELEASE &&
-                    ex instanceof MessagingException &&
+            if (ex instanceof MessagingException &&
                     ex.getCause() instanceof UnknownHostException)
-                return null;
+                ex = new Throwable("Email server address lookup failed", ex);
 
             if (ex instanceof StoreClosedException ||
                     ex instanceof FolderClosedException ||
