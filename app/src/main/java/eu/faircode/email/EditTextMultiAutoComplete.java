@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -39,6 +40,7 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.chip.ChipDrawable;
 
@@ -69,7 +71,10 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
 
-        if (BuildConfig.DEBUG) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean send_chips = prefs.getBoolean("send_chips", false);
+
+        if (send_chips) {
             boolean dark = Helper.isDarkTheme(context);
             ContextThemeWrapper ctx = new ContextThemeWrapper(context,
                     dark ? R.style.Base_Theme_Material3_Dark : R.style.Base_Theme_Material3_Light);
