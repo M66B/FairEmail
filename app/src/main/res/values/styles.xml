@@ -422,7 +422,11 @@
         <item name="snackbarStyle">@style/WhiteSnackBar</item>
     </style>
 
-    <style name="WhiteActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="WhiteActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/blackPrimary</item>
+        <item name="colorPrimaryDark">@color/blackPrimaryDark</item>
+        <item name="colorAccent">@color/blackAccent</item>
+
         <item name="android:background">@color/white</item>
         <item name="android:titleTextStyle">@style/ActionBarTitle</item>
         <!-- snackbar text color -->
