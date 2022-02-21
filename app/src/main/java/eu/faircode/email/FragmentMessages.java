@@ -1764,6 +1764,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
+                boolean reload = false;
+                boolean outbox = false;
                 boolean force = args.getBoolean("force");
 
                 DB db = DB.getInstance(context);
@@ -1782,14 +1784,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     for (EntityFolder folder : folders) {
-                        EntityOperation.sync(context, folder.id, true, force);
+                        EntityOperation.sync(context, folder.id, true, force, true);
 
-                        if (folder.account != null) {
+                        if (folder.account == null)
+                            outbox = true;
+                        else {
                             EntityAccount account = db.account().getAccount(folder.account);
                             if (account != null && !"connected".equals(account.state)) {
                                 now = false;
                                 if (!account.isTransient(context))
-                                    force = true;
+                                    reload = true;
                             }
                         }
 
@@ -1806,12 +1810,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                if (force)
+                if (force || reload)
                     ServiceSynchronize.reload(context, null, true, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
 
-                if (!now && !args.getBoolean("force"))
+                if (outbox)
+                    ServiceSend.start(context);
+
+                if (!now && !force)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
                 return null;

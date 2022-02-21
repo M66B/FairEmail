@@ -461,8 +461,9 @@ public class FragmentAccounts extends FragmentBase {
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
-                boolean force = args.getBoolean("force");
+                boolean reload = false;
                 boolean outbox = false;
+                boolean force = args.getBoolean("force");
 
                 DB db = DB.getInstance(context);
                 try {
@@ -484,7 +485,7 @@ public class FragmentAccounts extends FragmentBase {
                             if (account != null && !"connected".equals(account.state)) {
                                 now = false;
                                 if (!account.isTransient(context))
-                                    force = true;
+                                    reload = true;
                             }
                         }
                     }
@@ -494,7 +495,7 @@ public class FragmentAccounts extends FragmentBase {
                     db.endTransaction();
                 }
 
-                if (force)
+                if (force || reload)
                     ServiceSynchronize.reload(context, null, true, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
@@ -502,7 +503,7 @@ public class FragmentAccounts extends FragmentBase {
                 if (outbox)
                     ServiceSend.start(context);
 
-                if (!now && !args.getBoolean("force"))
+                if (!now && !force)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
                 return null;

@@ -516,6 +516,10 @@ public class EntityOperation {
     }
 
     static void sync(Context context, long fid, boolean foreground, boolean force) {
+        sync(context, fid, foreground, force, false);
+    }
+
+    static void sync(Context context, long fid, boolean foreground, boolean force, boolean outbox) {
         DB db = DB.getInstance(context);
 
         EntityFolder folder = db.folder().getFolder(fid);
@@ -553,7 +557,10 @@ public class EntityOperation {
             db.folder().setFolderSyncState(fid, "requested");
 
         if (folder.account == null) // Outbox
-            ServiceSend.start(context);
+            if (!outbox) {
+                Log.e("outbox");
+                ServiceSend.start(context);
+            }
     }
 
     static void subscribe(Context context, long fid, boolean subscribe) {
