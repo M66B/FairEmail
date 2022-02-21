@@ -32,6 +32,7 @@ import android.text.TextWatcher;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 
@@ -74,6 +75,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                     dark ? R.style.Base_Theme_Material3_Dark : R.style.Base_Theme_Material3_Light);
             ContentResolver resolver = context.getContentResolver();
             int dp3 = Helper.dp2pixels(context, 3);
+            DisplayMetrics dm = getResources().getDisplayMetrics();
 
             addTextChangedListener(new TextWatcher() {
                 @Override
@@ -89,8 +91,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                 @Override
                 public void afterTextChanged(Editable edit) {
                     boolean added = false;
-                    List<ImageSpan> spans = new ArrayList<>();
-                    spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ImageSpan.class)));
+                    List<ClipImageSpan> spans = new ArrayList<>();
+                    spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
 
                     boolean quote = false;
                     int start = 0;
@@ -100,7 +102,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                             quote = !quote;
                         else if (kar == ',' && !quote) {
                             boolean found = false;
-                            for (ImageSpan span : new ArrayList<>(spans)) {
+                            for (ClipImageSpan span : new ArrayList<>(spans)) {
                                 int s = edit.getSpanStart(span);
                                 int e = edit.getSpanEnd(span);
                                 if (s == start && e == i + 1) {
@@ -131,25 +133,19 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                         avatar = Drawable.createFromStream(is, email);
                                     }
 
-                                    ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
-                                    cd.setChipIcon(avatar);
-                                    cd.setCloseIcon(null);
-                                    cd.setTextStartPadding(dp3);
-                                    cd.setTextEndPadding(dp3);
-
                                     String e = parsed[0].getAddress();
                                     String p = parsed[0].getPersonal();
-                                    if (TextUtils.isEmpty(p))
-                                        if (TextUtils.isEmpty(e))
-                                            cd.setText(email);
-                                        else
-                                            cd.setText(e);
-                                    else
-                                        cd.setText(p);
+                                    String text = (TextUtils.isEmpty(p) ? e : p);
 
+                                    // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
+                                    ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
+                                    cd.setChipIcon(avatar);
+                                    // cd.setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
+                                    cd.setText(text);
+                                    cd.setMaxWidth(2 * dm.widthPixels / 3);
                                     cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
 
-                                    ImageSpan is = new ImageSpan(cd, DynamicDrawableSpan.ALIGN_BOTTOM);
+                                    ClipImageSpan is = new ClipImageSpan(cd);
                                     edit.setSpan(is, start, i + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     added = true;
                                 }
@@ -162,13 +158,19 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                         }
                     }
 
-                    for (ImageSpan span : spans)
+                    for (ClipImageSpan span : spans)
                         edit.removeSpan(span);
 
                     if (spans.size() > 0 || added)
                         invalidate();
                 }
             });
+        }
+    }
+
+    private static class ClipImageSpan extends ImageSpan {
+        public ClipImageSpan(@NonNull Drawable drawable) {
+            super(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
         }
     }
 

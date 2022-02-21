@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <chip xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:text="Contact"
-    app:chipIcon="@drawable/baseline_mail_24" />
+    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+    app:closeIconVisible="false"
+    app:textEndPadding="3dp"
+    app:textStartPadding="3dp" />
