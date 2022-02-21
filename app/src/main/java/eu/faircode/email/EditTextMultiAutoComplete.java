@@ -77,7 +77,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         if (send_chips) {
             boolean dark = Helper.isDarkTheme(context);
             ContextThemeWrapper ctx = new ContextThemeWrapper(context,
-                    dark ? R.style.Base_Theme_Material3_Dark : R.style.Base_Theme_Material3_Light);
+                    dark ? R.style.ChipDark : R.style.ChipLight);
             ContentResolver resolver = context.getContentResolver();
 
             Runnable update = new Runnable() {
