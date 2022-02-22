@@ -303,6 +303,7 @@
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
+    <string name="title_advanced_send_chips">显示地址气泡</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
@@ -1692,12 +1693,6 @@
         <item>不进行任何操作</item>
         <item>转到上一个会话</item>
         <item>转到下一个会话</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>小</item>
-        <item>中等</item>
-        <item>大</item>
-        <item>特大</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -312,7 +312,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
     <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
     <string name="title_advanced_alt_re_fwd">Alternatief antwoord/doorsturen voorvoegsel</string>
-    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Toon adresballonnen</string>
+    <string name="title_advanced_send_chips">Toon adresballonnen</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_attach_new">Voeg gedeelde bestanden toe aan een nieuw concept</string>
@@ -1703,6 +1703,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Ga naar volgende gesprek</item>
     </string-array>
     <string-array name="resizeNames">
+        <item>Extra klein</item>
         <item>Klein</item>
         <item>Gemiddeld</item>
         <item>Groot</item>

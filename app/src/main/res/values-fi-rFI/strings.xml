@@ -1701,12 +1701,6 @@
         <item>Siirry edelliseen keskusteluun</item>
         <item>Siirry seuraavaan keskusteluun</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Pieni</item>
-        <item>Keskikokoinen</item>
-        <item>Suuri</item>
-        <item>Erittäin suuri</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

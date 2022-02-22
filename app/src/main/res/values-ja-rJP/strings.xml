@@ -232,6 +232,8 @@
     <string name="title_setup_theme_red_green">レッド/グリーン</string>
     <string name="title_setup_theme_grey">グレー</string>
     <string name="title_setup_theme_black">ブラック</string>
+    <string name="title_setup_theme_white">ホワイト</string>
+    <string name="title_setup_theme_black_or_white">黒または白</string>
     <string name="title_setup_theme_black_and_white">モノクロ</string>
     <string name="title_setup_theme_reverse">配色を反転</string>
     <string name="title_setup_theme_light">ライト</string>
@@ -302,9 +304,11 @@
     <string name="title_advanced_suggest_received">メッセージを受信したことのあるアドレスを提案</string>
     <string name="title_advanced_suggest_frequently">提案するアドレスを使用頻度で並べ替え</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更</string>
+    <string name="title_advanced_send_chips">アドレスバルーンを表示</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
     <string name="title_advanced_attach_new">共有されたファイルを返信の下書きに追加</string>
+    <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_compose_font">デフォルトのフォント</string>
     <string name="title_advanced_prefix_once">返信/転送のプレフィックスを 1 つだけにする</string>
@@ -469,6 +473,7 @@
     <string name="title_advanced_undo">「元に戻す」を表示する時間</string>
     <string name="title_advanced_quick_filter">目立たないクイックフィルターアイコンを表示</string>
     <string name="title_advanced_quick_scroll">目立たないクイックスクロールアップ/ダウンアイコンを表示</string>
+    <string name="title_advanced_folder_nav">デフォルトでメッセージリストからフォルダーリストに戻る</string>
     <string name="title_advanced_autoread">移動するメッセージを自動で既読にする</string>
     <string name="title_advanced_star_snoozed">スヌーズしたメッセージに自動でスターを付ける</string>
     <string name="title_advanced_autounstar">移動するメッセージのスターを自動で取り消す</string>
@@ -503,7 +508,7 @@
     <string name="title_advanced_notify_action_hide">非表示</string>
     <string name="title_advanced_notify_action_snooze">スヌーズ</string>
     <string name="title_advanced_notify_remove">通知をタップして新着メッセージ通知を削除</string>
-    <string name="title_advanced_notify_clear">メッセージ一覧を開いたとき、新着メッセージ通知を削除</string>
+    <string name="title_advanced_notify_clear">メッセージリストを開いたとき、新着メッセージ通知を削除</string>
     <string name="title_advanced_notify_subtext">アカウントまたはフォルダー名をサブタイトルに表示</string>
     <string name="title_advanced_wearable_preview">プレビュー付き通知のみウェアラブルに送信</string>
     <string name="title_advanced_notify_messaging">Android の「Messaging Style」の通知フォーマットを使用</string>
@@ -579,7 +584,7 @@
     <string name="title_advanced_protocol">プロトコルログ</string>
     <string name="title_advanced_log_info">デバッグログ</string>
     <string name="title_advanced_debug">デバッグモード</string>
-    <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます</string>
+    <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージリストをプルダウンして手動でメッセージを受信することができます</string>
     <string name="title_advanced_poll_battery">バッテリー使用量が大幅に増加する可能性があります！</string>
     <string name="title_advanced_poll_hint">新着メッセージを定期的に確認すると、ローカルのメッセージとサーバーのメッセージが毎回比較されます。これは負荷のかかる操作であり、特にメッセージが多い場合は、バッテリー使用量が大幅に増加する可能性があります。常に受信すると変更を継続的に追跡するため、このような問題はありません。</string>
     <string name="title_advanced_optimize_hint">バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
@@ -836,6 +841,7 @@
     <string name="title_delete_operation_deleted">%1$d 件の操作が削除されました</string>
     <string name="title_delete_contacts">すべてのローカル連絡先を削除しますか？</string>
     <string name="title_no_operations">保留中の操作はありません</string>
+    <string name="title_check_operations">操作の確認</string>
     <string name="title_hint_operations">操作を削除するとメッセージが消失し、同期の問題が発生する可能性があります</string>
     <string name="title_op_title_headers">ヘッダーをダウンロードしています</string>
     <string name="title_op_title_raw">元のメッセージをダウンロードしています</string>
@@ -1025,6 +1031,8 @@
     <string name="title_ask_show_html_images">元のメッセージを表示するときは常に画像を表示</string>
     <string name="title_ask_show_image">画像を表示するとプライバシーデータの漏洩の原因となる可能性があります</string>
     <string name="title_ask_show_image_hint">アナティリスク追跡画像として識別された画像は表示されません</string>
+    <string name="title_ask_show_amp">AMP メッセージを表示しますか？</string>
+    <string name="title_ask_show_amp_hint">AMP メッセージはインターネットを利用して動的に表示するため、必然的にトラッキングされます</string>
     <string name="title_ask_delete_local">ローカルメッセージを削除しますか？ メッセージはリモートサーバーに残ります</string>
     <string name="title_ask_help">FairEmail の改善にご協力ください</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
@@ -1167,6 +1175,8 @@
     <string name="title_encrypt">暗号化</string>
     <string name="title_decrypt">復号</string>
     <string name="title_resync">再同期</string>
+    <string name="title_alternative_text">プレーンテキストを表示</string>
+    <string name="title_alternative_html">HTML を表示</string>
     <string name="title_no_openpgp">OpenKeychain が見つかりません</string>
     <string name="title_user_interaction">OpenKeychain へ転送しています</string>
     <string name="title_signed_data">電子署名を確認して本文を表示</string>
@@ -1312,7 +1322,7 @@
     <string name="title_rule_header">ヘッダーに以下の語句を含む</string>
     <string name="title_rule_body">本文に以下の語句を含む</string>
     <string name="title_rule_skip_quotes">引用テキストをスキップ</string>
-    <string name="title_rule_body_remark">この条件を使用すると本文が常にダウンロードされ、メッセージ一覧の同期が遅れることがあります</string>
+    <string name="title_rule_body_remark">この条件を使用すると本文が常にダウンロードされ、メッセージリストの同期が遅れることがあります</string>
     <string name="title_rule_time_abs">以下の期間に受信</string>
     <string name="title_rule_time_after">から</string>
     <string name="title_rule_time_before">まで</string>
@@ -1455,6 +1465,7 @@
     <string name="title_legend_show_unsubscribe">リストから退会</string>
     <string name="title_legend_show_images">画像を表示</string>
     <string name="title_legend_hide_images">画像を非表示</string>
+    <string name="title_legend_show_amp">AMP を表示</string>
     <string name="title_legend_show_full">元のメッセージを表示</string>
     <string name="title_legend_show_reformatted">再フォーマットされたメッセージを表示</string>
     <string name="title_legend_edit">編集</string>
@@ -1690,12 +1701,6 @@
         <item>何もしない</item>
         <item>前の会話に移動</item>
         <item>次の会話に移動</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>小</item>
-        <item>中</item>
-        <item>大</item>
-        <item>特大</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

@@ -1131,12 +1131,6 @@
         <item>رفتن به گفتگو قبلی</item>
         <item>رفتن به گفتگو بعدی</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>کوچک</item>
-        <item>متوسط</item>
-        <item>بزرگ</item>
-        <item>خیلی بزرگ</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

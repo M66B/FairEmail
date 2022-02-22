@@ -262,6 +262,7 @@
     <string name="title_setup_theme_red_green">Červený/zelený</string>
     <string name="title_setup_theme_grey">Šedý</string>
     <string name="title_setup_theme_black">Černý</string>
+    <string name="title_setup_theme_white">Bílá</string>
     <string name="title_setup_theme_black_or_white">Černá nebo bílá</string>
     <string name="title_setup_theme_black_and_white">Černobílý</string>
     <string name="title_setup_theme_reverse">Prohodit barvy</string>
@@ -332,10 +333,11 @@
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_alt_re_fwd">Alternativní adresa pro odpovědi/přeposílání</string>
-    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Zobrazit bubliny s kontakty</string>
+    <string name="title_advanced_send_chips">Zobrazit bubliny s kontakty</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_attach_new">Přidat sdílené soubory do nového konceptu</string>
+    <string name="title_advanced_answer_action">Dlouhým stisknutím tlačítka odpovědi:</string>
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
@@ -416,6 +418,7 @@
     <string name="title_advanced_bimi_unverified">Neověřený odesílatel</string>
     <string name="title_advanced_bimi_verified">Ověřený odesílatel</string>
     <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
+    <string name="title_advanced_favicons_partial">Skenovat pouze prvních %1$s webové stránky</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Zobrazit kulaté ikony</string>
@@ -1726,12 +1729,6 @@
         <item>Nedělat nic</item>
         <item>Přejít na předchozí konverzaci</item>
         <item>Přejít na další konverzaci</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Malé</item>
-        <item>Střední</item>
-        <item>Velké</item>
-        <item>Velmi velké</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

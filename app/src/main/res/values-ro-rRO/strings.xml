@@ -323,6 +323,7 @@
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
     <string name="title_advanced_alt_re_fwd">Prefix alternativ de răspuns/întârziere</string>
+    <string name="title_advanced_send_chips">Afișați bule de adrese</string>
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_attach_new">Adăugați fișierele partajate la o nouă ciornă</string>
@@ -1717,12 +1718,6 @@
         <item>Nicio acțiune</item>
         <item>Mergi la conversația anterioară</item>
         <item>Mergi la conversația următoare</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Mic</item>
-        <item>Mediu</item>
-        <item>Mare</item>
-        <item>Foarte mare</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

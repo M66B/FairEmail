@@ -1633,12 +1633,6 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>Percakapan sebelumnya</item>
         <item>Percakapan selanjutnya</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Kecil</item>
-        <item>Sedang</item>
-        <item>Besar</item>
-        <item>Ekstra besar</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

@@ -313,7 +313,7 @@
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
     <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
-    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
+    <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
     <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο προσχέδιο</string>
@@ -1705,12 +1705,6 @@
         <item>Καμία ενέργεια</item>
         <item>Μετάβαση στην προηγούμενη συζήτηση</item>
         <item>Μετάβαση στην επόμενη συζήτηση</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Μικρό</item>
-        <item>Μεσαίο</item>
-        <item>Μεγάλο</item>
-        <item>Πολύ μεγάλο</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

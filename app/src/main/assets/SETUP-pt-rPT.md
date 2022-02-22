@@ -8,7 +8,7 @@ Uma ligação à internet é obrigatória para configurar contas e identidades.
 
 ## Configurador rápido
 
-Se mostrado, selecionar o seu provedor, senão escolher *Outro provedor*, então inserir o seu nome, endereço eletrónico e palavra-passe e tocar em *Verificar*.
+Apenas escolha o fornecedor apropriado ou a opção *Outro fornecedor* e insira o seu nome, endereço de correio electrónico e a palavra-passe. Por fim, toque em *Verificar*.
 
 Isto funcionará para a maioria dos provedores de e-mail.
 

@@ -314,7 +314,7 @@
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
     <string name="title_advanced_alt_re_fwd">Alternativt besvarelses-/videresendelsespræfiks</string>
-    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Vis adressebobler</string>
+    <string name="title_advanced_send_chips">Vis adressebobler</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
     <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
@@ -1712,12 +1712,6 @@
         <item>Gør intet</item>
         <item>Gå til foregående samtale</item>
         <item>Gå til næste samtale</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Lille</item>
-        <item>Mellem</item>
-        <item>Stor</item>
-        <item>Ekstra stor</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

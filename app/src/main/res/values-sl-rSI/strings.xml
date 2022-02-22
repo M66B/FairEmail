@@ -1128,12 +1128,6 @@
         <item>Pojdi na prejšnji pogovor</item>
         <item>Pojdi na naslednji pogovor</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Majhna</item>
-        <item>Srednja</item>
-        <item>Velika</item>
-        <item>Zelo velika</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

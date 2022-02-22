@@ -264,6 +264,7 @@
     <string name="title_setup_theme_grey">Сіра</string>
     <string name="title_setup_theme_black">Чорна</string>
     <string name="title_setup_theme_white">Світла</string>
+    <string name="title_setup_theme_black_or_white">Чорна чи біла</string>
     <string name="title_setup_theme_black_and_white">Чорно-біла</string>
     <string name="title_setup_theme_reverse">Поміняти кольори</string>
     <string name="title_setup_theme_light">Світла</string>
@@ -501,6 +502,7 @@
     <string name="title_advanced_undo">Час для відміни дії</string>
     <string name="title_advanced_quick_filter">Показувати ненав\'язливі піктограми швидкого фільтру</string>
     <string name="title_advanced_quick_scroll">Показати не нав\'язливі піктограми швидкого прокручування вгору/вниз</string>
+    <string name="title_advanced_folder_nav">Завжди повертатися зі списку повідомлень до списку тек</string>
     <string name="title_advanced_autoread">Автоматично відзначати повідомлення прочитаними при їх переміщенні</string>
     <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
@@ -1727,12 +1729,6 @@
         <item>Нічого</item>
         <item>Перейти до попередньої розмови</item>
         <item>Перейти до наступної розмови</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Малий</item>
-        <item>Середній</item>
-        <item>Великий</item>
-        <item>Дуже великий</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

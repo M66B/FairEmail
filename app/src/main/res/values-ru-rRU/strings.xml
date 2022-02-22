@@ -333,6 +333,7 @@
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
+    <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_attach_new">Создавать новый черновик для файлов, которыми поделились</string>
@@ -1732,12 +1733,6 @@
         <item>Ничего не делать</item>
         <item>Перейти к предыдущему диалогу</item>
         <item>Перейти к следующему диалогу</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Маленький</item>
-        <item>Средний</item>
-        <item>Большой</item>
-        <item>Очень большой</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

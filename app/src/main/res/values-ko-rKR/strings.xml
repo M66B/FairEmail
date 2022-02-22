@@ -287,6 +287,7 @@
     <string name="title_advanced_volumenav">음량 상하 버튼을 눌러 전후 대화로 이동</string>
     <string name="title_advanced_swipe_close">아래로 밀어 대화 닫기</string>
     <string name="title_advanced_undo">되돌리기 제한 시간</string>
+    <string name="title_advanced_folder_nav">항상 메시지 목록에서 폴더 목록으로 돌아가기</string>
     <string name="title_advanced_notifications">알림 관리</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
     <string name="title_advanced_notifications_service">수신 채널</string>
@@ -905,12 +906,6 @@
         <item>아무것도 하지 않음</item>
         <item>Go to previous conversation</item>
         <item>Go to next conversation</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>작게</item>
-        <item>보통</item>
-        <item>크게</item>
-        <item>매우 크게</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

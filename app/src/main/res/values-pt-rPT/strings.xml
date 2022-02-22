@@ -2,14 +2,14 @@
 <resources>
     <string name="app_search">Pesquisa do FairEmail</string>
     <string name="app_changelog">Registo de alterações</string>
-    <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que estás acostumado.</string>
-    <string name="app_limitations">Por exemplo, as mensagens são reformatadas por defeito para remover elementos inseguros e melhorar a legibilidade, e a abertura de links precisa de ser confirmada para segurança. Ambos podem ser desativados caso pretendam.</string>
+    <string name="app_welcome">O FairEmail é uma aplicação de correio electrónico de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que está acostumado.</string>
+    <string name="app_limitations">Por exemplo, na configuração padrão as mensagens são reformatadas para remover elementos inseguros e melhorar a legibilidade, como a abertura de hiperligações precisa de ser confirmada por motivos de segurança. Ambas as opções podem ser desactivadas caso pretenda.</string>
     <string name="app_unsupported">Bugs na versão Android deste dispositivo em específico causam encerramentos inesperados</string>
     <string name="app_continue">Continuar mesmo assim</string>
-    <string name="app_exit">Vá \'voltar\' novamente para sair</string>
+    <string name="app_exit">Pressione novamente \'voltar\' para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
     <string name="app_updated">Última atualização: %1$s</string>
-    <string name="app_download">Descarregado de: %1$s</string>
+    <string name="app_download">Descarregada via: %1$s</string>
     <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
@@ -152,7 +152,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e eliminar permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta de rascunhos não estiver acessível pelo IMAP, isso poderá ser corrigido nas configurações de etiquetas do Gmail</string>
-    <string name="title_setup_gmail_password">Quero autorizar uma conta com uma senha</string>
+    <string name="title_setup_gmail_password">Quero autorizar uma conta com uma palavra-passe</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE falhou\' pode ser causado por IMAP/SMTP estar desativado pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar conta existente novamente</string>
@@ -162,8 +162,8 @@
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Tente configurar manualmente a conta, utilizando as configurações fornecidas pelo seu provedor de e-mail</string>
-    <string name="title_setup_no_auth_hint">Por favor, verifique o seu endereço de e-mail e senha e certifique-se que o acesso externo (IMAP/SMTP) está ativado para a sua conta</string>
-    <string name="title_setup_app_password_hint">Este provedor requer uma senha de aplicação em vez da senha da conta, por favor verifique as instruções do seu provedor</string>
+    <string name="title_setup_no_auth_hint">Por favor, verifique novamente o seu endereço de correio electrónico e a palavra-passe, e confirme se o acesso externo (IMAP/SMTP) está activado para a sua conta</string>
+    <string name="title_setup_app_password_hint">Este fornecedor requer uma palavra-passe de aplicação em vez da palavra-passe da conta, por favor verifique as instruções do seu fornecedor</string>
     <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de proteção não é possível usar uma aplicação de e-mail de terceiros. Esta é uma restrição imposta pelo Google.</string>
     <string name="title_setup_quick_success">Uma conta foi adicionada com sucesso</string>
@@ -202,7 +202,7 @@
     <string name="title_setup_still">Ainda por fazer</string>
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
-    <string name="title_setup_app_password">Talvez seja necessário usar uma senha da app</string>
+    <string name="title_setup_app_password">Talvez seja necessário usar uma palavra-passe de aplicação</string>
     <string name="title_setup_extra">Extra</string>
     <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar definições</string>
@@ -212,10 +212,10 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_setup_export_do">O ficheiro de exportação conterá todas as configurações e dados, mas nenhuma mensagem ou imagem referenciada nas assinaturas</string>
     <string name="title_setup_import_do">Contas importadas serão adicionadas sem sobrescrever as já existentes</string>
     <string name="title_setup_password">Palavra-passe</string>
-    <string name="title_setup_password_chars">A senha contém caractéres de controle ou espaços em branco</string>
+    <string name="title_setup_password_chars">A palavra-passe contém caracteres de controlo ou espaços em branco</string>
     <string name="title_setup_password_repeat">Repita a palavra-passe</string>
-    <string name="title_setup_password_missing">Palavra-passe ausente</string>
-    <string name="title_setup_password_different">As palavras-passe não correspondem</string>
+    <string name="title_setup_password_missing">Palavra-passe em falta</string>
+    <string name="title_setup_password_different">As palavras-passe não coincidem</string>
     <string name="title_setup_password_invalid">Palavra-passe inválida</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
     <string name="title_setup_import_rules">Importar regras de filtragem</string>
@@ -310,7 +310,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
-    <string name="title_advanced_attach_new">Adicionar arquivos partilhados a um novo rascunho</string>
+    <string name="title_advanced_attach_new">Adicionar ficheiros partilhados a um novo rascunho</string>
     <string name="title_advanced_answer_action">Pressionar e segurar o botão de resposta irá:</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
     <string name="title_advanced_compose_font">Letra predefinida</string>
@@ -336,7 +336,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_metered">Usar conexões limitadas</string>
     <string name="title_advanced_download">Descarregar automaticamente mensagens e anexos numa conexão limitada</string>
     <string name="title_advanced_roaming">Descarregar mensagens e anexos em roaming</string>
-    <string name="title_advanced_rlah">Faça roaming como no país de origem</string>
+    <string name="title_advanced_rlah">Assumir ligação em roaming como no país de origem</string>
     <string name="title_advanced_download_headers">Transferir todos os cabeçalhos das mensagens</string>
     <string name="title_advanced_download_eml">Transferir ficheiros de mensagem em bruto</string>
     <string name="title_advanced_validated">Exigir uma conexão validada (verificada)</string>
@@ -536,6 +536,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_app">Definições da aplicação</string>
     <string name="title_advanced_more">Mais opções</string>
+    <string name="title_advanced_protocol">Registo do protocolo</string>
+    <string name="title_advanced_log_info">Registo de depuração</string>
     <string name="title_advanced_debug">Modo de Depuração</string>
     <string name="title_advanced_manual_hint">Se a recepção de mensagens estiver desactivada, continua a ser possível receber mensagens manualmente, deslizando a lista de mensagens para baixo</string>
     <string name="title_advanced_poll_battery">Isto pode causar elevado uso de bateria!</string>
@@ -546,7 +548,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_subject_threading_hint">Apenas mensagens recebidas nas últimas %1$d horas</string>
     <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de se conectar a uma conta</string>
     <string name="title_advanced_lookup_mx_hint">Faz a verificação se existem registos DNS MX</string>
-    <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações de Internet móveis</string>
+    <string name="title_advanced_suggest_names_hint">Caso esteja desactivada, apenas se utilizará os endereços de correio electrónico ao seleccionar contactos</string>
+    <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>
+    <string name="title_advanced_rlah_hint">Presume que não há roaming dentro da UE</string>
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre obtidos em roaming. Pode usar a configuração de roaming do dispositivo para desactivar a internet em roaming.</string>
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
     <string name="title_advanced_navbar_colorize_hint">O funcionamento disto depende da versão e variante do Android</string>
@@ -558,6 +562,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_notify_action_hint">No máximo três acções serão mostradas</string>
     <string name="title_advanced_fts_hint">Activar esta função melhora o desempenho da pesquisa, porém aumenta o consumo de bateria e a utilização de espaço do armazenamento</string>
     <string name="title_advanced_english_hint">Mudar esta definição reiniciará a aplicação</string>
+    <string name="title_advanced_cleanup_attachments_hint">Quando houver uma limpeza manual, isto fará com que os anexos, das mensagens que já não são sincronizadas, sejam removidos</string>
+    <string name="title_advanced_cleanup_hint">Isto irá eliminar todos os ficheiros temporários</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
     <string name="title_select">Seleccionar &#8230;</string>
     <string name="title_identity_name">Seu Nome</string>
@@ -575,11 +581,13 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_encryption_none">Nenhum</string>
     <string name="title_user">Nome de utilizador</string>
     <string name="title_password">Palavra-passe</string>
+    <string name="title_password_storage">Como são armazenadas as palavras-passe?</string>
+    <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
     <string name="title_primary">Principal</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
-    <string name="title_no_password">Palavra-passe ausente</string>
+    <string name="title_no_password">Palavra-passe em falta</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_account_auth_update">Atualizar autorização</string>
     <string name="title_account_auth_password">Mudar para autenticação de palavra-passe</string>
@@ -721,6 +729,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_show_addresses">Mostrar CC/BCC</string>
     <string name="title_manage_local_contacts">Gerir contactos locais</string>
+    <string name="title_translate_key">Introduzir chave de acesso</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
     <string name="title_sign">Assinar</string>
@@ -1130,12 +1139,6 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
         <item>Não fazer nada</item>
         <item>Ir para a conversa anterior</item>
         <item>Ir para a próxima conversa</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Pequeno</item>
-        <item>Médio</item>
-        <item>Grande</item>
-        <item>Muito grande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

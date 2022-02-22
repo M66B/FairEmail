@@ -1237,12 +1237,6 @@
         <item>Joan aurreko elkarrizketara</item>
         <item>Joan hurrengo elkarrizketara</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Txikia</item>
-        <item>Ertaina</item>
-        <item>Handia</item>
-        <item>Oso handia</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

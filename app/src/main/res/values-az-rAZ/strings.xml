@@ -1709,12 +1709,6 @@
         <item>Əvvəlki danışığa get</item>
         <item>Sonrakı danışığa get</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Kiçik</item>
-        <item>Orta</item>
-        <item>Böyük</item>
-        <item>Ekstra böyük</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

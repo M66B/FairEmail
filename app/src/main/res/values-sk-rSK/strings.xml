@@ -1725,12 +1725,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Prejsť na predchádzajúcu konverzáciu</item>
         <item>Prejsť na nasledujúcu konverzáciu</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Malá</item>
-        <item>Stredná</item>
-        <item>Veľká</item>
-        <item>Veľmi veľká</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

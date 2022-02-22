@@ -1193,12 +1193,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item>Conversa anterior</item>
         <item>Següent conversa</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Petit</item>
-        <item>Mitjà</item>
-        <item>Gran</item>
-        <item>Extra gran</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

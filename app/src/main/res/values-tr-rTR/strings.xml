@@ -312,7 +312,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
     <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
-    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Adres balonlarını göster</string>
+    <string name="title_advanced_send_chips">Adres balonlarını göster</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_attach_new">Yeni bir taslağa paylaşılan dosyalar ekleyin</string>
@@ -1705,12 +1705,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Hiç bir şey yapma</item>
         <item>Önceki konuşmaya git</item>
         <item>Sonraki konuşmaya git</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Küçük</item>
-        <item>Orta</item>
-        <item>Büyük</item>
-        <item>Ekstra büyük</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

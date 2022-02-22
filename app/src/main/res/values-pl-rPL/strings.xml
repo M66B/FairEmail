@@ -1728,12 +1728,6 @@
         <item>Idź do poprzedniej wiadomości</item>
         <item>Idź do następnej wiadomości</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Małe</item>
-        <item>Średnie</item>
-        <item>Duże</item>
-        <item>Bardzo duży</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

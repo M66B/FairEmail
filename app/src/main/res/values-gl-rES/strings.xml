@@ -1656,12 +1656,6 @@
         <item>Ir á conversa anterior</item>
         <item>Ir á conversa seguinte</item>
     </string-array>
-    <string-array name="resizeNames">
-        <item>Pequeno</item>
-        <item>Mediano</item>
-        <item>Grande</item>
-        <item>Extragrande</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

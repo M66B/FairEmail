@@ -310,7 +310,7 @@
     <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
     <string name="title_advanced_alt_re_fwd">Alternativt svar-/vidarebefordringsprefix</string>
-    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Visa adressbubblor</string>
+    <string name="title_advanced_send_chips">Visa adressbubblor</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_attach_new">Lägg till delade filer till ett nytt utkast</string>
@@ -1704,12 +1704,6 @@
         <item>Gör ingenting</item>
         <item>Gå till föregående konversation</item>
         <item>Gå till nästa konversation</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Liten</item>
-        <item>Mellan</item>
-        <item>Stor</item>
-        <item>Extra stor</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
