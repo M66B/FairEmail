@@ -621,10 +621,10 @@
     </style>
 
     <style name="ChipLight" parent="Base.Theme.Material3.Light">
-
+        <item name="chipCornerRadius">6dp</item>
     </style>
 
     <style name="ChipDark" parent="Base.Theme.Material3.Dark">
-
+        <item name="chipCornerRadius">6dp</item>
     </style>
 </resources>
