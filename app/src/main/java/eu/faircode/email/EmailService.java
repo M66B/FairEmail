@@ -963,7 +963,13 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
-            SSLContext sslContext = SSLContext.getInstance("TLS");
+            SSLContext sslContext;
+            try {
+                sslContext = SSLContext.getInstance("SSL");
+            }catch (Throwable ex){
+                Log.e(ex);
+                sslContext = SSLContext.getInstance("TLS");
+            }
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             tmf.init((KeyStore) null);
