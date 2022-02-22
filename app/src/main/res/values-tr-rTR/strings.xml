@@ -241,6 +241,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_theme_red_green">Kırmızı/yeşil</string>
     <string name="title_setup_theme_grey">Gri</string>
     <string name="title_setup_theme_black">Siyah</string>
+    <string name="title_setup_theme_white">Beyaz</string>
+    <string name="title_setup_theme_black_or_white">Siyah ya da beyaz</string>
     <string name="title_setup_theme_black_and_white">Siyah-beyaz</string>
     <string name="title_setup_theme_reverse">Renkleri ters çevir</string>
     <string name="title_setup_theme_light">Açık</string>
@@ -310,6 +312,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
     <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
+    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">Adres balonlarını göster</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_attach_new">Yeni bir taslağa paylaşılan dosyalar ekleyin</string>
@@ -478,6 +481,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_undo">Zaman aşımını geri al</string>
     <string name="title_advanced_quick_filter">Rahatsız edici olmayan hızlı filtre simgelerini göster</string>
     <string name="title_advanced_quick_scroll">Rahatsız edici olmayan hızlı yukarı/aşağı kaydırma simgelerini göster</string>
+    <string name="title_advanced_folder_nav">Her zaman bir mesaj listesinden klasör listesine geri dön</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_star_snoozed">Ertelenen mesajlara otomatik olarak yıldız ekle</string>
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>

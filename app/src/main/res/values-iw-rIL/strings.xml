@@ -263,7 +263,7 @@
     <string name="title_setup_theme_grey">אפור</string>
     <string name="title_setup_theme_black">שחור</string>
     <string name="title_setup_theme_white">לבן</string>
-    <string name="title_setup_theme_black_or_white" comment="title_setup_theme_black_or_white&#10;Black or white (theme)&#10;&#10;Note that this is explicitly NOT [black AND white] because the theme can be both, also system selectable.">שחור או לבן</string>
+    <string name="title_setup_theme_black_or_white">שחור או לבן</string>
     <string name="title_setup_theme_black_and_white">שחור ולבן</string>
     <string name="title_setup_theme_reverse">היפוך צבעים</string>
     <string name="title_setup_theme_light">בהיר</string>
@@ -334,6 +334,7 @@
     <string name="title_advanced_suggest_received">להציע כתובות שנמצאו בהודעות שהתקבלו</string>
     <string name="title_advanced_suggest_frequently">סידור הכתובות המוצעות לפי תדירות השימוש</string>
     <string name="title_advanced_alt_re_fwd">קידומת חלופית לתגובה/העברה</string>
+    <string name="title_advanced_send_chips" comment="title_advanced_send_chips&#10;Please see here for what &quot;bubbles&quot; are:&#10;&#10;https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-86457849&#10;&#10;&quot;Balloon&quot; might be an option for translation">הצגת בועיות כתובות</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
     <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
@@ -502,7 +503,7 @@
     <string name="title_advanced_undo">תום זמן לביטול</string>
     <string name="title_advanced_quick_filter">הצגת סמלי מסננים מהירים שאינם בולטים</string>
     <string name="title_advanced_quick_scroll">הצגת סמלי גלילה מהירה מעלה/מטה שאינם בולטים</string>
-    <string name="title_advanced_folder_nav" comment="title_advanced_folder_nav&#10;Option title to change the way of navigating.&#10;&#10;'back' from a list of messages will always return to the folder list of the related account with this option enabled.">תמיד לחזור אחורה לרשימת התיקיות מרשימת ההודעות</string>
+    <string name="title_advanced_folder_nav">תמיד לחזור אחורה לרשימת התיקיות מרשימת ההודעות</string>
     <string name="title_advanced_autoread">לסמן הודעות כנקראו אוטומטית בהעברתן</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
     <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>

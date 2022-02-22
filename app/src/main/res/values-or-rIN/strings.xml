@@ -133,7 +133,7 @@
     <string name="title_setup_theme_grey">ଧୂସର</string>
     <string name="title_setup_theme_black">କଳା</string>
     <string name="title_setup_theme_white">ଧଳା</string>
-    <string name="title_setup_theme_black_or_white" comment="title_setup_theme_black_or_white&#10;Black or white (theme)&#10;&#10;Note that this is explicitly NOT [black AND white] because the theme can be both, also system selectable.">କଳା ବା ଧଳା</string>
+    <string name="title_setup_theme_black_or_white">କଳା ବା ଧଳା</string>
     <string name="title_setup_theme_black_and_white">କଳା ଓ ଧଳା</string>
     <string name="title_setup_theme_reverse">ରଙ୍ଗ ଗୁଡ଼ିକ ଅଦଳବଦଳ କରନ୍ତୁ</string>
     <string name="title_setup_theme_light">ହାଲୁକା</string>
@@ -216,7 +216,7 @@
     <string name="title_advanced_sync_on_launch">ଆରମ୍ଭରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
     <string name="title_advanced_undo">ପୂର୍ବବତ୍ ସମୟ ଶେଷ</string>
-    <string name="title_advanced_folder_nav" comment="title_advanced_folder_nav&#10;Option title to change the way of navigating.&#10;&#10;'back' from a list of messages will always return to the folder list of the related account with this option enabled.">ଏକ ବାର୍ତ୍ତା ତାଲିକାରୁ ସର୍ବଦା ଫୋଲ୍ଡର ତାଲିକାକୁ ଫେରିବା</string>
+    <string name="title_advanced_folder_nav">ଏକ ବାର୍ତ୍ତା ତାଲିକାରୁ ସର୍ବଦା ଫୋଲ୍ଡର ତାଲିକାକୁ ଫେରିବା</string>
     <string name="title_advanced_swipe_reply">ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପାଇଁ ସମ୍ପ୍ରସାରିତ ବାର୍ତ୍ତାଗୁଡ଼ିକ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_default_snooze">ଡିଫଲ୍ଟ ସ୍ନୁଜ୍/ବିଳମ୍ବ ସମୟ</string>
     <string name="title_advanced_notify_preview_all">ସମସ୍ତ ପାଠ୍ୟକୁ ପୂର୍ବାବଲୋକନ କରନ୍ତୁ</string>

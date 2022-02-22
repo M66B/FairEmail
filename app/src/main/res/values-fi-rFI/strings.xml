@@ -243,7 +243,7 @@
     <string name="title_setup_theme_grey">Harmaa</string>
     <string name="title_setup_theme_black">Musta</string>
     <string name="title_setup_theme_white">Valkoinen</string>
-    <string name="title_setup_theme_black_or_white" comment="title_setup_theme_black_or_white&#10;Black or white (theme)&#10;&#10;Note that this is explicitly NOT [black AND white] because the theme can be both, also system selectable.">Musta tai valkoinen</string>
+    <string name="title_setup_theme_black_or_white">Musta tai valkoinen</string>
     <string name="title_setup_theme_black_and_white">Musta ja valkoinen</string>
     <string name="title_setup_theme_reverse">Käänteiset värit</string>
     <string name="title_setup_theme_light">Vaalea</string>
