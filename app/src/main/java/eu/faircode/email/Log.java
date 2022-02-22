@@ -2043,13 +2043,14 @@ public class Log {
                 boolean schedule = prefs.getBoolean("schedule", false);
 
                 boolean vpn = ConnectionHelper.vpnActive(context);
-                boolean netguard = Helper.isInstalled(context, "eu.faircode.netguard");
+                boolean ng = Helper.isInstalled(context, "eu.faircode.netguard");
+                boolean tc = Helper.isInstalled(context, "net.kollnig.missioncontrol");
 
                 size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
                         " interval=" + pollInterval + "\r\n" +
                         "metered=" + metered + (metered ? "" : " !!!") +
-                        " VPN=" + vpn + (vpn ? " !!!" : "") +
-                        " NetGuard=" + netguard + "\r\n" +
+                        " vpn=" + vpn + (vpn ? " !!!" : "") +
+                        " ng=" + ng + " tc=" + tc + "\r\n" +
                         "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
                         " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") + "\r\n" +
                         "accounts=" + accounts.size() +
