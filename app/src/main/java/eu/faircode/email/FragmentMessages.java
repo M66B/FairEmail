@@ -1796,13 +1796,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     reload = true;
                             }
                         }
-
-                        if (EntityFolder.SENT.equals(folder.type)) {
-                            List<EntityMessage> orphans = db.message().getSentOrphans(folder.id);
-                            if (orphans != null)
-                                for (EntityMessage orphan : orphans)
-                                    EntityOperation.queue(context, orphan, EntityOperation.EXISTS);
-                        }
                     }
 
                     db.setTransactionSuccessful();
