@@ -74,6 +74,11 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextView {
+    private SharedPreferences prefs;
+    private boolean dark;
+    private int colorAccent;
+    private ContextThemeWrapper ctx;
+
     public EditTextMultiAutoComplete(@NonNull Context context) {
         super(context);
         init(context);
@@ -92,108 +97,19 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean dark = Helper.isDarkTheme(context);
-        int colorAccent = ColorUtils.setAlphaComponent(
-                Helper.resolveColor(context, R.attr.colorAccent), 5 * 255 / 100);
-        ContextThemeWrapper ctx = new ContextThemeWrapper(context,
-                dark ? R.style.ChipDark : R.style.ChipLight);
-        ContentResolver resolver = context.getContentResolver();
-
-        Runnable update = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Editable edit = getText();
-                    boolean send_chips = prefs.getBoolean("send_chips", false);
-
-                    boolean added = false;
-                    List<ClipImageSpan> spans = new ArrayList<>();
-                    spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
-
-                    if (send_chips) {
-                        boolean quote = false;
-                        int start = 0;
-                        for (int i = 0; i < edit.length(); i++) {
-                            char kar = edit.charAt(i);
-                            if (kar == '"')
-                                quote = !quote;
-                            else if (kar == ',' && !quote) {
-                                boolean found = false;
-                                for (ClipImageSpan span : new ArrayList<>(spans)) {
-                                    int s = edit.getSpanStart(span);
-                                    int e = edit.getSpanEnd(span);
-                                    if (s == start && e == i + 1) {
-                                        found = true;
-                                        spans.remove(span);
-                                        break;
-                                    }
-                                }
-
-                                if (!found && start < i + 1) {
-                                    String email = edit.subSequence(start, i + 1).toString();
-                                    InternetAddress[] parsed;
-                                    try {
-                                        parsed = MessageHelper.parseAddresses(context, email);
-                                        if (parsed != null)
-                                            for (InternetAddress a : parsed)
-                                                a.validate();
-                                    } catch (AddressException ex) {
-                                        parsed = null;
-                                    }
-
-                                    if (parsed != null && parsed.length == 1) {
-                                        Drawable avatar = null;
-                                        Uri lookupUri = ContactInfo.getLookupUri(parsed);
-                                        if (lookupUri != null) {
-                                            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                                    resolver, lookupUri, false);
-                                            avatar = Drawable.createFromStream(is, email);
-                                        }
-
-                                        String e = parsed[0].getAddress();
-                                        String p = parsed[0].getPersonal();
-                                        String text = (TextUtils.isEmpty(p) ? e : p);
-
-                                        // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
-                                        ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
-                                        cd.setChipIcon(avatar);
-                                        // cd.setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
-                                        cd.setText(text);
-                                        cd.setChipBackgroundColor(ColorStateList.valueOf(colorAccent));
-                                        cd.setMaxWidth(getWidth());
-                                        cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
-
-                                        ClipImageSpan is = new ClipImageSpan(cd);
-                                        edit.setSpan(is, start, i + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        added = true;
-                                    }
-                                }
-
-                                if (i + 1 < edit.length() && edit.charAt(i + 1) == ' ')
-                                    start = i + 2;
-                                else
-                                    start = i + 1;
-                            }
-                        }
-                    }
-
-                    for (ClipImageSpan span : spans)
-                        edit.removeSpan(span);
-
-                    if (spans.size() > 0 || added)
-                        invalidate();
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        };
+        prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        dark = Helper.isDarkTheme(context);
+        colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        colorAccent = ColorUtils.setAlphaComponent(colorAccent, 5 * 255 / 100);
+        ctx = new ContextThemeWrapper(context, dark ? R.style.ChipDark : R.style.ChipLight);
 
         addTextChangedListener(new TextWatcher() {
-            Integer backspace = null;
+            private boolean init;
+            private Integer backspace = null;
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                init = (s.length() == 0 && after > 0);
                 backspace = (count - after == 1 ? start : null);
             }
 
@@ -204,6 +120,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
             @Override
             public void afterTextChanged(Editable edit) {
+                if (init)
+                    setSelection(edit.length());
                 if (backspace != null) {
                     ClipImageSpan[] spans = edit.getSpans(backspace, backspace, ClipImageSpan.class);
                     if (spans.length == 1) {
@@ -221,10 +139,16 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         });
     }
 
-    private static class ClipImageSpan extends ImageSpan {
-        public ClipImageSpan(@NonNull Drawable drawable) {
-            super(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
-        }
+    @Override
+    protected void onSelectionChanged(int start, int end) {
+        super.onSelectionChanged(start, end);
+
+        final Editable edit = getText();
+        ClipImageSpan[] spans = edit.getSpans(start, end - 1, ClipImageSpan.class);
+        for (ClipImageSpan span : spans)
+            edit.removeSpan(span);
+
+        post(update);
     }
 
     @Override
@@ -402,5 +326,105 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         }
 
         return super.onTouchEvent(event);
+    }
+
+    Runnable update = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                final Context context = getContext();
+                final Editable edit = getText();
+                final boolean send_chips = prefs.getBoolean("send_chips", false);
+
+                boolean added = false;
+                int selstart = getSelectionStart();
+                int selend = getSelectionEnd();
+                List<ClipImageSpan> spans = new ArrayList<>();
+                spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
+
+                if (send_chips) {
+                    boolean quote = false;
+                    int start = 0;
+                    for (int i = 0; i < edit.length(); i++) {
+                        char kar = edit.charAt(i);
+                        if (kar == '"')
+                            quote = !quote;
+                        else if (kar == ',' && !quote) {
+                            boolean found = false;
+                            for (ClipImageSpan span : new ArrayList<>(spans)) {
+                                int s = edit.getSpanStart(span);
+                                int e = edit.getSpanEnd(span);
+                                if (s == start && e == i + 1) {
+                                    found = true;
+                                    spans.remove(span);
+                                    break;
+                                }
+                            }
+
+                            if (!found && start < i + 1 &&
+                                    !(selstart >= start && selstart < i + 1) &&
+                                    !(selend >= start && selend < i + 1)) {
+                                String email = edit.subSequence(start, i + 1).toString();
+                                InternetAddress[] parsed;
+                                try {
+                                    parsed = MessageHelper.parseAddresses(context, email);
+                                    if (parsed != null)
+                                        for (InternetAddress a : parsed)
+                                            a.validate();
+                                } catch (AddressException ex) {
+                                    parsed = null;
+                                }
+
+                                if (parsed != null && parsed.length == 1) {
+                                    Drawable avatar = null;
+                                    Uri lookupUri = ContactInfo.getLookupUri(parsed);
+                                    if (lookupUri != null) {
+                                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                                context.getContentResolver(), lookupUri, false);
+                                        avatar = Drawable.createFromStream(is, email);
+                                    }
+
+                                    String e = parsed[0].getAddress();
+                                    String p = parsed[0].getPersonal();
+                                    String text = (TextUtils.isEmpty(p) ? e : p);
+
+                                    // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
+                                    ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
+                                    cd.setChipIcon(avatar);
+                                    // cd.setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
+                                    cd.setText(text);
+                                    cd.setChipBackgroundColor(ColorStateList.valueOf(colorAccent));
+                                    cd.setMaxWidth(getWidth());
+                                    cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
+
+                                    ClipImageSpan is = new ClipImageSpan(cd);
+                                    edit.setSpan(is, start, i + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    added = true;
+                                }
+                            }
+
+                            if (i + 1 < edit.length() && edit.charAt(i + 1) == ' ')
+                                start = i + 2;
+                            else
+                                start = i + 1;
+                        }
+                    }
+                }
+
+                for (ClipImageSpan span : spans)
+                    edit.removeSpan(span);
+
+                if (spans.size() > 0 || added)
+                    invalidate();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+    };
+
+    private static class ClipImageSpan extends ImageSpan {
+        public ClipImageSpan(@NonNull Drawable drawable) {
+            super(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
+        }
     }
 }
