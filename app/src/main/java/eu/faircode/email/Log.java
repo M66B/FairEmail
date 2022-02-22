@@ -39,6 +39,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -55,7 +56,11 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
 import android.provider.Settings;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
+import android.text.style.StyleSpan;
 import android.util.Printer;
 import android.view.Display;
 import android.view.InflateException;
@@ -104,10 +109,12 @@ import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
+import java.net.Socket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.security.Provider;
 import java.security.Security;
 import java.security.cert.CertPathValidatorException;
@@ -137,8 +144,11 @@ import javax.mail.Part;
 import javax.mail.StoreClosedException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeUtility;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.TrustManagerFactory;
 
 import io.requery.android.database.CursorWindowAllocationException;
 
@@ -2283,6 +2293,9 @@ public class Log {
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
                 size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
                 size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
+
+                size += write(os, "\r\n");
+                size += write(os, getCiphers().toString());
             }
 
             db.attachment().setDownloaded(attachment.id, size);
@@ -2680,6 +2693,61 @@ public class Log {
         Helper.copy(source, target);
 
         db.attachment().setDownloaded(attachment.id, target.length());
+    }
+
+    static SpannableStringBuilder getCiphers() {
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+
+        for (String protocol : new String[]{"SSL", "TLS"}) {
+            try {
+                int begin = ssb.length();
+                ssb.append(protocol).append("\n\n");
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), begin, ssb.length(), 0);
+
+                TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                tmf.init((KeyStore) null);
+
+                SSLContext sslContext = SSLContext.getInstance(protocol);
+                sslContext.init(null, tmf.getTrustManagers(), null);
+                SSLSocket socket = (SSLSocket) sslContext.getSocketFactory().createSocket();
+
+                List<String> protocols = new ArrayList<>();
+                protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
+
+                for (String p : socket.getSupportedProtocols()) {
+                    boolean enabled = protocols.contains(p);
+                    int start = ssb.length();
+                    ssb.append(p);
+                    if (!enabled)
+                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                    ssb.append("\r\n");
+                }
+                ssb.append("\r\n");
+
+                List<String> ciphers = new ArrayList<>();
+                ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
+
+                for (String c : socket.getSupportedCipherSuites()) {
+                    boolean enabled = ciphers.contains(c);
+                    if (!enabled)
+                        ssb.append('(');
+                    int start = ssb.length();
+                    ssb.append(c);
+                    if (!enabled) {
+                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                        ssb.append(')');
+                    }
+                    ssb.append("\r\n");
+                }
+                ssb.append("\r\n");
+            } catch (Throwable ex) {
+                ssb.append(ex.toString());
+            }
+        }
+
+        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
+
+        return ssb;
     }
 
     private static int write(OutputStream os, String text) throws IOException {

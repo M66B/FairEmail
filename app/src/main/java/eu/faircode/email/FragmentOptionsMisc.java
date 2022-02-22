@@ -23,7 +23,6 @@ import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -42,7 +41,6 @@ import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
-import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -70,7 +68,6 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import java.io.File;
@@ -79,7 +76,6 @@ import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -87,9 +83,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SortedMap;
-
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
@@ -1165,45 +1158,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCiphers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                try {
-                    SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket();
-
-                    List<String> protocols = new ArrayList<>();
-                    protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
-
-                    List<String> ciphers = new ArrayList<>();
-                    ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
-
-                    for (String p : socket.getSupportedProtocols()) {
-                        boolean enabled = protocols.contains(p);
-                        int start = ssb.length();
-                        ssb.append(p);
-                        if (!enabled)
-                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
-                        ssb.append("\r\n");
-                    }
-                    ssb.append("\r\n");
-
-                    for (String c : socket.getSupportedCipherSuites()) {
-                        boolean enabled = ciphers.contains(c);
-                        int start = ssb.length();
-                        ssb.append(c);
-                        if (!enabled)
-                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
-                        ssb.append("\r\n");
-                    }
-                    ssb.append("\r\n");
-                } catch (IOException ex) {
-                    ssb.append(ex.toString());
-                }
-
-                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
-
                 new AlertDialog.Builder(getContext())
                         .setIcon(R.drawable.twotone_info_24)
                         .setTitle(R.string.title_advanced_ciphers)
-                        .setMessage(ssb)
+                        .setMessage(Log.getCiphers())
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
