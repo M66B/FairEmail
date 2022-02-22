@@ -37,6 +37,7 @@
 -dontnote androidx.**
 -dontnote android.support.**
 -dontnote kotlin.**
+-dontwarn com.google.errorprone.annotations.Immutable
 
 #IAB
 -keep class com.android.billingclient.** {*;}
@@ -132,8 +133,12 @@
 -keep class org.commonmark.** {*;}
 -keepnames class io.noties.markwon.** {*;}
 -keepnames class org.commonmark.** {*;}
+-dontwarn org.commonmark.ext.gfm.strikethrough.Strikethrough
 
 #Amazon IAP
 -dontwarn com.amazon.**
 -keep class com.amazon.** {*;}
 -keepattributes *Annotation*
+
+#Misc
+-dontwarn edu.umd.cs.findbugs.annotations.SuppressFBWarnings
