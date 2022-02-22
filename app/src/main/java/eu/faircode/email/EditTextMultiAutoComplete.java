@@ -190,9 +190,11 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         };
 
         addTextChangedListener(new TextWatcher() {
+            Integer backspace = null;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
+                backspace = (count - after == 1 ? start : null);
             }
 
             @Override
@@ -202,6 +204,15 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
             @Override
             public void afterTextChanged(Editable edit) {
+                if (backspace != null) {
+                    ClipImageSpan[] spans = edit.getSpans(backspace, backspace, ClipImageSpan.class);
+                    if (spans.length == 1) {
+                        int start = edit.getSpanStart(spans[0]);
+                        int end = edit.getSpanEnd(spans[0]);
+                        edit.delete(start, end);
+                    }
+                }
+
                 if (getWidth() == 0)
                     post(update);
                 else
