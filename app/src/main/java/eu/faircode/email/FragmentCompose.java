@@ -1806,7 +1806,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuSendChips() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean send_chips = prefs.getBoolean("send_chips", true);
+        boolean send_chips = prefs.getBoolean("send_chips", false);
         prefs.edit().putBoolean("send_chips", !send_chips).apply();
 
         etTo.setText(etTo.getText());
