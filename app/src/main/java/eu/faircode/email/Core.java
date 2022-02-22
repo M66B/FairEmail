@@ -3194,7 +3194,8 @@ class Core {
                 for (Long tbd : tbds) {
                     EntityMessage message = db.message().getMessage(tbd);
                     if (message != null && trash != null)
-                        if (EntityFolder.TRASH.equals(folder.type))
+                        if (EntityFolder.TRASH.equals(folder.type) ||
+                                EntityFolder.JUNK.equals(folder.type))
                             EntityOperation.queue(context, message, EntityOperation.DELETE);
                         else
                             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);

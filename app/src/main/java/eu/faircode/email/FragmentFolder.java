@@ -346,7 +346,9 @@ public class FragmentFolder extends FragmentBase {
                 tvAutoClassifyPro.setVisibility(canAutoClassify && !pro ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
-                cbAutoDelete.setText(folder != null && EntityFolder.TRASH.equals(folder.type)
+                cbAutoDelete.setText(folder != null &&
+                        (EntityFolder.TRASH.equals(folder.type) ||
+                                EntityFolder.JUNK.equals(folder.type))
                         ? R.string.title_auto_delete : R.string.title_auto_trash);
                 grpAutoDelete.setVisibility(canAutoDelete ? View.VISIBLE : View.GONE);
                 tvAutoDeleteArchiveHint.setVisibility(canAutoDelete && isArchive ? View.VISIBLE : View.GONE);
