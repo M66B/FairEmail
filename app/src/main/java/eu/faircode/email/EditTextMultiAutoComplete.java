@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -46,6 +48,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -242,21 +245,20 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         try {
-            int action = event.getActionMasked();
-            if (action == MotionEvent.ACTION_DOWN) {
+            if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
                 Editable edit = getText();
 
                 int off = Helper.getOffset(this, edit, event);
                 ClipImageSpan[] spans = edit.getSpans(off, off, ClipImageSpan.class);
                 if (spans.length != 1)
-                    return false;
+                    return super.onTouchEvent(event);
 
                 final Context context = getContext();
 
                 int start = edit.getSpanStart(spans[0]);
                 int end = edit.getSpanEnd(spans[0]);
                 if (start >= end)
-                    return false;
+                    return super.onTouchEvent(event);
 
                 String email = edit.subSequence(start, end).toString().trim();
                 if (email.endsWith(","))
@@ -264,7 +266,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                 Address[] parsed = MessageHelper.parseAddresses(context, email);
                 if (parsed == null && parsed.length != 1)
-                    return false;
+                    return super.onTouchEvent(event);
 
                 String e = ((InternetAddress) parsed[0]).getAddress();
                 String p = ((InternetAddress) parsed[0]).getPersonal();
@@ -276,7 +278,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                 PopupMenu popupMenu = new PopupMenu(context, this);
                 popupMenu.getMenu().add(Menu.NONE, 0, 1, ss).setEnabled(false);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_contact, 2, R.string.title_edit_contact);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 3, R.string.title_delete);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, 3, R.string.title_clipboard_copy);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -284,44 +287,71 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                         try {
                             int itemId = item.getItemId();
                             if (itemId == R.string.title_edit_contact) {
-                                View dview = LayoutInflater.from(context).inflate(R.layout.dialog_edit_email, null);
-                                EditText etEmail = dview.findViewById(R.id.etEmail);
-                                EditText etName = dview.findViewById(R.id.etName);
-
-                                etEmail.setText(e);
-                                etName.setText(p);
-
-                                new AlertDialog.Builder(context)
-                                        .setView(dview)
-                                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                try {
-                                                    String email = etEmail.getText().toString();
-                                                    String name = etName.getText().toString();
-                                                    InternetAddress a = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
-                                                    String formatted = MessageHelper.formatAddressesCompose(new Address[]{a});
-                                                    edit.delete(start, end);
-                                                    edit.insert(start, formatted);
-                                                    setSelection(start + formatted.length());
-                                                } catch (Throwable ex) {
-                                                    Log.e(ex);
-                                                }
-                                            }
-                                        })
-                                        .setNegativeButton(android.R.string.cancel, null)
-                                        .show();
-
-                                return true;
+                                return onEdit();
+                            } else if (itemId == R.string.title_clipboard_copy) {
+                                return onCopy();
                             } else if (itemId == R.string.title_delete) {
-                                edit.delete(start, end);
-                                setSelection(start);
-                                return true;
+                                return onDelete();
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
                         return false;
+                    }
+
+                    private boolean onEdit() {
+                        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_edit_email, null);
+                        EditText etEmail = dview.findViewById(R.id.etEmail);
+                        EditText etName = dview.findViewById(R.id.etName);
+
+                        etEmail.setText(e);
+                        etName.setText(p);
+
+                        new AlertDialog.Builder(context)
+                                .setView(dview)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        try {
+                                            String email = etEmail.getText().toString();
+                                            String name = etName.getText().toString();
+
+                                            InternetAddress a = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+                                            String formatted = MessageHelper.formatAddressesCompose(new Address[]{a});
+
+                                            edit.delete(start, end);
+                                            edit.insert(start, formatted);
+                                            setSelection(start + formatted.length());
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+
+                        return true;
+                    }
+
+                    private boolean onCopy() {
+                        ClipboardManager clipboard =
+                                (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                        if (clipboard == null)
+                            return false;
+
+                        String formatted = MessageHelper.formatAddressesCompose(parsed);
+                        ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), formatted);
+                        clipboard.setPrimaryClip(clip);
+                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                        return true;
+                    }
+
+                    private boolean onDelete() {
+                        edit.delete(start, end);
+                        setSelection(start);
+
+                        return true;
                     }
                 });
 
@@ -329,11 +359,10 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                 return true;
             }
-
-            return super.onTouchEvent(event);
         } catch (Throwable ex) {
             Log.w(ex);
-            return false;
         }
+
+        return super.onTouchEvent(event);
     }
 }
