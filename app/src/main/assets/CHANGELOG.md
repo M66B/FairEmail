@@ -4,6 +4,12 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1843 - 2022-02-22
+
+* Added address bubbles (enable via overflow menu / message editor)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1842 - 2022-02-20
 
 * Added (black or) white theme
