@@ -42,12 +42,15 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -315,7 +318,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                         etEmail.setText(e);
                         etName.setText(p);
 
-                        new AlertDialog.Builder(context)
+                        AlertDialog dialog = new AlertDialog.Builder(context)
                                 .setView(dview)
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
@@ -336,7 +339,23 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     }
                                 })
                                 .setNegativeButton(android.R.string.cancel, null)
-                                .show();
+                                .create();
+
+                        TextView.OnEditorActionListener done = new TextView.OnEditorActionListener() {
+                            @Override
+                            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                    dialog.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+                                    return true;
+                                } else
+                                    return false;
+                            }
+                        };
+
+                        etEmail.setOnEditorActionListener(done);
+                        etName.setOnEditorActionListener(done);
+
+                        dialog.show();
 
                         return true;
                     }
