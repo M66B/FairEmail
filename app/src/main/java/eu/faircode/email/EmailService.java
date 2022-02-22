@@ -969,11 +969,17 @@ public class EmailService implements AutoCloseable {
             tmf.init((KeyStore) null);
 
             TrustManager[] tms = tmf.getTrustManagers();
+            Log.i("Trust managers=" + (tms == null ? null : tms.length));
+
             if (tms == null || tms.length == 0 || !(tms[0] instanceof X509TrustManager)) {
                 Log.e("Missing root trust manager");
                 sslContext.init(null, tms, null);
             } else {
                 final X509TrustManager rtm = (X509TrustManager) tms[0];
+
+                if (tms.length > 1)
+                    for (TrustManager tm : tms)
+                        Log.e("Trust manager " + tm.getClass());
 
                 X509TrustManager tm = new X509TrustManager() {
                     // openssl s_client -connect <host>
