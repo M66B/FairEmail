@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -40,6 +41,7 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView;
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.chip.ChipDrawable;
@@ -73,6 +75,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dark = Helper.isDarkTheme(context);
+        int colorAccent = ColorUtils.setAlphaComponent(
+                Helper.resolveColor(context, R.attr.colorAccent), 5 * 255 / 100);
         ContextThemeWrapper ctx = new ContextThemeWrapper(context,
                 dark ? R.style.ChipDark : R.style.ChipLight);
         ContentResolver resolver = context.getContentResolver();
@@ -137,6 +141,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                         cd.setChipIcon(avatar);
                                         // cd.setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
                                         cd.setText(text);
+                                        cd.setChipBackgroundColor(ColorStateList.valueOf(colorAccent));
                                         cd.setMaxWidth(getWidth());
                                         cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
 
