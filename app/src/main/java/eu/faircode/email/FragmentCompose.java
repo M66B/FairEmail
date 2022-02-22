@@ -1609,10 +1609,12 @@ public class FragmentCompose extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
+        boolean send_chips = prefs.getBoolean("send_chips", false);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
         menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
+        menu.findItem(R.id.menu_send_chips).setChecked(send_chips);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
         menu.findItem(R.id.menu_media).setChecked(media);
@@ -1666,6 +1668,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_save_drafts) {
             onMenuSaveDrafts();
+            return true;
+        } else if (itemId == R.id.menu_send_chips) {
+            onMenuSendChips();
             return true;
         } else if (itemId == R.id.menu_send_dialog) {
             onMenuSendDialog();
@@ -1797,6 +1802,16 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         prefs.edit().putBoolean("save_drafts", !save_drafts).apply();
+    }
+
+    private void onMenuSendChips() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean send_chips = prefs.getBoolean("send_chips", true);
+        prefs.edit().putBoolean("send_chips", !send_chips).apply();
+
+        etTo.setText(etTo.getText());
+        etCc.setText(etCc.getText());
+        etBcc.setText(etBcc.getText());
     }
 
     private void onMenuSendDialog() {

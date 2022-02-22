@@ -72,24 +72,23 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         Helper.setKeyboardIncognitoMode(this, context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean send_chips = prefs.getBoolean("send_chips", false);
+        boolean dark = Helper.isDarkTheme(context);
+        ContextThemeWrapper ctx = new ContextThemeWrapper(context,
+                dark ? R.style.ChipDark : R.style.ChipLight);
+        ContentResolver resolver = context.getContentResolver();
 
-        if (send_chips) {
-            boolean dark = Helper.isDarkTheme(context);
-            ContextThemeWrapper ctx = new ContextThemeWrapper(context,
-                    dark ? R.style.ChipDark : R.style.ChipLight);
-            ContentResolver resolver = context.getContentResolver();
+        Runnable update = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Editable edit = getText();
+                    boolean send_chips = prefs.getBoolean("send_chips", false);
 
-            Runnable update = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Editable edit = getText();
+                    boolean added = false;
+                    List<ClipImageSpan> spans = new ArrayList<>();
+                    spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
 
-                        boolean added = false;
-                        List<ClipImageSpan> spans = new ArrayList<>();
-                        spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
-
+                    if (send_chips) {
                         boolean quote = false;
                         int start = 0;
                         for (int i = 0; i < edit.length(); i++) {
@@ -153,38 +152,38 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     start = i + 1;
                             }
                         }
-
-                        for (ClipImageSpan span : spans)
-                            edit.removeSpan(span);
-
-                        if (spans.size() > 0 || added)
-                            invalidate();
-                    } catch (Throwable ex) {
-                        Log.e(ex);
                     }
-                }
-            };
 
-            addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    // Do nothing
-                }
+                    for (ClipImageSpan span : spans)
+                        edit.removeSpan(span);
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    // Do nothing
+                    if (spans.size() > 0 || added)
+                        invalidate();
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
+            }
+        };
 
-                @Override
-                public void afterTextChanged(Editable edit) {
-                    if (getWidth() == 0)
-                        post(update);
-                    else
-                        update.run();
-                }
-            });
-        }
+        addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable edit) {
+                if (getWidth() == 0)
+                    post(update);
+                else
+                    update.run();
+            }
+        });
     }
 
     private static class ClipImageSpan extends ImageSpan {
