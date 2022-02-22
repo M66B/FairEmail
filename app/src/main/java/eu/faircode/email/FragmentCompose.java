@@ -232,10 +232,13 @@ public class FragmentCompose extends FragmentBase {
     private Spinner spIdentity;
     private EditText etExtra;
     private TextView tvDomain;
+    private ImageView ivToLegend;
     private MultiAutoCompleteTextView etTo;
     private ImageButton ibToAdd;
+    private ImageView ivCcLegend;
     private MultiAutoCompleteTextView etCc;
     private ImageButton ibCcAdd;
+    private ImageView ivBccLegend;
     private MultiAutoCompleteTextView etBcc;
     private ImageButton ibBccAdd;
     private EditText etSubject;
@@ -351,10 +354,13 @@ public class FragmentCompose extends FragmentBase {
         spIdentity = view.findViewById(R.id.spIdentity);
         etExtra = view.findViewById(R.id.etExtra);
         tvDomain = view.findViewById(R.id.tvDomain);
+        ivToLegend = view.findViewById(R.id.ivToLegend);
         etTo = view.findViewById(R.id.etTo);
         ibToAdd = view.findViewById(R.id.ibToAdd);
+        ivCcLegend = view.findViewById(R.id.ivCcLegend);
         etCc = view.findViewById(R.id.etCc);
         ibCcAdd = view.findViewById(R.id.ibCcAdd);
+        ivBccLegend = view.findViewById(R.id.ivBccLegend);
         etBcc = view.findViewById(R.id.etBcc);
         ibBccAdd = view.findViewById(R.id.ibBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
@@ -496,6 +502,23 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             }
         });
+
+        View.OnLongClickListener onSendChips = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                try {
+                    onMenuSendChips();
+                    invalidateOptionsMenu();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+                return true;
+            }
+        };
+
+        ivToLegend.setOnLongClickListener(onSendChips);
+        ivCcLegend.setOnLongClickListener(onSendChips);
+        ivBccLegend.setOnLongClickListener(onSendChips);
 
         View.OnClickListener onPick = new View.OnClickListener() {
             @Override
