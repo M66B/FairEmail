@@ -275,11 +275,19 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                 ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
 
-                PopupMenu popupMenu = new PopupMenu(context, this);
-                popupMenu.getMenu().add(Menu.NONE, 0, 1, ss).setEnabled(false);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_contact, 2, R.string.title_edit_contact);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, 3, R.string.title_clipboard_copy);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete);
+                TwoStateOwner owner = new TwoStateOwner("Chip");
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, this);
+                popupMenu.getMenu().add(Menu.NONE, 0, 1, ss)
+                        .setEnabled(false)
+                        .setIcon(R.drawable.twotone_alternate_email_24);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_contact, 2, R.string.title_edit_contact)
+                        .setIcon(R.drawable.twotone_edit_24);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, 3, R.string.title_clipboard_copy)
+                        .setIcon(R.drawable.twotone_file_copy_24);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete)
+                        .setIcon(R.drawable.twotone_delete_24);
+
+                popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
