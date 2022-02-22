@@ -1167,10 +1167,14 @@ public class EmailService implements AutoCloseable {
                     }
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 } else {
+                    // Enable SSLv3 if available
+                    sslSocket.setEnabledProtocols(sslSocket.getSupportedProtocols());
+
                     List<String> ciphers = new ArrayList<>();
                     ciphers.addAll(Arrays.asList(sslSocket.getEnabledCipherSuites()));
                     for (String cipher : sslSocket.getSupportedCipherSuites())
-                        if (cipher.contains("3DES")) {
+                        if (!ciphers.contains(cipher) &&
+                                (cipher.contains("3DES") || cipher.contains("RC4"))) {
                             // Some servers support 3DES and RC4 only
                             Log.i("SSL enabling cipher=" + cipher);
                             ciphers.add(cipher);
