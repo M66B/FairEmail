@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,14 +54,21 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        Bundle args = getArguments();
+        long account = args.getLong("account");
+        long[] ids = args.getLongArray("ids");
+
         if (savedInstanceState != null)
             enabled = savedInstanceState.getBoolean("fair:enabled");
 
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_forward_raw, null);
+        ProgressBar pbDownloaded = dview.findViewById(R.id.pbDownloaded);
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
         TextView tvOption = dview.findViewById(R.id.tvOption);
         TextView tvNoInternet = dview.findViewById(R.id.tvNoInternet);
 
+        pbDownloaded.setProgress(0);
+        pbDownloaded.setMax(ids.length);
         tvRemaining.setText(getString(R.string.title_eml_downloaded, "-"));
 
         tvOption.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +160,8 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                         if (remaining == null)
                             return;
 
+                        pbDownloaded.setProgress(ids.length - remaining);
+
                         String of = getString(R.string.title_of,
                                 NF.format(ids.length - remaining),
                                 NF.format(ids.length));
@@ -179,8 +189,6 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                 .setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        long account = getArguments().getLong("account");
-                        long[] ids = getArguments().getLongArray("ids");
                         send(account, ids);
                     }
                 })
