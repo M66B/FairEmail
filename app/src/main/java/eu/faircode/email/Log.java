@@ -2699,57 +2699,67 @@ public class Log {
     static SpannableStringBuilder getCiphers() {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
-        try {
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init((KeyStore) null);
+        for (String protocol : new String[]{"SSL", "TLS"})
+            try {
+                int begin = ssb.length();
+                ssb.append("Protocol: ").append(protocol);
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), begin, ssb.length(), 0);
+                ssb.append("\r\n\r\n");
 
-            ssb.append("Provider: ").append(tmf.getProvider().getName()).append("\r\n");
-            ssb.append("Algorithm: ").append(tmf.getAlgorithm()).append("\r\n");
+                TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                tmf.init((KeyStore) null);
 
-            TrustManager[] tms = tmf.getTrustManagers();
-            if (tms != null)
-                for (TrustManager tm : tms)
-                    ssb.append("Manager: ").append(tm.getClass().getName()).append("\r\n");
+                ssb.append("Provider: ").append(tmf.getProvider().getName()).append("\r\n");
+                ssb.append("Algorithm: ").append(tmf.getAlgorithm()).append("\r\n");
 
-            SSLContext sslContext = SSLContext.getInstance("TLS");
+                TrustManager[] tms = tmf.getTrustManagers();
+                if (tms != null)
+                    for (TrustManager tm : tms)
+                        ssb.append("Manager: ").append(tm.getClass().getName()).append("\r\n");
 
-            ssb.append("Context: ").append(sslContext.getProtocol()).append("\r\n\r\n");
+                SSLContext sslContext = SSLContext.getInstance(protocol);
 
-            sslContext.init(null, tmf.getTrustManagers(), null);
-            SSLSocket socket = (SSLSocket) sslContext.getSocketFactory().createSocket();
+                ssb.append("Context: ").append(sslContext.getProtocol()).append("\r\n\r\n");
 
-            List<String> protocols = new ArrayList<>();
-            protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
+                sslContext.init(null, tmf.getTrustManagers(), null);
+                SSLSocket socket = (SSLSocket) sslContext.getSocketFactory().createSocket();
 
-            for (String p : socket.getSupportedProtocols()) {
-                boolean enabled = protocols.contains(p);
-                int start = ssb.length();
-                ssb.append(p);
-                if (!enabled)
-                    ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
-                ssb.append("\r\n");
-            }
-            ssb.append("\r\n");
+                List<String> protocols = new ArrayList<>();
+                protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
 
-            List<String> ciphers = new ArrayList<>();
-            ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
-
-            for (String c : socket.getSupportedCipherSuites()) {
-                boolean enabled = ciphers.contains(c);
-                if (!enabled)
-                    ssb.append('(');
-                int start = ssb.length();
-                ssb.append(c);
-                if (!enabled) {
-                    ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
-                    ssb.append(')');
+                for (String p : socket.getSupportedProtocols()) {
+                    boolean enabled = protocols.contains(p);
+                    if (!enabled)
+                        ssb.append('(');
+                    int start = ssb.length();
+                    ssb.append(p);
+                    if (!enabled) {
+                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                        ssb.append(')');
+                    }
+                    ssb.append("\r\n");
                 }
                 ssb.append("\r\n");
+
+                List<String> ciphers = new ArrayList<>();
+                ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
+
+                for (String c : socket.getSupportedCipherSuites()) {
+                    boolean enabled = ciphers.contains(c);
+                    if (!enabled)
+                        ssb.append('(');
+                    int start = ssb.length();
+                    ssb.append(c);
+                    if (!enabled) {
+                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                        ssb.append(')');
+                    }
+                    ssb.append("\r\n");
+                }
+                ssb.append("\r\n");
+            } catch (Throwable ex) {
+                ssb.append(ex.toString());
             }
-            ssb.append("\r\n");
-        } catch (Throwable ex) {
-            ssb.append(ex.toString());
-        }
 
         ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
 
