@@ -21,12 +21,12 @@ package eu.faircode.email;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -104,12 +104,10 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         ctx = new ContextThemeWrapper(context, dark ? R.style.ChipDark : R.style.ChipLight);
 
         addTextChangedListener(new TextWatcher() {
-            private boolean init;
             private Integer backspace = null;
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                init = (s.length() == 0 && after > 0);
                 backspace = (count - after == 1 ? start : null);
             }
 
@@ -120,8 +118,6 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
             @Override
             public void afterTextChanged(Editable edit) {
-                if (init)
-                    setSelection(edit.length());
                 if (backspace != null) {
                     ClipImageSpan[] spans = edit.getSpans(backspace, backspace, ClipImageSpan.class);
                     if (spans.length == 1) {
@@ -140,14 +136,14 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     }
 
     @Override
-    protected void onSelectionChanged(int start, int end) {
-        super.onSelectionChanged(start, end);
+    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect);
+        post(update);
+    }
 
-        final Editable edit = getText();
-        ClipImageSpan[] spans = edit.getSpans(start, end - 1, ClipImageSpan.class);
-        for (ClipImageSpan span : spans)
-            edit.removeSpan(span);
-
+    @Override
+    protected void onSelectionChanged(int selStart, int selEnd) {
+        super.onSelectionChanged(selStart, selEnd);
         post(update);
     }
 
@@ -336,34 +332,44 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                 final Editable edit = getText();
                 final boolean send_chips = prefs.getBoolean("send_chips", false);
 
+                final boolean focus = hasFocus();
+                final int selStart = getSelectionStart();
+                final int selEnd = getSelectionEnd();
+
                 boolean added = false;
-                int selstart = getSelectionStart();
-                int selend = getSelectionEnd();
-                List<ClipImageSpan> spans = new ArrayList<>();
-                spans.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
+                List<ClipImageSpan> tbd = new ArrayList<>();
+                tbd.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
 
                 if (send_chips) {
-                    boolean quote = false;
                     int start = 0;
+                    boolean space = true;
+                    boolean quote = false;
                     for (int i = 0; i < edit.length(); i++) {
                         char kar = edit.charAt(i);
+
+                        if (space && kar == ' ') {
+                            start++;
+                            continue;
+                        }
+                        space = false;
+
                         if (kar == '"')
                             quote = !quote;
                         else if (kar == ',' && !quote) {
                             boolean found = false;
-                            for (ClipImageSpan span : new ArrayList<>(spans)) {
+                            for (ClipImageSpan span : new ArrayList<>(tbd)) {
                                 int s = edit.getSpanStart(span);
                                 int e = edit.getSpanEnd(span);
                                 if (s == start && e == i + 1) {
                                     found = true;
-                                    spans.remove(span);
+                                    if (!(focus && overlap(start, i, selStart, selEnd)))
+                                        tbd.remove(span);
                                     break;
                                 }
                             }
 
                             if (!found && start < i + 1 &&
-                                    !(selstart >= start && selstart < i + 1) &&
-                                    !(selend >= start && selend < i + 1)) {
+                                    !(focus && overlap(start, i, selStart, selEnd))) {
                                 String email = edit.subSequence(start, i + 1).toString();
                                 InternetAddress[] parsed;
                                 try {
@@ -403,24 +409,26 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                 }
                             }
 
-                            if (i + 1 < edit.length() && edit.charAt(i + 1) == ' ')
-                                start = i + 2;
-                            else
-                                start = i + 1;
+                            start = i + 1;
+                            space = true;
                         }
                     }
                 }
 
-                for (ClipImageSpan span : spans)
+                for (ClipImageSpan span : tbd)
                     edit.removeSpan(span);
 
-                if (spans.size() > 0 || added)
+                if (tbd.size() > 0 || added)
                     invalidate();
             } catch (Throwable ex) {
                 Log.e(ex);
             }
         }
     };
+
+    private static boolean overlap(int start, int end, int selStart, int selEnd) {
+        return Math.max(start, selStart) <= Math.min(end, selEnd);
+    }
 
     private static class ClipImageSpan extends ImageSpan {
         public ClipImageSpan(@NonNull Drawable drawable) {
