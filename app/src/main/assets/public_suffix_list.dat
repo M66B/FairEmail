@@ -9,7 +9,7 @@
 
 // ===BEGIN ICANN DOMAINS===
 
-// ac : https://en.wikipedia.org/wiki/.ac
+// ac : http://nic.ac/rules.htm
 ac
 com.ac
 edu.ac
@@ -1366,7 +1366,7 @@ info
 int
 eu.int
 
-// io : http://www.nic.io/rules.html
+// io : http://www.nic.io/rules.htm
 // list of other 2nd level tlds ?
 io
 com.io
@@ -6036,7 +6036,7 @@ gov.sg
 edu.sg
 per.sg
 
-// sh : http://www.nic.sh/registrar.html
+// sh : http://nic.sh/rules.htm
 sh
 com.sh
 net.sh
@@ -12454,6 +12454,10 @@ js.org
 // Submitted by Wouter Bakker <hostmaster@kaashosting.nl>
 kaas.gg
 khplay.nl
+
+// Kapsi : https://kapsi.fi
+// Submitted by Tomi Juntunen <erani@kapsi.fi>
+kapsi.fi
 
 // Keyweb AG : https://www.keyweb.de
 // Submitted by Martin Dannehl <postmaster@keymachine.de>
