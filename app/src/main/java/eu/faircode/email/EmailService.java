@@ -948,6 +948,7 @@ public class EmailService implements AutoCloseable {
 
     private static class SSLSocketFactoryService extends SSLSocketFactory {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+        // nmap --script ssl-enum-ciphers -Pn -p port host
         private String server;
         private boolean secure;
         private boolean ssl_harden;
@@ -963,7 +964,7 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
-            SSLContext sslContext = SSLContext.getInstance("TLS");
+            SSLContext sslContext = SSLContext.getInstance(insecure ? "SSL" : "TLS");
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             tmf.init((KeyStore) null);
