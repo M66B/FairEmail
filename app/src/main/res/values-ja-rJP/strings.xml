@@ -1703,7 +1703,7 @@
         <item>次の会話に移動</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>極小</item>
         <item>小</item>
         <item>中</item>
         <item>大</item>

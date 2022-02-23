@@ -1584,6 +1584,7 @@
         Para tornar o FairEmail sustentável a longo prazo, algumas conveniências e recursos avançados não são gratuitos.
         O FairEmail exibe uma pequena mensagem para lembrá-lo disso, que será removida se você comprar os recursos pro.
     </string>
+    <string name="title_pro_whichever">Independentemente dos recursos escolhidos como recursos profissionais, sempre há alguém que reclama que um recurso deve ser gratuito. Por favor, não seja essa pessoa.</string>
     <string name="title_pro_hide">Ocultar mensagens pequenas por %1$d semanas</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>
     <string name="title_pro_price">Por que os recursos Pro são tão caros?</string>
