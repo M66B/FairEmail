@@ -1812,6 +1812,8 @@ public class FragmentCompose extends FragmentBase {
         etTo.setText(etTo.getText());
         etCc.setText(etCc.getText());
         etBcc.setText(etBcc.getText());
+
+        etSubject.requestFocus();
     }
 
     private void onMenuSendDialog() {
