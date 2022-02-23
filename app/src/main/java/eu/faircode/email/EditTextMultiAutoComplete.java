@@ -324,12 +324,13 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         return super.onTouchEvent(event);
     }
 
-    Runnable update = new Runnable() {
+    private final Runnable update = new Runnable() {
         @Override
         public void run() {
             try {
                 final Context context = getContext();
                 final Editable edit = getText();
+                final int len = edit.length();
                 final boolean send_chips = prefs.getBoolean("send_chips", !BuildConfig.PLAY_STORE_RELEASE);
 
                 final boolean focus = hasFocus();
@@ -338,13 +339,13 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                 boolean added = false;
                 List<ClipImageSpan> tbd = new ArrayList<>();
-                tbd.addAll(Arrays.asList(edit.getSpans(0, edit.length(), ClipImageSpan.class)));
+                tbd.addAll(Arrays.asList(edit.getSpans(0, len, ClipImageSpan.class)));
 
                 if (send_chips) {
                     int start = 0;
                     boolean space = true;
                     boolean quote = false;
-                    for (int i = 0; i < edit.length(); i++) {
+                    for (int i = 0; i < len; i++) {
                         char kar = edit.charAt(i);
 
                         if (space && kar == ' ') {
@@ -355,7 +356,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                         if (kar == '"')
                             quote = !quote;
-                        else if (kar == ',' && !quote) {
+                        else if (!quote && (kar == ',' || (!focus && i + 1 == len))) {
                             boolean found = false;
                             for (ClipImageSpan span : new ArrayList<>(tbd)) {
                                 int s = edit.getSpanStart(span);
@@ -382,6 +383,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                 }
 
                                 if (parsed != null && parsed.length == 1) {
+                                    if (kar != ',')
+                                        edit.insert(++i, ",");
+
                                     Drawable avatar = null;
                                     Uri lookupUri = ContactInfo.getLookupUri(parsed);
                                     if (lookupUri != null) {
@@ -405,6 +409,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                                     ClipImageSpan is = new ClipImageSpan(cd);
                                     edit.setSpan(is, start, i + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                                    if (i + 1 == len || edit.charAt(i + 1) != ' ')
+                                        edit.insert(++i, " ");
                                     added = true;
                                 }
                             }
