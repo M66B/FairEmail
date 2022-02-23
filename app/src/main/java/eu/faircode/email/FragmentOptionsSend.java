@@ -571,7 +571,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
         rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
 
-        swSendChips.setChecked(prefs.getBoolean("send_chips", false));
+        swSendChips.setChecked(prefs.getBoolean("send_chips", !BuildConfig.PLAY_STORE_RELEASE));
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
