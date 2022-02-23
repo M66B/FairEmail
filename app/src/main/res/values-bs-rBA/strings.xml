@@ -1724,6 +1724,13 @@
         <item>Idi na prethodnu konverzaciju</item>
         <item>Idi na sljedeću konverzaciju</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Mali</item>
+        <item>Srednji</item>
+        <item>Veliki</item>
+        <item>Vrlo veliko</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

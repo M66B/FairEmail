@@ -263,6 +263,7 @@
     <string name="title_setup_theme_grey">Szary</string>
     <string name="title_setup_theme_black">Czarny</string>
     <string name="title_setup_theme_white">Biały</string>
+    <string name="title_setup_theme_black_or_white">Czarny lub biały</string>
     <string name="title_setup_theme_black_and_white">Czarno-biały</string>
     <string name="title_setup_theme_reverse">Odwróć kolory</string>
     <string name="title_setup_theme_light">Jasny</string>
@@ -332,6 +333,7 @@
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
     <string name="title_advanced_alt_re_fwd">Alternatywny prefiks odpowiedzi/przekazywania</string>
+    <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
     <string name="title_advanced_attach_new">Dodaj udostępnione pliki do nowego szkicu</string>
@@ -1727,6 +1729,13 @@
         <item>Nic nie rób</item>
         <item>Idź do poprzedniej wiadomości</item>
         <item>Idź do następnej wiadomości</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Bardzo mały</item>
+        <item>Małe</item>
+        <item>Średnie</item>
+        <item>Duże</item>
+        <item>Bardzo duży</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

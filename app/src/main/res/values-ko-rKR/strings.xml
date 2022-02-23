@@ -227,6 +227,7 @@
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
     <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>
+    <string name="title_advanced_send_chips">주소 풍선 표시</string>
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
@@ -906,6 +907,13 @@
         <item>아무것도 하지 않음</item>
         <item>Go to previous conversation</item>
         <item>Go to next conversation</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>매우 작게</item>
+        <item>작게</item>
+        <item>보통</item>
+        <item>크게</item>
+        <item>매우 크게</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

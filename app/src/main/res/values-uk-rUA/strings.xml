@@ -1730,6 +1730,13 @@
         <item>Перейти до попередньої розмови</item>
         <item>Перейти до наступної розмови</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Малий</item>
+        <item>Середній</item>
+        <item>Великий</item>
+        <item>Дуже великий</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

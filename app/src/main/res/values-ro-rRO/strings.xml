@@ -1719,6 +1719,13 @@
         <item>Mergi la conversația anterioară</item>
         <item>Mergi la conversația următoare</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Mic</item>
+        <item>Mediu</item>
+        <item>Mare</item>
+        <item>Foarte mare</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

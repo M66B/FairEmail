@@ -312,7 +312,7 @@
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für „Antworten” bzw. „Weiterleiten”</string>
-    <string name="title_advanced_send_chips">Adress-Blasen anzeigen</string>
+    <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_attach_new">Freigegebene Dateien zu einem neuen Entwurf hinzufügen</string>
@@ -1706,6 +1706,13 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Nichts tun</item>
         <item>Zur vorherigen Unterhaltung wechseln</item>
         <item>Zur nächsten Unterhaltung wechseln</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Sehr klein</item>
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
+        <item>Sehr groß</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

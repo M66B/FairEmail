@@ -1705,6 +1705,13 @@
         <item>Gå till föregående konversation</item>
         <item>Gå till nästa konversation</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Liten</item>
+        <item>Mellan</item>
+        <item>Stor</item>
+        <item>Extra stor</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

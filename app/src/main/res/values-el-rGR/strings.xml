@@ -1706,6 +1706,13 @@
         <item>Μετάβαση στην προηγούμενη συζήτηση</item>
         <item>Μετάβαση στην επόμενη συζήτηση</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Πολύ μικρό</item>
+        <item>Μικρό</item>
+        <item>Μεσαίο</item>
+        <item>Μεγάλο</item>
+        <item>Πολύ μεγάλο</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

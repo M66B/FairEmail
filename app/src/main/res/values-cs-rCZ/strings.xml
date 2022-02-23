@@ -1730,6 +1730,13 @@
         <item>Přejít na předchozí konverzaci</item>
         <item>Přejít na další konverzaci</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Malé</item>
+        <item>Střední</item>
+        <item>Velké</item>
+        <item>Velmi velké</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

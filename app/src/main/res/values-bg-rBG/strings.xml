@@ -1339,6 +1339,13 @@
         <item>Към предишния разговор</item>
         <item>Към следващия разговор</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Малък</item>
+        <item>Среден</item>
+        <item>Голяма</item>
+        <item>Много голям</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

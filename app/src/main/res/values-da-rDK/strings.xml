@@ -1713,6 +1713,13 @@
         <item>Gå til foregående samtale</item>
         <item>Gå til næste samtale</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Ekstra lille</item>
+        <item>Lille</item>
+        <item>Mellem</item>
+        <item>Stor</item>
+        <item>Ekstra stor</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

@@ -1735,6 +1735,13 @@
         <item>מעבר לדיון הקודם</item>
         <item>מעבר לדיון הבא</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>קטן במיוחד</item>
+        <item>קטן</item>
+        <item>בינוני</item>
+        <item>גדול</item>
+        <item>גדול במיוחד</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

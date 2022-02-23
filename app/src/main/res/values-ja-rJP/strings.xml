@@ -1702,6 +1702,13 @@
         <item>前の会話に移動</item>
         <item>次の会話に移動</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+        <item>特大</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

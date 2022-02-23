@@ -975,6 +975,13 @@
         <item>Иди на претходни разговор</item>
         <item>Иди на следећи разговор</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Мала</item>
+        <item>Средња</item>
+        <item>Велика</item>
+        <item>Веома велика</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

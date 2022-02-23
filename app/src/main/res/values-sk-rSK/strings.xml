@@ -262,6 +262,8 @@
     <string name="title_setup_theme_red_green">Červená/zelená</string>
     <string name="title_setup_theme_grey">Sivá</string>
     <string name="title_setup_theme_black">Čierna</string>
+    <string name="title_setup_theme_white">Biela</string>
+    <string name="title_setup_theme_black_or_white">Čierna alebo biela</string>
     <string name="title_setup_theme_black_and_white">Čierna a biela</string>
     <string name="title_setup_theme_reverse">Prehodiť farby</string>
     <string name="title_setup_theme_light">Svetlá</string>
@@ -331,6 +333,7 @@
     <string name="title_advanced_suggest_received">Navrhovať adresy nájdené v prijatých správach</string>
     <string name="title_advanced_suggest_frequently">Zoradiť navrhované adresy podľa počtu použití</string>
     <string name="title_advanced_alt_re_fwd">Alternatívne prefixy pre preposielanie / odpoveď</string>
+    <string name="title_advanced_send_chips">Zobraziť bubliny s adresami</string>
     <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
     <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
     <string name="title_advanced_attach_new">Pridať zdieľané súbory do nového konceptu</string>
@@ -499,6 +502,7 @@
     <string name="title_advanced_undo">Časový limit funkcie späť</string>
     <string name="title_advanced_quick_filter">Zobraziť neobťažujúce ikonky pre rýchle filtrovanie</string>
     <string name="title_advanced_quick_scroll">Zobraziť neobťažujúce ikonky pre rýchly posun nahor/nadol</string>
+    <string name="title_advanced_folder_nav">Zo zoznamu správ vždy prejsť späť do zoznamu priečinkov</string>
     <string name="title_advanced_autoread">Po presunutí správy automaticky označiť ako prečítané</string>
     <string name="title_advanced_star_snoozed">Automaticky pridať hviezdičku po odložení správ</string>
     <string name="title_advanced_autounstar">Automaticky odstrániť hviezdičku po presunutí správ</string>
@@ -1724,6 +1728,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Nerobiť nič</item>
         <item>Prejsť na predchádzajúcu konverzáciu</item>
         <item>Prejsť na nasledujúcu konverzáciu</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Veľmi malá</item>
+        <item>Malá</item>
+        <item>Stredná</item>
+        <item>Veľká</item>
+        <item>Veľmi veľká</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

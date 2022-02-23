@@ -1707,6 +1707,13 @@
         <item>Ir a la conversación anterior</item>
         <item>Ir a la siguiente conversación</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Muy pequeño</item>
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+        <item>Extra grande</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

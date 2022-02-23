@@ -1706,6 +1706,13 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Önceki konuşmaya git</item>
         <item>Sonraki konuşmaya git</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
+        <item>Ekstra büyük</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

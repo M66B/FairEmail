@@ -1064,6 +1064,13 @@
         <item>Pređi na prethodni razgovor</item>
         <item>Pređi na sljedeći razgovor</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Maleno</item>
+        <item>Srednje</item>
+        <item>Veliko</item>
+        <item>Extra veliko</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

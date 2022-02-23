@@ -1694,6 +1694,13 @@
         <item>转到上一个会话</item>
         <item>转到下一个会话</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>超小</item>
+        <item>小</item>
+        <item>中等</item>
+        <item>大</item>
+        <item>特大</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">

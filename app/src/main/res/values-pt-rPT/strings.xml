@@ -249,7 +249,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_setup_theme_reverse">Inverter cores</string>
     <string name="title_setup_theme_light">Claro</string>
     <string name="title_setup_theme_dark">Escuro</string>
-    <string name="title_setup_theme_system">Seguir o sistema</string>
+    <string name="title_setup_theme_system">Usar o mesmo do sistema</string>
     <string name="title_setup_theme_black_background">Fundo preto</string>
     <string name="title_setup_theme_html_light">Fundo claro para visualização da mensagem original</string>
     <string name="title_setup_theme_composer_light">Fundo claro para editor de mensagens</string>
@@ -460,8 +460,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
-    <string name="title_advanced_badge">Mostrar ícone do launcher com o número de mensagens novas</string>
-    <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
+    <string name="title_advanced_badge">Mostrar o número de novas mensagens no ícone do launcher</string>
+    <string name="title_advanced_unseen_ignored">Corresponder o número de novas mensagens ao número de notificações</string>
     <string name="title_advanced_notify_known">Mostrar notificações apenas para contactos</string>
     <string name="title_advanced_notify_summary">Mostrar apenas resumo na notificação</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
@@ -480,7 +480,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_notify_action_snooze">Adiar</string>
     <string name="title_advanced_notify_remove">Remover nova notificação de mensagem ao tocar na notificação</string>
     <string name="title_advanced_notify_clear">Remover novas notificações de mensagens ao ver lista de mensagens</string>
+    <string name="title_advanced_notify_subtext">Mostrar nome da conta ou pasta como subtexto</string>
     <string name="title_advanced_wearable_preview">Enviar notificações apenas com uma visualização de mensagem para wearables</string>
+    <string name="title_advanced_notify_messaging">Utilizar o \'estilo de mensagens\' do Android como formato de notificação</string>
     <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
@@ -560,6 +562,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_notify_action_hint">No máximo três acções serão mostradas</string>
+    <string name="title_advanced_notify_preview_only_hint">Adia o aparecimento de notificações até que o texto da mensagem tenha sido transferido</string>
     <string name="title_advanced_fts_hint">Activar esta função melhora o desempenho da pesquisa, porém aumenta o consumo de bateria e a utilização de espaço do armazenamento</string>
     <string name="title_advanced_english_hint">Mudar esta definição reiniciará a aplicação</string>
     <string name="title_advanced_cleanup_attachments_hint">Quando houver uma limpeza manual, isto fará com que os anexos, das mensagens que já não são sincronizadas, sejam removidos</string>
@@ -596,7 +599,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_identity_delete">Eliminar esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Chave de assinatura: %1$s</string>
-    <string name="title_last_connected">Última vez ligado: %1$s</string>
+    <string name="title_last_connected">Última ligação: %1$s</string>
     <string name="title_hint_accounts">Toque e mantenha premido numa conta para ver as opções, por exemplo, para desactivar ou eliminar uma conta</string>
     <string name="title_synchronize_more">Obter mais mensagens</string>
     <string name="title_synchronize_more_hint">Trata-se de uma transferência isolada de antigas mensagens, ou seja, não irá provocar uma utilização mais elevada de bateria no dia-a-dia</string>
@@ -604,6 +607,8 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
         Habitualmente a limitação advém da velocidade do espaço de armazenamento interno do dispositivo.
     </string>
     <string name="title_synchronize_enabled">Sincronizar</string>
+    <string name="title_delete_local">Eliminar mensagens locais</string>
+    <string name="title_delete_browsed">Eliminar msgs navegadas/pesquisadas</string>
     <string name="title_expunge">Esponja</string>
     <string name="title_expunge_remark">Isto irá apagar permanentemente todas as mensagens marcadas para exclusão</string>
     <string name="title_empty_trash">Esvaziar lixo</string>
@@ -615,12 +620,14 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_edit_contact">Editar contacto</string>
     <string name="title_import_contacts">Importar vCards</string>
     <string name="title_show_flagged">Mostrar n⁰ de msg. favoritas</string>
-    <string name="title_sort_unread_atop">Ordenar as não lidas no topo</string>
+    <string name="title_sort_unread_atop">Mostrar pastas por ler primeiro</string>
     <string name="title_search_folder">Pesquisar pasta</string>
     <string name="title_apply_to_all">Aplicar a tudo</string>
     <string name="title_edit_account_name">Editar nome da conta</string>
+    <string name="title_unified_folder">Mostrar na cx. entrada unificada</string>
     <string name="title_download_folder">Transferir automaticamente todos os textos e anexos das mensagens</string>
     <string name="title_notify_folder">Notificação de novas mensagens</string>
+    <string name="title_poll_system">Definir a periodicidade com a qual são verificadas novas mensagens nas pastas do sistema</string>
     <string name="title_poll_user">Definir a periodicidade com a qual são verificadas novas mensagens nas pastas de utilizador</string>
     <string name="title_auto_trash">Mover automaticamente as mensagens antigas para o lixo</string>
     <string name="title_auto_delete_hint">Mensagens antigas são as mensagens que deixam de estar guardadas no dispositivo</string>
@@ -772,6 +779,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_sort_on_size">Tamanho</string>
     <string name="title_filter_seen">Lida</string>
     <string name="title_filter_unflagged">Sem estrela</string>
+    <string name="title_filter_deleted">Eliminadas</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_padding">Tamanho do espaçamento</string>
@@ -1139,6 +1147,13 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
         <item>Não fazer nada</item>
         <item>Ir para a conversa anterior</item>
         <item>Ir para a próxima conversa</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Extra small</item>
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+        <item>Muito grande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
