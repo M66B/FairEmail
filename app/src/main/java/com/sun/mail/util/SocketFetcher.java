@@ -590,6 +590,7 @@ public class SocketFetcher {
 	     * or SSLv3 protocols.  Here we enable only the non-SSL
 	     * protocols.  XXX - this should probably be parameterized.
 	     */
+	    /*
 	    String[] prots = sslsocket.getEnabledProtocols();
 	    if (logger.isLoggable(Level.FINER))
 		logger.finer("SSL enabled protocols before " +
@@ -601,6 +602,7 @@ public class SocketFetcher {
 	    }
 	    sslsocket.setEnabledProtocols(
 				eprots.toArray(new String[eprots.size()]));
+	     */
 	}
 	String ciphers = props.getProperty(prefix + ".ssl.ciphersuites", null);
 	if (ciphers != null)
