@@ -157,7 +157,7 @@ public class Log {
     private static Context ctx;
 
     private static int level = android.util.Log.INFO;
-    private static final int MAX_CRASH_REPORTS = 5;
+    private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
     private static final String TAG = "fairemail";
 
     static final String TOKEN_REFRESH_REQUIRED =
