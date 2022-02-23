@@ -164,7 +164,16 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                 int off = Helper.getOffset(this, edit, event);
                 ClipImageSpan[] spans = edit.getSpans(off, off, ClipImageSpan.class);
                 if (spans.length == 1)
-                    edit.removeSpan(spans[0]);
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                edit.removeSpan(spans[0]);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    });
             }
         } catch (Throwable ex) {
             Log.w(ex);
