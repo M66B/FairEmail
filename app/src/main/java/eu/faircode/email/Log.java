@@ -2711,13 +2711,7 @@ public class Log {
                 for (TrustManager tm : tms)
                     ssb.append("Manager: ").append(tm.getClass().getName()).append("\r\n");
 
-            SSLContext sslContext;
-            try {
-                sslContext = SSLContext.getInstance("SSL");
-            } catch (Throwable ex) {
-                Log.e(ex);
-                sslContext = SSLContext.getInstance("TLS");
-            }
+            SSLContext sslContext = SSLContext.getInstance("TLS");
 
             ssb.append("Context: ").append(sslContext.getProtocol()).append("\r\n\r\n");
 

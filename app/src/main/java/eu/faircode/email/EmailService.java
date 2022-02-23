@@ -963,13 +963,7 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
-            SSLContext sslContext;
-            try {
-                sslContext = SSLContext.getInstance("SSL");
-            } catch (Throwable ex) {
-                Log.e(ex);
-                sslContext = SSLContext.getInstance("TLS");
-            }
+            SSLContext sslContext = SSLContext.getInstance("TLS");
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             tmf.init((KeyStore) null);
@@ -1153,23 +1147,17 @@ public class EmailService implements AutoCloseable {
             if (socket instanceof SSLSocket) {
                 SSLSocket sslSocket = (SSLSocket) socket;
 
-                if (BuildConfig.TEST_RELEASE) {
-                    List<String> protocols = new ArrayList<>(Arrays.asList(sslSocket.getEnabledProtocols()));
-                    List<String> ciphers = new ArrayList<>(Arrays.asList(sslSocket.getEnabledCipherSuites()));
-                    for (String protocol : sslSocket.getSupportedProtocols())
-                        Log.e("SSL " + protocol + "=" + protocols.contains(protocol));
-                    for (String cipher : sslSocket.getSupportedCipherSuites())
-                        Log.e("SSL " + cipher + "=" + protocols.contains(cipher));
-                }
-
                 if (!secure) {
+                    // Protocols
                     sslSocket.setEnabledProtocols(sslSocket.getSupportedProtocols());
 
+                    // Ciphers
                     List<String> ciphers = new ArrayList<>();
                     ciphers.addAll(Arrays.asList(sslSocket.getSupportedCipherSuites()));
                     ciphers.remove("TLS_FALLBACK_SCSV");
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 } else if (ssl_harden) {
+                    // Protocols
                     List<String> protocols = new ArrayList<>();
                     for (String protocol : sslSocket.getEnabledProtocols())
                         if (SSL_PROTOCOL_BLACKLIST.contains(protocol))
@@ -1178,6 +1166,7 @@ public class EmailService implements AutoCloseable {
                             protocols.add(protocol);
                     sslSocket.setEnabledProtocols(protocols.toArray(new String[0]));
 
+                    // Ciphers
                     List<String> ciphers = new ArrayList<>();
                     for (String cipher : sslSocket.getEnabledCipherSuites()) {
                         if (SSL_CIPHER_BLACKLIST.matcher(cipher).matches())
@@ -1187,15 +1176,11 @@ public class EmailService implements AutoCloseable {
                     }
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 } else {
-                    // Enable SSLv3 if available
-                    sslSocket.setEnabledProtocols(sslSocket.getSupportedProtocols());
-
+                    // Ciphers
                     List<String> ciphers = new ArrayList<>();
                     ciphers.addAll(Arrays.asList(sslSocket.getEnabledCipherSuites()));
-                    ciphers.remove("TLS_FALLBACK_SCSV");
                     for (String cipher : sslSocket.getSupportedCipherSuites())
-                        if (!ciphers.contains(cipher) &&
-                                (cipher.contains("3DES") || cipher.contains("RC4"))) {
+                        if (!ciphers.contains(cipher) && cipher.contains("3DES")) {
                             // Some servers support 3DES and RC4 only
                             Log.i("SSL enabling cipher=" + cipher);
                             ciphers.add(cipher);
