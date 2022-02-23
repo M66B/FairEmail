@@ -2022,7 +2022,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             }
 
                                                         } catch (Throwable ex) {
-                                                            Log.e(folder.name, ex);
+                                                            if (ex instanceof OperationCanceledException)
+                                                                Log.i(folder.name, ex);
+                                                            else
+                                                                Log.e(folder.name, ex);
                                                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
                                                                     account.name + "/" + folder.name + " process " + Log.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
