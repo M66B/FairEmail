@@ -195,7 +195,7 @@ public class Helper {
     static final Pattern EMAIL_ADDRESS = Pattern.compile(
             "[\\S]{1,256}" +
                     "\\@" +
-                    "[\\p{L}][\\p{L}0-9\\-\\_]{0,64}" +
+                    "[\\p{L}0-9][\\p{L}0-9\\-\\_]{0,64}" +
                     "(" +
                     "\\." +
                     "[\\p{L}0-9][\\p{L}0-9\\-\\_]{0,25}" +
