@@ -4,9 +4,15 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1845 - 2022-02-23
+
+* Address bubble fixes and improvements
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1844 - 2022-02-23
 
-* Improved bubble handling
+* Improved address bubble handling
 * Added "extra small" image resize option
 * Small improvements and minor bug fixes
 * Updated translations
