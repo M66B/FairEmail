@@ -1153,6 +1153,15 @@ public class EmailService implements AutoCloseable {
             if (socket instanceof SSLSocket) {
                 SSLSocket sslSocket = (SSLSocket) socket;
 
+                if (BuildConfig.TEST_RELEASE) {
+                    List<String> protocols = new ArrayList<>(Arrays.asList(sslSocket.getEnabledProtocols()));
+                    List<String> ciphers = new ArrayList<>(Arrays.asList(sslSocket.getEnabledCipherSuites()));
+                    for (String protocol : sslSocket.getSupportedProtocols())
+                        Log.e("SSL " + protocol + "=" + protocols.contains(protocol));
+                    for (String cipher : sslSocket.getSupportedCipherSuites())
+                        Log.e("SSL " + cipher + "=" + protocols.contains(cipher));
+                }
+
                 if (!secure) {
                     sslSocket.setEnabledProtocols(sslSocket.getSupportedProtocols());
 
