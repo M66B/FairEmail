@@ -4,6 +4,13 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1844 - 2022-02-23
+
+* Improved bubble handling
+* Added "extra small" image resize option
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1843 - 2022-02-22
 
 * Added address bubbles (enable via overflow menu / message editor)
