@@ -316,12 +316,12 @@ dependencies {
 
     def startup_version = "1.1.0"
     def annotation_version_experimental = "1.2.0"
-    def core_version = "1.7.0" // 1.8.0-alpha03
+    def core_version = "1.7.0" // 1.8.0-alpha05 / 1.9.0-alpha01
     def shortcuts_version = "1.0.0"
-    def appcompat_version = "1.4.1"
-    def emoji_version = "1.1.0-beta01"
-    def activity_version = "1.4.0" // 1.5.0-alpha01
-    def fragment_version = "1.4.1" // 1.5.0-alpha01
+    def appcompat_version = "1.4.1" // 1.6.0-alpha01
+    def emoji_version = "1.1.0" // 1.2.0-alpha01
+    def activity_version = "1.4.0" // 1.5.0-alpha03
+    def fragment_version = "1.4.1" // 1.5.0-alpha03
     def webkit_version = "1.4.0"
     def recyclerview_version = "1.2.1"
     def coordinatorlayout_version = "1.2.0"
@@ -331,10 +331,10 @@ dependencies {
     def lbm_version = "1.1.0"
     def swiperefresh_version = "1.2.0-alpha01"
     def documentfile_version = "1.1.0-alpha01"
-    def lifecycle_version = "2.4.0" // 2.5.0-alpha01
+    def lifecycle_version = "2.4.0" // 2.5.0-alpha03
     def lifecycle_extensions_version = "2.2.0"
-    def room_version = "2.4.1"
-    def sqlite_version = "2.2.0"
+    def room_version = "2.4.2" // 2.5.0-alpha01
+    def sqlite_version = "2.2.0" // 2.3.0-alpha01
     def requery_version = "3.36.0"
     def paging_version = "2.1.2" //  3.1.0
     def preference_version = "1.2.0"
