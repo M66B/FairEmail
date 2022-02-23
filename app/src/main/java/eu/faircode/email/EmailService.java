@@ -966,7 +966,7 @@ public class EmailService implements AutoCloseable {
             SSLContext sslContext;
             try {
                 sslContext = SSLContext.getInstance("SSL");
-            }catch (Throwable ex){
+            } catch (Throwable ex) {
                 Log.e(ex);
                 sslContext = SSLContext.getInstance("TLS");
             }
@@ -1157,9 +1157,8 @@ public class EmailService implements AutoCloseable {
                     sslSocket.setEnabledProtocols(sslSocket.getSupportedProtocols());
 
                     List<String> ciphers = new ArrayList<>();
-                    for (String cipher : sslSocket.getSupportedCipherSuites())
-                        if (!cipher.endsWith("_SCSV"))
-                            ciphers.add(cipher);
+                    ciphers.addAll(Arrays.asList(sslSocket.getSupportedCipherSuites()));
+                    ciphers.remove("TLS_FALLBACK_SCSV");
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 } else if (ssl_harden) {
                     List<String> protocols = new ArrayList<>();
@@ -1184,6 +1183,7 @@ public class EmailService implements AutoCloseable {
 
                     List<String> ciphers = new ArrayList<>();
                     ciphers.addAll(Arrays.asList(sslSocket.getEnabledCipherSuites()));
+                    ciphers.remove("TLS_FALLBACK_SCSV");
                     for (String cipher : sslSocket.getSupportedCipherSuites())
                         if (!ciphers.contains(cipher) &&
                                 (cipher.contains("3DES") || cipher.contains("RC4"))) {
