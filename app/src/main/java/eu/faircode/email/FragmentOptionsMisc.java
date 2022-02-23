@@ -785,6 +785,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swExternalStorage.setEnabled(getContext().getExternalFilesDir(null) != null);
         swExternalStorage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -1311,8 +1312,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
         File external = getContext().getExternalFilesDir(null);
-        boolean emulated = Environment.isExternalStorageEmulated(external);
-        tvExternalStorageFolder.setText(external.getAbsolutePath() + (emulated ? " emulated" : ""));
+        boolean emulated = (external != null && Environment.isExternalStorageEmulated(external));
+        tvExternalStorageFolder.setText(
+                (external == null ? null : external.getAbsolutePath()) + (emulated ? " emulated" : ""));
 
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
         swTestIab.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
