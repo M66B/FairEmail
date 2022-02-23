@@ -58,6 +58,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private boolean dark;
     private int colorAccent;
     private ContextThemeWrapper ctx;
+    private Tokenizer tokenizer;
 
     public EditTextMultiAutoComplete(@NonNull Context context) {
         super(context);
@@ -76,6 +77,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
     private void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
+
+        tokenizer = new CommaTokenizer();
+        setTokenizer(tokenizer);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         dark = Helper.isDarkTheme(context);
@@ -180,6 +184,25 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         }
 
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void replaceText(CharSequence text) {
+        clearComposingText();
+
+        Editable edit = getText();
+        int _end = getSelectionEnd();
+        int start = tokenizer.findTokenStart(edit, _end);
+        int end = tokenizer.findTokenEnd(edit, _end);
+        if (end < edit.length() && edit.charAt(end) == ',') {
+            end++;
+            while (end < edit.length() && edit.charAt(end) == ' ')
+                end++;
+        }
+
+        edit.replace(start, end, tokenizer.terminateToken(text));
+
+        setSelection(edit.length());
     }
 
     private final Runnable update = new Runnable() {

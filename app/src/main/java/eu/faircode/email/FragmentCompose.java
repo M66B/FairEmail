@@ -1186,9 +1186,6 @@ public class FragmentCompose extends FragmentBase {
         etCc.setAdapter(cadapter);
         etBcc.setAdapter(cadapter);
 
-        etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         grpAddresses.setVisibility(cc_bcc ? View.VISIBLE : View.GONE);
 
         rvAttachment.setHasFixedSize(false);
