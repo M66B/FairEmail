@@ -30,9 +30,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.Spanned;
+import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.DynamicDrawableSpan;
@@ -40,6 +42,7 @@ import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -291,7 +294,13 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
                                     ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
                                     cd.setChipIcon(avatar);
-                                    // cd.setLayoutDirection(View.LAYOUT_DIRECTION_LOCALE);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                                        try {
+                                            if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(text, 0, text.length()))
+                                                cd.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
                                     cd.setText(text);
                                     cd.setChipBackgroundColor(ColorStateList.valueOf(colorAccent));
                                     cd.setMaxWidth(getWidth());
