@@ -2053,10 +2053,21 @@ public class FragmentCompose extends FragmentBase {
 
         popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_translate_configure);
 
+        NumberFormat NF = NumberFormat.getNumberInstance();
         for (int i = 0; i < languages.size(); i++) {
             DeepL.Language lang = languages.get(i);
+
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(lang.name);
+            if (grouped && lang.frequency > 0) {
+                int start = ssb.length();
+                ssb.append(" (").append(NF.format(lang.frequency)).append(")");
+                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                        start, ssb.length(), 0);
+
+            }
+
             MenuItem item = popupMenu.getMenu()
-                    .add(lang.favorite ? Menu.FIRST : Menu.NONE, i + 2, i + 2, lang.name)
+                    .add(lang.favorite ? Menu.FIRST : Menu.NONE, i + 2, i + 2, ssb)
                     .setIntent(new Intent().putExtra("target", lang.target));
             if (lang.icon != null)
                 item.setIcon(lang.icon);

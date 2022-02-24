@@ -115,7 +115,7 @@ public class DeepL {
 
                 languages.add(new Language(name, target, formality,
                         resid == 0 ? null : resid,
-                        favorites && frequency > 0));
+                        favorites && frequency > 0, frequency));
                 frequencies.put(target, frequency);
             }
 
@@ -312,13 +312,15 @@ public class DeepL {
         public boolean formality;
         public Integer icon;
         public boolean favorite;
+        public int frequency;
 
-        private Language(String name, String target, boolean formality, Integer icon, boolean favorit) {
+        private Language(String name, String target, boolean formality, Integer icon, boolean favorite, int frequency) {
             this.name = name;
             this.target = target;
             this.formality = formality;
             this.icon = icon;
-            this.favorite = favorit;
+            this.favorite = favorite;
+            this.frequency = frequency;
         }
 
         @Override
