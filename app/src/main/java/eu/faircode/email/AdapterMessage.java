@@ -2010,6 +2010,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 else if (EntityFolder.TRASH.equals(folder.type))
                                     hasTrash = true;
 
+                    boolean pop = (message.accountProtocol == EntityAccount.TYPE_POP);
+                    boolean imap = (message.accountProtocol == EntityAccount.TYPE_IMAP);
+
                     boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                     boolean inSent = EntityFolder.SENT.equals(message.folderType);
                     boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
@@ -2017,27 +2020,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
 
                     boolean move = !(message.folderReadOnly || message.uid == null) ||
-                            (message.accountProtocol == EntityAccount.TYPE_POP &&
-                                    EntityFolder.TRASH.equals(message.folderType));
+                            (pop && EntityFolder.TRASH.equals(message.folderType));
                     boolean archive = (move && (hasArchive && !inArchive && !inSent && !inTrash && !inJunk));
-                    boolean trash = (move || outbox || debug ||
-                            message.accountProtocol == EntityAccount.TYPE_POP);
-                    boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk)) ||
-                            (message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted && inTrash);
-                    boolean keywords = (message.uid != null &&
-                            message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    boolean trash = (move || outbox || debug || pop);
+                    boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk) && imap) ||
+                            (pop && message.accountLeaveDeleted && inTrash);
+                    boolean keywords = (message.uid != null && imap);
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
-                    boolean seen = (message.uid != null ||
-                            message.accountProtocol == EntityAccount.TYPE_POP);
+                    boolean seen = (message.uid != null || pop);
 
                     int froms = (message.from == null ? 0 : message.from.length);
                     int tos = (message.to == null ? 0 : message.to.length);
 
                     boolean delete = (inTrash || !hasTrash || inJunk || outbox ||
-                            message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
+                            message.uid == null || pop);
 
-                    boolean headers = (message.uid != null ||
-                            (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
+                    boolean headers = (message.uid != null || (pop && message.headers != null));
 
                     evalProperties(message); // TODO: done again in bindBody
 
@@ -5129,7 +5127,33 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionMove(TupleMessageEx message, final boolean copy) {
-            onActionMove(message, copy, message.account, new long[]{message.folder});
+            if (message.accountProtocol == EntityAccount.TYPE_POP &&
+                    EntityFolder.TRASH.equals(message.folderType) && !message.accountLeaveDeleted) {
+                Bundle args = new Bundle();
+                args.putLong("id", message.account);
+
+                new SimpleTask<EntityFolder>() {
+                    @Override
+                    protected EntityFolder onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        return db.folder().getFolderByType(id, EntityFolder.INBOX);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityFolder inbox) {
+                        onActionMove(message, copy, message.account,
+                                new long[]{message.folder, inbox == null ? -1L : inbox.id});
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    }
+                }.execute(context, owner, args, "move:pop");
+            } else
+                onActionMove(message, copy, message.account, new long[]{message.folder});
         }
 
         private void onActionMove(TupleMessageEx message, final boolean copy, long account, long[] disabled) {
