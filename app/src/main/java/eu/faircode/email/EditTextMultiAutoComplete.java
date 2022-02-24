@@ -200,10 +200,12 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                 final Context context = getContext();
                 final Resources res = getResources();
                 final Editable edit = getText();
+                final int dp3 = Helper.dp2pixels(context, 3);
                 final int dp24 = Helper.dp2pixels(context, 24);
                 final boolean send_chips = prefs.getBoolean("send_chips", true);
                 boolean generated = prefs.getBoolean("generated_icons", true);
                 boolean identicons = prefs.getBoolean("identicons", false);
+                boolean circular = prefs.getBoolean("circular", true);
 
                 final boolean focus = hasFocus();
                 final int selStart = getSelectionStart();
@@ -273,11 +275,14 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                             Log.e(ex);
                                         }
 
-                                    if (bm == null && generated)
+                                    if (bm == null && generated && !TextUtils.isEmpty(email))
                                         if (identicons)
                                             bm = ImageHelper.generateIdenticon(e, dp24, 5, context);
                                         else
                                             bm = ImageHelper.generateLetterIcon(e, p, dp24, context);
+
+                                    if (bm != null && circular && !identicons)
+                                        bm = ImageHelper.makeCircular(bm, dp3);
 
                                     Drawable avatar = (bm == null ? null : new BitmapDrawable(res, bm));
 
