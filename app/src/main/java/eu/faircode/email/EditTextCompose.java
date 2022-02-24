@@ -117,7 +117,7 @@ public class EditTextCompose extends FixedEditText {
 
                 @Override
                 public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                    if (item.getGroupId() == Menu.CATEGORY_ALTERNATIVE) {
+                    if (item.getGroupId() == Menu.CATEGORY_SECONDARY) {
                         int id = item.getItemId();
                         if (id == R.string.title_undo)
                             return EditTextCompose.super.onTextContextMenuItem(android.R.id.undo);
