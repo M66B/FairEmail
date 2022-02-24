@@ -163,27 +163,11 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         try {
-            if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                Editable edit = getText();
-                int off = Helper.getOffset(this, edit, event);
-                ClipImageSpan[] spans = edit.getSpans(off, off, ClipImageSpan.class);
-                if (spans.length == 1)
-                    post(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                edit.removeSpan(spans[0]);
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                        }
-                    });
-            }
+            return super.onTouchEvent(event);
         } catch (Throwable ex) {
             Log.w(ex);
+            return true;
         }
-
-        return super.onTouchEvent(event);
     }
 
     @Override
