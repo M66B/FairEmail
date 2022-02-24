@@ -97,6 +97,7 @@
         android:name=".ApplicationEx"
         android:allowBackup="false"
         android:appCategory="productivity"
+        android:extractNativeLibs="true"
         android:forceDarkAllowed="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
