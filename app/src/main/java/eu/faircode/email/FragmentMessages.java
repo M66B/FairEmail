@@ -2523,9 +2523,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType))) {
-                if (!(message.accountLeaveDeleted && EntityFolder.INBOX.equals(message.folderType)))
+                if (message.accountLeaveDeleted && EntityFolder.INBOX.equals(message.folderType))
+                    onSwipeTrash(message);
+                else {
                     adapter.notifyItemChanged(pos);
-                onSwipeDelete(message);
+                    onSwipeDelete(message);
+                }
             } else
                 swipeFolder(message, action);
         }
@@ -2689,6 +2692,35 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             ask.setArguments(aargs);
             ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_JUNK);
             ask.show(getParentFragmentManager(), "swipe:junk");
+        }
+
+        private void onSwipeTrash(@NonNull TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("account", message.account);
+
+            new SimpleTask<EntityFolder>() {
+                @Override
+                protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                    long account = args.getLong("account");
+
+                    DB db = DB.getInstance(context);
+
+                    return db.folder().getFolderByType(account, EntityFolder.TRASH);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityFolder trash) {
+                    if (trash == null)
+                        onSwipeDelete(message);
+                    else
+                        swipeFolder(message, trash.id);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(FragmentMessages.this, args, "");
         }
 
         private void onSwipeDelete(@NonNull TupleMessageEx message) {
