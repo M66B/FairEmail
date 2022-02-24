@@ -3104,7 +3104,8 @@ public class MessageHelper {
                         }
                     }
 
-                    if (report.isDispositionNotification() && !report.isDisplayed()) {
+                    if (report.isDispositionNotification() &&
+                            !(report.isDisplayed() || report.isDeleted())) {
                         if (report.disposition != null)
                             w.append(report.disposition);
                     }
