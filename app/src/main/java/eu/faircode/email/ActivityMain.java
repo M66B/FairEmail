@@ -309,6 +309,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 editor.putBoolean("landscape3", false);
             }
 
+            // Default send bubbles off when accessibility enabled
+            if (Helper.isAccessibilityEnabled(this))
+                editor.putBoolean("send_chips", false);
+
             editor.apply();
 
             if (Helper.isNight(this))

@@ -248,10 +248,10 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                             if (!found && start < i + 1 &&
                                     !(focus && overlap(start, i, selStart, selEnd))) {
-                                String email = edit.subSequence(start, i + 1).toString();
+                                String address = edit.subSequence(start, i + 1).toString();
                                 InternetAddress[] parsed;
                                 try {
-                                    parsed = MessageHelper.parseAddresses(context, email);
+                                    parsed = MessageHelper.parseAddresses(context, address);
                                     if (parsed != null)
                                         for (InternetAddress a : parsed)
                                             a.validate();
@@ -265,8 +265,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     else if (kar != ',')
                                         edit.insert(++i, ",");
 
-                                    String e = parsed[0].getAddress();
-                                    String p = parsed[0].getPersonal();
+                                    String email = parsed[0].getAddress();
+                                    String personal = parsed[0].getPersonal();
 
                                     Bitmap bm = null;
                                     Uri lookupUri = ContactInfo.getLookupUri(parsed);
@@ -278,18 +278,18 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                             Log.e(ex);
                                         }
 
-                                    if (bm == null && generated && !TextUtils.isEmpty(email))
+                                    if (bm == null && generated && !TextUtils.isEmpty(address))
                                         if (identicons)
-                                            bm = ImageHelper.generateIdenticon(e, dp24, 5, context);
+                                            bm = ImageHelper.generateIdenticon(email, dp24, 5, context);
                                         else
-                                            bm = ImageHelper.generateLetterIcon(e, p, dp24, context);
+                                            bm = ImageHelper.generateLetterIcon(email, personal, dp24, context);
 
                                     if (bm != null && circular && !identicons)
                                         bm = ImageHelper.makeCircular(bm, dp3);
 
                                     Drawable avatar = (bm == null ? null : new BitmapDrawable(res, bm));
 
-                                    String text = (TextUtils.isEmpty(p) ? e : p);
+                                    String text = (TextUtils.isEmpty(personal) ? email : personal);
 
                                     // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
                                     ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
@@ -307,6 +307,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
 
                                     ClipImageSpan is = new ClipImageSpan(cd);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+                                        is.setContentDescription(email);
                                     edit.setSpan(is, start, i + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                                     if (kar == ',' &&
