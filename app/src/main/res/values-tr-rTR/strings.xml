@@ -1707,7 +1707,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         <item>Sonraki konuşmaya git</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Çok küçük</item>
         <item>Küçük</item>
         <item>Orta</item>
         <item>Büyük</item>
