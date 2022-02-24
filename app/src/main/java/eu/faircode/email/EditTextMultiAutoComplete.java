@@ -195,7 +195,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
             try {
                 final Context context = getContext();
                 final Editable edit = getText();
-                final boolean send_chips = prefs.getBoolean("send_chips", !BuildConfig.PLAY_STORE_RELEASE);
+                final boolean send_chips = prefs.getBoolean("send_chips", true);
 
                 final boolean focus = hasFocus();
                 final int selStart = getSelectionStart();

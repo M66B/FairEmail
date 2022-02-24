@@ -1606,7 +1606,7 @@ public class FragmentCompose extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
-        boolean send_chips = prefs.getBoolean("send_chips", !BuildConfig.PLAY_STORE_RELEASE);
+        boolean send_chips = prefs.getBoolean("send_chips", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
@@ -1803,7 +1803,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuSendChips() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean send_chips = prefs.getBoolean("send_chips", !BuildConfig.PLAY_STORE_RELEASE);
+        boolean send_chips = prefs.getBoolean("send_chips", true);
         prefs.edit().putBoolean("send_chips", !send_chips).apply();
 
         etTo.setText(etTo.getText());
