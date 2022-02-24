@@ -1,6 +1,6 @@
 # Ajuda de configuração
 
-Configurar o FairMail é bastante simples. Irá precisar de pelo menos uma conta para receber email e pelo menos uma identidade se quiser enviar email. A Configuração Rápida irá adicionar uma conta de receção com uma identidade de envio para a maioria dos principais provedores.
+Configurar o FairMail é bastante simples. Irá precisar de pelo menos uma conta para receber email e pelo menos uma identidade se quiser enviar email. A configuração rápida irá adicionar uma conta e uma identidade de uma só vez para a maioria dos principais provedores.
 
 ## Requisitos
 
