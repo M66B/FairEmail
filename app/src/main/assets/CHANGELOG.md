@@ -4,6 +4,11 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1846 - 2022-02-24
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1845 - 2022-02-23
 
 * Address bubble fixes and improvements
