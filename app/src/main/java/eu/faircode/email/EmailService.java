@@ -964,6 +964,7 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
+            // https://developer.android.com/about/versions/oreo/android-8.0-changes.html#security-all
             SSLContext sslContext = SSLContext.getInstance(insecure ? "SSL" : "TLS");
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
