@@ -254,11 +254,13 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
                                     Drawable avatar = null;
                                     Uri lookupUri = ContactInfo.getLookupUri(parsed);
-                                    if (lookupUri != null) {
-                                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                                context.getContentResolver(), lookupUri, false);
-                                        avatar = Drawable.createFromStream(is, email);
-                                    }
+                                    if (lookupUri != null)
+                                        try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                                context.getContentResolver(), lookupUri, false)) {
+                                            avatar = Drawable.createFromStream(is, email);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
 
                                     String e = parsed[0].getAddress();
                                     String p = parsed[0].getPersonal();
