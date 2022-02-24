@@ -1163,6 +1163,21 @@ class Core {
             imessage.addHeader(MessageHelper.HEADER_CORRELATION_ID, message.msgid);
 
             imessage.saveChanges();
+            /*
+                javax.mail.internet.ParseException: Unbalanced quoted string
+                    at javax.mail.internet.HeaderTokenizer.collectString(SourceFile:15)
+                    at javax.mail.internet.HeaderTokenizer.getNext(SourceFile:20)
+                    at javax.mail.internet.HeaderTokenizer.next(SourceFile:4)
+                    at javax.mail.internet.HeaderTokenizer.next(SourceFile:1)
+                    at javax.mail.internet.ParameterList.<init>(SourceFile:23)
+                    at javax.mail.internet.ContentType.<init>(SourceFile:17)
+                    at javax.mail.internet.MimeBodyPart.updateHeaders(SourceFile:12)
+                    at javax.mail.internet.MimeBodyPart.updateHeaders(SourceFile:1)
+                    at javax.mail.internet.MimeMultipart.updateHeaders(SourceFile:3)
+                    at javax.mail.internet.MimeBodyPart.updateHeaders(SourceFile:24)
+                    at javax.mail.internet.MimeMessage.updateHeaders(SourceFile:1)
+                    at javax.mail.internet.MimeMessage.saveChanges(SourceFile:3)
+             */
 
             if (flags.contains(Flags.Flag.SEEN))
                 imessage.setFlag(Flags.Flag.SEEN, message.ui_seen);
