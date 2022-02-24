@@ -4,6 +4,14 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1847 - 2022-02-24
+
+* Address bubbles: generated icons
+* Address bubbles: RTL support
+* Address bubbles: accessibility improvements
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1846 - 2022-02-24
 
 * Small improvements and minor bug fixes
