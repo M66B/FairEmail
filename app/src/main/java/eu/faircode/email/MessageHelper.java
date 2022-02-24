@@ -3104,8 +3104,7 @@ public class MessageHelper {
                         }
                     }
 
-                    if (report.isDispositionNotification() &&
-                            !(report.isDisplayed() || report.isDeleted())) {
+                    if (report.isDispositionNotification() && !report.isMdnDisplayed()) {
                         if (report.disposition != null)
                             w.append(report.disposition);
                     }
@@ -4348,23 +4347,48 @@ public class MessageHelper {
             return ("delivered".equals(action) || "relayed".equals(action) || "expanded".equals(action));
         }
 
-        boolean isDisplayed() {
-            return isType("displayed");
+        boolean isMdnManual() {
+            return "manual-action".equals(getAction(0));
         }
 
-        boolean isDeleted() {
-            return isType("deleted");
+        boolean isMdnAutomatic() {
+            return "automatic-action".equals(getAction(0));
         }
 
-        private boolean isType(String t) {
-            // manual-action/MDN-sent-manually; displayed
+        boolean isMdnManualSent() {
+            return "MDN-sent-manually".equals(getAction(1));
+        }
+
+        boolean isMdnAutomaticSent() {
+            return "MDN-sent-automatically".equals(getAction(1));
+        }
+
+        boolean isMdnDisplayed() {
+            return "displayed".equalsIgnoreCase(getType());
+        }
+
+        boolean isMdnDeleted() {
+            return "deleted".equalsIgnoreCase(getType());
+        }
+
+        private String getAction(int index) {
             if (disposition == null)
-                return false;
+                return null;
             int semi = disposition.lastIndexOf(';');
             if (semi < 0)
-                return false;
-            String type = disposition.substring(semi + 1).trim();
-            return t.equals(type);
+                return null;
+            String[] action = disposition.substring(0, semi).trim().split("/");
+            return (index < action.length ? action[index] : null);
+        }
+
+        private String getType() {
+            // manual-action/MDN-sent-manually; displayed
+            if (disposition == null)
+                return null;
+            int semi = disposition.lastIndexOf(';');
+            if (semi < 0)
+                return null;
+            return disposition.substring(semi + 1).trim();
         }
 
         static boolean isDeliveryStatus(String type) {
