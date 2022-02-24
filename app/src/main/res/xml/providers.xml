@@ -291,9 +291,10 @@
     </provider>
     <provider
         name="gmx.com"
+        documentation="Is &lt;a href=&quot;https://support.gmx.com/pop-imap/toggle.html&quot;&gt;IMAP enabled&lt;/a&gt;? Two factor authentication requires &lt;a href=&quot;https://support.gmx.com/security/2fa/application-specific-passwords.html&quot;&gt;an app password&lt;/a&gt;!"
         domain="gmx\\.com,gmx\\.us"
         keepalive="12"
-        link="https://support.gmx.com/pop-imap/toggle.html">
+        link="https://support.gmx.com/pop-imap/imap/server.html#indexlink_help_pop-imap_imap">
         <imap
             host="imap.gmx.com"
             port="993"
@@ -323,9 +324,10 @@
     </select-->
     <provider
         name="gmx.de"
+        documentation="Ist &lt;a href=&quot;https://hilfe.gmx.net/pop-imap/einschalten.html&quot;&gt;IMAP aktiviert&lt;/a&gt;? Die Zwei-Faktor-Authentifizierung erfordert &lt;a href=&quot;https://hilfe.gmx.net/sicherheit/2fa/anwendungsspezifisches-passwort.html&quot;&gt;ein App-Passwort&lt;/a&gt;!"
         domain="gmx\\.de,gmx\\.net,mein\\.gmx,gmx\\.at,gmx\\.ch,mail\\.gmx,email\\.gmx,gmx\\.eu,gmx\\.org,gmx\\.info,gmx\\.biz"
         keepalive="12"
-        link="https://hilfe.gmx.net/pop-imap/einschalten.html">
+        link="https://hilfe.gmx.net/pop-imap/imap/imap-serverdaten.html#indexlink_help_pop-imap_imap">
         <imap
             host="imap.gmx.net"
             port="993"
