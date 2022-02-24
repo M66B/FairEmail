@@ -22,8 +22,12 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -194,8 +198,12 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         public void run() {
             try {
                 final Context context = getContext();
+                final Resources res = getResources();
                 final Editable edit = getText();
+                final int dp24 = Helper.dp2pixels(context, 24);
                 final boolean send_chips = prefs.getBoolean("send_chips", true);
+                boolean generated = prefs.getBoolean("generated_icons", true);
+                boolean identicons = prefs.getBoolean("identicons", false);
 
                 final boolean focus = hasFocus();
                 final int selStart = getSelectionStart();
@@ -252,18 +260,27 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     else if (kar != ',')
                                         edit.insert(++i, ",");
 
-                                    Drawable avatar = null;
+                                    String e = parsed[0].getAddress();
+                                    String p = parsed[0].getPersonal();
+
+                                    Bitmap bm = null;
                                     Uri lookupUri = ContactInfo.getLookupUri(parsed);
                                     if (lookupUri != null)
                                         try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
                                                 context.getContentResolver(), lookupUri, false)) {
-                                            avatar = Drawable.createFromStream(is, email);
+                                            bm = BitmapFactory.decodeStream(is);
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                         }
 
-                                    String e = parsed[0].getAddress();
-                                    String p = parsed[0].getPersonal();
+                                    if (bm == null && generated)
+                                        if (identicons)
+                                            bm = ImageHelper.generateIdenticon(e, dp24, 5, context);
+                                        else
+                                            bm = ImageHelper.generateLetterIcon(e, p, dp24, context);
+
+                                    Drawable avatar = (bm == null ? null : new BitmapDrawable(res, bm));
+
                                     String text = (TextUtils.isEmpty(p) ? e : p);
 
                                     // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
