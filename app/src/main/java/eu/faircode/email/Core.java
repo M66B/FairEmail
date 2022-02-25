@@ -1600,7 +1600,6 @@ class Core {
 
         // Move from trash/drafts only
         if (!EntityFolder.DRAFTS.equals(folder.type) &&
-                !(EntityFolder.INBOX.equals(folder.type) && account.leave_deleted) &&
                 !(EntityFolder.TRASH.equals(folder.type) && account.leave_deleted))
             throw new IllegalArgumentException("Invalid POP3 folder" +
                     " source=" + folder.type + " target=" + target.type +
