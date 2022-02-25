@@ -4,5 +4,5 @@
     android:ellipsize="middle"
     android:textAppearance="@style/TextAppearance.AppCompat.Small"
     app:closeIconVisible="false"
-    app:textEndPadding="3dp"
+    app:textEndPadding="0dp"
     app:textStartPadding="3dp" />
