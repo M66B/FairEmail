@@ -4,6 +4,12 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1848 - 2022-02-25
+
+* Fixed POP3 delete
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1847 - 2022-02-24
 
 * Address bubbles: generated icons
