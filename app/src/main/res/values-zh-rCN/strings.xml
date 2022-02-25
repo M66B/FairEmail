@@ -1582,7 +1582,7 @@
     <string name="title_pro_invalid">无效的响应</string>
     <string name="title_pro_support">FairEmail 需要您的支持，请点击购买专业版功能以维持项目发展并关闭此横幅</string>
     <string name="title_boundary_error">从电子邮件服务器下载消息时出错</string>
-    <string name="title_boundary_retry">请重试</string>
+    <string name="title_boundary_retry">重试</string>
     <string name="title_unexpected_error">未知错误</string>
     <string name="title_log">日志</string>
     <string name="title_auto_scroll">自动滚动</string>

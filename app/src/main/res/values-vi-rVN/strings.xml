@@ -232,6 +232,8 @@
     <string name="title_setup_theme_red_green">Đỏ/xanh lá</string>
     <string name="title_setup_theme_grey">Xám</string>
     <string name="title_setup_theme_black">Đen</string>
+    <string name="title_setup_theme_white">Trắng</string>
+    <string name="title_setup_theme_black_or_white">Đen hoặc trắng</string>
     <string name="title_setup_theme_black_and_white">Đen trắng</string>
     <string name="title_setup_theme_reverse">Đảo màu</string>
     <string name="title_setup_theme_light">Sáng</string>
@@ -301,9 +303,11 @@
     <string name="title_advanced_suggest_received">Đề xuất các địa chỉ được tìm thấy trong các thư đã nhận</string>
     <string name="title_advanced_suggest_frequently">Sắp xếp các địa chỉ được đề xuất theo tần số sử dụng</string>
     <string name="title_advanced_alt_re_fwd">Tiền tố trả lời/chuyển tiếp thay thế</string>
+    <string name="title_advanced_send_chips">Hiển thị bong bóng địa chỉ</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
     <string name="title_advanced_attach_new">Thêm các tệp được chia sẻ vào bản nháp mới</string>
+    <string name="title_advanced_answer_action">Giữ phím trả lời sẽ:</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
@@ -384,6 +388,7 @@
     <string name="title_advanced_bimi_unverified">Người gửi chưa được xác minh</string>
     <string name="title_advanced_bimi_verified">Người gửi đã được xác minh</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
+    <string name="title_advanced_favicons_partial">Chỉ quét %1$s đầu tiên của trang web</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>
     <string name="title_advanced_identicons">Hiện biểu tượng danh tính</string>
     <string name="title_advanced_circular">Hiện biểu tượng tròn</string>
@@ -1691,7 +1696,7 @@
         <item>Đi đến cuộc hội thoại sau</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Rất nhỏ</item>
         <item>Nhỏ</item>
         <item>Vừa</item>
         <item>Lớn</item>

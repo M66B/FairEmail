@@ -84,7 +84,7 @@
     <string name="title_junk_clear">Limpar</string>
     <string name="title_junk_clear_hint">Isto irá eliminar todas as regras de bloqueio do remetente</string>
     <string name="title_notification_sending">A enviar mensagens</string>
-    <string name="title_notification_waiting">A aguardar conexão</string>
+    <string name="title_notification_waiting">A aguardar ligação</string>
     <string name="title_notification_idle">Ausente</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_notification_alert">Alerta de servidor: \'%1$s\'</string>
@@ -125,7 +125,7 @@
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_intro">A configuração de uma conta consiste em três passos podendo, logo após isso, enviar e receber e-mails</string>
     <string name="title_setup_simple">Não há necessidade de alterar outras opções</string>
-    <string name="title_setup_issue">O FairEmail foi desenvolvido para ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Se tiver algum problema, por favor contacte-me primeiro para assistência antes de deixar uma avaliação negativa. Tenho todo o gosto em ajudar!</string>
+    <string name="title_setup_issue">O FairEmail foi desenvolvido para o ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Caso tenha algum problema, peço que me contacte primeiro para assistência antes de deixar uma avaliação negativa. Tenho todo o gosto em ajudar!</string>
     <string name="title_setup_analytics">O FairEmail não exibe anúncios e não monitoriza ou analisa o seu comportamento. O Bugsnag é usado para comunicar erros e está desactivado por defeito.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
@@ -207,8 +207,9 @@
     <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
-    <string name="title_setup_export_remark">Como o ficheiro das definições contém todas as configurações e informações das contas, é encriptado com uma palavra-passe.
-Esta palavra-passe é necessária para importar novamente as definições, por isso, não a esqueça!    </string>
+    <string name="title_setup_export_remark">        Como o ficheiro das definições contém todas as configurações e informações das contas, é encriptado com uma palavra-passe.
+        Esta palavra-passe é necessária para importar novamente as definições, por isso, não a esqueça!
+    </string>
     <string name="title_setup_export_do">O ficheiro de exportação conterá todas as configurações e dados, mas nenhuma mensagem ou imagem referenciada nas assinaturas</string>
     <string name="title_setup_import_do">Contas importadas serão adicionadas sem sobrescrever as já existentes</string>
     <string name="title_setup_password">Palavra-passe</string>
@@ -306,8 +307,9 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_suggest_names">Usar nomes e endereços de e-mail</string>
     <string name="title_advanced_suggest_local">Sugerir contactos armazenados localmente</string>
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados nas mensagens enviadas</string>
-    <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens enviadas</string>
+    <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens recebidas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
+    <string name="title_advanced_send_chips">Mostrar endereços separados em balões</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
     <string name="title_advanced_attach_new">Adicionar ficheiros partilhados a um novo rascunho</string>
@@ -333,15 +335,16 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_remove_signatures">Remover assinaturas reconhecidas</string>
     <string name="title_advanced_receipt">Quando solicitado recibo</string>
     <string name="title_advanced_lookup_mx">Verificar endereços de e-mail do destinatário antes de enviar</string>
-    <string name="title_advanced_metered">Usar conexões limitadas</string>
+    <string name="title_advanced_metered">Usar ligações com tráfego limitado</string>
     <string name="title_advanced_download">Descarregar automaticamente mensagens e anexos numa conexão limitada</string>
     <string name="title_advanced_roaming">Descarregar mensagens e anexos em roaming</string>
     <string name="title_advanced_rlah">Assumir ligação em roaming como no país de origem</string>
     <string name="title_advanced_download_headers">Transferir todos os cabeçalhos das mensagens</string>
     <string name="title_advanced_download_eml">Transferir ficheiros de mensagem em bruto</string>
+    <string name="title_advanced_download_plain">Transferir apenas partes de texto simples (caso esteja disponível)</string>
     <string name="title_advanced_validated">Exigir uma conexão validada (verificada)</string>
     <string name="title_advanced_vpn_only">Conecte-se apenas através de uma VPN</string>
-    <string name="title_advanced_timeout">Conexão expira em (segundos)</string>
+    <string name="title_advanced_timeout">Tempo limite de ligação (em segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
     <string name="title_advanced_ssl_harden">Fortificar conexões SSL</string>
     <string name="title_advanced_manage_connectivity">Gerir conectividade</string>
@@ -449,6 +452,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
     <string name="title_advanced_collapse_marked">Recolher mensagens que estão marcadas, manualmente, como lidas ou não lidas</string>
+    <string name="title_advanced_undo">Tempo limite para reverter</string>
     <string name="title_advanced_quick_filter">Mostrar ícones de filtro rápido não-intrusivos</string>
     <string name="title_advanced_quick_scroll">Mostrar ícones não-intrusivos de navegação rápida</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao mover mensagens</string>
@@ -492,12 +496,14 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_confirm_html">Mostrar mensagens reformatadas por padrão</string>
     <string name="title_advanced_tracking">Tentativa de reconhecer e desactivar mensagens de monitorização</string>
     <string name="title_advanced_hide_timezone">Enviar mensagens sem dados de fuso horário</string>
+    <string name="title_advanced_client_id">Enviar o nome e a versão da aplicação para o servidor de correio electrónico</string>
     <string name="title_advanced_display_hidden">Mostrar texto oculto de mensagens</string>
     <string name="title_advanced_incognito_keyboard">Utilizar teclado incógnito (Android 8+)</string>
     <string name="title_advanced_secure">Esconder do ecrã de aplicações recentes e impedir captura de ecrã</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo limite para autenticação biométrica</string>
     <string name="title_advanced_autolock">Bloquear quando o ecrã se desligar</string>
+    <string name="title_advanced_autolock_nav">Bloquear ao sair da aplicação</string>
     <string name="title_advanced_generic_user_agent">Utilizar \'user agent\' de navegador genérico</string>
     <string name="title_advanced_load_emoji">Carregar emoji atualizado do Google Play Services</string>
     <string name="title_advanced_disconnect_auto_update">Actualizar automaticamente as listas semanalmente</string>
@@ -522,7 +528,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_manage_keys_hint">        Isto abrirá as configurações de segurança do Android.
         As chaves e os certificados geralmente podem ser encontrados em Dados biométricos e segurança > Outras definições de segurança.
     </string>
-    <string name="title_advanced_external_search">Permitir procura de mensagens por outras aplicações</string>
+    <string name="title_advanced_external_search">Permitir a pesquisa de mensagens por parte de aplicações externas</string>
     <string name="title_advanced_shortcuts">Mostrar contactos usados com frequência no menu de partilha do Android</string>
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
@@ -542,17 +548,21 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_log_info">Registo de depuração</string>
     <string name="title_advanced_debug">Modo de Depuração</string>
     <string name="title_advanced_manual_hint">Se a recepção de mensagens estiver desactivada, continua a ser possível receber mensagens manualmente, deslizando a lista de mensagens para baixo</string>
-    <string name="title_advanced_poll_battery">Isto pode causar elevado uso de bateria!</string>
+    <string name="title_advanced_poll_battery">Isto pode causar uma utilização elevada de bateria!</string>
+    <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá comparar, de todas as vezes, as mensagens locais e no servidor, o que é uma operação \'pesada\' e pode resultar numa utilização de bateria adicional, especialmente se existirem muitas mensagens. A opção \'receber sempre\' irá prevenir isso, ao estar sempre a acompanhar as alterações.</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
     <string name="title_advanced_quick_sync_hint">Isto reduz o uso de dados, mas as novas mensagens podem ser perdidas se o servidor de e-mail não seguir os padrões</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não têm o suporte correto, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
-    <string name="title_advanced_subject_threading_hint">Apenas mensagens recebidas nas últimas %1$d horas</string>
+    <string name="title_advanced_subject_threading_hint">Apenas para as mensagens recebidas nas últimas %1$d horas</string>
     <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de se conectar a uma conta</string>
     <string name="title_advanced_lookup_mx_hint">Faz a verificação se existem registos DNS MX</string>
-    <string name="title_advanced_suggest_names_hint">Caso esteja desactivada, apenas se utilizará os endereços de correio electrónico ao seleccionar contactos</string>
+    <string name="title_advanced_suggest_names_hint">Com a opção desactiva, ao seleccionar um contacto apenas os endereços de e-mail serão utilizados</string>
+    <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Os dados de contacto serão armazenados para mensagens recém-enviadas ou recebidas apenas se a função estiver activa.</string>
+    <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>
     <string name="title_advanced_rlah_hint">Presume que não há roaming dentro da UE</string>
+    <string name="title_advanced_plain_hint">Activar esta opção irá reduzir a utilização de dados, mas as mensagens serão mostradas sem formatação</string>
     <string name="title_advanced_roaming_hint">Os cabeçalhos de mensagens serão sempre obtidos em roaming. Pode usar a configuração de roaming do dispositivo para desactivar a internet em roaming.</string>
     <string name="title_advanced_layout_hint">Pode mudar para um layout mais compacto e alterar o tamanho do texto da mensagem no menu da barra de acção presente na parte superior da vista de mensagens</string>
     <string name="title_advanced_navbar_colorize_hint">O funcionamento disto depende da versão e variante do Android</string>
@@ -563,6 +573,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_notify_action_hint">No máximo três acções serão mostradas</string>
+    <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificação \'a monitorizar\'</string>
     <string name="title_advanced_notify_preview_only_hint">Adia o aparecimento de notificações até que o texto da mensagem tenha sido transferido</string>
     <string name="title_advanced_fts_hint">Activar esta função melhora o desempenho da pesquisa, porém aumenta o consumo de bateria e a utilização de espaço do armazenamento</string>
     <string name="title_advanced_english_hint">Mudar esta definição reiniciará a aplicação</string>
@@ -608,6 +619,7 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
         Habitualmente a limitação advém da velocidade do espaço de armazenamento interno do dispositivo.
     </string>
     <string name="title_synchronize_enabled">Sincronizar</string>
+    <string name="title_notify_batch_disable">Desactivar as notificações de novas mensagens</string>
     <string name="title_delete_local">Eliminar mensagens locais</string>
     <string name="title_delete_browsed">Eliminar msgs navegadas/pesquisadas</string>
     <string name="title_expunge">Esponja</string>
@@ -620,20 +632,24 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_insert_contact">Adicionar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
     <string name="title_import_contacts">Importar vCards</string>
+    <string name="title_check_operations">A decorrer verificação de operações</string>
     <string name="title_show_flagged">Mostrar n⁰ de msg. favoritas</string>
     <string name="title_sort_unread_atop">Mostrar pastas por ler primeiro</string>
     <string name="title_search_folder">Pesquisar pasta</string>
     <string name="title_apply_to_all">Aplicar a tudo</string>
     <string name="title_edit_account_name">Editar nome da conta</string>
     <string name="title_unified_folder">Mostrar na cx. entrada unificada</string>
+    <string name="title_poll_folder_remark">A maioria dos servidores de e-mail apenas permite mensagens push em determinadas pastas!</string>
     <string name="title_download_folder">Transferir automaticamente todos os textos e anexos das mensagens</string>
     <string name="title_notify_folder">Notificação de novas mensagens</string>
+    <string name="title_sync_days_remark">O aumento deste valor fará subir a utilização da bateria e de dados</string>
     <string name="title_poll_system">Definir a periodicidade com a qual são verificadas novas mensagens nas pastas do sistema</string>
     <string name="title_poll_user">Definir a periodicidade com a qual são verificadas novas mensagens nas pastas de utilizador</string>
     <string name="title_auto_trash">Mover automaticamente as mensagens antigas para o lixo</string>
     <string name="title_auto_delete_hint">Mensagens antigas são as mensagens que deixam de estar guardadas no dispositivo</string>
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
+    <string name="title_folder_delete">Eliminar permanentemente esta pasta e quaisquer mensagens que nela estejam armazenadas?</string>
     <string name="title_months">Meses</string>
     <string name="title_months_all">Todos</string>
     <string name="title_folder_unified">Caixa de entrada unificada</string>
@@ -645,8 +661,14 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_folder_junk">Spam</string>
     <string name="title_folder_sent">Enviados</string>
     <string name="title_folder_system">Sistema</string>
+    <string name="title_folder_user">Utilizador</string>
     <string name="title_folder_user_only">Apenas para pastas do utilizador</string>
+    <string name="title_folder_primary">Pastas da conta primária</string>
     <string name="title_folders_unified">Pastas da caixa de entrada unificadas</string>
+    <string name="title_folder_local_drafts">Rascunhos locais</string>
+    <string name="title_no_folders">Sem pastas</string>
+    <string name="title_no_messages">Sem mensagens</string>
+    <string name="title_filters_active">Um ou mais filtros activos</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>
@@ -759,8 +781,13 @@ Esta palavra-passe é necessária para importar novamente as definições, por i
     <string name="title_search_index_hint">A procura é rápida através do índice de pesquisa, mas só encontra palavras inteiras.</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
     <string name="title_search_more">Mais opções</string>
-    <string name="title_search_with_unseen">Não lida</string>
+    <string name="title_search_with">Limitar pesquisa a</string>
+    <string name="title_search_with_unseen">Não lidas</string>
     <string name="title_search_with_flagged">Com estrela</string>
+    <string name="title_search_with_hidden">Ocultas (apenas no dispositivo)</string>
+    <string name="title_search_with_encrypted">Encriptadas (apenas no dispositivo)</string>
+    <string name="title_search_with_attachments">Com anexos (apenas no dispositivo)</string>
+    <string name="title_search_with_size">Tamanho da mensagem maior do que</string>
     <string name="title_search_in_trash">No lixo</string>
     <string name="title_search_in_junk">No spam</string>
     <string name="title_search_with_before">Anterior a</string>
