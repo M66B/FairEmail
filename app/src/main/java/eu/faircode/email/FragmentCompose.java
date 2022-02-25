@@ -6666,7 +6666,6 @@ public class FragmentCompose extends FragmentBase {
             int focussed = args.getInt("focussed");
 
             final Context context = getContext();
-            final PackageManager pm = context.getPackageManager();
             final ContentResolver resolver = context.getContentResolver();
 
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_contact_group, null);
