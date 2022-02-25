@@ -102,6 +102,7 @@ public class ActivityEML extends ActivityBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean junk;
     private Uri uri;
     private MessageHelper.AttachmentPart apart;
     private static final int REQUEST_ATTACHMENT = 1;
@@ -109,6 +110,9 @@ public class ActivityEML extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+            junk = savedInstanceState.getBoolean("fair:junk");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle("EML");
@@ -223,6 +227,12 @@ public class ActivityEML extends ActivityBase {
         super.onNewIntent(intent);
         setIntent(intent);
         load();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:junk", junk);
+        super.onSaveInstanceState(outState);
     }
 
     private void load() {
@@ -567,10 +577,24 @@ public class ActivityEML extends ActivityBase {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_junk).setVisible(BuildConfig.DEBUG);
+        menu.findItem(R.id.menu_save).setIcon(junk
+                ? R.drawable.twotone_report_24
+                : R.drawable.twotone_move_to_inbox_24);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_save) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_save) {
             onMenuSave();
             return true;
+        } else if (itemId == R.id.menu_junk) {
+            junk = !junk;
+            item.setChecked(junk);
+            invalidateOptionsMenu();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -601,6 +625,7 @@ public class ActivityEML extends ActivityBase {
                                 Bundle args = new Bundle();
                                 args.putParcelable("uri", uri);
                                 args.putLong("account", account.id);
+                                args.putBoolean("junk", junk);
 
                                 new SimpleTask<String>() {
                                     @Override
@@ -617,8 +642,9 @@ public class ActivityEML extends ActivityBase {
                                         EntityAccount account = db.account().getAccount(aid);
                                         if (account == null)
                                             return null;
-                                        EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
-                                        if (inbox == null)
+                                        EntityFolder folder = db.folder().getFolderByType(account.id,
+                                                junk ? EntityFolder.JUNK : EntityFolder.INBOX);
+                                        if (folder == null)
                                             throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
 
                                         ContentResolver resolver = context.getContentResolver();
@@ -634,7 +660,7 @@ public class ActivityEML extends ActivityBase {
                                                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                                                 iservice.connect(account);
 
-                                                IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(inbox.name);
+                                                IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(folder.name);
                                                 ifolder.open(Folder.READ_WRITE);
 
                                                 if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
@@ -644,10 +670,10 @@ public class ActivityEML extends ActivityBase {
                                             }
                                         }
 
-                                        EntityOperation.sync(context, inbox.id, true);
+                                        EntityOperation.sync(context, folder.id, true);
                                         ServiceSynchronize.eval(context, "EML");
 
-                                        return account.name + "/" + inbox.name;
+                                        return account.name + "/" + folder.name;
                                     }
 
                                     @Override

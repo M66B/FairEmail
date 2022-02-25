@@ -6,4 +6,9 @@
         android:icon="@drawable/twotone_move_to_inbox_24"
         android:title="@string/title_save"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_junk"
+        android:checkable="true"
+        android:title="@string/title_folder_junk"
+        app:showAsAction="never" />
 </menu>
