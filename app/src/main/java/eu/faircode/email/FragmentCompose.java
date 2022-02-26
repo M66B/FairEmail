@@ -2788,13 +2788,36 @@ public class FragmentCompose extends FragmentBase {
                 if (!image)
                     return null;
 
+                args.putInt("start", start);
+
                 DB db = DB.getInstance(context);
                 db.message().setMessagePlainOnly(id, 0);
 
-                args.putInt("start", start);
+                String html = HtmlHelper.toHtml(s, context);
 
-                // TODO: double conversion
-                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s, context), new Html.ImageGetter() {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean write_below = prefs.getBoolean("write_below", false);
+
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft != null) {
+                    File file = draft.getFile(context);
+                    Elements ref = JsoupEx.parse(file).select("div[fairemail=reference]");
+
+                    Document doc = JsoupEx.parse(html);
+
+                    for (Element e : ref)
+                        if (write_below && draft.wasforwardedfrom == null)
+                            doc.body().prependChild(e);
+                        else
+                            doc.body().appendChild(e);
+
+                    EntityIdentity identity = db.identity().getIdentity(draft.identity);
+                    addSignature(context, doc, draft, identity);
+
+                    Helper.writeText(file, doc.html());
+                }
+
+                return HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, 1.0f, etBody);
@@ -2804,16 +2827,14 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final Spanned body) {
-                if (body != null) {
-                    int start = args.getInt("start");
+                if (body == null)
+                    return;
 
-                    etBody.setText(body);
-                    if (start < body.length())
-                        etBody.setSelection(start);
+                etBody.setText(body);
 
-                    // Save text with image
-                    onAction(R.id.action_save, "image");
-                }
+                int start = args.getInt("start");
+                if (start < body.length())
+                    etBody.setSelection(start);
             }
 
             @Override
