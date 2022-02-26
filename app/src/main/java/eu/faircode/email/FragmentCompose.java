@@ -324,7 +324,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_PERMISSION = 15;
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "compose");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
