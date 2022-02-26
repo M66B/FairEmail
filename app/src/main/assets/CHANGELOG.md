@@ -4,6 +4,13 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1849 - 2022-02-26
+
+* Fixed inserting photos after device rotation
+* Showing if there are attachments in conversations
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1848 - 2022-02-25
 
 * Fixed POP3 delete
