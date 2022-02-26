@@ -139,6 +139,12 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     }
 
     @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        setAlpha(enabled ? 1.0f : Helper.LOW_LIGHT);
+    }
+
+    @Override
     public boolean onPreDraw() {
         try {
             return super.onPreDraw();
