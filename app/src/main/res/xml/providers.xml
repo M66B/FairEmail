@@ -364,9 +364,10 @@
     </provider>
     <provider
         name="Yandex"
+        documentation="Please check if &lt;a href=&quot;https://yandex.com/support/mail/mail-clients/others.html&quot;&gt;IMAP is enabled&lt;/a&gt;"
         domain="yandex\\.com"
         id="yandex"
-        link="https://yandex.com/support/mail/mail-clients.html#imap">
+        link="https://yandex.com/support/mail/mail-clients/others.html">
         <imap
             host="imap.yandex.com"
             port="993"

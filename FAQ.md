@@ -47,6 +47,7 @@ For authorizing:
 * GMX: with two factor authentication you'll need to use [an app password](https://support.gmx.com/security/2fa/application-specific-passwords.html) ([German](https://hilfe.gmx.net/sicherheit/2fa/anwendungsspezifisches-passwort.html))
 * T-online.de: please make sure you use [an email password](https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-adresse-passwoerter-und-sicherheit/passwort-fuer-e-mail-programme-einrichten) (German) and not your account password
 * Ionos (1und1): please make sure you use [an email password](https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-11-ionos-aendern/) (German) and not your account password
+* Yandex: please check if [IMAP is enabled](https://yandex.com/support/mail/mail-clients/others.html)
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
