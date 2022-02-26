@@ -66,6 +66,7 @@ public interface DaoMessage {
             "   WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible_unseen" +
+            ", SUM(message.attachments) AS totalAttachments" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -144,6 +145,7 @@ public interface DaoMessage {
             "   WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible_unseen" +
+            ", SUM(message.attachments) AS totalAttachments" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -208,6 +210,7 @@ public interface DaoMessage {
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", 1 AS visible" +
             ", NOT message.ui_seen AS visible_unseen" +
+            ", attachments AS totalAttachments" +
             ", message.total AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -487,6 +490,7 @@ public interface DaoMessage {
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", 1 AS visible" +
             ", NOT message.ui_seen AS visible_unseen" +
+            ", message.attachments AS totalAttachments" +
             ", message.total AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -517,6 +521,7 @@ public interface DaoMessage {
             ", 0 AS drafts" +
             ", 1 AS visible" +
             ", NOT message.ui_seen AS visible_unseen" +
+            ", message.attachments AS totalAttachments" +
             ", message.total AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +

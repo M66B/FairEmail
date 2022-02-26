@@ -1351,7 +1351,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSnoozed.setVisibility(message.ui_snoozed == null && !message.ui_unsnoozed ? View.GONE : View.VISIBLE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivForwarded.setVisibility(message.isForwarded() ? View.VISIBLE : View.GONE);
-            ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+            ivAttachments.setVisibility(message.totalAttachments > 0 ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.FOLDER)
                 tvFolder.setText(outbox ? message.identityEmail : message.accountName);
@@ -7132,6 +7132,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (prev.visible_unseen != next.visible_unseen) {
                     same = false;
                     log("visible_unseen changed " + prev.visible_unseen + "/" + next.visible_unseen, next.id);
+                }
+                if (prev.totalAttachments != next.totalAttachments) {
+                    same = false;
+                    log("totalAttachments changed " + prev.totalAttachments + "/" + next.totalAttachments, next.id);
                 }
                 if (!Objects.equals(prev.totalSize, next.totalSize)) {
                     same = false;

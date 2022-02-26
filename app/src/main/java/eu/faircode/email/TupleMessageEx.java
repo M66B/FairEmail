@@ -59,6 +59,7 @@ public class TupleMessageEx extends EntityMessage {
     public int drafts;
     public int visible;
     public int visible_unseen;
+    public int totalAttachments;
     public Long totalSize;
     public Integer ui_priority;
     public Integer ui_importance;
@@ -163,6 +164,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.drafts == other.drafts &&
                     this.visible == other.visible &&
                     this.visible_unseen == other.visible_unseen &&
+                    this.totalAttachments == other.totalAttachments &&
                     Objects.equals(this.totalSize, other.totalSize) &&
                     Objects.equals(this.ui_priority, other.ui_priority) &&
                     Objects.equals(this.ui_importance, other.ui_importance) &&
