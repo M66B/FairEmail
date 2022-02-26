@@ -124,7 +124,7 @@
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_intro">A configuração de uma conta consiste em três passos podendo, logo após isso, enviar e receber e-mails</string>
-    <string name="title_setup_simple">Não há necessidade de alterar outras opções</string>
+    <string name="title_setup_simple">Não há necessidade de todo, de modificar qualquer definição</string>
     <string name="title_setup_issue">O FairEmail foi desenvolvido para o ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Caso tenha algum problema, peço que me contacte primeiro para assistência antes de deixar uma avaliação negativa. Tenho todo o gosto em ajudar!</string>
     <string name="title_setup_analytics">O FairEmail não exibe anúncios e não monitoriza ou analisa o seu comportamento. O Bugsnag é usado para comunicar erros e está desactivado por defeito.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
@@ -328,7 +328,7 @@
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_discard_delete">Ao discartar rascunho, apagar permanentemente</string>
-    <string name="title_advanced_reply_move">Ao responder uma mensagem em uma pasta do usuário, guarde a resposta na mesma pasta</string>
+    <string name="title_advanced_reply_move">Ao responder a uma mensagem numa pasta do utilizador, guardar a resposta nessa pasta</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
     <string name="title_advanced_usenet_signature">Seguir a convenção de assinatura Usenet</string>
@@ -1051,7 +1051,7 @@
         To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
-    <string name="title_pro_whichever">Quaisquer que sejam os recursos escolhidos como recursos profissionais, há sempre alguém que reclama que um recurso deve ser gratuito. Por favor, não seja essa pessoa.</string>
+    <string name="title_pro_whichever">Independentemente das funcionalidades escolhidas como parte do pacote pro, há sempre alguém que se queixa acerca de uma qualquer funcionalidade que deveria ser gratuita. Por favor, não seja essa pessoa.</string>
     <string name="title_pro_hide">Ocultar mensagem pequena por %1$d semana(s)</string>
     <string name="title_pro_hint">Comprar o pacote pro permitirá que utilize todas as funcionalidades pro actuais e futuras, como contribui para a manutenção e suporte desta aplicação.</string>
     <string name="title_pro_price">Porque razão o pacote pro é tão caro?</string>
