@@ -150,6 +150,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.w3c.dom.Entity;
 import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedOutputStream;
@@ -5361,6 +5362,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_raw_send_message).setEnabled(canRaw);
             popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(canRaw);
 
+            popupMenu.getMenu().findItem(R.id.menu_thread_info)
+                    .setVisible(BuildConfig.TEST_RELEASE || BuildConfig.DEBUG || debug);
+
             popupMenu.getMenu().findItem(R.id.menu_resync)
                     .setEnabled(message.uid != null ||
                             message.accountProtocol == EntityAccount.TYPE_POP)
@@ -5463,6 +5467,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_raw_send_thread) {
                         onMenuRawSend(message, true);
+                        return true;
+                    } else if (itemId == R.id.menu_thread_info) {
+                        onMenuThreadInfo(message);
                         return true;
                     } else if (itemId == R.id.menu_resync) {
                         onMenuResync(message);
@@ -5797,6 +5804,72 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "importance:set");
+        }
+
+        private void onMenuThreadInfo(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<List<EntityMessage>>() {
+                @Override
+                protected List<EntityMessage> onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    Map<String, EntityMessage> map = new HashMap<>();
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    if (!TextUtils.isEmpty(message.inreplyto))
+                        for (EntityMessage m : db.message().getMessagesByMsgId(message.account, message.inreplyto))
+                            map.put(m.msgid, m);
+
+                    if (!TextUtils.isEmpty(message.references))
+                        for (String ref : message.references.split(" "))
+                            for (EntityMessage m : db.message().getMessagesByMsgId(message.account, ref))
+                                map.put(m.msgid, m);
+
+                    return new ArrayList(map.values());
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityMessage> referenced) {
+                    DateFormat DTF = Helper.getDateTimeInstance(context);
+
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+
+                    ssb.append("Message-ID: ").append(message.msgid).append("\n");
+                    if (!TextUtils.isEmpty(message.inreplyto))
+                        ssb.append("In-reply-to: ").append(message.inreplyto).append("\n");
+                    if (!TextUtils.isEmpty(message.references))
+                        ssb.append("References: ").append(message.references).append("\n");
+                    ssb.append("Thread: ").append(message.thread).append("\n");
+                    ssb.append("\n");
+
+                    if (referenced != null)
+                        for (EntityMessage ref : referenced)
+                            ssb.append(ref.msgid).append(": ")
+                                    .append(DTF.format(ref.received)).append(' ')
+                                    .append(ref.subject == null ? "" : ref.subject)
+                                    .append("\n\n");
+
+                    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
+
+                    new AlertDialog.Builder(context)
+                            .setTitle(context.getString(R.string.title_thread_info))
+                            .setMessage(ssb)
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:resync");
+
         }
 
         private void onMenuResync(TupleMessageEx message) {

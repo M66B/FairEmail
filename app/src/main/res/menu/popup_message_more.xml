@@ -151,6 +151,11 @@
         </item>
 
         <item
+            android:id="@+id/menu_thread_info"
+            android:icon="@drawable/baseline_mail_more_24"
+            android:title="@string/title_thread_info" />
+
+        <item
             android:id="@+id/menu_resync"
             android:icon="@drawable/twotone_sync_24"
             android:title="@string/title_resync" />

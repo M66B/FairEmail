@@ -1378,6 +1378,7 @@
     <string name="title_verify">Verify</string>
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
+    <string name="title_thread_info" translatable="false">Thread info</string>
     <string name="title_resync">Resync</string>
     <string name="title_alternative_text">Show plain text</string>
     <string name="title_alternative_html">Show HTML</string>
