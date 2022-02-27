@@ -5840,20 +5840,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
-                    ssb.append("Message-ID: ").append(message.msgid).append("\n");
-                    if (!TextUtils.isEmpty(message.inreplyto))
-                        ssb.append("In-reply-to: ").append(message.inreplyto).append("\n");
-                    if (!TextUtils.isEmpty(message.references))
-                        ssb.append("References: ").append(message.references).append("\n");
-                    ssb.append("Thread: ").append(message.thread).append("\n");
+                    int start = 0;
+                    ssb.append("Message-ID: ");
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                    ssb.append(message.msgid).append("\n");
+
+                    if (!TextUtils.isEmpty(message.inreplyto)) {
+                        start = ssb.length();
+                        ssb.append("In-reply-to: ");
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                        ssb.append(message.inreplyto).append("\n");
+                    }
+
+                    if (!TextUtils.isEmpty(message.references)) {
+                        start = ssb.length();
+                        ssb.append("References: ");
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                        ssb.append("\n");
+                        for (String ref : message.references.split(" "))
+                            ssb.append(ref).append("\n");
+                    }
+
+                    start = ssb.length();
+                    ssb.append("Thread: ");
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                    ssb.append(message.thread).append("\n");
+
                     ssb.append("\n");
 
                     if (referenced != null)
-                        for (EntityMessage ref : referenced)
-                            ssb.append(ref.msgid).append(": ")
-                                    .append(DTF.format(ref.received)).append(' ')
+                        for (EntityMessage ref : referenced) {
+                            start = ssb.length();
+                            ssb.append(ref.msgid).append(": ");
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                            ssb.append(DTF.format(ref.received)).append(' ')
                                     .append(ref.subject == null ? "" : ref.subject)
                                     .append("\n\n");
+                        }
 
                     ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
 
