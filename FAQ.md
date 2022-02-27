@@ -606,8 +606,8 @@ After enabling two factor authentication there will be this error message:
 *[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
 
 The error message "*Authentication failed - Invalid credentials*" or *Token refresh required* means that the Android account manager was not able to refresh the access token,
-or that getting an access token was not allowed, for example because this wasn't enabled in *Family Link*
-(please [see here](https://www.androidpolice.com/2021/06/10/google-accounts-for-kids-can-now-finally-sign-into-third-party-apps/) about how to grant access).
+or that getting an access token was not allowed,
+for example when the account is a [Family Link](https://support.google.com/families/answer/7101025) account, in which case you can use the Gmail app only.
 A common cause for this problem is using a VPN, a firewall app or an ad blocker which blocks internet access for the Android account manager.
 You can workaround this issue by using an app password.
 Please [see here](#user-content-howto) about how you can delete the account configured with the quick setup wizard.
