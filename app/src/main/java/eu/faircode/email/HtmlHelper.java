@@ -2056,6 +2056,10 @@ public class HtmlHelper {
     }
 
     private static boolean isTrackingPixel(Element img) {
+        // Newton mail
+        if ("cloudmagic-smart-beacon".equals(img.className()))
+            return true;
+
         String width = img.attr("width").trim();
         String height = img.attr("height").trim();
 
