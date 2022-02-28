@@ -621,6 +621,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 message.ui_seen = true;
                 message.ui_hide = true;
                 message.ui_busy = Long.MAX_VALUE; // Needed to keep messages in user folders
+                message.raw = null;
                 message.error = null;
                 message.id = db.message().insertMessage(message);
 
