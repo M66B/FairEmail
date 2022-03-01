@@ -3082,6 +3082,8 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 * See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
 * Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
 
+Error reports have helped to find otherwise hard to find bugs and therefore improve the overall stability of the app.
+
 <br />
 
 <a name="faq105"></a>
