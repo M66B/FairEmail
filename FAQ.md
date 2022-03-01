@@ -626,6 +626,8 @@ See [here](https://support.google.com/accounts/answer/185833) about how to gener
 
 **Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
+**Important**: using your account password [won't be possible anymore from May 30, 2022](https://support.google.com/accounts/answer/6010255).
+
 See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps"
 or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
 
