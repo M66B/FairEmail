@@ -2917,16 +2917,30 @@ public class MessageHelper {
 
                     if (content instanceof String)
                         result = (String) content;
-                    else if (content instanceof InputStream)
+                    else if (content instanceof InputStream) {
+                        // java.io.ByteArrayInputStream
                         // Typically com.sun.mail.util.QPDecoderStream
-                        result = Helper.readStream((InputStream) content);
-                    else
+                        if (BuildConfig.DEBUG && false)
+                            warnings.add(content.getClass().getName());
+                        Charset charset;
+                        try {
+                            String cs = h.contentType.getParameter("charset");
+                            charset = (cs == null ? StandardCharsets.ISO_8859_1 : Charset.forName(cs));
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                            charset = StandardCharsets.ISO_8859_1;
+                        }
+                        result = Helper.readStream((InputStream) content, charset);
+                    } else
                         result = content.toString();
                 } catch (IOException | FolderClosedException | MessageRemovedException ex) {
                     throw ex;
                 } catch (Throwable ex) {
-                    Log.w(ex);
-                    warnings.add(Log.formatThrowable(ex, false));
+                    Log.e(ex);
+                    if (BuildConfig.TEST_RELEASE)
+                        warnings.add(ex + "\n" + android.util.Log.getStackTraceString(ex));
+                    else
+                        warnings.add(Log.formatThrowable(ex, false));
                     return null;
                 }
 
