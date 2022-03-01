@@ -6346,12 +6346,6 @@ public class FragmentCompose extends FragmentBase {
                 hint.setSpan(new RelativeSizeSpan(0.7f), start, hint.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 etBody.setHint(hint);
 
-                if (state != State.LOADED) {
-                    int pos = getAutoPos(0, etBody.length());
-                    if (pos < 0)
-                        pos = 0;
-                    etBody.setSelection(pos);
-                }
                 grpBody.setVisibility(View.VISIBLE);
 
                 cbSignature.setChecked(draft.signature);
@@ -6403,7 +6397,17 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                setFocus(selStart > 0 ? R.id.etBody : null, selStart, selEnd, postShow == null);
+                int s = (selStart == 0 ? -1 : selStart);
+                int e = (selStart == 0 ? -1 : selEnd);
+
+                if (s < 0) {
+                    int pos = getAutoPos(0, etBody.length());
+                    if (pos < 0)
+                        pos = 0;
+                    etBody.setSelection(pos);
+                }
+
+                setFocus(s < 0 ? null : R.id.etBody, s, e, postShow == null);
                 if (postShow != null)
                     getMainHandler().post(postShow);
             }
