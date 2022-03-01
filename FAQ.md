@@ -1291,6 +1291,9 @@ The error *... Login Rate Limit Hit ...* means that there were too many login at
 
 The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
 
+The Outlook specific error *... Command Error. 10 ...* probably means that the OAuth token expired or was invalidated.
+Authenticating the account again with the quick setup wizard will probably resolve this condition.
+
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
