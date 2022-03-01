@@ -2931,8 +2931,10 @@ public class MessageHelper {
                             charset = StandardCharsets.ISO_8859_1;
                         }
                         result = Helper.readStream((InputStream) content, charset);
-                    } else
+                    } else {
+                        Log.e(content.getClass().getName());
                         result = content.toString();
+                    }
                 } catch (IOException | FolderClosedException | MessageRemovedException ex) {
                     throw ex;
                 } catch (Throwable ex) {
