@@ -3468,6 +3468,8 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider.
 The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
+Some email servers, reportedly the Outlook email server, respond with a hard bounce to a hard bounce.
+
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
