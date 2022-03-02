@@ -77,6 +77,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private TextView tvAutoLockNavHint;
     private SwitchCompat swClientId;
     private TextView tvClientId;
+    private ImageButton ibClientId;
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swIncognitoKeyboard;
     private ImageButton ibIncognitoKeyboard;
@@ -133,6 +134,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         tvAutoLockNavHint = view.findViewById(R.id.tvAutoLockNavHint);
         swClientId = view.findViewById(R.id.swClientId);
         tvClientId = view.findViewById(R.id.tvClientId);
+        ibClientId = view.findViewById(R.id.ibClientId);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swIncognitoKeyboard = view.findViewById(R.id.swIncognitoKeyboard);
         ibIncognitoKeyboard = view.findViewById(R.id.ibIncognitoKeyboard);
@@ -304,6 +306,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("client_id", checked).apply();
                 ServiceSynchronize.reload(compoundButton.getContext(), null, false, "id");
+            }
+        });
+
+        ibClientId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.ID_COMMAND_URI), true);
             }
         });
 
