@@ -345,7 +345,7 @@
     <string name="title_advanced_signature_reply">Koristi potpis za odgovore</string>
     <string name="title_advanced_signature_forward">Koristi potpis za prosljeđenje</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju nacrta, trajno izbriši nacrt</string>
-    <string name="title_advanced_reply_move">Pri odgovaranju na poruku, sačuvaj odgovor u isti korisnički folder</string>
+    <string name="title_advanced_reply_move">Pri odgovaranju na poruku, sačuvaj odgovor u isti folder</string>
     <string name="title_advanced_auto_link">Automatski kreiraj linkove (hiperveze)</string>
     <string name="title_advanced_plain_only">Pošalji običan tekst po zadanom</string>
     <string name="title_advanced_flow">\'format flowed\' način prikaza običnog teksta</string>

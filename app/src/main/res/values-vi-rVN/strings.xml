@@ -324,7 +324,6 @@
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
-    <string name="title_advanced_reply_move">Khi trả lời một thư trong một thư mục người dùng, lưu thư trả lời vào thư mục đó</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
     <string name="title_advanced_flow">\'format flowed\' cho văn bản thường</string>

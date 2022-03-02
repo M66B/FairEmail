@@ -335,7 +335,7 @@
     <string name="title_advanced_signature_reply">Utiliser la signature lors de la réponse</string>
     <string name="title_advanced_signature_forward">Utiliser la signature lors du transfert</string>
     <string name="title_advanced_discard_delete">Lors de l’abandon d’un brouillon, le supprimer définitivement</string>
-    <string name="title_advanced_reply_move">Lors de la réponse à un message dans un dossier utilisateur, enregistrer la réponse dans le même dossier</string>
+    <string name="title_advanced_reply_move">Lors de la réponse à un message, enregistrer la réponse dans le même dossier</string>
     <string name="title_advanced_auto_link">Créer automatiquement des liens</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_flow">Utiliser \'format flowed\' pour le texte brut</string>

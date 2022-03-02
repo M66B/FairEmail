@@ -323,7 +323,6 @@
     <string name="title_advanced_signature_reply">Usar sinatura nas contestacións</string>
     <string name="title_advanced_signature_forward">Usar sinatura nos reenvíos</string>
     <string name="title_advanced_discard_delete">Borrar permanentemente os borradores descartados</string>
-    <string name="title_advanced_reply_move">Cando se responda a unha mensaxe en un cartafol de usuario, gardar a resposta no mesmo cartafol</string>
     <string name="title_advanced_auto_link">Crear ligazóns automaticamente</string>
     <string name="title_advanced_plain_only">Enviar só en formato texto por defecto</string>
     <string name="title_advanced_flow">\'format flowed\' para formato texto</string>

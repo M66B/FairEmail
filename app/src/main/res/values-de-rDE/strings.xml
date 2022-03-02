@@ -333,7 +333,7 @@
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
     <string name="title_advanced_signature_forward">Signatur beim Weiterleiten hinzufügen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
-    <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht in einem Benutzerordner die Antwort im selben Ordner speichern</string>
+    <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht die Antwort im selben Ordner speichern</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
     <string name="title_advanced_plain_only">Standardmäßig nur als unformatierten Text senden</string>
     <string name="title_advanced_flow">Format fließend für unformatierten Text</string>

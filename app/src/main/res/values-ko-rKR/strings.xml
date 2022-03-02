@@ -235,6 +235,7 @@
     <string name="title_advanced_signature_reply">답장 시 서명 사용</string>
     <string name="title_advanced_signature_forward">전달 시 서명 사용</string>
     <string name="title_advanced_discard_delete">초안이 영구적으로 삭제됩니다</string>
+    <string name="title_advanced_reply_move">답장 시 응답을 같은 폴더에 저장합니다</string>
     <string name="title_advanced_metered">과금 연결 사용</string>
     <string name="title_advanced_rlah">EU 내 무제한 로밍</string>
     <string name="title_advanced_download_headers">모든 메시지 제목 다운로드</string>

@@ -324,10 +324,10 @@
     <string name="title_advanced_signature_reply">回复时使用签名</string>
     <string name="title_advanced_signature_forward">转发时使用签名</string>
     <string name="title_advanced_discard_delete">舍弃草稿时将其永久删除</string>
-    <string name="title_advanced_reply_move">回复用户文件夹中的消息时，将回复保存在相同文件夹中</string>
+    <string name="title_advanced_reply_move">回复消息时在所在文件夹中保存回复</string>
     <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
-    <string name="title_advanced_flow">对纯文本采用”格式流动式“（format flowed）引用文本换行</string>
+    <string name="title_advanced_flow">纯文本中采用可流动换行格式（format=flowed）</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
     <string name="title_advanced_receipt">请求回执时</string>
@@ -339,7 +339,7 @@
     <string name="title_advanced_download_headers">下载所有消息标题</string>
     <string name="title_advanced_download_eml">下载原始消息文件</string>
     <string name="title_advanced_download_plain">默认只下载纯文本部分（如果可用）</string>
-    <string name="title_advanced_validated">仅限通过检查的已验证连接</string>
+    <string name="title_advanced_validated">仅限已通过可用性检查的连接</string>
     <string name="title_advanced_vpn_only">仅通过 VPN 连接</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
@@ -603,9 +603,9 @@
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
-    <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
+    <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
-    <string name="title_advanced_reply_move_hint">邮件服务器仍然可以将消息添加到“已发送消息”文件夹</string>
+    <string name="title_advanced_reply_move_hint">邮件服务器仍可能将消息添加到“已发送消息”文件夹</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
@@ -693,7 +693,7 @@
     <string name="title_identity_unicode_remark">大多数服务器不支持这一功能</string>
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
     <string name="title_identity_receipt">默认请求送达/已读回执</string>
-    <string name="title_identity_receipt_legacy">使用旧式的收据请求标题</string>
+    <string name="title_identity_receipt_legacy">使用旧版的回执请求标头</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
     <string name="title_identity_self_hint">也能防止您回复自己</string>
     <string name="title_optional">可选</string>
@@ -898,9 +898,9 @@
     <string name="title_filters_active">一个或多个过滤器已启用</string>
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_trashed_from">来自 %1$s 的已回收消息</string>
-    <string name="title_subject_reply">Re: %1$s</string>
+    <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
-    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_reply_alt">回复：%1$s</string>
     <string name="title_subject_forward_alt">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>

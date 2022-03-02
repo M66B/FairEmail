@@ -354,7 +354,6 @@
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>
     <string name="title_advanced_signature_forward">Používať podpis pri preposielaní</string>
     <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
-    <string name="title_advanced_reply_move">Pri odpovedaní na správu v používateľskom priečinku, uložiť odpoveď v tom istom umiestnení</string>
     <string name="title_advanced_auto_link">Automaticky vytvoriť odkazy</string>
     <string name="title_advanced_plain_only">Predvolene odosielať obyčajný text</string>
     <string name="title_advanced_flow">\"format flowed\" pre obyčajný text</string>

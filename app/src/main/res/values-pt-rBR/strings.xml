@@ -334,7 +334,7 @@
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
-    <string name="title_advanced_reply_move">Ao responder uma mensagem em uma pasta do usuário, salve a resposta na mesma pasta</string>
+    <string name="title_advanced_reply_move">Ao responder a uma mensagem, salve a resposta na mesma pasta</string>
     <string name="title_advanced_auto_link">Criar links automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_flow">Usar \'formato fluído\' para texto simples</string>

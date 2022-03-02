@@ -355,7 +355,7 @@
     <string name="title_advanced_signature_reply">להשתמש בחתימה לתגובות</string>
     <string name="title_advanced_signature_forward">להשתמש בחתימה להעברות</string>
     <string name="title_advanced_discard_delete">השלכת טיוטה מוחקת אותה לצמיתות</string>
-    <string name="title_advanced_reply_move">בעת מענה להודעה בתיקיית משתמש, המענה יישמר באותה התיקייה</string>
+    <string name="title_advanced_reply_move">בעת מענה להודעה, המענה יישמר באותה התיקייה</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
     <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כבררת מחדל</string>
     <string name="title_advanced_flow">‚שורות תחומות’ לטקסט פשוט</string>

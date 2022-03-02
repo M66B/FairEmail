@@ -334,7 +334,7 @@
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
     <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
-    <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος εντός ενός φακέλου χρήστη, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
+    <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>

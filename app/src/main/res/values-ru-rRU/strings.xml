@@ -354,7 +354,7 @@
     <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
     <string name="title_advanced_signature_forward">Использовать подпись при пересылке</string>
     <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
-    <string name="title_advanced_reply_move">При ответе на сообщение в пользовательской папке сохранять ответ в ней же</string>
+    <string name="title_advanced_reply_move">При ответе на сообщение сохранять ответ в той же папке</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>

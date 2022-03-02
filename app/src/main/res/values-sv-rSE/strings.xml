@@ -331,7 +331,7 @@
     <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
     <string name="title_advanced_signature_forward">Använd signatur vid vidarebefordran</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
-    <string name="title_advanced_reply_move">När du svarar på ett meddelande i en användarmapp, spara svaret i samma mapp</string>
+    <string name="title_advanced_reply_move">När du svarar på ett meddelande, spara svaret i samma mapp</string>
     <string name="title_advanced_auto_link">Skapa länkar automatiskt</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>

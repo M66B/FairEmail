@@ -354,7 +354,7 @@
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
     <string name="title_advanced_signature_forward">Użyj podpisu podczas przesyłania dalej</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej usuń ją trwale</string>
-    <string name="title_advanced_reply_move">Przy odpowiadaniu na wiadomość w folderze użytkownika zapisz odpowiedź w tym samym folderze</string>
+    <string name="title_advanced_reply_move">Przy odpowiadaniu na wiadomość, zapisz odpowiedź w tym samym folderze</string>
     <string name="title_advanced_auto_link">Automatycznie utwórz linki</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_flow">\'format flowed\' dla zwykłego tekstu</string>

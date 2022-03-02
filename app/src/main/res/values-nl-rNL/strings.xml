@@ -333,7 +333,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
     <string name="title_advanced_signature_forward">Gebruik handtekening bij doorsturen</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
-    <string name="title_advanced_reply_move">Bewaar het antwoord in dezelfde map wanneer het bericht in een gebruikersmap wordt beantwoord</string>
+    <string name="title_advanced_reply_move">Sla bij het beantwoorden van een bericht het antwoord op in dezelfde map</string>
     <string name="title_advanced_auto_link">Automatisch koppelingen maken</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
     <string name="title_advanced_flow">\'format flowed\' voor platte tekst</string>

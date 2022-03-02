@@ -335,7 +335,7 @@
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
     <string name="title_advanced_signature_forward">Benyt signatur ved videresendelse</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
-    <string name="title_advanced_reply_move">Når en besked i en brugermappe besvares, gem svaret i pågældende mappe</string>
+    <string name="title_advanced_reply_move">Ved beskedbesvarelse, gem svaret i pågældende mappe</string>
     <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>

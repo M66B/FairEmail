@@ -329,7 +329,6 @@
     <string name="title_advanced_signature_reply">Aláírás használata válaszoláskor</string>
     <string name="title_advanced_signature_forward">Aláírás használata toivábbításkor</string>
     <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
-    <string name="title_advanced_reply_move">Ha egy felhasználói mappában lévő üzenetre válaszol, mentse a választ ugyanabba a mappába</string>
     <string name="title_advanced_auto_link">Automatikus link létrehozása</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_flow">\'format flowed\' üres szöveghez</string>

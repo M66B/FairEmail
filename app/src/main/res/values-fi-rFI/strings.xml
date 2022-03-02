@@ -332,7 +332,6 @@
     <string name="title_advanced_signature_reply">Käytä allekirjoitusta vastatessa</string>
     <string name="title_advanced_signature_forward">Käytä allekirjoitusta edelleenlähetettäessä</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
-    <string name="title_advanced_reply_move">Tallenna vastaus samaan kansioon vastatessa viestiin käyttäjän kansiossa</string>
     <string name="title_advanced_auto_link">Luo linkkejä automaattisesti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>

@@ -335,7 +335,6 @@
     <string name="title_advanced_signature_reply">Cavablayanda imza istifadə et</string>
     <string name="title_advanced_signature_forward">Yönləndirəndə imza istifadə et</string>
     <string name="title_advanced_discard_delete">Qaralamanı ləğv edəndə, onu birdəfəlik sil</string>
-    <string name="title_advanced_reply_move">İstifadəçi qovluğunda bir mesaja cavab verəndə, cavabı eyni qovluqda saxla</string>
     <string name="title_advanced_auto_link">Bağlantıları avtomatik yarat</string>
     <string name="title_advanced_plain_only">İlkin olaraq yalnız düz mətn göndər</string>
     <string name="title_advanced_flow">Düz mətn üçün \"format axını\"</string>

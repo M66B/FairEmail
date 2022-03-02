@@ -313,7 +313,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_signature_reply">Gunakan tanda tangan saat membalas</string>
     <string name="title_advanced_signature_forward">Gunakan tanda tangan saat meneruskan</string>
     <string name="title_advanced_discard_delete">Hapus draf secara permanen ketika membuangnya</string>
-    <string name="title_advanced_reply_move">Saat membalas pesan di folder pengguna, simpan balasan di folder yang sama</string>
     <string name="title_advanced_auto_link">Secara otomatis membuat tautan</string>
     <string name="title_advanced_plain_only">Kirim teks biasa hanya secara bawaan</string>
     <string name="title_advanced_flow">\'format mengalir\' untuk teks biasa</string>

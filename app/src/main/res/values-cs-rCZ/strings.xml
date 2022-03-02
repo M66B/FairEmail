@@ -354,7 +354,6 @@
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
     <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
-    <string name="title_advanced_reply_move">Při odpovědi na zprávu z uživatelské složky uložit odpověď ve stejné složce</string>
     <string name="title_advanced_auto_link">Automaticky vytvářet odkazy</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">„Format flowed“ pro prostý text</string>

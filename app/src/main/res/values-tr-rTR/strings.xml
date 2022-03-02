@@ -333,7 +333,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_signature_reply">Yanıtlarken imza kullan</string>
     <string name="title_advanced_signature_forward">Yönlendirirken imza kullan</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
-    <string name="title_advanced_reply_move">Bir kullanıcı klasöründeki mesajı yanıtlarken, yanıtı aynı klasöre kaydedin</string>
+    <string name="title_advanced_reply_move">Bir mesajı yanıtlarken, yanıtı aynı klasöre kaydedin</string>
     <string name="title_advanced_auto_link">Otomatik olarak bağlantı oluşturun</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_flow">düz metin için \"biçim akışı\"</string>

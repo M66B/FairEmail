@@ -325,7 +325,6 @@
     <string name="title_advanced_signature_reply">返信時に署名を使用</string>
     <string name="title_advanced_signature_forward">転送時に署名を使用</string>
     <string name="title_advanced_discard_delete">下書きを破棄するとき、下書きを完全に削除</string>
-    <string name="title_advanced_reply_move">ユーザーフォルダー内のメッセージに返信したとき、返信を同じフォルダーに保存</string>
     <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストに「format flowed」を適用</string>

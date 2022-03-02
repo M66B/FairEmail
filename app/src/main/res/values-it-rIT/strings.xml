@@ -335,7 +335,7 @@
     <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
     <string name="title_advanced_signature_forward">Usa la firma quando inoltri</string>
     <string name="title_advanced_discard_delete">Scartando la bozza, eliminala permanentemente</string>
-    <string name="title_advanced_reply_move">Alla risposta a un messaggio in una cartella dell\'utente, salva la risposta nella stessa cartella</string>
+    <string name="title_advanced_reply_move">Alla risposta a un messaggio, salvala nella stessa cartella</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo semplice</string>

@@ -319,7 +319,6 @@
     <string name="title_advanced_signature_reply">當回覆時使用簽名</string>
     <string name="title_advanced_signature_forward">當轉寄時使用簽名</string>
     <string name="title_advanced_discard_delete">丟棄草稿的同時也永久刪除草稿</string>
-    <string name="title_advanced_reply_move">在使用者資料夾中回信時，將回覆保存在同一資料夾中</string>
     <string name="title_advanced_auto_link">自動建立連結</string>
     <string name="title_advanced_plain_only">預設傳送純文字</string>
     <string name="title_advanced_flow">為純文字使用\"format=flowed\"</string>
