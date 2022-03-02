@@ -98,6 +98,7 @@
     <string name="title_setup_data">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଅଛି</string>
     <string name="title_setup_advanced_options">ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_inbox">ଇନବକ୍ସ କୁ ଯାଆନ୍ତୁ</string>
+    <string name="title_setup_done">ହୋଇଗଲା</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ବିନ୍ୟାସ କରୁଅଛି &#8230;</string>
     <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
@@ -176,6 +177,7 @@
     <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ସମୟ ଦବାଇବା ଦ୍ୱାରା:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="title_advanced_reply_move">ଏକ ବାର୍ତ୍ତାକୁ ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପରେ, ସମାନ ଫୋଲ୍ଡରରେ ପ୍ରତ୍ୟୁତ୍ତର ସଞ୍ଚୟ କରନ୍ତୁ</string>
     <string name="title_advanced_receipt">ଏକ ରସିଦ ଅନୁରୋଧ କରିବା ସମୟରେ</string>
     <string name="title_advanced_download_plain">ଡିଫଲ୍ଟ ଭାବେ କେବଳ ସାଧା ପାଠ୍ୟ ଥିବା ଅଂଶଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ କରିବା (ଯଦି ଉପଲବ୍ଧ ଥାଏ)</string>
     <string name="title_advanced_cert_strict">କଠୋର ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ</string>
@@ -214,6 +216,7 @@
     <string name="title_advanced_authentication_some">ଆଂଶିକ ପ୍ରାମାଣିକରଣ</string>
     <string name="title_advanced_authentication_all">ସମ୍ପୂର୍ଣ୍ଣ ପ୍ରାମାଣିକରଣ</string>
     <string name="title_advanced_sync_on_launch">ଆରମ୍ଭରେ ସିଙ୍କ୍ରୋନାଇଜ୍ କରନ୍ତୁ</string>
+    <string name="title_advanced_conversation_actions_replies">ପ୍ରତ୍ୟୁତ୍ତର ପାଠ୍ୟ ପରାମର୍ଶ ଦିଅନ୍ତୁ (ଆଣ୍ଡ୍ରଏଡ୍ 10+)</string>
     <string name="title_advanced_pull_refresh">ସତେଜ କରିବାକୁ ତଳକୁ ଟାଣନ୍ତୁ</string>
     <string name="title_advanced_undo">ପୂର୍ବବତ୍ ସମୟ ଶେଷ</string>
     <string name="title_advanced_folder_nav">ଏକ ବାର୍ତ୍ତା ତାଲିକାରୁ ସର୍ବଦା ଫୋଲ୍ଡର ତାଲିକାକୁ ଫେରିବା</string>
@@ -224,6 +227,7 @@
     <string name="title_advanced_notify_action_delete">ବିଲୋପ</string>
     <string name="title_advanced_notify_action_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_advanced_notify_action_reply">ପ୍ରତ୍ୟୁତ୍ତର</string>
+    <string name="title_advanced_notify_action_reply_direct">ପ୍ରତ୍ୟକ୍ଷ ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_advanced_notify_action_seen">ପଠିତ</string>
     <string name="title_advanced_notify_action_hide">ଲୁଚାଅ</string>
     <string name="title_advanced_notify_action_snooze">ସ୍ନୁଜ୍</string>
@@ -352,7 +356,7 @@
     <string name="title_raw_send_thread">ବାର୍ତ୍ତାଳାପ</string>
     <string name="title_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_delete">ବିଲୋପ</string>
-    <string name="title_delete_all">ସମସ୍ତ ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="title_delete_all">ସବୁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_more">ଅଧିକ</string>
     <string name="title_less">କମ୍</string>
     <string name="title_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
@@ -457,7 +461,7 @@
     <string name="title_zoom">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_padding">ପ୍ୟାଡିଂ ଆକାର</string>
     <string name="title_select_language">ଭାଷା ଚୟନ କରନ୍ତୁ</string>
-    <string name="title_select_all">ସମସ୍ତ ଚୟନ କରନ୍ତୁ</string>
+    <string name="title_select_all">ସବୁ ଚୟନ କରନ୍ତୁ</string>
     <string name="title_force_sync">ସିଙ୍କ୍ କରିବାକୁ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_language_all">ସମସ୍ତ</string>
     <string name="title_previous">ପୂର୍ବବର୍ତ୍ତୀ</string>
@@ -476,6 +480,7 @@
     <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_answer_placeholder_firstname">ପ୍ରେରକଙ୍କ ପ୍ରଥମ ନାମ</string>
     <string name="title_answer_placeholder_lastname">ପ୍ରେରକଙ୍କ ଶେଷ ନାମ</string>
+    <string name="title_rule_noop">କିଛି କରନ୍ତୁନି</string>
     <string name="title_rule_hide">ଲୁଚାଅ</string>
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
@@ -535,10 +540,12 @@
     <string name="title_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_snooze_now">ସ୍ନୁଜ୍</string>
     <string name="title_go_back">ପଛକୁ ଯାଅ</string>
+    <string name="title_icalendar_maybe">ହୋଇପାରେ</string>
     <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ</string>
     <string name="title_pro_purchase">କିଣନ୍ତୁ</string>
     <string name="title_pro_whichever">ଯେକୌଣସି ବୈଶିଷ୍ଟ୍ୟ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଭାବରେ ମନୋନୀତ ହେଲେ, ସର୍ବଦା ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଥାଆନ୍ତି ଯିଏ ଅଭିଯୋଗ କରନ୍ତି ଯେ ଏକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା ହେବା ଉଚିତ୍। ଦୟାକରି ଆପଣ ସେହି ବ୍ୟକ୍ତି ହୁଅନ୍ତୁ ନାହିଁ।</string>
     <string name="title_log_clear">ଖାଲି କରନ୍ତୁ</string>
+    <string name="title_unexpected_info_remark">ଦୟାକରି ବର୍ଣ୍ଣନା କରନ୍ତୁ ଯେ ତ୍ରୁଟି ପାଇଲାବେଳେ ଆପଣ କ\'ଣ କରୁଥିଲେ:</string>
     <string name="title_widget_title_sync">ସିଙ୍କ୍ ଚାଲୁ/ବନ୍ଦ</string>
     <string name="title_power_menu_sync">ସିଙ୍କ୍ରୋନାଇଜେସନ୍</string>
     <string name="title_power_menu_on">ଚାଲୁ</string>
@@ -598,7 +605,7 @@
         <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
-        <item>କିଛି କରନି</item>
+        <item>କିଛି କରନ୍ତୁନି</item>
         <item>ପୂର୍ବବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
         <item>ପରବର୍ତ୍ତୀ ବାର୍ତ୍ତାଳାପକୁ ଯାଅ</item>
     </string-array>

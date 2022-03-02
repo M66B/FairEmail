@@ -571,6 +571,7 @@
     <string name="title_advanced_monospaced_pre_hint">Mensagens de texto simples serão consideradas como pré-formatadas</string>
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
+    <string name="title_advanced_display_pin_hint">O PIN tem prioridade relativamente à autenticação biométrica</string>
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_notify_action_hint">No máximo três acções serão mostradas</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificação \'a monitorizar\'</string>
@@ -814,14 +815,24 @@
     <string name="title_filter_unflagged">Sem estrela</string>
     <string name="title_filter_deleted">Eliminadas</string>
     <string name="title_filter_duplicates">Duplicados</string>
+    <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_padding">Tamanho do espaçamento</string>
     <string name="title_select_language">Seleccionar idioma</string>
     <string name="title_select_all">Seleccionar todas</string>
     <string name="title_select_found">Seleccionar encontradas</string>
+    <string name="title_mark_all_read">Marcar todas como lidas</string>
+    <string name="title_view_thread">Ver conversa</string>
+    <string name="title_force_sync">Forçar sincronização</string>
+    <string name="title_force_send">Forçar envio</string>
     <string name="title_language_all">Todos</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Seguinte</string>
+    <string name="title_edit_signature">Editar assinatura</string>
+    <string name="title_edit_signature_text">Texto da assinatura</string>
+    <string name="title_edit_signature_image">Inserir imagem</string>
+    <string name="title_answer_caption">Editar modelo</string>
+    <string name="title_answer_name">Nome do modelo</string>
     <string name="title_answer_standard">Predefinido</string>
     <string name="title_rule_noop">Nenhuma acção</string>
     <string name="title_rule_hide">Esconder</string>
@@ -845,9 +856,16 @@
     <string name="title_rule_folder">Pasta</string>
     <string name="title_rule_answer_subject">Utilizar o nome do modelo como assunto</string>
     <string name="title_rule_original_text">Inserir o texto original da mensagem</string>
+    <string name="title_rule_with_attachments">Com anexos</string>
+    <string name="title_rule_answer_remark">Apenas uma resposta será enviada em cada conversação, para evitar respostas repetidas</string>
     <string name="title_rule_delete_hint">A eliminação permanente é irreversível, por isso certifique-se de que as condições da regra estão corretas!</string>
+    <string name="title_rule_execute">Executar agora</string>
     <string name="title_rule_check">Verificar</string>
     <string name="title_rule_no_body">Texto da mensagem não disponível</string>
+    <string name="title_rule_tts_ok">Configuração OK</string>
+    <string name="title_rule_tts_setup">Verificar configuração</string>
+    <string name="title_rule_tts_data">Instalar dados de voz</string>
+    <string name="title_rule_tts_prefix">Nova mensagem</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Assunto</string>
     <string name="title_rule_tts_content">Texto</string>
@@ -1182,7 +1200,7 @@
         <item>Ir para a próxima conversa</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Extra small</item>
+        <item>Muito pequeno</item>
         <item>Pequeno</item>
         <item>Médio</item>
         <item>Grande</item>

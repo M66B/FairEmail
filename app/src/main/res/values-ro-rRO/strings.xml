@@ -344,6 +344,7 @@
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
+    <string name="title_advanced_reply_move">Când răspundeți la un mesaj, salvați răspunsul în același dosar</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_flow">\'format fluent\' pentru text simplu</string>

@@ -334,6 +334,7 @@
     <string name="title_advanced_signature_reply">Usar firma al responder</string>
     <string name="title_advanced_signature_forward">Usar firma al reenviar</string>
     <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
+    <string name="title_advanced_reply_move">Al responder un mensaje, guardar la respuesta en la misma carpeta</string>
     <string name="title_advanced_auto_link">Crear enlaces automáticamente</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_flow">\'format flowed\' para texto plano</string>
