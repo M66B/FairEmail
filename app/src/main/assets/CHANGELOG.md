@@ -4,6 +4,11 @@
 
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
+### 1.1851 - 2022-03-02
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.1850 - 2022-02-28
 
 * Small improvements and minor bug fixes
