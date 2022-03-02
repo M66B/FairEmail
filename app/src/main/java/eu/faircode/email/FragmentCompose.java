@@ -1347,8 +1347,8 @@ public class FragmentCompose extends FragmentBase {
         outState.putInt("fair:pickRequest", pickRequest);
         outState.putParcelable("fair:pickUri", pickUri);
 
-        outState.putInt("fair:start", etBody.getSelectionStart());
-        outState.putInt("fair:end", etBody.getSelectionEnd());
+        // Focus was lost at this point
+        outState.putInt("fair:selection", etBody.getSelectionStart());
 
         super.onSaveInstanceState(outState);
     }
@@ -1416,8 +1416,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("action", working < 0 ? "new" : "edit");
                 args.putLong("id", working);
 
-                args.putInt("start", savedInstanceState.getInt("fair:start"));
-                args.putInt("end", savedInstanceState.getInt("fair:end"));
+                args.putInt("selection", savedInstanceState.getInt("fair:selection"));
 
                 draftLoader.execute(FragmentCompose.this, args, "compose:instance");
             }
@@ -5236,7 +5235,7 @@ public class FragmentCompose extends FragmentBase {
                                 };
                             }
 
-                            showDraft(draft, false, postShow, args.getInt("start"), args.getInt("end"));
+                            showDraft(draft, false, postShow, args.getInt("selection"));
                         }
 
                         tvDsn.setVisibility(
@@ -6049,7 +6048,7 @@ public class FragmentCompose extends FragmentBase {
             boolean show = extras.getBoolean("show");
             boolean refedit = extras.getBoolean("refedit");
             if (show)
-                showDraft(draft, refedit, null, -1, -1);
+                showDraft(draft, refedit, null, -1);
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
@@ -6070,7 +6069,7 @@ public class FragmentCompose extends FragmentBase {
                 finish();
 
             } else if (action == R.id.action_undo || action == R.id.action_redo) {
-                showDraft(draft, false, null, -1, -1);
+                showDraft(draft, false, null, -1);
 
             } else if (action == R.id.action_save) {
                 boolean autosave = extras.getBoolean("autosave");
@@ -6232,7 +6231,7 @@ public class FragmentCompose extends FragmentBase {
                 ref.first().before(div);
     }
 
-    private void showDraft(final EntityMessage draft, boolean refedit, Runnable postShow, int selStart, int selEnd) {
+    private void showDraft(final EntityMessage draft, boolean refedit, Runnable postShow, int selection) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
@@ -6397,17 +6396,16 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                int s = (selStart == 0 ? -1 : selStart);
-                int e = (selStart == 0 ? -1 : selEnd);
+                int selStart = (selection == 0 ? -1 : selection);
 
-                if (s < 0) {
+                if (selStart < 0) {
                     int pos = getAutoPos(0, etBody.length());
                     if (pos < 0)
                         pos = 0;
                     etBody.setSelection(pos);
                 }
 
-                setFocus(s < 0 ? null : R.id.etBody, s, e, postShow == null);
+                setFocus(selStart < 0 ? null : R.id.etBody, selStart, selStart, postShow == null);
                 if (postShow != null)
                     getMainHandler().post(postShow);
             }
