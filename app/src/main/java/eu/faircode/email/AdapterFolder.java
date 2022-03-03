@@ -1143,6 +1143,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionDeleteFolder() {
                     Bundle aargs = new Bundle();
                     aargs.putLong("id", folder.id);
+                    aargs.putString("remark", folder.name);
                     aargs.putString("question", context.getString(R.string.title_folder_delete));
                     aargs.putBoolean("warning", true);
 
