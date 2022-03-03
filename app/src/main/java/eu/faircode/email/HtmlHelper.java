@@ -769,9 +769,13 @@ public class HtmlHelper {
                             break;
 
                         case "text-decoration":
+                        case "text-decoration-line":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-line
                             if (value.contains("line-through"))
                                 sb.append("text-decoration:line-through;");
+                            else if (value.contains("underline"))
+                                sb.append("text-decoration:underline;");
                             break;
 
                         case "text-transform":
@@ -2980,6 +2984,8 @@ public class HtmlHelper {
                                 case "text-decoration":
                                     if ("line-through".equals(value))
                                         setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
+                                    else if ("underline".equals(value))
+                                        setSpan(ssb, new UnderlineSpan(), start, ssb.length());
                                     break;
                                 case "text-align":
                                     // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
