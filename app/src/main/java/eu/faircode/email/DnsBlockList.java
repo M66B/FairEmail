@@ -155,6 +155,9 @@ public class DnsBlockList {
     }
 
     static Boolean isJunk(Context context, List<Address> addresses) {
+        if (ContactInfo.getLookupUri(addresses) != null)
+            return false;
+
         boolean hasDomain = false;
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
@@ -165,6 +168,7 @@ public class DnsBlockList {
             if (isJunk(context, domain, false, BLOCK_LISTS))
                 return true;
         }
+
         return (hasDomain ? false : null);
     }
 
@@ -172,6 +176,14 @@ public class DnsBlockList {
         String domain = null;
         if ("mailto".equalsIgnoreCase(uri.getScheme())) {
             MailTo email = MailTo.parse(uri.toString());
+
+            String to = email.getTo();
+            if (TextUtils.isEmpty(to))
+                return null;
+
+            if (ContactInfo.getLookupUri(to) != null)
+                return false;
+
             domain = UriHelper.getEmailDomain(email.getTo());
         } else
             domain = uri.getHost();

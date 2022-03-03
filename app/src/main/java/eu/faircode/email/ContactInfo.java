@@ -873,20 +873,33 @@ public class ContactInfo {
         }
     }
 
+    static Uri getLookupUri(List<Address> addresses) {
+        return getLookupUri(addresses.toArray(new Address[0]));
+    }
+
     static Uri getLookupUri(Address[] addresses) {
         if (addresses == null)
             return null;
 
         for (Address from : addresses) {
             String email = ((InternetAddress) from).getAddress();
-            if (!TextUtils.isEmpty(email)) {
-                Lookup lookup = emailLookup.get(email.toLowerCase(Locale.ROOT));
-                if (lookup != null)
-                    return lookup.uri;
-            }
+            if (TextUtils.isEmpty(email))
+                continue;
+
+            Lookup lookup = emailLookup.get(email.toLowerCase(Locale.ROOT));
+            if (lookup != null)
+                return lookup.uri;
         }
 
         return null;
+    }
+
+    static Uri getLookupUri(String email) {
+        if (TextUtils.isEmpty(email))
+            return null;
+
+        Lookup lookup = emailLookup.get(email.toLowerCase(Locale.ROOT));
+        return (lookup == null ? null : lookup.uri);
     }
 
     static Address[] fillIn(Address[] addresses, boolean prefer_contact, boolean only_contact) {
