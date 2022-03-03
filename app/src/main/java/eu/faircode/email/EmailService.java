@@ -743,14 +743,7 @@ public class EmailService implements AutoCloseable {
                 try {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean client_id = prefs.getBoolean("client_id", true);
-
-                    Map<String, String> id = new LinkedHashMap<>();
-                    id.put("name", context.getString(R.string.app_name));
-                    id.put("version", BuildConfig.VERSION_NAME);
-                    id.put("os", "Android");
-                    id.put("os-version", Build.VERSION.RELEASE);
-
-                    Map<String, String> sid = istore.id(client_id ? id : null);
+                    Map<String, String> sid = istore.id(client_id ? getId(context) : null);
                     if (sid != null) {
                         Map<String, String> crumb = new HashMap<>();
                         for (String key : sid.keySet()) {
@@ -802,6 +795,15 @@ public class EmailService implements AutoCloseable {
             }
         } else
             throw new NoSuchProviderException(protocol);
+    }
+
+    static Map<String, String> getId(Context context) {
+        Map<String, String> id = new LinkedHashMap<>();
+        id.put("name", context.getString(R.string.app_name));
+        id.put("version", BuildConfig.VERSION_NAME);
+        id.put("os", "Android");
+        id.put("os-version", Build.VERSION.RELEASE);
+        return id;
     }
 
     static String getDefaultEhlo() {

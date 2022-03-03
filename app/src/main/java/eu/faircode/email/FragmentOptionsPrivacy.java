@@ -439,7 +439,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
-        tvClientId.setText(getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
+
+        StringBuilder sb = new StringBuilder();
+        for (String value : EmailService.getId(getContext()).values()) {
+            if (sb.length() > 0)
+                sb.append(' ');
+            sb.append(value);
+        }
+        tvClientId.setText(sb);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
