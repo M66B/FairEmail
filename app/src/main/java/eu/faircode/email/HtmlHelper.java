@@ -634,8 +634,14 @@ public class HtmlHelper {
                             Integer color = parseColor(value);
 
                             if (color != null && color == Color.TRANSPARENT) {
-                                if (BuildConfig.DEBUG)
-                                    sb.append("text-decoration:line-through;");
+                                if ("color".equals(key))
+                                    if (display_hidden)
+                                        sb.append("text-decoration:line-through;");
+                                    else if (false) {
+                                        Log.i("Removing color transparent " + element.tagName());
+                                        element.remove();
+                                        continue;
+                                    }
                                 color = null;
                             }
 
@@ -742,8 +748,12 @@ public class HtmlHelper {
                             Float fsize = getFontSize(value, current);
                             if (fsize != null)
                                 if (fsize == 0) {
-                                    if (BuildConfig.DEBUG)
+                                    if (display_hidden)
                                         sb.append("text-decoration:line-through;");
+                                    else if (false) {
+                                        Log.i("Removing font size zero " + element.tagName());
+                                        element.remove();
+                                    }
                                 } else {
                                     if (!view) {
                                         if (fsize < 1)
@@ -819,10 +829,13 @@ public class HtmlHelper {
 
                         case "display":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/display
-                            if (element.parent() != null &&
-                                    !display_hidden && "none".equals(value)) {
-                                Log.i("Removing display none " + element.tagName());
-                                element.remove();
+                            if (element.parent() != null && "none".equals(value)) {
+                                if (display_hidden)
+                                    sb.append("text-decoration:line-through;");
+                                else {
+                                    Log.i("Removing display none " + element.tagName());
+                                    element.remove();
+                                }
                             }
 
                             if ("block".equals(value) || "inline-block".equals(value))
@@ -1513,12 +1526,16 @@ public class HtmlHelper {
         for (Element e : parsed.select("*")) {
             String tag = e.tagName();
             if (tag.contains(":")) {
-                if (display_hidden ||
-                        "body".equals(tag) ||
-                        ns == null || tag.startsWith(ns)) {
+                boolean show = ("body".equals(tag) || ns == null || tag.startsWith(ns));
+                if (display_hidden || show) {
                     String[] nstag = tag.split(":");
                     e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
                     Log.i("Updated tag=" + tag + " to=" + e.tagName());
+
+                    if (!show) {
+                        String style = e.attr("style");
+                        e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
+                    }
                 } else {
                     e.remove();
                     Log.i("Removed tag=" + tag);
