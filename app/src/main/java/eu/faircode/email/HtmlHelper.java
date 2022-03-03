@@ -734,16 +734,20 @@ public class HtmlHelper {
                             }
 
                             Float fsize = getFontSize(value, current);
-                            if (fsize != null && fsize != 0) {
-                                if (!view) {
-                                    if (fsize < 1)
-                                        fsize = FONT_SMALL;
-                                    else if (fsize > 1)
-                                        fsize = FONT_LARGE;
+                            if (fsize != null)
+                                if (fsize == 0) {
+                                    if (BuildConfig.DEBUG)
+                                        sb.append("text-decoration:line-through;");
+                                } else {
+                                    if (!view) {
+                                        if (fsize < 1)
+                                            fsize = FONT_SMALL;
+                                        else if (fsize > 1)
+                                            fsize = FONT_LARGE;
+                                    }
+                                    element.attr("x-font-size", Float.toString(fsize));
+                                    element.attr("x-font-size-rel", Float.toString(fsize / current));
                                 }
-                                element.attr("x-font-size", Float.toString(fsize));
-                                element.attr("x-font-size-rel", Float.toString(fsize / current));
-                            }
                             break;
 
                         case "font-weight":
