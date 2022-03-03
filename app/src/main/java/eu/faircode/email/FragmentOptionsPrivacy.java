@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
+import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -93,6 +94,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisconnectAutoUpdate;
     private SwitchCompat swDisconnectLinks;
     private SwitchCompat swDisconnectImages;
+    private Button btnClearAll;
 
     private Group grpSafeBrowsing;
 
@@ -150,6 +152,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisconnectAutoUpdate = view.findViewById(R.id.swDisconnectAutoUpdate);
         swDisconnectLinks = view.findViewById(R.id.swDisconnectLinks);
         swDisconnectImages = view.findViewById(R.id.swDisconnectImages);
+        btnClearAll = view.findViewById(R.id.btnClearAll);
 
         grpSafeBrowsing = view.findViewById(R.id.grpSafeBrowsing);
 
@@ -434,6 +437,26 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("disconnect_images", checked).apply();
+            }
+        });
+
+        btnClearAll.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        btnClearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(getContext())
+                        .setIcon(R.drawable.twotone_dangerous_24)
+                        .setTitle(R.string.title_advanced_clear_all)
+                        .setMessage(R.string.title_advanced_clear_all_remark)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+                                am.clearApplicationUserData();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
             }
         });
 
