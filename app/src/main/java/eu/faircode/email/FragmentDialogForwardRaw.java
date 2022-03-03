@@ -128,10 +128,12 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                             continue;
 
                         for (EntityMessage thread : messages) {
-                            String hash = (message.hash == null ? message.msgid : message.hash);
-                            if (hashes.contains(hash))
-                                continue;
-                            hashes.add(hash);
+                            if (threads) {
+                                String hash = (message.hash == null ? message.msgid : message.hash);
+                                if (hashes.contains(hash))
+                                    continue;
+                                hashes.add(hash);
+                            }
 
                             result.add(thread.id);
 
