@@ -6812,6 +6812,7 @@ public class FragmentCompose extends FragmentBase {
             final ImageView ivType = dview.findViewById(R.id.ivType);
             final RadioGroup rgAction = dview.findViewById(R.id.rgAction);
             final CheckBox cbResize = dview.findViewById(R.id.cbResize);
+            final ImageButton ibResize = dview.findViewById(R.id.ibResize);
             final Spinner spResize = dview.findViewById(R.id.spResize);
             final TextView tvResize = dview.findViewById(R.id.tvResize);
             final CheckBox cbPrivacy = dview.findViewById(R.id.cbPrivacy);
@@ -6845,6 +6846,13 @@ public class FragmentCompose extends FragmentBase {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     prefs.edit().putBoolean("resize_images", isChecked).apply();
                     spResize.setEnabled(isChecked);
+                }
+            });
+
+            ibResize.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 63);
                 }
             });
 
