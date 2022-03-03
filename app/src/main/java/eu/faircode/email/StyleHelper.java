@@ -931,8 +931,6 @@ public class StyleHelper {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
         // TODO: Microsoft: Georgia (Serif), Tahoma (Sans-serif), Trebuchet MS (Sans-serif)
         String faces = family.toLowerCase(Locale.ROOT);
-        if (faces.contains("open sans"))
-            return "Open Sans, Arial, Verdana, Helvetica, Helvetica Neue, sans-serif";
         if (faces.contains("montserrat"))
             return "Montserrat, sans-serif";
         if (faces.contains("arimo"))
@@ -974,9 +972,6 @@ public class StyleHelper {
             return ResourcesCompat.getFont(context, R.font.fantasy);
 
         if (bundled_fonts) {
-            if (faces.contains("open sans"))
-                return ResourcesCompat.getFont(context, R.font.opensans);
-
             if (faces.contains("montserrat"))
                 return ResourcesCompat.getFont(context, R.font.montserrat);
 
@@ -1045,7 +1040,6 @@ public class StyleHelper {
             result.add(new FontDescriptor("caladea", "Caladea (Cambria)", true));
 
             if (BuildConfig.DEBUG) {
-                result.add(new FontDescriptor("open sans", "Open Sans", true));
                 result.add(new FontDescriptor("montserrat", "Montserrat", true));
             }
 
