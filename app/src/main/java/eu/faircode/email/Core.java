@@ -3968,11 +3968,8 @@ class Core {
                     message.reply != null && message.reply.length == 1) {
                 InternetAddress from = (InternetAddress) message.from[0];
                 InternetAddress reply = (InternetAddress) message.reply[0];
-                String from_domain = UriHelper.getEmailDomain(from.getAddress());
-                String reply_domain = UriHelper.getEmailDomain(reply.getAddress());
-
                 if (TextUtils.isEmpty(reply.getPersonal()) &&
-                        Objects.equals(from_domain, reply_domain))
+                        Objects.equals(from.getAddress(), reply.getAddress()))
                     reply.setPersonal(from.getPersonal());
             }
 
