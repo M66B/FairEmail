@@ -633,6 +633,12 @@ public class HtmlHelper {
 
                             Integer color = parseColor(value);
 
+                            if (color != null && color == Color.TRANSPARENT) {
+                                if (BuildConfig.DEBUG)
+                                    sb.append("text-decoration:line-through;");
+                                color = null;
+                            }
+
                             if ("color".equals(key)) {
                                 Integer bg = null;
                                 if (background_color) {
@@ -1762,6 +1768,9 @@ public class HtmlHelper {
     private static Integer parseColor(String value) {
         if (TextUtils.isEmpty(value))
             return null;
+
+        if ("transparent".equals(value))
+            return Color.TRANSPARENT;
 
         // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
         String c = value
