@@ -3966,11 +3966,14 @@ class Core {
             // Borrow reply name from sender name
             if (message.from != null && message.from.length == 1 &&
                     message.reply != null && message.reply.length == 1) {
+                InternetAddress from = (InternetAddress) message.from[0];
                 InternetAddress reply = (InternetAddress) message.reply[0];
-                if (TextUtils.isEmpty(reply.getPersonal())) {
-                    InternetAddress from = (InternetAddress) message.from[0];
+                String from_domain = UriHelper.getEmailDomain(from.getAddress());
+                String reply_domain = UriHelper.getEmailDomain(reply.getAddress());
+
+                if (TextUtils.isEmpty(reply.getPersonal()) &&
+                        Objects.equals(from_domain, reply_domain))
                     reply.setPersonal(from.getPersonal());
-                }
             }
 
             EntityIdentity identity = matchIdentity(context, folder, message);
