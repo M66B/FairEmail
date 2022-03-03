@@ -1661,10 +1661,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ConstraintLayout cl = (ConstraintLayout) flow.getParent();
             for (int id : flow.getReferencedIds()) {
                 View v = cl.findViewById(id);
-                // flow.removeView(v);
-                // cl.removeView(v);
+                cl.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            flow.removeView(v);
+                            cl.removeView(v);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
                 // https://github.com/androidx/constraintlayout/issues/430
-                v.setVisibility(View.GONE);
+                // v.setVisibility(View.GONE);
             }
         }
 
