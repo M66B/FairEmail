@@ -4616,7 +4616,7 @@ public class FragmentCompose extends FragmentBase {
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (ActivityBilling.isPro(context) &&
                                         selected.sign_key_alias != null &&
-                                        hasSmimeKey(context, recipients))
+                                        SmimeHelper.hasSmimeKey(context, recipients))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             }
                         }
@@ -5847,7 +5847,7 @@ public class FragmentCompose extends FragmentBase {
                                     (draft.ui_encrypt == null ||
                                             EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
                                 args.putBoolean("remind_pgp", PgpHelper.hasPgpKey(context, recipients, MAX_PGP_BIND_DELAY));
-                                args.putBoolean("remind_smime", hasSmimeKey(context, recipients));
+                                args.putBoolean("remind_smime", SmimeHelper.hasSmimeKey(context, recipients));
                             }
 
                             if (TextUtils.isEmpty(draft.subject))
@@ -6500,21 +6500,6 @@ public class FragmentCompose extends FragmentBase {
             pos += lines[i].length() + 1;
         }
         return -1;
-    }
-
-    private boolean hasSmimeKey(Context context, List<Address> recipients) {
-        if (recipients == null || recipients.size() == 0)
-            return false;
-
-        DB db = DB.getInstance(context);
-        for (Address address : recipients) {
-            String email = ((InternetAddress) address).getAddress();
-            List<EntityCertificate> certs = db.certificate().getCertificateByEmail(email);
-            if (certs != null && certs.size() > 0)
-                return true;
-        }
-
-        return false;
     }
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
