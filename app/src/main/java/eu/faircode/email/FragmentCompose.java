@@ -297,8 +297,6 @@ public class FragmentCompose extends FragmentBase {
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
 
-    private static final long MAX_PGP_BIND_DELAY = 250; // milliseconds
-
     private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
     // http://regex.info/blog/lightroom-goodies/jpeg-quality
@@ -4610,7 +4608,7 @@ public class FragmentCompose extends FragmentBase {
                                     EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (Helper.isOpenKeychainInstalled(context) &&
                                         selected.sign_key != null &&
-                                        PgpHelper.hasPgpKey(context, recipients, MAX_PGP_BIND_DELAY))
+                                        PgpHelper.hasPgpKey(context, recipients))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
@@ -5846,7 +5844,7 @@ public class FragmentCompose extends FragmentBase {
                                     EntityMessage.DSN_NONE.equals(draft.dsn)) &&
                                     (draft.ui_encrypt == null ||
                                             EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
-                                args.putBoolean("remind_pgp", PgpHelper.hasPgpKey(context, recipients, MAX_PGP_BIND_DELAY));
+                                args.putBoolean("remind_pgp", PgpHelper.hasPgpKey(context, recipients));
                                 args.putBoolean("remind_smime", SmimeHelper.hasSmimeKey(context, recipients));
                             }
 

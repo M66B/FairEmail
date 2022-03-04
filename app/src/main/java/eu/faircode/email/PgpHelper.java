@@ -43,6 +43,7 @@ import javax.mail.internet.InternetAddress;
 
 public class PgpHelper {
     private static final long CONNECT_TIMEOUT = 5000L;
+    private static final long KEY_TIMEOUT = 250L;
 
     static Intent execute(Context context, Intent data, InputStream is, OutputStream os) {
         return execute(context, data, is, os, CONNECT_TIMEOUT);
@@ -68,10 +69,10 @@ public class PgpHelper {
     }
 
     static boolean hasPgpKey(Context context, List<Address> recipients) {
-        return hasPgpKey(context, recipients, CONNECT_TIMEOUT);
+        return hasPgpKey(context, recipients, KEY_TIMEOUT);  // milliseconds
     }
 
-    static boolean hasPgpKey(Context context, List<Address> recipients, long timeout) {
+    private static boolean hasPgpKey(Context context, List<Address> recipients, long timeout) {
         if (recipients == null || recipients.size() == 0)
             return false;
 
