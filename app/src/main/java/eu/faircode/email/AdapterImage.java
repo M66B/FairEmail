@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -95,14 +96,14 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                 args.putString("type", attachment.getMimeType());
                 args.putInt("max", context.getResources().getDisplayMetrics().widthPixels);
 
-                new SimpleTask<Object>() {
+                new SimpleTask<Drawable>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ivImage.setImageResource(R.drawable.twotone_hourglass_top_24);
                     }
 
                     @Override
-                    protected Object onExecute(Context context, Bundle args) throws Throwable {
+                    protected Drawable onExecute(Context context, Bundle args) throws Throwable {
                         File file = (File) args.getSerializable("file");
                         String type = args.getString("type");
                         int max = args.getInt("max");
@@ -126,17 +127,18 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 Log.w(ex);
                             }
 
-                        return ImageHelper.decodeImage(file, type, max);
+                        Bitmap bm = ImageHelper.decodeImage(file, type, max);
+                        if (bm == null)
+                            return null;
+                        return new BitmapDrawable(context.getResources(), bm);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Object image) {
-                        if (image instanceof Drawable)
-                            ivImage.setImageDrawable((Drawable) image);
-                        else if (image instanceof Bitmap)
-                            ivImage.setImageBitmap((Bitmap) image);
-                        else
+                    protected void onExecuted(Bundle args, Drawable image) {
+                        if (image == null)
                             ivImage.setImageResource(R.drawable.twotone_broken_image_24);
+                        else
+                            ivImage.setImageDrawable(image);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
                                 image instanceof AnimatedImageDrawable)
@@ -374,5 +376,10 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         holder.bindTo(attachment);
 
         holder.wire();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull AdapterImage.ViewHolder holder) {
+        holder.ivImage.setImageDrawable(null);
     }
 }
