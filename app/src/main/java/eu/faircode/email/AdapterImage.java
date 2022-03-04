@@ -120,6 +120,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 if (options.outColorSpace != null)
                                     args.putString("color", options.outColorSpace.getModel().name());
+                                if (options.outConfig != null)
+                                    args.putString("config", options.outConfig.name());
                             }
                         } catch (Throwable ex) {
                             Log.w(ex);
@@ -161,6 +163,13 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             if (sb.length() > 0)
                                 sb.append(' ');
                             sb.append(color);
+                        }
+
+                        String config = args.getString("config");
+                        if (config != null) {
+                            if (sb.length() > 0)
+                                sb.append(' ');
+                            sb.append(config);
                         }
 
                         long size = args.getLong("size");
