@@ -70,9 +70,15 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private int colorAccent;
     private ContextThemeWrapper ctx;
     private Tokenizer tokenizer;
-    private Map<String, Boolean> encryption = new ConcurrentHashMap<>();
+    private Map<String, Integer> encryption = new ConcurrentHashMap<>();
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "chips");
+
+    private static int[] icons = new int[]{
+            R.drawable.twotone_vpn_key_24_r,
+            R.drawable.twotone_vpn_key_24_l,
+            R.drawable.twotone_vpn_key_24_b
+    };
 
     public EditTextMultiAutoComplete(@NonNull Context context) {
         super(context);
@@ -321,18 +327,21 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
                                         is.setContentDescription(email);
 
-                                    Boolean has = encryption.get(email);
+                                    Integer has = encryption.get(email);
                                     if (has == null) {
                                         final List<Address> recipient = Arrays.asList(new Address[]{parsed[0]});
                                         executor.submit(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {
-                                                    boolean has =
-                                                            PgpHelper.hasPgpKey(context, recipient) ||
-                                                                    SmimeHelper.hasSmimeKey(context, recipient);
+                                                    int has = 0;
+                                                    if (PgpHelper.hasPgpKey(context, recipient))
+                                                        has |= 1;
+                                                    if (SmimeHelper.hasSmimeKey(context, recipient))
+                                                        has |= 2;
                                                     encryption.put(email, has);
-                                                    if (has) {
+
+                                                    if (has != 0) {
                                                         is.invalidate();
                                                         post(update);
                                                     }
@@ -341,9 +350,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                                 }
                                             }
                                         });
-                                    } else if (has) {
+                                    } else if (has != 0) {
                                         cd.setTextEndPadding(dp3);
-                                        cd.setCloseIcon(context.getDrawable(R.drawable.twotone_vpn_key_24));
+                                        cd.setCloseIcon(context.getDrawable(icons[has - 1]));
                                         cd.setCloseIconVisible(true);
                                     }
 
