@@ -4610,7 +4610,7 @@ public class FragmentCompose extends FragmentBase {
                                     EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (Helper.isOpenKeychainInstalled(context) &&
                                         selected.sign_key != null &&
-                                        hasPgpKey(context, recipients))
+                                        PgpHelper.hasPgpKey(context, recipients, MAX_PGP_BIND_DELAY))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
@@ -5846,7 +5846,7 @@ public class FragmentCompose extends FragmentBase {
                                     EntityMessage.DSN_NONE.equals(draft.dsn)) &&
                                     (draft.ui_encrypt == null ||
                                             EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
-                                args.putBoolean("remind_pgp", hasPgpKey(context, recipients));
+                                args.putBoolean("remind_pgp", PgpHelper.hasPgpKey(context, recipients, MAX_PGP_BIND_DELAY));
                                 args.putBoolean("remind_smime", hasSmimeKey(context, recipients));
                             }
 
@@ -6500,35 +6500,6 @@ public class FragmentCompose extends FragmentBase {
             pos += lines[i].length() + 1;
         }
         return -1;
-    }
-
-    private boolean hasPgpKey(Context context, List<Address> recipients) {
-        if (recipients == null || recipients.size() == 0)
-            return false;
-
-        String[] userIds = new String[recipients.size()];
-        for (int i = 0; i < recipients.size(); i++) {
-            InternetAddress recipient = (InternetAddress) recipients.get(i);
-            userIds[i] = recipient.getAddress();
-        }
-
-        Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
-        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, userIds);
-
-        try {
-            Intent result = PgpHelper.execute(context, intent, null, null, MAX_PGP_BIND_DELAY);
-            int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-            if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
-                long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
-                return (keyIds.length > 0);
-            }
-        } catch (OperationCanceledException ignored) {
-            // Do nothing
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
-
-        return false;
     }
 
     private boolean hasSmimeKey(Context context, List<Address> recipients) {

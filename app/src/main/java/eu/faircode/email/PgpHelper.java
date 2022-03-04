@@ -34,8 +34,12 @@ import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 public class PgpHelper {
     private static final long CONNECT_TIMEOUT = 5000L;
@@ -61,6 +65,35 @@ public class PgpHelper {
             if (pgpService != null && pgpService.isBound())
                 pgpService.unbindFromService();
         }
+    }
+
+    static boolean hasPgpKey(Context context, List<Address> recipients, long timeout) {
+        if (recipients == null || recipients.size() == 0)
+            return false;
+
+        String[] userIds = new String[recipients.size()];
+        for (int i = 0; i < recipients.size(); i++) {
+            InternetAddress recipient = (InternetAddress) recipients.get(i);
+            userIds[i] = recipient.getAddress();
+        }
+
+        Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
+        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, userIds);
+
+        try {
+            Intent result = execute(context, intent, null, null, timeout);
+            int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+            if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
+                long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
+                return (keyIds.length > 0);
+            }
+        } catch (OperationCanceledException ignored) {
+            // Do nothing
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return false;
     }
 
     private static String getResultName(int code) {
