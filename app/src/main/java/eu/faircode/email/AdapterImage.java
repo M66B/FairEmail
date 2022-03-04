@@ -158,18 +158,20 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         if (width > 0 && height > 0)
                             sb.append(width).append(" \u00d7 ").append(height);
 
-                        String color = args.getString("color");
-                        if (color != null) {
-                            if (sb.length() > 0)
-                                sb.append(' ');
-                            sb.append(color);
-                        }
+                        if (BuildConfig.DEBUG) {
+                            String color = args.getString("color");
+                            if (color != null) {
+                                if (sb.length() > 0)
+                                    sb.append(' ');
+                                sb.append(color);
+                            }
 
-                        String config = args.getString("config");
-                        if (config != null) {
-                            if (sb.length() > 0)
-                                sb.append(' ');
-                            sb.append(config);
+                            String config = args.getString("config");
+                            if (config != null) {
+                                if (sb.length() > 0)
+                                    sb.append(' ');
+                                sb.append(config);
+                            }
                         }
 
                         long size = args.getLong("size");
