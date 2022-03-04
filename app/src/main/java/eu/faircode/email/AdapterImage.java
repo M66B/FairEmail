@@ -107,6 +107,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         String type = args.getString("type");
                         int max = args.getInt("max");
 
+                        args.putLong("size", file.length());
+
                         try {
                             BitmapFactory.Options options = new BitmapFactory.Options();
                             options.inJustDecodeBounds = true;
@@ -140,10 +142,22 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 image instanceof AnimatedImageDrawable)
                             ((AnimatedImageDrawable) image).start();
 
+                        StringBuilder sb = new StringBuilder();
+
                         int width = args.getInt("width");
                         int height = args.getInt("height");
-                        if (width > 0 && height > 0) {
-                            tvProperties.setText(String.format("%d \u00d7 %d", width, height));
+                        if (width > 0 && height > 0)
+                            sb.append(width).append(" \u00d7 ").append(width);
+
+                        long size = args.getLong("size");
+                        if (size > 0) {
+                            if (sb.length() > 0)
+                                sb.append(" \u2013 ");
+                            sb.append(Helper.humanReadableByteCount(size));
+                        }
+
+                        if (sb.length() > 0) {
+                            tvProperties.setText(sb);
                             tvProperties.setVisibility(View.VISIBLE);
                         }
                     }
