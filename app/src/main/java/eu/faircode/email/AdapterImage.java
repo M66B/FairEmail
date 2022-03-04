@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorSpace;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -116,6 +117,10 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             BitmapFactory.decodeFile(file.getAbsolutePath(), options);
                             args.putInt("width", options.outWidth);
                             args.putInt("height", options.outHeight);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                if (options.outColorSpace != null)
+                                    args.putString("color", options.outColorSpace.getModel().name());
+                            }
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
@@ -150,6 +155,13 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         int height = args.getInt("height");
                         if (width > 0 && height > 0)
                             sb.append(width).append(" \u00d7 ").append(height);
+
+                        String color = args.getString("color");
+                        if (color != null) {
+                            if (sb.length() > 0)
+                                sb.append(' ');
+                            sb.append(color);
+                        }
 
                         long size = args.getLong("size");
                         if (size > 0) {
