@@ -2,6 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
 
+### [Gobivenator](https://en.wikipedia.org/wiki/Gobivenator)
+
+### Next version
+
+* Added image dimensions to mini gallery
+* Added PGP and S/MIME key indicators to address bubbles
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### [Fulgurotherium](https://en.wikipedia.org/wiki/Fulgurotherium)
 
 ### 1.1851 - 2022-03-02
