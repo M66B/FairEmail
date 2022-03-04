@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -44,6 +45,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -61,6 +63,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         private View view;
         private ImageView ivImage;
         private TextView tvCaption;
+        private TextView tvProperties;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -68,6 +71,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             view = itemView.findViewById(R.id.clItem);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
+            tvProperties = itemView.findViewById(R.id.tvProperties);
         }
 
         private void wire() {
@@ -83,28 +87,74 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         private void bindTo(EntityAttachment attachment) {
             tvCaption.setText(attachment.name);
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
+            tvProperties.setVisibility(View.GONE);
 
             if (attachment.available) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                    try {
-                        Drawable d = ImageHelper.getScaledDrawable(context,
-                                attachment.getFile(context), attachment.getMimeType(),
-                                context.getResources().getDisplayMetrics().widthPixels);
-                        ivImage.setImageDrawable(d);
-                        if (d instanceof AnimatedImageDrawable)
-                            ((AnimatedImageDrawable) d).start();
-                        return;
-                    } catch (Throwable ex) {
-                        Log.w(ex);
+                Bundle args = new Bundle();
+                args.putSerializable("file", attachment.getFile(context));
+                args.putString("type", attachment.getMimeType());
+                args.putInt("max", context.getResources().getDisplayMetrics().widthPixels);
+
+                new SimpleTask<Object>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        ivImage.setImageResource(R.drawable.twotone_hourglass_top_24);
                     }
 
-                Bitmap bm = ImageHelper.decodeImage(
-                        attachment.getFile(context), attachment.getMimeType(),
-                        context.getResources().getDisplayMetrics().widthPixels);
-                if (bm == null)
-                    ivImage.setImageResource(R.drawable.twotone_broken_image_24);
-                else
-                    ivImage.setImageBitmap(bm);
+                    @Override
+                    protected Object onExecute(Context context, Bundle args) throws Throwable {
+                        File file = (File) args.getSerializable("file");
+                        String type = args.getString("type");
+                        int max = args.getInt("max");
+
+                        try {
+                            BitmapFactory.Options options = new BitmapFactory.Options();
+                            options.inJustDecodeBounds = true;
+                            BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+                            args.putInt("width", options.outWidth);
+                            args.putInt("height", options.outHeight);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                            try {
+                                return ImageHelper.getScaledDrawable(context, file, type, max);
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+
+                        return ImageHelper.decodeImage(file, type, max);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Object image) {
+                        if (image instanceof Drawable)
+                            ivImage.setImageDrawable((Drawable) image);
+                        else if (image instanceof Bitmap)
+                            ivImage.setImageBitmap((Bitmap) image);
+                        else
+                            ivImage.setImageResource(R.drawable.twotone_broken_image_24);
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                                image instanceof AnimatedImageDrawable)
+                            ((AnimatedImageDrawable) image).start();
+
+                        int width = args.getInt("width");
+                        int height = args.getInt("height");
+                        if (width > 0 && height > 0) {
+                            tvProperties.setText(String.format("%d \u00d7 %d", width, height));
+                            tvProperties.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        tvCaption.setText(Log.formatThrowable(ex));
+                        tvCaption.setVisibility(View.VISIBLE);
+                        ivImage.setImageResource(R.drawable.twotone_broken_image_24);
+                    }
+                }.execute(context, owner, args, "image:load");
             } else
                 ivImage.setImageResource(attachment.progress == null
                         ? R.drawable.twotone_image_24 : R.drawable.twotone_hourglass_top_24);
