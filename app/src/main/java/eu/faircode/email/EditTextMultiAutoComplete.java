@@ -343,7 +343,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                         });
                                     } else if (has) {
                                         cd.setTextEndPadding(dp3);
-                                        cd.setCloseIcon(context.getDrawable(R.drawable.twotone_lock_24));
+                                        cd.setCloseIcon(context.getDrawable(R.drawable.twotone_vpn_key_24));
                                         cd.setCloseIconVisible(true);
                                     }
 
