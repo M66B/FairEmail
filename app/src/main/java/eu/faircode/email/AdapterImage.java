@@ -147,7 +147,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         int width = args.getInt("width");
                         int height = args.getInt("height");
                         if (width > 0 && height > 0)
-                            sb.append(width).append(" \u00d7 ").append(width);
+                            sb.append(width).append(" \u00d7 ").append(height);
 
                         long size = args.getLong("size");
                         if (size > 0) {
