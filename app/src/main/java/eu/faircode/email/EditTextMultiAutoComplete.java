@@ -351,7 +351,6 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                             }
                                         });
                                     } else if (has != 0) {
-                                        cd.setTextEndPadding(dp3);
                                         cd.setCloseIcon(context.getDrawable(icons[has - 1]));
                                         cd.setCloseIconVisible(true);
                                     }

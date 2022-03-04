@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:ellipsize="middle"
     android:textAppearance="@style/TextAppearance.AppCompat.Small"
+    app:closeIconStartPadding="3dp"
     app:closeIconVisible="false"
     app:textEndPadding="0dp"
     app:textStartPadding="3dp" />
