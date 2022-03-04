@@ -56,7 +56,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
 
+import javax.mail.Address;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -66,6 +70,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private int colorAccent;
     private ContextThemeWrapper ctx;
     private Tokenizer tokenizer;
+    private Map<String, Boolean> encryption = new ConcurrentHashMap<>();
+
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "chips");
 
     public EditTextMultiAutoComplete(@NonNull Context context) {
         super(context);
@@ -245,8 +252,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                 int s = edit.getSpanStart(span);
                                 int e = edit.getSpanEnd(span);
                                 if (s == start && e == i + 1) {
-                                    found = true;
-                                    if (!(focus && overlap(start, i, selStart, selEnd)))
+                                    found = !span.needsUpdate();
+                                    if (found && !(focus && overlap(start, i, selStart, selEnd)))
                                         tbd.remove(span);
                                     break;
                                 }
@@ -309,12 +316,40 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                         }
                                     cd.setText(text);
                                     cd.setChipBackgroundColor(ColorStateList.valueOf(colorAccent));
-                                    cd.setMaxWidth(getWidth());
-                                    cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
 
                                     ClipImageSpan is = new ClipImageSpan(cd);
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
                                         is.setContentDescription(email);
+
+                                    Boolean has = encryption.get(email);
+                                    if (has == null) {
+                                        final List<Address> recipient = Arrays.asList(new Address[]{parsed[0]});
+                                        executor.submit(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    boolean has =
+                                                            PgpHelper.hasPgpKey(context, recipient) ||
+                                                                    SmimeHelper.hasSmimeKey(context, recipient);
+                                                    encryption.put(email, has);
+                                                    if (has) {
+                                                        is.invalidate();
+                                                        post(update);
+                                                    }
+                                                } catch (Throwable ex) {
+                                                    Log.w(ex);
+                                                }
+                                            }
+                                        });
+                                    } else if (has) {
+                                        cd.setTextEndPadding(dp3);
+                                        cd.setCloseIcon(context.getDrawable(R.drawable.twotone_lock_24));
+                                        cd.setCloseIconVisible(true);
+                                    }
+
+                                    cd.setMaxWidth(getWidth());
+                                    cd.setBounds(0, 0, cd.getIntrinsicWidth(), cd.getIntrinsicHeight());
+
                                     edit.setSpan(is, start, i + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                                     if (kar == ',' &&
@@ -346,8 +381,18 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     }
 
     private static class ClipImageSpan extends ImageSpan {
+        private boolean update;
+
         public ClipImageSpan(@NonNull Drawable drawable) {
             super(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
+        }
+
+        void invalidate() {
+            update = true;
+        }
+
+        boolean needsUpdate() {
+            return update;
         }
     }
 }

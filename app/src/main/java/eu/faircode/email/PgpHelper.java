@@ -67,6 +67,10 @@ public class PgpHelper {
         }
     }
 
+    static boolean hasPgpKey(Context context, List<Address> recipients) {
+        return hasPgpKey(context, recipients, CONNECT_TIMEOUT);
+    }
+
     static boolean hasPgpKey(Context context, List<Address> recipients, long timeout) {
         if (recipients == null || recipients.size() == 0)
             return false;
