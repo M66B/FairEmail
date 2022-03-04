@@ -2972,6 +2972,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             pi = PendingIntentCompat.getForegroundService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pi);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean watchdog = prefs.getBoolean("watchdog", true);
         boolean enabled = prefs.getBoolean("enabled", true);
@@ -2982,8 +2984,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 next += WATCHDOG_INTERVAL;
             EntityLog.log(context, "Watchdog next=" + new Date(next));
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, pi);
-        } else
-            am.cancel(pi);
+        }
     }
 
     static void eval(Context context, String reason) {
