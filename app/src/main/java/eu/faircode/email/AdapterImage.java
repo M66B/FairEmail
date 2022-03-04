@@ -156,7 +156,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         int width = args.getInt("width");
                         int height = args.getInt("height");
                         if (width > 0 && height > 0)
-                            sb.append(width).append(" \u00d7 ").append(height);
+                            sb.append(width)
+                                    .append("\u00d7") // ×
+                                    .append(height);
 
                         if (BuildConfig.DEBUG) {
                             String color = args.getString("color");
@@ -177,7 +179,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         long size = args.getLong("size");
                         if (size > 0) {
                             if (sb.length() > 0)
-                                sb.append(" \u2013 ");
+                                sb.append(" \u2013 "); // –
                             sb.append(Helper.humanReadableByteCount(size));
                         }
 
