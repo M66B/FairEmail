@@ -20,7 +20,6 @@
             android:contentDescription="@string/title_widget_title_sync"
             android:scaleType="fitXY"
             android:src="@drawable/twotone_sync_disabled_24"
-            android:tintMode="add"
             app:tint="@color/colorWidgetForeground" />
     </RelativeLayout>
 </FrameLayout>

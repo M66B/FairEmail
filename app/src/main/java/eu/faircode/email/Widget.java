@@ -26,7 +26,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -112,16 +115,15 @@ public class Widget extends AppWidgetProvider {
 
                     views.setOnClickPendingIntent(R.id.background, pi);
 
+                    int fg;
+                    int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
                     if (background == Color.TRANSPARENT) {
                         if (semi)
                             views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
                         else
                             views.setInt(R.id.background, "setBackgroundColor", background);
 
-                        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
-                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
-                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
-                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
+                        fg = colorWidgetForeground;
                     } else {
                         float lum = (float) ColorUtils.calculateLuminance(background);
 
@@ -130,21 +132,33 @@ public class Widget extends AppWidgetProvider {
 
                         views.setInt(R.id.background, "setBackgroundColor", background);
 
-                        if (lum > 0.7f) {
-                            views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
-                            views.setTextColor(R.id.tvCount, Color.BLACK);
-                            views.setTextColor(R.id.tvAccount, Color.BLACK);
-                        }
+                        fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
                     }
 
+                    views.setTextColor(R.id.tvCount, layout == 0 ? fg : colorWidgetForeground);
+                    views.setTextColor(R.id.tvAccount, fg);
+
+                    int resid;
                     if (layout == 1)
-                        views.setImageViewResource(R.id.ivMessage, unseen == 0
+                        resid = (unseen == 0
                                 ? R.drawable.baseline_mail_outline_widget_24
                                 : R.drawable.baseline_mail_widget_24);
                     else
-                        views.setImageViewResource(R.id.ivMessage, unseen == 0
+                        resid = (unseen == 0
                                 ? R.drawable.twotone_mail_outline_24
                                 : R.drawable.baseline_mail_24);
+
+                    Drawable d = context.getDrawable(resid);
+                    d.mutate();
+                    d.setTint(fg);
+
+                    Bitmap bm = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(bm);
+                    d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                    d.draw(canvas);
+
+                    views.setImageViewBitmap(R.id.ivMessage, bm);
+
                     views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "99+");
                     views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
 

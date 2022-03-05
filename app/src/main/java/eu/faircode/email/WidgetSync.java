@@ -26,7 +26,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
 
 import androidx.core.graphics.ColorUtils;
@@ -55,15 +58,16 @@ public class WidgetSync extends AppWidgetProvider {
 
                 RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_sync);
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
-                views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
 
+                int fg;
+                int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
                 if (background == Color.TRANSPARENT) {
                     if (semi)
                         views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
                     else
                         views.setInt(R.id.background, "setBackgroundColor", background);
-                    views.setInt(R.id.ivSync, "setColorFilter",
-                            context.getResources().getColor(R.color.colorWidgetForeground));
+
+                    fg = colorWidgetForeground;
                 } else {
                     float lum = (float) ColorUtils.calculateLuminance(background);
 
@@ -72,9 +76,21 @@ public class WidgetSync extends AppWidgetProvider {
 
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
-                    if (lum > 0.7f)
-                        views.setInt(R.id.ivSync, "setColorFilter", Color.BLACK);
+                    fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
                 }
+
+                int resid = (enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
+
+                Drawable d = context.getDrawable(resid);
+                d.mutate();
+                d.setTint(fg);
+
+                Bitmap bm = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bm);
+                d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                d.draw(canvas);
+
+                views.setImageViewBitmap(R.id.ivSync, bm);
 
                 int dp6 = Helper.dp2pixels(context, 6);
                 views.setViewPadding(R.id.content, dp6, dp6, dp6, dp6);
