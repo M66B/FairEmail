@@ -934,7 +934,7 @@ public class StyleHelper {
         if (faces.contains("montserrat"))
             return "Montserrat, Gotham, sans-serif";
         if (faces.contains("arimo"))
-            return "Arimo, Arial, Verdana, Helvetica, Helvetica Neue, sans-serif";
+            return "Arimo, Arial, Verdana, Helvetica, \"Helvetica Neue\", sans-serif";
         if (faces.contains("tinos"))
             return "Tinos, \"Times New Roman\", Times, serif";
         if (faces.contains("cousine"))
