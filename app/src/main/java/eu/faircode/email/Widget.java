@@ -152,7 +152,9 @@ public class Widget extends AppWidgetProvider {
                     views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
 
                     // Set account name
-                    if (!TextUtils.isEmpty(name)) {
+                    if (TextUtils.isEmpty(name))
+                        views.setViewVisibility(R.id.tvAccount, ViewStripe.GONE);
+                    else {
                         views.setTextViewText(R.id.tvAccount, name);
                         views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
                     }
