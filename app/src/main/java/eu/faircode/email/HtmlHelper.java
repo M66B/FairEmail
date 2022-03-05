@@ -635,7 +635,7 @@ public class HtmlHelper {
 
                             if (color != null && color == Color.TRANSPARENT) {
                                 if ("color".equals(key))
-                                    if (display_hidden)
+                                    if (display_hidden || !BuildConfig.PLAY_STORE_RELEASE)
                                         sb.append("text-decoration:line-through;");
                                     else if (false) {
                                         Log.i("Removing color transparent " + element.tagName());
@@ -748,7 +748,7 @@ public class HtmlHelper {
                             Float fsize = getFontSize(value, current);
                             if (fsize != null)
                                 if (fsize == 0) {
-                                    if (display_hidden)
+                                    if (display_hidden || !BuildConfig.PLAY_STORE_RELEASE)
                                         sb.append("text-decoration:line-through;");
                                     else if (false) {
                                         Log.i("Removing font size zero " + element.tagName());
