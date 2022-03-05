@@ -134,10 +134,10 @@ public class Widget extends AppWidgetProvider {
                         else
                             views.setInt(android.R.id.background, "setBackgroundColor", background);
 
-                        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
-                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
-                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
-                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
+                        //int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
+                        //views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
+                        //views.setTextColor(R.id.tvCount, colorWidgetForeground);
+                        //views.setTextColor(R.id.tvAccount, colorWidgetForeground);
                     } else {
                         float lum = (float) ColorUtils.calculateLuminance(background);
 
