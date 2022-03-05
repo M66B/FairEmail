@@ -62,7 +62,6 @@ public class EditTextCompose extends FixedEditText {
 
     private Boolean canUndo = null;
     private Boolean canRedo = null;
-    private boolean checkKeyEvent = false;
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "paste");
@@ -193,7 +192,6 @@ public class EditTextCompose extends FixedEditText {
         canRedo = null;
 
         try {
-            checkKeyEvent = true;
             int meta = KeyEvent.META_CTRL_ON;
             if (what == android.R.id.redo)
                 meta = meta | KeyEvent.META_SHIFT_ON;
@@ -201,8 +199,6 @@ public class EditTextCompose extends FixedEditText {
             onKeyShortcut(KeyEvent.KEYCODE_Z, ke);
         } catch (Throwable ex) {
             Log.e(ex);
-        } finally {
-            checkKeyEvent = false;
         }
 
         return Boolean.TRUE.equals(what == android.R.id.redo ? canRedo : canUndo);
