@@ -110,7 +110,32 @@ public class Widget extends AppWidgetProvider {
                     RemoteViews views = new RemoteViews(context.getPackageName(),
                             layout == 0 ? R.layout.widget : R.layout.widget_new);
 
-                    views.setOnClickPendingIntent(android.R.id.background, pi);
+                    views.setOnClickPendingIntent(R.id.background, pi);
+
+                    if (background == Color.TRANSPARENT) {
+                        if (semi)
+                            views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
+                        else
+                            views.setInt(R.id.background, "setBackgroundColor", background);
+
+                        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
+                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
+                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
+                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
+                    } else {
+                        float lum = (float) ColorUtils.calculateLuminance(background);
+
+                        if (semi)
+                            background = ColorUtils.setAlphaComponent(background, 127);
+
+                        views.setInt(R.id.background, "setBackgroundColor", background);
+
+                        if (lum > 0.7f) {
+                            views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
+                            views.setTextColor(R.id.tvCount, Color.BLACK);
+                            views.setTextColor(R.id.tvAccount, Color.BLACK);
+                        }
+                    }
 
                     if (layout == 1)
                         views.setImageViewResource(R.id.ivMessage, unseen == 0
@@ -126,31 +151,6 @@ public class Widget extends AppWidgetProvider {
                     if (!TextUtils.isEmpty(name)) {
                         views.setTextViewText(R.id.tvAccount, name);
                         views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
-                    }
-
-                    if (background == Color.TRANSPARENT) {
-                        if (semi)
-                            views.setInt(android.R.id.background, "setBackgroundResource", R.drawable.widget_background);
-                        else
-                            views.setInt(android.R.id.background, "setBackgroundColor", background);
-
-                        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
-                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
-                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
-                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
-                    } else {
-                        float lum = (float) ColorUtils.calculateLuminance(background);
-
-                        if (semi)
-                            background = ColorUtils.setAlphaComponent(background, 127);
-
-                        views.setInt(android.R.id.background, "setBackgroundColor", background);
-
-                        if (lum > 0.7f) {
-                            views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
-                            views.setTextColor(R.id.tvCount, Color.BLACK);
-                            views.setTextColor(R.id.tvAccount, Color.BLACK);
-                        }
                     }
 
                     int pad = Helper.dp2pixels(context, layout == 0 ? 3 : 6);

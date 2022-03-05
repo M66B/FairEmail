@@ -131,9 +131,9 @@ public class WidgetUnified extends AppWidgetProvider {
 
             if (background == Color.TRANSPARENT) {
                 if (semi)
-                    views.setInt(android.R.id.background, "setBackgroundResource", R.drawable.widget_background);
+                    views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
                 else
-                    views.setInt(android.R.id.background, "setBackgroundColor", background);
+                    views.setInt(R.id.background, "setBackgroundColor", background);
 
                 int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
                 views.setTextColor(R.id.title, colorWidgetForeground);
@@ -143,7 +143,7 @@ public class WidgetUnified extends AppWidgetProvider {
                 if (semi)
                     background = ColorUtils.setAlphaComponent(background, 127);
 
-                views.setInt(android.R.id.background, "setBackgroundColor", background);
+                views.setInt(R.id.background, "setBackgroundColor", background);
 
                 if (lum > 0.7f)
                     views.setTextColor(R.id.title, Color.BLACK);
