@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_delete_24"
             android:drawablePadding="6dp"
-            android:drawableTint="?attr/colorError"
+            android:drawableTint="?attr/colorWarning"
             android:text="@string/title_delete_operation_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
