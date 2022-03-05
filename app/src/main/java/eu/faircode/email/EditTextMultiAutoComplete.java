@@ -75,8 +75,8 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "chips");
 
     private static int[] icons = new int[]{
-            R.drawable.twotone_vpn_key_24_r,
-            R.drawable.twotone_vpn_key_24_l,
+            R.drawable.twotone_vpn_key_24_p,
+            R.drawable.twotone_vpn_key_24_s,
             R.drawable.twotone_vpn_key_24_b
     };
 
