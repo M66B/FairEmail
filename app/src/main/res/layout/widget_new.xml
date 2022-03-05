@@ -21,6 +21,7 @@
             android:padding="3dp"
             android:scaleType="fitXY"
             android:src="@drawable/baseline_mail_widget_24"
+            android:tintMode="add"
             app:tint="@color/colorWidgetForeground" />
 
         <TextView
