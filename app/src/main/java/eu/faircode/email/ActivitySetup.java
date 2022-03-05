@@ -125,6 +125,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private boolean hasAccount;
     private String password;
     private boolean import_accounts;
+    private boolean import_delete;
     private boolean import_rules;
     private boolean import_contacts;
     private boolean import_answers;
@@ -337,6 +338,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
             password = savedInstanceState.getString("fair:password");
             import_accounts = savedInstanceState.getBoolean("fair:import_accounts");
+            import_delete = savedInstanceState.getBoolean("fair:import_delete");
             import_rules = savedInstanceState.getBoolean("fair:import_rules");
             import_contacts = savedInstanceState.getBoolean("fair:import_contacts");
             import_answers = savedInstanceState.getBoolean("fair:import_answers");
@@ -358,6 +360,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
         outState.putString("fair:password", password);
         outState.putBoolean("fair:import_accounts", import_accounts);
+        outState.putBoolean("fair:import_delete", import_delete);
         outState.putBoolean("fair:import_rules", import_rules);
         outState.putBoolean("fair:import_contacts", import_contacts);
         outState.putBoolean("fair:import_answers", import_answers);
@@ -807,6 +810,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putParcelable("uri", uri);
         args.putString("password", this.password);
         args.putBoolean("import_accounts", this.import_accounts);
+        args.putBoolean("import_delete", this.import_delete);
         args.putBoolean("import_rules", this.import_rules);
         args.putBoolean("import_contacts", this.import_contacts);
         args.putBoolean("import_answers", this.import_answers);
@@ -831,12 +835,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
                 boolean import_accounts = args.getBoolean("import_accounts");
+                boolean import_delete = args.getBoolean("import_delete");
                 boolean import_rules = args.getBoolean("import_rules");
                 boolean import_contacts = args.getBoolean("import_contacts");
                 boolean import_answers = args.getBoolean("import_answers");
                 boolean import_settings = args.getBoolean("import_settings");
                 EntityLog.log(context, "Importing " + uri +
                         " accounts=" + import_accounts +
+                        " delete=" + import_delete +
                         " rules=" + import_rules +
                         " contacts=" + import_contacts +
                         " answers=" + import_answers +
@@ -927,6 +933,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             JSONObject jaccount = (JSONObject) jaccounts.get(a);
                             EntityAccount account = EntityAccount.fromJSON(jaccount);
                             postProgress(context.getString(R.string.title_importing_account, account.name));
+
+                            if (import_delete) {
+                                EntityAccount delete = db.account().getAccount(account.auth_type, account.user);
+                                if (delete != null)
+                                    db.account().deleteAccount(delete.id);
+                            }
 
                             EntityAccount existing = db.account().getAccountByUUID(account.uuid);
                             if (existing != null) {
@@ -1718,6 +1730,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_import, null);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             CheckBox cbAccounts = dview.findViewById(R.id.cbAccounts);
+            CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
             CheckBox cbRules = dview.findViewById(R.id.cbRules);
             CheckBox cbContacts = dview.findViewById(R.id.cbContacts);
             CheckBox cbAnswers = dview.findViewById(R.id.cbAnswers);
@@ -1750,6 +1763,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 ActivitySetup activity = (ActivitySetup) getActivity();
                                 activity.password = password1;
                                 activity.import_accounts = cbAccounts.isChecked();
+                                activity.import_delete = cbDelete.isChecked();
                                 activity.import_rules = cbRules.isChecked();
                                 activity.import_contacts = cbContacts.isChecked();
                                 activity.import_answers = cbAnswers.isChecked();

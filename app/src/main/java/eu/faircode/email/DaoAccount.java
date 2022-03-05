@@ -147,6 +147,9 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE uuid = :uuid")
     EntityAccount getAccountByUUID(String uuid);
 
+    @Query("SELECT * FROM account WHERE auth_type = :auth_type AND user = :user")
+    EntityAccount getAccount(int auth_type, String user);
+
     @Query("SELECT * FROM account WHERE name = :name")
     EntityAccount getAccount(String name);
 

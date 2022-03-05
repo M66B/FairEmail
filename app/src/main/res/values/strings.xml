@@ -262,6 +262,7 @@
     <string name="title_setup_password_different">Passwords don\'t match</string>
     <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_import_accounts">Import accounts and identities</string>
+    <string name="title_setup_import_delete" translatable="false">Delete existing accounts</string>
     <string name="title_setup_import_rules">Import filter rules</string>
     <string name="title_setup_import_contacts">Import local contacts</string>
     <string name="title_setup_import_answers">Import reply templates</string>
