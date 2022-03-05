@@ -113,29 +113,18 @@ public class Widget extends AppWidgetProvider {
 
                     views.setOnClickPendingIntent(R.id.background, pi);
 
-                    if (background == Color.TRANSPARENT) {
-                        if (semi)
-                            views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
+                    // Set background
+                    if (semi)
+                        if (background == Color.TRANSPARENT)
+                            views.setInt(R.id.background, "setBackgroundResource",
+                                    R.drawable.widget_background);
                         else
-                            views.setInt(R.id.background, "setBackgroundColor", background);
-
-                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
-                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
-                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
-                    } else {
-                        float lum = (float) ColorUtils.calculateLuminance(background);
-
-                        if (semi)
-                            background = ColorUtils.setAlphaComponent(background, 127);
-
+                            views.setInt(R.id.background, "setBackgroundColor",
+                                    ColorUtils.setAlphaComponent(background, 127));
+                    else
                         views.setInt(R.id.background, "setBackgroundColor", background);
 
-                        int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
-                        views.setInt(R.id.ivMessage, "setColorFilter", fg);
-                        views.setTextColor(R.id.tvCount, layout == 0 ? fg : colorWidgetForeground);
-                        views.setTextColor(R.id.tvAccount, fg);
-                    }
-
+                    // Set image
                     if (layout == 1)
                         views.setImageViewResource(R.id.ivMessage, unseen == 0
                                 ? R.drawable.baseline_mail_outline_widget_24
@@ -144,9 +133,25 @@ public class Widget extends AppWidgetProvider {
                         views.setImageViewResource(R.id.ivMessage, unseen == 0
                                 ? R.drawable.twotone_mail_outline_24
                                 : R.drawable.baseline_mail_24);
+
+                    // Set color
+                    if (background == Color.TRANSPARENT) {
+                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
+                        views.setTextColor(R.id.tvCount, colorWidgetForeground);
+                        views.setTextColor(R.id.tvAccount, colorWidgetForeground);
+                    } else {
+                        float lum = (float) ColorUtils.calculateLuminance(background);
+                        int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+                        views.setInt(R.id.ivMessage, "setColorFilter", fg);
+                        views.setTextColor(R.id.tvCount, layout == 0 ? fg : colorWidgetForeground);
+                        views.setTextColor(R.id.tvAccount, fg);
+                    }
+
+                    // Set count
                     views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "99+");
                     views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
 
+                    // Set account name
                     if (!TextUtils.isEmpty(name)) {
                         views.setTextViewText(R.id.tvAccount, name);
                         views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
