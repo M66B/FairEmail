@@ -40,6 +40,8 @@ public class WidgetUnified extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
+
         for (int appWidgetId : appWidgetIds) {
             String name = prefs.getString("widget." + appWidgetId + ".name", null);
             long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
@@ -135,7 +137,6 @@ public class WidgetUnified extends AppWidgetProvider {
                 else
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
-                int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
                 views.setTextColor(R.id.title, colorWidgetForeground);
             } else {
                 float lum = (float) ColorUtils.calculateLuminance(background);
@@ -145,8 +146,8 @@ public class WidgetUnified extends AppWidgetProvider {
 
                 views.setInt(R.id.background, "setBackgroundColor", background);
 
-                if (lum > 0.7f)
-                    views.setTextColor(R.id.title, Color.BLACK);
+                int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+                views.setTextColor(R.id.title, fg);
             }
 
             int dp6 = Helper.dp2pixels(context, 6);

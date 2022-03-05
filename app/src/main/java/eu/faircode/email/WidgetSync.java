@@ -45,6 +45,8 @@ public class WidgetSync extends AppWidgetProvider {
             PendingIntent pi = PendingIntentCompat.getForegroundService(
                     context, ServiceSynchronize.PI_ENABLE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+            int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
+
             for (int appWidgetId : appWidgetIds) {
                 boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                 int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
@@ -62,8 +64,7 @@ public class WidgetSync extends AppWidgetProvider {
                         views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
                     else
                         views.setInt(R.id.background, "setBackgroundColor", background);
-                    views.setInt(R.id.ivSync, "setColorFilter",
-                            context.getResources().getColor(R.color.colorWidgetForeground));
+                    views.setInt(R.id.ivSync, "setColorFilter", colorWidgetForeground);
                 } else {
                     float lum = (float) ColorUtils.calculateLuminance(background);
 
@@ -72,8 +73,8 @@ public class WidgetSync extends AppWidgetProvider {
 
                     views.setInt(R.id.background, "setBackgroundColor", background);
 
-                    if (lum > 0.7f)
-                        views.setInt(R.id.ivSync, "setColorFilter", Color.BLACK);
+                    int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+                    views.setInt(R.id.ivSync, "setColorFilter", fg);
                 }
 
                 int dp6 = Helper.dp2pixels(context, 6);

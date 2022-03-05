@@ -53,6 +53,7 @@ public class Widget extends AppWidgetProvider {
 
                 DB db = DB.getInstance(context);
                 NumberFormat nf = NumberFormat.getIntegerInstance();
+                int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
 
                 for (int appWidgetId : appWidgetIds) {
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
@@ -118,7 +119,6 @@ public class Widget extends AppWidgetProvider {
                         else
                             views.setInt(R.id.background, "setBackgroundColor", background);
 
-                        int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
                         views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
                         views.setTextColor(R.id.tvCount, colorWidgetForeground);
                         views.setTextColor(R.id.tvAccount, colorWidgetForeground);
@@ -130,11 +130,10 @@ public class Widget extends AppWidgetProvider {
 
                         views.setInt(R.id.background, "setBackgroundColor", background);
 
-                        if (lum > 0.7f) {
-                            views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
-                            views.setTextColor(R.id.tvCount, Color.BLACK);
-                            views.setTextColor(R.id.tvAccount, Color.BLACK);
-                        }
+                        int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+                        views.setInt(R.id.ivMessage, "setColorFilter", fg);
+                        views.setTextColor(R.id.tvCount, layout == 0 ? fg : colorWidgetForeground);
+                        views.setTextColor(R.id.tvAccount, fg);
                     }
 
                     if (layout == 1)
