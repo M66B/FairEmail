@@ -932,7 +932,7 @@ public class StyleHelper {
         // TODO: Microsoft: Georgia (Serif), Tahoma (Sans-serif), Trebuchet MS (Sans-serif)
         String faces = family.toLowerCase(Locale.ROOT);
         if (faces.contains("montserrat"))
-            return "Montserrat, Gotham, sans-serif";
+            return "Montserrat, Gotham, \"Proxima Nova\", sans-serif";
         if (faces.contains("arimo"))
             return "Arimo, Arial, Verdana, Helvetica, \"Helvetica Neue\", sans-serif";
         if (faces.contains("tinos"))
@@ -973,7 +973,8 @@ public class StyleHelper {
 
         if (bundled_fonts) {
             if (faces.contains("montserrat") ||
-                    faces.contains("gotham"))
+                    faces.contains("gotham") ||
+                    faces.contains("proxima nova"))
                 return ResourcesCompat.getFont(context, R.font.montserrat);
 
             if (faces.contains("arimo") ||
