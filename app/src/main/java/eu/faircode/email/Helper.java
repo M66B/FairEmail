@@ -194,7 +194,7 @@ public class Helper {
     private static final String[] ROMAN_1 = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 
     static final Pattern EMAIL_ADDRESS = Pattern.compile(
-            "[\\S]{1,256}" +
+            "[\\S&&[^\"@]]{1,256}" +
                     "\\@" +
                     "[\\p{L}0-9][\\p{L}0-9\\-\\_]{0,64}" +
                     "(" +
