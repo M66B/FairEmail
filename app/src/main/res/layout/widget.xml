@@ -20,7 +20,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="2"
             android:contentDescription="@string/title_legend_count"
-            android:src="@drawable/baseline_mail_widget_24_widget" />
+            android:src="@drawable/widget_baseline_mail_24" />
 
         <TextView
             android:id="@+id/tvCount"
