@@ -39,7 +39,6 @@
                 android:contentDescription="@string/tile_synchronize"
                 android:padding="6dp"
                 android:src="@drawable/twotone_sync_24"
-                android:tintMode="add"
                 android:visibility="gone"
                 app:tint="@color/colorWidgetForeground" />
 
@@ -51,7 +50,6 @@
                 android:contentDescription="@string/title_compose"
                 android:padding="6dp"
                 android:src="@drawable/twotone_edit_24"
-                android:tintMode="add"
                 android:visibility="gone"
                 app:tint="@color/colorWidgetForeground" />
         </LinearLayout>
