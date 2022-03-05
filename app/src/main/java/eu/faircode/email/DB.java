@@ -436,7 +436,12 @@ public abstract class DB extends RoomDatabase {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
                         }
-                        createTriggers(db);
+
+                        try {
+                            createTriggers(db);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 });
     }
