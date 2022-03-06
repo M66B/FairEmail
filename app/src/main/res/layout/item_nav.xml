@@ -39,7 +39,7 @@
             android:singleLine="true"
             android:text="123"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorBadge"
+            android:textColor="?attr/colorControlNormal"
             android:textSize="10sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/ivItem"
