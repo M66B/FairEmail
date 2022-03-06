@@ -36,14 +36,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
+            android:paddingBottom="21dp"
             android:singleLine="true"
             android:text="123"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorControlNormal"
-            android:textSize="10sp"
+            android:textSize="9dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/ivItem"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/ivItem"
+            app:layout_constraintEnd_toEndOf="@+id/ivItem" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvItem"
