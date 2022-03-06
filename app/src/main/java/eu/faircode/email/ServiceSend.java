@@ -571,6 +571,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         EntityFolder folder = db.folder().getFolder(m.folder);
                         if (folder != null &&
                                 (EntityFolder.INBOX.equals(folder.type) ||
+                                        EntityFolder.ARCHIVE.equals(folder.type) ||
                                         EntityFolder.USER.equals(folder.type))) {
                             sent = folder;
                             break;
