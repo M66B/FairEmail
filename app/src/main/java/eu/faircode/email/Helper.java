@@ -2166,11 +2166,18 @@ public class Helper {
 
                         @Override
                         public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
-                            Log.w("Authenticate biometric error " + errorCode + ": " + errString);
+                            if (isCancelled(errorCode))
+                                Log.w("Authenticate biometric error " + errorCode + ": " + errString);
+                            else
+                                Log.e("Authenticate biometric error " + errorCode + ": " + errString);
 
-                            if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
-                                    errorCode != BiometricPrompt.ERROR_CANCELED &&
-                                    errorCode != BiometricPrompt.ERROR_USER_CANCELED)
+                            if (isHardwareFailure(errorCode)) {
+                                prefs.edit().remove("biometrics").apply();
+                                ApplicationEx.getMainHandler().post(authenticated);
+                                return;
+                            }
+
+                            if (!isCancelled(errorCode))
                                 ApplicationEx.getMainHandler().post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -2195,6 +2202,19 @@ public class Helper {
                             Log.w("Authenticate biometric failed");
                             if (++fails >= 3)
                                 ApplicationEx.getMainHandler().post(cancelled);
+                        }
+
+                        private boolean isCancelled(int errorCode) {
+                            return (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
+                                    errorCode == BiometricPrompt.ERROR_CANCELED ||
+                                    errorCode == BiometricPrompt.ERROR_USER_CANCELED);
+                        }
+
+                        private boolean isHardwareFailure(int errorCode) {
+                            return (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE ||
+                                    errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS ||
+                                    errorCode == BiometricPrompt.ERROR_HW_NOT_PRESENT ||
+                                    errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL);
                         }
                     });
 
