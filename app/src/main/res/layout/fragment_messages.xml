@@ -268,6 +268,8 @@
                 android:text="3"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?attr/colorAccent"
+                android:textSize="10sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/ibOutbox"
                 app:layout_constraintTop_toTopOf="@+id/ibOutbox" />
 
