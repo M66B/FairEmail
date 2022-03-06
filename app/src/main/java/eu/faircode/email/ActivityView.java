@@ -874,7 +874,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(TupleOperationStats stats) {
                 navOperations.setWarning(stats != null && stats.errors != null && stats.errors > 0);
                 navOperations.setCount(stats == null ? 0 : stats.pending);
-                adapterNavMenu.notifyDataSetChanged();
+                int pos = adapterNavMenu.getPosition(navOperations);
+                if (pos < 0)
+                    adapterNavMenu.notifyDataSetChanged();
+                else
+                    adapterNavMenu.notifyItemChanged(pos);
             }
         });
 
