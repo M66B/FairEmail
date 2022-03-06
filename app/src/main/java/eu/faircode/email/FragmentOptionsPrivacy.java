@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,6 +46,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,7 +96,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisconnectAutoUpdate;
     private SwitchCompat swDisconnectLinks;
     private SwitchCompat swDisconnectImages;
+    private SwitchCompat swMnemonic;
     private Button btnClearAll;
+    private TextView tvMnemonic;
 
     private Group grpSafeBrowsing;
 
@@ -104,7 +109,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "pin", "biometrics", "biometrics_timeout", "autolock", "autolock_nav",
             "client_id", "display_hidden", "incognito_keyboard", "secure",
             "generic_ua", "safe_browsing", "load_emoji",
-            "disconnect_auto_update", "disconnect_links", "disconnect_images"
+            "disconnect_auto_update", "disconnect_links", "disconnect_images",
+            "wipe_mnemonic"
     };
 
     @Override
@@ -151,7 +157,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisconnectAutoUpdate = view.findViewById(R.id.swDisconnectAutoUpdate);
         swDisconnectLinks = view.findViewById(R.id.swDisconnectLinks);
         swDisconnectImages = view.findViewById(R.id.swDisconnectImages);
+        swMnemonic = view.findViewById(R.id.swMnemonic);
         btnClearAll = view.findViewById(R.id.btnClearAll);
+        tvMnemonic = view.findViewById(R.id.tvMnemonic);
 
         grpSafeBrowsing = view.findViewById(R.id.grpSafeBrowsing);
 
@@ -446,6 +454,31 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        swMnemonic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked) {
+                    byte[] entropy = MnemonicHelper.generate();
+                    String mnemonic = MnemonicHelper.get(entropy);
+                    prefs.edit().putString("wipe_mnemonic", Helper.hex(entropy)).apply();
+                    tvMnemonic.setText(mnemonic);
+
+                    Context context = compoundButton.getContext();
+                    ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (cbm == null)
+                        return;
+
+                    ClipData clip = ClipData.newPlainText(getString(R.string.app_name), mnemonic);
+                    cbm.setPrimaryClip(clip);
+                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+                } else {
+                    prefs.edit().remove("wipe_mnemonic").apply();
+                    tvMnemonic.setText(null);
+                }
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
@@ -546,6 +579,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisconnectAutoUpdate.setChecked(prefs.getBoolean("disconnect_auto_update", false));
         swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
         swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));
+
+        String mnemonic = prefs.getString("wipe_mnemonic", null);
+        swMnemonic.setChecked(mnemonic != null);
+        tvMnemonic.setText(mnemonic == null ? null : MnemonicHelper.get(mnemonic));
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {

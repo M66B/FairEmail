@@ -41,3 +41,4 @@ FairEmail uses:
 * [Cousine font](https://fonts.google.com/specimen/Cousine). By Steve Matteson. [Apache License 2.0](https://fonts.google.com/specimen/Cousine#license).
 * [Lato font](https://fonts.google.com/specimen/Lato). By Łukasz Dziedzic. [Apache License 2.0](https://fonts.google.com/specimen/Lato#license).
 * [Caladea font](https://fonts.google.com/specimen/Caladea). By Andrés Torresi, Carolina Giovanolli. [Apache License 2.0](https://fonts.google.com/specimen/Caladea#license).
+* [BIP39](https://github.com/NovaCrypto/BIP39). Copyright (C) 2017-2019 Alan Evans, NovaCrypto. [GNU General Public License v3.0](https://github.com/NovaCrypto/BIP39/blob/master/LICENCE.txt).
