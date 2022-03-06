@@ -295,6 +295,12 @@
         </activity>
 
         <activity
+            android:name=".ActivityClear"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance" />
+
+        <activity
             android:name=".ActivityError"
             android:exported="false"
             android:launchMode="singleTask" />
@@ -445,6 +451,18 @@
                 <action android:name="${applicationId}.DISABLE" />
                 <action android:name="${applicationId}.INTERVAL" />
                 <action android:name="${applicationId}.DISCONNECT.ME" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ServiceTileClear"
+            android:exported="true"
+            android:icon="@drawable/twotone_warning_24"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
 

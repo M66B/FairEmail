@@ -1,0 +1,72 @@
+package eu.faircode.email;
+
+/*
+    This file is part of FairEmail.
+
+    FairEmail is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FairEmail is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
+
+    Copyright 2018-2022 by Marcel Bokhorst (M66B)
+*/
+
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import java.util.List;
+
+public class ActivityClear extends ActivityBase {
+    private Button btnClearAll;
+    private Button btnCancel;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setSubtitle(getString(R.string.title_advanced_clear_all));
+        setContentView(R.layout.activity_clear);
+
+        btnClearAll = findViewById(R.id.btnClearAll);
+        btnCancel = findViewById(R.id.btnCancel);
+
+        btnClearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+                am.clearApplicationUserData();
+
+                finish();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAndRemoveTask();
+            }
+        });
+    }
+
+    static Intent getIntent(Context context) {
+        return new Intent(context, ActivityClear.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    }
+}

@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2022 by Marcel Bokhorst (M66B)
 */
 
-import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -440,23 +439,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        btnClearAll.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         btnClearAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
-                        .setIcon(R.drawable.twotone_dangerous_24)
-                        .setTitle(R.string.title_advanced_clear_all)
-                        .setMessage(R.string.title_advanced_clear_all_remark)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-                                am.clearApplicationUserData();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+                startActivity(ActivityClear.getIntent(v.getContext()));
             }
         });
 
