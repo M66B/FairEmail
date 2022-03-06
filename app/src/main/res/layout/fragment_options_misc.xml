@@ -419,6 +419,7 @@
                     android:id="@+id/tvUuid"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="48dp"
                     android:fontFamily="monospace"
                     android:selectAllOnFocus="true"
