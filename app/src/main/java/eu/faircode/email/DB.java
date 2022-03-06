@@ -437,11 +437,7 @@ public abstract class DB extends RoomDatabase {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
                         }
 
-                        try {
-                            createTriggers(db);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
+                        createTriggers(db);
                     }
                 });
     }
@@ -463,33 +459,43 @@ public abstract class DB extends RoomDatabase {
     }
 
     private static void createTriggers(@NonNull SupportSQLiteDatabase db) {
-        List<String> image = new ArrayList<>();
-        for (String img : ImageHelper.IMAGE_TYPES)
-            image.add("'" + img + "'");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            for (String img : ImageHelper.IMAGE_TYPES8)
-                image.add("'" + img + "'");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-            for (String img : ImageHelper.IMAGE_TYPES12)
-                image.add("'" + img + "'");
-        String images = TextUtils.join(",", image);
+        createTriggers(db, false);
+    }
 
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
-                " AFTER INSERT ON attachment" +
-                " BEGIN" +
-                "  UPDATE message SET attachments = attachments + 1" +
-                "  WHERE message.id = NEW.message" +
-                "  AND NEW.encryption IS NULL" +
-                "  AND NOT ((NEW.disposition = 'inline' OR (NEW.related IS NOT 0 AND NEW.cid IS NOT NULL)) AND NEW.type IN (" + images + "));" +
-                " END");
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
-                " AFTER DELETE ON attachment" +
-                " BEGIN" +
-                "  UPDATE message SET attachments = attachments - 1" +
-                "  WHERE message.id = OLD.message" +
-                "  AND OLD.encryption IS NULL" +
-                "  AND NOT ((OLD.disposition = 'inline' OR (OLD.related IS NOT 0 AND OLD.cid IS NOT NULL)) AND OLD.type IN (" + images + "));" +
-                " END");
+    private static void createTriggers(@NonNull SupportSQLiteDatabase db, boolean fail) {
+        try {
+            List<String> image = new ArrayList<>();
+            for (String img : ImageHelper.IMAGE_TYPES)
+                image.add("'" + img + "'");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                for (String img : ImageHelper.IMAGE_TYPES8)
+                    image.add("'" + img + "'");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                for (String img : ImageHelper.IMAGE_TYPES12)
+                    image.add("'" + img + "'");
+            String images = TextUtils.join(",", image);
+
+            db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
+                    " AFTER INSERT ON attachment" +
+                    " BEGIN" +
+                    "  UPDATE message SET attachments = attachments + 1" +
+                    "  WHERE message.id = NEW.message" +
+                    "  AND NEW.encryption IS NULL" +
+                    "  AND NOT ((NEW.disposition = 'inline' OR (NEW.related IS NOT 0 AND NEW.cid IS NOT NULL)) AND NEW.type IN (" + images + "));" +
+                    " END");
+            db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
+                    " AFTER DELETE ON attachment" +
+                    " BEGIN" +
+                    "  UPDATE message SET attachments = attachments - 1" +
+                    "  WHERE message.id = OLD.message" +
+                    "  AND OLD.encryption IS NULL" +
+                    "  AND NOT ((OLD.disposition = 'inline' OR (OLD.related IS NOT 0 AND OLD.cid IS NOT NULL)) AND OLD.type IN (" + images + "));" +
+                    " END");
+        } catch (Throwable ex) {
+            Log.w(ex);
+            if (fail)
+                throw ex;
+        }
     }
 
     private static void logMigration(int startVersion, int endVersion) {
@@ -2263,7 +2269,7 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `attachment` ADD COLUMN `related` INTEGER");
                         db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                         db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
-                        createTriggers(db);
+                        createTriggers(db, true);
                     }
                 }).addMigrations(new Migration(223, 224) {
                     @Override
