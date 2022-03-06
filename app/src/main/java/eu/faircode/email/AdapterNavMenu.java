@@ -101,7 +101,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             ivBadge.setVisibility(count == null || count == 0 || expanded
                     ? View.GONE : View.VISIBLE);
 
-            tvCount.setText(count == null ? null : Integer.toString(count));
+
+            tvCount.setText(count == null ? null : (count < 100 ? Integer.toString(count) : "99+"));
             tvCount.setVisibility(count == null || count == 0 || expanded || !menu.getExtraCount()
                     ? View.GONE : View.VISIBLE);
 
