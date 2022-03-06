@@ -8,6 +8,7 @@
 
 * Added image dimensions to mini gallery
 * Added PGP and S/MIME key indicators to address bubbles
+* Added delete existing accounts option to import dialog
 * Small improvements and minor bug fixes
 * Updated translations
 
