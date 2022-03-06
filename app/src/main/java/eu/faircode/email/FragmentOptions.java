@@ -417,7 +417,7 @@ public class FragmentOptions extends FragmentBase {
             }
 
             private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
-                if (view == null || "debug".equals(view.getTag()))
+                if (view == null || "nosuggest".equals(view.getTag()))
                     return id;
                 else if (view instanceof ViewGroup) {
                     ViewGroup group = (ViewGroup) view;
