@@ -28,7 +28,6 @@ public class NavMenuItem {
     private String subtitle = null;
     private int extra_icon;
     private Integer count = null;
-    private boolean extra_count = false;
     private boolean warning = false;
     private boolean separated = false;
     private Runnable click;
@@ -66,11 +65,6 @@ public class NavMenuItem {
         if (count != null && count == 0)
             count = null;
         this.count = count;
-    }
-
-    NavMenuItem setExtraCount(boolean value) {
-        this.extra_count = value;
-        return this;
     }
 
     NavMenuItem setExternal(boolean external) {
@@ -112,10 +106,6 @@ public class NavMenuItem {
         return this.count;
     }
 
-    boolean getExtraCount() {
-        return this.extra_count;
-    }
-
     boolean isSeparated() {
         return this.separated;
     }
@@ -153,7 +143,6 @@ public class NavMenuItem {
                     Objects.equals(this.subtitle, other.subtitle) &&
                     this.extra_icon == other.extra_icon &&
                     Objects.equals(this.count, other.count) &&
-                    this.extra_count == other.extra_count &&
                     this.warning == other.warning &&
                     this.separated == other.separated);
         } else
@@ -162,6 +151,6 @@ public class NavMenuItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(icon, color, title, subtitle, extra_icon, count, extra_count, warning, separated);
+        return Objects.hash(icon, color, title, subtitle, extra_icon, count, warning, separated);
     }
 }

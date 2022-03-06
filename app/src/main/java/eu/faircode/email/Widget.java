@@ -148,7 +148,7 @@ public class Widget extends AppWidgetProvider {
                     }
 
                     // Set count
-                    views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "99+");
+                    views.setTextViewText(R.id.tvCount, Helper.formatNumber(unseen, 99, nf));
                     views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
 
                     // Set account name

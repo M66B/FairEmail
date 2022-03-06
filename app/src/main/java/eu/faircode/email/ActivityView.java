@@ -662,9 +662,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean nav_count = prefs.getBoolean("nav_count", false);
-
         // Fixed menus
 
         final List<NavMenuItem> menus = new ArrayList<>();
@@ -676,7 +673,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuOperations();
             }
-        }).setExtraCount(nav_count);
+        });
 
         menus.add(navOperations);
 
@@ -827,6 +824,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Live data
 
         DB db = DB.getInstance(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         db.account().liveAccountFolder().observe(owner, new Observer<List<TupleAccountFolder>>() {
             @Override

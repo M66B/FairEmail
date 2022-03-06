@@ -105,7 +105,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             else
                 ivItem.clearColorFilter();
 
-            long count;
+            int count;
             if (EntityFolder.OUTBOX.equals(folder.type) ||
                     (!nav_unseen_drafts && EntityFolder.DRAFTS.equals(folder.type)))
                 count = folder.messages;
@@ -113,7 +113,9 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                 count = folder.unseen;
 
             ivBadge.setVisibility(count == 0 || expanded ? View.GONE : View.VISIBLE);
-            tvCount.setVisibility(View.GONE);
+
+            tvCount.setText(Helper.formatNumber(count, 99, NF));
+            tvCount.setVisibility(count == 0 || expanded || !nav_count ? View.GONE : View.VISIBLE);
 
             if (count == 0)
                 tvItem.setText(EntityFolder.localizeType(context, folder.type));

@@ -133,6 +133,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1521,6 +1522,12 @@ public class Helper {
             return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
         else
             return DateUtils.getRelativeTimeSpanString(context, millis);
+    }
+
+    static String formatNumber(Integer number, long max, NumberFormat nf) {
+        if (number == null)
+            return null;
+        return nf.format(Math.min(number, max)) + (number > max ? "+" : "");
     }
 
     static void linkPro(final TextView tv) {

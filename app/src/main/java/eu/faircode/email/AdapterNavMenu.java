@@ -46,6 +46,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+    private boolean nav_count;
 
     private int colorUnread;
     private int colorControlNormal;
@@ -101,9 +102,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             ivBadge.setVisibility(count == null || count == 0 || expanded
                     ? View.GONE : View.VISIBLE);
 
-
-            tvCount.setText(count == null ? null : (count < 100 ? Integer.toString(count) : "99+"));
-            tvCount.setVisibility(count == null || count == 0 || expanded || !menu.getExtraCount()
+            tvCount.setText(Helper.formatNumber(count, 99, NF));
+            tvCount.setVisibility(count == null || count == 0 || expanded || !nav_count
                     ? View.GONE : View.VISIBLE);
 
             if (count == null)
@@ -152,6 +152,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.nav_count = prefs.getBoolean("nav_count", false);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));

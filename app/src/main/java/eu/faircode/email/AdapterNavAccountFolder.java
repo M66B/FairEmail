@@ -142,7 +142,9 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                 count = account.unseen;
 
             ivBadge.setVisibility(count == 0 || expanded ? View.GONE : View.VISIBLE);
-            tvCount.setVisibility(View.GONE);
+
+            tvCount.setText(Helper.formatNumber(count, 99, NF));
+            tvCount.setVisibility(count == 0 || expanded || !nav_count ? View.GONE : View.VISIBLE);
 
             Integer color = (account.folderName == null ? account.color : account.folderColor);
             if (color == null || !ActivityBilling.isPro(context))
