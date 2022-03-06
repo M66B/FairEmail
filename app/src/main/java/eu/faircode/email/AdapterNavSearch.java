@@ -54,6 +54,7 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
         private View view;
         private ImageView ivItem;
         private ImageView ivBadge;
+        private TextView tvCount;
         private TextView tvItem;
         private TextView tvItemExtra;
         private ImageView ivExtra;
@@ -65,6 +66,7 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             ivBadge = itemView.findViewById(R.id.ivBadge);
+            tvCount = itemView.findViewById(R.id.tvCount);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivExtra = itemView.findViewById(R.id.ivExtra);
@@ -87,6 +89,7 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
                 ivItem.setColorFilter(search.color);
 
             ivBadge.setVisibility(View.GONE);
+            tvCount.setVisibility(View.GONE);
             tvItem.setText(search.name);
 
             tvItemExtra.setVisibility(View.GONE);

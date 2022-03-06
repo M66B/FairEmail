@@ -78,6 +78,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         private View view;
         private ImageView ivItem;
         private ImageView ivBadge;
+        private TextView tvCount;
         private TextView tvItem;
         private TextView tvItemExtra;
         private ImageView ivExtra;
@@ -89,6 +90,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             ivBadge = itemView.findViewById(R.id.ivBadge);
+            tvCount = itemView.findViewById(R.id.tvCount);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivExtra = itemView.findViewById(R.id.ivExtra);
@@ -139,12 +141,14 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             else
                 count = account.unseen;
 
+            ivBadge.setVisibility(count == 0 || expanded ? View.GONE : View.VISIBLE);
+            tvCount.setVisibility(View.GONE);
+
             Integer color = (account.folderName == null ? account.color : account.folderColor);
             if (color == null || !ActivityBilling.isPro(context))
                 ivItem.clearColorFilter();
             else
                 ivItem.setColorFilter(color);
-            ivBadge.setVisibility(count == 0 || expanded ? View.GONE : View.VISIBLE);
 
             String name = account.getName(context);
             if (count == 0)

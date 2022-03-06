@@ -673,7 +673,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuOperations();
             }
-        });
+        }).setExtraCount(BuildConfig.DEBUG);
 
         menus.add(navOperations);
 

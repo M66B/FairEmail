@@ -26,8 +26,9 @@ public class NavMenuItem {
     private Integer color;
     private int title;
     private String subtitle = null;
-    private int extraicon;
+    private int extra_icon;
     private Integer count = null;
+    private boolean extra_count = false;
     private boolean warning = false;
     private boolean separated = false;
     private Runnable click;
@@ -57,7 +58,7 @@ public class NavMenuItem {
     }
 
     NavMenuItem setExtraIcon(int icon) {
-        this.extraicon = icon;
+        this.extra_icon = icon;
         return this;
     }
 
@@ -65,6 +66,11 @@ public class NavMenuItem {
         if (count != null && count == 0)
             count = null;
         this.count = count;
+    }
+
+    NavMenuItem setExtraCount(boolean value) {
+        this.extra_count = value;
+        return this;
     }
 
     NavMenuItem setExternal(boolean external) {
@@ -99,11 +105,15 @@ public class NavMenuItem {
     }
 
     int getExtraIcon() {
-        return this.extraicon;
+        return this.extra_icon;
     }
 
     Integer getCount() {
         return this.count;
+    }
+
+    boolean getExtraCount() {
+        return this.extra_count;
     }
 
     boolean isSeparated() {
@@ -141,8 +151,9 @@ public class NavMenuItem {
                     Objects.equals(this.color, other.color) &&
                     this.title == other.title &&
                     Objects.equals(this.subtitle, other.subtitle) &&
-                    this.extraicon == other.extraicon &&
+                    this.extra_icon == other.extra_icon &&
                     Objects.equals(this.count, other.count) &&
+                    this.extra_count == other.extra_count &&
                     this.warning == other.warning &&
                     this.separated == other.separated);
         } else
@@ -151,6 +162,6 @@ public class NavMenuItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(icon, color, title, subtitle, extraicon, count, warning, separated);
+        return Objects.hash(icon, color, title, subtitle, extra_icon, count, extra_count, warning, separated);
     }
 }

@@ -61,6 +61,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         private View view;
         private ImageView ivItem;
         private ImageView ivBadge;
+        private TextView tvCount;
         private TextView tvItem;
         private TextView tvItemExtra;
         private ImageView ivExtra;
@@ -72,6 +73,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             ivBadge = itemView.findViewById(R.id.ivBadge);
+            tvCount = itemView.findViewById(R.id.tvCount);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivExtra = itemView.findViewById(R.id.ivExtra);
@@ -92,10 +94,16 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             ivItem.setImageResource(menu.getIcon());
 
             Integer color = menu.getColor();
-            ivItem.setImageTintList(ColorStateList.valueOf(color == null ? colorControlNormal : color));
+            ivItem.setImageTintList(ColorStateList.valueOf(color == null
+                    ? colorControlNormal : color));
 
             Integer count = menu.getCount();
-            ivBadge.setVisibility(count == null || count == 0 || expanded ? View.GONE : View.VISIBLE);
+            ivBadge.setVisibility(count == null || count == 0 || expanded
+                    ? View.GONE : View.VISIBLE);
+
+            tvCount.setText(count == null ? null : Integer.toString(count));
+            tvCount.setVisibility(count == null || count == 0 || expanded || !menu.getExtraCount()
+                    ? View.GONE : View.VISIBLE);
 
             if (count == null)
                 tvItem.setText(menu.getTitle());
