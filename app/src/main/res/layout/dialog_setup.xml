@@ -23,8 +23,8 @@
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/two"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="24dp"
             android:contentDescription="2"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +36,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:minHeight="30dp"
+            android:paddingTop="3dp"
             android:text="@string/title_setup_permissions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
@@ -55,8 +57,8 @@
 
         <eu.faircode.email.FixedImageView
             android:id="@+id/three"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="24dp"
             android:contentDescription="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +70,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:minHeight="30dp"
+            android:paddingTop="3dp"
             android:text="@string/title_setup_doze"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
