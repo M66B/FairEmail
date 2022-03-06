@@ -872,10 +872,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         db.operation().liveStats().observe(owner, new Observer<TupleOperationStats>() {
+            private Boolean lastWarning = null;
+            private Integer lastCount = null;
+
             @Override
             public void onChanged(TupleOperationStats stats) {
-                navOperations.setWarning(stats != null && stats.errors != null && stats.errors > 0);
-                navOperations.setCount(stats == null ? 0 : stats.pending);
+                boolean warning = (stats != null && stats.errors != null && stats.errors > 0);
+                int count = (stats == null ? 0 : stats.pending);
+
+                if (Objects.equals(lastWarning, warning) && Objects.equals(lastCount, count))
+                    return;
+
+                lastWarning = warning;
+                lastCount = count;
+
+                navOperations.setWarning(warning);
+                navOperations.setCount(count);
+
                 int pos = adapterNavMenu.getPosition(navOperations);
                 if (pos < 0)
                     adapterNavMenu.notifyDataSetChanged();
