@@ -15,7 +15,10 @@ public class BIP39 {
     // https://github.com/bitcoin/bips/tree/master/bip-0039
     // https://github.com/bitcoin/bips/pull/1129
     static String getWord(@NonNull Locale locale, int index, Context context) {
-        try (InputStream is = context.getAssets().open("bip39/" + locale.getLanguage() + ".txt")) {
+        String lang = locale.getLanguage();
+        if ("zh".equals(lang) && "CN".equals(locale.getCountry()))
+            lang = "zh_cn";
+        try (InputStream is = context.getAssets().open("bip39/" + lang + ".txt")) {
             return getWord(is, index);
         } catch (Throwable ex) {
             Log.w(ex);
