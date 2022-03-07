@@ -27,7 +27,7 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="12dp"
-            android:drawableTint="?attr/colorError"
+            android:drawableTint="?attr/colorWarning"
             android:text="Error"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"

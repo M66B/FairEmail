@@ -521,7 +521,7 @@
                     android:drawableStart="@drawable/twotone_warning_24"
                     android:drawableEnd="@drawable/twotone_warning_24"
                     android:drawablePadding="6dp"
-                    android:drawableTint="?attr/colorError"
+                    android:drawableTint="?attr/colorWarning"
                     android:gravity="center"
                     android:text="@string/title_advanced_caption_debug"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
