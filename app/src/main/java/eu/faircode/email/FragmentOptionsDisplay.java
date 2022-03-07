@@ -74,7 +74,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swDate;
     private SwitchCompat swDateFixed;
     private SwitchCompat swDateBold;
-    private SwitchCompat swNavBarColorize;
     private SwitchCompat swPortrait2;
     private SwitchCompat swPortrait2c;
     private Spinner spPortraitMinSize;
@@ -86,6 +85,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swNavOptions;
     private SwitchCompat swNavMessageCount;
     private SwitchCompat swNavUnseenDrafts;
+    private SwitchCompat swNavPinnedCount;
+    private SwitchCompat swNavBarColorize;
 
     private SwitchCompat swThreading;
     private SwitchCompat swThreadingUnread;
@@ -180,7 +181,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_highlight", "dividers",
             "group_category", "date", "date_fixed", "date_bold",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
-            "nav_options", "nav_count", "nav_unseen_drafts", "navbar_colorize",
+            "nav_options", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "favicons", "favicons_partial", "generated_icons", "identicons",
@@ -232,6 +233,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNavOptions = view.findViewById(R.id.swNavOptions);
         swNavMessageCount = view.findViewById(R.id.swNavMessageCount);
         swNavUnseenDrafts = view.findViewById(R.id.swNavUnseenDrafts);
+        swNavPinnedCount = view.findViewById(R.id.swNavPinnedCount);
         swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
 
         swThreading = view.findViewById(R.id.swThreading);
@@ -540,6 +542,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("nav_unseen_drafts", checked).apply();
+            }
+        });
+
+        swNavPinnedCount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("nav_count_pinned", checked).apply();
             }
         });
 
@@ -1269,6 +1278,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
         swNavUnseenDrafts.setChecked(prefs.getBoolean("nav_unseen_drafts", false));
+        swNavPinnedCount.setChecked(prefs.getBoolean("nav_count_pinned", false));
         swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
 
         swThreading.setChecked(prefs.getBoolean("threading", true));
