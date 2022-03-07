@@ -16,12 +16,12 @@ if (rootProject.file("local.properties").exists())
     localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "eu.faircode.email"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode getVersionCode()
         versionName "1." + getVersionCode()
         archivesBaseName = "FairEmail-v$versionName" + getRevision()
