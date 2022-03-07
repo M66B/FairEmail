@@ -217,6 +217,7 @@
     <string name="title_setup_password_different">Las contraseñas no coinciden</string>
     <string name="title_setup_password_invalid">Contraseña inválida</string>
     <string name="title_setup_import_accounts">Importar cuentas e identidades</string>
+    <string name="title_setup_import_delete">Borrar cuentas existentes antes</string>
     <string name="title_setup_import_rules">Importar reglas de filtro</string>
     <string name="title_setup_import_contacts">Importar contactos locales</string>
     <string name="title_setup_import_answers">Importar plantillas de respuesta</string>
@@ -376,6 +377,7 @@
     <string name="title_advanced_nav_hide_message">Puede activar las opciones de nuevo en la configuración de visualización</string>
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar número de borradores sin leer en el menú de navegación</string>
+    <string name="title_advanced_nav_pinned_count">Mostrar el número de mensajes no leídos en el menú de navegación fijado</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
     <string name="title_advanced_cards_beige">Usar fondo beige al utilizar el estilo de la tarjeta (solo temas claros)</string>
@@ -547,6 +549,8 @@
     <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconocer imágenes de rastreo</string>
+    <string name="title_advanced_mnemonic">Eliminar datos de forma remota</string>
+    <string name="title_advanced_mnemonic_hint">Cualquier correo electrónico recibido con las siguientes palabras en la línea de asunto borrará de forma automática e inmediata todos los datos de la aplicación de este dispositivo</string>
     <string name="title_advanced_clear_all">Borrar todos los datos</string>
     <string name="title_advanced_clear_all_remark">¡Todos los datos de la aplicación se eliminarán de forma irreversible!</string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>

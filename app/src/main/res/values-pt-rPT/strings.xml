@@ -35,7 +35,7 @@
     <string name="page_compose">Compor</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensagens</string>
-    <string name="shortcut_refresh">Atualizar</string>
+    <string name="shortcut_refresh">Actualizar</string>
     <string name="shortcut_compose">Compor</string>
     <string name="shortcut_setup">Definições</string>
     <plurals name="title_notification_synchronizing">
@@ -219,6 +219,7 @@
     <string name="title_setup_password_different">As palavras-passe não coincidem</string>
     <string name="title_setup_password_invalid">Palavra-passe inválida</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
+    <string name="title_setup_import_delete">Eliminar as contas existentes primeiro</string>
     <string name="title_setup_import_rules">Importar regras de filtragem</string>
     <string name="title_setup_import_contacts">Importar contactos locais</string>
     <string name="title_setup_import_answers">Importar predefiniçãoes de respostas</string>
@@ -364,6 +365,7 @@
     <string name="title_advanced_nav_options">Mostrar opções do menu de navegação</string>
     <string name="title_advanced_nav_pin">Fixar menu de navegação</string>
     <string name="title_advanced_nav_hide_title">Ocultar opções do menu de navegação?</string>
+    <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas no menu de navegação fixado</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
@@ -512,6 +514,8 @@
     <string name="title_advanced_disconnect_auto_update">Actualizar automaticamente as listas semanalmente</string>
     <string name="title_advanced_disconnect_links">Utilizar listas para avisar sobre hiperligações que monitorizam</string>
     <string name="title_advanced_disconnect_images">Utilizar listas para reconhecer imagens de monitorização</string>
+    <string name="title_advanced_mnemonic">Eliminar dados remotamente</string>
+    <string name="title_advanced_mnemonic_hint">A receção de qualquer e-mail com as palavras abaixo no assunto eliminará automaticamente todos os dados de aplicações neste dispositivo</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
@@ -651,7 +655,15 @@
     <string name="title_insert_contact">Adicionar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
     <string name="title_import_contacts">Importar vCards</string>
+    <string name="title_delete_operation_title">Eliminar operações</string>
+    <string name="title_delete_operation_fetch">Obter operações</string>
+    <string name="title_delete_operation_move">Mover operações</string>
+    <string name="title_delete_operation_flag">Sinalizar operações</string>
+    <string name="title_delete_operation_delete">Eliminar operações</string>
+    <string name="title_delete_operation_deleted">%1$d operações eliminadas</string>
+    <string name="title_no_operations">Sem operações pendentes</string>
     <string name="title_check_operations">A decorrer verificação de operações</string>
+    <string name="title_hint_operations">Eliminar operações pode resultar no desaparecimento de mensagens e problemas de sincronização</string>
     <string name="title_show_flagged">Mostrar n⁰ de msg. favoritas</string>
     <string name="title_sort_unread_atop">Mostrar pastas por ler primeiro</string>
     <string name="title_search_folder">Pesquisar pasta</string>
@@ -788,7 +800,12 @@
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_show_addresses">Mostrar CC/BCC</string>
     <string name="title_manage_local_contacts">Gerir contactos locais</string>
+    <string name="title_insert_template">Inserir modelo</string>
+    <string name="title_create_template">Criar modelo</string>
+    <string name="title_translate">Traduzir</string>
+    <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Introduzir chave de acesso</string>
+    <string name="title_translating">A traduzir &#8230;</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_noreply_reminder">A enviar para um endereço \'no-reply\'</string>
     <string name="title_sign">Assinar</string>
@@ -857,7 +874,13 @@
     <string name="title_answer_caption">Editar modelo</string>
     <string name="title_answer_name">Nome do modelo</string>
     <string name="title_answer_standard">Predefinido</string>
+    <string name="title_answer_placeholder_name">Nome completo do remetente</string>
+    <string name="title_answer_placeholder_email">Endereço de e-mail do remetente</string>
+    <string name="title_answer_placeholder_firstname">Primeiro nome do remetente</string>
+    <string name="title_answer_placeholder_lastname">Apelido do remetente</string>
     <string name="title_rule_noop">Nenhuma acção</string>
+    <string name="title_rule_seen">Marcar como lida</string>
+    <string name="title_rule_unseen">Marcar como não lida</string>
     <string name="title_rule_hide">Esconder</string>
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_move">Mover</string>
