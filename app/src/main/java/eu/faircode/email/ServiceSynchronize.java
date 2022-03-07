@@ -2963,27 +2963,56 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static void scheduleWatchdog(Context context) {
-        Intent intent = new Intent(context, ServiceSynchronize.class)
-                .setAction("watchdog");
-        PendingIntent pi;
-        if (isBackgroundService(context))
-            pi = PendingIntentCompat.getService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        else
-            pi = PendingIntentCompat.getForegroundService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        try {
+            Intent intent = new Intent(context, ServiceSynchronize.class)
+                    .setAction("watchdog");
+            PendingIntent pi;
+            if (isBackgroundService(context))
+                pi = PendingIntentCompat.getService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            else
+                pi = PendingIntentCompat.getForegroundService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.cancel(pi);
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            am.cancel(pi);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean watchdog = prefs.getBoolean("watchdog", true);
-        boolean enabled = prefs.getBoolean("enabled", true);
-        if (watchdog && enabled) {
-            long now = new Date().getTime();
-            long next = now - now % WATCHDOG_INTERVAL + WATCHDOG_INTERVAL + WATCHDOG_INTERVAL / 4;
-            if (next < now + WATCHDOG_INTERVAL / 5)
-                next += WATCHDOG_INTERVAL;
-            EntityLog.log(context, "Watchdog next=" + new Date(next));
-            AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, pi);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean watchdog = prefs.getBoolean("watchdog", true);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            if (watchdog && enabled) {
+                long now = new Date().getTime();
+                long next = now - now % WATCHDOG_INTERVAL + WATCHDOG_INTERVAL + WATCHDOG_INTERVAL / 4;
+                if (next < now + WATCHDOG_INTERVAL / 5)
+                    next += WATCHDOG_INTERVAL;
+                EntityLog.log(context, "Watchdog next=" + new Date(next));
+                AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, pi);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                Redmi Note 8 Pro Android 11 (SDK 30)
+
+                java.lang.RuntimeException:
+                  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:7019)
+                  at android.app.ActivityThread.access$1600 (ActivityThread.java:263)
+                  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2034)
+                  at android.os.Handler.dispatchMessage (Handler.java:106)
+                  at android.os.Looper.loop (Looper.java:236)
+                  at android.app.ActivityThread.main (ActivityThread.java:8057)
+                  at java.lang.reflect.Method.invoke (Native Method)
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:620)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1011)
+                Caused by: java.lang.SecurityException:
+                  at android.os.Parcel.createExceptionOrNull (Parcel.java:2376)
+                  at android.os.Parcel.createException (Parcel.java:2360)
+                  at android.os.Parcel.readException (Parcel.java:2343)
+                  at android.os.Parcel.readException (Parcel.java:2285)
+                  at android.app.IActivityManager$Stub$Proxy.getIntentSenderWithFeature (IActivityManager.java:6884)
+                  at android.app.PendingIntent.buildServicePendingIntent (PendingIntent.java:657)
+                  at android.app.PendingIntent.getForegroundService (PendingIntent.java:645)
+                  at eu.faircode.email.PendingIntentCompat.getForegroundService (PendingIntentCompat.java:51)
+                  at eu.faircode.email.ServiceSynchronize.scheduleWatchdog (ServiceSynchronize.java:2972)
+                  at eu.faircode.email.ApplicationEx.onCreate (ApplicationEx.java:229)
+             */
         }
     }
 
