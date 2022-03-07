@@ -64,6 +64,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swConfirmLinks;
@@ -464,16 +465,18 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if (checked) {
+                    Context context = compoundButton.getContext();
+
+                    Locale locale = Locale.getDefault();
                     List<String> words = new ArrayList<>();
                     SecureRandom rnd = new SecureRandom();
                     for (int i = 0; i < BIP39_WORDS; i++)
-                        words.add(BIP39.words[rnd.nextInt(2048)]);
+                        words.add(BIP39.getWord(locale, rnd.nextInt(2048), context));
                     String mnemonic = TextUtils.join(" ", words);
 
                     prefs.edit().putString("wipe_mnemonic", mnemonic).apply();
                     tvMnemonic.setText(mnemonic);
 
-                    Context context = compoundButton.getContext();
                     ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
                     if (cbm == null)
                         return;
