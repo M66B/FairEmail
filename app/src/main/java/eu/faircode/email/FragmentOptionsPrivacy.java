@@ -58,13 +58,12 @@ import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewFeature;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
-import io.github.novacrypto.bip39.MnemonicGenerator;
-import io.github.novacrypto.bip39.Words;
-import io.github.novacrypto.bip39.wordlists.English;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swConfirmLinks;
@@ -106,6 +105,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private TextView tvMnemonic;
 
     private Group grpSafeBrowsing;
+
+    private final static int BIP39_WORDS = 6;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "confirm_links", "check_links_dbl", "browse_links",
@@ -463,12 +464,11 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if (checked) {
-                    // https://github.com/NovaCrypto/BIP39
-                    StringBuilder sb = new StringBuilder();
-                    byte[] entropy = new byte[Words.TWELVE.byteLength()];
-                    new SecureRandom().nextBytes(entropy);
-                    new MnemonicGenerator(English.INSTANCE).createMnemonic(entropy, sb::append);
-                    String mnemonic = sb.toString();
+                    List<String> words = new ArrayList<>();
+                    SecureRandom rnd = new SecureRandom();
+                    for (int i = 0; i < BIP39_WORDS; i++)
+                        words.add(BIP39.words[rnd.nextInt(2048)]);
+                    String mnemonic = TextUtils.join(" ", words);
 
                     prefs.edit().putString("wipe_mnemonic", mnemonic).apply();
                     tvMnemonic.setText(mnemonic);
