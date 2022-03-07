@@ -10,6 +10,7 @@
 * Added PGP and S/MIME key indicators to address bubbles
 * Added delete existing accounts option to import dialog
 * Added clear all data settings tile
+* Added remote clear all data via mnemonic
 * Small improvements and minor bug fixes
 * Updated translations
 
