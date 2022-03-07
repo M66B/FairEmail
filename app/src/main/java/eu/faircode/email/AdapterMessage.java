@@ -4981,7 +4981,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                     context.startActivity(new Intent(context, ActivityAMP.class)
                             .setData(uri)
-                            .putExtra("subject", message.subject));
+                            .putExtra("id", attachment.message));
                 }
 
                 @Override

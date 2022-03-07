@@ -77,7 +77,6 @@ public class ActivityAMP extends ActivityBase {
             force_light = savedInstanceState.getBoolean("fair:force_light");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setSubtitle("AMP");
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_amp, null);
         setContentView(view);
@@ -175,16 +174,14 @@ public class ActivityAMP extends ActivityBase {
     }
 
     private void load() {
-        Uri uri = getIntent().getData();
-        Log.i("AMP uri=" + uri);
-
-        String subject = getIntent().getStringExtra("subject");
-        if (TextUtils.isEmpty(subject))
-            subject = "AMP";
-        getSupportActionBar().setSubtitle(subject);
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+        long id = intent.getLongExtra("id", -1L);
+        Log.i("AMP uri=" + uri + " id=" + id);
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
+        args.putLong("id", id);
 
         new SimpleTask<String>() {
             @Override
@@ -200,6 +197,7 @@ public class ActivityAMP extends ActivityBase {
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                long id = args.getLong("id");
 
                 if (uri == null)
                     throw new FileNotFoundException();
@@ -209,6 +207,12 @@ public class ActivityAMP extends ActivityBase {
                     Log.w("AMP uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+
+                args.putString("subject",
+                        message == null || message.subject == null ? "AMP" : message.subject);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean overview_mode = prefs.getBoolean("overview_mode", false);
@@ -221,6 +225,8 @@ public class ActivityAMP extends ActivityBase {
 
                 Document d = JsoupEx.parse(html);
                 HtmlHelper.setViewport(d, overview_mode);
+                if (message != null)
+                    HtmlHelper.embedInlineImages(context, message.id, d, true);
 
                 for (Element script : d.select("script")) {
                     String src = script.attr("src");
@@ -235,6 +241,8 @@ public class ActivityAMP extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, String amp) {
+                getSupportActionBar().setSubtitle(args.getString("subject"));
+
                 wvAmp.loadDataWithBaseURL(null, amp, "text/html", StandardCharsets.UTF_8.name(), null);
                 grpReady.setVisibility(View.VISIBLE);
             }
