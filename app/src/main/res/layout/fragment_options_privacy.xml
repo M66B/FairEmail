@@ -663,6 +663,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/title_advanced_mnemonic_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
